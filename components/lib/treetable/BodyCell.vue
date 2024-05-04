@@ -1,6 +1,6 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }" :data-p-frozen-column="columnProp('frozen')">
-        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('rowToggleButton')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('rowToggleButton')" data-pc-group-section="rowactionbutton">
+        <button v-if="columnProp('expander')" v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" :style="togglerStyle" tabindex="-1" v-bind="getColumnPT('nodeToggleButton')" data-pc-group-section="rowactionbutton">
             <template v-if="node.loading && loadingMode === 'icon'">
                 <component v-if="templates['nodetoggleicon']" :is="templates['nodetoggleicon']" />
                 <!-- TODO: Deprecated since v4.0-->
@@ -19,12 +19,12 @@
             v-if="checkboxSelectionMode && columnProp('expander')"
             :modelValue="checked"
             :binary="true"
-            :class="cx('rowCheckbox')"
+            :class="cx('nodeCheckbox')"
             @change="toggleCheckbox"
             :tabindex="-1"
             :indeterminate="partialChecked"
             :unstyled="unstyled"
-            :pt="getColumnCheckboxPT('rowCheckbox')"
+            :pt="getColumnCheckboxPT('nodeCheckbox')"
             :data-p-partialchecked="partialChecked"
         >
             <template #icon="slotProps">

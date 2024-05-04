@@ -1,52 +1,24 @@
 export default {
-    colorScheme: {
-        light: {
-            root: {
-                background: '{surface.0}',
-                color: '{surface.700}'
-            },
-            node: {
-                hoverBackground: '{surface.100}',
-                color: '{surface.700}',
-                hoverColor: '{surface.800}'
-            },
-            nodeIcon: {
-                color: '{surface.500}',
-                hoverColor: '{surface.600}'
-            },
-            toggle: {
-                hoverBackground: '{surface.100}',
-                highlightHoverBackground: '{surface.0}',
-                color: '{surface.500}',
-                hoverColor: '{surface.600}'
-            },
-            filterIcon: {
-                color: '{surface.400}'
-            }
-        },
-        dark: {
-            root: {
-                background: '{surface.900}',
-                color: '{surface.0}'
-            },
-            node: {
-                hoverBackground: '{surface.800}',
-                color: '{surface.0}',
-                hoverColor: '{surface.0}'
-            },
-            nodeIcon: {
-                color: '{surface.400}',
-                hoverColor: '{surface.300}'
-            },
-            toggle: {
-                hoverBackground: '{surface.800}',
-                highlightHoverBackground: '{surface.900}',
-                color: '{surface.400}',
-                hoverColor: '{surface.300}'
-            },
-            filterIcon: {
-                color: '{surface.400}'
-            }
-        }
+    root: {
+        background: '{content.background}',
+        color: '{content.color}'
+    },
+    node: {
+        hoverBackground: '{content.hover.background}',
+        color: '{text.color}',
+        hoverColor: '{text.hover.color}'
+    },
+    nodeIcon: {
+        color: '{text.muted.color}',
+        hoverColor: '{text.hover.muted.color}'
+    },
+    nodeToggleButton: {
+        hoverBackground: '{content.hover.background}',
+        highlightHoverBackground: '{content.background}',
+        color: '{text.muted.color}',
+        hoverColor: '{text.hover.muted.color}'
+    },
+    filterIcon: {
+        color: '{surface.400}'
     }
 };

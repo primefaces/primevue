@@ -37,7 +37,7 @@ const theme = ({ dt }) => `
     position: relative;
     background: transparent;
     border: 0 none;
-    color: ${dt('paginator.navigator.color')};
+    color: ${dt('paginator.nav.button.color')};
     min-width: 2.5rem;
     height: 2.5rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
@@ -60,8 +60,8 @@ const theme = ({ dt }) => `
 .p-paginator-prev:not(.p-disabled):hover,
 .p-paginator-next:not(.p-disabled):hover,
 .p-paginator-last:not(.p-disabled):hover {
-    background: ${dt('paginator.navigator.hover.background')};
-    color: ${dt('paginator.navigator.hover.color')};
+    background: ${dt('paginator.nav.button.hover.background')};
+    color: ${dt('paginator.nav.button.hover.color')};
 }
 
 .p-paginator-current {

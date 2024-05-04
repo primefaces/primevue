@@ -49,10 +49,10 @@ const theme = ({ dt }) => `
     width: 1.5rem;
     height: 1.5rem;
     text-decoration: none;
-    background: ${dt('organizationchart.toggle.icon.background')};
-    color: ${dt('organizationchart.toggle.icon.color')};
+    background: ${dt('organizationchart.node.toggle.button.background')};
+    color: ${dt('organizationchart.node.toggle.button.color')};
     border-radius: 50%;
-    border: 1px solid ${dt('organizationchart.toggle.icon.border.color')};
+    border: 1px solid ${dt('organizationchart.node.toggle.button.border.color')};
     display: inline-flex;
     justify-content: center;
     align-items: center;

@@ -62,7 +62,7 @@ const theme = ({ dt }) => `
     margin: 0 0.5rem 0 0;
     width: 1.75rem;
     height: 1.75rem;
-    color: ${dt('tree.toggle.color')};
+    color: ${dt('tree.node.toggle.button.color')};
     border: 0 none;
     background: transparent;
     border-radius: 50%;
@@ -72,8 +72,8 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-node-toggle-button:enabled:hover {
-    background: ${dt('tree.toggle.hover.background')};
-    color: ${dt('tree.toggle.hover.color')};
+    background: ${dt('tree.node.toggle.button.hover.background')};
+    color: ${dt('tree.node.toggle.button.hover.color')};
 }
 
 .p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button,
@@ -82,7 +82,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button:hover {
-    background: ${dt('tree.toggle.highlight.hover.background')};
+    background: ${dt('tree.node.toggle.button.highlight.hover.background')};
 }
 
 .p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover {
@@ -91,11 +91,11 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-toggle-button {
-    color: ${dt('tree.toggle.hover.color')};
+    color: ${dt('tree.node.toggle.button.hover.color')};
 }
 
 .p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-icon {
-    color: ${dt('tree.icon.hover.color')};
+    color: ${dt('tree.node.icon.hover.color')};
 }
 
 .p-tree-node-children {
@@ -120,7 +120,7 @@ const theme = ({ dt }) => `
 
 .p-tree-node-icon {
     margin-right: 0.5rem;
-    color: ${dt('tree.icon.color')};
+    color: ${dt('tree.node.icon.color')};
     transition: color ${dt('transition.duration')};
 }
 

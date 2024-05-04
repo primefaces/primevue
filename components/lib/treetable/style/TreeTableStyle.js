@@ -162,7 +162,7 @@ const theme = ({ dt }) => `
     position: absolute;
     z-index: 10;
     display: none;
-    background: ${dt('treetable.resizer.color')};
+    background: ${dt('treetable.resize.indicator.color')};
 }
 
 .p-treetable-row-reorder-indicator-up,
@@ -411,7 +411,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
     padding: 0.9375rem 1.25rem;
 }
 
-.p-treetable-row-toggle-button {
+.p-treetable-node-toggle-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -419,7 +419,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
     position: relative;
     width: 1.75rem;
     height: 1.75rem;
-    color: ${dt('treetable.row.action.color')};
+    color: ${dt('treetable.node.toggle.button.color')};
     border: 0 none;
     background: transparent;
     cursor: pointer;
@@ -430,18 +430,18 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
     margin-right: 0.5rem;
 }
 
-.p-treetable-row-toggle-button:enabled:hover {
-    color: ${dt('treetable.row.action.hover.color')};
-    background: ${dt('treetable.row.action.hover.background')};
+.p-treetable-node-toggle-button:enabled:hover {
+    color: ${dt('treetable.node.toggle.button.hover.color')};
+    background: ${dt('treetable.node.toggle.button.hover.background')};
 }
 
-.p-treetable-row-toggle-button:focus-visible {
+.p-treetable-node-toggle-button:focus-visible {
     outline: 1px solid ${dt('focus.ring.color')};
     outline-offset: 2px;
 }
 
-.p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-row-toggle-button:hover{
-    background: ${dt('treetable.row.action.highlight.hover.background')};
+.p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-node-toggle-button:hover{
+    background: ${dt('treetable.node.toggle.button.highlight.hover.background')};
     color: inherit;
 }
 
@@ -503,9 +503,9 @@ const classes = {
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
-    rowToggleButton: 'p-treetable-row-toggle-button',
-    rowToggleIcon: 'p-treetable-row-toggle-icon',
-    rowCheckbox: 'p-treetable-row-checkbox',
+    nodeToggleButton: 'p-treetable-node-toggle-button',
+    nodeToggleIcon: 'p-treetable-node-toggle-icon',
+    nodeCheckbox: 'p-treetable-node-checkbox',
     emptyMessage: 'p-treetable-empty-message',
     tfoot: 'p-treetable-tfoot',
     footerCell: ({ instance }) => [
