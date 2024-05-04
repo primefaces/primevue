@@ -82,7 +82,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-info .p-toast-close-button:hover {
-    background: ${dt('toast.info.close.hover.background')};
+    background: ${dt('toast.info.close.button.hover.background')};
 }
 
 .p-toast-message-success {
@@ -101,7 +101,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-success .p-toast-close-button:hover {
-    background: ${dt('toast.success.close.hover.background')};
+    background: ${dt('toast.success.close.button.hover.background')};
 }
 
 .p-toast-message-warn {
@@ -120,7 +120,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-warn .p-toast-close-button:hover {
-    background: ${dt('toast.warn.close.hover.background')};
+    background: ${dt('toast.warn.close.button.hover.background')};
 }
 
 .p-toast-message-error {
@@ -139,7 +139,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-error .p-toast-close-button:hover {
-    background: ${dt('toast.error.close.hover.background')};
+    background: ${dt('toast.error.close.button.hover.background')};
 }
 
 .p-toast-message-secondary {
@@ -158,7 +158,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-secondary .p-toast-close-button:hover {
-    background: ${dt('toast.secondary.close.hover.background')};
+    background: ${dt('toast.secondary.close.button.hover.background')};
 }
 
 .p-toast-message-contrast {
@@ -177,7 +177,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-contrast .p-toast-close-button:hover {
-    background: ${dt('toast.contrast.close.hover.background')};
+    background: ${dt('toast.contrast.close.button.hover.background')};
 }
 
 .p-toast-top-center {

@@ -55,7 +55,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-info .p-message-close-button:hover {
-    background: ${dt('message.info.close.hover.background')};
+    background: ${dt('message.info.close.button.hover.background')};
 }
 
 .p-message-success {
@@ -70,7 +70,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-success .p-message-close-button:hover {
-    background: ${dt('message.success.close.hover.background')};
+    background: ${dt('message.success.close.button.hover.background')};
 }
 
 .p-message-warn {
@@ -85,7 +85,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-warn .p-message-close-button:hover {
-    background: ${dt('message.warn.close.hover.background')};
+    background: ${dt('message.warn.close.button.hover.background')};
 }
 
 .p-message-error {
@@ -100,7 +100,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-error .p-message-close-button:hover {
-    background: ${dt('message.error.close.hover.background')};
+    background: ${dt('message.error.close.button.hover.background')};
 }
 
 .p-message-secondary {
@@ -115,7 +115,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-secondary .p-message-close-button:hover {
-    background: ${dt('message.secondary.close.hover.background')};
+    background: ${dt('message.secondary.close.button.hover.background')};
 }
 
 .p-message-contrast {
@@ -130,7 +130,7 @@ const theme = ({ dt }) => `
 }
 
 .p-message-contrast .p-message-close-button:hover {
-    background: ${dt('message.contrast.close.hover.background')};
+    background: ${dt('message.contrast.close.button.hover.background')};
 }
 
 .p-message-text {

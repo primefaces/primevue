@@ -8,7 +8,9 @@ export default {
                 color: '{blue.600}',
                 detailColor: '{surface.700}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)',
-                closeHoverBackground: '{blue.100}'
+                closeButton: {
+                    hoverBackground: '{blue.100}'
+                }
             },
             success: {
                 background: 'color-mix(in srgb, {green.50}, transparent 5%)',
@@ -16,7 +18,9 @@ export default {
                 color: '{green.600}',
                 detailColor: '{surface.700}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)',
-                closeHoverBackground: '{green.100}'
+                closeButton: {
+                    hoverBackground: '{green.100}'
+                }
             },
             warn: {
                 background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
@@ -24,7 +28,9 @@ export default {
                 color: '{yellow.600}',
                 detailColor: '{surface.700}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)',
-                closeHoverBackground: '{yellow.100}'
+                closeButton: {
+                    hoverBackground: '{yellow.100}'
+                }
             },
             error: {
                 background: 'color-mix(in srgb, {red.50}, transparent 5%)',
@@ -32,7 +38,9 @@ export default {
                 color: '{red.600}',
                 detailColor: '{surface.700}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)',
-                closeHoverBackground: '{red.100}'
+                closeButton: {
+                    hoverBackground: '{red.100}'
+                }
             },
             secondary: {
                 background: '{surface.100}',
@@ -40,7 +48,9 @@ export default {
                 color: '{surface.600}',
                 detailColor: '{surface.700}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)',
-                closeHoverBackground: '{surface.200}'
+                closeButton: {
+                    hoverBackground: '{surface.200}'
+                }
             },
             contrast: {
                 background: '{surface.900}',
@@ -48,7 +58,9 @@ export default {
                 color: '{surface.50}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
-                closeHoverBackground: '{surface.800}'
+                closeButton: {
+                    hoverBackground: '{surface.800}'
+                }
             }
         },
         dark: {
@@ -59,7 +71,9 @@ export default {
                 color: '{blue.500}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)',
-                closeHoverBackground: 'rgba(255, 255, 255, 0.05)'
+                closeButton: {
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                }
             },
             success: {
                 background: 'color-mix(in srgb, {green.500}, transparent 84%)',
@@ -67,7 +81,9 @@ export default {
                 color: '{green.500}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)',
-                closeHoverBackground: 'rgba(255, 255, 255, 0.05)'
+                closeButton: {
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                }
             },
             warn: {
                 background: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
@@ -75,7 +91,9 @@ export default {
                 color: '{yellow.500}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)',
-                closeHoverBackground: 'rgba(255, 255, 255, 0.05)'
+                closeButton: {
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                }
             },
             error: {
                 background: 'color-mix(in srgb, {red.500}, transparent 84%)',
@@ -83,7 +101,9 @@ export default {
                 color: '{red.500}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)',
-                closeHoverBackground: 'rgba(255, 255, 255, 0.05)'
+                closeButton: {
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                }
             },
             secondary: {
                 background: '{surface.800}',
@@ -91,7 +111,9 @@ export default {
                 color: '{surface.300}',
                 detailColor: '{surface.0}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)',
-                closeHoverBackground: '{surface.700}'
+                closeButton: {
+                    hoverBackground: '{surface.700}'
+                }
             },
             contrast: {
                 background: '{surface.0}',
@@ -99,7 +121,9 @@ export default {
                 color: '{surface.950}',
                 detailColor: '{surface.950}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
-                closeHoverBackground: '{surface.100}'
+                closeButton: {
+                    hoverBackground: '{surface.100}'
+                }
             }
         }
     }
