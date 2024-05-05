@@ -2,6 +2,9 @@ export default {
     handle: {
         borderRadius: '50%'
     },
+    root: {
+        borderRadius: '30px'
+    },
     colorScheme: {
         light: {
             root: {
@@ -9,8 +12,7 @@ export default {
                 invalidBackground: '{red.400}',
                 hoverBackground: '{surface.400}',
                 checkedBackground: '{primary.500}',
-                checkedHoverBackground: '{primary.600}',
-                borderRadius: '30px'
+                checkedHoverBackground: '{primary.600}'
             },
             handle: {
                 background: '{surface.0}',
@@ -26,8 +28,7 @@ export default {
                 invalidBackground: '{red.300}',
                 hoverBackground: '{surface.600}',
                 checkedBackground: '{primary.400}',
-                checkedHoverBackground: '{primary.300}',
-                borderRadius: '30px'
+                checkedHoverBackground: '{primary.300}'
             },
             handle: {
                 background: '{surface.400}',
