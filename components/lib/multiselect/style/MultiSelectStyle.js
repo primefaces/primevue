@@ -46,7 +46,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    color: ${dt('multiselect.toggle.color')};
+    color: ${dt('multiselect.dropdown.color')};
     width: 2.5rem;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -151,7 +151,7 @@ const theme = ({ dt }) => `
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    color: ${dt('multiselect.item.color')};
+    color: ${dt('multiselect.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.sm')};
@@ -166,18 +166,18 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus {
-    background: ${dt('multiselect.item.focus.background')};
-    color: ${dt('multiselect.item.focus.color')};
+    background: ${dt('multiselect.option.focus.background')};
+    color: ${dt('multiselect.option.focus.color')};
 }
 
 .p-multiselect-option.p-multiselect-option-selected {
-    background: ${dt('multiselect.item.selected.background')};
-    color: ${dt('multiselect.item.selected.color')};
+    background: ${dt('multiselect.option.selected.background')};
+    color: ${dt('multiselect.option.selected.color')};
 }
 
 .p-multiselect-option.p-multiselect-option-selected.p-focus {
-    background: ${dt('multiselect.item.selected.focus.background')};
-    color: ${dt('multiselect.item.selected.focus.color')};
+    background: ${dt('multiselect.option.selected.focus.background')};
+    color: ${dt('multiselect.option.selected.focus.color')};
 }
 
 .p-multiselect-option .p-checkbox {
@@ -188,8 +188,8 @@ const theme = ({ dt }) => `
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: ${dt('multiselect.item.group.color')};
-    background: ${dt('multiselect.item.group.background')};
+    color: ${dt('multiselect.option.group.color')};
+    background: ${dt('multiselect.option.group.background')};
     font-weight: 600;
 }
 
