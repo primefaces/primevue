@@ -11,6 +11,7 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
+    curspor: pointer;
     background: ${dt('inputnumber.button.background')};
     color: ${dt('inputnumber.button.color')};
     width: ${dt('inputnumber.button.width')};
