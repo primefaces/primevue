@@ -14,7 +14,7 @@ export default {
         }
     },
     submenuItem: {
-        color: '{navigation.submenu.label.color}'
+        color: '{navigation.submenu.color}'
     },
     separator: {
         borderColor: '{content.border.color}'
@@ -23,8 +23,5 @@ export default {
         color: '{text.muted.color}',
         hoverColor: '{text.muted.hover.color}',
         hoverBackground: '{content.hover.background}'
-    },
-    submenuItem: {
-        color: '{navigation.submenu.label.color}'
     }
 };

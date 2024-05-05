@@ -14,7 +14,7 @@ export default {
         }
     },
     submenuItem: {
-        color: '{navigation.submenu.label.color}'
+        color: '{navigation.submenu.color}'
     },
     separator: {
         borderColor: '{content.border.color}'

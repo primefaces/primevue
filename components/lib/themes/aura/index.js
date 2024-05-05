@@ -229,9 +229,7 @@ export default {
                         }
                     },
                     submenu: {
-                        label: {
-                            color: '{surface.400}'
-                        }
+                        color: '{surface.400}'
                     }
                 }
             },
@@ -326,9 +324,7 @@ export default {
                         }
                     },
                     submenu: {
-                        label: {
-                            color: '{surface.500}'
-                        }
+                        color: '{surface.500}'
                     }
                 }
             }
