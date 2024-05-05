@@ -1,6 +1,6 @@
 export default {
     root: {
-        background: '{container.background}'
+        background: '{content.background}'
     },
     item: {
         color: '{text.muted.color}',
