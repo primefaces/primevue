@@ -220,7 +220,7 @@ export default {
                     },
                     optionGroup: {
                         background: '{surface.0}',
-                        color: '{surface.500}'
+                        color: '{text.muted.color}'
                     }
                 },
                 navigation: {
@@ -320,7 +320,7 @@ export default {
                     },
                     optionGroup: {
                         background: '{surface.900}',
-                        color: '{surface.400}'
+                        color: '{text.muted.color}'
                     }
                 },
                 navigation: {

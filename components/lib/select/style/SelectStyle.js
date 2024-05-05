@@ -54,7 +54,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    color: ${dt('select.toggle.color')};
+    color: ${dt('select.dropdown.color')};
     width: 2.5rem;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -141,8 +141,8 @@ input.p-select-label {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    background: ${dt('select.item.group.background')};
-    color: ${dt('select.item.group.color')};
+    background: ${dt('select.option.group.background')};
+    color: ${dt('select.option.group.color')};
     font-weight: 600;
 }
 
@@ -164,7 +164,7 @@ input.p-select-label {
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    color: ${dt('select.item.color')};
+    color: ${dt('select.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.sm')};
@@ -179,18 +179,18 @@ input.p-select-label {
 }
 
 .p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
-    background: ${dt('select.item.focus.background')};
-    color: ${dt('select.item.focus.color')};
+    background: ${dt('select.option.focus.background')};
+    color: ${dt('select.option.focus.color')};
 }
 
 .p-select-option.p-select-option-selected {
-    background: ${dt('select.item.selected.background')};
-    color: ${dt('select.item.selected.color')};
+    background: ${dt('select.option.selected.background')};
+    color: ${dt('select.option.selected.color')};
 }
 
 .p-select-option.p-select-option-selected.p-focus {
-    background: ${dt('select.item.selected.focus.background')};
-    color: ${dt('select.item.selected.focus.color')};
+    background: ${dt('select.option.selected.focus.background')};
+    color: ${dt('select.option.selected.focus.color')};
 }
 
 .p-select-option-check-icon {
