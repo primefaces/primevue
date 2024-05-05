@@ -68,7 +68,7 @@ const theme = ({ dt }) => `
     padding: 0.5rem 0.75rem;
     border: 0 none;
     border-radius: ${dt('rounded.sm')};
-    color: ${dt('listbox.item.color')};
+    color: ${dt('listbox.option.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
@@ -81,31 +81,31 @@ const theme = ({ dt }) => `
 }
 
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
-    background: ${dt('listbox.item.selected.background')};
-    color: ${dt('listbox.item.selected.color')};
+    background: ${dt('listbox.option.selected.background')};
+    color: ${dt('listbox.option.selected.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-option.p-listbox-option-selected.p-focus {
-    background: ${dt('listbox.item.selected.focus.background')};
-    color: ${dt('listbox.item.selected.focus.color')};
+    background: ${dt('listbox.option.selected.focus.background')};
+    color: ${dt('listbox.option.selected.focus.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-option:not(.p-listbox-option-selected):not(.p-disabled).p-focus {
-    background: ${dt('listbox.item.focus.background')};
-    color: ${dt('listbox.item.focus.color')};
+    background: ${dt('listbox.option.focus.background')};
+    color: ${dt('listbox.option.focus.color')};
 }
 
 .p-listbox:not(.p-disabled) .p-listbox-option:not(.p-listbox-option-selected):not(.p-disabled):hover {
-    background: ${dt('listbox.item.focus.background')};
-    color: ${dt('listbox.item.focus.color')};
+    background: ${dt('listbox.option.focus.background')};
+    color: ${dt('listbox.option.focus.color')};
 }
 
 .p-listbox-option-group {
     cursor: auto;
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: ${dt('listbox.item.group.color')};
-    background: ${dt('listbox.item.group.background')};
+    color: ${dt('listbox.option.group.color')};
+    background: ${dt('listbox.option.group.background')};
     font-weight: 600;
 }
 

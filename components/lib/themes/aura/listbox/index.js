@@ -10,42 +10,20 @@ export default {
         disabledColor: '{form.field.disabled.color}',
         boxShadow: '{form.field.box.shadow}'
     },
-    colorScheme: {
-        light: {
-            filterIcon: {
-                color: '{surface.400}'
-            },
-            itemGroup: {
-                background: '{surface.0}',
-                color: '{surface.500}'
-            },
-            item: {
-                focusBackground: '{surface.100}',
-                selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.focus.background}',
-                color: '{surface.700}',
-                focusColor: '{surface.800}',
-                selectedColor: '{highlight.color}',
-                selectedFocusColor: '{highlight.focus.color}'
-            }
-        },
-        dark: {
-            filterIcon: {
-                color: '{surface.400}'
-            },
-            itemGroup: {
-                background: '{surface.900}',
-                color: '{surface.400}'
-            },
-            item: {
-                focusBackground: '{surface.800}',
-                selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.focus.background}',
-                color: '{surface.0}',
-                focusColor: '{surface.0}',
-                selectedColor: '{highlight.color}',
-                selectedFocusColor: '{highlight.focus.color}'
-            }
-        }
+    option: {
+        focusBackground: '{list.option.focus.background}',
+        selectedBackground: '{list.option.selected.background}',
+        selectedFocusBackground: '{list.option.selected.focus.background}',
+        color: '{list.option.color}',
+        focusColor: '{list.option.focus.color}',
+        selectedColor: '{list.option.selected.color}',
+        selectedFocusColor: '{list.option.selected.focus.color}'
+    },
+    optionGroup: {
+        background: '{list.option.group.background}',
+        color: '{list.option.group.color}'
+    },
+    filterIcon: {
+        color: '{form.field.icon.color}'
     }
 };
