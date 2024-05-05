@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
     position: absolute;
     top: 50%;
     margin-top: -.5rem;
-    color: ${dt('iconfield.color')};
+    color: ${dt('iconfield.icon.color')};
 }
 
 .p-iconfield .p-inputicon:first-child {
