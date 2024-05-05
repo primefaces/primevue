@@ -48,8 +48,8 @@ const theme = ({ dt }) => `
 }
 
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content {
-    background: ${dt('panelmenu.item.hover.background')};
-    color: ${dt('panelmenu.item.hover.color')};
+    background: ${dt('panelmenu.item.focus.background')};
+    color: ${dt('panelmenu.item.focus.color')};
 }
 
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content .p-panelmenu-submenu-icon,
@@ -58,8 +58,8 @@ const theme = ({ dt }) => `
 }
 
 .p-panelmenu-header:not(.p-disabled) .p-panelmenu-header-content:hover {
-    background: ${dt('panelmenu.item.hover.background')};
-    color: ${dt('panelmenu.item.hover.color')};
+    background: ${dt('panelmenu.item.focus.background')};
+    color: ${dt('panelmenu.item.focus.color')};
 }
 
 .p-panelmenu-header:not(.p-disabled) .p-panelmenu-header-content:hover .p-panelmenu-submenu-icon,
@@ -110,17 +110,17 @@ const theme = ({ dt }) => `
 }
 
 .p-panelmenu-item.p-focus > .p-panelmenu-item-content {
-    background: ${dt('panelmenu.item.hover.background')};
-    color: ${dt('panelmenu.item.hover.color')};
+    background: ${dt('panelmenu.item.focus.background')};
+    color: ${dt('panelmenu.item.focus.color')};
 }
 
 .p-panelmenu-item.p-focus > .p-panelmenu-item-icon {
-    color: ${dt('panelmenu.item.hover.color')};
+    color: ${dt('panelmenu.item.focus.color')};
 }
 
 .p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover {
-    background: ${dt('panelmenu.item.hover.background')};
-    color: ${dt('panelmenu.item.hover.color')};
+    background: ${dt('panelmenu.item.focus.background')};
+    color: ${dt('panelmenu.item.focus.color')};
 }
 
 .p-panelmenu-item:not(.p-disabled) > .p-panelmenu-item-content:hover .p-panelmenu-item-icon,

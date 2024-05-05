@@ -79,8 +79,8 @@ const theme = ({ dt }) => `
 }
 
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content {
-    color: ${dt('contextmenu.item.hover.color')};
-    background: ${dt('contextmenu.item.hover.background')};
+    color: ${dt('contextmenu.item.focus.color')};
+    background: ${dt('contextmenu.item.focus.background')};
 }
 
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-item-icon,
@@ -89,8 +89,8 @@ const theme = ({ dt }) => `
 }
 
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover {
-    color: ${dt('contextmenu.item.hover.color')};
-    background: ${dt('contextmenu.item.hover.background')};
+    color: ${dt('contextmenu.item.focus.color')};
+    background: ${dt('contextmenu.item.focus.background')};
 }
 
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-item-icon,
@@ -99,8 +99,8 @@ const theme = ({ dt }) => `
 }
 
 .p-contextmenu-item-active > .p-contextmenu-item-content {
-    color: ${dt('contextmenu.item.hover.color')};
-    background: ${dt('contextmenu.item.hover.background')};
+    color: ${dt('contextmenu.item.focus.color')};
+    background: ${dt('contextmenu.item.focus.background')};
 }
 
 .p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-item-icon,

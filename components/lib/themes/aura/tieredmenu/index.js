@@ -5,9 +5,9 @@ export default {
         color: '{content.color}'
     },
     item: {
-        hoverBackground: '{navigation.item.hover.background}',
+        focusBackground: '{navigation.item.focus.background}',
         color: '{navigation.item.color}',
-        hoverColor: '{navigation.item.hover.color}',
+        focusColor: '{navigation.item.focus.color}',
         icon: {
             color: '{navigation.item.icon.color}',
             hoverColor: '{navigation.item.icon.hover.color}'

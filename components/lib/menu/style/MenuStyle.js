@@ -57,8 +57,8 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item.p-focus .p-menu-item-content {
-    color: ${dt('menu.item.hover.color')};
-    background: ${dt('menu.item.hover.background')};
+    color: ${dt('menu.item.focus.color')};
+    background: ${dt('menu.item.focus.background')};
 }
 
 .p-menu-item.p-focus .p-menu-item-icon {
@@ -66,8 +66,8 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover {
-    color: ${dt('menu.item.hover.color')};
-    background: ${dt('menu.item.hover.background')};
+    color: ${dt('menu.item.focus.color')};
+    background: ${dt('menu.item.focus.background')};
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover .p-menu-item-icon {

@@ -46,8 +46,8 @@ const theme = ({ dt }) => `
 }
 
 .p-megamenu-item.p-focus > .p-megamenu-item-content {
-    color: ${dt('megamenu.item.hover.color')};
-    background: ${dt('megamenu.item.hover.background')};
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu-item.p-focus > .p-megamenu-item-content .p-megamenu-item-icon,
@@ -56,8 +56,8 @@ const theme = ({ dt }) => `
 }
 
 .p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover {
-    color: ${dt('megamenu.item.hover.color')};
-    background: ${dt('megamenu.item.hover.background')};
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover .p-megamenu-item-icon,
@@ -66,8 +66,8 @@ const theme = ({ dt }) => `
 }
 
 .p-megamenu-item-active > .p-megamenu-item-content {
-    color: ${dt('megamenu.item.hover.color')};
-    background: ${dt('megamenu.item.hover.background')};
+    color: ${dt('megamenu.item.focus.color')};
+    background: ${dt('megamenu.item.focus.background')};
 }
 
 .p-megamenu-item-active > .p-megamenu-item-content .p-megamenu-item-icon,

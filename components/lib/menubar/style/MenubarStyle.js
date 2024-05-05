@@ -57,8 +57,8 @@ const theme = ({ dt }) => `
 }
 
 .p-menubar-item.p-focus > .p-menubar-item-content {
-    color: ${dt('menubar.item.hover.color')};
-    background: ${dt('menubar.item.hover.background')};
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-item-icon,
@@ -67,8 +67,8 @@ const theme = ({ dt }) => `
 }
 
 .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover {
-    color: ${dt('menubar.item.hover.color')};
-    background: ${dt('menubar.item.hover.background')};
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-item-icon,
@@ -77,8 +77,8 @@ const theme = ({ dt }) => `
 }
 
 .p-menubar-item-active > .p-menubar-item-content {
-    color: ${dt('menubar.item.hover.color')};
-    background: ${dt('menubar.item.hover.background')};
+    color: ${dt('menubar.item.focus.color')};
+    background: ${dt('menubar.item.focus.background')};
 }
 
 .p-menubar-item-active > .p-menubar-item-content .p-menubar-item-icon,

@@ -225,12 +225,12 @@ export default {
                 },
                 navigation: {
                     item: {
-                        hoverBackground: '{surface.100}',
+                        focusBackground: '{surface.100}',
                         color: '{text.color}',
                         hoverColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.400}',
-                            hoverColor: '{surface.500}'
+                            focusColor: '{surface.500}'
                         }
                     },
                     submenu: {
@@ -325,12 +325,12 @@ export default {
                 },
                 navigation: {
                     item: {
-                        hoverBackground: '{surface.800}',
+                        focusBackground: '{surface.800}',
                         color: '{text.color}',
                         hoverColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.500}',
-                            hoverColor: '{surface.400}'
+                            focusColor: '{surface.400}'
                         }
                     },
                     submenu: {
