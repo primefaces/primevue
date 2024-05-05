@@ -202,6 +202,11 @@ export default {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
                         color: '{text.color}'
+                    },
+                    popover: {
+                        background: '{surface.0}',
+                        borderColor: '{surface.200}',
+                        color: '{text.color}'
                     }
                 },
                 list: {
@@ -299,6 +304,11 @@ export default {
                 },
                 overlay: {
                     select: {
+                        background: '{surface.900}',
+                        borderColor: '{surface.700}',
+                        color: '{text.color}'
+                    },
+                    popover: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
                         color: '{text.color}'
