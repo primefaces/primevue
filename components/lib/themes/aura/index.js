@@ -181,6 +181,7 @@ export default {
                     floatLabelColor: '{surface.500}',
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
+                    iconColor: '{surface.400}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 },
                 text: {
@@ -211,7 +212,11 @@ export default {
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
                         selectedColor: '{highlight.color}',
-                        selectedFocusColor: '{highlight.focus.color}'
+                        selectedFocusColor: '{highlight.focus.color}',
+                        icon: {
+                            color: '{surface.400}',
+                            focusColor: '{surface.500}'
+                        }
                     },
                     optionGroup: {
                         background: '{surface.0}',
@@ -276,6 +281,7 @@ export default {
                     floatLabelColor: '{surface.400}',
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
+                    iconColor: '{surface.400}',
                     boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 },
                 text: {
@@ -306,7 +312,11 @@ export default {
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
                         selectedColor: '{highlight.color}',
-                        selectedFocusColor: '{highlight.focus.color}'
+                        selectedFocusColor: '{highlight.focus.color}',
+                        icon: {
+                            color: '{surface.500}',
+                            focusColor: '{surface.400}'
+                        }
                     },
                     optionGroup: {
                         background: '{surface.900}',

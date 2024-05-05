@@ -46,7 +46,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    color: ${dt('cascadeselect.toggle.color')};
+    color: ${dt('cascadeselect.dropdown.color')};
     width: 2.5rem;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -94,10 +94,10 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect-overlay {
     background: ${dt('cascadeselect.overlay.background')};
-    color: ${dt('cascadeselect.overlay.color')};
     border: 1px solid ${dt('cascadeselect.overlay.border.color')};
     border-radius: ${dt('rounded.base')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    color: ${dt('cascadeselect.overlay.color')};
 }
 
 .p-cascadeselect .p-cascadeselect-overlay {
@@ -105,16 +105,15 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-item-list {
-    position: absolute;
-    min-width: 100%;
-    z-index: 1;
     display: none;
+    min-width: 100%;
+    position: absolute;
+    z-index: 1;
 }
 
 .p-cascadeselect-list {
-    margin: 0;
-    padding: 0;
     list-style-type: none;
+    margin: 0;
     min-width: 100%;
     padding: 0.25rem 0.25rem;
 }
@@ -125,7 +124,7 @@ const theme = ({ dt }) => `
     white-space: nowrap;
     margin: 2px 0;
     border: 0 none;
-    color: ${dt('cascadeselect.item.color')};
+    color: ${dt('cascadeselect.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.sm')};
@@ -140,28 +139,28 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus {
-    background: ${dt('cascadeselect.item.focus.background')};
-    color: ${dt('cascadeselect.item.focus.color')};
+    background: ${dt('cascadeselect.option.focus.background')};
+    color: ${dt('cascadeselect.option.focus.color')};
 }
 
 .p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
-    color: ${dt('cascadeselect.item.icon.focus.color')};
+    color: ${dt('cascadeselect.option.icon.focus.color')};
 }
 
 .p-cascadeselect-item-selected {
-    background: ${dt('cascadeselect.item.selected.background')};
-    color: ${dt('cascadeselect.item.selected.color')};
+    background: ${dt('cascadeselect.option.selected.background')};
+    color: ${dt('cascadeselect.option.selected.color')};
 }
 
 .p-cascadeselect-item-selected.p-focus {
-    background: ${dt('cascadeselect.item.selected.focus.background')};
-    color: ${dt('cascadeselect.item.selected.focus.color')};
+    background: ${dt('cascadeselect.option.selected.focus.background')};
+    color: ${dt('cascadeselect.option.selected.focus.color')};
 }
 
 .p-cascadeselect-item-active {
     overflow: visible;
-    background: ${dt('cascadeselect.item.focus.background')};
-    color: ${dt('cascadeselect.item.focus.color')};
+    background: ${dt('cascadeselect.option.focus.background')};
+    color: ${dt('cascadeselect.option.focus.color')};
 }
 
 .p-cascadeselect-item-active > .p-cascadeselect-item-list {
@@ -181,7 +180,7 @@ const theme = ({ dt }) => `
 .p-cascadeselect-group-icon {
     margin-left: auto;
     font-size: 0.875rem;
-    color: ${dt('cascadeselect.item.icon.color')};
+    color: ${dt('cascadeselect.option.icon.color')};
 }
 `;
 

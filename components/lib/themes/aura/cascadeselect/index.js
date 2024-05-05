@@ -13,52 +13,25 @@ export default {
         placeholderColor: '{form.field.placeholder.color}',
         boxShadow: '{form.field.box.shadow}'
     },
-    colorScheme: {
-        light: {
-            toggle: {
-                color: '{surface.400}'
-            },
-            overlay: {
-                background: '{surface.0}',
-                borderColor: '{surface.200}',
-                color: '{surface.700}'
-            },
-            item: {
-                focusBackground: '{surface.100}',
-                selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.focus.background}',
-                color: '{surface.700}',
-                focusColor: '{surface.800}',
-                selectedColor: '{highlight.color}',
-                selectedFocusColor: '{highlight.focus.color}',
-                icon: {
-                    color: '{surface.400}',
-                    focusColor: '{surface.500}'
-                }
-            }
-        },
-        dark: {
-            toggle: {
-                color: '{surface.400}'
-            },
-            overlay: {
-                background: '{surface.900}',
-                borderColor: '{surface.700}',
-                color: '{surface.0}'
-            },
-            item: {
-                focusBackground: '{surface.800}',
-                selectedBackground: '{highlight.background}',
-                selectedFocusBackground: '{highlight.focus.background}',
-                color: '{surface.0}',
-                focusColor: '{surface.0}',
-                selectedColor: '{highlight.color}',
-                selectedFocusColor: '{highlight.focus.color}',
-                icon: {
-                    color: '{surface.500}',
-                    focusColor: '{surface.400}'
-                }
-            }
+    dropdown: {
+        color: '{form.field.icon.color}'
+    },
+    overlay: {
+        background: '{overlay.select.background}',
+        borderColor: '{overlay.select.border.color}',
+        color: '{overlay.select.color}'
+    },
+    option: {
+        focusBackground: '{list.option.focus.background}',
+        selectedBackground: '{list.option.selected.background}',
+        selectedFocusBackground: '{list.option.selected.focus.background}',
+        color: '{list.option.color}',
+        focusColor: '{list.option.focus.color}',
+        selectedColor: '{list.option.selected.color}',
+        selectedFocusColor: '{list.option.selected.focus.color}',
+        icon: {
+            color: '{list.option.icon.color}',
+            focusColor: '{list.option.icon.focus.color}',
         }
     }
 };
