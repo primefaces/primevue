@@ -46,7 +46,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     flex-shrink: 0;
     background: transparent;
-    color: ${dt('treeselect.toggle.color')};
+    color: ${dt('treeselect.dropdown.color')};
     width: 2.5rem;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};

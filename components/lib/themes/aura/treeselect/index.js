@@ -13,26 +13,12 @@ export default {
         placeholderColor: '{form.field.placeholder.color}',
         boxShadow: '{form.field.box.shadow}'
     },
-    colorScheme: {
-        light: {
-            toggle: {
-                color: '{surface.400}'
-            },
-            overlay: {
-                background: '{surface.0}',
-                borderColor: '{surface.200}',
-                color: '{surface.700}'
-            }
-        },
-        dark: {
-            toggle: {
-                color: '{surface.400}'
-            },
-            overlay: {
-                background: '{surface.900}',
-                borderColor: '{surface.700}',
-                color: '{surface.0}'
-            }
-        }
+    dropdown: {
+        color: '{form.field.icon.color}'
+    },
+    overlay: {
+        background: '{overlay.select.background}',
+        borderColor: '{overlay.select.border.color}',
+        color: '{overlay.select.color}'
     }
 };
