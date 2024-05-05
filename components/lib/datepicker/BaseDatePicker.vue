@@ -231,13 +231,13 @@ export default {
         navigatorButtonProps: {
             type: Object,
             default() {
-                return { severity: 'secondary', text: true };
+                return { severity: 'secondary', text: true, rounded: true };
             }
         },
         timepickerButtonProps: {
             type: Object,
             default() {
-                return { severity: 'secondary', text: true };
+                return { severity: 'secondary', text: true, rounded: true };
             }
         },
         ariaLabelledby: {
