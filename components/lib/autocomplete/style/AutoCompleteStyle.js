@@ -43,7 +43,7 @@ const theme = ({ dt }) => `
     background: ${dt('autocomplete.dropdown.background')};
     border: 1px solid ${dt('autocomplete.dropdown.border.color')};
     border-left: 0 none;
-    background: ${dt('autocomplete.dropdown.background')};
+    color: ${dt('autocomplete.dropdown.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
@@ -51,13 +51,13 @@ const theme = ({ dt }) => `
 .p-autocomplete-dropdown:not(:disabled):hover {
     background: ${dt('autocomplete.dropdown.hover.background')};
     border-color: ${dt('autocomplete.dropdown.hover.border.color')};
-    background: ${dt('autocomplete.dropdown.hover.background')};
+    color: ${dt('autocomplete.dropdown.hover.color')};
 }
 
 .p-autocomplete-dropdown:not(:disabled):active {
     background: ${dt('autocomplete.dropdown.active.background')};
     border-color: ${dt('autocomplete.dropdown.active.border.color')};
-    background: ${dt('autocomplete.dropdown.active.background')};
+    color: ${dt('autocomplete.dropdown.active.color')};
 }
 
 .p-autocomplete-dropdown:focus-visible {
@@ -96,7 +96,7 @@ const theme = ({ dt }) => `
     margin: 2px 0;
     padding: 0.5rem 0.75rem;
     border: 0 none;
-    color: ${dt('autocomplete.item.color')};
+    color: ${dt('autocomplete.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
     border-radius: ${dt('rounded.sm')};
@@ -111,25 +111,25 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
-    background: ${dt('autocomplete.item.focus.background')};
-    color: ${dt('autocomplete.item.focus.color')};
+    background: ${dt('autocomplete.option.focus.background')};
+    color: ${dt('autocomplete.option.focus.color')};
 }
 
 .p-autocomplete-option-selected {
-    background: ${dt('autocomplete.item.selected.background')};
-    color: ${dt('autocomplete.item.selected.color')};
+    background: ${dt('autocomplete.option.selected.background')};
+    color: ${dt('autocomplete.option.selected.color')};
 }
 
 .p-autocomplete-option-selected.p-focus {
-    background: ${dt('autocomplete.item.selected.focus.background')};
-    color: ${dt('autocomplete.item.selected.focus.color')};
+    background: ${dt('autocomplete.option.selected.focus.background')};
+    color: ${dt('autocomplete.option.selected.focus.color')};
 }
 
 .p-autocomplete-option-group {
     margin: 0;
     padding: 0.5rem 0.75rem;
-    color: ${dt('autocomplete.item.group.color')};
-    background: ${dt('autocomplete.item.group.background')};
+    color: ${dt('autocomplete.option.group.color')};
+    background: ${dt('autocomplete.option.group.background')};
     font-weight: 600;
 }
 

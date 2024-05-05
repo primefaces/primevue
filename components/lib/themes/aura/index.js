@@ -196,6 +196,28 @@ export default {
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
                 },
+                overlay: {
+                    select: {
+                        background: '{surface.0}',
+                        borderColor: '{surface.200}',
+                        color: '{text.color}'
+                    }
+                },
+                list: {
+                    option: {
+                        focusBackground: '{surface.100}',
+                        selectedBackground: '{highlight.background}',
+                        selectedFocusBackground: '{highlight.focus.background}',
+                        color: '{text.color}',
+                        focusColor: '{text.hover.color}',
+                        selectedColor: '{highlight.color}',
+                        selectedFocusColor: '{highlight.focus.color}'
+                    },
+                    optionGroup: {
+                        background: '{surface.0}',
+                        color: '{surface.500}'
+                    }
+                },
                 navigation: {
                     item: {
                         hoverBackground: '{surface.100}',
@@ -270,6 +292,28 @@ export default {
                     borderColor: '{surface.700}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
+                },
+                overlay: {
+                    select: {
+                        background: '{surface.900}',
+                        borderColor: '{surface.700}',
+                        color: '{text.color}'
+                    }
+                },
+                list: {
+                    option: {
+                        focusBackground: '{surface.800}',
+                        selectedBackground: '{highlight.background}',
+                        selectedFocusBackground: '{highlight.focus.background}',
+                        color: '{text.color}',
+                        focusColor: '{text.hover.color}',
+                        selectedColor: '{highlight.color}',
+                        selectedFocusColor: '{highlight.focus.color}'
+                    },
+                    optionGroup: {
+                        background: '{surface.900}',
+                        color: '{surface.400}'
+                    }
                 },
                 navigation: {
                     item: {
