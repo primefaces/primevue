@@ -1,3 +1,6 @@
+//import Noir from '@/themes/app-theme';
+import PrimeVue from 'primevue/config';
+import Lara from 'primevue/themes/lara';
 import { reactive } from 'vue';
 
 const $appState = {
@@ -17,5 +20,12 @@ const $appState = {
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use($appState);
-    //nuxtApp.vueApp.use(PrimeVue, { theme: Noir });
+    nuxtApp.vueApp.use(PrimeVue, {
+        theme: {
+            preset: Lara,
+            options: {
+                darkModeSelector: '.p-dark'
+            }
+        }
+    });
 });

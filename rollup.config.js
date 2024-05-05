@@ -221,7 +221,7 @@ const CORE_THEME_DEPENDENCIES = {
     'primevue/themes/helpers': 'primevue.themes.helpers',
     'primevue/themes/service': 'primevue.themes.service',
     'primevue/themes/utils': 'primevue.themes.utils',
-    ...createThemeDependencies(['aura']),
+    ...createThemeDependencies(['aura', 'lara']),
     'primevue/themes': 'primevue.themes'
 };
 
