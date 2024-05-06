@@ -4128,7 +4128,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType | InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
@@ -4152,7 +4152,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "chipLabel",
+                            "name": "pcChipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
@@ -4176,20 +4176,28 @@
                             "description": "Used to pass attributes to the input chip's DOM element."
                         },
                         {
-                            "name": "loadingIcon",
+                            "name": "loader",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the loading icon's DOM element."
+                            "description": "Used to pass attributes to the loader's DOM element."
                         },
                         {
-                            "name": "dropdownButton",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the dropdown button component."
+                            "description": "Used to pass attributes to the dropdown's DOM element."
+                        },
+                        {
+                            "name": "dropdownIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AutoCompletePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the dropdown icon's DOM element."
                         },
                         {
                             "name": "panel",
@@ -4216,20 +4224,20 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item group's DOM element."
+                            "description": "Used to pass attributes to the option group's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -4635,7 +4643,15 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to display in loading state.",
-                            "deprecated": "since v3.27.0. Use 'loadingicon' slot."
+                            "deprecated": "since v4.0. Use 'loader' slot."
+                        },
+                        {
+                            "name": "loader",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in loading state."
                         },
                         {
                             "name": "removeTokenIcon",
@@ -4946,11 +4962,12 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loading icon.</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loader.</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom loading icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'loader' slot instead.\nCustom loader template."
                         },
                         {
                             "name": "dropdownbutton",
@@ -4962,7 +4979,20 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom dropdown button template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'dropdown' slot instead.\nCustom dropdown template."
+                        },
+                        {
+                            "name": "dropdown",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n}"
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom dropdown template."
                         }
                     ]
                 },
@@ -7149,20 +7179,20 @@
                             "description": "Used to pass attributes to the item link's DOM element."
                         },
                         {
-                            "name": "icon",
+                            "name": "itemIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "BreadcrumbPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the icon's DOM element."
+                            "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "BreadcrumbPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "separator",
@@ -7554,12 +7584,12 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "badge",
+                            "name": "pcBadge",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the badge's DOM element."
+                            "description": "Used to pass attributes to the Badge component."
                         },
                         {
                             "name": "hooks",
@@ -8333,7 +8363,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -8381,7 +8411,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "previousButton",
+                            "name": "pcPreviousButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -8429,7 +8459,7 @@
                             "description": "Used to pass attributes to the view day's DOM element."
                         },
                         {
-                            "name": "nextButton",
+                            "name": "pcNextButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -8685,7 +8715,23 @@
                             "description": "Used to pass attributes to the buttonbar's DOM element."
                         },
                         {
-                            "name": "todayButton",
+                            "name": "pcIncrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the increment button's DOM element."
+                        },
+                        {
+                            "name": "pcDecrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the decrement button's DOM element."
+                        },
+                        {
+                            "name": "pcTodayButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -8693,7 +8739,7 @@
                             "description": "Used to pass attributes to the today button's DOM element."
                         },
                         {
-                            "name": "clearButton",
+                            "name": "pcClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -10387,7 +10433,7 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "previousButton",
+                            "name": "pcPreviousButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>",
@@ -10427,7 +10473,7 @@
                             "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "nextButton",
+                            "name": "pcNextButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>",
@@ -11180,6 +11226,14 @@
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the group icon's DOM element."
+                        },
+                        {
+                            "name": "hiddenInputContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the hidden input container's DOM element."
                         },
                         {
                             "name": "hiddenSelectedMessage",
@@ -13375,7 +13429,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "chipLabel",
+                            "name": "pcChipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -14572,7 +14626,7 @@
                             "description": "Used to pass attributes to the sort badge's DOM element."
                         },
                         {
-                            "name": "headerCheckbox",
+                            "name": "pcHeaderCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
@@ -14596,7 +14650,7 @@
                             "description": "Used to pass attributes to the filter element container's DOM element."
                         },
                         {
-                            "name": "columnFilterButton",
+                            "name": "pcColumnFilterButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14612,7 +14666,7 @@
                             "description": "Used to pass attributes to the filter menu icon's DOM element."
                         },
                         {
-                            "name": "columnFilterClearButton",
+                            "name": "pcColumnFilterClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14668,7 +14722,7 @@
                             "description": "Used to pass attributes to the filter operator's DOM element."
                         },
                         {
-                            "name": "filterOperatorDropdown",
+                            "name": "pcFilterOperatorDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>",
@@ -14692,7 +14746,7 @@
                             "description": "Used to pass attributes to the filter rule's DOM element."
                         },
                         {
-                            "name": "filterConstraintDropdown",
+                            "name": "pcFilterConstraintDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>",
@@ -14708,7 +14762,7 @@
                             "description": "Used to pass attributes to the filter remove button container's DOM element."
                         },
                         {
-                            "name": "filterRemoveRuleButton",
+                            "name": "pcFilterRemoveRuleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14724,7 +14778,7 @@
                             "description": "Used to pass attributes to the filter add button container's DOM element."
                         },
                         {
-                            "name": "filterAddButton",
+                            "name": "pcFilterAddButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14740,7 +14794,7 @@
                             "description": "Used to pass attributes to the filter buttonbar's DOM element."
                         },
                         {
-                            "name": "filterClearButton",
+                            "name": "pcFilterClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14748,7 +14802,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "filterApplyButton",
+                            "name": "pcFilterApplyButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -14788,7 +14842,7 @@
                             "description": "Used to pass attributes to the reorderable row handle's DOM element."
                         },
                         {
-                            "name": "rowRadioButton",
+                            "name": "pcRowRadiobutton",
                             "optional": true,
                             "readonly": false,
                             "type": "RadioButtonPassThroughOptionType",
@@ -14796,7 +14850,7 @@
                             "description": "Used to pass attributes to the radiobutton's DOM element."
                         },
                         {
-                            "name": "rowCheckbox",
+                            "name": "pcRowCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
@@ -14804,7 +14858,7 @@
                             "description": "Used to pass attributes to the checkbox's DOM element."
                         },
                         {
-                            "name": "rowEditorInit",
+                            "name": "pcRowEditorInit",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14812,7 +14866,7 @@
                             "description": "Used to pass attributes to the row editor init button's DOM element."
                         },
                         {
-                            "name": "rowEditorSave",
+                            "name": "pcRowEditorSave",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -14820,7 +14874,7 @@
                             "description": "Used to pass attributes to the row editor save button's DOM element."
                         },
                         {
-                            "name": "rowEditorCancel",
+                            "name": "pcRowEditorCancel",
                             "optional": true,
                             "readonly": false,
                             "type": "ColumnPassThroughOptionType",
@@ -18134,7 +18188,7 @@
                             "description": "Used to pass attributes to the footer's DOM element."
                         },
                         {
-                            "name": "rejectButton",
+                            "name": "pcRejectButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>",
@@ -18142,7 +18196,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "acceptButton",
+                            "name": "pcAcceptButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>",
@@ -18546,7 +18600,7 @@
                             "description": "Used to pass attributes to the footer's DOM element."
                         },
                         {
-                            "name": "rejectButton",
+                            "name": "pcRejectButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>",
@@ -18554,7 +18608,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "acceptButton",
+                            "name": "pcAcceptButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ConfirmPopupSharedPassThroughMethodOptions>",
@@ -22832,7 +22886,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "paginator",
+                            "name": "pcPaginator",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>",
@@ -23477,7 +23531,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -23525,7 +23579,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "previousButton",
+                            "name": "pcPreviousButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -23573,7 +23627,7 @@
                             "description": "Used to pass attributes to the view day's DOM element."
                         },
                         {
-                            "name": "nextButton",
+                            "name": "pcNextButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -23829,7 +23883,23 @@
                             "description": "Used to pass attributes to the buttonbar's DOM element."
                         },
                         {
-                            "name": "todayButton",
+                            "name": "pcIncrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the increment button's DOM element."
+                        },
+                        {
+                            "name": "pcDecrementButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the decrement button's DOM element."
+                        },
+                        {
+                            "name": "pcTodayButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -23837,7 +23907,7 @@
                             "description": "Used to pass attributes to the today button's DOM element."
                         },
                         {
-                            "name": "clearButton",
+                            "name": "pcClearButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>",
@@ -25492,15 +25562,15 @@
                             "description": "Used to pass attributes to the header actions' DOM element."
                         },
                         {
-                            "name": "maximizableButton",
+                            "name": "pcMaximizeButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the maximizable Button component."
+                            "description": "Used to pass attributes to the maximize Button component."
                         },
                         {
-                            "name": "closeButton",
+                            "name": "pcCloseButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>",
@@ -27072,12 +27142,12 @@
                             "description": "Used to pass attributes to the header content's DOM element."
                         },
                         {
-                            "name": "toggler",
+                            "name": "pcCloseButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DrawerSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the previous button's DOM element."
+                            "description": "Used to pass attributes to the close button's DOM element."
                         },
                         {
                             "name": "content",
@@ -27624,12 +27694,12 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filter",
+                            "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter's DOM element."
+                            "description": "Used to pass attributes to the InputText component."
                         },
                         {
                             "name": "filterIcon",
@@ -30262,28 +30332,28 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "chooseButton",
+                            "name": "pcChooseButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the choose button's DOM element."
+                            "description": "Used to pass attributes to the choose Button component."
                         },
                         {
-                            "name": "uploadButton",
+                            "name": "pcUploadButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the upload button's DOM element."
+                            "description": "Used to pass attributes to the upload Button component."
                         },
                         {
-                            "name": "cancelButton",
+                            "name": "pcCancelButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the cancel button's DOM element."
+                            "description": "Used to pass attributes to the cancel Button component."
                         },
                         {
                             "name": "content",
@@ -30294,20 +30364,20 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "progressbar",
+                            "name": "pcProgressbar",
                             "optional": true,
                             "readonly": false,
-                            "type": "FileUploadPassThroughOptionType",
+                            "type": "ProgressBarPassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the progressbar's DOM element."
+                            "description": "Used to pass attributes to the ProgressBar component."
                         },
                         {
-                            "name": "message",
+                            "name": "pcMessage",
                             "optional": true,
                             "readonly": false,
                             "type": "MessagePassThroughOptions<FileUploadPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the messages' DOM element."
+                            "description": "Used to pass attributes to the message's DOM element."
                         },
                         {
                             "name": "file",
@@ -30350,7 +30420,7 @@
                             "description": "Used to pass attributes to the fileSize's DOM element."
                         },
                         {
-                            "name": "fileBadge",
+                            "name": "pcFileBadge",
                             "optional": true,
                             "readonly": false,
                             "type": "BadgePassThroughOptions<FileUploadPassThroughMethodOptions>",
@@ -30366,7 +30436,7 @@
                             "description": "Used to pass attributes to the file actions' DOM element."
                         },
                         {
-                            "name": "fileRemoveButton",
+                            "name": "pcFileRemoveButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
@@ -30382,7 +30452,15 @@
                             "description": "Used to pass attributes to the empty's DOM element."
                         },
                         {
-                            "name": "button",
+                            "name": "pcMessages",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MessagePassThroughOptions<FileUploadPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the messages' DOM element."
+                        },
+                        {
+                            "name": "pcButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>",
@@ -31671,12 +31749,12 @@
                             "description": "Used to pass attributes to the previous thumbnail icon's DOM element."
                         },
                         {
-                            "name": "thumbnailItemsContainer",
+                            "name": "thumbnailsViewport",
                             "optional": true,
                             "readonly": false,
                             "type": "GalleriaPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the thumbnail items container's DOM element."
+                            "description": "Used to pass attributes to the thumbnails viewport's DOM element."
                         },
                         {
                             "name": "thumbnailItems",
@@ -34073,7 +34151,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "chipLabel",
+                            "name": "pcChipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -35753,7 +35831,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>",
@@ -36461,7 +36539,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>",
@@ -38174,7 +38252,7 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filter",
+                            "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>",
@@ -39065,12 +39143,12 @@
                             "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "submenuIcon",
@@ -39801,12 +39879,12 @@
                             "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "MenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "separator",
@@ -42189,7 +42267,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "chipLabel",
+                            "name": "pcChipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
@@ -42237,7 +42315,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "headerCheckbox",
+                            "name": "pcHeaderCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
@@ -42253,7 +42331,7 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filter",
+                            "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
@@ -42317,7 +42395,7 @@
                             "description": "Used to pass attributes to the option label's DOM element."
                         },
                         {
-                            "name": "optionCheckbox",
+                            "name": "pcOptionCheckbox",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
@@ -42333,12 +42411,12 @@
                             "description": "Used to pass attributes to the emptyMessage's DOM element."
                         },
                         {
-                            "name": "hiddenInput",
+                            "name": "hiddenInputContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hidden input's DOM element."
+                            "description": "Used to pass attributes to the hidden input container's DOM element."
                         },
                         {
                             "name": "hiddenFirstFocusableEl",
@@ -43532,7 +43610,7 @@
                             "description": "Used to pass attributes to the controls' DOM element."
                         },
                         {
-                            "name": "moveUpButton",
+                            "name": "pcMoveUpButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
@@ -43540,7 +43618,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "moveTopButton",
+                            "name": "pcMoveTopButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
@@ -43548,7 +43626,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "moveDownButton",
+                            "name": "pcMoveDownButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
@@ -43556,7 +43634,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "moveBottomButton",
+                            "name": "pcMoveBottomButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
@@ -43572,7 +43650,7 @@
                             "description": "Used to pass attributes to the container's DOM element."
                         },
                         {
-                            "name": "list",
+                            "name": "pcList",
                             "optional": true,
                             "readonly": false,
                             "type": "ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>",
@@ -45177,12 +45255,12 @@
                     "relatedProp": "PaginatorProps.pt",
                     "props": [
                         {
-                            "name": "paginatorWrapper",
+                            "name": "paginatorContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Used to pass attributes to the paginator wrapper's DOM element."
+                            "description": "Used to pass attributes to the paginator container's DOM element."
                         },
                         {
                             "name": "root",
@@ -45289,7 +45367,7 @@
                             "description": "Used to pass attributes to the current's DOM element."
                         },
                         {
-                            "name": "rowPerPageDropdown",
+                            "name": "pcRowPerPageDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
@@ -45297,7 +45375,7 @@
                             "description": "Used to pass attributes to the Dropdown component."
                         },
                         {
-                            "name": "jumpToPageDropdown",
+                            "name": "pcJumpToPageDropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
@@ -45305,7 +45383,7 @@
                             "description": "Used to pass attributes to the Dropdown component."
                         },
                         {
-                            "name": "jumpToPageInput",
+                            "name": "pcJumpToPageInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>",
@@ -45962,7 +46040,7 @@
                             "description": "Used to pass attributes to the header actions' DOM element."
                         },
                         {
-                            "name": "toggleButton",
+                            "name": "pcToggleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>",
@@ -46487,12 +46565,12 @@
                             "description": "Used to pass attributes to the item icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "itemLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "PanelMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
                             "name": "submenu",
@@ -47155,7 +47233,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "ptInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>",
@@ -47203,12 +47281,12 @@
                             "description": "Used to pass attributes to the meter label's DOM element."
                         },
                         {
-                            "name": "info",
+                            "name": "meterText",
                             "optional": true,
                             "readonly": false,
                             "type": "PasswordPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the info's DOM element."
+                            "description": "Used to pass attributes to the meter text's DOM element."
                         },
                         {
                             "name": "hiddenAccesible",
@@ -48092,7 +48170,7 @@
                             "description": "Used to pass attributes to the source controls' DOM element."
                         },
                         {
-                            "name": "sourceMoveUpButton",
+                            "name": "pcSourceMoveUpButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48100,7 +48178,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "sourceMoveTopButton",
+                            "name": "pcSourceMoveTopButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48108,7 +48186,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "sourceMoveDownButton",
+                            "name": "pcSourceMoveDownButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48116,12 +48194,20 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "sourceMoveBottomButton",
+                            "name": "pcSourceMoveBottomButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "pcList",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ListboxPassThroughOptions<PickListSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the Listbox component."
                         },
                         {
                             "name": "sourceListContainer",
@@ -48212,7 +48298,7 @@
                             "description": "Used to pass attributes to the target controls' DOM element."
                         },
                         {
-                            "name": "targetMoveUpButton",
+                            "name": "pcTargetMoveUpButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48220,7 +48306,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "targetMoveTopButton",
+                            "name": "pcTargetMoveTopButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48228,7 +48314,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "targetMoveDownButton",
+                            "name": "pcTargetMoveDownButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -48236,7 +48322,7 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "targetMoveBottomButton",
+                            "name": "pcTargetMoveBottomButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>",
@@ -50540,12 +50626,12 @@
                             "description": "Used to pass attributes to the off icon's DOM element."
                         },
                         {
-                            "name": "hiddenOptionInputWrapper",
+                            "name": "hiddenOptionInputContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "RatingPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hidden option input wrapper's DOM element."
+                            "description": "Used to pass attributes to the hidden option input container's DOM element."
                         },
                         {
                             "name": "hiddenOptionInput",
@@ -52135,12 +52221,12 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filter",
+                            "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter's DOM element."
+                            "description": "Used to pass attributes to the InputText component."
                         },
                         {
                             "name": "filterIcon",
@@ -53307,6 +53393,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "pcButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "SelectButtonPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the ToggleButton component."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
@@ -53809,12 +53903,12 @@
                             "description": "Used to pass attributes to the header content's DOM element."
                         },
                         {
-                            "name": "toggler",
+                            "name": "pcCloseButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<DrawerSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the previous button's DOM element."
+                            "description": "Used to pass attributes to the close button's DOM element."
                         },
                         {
                             "name": "content",
@@ -54933,7 +55027,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "button",
+                            "name": "pcButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>",
@@ -54941,20 +55035,20 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "menu",
+                            "name": "list",
                             "optional": true,
                             "readonly": false,
                             "type": "SpeedDialPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the menu's DOM element."
+                            "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "menuitem",
+                            "name": "item",
                             "optional": true,
                             "readonly": false,
                             "type": "SpeedDialPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the menu item's DOM element."
+                            "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
                             "name": "action",
@@ -55602,15 +55696,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "button",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "SplitButtonPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the button's DOM element."
-                        },
-                        {
-                            "name": "dropdown",
+                            "name": "pcButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
@@ -55618,7 +55704,15 @@
                             "description": "Used to pass attributes to the Button component."
                         },
                         {
-                            "name": "menu",
+                            "name": "pcDropdown",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the Button component."
+                        },
+                        {
+                            "name": "ptMenu",
                             "optional": true,
                             "readonly": false,
                             "type": "TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>",
@@ -65974,7 +66068,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "chipLabel",
+                            "name": "pcChipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
@@ -66006,15 +66100,15 @@
                             "description": "Used to pass attributes to the panel's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "treeContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the tree container's DOM element."
                         },
                         {
-                            "name": "tree",
+                            "name": "pcTree",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
@@ -66030,12 +66124,12 @@
                             "description": "Used to pass attributes to the empty message's DOM element."
                         },
                         {
-                            "name": "hiddenInputWrapper",
+                            "name": "hiddenInputContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hidden input wrapper's DOM element."
+                            "description": "Used to pass attributes to the hidden input container's DOM element."
                         },
                         {
                             "name": "hiddenInput",
@@ -67090,7 +67184,7 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "paginator",
+                            "name": "pcPaginator",
                             "optional": true,
                             "readonly": false,
                             "type": "PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>",
@@ -67186,12 +67280,12 @@
                             "description": "Used to pass attributes to the footer's DOM element."
                         },
                         {
-                            "name": "resizeHelper",
+                            "name": "columnResizeIndicator",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeTablePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the resize helper's DOM element."
+                            "description": "Used to pass attributes to the column resize indicator's DOM element."
                         },
                         {
                             "name": "column",

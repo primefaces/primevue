@@ -1,5 +1,5 @@
 <template>
-    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptmi('paginatorWrapper')">
+    <nav v-if="alwaysShow ? true : pageLinks && pageLinks.length > 1" v-bind="ptmi('paginatorContainer')">
         <div v-for="(value, key) in templateItems" :key="key" ref="paginator" :class="cx('paginator', { key })" v-bind="ptm('root')">
             <div v-if="$slots.start" :class="cx('contentStart')" v-bind="ptm('contentStart')">
                 <slot name="start" :state="currentState"></slot>

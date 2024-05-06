@@ -70,9 +70,9 @@ export interface RatingPassThroughOptions {
      */
     offIcon?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden option input wrapper's DOM element.
+     * Used to pass attributes to the hidden option input container's DOM element.
      */
-    hiddenOptionInputWrapper?: RatingPassThroughOptionType;
+    hiddenOptionInputContainer?: RatingPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden option input's DOM element.
      */
