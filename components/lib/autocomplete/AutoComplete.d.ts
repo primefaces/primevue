@@ -170,13 +170,17 @@ export interface AutoCompletePassThroughOptions {
      */
     inputChip?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
-    loadingIcon?: AutoCompletePassThroughOptionType;
+    loader?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown button component.
+     * Used to pass attributes to the dropdown's DOM element.
      */
-    dropdownButton?: AutoCompletePassThroughOptionType;
+    dropdown?: AutoCompletePassThroughOptionType;
+    /**
+     * Used to pass attributes to the dropdown icon's DOM element.
+     */
+    dropdownIcon?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the panel's DOM element.
      */
@@ -191,13 +195,13 @@ export interface AutoCompletePassThroughOptions {
      */
     list?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the option group's DOM element.
      */
-    itemGroup?: AutoCompletePassThroughOptionType;
+    optionGroup?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
-    item?: AutoCompletePassThroughOptionType;
+    option?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the empty message's DOM element.
      */
@@ -433,9 +437,13 @@ export interface AutoCompleteProps {
     dropdownClass?: string | object | undefined;
     /**
      * Icon to display in loading state.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
+     * @deprecated since v4.0. Use 'loader' slot.
      */
     loadingIcon?: string | undefined;
+    /**
+     * Icon to display in loading state.
+     */
+    loader?: string | undefined;
     /**
      * Icon to display in chip remove action.
      * @deprecated since v3.27.0. Use 'removetokenicon' slot.
@@ -713,18 +721,39 @@ export interface AutoCompleteSlots {
         removeCallback: (event: Event, index: number) => void;
     }): VNode[];
     /**
-     * Custom loading icon template.
+     * @deprecated since v4.0. Use 'loader' slot instead.
+     * Custom loader template.
      */
     loadingicon(scope: {
         /**
-         * Style class of the loading icon.
+         * Style class of the loader.
          */
         class: string;
     }): VNode[];
     /**
-     * Custom dropdown button template.
+     * Custom loader template.
+     */
+    loader(scope: {
+        /**
+         * Style class of the loader.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * @deprecated since v4.0. Use 'dropdown' slot instead.
+     * Custom dropdown template.
      */
     dropdownbutton(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom dropdown template.
+     */
+    dropdown(scope: {
         /**
          * Toggle function.
          * @param {Event} event - Browser event

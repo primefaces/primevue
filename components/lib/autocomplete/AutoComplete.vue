@@ -5,7 +5,7 @@
             ref="focusInput"
             :id="inputId"
             type="text"
-            :class="[cx('input'), inputClass]"
+            :class="[cx('pcInput'), inputClass]"
             :style="inputStyle"
             :value="inputValue"
             :placeholder="placeholder"
@@ -28,7 +28,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
-            :pt="ptm('input')"
+            :pt="ptm('pcInput')"
         />
         <ul
             v-if="multiple"
@@ -93,25 +93,25 @@
                 />
             </li>
         </ul>
-        <slot v-if="searching || loading" :class="cx('loadingIcon')" name="loadingicon">
-            <i v-if="loadingIcon" :class="['pi-spin', cx('loadingIcon'), loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
-            <SpinnerIcon v-else :class="[cx('loadingIcon'), loadingIcon]" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
+        <slot v-if="searching || loading" :class="cx('loader')" :name="$slots.loader ? 'loader' : 'loadingicon'">
+            <i v-if="loader || loadingIcon" :class="['pi-spin', cx('loader'), loader, loadingIcon]" aria-hidden="true" v-bind="ptm('loader')" />
+            <SpinnerIcon v-else :class="cx('loader')" spin aria-hidden="true" v-bind="ptm('loader')" />
         </slot>
-        <slot name="dropdownbutton" :toggleCallback="(event) => onDropdownClick(event)">
+        <slot :name="$slots.dropdown ? 'dropdown' : 'dropdownbutton'" :toggleCallback="(event) => onDropdownClick(event)">
             <button
                 v-if="dropdown"
                 ref="dropdownButton"
                 type="button"
-                :class="[cx('dropdownButton'), dropdownClass]"
+                :class="[cx('dropdown'), dropdownClass]"
                 :disabled="disabled"
                 aria-haspopup="listbox"
                 :aria-expanded="overlayVisible"
                 :aria-controls="panelId"
                 @click="onDropdownClick"
-                v-bind="ptm('dropdownButton')"
+                v-bind="ptm('dropdown')"
             >
                 <slot name="dropdownicon" :class="dropdownIcon">
-                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownButtonIcon')" />
+                    <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="dropdownIcon" v-bind="ptm('dropdownIcon')" />
                 </slot>
             </button>
         </slot>
@@ -135,7 +135,7 @@
                         <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                             <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" :aria-label="listAriaLabel" v-bind="ptm('list')">
                                 <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
+                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
                                         <slot name="optiongroup" :option="option.optionGroup" :item="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                     </li>
                                     <li
@@ -143,7 +143,7 @@
                                         :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                         v-ripple
                                         :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                        :class="cx('item', { option, i, getItemOptions })"
+                                        :class="cx('option', { option, i, getItemOptions })"
                                         role="option"
                                         :aria-label="getOptionLabel(option)"
                                         :aria-selected="isSelected(option)"
@@ -155,7 +155,7 @@
                                         :data-p-highlight="isSelected(option)"
                                         :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                         :data-p-disabled="isOptionDisabled(option)"
-                                        v-bind="getPTOptions(option, getItemOptions, i, 'item')"
+                                        v-bind="getPTOptions(option, getItemOptions, i, 'option')"
                                     >
                                         <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         <slot v-else name="item" :item="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>

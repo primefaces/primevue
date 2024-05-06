@@ -232,7 +232,7 @@ const classes = {
             'p-autocomplete-open': instance.overlayVisible
         }
     ],
-    input: 'p-autocomplete-input',
+    pcInput: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
@@ -248,8 +248,8 @@ const classes = {
     chipLabel: 'p-autocomplete-chip-label',
     chipIcon: 'p-autocomplete-chip-icon',
     inputChip: 'p-autocomplete-input-chip',
-    loadingIcon: 'p-autocomplete-loader',
-    dropdownButton: 'p-autocomplete-dropdown',
+    loader: 'p-autocomplete-loader',
+    dropdown: 'p-autocomplete-dropdown',
     panel: ({ instance }) => [
         'p-autocomplete-overlay p-component',
         {
@@ -257,8 +257,8 @@ const classes = {
         }
     ],
     list: 'p-autocomplete-list',
-    itemGroup: 'p-autocomplete-option-group',
-    item: ({ instance, option, i, getItemOptions }) => [
+    optionGroup: 'p-autocomplete-option-group',
+    option: ({ instance, option, i, getItemOptions }) => [
         'p-autocomplete-option',
         {
             'p-autocomplete-option-selected': instance.isSelected(option),
