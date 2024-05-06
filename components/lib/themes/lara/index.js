@@ -86,9 +86,9 @@ import treetable from 'primevue/themes/lara/treetable';
 
 export default {
     primitive: {
-        rounded: {
+        borderRadius: {
             sm: '4px',
-            base: '6px',
+            md: '6px',
             lg: '8px',
             xl: '12px'
         },
@@ -124,19 +124,23 @@ export default {
             offset: '2px'
         },
         anchorGutter: '2px',
-        // @todo - dummy test
         primary: {
-            50: '{blue.50}',
-            100: '{blue.100}',
-            200: '{blue.200}',
-            300: '{blue.300}',
-            400: '{blue.400}',
-            500: '{blue.500}',
-            600: '{blue.600}',
-            700: '{blue.700}',
-            800: '{blue.800}',
-            900: '{blue.900}',
-            950: '{blue.950}'
+            50: '{emerald.50}',
+            100: '{emerald.100}',
+            200: '{emerald.200}',
+            300: '{emerald.300}',
+            400: '{emerald.400}',
+            500: '{emerald.500}',
+            600: '{emerald.600}',
+            700: '{emerald.700}',
+            800: '{emerald.800}',
+            900: '{emerald.900}',
+            950: '{emerald.950}'
+        },
+        formField: {
+            paddingX: '0.75rem',
+            paddingY: '0.625rem',
+            borderRadius: '{border.radius.sm}'
         },
         colorScheme: {
             light: {
@@ -173,7 +177,7 @@ export default {
                     filledBackground: '{surface.50}',
                     filledFocusBackground: '{surface.0}',
                     borderColor: '{surface.300}',
-                    hoverBorderColor: '{surface.400}',
+                    hoverBorderColor: '{primary.color}',
                     focusBorderColor: '{primary.color}',
                     invalidBorderColor: '{red.400}',
                     color: '{surface.700}',
@@ -183,7 +187,8 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
-                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    boxShadow: 'none',
+                    focusBoxShadow: '0 0 0 0.2rem {primary.200}'
                 },
                 text: {
                     color: '{surface.700}',
@@ -288,7 +293,8 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    boxShadow: 'none',
+                    focusBoxShadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
                 },
                 text: {
                     color: '{surface.0}',
