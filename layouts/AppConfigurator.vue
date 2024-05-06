@@ -30,16 +30,12 @@
                 </div>
             </div>
             <div class="config-panel-settings">
-                <div>
-                    <span class="config-panel-label">Presets</span>
-                    <SelectButton v-model="selectedPreset" @update:modelValue="onPresetChange" :options="presets" />
-                </div>
+                <span class="config-panel-label">Presets</span>
+                <SelectButton v-model="selectedPreset" @update:modelValue="onPresetChange" :options="presets" />
             </div>
             <div class="config-panel-settings">
-                <div>
-                    <span class="config-panel-label">Ripple</span>
-                    <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
-                </div>
+                <span class="config-panel-label">Ripple</span>
+                <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
             </div>
         </div>
     </div>
@@ -47,9 +43,9 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import { updatePreset, updateSurfacePalette, $t } from 'primevue/themes';
-import Lara from 'primevue/themes/lara';
+import { $t, updatePreset, updateSurfacePalette } from 'primevue/themes';
 import Aura from 'primevue/themes/aura';
+import Lara from 'primevue/themes/lara';
 
 export default {
     data() {
