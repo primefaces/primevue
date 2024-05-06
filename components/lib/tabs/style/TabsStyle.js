@@ -47,7 +47,7 @@ const theme = ({ dt }) => `
     color: ${dt('tabs.nav.button.color')};
     width: 2.5rem;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    box-shadow: ${dt('tabs.nav.button.box.shadow')};
+    box-shadow: ${dt('tabs.nav.button.shadow')};
     cursor: pointer;
 }
 

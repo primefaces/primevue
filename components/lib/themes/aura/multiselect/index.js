@@ -11,7 +11,7 @@ export default {
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
-        boxShadow: '{form.field.box.shadow}'
+        shadow: '{form.field.shadow}'
     },
     dropdown: {
         color: '{form.field.icon.color}'

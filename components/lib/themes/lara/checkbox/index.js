@@ -13,7 +13,7 @@ export default {
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.hover.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',
-        boxShadow: '{form.field.box.shadow}'
+        shadow: '{form.field.shadow}'
     },
     icon: {
         size: '0.875rem',

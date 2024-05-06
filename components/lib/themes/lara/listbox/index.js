@@ -8,7 +8,7 @@ export default {
         invalidBorderColor: '{form.field.invalid.border.color}',
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
-        boxShadow: '{form.field.box.shadow}'
+        shadow: '{form.field.shadow}'
     },
     option: {
         focusBackground: '{list.option.focus.background}',

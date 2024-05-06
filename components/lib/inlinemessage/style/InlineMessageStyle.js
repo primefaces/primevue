@@ -32,7 +32,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.info.background')};
     border: 1px solid ${dt('inlinemessage.info.border.color')};
     color: ${dt('inlinemessage.info.color')};
-    box-shadow: ${dt('inlinemessage.info.box.shadow')};
+    box-shadow: ${dt('inlinemessage.info.shadow')};
 }
 
 .p-inline-message-info .p-inline-message-icon {
@@ -43,7 +43,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.success.background')};
     border: 1px solid ${dt('inlinemessage.success.border.color')};
     color: ${dt('inlinemessage.success.color')};
-    box-shadow: ${dt('inlinemessage.success.box.shadow')};
+    box-shadow: ${dt('inlinemessage.success.shadow')};
 }
 .p-inline-message-success .p-inline-message-icon {
     color: ${dt('inlinemessage.success.color')};
@@ -53,7 +53,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.warn.background')};
     border: 1px solid ${dt('inlinemessage.warn.border.color')};
     color: ${dt('inlinemessage.warn.color')};
-    box-shadow: ${dt('inlinemessage.warn.box.shadow')};
+    box-shadow: ${dt('inlinemessage.warn.shadow')};
 }
 .p-inline-message-warn .p-inline-message-icon {
     color: ${dt('inlinemessage.warn.color')};
@@ -63,7 +63,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.error.background')};
     border: 1px solid ${dt('inlinemessage.error.border.color')};
     color: ${dt('inlinemessage.error.color')};
-    box-shadow: ${dt('inlinemessage.error.box.shadow')};
+    box-shadow: ${dt('inlinemessage.error.shadow')};
 }
 .p-inline-message-error .p-inline-message-icon {
     color: ${dt('inlinemessage.error.color')};
@@ -73,7 +73,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.secondary.background')};
     border: 1px solid ${dt('inlinemessage.secondary.border.color')};
     color: ${dt('inlinemessage.secondary.color')};
-    box-shadow: ${dt('inlinemessage.secondary.box.shadow')};
+    box-shadow: ${dt('inlinemessage.secondary.shadow')};
 }
 .p-inline-message-secondary .p-inline-message-icon {
     color: ${dt('inlinemessage.secondary.color')};
@@ -83,7 +83,7 @@ const theme = ({ dt }) => `
     background: ${dt('inlinemessage.contrast.background')};
     border: 1px solid ${dt('inlinemessage.contrast.border.color')};
     color: ${dt('inlinemessage.contrast.color')};
-    box-shadow: ${dt('inlinemessage.contrast.box.shadow')};
+    box-shadow: ${dt('inlinemessage.contrast.shadow')};
 }
 .p-inline-message-contrast .p-inline-message-icon {
     color: ${dt('inlinemessage.contrast.color')};

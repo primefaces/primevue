@@ -89,7 +89,7 @@ const theme = ({ dt }) => `
     border-radius: 0;
     outline-color: transparent;
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    box-shadow: ${dt('tabview.nav.button.box.shadow')};
+    box-shadow: ${dt('tabview.nav.button.shadow')};
     border: none;
     cursor: pointer;
     user-select: none;

@@ -38,7 +38,7 @@ const theme = ({ dt }) => `
     height: ${dt('radiobutton.height')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: ${dt('radiobutton.box.shadow')};
+    box-shadow: ${dt('radiobutton.shadow')};
 }
 
 .p-radiobutton-icon {

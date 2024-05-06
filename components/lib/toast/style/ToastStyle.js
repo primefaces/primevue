@@ -70,7 +70,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.info.background')};
     border: 1px solid ${dt('toast.info.border.color')};
     color: ${dt('toast.info.color')};
-    box-shadow: ${dt('toast.info.box.shadow')};
+    box-shadow: ${dt('toast.info.shadow')};
 }
 
 .p-toast-message-info .p-toast-detail {
@@ -89,7 +89,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.success.background')};
     border: 1px solid ${dt('toast.success.border.color')};
     color: ${dt('toast.success.color')};
-    box-shadow: ${dt('toast.success.box.shadow')};
+    box-shadow: ${dt('toast.success.shadow')};
 }
 
 .p-toast-message-success .p-toast-detail {
@@ -108,7 +108,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.warn.background')};
     border: 1px solid ${dt('toast.warn.border.color')};
     color: ${dt('toast.warn.color')};
-    box-shadow: ${dt('toast.warn.box.shadow')};
+    box-shadow: ${dt('toast.warn.shadow')};
 }
 
 .p-toast-message-warn .p-toast-detail {
@@ -127,7 +127,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.error.background')};
     border: 1px solid ${dt('toast.error.border.color')};
     color: ${dt('toast.error.color')};
-    box-shadow: ${dt('toast.error.box.shadow')};
+    box-shadow: ${dt('toast.error.shadow')};
 }
 
 .p-toast-message-error .p-toast-detail {
@@ -146,7 +146,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.secondary.background')};
     border: 1px solid ${dt('toast.secondary.border.color')};
     color: ${dt('toast.secondary.color')};
-    box-shadow: ${dt('toast.secondary.box.shadow')};
+    box-shadow: ${dt('toast.secondary.shadow')};
 }
 
 .p-toast-message-secondary .p-toast-detail {
@@ -165,7 +165,7 @@ const theme = ({ dt }) => `
     background: ${dt('toast.contrast.background')};
     border: 1px solid ${dt('toast.contrast.border.color')};
     color: ${dt('toast.contrast.color')};
-    box-shadow: ${dt('toast.contrast.box.shadow')};
+    box-shadow: ${dt('toast.contrast.shadow')};
 }
 
 .p-toast-message-contrast .p-toast-detail {

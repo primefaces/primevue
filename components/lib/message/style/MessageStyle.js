@@ -47,7 +47,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.info.background')};
     border: 1px solid ${dt('message.info.border.color')};
     color: ${dt('message.info.color')};
-    box-shadow: ${dt('message.info.box.shadow')};
+    box-shadow: ${dt('message.info.shadow')};
 }
 
 .p-message-info .p-message-close-button:focus-visible {
@@ -62,7 +62,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.success.background')};
     border: 1px solid ${dt('message.success.border.color')};
     color: ${dt('message.success.color')};
-    box-shadow: ${dt('message.success.box.shadow')};
+    box-shadow: ${dt('message.success.shadow')};
 }
 
 .p-message-success .p-message-close-button:focus-visible {
@@ -77,7 +77,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.warn.background')};
     border: 1px solid ${dt('message.warn.border.color')};
     color: ${dt('message.warn.color')};
-    box-shadow: ${dt('message.warn.box.shadow')};
+    box-shadow: ${dt('message.warn.shadow')};
 }
 
 .p-message-warn .p-message-close-button:focus-visible {
@@ -92,7 +92,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.error.background')};
     border: 1px solid ${dt('message.error.border.color')};
     color: ${dt('message.error.color')};
-    box-shadow: ${dt('message.error.box.shadow')};
+    box-shadow: ${dt('message.error.shadow')};
 }
 
 .p-message-error .p-message-close-button:focus-visible {
@@ -107,7 +107,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.secondary.background')};
     border: 1px solid ${dt('message.secondary.border.color')};
     color: ${dt('message.secondary.color')};
-    box-shadow: ${dt('message.secondary.box.shadow')};
+    box-shadow: ${dt('message.secondary.shadow')};
 }
 
 .p-message-secondary .p-message-close-button:focus-visible {
@@ -122,7 +122,7 @@ const theme = ({ dt }) => `
     background: ${dt('message.contrast.background')};
     border: 1px solid ${dt('message.contrast.border.color')};
     color: ${dt('message.contrast.color')};
-    box-shadow: ${dt('message.contrast.box.shadow')};
+    box-shadow: ${dt('message.contrast.shadow')};
 }
 
 .p-message-contrast .p-message-close-button:focus-visible {

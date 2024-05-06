@@ -23,7 +23,7 @@ const theme = ({ dt }) => `
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: ${dt('inputchips.box.shadow')};
+    box-shadow: ${dt('inputchips.shadow')};
 }
 
 .p-inputchips:not(.p-disabled):hover .p-inputchips-input {

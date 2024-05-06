@@ -187,8 +187,8 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
-                    boxShadow: 'none',
-                    focusBoxShadow: '0 0 0 0.2rem {primary.200}'
+                    shadow: 'none',
+                    focusShadow: '0 0 0 0.2rem {primary.200}'
                 },
                 text: {
                     color: '{surface.700}',
@@ -293,8 +293,8 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    boxShadow: 'none',
-                    focusBoxShadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
+                    shadow: 'none',
+                    focusShadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
                 },
                 text: {
                     color: '{surface.0}',

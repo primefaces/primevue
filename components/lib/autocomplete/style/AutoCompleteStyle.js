@@ -151,7 +151,7 @@ const theme = ({ dt }) => `
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: ${dt('autocomplete.input.multiple.box.shadow')};
+    box-shadow: ${dt('autocomplete.input.multiple.shadow')};
 }
 
 .p-autocomplete:not(.p-disabled):hover .p-autocomplete-input-multiple {

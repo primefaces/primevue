@@ -13,7 +13,7 @@ const theme = ({ dt }) => `
     appearance: none;
     border-radius: ${dt('inputtext.border.radius')};
     outline-color: transparent;
-    box-shadow: ${dt('inputtext.box.shadow')};
+    box-shadow: ${dt('inputtext.shadow')};
 }
 
 .p-inputtext:enabled:hover {
@@ -22,7 +22,7 @@ const theme = ({ dt }) => `
 
 .p-inputtext:enabled:focus {
     border-color: ${dt('inputtext.focus.border.color')};
-    box-shadow: ${dt('inputtext.focus.box.shadow')};
+    box-shadow: ${dt('inputtext.focus.shadow')};
     outline: 0 none;
 }
 

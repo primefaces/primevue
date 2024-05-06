@@ -11,8 +11,8 @@ export default {
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
-        boxShadow: '{form.field.box.shadow}',
-        focusBoxShadow: '{form.field.focus.box.shadow}',
+        shadow: '{form.field.shadow}',
+        focusShadow: '{form.field.focus.shadow}',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
         borderRadius: '{form.field.border.radius}'

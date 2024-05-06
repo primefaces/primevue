@@ -11,7 +11,7 @@ const theme = ({ dt }) => `
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
-    box-shadow: ${dt('multiselect.box.shadow')};
+    box-shadow: ${dt('multiselect.shadow')};
 }
 
 .p-multiselect:not(.p-disabled):hover {

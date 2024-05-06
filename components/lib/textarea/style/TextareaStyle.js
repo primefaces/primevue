@@ -13,7 +13,7 @@ const theme = ({ dt }) => `
     appearance: none;
     border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
-    box-shadow: ${dt('textarea.box.shadow')};
+    box-shadow: ${dt('textarea.shadow')};
 }
 
 .p-inputtextarea:enabled:hover {
