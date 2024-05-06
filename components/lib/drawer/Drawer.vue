@@ -13,17 +13,17 @@
                                 v-if="showCloseIcon"
                                 :ref="closeButtonRef"
                                 type="button"
-                                :class="cx('closeButton')"
+                                :class="cx('pcCloseButton')"
                                 :aria-label="closeAriaLabel"
                                 :unstyled="unstyled"
                                 @click="hide"
                                 v-bind="closeButtonProps"
-                                :pt="ptm('closeButton')"
+                                :pt="ptm('pcCloseButton')"
                                 data-pc-group-section="iconcontainer"
                             >
                                 <template #icon="slotProps">
-                                    <slot name="closeicon" :class="cx('closeIcon')">
-                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeIcon'), closeIcon, slotProps.class]" v-bind="ptm('closeButton')['icon']"></component>
+                                    <slot name="closeicon">
+                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
                                     </slot>
                                 </template>
                             </Button>

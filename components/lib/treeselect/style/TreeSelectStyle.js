@@ -141,7 +141,7 @@ const classes = {
         }
     ],
     chip: 'p-treeselect-chip',
-    chipLabel: 'p-treeselect-chip-label',
+    pcChipLabel: 'p-treeselect-chip-label',
     dropdown: 'p-treeselect-dropdown',
     dropdownIcon: 'p-treeselect-dropdown-icon',
     panel: ({ instance }) => [

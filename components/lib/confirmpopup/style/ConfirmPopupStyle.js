@@ -121,8 +121,8 @@ const classes = {
     icon: 'p-confirmpopup-icon',
     message: 'p-confirmpopup-message',
     footer: 'p-confirmpopup-footer',
-    rejectButton: 'p-confirmpopup-reject-button',
-    acceptButton: 'p-confirmpopup-accept-button'
+    pcRejectButton: 'p-confirmpopup-reject-button',
+    pcAcceptButton: 'p-confirmpopup-accept-button'
 };
 
 export default BaseStyle.extend({

@@ -13,6 +13,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
 import { PassThroughOptions } from '../passthrough';
+import { ProgressBarPassThroughOptions } from '../progressbar';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
@@ -207,33 +208,34 @@ export interface FileUploadPassThroughOptions {
      */
     header?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the choose button's DOM element.
+     * Used to pass attributes to the choose Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    chooseButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcChooseButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the upload button's DOM element.
+     * Used to pass attributes to the upload Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    uploadButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcUploadButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the cancel button's DOM element.
+     * Used to pass attributes to the cancel Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    cancelButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcCancelButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the progressbar's DOM element.
+     * Used to pass attributes to the ProgressBar component.
+     * @see {@link ProgressbarPassThroughOptions}
      */
-    progressbar?: FileUploadPassThroughOptionType;
+    pcProgressbar?: ProgressBarPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the messages' DOM element.
+     * Used to pass attributes to the message's DOM element.
      * @see {@link MessagePassThroughOptions}
      */
-    message?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcMessage?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the file's DOM element.
      */
@@ -258,7 +260,7 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the Badge component.
      * @see {@link BadgePassThroughOptions}
      */
-    fileBadge?: BadgePassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcFileBadge?: BadgePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the file actions' DOM element.
      */
@@ -267,16 +269,21 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the file remove button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    fileRemoveButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcFileRemoveButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the empty's DOM element.
      */
     empty?: FileUploadPassThroughOptionType;
     /**
+     * Used to pass attributes to the messages' DOM element.
+     * @see {@link MessagePassThroughOptions}
+     */
+    pcMessages?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
+    /**
      * Used to pass attributes to the basic mode's button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    button?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

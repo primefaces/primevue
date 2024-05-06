@@ -137,7 +137,7 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    chipLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    pcChipLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the chip icon's DOM element.
      */
@@ -161,7 +161,7 @@ export interface MultiSelectPassThroughOptions {
     /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
-    headerCheckbox?: MultiSelectPassThroughOptionType;
+    pcHeaderCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the filter container's DOM element.
      */
@@ -170,7 +170,7 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    filter?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    pcFilter?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
@@ -203,7 +203,7 @@ export interface MultiSelectPassThroughOptions {
     /**
      * Used to pass attributes to the option checkbox's DOM element.
      */
-    optionCheckbox?: MultiSelectPassThroughOptionType;
+    pcOptionCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the emptyMessage's DOM element.
      */

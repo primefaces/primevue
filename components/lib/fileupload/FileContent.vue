@@ -5,12 +5,12 @@
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
         </div>
-        <Badge :value="badgeValue" :class="cx('fileBadge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('fileBadge')" />
+        <Badge :value="badgeValue" :class="cx('pcFileBadge')" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('pcFileBadge')" />
         <div :class="cx('fileActions')" v-bind="ptm('fileActions')">
-            <Button @click="$emit('remove', index)" text rounded severity="danger" :class="cx('fileRemoveButton')" :unstyled="unstyled" :pt="ptm('fileRemoveButton')">
+            <Button @click="$emit('remove', index)" text rounded severity="danger" :class="cx('pcFileRemoveButton')" :unstyled="unstyled" :pt="ptm('pcFileRemoveButton')">
                 <template #icon="iconProps">
                     <component v-if="templates.fileremoveicon" :is="templates.fileremoveicon" :class="iconProps.class" :file="file" :index="index" />
-                    <TimesIcon v-else :class="iconProps.class" aria-hidden="true" v-bind="ptm('fileRemoveButton')['icon']" />
+                    <TimesIcon v-else :class="iconProps.class" aria-hidden="true" v-bind="ptm('pcFileRemoveButton')['icon']" />
                 </template>
             </Button>
         </div>

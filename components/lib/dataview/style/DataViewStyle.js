@@ -42,7 +42,7 @@ const classes = {
         }
     ],
     header: 'p-dataview-header',
-    paginator: ({ position }) => 'p-dataview-paginator-' + position,
+    pcPaginator: ({ position }) => 'p-dataview-paginator-' + position,
     content: 'p-dataview-content',
     emptyMessage: 'p-dataview-empty-message', // TODO: remove?
     footer: 'p-dataview-footer'

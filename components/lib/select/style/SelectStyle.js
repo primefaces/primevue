@@ -246,7 +246,7 @@ const classes = {
     ],
     header: 'p-select-header',
     filterContainer: 'p-select-filter-container',
-    filter: 'p-select-filter',
+    pcFilter: 'p-select-filter',
     filterIcon: 'p-select-filter-icon',
     listContainer: 'p-select-list-container',
     list: 'p-select-list',

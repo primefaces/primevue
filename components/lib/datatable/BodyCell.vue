@@ -85,41 +85,41 @@
         <template v-else-if="editMode === 'row' && columnProp('rowEditor')">
             <Button
                 v-if="!d_editing"
-                :class="cx('rowEditorInit')"
+                :class="cx('pcRowEditorInit')"
                 :aria-label="initButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditInit"
-                v-bind="{ ...getColumnPT('rowEditorInit'), ...editButtonProps.init }"
+                v-bind="{ ...getColumnPT('pcRowEditorInit'), ...editButtonProps.init }"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
-                    <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="slotProps.class" v-bind="getColumnPT('rowEditorInit')['icon']" />
+                    <component :is="(column.children && column.children.roweditoriniticon) || 'PencilIcon'" :class="slotProps.class" v-bind="getColumnPT('pcRowEditorInit')['icon']" />
                 </template>
             </Button>
             <Button
                 v-if="d_editing"
-                :class="cx('rowEditorSave')"
+                :class="cx('pcRowEditorSave')"
                 :aria-label="saveButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditSave"
-                v-bind="{ ...getColumnPT('rowEditorSave'), ...editButtonProps.save }"
+                v-bind="{ ...getColumnPT('pcRowEditorSave'), ...editButtonProps.save }"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
-                    <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="slotProps.class" v-bind="getColumnPT('rowEditorSave')['icon']" />
+                    <component :is="(column.children && column.children.roweditorsaveicon) || 'CheckIcon'" :class="slotProps.class" v-bind="getColumnPT('pcRowEditorSave')['icon']" />
                 </template>
             </Button>
             <Button
                 v-if="d_editing"
-                :class="cx('rowEditorCancel')"
+                :class="cx('pcRowEditorCancel')"
                 :aria-label="cancelButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditCancel"
-                v-bind="{ ...getColumnPT('rowEditorCancel'), ...editButtonProps.cancel }"
+                v-bind="{ ...getColumnPT('pcRowEditorCancel'), ...editButtonProps.cancel }"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
-                    <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="slotProps.class" v-bind="getColumnPT('rowEditorCancel')['icon']" />
+                    <component :is="(column.children && column.children.roweditorcancelicon) || 'TimesIcon'" :class="slotProps.class" v-bind="getColumnPT('pcRowEditorCancel')['icon']" />
                 </template>
             </Button>
         </template>

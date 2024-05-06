@@ -88,7 +88,7 @@ export interface CarouselPassThroughOptions {
      * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    previousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
+    pcPreviousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the viewport's DOM element.
      */
@@ -109,7 +109,7 @@ export interface CarouselPassThroughOptions {
      * Used to pass attributes to the next button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    nextButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
+    pcNextButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the indicator list's DOM element.
      */

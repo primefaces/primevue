@@ -99,7 +99,7 @@ export interface DataViewPassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>;
+    pcPaginator?: PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */

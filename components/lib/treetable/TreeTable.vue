@@ -20,11 +20,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="cx('paginator', { position: 'top' })"
+            :class="cx('pcPaginator', { position: 'top' })"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
-            :pt="ptm('paginator')"
+            :pt="ptm('pcPaginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
@@ -129,11 +129,11 @@
             :template="paginatorTemplate"
             :rowsPerPageOptions="rowsPerPageOptions"
             :currentPageReportTemplate="currentPageReportTemplate"
-            :class="cx('paginator', { position: 'bottom' })"
+            :class="cx('pcPaginator', { position: 'bottom' })"
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
-            :pt="ptm('paginator')"
+            :pt="ptm('pcPaginator')"
         >
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>

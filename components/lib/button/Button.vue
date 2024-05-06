@@ -9,7 +9,7 @@
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
             </slot>
             <span v-if="label" :class="cx('label')" v-bind="ptm('label')">{{ label }}</span>
-            <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" v-bind="ptm('badge')"></Badge>
+            <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" v-bind="ptm('pcBadge')"></Badge>
         </slot>
     </button>
 </template>

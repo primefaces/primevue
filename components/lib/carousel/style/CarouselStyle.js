@@ -102,7 +102,7 @@ const classes = {
     header: 'p-carousel-header',
     contentContainer: 'p-carousel-content-container',
     content: 'p-carousel-content',
-    previousButton: ({ instance }) => [
+    pcPreviousButton: ({ instance }) => [
         'p-carousel-prev-button',
         {
             'p-disabled': instance.backwardIsDisabled
@@ -126,7 +126,7 @@ const classes = {
             'p-carousel-item-end': instance.lastIndex() === index
         }
     ],
-    nextButton: ({ instance }) => [
+    pcNextButton: ({ instance }) => [
         'p-carousel-next-button',
         {
             'p-disabled': instance.forwardIsDisabled

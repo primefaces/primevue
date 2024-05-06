@@ -187,7 +187,7 @@ const classes = {
     ],
     header: 'p-drawer-header',
     title: 'p-drawer-title',
-    closeButton: 'p-drawer-close-button',
+    pcCloseButton: 'p-drawer-close-button',
     content: 'p-drawer-content'
 };
 

@@ -71,19 +71,20 @@ export interface SplitButtonPassThroughOptions {
      */
     root?: SplitButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the button's DOM element.
+     * Used to pass attributes to the Button component.
+     * @see {@link ButtonPassThroughOptions}
      */
-    button?: SplitButtonPassThroughOptionType;
+    pcButton?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    dropdown?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
+    pcDropdown?: ButtonPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
-    menu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
+    ptMenu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

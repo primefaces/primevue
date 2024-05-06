@@ -598,7 +598,7 @@ const classes = {
     overlay: 'p-datatable-mask p-component-overlay',
     loadingIcon: 'p-datatable-loading-icon',
     header: 'p-datatable-header',
-    paginator: ({ position }) => 'p-datatable-paginator-' + position,
+    pcPaginator: ({ position }) => 'p-datatable-paginator-' + position,
     tableContainer: 'p-datatable-table-container',
     table: ({ props }) => [
         'p-datatable-table',
@@ -638,8 +638,8 @@ const classes = {
         }
     ],
     filterElementContainer: 'p-datatable-filter-element-container',
-    columnFilterButton: 'p-datatable-column-filter-button',
-    columnFilterClearButton: 'p-datatable-column-filter-clear-button',
+    pcColumnFilterButton: 'p-datatable-column-filter-button',
+    pcColumnFilterClearButton: 'p-datatable-column-filter-clear-button',
     filterOverlay: ({ instance, props }) => [
         'p-datatable-filter-overlay p-component',
         {
@@ -656,15 +656,15 @@ const classes = {
     ],
     filterConstraintSeparator: 'p-datatable-filter-constraint-separator',
     filterOperator: 'p-datatable-filter-operator',
-    filterOperatorDropdown: 'p-datatable-filter-operator-dropdown',
+    pcFilterOperatorDropdown: 'p-datatable-filter-operator-dropdown',
     filterRuleList: 'p-datatable-filter-rule-list',
     filterRule: 'p-datatable-filter-rule',
-    filterConstraintDropdown: 'p-datatable-filter-constraint-dropdown',
-    filterRemoveRuleButton: 'p-datatable-filter-remove-rule-button',
-    filterAddButton: 'p-column-filter-add-button',
+    pcFilterConstraintDropdown: 'p-datatable-filter-constraint-dropdown',
+    pcFilterRemoveRuleButton: 'p-datatable-filter-remove-rule-button',
+    pcFilterAddButton: 'p-column-filter-add-button',
     filterButtonbar: 'p-datatable-filter-buttonbar',
-    filterClearButton: 'p-datatable-filter-clear-button',
-    filterApplyButton: 'p-datatable-filter-apply-button',
+    pcFilterClearButton: 'p-datatable-filter-clear-button',
+    pcFilterApplyButton: 'p-datatable-filter-apply-button',
     tbody: ({ props }) => (props.frozenRow ? 'p-datatable-tbody p-datatable-frozen-tbody' : 'p-datatable-tbody'),
     rowGroupHeader: 'p-datatable-row-group-header',
     rowToggleButton: 'p-datatable-row-toggle-button',
@@ -701,9 +701,9 @@ const classes = {
         }
     ],
     reorderableRowHandle: 'p-datatable-reorderable-row-handle',
-    rowEditorInit: 'p-datatable-row-editor-init',
-    rowEditorSave: 'p-datatable-row-editor-save',
-    rowEditorCancel: 'p-datatable-row-editor-cancel',
+    pcRowEditorInit: 'p-datatable-row-editor-init',
+    pcRowEditorSave: 'p-datatable-row-editor-save',
+    pcRowEditorCancel: 'p-datatable-row-editor-cancel',
     tfoot: 'p-datatable-tfoot',
     footerCell: ({ instance }) => [
         {

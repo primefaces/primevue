@@ -159,7 +159,7 @@ const classes = {
             'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical'
         }
     ],
-    input: 'p-inputnumber-input',
+    pcInput: 'p-inputnumber-input',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',

@@ -30,7 +30,7 @@
                     </template>
                     <template v-else-if="display === 'chip'">
                         <div v-for="node of selectedNodes" :key="node.key" :class="cx('chip')" v-bind="ptm('chip')">
-                            <Chip :class="cx('chipLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('chipLabel')" />
+                            <Chip :class="cx('pcChipLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChipLabel')" />
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
@@ -75,7 +75,7 @@
                             @node-unselect="onNodeUnselect"
                             :level="0"
                             :unstyled="unstyled"
-                            :pt="ptm('tree')"
+                            :pt="ptm('pcTree')"
                         >
                             <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />

@@ -505,7 +505,7 @@ const classes = {
     ],
     nodeToggleButton: 'p-treetable-node-toggle-button',
     nodeToggleIcon: 'p-treetable-node-toggle-icon',
-    nodeCheckbox: 'p-treetable-node-checkbox',
+    pcNodeCheckbox: 'p-treetable-node-checkbox',
     emptyMessage: 'p-treetable-empty-message',
     tfoot: 'p-treetable-tfoot',
     footerCell: ({ instance }) => [

@@ -130,7 +130,7 @@ export interface ListboxPassThroughOptions<T = any> {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    filter?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
+    pcFilter?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

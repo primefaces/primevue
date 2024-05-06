@@ -28,9 +28,9 @@
                 v-bind="ptm('chip')"
                 :data-p-focused="focusedIndex === i"
             >
-                <slot name="chip" :class="cx('chipLabel')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
+                <slot name="chip" :class="cx('pcChipLabel')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                    <Chip :class="cx('chipLabel')" :label="val" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('chipLabel')">
+                    <Chip :class="cx('pcChipLabel')" :label="val" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('pcChipLabel')">
                         <template #removeicon>
                             <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
                         </template>

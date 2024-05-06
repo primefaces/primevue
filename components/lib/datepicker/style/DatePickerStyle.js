@@ -350,7 +350,7 @@ const classes = {
             'p-focus': state.focused || state.overlayVisible
         }
     ],
-    input: 'p-datepicker-input',
+    pcInput: 'p-datepicker-input',
     dropdown: 'p-datepicker-dropdown',
     inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',
@@ -366,12 +366,12 @@ const classes = {
     calendarContainer: 'p-datepicker-calendar-container',
     calendar: 'p-datepicker-calendar',
     header: 'p-datepicker-header',
-    previousButton: 'p-datepicker-prev-button',
+    pcPreviousButton: 'p-datepicker-prev-button',
     title: 'p-datepicker-title',
     viewMonth: 'p-datepicker-view-month p-link',
     viewYear: 'p-datepicker-view-year p-link',
     decade: 'p-datepicker-decade',
-    nextButton: 'p-datepicker-next-button',
+    pcNextButton: 'p-datepicker-next-button',
     dayView: 'p-datepicker-day-view',
     weekHeader: 'p-datepicker-weekheader p-disabled',
     weekNumber: 'p-datepicker-weeknumber',
@@ -386,15 +386,15 @@ const classes = {
     year: ({ instance, props, year }) => ['p-datepicker-year', { 'p-datepicker-year-selected': instance.isYearSelected(year.value), 'p-disabled': props.disabled || !year.selectable }],
     timePicker: 'p-datepicker-time-picker',
     hourPicker: 'p-datepicker-hour-picker',
-    incrementButton: 'p-datepicker-increment-button',
-    decrementButton: 'p-datepicker-decrement-button',
+    pcIncrementButton: 'p-datepicker-increment-button',
+    pcDecrementButton: 'p-datepicker-decrement-button',
     separator: 'p-datepicker-separator',
     minutePicker: 'p-datepicker-minute-picker',
     secondPicker: 'p-datepicker-second-picker',
     ampmPicker: 'p-datepicker-ampm-picker',
     buttonbar: 'p-datepicker-buttonbar',
-    todayButton: 'p-datepicker-today-button',
-    clearButton: 'p-datepicker-clear-button'
+    pcTodayButton: 'p-datepicker-today-button',
+    pcClearButton: 'p-datepicker-clear-button'
 };
 
 export default BaseStyle.extend({

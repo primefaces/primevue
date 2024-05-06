@@ -70,8 +70,8 @@ const theme = ({ dt }) => `
 
 const classes = {
     root: 'p-splitbutton p-component',
-    button: 'p-splitbutton-button',
-    dropdown: 'p-splitbutton-dropdown'
+    pcButton: 'p-splitbutton-button',
+    pcDropdown: 'p-splitbutton-dropdown'
 };
 
 export default BaseStyle.extend({

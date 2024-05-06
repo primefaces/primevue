@@ -81,9 +81,9 @@ const theme = ({ dt }) => `
 const classes = {
     root: ({ props }) => [`p-fileupload p-fileupload-${props.mode} p-component`],
     header: 'p-fileupload-header',
-    chooseButton: 'p-fileupload-choose-button',
-    uploadButton: 'p-fileupload-upload-button',
-    clearButton: 'p-fileupload-clear-button',
+    pcChooseButton: 'p-fileupload-choose-button',
+    pcUploadButton: 'p-fileupload-upload-button',
+    pcCancelButton: 'p-fileupload-cancel-button',
     content: 'p-fileupload-content',
     fileList: 'p-fileupload-file-list',
     file: 'p-fileupload-file',
@@ -91,9 +91,9 @@ const classes = {
     fileInfo: 'p-fileupload-file-info',
     fileName: 'p-fileupload-file-name',
     fileSize: 'p-fileupload-file-size',
-    fileBadge: 'p-fileupload-file-badge',
+    pcFileBadge: 'p-fileupload-file-badge',
     fileActions: 'p-fileupload-file-actions',
-    fileRemoveButton: 'p-fileupload-file-remove-button'
+    pcFileRemoveButton: 'p-fileupload-file-remove-button'
 };
 
 export default BaseStyle.extend({

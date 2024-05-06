@@ -16,7 +16,7 @@
                     <component v-else :is="$slots.message" :message="confirmation"></component>
                     <div :class="cx('footer')" v-bind="ptm('footer')">
                         <Button
-                            :class="[cx('rejectButton'), confirmation.rejectClass]"
+                            :class="[cx('pcRejectButton'), confirmation.rejectClass]"
                             :autofocus="autoFocusReject"
                             :unstyled="unstyled"
                             :size="confirmation.rejectProps?.size || 'small'"
@@ -25,16 +25,16 @@
                             @keydown="onRejectKeydown"
                             v-bind="confirmation.rejectProps"
                             :label="rejectLabel"
-                            :pt="ptm('rejectButton')"
+                            :pt="ptm('pcRejectButton')"
                         >
                             <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                                 <slot name="rejecticon">
-                                    <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('rejectButton')['icon']" data-pc-section="rejectbuttonicon" />
+                                    <span :class="[rejectIcon, iconProps.class]" v-bind="ptm('pcRejectButton')['icon']" data-pc-section="rejectbuttonicon" />
                                 </slot>
                             </template>
                         </Button>
                         <Button
-                            :class="[cx('acceptButton'), confirmation.acceptClass]"
+                            :class="[cx('pcAcceptButton'), confirmation.acceptClass]"
                             :autofocus="autoFocusAccept"
                             :unstyled="unstyled"
                             :size="confirmation.acceptProps?.size || 'small'"
@@ -42,11 +42,11 @@
                             @keydown="onAcceptKeydown"
                             v-bind="confirmation.acceptProps"
                             :label="acceptLabel"
-                            :pt="ptm('acceptButton')"
+                            :pt="ptm('pcAcceptButton')"
                         >
                             <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                                 <slot name="accepticon">
-                                    <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('acceptButton')['icon']" data-pc-section="acceptbuttonicon" />
+                                    <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('pcAcceptButton')['icon']" data-pc-section="acceptbuttonicon" />
                                 </slot>
                             </template>
                         </Button>

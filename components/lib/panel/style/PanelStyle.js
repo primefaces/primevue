@@ -43,7 +43,7 @@ const classes = {
     header: 'p-panel-header',
     title: 'p-panel-title',
     headerActions: 'p-panel-header-actions',
-    toggleButton: 'p-panel-toggle-button',
+    pcToggleButton: 'p-panel-toggle-button',
     contentContainer: 'p-panel-content-container',
     content: 'p-panel-content',
     footer: 'p-panel-footer'

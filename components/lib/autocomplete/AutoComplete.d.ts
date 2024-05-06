@@ -147,7 +147,7 @@ export interface AutoCompletePassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    input?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions> | AutoCompletePassThroughOptionType;
+    pcInput?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions> | AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the input multiple's DOM element.
      */
@@ -160,7 +160,7 @@ export interface AutoCompletePassThroughOptions {
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    chipLabel?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
+    pcChipLabel?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the chip icon's DOM element.
      */

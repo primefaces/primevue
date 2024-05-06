@@ -138,7 +138,7 @@ export interface DatePickerPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    input?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcInput?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the dropdown's DOM element.
      */
@@ -163,7 +163,7 @@ export interface DatePickerPassThroughOptions {
      * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    previousButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcPreviousButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the title's DOM element.
      */
@@ -188,7 +188,7 @@ export interface DatePickerPassThroughOptions {
      * Used to pass attributes to the next button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    nextButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcNextButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -314,15 +314,25 @@ export interface DatePickerPassThroughOptions {
      */
     buttonbar?: DatePickerPassThroughOptionType;
     /**
+     * Used to pass attributes to the increment button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    pcIncrementButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    /**
+     * Used to pass attributes to the decrement button's DOM element.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    pcDecrementButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    /**
      * Used to pass attributes to the today button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    todayButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcTodayButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the clear button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    clearButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcClearButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the aria selected day's DOM element.
      */

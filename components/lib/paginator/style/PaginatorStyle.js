@@ -130,9 +130,9 @@ const classes = {
         }
     ],
     current: 'p-paginator-current',
-    rowPerPageDropdown: 'p-paginator-rpp-dropdown',
-    jumpToPageDropdown: 'p-paginator-jtp-dropdown',
-    jumpToPageInput: 'p-paginator-jtp-input'
+    pcRowPerPageDropdown: 'p-paginator-rpp-dropdown',
+    pcJumpToPageDropdown: 'p-paginator-jtp-dropdown',
+    pcJumpToPageInput: 'p-paginator-jtp-input'
 };
 
 export default BaseStyle.extend({

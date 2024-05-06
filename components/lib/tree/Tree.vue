@@ -9,7 +9,7 @@
             </div>
         </template>
         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('filterInput')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('filterInput')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('pcFilterInput')" />
             <!--TODO: searchicon deprecated since v4.0-->
             <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
                 <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />

@@ -102,7 +102,7 @@ const classes = {
         }
     ],
     chip: ({ state, index }) => ['p-inputchips-chip', { 'p-focus': state.focusedIndex === index }],
-    chipLabel: 'p-inputchips-chip-label',
+    pcChipLabel: 'p-inputchips-chip-label',
     chipIcon: 'p-inputchips-chip-icon',
     inputItem: 'p-inputchips-input-item'
 };

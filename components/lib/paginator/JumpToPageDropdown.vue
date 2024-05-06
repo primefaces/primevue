@@ -5,10 +5,10 @@
         optionLabel="label"
         optionValue="value"
         @update:modelValue="onChange($event)"
-        :class="cx('jumpToPageDropdown')"
+        :class="cx('pcJumpToPageDropdown')"
         :disabled="disabled"
         :unstyled="unstyled"
-        :pt="ptm('jumpToPageDropdown')"
+        :pt="ptm('pcJumpToPageDropdown')"
         data-pc-group-section="pagedropdown"
     >
         <template v-if="templates['jumptopagedropdownicon']" #dropdownicon="slotProps">

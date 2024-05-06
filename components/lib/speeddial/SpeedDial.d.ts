@@ -77,7 +77,7 @@ export interface SpeedDialPassThroughOptions {
      * Used to pass attributes to the Button component.
      *  @see {@link ButtonPassThroughOptions}
      */
-    button?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
+    pcButton?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the list's DOM element.
      */

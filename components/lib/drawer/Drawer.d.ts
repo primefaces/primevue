@@ -79,10 +79,10 @@ export interface DrawerPassThroughOptions {
      */
     title?: DrawerPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the close button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    toggler?: ButtonPassThroughOptions<DrawerSharedPassThroughMethodOptions>;
+    pcCloseButton?: ButtonPassThroughOptions<DrawerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content's DOM element.
      */

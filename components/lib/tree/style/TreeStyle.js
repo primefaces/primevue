@@ -191,7 +191,7 @@ const classes = {
     mask: 'p-tree-mask p-component-overlay',
     loadingIcon: 'p-tree-loading-icon',
     filterContainer: 'p-tree-filter-container',
-    filterInput: 'p-tree-filter-input',
+    pcFilterInput: 'p-tree-filter-input',
     filterIcon: 'p-tree-filter-icon',
     wrapper: 'p-tree-root', //TODO: discuss
     rootChildren: 'p-tree-root-children',

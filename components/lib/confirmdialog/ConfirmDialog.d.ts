@@ -109,12 +109,12 @@ export interface ConfirmDialogPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    rejectButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
+    pcRejectButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    acceptButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
+    pcAcceptButton?: ButtonPassThroughOptions<ConfirmDialogSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

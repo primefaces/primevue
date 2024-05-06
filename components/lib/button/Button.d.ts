@@ -62,9 +62,9 @@ export interface ButtonPassThroughOptions<T = any> {
      */
     label?: ButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the badge's DOM element.
+     * Used to pass attributes to the Badge component.
      */
-    badge?: ButtonPassThroughOptionType<T>;
+    pcBadge?: ButtonPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

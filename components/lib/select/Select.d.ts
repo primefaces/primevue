@@ -115,9 +115,9 @@ export interface SelectPassThroughOptions<T = any> {
      */
     filterContainer?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter's DOM element.
+     * Used to pass attributes to the InputText component.
      */
-    filter?: SelectPassThroughOptionType<T>;
+    pcFilter?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             role="spinbutton"
-            :class="[cx('input'), inputClass]"
+            :class="[cx('pcInput'), inputClass]"
             :style="inputStyle"
             :value="formattedValue"
             :aria-valuemin="min"
@@ -25,7 +25,7 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            :pt="ptm('input')"
+            :pt="ptm('pcInput')"
             :unstyled="unstyled"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">

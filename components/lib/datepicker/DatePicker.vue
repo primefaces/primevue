@@ -5,7 +5,7 @@
             :ref="inputRef"
             :id="inputId"
             role="combobox"
-            :class="[inputClass, cx('input')]"
+            :class="[inputClass, cx('pcInput')]"
             :style="inputStyle"
             :value="inputFieldValue"
             :placeholder="placeholder"
@@ -28,7 +28,7 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            :pt="ptm('input')"
+            :pt="ptm('pcInput')"
         />
         <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
             <button
@@ -78,19 +78,19 @@
                                     <Button
                                         v-show="showOtherMonths ? groupIndex === 0 : false"
                                         :ref="previousButtonRef"
-                                        :class="cx('previousButton')"
+                                        :class="cx('pcPreviousButton')"
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                         :unstyled="unstyled"
                                         @click="onPrevButtonClick"
                                         @keydown="onContainerButtonKeydown"
                                         v-bind="navigatorButtonProps"
-                                        :pt="ptm('previousButton')"
+                                        :pt="ptm('pcPreviousButton')"
                                         data-pc-group-section="navigator"
                                     >
                                         <template #icon="slotProps">
                                             <slot name="previousicon">
-                                                <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[previousIcon, slotProps.class]" v-bind="ptm('previousButton')['icon']" />
+                                                <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[previousIcon, slotProps.class]" v-bind="ptm('pcPreviousButton')['icon']" />
                                             </slot>
                                         </template>
                                     </Button>
@@ -158,19 +158,19 @@
                                     <Button
                                         v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
                                         :ref="nextButtonRef"
-                                        :class="cx('nextButton')"
+                                        :class="cx('pcNextButton')"
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.nextDecade : currentView === 'month' ? $primevue.config.locale.nextYear : $primevue.config.locale.nextMonth"
                                         :unstyled="unstyled"
                                         @click="onNextButtonClick"
                                         @keydown="onContainerButtonKeydown"
                                         v-bind="navigatorButtonProps"
-                                        :pt="ptm('nextButton')"
+                                        :pt="ptm('pcNextButton')"
                                         data-pc-group-section="navigator"
                                     >
                                         <template #icon="slotProps">
                                             <slot name="nexticon">
-                                                <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[nextIcon, slotProps.class]" v-bind="ptm('nextButton')['icon']" />
+                                                <component :is="nextIcon ? 'span' : 'ChevronRightIcon'" :class="[nextIcon, slotProps.class]" v-bind="ptm('pcNextButton')['icon']" />
                                             </slot>
                                         </template>
                                     </Button>
@@ -311,7 +311,7 @@
                     <div v-if="(showTime || timeOnly) && currentView === 'date'" :class="cx('timePicker')" v-bind="ptm('timePicker')">
                         <div :class="cx('hourPicker')" v-bind="ptm('hourPicker')" data-pc-group-section="timepickerContainer">
                             <Button
-                                :class="cx('incrementButton')"
+                                :class="cx('pcIncrementButton')"
                                 :aria-label="$primevue.config.locale.nextHour"
                                 :unstyled="unstyled"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, 1)"
@@ -323,18 +323,18 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('incrementButton')"
+                                :pt="ptm('pcIncrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="incrementicon">
-                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('incrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('pcIncrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
                             <span v-bind="ptm('hour')" data-pc-group-section="timepickerlabel">{{ formattedCurrentHour }}</span>
                             <Button
-                                :class="cx('decrementButton')"
+                                :class="cx('pcDecrementButton')"
                                 :aria-label="$primevue.config.locale.prevHour"
                                 :unstyled="unstyled"
                                 @mousedown="onTimePickerElementMouseDown($event, 0, -1)"
@@ -346,12 +346,12 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('decrementButton')"
+                                :pt="ptm('pcDecrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="decrementicon">
-                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('decrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('pcDecrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
@@ -361,7 +361,7 @@
                         </div>
                         <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')" data-pc-group-section="timepickerContainer">
                             <Button
-                                :class="cx('incrementButton')"
+                                :class="cx('pcIncrementButton')"
                                 :aria-label="$primevue.config.locale.nextMinute"
                                 :disabled="disabled"
                                 :unstyled="unstyled"
@@ -374,18 +374,18 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('incrementButton')"
+                                :pt="ptm('pcIncrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="incrementicon">
-                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('incrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('pcIncrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
                             <span v-bind="ptm('minute')" data-pc-group-section="timepickerlabel">{{ formattedCurrentMinute }}</span>
                             <Button
-                                :class="cx('decrementButton')"
+                                :class="cx('pcDecrementButton')"
                                 :aria-label="$primevue.config.locale.prevMinute"
                                 :disabled="disabled"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, -1)"
@@ -397,12 +397,12 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('decrementButton')"
+                                :pt="ptm('pcDecrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="decrementicon">
-                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('decrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('pcDecrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
@@ -412,7 +412,7 @@
                         </div>
                         <div v-if="showSeconds" :class="cx('secondPicker')" v-bind="ptm('secondPicker')" data-pc-group-section="timepickerContainer">
                             <Button
-                                :class="cx('incrementButton')"
+                                :class="cx('pcIncrementButton')"
                                 :aria-label="$primevue.config.locale.nextSecond"
                                 :disabled="disabled"
                                 :unstyled="unstyled"
@@ -425,18 +425,18 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('incrementButton')"
+                                :pt="ptm('pcIncrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="incrementicon">
-                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('incrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[incrementIcon, slotProps.class]" v-bind="ptm('pcIncrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
                             <span v-bind="ptm('second')" data-pc-group-section="timepickerlabel">{{ formattedCurrentSecond }}</span>
                             <Button
-                                :class="cx('decrementButton')"
+                                :class="cx('pcDecrementButton')"
                                 :aria-label="$primevue.config.locale.prevSecond"
                                 :disabled="disabled"
                                 :unstyled="unstyled"
@@ -449,12 +449,12 @@
                                 @keyup.enter="onTimePickerElementMouseUp($event)"
                                 @keyup.space="onTimePickerElementMouseUp($event)"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('decrementButton')"
+                                :pt="ptm('pcDecrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="decrementicon">
-                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('decrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[decrementIcon, slotProps.class]" v-bind="ptm('pcDecrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
@@ -464,36 +464,36 @@
                         </div>
                         <div v-if="hourFormat == '12'" :class="cx('ampmPicker')" v-bind="ptm('ampmPicker')">
                             <Button
-                                :class="cx('incrementButton')"
+                                :class="cx('pcIncrementButton')"
                                 :aria-label="$primevue.config.locale.am"
                                 :disabled="disabled"
                                 :unstyled="unstyled"
                                 @click="toggleAMPM($event)"
                                 @keydown="onContainerButtonKeydown"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('incrementButton')"
+                                :pt="ptm('pcIncrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="incrementicon" :class="cx('incrementIcon')">
-                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[cx('incrementIcon'), slotProps.class]" v-bind="ptm('incrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="incrementIcon ? 'span' : 'ChevronUpIcon'" :class="[cx('incrementIcon'), slotProps.class]" v-bind="ptm('pcIncrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
                             <span v-bind="ptm('ampm')" data-pc-group-section="timepickerlabel">{{ pm ? $primevue.config.locale.pm : $primevue.config.locale.am }}</span>
                             <Button
-                                :class="cx('decrementButton')"
+                                :class="cx('pcDecrementButton')"
                                 :aria-label="$primevue.config.locale.pm"
                                 :disabled="disabled"
                                 @click="toggleAMPM($event)"
                                 @keydown="onContainerButtonKeydown"
                                 v-bind="timepickerButtonProps"
-                                :pt="ptm('decrementButton')"
+                                :pt="ptm('pcDecrementButton')"
                                 data-pc-group-section="timepickerbutton"
                             >
                                 <template #icon="slotProps">
                                     <slot name="decrementicon" :class="cx('decrementIcon')">
-                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('decrementIcon'), slotProps.class]" v-bind="ptm('decrementButton')['icon']" data-pc-group-section="timepickerlabel" />
+                                        <component :is="decrementIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('decrementIcon'), slotProps.class]" v-bind="ptm('pcDecrementButton')['icon']" data-pc-group-section="timepickerlabel" />
                                     </slot>
                                 </template>
                             </Button>
@@ -503,21 +503,21 @@
                         <Button
                             :label="todayLabel"
                             @click="onTodayButtonClick($event)"
-                            :class="cx('todayButton')"
+                            :class="cx('pcTodayButton')"
                             :unstyled="unstyled"
                             @keydown="onContainerButtonKeydown"
                             v-bind="todayButtonProps"
-                            :pt="ptm('todayButton')"
+                            :pt="ptm('pcTodayButton')"
                             data-pc-group-section="button"
                         />
                         <Button
                             :label="clearLabel"
                             @click="onClearButtonClick($event)"
-                            :class="cx('clearButton')"
+                            :class="cx('pcClearButton')"
                             :unstyled="unstyled"
                             @keydown="onContainerButtonKeydown"
                             v-bind="clearButtonProps"
-                            :pt="ptm('clearButton')"
+                            :pt="ptm('pcClearButton')"
                             data-pc-group-section="button"
                         />
                     </div>

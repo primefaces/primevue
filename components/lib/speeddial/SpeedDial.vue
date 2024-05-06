@@ -2,7 +2,7 @@
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
         <slot name="button" :visible="d_visible" :onClick="onClick" :toggleCallback="onClick">
             <Button
-                :class="[cx('button'), buttonClass]"
+                :class="[cx('pcButton'), buttonClass]"
                 :disabled="disabled"
                 :aria-expanded="d_visible"
                 :aria-haspopup="true"
@@ -13,12 +13,12 @@
                 @click="onClick($event)"
                 @keydown="onTogglerKeydown"
                 v-bind="buttonProps"
-                :pt="ptm('button')"
+                :pt="ptm('pcButton')"
             >
                 <template #icon="slotProps">
                     <slot name="icon" :visible="d_visible">
-                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, cx('buttonIcon'), slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
-                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="[d_visible && !!hideIcon ? hideIcon : showIcon, slotProps.class]" v-bind="ptm('button')['icon']" data-pc-section="icon" />
+                        <component v-if="d_visible && !!hideIcon" :is="hideIcon ? 'span' : 'PlusIcon'" :class="[hideIcon, slotProps.class]" v-bind="ptm('pcButton')['icon']" data-pc-section="icon" />
+                        <component v-else :is="showIcon ? 'span' : 'PlusIcon'" :class="[d_visible && !!hideIcon ? hideIcon : showIcon, slotProps.class]" v-bind="ptm('pcButton')['icon']" data-pc-section="icon" />
                     </slot>
                 </template>
             </Button>
@@ -40,16 +40,16 @@
                             v-tooltip:[tooltipOptions]="{ value: item.label, disabled: !tooltipOptions }"
                             :tabindex="-1"
                             role="menuitem"
-                            :class="cx('action', { item })"
+                            :class="cx('pcAction', { item })"
                             :aria-label="item.label"
                             :disabled="disabled"
                             :unstyled="unstyled"
                             @click="onItemClick($event, item)"
                             v-bind="actionButtonProps"
-                            :pt="getPTOptions(`${id}_${index}`, 'action')"
+                            :pt="getPTOptions(`${id}_${index}`, 'pcAction')"
                         >
                             <template v-if="item.icon" #icon="slotProps">
-                                <span :class="[cx('actionIcon'), item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                                <span :class="[item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
                             </template>
                         </Button>
                     </template>

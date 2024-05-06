@@ -59,6 +59,10 @@ export interface SelectButtonPassThroughOptions {
      */
     root?: SelectButtonPassThroughOptionType;
     /**
+     * Used to pass attributes to the ToggleButton component.
+     */
+    pcButton?: SelectButtonPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */

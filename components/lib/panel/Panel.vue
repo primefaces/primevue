@@ -9,7 +9,7 @@
                 <Button
                     v-if="toggleable"
                     :id="id + '_header'"
-                    :class="cx('toggleButton')"
+                    :class="cx('pcToggleButton')"
                     :aria-label="buttonAriaLabel"
                     :aria-controls="id + '_content'"
                     :aria-expanded="!d_collapsed"
@@ -17,12 +17,12 @@
                     @click="toggle"
                     @keydown="onKeyDown"
                     v-bind="toggleButtonProps"
-                    :pt="ptm('toggleButton')"
+                    :pt="ptm('pcToggleButton')"
                 >
                     <template #icon="slotProps">
                         <!--TODO: togglericon deprecated since v4.0-->
                         <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
-                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('toggleButton')['icon']" />
+                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('pcToggleButton')['icon']" />
                         </slot>
                     </template>
                 </Button>

@@ -33,7 +33,7 @@
                         <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('chip')" v-bind="ptm('chip')">
                             <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                 <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                                <Chip :class="cx('chipLabel')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('chipLabel')">
+                                <Chip :class="cx('pcChipLabel')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChipLabel')">
                                     <template #removeicon>
                                         <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
                                     </template>
@@ -79,11 +79,11 @@
                             :aria-label="toggleAllAriaLabel"
                             @change="onToggleAll"
                             :unstyled="unstyled"
-                            :pt="getHeaderCheckboxPTOptions('headerCheckbox')"
+                            :pt="getHeaderCheckboxPTOptions('pcHeaderCheckbox')"
                         >
                             <template #icon="slotProps">
                                 <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
-                                <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('headerCheckbox.icon')" />
+                                <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('pcHeaderCheckbox.icon')" />
                             </template>
                         </Checkbox>
                         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
@@ -92,7 +92,7 @@
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
-                                :class="cx('filter')"
+                                :class="cx('pcFilter')"
                                 :placeholder="filterPlaceholder"
                                 :invalid="invalid"
                                 :disabled="disabled"
@@ -105,7 +105,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('filter')"
+                                :pt="ptm('pcFilter')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -149,14 +149,14 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'optionCheckbox')">
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')">
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :is="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component
                                                         v-else-if="slotProps.checked"
                                                         :is="checkboxIcon ? 'span' : 'CheckIcon'"
                                                         :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]"
-                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'optionCheckbox.icon')"
+                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox.icon')"
                                                     />
                                                 </template>
                                             </Checkbox>

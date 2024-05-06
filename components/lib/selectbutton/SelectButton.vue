@@ -8,11 +8,11 @@
                 :disabled="disabled || isOptionDisabled(option)"
                 :unstyled="unstyled"
                 @change="onOptionSelect($event, option, index)"
-                :pt="ptm('button')"
+                :pt="ptm('pcButton')"
             >
                 <template v-if="$slots.option" #default>
                     <slot name="option" :option="option" :index="index">
-                        <span v-bind="ptm('button')['label']">{{ getOptionLabel(option) }}</span>
+                        <span v-bind="ptm('pcButton')['label']">{{ getOptionLabel(option) }}</span>
                     </slot>
                 </template>
             </ToggleButton>

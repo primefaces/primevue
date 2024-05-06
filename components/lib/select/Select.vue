@@ -83,7 +83,7 @@
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
-                                :class="cx('filter')"
+                                :class="cx('pcFilter')"
                                 :placeholder="filterPlaceholder"
                                 :invalid="invalid"
                                 :variant="variant"
@@ -95,7 +95,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('filter')"
+                                :pt="ptm('pcFilter')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />

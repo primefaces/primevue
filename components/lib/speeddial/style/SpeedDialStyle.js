@@ -99,7 +99,7 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    button: ({ props }) => [
+    pcButton: ({ props }) => [
         'p-speeddial-button',
         {
             'p-speeddial-rotate': props.rotateAnimation && !props.hideIcon

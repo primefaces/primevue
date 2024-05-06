@@ -125,17 +125,17 @@ export interface PaginatorPassThroughOptions<T = any> {
      * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptions}
      */
-    rowPerPageDropdown?: DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
+    pcRowPerPageDropdown?: DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Dropdown component.
      * @see {@link DropdownPassThroughOptions}
      */
-    jumpToPageDropdown?: DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
+    pcJumpToPageDropdown?: DropdownPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Dropdown component.
      * @see {@link InputNumberPassThroughOptions}
      */
-    jumpToPageInput?: InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
+    pcJumpToPageInput?: InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content end's DOM element.
      */

@@ -230,7 +230,7 @@ const classes = {
         }
     ],
     chip: 'p-multiselect-chip',
-    chipLabel: 'p-multiselect-chip-label',
+    pcChipLabel: 'p-multiselect-chip-label',
     chipIcon: 'p-multiselect-chip-icon',
     dropdown: 'p-multiselect-dropdown',
     loadingIcon: 'p-multiselect-loading-icon',
@@ -243,7 +243,7 @@ const classes = {
     ],
     header: 'p-multiselect-header',
     filterContainer: 'p-multiselect-filter-container',
-    filter: 'p-multiselect-filter',
+    pcFilter: 'p-multiselect-filter',
     filterIcon: 'p-multiselect-filter-icon',
     listContainer: 'p-multiselect-list-container',
     list: 'p-multiselect-list',

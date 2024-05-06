@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
 
 const classes = {
     root: 'p-inputotp p-component',
-    input: 'p-inputotp-input'
+    pcInput: 'p-inputotp-input'
 };
 
 export default BaseStyle.extend({

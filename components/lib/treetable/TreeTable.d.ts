@@ -236,7 +236,7 @@ export interface TreeTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>;
+    pcPaginator?: PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the table container's DOM element.
      */

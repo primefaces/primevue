@@ -1,5 +1,5 @@
 <template>
-    <RadioButton :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('rowRadiobutton')" />
+    <RadioButton :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowRadiobutton')" />
 </template>
 
 <script>

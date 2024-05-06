@@ -245,7 +245,7 @@ const classes = {
             'p-focus': instance.focusedMultipleOptionIndex === i
         }
     ],
-    chipLabel: 'p-autocomplete-chip-label',
+    pcChipLabel: 'p-autocomplete-chip-label',
     chipIcon: 'p-autocomplete-chip-icon',
     inputChip: 'p-autocomplete-input-chip',
     loader: 'p-autocomplete-loader',

@@ -101,7 +101,7 @@ export interface PanelPassThroughOptions {
      * Used to pass attributes to the toggle button button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    toggleButton?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
+    pcToggleButton?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the content container's DOM element.
      */

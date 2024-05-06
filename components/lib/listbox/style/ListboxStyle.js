@@ -126,7 +126,7 @@ const classes = {
     ],
     header: 'p-listbox-header',
     filterContainer: 'p-listbox-filter-container',
-    filter: 'p-listbox-filter',
+    pcFilter: 'p-listbox-filter',
     filterIcon: 'p-listbox-filter-icon',
     listContainer: 'p-listbox-list-container',
     list: 'p-listbox-list',

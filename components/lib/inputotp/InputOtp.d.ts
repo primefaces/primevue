@@ -68,7 +68,7 @@ export interface InputOtpPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    input?: InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>;
+    pcInput?: InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

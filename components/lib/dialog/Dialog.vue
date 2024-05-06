@@ -14,17 +14,17 @@
                                     v-if="maximizable"
                                     :ref="maximizableRef"
                                     :autofocus="focusableMax"
-                                    :class="cx('maximizeButton')"
+                                    :class="cx('pcMaximizeButton')"
                                     @click="maximize"
                                     :tabindex="maximizable ? '0' : '-1'"
                                     :unstyled="unstyled"
                                     v-bind="maximizeButtonProps"
-                                    :pt="ptm('maximizeButton')"
+                                    :pt="ptm('pcMaximizeButton')"
                                     data-pc-group-section="headericon"
                                 >
                                     <template #icon="slotProps">
                                         <slot name="maximizeicon" :maximized="maximized">
-                                            <component :is="maximizeIconComponent" :class="[slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizeButton')['icon']" />
+                                            <component :is="maximizeIconComponent" :class="[slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('pcMaximizeButton')['icon']" />
                                         </slot>
                                     </template>
                                 </Button>
@@ -32,17 +32,17 @@
                                     v-if="closable"
                                     :ref="closeButtonRef"
                                     :autofocus="focusableClose"
-                                    :class="cx('closeButton')"
+                                    :class="cx('pcCloseButton')"
                                     @click="close"
                                     :aria-label="closeAriaLabel"
                                     :unstyled="unstyled"
                                     v-bind="closeButtonProps"
-                                    :pt="ptm('closeButton')"
+                                    :pt="ptm('pcCloseButton')"
                                     data-pc-group-section="headericon"
                                 >
                                     <template #icon="slotProps">
-                                        <slot name="closeicon" :class="cx('closeButtonIcon')">
-                                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[cx('closeButtonIcon'), closeIcon, slotProps.class]" v-bind="ptm('closeButton')['icon']"></component>
+                                        <slot name="closeicon">
+                                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
                                         </slot>
                                     </template>
                                 </Button>

@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             :type="inputType"
-            :class="[cx('input'), inputClass]"
+            :class="[cx('ptInput'), inputClass]"
             :style="inputStyle"
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
@@ -23,7 +23,7 @@
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="inputProps"
-            :pt="ptm('input')"
+            :pt="ptm('ptInput')"
             :unstyled="unstyled"
         />
         <!-- TODO: hide* and show* deprecated since v4.0-->

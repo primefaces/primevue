@@ -19,12 +19,12 @@
             v-if="checkboxSelectionMode && columnProp('expander')"
             :modelValue="checked"
             :binary="true"
-            :class="cx('nodeCheckbox')"
+            :class="cx('pcNodeCheckbox')"
             @change="toggleCheckbox"
             :tabindex="-1"
             :indeterminate="partialChecked"
             :unstyled="unstyled"
-            :pt="getColumnCheckboxPT('nodeCheckbox')"
+            :pt="getColumnCheckboxPT('pcNodeCheckbox')"
             :data-p-partialchecked="partialChecked"
         >
             <template #icon="slotProps">

@@ -10,6 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
+import { ListboxPassThroughOptions } from '../listbox';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
@@ -155,19 +156,23 @@ export interface PickListPassThroughOptions {
     /**
      * Used to pass attributes to the Button component.
      */
-    sourceMoveUpButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcSourceMoveUpButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    sourceMoveTopButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcSourceMoveTopButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    sourceMoveDownButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcSourceMoveDownButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    sourceMoveBottomButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcSourceMoveBottomButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    /**
+     * Used to pass attributes to the Listbox component.
+     */
+    pcList?: ListboxPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the source list containerr's DOM element.
      */
@@ -215,19 +220,19 @@ export interface PickListPassThroughOptions {
     /**
      * Used to pass attributes to the Button component.
      */
-    targetMoveUpButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcTargetMoveUpButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    targetMoveTopButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcTargetMoveTopButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    targetMoveDownButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcTargetMoveDownButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    targetMoveBottomButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcTargetMoveBottomButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

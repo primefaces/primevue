@@ -19,7 +19,7 @@
                 <InputText
                     v-model="filterValue"
                     type="text"
-                    :class="cx('filter')"
+                    :class="cx('pcFilter')"
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
@@ -32,7 +32,7 @@
                     @input="onFilterChange"
                     @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
-                    :pt="ptm('filter')"
+                    :pt="ptm('pcFilter')"
                 />
 
                 <slot name="filtericon" :class="cx('filterIcon')">

@@ -113,22 +113,22 @@ export interface OrderListPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    moveUpButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcMoveUpButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    moveTopButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcMoveTopButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    moveDownButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcMoveDownButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    moveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcMoveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the container's DOM element.
      */
@@ -137,7 +137,7 @@ export interface OrderListPassThroughOptions {
      * Used to pass attributes to the Listbox component.
      * @see {@link ListboxPassThroughOptions}
      */
-    list?: ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcList?: ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

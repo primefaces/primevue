@@ -161,7 +161,7 @@ export interface ColumnPassThroughOptions {
     /**
      * Used to pass attributes to the header checkbox's DOM element.
      */
-    headerCheckbox?: CheckboxPassThroughOptionType;
+    pcHeaderCheckbox?: CheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the column filter's DOM element.
      */
@@ -173,7 +173,7 @@ export interface ColumnPassThroughOptions {
     /**
      * Used to pass attributes to the column filter button's DOM element.
      */
-    columnFilterButton?: ColumnPassThroughOptionType;
+    pcColumnFilterButton?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the filter menu icon's DOM element.
      */
@@ -181,7 +181,7 @@ export interface ColumnPassThroughOptions {
     /**
      * Used to pass attributes to the column filter clear button's DOM element.
      */
-    columnFilterClearButton?: ColumnPassThroughOptionType;
+    pcColumnFilterClearButton?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the filter clear icon's DOM element.
      */
@@ -210,7 +210,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Select component.
      * @see {@link SelectPassThroughOptionType}
      */
-    filterOperatorDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
+    pcFilterOperatorDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter rule list' DOM element.
      */
@@ -223,7 +223,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Select component.
      * @see {@link SelectPassThroughOptionType}
      */
-    filterConstraintDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
+    pcFilterConstraintDropdown?: SelectPassThroughOptionType<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter remove button container's DOM element.
      */
@@ -232,7 +232,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    filterRemoveRuleButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
+    pcFilterRemoveRuleButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter add button container's DOM element.
      */
@@ -241,7 +241,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    filterAddButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
+    pcFilterAddButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter buttonbar's DOM element.
      */
@@ -250,12 +250,12 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    filterClearButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
+    pcFilterClearButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    filterApplyButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
+    pcFilterApplyButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the row toggler button's DOM element.
      */
@@ -275,23 +275,23 @@ export interface ColumnPassThroughOptions {
     /**
      * Used to pass attributes to the radiobutton's DOM element.
      */
-    rowRadioButton?: RadioButtonPassThroughOptionType;
+    pcRowRadiobutton?: RadioButtonPassThroughOptionType;
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    rowCheckbox?: CheckboxPassThroughOptionType;
+    pcRowCheckbox?: CheckboxPassThroughOptionType;
     /**
      * Used to pass attributes to the row editor init button's DOM element.
      */
-    rowEditorInit?: ColumnPassThroughOptionType;
+    pcRowEditorInit?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the row editor save button's DOM element.
      */
-    rowEditorSave?: ColumnPassThroughOptionType;
+    pcRowEditorSave?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the row editor cancel button's DOM element.
      */
-    rowEditorCancel?: ColumnPassThroughOptionType;
+    pcRowEditorCancel?: ColumnPassThroughOptionType;
     /**
      * Used to pass attributes to the footer cell's DOM element.
      */
