@@ -86,9 +86,9 @@ import treetable from 'primevue/themes/aura/treetable';
 
 export default {
     primitive: {
-        rounded: {
+        borderRadius: {
             sm: '4px',
-            base: '6px',
+            md: '6px',
             lg: '8px',
             xl: '12px'
         },
@@ -137,6 +137,11 @@ export default {
             900: '{emerald.900}',
             950: '{emerald.950}'
         },
+        formField: {
+            paddingX: '0.75rem',
+            paddingY: '0.5rem',
+            borderRadius: '{border.radius.md}'
+        },
         colorScheme: {
             light: {
                 surface: {
@@ -182,7 +187,8 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
-                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)',
+                    focusBoxShadow: 'none'
                 },
                 text: {
                     color: '{surface.700}',
@@ -287,7 +293,8 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    boxShadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)',
+                    focusBoxShadow: 'none'
                 },
                 text: {
                     color: '{surface.0}',
