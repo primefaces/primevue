@@ -21,7 +21,7 @@
                 >
                     <template #icon="slotProps">
                         <!--TODO: togglericon deprecated since v4.0-->
-                        <slot :name="$slots.togglericon ? 'togglericon' : 'toggleicon'" :collapsed="d_collapsed">
+                        <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
                             <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('toggleButton')['icon']" />
                         </slot>
                     </template>

@@ -35,7 +35,7 @@
                                 <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
                                 <Chip :class="cx('chipLabel')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('chipLabel')">
                                     <template #removeicon>
-                                        <slot :name="$slots.removetokenicon ? 'removetokenicon' : 'chipicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
+                                        <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
                                     </template>
                                 </Chip>
                             </slot>

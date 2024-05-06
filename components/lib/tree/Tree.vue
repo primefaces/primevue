@@ -11,7 +11,7 @@
         <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
             <InputText v-model="filterValue" autocomplete="off" :class="cx('filterInput')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('filterInput')" />
             <!--TODO: searchicon deprecated since v4.0-->
-            <slot :name="$slots.searchicon ? 'searchicon' : 'filtericon'" :class="cx('filterIcon')">
+            <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
                 <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />
             </slot>
         </div>

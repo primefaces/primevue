@@ -39,7 +39,7 @@
         </div>
         <div :class="cx('dropdown')" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('dropdown')">
             <!-- TODO: triggericon is deprecated since v4.0 -->
-            <slot :name="$slots.triggericon ? 'triggericon' : 'dropdownicon'" :class="cx('dropdownIcon')">
+            <slot :name="$slots.dropdownicon ? 'dropdownicon' : 'triggericon'" :class="cx('dropdownIcon')">
                 <component :is="'ChevronDownIcon'" :class="cx('dropdownIcon')" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>

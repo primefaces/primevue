@@ -27,11 +27,11 @@
             :unstyled="unstyled"
         />
         <!-- TODO: hide* and show* deprecated since v4.0-->
-        <slot v-if="toggleMask && unmasked" :name="$slots.hideicon ? 'hideicon' : 'maskicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="hideIcon || maskIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('maskIcon'), maskIcon || hideIcon]" @click="onMaskToggle" v-bind="ptm('maskIcon')" />
+        <slot v-if="toggleMask && unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
+            <component :is="maskIcon || hideIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('maskIcon'), maskIcon || hideIcon]" @click="onMaskToggle" v-bind="ptm('maskIcon')" />
         </slot>
-        <slot v-if="toggleMask && !unmasked" :name="$slots.showicon ? 'showicon' : 'unmaskicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
-            <component :is="showIcon || unmaskIcon ? 'i' : 'EyeIcon'" :class="[cx('unmaskIcon'), unmaskIcon || showIcon]" @click="onMaskToggle" v-bind="ptm('unmaskIcon')" />
+        <slot v-if="toggleMask && !unmasked" :name="$slots.unmaskicon ? 'unmaskicon' : 'showicon'" :onClick="onMaskToggle" :toggleCallback="onMaskToggle">
+            <component :is="unmaskIcon || showIcon ? 'i' : 'EyeIcon'" :class="[cx('unmaskIcon'), unmaskIcon || showIcon]" @click="onMaskToggle" v-bind="ptm('unmaskIcon')" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
             {{ infoText }}

@@ -18,7 +18,7 @@
                 v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
             >
                 <!--TODO: togglericon deprecated since v4.0-->
-                <slot :name="$slots.togglericon ? 'togglericon' : 'toggleicon'" :collapsed="d_collapsed">
+                <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
                     <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="cx('toggleIcon')" v-bind="ptm('toggleIcon')" />
                 </slot>
                 <slot name="legend">
