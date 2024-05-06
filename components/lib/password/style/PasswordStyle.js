@@ -17,7 +17,7 @@ const theme = ({ dt }) => `
     border-radius: ${dt('rounded.base')};
 }
 
-.p-password-meter-value {
+.p-password-meter-label {
     height: 100%;
     width: 0;
     transition: width 1s ease-in-out;
@@ -91,8 +91,8 @@ const classes = {
         }
     ],
     meter: 'p-password-meter',
-    meterLabel: ({ instance }) => `p-password-meter-value ${instance.meter ? 'p-password-meter-' + instance.meter.strength : ''}`,
-    info: 'p-password-meter-text'
+    meterLabel: ({ instance }) => `p-password-meter-label ${instance.meter ? 'p-password-meter-' + instance.meter.strength : ''}`,
+    meterText: 'p-password-meter-text'
 };
 
 export default BaseStyle.extend({

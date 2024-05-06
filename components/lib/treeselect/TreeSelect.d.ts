@@ -102,9 +102,9 @@ export interface TreeSelectPassThroughOptions {
      */
     panel?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the tree container's DOM element.
      */
-    wrapper?: TreeSelectPassThroughOptionType;
+    treeContainer?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to Tree component.
      * @see {@link TreePassThroughOptions}

@@ -66,8 +66,8 @@ const classes = {
     separator: 'p-breadcrumb-separator',
     item: ({ instance }) => ['p-breadcrumb-item', { 'p-disabled': instance.disabled() }],
     itemLink: 'p-breadcrumb-item-link',
-    icon: 'p-breadcrumb-item-icon',
-    label: 'p-breadcrumb-item-label'
+    itemIcon: 'p-breadcrumb-item-icon',
+    itemLabel: 'p-breadcrumb-item-label'
 };
 
 export default BaseStyle.extend({

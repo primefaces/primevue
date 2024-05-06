@@ -67,13 +67,13 @@ export interface BreadcrumbPassThroughOptions {
      */
     itemLink?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
-    icon?: BreadcrumbPassThroughOptionType;
+    itemIcon?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: BreadcrumbPassThroughOptionType;
+    itemLabel?: BreadcrumbPassThroughOptionType;
     /**
      * Used to pass attributes to the separator's DOM element.
      */

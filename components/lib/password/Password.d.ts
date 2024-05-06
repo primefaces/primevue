@@ -96,9 +96,9 @@ export interface PasswordPassThroughOptions {
      */
     meterLabel?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the info's DOM element.
+     * Used to pass attributes to the meter text's DOM element.
      */
-    info?: PasswordPassThroughOptionType;
+    meterText?: PasswordPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden accessible DOM element.
      */

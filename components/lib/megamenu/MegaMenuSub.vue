@@ -25,7 +25,7 @@
                         <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'itemLink')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'itemIcon')" />
-                            <span :class="level === 0 ? cx('label') : cx('submenuItemLabel')" v-bind="level === 0 ? getPTOptions(processedItem, index, 'label') : getPTOptions(processedItem, index, 'submenuItemLabel')">
+                            <span :class="level === 0 ? cx('itemLabel') : cx('submenuItemLabel')" v-bind="level === 0 ? getPTOptions(processedItem, index, 'itemLabel') : getPTOptions(processedItem, index, 'submenuItemLabel')">
                                 {{ getItemLabel(processedItem) }}
                             </span>
                             <template v-if="isItemGroup(processedItem)">

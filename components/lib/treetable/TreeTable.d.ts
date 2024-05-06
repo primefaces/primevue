@@ -282,9 +282,9 @@ export interface TreeTablePassThroughOptions {
      */
     footer?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the resize helper's DOM element.
+     * Used to pass attributes to the column resize indicator's DOM element.
      */
-    resizeHelper?: TreeTablePassThroughOptionType;
+    columnResizeIndicator?: TreeTablePassThroughOptionType;
     /**
      * Used to pass attributes to the Column helper components.
      */

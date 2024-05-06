@@ -514,7 +514,7 @@ const classes = {
         }
     ],
     footer: 'p-treetable-footer',
-    columnResizeHelper: 'p-treetable-column-resize-indicator'
+    columnResizeIndicator: 'p-treetable-column-resize-indicator'
 };
 
 const inlineStyles = {

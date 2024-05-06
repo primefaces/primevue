@@ -174,7 +174,7 @@ const classes = {
     header: 'p-dialog-header',
     title: 'p-dialog-title',
     headerActions: 'p-dialog-header-actions',
-    maximizableButton: 'p-dialog-maximize-button',
+    maximizeButton: 'p-dialog-maximize-button',
     closeButton: 'p-dialog-close-button',
     content: 'p-dialog-content',
     footer: 'p-dialog-footer'

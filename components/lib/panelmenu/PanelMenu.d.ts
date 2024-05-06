@@ -117,9 +117,9 @@ export interface PanelMenuPassThroughOptions {
      */
     itemIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: PanelMenuPassThroughOptionType;
+    itemLabel?: PanelMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */

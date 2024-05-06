@@ -14,7 +14,7 @@
             >
                 <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
             </button>
-            <div :class="cx('thumbnailItemsContainer')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailItemsContainer')">
+            <div :class="cx('thumbnailsViewport')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailsViewport')">
                 <div
                     ref="itemsContainer"
                     :class="cx('thumbnailItems')"

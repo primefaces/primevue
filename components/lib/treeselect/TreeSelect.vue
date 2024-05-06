@@ -58,7 +58,7 @@
                         :data-p-hidden-focusable="true"
                     ></span>
                     <slot name="header" :value="modelValue" :options="options"></slot>
-                    <div :class="cx('wrapper')" :style="{ 'max-height': scrollHeight }" v-bind="ptm('wrapper')">
+                    <div :class="cx('treeContainer')" :style="{ 'max-height': scrollHeight }" v-bind="ptm('treeContainer')">
                         <TSTree
                             ref="tree"
                             :id="listId"

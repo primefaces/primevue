@@ -79,10 +79,10 @@ export interface DialogPassThroughOptions<T = any> {
      */
     headerActions?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the maximizable Button component.
+     * Used to pass attributes to the maximize Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    maximizableButton?: ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>;
+    maximizeButton?: ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the close Button component.
      * @see {@link ButtonPassThroughOptions}

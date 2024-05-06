@@ -463,7 +463,7 @@ const classes = {
         }
     ],
     previousThumbnailIcon: 'p-galleria-thumbnail-prev-icon',
-    thumbnailItemsContainer: 'p-galleria-thumbnails-viewport',
+    thumbnailsViewport: 'p-galleria-thumbnails-viewport',
     thumbnailItems: 'p-galleria-thumbnail-items',
     thumbnailItem: ({ instance, index, activeIndex }) => [
         'p-galleria-thumbnail-item',

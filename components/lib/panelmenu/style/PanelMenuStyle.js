@@ -156,7 +156,7 @@ const classes = {
     itemContent: 'p-panelmenu-item-content',
     itemLink: 'p-panelmenu-item-link',
     itemIcon: 'p-panelmenu-item-icon',
-    label: 'p-panelmenu-item-label',
+    itemLabel: 'p-panelmenu-item-label',
     submenuIcon: 'p-panelmenu-submenu-icon',
     submenu: 'p-panelmenu-submenu',
     separator: 'p-menuitem-separator'

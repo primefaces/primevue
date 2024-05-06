@@ -114,7 +114,7 @@ const classes = {
     itemContent: 'p-menu-item-content',
     itemLink: 'p-menu-item-link',
     itemIcon: 'p-menu-item-icon',
-    label: 'p-menu-item-label'
+    itemLabel: 'p-menu-item-label'
 };
 
 export default BaseStyle.extend({

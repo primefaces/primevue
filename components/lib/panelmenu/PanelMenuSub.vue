@@ -25,7 +25,7 @@
                             </template>
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('itemIcon', processedItem, index)" />
-                            <span :class="cx('label')" v-bind="getPTOptions('label', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
+                            <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
                         </a>
                     </template>
                     <component
@@ -187,9 +187,9 @@ export default {
                 ),
                 label: mergeProps(
                     {
-                        class: this.cx('label')
+                        class: this.cx('itemLabel')
                     },
-                    this.getPTOptions('label', processedItem, index)
+                    this.getPTOptions('itemLabel', processedItem, index)
                 ),
                 submenuicon: mergeProps(
                     {

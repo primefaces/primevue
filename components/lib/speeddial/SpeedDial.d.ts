@@ -79,13 +79,13 @@ export interface SpeedDialPassThroughOptions {
      */
     button?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the menu's DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
-    menu?: SpeedDialPassThroughOptionType;
+    list?: SpeedDialPassThroughOptionType;
     /**
-     * Used to pass attributes to the menu item's DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
-    menuitem?: SpeedDialPassThroughOptionType;
+    item?: SpeedDialPassThroughOptionType;
     /**
      * Used to pass attributes to the action's Button component.
      * @see {@link ButtonPassThroughOptions}

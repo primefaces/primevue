@@ -657,7 +657,7 @@ const classes = {
     filterConstraintSeparator: 'p-datatable-filter-constraint-separator',
     filterOperator: 'p-datatable-filter-operator',
     filterOperatorDropdown: 'p-datatable-filter-operator-dropdown',
-    filterConstraints: 'p-datatable-filter-rule-list',
+    filterRuleList: 'p-datatable-filter-rule-list',
     filterRule: 'p-datatable-filter-rule',
     filterConstraintDropdown: 'p-datatable-filter-constraint-dropdown',
     filterRemoveRuleButton: 'p-datatable-filter-remove-rule-button',

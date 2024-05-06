@@ -29,11 +29,11 @@
                     v-if="isItemVisible(item)"
                     :id="`${id}_${index}`"
                     :aria-controls="`${id}_item`"
-                    :class="cx('menuitem', { id: `${id}_${index}` })"
+                    :class="cx('item', { id: `${id}_${index}` })"
                     :style="getItemStyle(index)"
                     role="none"
                     :data-p-active="isItemActive(`${id}_${index}`)"
-                    v-bind="getPTOptions(`${id}_${index}`, 'menuitem')"
+                    v-bind="getPTOptions(`${id}_${index}`, 'item')"
                 >
                     <template v-if="!$slots.item">
                         <Button
@@ -102,7 +102,7 @@ export default {
 
         if (this.type !== 'linear') {
             const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
-            const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="menuitem"]');
+            const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
 
             if (button && firstItem) {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
@@ -241,7 +241,7 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
+            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
             const buttonEl = DomHandler.findSingle(this.container, 'button');
 
@@ -324,7 +324,7 @@ export default {
             event.preventDefault();
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
+            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
 
             if (filteredItems[index]) {
@@ -335,7 +335,7 @@ export default {
             }
         },
         findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
+            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
@@ -345,7 +345,7 @@ export default {
             return matchedOptionIndex;
         },
         findNextOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="menuitem"]');
+            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
             const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);

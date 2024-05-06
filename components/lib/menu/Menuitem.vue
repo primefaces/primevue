@@ -16,7 +16,7 @@
                 <a v-ripple :href="item.url" :class="cx('itemLink')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('itemIcon')" />
                     <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" v-bind="getPTOptions('itemIcon')" />
-                    <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label() }}</span>
+                    <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel')">{{ label() }}</span>
                 </a>
             </template>
             <component v-else-if="templates.item" :is="templates.item" :item="item" :label="label()" :props="getMenuItemProps(item)"></component>
@@ -96,9 +96,9 @@ export default {
                 ),
                 label: mergeProps(
                     {
-                        class: this.cx('label')
+                        class: this.cx('itemLabel')
                     },
-                    this.getPTOptions('label')
+                    this.getPTOptions('itemLabel')
                 )
             };
         }

@@ -163,7 +163,7 @@
         <div v-if="$slots.footer" :class="cx('footer')" v-bind="ptm('footer')">
             <slot name="footer"></slot>
         </div>
-        <div ref="resizeHelper" :class="cx('columnResizeHelper')" style="display: none" v-bind="ptm('columnResizeHelper')"></div>
+        <div ref="resizeHelper" :class="cx('columnResizeIndicator')" style="display: none" v-bind="ptm('columnResizeIndicator')"></div>
     </div>
 </template>
 

@@ -316,7 +316,7 @@ const classes = {
     itemContent: 'p-megamenu-item-content',
     itemLink: 'p-megamenu-item-link',
     itemIcon: 'p-megamenu-item-icon',
-    label: 'p-megamenu-item-text',
+    itemLabel: 'p-megamenu-item-label',
     submenuIcon: 'p-megamenu-submenu-icon',
     panel: 'p-megamenu-panel',
     grid: 'p-megamenu-grid',

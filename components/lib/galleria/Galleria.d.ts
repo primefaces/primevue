@@ -151,9 +151,9 @@ export interface GalleriaPassThroughOptions {
      */
     previousThumbnailIcon?: GalleriaPassThroughOptionType;
     /**
-     * Used to pass attributes to the thumbnail items container's DOM element.
+     * Used to pass attributes to the thumbnails viewport's DOM element.
      */
-    thumbnailItemsContainer?: GalleriaPassThroughOptionType;
+    thumbnailsViewport?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the thumbnail items' DOM element.
      */

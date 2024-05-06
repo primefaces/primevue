@@ -85,9 +85,9 @@ export interface MenuPassThroughOptions {
      */
     itemIcon?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
-    label?: MenuPassThroughOptionType;
+    itemLabel?: MenuPassThroughOptionType;
     /**
      * Used to pass attributes to the separator's DOM element.
      */

@@ -14,17 +14,17 @@
                                     v-if="maximizable"
                                     :ref="maximizableRef"
                                     :autofocus="focusableMax"
-                                    :class="cx('maximizableButton')"
+                                    :class="cx('maximizeButton')"
                                     @click="maximize"
                                     :tabindex="maximizable ? '0' : '-1'"
                                     :unstyled="unstyled"
                                     v-bind="maximizeButtonProps"
-                                    :pt="ptm('maximizableButton')"
+                                    :pt="ptm('maximizeButton')"
                                     data-pc-group-section="headericon"
                                 >
                                     <template #icon="slotProps">
-                                        <slot name="maximizeicon" :maximized="maximized" :class="cx('maximizableIcon')">
-                                            <component :is="maximizeIconComponent" :class="[cx('maximizableIcon'), slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizableButton')['icon']" />
+                                        <slot name="maximizeicon" :maximized="maximized">
+                                            <component :is="maximizeIconComponent" :class="[slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('maximizeButton')['icon']" />
                                         </slot>
                                     </template>
                                 </Button>

@@ -150,7 +150,7 @@ const classes = {
             'p-ripple-disabled': instance.$primevue.config.ripple === false
         }
     ],
-    wrapper: 'p-treeselect-tree-container',
+    treeContainer: 'p-treeselect-tree-container',
     emptyMessage: 'p-treeselect-empty-message'
 };
 
