@@ -4136,23 +4136,23 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
-                            "name": "container",
+                            "name": "inputMultiple",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the input multiple's DOM element."
                         },
                         {
-                            "name": "token",
+                            "name": "chip",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the token's DOM element."
+                            "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "tokenLabel",
+                            "name": "chipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
@@ -4160,20 +4160,20 @@
                             "description": "Used to pass attributes to the Chip."
                         },
                         {
-                            "name": "removeTokenIcon",
+                            "name": "chipIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the remove token icon's DOM element."
+                            "description": "Used to pass attributes to the chip icon's DOM element."
                         },
                         {
-                            "name": "inputToken",
+                            "name": "inputChip",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input token's DOM element."
+                            "description": "Used to pass attributes to the input chip's DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -4647,6 +4647,14 @@
                             "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
+                            "name": "chipIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in chip remove action."
+                        },
+                        {
                             "name": "virtualScrollerOptions",
                             "optional": true,
                             "readonly": false,
@@ -4911,11 +4919,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom remove token icon template in multiple mode."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'chipicon' slot instead.\nCustom chip icon template in multiple mode."
+                        },
+                        {
+                            "name": "chipicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom chip icon template in multiple mode."
                         },
                         {
                             "name": "loadingicon",
@@ -8318,12 +8341,12 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
-                            "name": "dropdownButton",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the dropdown button's DOM element."
+                            "description": "Used to pass attributes to the dropdown's DOM element."
                         },
                         {
                             "name": "panel",
@@ -8334,20 +8357,20 @@
                             "description": "Used to pass attributes to the panel's DOM element."
                         },
                         {
-                            "name": "groupContainer",
+                            "name": "calendarContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the group container's DOM element."
+                            "description": "Used to pass attributes to the calendar container's DOM element."
                         },
                         {
-                            "name": "group",
+                            "name": "calendar",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the group's DOM element."
+                            "description": "Used to pass attributes to the calendar's DOM element."
                         },
                         {
                             "name": "header",
@@ -8374,28 +8397,36 @@
                             "description": "Used to pass attributes to the title's DOM element."
                         },
                         {
-                            "name": "monthTitle",
+                            "name": "viewMonth",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the month title's DOM element."
+                            "description": "Used to pass attributes to the view month's DOM element."
                         },
                         {
-                            "name": "yearTitle",
+                            "name": "viewYear",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the year title's DOM element."
+                            "description": "Used to pass attributes to the view year's DOM element."
                         },
                         {
-                            "name": "decadeTitle",
+                            "name": "decade",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the decade title's DOM element."
+                            "description": "Used to pass attributes to the decade's DOM element."
+                        },
+                        {
+                            "name": "dayView",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the view day's DOM element."
                         },
                         {
                             "name": "nextButton",
@@ -8462,12 +8493,12 @@
                             "description": "Used to pass attributes to the table header cell's DOM element."
                         },
                         {
-                            "name": "weekLabel",
+                            "name": "weekDayCell",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the week label's DOM element."
+                            "description": "Used to pass attributes to the week day cell's DOM element."
                         },
                         {
                             "name": "weekDay",
@@ -8510,6 +8541,14 @@
                             "description": "Used to pass attributes to the week label container's DOM element."
                         },
                         {
+                            "name": "dayCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the day cell's DOM element."
+                        },
+                        {
                             "name": "day",
                             "optional": true,
                             "readonly": false,
@@ -8518,20 +8557,12 @@
                             "description": "Used to pass attributes to the day's DOM element."
                         },
                         {
-                            "name": "dayLabel",
+                            "name": "monthView",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the day label's DOM element."
-                        },
-                        {
-                            "name": "monthPicker",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DatePickerPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the month picker's DOM element."
+                            "description": "Used to pass attributes to the month view's DOM element."
                         },
                         {
                             "name": "month",
@@ -8542,12 +8573,12 @@
                             "description": "Used to pass attributes to the month's DOM element."
                         },
                         {
-                            "name": "yearPicker",
+                            "name": "yearView",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the year picker's DOM element."
+                            "description": "Used to pass attributes to the year view's DOM element."
                         },
                         {
                             "name": "year",
@@ -11063,7 +11094,7 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "dropdownButton",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
@@ -11087,12 +11118,20 @@
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
+                        },
+                        {
+                            "name": "listContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
                             "name": "list",
@@ -11111,20 +11150,28 @@
                             "description": "Used to pass attributes to the item's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "itemContent",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the item content's DOM element."
                         },
                         {
-                            "name": "text",
+                            "name": "itemText",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the text's DOM element."
+                            "description": "Used to pass attributes to the item text's DOM element."
+                        },
+                        {
+                            "name": "itemList",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "CascadeSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the item list's DOM element."
                         },
                         {
                             "name": "groupIcon",
@@ -11461,7 +11508,8 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayStyle' prop.\nInline style of the overlay overlay."
                         },
                         {
                             "name": "panelClass",
@@ -11469,7 +11517,8 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayClass' prop.\nStyle class of the overlay overlay."
                         },
                         {
                             "name": "panelProps",
@@ -11477,7 +11526,32 @@
                             "readonly": false,
                             "type": "HTMLAttributes",
                             "default": "",
-                            "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayProps' prop.\nUsed to pass all properties of the HTMLDivElement to the overlay overlay inside the component."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the overlay overlay."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the overlay overlay."
+                        },
+                        {
+                            "name": "overlayProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "HTMLAttributes",
+                            "default": "",
+                            "description": "Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component."
                         },
                         {
                             "name": "appendTo",
@@ -13285,23 +13359,23 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "container",
+                            "name": "input",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "token",
+                            "name": "chip",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the token's DOM element."
+                            "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "chipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -13309,28 +13383,28 @@
                             "description": "Used to pass attributes to the Chip component."
                         },
                         {
-                            "name": "removeTokenIcon",
+                            "name": "chipIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the remove token icon's DOM element."
+                            "description": "Used to pass attributes to the chip icon's DOM element."
                         },
                         {
-                            "name": "inputToken",
+                            "name": "inputItem",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input token's DOM element."
+                            "description": "Used to pass attributes to the input item's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "inputItemField",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the input item field's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -13478,6 +13552,14 @@
                             "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
+                            "name": "chipIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in chip remove action."
+                        },
+                        {
                             "name": "invalid",
                             "optional": true,
                             "readonly": false,
@@ -13585,12 +13667,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
-                                    "description": "remove token icon slot's params."
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// chip icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom remove token icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'chipicon' slot.\nCustom chip icon template."
+                        },
+                        {
+                            "name": "chipicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// chip icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom chip icon template."
                         }
                     ],
                     "extendedTypes": "InputChipsSlots"
@@ -13812,12 +13908,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "preview",
                             "optional": true,
                             "readonly": false,
                             "type": "ColorPickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the preview's DOM element."
                         },
                         {
                             "name": "panel",
@@ -13836,20 +13932,20 @@
                             "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
-                            "name": "selector",
+                            "name": "colorSelector",
                             "optional": true,
                             "readonly": false,
                             "type": "ColorPickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the selector's DOM element."
+                            "description": "Used to pass attributes to the color selector's DOM element."
                         },
                         {
-                            "name": "color",
+                            "name": "colorBackground",
                             "optional": true,
                             "readonly": false,
                             "type": "ColorPickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the color's DOM element."
+                            "description": "Used to pass attributes to the color background's DOM element."
                         },
                         {
                             "name": "colorHandle",
@@ -23389,12 +23485,12 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
-                            "name": "dropdownButton",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the dropdown button's DOM element."
+                            "description": "Used to pass attributes to the dropdown's DOM element."
                         },
                         {
                             "name": "panel",
@@ -23405,20 +23501,20 @@
                             "description": "Used to pass attributes to the panel's DOM element."
                         },
                         {
-                            "name": "groupContainer",
+                            "name": "calendarContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the group container's DOM element."
+                            "description": "Used to pass attributes to the calendar container's DOM element."
                         },
                         {
-                            "name": "group",
+                            "name": "calendar",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the group's DOM element."
+                            "description": "Used to pass attributes to the calendar's DOM element."
                         },
                         {
                             "name": "header",
@@ -23445,28 +23541,36 @@
                             "description": "Used to pass attributes to the title's DOM element."
                         },
                         {
-                            "name": "monthTitle",
+                            "name": "viewMonth",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the month title's DOM element."
+                            "description": "Used to pass attributes to the view month's DOM element."
                         },
                         {
-                            "name": "yearTitle",
+                            "name": "viewYear",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the year title's DOM element."
+                            "description": "Used to pass attributes to the view year's DOM element."
                         },
                         {
-                            "name": "decadeTitle",
+                            "name": "decade",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the decade title's DOM element."
+                            "description": "Used to pass attributes to the decade's DOM element."
+                        },
+                        {
+                            "name": "dayView",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the view day's DOM element."
                         },
                         {
                             "name": "nextButton",
@@ -23533,12 +23637,12 @@
                             "description": "Used to pass attributes to the table header cell's DOM element."
                         },
                         {
-                            "name": "weekLabel",
+                            "name": "weekDayCell",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the week label's DOM element."
+                            "description": "Used to pass attributes to the week day cell's DOM element."
                         },
                         {
                             "name": "weekDay",
@@ -23581,6 +23685,14 @@
                             "description": "Used to pass attributes to the week label container's DOM element."
                         },
                         {
+                            "name": "dayCell",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the day cell's DOM element."
+                        },
+                        {
                             "name": "day",
                             "optional": true,
                             "readonly": false,
@@ -23589,20 +23701,12 @@
                             "description": "Used to pass attributes to the day's DOM element."
                         },
                         {
-                            "name": "dayLabel",
+                            "name": "monthView",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the day label's DOM element."
-                        },
-                        {
-                            "name": "monthPicker",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "DatePickerPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the month picker's DOM element."
+                            "description": "Used to pass attributes to the month view's DOM element."
                         },
                         {
                             "name": "month",
@@ -23613,12 +23717,12 @@
                             "description": "Used to pass attributes to the month's DOM element."
                         },
                         {
-                            "name": "yearPicker",
+                            "name": "yearView",
                             "optional": true,
                             "readonly": false,
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the year picker's DOM element."
+                            "description": "Used to pass attributes to the year view's DOM element."
                         },
                         {
                             "name": "year",
@@ -26716,8 +26820,22 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Custom content for icon.</span>\n }",
-                                    "description": "icon slot's params."
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Custom content for item icon.</span>\n }",
+                                    "description": "item icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'itemicon' slot.\nCustom icon content."
+                        },
+                        {
+                            "name": "itemicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Custom content for item icon.</span>\n }",
+                                    "description": "item icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -27450,12 +27568,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "label",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
                             "name": "clearIcon",
@@ -27466,12 +27584,12 @@
                             "description": "Used to pass attributes to the clear icon's DOM element."
                         },
                         {
-                            "name": "trigger",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the trigger' DOM element."
+                            "description": "Used to pass attributes to the dropdown' DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -27482,12 +27600,12 @@
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "header",
@@ -27506,12 +27624,12 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "filter",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter input's DOM element."
+                            "description": "Used to pass attributes to the filter's DOM element."
                         },
                         {
                             "name": "filterIcon",
@@ -27522,12 +27640,12 @@
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "listContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -27546,52 +27664,52 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item group's DOM element."
+                            "description": "Used to pass attributes to the option group's DOM element."
                         },
                         {
-                            "name": "itemGroupLabel",
+                            "name": "optionGroupLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item group label's DOM element."
+                            "description": "Used to pass attributes to the option group label's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
-                            "name": "itemLabel",
+                            "name": "optionLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item label's DOM element."
+                            "description": "Used to pass attributes to the option label's DOM element."
                         },
                         {
-                            "name": "checkIcon",
+                            "name": "optionCheckIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the check icon's DOM element."
+                            "description": "Used to pass attributes to the option check icon's DOM element."
                         },
                         {
-                            "name": "blankIcon",
+                            "name": "optionBlankIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the bank icon's DOM element."
+                            "description": "Used to pass attributes to the option blank icon's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -27934,7 +28052,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Identifier of the underlying input element."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelId' instead.\nIdentifier of the underlying input element."
                         },
                         {
                             "name": "inputStyle",
@@ -27942,7 +28061,8 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the input field."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelStyle' instead.\nInline style of the input field."
                         },
                         {
                             "name": "inputClass",
@@ -27950,7 +28070,32 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the input field."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelClass' instead.\nStyle class of the input field."
+                        },
+                        {
+                            "name": "labelId",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Identifier of the underlying label element."
+                        },
+                        {
+                            "name": "labelStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the label field."
+                        },
+                        {
+                            "name": "labelClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the label field."
                         },
                         {
                             "name": "panelStyle",
@@ -27958,7 +28103,8 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayStyle' instead.\nInline style of the overlay panel."
                         },
                         {
                             "name": "panelClass",
@@ -27966,7 +28112,24 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayClass' instead.\nStyle class of the overlay panel."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the overlay."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the overlay."
                         },
                         {
                             "name": "appendTo",
@@ -32842,7 +33005,15 @@
                             "type": "string",
                             "default": "",
                             "description": "Custom indicator icon.",
-                            "deprecated": "since v3.27.0. Use 'indicatoricon' slot."
+                            "deprecated": "since v4.0. Use 'previewIcon' prop instead."
+                        },
+                        {
+                            "name": "previewIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Custom indicator icon."
                         },
                         {
                             "name": "zoomInDisabled",
@@ -32901,10 +33072,17 @@
                     "props": [],
                     "methods": [
                         {
-                            "name": "indicatoricon",
+                            "name": "previewicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom indicator template."
+                        },
+                        {
+                            "name": "indicatoricon",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'previewicon' slot instead.\nCustom indicator template."
                         },
                         {
                             "name": "refresh",
@@ -32960,7 +33138,21 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom preview template."
+                            "description": "",
+                            "deprecated": "since v4.0. use 'original' slot instead.\nCustom preview template."
+                        },
+                        {
+                            "name": "original",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the original image element.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">style</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style of the original image element.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Original click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">previewCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Preview click function.</span>\n}",
+                                    "description": "original slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom original template."
                         }
                     ]
                 },
@@ -33865,23 +34057,23 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "container",
+                            "name": "input",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "token",
+                            "name": "chip",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the token's DOM element."
+                            "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "chipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -33889,28 +34081,28 @@
                             "description": "Used to pass attributes to the Chip component."
                         },
                         {
-                            "name": "removeTokenIcon",
+                            "name": "chipIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the remove token icon's DOM element."
+                            "description": "Used to pass attributes to the chip icon's DOM element."
                         },
                         {
-                            "name": "inputToken",
+                            "name": "inputItem",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input token's DOM element."
+                            "description": "Used to pass attributes to the input item's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "inputItemField",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the input item field's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -34065,6 +34257,14 @@
                             "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
                         },
                         {
+                            "name": "chipIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in chip remove action."
+                        },
+                        {
                             "name": "invalid",
                             "optional": true,
                             "readonly": false,
@@ -34172,12 +34372,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
-                                    "description": "remove token icon slot's params."
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// chip icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom remove token icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'chipicon' slot.\nCustom chip icon template."
+                        },
+                        {
+                            "name": "chipicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">index</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Index of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">index</span>: number) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// chip icon function.</span>\n}",
+                                    "description": "chip icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom chip icon template."
                         }
                     ],
                     "extendedBy": "ChipsSlots"
@@ -37408,12 +37622,12 @@
                             "description": "Used to pass attributes to the value' DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "text",
                             "optional": true,
                             "readonly": false,
                             "type": "KnobPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the text's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -37960,7 +38174,7 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "filter",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>",
@@ -37976,12 +38190,12 @@
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "listContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "ListboxPassThroughOptionType<any>",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -38000,20 +38214,20 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
                             "type": "ListboxPassThroughOptionType<any>",
                             "default": "",
-                            "description": "Used to pass attributes to the item group's DOM element."
+                            "description": "Used to pass attributes to the option group's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "ListboxPassThroughOptionType<any>",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -40222,7 +40436,7 @@
                             "description": "Used to pass attributes to the mobile menu button's DOM element."
                         },
                         {
-                            "name": "menubuttonicon",
+                            "name": "buttonicon",
                             "optional": true,
                             "readonly": false,
                             "type": "MenubarPassThroughOptionType",
@@ -40578,17 +40792,31 @@
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. use 'button' slot instead.\nCustom menu button template on responsive mode."
+                        },
+                        {
+                            "name": "button",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">id</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Current id state as a string</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle event</span>\n}",
+                                    "description": "menu button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button template on responsive mode."
                         },
                         {
-                            "name": "popupicon",
+                            "name": "menubuttonicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom popup icon template on responsive mode.",
-                            "deprecated": "since v3.42.0. Use 'menubuttonicon' slot instead."
+                            "description": "",
+                            "deprecated": "since v4.0. use 'buttonicon' slot instead.\nCustom menu button icon template on responsive mode."
                         },
                         {
-                            "name": "menubuttonicon",
+                            "name": "buttonicon",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom menu button icon template on responsive mode."
@@ -41953,15 +42181,15 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "token",
+                            "name": "chip",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the token's DOM element."
+                            "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "tokenLabel",
+                            "name": "chipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
@@ -41969,28 +42197,20 @@
                             "description": "Used to pass attributes to the Chip."
                         },
                         {
-                            "name": "removeTokenIcon",
+                            "name": "chipIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the remove token icon's DOM element."
+                            "description": "Used to pass attributes to the chip icon's DOM element."
                         },
                         {
-                            "name": "trigger",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the trigger's DOM element."
-                        },
-                        {
-                            "name": "triggerIcon",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the trigger icon's DOM element."
+                            "description": "Used to pass attributes to the dropdown's DOM element."
                         },
                         {
                             "name": "dropdownIcon",
@@ -42001,12 +42221,12 @@
                             "description": "Used to pass attributes to the dropdown icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "header",
@@ -42033,7 +42253,7 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "filter",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
@@ -42049,12 +42269,12 @@
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "listContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -42073,28 +42293,12 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item group's DOM element."
-                        },
-                        {
-                            "name": "item",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
-                        },
-                        {
-                            "name": "itemCheckbox",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the item checkbox's DOM element."
+                            "description": "Used to pass attributes to the option group's DOM element."
                         },
                         {
                             "name": "option",
@@ -42103,6 +42307,22 @@
                             "type": "MultiSelectPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the option's DOM element."
+                        },
+                        {
+                            "name": "optionLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the option label's DOM element."
+                        },
+                        {
+                            "name": "optionCheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MultiSelectPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the option checkbox's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -42376,7 +42596,8 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Inline style of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayStyle' instead.\nInline style of the overlay."
                         },
                         {
                             "name": "panelClass",
@@ -42384,7 +42605,24 @@
                             "readonly": false,
                             "type": "any",
                             "default": "",
-                            "description": "Style class of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayClass' instead.\nStyle class of the overlay."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Inline style of the overlay."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Style class of the overlay."
                         },
                         {
                             "name": "dataKey",
@@ -42542,7 +42780,15 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to display in chip remove action.",
-                            "deprecated": "since v3.27.0. Use 'removetokenicon' slot."
+                            "deprecated": "since v4.0. Use 'chipicon' slot."
+                        },
+                        {
+                            "name": "chipIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to display in chip remove action."
                         },
                         {
                             "name": "selectAll",
@@ -42833,12 +43079,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Remove token icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Remove token icon function.</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Chip icon function.</span>\n}",
                                     "description": "removetokenicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom remove token icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'chipicon' slot instead.\nCustom chip icon template."
+                        },
+                        {
+                            "name": "chipicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the loading icon.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Item of the token.</span>\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Chip icon function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">removeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event, <span class=\"doc-option-parameter-name\">item</span>: any) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Chip icon function.</span>\n}",
+                                    "description": "chipicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom chip icon template."
                         },
                         {
                             "name": "headercheckboxicon",
@@ -45297,25 +45557,109 @@
                         },
                         {
                             "name": "firstpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "firstpagelinkicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'firsticon' slot instead.\nCustom first page link icon template."
+                        },
+                        {
+                            "name": "firsticon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "firsticon's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom first page link icon template."
                         },
                         {
                             "name": "prevpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "prevpagelinkicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'previcon' slot instead.\nCustom previous page link icon template."
+                        },
+                        {
+                            "name": "previcon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "previcon's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom previous page link icon template."
                         },
                         {
                             "name": "nextpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "nextpagelinkicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'nexticon' slot instead.\nCustom finextrst page link icon template."
+                        },
+                        {
+                            "name": "nexticon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "nexticon's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom finextrst page link icon template."
                         },
                         {
                             "name": "lastpagelinkicon",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "lastpagelinkicon's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'lasticon' slot instead.\nCustom last page link icon template."
+                        },
+                        {
+                            "name": "lasticon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the jumptopagedropdown icon.</span>\n }",
+                                    "description": "lasticon's params."
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom last page link icon template."
                         },
@@ -46819,28 +47163,28 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
-                            "name": "hideIcon",
+                            "name": "maskIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PasswordPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hide icon's DOM element."
+                            "description": "Used to pass attributes to the mask icon's DOM element."
                         },
                         {
-                            "name": "showIcon",
+                            "name": "unmaskIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "PasswordPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the show icon's DOM element."
+                            "description": "Used to pass attributes to the unmask icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "PasswordPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "meter",
@@ -47066,7 +47410,15 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to hide displaying the password as plain text.",
-                            "deprecated": "since v3.27.0. Use 'hideicon' slot."
+                            "deprecated": "since v3.27.0. Use 'maskicon' slot."
+                        },
+                        {
+                            "name": "maskIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to hide displaying the password as plain text."
                         },
                         {
                             "name": "showIcon",
@@ -47075,7 +47427,15 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to show displaying the password as plain text.",
-                            "deprecated": "since v3.27.0. Use 'showicon' slot."
+                            "deprecated": "since v3.27.0. Use 'unmaskicon' slot."
+                        },
+                        {
+                            "name": "unmaskIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Icon to show displaying the password as plain text."
                         },
                         {
                             "name": "invalid",
@@ -47182,6 +47542,38 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
+                            "name": "overlayId",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Identifier of the underlying overlay element."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the overlay."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the overlay."
+                        },
+                        {
+                            "name": "overlayProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "HTMLAttributes",
+                            "default": "",
+                            "description": "Used to pass all properties of the HTMLDivElement to the overlay inside the component."
+                        },
+                        {
                             "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
@@ -47262,8 +47654,22 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Hide icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Mask icon click event</span>\n}",
                                     "description": "hideicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'maskicon' slot instead.\nCustom mask icon template."
+                        },
+                        {
+                            "name": "maskicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Mask icon click event</span>\n}",
+                                    "description": "maskicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -47275,12 +47681,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Hide icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Hide icon click event</span>\n}",
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Unmask icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Unmask icon click event</span>\n}",
                                     "description": "showicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom show icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. use 'unmaskicon' slot instead.\nCustom unmask icon template."
+                        },
+                        {
+                            "name": "unmaskicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name line-through\">onClick</span>: <span class=\"doc-option-parameter-type line-through\">() &rArr; void</span>, <span class=\"doc-option-parameter-type line-through\">// Unmask icon click event</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Unmask icon click event</span>\n}",
+                                    "description": "showicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom unmask icon template."
                         }
                     ]
                 },
@@ -50096,12 +50516,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "RatingPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
                             "name": "onIcon",
@@ -50120,20 +50540,20 @@
                             "description": "Used to pass attributes to the off icon's DOM element."
                         },
                         {
-                            "name": "hiddenItemInputWrapper",
+                            "name": "hiddenOptionInputWrapper",
                             "optional": true,
                             "readonly": false,
                             "type": "RatingPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hidden item input wrapper's DOM element."
+                            "description": "Used to pass attributes to the hidden option input wrapper's DOM element."
                         },
                         {
-                            "name": "hiddenItemInput",
+                            "name": "hiddenOptionInput",
                             "optional": true,
                             "readonly": false,
                             "type": "RatingPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the hidden item input's DOM element."
+                            "description": "Used to pass attributes to the hidden option input's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -50192,7 +50612,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current active state of the item as a boolean."
+                            "description": "Current active state of the option as a boolean."
                         },
                         {
                             "name": "focused",
@@ -50200,7 +50620,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Current focused state of item as a boolean."
+                            "description": "Current focused state of option as a boolean."
                         }
                     ],
                     "methods": []
@@ -50336,7 +50756,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Item value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Option value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
                                     "description": "on icon slot's params."
                                 }
                             ],
@@ -50349,7 +50769,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Item value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">value</span>: <span class=\"doc-option-parameter-type\">number</span>, <span class=\"doc-option-parameter-type\">// Option value</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
                                     "description": "off icon slot's params."
                                 }
                             ],
@@ -51659,12 +52079,12 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "label",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
                             "name": "clearIcon",
@@ -51675,12 +52095,12 @@
                             "description": "Used to pass attributes to the clear icon's DOM element."
                         },
                         {
-                            "name": "trigger",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the trigger' DOM element."
+                            "description": "Used to pass attributes to the dropdown' DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -51691,12 +52111,12 @@
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "header",
@@ -51715,12 +52135,12 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "filter",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter input's DOM element."
+                            "description": "Used to pass attributes to the filter's DOM element."
                         },
                         {
                             "name": "filterIcon",
@@ -51731,12 +52151,12 @@
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
                         {
-                            "name": "wrapper",
+                            "name": "listContainer",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the wrapper's DOM element."
+                            "description": "Used to pass attributes to the list container's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -51755,52 +52175,52 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item group's DOM element."
+                            "description": "Used to pass attributes to the option group's DOM element."
                         },
                         {
-                            "name": "itemGroupLabel",
+                            "name": "optionGroupLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item group label's DOM element."
+                            "description": "Used to pass attributes to the option group label's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
-                            "name": "itemLabel",
+                            "name": "optionLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the item label's DOM element."
+                            "description": "Used to pass attributes to the option label's DOM element."
                         },
                         {
-                            "name": "checkIcon",
+                            "name": "optionCheckIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the check icon's DOM element."
+                            "description": "Used to pass attributes to the option check icon's DOM element."
                         },
                         {
-                            "name": "blankIcon",
+                            "name": "optionBlankIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "SelectPassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the bank icon's DOM element."
+                            "description": "Used to pass attributes to the option blank icon's DOM element."
                         },
                         {
                             "name": "emptyMessage",
@@ -52150,7 +52570,8 @@
                             "readonly": false,
                             "type": "string",
                             "default": "",
-                            "description": "Identifier of the underlying input element."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelId' instead.\nIdentifier of the underlying input element."
                         },
                         {
                             "name": "inputStyle",
@@ -52158,7 +52579,8 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the input field."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelStyle' instead.\nInline style of the input field."
                         },
                         {
                             "name": "inputClass",
@@ -52166,7 +52588,32 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the input field."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'labelClass' instead.\nStyle class of the input field."
+                        },
+                        {
+                            "name": "labelId",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Identifier of the underlying label element."
+                        },
+                        {
+                            "name": "labelStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the label field."
+                        },
+                        {
+                            "name": "labelClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the label field."
                         },
                         {
                             "name": "panelStyle",
@@ -52174,7 +52621,8 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayStyle' instead.\nInline style of the overlay panel."
                         },
                         {
                             "name": "panelClass",
@@ -52182,7 +52630,24 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the overlay panel."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'overlayClass' instead.\nStyle class of the overlay panel."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the overlay."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the overlay."
                         },
                         {
                             "name": "appendTo",
@@ -62689,12 +63154,26 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }",
-                                    "description": "icon slot's params."
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the message icon</span>\n }",
+                                    "description": "message icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom icon template."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'messageicon' slot instead.\nCustom message icon template."
+                        },
+                        {
+                            "name": "messageicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon</span>\n }",
+                                    "description": "message icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom message icon template."
                         },
                         {
                             "name": "closeicon",
@@ -64581,7 +65060,7 @@
                             "description": "Used to pass attributes to the filter container's DOM element."
                         },
                         {
-                            "name": "input",
+                            "name": "filterInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>",
@@ -64589,12 +65068,12 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "searchIcon",
+                            "name": "filterIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the search icon's DOM element."
+                            "description": "Used to pass attributes to the filter icon's DOM element."
                         },
                         {
                             "name": "wrapper",
@@ -64605,12 +65084,12 @@
                             "description": "Used to pass attributes to the wrapper's DOM element."
                         },
                         {
-                            "name": "container",
+                            "name": "rootChildren",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the container's DOM element."
+                            "description": "Used to pass attributes to the root children's DOM element."
                         },
                         {
                             "name": "node",
@@ -64621,28 +65100,28 @@
                             "description": "Used to pass attributes to the node's DOM element."
                         },
                         {
-                            "name": "content",
+                            "name": "nodeContent",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the content's DOM element."
+                            "description": "Used to pass attributes to the node content's DOM element."
                         },
                         {
-                            "name": "toggler",
+                            "name": "nodeToggleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the toggler's DOM element."
+                            "description": "Used to pass attributes to the node toggle button's DOM element."
                         },
                         {
-                            "name": "togglerIcon",
+                            "name": "nodeToggleIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the toggler icon's DOM element."
+                            "description": "Used to pass attributes to the node toggle icon's DOM element."
                         },
                         {
                             "name": "nodeCheckbox",
@@ -64661,28 +65140,28 @@
                             "description": "Used to pass attributes to the node icon's DOM element."
                         },
                         {
-                            "name": "label",
+                            "name": "nodeLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the label's DOM element."
+                            "description": "Used to pass attributes to the node label's DOM element."
                         },
                         {
-                            "name": "subgroup",
+                            "name": "nodeChildren",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the subgroup's DOM element."
+                            "description": "Used to pass attributes to the node children's DOM element."
                         },
                         {
-                            "name": "loadingOverlay",
+                            "name": "mask",
                             "optional": true,
                             "readonly": false,
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
-                            "description": "Used to pass attributes to the loading overlay's DOM element."
+                            "description": "Used to pass attributes to the mask's DOM element."
                         },
                         {
                             "name": "loadingIcon",
@@ -65007,6 +65486,20 @@
                                     "optional": false,
                                     "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
                                     "description": "searchicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'filtericon' slot instead.\nCustom search icon template."
+                        },
+                        {
+                            "name": "filtericon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "description": "filtericon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -65473,15 +65966,15 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "token",
+                            "name": "chip",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the token's DOM element."
+                            "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "tokenLabel",
+                            "name": "chipLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
@@ -65489,20 +65982,20 @@
                             "description": "Used to pass attributes to the Chip."
                         },
                         {
-                            "name": "trigger",
+                            "name": "dropdown",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the trigger's DOM element."
+                            "description": "Used to pass attributes to the dropdown's DOM element."
                         },
                         {
-                            "name": "triggerIcon",
+                            "name": "dropdownIcon",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the trigger icon's DOM element."
+                            "description": "Used to pass attributes to the dropdown icon's DOM element."
                         },
                         {
                             "name": "panel",
@@ -65865,20 +66358,27 @@
                             "description": "Custom empty template."
                         },
                         {
-                            "name": "indicator",
-                            "parameters": [],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom indicator template.",
-                            "deprecated": "since v3.27.0. Use 'triggericon' slot."
-                        },
-                        {
                             "name": "triggericon",
                             "parameters": [
                                 {
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
-                                    "description": "triggericon slot's params."
+                                    "description": "dropdownicon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "",
+                            "deprecated": "since v4.0. use 'dropdownicon' slot instead.\nCustom indicator template."
+                        },
+                        {
+                            "name": "dropdownicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the icon.</span>\n }",
+                                    "description": "dropdownicon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
