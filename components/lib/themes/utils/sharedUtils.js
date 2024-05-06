@@ -61,18 +61,22 @@ export default {
 
             return mergedObj;
         },
-        mergeKeys(target = {}, source = {}) {
-            const mergedObj = { ...target };
+        mergeKeys(...args) {
+            const _mergeKeys = (target = {}, source = {}) => {
+                const mergedObj = { ...target };
 
-            Object.keys(source).forEach((key) => {
-                if (this.isObject(source[key]) && key in target && this.isObject(target[key])) {
-                    mergedObj[key] = this.mergeKeys(target[key], source[key]);
-                } else {
-                    mergedObj[key] = source[key];
-                }
-            });
+                Object.keys(source).forEach((key) => {
+                    if (this.isObject(source[key]) && key in target && this.isObject(target[key])) {
+                        mergedObj[key] = _mergeKeys(target[key], source[key]);
+                    } else {
+                        mergedObj[key] = source[key];
+                    }
+                });
 
-            return mergedObj;
+                return mergedObj;
+            };
+
+            return args.reduce((acc, obj, i) => (i === 0 ? obj : _mergeKeys(acc, obj)), {});
         },
         getItemValue(obj, ...params) {
             return this.isFunction(obj) ? obj(...params) : obj;

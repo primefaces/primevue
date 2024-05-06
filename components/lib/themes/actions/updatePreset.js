@@ -1,7 +1,7 @@
 import Theme, { SharedUtils } from 'primevue/themes';
 
-export default (preset) => {
-    const newPreset = SharedUtils.object.mergeKeys(Theme.getPreset(), preset);
+export default (...presets) => {
+    const newPreset = SharedUtils.object.mergeKeys(Theme.getPreset(), ...presets);
 
     Theme.setPreset(newPreset);
 

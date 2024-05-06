@@ -63,6 +63,16 @@ export default {
         ThemeService.emit('preset:change', newValue);
         ThemeService.emit('theme:change', this.theme);
     },
+    getOptions() {
+        return this.options;
+    },
+    setOptions(newValue) {
+        this._theme = { ...this.theme, options: newValue };
+
+        this.clearLoadedStyleNames();
+        ThemeService.emit('options:change', newValue);
+        ThemeService.emit('theme:change', this.theme);
+    },
     getLayerNames() {
         return [...this._layerNames];
     },
