@@ -7,11 +7,11 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('textarea.color')};
     background: ${dt('textarea.background')};
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     appearance: none;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('textarea.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('textarea.shadow')};
 }
@@ -22,6 +22,7 @@ const theme = ({ dt }) => `
 
 .p-inputtextarea:enabled:focus {
     border-color: ${dt('textarea.focus.border.color')};
+    box-shadow: ${dt('textarea.focus.shadow')};
     outline: 0 none;
 }
 
