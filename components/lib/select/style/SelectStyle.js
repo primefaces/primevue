@@ -209,7 +209,7 @@ input.p-select-label {
     display: flex;
 }
 
-.p-fluid .p-select .p-select-label {
+.p-fluid .p-select-label {
     width: 1%;
 }
 `;

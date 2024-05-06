@@ -46,12 +46,12 @@ const theme = ({ dt }) => `
     height: calc(100% - 2px);
 }
 
-.p-inputnumber-stacked .p-inputnumber-button-up {
+.p-inputnumber-stacked .p-inputnumber-increment-button {
     padding: 0;
     border-top-right-radius: calc(${dt('rounded.base')} - 1px);
 }
 
-.p-inputnumber-stacked .p-inputnumber-button-down {
+.p-inputnumber-stacked .p-inputnumber-decrement-button {
     padding: 0;
     border-bottom-right-radius: calc(${dt('rounded.base')} - 1px);
 }
@@ -73,7 +73,7 @@ const theme = ({ dt }) => `
     border-color: ${dt('inputnumber.button.active.border.color')};
 }
 
-.p-inputnumber-horizontal .p-inputnumber-button-up {
+.p-inputnumber-horizontal .p-inputnumber-increment-button {
     order: 3;
     border-top-right-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -85,7 +85,7 @@ const theme = ({ dt }) => `
     border-radius: 0;
 }
 
-.p-inputnumber-horizontal .p-inputnumber-button-down {
+.p-inputnumber-horizontal .p-inputnumber-decrement-button {
     order: 1;
     border-top-left-radius: ${dt('rounded.base')};
     border-bottom-left-radius: ${dt('rounded.base')};
@@ -109,7 +109,7 @@ const theme = ({ dt }) => `
     border-color: ${dt('inputnumber.button.active.border.color')};
 }
 
-.p-inputnumber-vertical .p-inputnumber-button-up {
+.p-inputnumber-vertical .p-inputnumber-increment-button {
     order: 1;
     border-top-left-radius: ${dt('rounded.base')};
     border-top-right-radius: ${dt('rounded.base')};
@@ -123,7 +123,7 @@ const theme = ({ dt }) => `
     text-align: center;
 }
 
-.p-inputnumber-vertical .p-inputnumber-button-down {
+.p-inputnumber-vertical .p-inputnumber-decrement-button {
     order: 3;
     border-bottom-left-radius: ${dt('rounded.base')};
     border-bottom-right-radius: ${dt('rounded.base')};
@@ -162,13 +162,13 @@ const classes = {
     input: 'p-inputnumber-input',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
-        'p-inputnumber-button p-inputnumber-button-up',
+        'p-inputnumber-button p-inputnumber-increment-button',
         {
             'p-disabled': props.showButtons && props.max !== null && instance.maxBoundry()
         }
     ],
     decrementButton: ({ instance, props }) => [
-        'p-inputnumber-button p-inputnumber-button-down',
+        'p-inputnumber-button p-inputnumber-decrement-button',
         {
             'p-disabled': props.showButtons && props.min !== null && instance.minBoundry()
         }
