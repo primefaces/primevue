@@ -389,9 +389,9 @@ const classes = {
     incrementButton: 'p-datepicker-increment-button',
     decrementButton: 'p-datepicker-decrement-button',
     separator: 'p-datepicker-separator',
-    minutePicker: 'p-minute-picker',
-    secondPicker: 'p-second-picker',
-    ampmPicker: 'p-ampm-picker',
+    minutePicker: 'p-datepicker-minute-picker',
+    secondPicker: 'p-datepicker-second-picker',
+    ampmPicker: 'p-datepicker-ampm-picker',
     buttonbar: 'p-datepicker-buttonbar',
     todayButton: 'p-datepicker-today-button',
     clearButton: 'p-datepicker-clear-button'
