@@ -66,9 +66,9 @@ export interface PaginatorSharedPassThroughMethodOptions {
  */
 export interface PaginatorPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the paginator wrapper's DOM element.
+     * Used to pass attributes to the paginator container's DOM element.
      */
-    paginatorWrapper?: PaginatorPassThroughOptionType<T> | any;
+    paginatorContainer?: PaginatorPassThroughOptionType<T> | any;
     /**
      * Used to pass attributes to the root's DOM element.
      */

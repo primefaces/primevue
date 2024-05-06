@@ -115,9 +115,9 @@ export interface TreeSelectPassThroughOptions {
      */
     emptyMessage?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden input wrapper's DOM element.
+     * Used to pass attributes to the hidden input container's DOM element.
      */
-    hiddenInputWrapper?: TreeSelectPassThroughOptionType;
+    hiddenInputContainer?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the hidden input's DOM element.
      */

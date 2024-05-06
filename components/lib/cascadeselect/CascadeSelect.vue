@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick($event)" v-bind="ptmi('root')">
-        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputWrapper')" :data-p-hidden-accessible="true">
+        <div class="p-hidden-accessible" v-bind="ptm('hiddenInputContainer')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
                 :id="inputId"

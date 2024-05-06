@@ -112,7 +112,7 @@ export interface TreePassThroughOptions<T = any> {
      * Used to pass attributes to the input's DOM element.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcFilterInput?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
+    filterInput?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
