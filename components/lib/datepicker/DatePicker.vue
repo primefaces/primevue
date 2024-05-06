@@ -1158,7 +1158,7 @@ export default {
                 if (this.input) {
                     this.input.focus();
                 }
-                
+
                 setTimeout(() => {
                     this.overlayVisible = false;
                 }, 150);
