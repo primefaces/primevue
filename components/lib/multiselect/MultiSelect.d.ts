@@ -130,34 +130,30 @@ export interface MultiSelectPassThroughOptions {
      */
     label?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the token's DOM element.
+     * Used to pass attributes to the chip's DOM element.
      */
-    token?: MultiSelectPassThroughOptionType;
+    chip?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    tokenLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    chipLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the remove token icon's DOM element.
+     * Used to pass attributes to the chip icon's DOM element.
      */
-    removeTokenIcon?: MultiSelectPassThroughOptionType;
+    chipIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the trigger's DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
-    trigger?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the trigger icon's DOM element.
-     */
-    triggerIcon?: MultiSelectPassThroughOptionType;
+    dropdown?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    panel?: MultiSelectPassThroughOptionType;
+    overlay?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the header's DOM element.
      */
@@ -174,15 +170,15 @@ export interface MultiSelectPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    filter?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the wrapper's DOM element.
+     * Used to pass attributes to the list container's DOM element.
      */
-    wrapper?: MultiSelectPassThroughOptionType;
+    listContainer?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -193,21 +189,21 @@ export interface MultiSelectPassThroughOptions {
      */
     list?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the item group's DOM element.
+     * Used to pass attributes to the option group's DOM element.
      */
-    itemGroup?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the item's DOM element.
-     */
-    item?: MultiSelectPassThroughOptionType;
-    /**
-     * Used to pass attributes to the item checkbox's DOM element.
-     */
-    itemCheckbox?: MultiSelectPassThroughOptionType;
+    optionGroup?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the option's DOM element.
      */
     option?: MultiSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the option label's DOM element.
+     */
+    optionLabel?: MultiSelectPassThroughOptionType;
+    /**
+     * Used to pass attributes to the option checkbox's DOM element.
+     */
+    optionCheckbox?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the emptyMessage's DOM element.
      */
@@ -361,13 +357,23 @@ export interface MultiSelectProps {
      */
     inputId?: string | undefined;
     /**
-     * Inline style of the overlay panel.
+     * @deprecated since v4.0. Use 'overlayStyle' instead.
+     * Inline style of the overlay.
      */
     panelStyle?: any;
     /**
-     * Style class of the overlay panel.
+     * @deprecated since v4.0. Use 'overlayClass' instead.
+     * Style class of the overlay.
      */
     panelClass?: any;
+    /**
+     * Inline style of the overlay.
+     */
+    overlayStyle?: any;
+    /**
+     * Style class of the overlay.
+     */
+    overlayClass?: any;
     /**
      * A property to uniquely identify an option.
      */
@@ -454,9 +460,13 @@ export interface MultiSelectProps {
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
+     * @deprecated since v4.0. Use 'chipicon' slot.
      */
     removeTokenIcon?: string | undefined;
+    /**
+     * Icon to display in chip remove action.
+     */
+    chipIcon?: string | undefined;
     /**
      * Whether all data is selected.
      * @defaultValue false
@@ -683,7 +693,8 @@ export interface MultiSelectSlots {
         options: any[];
     }): VNode[];
     /**
-     * Custom remove token icon template.
+     * @deprecated since v4.0. Use 'chipicon' slot instead.
+     * Custom chip icon template.
      * @param {Object} scope - removetokenicon slot's params.
      */
     removetokenicon(scope: {
@@ -696,14 +707,41 @@ export interface MultiSelectSlots {
          */
         item: any;
         /**
-         * Remove token icon function.
+         * Chip icon function.
          * @param {Event} event - Browser event
          * @param {any} item - Item
          * @deprecated since v3.39.0. Use 'removeCallback' property instead.
          */
         onClick: (event: Event, item: any) => void;
         /**
-         * Remove token icon function.
+         * Chip icon function.
+         * @param {Event} event - Browser event
+         * @param {any} item - Item
+         */
+        removeCallback: (event: Event, item: any) => void;
+    }): VNode[];
+    /**
+     * Custom chip icon template.
+     * @param {Object} scope - chipicon slot's params.
+     */
+    chipicon(scope: {
+        /**
+         * Style class of the loading icon.
+         */
+        class: string;
+        /**
+         * Item of the token.
+         */
+        item: any;
+        /**
+         * Chip icon function.
+         * @param {Event} event - Browser event
+         * @param {any} item - Item
+         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
+         */
+        onClick: (event: Event, item: any) => void;
+        /**
+         * Chip icon function.
          * @param {Event} event - Browser event
          * @param {any} item - Item
          */

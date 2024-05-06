@@ -39,6 +39,14 @@ export default {
             type: null,
             default: null
         },
+        overlayClass: {
+            type: String,
+            default: null
+        },
+        overlayStyle: {
+            type: null,
+            default: null
+        },
         dataKey: null,
         filter: Boolean,
         filterPlaceholder: String,
@@ -100,6 +108,10 @@ export default {
             default: undefined
         },
         removeTokenIcon: {
+            type: String,
+            default: undefined
+        },
+        chipIcon: {
             type: String,
             default: undefined
         },

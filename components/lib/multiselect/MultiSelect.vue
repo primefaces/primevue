@@ -30,11 +30,12 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('token')" v-bind="ptm('token')">
+                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('chip')" v-bind="ptm('chip')">
                             <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
-                                <Chip :class="cx('tokenLabel')" :label="getLabelByValue(item)" :removeIcon="removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('tokenLabel')">
+                                <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
+                                <Chip :class="cx('chipLabel')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('chipLabel')">
                                     <template #removeicon>
-                                        <slot name="removetokenicon" :class="cx('removeTokenIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
+                                        <slot :name="$slots.removetokenicon ? 'removetokenicon' : 'chipicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
                                     </template>
                                 </Chip>
                             </slot>
@@ -44,7 +45,7 @@
                 </slot>
             </div>
         </div>
-        <div :class="cx('trigger')" v-bind="ptm('trigger')">
+        <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -55,7 +56,7 @@
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="panelStyle" :class="[cx('panel'), panelClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('panel')">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="[panelStyle, overlayStyle]" :class="[cx('overlay'), panelClass, overlayClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -91,7 +92,7 @@
                                 :value="filterValue"
                                 @vue:mounted="onFilterUpdated"
                                 @vue:updated="onFilterUpdated"
-                                :class="cx('filterInput')"
+                                :class="cx('filter')"
                                 :placeholder="filterPlaceholder"
                                 :invalid="invalid"
                                 :disabled="disabled"
@@ -104,7 +105,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('filterInput')"
+                                :pt="ptm('filter')"
                             />
                             <slot name="filtericon" :class="cx('filterIcon')">
                                 <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
@@ -114,12 +115,19 @@
                             {{ filterResultMessageText }}
                         </span>
                     </div>
-                    <div :class="cx('wrapper')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('wrapper')">
+                    <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                                 <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" :aria-label="listAriaLabel" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                        <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('itemGroup')" role="option" v-bind="ptm('itemGroup')">
+                                        <li
+                                            v-if="isOptionGroup(option)"
+                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                            :class="cx('optionGroup')"
+                                            role="option"
+                                            v-bind="ptm('optionGroup')"
+                                        >
                                             <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                         </li>
                                         <li
@@ -127,7 +135,7 @@
                                             :id="id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                            :class="cx('item', { option, index: i, getItemOptions })"
+                                            :class="cx('option', { option, index: i, getItemOptions })"
                                             role="option"
                                             :aria-label="getOptionLabel(option)"
                                             :aria-selected="isSelected(option)"
@@ -136,24 +144,24 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'item')"
+                                            v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'option')"
                                             :data-p-highlight="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox')">
+                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'optionCheckbox')">
                                                 <template #icon="slotProps">
-                                                    <component v-if="$slots.itemcheckboxicon" :is="$slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
+                                                    <component v-if="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :is="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component
                                                         v-else-if="slotProps.checked"
                                                         :is="checkboxIcon ? 'span' : 'CheckIcon'"
                                                         :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]"
-                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'itemCheckbox.icon')"
+                                                        v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'optionCheckbox.icon')"
                                                     />
                                                 </template>
                                             </Checkbox>
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
-                                                <span v-bind="ptm('option')">{{ getOptionLabel(option) }}</span>
+                                                <span v-bind="ptm('optionLabel')">{{ getOptionLabel(option) }}</span>
                                             </slot>
                                         </li>
                                     </template>
