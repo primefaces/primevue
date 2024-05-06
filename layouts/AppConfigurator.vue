@@ -47,7 +47,7 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
-import { updatePreset, updateSurfacePalette, $dt } from 'primevue/themes';
+import { updatePreset, updateSurfacePalette, $t } from 'primevue/themes';
 import Lara from 'primevue/themes/lara';
 import Aura from 'primevue/themes/aura';
 
@@ -55,11 +55,10 @@ export default {
     data() {
         return {
             selectedPreset: 'Lara',
-            presets: ['Lara', 'Aura'],
-            selectedPrimaryColor: 'default',
+            presets: ['Aura', 'Lara'],
+            selectedPrimaryColor: 'noir',
             selectedSurfaceColor: null,
             primaryColors: [
-                { name: 'default', palette: this.getPrimaryPaletteInTheme() },
                 { name: 'noir', palette: { 50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8', 400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46', 800: '#27272a', 900: '#18181b', 950: '#09090b' } },
                 { name: 'emerald', palette: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22' } },
                 { name: 'green', palette: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' } },
@@ -115,12 +114,82 @@ export default {
         };
     },
     methods: {
-        getPrimaryPaletteInTheme() {
-            return [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].reduce((acc, k) => {
-                acc[k] = $dt(`primary.${k}`).value;
+        getPresetExt() {
+            const color = this.primaryColors.find((c) => c.name === this.selectedPrimaryColor);
 
-                return acc;
-            }, {});
+            if (color.name === 'noir') {
+                return {
+                    semantic: {
+                        primary: color.palette,
+                        colorScheme: {
+                            light: {
+                                primary: {
+                                    color: '#09090b',
+                                    inverseColor: '#ffffff',
+                                    hoverColor: '#18181b',
+                                    activeColor: '#27272a'
+                                },
+                                highlight: {
+                                    background: '#09090b',
+                                    focusBackground: '#3f3f46',
+                                    color: '#ffffff',
+                                    focusColor: '#ffffff'
+                                }
+                            },
+                            dark: {
+                                primary: {
+                                    color: '#fafafa',
+                                    inverseColor: '#09090b',
+                                    hoverColor: '#f4f4f5',
+                                    activeColor: '#e4e4e7'
+                                },
+                                highlight: {
+                                    background: 'rgba(250, 250, 250, .16)',
+                                    focusBackground: 'rgba(250, 250, 250, .24)',
+                                    color: 'rgba(255,255,255,.87)',
+                                    focusColor: 'rgba(255,255,255,.87)'
+                                }
+                            }
+                        }
+                    }
+                };
+            } else {
+                return {
+                    semantic: {
+                        primary: color.palette,
+                        colorScheme: {
+                            light: {
+                                primary: {
+                                    color: '{primary.500}',
+                                    inverseColor: '#ffffff',
+                                    hoverColor: '{primary.600}',
+                                    activeColor: '{primary.700}'
+                                },
+                                highlight: {
+                                    background: '{primary.50}',
+                                    focusBackground: '{primary.100}',
+                                    color: '{primary.700}',
+                                    focusColor: '{primary.800}'
+                                }
+                            },
+                            dark: {
+                                primary: {
+                                    color: '{primary.400}',
+                                    inverseColor: '{surface.900}',
+                                    hoverColor: '{primary.300}',
+                                    activeColor: '{primary.200}'
+                                },
+                                highlight: {
+                                    background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                                    focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                                    color: 'rgba(255,255,255,.87)',
+                                    focusColor: 'rgba(255,255,255,.87)'
+                                }
+                            }
+                        }
+                    }
+                };
+            }
         },
         updateColors(type, color) {
             if (type === 'primary') this.selectedPrimaryColor = color.name;
@@ -130,79 +199,7 @@ export default {
         },
         applyTheme(type, color) {
             if (type === 'primary') {
-                if (color.name === 'noir') {
-                    updatePreset({
-                        semantic: {
-                            primary: color.palette,
-                            colorScheme: {
-                                light: {
-                                    primary: {
-                                        color: '#09090b',
-                                        inverseColor: '#ffffff',
-                                        hoverColor: '#18181b',
-                                        activeColor: '#27272a'
-                                    },
-                                    highlight: {
-                                        background: '#09090b',
-                                        focusBackground: '#3f3f46',
-                                        color: '#ffffff',
-                                        focusColor: '#ffffff'
-                                    }
-                                },
-                                dark: {
-                                    primary: {
-                                        color: '#fafafa',
-                                        inverseColor: '#09090b',
-                                        hoverColor: '#f4f4f5',
-                                        activeColor: '#e4e4e7'
-                                    },
-                                    highlight: {
-                                        background: 'rgba(250, 250, 250, .16)',
-                                        focusBackground: 'rgba(250, 250, 250, .24)',
-                                        color: 'rgba(255,255,255,.87)',
-                                        focusColor: 'rgba(255,255,255,.87)'
-                                    }
-                                }
-                            }
-                        }
-                    });
-                } else {
-                    updatePreset({
-                        semantic: {
-                            primary: color.palette,
-                            colorScheme: {
-                                light: {
-                                    primary: {
-                                        color: '{primary.500}',
-                                        inverseColor: '#ffffff',
-                                        hoverColor: '{primary.600}',
-                                        activeColor: '{primary.700}'
-                                    },
-                                    highlight: {
-                                        background: '{primary.50}',
-                                        focusBackground: '{primary.100}',
-                                        color: '{primary.700}',
-                                        focusColor: '{primary.800}'
-                                    }
-                                },
-                                dark: {
-                                    primary: {
-                                        color: '{primary.400}',
-                                        inverseColor: '{surface.900}',
-                                        hoverColor: '{primary.300}',
-                                        activeColor: '{primary.200}'
-                                    },
-                                    highlight: {
-                                        background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
-                                        focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
-                                        color: 'rgba(255,255,255,.87)',
-                                        focusColor: 'rgba(255,255,255,.87)'
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
+                updatePreset(this.getPresetExt());
             } else if (type === 'surface') {
                 updateSurfacePalette(color.palette);
             }
@@ -213,23 +210,10 @@ export default {
             this.$appState.ripple = value;
         },
         onPresetChange(value) {
-            switch (value) {
-                case 'Lara':
-                    updatePreset(Lara);
-                    break;
+            const preset = value === 'Lara' ? Lara : Aura;
+            const surfacePalette = this.surfaces.find((s) => s.name === this.selectedSurfaceColor)?.palette;
 
-                case 'Aura':
-                    updatePreset(Aura);
-                    break;
-
-                default:
-                    break;
-            }
-
-            // @todo
-            this.primaryColors.find((c) => c.name === 'default').palette = this.getPrimaryPaletteInTheme();
-            this.selectedPrimaryColor = 'default';
-            this.selectedSurfaceColor = null;
+            $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).update();
         }
     },
     computed: {

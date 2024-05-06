@@ -1,7 +1,8 @@
 import { definePreset } from 'primevue/themes';
-import Aura from 'primevue/themes/aura';
+import Lara from 'primevue/themes/lara';
+//import Aura from 'primevue/themes/aura';
 
-const Noir = definePreset(Aura, {
+const Noir = definePreset(Lara, {
     semantic: {
         primary: {
             50: '{zinc.50}',
