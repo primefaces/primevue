@@ -76,7 +76,7 @@ const theme = ({ dt }) => `
     color: ${dt('multiselect.disabled.color')};
 }
 
-.p-inputlistContainer-filled.p-multiselect.p-multiselect-display-chip .p-multiselect-label {
+.p-inputwrapper-filled.p-multiselect.p-multiselect-display-chip .p-multiselect-label {
     padding: 0.25rem 0.25rem;
 }
 
@@ -209,15 +209,15 @@ const inlineStyles = {
 
 const classes = {
     root: ({ instance, props }) => [
-        'p-multiselect p-component p-inputlistContainer',
+        'p-multiselect p-component p-inputwrapper',
         {
             'p-multiselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
             'p-focus': instance.focused,
-            'p-inputlistContainer-filled': props.modelValue && props.modelValue.length,
-            'p-inputlistContainer-focus': instance.focused || instance.overlayVisible,
+            'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
+            'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-multiselect-open': instance.overlayVisible
         }
     ],
