@@ -87,6 +87,7 @@ import treetable from 'primevue/themes/lara/treetable';
 export default {
     primitive: {
         borderRadius: {
+            none: '0',
             sm: '4px',
             md: '6px',
             lg: '8px',
@@ -141,6 +142,17 @@ export default {
             paddingX: '0.75rem',
             paddingY: '0.625rem',
             borderRadius: '{border.radius.sm}'
+        },
+        list: {
+            padding: '0.5rem 0',
+            option: {
+                padding: '0.625rem 0.75rem',
+                borderRadius: '0'
+            },
+            optionGroup: {
+                padding: '0.625rem 0.75rem',
+                fontWeight: '600'
+            }
         },
         colorScheme: {
             light: {
@@ -207,7 +219,8 @@ export default {
                     select: {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
-                        color: '{text.color}'
+                        color: '{text.color}',
+                        shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
                     },
                     popover: {
                         background: '{surface.0}',
@@ -231,7 +244,7 @@ export default {
                     },
                     optionGroup: {
                         background: '{surface.0}',
-                        color: '{text.muted.color}'
+                        color: '{text.color}'
                     }
                 },
                 navigation: {
@@ -313,7 +326,8 @@ export default {
                     select: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
-                        color: '{text.color}'
+                        color: '{text.color}',
+                        shadow: 'rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px'
                     },
                     popover: {
                         background: '{surface.900}',
@@ -337,7 +351,7 @@ export default {
                     },
                     optionGroup: {
                         background: '{surface.900}',
-                        color: '{text.muted.color}'
+                        color: '{text.color}'
                     }
                 },
                 navigation: {

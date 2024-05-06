@@ -10,11 +10,11 @@ const theme = ({ dt }) => `
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;
-    right: 0.75rem;
+    right: ${dt('autocomplete.padding.x')};
 }
 
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-loader {
-    right: 3.25rem;
+    right: calc(${dt('autocomplete.dropdown.width')} + ${dt('autocomplete.padding.x')});
 }
 
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input {
@@ -78,14 +78,14 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.overlay.color')};
     border: 1px solid ${dt('autocomplete.overlay.border.color')};
     border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: ${dt('autocomplete.overlay.shadow')};
 }
 
 .p-autocomplete-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    padding: 0.25rem 0.25rem;
+    padding: ${dt('autocomplete.list.padding')};
 }
 
 .p-autocomplete-option {
@@ -94,12 +94,12 @@ const theme = ({ dt }) => `
     position: relative;
     overflow: hidden;
     margin: 2px 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('autocomplete.option.padding')};
     border: 0 none;
     color: ${dt('autocomplete.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.sm')};
+    border-radius: ${dt('autocomplete.option.border.radius')};
 }
 
 .p-autocomplete-option:first-child {
@@ -127,65 +127,76 @@ const theme = ({ dt }) => `
 
 .p-autocomplete-option-group {
     margin: 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('autocomplete.option.group.padding')};
     color: ${dt('autocomplete.option.group.color')};
     background: ${dt('autocomplete.option.group.background')};
-    font-weight: 600;
+    font-weight: ${dt('autocomplete.option.group.font.weight')};
 }
 
 .p-autocomplete-input-multiple {
     margin: 0;
-    padding: 0;
     list-style-type: none;
     cursor: text;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0.25rem 0.25rem;
-    gap: 0.25rem;
-    color: ${dt('autocomplete.input.multiple.color')};
-    background: ${dt('autocomplete.input.multiple.background')};
-    border: 1px solid ${dt('autocomplete.input.multiple.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    padding: calc(${dt('autocomplete.padding.y')} / 2) ${dt('autocomplete.padding.x')};
+    gap: calc(${dt('autocomplete.padding.y')} / 2);
+    color: ${dt('autocomplete.color')};
+    background: ${dt('autocomplete.background')};
+    border: 1px solid ${dt('autocomplete.border.color')};
+    border-radius: ${dt('autocomplete.border.radius')};
     width: 100%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: ${dt('autocomplete.input.multiple.shadow')};
+    box-shadow: ${dt('autocomplete.shadow')};
 }
 
 .p-autocomplete:not(.p-disabled):hover .p-autocomplete-input-multiple {
-    border-color: ${dt('autocomplete.input.multiple.hover.border.color')};
+    border-color: ${dt('autocomplete.hover.border.color')};
 }
 
 .p-autocomplete:not(.p-disabled).p-focus .p-autocomplete-input-multiple {
-    border-color: ${dt('autocomplete.input.multiple.focus.border.color')};
+    border-color: ${dt('autocomplete.focus.border.color')};
+    box-shadow: ${dt('autocomplete.focus.shadow')};
     outline: 0 none;
 }
 
 .p-autocomplete.p-invalid .p-autocomplete-input-multiple {
-    border-color: ${dt('autocomplete.input.multiple.invalid.border.color')};
+    border-color: ${dt('autocomplete.invalid.border.color')};
 }
 
 .p-variant-filled.p-autocomplete-input-multiple {
-    background: ${dt('autocomplete.input.multiple.filled.background')};
+    background: ${dt('autocomplete.filled.background')};
 }
 
 .p-autocomplete:not(.p-disabled).p-focus .p-variant-filled.p-autocomplete-input-multiple  {
-    background: ${dt('autocomplete.input.multiple.filled.focus.background')};
+    background: ${dt('autocomplete.filled.focus.background')};
 }
 
 .p-autocomplete.p-disabled .p-autocomplete-input-multiple {
     opacity: 1;
-    background: ${dt('autocomplete.input.multiple.disabled.background')};
-    color: ${dt('autocomplete.input.multiple.disabled.color')};
+    background: ${dt('autocomplete.disabled.background')};
+    color: ${dt('autocomplete.disabled.color')};
+}
+
+.p-autocomplete-input-multiple .p-chip {
+    padding-top: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
+    border-radius: calc(${dt('autocomplete.border.radius')} - calc(${dt('autocomplete.padding.y')} / 2));
+}
+
+.p-autocomplete-input-multiple:has(.p-chip) {
+    padding-left: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-right: calc(${dt('autocomplete.padding.y')} / 2);
 }
 
 .p-autocomplete-input-chip {
     flex: 1 1 auto;
     display: inline-flex;
-    padding: 0.25rem 0;
-    margin-left: 0.5rem;
+    padding-top: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
 }
 
 .p-autocomplete-input-chip input {
@@ -204,7 +215,7 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-input-chip input::placeholder {
-    color: ${dt('autocomplete.input.multiple.placeholder.color')};
+    color: ${dt('autocomplete.placeholder.color')};
 }
 
 .p-fluid .p-autocomplete {

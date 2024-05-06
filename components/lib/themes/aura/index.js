@@ -87,6 +87,7 @@ import treetable from 'primevue/themes/aura/treetable';
 export default {
     primitive: {
         borderRadius: {
+            none: '0',
             sm: '4px',
             md: '6px',
             lg: '8px',
@@ -141,6 +142,17 @@ export default {
             paddingX: '0.75rem',
             paddingY: '0.5rem',
             borderRadius: '{border.radius.md}'
+        },
+        list: {
+            padding: '0.25rem 0.25rem',
+            option: {
+                padding: '0.5rem 0.75rem',
+                borderRadius: '4px'
+            },
+            optionGroup: {
+                padding: '0.5rem 0.75rem',
+                fontWeight: '600'
+            }
         },
         colorScheme: {
             light: {
@@ -207,7 +219,8 @@ export default {
                     select: {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
-                        color: '{text.color}'
+                        color: '{text.color}',
+                        shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
                     },
                     popover: {
                         background: '{surface.0}',
@@ -313,7 +326,8 @@ export default {
                     select: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
-                        color: '{text.color}'
+                        color: '{text.color}',
+                        shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
                     },
                     popover: {
                         background: '{surface.900}',

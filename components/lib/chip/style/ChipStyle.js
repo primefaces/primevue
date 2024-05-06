@@ -7,15 +7,10 @@ const theme = ({ dt }) => `
     background: ${dt('chip.background')};
     color: ${dt('chip.color')};
     border-radius: 16px;
-    padding: 0.25rem 0.75rem;
-}
-
-.p-chip-label {
-    line-height: 1.5;
+    padding: 0.5rem 0.75rem;
 }
 
 .p-chip-icon {
-    line-height: 1.5;
     margin-right: 0.5rem;
 }
 
@@ -32,7 +27,6 @@ const theme = ({ dt }) => `
 }
 
 .p-chip-remove-icon {
-    line-height: 1.5;
     cursor: pointer;
     margin-left: 0.375rem;
     border-radius: 6px;
