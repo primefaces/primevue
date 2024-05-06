@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     background: ${dt('menu.background')};
     color: ${dt('menu.color')};
     border: 1px solid ${dt('menu.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     min-width: 12.5rem;
 }
 
@@ -43,7 +43,7 @@ const theme = ({ dt }) => `
 
 .p-menu-item-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius:  ${dt('rounded.sm')};
+    border-radius:  ${dt('border.radius.sm')};
     color: ${dt('menu.item.color')};
 }
 

@@ -3,7 +3,7 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-panel {
     border: 1px solid ${dt('panel.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     background: ${dt('panel.background')};
     color: ${dt('panel.color')};
 }

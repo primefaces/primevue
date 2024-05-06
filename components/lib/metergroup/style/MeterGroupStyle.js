@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
 .p-metergroup-meters {
     display: flex;
     background: ${dt('metergroup.meters.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-metergroup-meter {
@@ -55,12 +55,12 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-horizontal .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('rounded.base')};
-    border-bottom-left-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
+    border-bottom-left-radius: ${dt('border.radius.md')};
 }
 .p-metergroup-horizontal .p-metergroup-meter:last-of-type {
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
 }
 
 .p-metergroup-vertical {
@@ -83,12 +83,12 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-vertical .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('rounded.base')};
-    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('border.radius.md')};
 }
 .p-metergroup-vertical .p-metergroup-meter:last-of-type {
-    border-bottom-left-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
 }
 `;
 

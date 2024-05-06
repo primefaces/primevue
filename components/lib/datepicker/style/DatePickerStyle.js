@@ -26,8 +26,8 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     width: ${dt('datepicker.dropdown.width')};
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
     background: ${dt('datepicker.dropdown.background')};
     border: 1px solid ${dt('datepicker.dropdown.border.color')};
     border-left: 0 none;
@@ -87,7 +87,7 @@ const theme = ({ dt }) => `
     background: ${dt('datepicker.background')};
     color: ${dt('datepicker.color')};
     border: 1px solid ${dt('datepicker.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -237,7 +237,7 @@ const theme = ({ dt }) => `
     position: relative;
     padding: 0.25rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
 }
@@ -271,7 +271,7 @@ const theme = ({ dt }) => `
     position: relative;
     padding: 0.25rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
 }

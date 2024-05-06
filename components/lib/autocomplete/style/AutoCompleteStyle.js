@@ -38,8 +38,8 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     width: ${dt('autocomplete.dropdown.width')};
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
     background: ${dt('autocomplete.dropdown.background')};
     border: 1px solid ${dt('autocomplete.dropdown.border.color')};
     border-left: 0 none;
@@ -77,7 +77,7 @@ const theme = ({ dt }) => `
     background: ${dt('autocomplete.overlay.background')};
     color: ${dt('autocomplete.overlay.color')};
     border: 1px solid ${dt('autocomplete.overlay.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,7 +99,7 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
 }
 
 .p-autocomplete-option:first-child {
@@ -147,7 +147,7 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.input.multiple.color')};
     background: ${dt('autocomplete.input.multiple.background')};
     border: 1px solid ${dt('autocomplete.input.multiple.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;

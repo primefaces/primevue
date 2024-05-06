@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-breadcrumb {
     background: ${dt('breadcrumb.background')};
     border: 0 none;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     padding: 1rem;
     overflow-x: auto;
 }
@@ -34,7 +34,7 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
 }
 

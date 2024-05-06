@@ -5,7 +5,7 @@ const theme = ({ dt }) => `
     display: inline;
     cursor: pointer;
     padding: 0.5rem 0.75rem;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }

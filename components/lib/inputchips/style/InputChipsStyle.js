@@ -19,7 +19,7 @@ const theme = ({ dt }) => `
     color: ${dt('inputchips.color')};
     background: ${dt('inputchips.background')};
     border: 1px solid ${dt('inputchips.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     width: 100%;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;

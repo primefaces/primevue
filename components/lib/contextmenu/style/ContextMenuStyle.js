@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     background: ${dt('contextmenu.background')};
     color: ${dt('contextmenu.color')};
     border: 1px solid ${dt('contextmenu.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
 }
@@ -27,7 +27,7 @@ const theme = ({ dt }) => `
     background: ${dt('contextmenu.background')};
     color: ${dt('contextmenu.color')};
     border: 1px solid ${dt('contextmenu.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -45,7 +45,7 @@ const theme = ({ dt }) => `
 
 .p-contextmenu-item-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
     color: ${dt('contextmenu.item.color')};
 }
 

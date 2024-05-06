@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
     background: ${dt('cascadeselect.background')};
     border: 1px solid ${dt('cascadeselect.border.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     box-shadow: ${dt('cascadeselect.box.shadow')};
 }
@@ -48,8 +48,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('cascadeselect.dropdown.color')};
     width: 2.5rem;
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
 }
 
 .p-cascadeselect-label {
@@ -95,7 +95,7 @@ const theme = ({ dt }) => `
 .p-cascadeselect-overlay {
     background: ${dt('cascadeselect.overlay.background')};
     border: 1px solid ${dt('cascadeselect.overlay.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     color: ${dt('cascadeselect.overlay.color')};
 }
@@ -127,7 +127,7 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
 }
 
 .p-cascadeselect-item:first-child {

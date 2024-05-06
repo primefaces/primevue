@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
 .p-toast-message {
     backdrop-filter: blur(${dt('toast.blur')});
     margin: 0 0 1rem 0;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-toast-message-icon {

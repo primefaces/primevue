@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
     height: 1.5rem;
     padding: 0;
     border: 0 none;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;
     cursor: pointer;
@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
 .p-colorpicker-panel {
     background: ${dt('colorpicker.panel.background')};
     border: 1px solid ${dt('colorpicker.panel.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     width: 193px;
     height: 166px;

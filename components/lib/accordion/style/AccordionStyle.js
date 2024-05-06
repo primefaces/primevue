@@ -21,7 +21,7 @@ const theme = ({ dt }) => `
     color: ${dt('accordion.header.color')};
     background: ${dt('accordion.header.background')};
     font-weight: 600;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }

@@ -7,7 +7,7 @@ const theme = ({ dt }) => `
 
 .p-fileupload-advanced {
     border: 1px solid ${dt('fileupload.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     background: ${dt('fileupload.background')};
     color: ${dt('fileupload.color')};
 }

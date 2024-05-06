@@ -11,7 +11,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('textarea.border.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     appearance: none;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     box-shadow: ${dt('textarea.box.shadow')};
 }

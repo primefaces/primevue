@@ -14,14 +14,14 @@ const theme = ({ dt }) => `
     height: 10px;
     margin-bottom: 0.75rem;
     background: ${dt('password.meter.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-password-meter-label {
     height: 100%;
     width: 0;
     transition: width 1s ease-in-out;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-password-meter-weak {
@@ -51,7 +51,7 @@ const theme = ({ dt }) => `
     color: ${dt('password.overlay.color')};
     border: 1px solid ${dt('password.overlay.border.color')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-password-toggle-mask-icon {

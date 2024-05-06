@@ -18,7 +18,7 @@ const theme = ({ dt }) => `
 }
 
 .p-knob svg {
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     transition: outline-color ${dt('transition.duration')};
 }

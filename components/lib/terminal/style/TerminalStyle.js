@@ -8,7 +8,7 @@ const theme = ({ dt }) => `
     color: ${dt('terminal.color')};
     border: 1px solid ${dt('terminal.border.color')};
     padding: 0.5rem 0.75rem;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-terminal-prompt {

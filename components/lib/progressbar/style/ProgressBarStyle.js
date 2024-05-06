@@ -7,7 +7,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     height: 1.25rem;
     background: ${dt('progressbar.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-progressbar-value {

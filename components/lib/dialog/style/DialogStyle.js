@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-dialog {
     max-height: 90%;
     transform: scale(1);
-    border-radius: ${dt('rounded.xl')};
+    border-radius: ${dt('border.radius.xl')};
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     background: ${dt('dialog.background')};
     border: 1px solid ${dt('dialog.border.color')};

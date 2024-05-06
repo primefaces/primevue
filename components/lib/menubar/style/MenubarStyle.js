@@ -8,7 +8,7 @@ const theme = ({ dt }) => `
     background: ${dt('menubar.background')};
     color: ${dt('menubar.color')};
     border: 1px solid ${dt('menubar.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-menubar-root-list,
@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
 
 .p-menubar-item-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')});
+    border-radius: ${dt('border.radius.sm')});
     color: ${dt('menubar.item.color')};
 }
 
@@ -107,7 +107,7 @@ const theme = ({ dt }) => `
     background: ${dt('menubar.background')};
     color: ${dt('menubar.color')};
     border: 1px solid ${dt('menubar.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 

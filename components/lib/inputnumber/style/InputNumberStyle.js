@@ -48,12 +48,12 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-stacked .p-inputnumber-increment-button {
     padding: 0;
-    border-top-right-radius: calc(${dt('rounded.base')} - 1px);
+    border-top-right-radius: calc(${dt('border.radius.md')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-decrement-button {
     padding: 0;
-    border-bottom-right-radius: calc(${dt('rounded.base')} - 1px);
+    border-bottom-right-radius: calc(${dt('border.radius.md')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-button {
@@ -75,8 +75,8 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-horizontal .p-inputnumber-increment-button {
     order: 3;
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
     border-left: 0 none;
 }
 
@@ -87,8 +87,8 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-horizontal .p-inputnumber-decrement-button {
     order: 1;
-    border-top-left-radius: ${dt('rounded.base')};
-    border-bottom-left-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
+    border-bottom-left-radius: ${dt('border.radius.md')};
     border-right: 0 none;
 }
 
@@ -111,8 +111,8 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-increment-button {
     order: 1;
-    border-top-left-radius: ${dt('rounded.base')};
-    border-top-right-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('border.radius.md')};
     width: 100%;
     border-bottom: 0 none;
 }
@@ -125,8 +125,8 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-decrement-button {
     order: 3;
-    border-bottom-left-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-bottom-left-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
     width: 100%;
     border-top: 0 none;
 }

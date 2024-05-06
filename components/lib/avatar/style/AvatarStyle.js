@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
     height: 2rem;
     font-size: 1rem;
     background: ${dt('avatar.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-avatar-image {

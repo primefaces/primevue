@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
     background: ${dt('toolbar.background')};
     border: 1px solid ${dt('toolbar.border.color')};
     color: ${dt('toolbar.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     gap: 0.5rem;
 }
 

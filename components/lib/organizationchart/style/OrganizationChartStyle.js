@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
     background: ${dt('organizationchart.node.background')};
     color: ${dt('organizationchart.node.color')};
     padding: 0.75rem 1rem;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
 }
 
@@ -80,7 +80,7 @@ const theme = ({ dt }) => `
 .p-organizationchart-connector-right {
     border-radius: 0;
     border-left: 1px solid ${dt('organizationchart.connector.color')};
-    border-top-left-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
 }
 
 .p-organizationchart-connector-left {
@@ -101,12 +101,12 @@ const theme = ({ dt }) => `
 }
 
 .p-organizationchart-connectors :nth-last-child(1 of .p-organizationchart-connector-left) {
-    border-top-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
 }
 
 .p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-right) {
     border-left: 1px solid ${dt('organizationchart.connector.color')};
-    border-top-left-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
 }
 `;
 

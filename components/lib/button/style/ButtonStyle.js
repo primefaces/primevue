@@ -17,7 +17,7 @@ const theme = ({ dt }) => `
     font-family: inherit;
     font-feature-settings: inherit;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     gap: 0.5rem;
 }

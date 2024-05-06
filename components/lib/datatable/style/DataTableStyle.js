@@ -200,7 +200,7 @@ const theme = ({ dt }) => `
     background: ${dt('datatable.filter.overlay.background')};
     color: ${dt('datatable.filter.overlay.color')};
     border: 1px solid ${dt('datatable.filter.overlay.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
 }
@@ -218,7 +218,7 @@ const theme = ({ dt }) => `
     color: ${dt('datatable.filter.constraint.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')},;
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
     cursor: pointer;
 }
 
@@ -291,7 +291,7 @@ const theme = ({ dt }) => `
     background: ${dt('datatable.filter.overlay.background')};
     color: ${dt('datatable.filter.overlay.color')};
     border: 1px solid ${dt('datatable.filter.overlay.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     min-width: 12.5rem;
     padding: 0.75rem;

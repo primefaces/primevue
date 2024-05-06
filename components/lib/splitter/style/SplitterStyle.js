@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     flex-wrap: nowrap;
     border: 1px solid ${dt('splitter.border.color')};
     background: ${dt('splitter.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     color: ${dt('splitter.color')};
 }
 
@@ -25,7 +25,7 @@ const theme = ({ dt }) => `
 }
 
 .p-splitter-gutter-handle {
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     background: transparent;
     transition: outline-color ${dt('transition.duration')};
     outline-color: transparent;

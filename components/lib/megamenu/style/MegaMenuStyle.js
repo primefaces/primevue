@@ -8,7 +8,7 @@ const theme = ({ dt }) => `
     background: ${dt('megamenu.background')};
     color: ${dt('megamenu.color')};
     border: 1px solid ${dt('megamenu.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-megamenu-root-list {
@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
 
 .p-megamenu-item-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
     color: ${dt('megamenu.item.color')};
 }
 
@@ -93,7 +93,7 @@ const theme = ({ dt }) => `
     background: ${dt('megamenu.background')};
     color: ${dt('megamenu.color')};
     border: 1px solid ${dt('megamenu.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)
 }
 

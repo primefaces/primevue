@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
     font-size: 0.875rem;
     font-weight: 700;
     padding: 0.25rem 0.4rem;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     gap: 0.25rem;
 }
 

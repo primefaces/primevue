@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-fieldset {
     background: ${dt('fieldset.background')};
     border: 1px solid ${dt('fieldset.border.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     color: ${dt('fieldset.color')};
     padding: 0 1.125rem 1.125rem 1.125rem;
     margin: 0;
@@ -35,7 +35,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     padding: 0.5rem 0.75rem;
     color: ${dt('fieldset.legend.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }

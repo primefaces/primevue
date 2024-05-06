@@ -53,7 +53,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     padding: 0;
     margin: 0;
     border: none;

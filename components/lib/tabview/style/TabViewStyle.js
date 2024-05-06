@@ -47,8 +47,8 @@ const theme = ({ dt }) => `
     color: ${dt('tabview.tab.color')};
     padding: 1rem 1.125rem;
     font-weight: 600;
-    border-top-right-radius: ${dt('rounded.base')};
-    border-top-left-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-top-left-radius: ${dt('border.radius.md')};
     transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     margin: 0 0 -1px 0;
     outline-color: transparent;

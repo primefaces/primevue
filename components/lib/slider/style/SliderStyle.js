@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-slider {
     position: relative;
     background: ${dt('slider.track.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-slider-handle {
@@ -45,7 +45,7 @@ const theme = ({ dt }) => `
 .p-slider-range {
     display: block;
     background: ${dt('slider.range.background')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-slider.p-slider-horizontal {

@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
     padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
     gap: 0.5rem;
     font-weight: 500;
@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
     top: 0.25rem;
     width: calc(100% - 0.5rem);
     height: calc(100% - 0.5rem);
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
 }
 
 .p-togglebutton.p-togglebutton-checked::before {

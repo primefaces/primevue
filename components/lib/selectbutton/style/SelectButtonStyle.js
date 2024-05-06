@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     user-select: none;
     vertical-align: bottom;
     outline-color: transparent;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-selectbutton .p-togglebutton {
@@ -19,13 +19,13 @@ const theme = ({ dt }) => `
 }
 
 .p-selectbutton .p-togglebutton:first-child {
-    border-top-left-radius: ${dt('rounded.base')};
-    border-bottom-left-radius: ${dt('rounded.base')};
+    border-top-left-radius: ${dt('border.radius.md')};
+    border-bottom-left-radius: ${dt('border.radius.md')};
 }
 
 .p-selectbutton .p-togglebutton:last-child {
-    border-top-right-radius: ${dt('rounded.base')};
-    border-bottom-right-radius: ${dt('rounded.base')};
+    border-top-right-radius: ${dt('border.radius.md')};
+    border-bottom-right-radius: ${dt('border.radius.md')};
 }
 
 .p-selectbutton.p-invalid {

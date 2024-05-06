@@ -11,7 +11,7 @@ const theme = ({ dt }) => `
     background: ${dt('panelmenu.panel.background')};
     border: 1px solid ${dt('panelmenu.panel.border.color')};
     color: ${dt('panelmenu.panel.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     padding: 0.25rem 0.25rem;
 }
 
@@ -23,7 +23,7 @@ const theme = ({ dt }) => `
 .p-panelmenu-header-content {
     border: 0 none;
     color: ${dt('panelmenu.item.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
@@ -105,7 +105,7 @@ const theme = ({ dt }) => `
 
 .p-panelmenu-item-content {
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('rounded.sm')};
+    border-radius: ${dt('border.radius.sm')};
     color: ${dt('panelmenu.item.color')};
 }
 

@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-splitbutton {
     display: inline-flex;
     position: relative;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-splitbutton-button {

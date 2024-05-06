@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-tree {
     background: ${dt('tree.background')};
     color: ${dt('tree.color')};
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     border: 0 none;
     padding: 1rem;
 }
@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-node-content {
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     padding: 0.25rem 0.5rem;
     display: flex;
     align-items: center;

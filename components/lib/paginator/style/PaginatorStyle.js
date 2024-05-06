@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
     color: ${dt('paginator.color')};
     border: 0 none;
     padding: 0.5rem 1rem;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
     gap: 0.25rem;
 }
 

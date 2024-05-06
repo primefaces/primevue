@@ -7,7 +7,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     padding: 0.5rem 0.75rem;
     margin: 0;
-    border-radius: ${dt('rounded.base')};
+    border-radius: ${dt('border.radius.md')};
 }
 
 .p-inline-message-text {
