@@ -24,14 +24,14 @@ export default {
                 basic: `
 <Panel
     :pt="{
-       root: {
-         class='"border-1 border-solid'
-       },
-       header: {
-          'data-test-id': 'testid',
-          class: 'bg-blue-500',
-          onClick: onHeaderClick
-       }
+        root: {
+            class='"border-1 border-solid'
+        },
+        header: {
+            'data-test-id': 'testid',
+            class: 'bg-blue-500',
+            onClick: onHeaderClick
+        }
     }"
 >
 `
