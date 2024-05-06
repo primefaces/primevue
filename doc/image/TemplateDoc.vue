@@ -1,13 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            An eye icon is displayed by default when the image is hovered in preview mode, use the <i>indicatoricon</i> slot for custom content. In addition, the <i>image</i> and <i>preview</i> slots are available to define the thumbnail and detailed
+            An eye icon is displayed by default when the image is hovered in preview mode, use the <i>previewicon</i> slot for custom content. In addition, the <i>image</i> and <i>preview</i> slots are available to define the thumbnail and detailed
             image respectively.
         </p>
     </DocSectionText>
     <div class="card flex justify-content-center">
         <Image alt="Image" preview>
-            <template #indicatoricon>
+            <template #previewicon>
                 <i class="pi pi-search"></i>
             </template>
             <template #image>
@@ -28,7 +28,7 @@ export default {
             code: {
                 basic: `
 <Image alt="Image" preview>
-    <template #indicatoricon>
+    <template #previewicon>
         <i class="pi pi-search"></i>
     </template>
     <template #image>
@@ -43,7 +43,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Image alt="Image" preview>
-            <template #indicatoricon>
+            <template #previewicon>
                 <i class="pi pi-search"></i>
             </template>
             <template #image>
@@ -60,7 +60,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <Image alt="Image" preview>
-            <template #indicatoricon>
+            <template #previewicon>
                 <i class="pi pi-search"></i>
             </template>
             <template #image>

@@ -186,9 +186,13 @@ export interface ImageProps {
     imageClass?: any;
     /**
      * Custom indicator icon.
-     * @deprecated since v3.27.0. Use 'indicatoricon' slot.
+     * @deprecated since v4.0. Use 'previewIcon' prop instead.
      */
-    indicatorIcon?: string;
+    indicatorIcon?: string | undefined;
+    /**
+     * Custom indicator icon.
+     */
+    previewIcon?: string | undefined;
     /**
      * Disable the zoom-in button
      * @defaultValue false
@@ -225,6 +229,11 @@ export interface ImageProps {
  */
 export interface ImageSlots {
     /**
+     * Custom indicator template.
+     */
+    previewicon(): VNode[];
+    /**
+     * @deprecated since v4.0. Use 'previewicon' slot instead.
      * Custom indicator template.
      */
     indicatoricon(): VNode[];
@@ -272,6 +281,7 @@ export interface ImageSlots {
         errorCallback: () => void;
     }): VNode[];
     /**
+     * @deprecated since v4.0. use 'original' slot instead.
      * Custom preview template.
      * @param {Object} scope - preview slot's params.
      */
@@ -286,6 +296,29 @@ export interface ImageSlots {
         style: any;
         /**
          * Preview click function.
+         * @deprecated since v3.39.0. Use 'previewCallback' property instead.
+         */
+        onClick: () => void;
+        /**
+         * Preview click function.
+         */
+        previewCallback: () => void;
+    }): VNode[];
+    /**
+     * Custom original template.
+     * @param {Object} scope - original slot's params.
+     */
+    original(scope: {
+        /**
+         * Style class of the original image element.
+         */
+        class: any;
+        /**
+         * Style of the original image element.
+         */
+        style: any;
+        /**
+         * Original click function.
          * @deprecated since v3.39.0. Use 'previewCallback' property instead.
          */
         onClick: () => void;

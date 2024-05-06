@@ -34,6 +34,10 @@ export default {
             type: String,
             default: undefined
         },
+        previewIcon: {
+            type: String,
+            default: undefined
+        },
         zoomInDisabled: {
             type: Boolean,
             default: false
