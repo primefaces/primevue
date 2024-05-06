@@ -40,10 +40,11 @@
                                 aria-hidden="true"
                                 v-bind="getPTOptions('itemLink', processedItem, index)"
                             >
-                                <template v-if="!templates['icon']">
+                                <!-- TODO: icon deprecated since v4.0-->
+                                <template v-if="!templates['icon'] && !templates['itemicon']">
                                     <span v-ripple :class="[cx('itemIcon'), processedItem.icon]" v-bind="getPTOptions('itemIcon', processedItem, index)"></span>
                                 </template>
-                                <component v-else :is="templates['icon']" :item="processedItem" :class="cx('itemIcon')"></component>
+                                <component v-else :is="templates['icon'] || templates['itemicon']" :item="processedItem" :class="cx('itemIcon')"></component>
                             </a>
                         </template>
                         <component v-else :is="templates['item']" :item="processedItem" :index="index" :label="processedItem.label" :props="getMenuItemProps(processedItem, index)"></component>

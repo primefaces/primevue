@@ -274,12 +274,23 @@ export interface DockSlots {
         props: DockRouterBindProps;
     }): VNode[];
     /**
+     * @deprecated since v4.0. Use 'itemicon' slot.
      * Custom icon content.
-     * @param {Object} scope - icon slot's params.
+     * @param {Object} scope - item icon slot's params.
      */
     icon(scope: {
         /**
-         * Custom content for icon.
+         * Custom content for item icon.
+         */
+        item: MenuItem;
+    }): VNode[];
+    /**
+     * Custom icon content.
+     * @param {Object} scope - item icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Custom content for item icon.
          */
         item: MenuItem;
     }): VNode[];
