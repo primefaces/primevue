@@ -20,10 +20,10 @@ export default {
     },
     list: {
         padding: '{list.padding}',
-        gap: '{list.gap}'
-    },
-    header: {
-        padding: '{list.header.padding}'
+        gap: '{list.gap}',
+        header: {
+            padding: '{list.header.padding}'
+        }
     },
     option: {
         focusBackground: '{list.option.focus.background}',

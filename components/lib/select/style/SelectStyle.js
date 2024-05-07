@@ -1,5 +1,3 @@
-import BaseStyle from 'primevue/base/style';
-
 const theme = ({ dt }) => `
 .p-select {
     display: inline-flex;
@@ -8,8 +6,8 @@ const theme = ({ dt }) => `
     user-select: none;
     background: ${dt('select.background')};
     border: 1px solid ${dt('select.border.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('select.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('select.shadow')};
 }
@@ -19,8 +17,10 @@ const theme = ({ dt }) => `
 }
 
 .p-select:not(.p-disabled).p-focus {
-    border-color:${dt('select.focus.border.color')};
-    outline: 0 none;
+    border-color: ${dt('select.focus.border.color')};
+    box-shadow: ${dt('select.focus.ring.shadow')};
+    outline: ${dt('select.focus.ring.width')} ${dt('select.focus.ring.style')} ${dt('select.focus.ring.color')};
+    outline-offset: ${dt('select.focus.ring.offset')};
 }
 
 .p-select.p-variant-filled {
@@ -44,8 +44,8 @@ const theme = ({ dt }) => `
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;
-    color: #94a3b8;
-    right: 2.5rem;
+    color: ${dt('select.clear.icon.color')};
+    right: ${dt('select.dropdown.width')};
 }
 
 .p-select-dropdown {
@@ -55,9 +55,9 @@ const theme = ({ dt }) => `
     flex-shrink: 0;
     background: transparent;
     color: ${dt('select.dropdown.color')};
-    width: 2.5rem;
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    width: ${dt('select.dropdown.width')};
+    border-top-right-radius: ${dt('select.border.radius')};
+    border-bottom-right-radius: ${dt('select.border.radius')};
 }
 
 .p-select-label {
@@ -66,7 +66,7 @@ const theme = ({ dt }) => `
     overflow: hidden;
     flex: 1 1 auto;
     width: 1%;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('select.padding.y')} ${dt('select.padding.x')};
     text-overflow: ellipsis;
     cursor: pointer;
     color: ${dt('select.color')};
@@ -80,7 +80,7 @@ const theme = ({ dt }) => `
 }
 
 .p-select:has(.p-select-clear-icon) .p-select-label {
-    padding-right: 1.75rem;
+    padding-right: calc(1 + ${dt('select.padding.x')});
 }
 
 .p-select.p-disabled .p-select-label {
@@ -107,12 +107,12 @@ input.p-select-label {
     background: ${dt('select.overlay.background')};
     color: ${dt('select.overlay.color')};
     border: 1px solid ${dt('select.overlay.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('select.overlay.border.radius')};
+    box-shadow: ${dt('select.overlay.shadow')};
 }
 
 .p-select-header {
-    padding: 0.5rem 0.5rem 0 0.5rem;
+    padding: ${dt('select.list.header.padding')};
 }
 
 .p-select-filter {
@@ -140,17 +140,20 @@ input.p-select-label {
 .p-select-option-group {
     cursor: auto;
     margin: 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('select.option.group.padding')};
     background: ${dt('select.option.group.background')};
     color: ${dt('select.option.group.color')};
-    font-weight: 600;
+    font-weight: ${dt('select.option.group.font.weight')};
 }
 
 .p-select-list {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    padding: 0.25rem 0.25rem;
+    padding: ${dt('select.list.padding')};
+    gap: ${dt('select.list.gap')};
+    display: flex;
+    flex-direction: column;
 }
 
 .p-select-option {
@@ -161,21 +164,12 @@ input.p-select-label {
     overflow: hidden;
     display: flex;
     align-items: center;
-    margin: 2px 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('select.option.padding')};
     border: 0 none;
     color: ${dt('select.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.sm')};
-}
-
-.p-select-option:first-child {
-    margin-top: 0;
-}
-
-.p-select-option:last-child {
-    margin-bottom: 0;
+    border-radius: ${dt('select.option.border.radius')};
 }
 
 .p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
@@ -201,7 +195,7 @@ input.p-select-label {
 }
 
 .p-select-empty-message {
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('select.option.padding')};
     background: transparent;
 }
 
