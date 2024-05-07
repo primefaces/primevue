@@ -30,7 +30,8 @@ export default {
         shadow: '{overlay.select.shadow}'
     },
     list: {
-        padding: '{list.padding}'
+        padding: '{list.padding}',
+        gap: '{list.gap}'
     },
     option: {
         focusBackground: '{list.option.focus.background}',

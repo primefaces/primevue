@@ -152,6 +152,7 @@ export default {
         },
         list: {
             padding: '0.5rem 0',
+            gap: '0',
             option: {
                 padding: '0.625rem 0.75rem',
                 borderRadius: '0'

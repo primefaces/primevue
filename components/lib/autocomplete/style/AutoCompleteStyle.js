@@ -85,6 +85,9 @@ const theme = ({ dt }) => `
     margin: 0;
     padding: 0;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('autocomplete.list.gap')};
     padding: ${dt('autocomplete.list.padding')};
 }
 
@@ -100,14 +103,6 @@ const theme = ({ dt }) => `
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
     border-radius: ${dt('autocomplete.option.border.radius')};
-}
-
-.p-autocomplete-option:first-child {
-    margin-top: 0;
-}
-
-.p-autocomplete-option:last-child {
-    margin-bottom: 0;
 }
 
 .p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {

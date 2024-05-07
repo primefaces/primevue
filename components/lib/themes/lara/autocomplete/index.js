@@ -30,7 +30,8 @@ export default {
         shadow: '{overlay.select.shadow}'
     },
     list: {
-        padding: '{list.padding}'
+        padding: '{list.padding}',
+        gap: '{list.gap}'
     },
     option: {
         focusBackground: '{list.option.focus.background}',
@@ -41,7 +42,7 @@ export default {
         selectedColor: '{list.option.selected.color}',
         selectedFocusColor: '{list.option.selected.focus.color}',
         padding: '{list.option.padding}',
-        borderRadius: '{list.option.border.radius}'
+        borderRadius: '{list.option.border.radius}',
     },
     optionGroup: {
         background: '{list.option.group.background}',
