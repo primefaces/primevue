@@ -5,7 +5,7 @@ const theme = ({ dt }) => `
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: ${dt('rating.gap')};
 }
 
 .p-rating-option {
@@ -15,19 +15,21 @@ const theme = ({ dt }) => `
     outline-color: transparent;
     border-radius: 50%;
     cursor: pointer;
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-rating-option.p-focus-visible {
+    box-shadow: ${dt('focus.ring.shadow')};
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
     outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-rating-icon {
     color: ${dt('rating.icon.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    font-size: 1rem;
-    width: 1rem;
-    height: 1rem;
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    font-size: ${dt('rating.icon.size')};
+    width: ${dt('rating.icon.size')};
+    height: ${dt('rating.icon.size')};
 }
 
 .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-option:hover .p-rating-icon {
