@@ -1,7 +1,18 @@
 export default {
-    addon: {
-        background: '{form.field.background}',
-        borderColor: '{form.field.border.color}',
-        color: '{form.field.icon.color}'
+    colorScheme: {
+        light: {
+            addon: {
+                background: '{surface.100}',
+                borderColor: '{form.field.border.color}',
+                color: '{text.muted.color}'
+            }
+        },
+        dark: {
+            addon: {
+                background: '{surface.800}',
+                borderColor: '{form.field.border.color}',
+                color: '{text.muted.color}'
+            }
+        }
     }
 };
