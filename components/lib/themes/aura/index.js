@@ -122,7 +122,8 @@ export default {
             width: '1px',
             style: 'solid',
             color: '{primary.color}',
-            offset: '2px'
+            offset: '2px',
+            shadow: 'none'
         },
         anchorGutter: '2px',
         primary: {

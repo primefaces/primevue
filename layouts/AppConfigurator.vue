@@ -209,7 +209,7 @@ export default {
             const preset = value === 'Lara' ? Lara : Aura;
             const surfacePalette = this.surfaces.find((s) => s.name === this.selectedSurfaceColor)?.palette;
 
-            $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).update();
+            $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use();
         }
     },
     computed: {

@@ -1,6 +1,6 @@
 export default {
     root: {
-        borderRadius: '{rounded.sm}',
+        borderRadius: '{border.radius.sm}',
         width: '1.25rem',
         height: '1.25rem',
         background: '{form.field.background}',
@@ -10,10 +10,19 @@ export default {
         filledBackground: '{form.field.filled.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
+        focusBorderColor: '{form.field.border.color}',
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.hover.color}',
+        checkedFocusBorderColor: '{primary.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',
-        shadow: '{form.field.shadow}'
+        shadow: '{form.field.shadow}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     icon: {
         size: '0.875rem',

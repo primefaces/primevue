@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
 }
 
 .p-inputtext.p-variant-filled:enabled:focus {
-    background-color: ${dt('inputtext.filled.focus.background')};
+    background: ${dt('inputtext.filled.focus.background')};
 }
 
 .p-inputtext:disabled {

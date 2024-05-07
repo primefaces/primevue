@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
     background: ${dt('checkbox.background')};
     width: ${dt('checkbox.width')};
     height: ${dt('checkbox.width')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('checkbox.shadow')};
 }
@@ -72,8 +72,14 @@ const theme = ({ dt }) => `
 }
 
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    border-color: ${dt('checkbox.focus.border.color')};
+    box-shadow: ${dt('checkbox.focus.ring.shadow')};
+    outline: ${dt('checkbox.focus.ring.width')} ${dt('checkbox.focus.ring.style')} ${dt('checkbox.focus.ring.color')};
+    outline-offset: ${dt('checkbox.focus.ring.offset')};
+}
+
+.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:focus-visible) .p-checkbox-box {
+    border-color: ${dt('checkbox.checked.focus.border.color')};
 }
 
 .p-checkbox.p-invalid > .p-checkbox-box {
