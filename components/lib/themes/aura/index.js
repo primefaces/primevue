@@ -121,7 +121,7 @@ export default {
         focusRing: {
             width: '1px',
             style: 'solid',
-            color: '{primary.500}',
+            color: '{primary.color}',
             offset: '2px'
         },
         anchorGutter: '2px',
@@ -141,7 +141,14 @@ export default {
         formField: {
             paddingX: '0.75rem',
             paddingY: '0.5rem',
-            borderRadius: '{border.radius.md}'
+            borderRadius: '{border.radius.md}',
+            focusRing: {
+                width: '0',
+                style: 'none',
+                color: 'transparent',
+                offset: '0',
+                shadow: 'none'
+            }
         },
         list: {
             padding: '0.25rem 0.25rem',
@@ -199,8 +206,7 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
-                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)',
-                    focusShadow: 'none'
+                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 },
                 text: {
                     color: '{surface.700}',
@@ -306,8 +312,7 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)',
-                    focusShadow: 'none'
+                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
                 },
                 text: {
                     color: '{surface.0}',

@@ -119,10 +119,10 @@ export default {
     semantic: {
         transitionDuration: '0.2s',
         focusRing: {
-            width: '1px',
-            style: 'solid',
-            color: '{primary.500}',
-            offset: '2px'
+            width: '0',
+            style: 'none',
+            color: 'transparent',
+            offset: '0'
         },
         anchorGutter: '2px',
         primary: {
@@ -141,7 +141,14 @@ export default {
         formField: {
             paddingX: '0.75rem',
             paddingY: '0.625rem',
-            borderRadius: '{border.radius.sm}'
+            borderRadius: '{border.radius.sm}',
+            focusRing: {
+                width: '{focus.ring.width}',
+                style: '{focus.ring.style}',
+                color: '{focus.ring.color}',
+                offset: '{focus.ring.offset}',
+                shadow: '{focus.ring.shadow}'
+            }
         },
         list: {
             padding: '0.5rem 0',
@@ -182,6 +189,9 @@ export default {
                     color: '{primary.700}',
                     focusColor: '{primary.800}'
                 },
+                focusRing: {
+                    shadow: '0 0 0 0.2rem {primary.200}'
+                },
                 maskBackground: 'rgba(0,0,0,0.4)',
                 formField: {
                     background: '{surface.0}',
@@ -199,8 +209,7 @@ export default {
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
-                    shadow: 'none',
-                    focusShadow: '0 0 0 0.2rem {primary.200}'
+                    shadow: 'none'
                 },
                 text: {
                     color: '{surface.700}',
@@ -289,6 +298,9 @@ export default {
                     color: 'rgba(255,255,255,.87)',
                     focusColor: 'rgba(255,255,255,.87)'
                 },
+                focusRing: {
+                    shadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
+                },
                 maskBackground: 'rgba(0,0,0,0.4)',
                 formField: {
                     background: '{surface.950}',
@@ -296,7 +308,7 @@ export default {
                     filledBackground: '{surface.800}',
                     filledFocusBackground: '{surface.950}',
                     borderColor: '{surface.700}',
-                    hoverBorderColor: '{surface.600}',
+                    hoverBorderColor: '{primary.color}',
                     focusBorderColor: '{primary.color}',
                     invalidBorderColor: '{red.300}',
                     color: '{surface.0}',
@@ -306,8 +318,7 @@ export default {
                     floatLabelFocusColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    shadow: 'none',
-                    focusShadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
+                    shadow: 'none'
                 },
                 text: {
                     color: '{surface.0}',

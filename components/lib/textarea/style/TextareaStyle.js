@@ -22,8 +22,9 @@ const theme = ({ dt }) => `
 
 .p-inputtextarea:enabled:focus {
     border-color: ${dt('textarea.focus.border.color')};
-    box-shadow: ${dt('textarea.focus.shadow')};
-    outline: 0 none;
+    box-shadow: ${dt('textarea.focus.ring.shadow')};
+    outline: ${dt('textarea.focus.ring.width')} ${dt('textarea.focus.ring.style')} ${dt('textarea.focus.ring.color')};
+    outline-offset: ${dt('textarea.focus.ring.offset')};
 }
 
 .p-inputtextarea.p-invalid {

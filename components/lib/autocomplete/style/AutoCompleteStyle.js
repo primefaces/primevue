@@ -159,8 +159,9 @@ const theme = ({ dt }) => `
 
 .p-autocomplete:not(.p-disabled).p-focus .p-autocomplete-input-multiple {
     border-color: ${dt('autocomplete.focus.border.color')};
-    box-shadow: ${dt('autocomplete.focus.shadow')};
-    outline: 0 none;
+    box-shadow: ${dt('autocomplete.focus.ring.shadow')};
+    outline: ${dt('autocomplete.focus.ring.width')} ${dt('autocomplete.focus.ring.style')} ${dt('autocomplete.focus.ring.color')};
+    outline-offset: ${dt('autocomplete.focus.ring.offset')};
 }
 
 .p-autocomplete.p-invalid .p-autocomplete-input-multiple {
