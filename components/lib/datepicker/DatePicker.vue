@@ -43,7 +43,7 @@
                 v-bind="ptm('dropdown')"
             >
                 <slot name="dropdownicon" :class="icon">
-                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownButtonIcon')" />
+                    <component :is="icon ? 'span' : 'CalendarIcon'" :class="icon" v-bind="ptm('dropdownIcon')" />
                 </slot>
             </button>
         </slot>
