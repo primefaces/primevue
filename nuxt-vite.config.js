@@ -254,6 +254,8 @@ export default {
             'primevue/tree': path.resolve(__dirname, './components/lib/tree/Tree.vue'),
             'primevue/badge': path.resolve(__dirname, './components/lib/badge/Badge.vue'),
             'primevue/togglebutton': path.resolve(__dirname, './components/lib/togglebutton/ToggleButton.vue'),
+            'primevue/iconfield': path.resolve(__dirname, './components/lib/iconfield/IconField.vue'),
+            'primevue/inputicon': path.resolve(__dirname, './components/lib/inputicon/InputIcon.vue'),
             'primevue/listbox': path.resolve(__dirname, './components/lib/listbox/Listbox.vue'),
             'primevue/chip': path.resolve(__dirname, './components/lib/chip/Chip.vue'),
             'primevue/popover': path.resolve(__dirname, './components/lib/popover/Popover.vue'),
