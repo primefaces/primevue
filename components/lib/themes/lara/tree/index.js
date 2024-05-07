@@ -17,8 +17,5 @@ export default {
         highlightHoverBackground: '{content.background}',
         color: '{text.muted.color}',
         hoverColor: '{text.hover.muted.color}'
-    },
-    filterIcon: {
-        color: '{surface.400}'
     }
 };

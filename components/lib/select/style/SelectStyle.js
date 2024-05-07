@@ -121,18 +121,6 @@ input.p-select-label {
     margin-right: -1.75rem;
 }
 
-.p-select-filter-container {
-    position: relative;
-}
-
-.p-select-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-    right: 0.75rem;
-    color: ${dt('select.filter.icon.color')};
-}
-
 .p-select-list-container {
     overflow: auto;
 }
@@ -245,9 +233,7 @@ const classes = {
         }
     ],
     header: 'p-select-header',
-    filterContainer: 'p-select-filter-container',
     pcFilter: 'p-select-filter',
-    filterIcon: 'p-select-filter-icon',
     listContainer: 'p-select-list-container',
     list: 'p-select-list',
     optionGroup: 'p-select-option-group',

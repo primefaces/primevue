@@ -34,9 +34,6 @@ export default {
         background: '{list.option.group.background}',
         color: '{list.option.group.color}'
     },
-    filterIcon: {
-        color: '{form.field.icon.color}'
-    },
     checkmark: {
         color: '{list.option.color}'
     }

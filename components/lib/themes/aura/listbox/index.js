@@ -41,8 +41,5 @@ export default {
         color: '{list.option.group.color}',
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
-    },
-    filterIcon: {
-        color: '{form.field.icon.color}'
     }
 };

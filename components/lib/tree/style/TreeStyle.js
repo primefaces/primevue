@@ -133,21 +133,6 @@ const theme = ({ dt }) => `
     padding-right: 1.75rem;
 }
 
-.p-tree-filter-container {
-    position: relative;
-    display: block;
-    width: 100%;
-    margin-bottom: 0.5rem;
-}
-
-.p-tree-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-    right: 0.75rem;
-    color: ${dt('tree.filter.icon.color')};
-}
-
 .p-tree-loading {
     position: relative;
     min-height: 4rem;
@@ -190,9 +175,7 @@ const classes = {
     ],
     mask: 'p-tree-mask p-component-overlay',
     loadingIcon: 'p-tree-loading-icon',
-    filterContainer: 'p-tree-filter-container',
     pcFilterInput: 'p-tree-filter-input',
-    filterIcon: 'p-tree-filter-icon',
     wrapper: 'p-tree-root', //TODO: discuss
     rootChildren: 'p-tree-root-children',
     node: ({ instance }) => ['p-tree-node', { 'p-tree-node-leaf': instance.leaf }],

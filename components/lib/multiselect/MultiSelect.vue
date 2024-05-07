@@ -86,7 +86,7 @@
                                 <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('pcHeaderCheckbox.icon')" />
                             </template>
                         </Checkbox>
-                        <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
+                        <IconField :class="cx('pcFilterContainer')" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                             <InputText
                                 ref="filterInput"
                                 :value="filterValue"
@@ -107,10 +107,13 @@
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
                             />
-                            <slot name="filtericon" :class="cx('filterIcon')">
-                                <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
-                            </slot>
-                        </div>
+                            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                                <slot name="filtericon">
+                                    <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
+                                    <SearchIcon v-else v-bind="ptm('filterIcon')" />
+                                </slot>
+                            </InputIcon>
+                        </IconField>
                         <span v-if="filter" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                             {{ filterResultMessageText }}
                         </span>
@@ -206,11 +209,13 @@
 import { FilterService } from 'primevue/api';
 import Checkbox from 'primevue/checkbox';
 import Chip from 'primevue/chip';
+import IconField from 'primevue/iconfield';
 import CheckIcon from 'primevue/icons/check';
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
 import TimesIcon from 'primevue/icons/times';
+import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -1109,6 +1114,8 @@ export default {
         VirtualScroller,
         Portal,
         Chip,
+        IconField,
+        InputIcon,
         TimesIcon,
         SearchIcon,
         ChevronDownIcon,

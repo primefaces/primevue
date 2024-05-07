@@ -15,7 +15,7 @@
             <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         </div>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
-            <div :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
+            <IconField :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
                 <InputText
                     v-model="filterValue"
                     type="text"
@@ -34,11 +34,13 @@
                     @keydown="onFilterKeyDown"
                     :pt="ptm('pcFilter')"
                 />
-
-                <slot name="filtericon" :class="cx('filterIcon')">
-                    <component :is="filterIcon ? 'span' : 'SearchIcon'" :class="[cx('filterIcon'), filterIcon]" v-bind="ptm('filterIcon')" />
-                </slot>
-            </div>
+                <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                    <slot name="filtericon">
+                        <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
+                        <SearchIcon v-else v-bind="ptm('filterIcon')" />
+                    </slot>
+                </InputIcon>
+            </IconField>
             <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenFilterResult')" :data-p-hidden-accessible="true">
                 {{ filterResultMessageText }}
             </span>
@@ -128,7 +130,9 @@
 
 <script>
 import { FilterService } from 'primevue/api';
+import IconField from 'primevue/iconfield';
 import SearchIcon from 'primevue/icons/search';
+import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import Ripple from 'primevue/ripple';
 import { DomHandler, ObjectUtils, UniqueComponentId } from 'primevue/utils';
@@ -748,6 +752,8 @@ export default {
     components: {
         InputText,
         VirtualScroller,
+        InputIcon,
+        IconField,
         SearchIcon
     }
 };

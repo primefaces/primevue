@@ -8,13 +8,15 @@
                 </slot>
             </div>
         </template>
-        <div v-if="filter" :class="cx('filterContainer')" v-bind="ptm('filterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" @keydown="onFilterKeydown" v-bind="ptm('pcFilterInput')" />
-            <!--TODO: searchicon deprecated since v4.0-->
-            <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
-                <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />
-            </slot>
-        </div>
+        <IconField v-if="filter" :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" v-bind="ptm('pcFilterInput')" />
+            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                <!--TODO: searchicon deprecated since v4.0-->
+                <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
+                    <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />
+                </slot>
+            </InputIcon>
+        </IconField>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
             <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
@@ -40,8 +42,10 @@
 </template>
 
 <script>
+import IconField from 'primevue/iconfield';
 import SearchIcon from 'primevue/icons/search';
 import SpinnerIcon from 'primevue/icons/spinner';
+import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import { ObjectUtils } from 'primevue/utils';
 import BaseTree from './BaseTree.vue';
@@ -244,6 +248,8 @@ export default {
     components: {
         TreeNode,
         InputText,
+        InputIcon,
+        IconField,
         SearchIcon,
         SpinnerIcon
     }
