@@ -7,21 +7,20 @@ const theme = ({ dt }) => `
 
 .p-inputchips-input {
     margin: 0;
-    padding: 0;
     list-style-type: none;
     cursor: text;
     overflow: hidden;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0.25rem 0.25rem;
-    gap: 0.25rem;
+    padding: calc(${dt('inputchips.padding.y')} / 2) ${dt('inputchips.padding.x')};
+    gap: calc(${dt('inputchips.padding.y')} / 2);
     color: ${dt('inputchips.color')};
     background: ${dt('inputchips.background')};
     border: 1px solid ${dt('inputchips.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('inputchips.border.radius')};
     width: 100%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('inputchips.shadow')};
 }
@@ -32,7 +31,9 @@ const theme = ({ dt }) => `
 
 .p-inputchips:not(.p-disabled).p-focus .p-inputchips-input {
     border-color: ${dt('inputchips.focus.border.color')};
-    outline: 0 none;
+    box-shadow: ${dt('inputchips.focus.ring.shadow')};
+    outline: ${dt('inputchips.focus.ring.width')} ${dt('inputchips.focus.ring.style')} ${dt('inputchips.focus.ring.color')};
+    outline-offset: ${dt('inputchips.focus.ring.offset')};
 }
 
 .p-inputchips.p-invalid .p-inputchips-input {
@@ -53,11 +54,22 @@ const theme = ({ dt }) => `
     color: ${dt('inputchips.disabled.color')};
 }
 
+.p-inputchips .p-chip {
+    padding-top: calc(${dt('inputchips.padding.y')} / 2);
+    padding-bottom: calc(${dt('inputchips.padding.y')} / 2);
+    border-radius: ${dt('inputchips.chip.border.radius')};
+}
+
+.p-inputchips-input:has(.p-chip) {
+    padding-left: calc(${dt('inputchips.padding.y')} / 2);
+    padding-right: calc(${dt('inputchips.padding.y')} / 2);
+}
+
 .p-inputchips-input-item {
-    padding: 0.25rem 0;
-    margin-left: 0.5rem;
     flex: 1 1 auto;
     display: inline-flex;
+    padding-top: calc(${dt('inputchips.padding.y')} / 2);
+    padding-bottom: calc(${dt('inputchips.padding.y')} / 2);
 }
 
 .p-inputchips-input-item input {

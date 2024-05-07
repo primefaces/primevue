@@ -180,7 +180,7 @@ const theme = ({ dt }) => `
 .p-autocomplete-input-multiple .p-chip {
     padding-top: calc(${dt('autocomplete.padding.y')} / 2);
     padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
-    border-radius: calc(${dt('autocomplete.border.radius')} - calc(${dt('autocomplete.padding.y')} / 2));
+    border-radius: ${dt('autocomplete.chip.border.radius')};
 }
 
 .p-autocomplete-input-multiple:has(.p-chip) {

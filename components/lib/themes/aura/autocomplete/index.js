@@ -61,5 +61,8 @@ export default {
         color: '{button.secondary.color}',
         hoverColor: '{button.secondary.hover.color}',
         activeColor: '{button.secondary.active.color}'
+    },
+    chip: {
+        borderRadius: '{border.radius.sm}'
     }
 };

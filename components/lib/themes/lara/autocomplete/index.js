@@ -42,7 +42,7 @@ export default {
         selectedColor: '{list.option.selected.color}',
         selectedFocusColor: '{list.option.selected.focus.color}',
         padding: '{list.option.padding}',
-        borderRadius: '{list.option.border.radius}',
+        borderRadius: '{list.option.border.radius}'
     },
     optionGroup: {
         background: '{list.option.group.background}',
@@ -61,5 +61,8 @@ export default {
         color: '{button.secondary.color}',
         hoverColor: '{button.secondary.hover.color}',
         activeColor: '{button.secondary.active.color}'
+    },
+    chip: {
+        borderRadius: '{border.radius.xs}'
     }
 };
