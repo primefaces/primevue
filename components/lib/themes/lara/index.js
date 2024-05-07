@@ -154,12 +154,15 @@ export default {
         list: {
             padding: '0.5rem 0',
             gap: '0',
+            header: {
+                padding: '0.625rem 1rem 0 1rem'
+            },
             option: {
-                padding: '0.625rem 0.75rem',
+                padding: '0.625rem 1rem',
                 borderRadius: '0'
             },
             optionGroup: {
-                padding: '0.625rem 0.75rem',
+                padding: '0.625rem 1rem',
                 fontWeight: '600'
             }
         },

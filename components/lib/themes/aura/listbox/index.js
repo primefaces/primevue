@@ -8,7 +8,22 @@ export default {
         invalidBorderColor: '{form.field.invalid.border.color}',
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
-        shadow: '{form.field.shadow}'
+        shadow: '{form.field.shadow}',
+        borderRadius: '{form.field.border.radius}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
+    list: {
+        padding: '{list.padding}',
+        gap: '{list.gap}'
+    },
+    header: {
+        padding: '0.5rem 0.5rem 0 0.5rem'
     },
     option: {
         focusBackground: '{list.option.focus.background}',
@@ -17,11 +32,15 @@ export default {
         color: '{list.option.color}',
         focusColor: '{list.option.focus.color}',
         selectedColor: '{list.option.selected.color}',
-        selectedFocusColor: '{list.option.selected.focus.color}'
+        selectedFocusColor: '{list.option.selected.focus.color}',
+        padding: '{list.option.padding}',
+        borderRadius: '{list.option.border.radius}'
     },
     optionGroup: {
         background: '{list.option.group.background}',
-        color: '{list.option.group.color}'
+        color: '{list.option.group.color}',
+        fontWeight: '{list.option.group.font.weight}',
+        padding: '{list.option.group.padding}'
     },
     filterIcon: {
         color: '{form.field.icon.color}'

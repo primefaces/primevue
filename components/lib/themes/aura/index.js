@@ -155,6 +155,9 @@ export default {
         list: {
             padding: '0.25rem 0.25rem',
             gap: '2px',
+            header: {
+                padding: '0.5rem 0.75rem 0 0.75rem'
+            },
             option: {
                 padding: '0.5rem 0.75rem',
                 borderRadius: '4px'

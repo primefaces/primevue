@@ -5,15 +5,17 @@ const theme = ({ dt }) => `
     background: ${dt('listbox.background')};
     color: ${dt('listbox.color')};
     border: 1px solid ${dt('listbox.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('listbox.border.radius')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05);
+    box-shadow: ${dt('listbox.shadow')};
 }
 
 .p-listbox.p-focus {
-    outline: 0 none;
     border-color: ${dt('listbox.focus.border.color')};
+    box-shadow: ${dt('listbox.focus.ring.shadow')};
+    outline: ${dt('listbox.focus.ring.width')} ${dt('listbox.focus.ring.style')} ${dt('listbox.focus.ring.color')};
+    outline-offset: ${dt('listbox.focus.ring.offset')};
 }
 
 .p-listbox.p-disabled {
@@ -26,10 +28,8 @@ const theme = ({ dt }) => `
     border-color: ${dt('listbox.invalid.border.color')};
 }
 
-.p-listbox .p-listbox-header {
-    padding: 0.5rem 0.5rem 0 0.5rem;
-    border-bottom: 0 none;
-    margin: 0 0 0 0;
+.p-listbox-header {
+    padding: ${dt('listbox.header.padding')};
 }
 
 .p-listbox-filter-container {
@@ -56,28 +56,22 @@ const theme = ({ dt }) => `
 .p-listbox-list {
     list-style-type: none;
     margin: 0;
-    padding: 0.25rem 0.25rem;
+    padding: ${dt('listbox.list.padding')};
     outline: 0 none;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('listbox.list.gap')};
 }
 
 .p-listbox-option {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    margin: 2px 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('listbox.option.padding')};
     border: 0 none;
-    border-radius: ${dt('border.radius.sm')};
+    border-radius: ${dt('listbox.option.border.radius')};
     color: ${dt('listbox.option.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-}
-
-.p-listbox-option:first-child {
-    margin-top: 0;
-}
-
-.p-listbox-option:last-child {
-    margin-bottom: 0;
 }
 
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
@@ -101,17 +95,15 @@ const theme = ({ dt }) => `
 }
 
 .p-listbox-option-group {
-    cursor: auto;
     margin: 0;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('listbox.option.group.padding')};
     color: ${dt('listbox.option.group.color')};
     background: ${dt('listbox.option.group.background')};
-    font-weight: 600;
+    font-weight: ${dt('listbox.option.group.font.weight')};
 }
 
 .p-listbox-empty-message {
-    padding: 0.5rem 0.75rem;
-    background: transparent;
+    padding: ${dt('listbox.option.padding')};
 }
 `;
 
