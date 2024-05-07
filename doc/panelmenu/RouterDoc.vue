@@ -34,7 +34,7 @@ export default {
                         {
                             label: 'Styled',
                             icon: 'pi pi-eraser',
-                            route: '/theming'
+                            route: '/theming/styled'
                         },
                         {
                             label: 'Unstyled',
@@ -118,7 +118,7 @@ export default {
                         {
                             label: 'Styled',
                             icon: 'pi pi-eraser',
-                            route: '/theming'
+                            route: '/theming/styled'
                         },
                         {
                             label: 'Unstyled',
@@ -191,7 +191,7 @@ const items = ref([
             {
                 label: 'Styled',
                 icon: 'pi pi-eraser',
-                route: '/theming'
+                route: '/theming/styled'
             },
             {
                 label: 'Unstyled',

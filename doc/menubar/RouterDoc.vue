@@ -33,7 +33,7 @@ export default {
                     items: [
                         {
                             label: 'Styled',
-                            route: '/theming'
+                            route: '/theming/styled'
                         },
                         {
                             label: 'Unstyled',
@@ -113,7 +113,7 @@ export default {
                     items: [
                         {
                             label: 'Styled',
-                            route: '/theming'
+                            route: '/theming/styled'
                         },
                         {
                             label: 'Unstyled',
@@ -182,7 +182,7 @@ const items = ref([
         items: [
             {
                 label: 'Styled',
-                route: '/theming'
+                route: '/theming/styled'
             },
             {
                 label: 'Unstyled',
