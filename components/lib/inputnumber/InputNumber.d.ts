@@ -114,9 +114,17 @@ export interface InputNumberPassThroughOptions<T = any> {
      */
     incrementButton?: InputNumberPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the increment icon's DOM element.
+     */
+    incrementIcon?: InputNumberPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the decrement button's DOM element.
      */
     decrementButton?: InputNumberPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the decrement icon's DOM element.
+     */
+    decrementIcon?: InputNumberPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -209,15 +217,23 @@ export interface InputNumberProps {
      */
     decrementButtonClass?: string | undefined;
     /**
-     * Style class of the increment button.
-     * @deprecated since v3.27.0. Use 'incrementbuttonicon' slot.
+     * Style class of the increment icon.
+     * @deprecated since v4.0. Use 'incrementIcon'.
      */
     incrementButtonIcon?: string | undefined;
     /**
-     * Style class of the decrement button.
-     * @deprecated since v3.27.0. Use 'decrementbuttonicon' slot.
+     * Style class of the increment icon.
+     */
+    incrementIcon?: string | undefined;
+    /**
+     * Style class of the decrement icon.
+     * @deprecated since v4.0. Use 'decrementIcon'.
      */
     decrementButtonIcon?: string | undefined;
+    /**
+     * Style class of the decrement icon.
+     */
+    decrementIcon?: string | undefined;
     /**
      * Locale to be used in formatting.
      */
@@ -382,13 +398,23 @@ export interface InputNumberSlots {
         listeners: InputNumberButtonListeners;
     }): VNode[];
     /**
-     * Custom increment button icon template.
+     * @deprecated since v4.0. Use 'incrementicon' slot.
+     * Custom increment icon template.
      */
     incrementbuttonicon(): VNode[];
     /**
-     * Custom decrement button icon template.
+     * Custom increment icon template.
+     */
+    incrementicon(): VNode[];
+    /**
+     * @deprecated since v4.0. Use 'decrementicon' slot.
+     * Custom decrement icon template.
      */
     decrementbuttonicon(): VNode[];
+    /**
+     * Custom decrement icon template.
+     */
+    decrementicon(): VNode[];
 }
 
 /**

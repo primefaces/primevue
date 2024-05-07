@@ -34,7 +34,15 @@ export default {
             type: String,
             default: undefined
         },
+        incrementIcon: {
+            type: String,
+            default: undefined
+        },
         decrementButtonIcon: {
+            type: String,
+            default: undefined
+        },
+        decrementIcon: {
             type: String,
             default: undefined
         },

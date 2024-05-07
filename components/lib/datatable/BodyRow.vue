@@ -3,7 +3,7 @@
         <tr v-if="templates['groupheader'] && rowGroupMode === 'subheader' && shouldRenderRowGroupHeader" :class="cx('rowGroupHeader')" :style="rowGroupHeaderStyle" role="row" v-bind="ptm('rowGroupHeader')">
             <td :colspan="columnsLength - 1" v-bind="{ ...getColumnPT('bodycell'), ...ptm('rowGroupHeaderCell') }">
                 <button v-if="expandableRowGroups" :class="cx('rowToggleButton')" @click="onRowGroupToggle" type="button" v-bind="ptm('rowToggleButton')">
-                    <component v-if="templates['rowgrouptogglericon']" :is="templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded" />
+                    <component v-if="templates['rowtoggleicon'] || templates['rowgrouptogglericon']" :is="templates['rowtoggleicon'] || templates['rowgrouptogglericon']" :expanded="isRowGroupExpanded" />
                     <template v-else>
                         <span v-if="isRowGroupExpanded && expandedRowIcon" :class="[cx('rowToggleIcon'), expandedRowIcon]" v-bind="ptm('rowToggleIcon')" />
                         <ChevronDownIcon v-else-if="isRowGroupExpanded && !expandedRowIcon" :class="cx('rowToggleIcon')" v-bind="ptm('rowToggleIcon')" />

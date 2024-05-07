@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading" :class="cx('overlay')" v-bind="ptm('overlay')">
+        <div v-if="loading" :class="cx('mask')" v-bind="ptm('mask')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
                 <component v-if="$slots.loadingicon" :is="$slots.loadingicon" :class="cx('loadingIcon')" />
