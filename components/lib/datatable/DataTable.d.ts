@@ -658,9 +658,9 @@ export interface DataTablePassThroughOptions {
      */
     root?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the overlay's DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
-    overlay?: DataTablePassThroughOptionType;
+    mask?: DataTablePassThroughOptionType;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
