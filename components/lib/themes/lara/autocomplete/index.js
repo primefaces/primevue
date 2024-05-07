@@ -26,8 +26,9 @@ export default {
     overlay: {
         background: '{overlay.select.background}',
         borderColor: '{overlay.select.border.color}',
+        borderRadius: '{overlay.select.border.radius}',
         color: '{overlay.select.color}',
-        shadow: '{overlay.select.shadow}'
+        shadow: '{overlay.select.shadow}',
     },
     list: {
         padding: '{list.padding}',

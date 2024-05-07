@@ -164,6 +164,11 @@ export default {
                 fontWeight: '600'
             }
         },
+        overlay: {
+            select: {
+                borderRadius: '{border.radius.md}'
+            }
+        },
         colorScheme: {
             light: {
                 surface: {

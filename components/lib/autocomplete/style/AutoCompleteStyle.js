@@ -77,7 +77,7 @@ const theme = ({ dt }) => `
     background: ${dt('autocomplete.overlay.background')};
     color: ${dt('autocomplete.overlay.color')};
     border: 1px solid ${dt('autocomplete.overlay.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('autocomplete.overlay.border.radius')};
     box-shadow: ${dt('autocomplete.overlay.shadow')};
 }
 
