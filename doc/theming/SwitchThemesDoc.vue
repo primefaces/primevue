@@ -59,7 +59,7 @@ export default defineNuxtConfig({
                 {
                     id: 'theme-link',
                     rel: 'stylesheet',
-                    href: baseUrl + 'themes/aura-light-green/theme.css'
+                    href: '/themes/aura-light-green/theme.css'
                 }
             ]
         }
