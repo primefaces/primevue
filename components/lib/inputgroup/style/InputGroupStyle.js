@@ -69,13 +69,13 @@ const theme = ({ dt }) => `
 .p-inputgroup input:first-child,
 .p-inputgroup > .p-inputwrapper:first-child,
 .p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-top-left-radius: ${dt('inputgroup.addon.border.radius')};
+    border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-inputgroup .p-float-label:first-child input {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-top-left-radius: ${dt('inputgroup.addon.border.radius')};
+    border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-inputgroup-addon:last-child,
@@ -83,13 +83,13 @@ const theme = ({ dt }) => `
 .p-inputgroup input:last-child,
 .p-inputgroup > .p-inputwrapper:last-child,
 .p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-top-right-radius: ${dt('inputgroup.addon.border.radius')};
+    border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-inputgroup .p-float-label:last-child input {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-top-right-radius: ${dt('inputgroup.addon.border.radius')};
+    border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-fluid .p-inputgroup .p-button {
