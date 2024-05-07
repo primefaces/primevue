@@ -8,11 +8,20 @@ export default {
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
         borderColor: '{form.field.border.color}',
-        hoverBordercolor: '{form.field.hover.border.color}',
+        hoverBorderColor: '{form.field.hover.border.color}',
+        focusBorderColor: '{form.field.border.color}',
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.hover.color}',
+        checkedFocusBorderColor: '{primary.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',
-        shadow: '{form.field.shadow}'
+        shadow: '{form.field.shadow}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     icon: {
         size: '0.75rem',
