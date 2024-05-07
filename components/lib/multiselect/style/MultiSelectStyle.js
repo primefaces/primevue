@@ -112,25 +112,16 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-filter-container {
-    position: relative;
     flex: 1 1 auto;
 }
 
-.p-multiselect-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-    right: 0.75rem;
-    color: ${dt('multiselect.filter.icon.color')};
+.p-multiselect-list-container {
+    overflow: auto;
 }
 
 .p-multiselect-filter-container .p-inputtext {
     width: 100%;
     padding-right: 1.75rem;
-}
-
-.p-multiselect-list-container {
-    overflow: auto;
 }
 
 .p-multiselect-list {
@@ -242,9 +233,8 @@ const classes = {
         }
     ],
     header: 'p-multiselect-header',
-    filterContainer: 'p-multiselect-filter-container',
+    pcFilterContainer: 'p-multiselect-filter-container',
     pcFilter: 'p-multiselect-filter',
-    filterIcon: 'p-multiselect-filter-icon',
     listContainer: 'p-multiselect-list-container',
     list: 'p-multiselect-list',
     optionGroup: 'p-multiselect-option-group',

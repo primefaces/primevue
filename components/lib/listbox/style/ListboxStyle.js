@@ -32,18 +32,6 @@ const theme = ({ dt }) => `
     padding: ${dt('listbox.header.padding')};
 }
 
-.p-listbox-filter-container {
-    position: relative;
-}
-
-.p-listbox-filter-icon {
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5rem;
-    right: 0.75rem;
-    color: ${dt('listbox.filter.icon.color')};
-}
-
 .p-listbox-filter {
     width: 100%;
     padding-right: 1.75rem;
@@ -117,9 +105,7 @@ const classes = {
         }
     ],
     header: 'p-listbox-header',
-    filterContainer: 'p-listbox-filter-container',
     pcFilter: 'p-listbox-filter',
-    filterIcon: 'p-listbox-filter-icon',
     listContainer: 'p-listbox-list-container',
     list: 'p-listbox-list',
     optionGroup: 'p-listbox-option-group',

@@ -61,9 +61,6 @@ export default {
     filterIcon: {
         color: '{form.field.icon.color}'
     },
-    clearIcon: {
-        color: '{form.field.icon.color}'
-    },
     checkmark: {
         color: '{list.option.color}'
     }
