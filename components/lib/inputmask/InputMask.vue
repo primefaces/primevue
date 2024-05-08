@@ -6,6 +6,7 @@
         :disabled="disabled"
         :invalid="invalid"
         :variant="variant"
+        :placeholder="placeholder"
         :unstyled="unstyled"
         @input="onInput"
         @focus="onFocus"

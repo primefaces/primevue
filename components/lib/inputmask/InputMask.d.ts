@@ -112,6 +112,10 @@ export interface InputMaskProps {
      */
     mask?: string | undefined;
     /**
+     * Placeholder text for the input.
+     */
+    placeholder?: string | undefined;
+    /**
      * Clears the incomplete value on blur.
      * @defaultValue true
      */

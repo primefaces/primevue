@@ -15,6 +15,10 @@ export default {
             type: String,
             default: null
         },
+        placeholder: {
+            type: String,
+            default: null
+        },
         autoClear: {
             type: Boolean,
             default: true
