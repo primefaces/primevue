@@ -230,12 +230,7 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ props, instance }) => [
-        'p-toast p-component p-toast-' + props.position,
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    root: ({ props }) => ['p-toast p-component p-toast-' + props.position],
     message: ({ props }) => [
         'p-toast-message',
         {

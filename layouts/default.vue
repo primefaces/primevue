@@ -73,8 +73,7 @@ export default {
             return [
                 'layout-wrapper',
                 {
-                    'layout-news-active': this.$appState.newsActive,
-                    'p-ripple-disabled': this.$appState.ripple === false
+                    'layout-news-active': this.$appState.newsActive
                 }
             ];
         }

@@ -643,8 +643,7 @@ const classes = {
     filterOverlay: ({ instance, props }) => [
         'p-datatable-filter-overlay p-component',
         {
-            'p-datatable-filter-overlay-popover': props.display === 'menu',
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-datatable-filter-overlay-popover': props.display === 'menu'
         }
     ],
     filterConstraintList: 'p-datatable-filter-constraint-list',

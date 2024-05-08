@@ -1,0 +1,5 @@
+{
+    "main": "./primevueservice.cjs.js",
+    "module": "./primevueservice.esm.js",
+    "unpkg": "./primevueservice.min.js"
+}

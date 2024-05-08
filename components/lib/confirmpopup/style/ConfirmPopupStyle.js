@@ -111,12 +111,7 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ instance }) => [
-        'p-confirmpopup p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    root: 'p-confirmpopup p-component',
     content: 'p-confirmpopup-content',
     icon: 'p-confirmpopup-icon',
     message: 'p-confirmpopup-message',

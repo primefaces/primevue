@@ -69,6 +69,8 @@ const theme = ({ dt }) => `
 }
 
 .p-tab {
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
     border-style: solid;
     border-width: 0 0 1px 0;

@@ -209,12 +209,7 @@ const classes = {
     dropdown: 'p-cascadeselect-dropdown',
     loadingIcon: 'p-cascadeselect-loading-icon',
     dropdownIcon: 'p-cascadeselect-dropdown-icon',
-    overlay: ({ instance }) => [
-        'p-cascadeselect-overlay p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    overlay: 'p-cascadeselect-overlay p-component',
     listContainer: 'p-cascadeselect-list-container',
     list: 'p-cascadeselect-list',
     item: ({ instance, processedOption }) => [

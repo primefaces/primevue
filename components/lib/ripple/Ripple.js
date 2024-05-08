@@ -2,14 +2,16 @@ import { DomHandler } from 'primevue/utils';
 import BaseRipple from './BaseRipple';
 
 const Ripple = BaseRipple.extend('ripple', {
-    mounted(el) {
-        const config = el?.$instance?.$config;
+    watch: {
+        'config.ripple'(newValue) {
+            if (newValue) {
+                this.create(this.$host);
+                this.bindEvents(this.$host);
 
-        if (config && config.ripple) {
-            this.create(el);
-            this.bindEvents(el);
-
-            el.setAttribute('data-pd-ripple', true);
+                this.$host.setAttribute('data-pd-ripple', true);
+            } else {
+                this.remove(this.$host);
+            }
         }
     },
     unmounted(el) {

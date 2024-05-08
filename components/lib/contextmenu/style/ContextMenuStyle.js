@@ -124,12 +124,7 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ instance }) => [
-        'p-contextmenu p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    root: 'p-contextmenu p-component',
     rootList: 'p-contextmenu-root-list',
     item: ({ instance, processedItem }) => [
         'p-contextmenu-item',

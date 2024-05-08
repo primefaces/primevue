@@ -261,12 +261,7 @@ const classes = {
     inputChip: 'p-autocomplete-input-chip',
     loader: 'p-autocomplete-loader',
     dropdown: 'p-autocomplete-dropdown',
-    panel: ({ instance }) => [
-        'p-autocomplete-overlay p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    panel: 'p-autocomplete-overlay p-component',
     list: 'p-autocomplete-list',
     optionGroup: 'p-autocomplete-option-group',
     option: ({ instance, option, i, getItemOptions }) => [

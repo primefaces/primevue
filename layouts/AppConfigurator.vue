@@ -203,7 +203,7 @@ export default {
             EventBus.emit('theme-palette-change');
         },
         onRippleChange(value) {
-            this.$appState.ripple = value;
+            this.$primevue.config.ripple = value;
         },
         onPresetChange(value) {
             const preset = value === 'Lara' ? Lara : Aura;
@@ -214,7 +214,7 @@ export default {
     },
     computed: {
         rippleActive() {
-            return this.$appState.ripple;
+            return this.$primevue.config.ripple;
         }
     }
 };

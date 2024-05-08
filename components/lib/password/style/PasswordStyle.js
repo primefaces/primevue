@@ -86,12 +86,7 @@ const classes = {
     ptInput: 'p-password-input',
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
-    overlay: ({ instance }) => [
-        'p-password-overlay p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    overlay: 'p-password-overlay p-component',
     meter: 'p-password-meter',
     meterLabel: ({ instance }) => `p-password-meter-label ${instance.meter ? 'p-password-meter-' + instance.meter.strength : ''}`,
     meterText: 'p-password-meter-text'

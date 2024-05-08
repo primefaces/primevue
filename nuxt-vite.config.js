@@ -221,6 +221,7 @@ export default {
         },
         alias: {
             'primevue/utils': path.resolve(__dirname, './components/lib/utils/Utils.js'),
+            'primevue/service': path.resolve(__dirname, './components/lib/service/PrimeVueService.js'),
             'primevue/config': path.resolve(__dirname, './components/lib/config/PrimeVue.js'),
             'primevue/styled': path.resolve(__dirname, './components/lib/styled/PrimeVueStyled.js'),
             'primevue/unstyled': path.resolve(__dirname, './components/lib/unstyled/PrimeVueUnstyled.js'),
