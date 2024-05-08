@@ -134,6 +134,12 @@ const theme = ({ dt }) => `
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
+.p-cascadeselect-item-active {
+    overflow: visible;
+    background: ${dt('cascadeselect.option.focus.background')};
+    color: ${dt('cascadeselect.option.focus.color')};
+}
+
 .p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus {
     background: ${dt('cascadeselect.option.focus.background')};
     color: ${dt('cascadeselect.option.focus.color')};
@@ -151,12 +157,6 @@ const theme = ({ dt }) => `
 .p-cascadeselect-item-selected.p-focus {
     background: ${dt('cascadeselect.option.selected.focus.background')};
     color: ${dt('cascadeselect.option.selected.focus.color')};
-}
-
-.p-cascadeselect-item-active {
-    overflow: visible;
-    background: ${dt('cascadeselect.option.focus.background')};
-    color: ${dt('cascadeselect.option.focus.color')};
 }
 
 .p-cascadeselect-item-active > .p-cascadeselect-item-list {
