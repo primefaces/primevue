@@ -170,7 +170,13 @@ export default {
         },
         overlay: {
             select: {
-                borderRadius: '{border.radius.md}'
+                borderRadius: '{border.radius.md}',
+                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+            },
+            popover: {
+                borderRadius: '{border.radius.md}',
+                padding: '0.75rem',
+                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
             }
         },
         colorScheme: {
@@ -343,8 +349,7 @@ export default {
                     select: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
-                        color: '{text.color}',
-                        shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+                        color: '{text.color}'
                     },
                     popover: {
                         background: '{surface.900}',

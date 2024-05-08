@@ -1,13 +1,33 @@
 export default {
     track: {
-        background: '{content.border.color}'
+        background: '{content.border.color}',
+        borderRadius: '{border.radius.sm}',
+        size: '3px'
     },
     range: {
         background: '{primary.color}'
     },
     handle: {
-        background: '{content.border.color}',
-        hoverBackground: '{content.border.color}'
+        width: '16px',
+        height: '16px',
+        borderRadius: '50%',
+        background: '{primary.color}',
+        hoverBackground: '{primary.color}',
+        content: {
+            background: '{content.background}',
+            hoverBackground: '{primary.color}',
+            borderRadius: '50%',
+            width: '12px',
+            height: '12px',
+            shadow: 'none'
+        },
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
     },
     colorScheme: {
         light: {
