@@ -1,6 +1,8 @@
 export default {
     button: {
-        width: '2.5rem'
+        width: '2.5rem',
+        borderRadius: '{form.field.border.radius}',
+        verticalPadding: '{form.field.padding.y}'
     },
     colorScheme: {
         light: {

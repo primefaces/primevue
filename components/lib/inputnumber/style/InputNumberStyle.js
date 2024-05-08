@@ -11,11 +11,11 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    curspor: pointer;
+    cursor: pointer;
     background: ${dt('inputnumber.button.background')};
     color: ${dt('inputnumber.button.color')};
     width: ${dt('inputnumber.button.width')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-inputnumber-button:hover {
@@ -26,10 +26,6 @@ const theme = ({ dt }) => `
 .p-inputnumber-button:active {
     background: ${dt('inputnumber.button.active.background')};
     color: ${dt('inputnumber.button.active.color')};
-}
-
-.p-inputnumber-stacked {
-    overflow: hidden;
 }
 
 .p-inputnumber-stacked .p-inputnumber-button {
@@ -48,12 +44,12 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-stacked .p-inputnumber-increment-button {
     padding: 0;
-    border-top-right-radius: calc(${dt('border.radius.md')} - 1px);
+    border-top-right-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-decrement-button {
     padding: 0;
-    border-bottom-right-radius: calc(${dt('border.radius.md')} - 1px);
+    border-bottom-right-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-button {
@@ -98,7 +94,7 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-button {
     border: 1px solid ${dt('inputnumber.button.border.color')};
-    padding: 0.5rem 0;
+    padding: ${dt('inputnumber.button.vertical.padding')}; 0;
 }
 
 .p-inputnumber-vertical .p-inputnumber-button:hover {

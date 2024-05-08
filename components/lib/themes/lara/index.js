@@ -228,7 +228,7 @@ export default {
                     floatLabelColor: '{surface.500}',
                     floatLabelFocusColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
-                    iconColor: '{surface.400}',
+                    iconColor: '{surface.500}',
                     shadow: 'none'
                 },
                 text: {
