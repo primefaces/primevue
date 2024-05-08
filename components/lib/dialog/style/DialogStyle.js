@@ -167,8 +167,7 @@ const classes = {
         'p-dialog p-component',
         {
             'p-dialog-rtl': props.rtl,
-            'p-dialog-maximized': props.maximizable && instance.maximized,
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-dialog-maximized': props.maximizable && instance.maximized
         }
     ],
     header: 'p-dialog-header',

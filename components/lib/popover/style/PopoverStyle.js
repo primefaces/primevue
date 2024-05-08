@@ -81,12 +81,7 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ instance }) => [
-        'p-popover p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    root: 'p-popover p-component',
     content: 'p-popover-content'
 };
 

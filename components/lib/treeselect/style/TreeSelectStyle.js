@@ -154,12 +154,7 @@ const classes = {
     pcChipLabel: 'p-treeselect-chip-label',
     dropdown: 'p-treeselect-dropdown',
     dropdownIcon: 'p-treeselect-dropdown-icon',
-    panel: ({ instance }) => [
-        'p-treeselect-overlay p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    panel: 'p-treeselect-overlay p-component',
     treeContainer: 'p-treeselect-tree-container',
     emptyMessage: 'p-treeselect-empty-message'
 };

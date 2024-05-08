@@ -359,8 +359,7 @@ const classes = {
         {
             'p-datepicker-panel-inline': props.inline,
             'p-disabled': props.disabled,
-            'p-datepicker-timeonly': props.timeOnly,
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-datepicker-timeonly': props.timeOnly
         }
     ],
     calendarContainer: 'p-datepicker-calendar-container',

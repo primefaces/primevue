@@ -219,12 +219,7 @@ const classes = {
     dropdown: 'p-select-dropdown',
     loadingicon: 'p-select-loading-icon',
     dropdownIcon: 'p-select-dropdown-icon',
-    overlay: ({ instance }) => [
-        'p-select-overlay p-component',
-        {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
-        }
-    ],
+    overlay: 'p-select-overlay p-component',
     header: 'p-select-header',
     pcFilter: 'p-select-filter',
     listContainer: 'p-select-list-container',

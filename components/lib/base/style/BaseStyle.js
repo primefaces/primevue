@@ -219,10 +219,6 @@ const theme = ({ dt }) => `
     animation: ripple 0.4s linear;
 }
 
-.p-ripple-disabled .p-ink {
-    display: none;
-}
-
 @keyframes ripple {
     100% {
         opacity: 0;

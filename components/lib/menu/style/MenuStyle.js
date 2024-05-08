@@ -92,11 +92,10 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ instance, props }) => [
+    root: ({ props }) => [
         'p-menu p-component',
         {
-            'p-menu-overlay': props.popup,
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-menu-overlay': props.popup
         }
     ],
     start: 'p-menu-start',

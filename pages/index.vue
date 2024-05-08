@@ -48,7 +48,7 @@ export default {
     },
     computed: {
         containerClass() {
-            return ['landing', { 'layout-news-active': this.$appState?.newsActive, 'p-ripple-disabled': this.$appState.ripple === false }];
+            return ['landing', { 'layout-news-active': this.$appState?.newsActive }];
         }
     },
     components: {

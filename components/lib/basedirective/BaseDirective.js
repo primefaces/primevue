@@ -1,5 +1,6 @@
 import Base from 'primevue/base';
 import BaseStyle from 'primevue/base/style';
+import PrimeVueService from 'primevue/service';
 import Theme, { ThemeService } from 'primevue/themes';
 import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
@@ -193,6 +194,18 @@ const BaseDirective = {
             BaseDirective._hook(name, hook, el, binding, vnode, prevVnode); // handle hooks during directive uses (global and self-definition)
         };
 
+        const handleWatch = (el) => {
+            const watchers = el.$instance?.watch;
+
+            // for 'config'
+            watchers?.['config']?.call(el.$instance, el.$instance?.$config);
+            PrimeVueService.on('config:change', ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue));
+
+            // for 'config.ripple'
+            watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$config?.ripple);
+            PrimeVueService.on('config:ripple:change', ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue));
+        };
+
         return {
             created: (el, binding, vnode, prevVnode) => {
                 handleHook('created', el, binding, vnode, prevVnode);
@@ -201,6 +214,7 @@ const BaseDirective = {
                 el.$attrSelector = UniqueComponentId('pd');
                 BaseDirective._loadStyles(el, binding, vnode);
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
+                handleWatch(el);
             },
             mounted: (el, binding, vnode, prevVnode) => {
                 BaseDirective._loadStyles(el, binding, vnode);

@@ -228,6 +228,7 @@ const CORE_THEME_DEPENDENCIES = {
 const CORE_DEPENDENCIES = {
     'primevue/utils': 'primevue.utils',
     'primevue/api': 'primevue.api',
+    'primevue/service': 'primevue.service',
     'primevue/config': 'primevue.config',
     'primevue/styled': 'primevue.styled',
     'primevue/unstyled': 'primevue.unstyled',
@@ -514,6 +515,10 @@ function addDirectives() {
     addEntry('animateonscroll', 'AnimateOnScroll.js', 'animateonscroll');
 }
 
+function addService() {
+    addEntry('service', 'PrimeVueService.js', 'primevueservice');
+}
+
 function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
     addEntry('styled', 'PrimeVueStyled.js', 'primevuestyled');
@@ -605,6 +610,7 @@ addStyle();
 addThemes();
 addBase();
 addApi();
+addService();
 addConfig();
 addDirectives();
 addServices();

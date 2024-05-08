@@ -11,7 +11,6 @@ const $appState = {
             sourceType: 'options-api',
             newsActive: false,
             announcement: null,
-            ripple: false,
             storageKey: 'primevue'
         });
     }

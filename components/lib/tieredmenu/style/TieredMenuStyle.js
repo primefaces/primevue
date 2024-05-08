@@ -135,8 +135,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-tieredmenu p-component',
         {
-            'p-tieredmenu-overlay': props.popup,
-            'p-ripple-disabled': instance.$primevue.config.ripple === false
+            'p-tieredmenu-overlay': props.popup
         }
     ],
     start: 'p-tieredmenu-start',

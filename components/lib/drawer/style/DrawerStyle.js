@@ -181,7 +181,6 @@ const classes = {
     root: ({ instance }) => [
         'p-drawer p-component',
         {
-            'p-ripple-disabled': instance.$primevue.config.ripple === false,
             'p-drawer-full': instance.fullScreen
         }
     ],
