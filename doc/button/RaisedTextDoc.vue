@@ -7,7 +7,7 @@
         <Button label="Secondary" severity="secondary" text raised />
         <Button label="Success" severity="success" text raised />
         <Button label="Info" severity="info" text raised />
-        <Button label="Warning" severity="warn" text raised />
+        <Button label="Warn" severity="warn" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
         <Button label="Plain" plain text raised />
@@ -25,7 +25,7 @@ export default {
 <Button label="Secondary" severity="secondary" text raised />
 <Button label="Success" severity="success" text raised />
 <Button label="Info" severity="info" text raised />
-<Button label="Warning" severity="warn" text raised />
+<Button label="Warn" severity="warn" text raised />
 <Button label="Help" severity="help" text raised />
 <Button label="Danger" severity="danger" text raised />
 <Button label="Plain" plain text raised />
@@ -37,7 +37,7 @@ export default {
         <Button label="Secondary" severity="secondary" text raised />
         <Button label="Success" severity="success" text raised />
         <Button label="Info" severity="info" text raised />
-        <Button label="Warning" severity="warn" text raised />
+        <Button label="Warn" severity="warn" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
         <Button label="Plain" plain text raised />
@@ -54,7 +54,7 @@ export default {
         <Button label="Secondary" severity="secondary" text raised />
         <Button label="Success" severity="success" text raised />
         <Button label="Info" severity="info" text raised />
-        <Button label="Warning" severity="warn" text raised />
+        <Button label="Warn" severity="warn" text raised />
         <Button label="Help" severity="help" text raised />
         <Button label="Danger" severity="danger" text raised />
         <Button label="Plain" plain text raised />

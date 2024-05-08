@@ -5,7 +5,7 @@
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
-        <InlineMessage severity="warn">Warning Message</InlineMessage>
+        <InlineMessage severity="warn">Warn Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
         <InlineMessage severity="secondary">Secondary Message</InlineMessage>
         <InlineMessage severity="contrast">Contrast Message</InlineMessage>
@@ -21,7 +21,7 @@ export default {
                 basic: `
 <InlineMessage severity="success">Success Message</InlineMessage>
 <InlineMessage severity="info">Info Message</InlineMessage>
-<InlineMessage severity="warn">Warning Message</InlineMessage>
+<InlineMessage severity="warn">Warn Message</InlineMessage>
 <InlineMessage severity="error">Error Message</InlineMessage>
 <InlineMessage severity="secondary">Secondary Message</InlineMessage>
 <InlineMessage severity="contrast">Contrast Message</InlineMessage>
@@ -31,7 +31,7 @@ export default {
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
-        <InlineMessage severity="warn">Warning Message</InlineMessage>
+        <InlineMessage severity="warn">Warn Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
         <InlineMessage severity="secondary">Secondary Message</InlineMessage>
         <InlineMessage severity="contrast">Contrast Message</InlineMessage>
@@ -46,7 +46,7 @@ export default {
     <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
-        <InlineMessage severity="warn">Warning Message</InlineMessage>
+        <InlineMessage severity="warn">Warn Message</InlineMessage>
         <InlineMessage severity="error">Error Message</InlineMessage>
         <InlineMessage severity="secondary">Secondary Message</InlineMessage>
         <InlineMessage severity="contrast">Contrast Message</InlineMessage>

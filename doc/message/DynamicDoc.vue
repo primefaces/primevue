@@ -50,7 +50,7 @@ export default {
             this.messages = [
                 { severity: 'info', content: 'Dynamic Info Message', id: this.count++ },
                 { severity: 'success', content: 'Dynamic Success Message', id: this.count++ },
-                { severity: 'warn', content: 'Dynamic Warning Message', id: this.count++ }
+                { severity: 'warn', content: 'Dynamic Warn Message', id: this.count++ }
             ];
         },
         clearMessages() {
@@ -82,7 +82,7 @@ const addMessages = () => {
     messages.value = [
         { severity: 'info', content: 'Dynamic Info Message', id: count.value++ },
         { severity: 'success', content: 'Dynamic Success Message', id: count.value++ },
-        { severity: 'warn', content: 'Dynamic Warning Message', id: count.value++ }
+        { severity: 'warn', content: 'Dynamic Warn Message', id: count.value++ }
     ];
 };
 
@@ -99,7 +99,7 @@ const clearMessages = () => {
             this.messages = [
                 { severity: 'info', content: 'Dynamic Info Message', id: this.count++ },
                 { severity: 'success', content: 'Dynamic Success Message', id: this.count++ },
-                { severity: 'warn', content: 'Dynamic Warning Message', id: this.count++ }
+                { severity: 'warn', content: 'Dynamic Warn Message', id: this.count++ }
             ];
         },
         clearMessages() {
