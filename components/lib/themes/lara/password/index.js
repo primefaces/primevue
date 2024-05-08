@@ -1,6 +1,8 @@
 export default {
     meter: {
-        borderColor: '{content.border.color}'
+        borderColor: '{content.border.color}',
+        borderRadius: '{border.radius.sm}',
+        height: '.75rem'
     },
     icon: {
         color: '{form.field.icon.color}'
@@ -8,7 +10,11 @@ export default {
     overlay: {
         background: '{overlay.popover.background}',
         borderColor: '{overlay.popover.border.color}',
-        color: '{overlay.popover.color}'
+        borderRadius: '{overlay.popover.border.radius}',
+        color: '{overlay.popover.color}',
+        padding: '{overlay.popover.padding}',
+        shadow: '{overlay.popover.shadow}',
+        gap: '0.75rem'
     },
     colorScheme: {
         light: {

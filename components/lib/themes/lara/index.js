@@ -169,7 +169,13 @@ export default {
         },
         overlay: {
             select: {
-                borderRadius: '{border.radius.sm}'
+                borderRadius: '{border.radius.sm}',
+                shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
+            },
+            popover: {
+                borderRadius: '{border.radius.sm}',
+                padding: '1rem',
+                shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
             }
         },
         colorScheme: {
@@ -239,8 +245,7 @@ export default {
                     select: {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
-                        color: '{text.color}',
-                        shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
+                        color: '{text.color}'
                     },
                     popover: {
                         background: '{surface.0}',
@@ -348,8 +353,7 @@ export default {
                     select: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
-                        color: '{text.color}',
-                        shadow: 'rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px'
+                        color: '{text.color}'
                     },
                     popover: {
                         background: '{surface.900}',
