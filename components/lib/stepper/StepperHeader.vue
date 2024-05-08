@@ -13,7 +13,7 @@
     />
     <button v-else :id="id" :class="cx('stepper.itemHeader')" role="tab" :tabindex="disabled ? -1 : undefined" :aria-controls="ariaControls" @click="clickCallback($event, index)" v-bind="getStepPT(stepperpanel, 'itemHeader', index)">
         <span :class="cx('stepper.itemNumber')" v-bind="getStepPT(stepperpanel, 'itemNumber', index)">{{ index + 1 }}</span>
-        <span :class="cx('stepper.itemTitle')" v-bind="getStepPT(stepperpanel, 'itemTitle', index)">{{ getStepProp(stepperpanel, 'item') }}</span>
+        <span :class="cx('stepper.itemTitle')" v-bind="getStepPT(stepperpanel, 'itemTitle', index)">{{ getStepProp(stepperpanel, 'header') }}</span>
     </button>
 </template>
 
