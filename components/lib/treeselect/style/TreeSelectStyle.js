@@ -8,8 +8,8 @@ const theme = ({ dt }) => `
     user-select: none;
     background: ${dt('treeselect.background')};
     border: 1px solid ${dt('treeselect.border.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('treeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('treeselect.shadow')};
 }
@@ -20,7 +20,9 @@ const theme = ({ dt }) => `
 
 .p-treeselect:not(.p-disabled).p-focus {
     border-color: ${dt('treeselect.focus.border.color')};
-    outline: 0 none;
+    box-shadow: ${dt('treeselect.focus.ring.shadow')};
+    outline: ${dt('treeselect.focus.ring.width')} ${dt('treeselect.focus.ring.style')} ${dt('treeselect.focus.ring.color')};
+    outline-offset: ${dt('treeselect.focus.ring.offset')};
 }
 
 .p-treeselect.p-variant-filled {
@@ -47,7 +49,7 @@ const theme = ({ dt }) => `
     flex-shrink: 0;
     background: transparent;
     color: ${dt('treeselect.dropdown.color')};
-    width: 2.5rem;
+    width: ${dt('treeselect.dropdown.width')};
     border-top-right-radius: ${dt('border.radius.md')};
     border-bottom-right-radius: ${dt('border.radius.md')};
 }
@@ -59,12 +61,14 @@ const theme = ({ dt }) => `
 }
 
 .p-treeselect-label {
-    display: block;
+    display: flex;
+    align-items-center;
+    gap: calc(${dt('treeselect.padding.y')} / 2);
     white-space: nowrap;
     cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('treeselect.padding.y')} ${dt('treeselect.padding.x')};
     color: ${dt('treeselect.color')};
 }
 
@@ -74,10 +78,6 @@ const theme = ({ dt }) => `
 
 .p-treeselect.p-disabled .p-treeselect-label {
     color: ${dt('treeselect.disabled.color')};
-}
-
-.p-inputwrapper-filled.p-treeselect.p-treeselect-display-chip .p-treeselect-label {
-    padding: 0.25rem 0.25rem;
 }
 
 .p-treeselect-label-empty {
@@ -96,12 +96,12 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.overlay.background')};
     color: ${dt('treeselect.overlay.color')};
     border: 1px solid ${dt('treeselect.overlay.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('treeselect.overlay.border.radius')};
+    box-shadow: ${dt('treeselect.overlay.shadow')};
 }
 
 .p-treeselect-empty-message {
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('treeselect.empty.message.padding')};
     background: transparent;
 }
 
@@ -110,7 +110,17 @@ const theme = ({ dt }) => `
 }
 
 .p-treeselect-overlay .p-tree {
-    padding: 0.25rem 0.25rem;
+    padding: ${dt('treeselect.tree.padding')};
+}
+
+.p-treeselect-label .p-chip {
+    padding-top: calc(${dt('treeselect.padding.y')} / 2);
+    padding-bottom: calc(${dt('treeselect.padding.y')} / 2);
+    border-radius: ${dt('treeselect.chip.border.radius')};
+}
+
+.p-treeselect-label:has(.p-chip) {
+    padding: calc(${dt('treeselect.padding.y')} / 2) calc(${dt('treeselect.padding.x')} / 2);
 }
 `;
 
