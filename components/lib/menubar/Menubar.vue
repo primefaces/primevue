@@ -27,7 +27,7 @@
         </slot>
         <MenubarSub
             :ref="menubarRef"
-            :id="id"
+            :id="id + '_list'"
             role="menubar"
             :items="processedItems"
             :templates="$slots"
@@ -173,10 +173,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
-
-            if (!this.popup) {
-                this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
-            }
+            this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
 
             this.$emit('focus', event);
         },
@@ -294,7 +291,7 @@ export default {
             }
         },
         onItemMouseEnter(event) {
-            if (!this.mobileActive && this.dirty) {
+            if (this.dirty) {
                 this.onItemChange(event);
             }
         },

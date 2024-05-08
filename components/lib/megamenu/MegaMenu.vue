@@ -289,12 +289,7 @@ export default {
                 if (grouped) {
                     this.onItemChange(event);
                 } else {
-                    const rootProcessedItem = root ? processedItem : this.activeItem;
-
                     this.hide(originalEvent);
-                    this.changeFocusedItemInfo(originalEvent, rootProcessedItem ? rootProcessedItem.index : -1);
-                    this.mobileActive = false;
-                    DomHandler.focus(this.menubar);
                 }
             }
         },
