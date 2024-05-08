@@ -1,7 +1,8 @@
 export default {
     toolbar: {
         background: '{content.background}',
-        borderColor: '{content.border.color}'
+        borderColor: '{content.border.color}',
+        borderRadius: '{border.radius.md}'
     },
     toolbarItem: {
         color: '{text.muted.color}',
@@ -9,18 +10,24 @@ export default {
         activeColor: '{primary.color}'
     },
     overlay: {
-        background: '{content.background}',
-        borderColor: '{content.border.color}',
-        color: '{content.color}'
+        background: '{overlay.select.background}',
+        borderColor: '{overlay.select.border.color}',
+        borderRadius: '{overlay.select.border.radius}',
+        color: '{overlay.select.color}',
+        shadow: '{overlay.select.shadow}',
+        padding: '{list.padding}'
     },
-    overlayItem: {
-        hoverBackground: '{content.hover.background}',
-        color: '{content.color}',
-        hoverColor: '{content.hover.color}'
+    overlayOption: {
+        focusBackground: '{list.option.focus.background}',
+        color: '{list.option.color}',
+        focusColor: '{list.option.focus.color}',
+        padding: '{list.option.padding}',
+        borderRadius: '{list.option.border.radius}'
     },
     content: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        borderRadius: '{border.radius.md}'
     }
 };
