@@ -131,7 +131,7 @@ import ConfirmationService from 'primevue/confirmationservice';
 import ContextMenu from 'primevue/contextmenu';
 import DataTable from 'primevue/datatable';
 import DataView from 'primevue/dataview';
-import DatePicker from 'primevue/datepicker;
+import DatePicker from 'primevue/datepicker';
 import DeferredContent from 'primevue/deferredcontent';
 import Dialog from 'primevue/dialog';
 import DialogService from 'primevue/dialogservice'
