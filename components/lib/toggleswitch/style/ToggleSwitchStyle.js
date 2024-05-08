@@ -3,8 +3,8 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-toggleswitch {
     display: inline-block;
-    width: 2.5rem;
-    height: 1.5rem;
+    width: ${dt('toggleswitch.width')};
+    height: ${dt('toggleswitch.height')};
 }
 
 .p-toggleswitch-input {
@@ -32,9 +32,10 @@ const theme = ({ dt }) => `
     bottom: 0;
     border: 0 none;
     background: ${dt('toggleswitch.background')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     border-radius: ${dt('toggleswitch.border.radius')};
     outline-color: transparent;
+    box-shadow: ${dt('toggleswitch.shadow')};
 }
 
 .p-toggleswitch-slider:before {
@@ -42,10 +43,10 @@ const theme = ({ dt }) => `
     content: "";
     top: 50%;
     background: ${dt('toggleswitch.handle.background')};
-    width: 1rem;
-    height: 1rem;
-    left: 0.25rem;
-    margin-top: -0.5rem;
+    width: ${dt('toggleswitch.handle.size')};
+    height: ${dt('toggleswitch.handle.size')};
+    left: ${dt('toggleswitch.gap')};
+    margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
     transition: all ${dt('transition.duration')};
 }
@@ -56,7 +57,7 @@ const theme = ({ dt }) => `
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider:before {
     background: ${dt('toggleswitch.handle.checked.background')};
-    left: 1.25rem;
+    left: calc(${dt('toggleswitch.width')} - calc(${dt('toggleswitch.handle.size')} + ${dt('toggleswitch.gap')}));
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {
@@ -76,8 +77,10 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    border-color: ${dt('toggleswitch.focus.border.color')};
+    box-shadow: ${dt('toggleswitch.focus.ring.shadow')};
+    outline: ${dt('toggleswitch.focus.ring.width')} ${dt('toggleswitch.focus.ring.style')} ${dt('toggleswitch.focus.ring.color')};
+    outline-offset: ${dt('toggleswitch.focus.ring.offset')};
 }
 
 .p-toggleswitch.p-invalid > .p-toggleswitch-slider {

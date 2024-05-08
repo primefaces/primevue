@@ -1,9 +1,21 @@
 export default {
     handle: {
-        borderRadius: '50%'
+        borderRadius: '50%',
+        size: '1.25rem'
     },
     root: {
-        borderRadius: '30px'
+        width: '3rem',
+        height: '1.75rem',
+        borderRadius: '30px',
+        gap: '0.25rem',
+        shadow: '{form.field.shadow}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
     },
     colorScheme: {
         light: {
