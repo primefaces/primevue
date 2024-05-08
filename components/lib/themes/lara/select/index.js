@@ -32,7 +32,7 @@ export default {
         borderColor: '{overlay.select.border.color}',
         borderRadius: '{overlay.select.border.radius}',
         color: '{overlay.select.color}',
-        shadow: '{overlay.select.shadow}',
+        shadow: '{overlay.select.shadow}'
     },
     list: {
         padding: '{list.padding}',
@@ -57,9 +57,6 @@ export default {
         color: '{list.option.group.color}',
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
-    },
-    filterIcon: {
-        color: '{form.field.icon.color}'
     },
     checkmark: {
         color: '{list.option.color}'

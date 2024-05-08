@@ -58,9 +58,6 @@ export default {
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
     },
-    filterIcon: {
-        color: '{form.field.icon.color}'
-    },
     clearIcon: {
         color: '{form.field.icon.color}'
     },
