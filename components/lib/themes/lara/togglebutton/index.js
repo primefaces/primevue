@@ -1,43 +1,49 @@
 export default {
+    root: {
+        padding: '0.625rem 1rem',
+        borderRadius: '{content.border.radius}',
+        gap: '0.5rem',
+        fontWeight: '500',
+        background: '{form.field.background}',
+        borderColor: '{form.field.border.color}',
+        color: '{form.field.color}',
+        hoverColor: '{form.field.color}',
+        checkedBackground: '{highlight.background}',
+        checkedColor: '{highlight.color}',
+        checkedBorderColor: '{highlight.focus.background}',
+        disabledBackground: '{form.field.disabled.background}',
+        disabledBorderColor: '{form.field.disabled.background}',
+        disabledColor: '{form.field.disabled.color}',
+        invalidBorderColor: '{form.field.invalid.border.color}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
+    icon: {
+        color: '{text.muted.color}',
+        hoverColor: '{text.muted.color}',
+        checkedColor: '{highlight.color}',
+        disabledColor: '{form.field.disabled.color}'
+    },
+    content: {
+        left: '0.25rem',
+        top: '0.25rem',
+        checkedBackground: 'transparent',
+        checkedShadow: 'none'
+    },
     colorScheme: {
         light: {
             root: {
-                background: '{surface.100}',
-                checkedBackground: '{surface.0}',
-                disabledBackground: '{form.field.disabled.background}',
-                borderColor: '{surface.100}',
-                disabledBorderColor: '{form.field.disabled.background}',
-                invalidBorderColor: '{form.field.invalid.border.color}',
-                color: '{surface.500}',
-                hoverColor: '{surface.700}',
-                checkedColor: '{surface.900}',
-                disabledColor: '{form.field.disabled.color}'
-            },
-            icon: {
-                color: '{surface.500}',
-                hoverColor: '{surface.700}',
-                checkedColor: '{surface.900}',
-                disabledColor: '{form.field.disabled.color}'
+                hoverBackground: '{surface.100}'
             }
         },
         dark: {
             root: {
-                background: '{surface.950}',
-                checkedBackground: '{surface.800}',
-                disabledBackground: '{form.field.disabled.background}',
-                borderColor: '{surface.950}',
-                disabledBorderColor: '{form.field.disabled.background}',
-                invalidBorderColor: '{form.field.invalid.border.color}',
-                color: '{surface.400}',
-                hoverColor: '{surface.300}',
-                checkedColor: '{surface.0}',
-                disabledColor: '{form.field.disabled.color}'
-            },
-            icon: {
-                color: '{surface.400}',
-                hoverColor: '{surface.300}',
-                checkedColor: '{surface.0}',
-                disabledColor: '{form.field.disabled.color}'
+                hoverBackground: '{surface.800}'
             }
         }
     }
