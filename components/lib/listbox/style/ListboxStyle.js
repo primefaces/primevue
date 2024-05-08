@@ -94,7 +94,7 @@ const theme = ({ dt }) => `
 }
 
 .p-listbox-empty-message {
-    padding: ${dt('listbox.option.padding')};
+    padding: ${dt('listbox.empty.message.padding')};
 }
 `;
 

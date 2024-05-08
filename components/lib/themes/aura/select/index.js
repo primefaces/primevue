@@ -63,5 +63,8 @@ export default {
     },
     checkmark: {
         color: '{list.option.color}'
+    },
+    emptyMessage: {
+        padding: '{list.option.padding}'
     }
 };

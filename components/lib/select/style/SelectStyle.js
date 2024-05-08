@@ -183,8 +183,7 @@ input.p-select-label {
 }
 
 .p-select-empty-message {
-    padding: ${dt('select.option.padding')};
-    background: transparent;
+    padding: ${dt('select.empty.message.padding')};
 }
 
 .p-fluid .p-select {

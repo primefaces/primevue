@@ -41,5 +41,8 @@ export default {
         color: '{list.option.group.color}',
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
+    },
+    emptyMessage: {
+        padding: '{list.option.padding}'
     }
 };

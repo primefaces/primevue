@@ -61,5 +61,8 @@ export default {
     },
     chip: {
         borderRadius: '{border.radius.sm}'
+    },
+    emptyMessage: {
+        padding: '{list.option.padding}'
     }
 };

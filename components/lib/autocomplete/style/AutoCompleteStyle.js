@@ -214,6 +214,10 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.placeholder.color')};
 }
 
+.p-autocomplete-empty-message {
+    padding: ${dt('autocomplete.empty.message.padding')};
+}
+
 .p-fluid .p-autocomplete {
     display: flex;
 }

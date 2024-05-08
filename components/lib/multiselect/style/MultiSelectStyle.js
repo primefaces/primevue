@@ -174,8 +174,7 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-empty-message {
-    padding: ${dt('multiselect.option.padding')};
-    background: transparent;
+    padding: ${dt('multiselect.empty.message.padding')};
 }
 
 .p-multiselect-label .p-chip {
