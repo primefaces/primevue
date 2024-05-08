@@ -125,6 +125,7 @@ export default {
             color: 'transparent',
             offset: '0'
         },
+        iconSize: '1rem',
         anchorGutter: '2px',
         primary: {
             50: '{emerald.50}',

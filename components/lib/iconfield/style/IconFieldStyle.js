@@ -8,24 +8,24 @@ const theme = ({ dt }) => `
 .p-inputicon {
     position: absolute;
     top: 50%;
-    margin-top: -.5rem;
+    margin-top: calc(-1 * (${dt('icon.size')} / 2));
     color: ${dt('iconfield.icon.color')};
 }
 
 .p-iconfield .p-inputicon:first-child {
-    left: 0.75rem;
+    left: ${dt('form.field.padding.x')};
 }
 
 .p-iconfield .p-inputicon:last-child {
-    right: 0.75rem;
+    right: ${dt('form.field.padding.x')};
 }
 
 .p-iconfield .p-inputtext:last-child {
-    padding-left: 2.5rem;
+    padding-left: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 
 .p-iconfield .p-inputtext:first-child {
-    padding-right: 2.5rem;
+    padding-right:calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 `;
 

@@ -151,16 +151,16 @@ const theme = ({ dt }) => `
 }
 
 .p-text-secondary {
-    color: #64748b;
+    color: ${dt('text.muted.color')};
 }
 
 .pi {
-    font-size: 1rem;
+    font-size: ${dt('icon.size')};
 }
 
 .p-icon {
-    width: 1rem;
-    height: 1rem;
+    width: ${dt('icon.size')};
+    height: ${dt('icon.size')};
 }
 
 .p-link {

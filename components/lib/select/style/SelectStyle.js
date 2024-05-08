@@ -119,8 +119,6 @@ input.p-select-label {
 
 .p-select-filter {
     width: 100%;
-    padding-right: 1.75rem;
-    margin-right: -1.75rem;
 }
 
 .p-select-list-container {

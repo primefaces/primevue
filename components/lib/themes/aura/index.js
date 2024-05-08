@@ -126,6 +126,7 @@ export default {
             offset: '2px',
             shadow: 'none'
         },
+        iconSize: '1rem',
         anchorGutter: '2px',
         primary: {
             50: '{emerald.50}',
