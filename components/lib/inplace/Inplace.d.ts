@@ -7,7 +7,6 @@
  * @module inplace
  *
  */
-
 import { HTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';

@@ -1,9 +1,11 @@
 /**
+ *
  * Columns can be grouped at header and footer sections by defining a ColumnGroup component.
  * It is a helper component for DataTable.
  *
  * [Live Demo](https://www.primevue.org/datatable/)
  * @module columngroup
+ *
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';

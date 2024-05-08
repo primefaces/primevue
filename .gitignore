@@ -11,3 +11,4 @@ dist
 .vscode
 .idea
 .eslintcache
+api-generator/typedoc.json
