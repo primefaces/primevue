@@ -26,12 +26,12 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     width: ${dt('datepicker.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('datepicker.dropdown.border.radius')};
+    border-bottom-right-radius: ${dt('datepicker.dropdown.border.radius')};
     background: ${dt('datepicker.dropdown.background')};
     border: 1px solid ${dt('datepicker.dropdown.border.color')};
     border-left: 0 none;
-    background: ${dt('datepicker.dropdown.background')};
+    color: ${dt('datepicker.dropdown.color')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
@@ -39,18 +39,19 @@ const theme = ({ dt }) => `
 .p-datepicker-dropdown:not(:disabled):hover {
     background: ${dt('datepicker.dropdown.hover.background')};
     border-color: ${dt('datepicker.dropdown.hover.border.color')};
-    background: ${dt('datepicker.dropdown.hover.background')};
+    color: ${dt('datepicker.dropdown.hover.color')};
 }
 
 .p-datepicker-dropdown:not(:disabled):active {
     background: ${dt('datepicker.dropdown.active.background')};
     border-color: ${dt('datepicker.dropdown.active.border.color')};
-    background: ${dt('datepicker.dropdown.active.background')};
+    color: ${dt('datepicker.dropdown.active.color')};
 }
 
 .p-datepicker-dropdown:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('datepicker.dropdown.focus.ring.shadow')};
+    outline: ${dt('datepicker.dropdown.focus.ring.width')} ${dt('datepicker.dropdown.focus.ring.style')} ${dt('datepicker.dropdown.focus.ring.color')};
+    outline-offset: ${dt('datepicker.dropdown.focus.ring.offset')};
 }
 
 .p-datepicker:has(.p-datepicker-input-icon) {
@@ -58,15 +59,16 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker:has(.p-datepicker-input-icon) .p-datepicker-input {
-    padding-right: 2.5rem;
+    padding-right: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 
 .p-datepicker-input-icon {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: .75rem;
-    margin-top: -.5rem;
+    right: ${dt('form.field.padding.x')};
+    margin-top: calc(-1 * (${dt('icon.size')} / 2));
+    color: ${dt('datepicker.input.icon.color')};
 }
 
 .p-fluid .p-datepicker {
@@ -83,12 +85,12 @@ const theme = ({ dt }) => `
 
 .p-datepicker-panel {
     width: auto;
-    padding: 0.75rem;
-    background: ${dt('datepicker.background')};
-    color: ${dt('datepicker.color')};
-    border: 1px solid ${dt('datepicker.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    padding: ${dt('datepicker.panel.padding')};
+    background: ${dt('datepicker.panel.background')};
+    color: ${dt('datepicker.panel.color')};
+    border: 1px solid ${dt('datepicker.panel.border.color')};
+    border-radius: ${dt('datepicker.panel.border.radius')};
+    box-shadow: ${dt('datepicker.panel.shadow')};
 }
 
 .p-datepicker-panel-inline {
@@ -101,33 +103,41 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 0.5rem 0;
-    font-weight: 500;
+    padding: ${dt('datepicker.header.padding')};
+    font-weight: ${dt('datepicker.header.font.weight')};
     background: ${dt('datepicker.header.background')};
     color: ${dt('datepicker.header.color')};
     border-bottom: 1px solid ${dt('datepicker.header.border.color')};
 }
 
 .p-datepicker-title {
-    margin: 0 auto;
-    line-height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: ${dt('datepicker.title.gap')};
+    font-weight: ${dt('datepicker.title.font.weight')};
 }
 
 .p-datepicker-view-year,
 .p-datepicker-view-month {
-    font-weight: 500;
-    padding: 0.25rem;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border: none;
+    background: transparent;
+    margin: 0;
+    cursor: pointer;
+    font-weight: inherit;
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-datepicker-view-month {
-    margin-right: 0.5rem;
+    padding: ${dt('datepicker.view.month.padding')};
     color: ${dt('datepicker.view.month.color')};
+    border-radius: ${dt('datepicker.view.month.border.radius')};
 }
 
 .p-datepicker-view-year {
-    margin-right: 0.5rem;
+    padding: ${dt('datepicker.view.year.padding')};
     color: ${dt('datepicker.view.year.color')};
+    border-radius: ${dt('datepicker.view.year.border.radius')};
 }
 
 .p-datepicker-view-month:enabled:hover {
@@ -140,25 +150,23 @@ const theme = ({ dt }) => `
     color: ${dt('datepicker.view.year.hover.color')};
 }
 
-.p-datepicker-datepicker-container {
+.p-datepicker-calendar-container {
     display: flex;
 }
 
-.p-datepicker-datepicker-container .p-datepicker-datepicker {
+.p-datepicker-calendar-container .p-datepicker-calendar {
     flex: 1 1 auto;
     border-left: 1px solid ${dt('datepicker.group.border.color')};
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-right: ${dt('datepicker.group.gap')};
+    padding-left: ${dt('datepicker.group.gap')};
 }
 
-.p-datepicker-datepicker-container .p-datepicker-datepicker:first-child {
+.p-datepicker-calendar-container .p-datepicker-calendar:first-child {
     padding-left: 0;
     border-left: 0 none;
 }
 
-.p-datepicker-datepicker-container .p-datepicker-datepicker:last-child {
+.p-datepicker-calendar-container .p-datepicker-calendar:last-child {
     padding-right: 0;
 }
 
@@ -166,19 +174,20 @@ const theme = ({ dt }) => `
     width: 100%;
     border-collapse: collapse;
     font-size: 1rem;
-    margin: 0.5rem 0 0 0;
+    margin: ${dt('datepicker.day.view.margin')};
 }
 
 .p-datepicker-weekday-cell {
-    padding: 0.25rem;
+    padding: ${dt('datepicker.week.day.padding')};
 }
 
 .p-datepicker-weekday {
-    font-weight: 500;
+    font-weight: ${dt('datepicker.week.day.font.weight')};
+    color: ${dt('datepicker.week.day.color')};
 }
 
 .p-datepicker-day-cell {
-    padding: 0.25rem;
+    padding: ${dt('datepicker.date.padding')};
 }
 
 .p-datepicker-day {
@@ -189,10 +198,10 @@ const theme = ({ dt }) => `
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    width: ${dt('datepicker.date.width')};
+    height: ${dt('datepicker.date.height')};
+    border-radius: ${dt('datepicker.date.border.radius')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border: 1px solid transparent;
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
@@ -204,8 +213,9 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker-day:focus-visible {
-    outline: 1px solid ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('datepicker.date.focus.ring.shadow')};
+    outline: ${dt('datepicker.date.focus.ring.width')} ${dt('datepicker.date.focus.ring.style')} ${dt('datepicker.date.focus.ring.color')};
+    outline-offset: ${dt('datepicker.date.focus.ring.offset')};
 }
 
 .p-datepicker-day-selected {
@@ -224,7 +234,7 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker-month-view {
-    margin: 0.5rem 0 0 0;
+    margin: ${dt('datepicker.month.view.margin')};
 }
 
 .p-datepicker-month {
@@ -235,9 +245,9 @@ const theme = ({ dt }) => `
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    padding: 0.25rem;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    padding: ${dt('datepicker.date.padding')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('datepicker.month.border.radius')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
 }
@@ -253,12 +263,13 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker-month:not(.p-disabled):focus-visible {
-    outline: ${dt('focus.ring.width')} solid ${dt('focus.ring.color')};
-    outline-offset: 0;
+    box-shadow: ${dt('datepicker.date.focus.ring.shadow')};
+    outline: ${dt('datepicker.date.focus.ring.width')} ${dt('datepicker.date.focus.ring.style')} ${dt('datepicker.date.focus.ring.color')};
+    outline-offset: ${dt('datepicker.date.focus.ring.offset')};
 }
 
 .p-datepicker-year-view {
-    margin: 0.5rem 0 0 0;
+    margin: ${dt('datepicker.year.view.margin')};
 }
 
 .p-datepicker-year {
@@ -269,15 +280,15 @@ const theme = ({ dt }) => `
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    padding: 0.25rem;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    padding: ${dt('datepicker.date.padding')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('datepicker.year.border.radius')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
 }
 
 .p-datepicker-year:not(.p-disabled):not(.p-datepicker-year-selected):hover {
-    color:  ${dt('datepicker.date.hover.color')};
+    color: ${dt('datepicker.date.hover.color')};
     background: ${dt('datepicker.date.hover.background')};
 }
 
@@ -287,15 +298,16 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker-year:not(.p-disabled):focus-visible {
-    outline: ${dt('focus.ring.width')} solid ${dt('focus.ring.color')};
-    outline-offset: 0;
+    box-shadow: ${dt('datepicker.date.focus.ring.shadow')};
+    outline: ${dt('datepicker.date.focus.ring.width')} ${dt('datepicker.date.focus.ring.style')} ${dt('datepicker.date.focus.ring.color')};
+    outline-offset: ${dt('datepicker.date.focus.ring.offset')};
 }
 
 .p-datepicker-buttonbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0 0 0;
+    padding:  ${dt('datepicker.buttonbar.padding')};
     border-top: 1px solid ${dt('datepicker.buttonbar.border.color')};
 }
 
@@ -309,22 +321,18 @@ const theme = ({ dt }) => `
     align-items: center;
     border-top: 1px solid ${dt('datepicker.time.picker.border.color')};
     padding: 0;
+    gap: ${dt('datepicker.time.picker.gap')};
 }
 
-.p-datepicker-datepicker-group + .p-datepicker-time-picker {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
+.p-datepicker-calendar-container + .p-datepicker-time-picker {
+    padding: ${dt('datepicker.time.picker.padding')};
 }
 
 .p-datepicker-time-picker > div {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 0 0.5rem;
-}
-
-.p-datepicker-time-picker button:last-child {
-    margin-top: 0.2em;
+    gap: ${dt('datepicker.time.picker.button.gap')};
 }
 
 .p-datepicker-time-picker span {
@@ -367,8 +375,8 @@ const classes = {
     header: 'p-datepicker-header',
     pcPreviousButton: 'p-datepicker-prev-button',
     title: 'p-datepicker-title',
-    viewMonth: 'p-datepicker-view-month p-link',
-    viewYear: 'p-datepicker-view-year p-link',
+    viewMonth: 'p-datepicker-view-month',
+    viewYear: 'p-datepicker-view-year',
     decade: 'p-datepicker-decade',
     pcNextButton: 'p-datepicker-next-button',
     dayView: 'p-datepicker-day-view',
@@ -376,7 +384,7 @@ const classes = {
     weekNumber: 'p-datepicker-weeknumber',
     weekLabelContainer: 'p-disabled',
     weekDayCell: 'p-datepicker-weekday-cell',
-    weekDay: 'p-date-picker-weekday',
+    weekDay: 'p-datepicker-weekday',
     dayCell: ({ date }) => ['p-datepicker-day-cell', { 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }],
     day: ({ instance, props, date }) => ['p-datepicker-day', { 'p-datepicker-day-selected': instance.isSelected(date) && date.selectable, 'p-disabled': props.disabled || !date.selectable }],
     monthView: 'p-datepicker-month-view',

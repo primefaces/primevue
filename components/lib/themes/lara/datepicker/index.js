@@ -1,60 +1,129 @@
 export default {
-    root: {
+    panel: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        borderRadius: '{content.border.radius}',
+        shadow: '{overlay.popover.shadow}',
+        padding: '{overlay.popover.padding}'
     },
     header: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        padding: '0 0 0.75rem 0'
+    },
+    title: {
+        gap: '0.5rem',
+        fontWeight: '700'
     },
     dropdown: {
         width: '2.5rem',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',
-        background: '{button.secondary.background}',
-        hoverBackground: '{button.secondary.hover.background}',
-        activeBackground: '{button.secondary.active.background}',
-        color: '{button.secondary.color}',
-        hoverColor: '{button.secondary.hover.color}',
-        activeColor: '{button.secondary.active.color}'
+        borderRadius: '{form.field.border.radius}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
+    inputIcon: {
+        color: '{form.field.icon.color}'
     },
     viewMonth: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
-        hoverColor: '{content.hover.color}'
+        hoverColor: '{content.hover.color}',
+        padding: '0.375rem',
+        borderRadius: '{content.border.radius}'
     },
     viewYear: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
-        hoverColor: '{content.hover.color}'
+        hoverColor: '{content.hover.color}',
+        padding: '0.375rem',
+        borderRadius: '{content.border.radius}'
     },
     group: {
-        borderColor: '{content.border.color}'
+        borderColor: '{content.border.color}',
+        gap: '{overlay.popover.padding}'
+    },
+    dayView: {
+        margin: '0.75rem 0 0 0'
+    },
+    weekDay: {
+        padding: '0.375rem',
+        fontWeight: '700',
+        color: '{content.color}'
     },
     date: {
         hoverBackground: '{content.hover.background}',
         selectedBackground: '{highlight.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        selectedColor: '{highlight.color}'
+        selectedColor: '{highlight.color}',
+        width: '2.5rem',
+        height: '2.5rem',
+        borderRadius: '50%',
+        padding: '0.375rem',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
+    monthView: {
+        margin: '0.75rem 0 0 0'
+    },
+    month: {
+        borderRadius: '{content.border.radius}'
+    },
+    yearView: {
+        margin: '0.75rem 0 0 0'
+    },
+    year: {
+        borderRadius: '{content.border.radius}'
     },
     buttonbar: {
+        padding: '0.75rem 0 0 0',
         borderColor: '{content.border.color}'
     },
     timePicker: {
-        borderColor: '{content.border.color}'
+        padding: '0.75rem 0 0 0',
+        borderColor: '{content.border.color}',
+        gap: '0.5rem',
+        buttonGap: '0.25rem'
     },
     colorScheme: {
         light: {
+            dropdown: {
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}',
+                activeColor: '{surface.800}'
+            },
             today: {
                 background: '{surface.200}',
                 color: '{surface.900}'
             }
         },
         dark: {
+            dropdown: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}',
+                activeColor: '{surface.100}'
+            },
             today: {
                 background: '{surface.700}',
                 color: '{surface.0}'

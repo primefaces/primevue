@@ -38,13 +38,13 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     width: ${dt('autocomplete.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('autocomplete.dropdown.border.radius')};
+    border-bottom-right-radius: ${dt('autocomplete.dropdown.border.radius')};
     background: ${dt('autocomplete.dropdown.background')};
     border: 1px solid ${dt('autocomplete.dropdown.border.color')};
     border-left: 0 none;
     color: ${dt('autocomplete.dropdown.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -61,8 +61,9 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-dropdown:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('button.primary.background')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('autocomplete.dropdown.focus.ring.shadow')};
+    outline: ${dt('autocomplete.dropdown.focus.ring.width')} ${dt('autocomplete.dropdown.focus.ring.style')} ${dt('autocomplete.dropdown.focus.ring.color')};
+    outline-offset: ${dt('autocomplete.dropdown.focus.ring.offset')};
 }
 
 .p-autocomplete .p-autocomplete-overlay {

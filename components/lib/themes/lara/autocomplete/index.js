@@ -56,17 +56,41 @@ export default {
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',
-        background: '{button.secondary.background}',
-        hoverBackground: '{button.secondary.hover.background}',
-        activeBackground: '{button.secondary.active.background}',
-        color: '{button.secondary.color}',
-        hoverColor: '{button.secondary.hover.color}',
-        activeColor: '{button.secondary.active.color}'
+        borderRadius: '{form.field.border.radius}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
     },
     chip: {
         borderRadius: '{border.radius.xs}'
     },
     emptyMessage: {
         padding: '{list.option.padding}'
+    },
+    colorScheme: {
+        light: {
+            dropdown: {
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}',
+                activeColor: '{surface.800}'
+            }
+        },
+        dark: {
+            dropdown: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}',
+                activeColor: '{surface.100}'
+            }
+        }
     }
 };

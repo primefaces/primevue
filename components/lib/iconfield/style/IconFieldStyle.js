@@ -25,7 +25,7 @@ const theme = ({ dt }) => `
 }
 
 .p-iconfield .p-inputtext:first-child {
-    padding-right:calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
+    padding-right: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 `;
 
