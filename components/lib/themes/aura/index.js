@@ -168,6 +168,9 @@ export default {
                 fontWeight: '600'
             }
         },
+        content: {
+            borderRadius: '{border.radius.md}'
+        },
         overlay: {
             select: {
                 borderRadius: '{border.radius.md}',

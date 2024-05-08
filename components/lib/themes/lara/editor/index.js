@@ -1,7 +1,7 @@
 export default {
     toolbar: {
         borderColor: '{content.border.color}',
-        borderRadius: '{border.radius.sm}'
+        borderRadius: '{content.border.radius}'
     },
     toolbarItem: {
         color: '{text.muted.color}',
@@ -27,7 +27,7 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        borderRadius: '{border.radius.sm}'
+        borderRadius: '{content.border.radius}'
     },
     colorScheme: {
         light: {

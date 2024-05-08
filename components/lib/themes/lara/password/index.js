@@ -1,7 +1,7 @@
 export default {
     meter: {
         borderColor: '{content.border.color}',
-        borderRadius: '{border.radius.sm}',
+        borderRadius: '{content.border.radius}',
         height: '.75rem'
     },
     icon: {

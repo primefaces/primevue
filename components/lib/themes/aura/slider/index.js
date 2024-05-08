@@ -1,7 +1,7 @@
 export default {
     track: {
         background: '{content.border.color}',
-        borderRadius: '{border.radius.md}',
+        borderRadius: '{content.border.radius}',
         size: '3px'
     },
     range: {
