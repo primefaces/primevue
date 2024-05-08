@@ -5,6 +5,7 @@
  * [Live Demo](https://primevue.org/styleclass)
  *
  * @module styleclass
+ *
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';

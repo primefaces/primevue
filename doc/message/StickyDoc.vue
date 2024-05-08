@@ -6,7 +6,7 @@
         <Button label="Turn off Sticky" @click="sticky = false" />
         <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
         <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
-        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warn Message</Message>
         <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
     <DocSectionCode :code="code" />
@@ -22,7 +22,7 @@ export default {
 <Button label="Turn off Sticky" @click="sticky = false" />
 <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
 <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
-<Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+<Message severity="warn" :sticky="sticky" :life="3000">Warn Message</Message>
 <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
 `,
                 options: `
@@ -31,7 +31,7 @@ export default {
         <Button label="Turn off Sticky" @click="sticky = false" />
         <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
         <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
-        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warn Message</Message>
         <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
 </template>
@@ -52,7 +52,7 @@ export default {
         <Button label="Turn off Sticky" @click="sticky.value = false" />
         <Message severity="success" :sticky="sticky" :life="1000">Success Message</Message>
         <Message severity="info" :sticky="sticky" :life="2000">Info Message</Message>
-        <Message severity="warn" :sticky="sticky" :life="3000">Warning Message</Message>
+        <Message severity="warn" :sticky="sticky" :life="3000">Warn Message</Message>
         <Message severity="error" :sticky="sticky" :life="4000">Error Message</Message>
     </div>
 </template>

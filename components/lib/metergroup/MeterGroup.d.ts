@@ -7,7 +7,6 @@
  * @module metergroup
  *
  */
-
 import { VNode } from 'vue';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';

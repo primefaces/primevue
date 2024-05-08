@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <td>p-message-warn</td>
-                    <td>Container element when displaying warning messages.</td>
+                    <td>Container element when displaying warn messages.</td>
                 </tr>
                 <tr>
                     <td>p-message-error</td>

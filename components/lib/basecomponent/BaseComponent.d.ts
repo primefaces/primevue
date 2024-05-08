@@ -1,3 +1,10 @@
+/**
+ *
+ * [Live Demo](https://primevue.org/)
+ *
+ * @module basecomponent
+ *
+ */
 export interface ComponentHooks {
     onBeforeCreate?(): void;
     onCreated?(): void;

@@ -454,6 +454,53 @@ if (project) {
                 };
             });
 
+        const module_enumerations_group = module.groups?.find((g) => g.title === 'Enumerations');
+
+        module_enumerations_group &&
+            module_enumerations_group.children.forEach((event) => {
+                const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
+
+                !doc[name]['enumerations'] &&
+                    (doc[name]['enumerations'] = {
+                        description: staticMessages['enumerations'],
+
+                        values: {}
+                    });
+
+                const members = [];
+
+                if (event.groups) {
+                    const event_members_group = event.groups.find((g) => g.title === 'Enumeration Members');
+
+                    event_members_group &&
+                        event_members_group.children.forEach((prop) => {
+                            members.push({
+                                name: prop.name,
+                                optional: prop.flags.isOptional,
+                                readonly: prop.flags.isReadonly,
+                                value: prop.type.toString(),
+                                description:
+                                    prop.comment &&
+                                    prop.comment.summary
+                                        .map((s) => {
+                                            if (s.text.indexOf('[here]') > -1) {
+                                                return `${s.text.slice(0, s.text.indexOf('[here]'))} <a target="_blank" href="${s.text.slice(s.text.indexOf('(') + 1, s.text.indexOf(')'))}">here</a> ${s.text.slice(s.text.indexOf(')') + 1)}`;
+                                            }
+
+                                            return s.text || '';
+                                        })
+                                        .join(' '),
+                                deprecated: prop.comment && prop.comment.getTag('@deprecated') ? parseText(prop.comment.getTag('@deprecated').content[0]?.text) : undefined
+                            });
+                        });
+                }
+
+                doc[name]['enumerations'].values[event.name] = {
+                    description: event_props_description,
+                    members
+                };
+            });
+
         const module_types_group = module.groups?.find((g) => g.title === 'Type Aliases');
 
         module_types_group &&
@@ -516,5 +563,5 @@ if (project) {
     !fs.existsSync(outputPath) && fs.mkdirSync(outputPath);
     fs.writeFileSync(path.resolve(outputPath, 'index.json'), typedocJSON);
 
-    /*  app.generateJson(project, `./api-generator/typedoc.json`); */
+    // app.generateJson(project, `./api-generator/typedoc.json`);
 }

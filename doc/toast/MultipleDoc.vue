@@ -31,7 +31,7 @@ export default {
         showMultiple() {
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
             this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
-            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+            this.$toast.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content', life: 3100 });
             this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
         }
     }
@@ -53,7 +53,7 @@ const toast = useToast();
 const showMultiple = () => {
     toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
     toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
-    toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content', life: 3100 });
     toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
 };
 <\/script>
@@ -65,7 +65,7 @@ const showMultiple = () => {
         showMultiple() {
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
             this.$toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
-            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'Message Content', life: 3100 });
+            this.$toast.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content', life: 3100 });
             this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
         }
     }
