@@ -5,6 +5,7 @@
  * [Live Demo](https://primevue.org/ripple)
  *
  * @module ripple
+ *
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';

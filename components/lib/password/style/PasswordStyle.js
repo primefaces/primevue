@@ -11,17 +11,16 @@ const theme = ({ dt }) => `
 }
 
 .p-password-meter {
-    height: 10px;
-    margin-bottom: 0.75rem;
+    height: ${dt('password.meter.height')};
     background: ${dt('password.meter.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('password.meter.border.radius')};
 }
 
 .p-password-meter-label {
     height: 100%;
     width: 0;
     transition: width 1s ease-in-out;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('password.meter.border.radius')};
 }
 
 .p-password-meter-weak {
@@ -46,26 +45,29 @@ const theme = ({ dt }) => `
 }
 
 .p-password-overlay {
-    padding: 0.75rem;
+    padding: ${dt('password.overlay.padding')};
     background: ${dt('password.overlay.background')};
     color: ${dt('password.overlay.color')};
     border: 1px solid ${dt('password.overlay.border.color')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: ${dt('border.radius.md')};
+    box-shadow: ${dt('password.overlay.shadow')};
+    border-radius: ${dt('password.overlay.border.radius')};
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('password.overlay.gap')}
 }
 
 .p-password-toggle-mask-icon {
-    right: 0.75rem;
+    right: ${dt('form.field.padding.x')};
     color: ${dt('password.icon.color')};
     position: absolute;
     top: 50%;
-    margin-top: -0.5rem;
-    width: 1rem;
-    height: 1rem;
+    margin-top: calc(-1 * calc(${dt('icon.size')} / 2));
+    width: ${dt('icon.size')};
+    height: ${dt('icon.size')};
 }
 
 .p-password:has(.p-password-toggle-mask-icon) .p-password-input {
-    padding-right: 2.5rem;
+    padding-right: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 `;
 

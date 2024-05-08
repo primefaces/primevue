@@ -8,7 +8,6 @@
  * @module column
  *
  */
-
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';

@@ -1,3 +1,10 @@
+/**
+ *
+ * [Live Demo](https://primevue.org/)
+ *
+ * @module basedirective
+ *
+ */
 import { DirectiveBinding, VNode } from 'vue';
 
 export interface DirectiveInstance<T = any, V = any> {

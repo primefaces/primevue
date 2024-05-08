@@ -1,9 +1,11 @@
 /**
+ *
  * Row component is a helper component used to create grouping structures in DataTable.
  *
  * [Live Demo](https://www.primevue.org/datatable/)
  *
  * @module row
+ *
  */
 import { ComponentHooks } from '../basecomponent';
 import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';

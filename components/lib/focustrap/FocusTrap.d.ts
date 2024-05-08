@@ -5,6 +5,7 @@
  * [Live Demo](https://primevue.org/focustrap)
  *
  * @module focustrap
+ *
  */
 import { DirectiveBinding, ObjectDirective } from 'vue';
 import { DirectiveHooks } from '../basedirective';

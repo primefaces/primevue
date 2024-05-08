@@ -5,6 +5,7 @@
  * [Live Demo](https://primevue.org/timeline)
  *
  * @module timeline
+ *
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';

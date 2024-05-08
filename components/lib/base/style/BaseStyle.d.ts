@@ -1,4 +1,13 @@
+/**
+ *
+ * [Live Demo](https://primevue.org/)
+ *
+ * @module basestyle
+ *
+ */
 import { Style, StyleOptions } from '../../usestyle';
+
+export enum BaseClasses {}
 
 export declare interface BaseStyle {
     name?: string | undefined;
