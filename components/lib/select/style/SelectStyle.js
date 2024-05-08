@@ -1,3 +1,5 @@
+import BaseStyle from 'primevue/base/style';
+
 const theme = ({ dt }) => `
 .p-select {
     display: inline-flex;
