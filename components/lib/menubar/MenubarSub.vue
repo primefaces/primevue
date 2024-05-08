@@ -41,6 +41,7 @@
                 </div>
                 <MenubarSub
                     v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                    :id="getItemId(processedItem) + '_list'"
                     :menuId="menuId"
                     role="menu"
                     :style="sx('submenu', true, { processedItem })"
