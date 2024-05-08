@@ -11,6 +11,10 @@ export default {
             shadow: '{focus.ring.shadow}'
         }
     },
+    panel: {
+        shadow: '{overlay.popover.shadow}',
+        borderRadius: '{overlay.popover.borderRadius}'
+    },
     colorScheme: {
         light: {
             panel: {
