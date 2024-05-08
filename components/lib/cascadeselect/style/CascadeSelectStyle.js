@@ -8,8 +8,8 @@ const theme = ({ dt }) => `
     user-select: none;
     background: ${dt('cascadeselect.background')};
     border: 1px solid ${dt('cascadeselect.border.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('cascadeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('cascadeselect.shadow')};
 }
@@ -20,7 +20,9 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect:not(.p-disabled).p-focus {
     border-color: ${dt('cascadeselect.focus.border.color')};
-    outline: 0 none;
+    box-shadow: ${dt('cascadeselect.focus.ring.shadow')};
+    outline: ${dt('cascadeselect.focus.ring.width')} ${dt('cascadeselect.focus.ring.style')} ${dt('cascadeselect.focus.ring.color')};
+    outline-offset: ${dt('multiscascadeselectelect.focus.ring.offset')};
 }
 
 .p-cascadeselect.p-variant-filled {
@@ -47,7 +49,7 @@ const theme = ({ dt }) => `
     flex-shrink: 0;
     background: transparent;
     color: ${dt('cascadeselect.dropdown.color')};
-    width: 2.5rem;
+    width: ${dt('cascadeselect.dropdown.width')};
     border-top-right-radius: ${dt('border.radius.md')};
     border-bottom-right-radius: ${dt('border.radius.md')};
 }
@@ -58,10 +60,9 @@ const theme = ({ dt }) => `
     overflow: hidden;
     flex: 1 1 auto;
     width: 1%;
-    padding: 0.5rem 0.75rem;
     text-overflow: ellipsis;
     cursor: pointer;
-    color: ${dt('cascadeselect.color')};
+    padding: ${dt('cascadeselect.padding.y')} ${dt('cascadeselect.padding.x')};
     background: transparent;
     border: 0 none;
     outline: 0 none;
@@ -94,10 +95,10 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect-overlay {
     background: ${dt('cascadeselect.overlay.background')};
-    border: 1px solid ${dt('cascadeselect.overlay.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     color: ${dt('cascadeselect.overlay.color')};
+    border: 1px solid ${dt('cascadeselect.overlay.border.color')};
+    border-radius: ${dt('cascadeselect.overlay.border.radius')};
+    box-shadow: ${dt('cascadeselect.overlay.shadow')};
 }
 
 .p-cascadeselect .p-cascadeselect-overlay {
@@ -112,30 +113,25 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-list {
-    list-style-type: none;
-    margin: 0;
     min-width: 100%;
-    padding: 0.25rem 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding: ${dt('cascadeselect.list.padding')};
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('cascadeselect.list.gap')}
 }
 
 .p-cascadeselect-item {
     cursor: pointer;
     font-weight: normal;
     white-space: nowrap;
-    margin: 2px 0;
     border: 0 none;
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.sm')};
-}
-
-.p-cascadeselect-item:first-child {
-    margin-top: 0;
-}
-
-.p-cascadeselect-item:last-child {
-    margin-bottom: 0;
+    border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
 .p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus {
@@ -174,12 +170,14 @@ const theme = ({ dt }) => `
     align-items: center;
     overflow: hidden;
     position: relative;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('cascadeselect.option.padding')};
 }
 
 .p-cascadeselect-group-icon {
     margin-left: auto;
-    font-size: 0.875rem;
+    font-size: ${dt('cascadeselect.option.icon.size')};
+    width: ${dt('cascadeselect.option.icon.size')};
+    height: ${dt('cascadeselect.option.icon.size')};
     color: ${dt('cascadeselect.option.icon.color')};
 }
 `;
