@@ -23,8 +23,8 @@ export default {
                 background: '{surface.300}',
                 invalidBackground: '{red.400}',
                 hoverBackground: '{surface.400}',
-                checkedBackground: '{primary.500}',
-                checkedHoverBackground: '{primary.600}'
+                checkedBackground: '{primary.color}',
+                checkedHoverBackground: '{primary.hover.color}'
             },
             handle: {
                 background: '{surface.0}',
@@ -39,8 +39,8 @@ export default {
                 background: '{surface.700}',
                 invalidBackground: '{red.300}',
                 hoverBackground: '{surface.600}',
-                checkedBackground: '{primary.400}',
-                checkedHoverBackground: '{primary.300}'
+                checkedBackground: '{primary.color}',
+                checkedHoverBackground: '{primary.hover.color}'
             },
             handle: {
                 background: '{surface.400}',
