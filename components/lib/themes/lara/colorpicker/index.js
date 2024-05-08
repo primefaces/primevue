@@ -1,4 +1,16 @@
 export default {
+    preview: {
+        width: '1.75rem',
+        height: '1.75rem',
+        borderRadius: '{form.field.border.radius}',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            color: '{form.field.focus.ring.color}',
+            offset: '{form.field.focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
     colorScheme: {
         light: {
             panel: {

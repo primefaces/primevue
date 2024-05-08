@@ -11,19 +11,21 @@ const theme = ({ dt }) => `
 }
 
 .p-colorpicker-preview {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: ${dt('colorpicker.preview.width')};
+    height: ${dt('colorpicker.preview.height')};
     padding: 0;
     border: 0 none;
-    border-radius: ${dt('border.radius.md')};
-    transition: outline-color ${dt('transition.duration')};
+    border-radius: ${dt('colorpicker.preview.border.radius')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     cursor: pointer;
 }
 
 .p-colorpicker-preview:enabled:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    border-color: ${dt('colorpicker.preview.focus.border.color')};
+    box-shadow: ${dt('colorpicker.preview.focus.ring.shadow')};
+    outline: ${dt('colorpicker.preview.focus.ring.width')} ${dt('colorpicker.preview.focus.ring.style')} ${dt('colorpicker.preview.focus.ring.color')};
+    outline-offset: ${dt('colorpicker.preview.focus.ring.offset')};
 }
 
 .p-colorpicker-panel {
