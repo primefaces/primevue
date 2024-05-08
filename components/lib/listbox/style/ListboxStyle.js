@@ -24,17 +24,20 @@ const theme = ({ dt }) => `
     color: ${dt('listbox.disabled.color')};
 }
 
+.p-listbox.p-disabled .p-listbox-option {
+    color: ${dt('listbox.disabled.color')};
+}
+
 .p-listbox.p-invalid {
     border-color: ${dt('listbox.invalid.border.color')};
 }
 
 .p-listbox-header {
-    padding: ${dt('listbox.header.padding')};
+    padding: ${dt('listbox.list.header.padding')};
 }
 
 .p-listbox-filter {
     width: 100%;
-    padding-right: 1.75rem;
 }
 
 .p-listbox-list-container {
