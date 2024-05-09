@@ -178,7 +178,12 @@ export default {
             popover: {
                 borderRadius: '{border.radius.sm}',
                 padding: '1rem',
-                shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
+                shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+            },
+            modal: {
+                borderRadius: '{border.radius.sm}',
+                padding: '1.25rem',
+                shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
             }
         },
         colorScheme: {
@@ -251,6 +256,11 @@ export default {
                         color: '{text.color}'
                     },
                     popover: {
+                        background: '{surface.0}',
+                        borderColor: '{surface.200}',
+                        color: '{text.color}'
+                    },
+                    modal: {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
                         color: '{text.color}'
@@ -359,6 +369,11 @@ export default {
                         color: '{text.color}'
                     },
                     popover: {
+                        background: '{surface.900}',
+                        borderColor: '{surface.700}',
+                        color: '{text.color}'
+                    },
+                    modal: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
                         color: '{text.color}'

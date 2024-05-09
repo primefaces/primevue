@@ -11,13 +11,13 @@ const theme = ({ dt }) => `
     background: ${dt('drawer.background')};
     color: ${dt('drawer.color')};
     border: 1px solid ${dt('drawer.border.color')};
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    box-shadow: ${dt('drawer.shadow')};
 }
 
 .p-drawer-content {
     overflow-y: auto;
     flex-grow: 1;
-    padding: 0 1.125rem 1.125rem 1.125rem;
+    padding: ${dt('drawer.content.padding')};
 }
 
 .p-drawer-header {
@@ -25,12 +25,12 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    padding: 1.125rem;
+    padding: ${dt('drawer.header.padding')};
 }
 
 .p-drawer-title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: ${dt('drawer.title.font.weight')};
+    font-size: ${dt('drawer.title.font.size')};
 }
 
 .p-drawer-full .p-drawer {

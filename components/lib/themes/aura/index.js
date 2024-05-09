@@ -180,6 +180,11 @@ export default {
                 borderRadius: '{border.radius.md}',
                 padding: '0.75rem',
                 shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+            },
+            modal: {
+                borderRadius: '{border.radius.sm}',
+                padding: '1.125rem',
+                shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
             }
         },
         colorScheme: {
@@ -249,6 +254,11 @@ export default {
                         color: '{text.color}',
                     },
                     popover: {
+                        background: '{surface.0}',
+                        borderColor: '{surface.200}',
+                        color: '{text.color}'
+                    },
+                    modal: {
                         background: '{surface.0}',
                         borderColor: '{surface.200}',
                         color: '{text.color}'
@@ -354,6 +364,11 @@ export default {
                         color: '{text.color}'
                     },
                     popover: {
+                        background: '{surface.900}',
+                        borderColor: '{surface.700}',
+                        color: '{text.color}'
+                    },
+                    modal: {
                         background: '{surface.900}',
                         borderColor: '{surface.700}',
                         color: '{text.color}'
