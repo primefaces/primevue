@@ -6,37 +6,38 @@ const theme = ({ dt }) => `
     align-items: center;
     background: ${dt('chip.background')};
     color: ${dt('chip.color')};
-    border-radius: 16px;
-    padding: 0.5rem 0.75rem;
-}
-
-.p-chip-icon {
-    margin-right: 0.5rem;
+    border-radius: ${dt('chip.border.radius')};
+    padding: ${dt('chip.padding.y')} ${dt('chip.padding.x')};
+    gap: ${dt('chip.gap')};
 }
 
 .p-chip-image {
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    margin-left: -0.5rem;
-    margin-right: 0.5rem;
+    width: ${dt('chip.image.width')};
+    height: ${dt('chip.image.height')};
+    margin-left: calc(-1 * ${dt('chip.padding.y')});
 }
 
 .p-chip:has(.p-chip-remove-icon) {
-    padding-right: 0.5rem;
+    padding-right: ${dt('chip.padding.y')};
+}
+
+.p-chip:has(.p-chip-image) {
+    padding-top: calc(${dt('chip.padding.y')} / 2);
+    padding-bottom: calc(${dt('chip.padding.y')} / 2);
 }
 
 .p-chip-remove-icon {
     cursor: pointer;
-    margin-left: 0.375rem;
-    border-radius: 6px;
-    transition: outline-color ${dt('transition.duration')};
+    border-radius: ${dt('chip.remove.icon.border.radius')};
+    transition: outline-color ${dt('transition.duration')}, box-shadow-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 
 .p-chip-remove-icon:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('chip.remove.icon.focus.ring.shadow')};
+    outline: ${dt('chip.remove.icon.focus.ring.width')} ${dt('chip.remove.icon.focus.ring.style')} ${dt('chip.remove.icon.focus.ring.color')};
+    outline-offset: ${dt('chip.remove.icon.focus.ring.offset')};
 }
 `;
 

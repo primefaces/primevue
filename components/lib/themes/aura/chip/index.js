@@ -1,4 +1,24 @@
 export default {
+    root: {
+        borderRadius: '16px',
+        paddingX: '0.75rem',
+        paddingY: '0.5rem',
+        gap: '0.5rem'
+    },
+    image: {
+        width: '2rem',
+        height: '2rem'
+    },
+    removeIcon: {
+        borderRadius: '{content.border.radius}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{form.field.focus.ring.shadow}'
+        }
+    },
     colorScheme: {
         light: {
             root: {
