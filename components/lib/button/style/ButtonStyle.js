@@ -12,14 +12,14 @@ const theme = ({ dt }) => `
     color: ${dt('button.primary.color')};
     background: ${dt('button.primary.background')};
     border: 1px solid ${dt('button.primary.border.color')};
-    padding: 0.5rem 1rem;
+    padding: ${dt('button.padding.y')} ${dt('button.padding.x')};
     font-size: 1rem;
     font-family: inherit;
     font-feature-settings: inherit;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('button.border.radius')};
     outline-color: transparent;
-    gap: 0.5rem;
+    gap: ${dt('button.gap')};
 }
 
 .p-button:disabled {
@@ -36,31 +36,32 @@ const theme = ({ dt }) => `
 
 .p-button-icon-only {
     justify-content: center;
-    width: 2.5rem;
-    padding: 0.5rem 0;
+    width: ${dt('button.icon.only.width')};
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .p-button-icon-only.p-button-rounded {
     border-radius: 50%;
-    height: 2.5rem;
+    height: ${dt('button.icon.only.width')};
 }
 
 .p-button-sm {
-    font-size: 0.875rem;
-    padding: 0.375rem 0.875rem;
+    font-size: ${dt('button.sm.font.size')};
+    padding: ${dt('button.sm.padding.y')} ${dt('button.sm.padding.x')};
 }
 
 .p-button-sm .p-button-icon {
-    font-size: 0.875rem;
+    font-size: ${dt('button.sm.font.size')};
 }
 
 .p-button-lg {
-    font-size: 1.25rem;
-    padding: 0.625rem 1.25rem;
+    font-size: ${dt('button.lg.font.size')};
+    padding: ${dt('button.lg.padding.y')} ${dt('button.lg.padding.x')};
 }
 
 .p-button-lg .p-button-icon {
-    font-size: 1.25rem;
+    font-size: ${dt('button.lg.font.size')};
 }
 
 .p-button-vertical {
@@ -68,7 +69,7 @@ const theme = ({ dt }) => `
 }
 
 .p-button-label {
-    font-weight: 500;
+    font-weight: ${dt('button.label.font.weight')};
 }
 
 .p-fluid .p-button {
@@ -76,7 +77,7 @@ const theme = ({ dt }) => `
 }
 
 .p-fluid .p-button-icon-only {
-    width: 2.5rem;
+    width: ${dt('button.icon.only.width')};
 }
 
 .p-button:not(:disabled):hover {
@@ -92,12 +93,12 @@ const theme = ({ dt }) => `
 }
 
 .p-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('button.primary.background')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('button.primary.focus.ring.shadow')};
+    outline: ${dt('button.focus.ring.width')} ${dt('button.focus.ring.style')} ${dt('button.primary.focus.ring.color')};
+    outline-offset: ${dt('button.focus.ring.offset')};
 }
 
 .p-button .p-badge {
-    margin-left: 0.5rem;
     min-width: 1rem;
     height: 1rem;
     line-height: 1rem;
@@ -106,14 +107,13 @@ const theme = ({ dt }) => `
 }
 
 .p-button-raised {
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: ${dt('button.raised.shadow')};
 }
 
 .p-button-rounded {
-    border-radius: 2rem;
+    border-radius: ${dt('button.rounded.border.radius')};
 }
 
-/* Default Severities */
 .p-button-secondary {
     background: ${dt('button.secondary.background')};
     border: 1px solid ${dt('button.secondary.border.color')};
@@ -130,6 +130,11 @@ const theme = ({ dt }) => `
     background: ${dt('button.secondary.active.background')};
     border: 1px solid ${dt('button.secondary.active.border.color')};
     color: ${dt('button.secondary.active.color')};
+}
+
+.p-button-secondary:focus-visible {
+    outline-color: ${dt('button.secondary.focus.ring.color')};
+    box-shadow: ${dt('button.secondary.focus.ring.shadow')};
 }
 
 .p-button-success {
@@ -151,7 +156,8 @@ const theme = ({ dt }) => `
 }
 
 .p-button-success:focus-visible {
-    outline-color: ${dt('button.success.background')};
+    outline-color: ${dt('button.success.focus.ring.color')};
+    box-shadow: ${dt('button.success.focus.ring.shadow')};
 }
 
 .p-button-info {
@@ -173,7 +179,8 @@ const theme = ({ dt }) => `
 }
 
 .p-button-info:focus-visible {
-    outline-color: ${dt('button.info.background')};
+    outline-color: ${dt('button.info.focus.ring.color')};
+    box-shadow: ${dt('button.info.focus.ring.shadow')};
 }
 
 .p-button-warn {
@@ -195,7 +202,8 @@ const theme = ({ dt }) => `
 }
 
 .p-button-warn:focus-visible {
-    background: ${dt('button.warn.background')};
+    outline-color: ${dt('button.warn.focus.ring.color')};
+    box-shadow: ${dt('button.warn.focus.ring.shadow')};
 }
 
 .p-button-help {
@@ -217,7 +225,8 @@ const theme = ({ dt }) => `
 }
 
 .p-button-help:focus-visible {
-    outline-color: ${dt('button.help.background')};
+    outline-color: ${dt('button.help.focus.ring.color')};
+    box-shadow: ${dt('button.help.focus.ring.shadow')};
 }
 
 .p-button-danger {
@@ -239,7 +248,8 @@ const theme = ({ dt }) => `
 }
 
 .p-button-danger:focus-visible {
-    background: ${dt('button.danger.background')};
+    outline-color: ${dt('button.danger.focus.ring.color')};
+    box-shadow: ${dt('button.danger.focus.ring.shadow')};
 }
 
 .p-button-contrast {
@@ -261,11 +271,10 @@ const theme = ({ dt }) => `
 }
 
 .p-button-contrast:focus-visible {
-    outline-color: ${dt('button.contrast.background')};
+    outline-color: ${dt('button.contrast.focus.ring.color')};
+    box-shadow: ${dt('button.contrast.focus.ring.shadow')};
 }
 
-
-/* Outlined Buttons */
 .p-button-outlined {
     background: transparent;
     border-color: ${dt('button.outlined.primary.border.color')};
@@ -420,7 +429,6 @@ const theme = ({ dt }) => `
     color: ${dt('button.outlined.plain.color')};
 }
 
-/* Text Button */
 .p-button-text {
     background: transparent;
     border-color: transparent;
@@ -565,7 +573,6 @@ const theme = ({ dt }) => `
     color: ${dt('button.text.plain.color')};
 }
 
-/* Link Button */
 .p-button-link {
     background: transparent;
     border-color: transparent;

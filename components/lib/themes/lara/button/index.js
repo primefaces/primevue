@@ -1,4 +1,31 @@
 export default {
+    root: {
+        borderRadius: '{form.field.border.radius}',
+        roundedBorderRadius: '2rem',
+        gap: '0.5rem',
+        paddingX: '{form.field.padding.x}',
+        paddingY: '{form.field.padding.y}',
+        iconOnlyWidth: '2.5rem',
+        sm: {
+            fontSize: '0.875rem',
+            paddingX: '0.625rem',
+            paddingY: '0.5rem'
+        },
+        lg: {
+            fontSize: '1.125rem',
+            paddingX: '0.875rem',
+            paddingY: '0.75rem'
+        },
+        label: {
+            fontWeight: '600'
+        },
+        raisedShadow: '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+        focusRing: {
+            width: '{form.field.focus.ring.width}',
+            style: '{form.field.focus.ring.style}',
+            offset: '{form.field.focus.ring.offset}'
+        }
+    },
     colorScheme: {
         light: {
             root: {
@@ -11,7 +38,11 @@ export default {
                     activeBorderColor: '{primary.active.color}',
                     color: '{primary.inverseColor}',
                     hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}'
+                    activeColor: '{primary.inverseColor}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {primary.200}'
+                    }
                 },
                 secondary: {
                     background: '{surface.100}',
@@ -22,7 +53,11 @@ export default {
                     activeBorderColor: '{surface.300}',
                     color: '{surface.600}',
                     hoverColor: '{surface.700}',
-                    activeColor: '{surface.800}'
+                    activeColor: '{surface.800}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {surface.200}'
+                    }
                 },
                 info: {
                     background: '{sky.500}',
@@ -33,7 +68,11 @@ export default {
                     activeBorderColor: '{sky.700}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
-                    activeColor: '#ffffff'
+                    activeColor: '#ffffff',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {sky.200}'
+                    }
                 },
                 success: {
                     background: '{green.500}',
@@ -44,7 +83,11 @@ export default {
                     activeBorderColor: '{green.700}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
-                    activeColor: '#ffffff'
+                    activeColor: '#ffffff',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {green.200}'
+                    }
                 },
                 warn: {
                     background: '{orange.500}',
@@ -55,7 +98,11 @@ export default {
                     activeBorderColor: '{orange.700}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
-                    activeColor: '#ffffff'
+                    activeColor: '#ffffff',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {orange.200}'
+                    }
                 },
                 help: {
                     background: '{purple.500}',
@@ -66,7 +113,11 @@ export default {
                     activeBorderColor: '{purple.700}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
-                    activeColor: '#ffffff'
+                    activeColor: '#ffffff',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {purple.200}'
+                    }
                 },
                 danger: {
                     background: '{red.500}',
@@ -77,7 +128,11 @@ export default {
                     activeBorderColor: '{red.700}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
-                    activeColor: '#ffffff'
+                    activeColor: '#ffffff',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {red.200}'
+                    }
                 },
                 contrast: {
                     background: '{surface.950}',
@@ -88,7 +143,11 @@ export default {
                     activeBorderColor: '{surface.800}',
                     color: '{surface.0}',
                     hoverColor: '{surface.0}',
-                    activeColor: '{surface.0}'
+                    activeColor: '{surface.0}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem {surface.400}'
+                    }
                 }
             },
             outlined: {
@@ -206,7 +265,11 @@ export default {
                     activeBorderColor: '{primary.active.color}',
                     color: '{primary.inverseColor}',
                     hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}'
+                    activeColor: '{primary.inverseColor}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
+                    }
                 },
                 secondary: {
                     background: '{surface.800}',
@@ -217,7 +280,11 @@ export default {
                     activeBorderColor: '{surface.600}',
                     color: '{surface.300}',
                     hoverColor: '{surface.200}',
-                    activeColor: '{surface.100}'
+                    activeColor: '{surface.100}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.300}, transparent 80%)'
+                    }
                 },
                 info: {
                     background: '{sky.400}',
@@ -228,7 +295,11 @@ export default {
                     activeBorderColor: '{sky.200}',
                     color: '{sky.950}',
                     hoverColor: '{sky.950}',
-                    activeColor: '{sky.950}'
+                    activeColor: '{sky.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {sky.400}, transparent 80%)'
+                    }
                 },
                 success: {
                     background: '{green.400}',
@@ -239,7 +310,11 @@ export default {
                     activeBorderColor: '{green.200}',
                     color: '{green.950}',
                     hoverColor: '{green.950}',
-                    activeColor: '{green.950}'
+                    activeColor: '{green.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {green.400}, transparent 80%)'
+                    }
                 },
                 warn: {
                     background: '{orange.400}',
@@ -250,7 +325,11 @@ export default {
                     activeBorderColor: '{orange.200}',
                     color: '{orange.950}',
                     hoverColor: '{orange.950}',
-                    activeColor: '{orange.950}'
+                    activeColor: '{orange.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {orange.400}, transparent 80%)'
+                    }
                 },
                 help: {
                     background: '{purple.400}',
@@ -261,7 +340,11 @@ export default {
                     activeBorderColor: '{purple.200}',
                     color: '{purple.950}',
                     hoverColor: '{purple.950}',
-                    activeColor: '{purple.950}'
+                    activeColor: '{purple.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {purple.400}, transparent 80%)'
+                    }
                 },
                 danger: {
                     background: '{red.400}',
@@ -272,7 +355,11 @@ export default {
                     activeBorderColor: '{red.200}',
                     color: '{red.950}',
                     hoverColor: '{red.950}',
-                    activeColor: '{red.950}'
+                    activeColor: '{red.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {red.400}, transparent 80%)'
+                    }
                 },
                 contrast: {
                     background: '{surface.0}',
@@ -283,7 +370,11 @@ export default {
                     activeBorderColor: '{surface.200}',
                     color: '{surface.950}',
                     hoverColor: '{surface.950}',
-                    activeColor: '{surface.950}'
+                    activeColor: '{surface.950}',
+                    focusRing: {
+                        color: 'transparent',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.0}, transparent 80%)'
+                    }
                 }
             },
             outlined: {
