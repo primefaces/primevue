@@ -2,21 +2,21 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-popover {
-    margin-top: 10px;
+    margin-top: ${dt('popover.gutter')};
     background: ${dt('popover.background')};
     color: ${dt('popover.color')};
     border: 1px solid ${dt('popover.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('popover.border.radius')};
+    box-shadow: ${dt('popover.shadow')};
 }
 
 .p-popover-content {
-    padding: 0.75rem;
+    padding: ${dt('popover.content.padding')};
 }
 
 .p-popover-flipped {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: ${dt('popover.gutter')};
 }
 
 .p-popover-enter-from {
@@ -39,7 +39,7 @@ const theme = ({ dt }) => `
 .p-popover:after,
 .p-popover:before {
     bottom: 100%;
-    left: ${dt('{overlay.arrow.left} + 1.25rem', 0)};
+    left: ${dt('popover.arrow.offset')};
     content: " ";
     height: 0;
     width: 0;
@@ -48,16 +48,16 @@ const theme = ({ dt }) => `
 }
 
 .p-popover:after {
-    border-width: 8px;
-    margin-left: -8px;
+    border-width: calc(${dt('popover.gutter')} - 2px);
+    margin-left: calc(-1 * (${dt('popover.gutter')} - 2px));
     border-style: solid;
     border-color: transparent;
     border-bottom-color: ${dt('popover.background')};
 }
 
 .p-popover:before {
-    border-width: 10px;
-    margin-left: -10px;
+    border-width: ${dt('popover.gutter')};
+    margin-left: calc(-1 * ${dt('popover.gutter')});
     border-style: solid;
     border-color: transparent;
     border-bottom-color: ${dt('popover.border.color')};
