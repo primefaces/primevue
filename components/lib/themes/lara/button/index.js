@@ -5,7 +5,7 @@ export default {
         gap: '0.5rem',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
-        iconOnlyWidth: '2.5rem',
+        iconOnlyWidth: '2.75rem',
         sm: {
             fontSize: '0.875rem',
             paddingX: '0.625rem',

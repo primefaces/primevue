@@ -4,13 +4,11 @@ const theme = ({ dt }) => `
 .p-speeddial {
     position: static;
     display: flex;
-    gap: 0.25rem;
+    gap: ${dt('speeddial.gap')};
 }
 
 .p-speeddial-button {
     z-index: 1;
-    width: 2.5rem;
-    height: 2.5rem;
 }
 
 .p-speeddial-button.p-speeddial-rotate {
@@ -30,7 +28,7 @@ const theme = ({ dt }) => `
     pointer-events: none;
     outline: 0 none;
     z-index: 2;
-    gap: 0.25rem;
+    gap: ${dt('speeddial.gap')};
 }
 
 .p-speeddial-item {
