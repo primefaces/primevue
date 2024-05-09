@@ -11,6 +11,7 @@ const Ripple = BaseRipple.extend('ripple', {
                 this.$host.setAttribute('data-pd-ripple', true);
             } else {
                 this.remove(this.$host);
+                this.$host.removeAttribute('data-pd-ripple');
             }
         }
     },
