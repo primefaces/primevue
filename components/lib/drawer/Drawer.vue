@@ -31,6 +31,9 @@
                         <div :ref="contentRef" :class="cx('content')" v-bind="ptm('content')">
                             <slot></slot>
                         </div>
+                        <div :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
+                            <slot name="footer"> </slot>
+                        </div>
                     </template>
                 </div>
             </transition>
@@ -61,6 +64,7 @@ export default {
     mask: null,
     content: null,
     headerContainer: null,
+    footerContainer: null,
     closeButton: null,
     outsideClickListener: null,
     documentKeydownListener: null,
@@ -129,7 +133,11 @@ export default {
                 focusTarget = this.$slots.default && findFocusableElement(this.container);
 
                 if (!focusTarget) {
-                    focusTarget = this.closeButton;
+                    focusTarget = this.$slots.footer && findFocusableElement(this.footerContainer);
+
+                    if (!focusTarget) {
+                        focusTarget = this.closeButton;
+                    }
                 }
             }
 
@@ -167,6 +175,9 @@ export default {
         },
         headerContainerRef(el) {
             this.headerContainer = el;
+        },
+        footerContainerRef(el) {
+            this.footerContainer = el;
         },
         closeButtonRef(el) {
             this.closeButton = el ? el.$el : undefined;

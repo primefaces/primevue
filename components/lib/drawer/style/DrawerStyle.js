@@ -28,6 +28,10 @@ const theme = ({ dt }) => `
     padding: ${dt('drawer.header.padding')};
 }
 
+.p-drawer-footer {
+    padding: ${dt('drawer.header.padding')};
+}
+
 .p-drawer-title {
     font-weight: ${dt('drawer.title.font.weight')};
     font-size: ${dt('drawer.title.font.size')};
@@ -148,7 +152,8 @@ const classes = {
     header: 'p-drawer-header',
     title: 'p-drawer-title',
     pcCloseButton: 'p-drawer-close-button',
-    content: 'p-drawer-content'
+    content: 'p-drawer-content',
+    footer: 'p-drawer-footer'
 };
 
 export default BaseStyle.extend({

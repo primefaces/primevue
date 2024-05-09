@@ -242,6 +242,10 @@ export interface DrawerSlots {
          */
         closeCallback: () => void;
     }): VNode[];
+    /**
+     * Custom footer template.
+     */
+    footer(): VNode[];
 }
 
 /**
