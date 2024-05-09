@@ -11,6 +11,13 @@ const theme = ({ dt }) => `
     gap: ${dt('chip.gap')};
 }
 
+.p-chip-icon {
+    color: ${dt('chip.icon.color')};
+    font-size: ${dt('chip.icon.font.size')};
+    width: ${dt('chip.icon.size')};
+    height: ${dt('chip.icon.size')};
+}
+
 .p-chip-image {
     border-radius: 50%;
     width: ${dt('chip.image.width')};
@@ -29,8 +36,12 @@ const theme = ({ dt }) => `
 
 .p-chip-remove-icon {
     cursor: pointer;
-    border-radius: ${dt('chip.remove.icon.border.radius')};
-    transition: outline-color ${dt('transition.duration')}, box-shadow-color ${dt('transition.duration')};
+    font-size: ${dt('chip.remove.icon.font.size')};
+    width: ${dt('chip.remove.icon.size')};
+    height: ${dt('chip.remove.icon.size')};
+    color: ${dt('chip.remove.icon.color')};
+    border-radius: 50%;
+    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
 }
 

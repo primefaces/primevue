@@ -9,8 +9,10 @@ export default {
         width: '2rem',
         height: '2rem'
     },
+    icon: {
+        size: '1rem'
+    },
     removeIcon: {
-        borderRadius: '{content.border.radius}',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -24,12 +26,24 @@ export default {
             root: {
                 background: '{surface.100}',
                 color: '{surface.800}'
+            },
+            icon: {
+                color: '{surface.800}'
+            },
+            removeIcon: {
+                color: '{surface.800}'
             }
         },
         dark: {
             root: {
                 background: '{surface.700}',
                 color: '{surface.0}'
+            },
+            icon: {
+                color: '{surface.0}'
+            },
+            removeIcon: {
+                color: '{surfaec.0}'
             }
         }
     }
