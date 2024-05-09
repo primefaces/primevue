@@ -4,11 +4,14 @@ const theme = ({ dt }) => `
 .p-confirmdialog .p-dialog-content {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap:  ${dt('confirmdialog.content.gap')};
 }
 
 .p-confirmdialog-icon {
-    font-size: 2rem;
+    color: ${dt('confirmdialog.icon.color')};
+    font-size: ${dt('confirmdialog.icon.size')};
+    width: ${dt('confirmdialog.icon.size')};
+    height: ${dt('confirmdialog.icon.size')};
 }
 `;
 
