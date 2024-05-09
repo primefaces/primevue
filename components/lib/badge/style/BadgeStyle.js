@@ -4,16 +4,16 @@ import { ObjectUtils } from 'primevue/utils';
 const theme = ({ dt }) => `
 .p-badge {
     display: inline-flex;
-    border-radius: 10px;
+    border-radius: ${dt('badge.border.radius')};
     justify-content: center;
-    padding: 0 0.5rem;
+    padding: ${dt('badge.padding')};
     background: ${dt('badge.primary.background')};
     color: ${dt('badge.primary.color')};
-    font-size: 0.75rem;
-    font-weight: 700;
-    min-width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
+    font-size: ${dt('badge.font.size')};
+    font-weight: ${dt('badge.font.weight')};
+    min-width: ${dt('badge.min.width')};
+    height: ${dt('badge.height')};
+    line-height: ${dt('badge.height')};
 }
 
 .p-overlay-badge {
@@ -30,9 +30,9 @@ const theme = ({ dt }) => `
 }
 
 .p-badge-dot {
-    width: 0.5rem;
-    min-width: 0.5rem;
-    height: 0.5rem;
+    width: ${dt('badge.dot.size')};
+    min-width: ${dt('badge.dot.size')};
+    height: ${dt('badge.dot.size')};
     border-radius: 50%;
     padding: 0;
 }
@@ -73,17 +73,17 @@ const theme = ({ dt }) => `
 }
 
 .p-badge-lg {
-    font-size: 1.125rem;
-    min-width: 2.25rem;
-    height: 2.25rem;
-    line-height: 2.25rem;
+    font-size: ${dt('badge.lg.font.size')};
+    min-width: ${dt('badge.lg.min.width')};
+    height: ${dt('badge.lg.height')};
+    line-height: ${dt('badge.lg.height')};
 }
 
 .p-badge-xl {
-    font-size: 1.5rem;
-    min-width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
+    font-size: ${dt('badge.xl.font.size')};
+    min-width: ${dt('badge.xl.min.width')};
+    height: ${dt('badge.xl.height')};
+    line-height: ${dt('badge.xl.height')};
 }
 `;
 

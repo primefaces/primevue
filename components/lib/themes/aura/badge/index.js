@@ -1,4 +1,25 @@
 export default {
+    root: {
+        borderRadius: '{border.radius.lg}',
+        padding: '0 0.5rem',
+        fontSize: '0.75rem',
+        fontWeight: '700',
+        minWidth: '1.5rem',
+        height: '1.5rem'
+    },
+    dot: {
+        size: '0.5rem'
+    },
+    lg: {
+        fontSize: '1.125rem',
+        minWidth: '2.25rem',
+        height: '2.25rem'
+    },
+    xl: {
+        fontSize: '1.5rem',
+        minWidth: '3rem',
+        height: '3rem'
+    },
     colorScheme: {
         light: {
             primary: {
