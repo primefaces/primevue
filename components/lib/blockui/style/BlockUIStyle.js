@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
 }
 
 .p-blockui-mask {
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('blockui.border.radius')};
 }
 
 .p-blockui-mask.p-component-overlay {
