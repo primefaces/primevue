@@ -4,23 +4,20 @@ const theme = ({ dt }) => `
 .p-progressbar {
     position: relative;
     overflow: hidden;
-    border: 0 none;
-    height: 1.25rem;
+    height: ${dt('progressbar.height')};
     background: ${dt('progressbar.background')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('progressbar.border.radius')};
 }
 
 .p-progressbar-value {
-    border: 0 none;
     margin: 0;
     background: ${dt('progressbar.value.background')};
 }
 
 .p-progressbar-label {
     color: ${dt('progressbar.label.color')};
-    line-height: 1.25rem;
-    font-size: .75rem;
-    font-weight: 600;
+    font-size: ${dt('progressbar.label.font.size')};
+    font-weight: ${dt('progressbar.label.font.weight')};
 }
 
 .p-progressbar-determinate .p-progressbar-value {
@@ -28,7 +25,6 @@ const theme = ({ dt }) => `
     width: 0%;
     position: absolute;
     display: none;
-    border: 0 none;
     display: flex;
     align-items: center;
     justify-content: center;
