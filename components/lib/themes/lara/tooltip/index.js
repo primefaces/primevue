@@ -1,4 +1,11 @@
 export default {
+    root: {
+        maxWidth: '12.5rem',
+        gutter: '0.25rem',
+        shadow: '{overlay.popover.shadow}',
+        padding: '0.625rem 0.75rem',
+        borderRadius: '{overlay.popover.border.radius}'
+    },
     colorScheme: {
         light: {
             root: {

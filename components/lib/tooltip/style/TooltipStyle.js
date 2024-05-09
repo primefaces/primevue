@@ -4,17 +4,17 @@ const theme = ({ dt }) => `
 .p-tooltip {
     position: absolute;
     display: none;
-    max-width: 12.5rem;
+    max-width: ${dt('tooltip.max.width')};
 }
 
 .p-tooltip-right,
 .p-tooltip-left {
-    padding: 0 0.25rem;
+    padding: 0 ${dt('tooltip.gutter')};
 }
 
 .p-tooltip-top,
 .p-tooltip-bottom {
-    padding: 0.25rem 0;
+    padding: ${dt('tooltip.gutter')} 0;
 }
 
 .p-tooltip-text {
@@ -22,9 +22,9 @@ const theme = ({ dt }) => `
     word-break: break-word;
     background: ${dt('tooltip.background')};
     color: ${dt('tooltip.color')};
-    padding: 0.5rem 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    border-radius: 6px;
+    padding: ${dt('tooltip.padding')};
+    box-shadow: ${dt('tooltip.shadow')};
+    border-radius: ${dt('tooltip.border.radius')};
 }
 
 .p-tooltip-arrow {
@@ -37,27 +37,27 @@ const theme = ({ dt }) => `
 }
 
 .p-tooltip-right .p-tooltip-arrow {
-    margin-top: -0.25rem;
-    border-width: 0.25em 0.25em 0.25em 0;
+    margin-top: calc(-1 * ${dt('tooltip.gutter')});
+    border-width: ${dt('tooltip.gutter')} ${dt('tooltip.gutter')} ${dt('tooltip.gutter')} 0;
     border-right-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-left .p-tooltip-arrow {
-    margin-top: -0.25rem;
-    border-width: 0.25em 0 0.25em 0.25rem;
+    margin-top: calc(-1 * ${dt('tooltip.gutter')});
+    border-width: ${dt('tooltip.gutter')} 0 ${dt('tooltip.gutter')} ${dt('tooltip.gutter')};
     border-left-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-top .p-tooltip-arrow {
-    margin-left: -0.25rem;
-    border-width: 0.25em 0.25em 0;
+    margin-left: calc(-1 * ${dt('tooltip.gutter')});
+    border-width: ${dt('tooltip.gutter')} ${dt('tooltip.gutter')} 0 ${dt('tooltip.gutter')};
     border-top-color: ${dt('tooltip.background')};
     border-bottom-color: ${dt('tooltip.background')};
 }
 
 .p-tooltip-bottom .p-tooltip-arrow {
-    margin-left: -0.25rem;
-    border-width: 0 0.25em 0.25rem;
+    margin-left: calc(-1 * ${dt('tooltip.gutter')});
+    border-width: 0 ${dt('tooltip.gutter')} ${dt('tooltip.gutter')} ${dt('tooltip.gutter')};
 }
 `;
 
