@@ -3,9 +3,9 @@
         <slot name="icon">
             <component :is="icon ? 'span' : iconComponent" :class="cx('icon')" v-bind="ptm('icon')"></component>
         </slot>
-        <span :class="cx('text')" v-bind="ptm('text')">
-            <slot>&nbsp;</slot>
-        </span>
+        <div v-if="$slots.default" :class="cx('text')" v-bind="ptm('text')">
+            <slot></slot>
+        </div>
     </div>
 </template>
 

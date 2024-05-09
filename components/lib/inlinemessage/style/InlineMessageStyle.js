@@ -5,18 +5,20 @@ const theme = ({ dt }) => `
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 0.75rem;
-    margin: 0;
-    border-radius: ${dt('border.radius.md')};
+    padding: ${dt('inlinemessage.padding')};
+    border-radius: ${dt('inlinemessage.border.radius')};
+    gap: ${dt('inlinemessage.gap')};
 }
 
 .p-inline-message-text {
-    font-weight: 500;
+    font-weight: ${dt('inlinemessage.text.font.weight')};
 }
 
 .p-inline-message-icon {
     flex-shrink: 0;
-    margin-right: 0.5rem;
+    font-size: ${dt('inlinemessage.icon.size')};
+    width: ${dt('inlinemessage.icon.size')};
+    height: ${dt('inlinemessage.icon.size')};
 }
 
 .p-inline-message-icon-only .p-inline-message-text {
@@ -45,6 +47,7 @@ const theme = ({ dt }) => `
     color: ${dt('inlinemessage.success.color')};
     box-shadow: ${dt('inlinemessage.success.shadow')};
 }
+
 .p-inline-message-success .p-inline-message-icon {
     color: ${dt('inlinemessage.success.color')};
 }
@@ -55,6 +58,7 @@ const theme = ({ dt }) => `
     color: ${dt('inlinemessage.warn.color')};
     box-shadow: ${dt('inlinemessage.warn.shadow')};
 }
+
 .p-inline-message-warn .p-inline-message-icon {
     color: ${dt('inlinemessage.warn.color')};
 }
@@ -65,6 +69,7 @@ const theme = ({ dt }) => `
     color: ${dt('inlinemessage.error.color')};
     box-shadow: ${dt('inlinemessage.error.shadow')};
 }
+
 .p-inline-message-error .p-inline-message-icon {
     color: ${dt('inlinemessage.error.color')};
 }
@@ -75,6 +80,7 @@ const theme = ({ dt }) => `
     color: ${dt('inlinemessage.secondary.color')};
     box-shadow: ${dt('inlinemessage.secondary.shadow')};
 }
+
 .p-inline-message-secondary .p-inline-message-icon {
     color: ${dt('inlinemessage.secondary.color')};
 }
@@ -85,12 +91,9 @@ const theme = ({ dt }) => `
     color: ${dt('inlinemessage.contrast.color')};
     box-shadow: ${dt('inlinemessage.contrast.shadow')};
 }
+
 .p-inline-message-contrast .p-inline-message-icon {
     color: ${dt('inlinemessage.contrast.color')};
-}
-
-.p-inline-message-icon-only .p-inline-message-icon {
-    margin-right: 0;
 }
 `;
 

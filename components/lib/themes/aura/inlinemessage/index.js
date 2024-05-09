@@ -1,4 +1,15 @@
 export default {
+    root: {
+        padding: '{form.field.padding.y} {form.field.padding.x}',
+        borderRadius: '{content.border.radius}',
+        gap: '0.5rem'
+    },
+    text: {
+        fontWeight: '500'
+    },
+    icon: {
+        size: '1rem'
+    },
     colorScheme: {
         light: {
             info: {
