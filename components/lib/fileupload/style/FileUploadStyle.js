@@ -76,6 +76,14 @@ const theme = ({ dt }) => `
 .p-fileupload-advanced .p-message {
     margin-top: 0;
 }
+
+.p-fileupload-basic {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
 `;
 
 const classes = {

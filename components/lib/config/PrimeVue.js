@@ -72,6 +72,8 @@ export const defaultOptions = {
         selectionMessage: '{0} items selected',
         emptySelectionMessage: 'No selected item',
         emptySearchMessage: 'No results found',
+        fileChosenMessage: '{0} files',
+        emptyFileChosenMessage: 'No file chosen',
         emptyMessage: 'No available options',
         aria: {
             trueLabel: 'True',

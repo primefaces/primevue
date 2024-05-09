@@ -392,6 +392,8 @@ export interface PrimeVueLocaleOptions {
     emptySelectionMessage?: string;
     emptySearchMessage?: string;
     emptyMessage?: string;
+    fileChosenMessage?: string;
+    emptyFileChosenMessage?: string;
     aria?: PrimeVueLocaleAriaOptions;
 }
 

@@ -557,6 +557,16 @@ export interface FileUploadSlots {
          */
         index: number;
     }): VNode[];
+    /**
+     * Custom file label template.
+     * @param {Object} scope - filelabel slot's params.
+     */
+    filelabel(scope: {
+        /**
+         * File to upload.
+         */
+        files: File[];
+    }): VNode[];
 }
 
 export interface FileUploadEmits {
@@ -623,7 +633,14 @@ export interface FileUploadEmits {
  * @group Component
  *
  */
-declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {}
+declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {
+    /**
+     * Upload file.
+     *
+     * @memberof FileUpload
+     */
+    basicUpload(): void;
+}
 
 declare module 'vue' {
     export interface GlobalComponents {

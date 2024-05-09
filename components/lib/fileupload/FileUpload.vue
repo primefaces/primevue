@@ -39,14 +39,14 @@
                     <FileContent :files="uploadedFiles" @remove="removeUploadedFile" :badgeValue="completedLabel" badgeSeverity="success" :previewWidth="previewWidth" :templates="$slots" :unstyled="unstyled" :pt="pt" />
                 </div>
             </slot>
-            <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" :class="cx('empty')" v-bind="ptm('empty')">
+            <div v-if="$slots.empty && !hasFiles && !hasUploadedFiles" v-bind="ptm('empty')">
                 <slot name="empty"></slot>
             </div>
         </div>
     </div>
     <div v-else-if="isBasic" :class="cx('root')" v-bind="ptmi('root')">
         <Message v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('pcMessages')">{{ msg }}</Message>
-        <Button :label="basicChooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('pcButton')">
+        <Button :label="chooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('pcButton')">
             <template #icon="iconProps">
                 <slot v-if="!hasFiles || auto" name="uploadicon">
                     <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('pcButton')['icon']" />
@@ -56,6 +56,11 @@
                 </slot>
             </template>
         </Button>
+        <slot v-if="!auto" name="filelabel" :class="cx('filelabel')">
+            <span :class="cx('filelabel')" :files="files">
+                {{ basicChooseButtonLabel }}
+            </span>
+        </slot>
         <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-bind="ptm('input')" />
     </div>
 </template>
@@ -89,6 +94,12 @@ export default {
         };
     },
     methods: {
+        basicUpload() {
+            if (this.hasFiles) this.upload();
+        },
+        onBasicUploaderClick(event) {
+            if (event.button === 0 && !this.hasFiles) this.$refs.fileInput.click();
+        },
         onFileSelect(event) {
             if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
                 this.duplicateIEEvent = false;
@@ -302,10 +313,6 @@ export default {
                 }
             }
         },
-        onBasicUploaderClick(event) {
-            if (this.hasFiles) this.upload();
-            else if (event.button === 0) this.$refs.fileInput.click();
-        },
         remove(index) {
             this.clearInputElement();
             let removedFile = this.files.splice(index, 1)[0];
@@ -375,7 +382,14 @@ export default {
             return [this.cx('pcChooseButton'), this.class];
         },
         basicChooseButtonLabel() {
-            return this.auto ? this.chooseButtonLabel : this.hasFiles ? this.files.map((f) => f.name).join(', ') : this.chooseButtonLabel;
+            if (this.auto) return this.chooseButtonLabel;
+            else if (this.hasFiles) {
+                if (this.files && this.files.length === 1) return this.files[0].name;
+
+                return this.$primevue.config.locale?.fileChosenMessage?.replace('{0}', this.files.length);
+            }
+
+            return this.$primevue.config.locale?.emptyFileChosenMessage || '';
         },
         hasFiles() {
             return this.files && this.files.length > 0;
