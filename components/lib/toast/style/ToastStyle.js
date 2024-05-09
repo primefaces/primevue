@@ -2,7 +2,7 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-toast {
-    width: 25rem;
+    width: ${dt('toast.width')};
     white-space: pre-line;
     word-break: break-word;
 }
@@ -10,33 +10,38 @@ const theme = ({ dt }) => `
 .p-toast-message {
     backdrop-filter: blur(${dt('toast.blur')});
     margin: 0 0 1rem 0;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('toast.border.radius')};
 }
 
 .p-toast-message-icon {
     flex-shrink: 0;
-    font-size: 1.125rem;
-    width: 1.125rem;
-    height: 1.125rem;
+    font-size: ${dt('toast.icon.size')};
+    width: ${dt('toast.icon.size')};
+    height: ${dt('toast.icon.size')};
 }
 
 .p-toast-message-content {
     display: flex;
     align-items: flex-start;
-    padding: 0.75rem;
-    gap: 0.5rem;
+    padding: ${dt('toast.content.padding')};
+    gap: ${dt('toast.content.gap')};
 }
 
 .p-toast-message-text {
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('toast.text.gap')};
 }
 
-.p-toast-summary {
-    font-weight: 500;
+.p-toast-summary 
+    font-weight: ${dt('toast.summary.font.weight')};
+    font-size: ${dt('toast.summary.font.size')};
 }
+
 .p-toast-detail {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
+    font-weight: ${dt('toast.detail.font.weight')};
+    font-size: ${dt('toast.detail.font.size')};
 }
 
 .p-toast-close-button {
@@ -45,19 +50,25 @@ const theme = ({ dt }) => `
     justify-content: center;
     overflow: hidden;
     position: relative;
-    border-radius: 50%;
     cursor: pointer;
     background: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     color: inherit;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: ${dt('toast.close.button.width')};
+    height: ${dt('toast.close.button.height')};
+    border-radius: ${dt('toast.close.button.border.radius')};
     margin: -25% 0 0 0;
     right: -25%;
     padding: 0;
     border: none;
     user-select: none;
+}
+
+.p-toast-close-icon {
+    font-size: ${dt('toast.close.icon.size')};
+    width: ${dt('toast.close.icon.size')};
+    height: ${dt('toast.close.icon.size')};
 }
 
 .p-toast-close-button:focus-visible {
@@ -78,7 +89,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-info .p-toast-close-button:focus-visible {
-    color: ${dt('toast.info.color')};
+    outline-color: ${dt('toast.info.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.info.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-info .p-toast-close-button:hover {
@@ -97,7 +109,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-success .p-toast-close-button:focus-visible {
-    color: ${dt('toast.success.color')};
+    outline-color: ${dt('toast.success.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.success.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-success .p-toast-close-button:hover {
@@ -116,7 +129,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-warn .p-toast-close-button:focus-visible {
-    color: ${dt('toast.warn.color')};
+    outline-color: ${dt('toast.warn.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.warn.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-warn .p-toast-close-button:hover {
@@ -135,7 +149,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-error .p-toast-close-button:focus-visible {
-    color: ${dt('toast.error.color')};
+    outline-color: ${dt('toast.error.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.error.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-error .p-toast-close-button:hover {
@@ -154,7 +169,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-secondary .p-toast-close-button:focus-visible {
-    color: ${dt('toast.secondary.color')};
+    outline-color: ${dt('toast.secondary.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.secondary.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-secondary .p-toast-close-button:hover {
@@ -173,7 +189,8 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message-contrast .p-toast-close-button:focus-visible {
-    color: ${dt('toast.contrast.color')};
+    outline-color: ${dt('toast.contrast.close.button.focus.ring.color')};
+    box-shadow: ${dt('toast.contrast.close.button.focus.ring.shadow')};
 }
 
 .p-toast-message-contrast .p-toast-close-button:hover {
