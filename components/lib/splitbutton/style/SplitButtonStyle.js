@@ -4,13 +4,18 @@ const theme = ({ dt }) => `
 .p-splitbutton {
     display: inline-flex;
     position: relative;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('splitbutton.border.radius')};
 }
 
 .p-splitbutton-button {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0 none;
+}
+
+.p-splitbutton-button:focus-visible,
+.p-splitbutton-dropdown:focus-visible {
+    z-index: 1;
 }
 
 .p-splitbutton-button:not(:disabled):hover,
@@ -31,45 +36,29 @@ const theme = ({ dt }) => `
     display: flex;
 }
 
-.p-splitbutton.p-button-rounded .p-splitbutton-button {
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;;
+.p-splitbutton-rounded .p-splitbutton-dropdown {
+    border-top-right-radius: ${dt('splitbutton.rounded.border.radius')};
+    border-bottom-right-radius: ${dt('splitbutton.rounded.border.radius')};
 }
 
-.p-splitbutton.p-button-rounded .p-splitbutton-dropdown {
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;;
+.p-splitbutton-rounded .p-splitbutton-button {
+    border-top-left-radius: ${dt('splitbutton.rounded.border.radius')};
+    border-bottom-left-radius: ${dt('splitbutton.rounded.border.radius')};
 }
 
-.p-splitbutton.p-button-raised {
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+.p-splitbutton-raised {
+    box-shadow: ${dt('splitbutton.raised.shadow')};
 }
-
-/*
-.p-splitbutton .p-splitbutton-button,
-.p-splitbutton.p-button-rounded > .p-splitbutton-button.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-button.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-button.p-button-outlined.p-button:hover {
-    flex: 1 1 auto;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: 0 none;
-}
-
-.p-splitbutton-dropdown,
-.p-splitbutton.p-button-rounded > .p-splitbutton-dropdown.p-button,
-.p-splitbutton.p-button-outlined > .p-splitbutton-dropdown.p-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-*/
 `;
 
 const classes = {
-    root: 'p-splitbutton p-component',
+    root: ({ props }) => [
+        'p-splitbutton p-component',
+        {
+            'p-splitbutton-raised': props.raised,
+            'p-splitbutton-rounded': props.rounded
+        }
+    ],
     pcButton: 'p-splitbutton-button',
     pcDropdown: 'p-splitbutton-dropdown'
 };
