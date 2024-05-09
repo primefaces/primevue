@@ -3,17 +3,13 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-metergroup {
     display: flex;
-    gap: 1rem;
+    gap: ${dt('metergroup.gap')};
 }
 
 .p-metergroup-meters {
     display: flex;
     background: ${dt('metergroup.meters.background')};
-    border-radius: ${dt('border.radius.md')};
-}
-
-.p-metergroup-meter {
-    border: 0 none;
+    border-radius: ${dt('metergroup.border.radius')};
 }
 
 .p-metergroup-label-list {
@@ -27,13 +23,13 @@ const theme = ({ dt }) => `
 .p-metergroup-label {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: ${dt('metergroup.label.gap')};
 }
 
 .p-metergroup-label-marker {
     display: inline-flex;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: ${dt('metergroup.label.marker.size')};
+    height: ${dt('metergroup.label.marker.size')};
     border-radius: 100%;
 }
 
@@ -47,20 +43,20 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-label-list-horizontal {
-    gap: 1rem;
+    gap: ${dt('metergroup.label.list.horizontal.gap')};
 }
 
 .p-metergroup-horizontal .p-metergroup-meters {
-    height: 0.5rem;
+    height: ${dt('metergroup.meters.size')};
 }
 
 .p-metergroup-horizontal .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('border.radius.md')};
-    border-bottom-left-radius: ${dt('border.radius.md')};
+    border-top-left-radius: ${dt('metergroup.border.radius')};
+    border-bottom-left-radius: ${dt('metergroup.border.radius')};
 }
 .p-metergroup-horizontal .p-metergroup-meter:last-of-type {
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('metergroup.border.radius')};
+    border-bottom-right-radius: ${dt('metergroup.border.radius')};
 }
 
 .p-metergroup-vertical {
@@ -69,12 +65,12 @@ const theme = ({ dt }) => `
 
 .p-metergroup-label-list-vertical {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: ${dt('metergroup.label.list.vertical.gap')};
 }
 
 .p-metergroup-vertical .p-metergroup-meters {
     flex-direction: column;
-    width: 0.5rem;
+    width: ${dt('metergroup.meters.size')};
     height: 100%;
 }
 
@@ -83,12 +79,12 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-vertical .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('border.radius.md')};
-    border-top-right-radius: ${dt('border.radius.md')};
+    border-top-left-radius: ${dt('metergroup.border.radius')};
+    border-top-right-radius: ${dt('metergroup.border.radius')};
 }
 .p-metergroup-vertical .p-metergroup-meter:last-of-type {
-    border-bottom-left-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-bottom-left-radius: ${dt('metergroup.border.radius')};
+    border-bottom-right-radius: ${dt('metergroup.border.radius')};
 }
 `;
 
