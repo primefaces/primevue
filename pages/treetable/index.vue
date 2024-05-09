@@ -21,8 +21,8 @@ import ImportDoc from '@/doc/treetable/ImportDoc.vue';
 import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc.vue';
 import SizeDoc from '@/doc/treetable/SizeDoc.vue';
 import TemplateDoc from '@/doc/treetable/TemplateDoc.vue';
-import PaginatorBasicDoc from '@/doc/treetable/paginator/PaginatorBasicDoc.vue';
-import PaginatorTemplateDoc from '@/doc/treetable/paginator/PaginatorTemplateDoc.vue';
+import PaginationBasicDoc from '@/doc/treetable/pagination/PaginationBasicDoc.vue';
+import PaginationTemplateDoc from '@/doc/treetable/pagination/PaginationTemplateDoc.vue';
 import PTComponent from '@/doc/treetable/pt/index.vue';
 import ExpandModeDoc from '@/doc/treetable/resize/ExpandModeDoc.vue';
 import FitModeDoc from '@/doc/treetable/resize/FitModeDoc.vue';
@@ -74,18 +74,18 @@ export default {
                     component: SizeDoc
                 },
                 {
-                    id: 'paginator',
-                    label: 'Paginator',
+                    id: 'pagination',
+                    label: 'Pagination',
                     children: [
                         {
                             id: 'paginator_basic',
                             label: 'Basic',
-                            component: PaginatorBasicDoc
+                            component: PaginationBasicDoc
                         },
                         {
                             id: 'paginator_template',
                             label: 'Template',
-                            component: PaginatorTemplateDoc
+                            component: PaginationTemplateDoc
                         }
                     ]
                 },

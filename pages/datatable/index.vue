@@ -35,8 +35,8 @@ import FilterSortEditDoc from '@/doc/datatable/edit/FilterSortEditDoc.vue';
 import RowEditDoc from '@/doc/datatable/edit/RowEditDoc.vue';
 import AdvancedFilterDoc from '@/doc/datatable/filter/AdvancedFilterDoc.vue';
 import BasicFilterDoc from '@/doc/datatable/filter/BasicFilterDoc.vue';
-import PaginatorBasicDoc from '@/doc/datatable/paginator/PaginatorBasicDoc.vue';
-import PaginatorTemplateDoc from '@/doc/datatable/paginator/PaginatorTemplateDoc.vue';
+import PaginationBasicDoc from '@/doc/datatable/pagination/PaginationBasicDoc.vue';
+import PaginationTemplateDoc from '@/doc/datatable/pagination/PaginationTemplateDoc.vue';
 import PTComponent from '@/doc/datatable/pt/index.vue';
 import ExpandableRowGroupDoc from '@/doc/datatable/rowgroup/ExpandableRowGroupDoc.vue';
 import RowSpanRowGroupDoc from '@/doc/datatable/rowgroup/RowSpanRowGroupDoc.vue';
@@ -101,18 +101,18 @@ export default {
                     component: StripedRowsDoc
                 },
                 {
-                    id: 'paginator',
-                    label: 'Paginator',
+                    id: 'pagination',
+                    label: 'Pagination',
                     children: [
                         {
                             id: 'paginator_basic',
                             label: 'Basic',
-                            component: PaginatorBasicDoc
+                            component: PaginationBasicDoc
                         },
                         {
                             id: 'paginator_template',
                             label: 'Template',
-                            component: PaginatorTemplateDoc
+                            component: PaginationTemplateDoc
                         }
                     ]
                 },
