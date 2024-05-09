@@ -53,28 +53,28 @@ export default {
         },
         dark: {
             primary: {
-                background: '{primary.color}',
-                color: '{primary.inverse.color}'
+                background: 'color-mix(in srgb, {primary.500}, transparent 84%)',
+                color: '{primary.300}'
             },
             secondary: {
                 background: '{surface.800}',
                 color: '{surface.300}'
             },
             success: {
-                background: '{green.400}',
-                color: '{green.950}'
+                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
+                color: '{green.300}'
             },
             info: {
-                background: '{sky.400}',
-                color: '{sky.950}'
+                background: 'color-mix(in srgb, {sky.500}, transparent 84%)',
+                color: '{sky.300}'
             },
             warn: {
-                background: '{orange.400}',
-                color: '{orange.950}'
+                background: 'color-mix(in srgb, {orange.500}, transparent 84%)',
+                color: '{orange.300}'
             },
             danger: {
-                background: '{red.400}',
-                color: '{red.950}'
+                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
+                color: '{red.300}'
             },
             contrast: {
                 background: '{surface.0}',
