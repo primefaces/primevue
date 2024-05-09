@@ -26,6 +26,7 @@ import RaisedDoc from '@/doc/button/RaisedDoc.vue';
 import RaisedTextDoc from '@/doc/button/RaisedTextDoc.vue';
 import RoundedDoc from '@/doc/button/RoundedDoc.vue';
 import SeverityDoc from '@/doc/button/SeverityDoc.vue';
+import SizesDoc from '@/doc/button/SizesDoc.vue';
 import TemplateDoc from '@/doc/button/TemplateDoc.vue';
 import TextDoc from '@/doc/button/TextDoc.vue';
 import PTComponent from '@/doc/button/pt/index.vue';
@@ -109,12 +110,12 @@ export default {
                     id: 'buttongroup',
                     label: 'Button Group',
                     component: ButtonGroupDoc
-                } /*
+                },
                 {
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
-                },*/,
+                },
                 {
                     id: 'template',
                     label: 'Template',
