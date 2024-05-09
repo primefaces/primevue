@@ -5,15 +5,15 @@ const theme = ({ dt }) => `
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    font-size: 1rem;
+    width: ${dt('avatar.width')};
+    height: ${dt('avatar.height')};
+    font-size: ${dt('avatar.font.size')};
     background: ${dt('avatar.background')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('avatar.border.radius')};
 }
 
 .p-avatar-image {
-    background-color: transparent;
+    background: transparent;
 }
 
 .p-avatar-circle {
@@ -25,7 +25,7 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-icon {
-    font-size: 1rem;
+    font-size: ${dt('avatar.font.size')};
 }
 
 .p-avatar img {
@@ -34,23 +34,23 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-lg {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
+    width: ${dt('avatar.lg.width')};
+    height: ${dt('avatar.lg.width')};
+    font-size: ${dt('avatar.lg.font.size')};
 }
 
 .p-avatar-lg .p-avatar-icon {
-    font-size: 1.5rem;
+    font-size: ${dt('avatar.lg.font.size')};
 }
 
 .p-avatar-xl {
-    width: 4rem;
-    height: 4rem;
-    font-size: 2rem;
+    width: ${dt('avatar.xl.width')};
+    height: ${dt('avatar.xl.width')};
+    font-size: ${dt('avatar.xl.font.size')};
 }
 
 .p-avatar-xl .p-avatar-icon {
-    font-size: 2rem;
+    font-size: ${dt('avatar.xl.font.size')};
 }
 
 .p-avatar-group {
@@ -59,7 +59,7 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-group .p-avatar + .p-avatar {
-    margin-left: -1rem;
+    margin-left: ${dt('avatar.group.offset')};
 }
 
 .p-avatar-group .p-avatar {
