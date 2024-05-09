@@ -3,7 +3,7 @@
         <p>Busy state is controlled with the <i>loading</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <Button type="button" label="Search" icon="pi pi-check" :loading="loading" @click="load" />
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
     </div>
     <DocSectionCode :code="code" />
 </template>
