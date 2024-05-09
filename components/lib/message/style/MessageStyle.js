@@ -4,6 +4,8 @@ const theme = ({ dt }) => `
 .p-message {
     margin: ${dt('message.margin')};
     border-radius: ${dt('message.border.radius')};
+    border-width: ${dt('message.border.width')};
+    border-style: solid;
 }
 
 .p-message-content {
@@ -52,7 +54,7 @@ const theme = ({ dt }) => `
 
 .p-message-info {
     background: ${dt('message.info.background')};
-    border: 1px solid ${dt('message.info.border.color')};
+    border-color: ${dt('message.info.border.color')};
     color: ${dt('message.info.color')};
     box-shadow: ${dt('message.info.shadow')};
 }
@@ -68,7 +70,7 @@ const theme = ({ dt }) => `
 
 .p-message-success {
     background: ${dt('message.success.background')};
-    border: 1px solid ${dt('message.success.border.color')};
+    border-color: ${dt('message.success.border.color')};
     color: ${dt('message.success.color')};
     box-shadow: ${dt('message.success.shadow')};
 }
@@ -84,7 +86,7 @@ const theme = ({ dt }) => `
 
 .p-message-warn {
     background: ${dt('message.warn.background')};
-    border: 1px solid ${dt('message.warn.border.color')};
+    border-color: ${dt('message.warn.border.color')};
     color: ${dt('message.warn.color')};
     box-shadow: ${dt('message.warn.shadow')};
 }
@@ -100,7 +102,7 @@ const theme = ({ dt }) => `
 
 .p-message-error {
     background: ${dt('message.error.background')};
-    border: 1px solid ${dt('message.error.border.color')};
+    border-color: ${dt('message.error.border.color')};
     color: ${dt('message.error.color')};
     box-shadow: ${dt('message.error.shadow')};
 }
@@ -116,7 +118,7 @@ const theme = ({ dt }) => `
 
 .p-message-secondary {
     background: ${dt('message.secondary.background')};
-    border: 1px solid ${dt('message.secondary.border.color')};
+    border-color: ${dt('message.secondary.border.color')};
     color: ${dt('message.secondary.color')};
     box-shadow: ${dt('message.secondary.shadow')};
 }
@@ -132,7 +134,7 @@ const theme = ({ dt }) => `
 
 .p-message-contrast {
     background: ${dt('message.contrast.background')};
-    border: 1px solid ${dt('message.contrast.border.color')};
+    border-color: ${dt('message.contrast.border.color')};
     color: ${dt('message.contrast.color')};
     box-shadow: ${dt('message.contrast.shadow')};
 }

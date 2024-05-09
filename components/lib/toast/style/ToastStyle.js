@@ -11,6 +11,8 @@ const theme = ({ dt }) => `
     backdrop-filter: blur(${dt('toast.blur')});
     margin: 0 0 1rem 0;
     border-radius: ${dt('toast.border.radius')};
+    border-width: ${dt('toast.border.width')};
+    border-style: solid;
 }
 
 .p-toast-message-icon {
@@ -79,7 +81,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-info {
     background: ${dt('toast.info.background')};
-    border: 1px solid ${dt('toast.info.border.color')};
+    border-color: ${dt('toast.info.border.color')};
     color: ${dt('toast.info.color')};
     box-shadow: ${dt('toast.info.shadow')};
 }
@@ -99,7 +101,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-success {
     background: ${dt('toast.success.background')};
-    border: 1px solid ${dt('toast.success.border.color')};
+    border-color: ${dt('toast.success.border.color')};
     color: ${dt('toast.success.color')};
     box-shadow: ${dt('toast.success.shadow')};
 }
@@ -119,7 +121,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-warn {
     background: ${dt('toast.warn.background')};
-    border: 1px solid ${dt('toast.warn.border.color')};
+    border-color: ${dt('toast.warn.border.color')};
     color: ${dt('toast.warn.color')};
     box-shadow: ${dt('toast.warn.shadow')};
 }
@@ -139,7 +141,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-error {
     background: ${dt('toast.error.background')};
-    border: 1px solid ${dt('toast.error.border.color')};
+    border-color: ${dt('toast.error.border.color')};
     color: ${dt('toast.error.color')};
     box-shadow: ${dt('toast.error.shadow')};
 }
@@ -159,7 +161,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-secondary {
     background: ${dt('toast.secondary.background')};
-    border: 1px solid ${dt('toast.secondary.border.color')};
+    border-color: ${dt('toast.secondary.border.color')};
     color: ${dt('toast.secondary.color')};
     box-shadow: ${dt('toast.secondary.shadow')};
 }
@@ -179,7 +181,7 @@ const theme = ({ dt }) => `
 
 .p-toast-message-contrast {
     background: ${dt('toast.contrast.background')};
-    border: 1px solid ${dt('toast.contrast.border.color')};
+    border-color: ${dt('toast.contrast.border.color')};
     color: ${dt('toast.contrast.color')};
     box-shadow: ${dt('toast.contrast.shadow')};
 }

@@ -1,7 +1,8 @@
 export default {
     root: {
         width: '25rem',
-        borderRadius: '{content.border.radius}'
+        borderRadius: '{content.border.radius}',
+        borderWidth: '0 0 0 6px'
     },
     icon: {
         size: '1.125rem'

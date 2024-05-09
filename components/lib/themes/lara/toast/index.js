@@ -1,7 +1,8 @@
 export default {
     root: {
         width: '25rem',
-        borderRadius: '{content.border.radius}'
+        borderRadius: '{content.border.radius}',
+        borderWidth: '0 0 0 6px'
     },
     icon: {
         size: '1.25rem'
@@ -39,7 +40,7 @@ export default {
             blur: '1.5px',
             info: {
                 background: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                borderColor: '{blue.200}',
+                borderColor: '{blue.500}',
                 color: '{blue.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
@@ -53,7 +54,7 @@ export default {
             },
             success: {
                 background: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                borderColor: '{green.200}',
+                borderColor: '{green.500}',
                 color: '{green.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
@@ -67,7 +68,7 @@ export default {
             },
             warn: {
                 background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                borderColor: '{yellow.200}',
+                borderColor: '{yellow.500}',
                 color: '{yellow.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
@@ -81,7 +82,7 @@ export default {
             },
             error: {
                 background: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                borderColor: '{red.200}',
+                borderColor: '{red.500}',
                 color: '{red.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
@@ -95,7 +96,7 @@ export default {
             },
             secondary: {
                 background: '{surface.100}',
-                borderColor: '{surface.200}',
+                borderColor: '{surface.500}',
                 color: '{surface.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
@@ -109,7 +110,7 @@ export default {
             },
             contrast: {
                 background: '{surface.900}',
-                borderColor: '{surface.950}',
+                borderColor: '{primary.color}',
                 color: '{surface.50}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',

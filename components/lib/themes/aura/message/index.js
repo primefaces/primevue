@@ -1,7 +1,8 @@
 export default {
     root: {
         margin: '1rem 0',
-        borderRadius: '{content.border.radius}'
+        borderRadius: '{content.border.radius}',
+        borderWidth: '1px',
     },
     content: {
         padding: '0.5rem 0.75rem',
