@@ -4,7 +4,7 @@
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  *
- * @module inputtext
+ * @module inputtextstyle
  *
  */
 import { BaseStyle } from '../../base/style';

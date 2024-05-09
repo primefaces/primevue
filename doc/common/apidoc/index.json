@@ -26554,7 +26554,7 @@
                             "name": "panel",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-datepicker-panel p-component\""
+                            "value": "\"p-datepicker-panel\""
                         },
                         {
                             "name": "calendarContainer",
@@ -29447,20 +29447,28 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "filterContainer",
+                            "name": "pcFilterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "SelectPassThroughOptionType<T>",
+                            "type": "IconFieldPassThroughOptions<SelectSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter container's DOM element."
+                            "description": "Used to pass attributes to the IconField component."
                         },
                         {
                             "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
-                            "type": "SelectPassThroughOptionType<T>",
+                            "type": "InputTextPassThroughOptions<SelectSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "pcFilterIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptions<SelectSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputIcon component."
                         },
                         {
                             "name": "filterIcon",
@@ -31844,7 +31852,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-fieldset p-component\""
+                            "value": "\"p-fieldset\""
                         },
                         {
                             "name": "legend",
@@ -34621,7 +34629,7 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T",
                             "default": "",
                             "description": "Defines parent options."
                         },
@@ -34644,7 +34652,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "IconFieldPassThroughOptionType",
+                            "type": "IconFieldPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -34688,7 +34696,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<IconFieldPassThroughOptions>",
+                            "type": "PassThrough<IconFieldPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -37454,7 +37462,7 @@
                             "name": "parent",
                             "optional": false,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T",
                             "default": "",
                             "description": "Defines parent options."
                         },
@@ -37477,7 +37485,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "InputIconPassThroughOptionType",
+                            "type": "InputIconPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -37521,7 +37529,7 @@
                             "name": "pt",
                             "optional": true,
                             "readonly": false,
-                            "type": "PassThrough<InputIconPassThroughOptions>",
+                            "type": "PassThrough<InputIconPassThroughOptions<any>>",
                             "default": "",
                             "description": "Used to pass attributes to DOM elements inside the component."
                         },
@@ -39830,6 +39838,238 @@
     },
     "inputtext": {
         "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "components": {
+            "default": {
+                "description": "InputText renders a text field to enter data.",
+                "methods": {
+                    "description": "Defines methods that can be accessed by the component's reference.",
+                    "values": []
+                }
+            }
+        },
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "InputTextPassThroughMethodOptions": {
+                    "description": "Custom passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "instance",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Defines instance."
+                        },
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputTextProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "InputTextContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
+                            "name": "parent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "T",
+                            "default": "",
+                            "description": "Defines parent instance."
+                        },
+                        {
+                            "name": "global",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | object",
+                            "default": "",
+                            "description": "Defines passthrough(pt) options in global config."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputTextPassThroughOptions": {
+                    "description": "Custom passthrough(pt) options.",
+                    "relatedProp": "InputTextProps.pt",
+                    "props": [
+                        {
+                            "name": "root",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputTextPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "hooks",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ComponentHooks",
+                            "default": "",
+                            "description": "Used to manage all lifecycle hooks."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputTextPassThroughAttributes": {
+                    "description": "Custom passthrough attributes for each DOM elements",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputTextContext": {
+                    "description": "Defines current options in InputText component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "filled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current filled state of the component as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state of the component as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
+                "InputTextProps": {
+                    "description": "Defines valid properties in InputText component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "modelValue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Nullable<string>",
+                            "default": "",
+                            "description": "Value of the component."
+                        },
+                        {
+                            "name": "size",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"small\" | \"large\"",
+                            "default": "",
+                            "description": "Defines the size of the component."
+                        },
+                        {
+                            "name": "invalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When present, it specifies that the component should have invalid state style."
+                        },
+                        {
+                            "name": "variant",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"filled\" | \"outlined\"",
+                            "default": "outlined",
+                            "description": "Specifies the input variant of the component."
+                        },
+                        {
+                            "name": "dt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "It generates scoped CSS variables using design tokens for the component."
+                        },
+                        {
+                            "name": "pt",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThrough<InputTextPassThroughOptions<any>>",
+                            "default": "",
+                            "description": "Used to pass attributes to DOM elements inside the component."
+                        },
+                        {
+                            "name": "ptOptions",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PassThroughOptions",
+                            "default": "",
+                            "description": "Used to configure passthrough(pt) options of the component."
+                        },
+                        {
+                            "name": "unstyled",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, it removes component related styles in the core."
+                        }
+                    ],
+                    "methods": [],
+                    "extendedTypes": "InputHTMLAttributes"
+                },
+                "InputTextSlots": {
+                    "description": "Defines valid slots in InputText component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
+                },
+                "InputTextEmits": {
+                    "description": "Defines valid emits in InputText component.",
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": [
+                        {
+                            "name": "update:modelValue",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "undefined | string",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value changes."
+                        }
+                    ]
+                }
+            }
+        },
+        "types": {
+            "description": "Defines the custom types used by the module.",
+            "values": {
+                "InputTextPassThroughOptionType": {
+                    "values": "InputTextPassThroughAttributes | (options: InputTextPassThroughMethodOptions) => undefined | string | null | undefined"
+                }
+            }
+        }
+    },
+    "inputtextstyle": {
+        "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",
@@ -39895,7 +40135,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-inputtext p-component\""
+                            "value": "\"p-inputtext\""
                         }
                     ]
                 }
@@ -40566,7 +40806,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
                         },
@@ -40574,17 +40814,17 @@
                             "name": "header",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "filterContainer",
+                            "name": "pcFilterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "IconFieldPassThroughOptions<ListboxSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter container's DOM element."
+                            "description": "Used to pass attributes to the IconField component."
                         },
                         {
                             "name": "pcFilter",
@@ -40595,10 +40835,18 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
+                            "name": "pcFilterIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptions<ListboxSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputIcon component."
+                        },
+                        {
                             "name": "filterIcon",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the filter icon's DOM element."
                         },
@@ -40606,7 +40854,7 @@
                             "name": "listContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the list container's DOM element."
                         },
@@ -40630,7 +40878,7 @@
                             "name": "optionGroup",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the option group's DOM element."
                         },
@@ -40638,7 +40886,7 @@
                             "name": "option",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the option's DOM element."
                         },
@@ -40646,7 +40894,7 @@
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the emptyMessage's DOM element."
                         },
@@ -40654,7 +40902,7 @@
                             "name": "hiddenFirstFocusableEl",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden first focusable element's DOM element."
                         },
@@ -40662,7 +40910,7 @@
                             "name": "hiddenFilterResult",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden filter result's DOM element."
                         },
@@ -40670,7 +40918,7 @@
                             "name": "hiddenSelectedMessage",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden selected message's DOM element."
                         },
@@ -40678,7 +40926,7 @@
                             "name": "hiddenLastFocusableEl",
                             "optional": true,
                             "readonly": false,
-                            "type": "ListboxPassThroughOptionType<any>",
+                            "type": "ListboxPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the hidden last focusable element's DOM element."
                         },
@@ -45090,12 +45338,12 @@
                             "description": "Used to pass attributes to the header checkbox's DOM element."
                         },
                         {
-                            "name": "filterContainer",
+                            "name": "pcFilterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "MultiSelectPassThroughOptionType",
+                            "type": "IconFieldPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter container's DOM element."
+                            "description": "Used to pass attributes to the IconField component."
                         },
                         {
                             "name": "pcFilter",
@@ -45104,6 +45352,14 @@
                             "type": "InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "pcFilterIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputIcon component."
                         },
                         {
                             "name": "filterIcon",
@@ -47674,7 +47930,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-organizationchart p-component\""
+                            "value": "\"p-organizationchart\""
                         },
                         {
                             "name": "table",
@@ -51168,13 +51424,13 @@
                             "name": "maskIcon",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-password-toggle-mask-icon p-password-mask-icon\""
+                            "value": "\"p-password-mask-icon\""
                         },
                         {
                             "name": "unmaskIcon",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-password-toggle-mask-icon p-password-unmask-icon\""
+                            "value": "\"p-password-unmask-icon\""
                         },
                         {
                             "name": "overlay",
@@ -55704,6 +55960,29 @@
                     "methods": [],
                     "extendedBy": "DropdownPassThroughMethodOptions"
                 },
+                "SelectSharedPassThroughMethodOptions": {
+                    "description": "Custom shared passthrough(pt) option method.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "props",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SelectProps",
+                            "default": "",
+                            "description": "Defines valid properties."
+                        },
+                        {
+                            "name": "state",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SelectState",
+                            "default": "",
+                            "description": "Defines current inline state."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SelectChangeEvent": {
                     "description": "Custom change event.",
                     "relatedProp": "SelectEmits.change",
@@ -55813,20 +56092,28 @@
                             "description": "Used to pass attributes to the header's DOM element."
                         },
                         {
-                            "name": "filterContainer",
+                            "name": "pcFilterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "SelectPassThroughOptionType<T>",
+                            "type": "IconFieldPassThroughOptions<SelectSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter container's DOM element."
+                            "description": "Used to pass attributes to the IconField component."
                         },
                         {
                             "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
-                            "type": "SelectPassThroughOptionType<T>",
+                            "type": "InputTextPassThroughOptions<SelectSharedPassThroughMethodOptions>",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "pcFilterIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptions<SelectSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputIcon component."
                         },
                         {
                             "name": "filterIcon",
@@ -57502,7 +57789,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-selectbutton p-component\""
+                            "value": "\"p-selectbutton\""
                         }
                     ]
                 }
@@ -62848,13 +63135,13 @@
                             "name": "previousButton",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-tablist-prev-button p-tablist-nav-button\""
+                            "value": "\"p-tablist-prev-button\""
                         },
                         {
                             "name": "nextButton",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-tablist-next-button p-tablist-nav-button\""
+                            "value": "\"p-tablist-next-button\""
                         }
                     ]
                 }
@@ -63328,7 +63615,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-tabmenu p-component\""
+                            "value": "\"p-tabmenu\""
                         },
                         {
                             "name": "tablist",
@@ -64929,7 +65216,7 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-terminal p-component\""
+                            "value": "\"p-terminal\""
                         },
                         {
                             "name": "welcomeMessage",
@@ -65360,7 +65647,179 @@
             }
         }
     },
+    "themes/aura/accordion": {},
+    "themes/aura/autocomplete": {},
+    "themes/aura/avatar": {},
+    "themes/aura/badge": {},
+    "themes/aura/blockui": {},
+    "themes/aura/breadcrumb": {},
+    "themes/aura/button": {},
+    "themes/aura/buttongroup": {},
+    "themes/aura/card": {},
+    "themes/aura/carousel": {},
+    "themes/aura/cascadeselect": {},
+    "themes/aura/checkbox": {},
+    "themes/aura/chip": {},
+    "themes/aura/colorpicker": {},
+    "themes/aura/confirmdialog": {},
+    "themes/aura/confirmpopup": {},
+    "themes/aura/contextmenu": {},
+    "themes/aura/datatable": {},
+    "themes/aura/dataview": {},
+    "themes/aura/datepicker": {},
+    "themes/aura/dialog": {},
+    "themes/aura/divider": {},
+    "themes/aura/dock": {},
+    "themes/aura/drawer": {},
+    "themes/aura/editor": {},
+    "themes/aura/fieldset": {},
+    "themes/aura/fileupload": {},
+    "themes/aura/floatlabel": {},
+    "themes/aura/galleria": {},
+    "themes/aura/iconfield": {},
+    "themes/aura/image": {},
+    "themes/aura": {},
+    "themes/aura/inlinemessage": {},
+    "themes/aura/inplace": {},
+    "themes/aura/inputchips": {},
+    "themes/aura/inputgroup": {},
+    "themes/aura/inputnumber": {},
+    "themes/aura/inputotp": {},
+    "themes/aura/inputtext": {},
+    "themes/aura/knob": {},
+    "themes/aura/listbox": {},
+    "themes/aura/megamenu": {},
+    "themes/aura/menu": {},
+    "themes/aura/menubar": {},
+    "themes/aura/message": {},
+    "themes/aura/metergroup": {},
+    "themes/aura/multiselect": {},
+    "themes/aura/orderlist": {},
+    "themes/aura/organizationchart": {},
+    "themes/aura/paginator": {},
+    "themes/aura/panel": {},
+    "themes/aura/panelmenu": {},
+    "themes/aura/password": {},
+    "themes/aura/picklist": {},
+    "themes/aura/popover": {},
+    "themes/aura/progressbar": {},
+    "themes/aura/progressspinner": {},
+    "themes/aura/radiobutton": {},
+    "themes/aura/rating": {},
+    "themes/aura/scrollpanel": {},
+    "themes/aura/scrolltop": {},
+    "themes/aura/select": {},
+    "themes/aura/selectbutton": {},
+    "themes/aura/skeleton": {},
+    "themes/aura/slider": {},
+    "themes/aura/speeddial": {},
+    "themes/aura/splitbutton": {},
+    "themes/aura/splitter": {},
+    "themes/aura/stepper": {},
+    "themes/aura/steps": {},
+    "themes/aura/tabmenu": {},
+    "themes/aura/tabs": {},
+    "themes/aura/tabview": {},
+    "themes/aura/tag": {},
+    "themes/aura/terminal": {},
+    "themes/aura/textarea": {},
+    "themes/aura/tieredmenu": {},
+    "themes/aura/timeline": {},
+    "themes/aura/toast": {},
+    "themes/aura/togglebutton": {},
+    "themes/aura/toggleswitch": {},
+    "themes/aura/toolbar": {},
+    "themes/aura/tooltip": {},
+    "themes/aura/tree": {},
+    "themes/aura/treeselect": {},
+    "themes/aura/treetable": {},
     "themes": {},
+    "themes/lara/accordion": {},
+    "themes/lara/autocomplete": {},
+    "themes/lara/avatar": {},
+    "themes/lara/badge": {},
+    "themes/lara/blockui": {},
+    "themes/lara/breadcrumb": {},
+    "themes/lara/button": {},
+    "themes/lara/buttongroup": {},
+    "themes/lara/card": {},
+    "themes/lara/carousel": {},
+    "themes/lara/cascadeselect": {},
+    "themes/lara/checkbox": {},
+    "themes/lara/chip": {},
+    "themes/lara/colorpicker": {},
+    "themes/lara/confirmdialog": {},
+    "themes/lara/confirmpopup": {},
+    "themes/lara/contextmenu": {},
+    "themes/lara/datatable": {},
+    "themes/lara/dataview": {},
+    "themes/lara/datepicker": {},
+    "themes/lara/dialog": {},
+    "themes/lara/divider": {},
+    "themes/lara/dock": {},
+    "themes/lara/drawer": {},
+    "themes/lara/editor": {},
+    "themes/lara/fieldset": {},
+    "themes/lara/fileupload": {},
+    "themes/lara/floatlabel": {},
+    "themes/lara/galleria": {},
+    "themes/lara/iconfield": {},
+    "themes/lara/image": {},
+    "themes/lara": {},
+    "themes/lara/inlinemessage": {},
+    "themes/lara/inplace": {},
+    "themes/lara/inputchips": {},
+    "themes/lara/inputgroup": {},
+    "themes/lara/inputnumber": {},
+    "themes/lara/inputotp": {},
+    "themes/lara/inputtext": {},
+    "themes/lara/knob": {},
+    "themes/lara/listbox": {},
+    "themes/lara/megamenu": {},
+    "themes/lara/menu": {},
+    "themes/lara/menubar": {},
+    "themes/lara/message": {},
+    "themes/lara/metergroup": {},
+    "themes/lara/multiselect": {},
+    "themes/lara/orderlist": {},
+    "themes/lara/organizationchart": {},
+    "themes/lara/paginator": {},
+    "themes/lara/panel": {},
+    "themes/lara/panelmenu": {},
+    "themes/lara/password": {},
+    "themes/lara/picklist": {},
+    "themes/lara/popover": {},
+    "themes/lara/progressbar": {},
+    "themes/lara/progressspinner": {},
+    "themes/lara/radiobutton": {},
+    "themes/lara/rating": {},
+    "themes/lara/scrollpanel": {},
+    "themes/lara/scrolltop": {},
+    "themes/lara/select": {},
+    "themes/lara/selectbutton": {},
+    "themes/lara/skeleton": {},
+    "themes/lara/slider": {},
+    "themes/lara/speeddial": {},
+    "themes/lara/splitbutton": {},
+    "themes/lara/splitter": {},
+    "themes/lara/stepper": {},
+    "themes/lara/steps": {},
+    "themes/lara/tabmenu": {},
+    "themes/lara/tabs": {},
+    "themes/lara/tabview": {},
+    "themes/lara/tag": {},
+    "themes/lara/terminal": {},
+    "themes/lara/textarea": {},
+    "themes/lara/tieredmenu": {},
+    "themes/lara/timeline": {},
+    "themes/lara/toast": {},
+    "themes/lara/togglebutton": {},
+    "themes/lara/toggleswitch": {},
+    "themes/lara/toolbar": {},
+    "themes/lara/tooltip": {},
+    "themes/lara/tree": {},
+    "themes/lara/treeselect": {},
+    "themes/lara/treetable": {},
     "tieredmenu": {
         "description": "TieredMenu displays submenus in nested overlays.\n\n[Live Demo](https://www.primevue.org/menu/)",
         "components": {
@@ -69080,20 +69539,28 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "filterContainer",
+                            "name": "pcFilterContainer",
                             "optional": true,
                             "readonly": false,
-                            "type": "TreePassThroughOptionType<T>",
+                            "type": "IconFieldPassThroughOptions<TreeSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the filter container's DOM element."
+                            "description": "Used to pass attributes to the IconField component."
                         },
                         {
-                            "name": "filterInput",
+                            "name": "pcFilter",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>",
                             "default": "",
-                            "description": "Used to pass attributes to the input's DOM element."
+                            "description": "Used to pass attributes to the InputText component."
+                        },
+                        {
+                            "name": "pcFilterIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputIconPassThroughOptions<TreeSharedPassThroughMethodOptions>",
+                            "default": "",
+                            "description": "Used to pass attributes to the InputIcon component."
                         },
                         {
                             "name": "filterIcon",

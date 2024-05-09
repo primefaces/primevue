@@ -10,6 +10,8 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ChipPassThroughOptions } from '../chip';
+import { IconFieldPassThroughOptions } from '../iconfield';
+import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
@@ -163,14 +165,20 @@ export interface MultiSelectPassThroughOptions {
      */
     pcHeaderCheckbox?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the IconField component.
+     * @see {@link IconFieldPassThroughOptions}
      */
-    filterContainer?: MultiSelectPassThroughOptionType;
+    pcFilterContainer?: IconFieldPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
     pcFilter?: InputTextPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    /**
+     * Used to pass attributes to the InputIcon component.
+     * @see {@link InputIconPassThroughOptions}
+     */
+    pcFilterIconContainer?: InputIconPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

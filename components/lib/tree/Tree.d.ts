@@ -9,6 +9,8 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { IconFieldPassThroughOptions } from '../iconfield';
+import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
@@ -105,14 +107,20 @@ export interface TreePassThroughOptions<T = any> {
      */
     root?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the IconField component.
+     * @see {@link IconFieldPassThroughOptions}
      */
-    filterContainer?: TreePassThroughOptionType<T>;
+    pcFilterContainer?: IconFieldPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    filterInput?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
+    pcFilter?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
+    /**
+     * Used to pass attributes to the InputIcon component.
+     * @see {@link InputIconPassThroughOptions}
+     */
+    pcFilterIconContainer?: InputIconPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

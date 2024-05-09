@@ -9,6 +9,8 @@
  */
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { IconFieldPassThroughOptions } from '../iconfield';
+import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
@@ -117,28 +119,34 @@ export interface ListboxPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ListboxPassThroughOptionType;
+    root?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the header's DOM element.
      */
-    header?: ListboxPassThroughOptionType;
+    header?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the IconField component.
+     * @see {@link IconFieldPassThroughOptions}
      */
-    filterContainer?: ListboxPassThroughOptionType;
+    pcFilterContainer?: IconFieldPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
     pcFilter?: InputTextPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the InputIcon component.
+     * @see {@link InputIconPassThroughOptions}
+     */
+    pcFilterIconContainer?: InputIconPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
+    /**
      * Used to pass attributes to the filter icon's DOM element.
      */
-    filterIcon?: ListboxPassThroughOptionType;
+    filterIcon?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the list container's DOM element.
      */
-    listContainer?: ListboxPassThroughOptionType;
+    listContainer?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -151,31 +159,31 @@ export interface ListboxPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the option group's DOM element.
      */
-    optionGroup?: ListboxPassThroughOptionType;
+    optionGroup?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the option's DOM element.
      */
-    option?: ListboxPassThroughOptionType;
+    option?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the emptyMessage's DOM element.
      */
-    emptyMessage?: ListboxPassThroughOptionType;
+    emptyMessage?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden first focusable element's DOM element.
      */
-    hiddenFirstFocusableEl?: ListboxPassThroughOptionType;
+    hiddenFirstFocusableEl?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden filter result's DOM element.
      */
-    hiddenFilterResult?: ListboxPassThroughOptionType;
+    hiddenFilterResult?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden selected message's DOM element.
      */
-    hiddenSelectedMessage?: ListboxPassThroughOptionType;
+    hiddenSelectedMessage?: ListboxPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the hidden last focusable element's DOM element.
      */
-    hiddenLastFocusableEl?: ListboxPassThroughOptionType;
+    hiddenLastFocusableEl?: ListboxPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

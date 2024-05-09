@@ -9,6 +9,9 @@
  */
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
+import { IconFieldPassThroughOptions } from '../iconfield';
+import { InputIconPassThroughOptions } from '../inputicon';
+import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
@@ -45,6 +48,20 @@ export interface SelectPassThroughMethodOptions<T> {
      * Defines passthrough(pt) options in global config.
      */
     global: object | undefined;
+}
+
+/**
+ * Custom shared passthrough(pt) option method.
+ */
+export interface SelectSharedPassThroughMethodOptions {
+    /**
+     * Defines valid properties.
+     */
+    props: SelectProps;
+    /**
+     * Defines current inline state.
+     */
+    state: SelectState;
 }
 
 /**
@@ -111,13 +128,20 @@ export interface SelectPassThroughOptions<T = any> {
      */
     header?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the filter container's DOM element.
+     * Used to pass attributes to the IconField component.
+     * @see {@link IconFieldPassThroughOptions}
      */
-    filterContainer?: SelectPassThroughOptionType<T>;
+    pcFilterContainer?: IconFieldPassThroughOptions<SelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
      */
-    pcFilter?: SelectPassThroughOptionType<T>;
+    pcFilter?: InputTextPassThroughOptions<SelectSharedPassThroughMethodOptions>;
+    /**
+     * Used to pass attributes to the InputIcon component.
+     * @see {@link InputIconPassThroughOptions}
+     */
+    pcFilterIconContainer?: InputIconPassThroughOptions<SelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter icon's DOM element.
      */

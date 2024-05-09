@@ -12,12 +12,12 @@ import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type InputIconPassThroughOptionType = InputIconPassThroughAttributes | ((options: InputIconPassThroughMethodOptions) => InputIconPassThroughAttributes | string) | string | null | undefined;
+export declare type InputIconPassThroughOptionType<T = any> = InputIconPassThroughAttributes | ((options: InputIconPassThroughMethodOptions<T>) => InputIconPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface InputIconPassThroughMethodOptions {
+export interface InputIconPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -29,7 +29,7 @@ export interface InputIconPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines passthrough(pt) options in global config.
      */
@@ -40,11 +40,11 @@ export interface InputIconPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link InputIconProps.pt}
  */
-export interface InputIconPassThroughOptions {
+export interface InputIconPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: InputIconPassThroughOptionType;
+    root?: InputIconPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
