@@ -16,6 +16,7 @@
             optionLabel="label"
             optionValue="value"
             :virtualScrollerOptions="{ itemSize: 44 }"
+            filter
             placeholder="Select Item"
             class="w-full md:w-20rem"
         />
@@ -33,13 +34,13 @@ export default {
             code: {
                 basic: `
 <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
-    @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" placeholder="Select Item" class="w-full md:w-20rem" />
+    @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-20rem" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
-            @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" placeholder="Select Item" class="w-full md:w-20rem" />
+            @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-20rem" />
     </div>
 </template>
 
@@ -68,7 +69,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
-            @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" placeholder="Select Item" class="w-full md:w-20rem" />
+            @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-20rem" />
     </div>
 </template>
 

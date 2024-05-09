@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-content-center">
         <FloatLabel class="w-full md:w-20rem">
-            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>
     </div>
@@ -26,7 +26,7 @@ export default {
             code: {
                 basic: `
 <FloatLabel class="w-full md:w-20rem">
-    <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
+    <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
     <label for="ms-cities">MultiSelect</label>
 </FloatLabel>
 `,
@@ -34,7 +34,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <FloatLabel class="w-full md:w-20rem">
-            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>
     </div>
@@ -61,7 +61,7 @@ export default {
 <template>
     <div class="card flex justify-content-center">
         <FloatLabel class="w-full md:w-20rem">
-            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>
     </div>

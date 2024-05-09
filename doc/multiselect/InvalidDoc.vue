@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities" :maxSelectedLabels="3" invalid class="w-full md:w-20rem" />
+        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" invalid class="w-full md:w-20rem" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,13 +22,13 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
+<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
     :maxSelectedLabels="3" invalid class="w-full md:w-20rem" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
+        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
             :maxSelectedLabels="3" invalid class="w-full md:w-20rem" />
     </div>
 </template>
@@ -53,7 +53,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" placeholder="Select Cities"
+        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
             :maxSelectedLabels="3" invalid class="w-full md:w-20rem" />
     </div>
 </template>
