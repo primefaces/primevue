@@ -31,7 +31,7 @@
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Presets</span>
-                <SelectButton v-model="selectedPreset" @update:modelValue="onPresetChange" :options="presets" />
+                <SelectButton v-model="selectedPreset" @update:modelValue="onPresetChange" :options="presets" :unselectable="false" />
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Ripple</span>
