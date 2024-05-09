@@ -1,15 +1,16 @@
 import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
+.p-message {
+    margin: ${dt('message.margin')};
+    border-radius: ${dt('message.border.radius')};
+}
+
 .p-message-content {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.75rem;
-}
-
-.p-message {
-    margin: 1rem 0;
-    border-radius: 6px;
+    padding: ${dt('message.content.padding')};
+    gap: ${dt('message.content.gap')};
 }
 
 .p-message-icon {
@@ -24,11 +25,11 @@ const theme = ({ dt }) => `
     margin: 0 0 0 auto;
     overflow: hidden;
     position: relative;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 50%;
+    width: ${dt('message.close.button.width')};
+    height: ${dt('message.close.button.height')};
+    border-radius: ${dt('message.close.button.border.radius')};
     background: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     color: inherit;
     padding: 0;
@@ -37,10 +38,16 @@ const theme = ({ dt }) => `
     user-select: none;
 }
 
+.p-message-close-icon {
+    font-size: ${dt('message.close.icon.size')};
+    width: ${dt('message.close.icon.size')};
+    height: ${dt('message.close.icon.size')};
+}
+
 .p-message-close-button:focus-visible {
-    outline-width: ${dt('focus.ring.width')};
-    outline-style: ${dt('focus.ring.style')};
-    outline-offset: ${dt('focus.ring.offset')};
+    outline-width: ${dt('message.close.button.focus.ring.width')};
+    outline-style: ${dt('message.close.button.focus.ring.style')};
+    outline-offset: ${dt('message.close.button.focus.ring.offset')};
 }
 
 .p-message-info {
@@ -51,7 +58,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-info .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.info.color')};
+    outline-color: ${dt('message.info.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.info.close.button.focus.ring.shadow')};
 }
 
 .p-message-info .p-message-close-button:hover {
@@ -66,7 +74,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-success .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.success.color')};
+    outline-color: ${dt('message.success.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.success.close.button.focus.ring.shadow')};
 }
 
 .p-message-success .p-message-close-button:hover {
@@ -81,7 +90,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-warn .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.warn.color')};
+    outline-color: ${dt('message.warn.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.warn.close.button.focus.ring.shadow')};
 }
 
 .p-message-warn .p-message-close-button:hover {
@@ -96,7 +106,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-error .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.error.color')};
+    outline-color: ${dt('message.error.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.error.close.button.focus.ring.shadow')};
 }
 
 .p-message-error .p-message-close-button:hover {
@@ -111,7 +122,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-secondary .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.secondary.color')};
+    outline-color: ${dt('message.secondary.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.secondary.close.button.focus.ring.shadow')};
 }
 
 .p-message-secondary .p-message-close-button:hover {
@@ -126,7 +138,8 @@ const theme = ({ dt }) => `
 }
 
 .p-message-contrast .p-message-close-button:focus-visible {
-    outline-color: ${dt('message.contrast.color')};
+    outline-color: ${dt('message.contrast.close.button.focus.ring.color')};
+    box-shadow: ${dt('message.contrast.close.button.focus.ring.shadow')};
 }
 
 .p-message-contrast .p-message-close-button:hover {
@@ -134,18 +147,14 @@ const theme = ({ dt }) => `
 }
 
 .p-message-text {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: ${dt('message.text.font.size')};
+    font-weight: ${dt('message.text.font.weight')};
 }
 
 .p-message-icon {
-    font-size: 1rem;
-    margin-right: 0.5rem;
-}
-
-.p-message .p-icon:not(.p-message-close-button-icon) {
-    width: 1rem;
-    height: 1rem;
+    font-size: ${dt('message.icon.size')};
+    width: ${dt('message.icon.size')};
+    height: ${dt('message.icon.size')};
 }
 
 .p-message-enter-from {

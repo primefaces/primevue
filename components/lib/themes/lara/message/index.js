@@ -1,4 +1,32 @@
 export default {
+    root: {
+        margin: '1.125rem 0',
+        borderRadius: '{content.border.radius}'
+    },
+    content: {
+        padding: '0.75rem 1rem',
+        gap: '0.5rem'
+    },
+    text: {
+        fontSize: '1rem',
+        fontWeight: '500'
+    },
+    icon: {
+        size: '1.25rem'
+    },
+    closeButton: {
+        width: '2rem',
+        height: '2rem',
+        borderRadius: '50%',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            offset: '{focus.ring.offset}'
+        }
+    },
+    closeIcon: {
+        size: '1rem'
+    },
     colorScheme: {
         light: {
             info: {
@@ -7,7 +35,11 @@ export default {
                 color: '{blue.600}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{blue.100}'
+                    hoverBackground: '{blue.100}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {blue.200}'
+                    }
                 }
             },
             success: {
@@ -16,7 +48,11 @@ export default {
                 color: '{green.600}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{green.100}'
+                    hoverBackground: '{green.100}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {green.200}'
+                    }
                 }
             },
             warn: {
@@ -25,7 +61,11 @@ export default {
                 color: '{yellow.600}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{yellow.100}'
+                    hoverBackground: '{yellow.100}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {yellow.200}'
+                    }
                 }
             },
             error: {
@@ -34,7 +74,11 @@ export default {
                 color: '{red.600}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{red.100}'
+                    hoverBackground: '{red.100}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {red.200}'
+                    }
                 }
             },
             secondary: {
@@ -43,7 +87,11 @@ export default {
                 color: '{surface.600}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{surface.200}'
+                    hoverBackground: '{surface.200}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {surface.200}'
+                    }
                 }
             },
             contrast: {
@@ -52,7 +100,11 @@ export default {
                 color: '{surface.50}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{surface.800}'
+                    hoverBackground: '{surface.800}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem {surface.400}'
+                    }
                 }
             }
         },
@@ -63,7 +115,11 @@ export default {
                 color: '{blue.500}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {blue.500}, transparent 80%)'
+                    }
                 }
             },
             success: {
@@ -72,7 +128,11 @@ export default {
                 color: '{green.500}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {green.500}, transparent 80%)'
+                    }
                 }
             },
             warn: {
@@ -81,7 +141,11 @@ export default {
                 color: '{yellow.500}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {yellow.500}, transparent 80%)'
+                    }
                 }
             },
             error: {
@@ -90,7 +154,11 @@ export default {
                 color: '{red.500}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: 'rgba(255, 255, 255, 0.05)'
+                    hoverBackground: 'rgba(255, 255, 255, 0.05)',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {red.500}, transparent 80%)'
+                    }
                 }
             },
             secondary: {
@@ -99,7 +167,11 @@ export default {
                 color: '{surface.300}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{surface.700}'
+                    hoverBackground: '{surface.700}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.300}, transparent 80%)'
+                    }
                 }
             },
             contrast: {
@@ -108,7 +180,11 @@ export default {
                 color: '{surface.950}',
                 boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)',
                 closeButton: {
-                    hoverBackground: '{surface.100}'
+                    hoverBackground: '{surface.100}',
+                    focusRing: {
+                        color: '{focus.ring.color}',
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.950}, transparent 80%)'
+                    }
                 }
             }
         }
