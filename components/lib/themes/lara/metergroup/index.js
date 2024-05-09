@@ -13,6 +13,9 @@ export default {
     labelMarker: {
         size: '0.5rem'
     },
+    labelIcon: {
+        size: '1rem'
+    },
     labelList: {
         verticalGap: '0.5rem',
         horizontalGap: '1rem'

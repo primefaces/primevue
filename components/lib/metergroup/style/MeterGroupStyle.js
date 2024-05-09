@@ -34,8 +34,9 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-label-icon {
-    width: 1rem;
-    height: 1rem;
+    font-size: ${dt('metergroup.label.icon.size')};
+    width: ${dt('metergroup.label.icon.size')};
+    height: ${dt('metergroup.label.icon.size')};
 }
 
 .p-metergroup-horizontal {
@@ -54,6 +55,7 @@ const theme = ({ dt }) => `
     border-top-left-radius: ${dt('metergroup.border.radius')};
     border-bottom-left-radius: ${dt('metergroup.border.radius')};
 }
+
 .p-metergroup-horizontal .p-metergroup-meter:last-of-type {
     border-top-right-radius: ${dt('metergroup.border.radius')};
     border-bottom-right-radius: ${dt('metergroup.border.radius')};
