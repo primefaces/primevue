@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/listbox/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/listbox/BasicDoc.vue';
+import CheckmarkDoc from '@/doc/listbox/CheckmarkDoc.vue';
 import DisabledDoc from '@/doc/listbox/DisabledDoc.vue';
 import FilterDoc from '@/doc/listbox/FilterDoc.vue';
 import GroupDoc from '@/doc/listbox/GroupDoc.vue';
@@ -29,6 +30,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'checkmark',
+                    label: 'Checkmark',
+                    component: CheckmarkDoc
                 },
                 {
                     id: 'multiple',

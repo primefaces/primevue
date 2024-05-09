@@ -91,6 +91,10 @@
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"
                             >
+                                <template v-if="checkmark">
+                                    <CheckIcon v-if="isSelected(option)" :class="cx('optionCheckIcon')" v-bind="ptm('optionCheckIcon')" />
+                                    <BlankIcon v-else :class="cx('optionBlankIcon')" v-bind="ptm('optionBlankIcon')" />
+                                </template>
                                 <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                             </li>
                         </template>
@@ -131,6 +135,8 @@
 <script>
 import { FilterService } from 'primevue/api';
 import IconField from 'primevue/iconfield';
+import BlankIcon from 'primevue/icons/blank';
+import CheckIcon from 'primevue/icons/check';
 import SearchIcon from 'primevue/icons/search';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
@@ -754,7 +760,9 @@ export default {
         VirtualScroller,
         InputIcon,
         IconField,
-        SearchIcon
+        SearchIcon,
+        CheckIcon,
+        BlankIcon
     }
 };
 </script>
