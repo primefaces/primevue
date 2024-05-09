@@ -2,13 +2,13 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-terminal {
-    height: 18rem;
+    height: ${dt('terminal.height')};
     overflow: auto;
     background: ${dt('terminal.background')};
     color: ${dt('terminal.color')};
     border: 1px solid ${dt('terminal.border.color')};
-    padding: 0.5rem 0.75rem;
-    border-radius: ${dt('border.radius.md')};
+    padding: ${dt('terminal.padding')};
+    border-radius: ${dt('terminal.border.radius')};
 }
 
 .p-terminal-prompt {
@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
 }
 
 .p-terminal-prompt-label {
-    margin-right: 0.25rem;
+    margin-right: ${dt('terminal.prompt.gap')};
 }
 
 .p-terminal-input::-ms-clear {
@@ -37,7 +37,7 @@ const theme = ({ dt }) => `
 }
 
 .p-terminal-command-response {
-    margin: 2px 0;
+    margin: ${dt('terminal.command.response.margin')};
 }
 `;
 
