@@ -55,6 +55,8 @@ const theme = ({ dt }) => `
 }
 
 .p-listbox-option {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -85,6 +87,13 @@ const theme = ({ dt }) => `
     color: ${dt('listbox.option.focus.color')};
 }
 
+.p-listbox-option-check-icon {
+    position: relative;
+    margin-left: -0.375rem;
+    margin-right: 0.375rem;
+    color: ${dt('listbox.checkmark.color')};
+}
+
 .p-listbox-option-group {
     margin: 0;
     padding: ${dt('listbox.option.group.padding')};
@@ -112,14 +121,16 @@ const classes = {
     listContainer: 'p-listbox-list-container',
     list: 'p-listbox-list',
     optionGroup: 'p-listbox-option-group',
-    option: ({ instance, option, index, getItemOptions }) => [
+    option: ({ instance, props, option, index, getItemOptions }) => [
         'p-listbox-option',
         {
-            'p-listbox-option-selected': instance.isSelected(option),
+            'p-listbox-option-selected': instance.isSelected(option) && props.highlightOnSelect,
             'p-focus': instance.focusedOptionIndex === instance.getOptionIndex(index, getItemOptions),
             'p-disabled': instance.isOptionDisabled(option)
         }
     ],
+    optionCheckIcon: 'p-listbox-option-check-icon',
+    optionBlankIcon: 'p-listbox-option-blank-icon',
     emptyMessage: 'p-listbox-empty-message'
 };
 

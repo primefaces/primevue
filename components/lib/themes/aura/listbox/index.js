@@ -42,6 +42,9 @@ export default {
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
     },
+    checkmark: {
+        color: '{list.option.color}'
+    },
     emptyMessage: {
         padding: '{list.option.padding}'
     }

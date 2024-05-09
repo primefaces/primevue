@@ -17,6 +17,8 @@ export enum ListboxClasses {
     list = 'p-listbox-list',
     optionGroup = 'p-listbox-option-group',
     option = 'p-listbox-option',
+    optionCheckIcon = 'p-listbox-option-check-icon',
+    optionBlankIcon = 'p-listbox-option-blank-icon',
     emptyMessage = 'p-listbox-empty-message'
 }
 

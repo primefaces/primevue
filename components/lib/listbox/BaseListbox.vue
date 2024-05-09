@@ -62,6 +62,14 @@ export default {
             type: Boolean,
             default: true
         },
+        highlightOnSelect: {
+            type: Boolean,
+            default: true
+        },
+        checkmark: {
+            type: Boolean,
+            default: false
+        },
         filterMessage: {
             type: String,
             default: null

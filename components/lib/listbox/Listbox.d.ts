@@ -165,6 +165,14 @@ export interface ListboxPassThroughOptions<T = any> {
      */
     option?: ListboxPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the option check icon's DOM element.
+     */
+    optionCheckIcon?: ListboxPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the option blank icon's DOM element.
+     */
+    optionBlankIcon?: ListboxPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the emptyMessage's DOM element.
      */
     emptyMessage?: ListboxPassThroughOptionType<T>;
@@ -351,6 +359,16 @@ export interface ListboxProps {
      * @defaultValue true
      */
     focusOnHover?: boolean | undefined;
+    /**
+     *  Whether the selected option will be add highlight class.
+     *  @defaultValue true
+     */
+    highlightOnSelect?: boolean | undefined;
+    /**
+     *  Whether the selected option will be shown with a check mark.
+     *  @defaultValue false
+     */
+    checkmark?: boolean | undefined;
     /**
      * Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.
      * @defaultValue '{0} results are available'
