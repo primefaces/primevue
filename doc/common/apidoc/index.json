@@ -18613,6 +18613,20 @@
                             "default": ""
                         },
                         {
+                            "name": "fileChosenMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "emptyFileChosenMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "aria",
                             "optional": true,
                             "readonly": false,
@@ -29109,6 +29123,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom container slot."
+                        },
+                        {
+                            "name": "footer",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom footer template."
                         }
                     ],
                     "extendedBy": "SidebarSlots"
@@ -31896,7 +31916,14 @@
                 "description": "FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
-                    "values": []
+                    "values": [
+                        {
+                            "name": "basicUpload",
+                            "parameters": [],
+                            "returnType": "void",
+                            "description": "Upload file."
+                        }
+                    ]
                 }
             }
         },
@@ -32704,6 +32731,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom remove icon template for each file."
+                        },
+                        {
+                            "name": "filelabel",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">files</span>: <span class=\"doc-option-parameter-type\">File</span>, <span class=\"doc-option-parameter-type\">// File to upload.</span>\n }",
+                                    "description": "filelabel slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom file label template."
                         }
                     ]
                 },
@@ -40891,6 +40931,22 @@
                             "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
+                            "name": "optionCheckIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ListboxPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the option check icon's DOM element."
+                        },
+                        {
+                            "name": "optionBlankIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ListboxPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the option blank icon's DOM element."
+                        },
+                        {
                             "name": "emptyMessage",
                             "optional": true,
                             "readonly": false,
@@ -41211,6 +41267,22 @@
                             "type": "boolean",
                             "default": "true",
                             "description": "When enabled, the focus is placed on the hovered option."
+                        },
+                        {
+                            "name": "highlightOnSelect",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Whether the selected option will be add highlight class."
+                        },
+                        {
+                            "name": "checkmark",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether the selected option will be shown with a check mark."
                         },
                         {
                             "name": "filterMessage",
@@ -41638,6 +41710,18 @@
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-listbox-option\""
+                        },
+                        {
+                            "name": "optionCheckIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-listbox-option-check-icon\""
+                        },
+                        {
+                            "name": "optionBlankIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-listbox-option-blank-icon\""
                         },
                         {
                             "name": "emptyMessage",
@@ -58166,6 +58250,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom container slot."
+                        },
+                        {
+                            "name": "footer",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom footer template."
                         }
                     ],
                     "extendedTypes": "DrawerSlots"
@@ -65647,6 +65737,73 @@
             }
         }
     },
+    "themes/actions": {
+        "functions": {
+            "description": "Defines the custom functions used by the module.",
+            "values": {
+                "definePreset": {
+                    "name": "definePreset",
+                    "parameters": [
+                        {
+                            "name": "arg",
+                            "type": "any[]"
+                        }
+                    ],
+                    "returnType": "any"
+                },
+                "updatePreset": {
+                    "name": "updatePreset",
+                    "parameters": [
+                        {
+                            "name": "arg",
+                            "type": "any[]"
+                        }
+                    ],
+                    "returnType": "any"
+                },
+                "updatePrimaryPalette": {
+                    "name": "updatePrimaryPalette",
+                    "parameters": [
+                        {
+                            "name": "palette",
+                            "type": "any"
+                        }
+                    ],
+                    "returnType": "any"
+                },
+                "updateSurfacePalette": {
+                    "name": "updateSurfacePalette",
+                    "parameters": [
+                        {
+                            "name": "palette",
+                            "type": "any"
+                        }
+                    ],
+                    "returnType": "string"
+                },
+                "usePreset": {
+                    "name": "usePreset",
+                    "parameters": [
+                        {
+                            "name": "arg",
+                            "type": "any[]"
+                        }
+                    ],
+                    "returnType": "any"
+                },
+                "useTheme": {
+                    "name": "useTheme",
+                    "parameters": [
+                        {
+                            "name": "theme",
+                            "type": "any"
+                        }
+                    ],
+                    "returnType": "any"
+                }
+            }
+        }
+    },
     "themes/aura/accordion": {},
     "themes/aura/autocomplete": {},
     "themes/aura/avatar": {},
@@ -65733,6 +65890,8 @@
     "themes/aura/tree": {},
     "themes/aura/treeselect": {},
     "themes/aura/treetable": {},
+    "themes/config": {},
+    "themes/helpers": {},
     "themes": {},
     "themes/lara/accordion": {},
     "themes/lara/autocomplete": {},
@@ -65820,6 +65979,8 @@
     "themes/lara/tree": {},
     "themes/lara/treeselect": {},
     "themes/lara/treetable": {},
+    "themes/service": {},
+    "themes/utils": {},
     "tieredmenu": {
         "description": "TieredMenu displays submenus in nested overlays.\n\n[Live Demo](https://www.primevue.org/menu/)",
         "components": {

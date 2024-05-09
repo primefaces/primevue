@@ -273,6 +273,14 @@
                         <td>No results found</td>
                     </tr>
                     <tr>
+                        <td>fileChosenMessage</td>
+                        <td>{0} files</td>
+                    </tr>
+                    <tr>
+                        <td>emptyFileChosenMessage</td>
+                        <td>No file chosen</td>
+                    </tr>
+                    <tr>
                         <td>emptyMessage</td>
                         <td>No available options</td>
                     </tr>
