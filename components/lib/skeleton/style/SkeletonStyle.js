@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-skeleton {
     overflow: hidden;
     background-color: ${dt('skeleton.background')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('skeleton.border.radius')};
 }
 
 .p-skeleton::after {

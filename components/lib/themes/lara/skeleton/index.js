@@ -1,4 +1,7 @@
 export default {
+    root: {
+        borderRadius: '{content.border.radius}'
+    },
     colorScheme: {
         light: {
             root: {
