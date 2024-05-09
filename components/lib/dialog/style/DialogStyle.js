@@ -4,8 +4,8 @@ const theme = ({ dt }) => `
 .p-dialog {
     max-height: 90%;
     transform: scale(1);
-    border-radius: ${dt('border.radius.xl')};
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('dialog.border.radius')};
+    box-shadow: ${dt('dialog.shadow')};
     background: ${dt('dialog.background')};
     border: 1px solid ${dt('dialog.border.color')};
     color: ${dt('dialog.color')};
@@ -13,7 +13,7 @@ const theme = ({ dt }) => `
 
 .p-dialog-content {
     overflow-y: auto;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: ${dt('dialog.content.padding')};
 }
 
 .p-dialog-header {
@@ -21,26 +21,26 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    padding: 1.5rem;
+    padding: ${dt('dialog.header.padding')};
 }
 
 .p-dialog-title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: ${dt('dialog.title.font.weight')};
+    font-size: ${dt('dialog.title.font.size')};
 }
 
 .p-dialog-footer {
     flex-shrink: 0;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: ${dt('dialog.footer.padding')};
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
+    gap: ${dt('dialog.footer.gap')};
 }
 
 .p-dialog-header-actions {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: ${dt('dialog.header.gap')};
 }
 .p-dialog-enter-active {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);

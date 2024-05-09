@@ -10,7 +10,7 @@ export default {
         padding: '{overlay.modal.padding}'
     },
     title: {
-        fontSize: '1.25rem',
+        fontSize: '1.5rem',
         fontWeight: '600'
     },
     content: {

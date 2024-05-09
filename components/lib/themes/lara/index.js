@@ -181,8 +181,8 @@ export default {
                 shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
             },
             modal: {
-                borderRadius: '{border.radius.sm}',
-                padding: '1.25rem',
+                borderRadius: '{border.radius.lg}',
+                padding: '1.5rem',
                 shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
             }
         },
