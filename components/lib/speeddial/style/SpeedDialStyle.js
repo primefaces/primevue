@@ -85,7 +85,7 @@ const inlineStyles = {
         justifyContent: (props.direction === 'left' || props.direction === 'right') && 'center',
         flexDirection: props.direction === 'up' ? 'column-reverse' : props.direction === 'down' ? 'column' : props.direction === 'left' ? 'row-reverse' : props.direction === 'right' ? 'row' : null
     }),
-    menu: ({ props }) => ({
+    list: ({ props }) => ({
         flexDirection: props.direction === 'up' ? 'column-reverse' : props.direction === 'down' ? 'column' : props.direction === 'left' ? 'row-reverse' : props.direction === 'right' ? 'row' : null
     })
 };

@@ -23,7 +23,7 @@
                 </template>
             </Button>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" :class="cx('menu')" :style="sx('menu')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
+        <ul :ref="listRef" :id="id + '_list'" :class="cx('list')" :style="sx('list')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
             <template v-for="(item, index) of model" :key="index">
                 <li
                     v-if="isItemVisible(item)"
