@@ -3,37 +3,35 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-confirmpopup {
     position: absolute;
-    margin-top: 10px;
+    margin-top: ${dt('confirmpopup.gutter')};
     top: 0;
     left: 0;
     background: ${dt('confirmpopup.background')};
     color: ${dt('confirmpopup.color')};
     border: 1px solid ${dt('confirmpopup.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('confirmpopup.border.radius')};
+    box-shadow: ${dt('confirmpopup.shadow')};
 }
 
 .p-confirmpopup-content {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: ${dt('confirmpopup.content.padding')};
+    gap: ${dt('confirmpopup.content.gap')};
 }
 
 .p-confirmpopup-icon {
-    font-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.p-confirmpopup-message {
-    margin-left: 1rem;
+    font-size: ${dt('confirmpopup.icon.size')};
+    width: ${dt('confirmpopup.icon.size')};
+    height: ${dt('confirmpopup.icon.size')};
+    color: ${dt('confirmpopup.icon.color')};
 }
 
 .p-confirmpopup-footer {
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
-    padding: 0 1rem 1rem 1rem;
+    gap: ${dt('confirmpopup.footer.gap')};
+    padding: ${dt('confirmpopup.footer.padding')};
 }
 
 .p-confirmpopup-footer button {
@@ -46,7 +44,7 @@ const theme = ({ dt }) => `
 
 .p-confirmpopup-flipped {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: ${dt('confirmpopup.gutter')};
 }
 
 .p-confirmpopup-enter-from {
@@ -69,7 +67,7 @@ const theme = ({ dt }) => `
 .p-confirmpopup:after,
 .p-confirmpopup:before {
     bottom: 100%;
-    left: ${dt('{overlay.arrow.left} + 1.25rem', 0)};
+    left: ${dt('confirmpopup.arrow.offset')};
     content: " ";
     height: 0;
     width: 0;
@@ -78,16 +76,16 @@ const theme = ({ dt }) => `
 }
 
 .p-confirmpopup:after {
-    border-width: 8px;
-    margin-left: -8px;
+    border-width: calc(${dt('confirmpopup.gutter')} - 2px);
+    margin-left: calc(-1 * (${dt('confirmpopup.gutter')} - 2px));
     border-style: solid;
     border-color: transparent;
     border-bottom-color: ${dt('confirmpopup.background')};
 }
 
 .p-confirmpopup:before {
-    border-width: 10px;
-    margin-left: -10px;
+    border-width: ${dt('confirmpopup.gutter')};
+    margin-left: calc(-1 * ${dt('confirmpopup.gutter')});
     border-style: solid;
     border-color: transparent;
     border-bottom-color: ${dt('confirmpopup.border.color')};
