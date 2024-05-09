@@ -1,4 +1,15 @@
 export default {
+    root: {
+        fontSize: '0.875rem',
+        fontWeight: '700',
+        padding: '0.25rem 0.5rem',
+        gap: '0.25rem',
+        borderRadius: '{content.border.radius}',
+        roundedBorderRadius: '{border.radius.xl}'
+    },
+    icon: {
+        size: '0.75rem'
+    },
     colorScheme: {
         light: {
             primary: {

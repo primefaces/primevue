@@ -7,21 +7,21 @@ const theme = ({ dt }) => `
     justify-content: center;
     background: ${dt('tag.primary.background')};
     color: ${dt('tag.primary.color')};
-    font-size: 0.875rem;
-    font-weight: 700;
-    padding: 0.25rem 0.4rem;
-    border-radius: ${dt('border.radius.md')};
-    gap: 0.25rem;
+    font-size: ${dt('tag.font.size')};
+    font-weight: ${dt('tag.font.weight')};
+    padding: ${dt('tag.padding')};
+    border-radius: ${dt('tag.border.radius')};
+    gap: ${dt('tag.gap')};
 }
 
 .p-tag-icon {
-    font-size: 0.75rem;
-    width: 0.75rem;
-    height: 0.75rem;
+    font-size: ${dt('tag.icon.size')};
+    width: ${dt('tag.icon.size')};
+    height:${dt('tag.icon.size')};
 }
 
 .p-tag-rounded {
-    border-radius: 10rem;
+    border-radius: ${dt('tag.rounded.border.radius')};
 }
 
 .p-tag-success {
