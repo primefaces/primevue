@@ -4,9 +4,9 @@ const theme = ({ dt }) => `
 .p-inplace-display {
     display: inline;
     cursor: pointer;
-    padding: 0.5rem 0.75rem;
-    border-radius: ${dt('border.radius.md')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    padding: ${dt('inplace.padding')};
+    border-radius: ${dt('inplace.border.radius')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
 }
 
@@ -16,8 +16,9 @@ const theme = ({ dt }) => `
 }
 
 .p-inplace-display:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('inplace.focus.ring.shadow')};
+    outline: ${dt('inplace.focus.ring.width')} ${dt('inplace.focus.ring.style')} ${dt('inplace.focus.ring.color')};
+    outline-offset: ${dt('inplace.focus.ring.offset')};
 }
 
 .p-inplace-content {

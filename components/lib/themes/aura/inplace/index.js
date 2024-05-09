@@ -1,4 +1,12 @@
 export default {
+    padding: '{form.field.padding.y} {form.field.padding.x}',
+    focusRing: {
+        width: '{focus.ring.width}',
+        style: '{focus.ring.style}',
+        color: '{focus.ring.color}',
+        offset: '{focus.ring.offset}',
+        shadow: '{focus.ring.shadow}'
+    },
     colorScheme: {
         light: {
             display: {
