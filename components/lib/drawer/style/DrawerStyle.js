@@ -98,51 +98,12 @@ const theme = ({ dt }) => `
     border-top-width: 1px;
 }
 
-.p-drawer-left .p-drawer-sm,
-.p-drawer-right .p-drawer-sm {
-    width: 20rem;
-}
-
-.p-drawer-left .p-drawer-md,
-.p-drawer-right .p-drawer-md {
-    width: 40rem;
-}
-
-.p-drawer-left .p-drawer-lg,
-.p-drawer-right .p-drawer-lg {
-    width: 60rem;
-}
-
-.p-drawer-top .p-drawer-sm,
-.p-drawer-bottom .p-drawer-sm {
-    height: 10rem;
-}
-
-.p-drawer-top .p-drawer-md,
-.p-drawer-bottom .p-drawer-md {
-    height: 20rem;
-}
-
-.p-drawer-top .p-drawer-lg,
-.p-drawer-bottom .p-drawer-lg {
-    height: 30rem;
-}
-
 .p-drawer-left .p-drawer-content,
 .p-drawer-right .p-drawer-content,
 .p-drawer-top .p-drawer-content,
 .p-drawer-bottom .p-drawer-content {
     width: 100%;
     height: 100%;
-}
-
-@media screen and (max-width: 64em) {
-    .p-drawer-left .p-drawer-lg,
-    .p-drawer-left .p-drawer-md,
-    .p-drawer-right .p-drawer-lg,
-    .p-drawer-right .p-drawer-md {
-        width: 20rem;
-    }
 }
 
 .p-drawer-open {
