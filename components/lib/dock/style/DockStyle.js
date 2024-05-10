@@ -13,10 +13,10 @@ const theme = ({ dt }) => `
 .p-dock-list-container {
     display: flex;
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 0.5rem;
-    border-radius: 0.5rem;
+    background: ${dt('dock.background')};
+    border: 1px solid ${dt('dock.border.color')};
+    padding: ${dt('dock.padding')};
+    border-radius: ${dt('dock.border.radius')};
 }
 
 .p-dock-list {
@@ -32,13 +32,14 @@ const theme = ({ dt }) => `
 .p-dock-item {
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
-    padding: 0.5rem;
-    border-radius: 6px;
+    padding: ${dt('dock.item.padding')};
+    border-radius: ${dt('dock.item.border.radius')};
 }
 
 .p-dock-item.p-focus {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('dock.item.focus.ring.shadow')};
+    outline: ${dt('dock.item.focus.ring.width')} ${dt('dock.item.focus.ring.style')} ${dt('dock.item.focus.ring.color')};
+    outline-offset: ${dt('dock.item.focus.ring.offset')};
 }
 
 .p-dock-item-link {
@@ -49,8 +50,8 @@ const theme = ({ dt }) => `
     position: relative;
     overflow: hidden;
     cursor: default;
-    width: 3rem;
-    height: 3rem;
+    width: ${dt('dock.item.size')};
+    height: ${dt('dock.item.size')};
 }
 
 .p-dock-top {
