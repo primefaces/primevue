@@ -3,9 +3,7 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-breadcrumb {
     background: ${dt('breadcrumb.background')};
-    border: 0 none;
-    border-radius: ${dt('border.radius.md')};
-    padding: 1rem;
+    padding: ${dt('breadcrumb.padding')};
     overflow-x: auto;
 }
 
@@ -16,12 +14,12 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
+    gap: ${dt('breadcrumb.gap')};
 }
 
 .p-breadcrumb-separator {
     display: flex;
     align-items: center;
-    margin: 0 0.5rem 0 0.5rem;
     color: ${dt('breadcrumb.separator.color')};
 }
 
@@ -33,20 +31,16 @@ const theme = ({ dt }) => `
     text-decoration: none;
     display: flex;
     align-items: center;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('breadcrumb.item.border.radius')};
     outline-color: transparent;
+    color: ${dt('breadcrumb.item.color')};
 }
 
 .p-breadcrumb-item-link:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
-}
-
-.p-breadcrumb-item-link {
-    color: ${dt('breadcrumb.item.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    line-height: 1;
+    box-shadow: ${dt('breadcrumb.item.focus.ring.shadow')};
+    outline: ${dt('breadcrumb.item.focus.ring.width')} ${dt('breadcrumb.item.focus.ring.style')} ${dt('breadcrumb.item.focus.ring.color')};
+    outline-offset: ${dt('breadcrumb.item.focus.ring.offset')};
 }
 
 .p-breadcrumb-item-label:hover {

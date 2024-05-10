@@ -287,7 +287,7 @@ export default {
                     item: {
                         focusBackground: '{surface.100}',
                         color: '{text.color}',
-                        hoverColor: '{text.hover.color}',
+                        focusColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.400}',
                             focusColor: '{surface.500}'
@@ -397,7 +397,7 @@ export default {
                     item: {
                         focusBackground: '{surface.800}',
                         color: '{text.color}',
-                        hoverColor: '{text.hover.color}',
+                        focusColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.500}',
                             focusColor: '{surface.400}'
