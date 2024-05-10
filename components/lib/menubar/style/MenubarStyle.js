@@ -25,8 +25,8 @@ const theme = ({ dt }) => `
     flex-wrap: wrap;
 }
 
-.p-menubar-root-list > .p-menubar-item-active > .p-menubar-submenu {
-    display: block;
+.p-menubar-submenu {
+    flex-direction: column
 }
 
 .p-menubar-item-content {
@@ -243,7 +243,7 @@ const theme = ({ dt }) => `
 `;
 
 const inlineStyles = {
-    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'block' : 'none' })
+    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'flex' : 'none' })
 };
 
 const classes = {

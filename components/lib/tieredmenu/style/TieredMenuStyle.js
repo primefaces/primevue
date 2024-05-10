@@ -129,7 +129,7 @@ const theme = ({ dt }) => `
 `;
 
 const inlineStyles = {
-    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'block' : 'none' })
+    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'flex' : 'none' })
 };
 
 const classes = {

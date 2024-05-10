@@ -21,6 +21,8 @@ const theme = ({ dt }) => `
 
 .p-contextmenu-submenu {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     min-width: 100%;
     z-index: 1;
     padding: 0.25rem 0.25rem;
