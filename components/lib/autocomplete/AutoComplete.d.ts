@@ -182,9 +182,9 @@ export interface AutoCompletePassThroughOptions {
      */
     dropdownIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
-    panel?: AutoCompletePassThroughOptionType;
+    overlay?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the VirtualScroller component.
      * @see {@link VirtualScrollerPassThroughOptionType}
@@ -327,7 +327,7 @@ export interface AutoCompleteProps {
      */
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
-     * Maximum height of the suggestions panel.
+     * Maximum height of the suggestions overlay.
      * @defaultValue 14rem
      */
     scrollHeight?: string | undefined;
@@ -419,13 +419,21 @@ export interface AutoCompleteProps {
      */
     inputClass?: string | object | undefined;
     /**
-     * Inline style of the overlay panel.
+     * Inline style of the overlay.
      */
     panelStyle?: object | undefined;
     /**
-     * Style class of the overlay panel.
+     * Style class of the overlay.
      */
     panelClass?: string | object | undefined;
+    /**
+     * Inline style of the overlay overlay.
+     */
+    overlayStyle?: object | undefined;
+    /**
+     * Style class of the overlay overlay.
+     */
+    overlayClass?: string | object | undefined;
     /**
      * Icon to display in the dropdown.
      * @deprecated since v3.27.0. Use 'dropdownicon' slot.
@@ -459,7 +467,7 @@ export interface AutoCompleteProps {
      */
     virtualScrollerOptions?: VirtualScrollerProps;
     /**
-     * Whether to focus on the first visible or selected element when the overlay panel is shown.
+     * Whether to focus on the first visible or selected element when the overlay is shown.
      * @defaultValue false
      */
     autoOptionFocus?: boolean | undefined;

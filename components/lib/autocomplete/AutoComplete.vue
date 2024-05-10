@@ -124,11 +124,11 @@
                     v-if="overlayVisible"
                     :ref="overlayRef"
                     :id="panelId"
-                    :class="[cx('panel'), panelClass]"
-                    :style="{ ...panelStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
+                    :class="[cx('overlay'), panelClass, overlayClass]"
+                    :style="{ ...panelStyle, ...overlayStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
                     @click="onOverlayClick"
                     @keydown="onOverlayKeyDown"
-                    v-bind="ptm('panel')"
+                    v-bind="ptm('overlay')"
                 >
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
                     <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">

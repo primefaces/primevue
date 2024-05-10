@@ -262,7 +262,7 @@ const classes = {
     inputChip: 'p-autocomplete-input-chip',
     loader: 'p-autocomplete-loader',
     dropdown: 'p-autocomplete-dropdown',
-    panel: 'p-autocomplete-overlay p-component',
+    overlay: 'p-autocomplete-overlay p-component',
     list: 'p-autocomplete-list',
     optionGroup: 'p-autocomplete-option-group',
     option: ({ instance, option, i, getItemOptions }) => [

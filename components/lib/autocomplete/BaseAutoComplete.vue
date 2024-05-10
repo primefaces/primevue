@@ -105,6 +105,14 @@ export default {
             type: [String, Object],
             default: null
         },
+        overlayStyle: {
+            type: Object,
+            default: null
+        },
+        overlayClass: {
+            type: [String, Object],
+            default: null
+        },
         dropdownIcon: {
             type: String,
             default: null
