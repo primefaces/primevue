@@ -170,6 +170,19 @@ export default {
         content: {
             borderRadius: '{border.radius.sm}'
         },
+        navigation: {
+            padding: '0.5rem 0',
+            gap: '0',
+            item: {
+                padding: '0.625rem 1rem',
+                borderRadius: '0',
+                gap: '0.5rem'
+            },
+            submenuLabel: {
+                padding: '0.625rem 1rem',
+                fontWeight: '600'
+            }
+        },
         overlay: {
             select: {
                 borderRadius: '{border.radius.sm}',
@@ -184,6 +197,9 @@ export default {
                 borderRadius: '{border.radius.lg}',
                 padding: '1.5rem',
                 shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+            },
+            navigation: {
+                shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
             }
         },
         colorScheme: {
@@ -295,8 +311,9 @@ export default {
                             focusColor: '{surface.500}'
                         }
                     },
-                    submenu: {
-                        color: '{surface.400}'
+                    submenuLabel: {
+                        background: '{surface.0}',
+                        color: '{text.color}'
                     }
                 }
             },
@@ -408,8 +425,9 @@ export default {
                             focusColor: '{surface.400}'
                         }
                     },
-                    submenu: {
-                        color: '{surface.500}'
+                    submenuLabel: {
+                        background: '{surface.900}',
+                        color: '{text.color}'
                     }
                 }
             }

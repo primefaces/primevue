@@ -2,11 +2,11 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-menu {
-    padding: 0.25rem 0.25rem;
+    padding: ${dt('menu.padding')};
     background: ${dt('menu.background')};
     color: ${dt('menu.color')};
     border: 1px solid ${dt('menu.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('menu.border.radius')};
     min-width: 12.5rem;
 }
 
@@ -15,18 +15,9 @@ const theme = ({ dt }) => `
     padding: 0;
     outline: 0;
     list-style: none;
-}
-
-.p-menu-item {
-    margin: 2px 0;
-}
-
-.p-menu-item:first-child {
-    margin-top: 0;
-}
-
-.p-menu-item:last-child {
-    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('menu.gap')};
 }
 
 .p-menu-item-link {
@@ -37,13 +28,14 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     color: inherit;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('menu.item.padding')};
     user-select: none;
+    gap: ${dt('menu.item.gap')};
 }
 
 .p-menu-item-content {
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius:  ${dt('border.radius.sm')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    border-radius: ${dt('menu.item.border.radius')};
     color: ${dt('menu.item.color')};
 }
 
@@ -53,7 +45,6 @@ const theme = ({ dt }) => `
 
 .p-menu-item-icon {
     color: ${dt('menu.item.icon.color')};
-    margin-right: 0.5rem;
 }
 
 .p-menu-item.p-focus .p-menu-item-content {
@@ -62,7 +53,7 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item.p-focus .p-menu-item-icon {
-    color: ${dt('menu.item.icon.hover.color')};
+    color: ${dt('menu.item.icon.focus.color')};
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover {
@@ -71,23 +62,22 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover .p-menu-item-icon {
-    color: ${dt('menu.item.icon.hover.color')};
+    color: ${dt('menu.item.icon.focus.color')};
 }
 
 .p-menu-overlay {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: ${dt('menu.shadow')};
 }
 
 .p-menu-submenu-item {
-    margin: 0;
-    padding: 0.5rem 0.75rem;
-    color: ${dt('menu.submenu.item.color')};
-    font-weight: 600;
+    background: ${dt('menu.submenu.label.background')};
+    padding: ${dt('menu.submenu.label.padding')};
+    color: ${dt('menu.submenu.label.color')};
+    font-weight: ${dt('menu.submenu.label.font.weight')};
 }
 
 .p-menu-separator {
-    border-top: 1px solid ${dt('menu.separator.border.color.color')};
-    margin: 2px 0;
+    border-top: 1px solid ${dt('menu.separator.border.color')};
 }
 `;
 

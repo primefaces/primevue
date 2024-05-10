@@ -161,7 +161,7 @@ export default {
             },
             option: {
                 padding: '0.5rem 0.75rem',
-                borderRadius: '4px'
+                borderRadius: '{border.radius.sm}'
             },
             optionGroup: {
                 padding: '0.5rem 0.75rem',
@@ -170,6 +170,19 @@ export default {
         },
         content: {
             borderRadius: '{border.radius.md}'
+        },
+        navigation: {
+            padding: '0.25rem 0.25rem',
+            gap: '2px',
+            item: {
+                padding: '0.5rem 0.75rem',
+                borderRadius: '{border.radius.sm}',
+                gap: '0.5rem'
+            },
+            submenuLabel: {
+                padding: '0.5rem 0.75rem',
+                fontWeight: '600'
+            }
         },
         overlay: {
             select: {
@@ -185,6 +198,9 @@ export default {
                 borderRadius: '{border.radius.xl}',
                 padding: '1.25rem',
                 shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+            },
+            navigation: {
+                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
             }
         },
         colorScheme: {
@@ -293,8 +309,9 @@ export default {
                             focusColor: '{surface.500}'
                         }
                     },
-                    submenu: {
-                        color: '{surface.400}'
+                    submenuLabel: {
+                        background: '{surface.0}',
+                        color: '{text.muted.color}'
                     }
                 }
             },
@@ -403,8 +420,9 @@ export default {
                             focusColor: '{surface.400}'
                         }
                     },
-                    submenu: {
-                        color: '{surface.500}'
+                    submenuLabel: {
+                        background: '{surface.900}',
+                        color: '{text.muted.color}'
                     }
                 }
             }
