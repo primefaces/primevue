@@ -177,8 +177,15 @@ export interface FieldsetSlots {
     default: () => VNode[];
     /**
      * Custom legend template.
+     * @param {Object} scope - legend slot's params.
      */
-    legend: () => VNode[];
+    legend(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
+    }): VNode[];
     /**
      * @deprecated since v4.0. Use the 'toggleicon' slot instead.
      * Custom toggler icon template.

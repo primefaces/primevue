@@ -12,7 +12,6 @@ const theme = ({ dt }) => `
 
 .p-fieldset-legend {
     background: ${dt('fieldset.legend.background')};
-    font-weight: 600;
     border-radius: 6px;
     border: 0 none;
     padding: 0.5rem 0.75rem;
@@ -23,7 +22,7 @@ const theme = ({ dt }) => `
     padding: 0;
 }
 
-.p-fieldset-toggleable > .p-fieldset-legend > a {
+.p-fieldset-toggleable > .p-fieldset-legend > button {
     cursor: pointer;
     user-select: none;
     overflow: hidden;
@@ -34,10 +33,16 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     padding: 0.5rem 0.75rem;
+    background: transparent;
     color: ${dt('fieldset.legend.color')};
+    border: 0 none;
     border-radius: ${dt('border.radius.md')};
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
+}
+
+.p-fieldset-legend-label {
+    font-weight: 600;
 }
 
 .p-fieldset-toggleable > .p-fieldset-legend > a:focus-visible {

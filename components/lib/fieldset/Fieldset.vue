@@ -1,30 +1,27 @@
 <template>
     <fieldset :class="cx('root')" v-bind="ptmi('root')">
         <legend :class="cx('legend')" v-bind="ptm('legend')">
-            <slot v-if="!toggleable" name="legend">
-                <span :id="id + '_header'" :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
-            </slot>
-            <a
-                v-if="toggleable"
-                :id="id + '_header'"
-                v-ripple
-                tabindex="0"
-                role="button"
-                :aria-controls="id + '_content'"
-                :aria-expanded="!d_collapsed"
-                :aria-label="buttonAriaLabel"
-                @click="toggle"
-                @keydown="onKeyDown"
-                v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
-            >
-                <!--TODO: togglericon deprecated since v4.0-->
-                <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
-                    <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="cx('toggleIcon')" v-bind="ptm('toggleIcon')" />
-                </slot>
-                <slot name="legend">
+            <slot name="legend" :toggleCallback="toggle">
+                <span v-if="!toggleable" :id="id + '_header'" :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
+                <button
+                    v-if="toggleable"
+                    :id="id + '_header'"
+                    v-ripple
+                    type="button"
+                    :aria-controls="id + '_content'"
+                    :aria-expanded="!d_collapsed"
+                    :aria-label="buttonAriaLabel"
+                    @click="toggle"
+                    @keydown="onKeyDown"
+                    v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
+                >
+                    <!--TODO: togglericon deprecated since v4.0-->
+                    <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
+                        <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="cx('toggleIcon')" v-bind="ptm('toggleIcon')" />
+                    </slot>
                     <span :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
-                </slot>
-            </a>
+                </button>
+            </slot>
         </legend>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
             <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('contentContainer')">

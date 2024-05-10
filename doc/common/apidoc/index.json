@@ -31719,16 +31719,22 @@
                             "readonly": false,
                             "type": "Function",
                             "default": ""
-                        },
-                        {
-                            "name": "legend",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
                         }
                     ],
                     "methods": [
+                        {
+                            "name": "legend",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n}",
+                                    "description": "legend slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom legend template."
+                        },
                         {
                             "name": "togglericon",
                             "parameters": [
@@ -31918,7 +31924,7 @@
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": [
                         {
-                            "name": "basicUpload",
+                            "name": "upload",
                             "parameters": [],
                             "returnType": "void",
                             "description": "Upload file."
