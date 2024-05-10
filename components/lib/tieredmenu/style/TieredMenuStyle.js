@@ -31,6 +31,10 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('tieredmenu.shadow')};
 }
 
+.p-tieredmenu-item {
+    position: relative;
+}
+
 .p-tieredmenu-item-content {
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
     border-radius: ${dt('tieredmenu.item.border.radius')};
