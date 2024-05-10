@@ -2,50 +2,43 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-contextmenu {
-    padding: 0.25rem 0.25rem;
     background: ${dt('contextmenu.background')};
     color: ${dt('contextmenu.color')};
     border: 1px solid ${dt('contextmenu.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('contextmenu.border.radius')};
+    box-shadow: ${dt('contextmenu.shadow')};
     min-width: 12.5rem;
 }
 
 .p-contextmenu-root-list,
 .p-contextmenu-submenu {
     margin: 0;
-    padding: 0;
+    padding: ${dt('contextmenu.list.padding')};
     list-style: none;
     outline: 0 none;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('contextmenu.list.gap')};
 }
 
 .p-contextmenu-submenu {
     position: absolute;
     min-width: 100%;
     z-index: 1;
-    padding: 0.25rem 0.25rem;
     background: ${dt('contextmenu.background')};
     color: ${dt('contextmenu.color')};
     border: 1px solid ${dt('contextmenu.border.color')};
-    border-radius: ${dt('border.radius.md')};
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-radius: ${dt('contextmenu.border.radius')};
+    box-shadow: ${dt('contextmenu.shadow')};
 }
 
 .p-contextmenu-item {
     position: relative;
-    margin: 2px 0;
-}
-
-.p-contextmenu-item:first-child {
-    margin-top: 0;
-}
-.p-contextmenu-item:last-child {
-    margin-bottom: 0;
 }
 
 .p-contextmenu-item-content {
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.sm')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    border-radius: ${dt('contextmenu.item.border.radius')};
     color: ${dt('contextmenu.item.color')};
 }
 
@@ -57,7 +50,8 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     color: inherit;
-    padding: 0.5rem 0.75rem;
+    padding: ${dt('contextmenu.item.padding')};
+    gap: ${dt('contextmenu.item.gap')};
     user-select: none;
 }
 
@@ -67,15 +61,14 @@ const theme = ({ dt }) => `
 
 .p-contextmenu-item-icon {
     color: ${dt('contextmenu.item.icon.color')};
-    margin-right: 0.5rem;
 }
 
 .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.color')};
+    color: ${dt('contextmenu.submenu.icon.color')};
     margin-left: auto;
-    font-size: 0.875rem;
-    width: 0.875rem;
-    height: 0.875rem;
+    font-size: ${dt('contextmenu.submenu.icon.size')};
+    width: ${dt('contextmenu.submenu.icon.size')};
+    height: ${dt('contextmenu.submenu.icon.size')};
 }
 
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content {
@@ -83,9 +76,12 @@ const theme = ({ dt }) => `
     background: ${dt('contextmenu.item.focus.background')};
 }
 
-.p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-item-icon,
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-item-icon {
+    color: ${dt('contextmenu.item.icon.focus.color')};
+}
+
 .p-contextmenu-item.p-focus > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.hover.color')};
+    color: ${dt('contextmenu.submenu.icon.focus.color')};
 }
 
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover {
@@ -93,24 +89,29 @@ const theme = ({ dt }) => `
     background: ${dt('contextmenu.item.focus.background')};
 }
 
-.p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-item-icon,
+.p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-item-icon {
+    color: ${dt('contextmenu.item.icon.focus.color')};
+}
+
 .p-contextmenu-item:not(.p-disabled) > .p-contextmenu-item-content:hover .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.hover.color')};
+    color: ${dt('contextmenu.submenu.icon.focus.color')};
 }
 
 .p-contextmenu-item-active > .p-contextmenu-item-content {
-    color: ${dt('contextmenu.item.focus.color')};
-    background: ${dt('contextmenu.item.focus.background')};
+    color: ${dt('contextmenu.item.active.color')};
+    background: ${dt('contextmenu.item.active.background')};
 }
 
-.p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-item-icon,
+.p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-item-icon {
+    color: ${dt('contextmenu.item.icon.active.color')};
+}
+
 .p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
-    color: ${dt('contextmenu.item.icon.hover.color')};
+    color: ${dt('contextmenu.submenu.icon.active.color')};
 }
 
 .p-contextmenu-separator {
     border-top: 1px solid  ${dt('contextmenu.separator.border.color')};
-    margin: 2px 0;
 }
 
 .p-contextmenu-enter-from,

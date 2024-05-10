@@ -25,12 +25,6 @@ export default {
             focusColor: '{navigation.item.icon.active.color}'
         }
     },
-    submenuLabel: {
-        padding: '{navigation.submenu.label.padding}',
-        fontWeight: '{navigation.submenu.label.font.weight}',
-        bakcground: '{navigation.submenu.label.background.}',
-        color: '{navigation.submenu.label.color}'
-    },
     submenuIcon: {
         size: '{navigation.submenu.icon.size}',
         color: '{navigation.submenu.icon.color}',
