@@ -86,7 +86,7 @@ export interface AutoCompleteChangeEvent {
  * Custom item select event.
  * @see {@link AutoCompleteEmits['item-select']}
  */
-export interface AutoCompleteItemSelectEvent {
+export interface AutoCompleteOptionSelectEvent {
     /**
      * Browser event
      */
@@ -100,9 +100,9 @@ export interface AutoCompleteItemSelectEvent {
 /**
  * Custom item unselect event.
  * @see {@link AutoCompleteEmits['item-unselect']}
- * @extends AutoCompleteItemSelectEvent
+ * @extends AutoCompleteOptionSelectEvent
  */
-export interface AutoCompleteItemUnselectEvent extends AutoCompleteItemSelectEvent {}
+export interface AutoCompleteOptionUnselectEvent extends AutoCompleteOptionSelectEvent {}
 
 /**
  * Custom dropdown click event.
@@ -795,15 +795,27 @@ export interface AutoCompleteEmits {
      */
     blur(event: Event): void;
     /**
+     * @deprecated since v4.0. Use 'option-select' emit.
      * Callback to invoke when a suggestion is selected.
-     * @param {AutoCompleteItemSelectEvent} event - Custom item select event.
+     * @param {AutoCompleteOptionSelectEvent} event - Custom option select event.
      */
-    'item-select'(event: AutoCompleteItemSelectEvent): void;
+    'item-select'(event: AutoCompleteOptionSelectEvent): void;
+    /**
+     * @deprecated since v4.0. Use 'option-unselect' emit.
+     * Callback to invoke when a selected value is removed.
+     * @param {AutoCompleteOptionUnselectEvent} event - Custom option unselect event.
+     */
+    'item-unselect'(event: AutoCompleteOptionUnselectEvent): void;
+    /**
+     * Callback to invoke when a suggestion is selected.
+     * @param {AutoCompleteOptionSelectEvent} event - Custom option select event.
+     */
+    'option-select'(event: AutoCompleteOptionSelectEvent): void;
     /**
      * Callback to invoke when a selected value is removed.
-     * @param {AutoCompleteItemUnselectEvent} event - Custom item unselect event.
+     * @param {AutoCompleteOptionUnselectEvent} event - Custom option unselect event.
      */
-    'item-unselect'(event: AutoCompleteItemUnselectEvent): void;
+    'option-unselect'(event: AutoCompleteOptionUnselectEvent): void;
     /**
      * Callback to invoke to when dropdown button is clicked.
      * @param {AutoCompleteDropdownClickEvent} event - Custom dropdown click event.

@@ -197,7 +197,7 @@ export default {
     name: 'AutoComplete',
     extends: BaseAutoComplete,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'option-select', 'option-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
@@ -531,6 +531,7 @@ export default {
             }
 
             this.$emit('item-select', { originalEvent: event, value: option });
+            this.$emit('option-select', { originalEvent: event, value: option });
 
             isHide && this.hide(true);
         },
@@ -662,6 +663,7 @@ export default {
 
                     this.$emit('update:modelValue', newValue);
                     this.$emit('item-unselect', { originalEvent: event, value: removedValue });
+                    this.$emit('option-unselect', { originalEvent: event, value: removedValue });
                 }
 
                 event.stopPropagation(); // To prevent onBackspaceKeyOnMultiple method
@@ -843,6 +845,7 @@ export default {
 
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
+            this.$emit('option-unselect', { originalEvent: event, value: removedOption });
             this.dirty = true;
             DomHandler.focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
         },

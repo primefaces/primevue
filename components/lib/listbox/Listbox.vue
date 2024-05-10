@@ -149,7 +149,7 @@ export default {
     name: 'Listbox',
     extends: BaseListbox,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter', 'item-dblclick'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'filter', 'item-dblclick', 'option-dblclick'],
     list: null,
     virtualScroller: null,
     optionTouched: false,
@@ -339,6 +339,10 @@ export default {
         },
         onOptionDblClick(event, item) {
             this.$emit('item-dblclick', {
+                originalEvent: event,
+                value: item
+            });
+            this.$emit('option-dblclick', {
                 originalEvent: event,
                 value: item
             });

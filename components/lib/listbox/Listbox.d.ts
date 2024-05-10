@@ -85,7 +85,7 @@ export interface ListboxChangeEvent {
  * Custom double click event.
  * @see {@link ListboxEmits.['item-dblclick']}
  */
-export interface ListboxItemDblClickEvent {
+export interface ListboxOptionDblClickEvent {
     /**
      * Original event
      */
@@ -582,10 +582,15 @@ export interface ListboxEmits {
      */
     filter(event: ListboxFilterEvent): void;
     /**
-     * Callback to invoke on item double click.
-     * @param {ListboxItemDblClickEvent} event - Custom item double click event.
+     * Callback to invoke on option double click.
+     * @param {ListboxOptionDblClickEvent} event - Custom option double click event.
      */
-    'item-dblclick'(event: ListboxItemDblClickEvent): void;
+    'item-dblclick'(event: ListboxOptionDblClickEvent): void;
+    /**
+     * Callback to invoke on option double click.
+     * @param {ListboxOptionDblClickEvent} event - Custom option double click event.
+     */
+    'option-dblclick'(event: ListboxOptionDblClickEvent): void;
 }
 
 /**

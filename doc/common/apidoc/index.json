@@ -4109,7 +4109,7 @@
                     ],
                     "methods": []
                 },
-                "AutoCompleteItemSelectEvent": {
+                "AutoCompleteOptionSelectEvent": {
                     "description": "Custom item select event.",
                     "relatedProp": "AutoCompleteEmits['item-select']",
                     "props": [
@@ -4131,9 +4131,9 @@
                         }
                     ],
                     "methods": [],
-                    "extendedBy": "AutoCompleteItemUnselectEvent"
+                    "extendedBy": "AutoCompleteOptionUnselectEvent"
                 },
-                "AutoCompleteItemUnselectEvent": {
+                "AutoCompleteOptionUnselectEvent": {
                     "description": "Custom item unselect event.",
                     "relatedProp": "AutoCompleteEmits['item-unselect']",
                     "props": [
@@ -4155,7 +4155,7 @@
                         }
                     ],
                     "methods": [],
-                    "extendedTypes": "AutoCompleteItemSelectEvent"
+                    "extendedTypes": "AutoCompleteOptionSelectEvent"
                 },
                 "AutoCompleteDropdownClickEvent": {
                     "description": "Custom dropdown click event.",
@@ -4288,12 +4288,12 @@
                             "description": "Used to pass attributes to the dropdown icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay's DOM element."
                         },
                         {
                             "name": "virtualScroller",
@@ -4544,7 +4544,7 @@
                             "readonly": false,
                             "type": "string",
                             "default": "14rem",
-                            "description": "Maximum height of the suggestions panel."
+                            "description": "Maximum height of the suggestions overlay."
                         },
                         {
                             "name": "dropdown",
@@ -4697,7 +4697,7 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Inline style of the overlay panel."
+                            "description": "Inline style of the overlay."
                         },
                         {
                             "name": "panelClass",
@@ -4705,7 +4705,23 @@
                             "readonly": false,
                             "type": "string | object",
                             "default": "",
-                            "description": "Style class of the overlay panel."
+                            "description": "Style class of the overlay."
+                        },
+                        {
+                            "name": "overlayStyle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Inline style of the overlay overlay."
+                        },
+                        {
+                            "name": "overlayClass",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | object",
+                            "default": "",
+                            "description": "Style class of the overlay overlay."
                         },
                         {
                             "name": "dropdownIcon",
@@ -4772,7 +4788,7 @@
                             "readonly": false,
                             "type": "boolean",
                             "default": "false",
-                            "description": "Whether to focus on the first visible or selected element when the overlay panel is shown."
+                            "description": "Whether to focus on the first visible or selected element when the overlay is shown."
                         },
                         {
                             "name": "selectOnFocus",
@@ -5147,12 +5163,13 @@
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "AutoCompleteItemSelectEvent",
-                                    "description": "Custom item select event."
+                                    "type": "AutoCompleteOptionSelectEvent",
+                                    "description": "Custom option select event."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke when a suggestion is selected."
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'option-select' emit.\nCallback to invoke when a suggestion is selected."
                         },
                         {
                             "name": "item-unselect",
@@ -5160,8 +5177,35 @@
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "AutoCompleteItemUnselectEvent",
-                                    "description": "Custom item unselect event."
+                                    "type": "AutoCompleteOptionUnselectEvent",
+                                    "description": "Custom option unselect event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "",
+                            "deprecated": "since v4.0. Use 'option-unselect' emit.\nCallback to invoke when a selected value is removed."
+                        },
+                        {
+                            "name": "option-select",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "AutoCompleteOptionSelectEvent",
+                                    "description": "Custom option select event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a suggestion is selected."
+                        },
+                        {
+                            "name": "option-unselect",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "AutoCompleteOptionUnselectEvent",
+                                    "description": "Custom option unselect event."
                                 }
                             ],
                             "returnType": "void",
@@ -11760,36 +11804,36 @@
                             "description": "Used to pass attributes to the list's DOM element."
                         },
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item's DOM element."
+                            "description": "Used to pass attributes to the option's DOM element."
                         },
                         {
-                            "name": "itemContent",
+                            "name": "optionContent",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item content's DOM element."
+                            "description": "Used to pass attributes to the option content's DOM element."
                         },
                         {
-                            "name": "itemText",
+                            "name": "optionText",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item text's DOM element."
+                            "description": "Used to pass attributes to the option text's DOM element."
                         },
                         {
-                            "name": "itemList",
+                            "name": "optionList",
                             "optional": true,
                             "readonly": false,
                             "type": "CascadeSelectPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the item list's DOM element."
+                            "description": "Used to pass attributes to the option list's DOM element."
                         },
                         {
                             "name": "groupIcon",
@@ -11938,7 +11982,7 @@
                     "relatedProp": "",
                     "props": [
                         {
-                            "name": "item",
+                            "name": "option",
                             "optional": false,
                             "readonly": false,
                             "type": "any",
@@ -11962,12 +12006,12 @@
                             "description": "Level of the option."
                         },
                         {
-                            "name": "itemGroup",
+                            "name": "optionGroup",
                             "optional": false,
                             "readonly": false,
                             "type": "boolean",
                             "default": "",
-                            "description": "Current item group state of option as a boolean."
+                            "description": "Current option group state of option as a boolean."
                         },
                         {
                             "name": "active",
@@ -40798,7 +40842,7 @@
                     ],
                     "methods": []
                 },
-                "ListboxItemDblClickEvent": {
+                "ListboxOptionDblClickEvent": {
                     "description": "Custom double click event.",
                     "relatedProp": "listboxListboxEmits.['item-dblclick']",
                     "props": [
@@ -41592,12 +41636,25 @@
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "ListboxItemDblClickEvent",
-                                    "description": "Custom item double click event."
+                                    "type": "ListboxOptionDblClickEvent",
+                                    "description": "Custom option double click event."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Callback to invoke on item double click."
+                            "description": "Callback to invoke on option double click."
+                        },
+                        {
+                            "name": "option-dblclick",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "ListboxOptionDblClickEvent",
+                                    "description": "Custom option double click event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on option double click."
                         }
                     ]
                 }
