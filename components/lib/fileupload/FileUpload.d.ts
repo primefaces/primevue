@@ -639,7 +639,7 @@ declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots
      *
      * @memberof FileUpload
      */
-    basicUpload(): void;
+    upload(): void;
 }
 
 declare module 'vue' {

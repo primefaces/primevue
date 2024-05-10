@@ -31,7 +31,7 @@ export default {
 export default {
     methods: {
         upload() {
-            this.$refs.fileupload.basicUpload();
+            this.$refs.fileupload.upload();
         },
         onUpload() {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
@@ -55,7 +55,7 @@ const toast = useToast();
 const fileupload = ref();
 
 const upload = () => {
-    fileupload.value.basicUpload();
+    fileupload.value.upload();
 };
 
 const onUpload = () => {
@@ -68,7 +68,7 @@ const onUpload = () => {
     },
     methods: {
         upload() {
-            this.$refs.fileupload.basicUpload();
+            this.$refs.fileupload.upload();
         },
         onUpload() {
             this.$toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });

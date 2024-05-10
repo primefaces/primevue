@@ -11,7 +11,7 @@
                 </template>
 
                 <template #end>
-                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
+                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2" />
                     <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)" />
                 </template>
             </Toolbar>
@@ -197,7 +197,7 @@ export default {
         <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
     </template>
     <template #end>
-        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
+        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2" />
         <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)"  />
     </template>
 </Toolbar>
@@ -259,7 +259,7 @@ export default {
                 </template>
 
                 <template #end>
-                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
+                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2" />
                     <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)"  />
                 </template>
             </Toolbar>
@@ -550,7 +550,7 @@ export default {
                 </template>
 
                 <template #end>
-                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block" />
+                    <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="Import" chooseLabel="Import" class="mr-2" />
                     <Button label="Export" icon="pi pi-upload" severity="help" @click="exportCSV($event)"  />
                 </template>
             </Toolbar>

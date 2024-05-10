@@ -2,7 +2,7 @@
     <div v-if="isAdvanced" :class="cx('root')" v-bind="ptmi('root')">
         <input ref="fileInput" type="file" @change="onFileSelect" :multiple="multiple" :accept="accept" :disabled="chooseDisabled" v-bind="ptm('input')" />
         <div :class="cx('header')" v-bind="ptm('header')">
-            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="upload" :clearCallback="clear">
+            <slot name="header" :files="files" :uploadedFiles="uploadedFiles" :chooseCallback="choose" :uploadCallback="uploader" :clearCallback="clear">
                 <Button :label="chooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @click="choose" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" :pt="ptm('pcChooseButton')">
                     <template #icon="iconProps">
                         <slot name="chooseicon">
@@ -10,7 +10,7 @@
                         </slot>
                     </template>
                 </Button>
-                <Button v-if="showUploadButton" :class="cx('pcUploadButton')" :label="uploadButtonLabel" @click="upload" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('pcUploadButton')">
+                <Button v-if="showUploadButton" :class="cx('pcUploadButton')" :label="uploadButtonLabel" @click="uploader" :disabled="uploadDisabled" :unstyled="unstyled" :pt="ptm('pcUploadButton')">
                     <template #icon="iconProps">
                         <slot name="uploadicon">
                             <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('pcUploadButton')['icon']" data-pc-section="uploadbuttonicon" />
@@ -94,8 +94,8 @@ export default {
         };
     },
     methods: {
-        basicUpload() {
-            if (this.hasFiles) this.upload();
+        upload() {
+            if (this.hasFiles) this.uploader();
         },
         onBasicUploaderClick(event) {
             if (event.button === 0 && !this.hasFiles) this.$refs.fileInput.click();
@@ -130,7 +130,7 @@ export default {
             }
 
             if (this.auto && this.hasFiles && !this.isFileLimitExceeded()) {
-                this.upload();
+                this.uploader();
             }
 
             if (event.type !== 'drop' && this.isIE11()) {
@@ -142,7 +142,7 @@ export default {
         choose() {
             this.$refs.fileInput.click();
         },
-        upload() {
+        uploader() {
             if (this.customUpload) {
                 if (this.fileLimit) {
                     this.uploadedFileCount += this.files.length;
