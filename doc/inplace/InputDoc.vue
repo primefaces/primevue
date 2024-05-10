@@ -1,14 +1,15 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Inplace can be used within a form to display a value as read only before making it editable. The <i>closable</i> property adds a close button next to the content to switch back to read only mode.</p>
+        <p>Inplace can be used within a form to display a value as read only before making it editable.</p>
     </DocSectionText>
     <div class="card">
-        <Inplace :closable="true">
+        <Inplace>
             <template #display>
                 {{ text || 'Click to Edit' }}
             </template>
-            <template #content>
+            <template #content="{ closeCallback }">
                 <InputText v-model="text" autofocus />
+                <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
             </template>
         </Inplace>
     </div>
@@ -22,24 +23,26 @@ export default {
             text: null,
             code: {
                 basic: `
-<Inplace :closable="true">
+<Inplace>
     <template #display>
         {{ text || 'Click to Edit' }}
     </template>
-    <template #content>
+    <template #content="{ closeCallback }">
         <InputText v-model="text" autofocus />
+        <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
     </template>
 </Inplace>
 `,
                 options: `
 <template>
     <div class="card">
-        <Inplace :closable="true">
+        <Inplace>
             <template #display>
                 {{ text || 'Click to Edit' }}
             </template>
-            <template #content>
+            <template #content="{ closeCallback }">
                 <InputText v-model="text" autofocus />
+                <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
             </template>
         </Inplace>
     </div>
@@ -58,12 +61,13 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Inplace :closable="true">
+        <Inplace>
             <template #display>
                 {{ text || 'Click to Edit' }}
             </template>
-            <template #content>
+            <template #content="{ closeCallback }">
                 <InputText v-model="text" autofocus />
+                <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
             </template>
         </Inplace>
     </div>
