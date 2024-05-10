@@ -2,7 +2,6 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-menu {
-    padding: ${dt('menu.padding')};
     background: ${dt('menu.background')};
     color: ${dt('menu.color')};
     border: 1px solid ${dt('menu.border.color')};
@@ -12,12 +11,18 @@ const theme = ({ dt }) => `
 
 .p-menu-list {
     margin: 0;
-    padding: 0;
-    outline: 0;
+    padding: ${dt('menu.list.padding')};
+    outline: 0 none;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: ${dt('menu.gap')};
+    gap: ${dt('menu.list.gap')};
+}
+
+.p-menu-item-content {
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    border-radius: ${dt('menu.item.border.radius')};
+    color: ${dt('menu.item.color')};
 }
 
 .p-menu-item-link {
@@ -29,15 +34,9 @@ const theme = ({ dt }) => `
     position: relative;
     color: inherit;
     padding: ${dt('menu.item.padding')};
-    user-select: none;
     gap: ${dt('menu.item.gap')};
+    user-select: none;
     outline: 0 none;
-}
-
-.p-menu-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
-    border-radius: ${dt('menu.item.border.radius')};
-    color: ${dt('menu.item.color')};
 }
 
 .p-menu-item-label {

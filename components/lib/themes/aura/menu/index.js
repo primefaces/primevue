@@ -3,10 +3,12 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '{navigation.list.padding}',
         borderRadius: '{content.border.radius}',
-        gap: '{navigation.list.gap}',
         shadow: '{overlay.navigation.shadow}'
+    },
+    list: {
+        padding: '{navigation.list.padding}',
+        gap: '{navigation.list.gap}'
     },
     item: {
         focusBackground: '{navigation.item.focus.background}',

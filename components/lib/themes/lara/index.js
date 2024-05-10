@@ -183,6 +183,9 @@ export default {
             submenuLabel: {
                 padding: '0.625rem 1rem',
                 fontWeight: '600'
+            },
+            submenuIcon: {
+                size: '0.875rem'
             }
         },
         overlay: {
@@ -306,16 +309,24 @@ export default {
                 navigation: {
                     item: {
                         focusBackground: '{surface.100}',
+                        activeBackground: '{surface.100}',
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
+                        activeColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.400}',
-                            focusColor: '{surface.500}'
+                            focusColor: '{surface.500}',
+                            activeColor: '{surface.500}'
                         }
                     },
                     submenuLabel: {
                         background: '{surface.0}',
                         color: '{text.color}'
+                    },
+                    submenuIcon: {
+                        color: '{surface.400}',
+                        focusColor: '{surface.500}',
+                        activeColor: '{surface.500}'
                     }
                 }
             },
@@ -420,16 +431,24 @@ export default {
                 navigation: {
                     item: {
                         focusBackground: '{surface.800}',
+                        activeBackground: '{surface.800}',
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
+                        activeColor: '{text.hover.color}',
                         icon: {
                             color: '{surface.500}',
-                            focusColor: '{surface.400}'
+                            focusColor: '{surface.400}',
+                            activeColor: '{surface.400}'
                         }
                     },
                     submenuLabel: {
                         background: '{surface.900}',
                         color: '{text.color}'
+                    },
+                    submenuIcon: {
+                        color: '{surface.500}',
+                        focusColor: '{surface.400}',
+                        activeColor: '{surface.400}'
                     }
                 }
             }
