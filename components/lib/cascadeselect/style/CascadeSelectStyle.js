@@ -105,7 +105,7 @@ const theme = ({ dt }) => `
     min-width: 100%;
 }
 
-.p-cascadeselect-item-list {
+.p-cascadeselect-option-list {
     display: none;
     min-width: 100%;
     position: absolute;
@@ -123,7 +123,7 @@ const theme = ({ dt }) => `
     gap: ${dt('cascadeselect.list.gap')}
 }
 
-.p-cascadeselect-item {
+.p-cascadeselect-option {
     cursor: pointer;
     font-weight: normal;
     white-space: nowrap;
@@ -134,38 +134,38 @@ const theme = ({ dt }) => `
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
-.p-cascadeselect-item-active {
+.p-cascadeselect-option-active {
     overflow: visible;
     background: ${dt('cascadeselect.option.focus.background')};
     color: ${dt('cascadeselect.option.focus.color')};
 }
 
-.p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus {
+.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus {
     background: ${dt('cascadeselect.option.focus.background')};
     color: ${dt('cascadeselect.option.focus.color')};
 }
 
-.p-cascadeselect-item:not(.p-cascadeselect-item-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
+.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
     color: ${dt('cascadeselect.option.icon.focus.color')};
 }
 
-.p-cascadeselect-item-selected {
+.p-cascadeselect-option-selected {
     background: ${dt('cascadeselect.option.selected.background')};
     color: ${dt('cascadeselect.option.selected.color')};
 }
 
-.p-cascadeselect-item-selected.p-focus {
+.p-cascadeselect-option-selected.p-focus {
     background: ${dt('cascadeselect.option.selected.focus.background')};
     color: ${dt('cascadeselect.option.selected.focus.color')};
 }
 
-.p-cascadeselect-item-active > .p-cascadeselect-item-list {
+.p-cascadeselect-option-active > .p-cascadeselect-option-list {
     display: block;
     left: 100%;
     top: 0;
 }
 
-.p-cascadeselect-item-content {
+.p-cascadeselect-option-content {
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -212,19 +212,19 @@ const classes = {
     overlay: 'p-cascadeselect-overlay p-component',
     listContainer: 'p-cascadeselect-list-container',
     list: 'p-cascadeselect-list',
-    item: ({ instance, processedOption }) => [
-        'p-cascadeselect-item',
+    option: ({ instance, processedOption }) => [
+        'p-cascadeselect-option',
         {
-            'p-cascadeselect-item-active': instance.isOptionActive(processedOption),
-            'p-cascadeselect-item-selected': instance.isOptionSelected(processedOption),
+            'p-cascadeselect-option-active': instance.isOptionActive(processedOption),
+            'p-cascadeselect-option-selected': instance.isOptionSelected(processedOption),
             'p-focus': instance.isOptionFocused(processedOption),
             'p-disabled': instance.isOptionDisabled(processedOption)
         }
     ],
-    itemContent: 'p-cascadeselect-item-content',
-    itemText: 'p-cascadeselect-item-text',
+    optionContent: 'p-cascadeselect-option-content',
+    optionText: 'p-cascadeselect-option-text',
     groupIcon: 'p-cascadeselect-group-icon',
-    itemList: 'p-cascadeselect-overlay p-cascadeselect-item-list'
+    optionList: 'p-cascadeselect-overlay p-cascadeselect-option-list'
 };
 
 export default BaseStyle.extend({

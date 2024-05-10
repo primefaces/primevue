@@ -113,21 +113,21 @@ export interface CascadeSelectPassThroughOptions {
      */
     list?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
-    item?: CascadeSelectPassThroughOptionType;
+    option?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the option content's DOM element.
      */
-    itemContent?: CascadeSelectPassThroughOptionType;
+    optionContent?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the item text's DOM element.
+     * Used to pass attributes to the option text's DOM element.
      */
-    itemText?: CascadeSelectPassThroughOptionType;
+    optionText?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the item list's DOM element.
+     * Used to pass attributes to the option list's DOM element.
      */
-    itemList?: CascadeSelectPassThroughOptionType;
+    optionList?: CascadeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the group icon's DOM element.
      */
@@ -217,7 +217,7 @@ export interface CascadeSelectContext {
     /**
      * Current option.
      */
-    item: any;
+    option: any;
     /**
      * Index of the option.
      */
@@ -227,9 +227,9 @@ export interface CascadeSelectContext {
      */
     level: number;
     /**
-     * Current item group state of option as a boolean.
+     * Current option group state of option as a boolean.
      */
-    itemGroup: boolean;
+    optionGroup: boolean;
     /**
      * Current active state of option as a boolean.
      * @defaultValue false

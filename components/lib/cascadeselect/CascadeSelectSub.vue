@@ -1,9 +1,9 @@
 <template>
-    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('itemList')">
+    <ul :ref="containerRef" :class="cx('list')" v-bind="level === 0 ? ptm('list') : ptm('optionList')">
         <template v-for="(processedOption, index) of options" :key="getOptionLabelToRender(processedOption)">
             <li
                 :id="getOptionId(processedOption)"
-                :class="cx('item', { processedOption })"
+                :class="cx('option', { processedOption })"
                 role="treeitem"
                 :aria-label="getOptionLabelToRender(processedOption)"
                 :aria-selected="isOptionGroup(processedOption) ? undefined : isOptionSelected(processedOption)"
@@ -11,15 +11,15 @@
                 :aria-level="level + 1"
                 :aria-setsize="options.length"
                 :aria-posinset="index + 1"
-                v-bind="getPTOptions(processedOption, index, 'item')"
-                :data-p-item-group="isOptionGroup(processedOption)"
+                v-bind="getPTOptions(processedOption, index, 'option')"
+                :data-p-option-group="isOptionGroup(processedOption)"
                 :data-p-highlight="isOptionActive(processedOption)"
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('itemContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'itemContent')">
+                <div v-ripple :class="cx('optionContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'optionContent')">
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
-                    <span v-else :class="cx('itemText')" v-bind="getPTOptions(processedOption, index, 'itemText')">{{ getOptionLabelToRender(processedOption) }}</span>
+                    <span v-else :class="cx('optionText')" v-bind="getPTOptions(processedOption, index, 'optionText')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
                         <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />
                         <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
@@ -29,7 +29,7 @@
                 <CascadeSelectSub
                     v-if="isOptionGroup(processedOption) && isOptionActive(processedOption)"
                     role="group"
-                    :class="cx('itemList')"
+                    :class="cx('optionList')"
                     :selectId="selectId"
                     :focusedOptionId="focusedOptionId"
                     :options="getOptionGroupChildren(processedOption)"
@@ -96,7 +96,7 @@ export default {
         }
     },
     mounted() {
-        // entering order correction when an item is selected
+        // entering order correction when an option is selected
         (this.isParentMount || this.level === 0) && DomHandler.nestedPosition(this.container, this.level);
         this.mounted = true;
     },
@@ -113,10 +113,10 @@ export default {
         getPTOptions(processedOption, index, key) {
             return this.ptm(key, {
                 context: {
-                    item: processedOption,
+                    option: processedOption,
                     index,
                     level: this.level,
-                    itemGroup: this.isOptionGroup(processedOption),
+                    optionGroup: this.isOptionGroup(processedOption),
                     active: this.isOptionActive(processedOption),
                     focused: this.isOptionFocused(processedOption),
                     disabled: this.isOptionDisabled(processedOption)
