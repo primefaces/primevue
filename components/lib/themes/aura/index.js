@@ -172,8 +172,10 @@ export default {
             borderRadius: '{border.radius.md}'
         },
         navigation: {
-            padding: '0.25rem 0.25rem',
-            gap: '2px',
+            list: {
+                padding: '0.25rem 0.25rem',
+                gap: '2px'
+            },
             item: {
                 padding: '0.5rem 0.75rem',
                 borderRadius: '{border.radius.sm}',

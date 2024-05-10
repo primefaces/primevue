@@ -3,9 +3,9 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '{navigation.padding}',
+        padding: '{navigation.list.padding}',
         borderRadius: '{content.border.radius}',
-        gap: '{navigation.gap}',
+        gap: '{navigation.list.gap}',
         shadow: '{overlay.navigation.shadow}'
     },
     item: {
