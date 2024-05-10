@@ -46,7 +46,6 @@ import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import TimesIcon from 'primevue/icons/times';
 import Portal from 'primevue/portal';
-import Ripple from 'primevue/ripple';
 import { DomHandler, ZIndexUtils } from 'primevue/utils';
 import BaseDrawer from './BaseDrawer.vue';
 
@@ -224,8 +223,7 @@ export default {
         }
     },
     directives: {
-        focustrap: FocusTrap,
-        ripple: Ripple
+        focustrap: FocusTrap
     },
     components: {
         Button,
