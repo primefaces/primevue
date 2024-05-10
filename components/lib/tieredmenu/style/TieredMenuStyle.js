@@ -107,7 +107,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
-    color: ${dt('tieredmenu.item.icon.active.color')};
+    color: ${dt('tieredmenu.submenu.icon.active.color')};
 }
 
 .p-tieredmenu-separator {

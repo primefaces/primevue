@@ -22,7 +22,7 @@ export default {
         icon: {
             color: '{navigation.item.icon.color}',
             focusColor: '{navigation.item.icon.focus.color}',
-            focusColor: '{navigation.item.icon.active.color}'
+            activeColor: '{navigation.item.icon.active.color}'
         }
     },
     submenuLabel: {
@@ -35,7 +35,7 @@ export default {
         size: '{navigation.submenu.icon.size}',
         color: '{navigation.submenu.icon.color}',
         focusColor: '{navigation.submenu.icon.focus.color}',
-        focusColor: '{navigation.submenu.icon.active.color}'
+        activeColor: '{navigation.submenu.icon.active.color}'
     },
     separator: {
         borderColor: '{content.border.color}'
