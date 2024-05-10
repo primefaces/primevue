@@ -130,7 +130,6 @@
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
-                            :responsiveLayout="responsiveLayout"
                             :editButtonProps="rowEditButtonProps"
                             :isVirtualScrollerDisabled="true"
                             @rowgroup-toggle="toggleRowGroup"
@@ -187,7 +186,6 @@
                             :editingRows="editingRows"
                             :editingRowKeys="d_editingRowKeys"
                             :templates="$slots"
-                            :responsiveLayout="responsiveLayout"
                             :editButtonProps="rowEditButtonProps"
                             :virtualScrollerContentProps="slotProps"
                             :isVirtualScrollerDisabled="virtualScrollerDisabled"
@@ -425,10 +423,6 @@ export default {
     mounted() {
         this.$el.setAttribute(this.attributeSelector, '');
 
-        if (this.responsiveLayout === 'stack' && !this.scrollable && !this.unstyled) {
-            this.createResponsiveStyle();
-        }
-
         if (this.isStateful()) {
             this.restoreState();
 
@@ -442,7 +436,6 @@ export default {
     beforeUnmount() {
         this.unbindColumnResizeEvents();
         this.destroyStyleElement();
-        this.destroyResponsiveStyle();
 
         this.d_columns.clear();
         this.d_columnGroups.clear();
@@ -1910,55 +1903,6 @@ export default {
             this.styleElement.type = 'text/css';
             DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
-        },
-        createResponsiveStyle() {
-            if (!this.responsiveStyleElement) {
-                this.responsiveStyleElement = document.createElement('style');
-                this.responsiveStyleElement.type = 'text/css';
-                DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
-                document.head.appendChild(this.responsiveStyleElement);
-
-                let tableSelector = `.p-datatable-table-container ${this.virtualScrollerDisabled ? '' : '> .p-virtualscroller'} > .p-datatable-table`;
-                let selector = `.p-datatable[${this.attributeSelector}] > ${tableSelector}`;
-                let gridLinesSelector = `.p-datatable[${this.attributeSelector}].p-datatable-gridlines > ${tableSelector}`;
-                let innerHTML = `
-@media screen and (max-width: ${this.breakpoint}) {
-    ${selector} > .p-datatable-thead > tr > th,
-    ${selector} > .p-datatable-tfoot > tr > td {
-        display: none;
-    }
-
-    ${selector} > .p-datatable-tbody > tr > td {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    ${selector} > .p-datatable-tbody > tr > td:not(:last-child) {
-        border: 0 none;
-    }
-
-    ${gridLinesSelector} > .p-datatable-tbody > tr > td:last-child {
-        border-top: 0;
-        border-right: 0;
-        border-left: 0;
-    }
-
-    ${selector} > .p-datatable-tbody > tr > td > .p-column-title {
-        display: block;
-    }
-}
-`;
-
-                this.responsiveStyleElement.innerHTML = innerHTML;
-            }
-        },
-        destroyResponsiveStyle() {
-            if (this.responsiveStyleElement) {
-                document.head.removeChild(this.responsiveStyleElement);
-                this.responsiveStyleElement = null;
-            }
         },
         destroyStyleElement() {
             if (this.styleElement) {

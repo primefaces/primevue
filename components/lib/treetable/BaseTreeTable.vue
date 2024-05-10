@@ -154,10 +154,6 @@ export default {
             type: String,
             default: null
         },
-        responsiveLayout: {
-            type: String,
-            default: 'scroll'
-        },
         size: {
             type: String,
             default: null

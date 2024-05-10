@@ -186,7 +186,7 @@ describe('DataTable.vue', () => {
                 Column
             },
             template: `
-                <DataTable :value="sales" responsiveLayout="scroll">
+                <DataTable :value="sales">
                     <ColumnGroup type="header">
                         <Row>
                             <Column header="Product" :rowspan="3" />
@@ -1257,8 +1257,7 @@ describe('DataTable.vue', () => {
                 sortOrder: 1,
                 scrollable: true,
                 expandableRowGroups: true,
-                expandedRowGroups: null,
-                responsiveLayout: 'scroll'
+                expandedRowGroups: null
             },
             slots: {
                 default: `
@@ -1333,8 +1332,7 @@ describe('DataTable.vue', () => {
                 sortMode: 'single',
                 sortField: 'name',
                 sortOrder: 1,
-                scrollable: true,
-                responsiveLayout: 'scroll'
+                scrollable: true
             },
             slots: {
                 default: `
@@ -1396,17 +1394,6 @@ describe('DataTable.vue', () => {
     });
 
     // contextmenu
-
-    // responsive
-    it('should have stack layout', async () => {
-        await wrapper.setProps({ responsiveLayout: 'stack' });
-
-        expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-responsive-stack');
-    });
-
-    it('should have scroll layout', () => {
-        expect(wrapper.find('.p-datatable').classes()).toContain('p-datatable-responsive-scroll');
-    });
 
     // row styling
 });
