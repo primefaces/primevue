@@ -43,7 +43,7 @@ const theme = ({ dt }) => `
 }
 
 .p-confirmpopup-flipped {
-    margin-top: 0;
+    margin-top: calc(${dt('confirmpopup.gutter')} * -1);
     margin-bottom: ${dt('confirmpopup.gutter')};
 }
 

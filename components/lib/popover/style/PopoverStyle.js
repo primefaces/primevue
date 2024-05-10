@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
 }
 
 .p-popover-flipped {
-    margin-top: 0;
+    margin-top: calc(${dt('popover.gutter')} * -1);
     margin-bottom: ${dt('popover.gutter')};
 }
 
