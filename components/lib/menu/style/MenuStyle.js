@@ -31,6 +31,7 @@ const theme = ({ dt }) => `
     padding: ${dt('menu.item.padding')};
     user-select: none;
     gap: ${dt('menu.item.gap')};
+    outline: 0 none;
 }
 
 .p-menu-item-content {
