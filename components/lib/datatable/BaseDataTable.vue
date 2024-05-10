@@ -234,10 +234,6 @@ export default {
             type: Array,
             default: null
         },
-        responsiveLayout: {
-            type: String,
-            default: 'scroll'
-        },
         breakpoint: {
             type: String,
             default: '960px'

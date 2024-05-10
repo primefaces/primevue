@@ -52,7 +52,6 @@
                     :editMode="editMode"
                     :editing="editMode === 'row' && isRowEditing"
                     :editingMeta="editingMeta"
-                    :responsiveLayout="responsiveLayout"
                     :virtualScrollerContentProps="virtualScrollerContentProps"
                     :ariaControls="expandedRowId + '_' + rowIndex + '_expansion'"
                     :name="nameAttributeSelector"
@@ -249,10 +248,6 @@ export default {
         scrollable: {
             type: Boolean,
             default: false
-        },
-        responsiveLayout: {
-            type: String,
-            default: 'stack'
         },
         editButtonProps: {
             type: Object,

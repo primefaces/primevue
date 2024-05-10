@@ -445,8 +445,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child>td {
     color: inherit;
 }
 
-.p-treetable .p-treetable-row-checkbox {
-    vertical-align: middle;
+.p-treetable .p-treetable-node-checkbox {
     margin-right: 0.5rem;
 }
 `;

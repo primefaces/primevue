@@ -17,7 +17,6 @@
         :data-p-cell-editing="d_editing"
         :data-p-frozen-column="columnProp('frozen')"
     >
-        <span v-if="responsiveLayout === 'stack'" :class="cx('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
         <component
             v-if="column.children && column.children.body && !d_editing"
             :is="column.children.body"
@@ -188,10 +187,6 @@ export default {
         editMode: {
             type: String,
             default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: 'stack'
         },
         virtualScrollerContentProps: {
             type: Object,

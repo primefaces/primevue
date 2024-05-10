@@ -343,12 +343,6 @@ const DataTableProps = [
         description: 'Items of the frozen part in scrollable DataTable.'
     },
     {
-        name: 'responsiveLayout',
-        type: 'string',
-        default: 'stack',
-        description: 'Defines the responsive mode, valid options are "stack" and "scroll".'
-    },
-    {
         name: 'breakpoint',
         type: 'string',
         default: '960px',

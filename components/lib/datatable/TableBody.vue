@@ -32,7 +32,6 @@
                     :editingRowKeys="editingRowKeys"
                     :templates="templates"
                     :editButtonProps="editButtonProps"
-                    :responsiveLayout="responsiveLayout"
                     :virtualScrollerContentProps="virtualScrollerContentProps"
                     :isVirtualScrollerDisabled="isVirtualScrollerDisabled"
                     :editingMeta="editingMeta"
@@ -215,10 +214,6 @@ export default {
         editButtonProps: {
             type: Object,
             default: null
-        },
-        responsiveLayout: {
-            type: String,
-            default: 'stack'
         },
         virtualScrollerContentProps: {
             type: Object,
