@@ -6,8 +6,8 @@ const theme = ({ dt }) => `
     width: 100%;
     position: relative;
     align-items: center;
-    margin: 1rem 0;
-    padding: 0 1rem;
+    margin: ${dt('divider.horizontal.margin')};
+    padding: ${dt('divider.horizontal.padding')};
 }
 
 .p-divider-horizontal:before {
@@ -21,7 +21,7 @@ const theme = ({ dt }) => `
 }
 
 .p-divider-horizontal .p-divider-content {
-    padding: 0 0.5rem;
+    padding: ${dt('divider.horizontal.content.padding')};
 }
 
 .p-divider-vertical {
@@ -30,8 +30,8 @@ const theme = ({ dt }) => `
     display: flex;
     position: relative;
     justify-content: center;
-    margin: 0 1rem;
-    padding: 1rem 0;
+    margin: ${dt('divider.vertical.margin')};
+    padding: ${dt('divider.vertical.padding')};
 }
 
 .p-divider-vertical:before {
@@ -45,7 +45,7 @@ const theme = ({ dt }) => `
 }
 
 .p-divider.p-divider-vertical .p-divider-content {
-    padding: 0.5rem 0;
+    padding: ${dt('divider.vertical.content.padding')};
 }
 
 .p-divider-content {
