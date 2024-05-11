@@ -54,14 +54,16 @@ const theme = ({ dt }) => `
     align-items: center;
     overflow: hidden;
     text-decoration: none;
-    transition: outline-color ${dt('transition.duration')};
-    border-radius: ${dt('border.radius.md')};
+    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    border-radius: ${dt('steps.item.link.border.radius')};
     outline-color: transparent;
+    gap: ${dt('steps.item.link.gap')};
 }
 
 .p-steps-item-link:not(.p-disabled):focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('steps.item.link.focus.ring.shadow')};
+    outline: ${dt('steps.item.link.focus.ring.width')} ${dt('steps.item.link.focus.ring.style')} ${dt('steps.item.link.focus.ring.color')};
+    outline-offset: ${dt('steps.item.link.focus.ring.offset')};
 }
 
 .p-steps-item-label {
@@ -69,10 +71,9 @@ const theme = ({ dt }) => `
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    margin-top: 0.5rem;
     color: ${dt('steps.item.label.color')};
     display: block;
-    font-weight: 500;
+    font-weight: ${dt('steps.item.label.font.weight')};
 }
 
 .p-steps-item-number {
@@ -82,14 +83,14 @@ const theme = ({ dt }) => `
     color: ${dt('steps.item.number.color')};
     border: 2px solid ${dt('steps.item.number.border.color')};
     background: ${dt('steps.item.number.background')};
-    min-width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
-    font-size: 1.143rem;
+    min-width: ${dt('steps.item.number.size')};
+    height: ${dt('steps.item.number.size')};
+    line-height: ${dt('steps.item.number.size')};
+    font-size: ${dt('steps.item.number.font.size')};
     z-index: 1;
-    border-radius: 50%;
+    border-radius: ${dt('steps.item.number.border.radius')};
     position: relative;
-    font-weight: 500;
+    font-weight: ${dt('steps.item.number.font.weight')};
 }
 
 .p-steps-item-number::after {
@@ -97,8 +98,8 @@ const theme = ({ dt }) => `
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+    border-radius: ${dt('steps.item.number.border.radius')};
+    box-shadow: ${dt('steps.item.number.shadow')};
 }
 
 .p-steps:not(.p-readonly) .p-steps-item {
@@ -111,7 +112,6 @@ const theme = ({ dt }) => `
 }
 
 .p-steps-item-active .p-steps-item-label {
-    font-weight: 500;
     color: ${dt('steps.item.label.active.color')};
 }
 `;
