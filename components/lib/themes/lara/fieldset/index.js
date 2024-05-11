@@ -4,13 +4,13 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
-        padding: '0.75rem 1.125rem 1.125rem '
+        padding: '0.75rem 1.25rem 1.25rem 1.25rem'
     },
     legend: {
         borderRadius: '{content.border.radius}',
         borderWidth: '1px',
         borderColor: '{content.border.color}',
-        padding: '0.5rem 0.75rem',
+        padding: '0.625rem 0.875rem',
         gap: '0.5rem',
         fontWeight: '700',
         focusRing: {
