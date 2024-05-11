@@ -10,10 +10,10 @@ const theme = ({ dt }) => `
     margin: 0;
     padding: 0;
     list-style-type: none;
-    flex: 1 1 auto;
     background: ${dt('tabmenu.tablist.background')};
-    border: 1px solid ${dt('tabmenu.tablist.border.color')};
-    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: ${dt('tabmenu.tablist.border.color')};
+    border-width: ${dt('tabmenu.tablist.border.width')};
     position: relative;
 }
 
@@ -25,46 +25,63 @@ const theme = ({ dt }) => `
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    background: ${dt('tabmenu.item.background')};
     border-style: solid;
-    border-width: 0 0 1px 0;
-    border-color: transparent transparent ${dt('tabmenu.item.link.border.color')} transparent;
-    color: ${dt('tabmenu.item.link.color')};
-    padding: 1rem 1.125rem;
-    font-weight: 600;
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-top-left-radius: ${dt('border.radius.md')};
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    margin: 0 0 -1px 0;
+    border-width: ${dt('tabmenu.item.border.width')};
+    border-color: ${dt('tabmenu.item.border.color')};
+    color: ${dt('tabmenu.item.color')};
+    padding: ${dt('tabmenu.item.padding')};
+    font-weight: ${dt('tabmenu.item.font.weight')};
+    border-top-right-radius: ${dt('tabmenu.item.border.radius')};
+    border-top-left-radius: ${dt('tabmenu.item.border.radius')};
+    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    margin: ${dt('tabmenu.item.margin')};
     outline-color: transparent;
+    gap: ${dt('tabmenu.item.gap')};
 }
 
 .p-tabmenu-item-link:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: -1px;
+    box-shadow: ${dt('tabmenu.item.focus.ring.shadow')};
+    outline: ${dt('tabmenu.item.focus.ring.width')} ${dt('tabmenu.item.focus.ring.style')} ${dt('tabmenu.item.focus.ring.color')};
+    outline-offset: ${dt('tabmenu.item.focus.ring.offset')};
 }
 
 .p-tabmenu-item-icon {
-    margin-right: 0.5rem;
+    color: ${dt('tabmenu.item.icon.color')};
+    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-tabmenu-item-label {
     line-height: 1;
 }
+
 .p-tabmenu-item:not(.p-tabmenu-item-active):not(.p-disabled):hover .p-tabmenu-item-link {
-    color: ${dt('tabmenu.item.link.hover.color')};
+    background: ${dt('tabmenu.item.hover.background')};
+    border-color: ${dt('tabmenu.item.hover.border.color')};
+    color: ${dt('tabmenu.item.hover.color')};
+}
+
+.p-tabmenu-item:not(.p-tabmenu-item-active):not(.p-disabled):hover .p-tabmenu-item-icon {
+    color: ${dt('tabmenu.item.icon.hover.color')};
 }
 
 .p-tabmenu-item-active .p-tabmenu-item-link {
-    color: ${dt('tabmenu.item.link.active.border.color')};
+    background: ${dt('tabmenu.item.active.background')};
+    border-color: ${dt('tabmenu.item.active.border.color')};
+    color: ${dt('tabmenu.item.active.color')};
 }
 
-.p-tabmenu-ink-bar {
+.p-tabmenu-item-active .p-tabmenu-item-icon {
+    color: ${dt('tabmenu.item.icon.active.color')};
+}
+
+.p-tabmenu-active-bar {
     z-index: 1;
     display: block;
     position: absolute;
-    bottom: -1px;
-    height: 1px;
-    background-color: ${dt('tabmenu.item.link.active.border.color')};
+    bottom: ${dt('tabmenu.active.bar.bottom')};
+    height: ${dt('tabmenu.active.bar.height')};
+    background: ${dt('tabmenu.active.bar.background')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 
@@ -86,7 +103,7 @@ const classes = {
     itemLink: 'p-tabmenu-item-link',
     itemIcon: 'p-tabmenu-item-icon',
     itemLabel: 'p-tabmenu-item-label',
-    inkbar: 'p-tabmenu-ink-bar'
+    activeBar: 'p-tabmenu-active-bar'
 };
 
 export default BaseStyle.extend({

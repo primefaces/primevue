@@ -81,7 +81,7 @@ export interface TabMenuPassThroughOptions {
     /**
      * Used to pass attributes to the inkbar's DOM element.
      */
-    inkbar?: TabMenuPassThroughOptionType;
+    activeBar?: TabMenuPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

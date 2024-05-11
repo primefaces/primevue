@@ -23,7 +23,7 @@
                     <component v-else :is="$slots.item" :item="item" :index="i" :active="i === d_activeIndex" :label="label(item)" :props="getMenuItemProps(item, i)"></component>
                 </li>
             </template>
-            <li ref="inkbar" role="none" :class="cx('inkbar')" v-bind="ptm('inkbar')"></li>
+            <li ref="inkbar" role="none" :class="cx('activeBar')" v-bind="ptm('activeBar')"></li>
         </ul>
     </div>
 </template>
