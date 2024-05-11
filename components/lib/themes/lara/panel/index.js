@@ -12,7 +12,7 @@ export default {
         padding: '1.125rem'
     },
     toggleableHeader: {
-        padding: '0.375rem 1.125rem'
+        padding: '0.25rem 1.125rem'
     },
     title: {
         fontWeight: '700'
