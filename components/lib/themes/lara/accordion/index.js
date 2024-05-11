@@ -39,7 +39,7 @@ export default {
         borderColor: '{content.border.color}',
         background: '{content.background}',
         color: '{text.color}',
-        padding: '1.125rem;'
+        padding: '1.125rem'
     },
     colorScheme: {
         light: {
