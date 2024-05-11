@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
 .p-organizationchart-table > tbody > tr > td {
     text-align: center;
     vertical-align: top;
-    padding: 0 0.75rem;
+    padding: 0 ${dt('organizationchart.gutter')};
 }
 
 .p-organizationchart-node {
@@ -19,50 +19,56 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('organizationchart.node.border.color')};
     background: ${dt('organizationchart.node.background')};
     color: ${dt('organizationchart.node.color')};
-    padding: 0.75rem 1rem;
-    border-radius: ${dt('border.radius.md')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')};
+    padding: ${dt('organizationchart.node.padding')};
+    border-radius: ${dt('organizationchart.node.border.radius')};
+    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-organizationchart-node:has(.p-organizationchart-node-toggle-button) {
-    padding: 0.75rem 1rem 1.25rem 1rem;
+    padding: ${dt('organizationchart.node.toggleable.padding')};
 }
 
-.p-organizationchart-node.p-organizationchart-node-selectable:not(.p-highlight):hover {
+.p-organizationchart-node.p-organizationchart-node-selectable:not(.p-organizationchart-node-selected):hover {
     background: ${dt('organizationchart.node.hover.background')};
     color: ${dt('organizationchart.node.hover.color')};
 }
 
-.p-organizationchart-node.p-highlight {
-    background: ${dt('highlight.background')};
-    color: ${dt('highlight.color')};
+.p-organizationchart-node-selected {
+    background: ${dt('organizationchart.node.selected.background')};
+    color: ${dt('organizationchart.node.selected.color')};
 }
 
 .p-organizationchart-node-toggle-button {
     position: absolute;
-    bottom: -0.75rem;
-    margin-left: -0.75rem;
+    bottom: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
+    margin-left: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
     z-index: 2;
     left: 50%;
     user-select: none;
     cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: ${dt('organizationchart.node.toggle.button.size')};
+    height: ${dt('organizationchart.node.toggle.button.size')};
     text-decoration: none;
     background: ${dt('organizationchart.node.toggle.button.background')};
     color: ${dt('organizationchart.node.toggle.button.color')};
-    border-radius: 50%;
+    border-radius: ${dt('organizationchart.node.toggle.button.border.radius')};
     border: 1px solid ${dt('organizationchart.node.toggle.button.border.color')};
     display: inline-flex;
     justify-content: center;
     align-items: center;
     outline-color: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+}
+
+.p-organizationchart-node-toggle-button:hover {
+    background: ${dt('organizationchart.node.toggle.button.hover.background')};
+    color: ${dt('organizationchart.node.toggle.button.hover.color')};
 }
 
 .p-organizationchart-node-toggle-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('breadcrumb.item.focus.ring.shadow')};
+    outline: ${dt('breadcrumb.item.focus.ring.width')} ${dt('breadcrumb.item.focus.ring.style')} ${dt('breadcrumb.item.focus.ring.color')};
+    outline-offset: ${dt('breadcrumb.item.focus.ring.offset')};
 }
 
 .p-organizationchart-node-toggle-button-icon {
@@ -72,15 +78,13 @@ const theme = ({ dt }) => `
 
 .p-organizationchart-connector-down {
     margin: 0 auto;
-    height: 20px;
+    height: ${dt('organizationchart.connector.height')};
     width: 1px;
     background: ${dt('organizationchart.connector.color')};
 }
 
 .p-organizationchart-connector-right {
     border-radius: 0;
-    border-left: 1px solid ${dt('organizationchart.connector.color')};
-    border-top-left-radius: ${dt('border.radius.md')};
 }
 
 .p-organizationchart-connector-left {
@@ -101,19 +105,19 @@ const theme = ({ dt }) => `
 }
 
 .p-organizationchart-connectors :nth-last-child(1 of .p-organizationchart-connector-left) {
-    border-top-right-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('organizationchart.connector.border.radius')};
 }
 
 .p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-right) {
     border-left: 1px solid ${dt('organizationchart.connector.color')};
-    border-top-left-radius: ${dt('border.radius.md')};
+    border-top-left-radius: ${dt('organizationchart.connector.border.radius')};
 }
 `;
 
 const classes = {
     root: 'p-organizationchart p-component',
     table: 'p-organizationchart-table',
-    node: ({ instance }) => ['p-organizationchart-node', { 'p-organizationchart-node-selectable': instance.selectable, 'p-highlight': instance.selected }],
+    node: ({ instance }) => ['p-organizationchart-node', { 'p-organizationchart-node-selectable': instance.selectable, 'p-organizationchart-node-selected': instance.selected }],
     nodeToggleButton: 'p-organizationchart-node-toggle-button',
     nodeToggleButtonIcon: 'p-organizationchart-node-toggle-button-icon',
     connectors: 'p-organizationchart-connectors',
