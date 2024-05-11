@@ -17,7 +17,7 @@ export default {
         margin: '0 1rem',
         padding: '0.5rem 0',
         content: {
-            padding: '0.625rem 0'
+            padding: '0.5rem 0'
         }
     }
 };
