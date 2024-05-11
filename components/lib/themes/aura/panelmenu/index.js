@@ -15,7 +15,6 @@ export default {
         },
         last: {
             borderWidth: '1px',
-            borderRadius: '{content.border.radius}',
             bottomBorderRadius: '{content.border.radius}'
         }
     },
