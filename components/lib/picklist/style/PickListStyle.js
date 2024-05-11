@@ -3,14 +3,14 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-picklist {
     display: flex;
-    gap: 1.125rem;
+    gap: ${dt('picklist.gap')};
 }
 
 .p-picklist-controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
+    gap: ${dt('picklist.controls.gap')};
 }
 
 .p-picklist-list-container {

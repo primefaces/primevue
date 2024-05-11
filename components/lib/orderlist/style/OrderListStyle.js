@@ -3,14 +3,14 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-orderlist {
     display: flex;
-    gap: 1.125rem;
+    gap: ${dt('orderlist.gap')};
 }
 
 .p-orderlist-controls {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
+    gap: ${dt('orderlist.controls.gap')};
 }
 `;
 
