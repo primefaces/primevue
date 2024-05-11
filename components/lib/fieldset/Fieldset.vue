@@ -11,9 +11,10 @@
                     :aria-controls="id + '_content'"
                     :aria-expanded="!d_collapsed"
                     :aria-label="buttonAriaLabel"
+                    :class="cx('toggleButton')"
                     @click="toggle"
                     @keydown="onKeyDown"
-                    v-bind="{ ...toggleButtonProps, ...ptm('toggler') }"
+                    v-bind="{ ...toggleButtonProps, ...ptm('toggleButton') }"
                 >
                     <!--TODO: togglericon deprecated since v4.0-->
                     <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">

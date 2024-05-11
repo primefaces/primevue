@@ -2,16 +2,48 @@ export default {
     root: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        color: '{content.color}'
+        borderRadius: '{content.border.radius}',
+        color: '{content.color}',
+        padding: '0.75rem 1.125rem 1.125rem '
     },
     legend: {
-        background: '{content.background}',
-        color: '{content.color}',
-        hoverBackground: '{content.hover.background}',
-        hoverColor: '{content.hover.color}'
+        borderRadius: '{content.border.radius}',
+        borderWidth: '1px',
+        borderColor: '{content.border.color}',
+        padding: '0.5rem 0.75rem',
+        gap: '0.5rem',
+        fontWeight: '700',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     toggleIcon: {
         color: '{text.muted.color}',
         hoverColor: '{text.hover.muted.color}'
+    },
+    content: {
+        padding: '0'
+    },
+    colorScheme: {
+        light: {
+            legend: {
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                color: '{text.color}',
+                hoverColor: '{text.hover.color}'
+            }
+        },
+        dark: {
+            legend: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                color: '{text.color}',
+                hoverColor: '{text.hover.color}'
+            }
+        }
     }
 };

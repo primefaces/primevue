@@ -85,6 +85,10 @@ export interface FieldsetPassThroughOptions {
     /**
      * Used to pass attributes to the legend label's DOM element.
      */
+    toggleButton?: FieldsetPassThroughOptionType;
+    /**
+     * Used to pass attributes to the legend label's DOM element.
+     */
     legendLabel?: FieldsetPassThroughOptionType;
     /**
      * Used to pass attributes to the content container's DOM element.
