@@ -2,6 +2,23 @@ export default {
     root: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        color: '{content.color}'
+        borderRadius: '{content.border.radius}',
+        color: '{content.color}',
+        gap: '0.5rem',
+        padding: '0.75rem'
+    },
+    colorScheme: {
+        light: {
+            root: {
+                background: '{surface.100}',
+                color: '{content.color}'
+            }
+        },
+        dark: {
+            root: {
+                background: '{surface.800}',
+                color: '{content.color}'
+            }
+        }
     }
 };

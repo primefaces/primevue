@@ -6,12 +6,12 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0.75rem;
+    padding: ${dt('toolbar.padding')};
     background: ${dt('toolbar.background')};
     border: 1px solid ${dt('toolbar.border.color')};
     color: ${dt('toolbar.color')};
-    border-radius: ${dt('border.radius.md')};
-    gap: 0.5rem;
+    border-radius: ${dt('toolbar.border.radius')};
+    gap: ${dt('toolbar.gap')};
 }
 
 .p-toolbar-start,
