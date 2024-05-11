@@ -4,7 +4,7 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
-        padding: '0.5rem 0.5rem',
+        padding: '0.5rem 0.75rem',
         gap: '0.5rem'
     },
     baseItem: {

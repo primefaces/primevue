@@ -1,11 +1,10 @@
 export default {
     root: {
-        background: '{content.background}',
-        borderColor: '{content.border.color}',
+        borderColor: 'transparent',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
         gap: '0.5rem',
-        padding: '0.75rem 0.75rem'
+        padding: '0.75rem 1rem'
     },
     baseItem: {
         borderRadius: '{content.border.radius}',
@@ -56,6 +55,18 @@ export default {
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
             shadow: '{focus.ring.shadow}'
+        }
+    },
+    colorScheme: {
+        light: {
+            root: {
+                background: '{surface.100}'
+            }
+        },
+        dark: {
+            root: {
+                background: '{surface.800}'
+            }
         }
     }
 };
