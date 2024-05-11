@@ -3,33 +3,45 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-panel {
     border: 1px solid ${dt('panel.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('panel.border.radius')};
     background: ${dt('panel.background')};
     color: ${dt('panel.color')};
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('panel.gap')};
 }
 
 .p-panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.125rem;
+    padding: ${dt('panel.header.padding')};
+    background: ${dt('panel.header.background')};
+    color: ${dt('panel.header.color')};
+    border-style: solid;
+    border-width: ${dt('panel.header.border.width')};
+    border-color: ${dt('panel.header.border.color')};
 }
 
 .p-panel-toggleable .p-panel-header {
-    padding: 0.75rem 1.125rem;
+    padding: ${dt('panel.toggleable.header.padding')};
 }
 
 .p-panel-title {
     line-height: 1;
-    font-weight: 600;
+    font-weight: ${dt('panel.title.font.weight')};
 }
 
 .p-panel-content {
-    padding: 0 1.125rem 1.125rem 1.125rem;
+    padding: ${dt('panel.content.padding')};
 }
 
 .p-panel-footer {
-    padding: 0 1.125rem 1.125rem 1.125rem;
+    padding: ${dt('panel.footer.padding')};
+}
+
+.p-panel-header + .p-panel-content-container >  .p-panel-content {
+    padding-top: 0;
 }
 `;
 
