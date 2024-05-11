@@ -25,15 +25,16 @@ const theme = ({ dt }) => `
 }
 
 .p-splitter-gutter-handle {
-    border-radius: ${dt('border.radius.md')};
-    background: transparent;
-    transition: outline-color ${dt('transition.duration')};
+    border-radius: ${dt('splitter.handle.border.radius')};
+    background: ${dt('splitter.handle.background')};
+    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
 }
 
 .p-splitter-gutter-handle:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('splitter.handle.focus.ring.shadow')};
+    outline: ${dt('splitter.handle.focus.ring.width')} ${dt('splitter.handle.focus.ring.style')} ${dt('splitter.handle.focus.ring.color')};
+    outline-offset: ${dt('splitter.handle.focus.ring.offset')};
 }
 
 .p-splitter-horizontal.p-splitter-resizing {
@@ -47,12 +48,12 @@ const theme = ({ dt }) => `
 }
 
 .p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
-    height: 24px;
+    height: ${dt('splitter.handle.size')};
     width: 100%;
 }
 
 .p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
-    width: 24px;
+    width: ${dt('splitter.handle.size')};
     height: 100%;
 }
 
