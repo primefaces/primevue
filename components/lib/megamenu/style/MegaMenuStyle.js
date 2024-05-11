@@ -9,6 +9,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('megamenu.border.color')};
     border-radius: ${dt('megamenu.border.radius')};
     color: ${dt('megamenu.color')};
+    gap: ${dt('megamenu.gap')};
 }
 
 .p-megamenu-root-list {
@@ -19,6 +20,7 @@ const theme = ({ dt }) => `
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    gap: ${dt('megamenu.gap')};
 }
 
 .p-megamenu-root-list > .p-megamenu-item > .p-menumegamenubar-item-content {

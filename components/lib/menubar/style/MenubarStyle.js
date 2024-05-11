@@ -9,6 +9,7 @@ const theme = ({ dt }) => `
     border-radius: ${dt('menubar.border.radius')};
     color: ${dt('menubar.color')};
     padding: ${dt('menubar.padding')};
+    gap: ${dt('menubar.gap')};
 }
 
 .p-menubar-root-list,
