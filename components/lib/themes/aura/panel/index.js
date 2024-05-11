@@ -19,7 +19,7 @@ export default {
         fontWeight: '600'
     },
     content: {
-        padding: '1.125rem'
+        padding: '0 1.125rem 1.125rem 1.125rem'
     },
     footer: {
         padding: '0 1.125rem 1.125rem 1.125rem'
