@@ -76,12 +76,12 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.100}'
+                background: '{surface.50}'
             }
         },
         dark: {
             root: {
-                background: '{surface.800}'
+                background: '{surface.950}'
             }
         }
     }
