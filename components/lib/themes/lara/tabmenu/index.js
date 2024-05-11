@@ -14,7 +14,6 @@ export default {
         activeColor: '{primary.color}',
         padding: '1rem 1.25rem',
         fontWeight: '600',
-        borderRadius: '0',
         margin: '0',
         gap: '0.5rem',
         focusRing: {
@@ -39,14 +38,14 @@ export default {
         light: {
             item: {
                 background: '{surface.100}',
-                hoverBackground: '{surface.100}',
+                hoverBackground: '{surface.200}',
                 activeBackground: '{surface.0}'
             }
         },
         dark: {
             item: {
                 background: '{surface.800}',
-                hoverBackground: '{surface.800}',
+                hoverBackground: '{surface.700}',
                 activeBackground: '{surface.900}'
             }
         }

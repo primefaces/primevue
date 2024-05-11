@@ -29,9 +29,10 @@ const theme = ({ dt }) => `
 .p-tablist-tab-list {
     position: relative;
     display: flex;
-    background: ${dt('tabs.tab.list.background')};
-    border: 1px solid ${dt('tabs.tab.list.border.color')};
-    border-width: 0 0 1px 0;
+    background: ${dt('tabs.tablist.background')};
+    border-style: solid;
+    border-color: ${dt('tabs.tablist.border.color')};
+    border-width: ${dt('tabs.tablist.border.width')};
 }
 
 .p-tablist-nav-button {
@@ -45,15 +46,18 @@ const theme = ({ dt }) => `
     justify-content: center;
     background: ${dt('tabs.nav.button.background')};
     color: ${dt('tabs.nav.button.color')};
-    width: 2.5rem;
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    width: ${dt('tabs.nav.button.width')};
+    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     box-shadow: ${dt('tabs.nav.button.shadow')};
+    outline-color: transparent;
     cursor: pointer;
 }
 
 .p-tablist-nav-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    z-index: 1;
+    box-shadow: ${dt('tabs.nav.button.focus.ring.shadow')};
+    outline: ${dt('tabs.nav.button.focus.ring.width')} ${dt('tabs.nav.button.focus.ring.style')} ${dt('tabs.nav.button.focus.ring.color')};
+    outline-offset: ${dt('tabs.nav.button.focus.ring.offset')};
 }
 
 .p-tablist-nav-button:hover {
@@ -69,51 +73,55 @@ const theme = ({ dt }) => `
 }
 
 .p-tab {
-    position: relative;
-    overflow: hidden;
     cursor: pointer;
+    user-select: none;
+    position: relative;
     border-style: solid;
-    border-width: 0 0 1px 0;
-    border-color: transparent transparent ${dt('tabs.tab.border.color')} transparent;
-    color: ${dt('tabs.tab.color')};
-    background: ${dt('tabs.nav.background')};
-    padding: 1rem 1.125rem;
-    font-weight: 600;
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-top-left-radius: ${dt('border.radius.md')};
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    margin: 0 0 -1px 0;
-    outline-color: transparent;
-    line-height: 1;
     white-space: nowrap;
+    background: ${dt('tabs.tab.background')};
+    border-width: ${dt('tabs.tab.border.width')};
+    border-color: ${dt('tabs.tab.border.color')};
+    color: ${dt('tabs.tab.color')};
+    padding: ${dt('tabs.tab.padding')};
+    font-weight: ${dt('tabs.tab.font.weight')};
+    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    margin: ${dt('tabs.tab.margin')};
+    outline-color: transparent;
 }
 
 .p-tab:not(.p-disabled):focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: -1px;
+    z-index: 1;
+    box-shadow: ${dt('tabs.tab.focus.ring.shadow')};
+    outline: ${dt('tabs.tab.focus.ring.width')} ${dt('tabs.tab.focus.ring.style')} ${dt('tabs.tab.focus.ring.color')};
+    outline-offset: ${dt('tabs.tab.focus.ring.offset')};
 }
 
 .p-tab:not(.p-tab-active):not(.p-disabled):hover {
+    background: ${dt('tabs.tab.hover.background')};
+    border-color: ${dt('tabs.tab.hover.border.color')};
     color: ${dt('tabs.tab.hover.color')};
 }
 
 .p-tab-active {
+    background: ${dt('tabs.tab.active.background')};
+    border-color: ${dt('tabs.tab.active.border.color')};
     color: ${dt('tabs.tab.active.color')};
 }
 
 .p-tabpanels {
-    background: ${dt('tabs.tab.panel.background')};
-    color: ${dt('tabs.tab.panel.color')};
-    padding: 0.875rem 1.125rem 1.125rem 1.125rem;
+    background: ${dt('tabs.tabpanel.background')};
+    color: ${dt('tabs.tabpanel.color')};
+    padding: ${dt('tabs.tabpanel.padding')};
+    outline: 0 none;
 }
 
 .p-tablist-active-bar {
     z-index: 1;
     display: block;
     position: absolute;
-    bottom: -1px;
-    height: 1px;
-    background-color: ${dt('tabs.tab.active.border.color')};
+    bottom: ${dt('tabs.active.bar.bottom')};
+    height: ${dt('tabs.active.bar.height')};
+    background: ${dt('tabs.active.bar.background')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 `;

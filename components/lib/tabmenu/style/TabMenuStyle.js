@@ -32,8 +32,6 @@ const theme = ({ dt }) => `
     color: ${dt('tabmenu.item.color')};
     padding: ${dt('tabmenu.item.padding')};
     font-weight: ${dt('tabmenu.item.font.weight')};
-    border-top-right-radius: ${dt('tabmenu.item.border.radius')};
-    border-top-left-radius: ${dt('tabmenu.item.border.radius')};
     transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     margin: ${dt('tabmenu.item.margin')};
     outline-color: transparent;
@@ -41,6 +39,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tabmenu-item-link:focus-visible {
+    z-index: 1;
     box-shadow: ${dt('tabmenu.item.focus.ring.shadow')};
     outline: ${dt('tabmenu.item.focus.ring.width')} ${dt('tabmenu.item.focus.ring.style')} ${dt('tabmenu.item.focus.ring.color')};
     outline-offset: ${dt('tabmenu.item.focus.ring.offset')};
