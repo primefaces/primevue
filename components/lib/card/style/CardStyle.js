@@ -4,8 +4,8 @@ const theme = ({ dt }) => `
 .p-card {
     background: ${dt('card.background')};
     color: ${dt('card.color')};
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    box-shadow: ${dt('card.shadow')};
+    border-radius: ${dt('card.border.radius')};
     display: flex;
     flex-direction: column;
 }
@@ -13,23 +13,22 @@ const theme = ({ dt }) => `
 .p-card-caption {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: ${dt('card.caption.gap')};
 }
 
 .p-card-body {
-    padding: 1.5rem;
+    padding: ${dt('card.body.padding')};
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: ${dt('card.body.gap')};
 }
 
 .p-card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: ${dt('card.title.font.size')};
+    font-weight: ${dt('card.title.font.weight')};
 }
 
 .p-card-subtitle {
-    font-weight: 400;
     color: ${dt('card.subtitle.color')};
 }
 `;
