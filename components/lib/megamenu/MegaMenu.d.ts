@@ -87,9 +87,9 @@ export interface MegaMenuPassThroughOptions {
      */
     submenuIcon?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the overlay DOM element.
      */
-    panel?: MegaMenuPassThroughOptionType;
+    overlay?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the grid's DOM element.
      */
@@ -101,15 +101,11 @@ export interface MegaMenuPassThroughOptions {
     /**
      * Used to pass attributes to the submenu item's DOM element.
      */
-    submenuItem?: MegaMenuPassThroughOptionType;
+    submenuLabel?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: MegaMenuPassThroughOptionType;
-    /**
-     * Used to pass attributes to the submenu item label's DOM element.
-     */
-    submenuItemLabel?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the separator's DOM element.
      */

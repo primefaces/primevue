@@ -1,6 +1,6 @@
 <template>
     <ul :class="level === 0 ? cx('rootList') : cx('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('rootList') : ptm('submenu')">
-        <li v-if="submenu" :class="[cx('submenuItem', { submenu }), getItemProp(submenu, 'class')]" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuItem')">{{ getItemLabel(submenu) }}</li>
+        <li v-if="submenu" :class="[cx('submenuLabel', { submenu }), getItemProp(submenu, 'class')]" :style="getItemProp(submenu, 'style')" role="presentation" v-bind="ptm('submenuLabel')">{{ getItemLabel(submenu) }}</li>
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -25,7 +25,7 @@
                         <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'itemLink')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'itemIcon')" />
-                            <span :class="level === 0 ? cx('itemLabel') : cx('submenuItemLabel')" v-bind="level === 0 ? getPTOptions(processedItem, index, 'itemLabel') : getPTOptions(processedItem, index, 'submenuItemLabel')">
+                            <span :class="cx('itemLabel')" v-bind="getPTOptions(processedItem, index, 'itemLabel')">
                                 {{ getItemLabel(processedItem) }}
                             </span>
                             <template v-if="isItemGroup(processedItem)">
@@ -36,7 +36,7 @@
                     </template>
                     <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="isItemGroup(processedItem)" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
                 </div>
-                <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" :class="cx('panel')" v-bind="ptm('panel')">
+                <div v-if="isItemVisible(processedItem) && isItemGroup(processedItem)" :class="cx('overlay')" v-bind="ptm('overlay')">
                     <div :class="cx('grid')" v-bind="ptm('grid')">
                         <div v-for="col of processedItem.items" :key="getItemKey(col)" :class="cx('column', { processedItem })" v-bind="ptm('column')">
                             <MegaMenuSub
