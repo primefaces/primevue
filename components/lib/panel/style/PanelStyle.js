@@ -6,9 +6,6 @@ const theme = ({ dt }) => `
     border-radius: ${dt('panel.border.radius')};
     background: ${dt('panel.background')};
     color: ${dt('panel.color')};
-    display: flex;
-    flex-direction: column;
-    gap: ${dt('panel.gap')};
 }
 
 .p-panel-header {
@@ -21,6 +18,7 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('panel.header.border.width')};
     border-color: ${dt('panel.header.border.color')};
+    border-radius: ${dt('panel.header.border.radius')};
 }
 
 .p-panel-toggleable .p-panel-header {
@@ -38,10 +36,6 @@ const theme = ({ dt }) => `
 
 .p-panel-footer {
     padding: ${dt('panel.footer.padding')};
-}
-
-.p-panel-header + .p-panel-content-container >  .p-panel-content {
-    padding-top: 0;
 }
 `;
 

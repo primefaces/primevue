@@ -3,14 +3,14 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        borderRadius: '{content.border.radius}',
-        gap: '0'
+        borderRadius: '{content.border.radius}'
     },
     header: {
         background: 'transparent',
         color: '{text.color}',
         padding: '1.125rem',
-        borderWidth: '0'
+        borderWidth: '0',
+        borderRadius: '0'
     },
     toggleableHeader: {
         padding: '0.375rem 1.125rem'

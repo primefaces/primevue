@@ -3,13 +3,13 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        borderRadius: '{content.border.radius}',
-        gap: '1.125rem'
+        borderRadius: '{content.border.radius}'
     },
     header: {
         borderWidth: '0 0 1px 0',
         borderColor: '{content.border.color}',
-        padding: '1.125rem'
+        padding: '1.125rem',
+        borderRadius: '3px 3px 0 0'
     },
     toggleableHeader: {
         padding: '0.25rem 1.125rem'
@@ -18,11 +18,10 @@ export default {
         fontWeight: '700'
     },
     content: {
-        padding: '1.125rem',
-        withHeaderPadding: '1.125rem'
+        padding: '1.125rem'
     },
     footer: {
-        padding: '0 1.125rem 1.125rem 1.125rem'
+        padding: '1.125rem'
     },
     colorScheme: {
         light: {
