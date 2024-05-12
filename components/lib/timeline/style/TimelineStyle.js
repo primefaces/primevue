@@ -49,17 +49,17 @@ const theme = ({ dt }) => `
 
 .p-timeline-vertical .p-timeline-event-opposite,
 .p-timeline-vertical .p-timeline-event-content {
-    padding: 0 1rem;
+    padding: ${dt('timeline.vertical.event.content.padding')};
 }
 
 .p-timeline-vertical .p-timeline-event-connector {
-    width: 2px;
+    width: ${dt('timeline.event.connector.size')};
 }
 
 .p-timeline-event {
     display: flex;
     position: relative;
-    min-height: 70px;
+    min-height: ${dt('timeline.event.min.height')};
 }
 
 .p-timeline-event:last-child {
@@ -68,12 +68,10 @@ const theme = ({ dt }) => `
 
 .p-timeline-event-opposite {
     flex: 1;
-    padding: 0 1rem;
 }
 
 .p-timeline-event-content {
     flex: 1;
-    padding: 0 1rem;
 }
 
 .p-timeline-event-separator {
@@ -89,19 +87,21 @@ const theme = ({ dt }) => `
     justify-content: center;
     position: relative;
     align-self: baseline;
-    border: 2px solid ${dt('timeline.event.marker.border.color')};
-    border-radius: 50%;
-    width: 1.125rem;
-    height: 1.125rem;
-    background-color: ${dt('timeline.event.marker.background')};
+    border-width: ${dt('timeline.event.marker.border.width')};
+    border-style: solid;
+    border-color: ${dt('timeline.event.marker.border.color')};
+    border-radius: ${dt('timeline.event.marker.border.radius')};
+    width: ${dt('timeline.event.marker.size')};
+    height: ${dt('timeline.event.marker.size')};
+    background: ${dt('timeline.event.marker.background')};
 }
 
 .p-timeline-event-marker::before {
     content: " ";
-    border-radius: 50%;
-    width: 0.375rem;
-    height: 0.375rem;
-    background: ${dt('timeline.event.marker.content.color')};
+    border-radius: ${dt('timeline.event.marker.content.border.radius')};
+    width: ${dt('timeline.event.marker.content.size')};
+    height:${dt('timeline.event.marker.content.size')};
+    background: ${dt('timeline.event.marker.content.background')};
 }
 
 .p-timeline-event-marker::after {
@@ -109,8 +109,8 @@ const theme = ({ dt }) => `
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+    border-radius: ${dt('timeline.event.marker.border.radius')};
+    box-shadow: ${dt('timeline.event.marker.content.inset.shadow')};
 }
 
 .p-timeline-event-connector {
@@ -137,12 +137,12 @@ const theme = ({ dt }) => `
 
 .p-timeline-horizontal .p-timeline-event-connector {
     width: 100%;
-    height: 2px;
+    height: ${dt('timeline.event.connector.size')};
 }
 
 .p-timeline-horizontal .p-timeline-event-opposite,
 .p-timeline-horizontal .p-timeline-event-content {
-    padding: 1rem 0;
+    padding: ${dt('timeline.horizontal.event.content.padding')};
 }
 
 .p-timeline-horizontal.p-timeline-alternate .p-timeline-event:nth-child(even) {
