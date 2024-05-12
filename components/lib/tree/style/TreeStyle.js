@@ -4,50 +4,64 @@ const theme = ({ dt }) => `
 .p-tree {
     background: ${dt('tree.background')};
     color: ${dt('tree.color')};
-    border-radius: ${dt('border.radius.md')};
-    border: 0 none;
-    padding: 1rem;
+    padding: ${dt('tree.padding')};
+}
+
+.p-tree-root-children,
+.p-tree-node-children {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    margin: 0;
+    gap: ${dt('tree.gap')};
 }
 
 .p-tree-root-children {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    overflow: auto;
+    padding: ${dt('tree.gap')} 0 0 0;
+}
+
+.p-tree-node-children {
+    padding: ${dt('tree.gap')} 0 0 ${dt('tree.indent')};
 }
 
 .p-tree-node {
-    padding: 0 0;
+    padding: 0;
     outline: 0 none;
-    margin: 2px 0;
-}
-
-.p-tree-root-children > .p-tree-node:first-child {
-    margin-top: 0;
-}
-
-.p-tree-root-children > .p-tree-node:last-child {
-    margin-bottom: 0;
 }
 
 .p-tree-node-content {
-    border-radius: ${dt('border.radius.md')};
-    padding: 0.25rem 0.5rem;
+    border-radius: ${dt('tree.node.border.radius')};
+    padding: ${dt('tree.node.padding')};
     display: flex;
     align-items: center;
     outline-color: transparent;
     color: ${dt('tree.node.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    gap: ${dt('tree.node.gap')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-tree-node:focus-visible > .p-tree-node-content {
-    outline: 1px solid ${dt('focus.ring.color')};
-    outline-offset: -2px;
+    box-shadow: ${dt('tree.node.focus.ring.shadow')};
+    outline: ${dt('tree.node.focus.ring.width')} ${dt('tree.node.focus.ring.style')} ${dt('tree.node.focus.ring.color')};
+    outline-offset: ${dt('tree.node.focus.ring.offset')};
+}
+
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover {
+    background: ${dt('tree.node.hover.background')};
+    color: ${dt('tree.node.hover.color')};
+}
+
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-icon {
+    color: ${dt('tree.node.icon.hover.color')};
 }
 
 .p-tree-node-content.p-tree-node-selected {
-    background: ${dt('highlight.background')};
-    color: ${dt('highlight.color')};
+    background: ${dt('tree.node.selected.background')};
+    color: ${dt('tree.node.selected.color')};
+}
+
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button {
+    color: inherit;
 }
 
 .p-tree-node-toggle-button {
@@ -59,14 +73,13 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
-    margin: 0 0.5rem 0 0;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: ${dt('tree.node.toggle.button.size')};
+    height: ${dt('tree.node.toggle.button.size')};
     color: ${dt('tree.node.toggle.button.color')};
     border: 0 none;
     background: transparent;
-    border-radius: 50%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    border-radius: ${dt('tree.node.toggle.button.border.radius')};
+    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     padding: 0;
 }
@@ -76,33 +89,9 @@ const theme = ({ dt }) => `
     color: ${dt('tree.node.toggle.button.hover.color')};
 }
 
-.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button,
-.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-icon {
-    color: inherit;
-}
-
 .p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button:hover {
-    background: ${dt('tree.node.toggle.button.highlight.hover.background')};
-}
-
-.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover {
-    background: ${dt('tree.node.hover.background')};
-    color: ${dt('tree.node.hover.color')};
-}
-
-.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-toggle-button {
-    color: ${dt('tree.node.toggle.button.hover.color')};
-}
-
-.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-icon {
-    color: ${dt('tree.node.icon.hover.color')};
-}
-
-.p-tree-node-children {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    padding: 0 0 0 1rem;
+    background: ${dt('tree.node.toggle.button.selected.hover.background')};
+    color: ${dt('tree.node.toggle.button.selected.hover.color')};
 }
 
 .p-tree-root {
@@ -119,29 +108,27 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-node-icon {
-    margin-right: 0.5rem;
     color: ${dt('tree.node.icon.color')};
     transition: color ${dt('transition.duration')};
 }
 
-.p-tree-node-content .p-checkbox {
-    margin-right: 0.5rem;
+.p-tree-node-content.p-tree-node-selected .p-tree-node-icon {
+    color: ${dt('tree.node.icon.selected.color')};
 }
 
 .p-tree-filter-input {
     width: 100%;
-    padding-right: 1.75rem;
 }
 
 .p-tree-loading {
     position: relative;
-    min-height: 4rem;
+    height: 100%;
 }
 
 .p-tree-loading-icon {
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
+    font-size: ${dt('tree.loading.icon.size')};
+    width: ${dt('tree.loading.icon.size')};
+    height: ${dt('tree.loading.icon.size')};
 }
 
 .p-tree .p-tree-mask {
