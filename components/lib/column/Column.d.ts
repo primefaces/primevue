@@ -240,7 +240,7 @@ export interface ColumnPassThroughOptions {
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    pcFilterAddButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
+    pcFilterAddRuleButton?: ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the filter buttonbar's DOM element.
      */

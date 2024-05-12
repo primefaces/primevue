@@ -196,7 +196,7 @@ export default {
             popover: {
                 borderRadius: '{border.radius.sm}',
                 padding: '1rem',
-                shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
+                shadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
             },
             modal: {
                 borderRadius: '{border.radius.lg}',

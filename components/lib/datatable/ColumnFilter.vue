@@ -96,9 +96,8 @@
                                     :pt="getColumnPT('pcFilterConstraintDropdown')"
                                 ></Select>
                                 <component v-if="display === 'menu'" :is="filterElement" :field="field" :filterModel="fieldConstraint" :filterCallback="filterCallback" :applyFilter="applyFilter" />
-                                <div v-bind="getColumnPT('filterRemove')">
+                                <div v-if="showRemoveIcon" v-bind="getColumnPT('filterRemove')">
                                     <Button
-                                        v-if="showRemoveIcon"
                                         type="button"
                                         :class="cx('pcFilterRemoveRuleButton')"
                                         @click="removeConstraint(i)"
@@ -119,11 +118,11 @@
                                 type="button"
                                 :label="addRuleButtonLabel"
                                 iconPos="left"
-                                :class="cx('pcFilterAddButton')"
+                                :class="cx('pcFilterAddRuleButton')"
                                 @click="addConstraint()"
                                 :unstyled="unstyled"
                                 v-bind="filterButtonProps.popover.addRule"
-                                :pt="getColumnPT('pcFilterAddButton')"
+                                :pt="getColumnPT('pcFilterAddRuleButton')"
                             >
                                 <template #icon="iconProps">
                                     <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPT('pcFilterAddButton')['icon']" />
