@@ -493,10 +493,10 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
 }
 
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {
-    background: ${dt('datatable.row.striped.background')});
+    background: ${dt('datatable.row.striped.background')};
 }
 
-.p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-highlight {
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-datatable-row-selected {
     background: ${dt('datatable.row.selected.background')};
     color: ${dt('datatable.row.selected.color')};
 }
