@@ -232,7 +232,7 @@ export interface OrderListProps {
      */
     scrollHeight?: string | undefined;
     /**
-     * Used to pass all properties of the ButtonProps to the move up button inside the component.
+     * Used to pass all properties of the ButtonProps to the button inside the component.
      * @type {ButtonProps}
      * @defaultValue { severity: 'secondary' }
      */
