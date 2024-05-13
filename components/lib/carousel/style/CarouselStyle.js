@@ -37,8 +37,8 @@ const theme = ({ dt }) => `
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: ${dt('carousel.indicator.list.padding')};
+    gap: ${dt('carousel.indicator.list.gap')};
     margin: 0;
     list-style: none;
 }
@@ -48,21 +48,22 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     background: ${dt('carousel.indicator.background')};
-    width: 2rem;
-    height: 0.5rem;
+    width: ${dt('carousel.indicator.width')};
+    height: ${dt('carousel.indicator.height')};
     border: 0 none;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('carousel.indicator.border.radius')};
     padding: 0;
     margin: 0;
-    border: none;
     user-select: none;
+    cursor: pointer;
 }
 
 .p-carousel-indicator-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('carousel.indicator.focus.ring.shadow')};
+    outline: ${dt('carousel.indicator.focus.ring.width')} ${dt('carousel.indicator.focus.ring.style')} ${dt('carousel.indicator.focus.ring.color')};
+    outline-offset: ${dt('carousel.indicator.focus.ring.offset')};
 }
 
 .p-carousel-indicator-button:hover {
