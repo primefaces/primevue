@@ -7,7 +7,7 @@ const theme = ({ dt }) => `
 
 .p-fileupload-advanced {
     border: 1px solid ${dt('fileupload.border.color')};
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('fileupload.border.radius')};
     background: ${dt('fileupload.background')};
     color: ${dt('fileupload.color')};
 }
@@ -15,15 +15,21 @@ const theme = ({ dt }) => `
 .p-fileupload-header {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 1.125rem;
-    gap: 0.5rem;
+    padding: ${dt('fileupload.header.padding')};
+    background: ${dt('fileupload.header.background')};
+    color: ${dt('fileupload.header.color')};
+    border-style: solid;
+    border-width: ${dt('fileupload.header.border.width')};
+    border-color: ${dt('fileupload.header.border.color')};
+    border-radius: ${dt('fileupload.header.border.radius')};
+    gap: ${dt('fileupload.header.gap')};
 }
 
 .p-fileupload-content {
     border: 1px solid transparent;
     position: relative;
-    padding: 0 1.125rem 1.125rem 1.125rem;
+    transition: border-color ${dt('transition.duration')};
+    padding: ${dt('fileupload.content.padding')};
 }
 
 .p-fileupload-content .p-progressbar {
@@ -31,7 +37,7 @@ const theme = ({ dt }) => `
     position: absolute;
     top: 0;
     left: 0;
-    height: 0.25rem;
+    height: ${dt('fileupload.progressbar.height')};
 }
 
 .p-fileupload-file-list {
@@ -45,9 +51,9 @@ const theme = ({ dt }) => `
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 1rem;
+    padding: ${dt('fileupload.file.padding')};
     border-bottom: 1px solid ${dt('fileupload.file.border.color')};
-    gap: 0.5rem;
+    gap: ${dt('fileupload.file.gap')};
 }
 
 .p-fileupload-file:last-child {
@@ -57,7 +63,7 @@ const theme = ({ dt }) => `
 .p-fileupload-file-info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: ${dt('fileupload.file.info.gap')};
 }
 
 .p-fileupload-file-thumbnail {
@@ -70,7 +76,6 @@ const theme = ({ dt }) => `
 
 .p-fileupload-highlight {
     border: 1px dashed ${dt('fileupload.content.highlight.border.color')};
-    background: ${dt('fileupload.content.highlight.background')};
 }
 
 .p-fileupload-advanced .p-message {
@@ -82,7 +87,7 @@ const theme = ({ dt }) => `
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: ${dt('fileupload.basic.gap')};
 }
 `;
 
