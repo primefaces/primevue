@@ -393,7 +393,7 @@ export interface PrimeVueLocaleOptions {
     emptySearchMessage?: string;
     emptyMessage?: string;
     fileChosenMessage?: string;
-    emptyFileChosenMessage?: string;
+    noFileChosenMessage?: string;
     aria?: PrimeVueLocaleAriaOptions;
 }
 

@@ -56,7 +56,7 @@
         </Button>
         <slot v-if="!auto" name="filelabel" :class="cx('filelabel')">
             <span :class="cx('filelabel')" :files="files">
-                {{ basicChooseButtonLabel }}
+                {{ basicFileChosenLabel }}
             </span>
         </slot>
         <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-bind="ptm('input')" />
@@ -379,7 +379,7 @@ export default {
         chooseButtonClass() {
             return [this.cx('pcChooseButton'), this.class];
         },
-        basicChooseButtonLabel() {
+        basicFileChosenLabel() {
             if (this.auto) return this.chooseButtonLabel;
             else if (this.hasFiles) {
                 if (this.files && this.files.length === 1) return this.files[0].name;
@@ -387,7 +387,7 @@ export default {
                 return this.$primevue.config.locale?.fileChosenMessage?.replace('{0}', this.files.length);
             }
 
-            return this.$primevue.config.locale?.emptyFileChosenMessage || '';
+            return this.$primevue.config.locale?.noFileChosenMessage || '';
         },
         hasFiles() {
             return this.files && this.files.length > 0;

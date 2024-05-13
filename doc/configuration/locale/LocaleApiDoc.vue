@@ -277,7 +277,7 @@
                         <td>{0} files</td>
                     </tr>
                     <tr>
-                        <td>emptyFileChosenMessage</td>
+                        <td>noFileChosenMessage</td>
                         <td>No file chosen</td>
                     </tr>
                     <tr>
