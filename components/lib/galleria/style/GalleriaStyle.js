@@ -341,7 +341,6 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    --p-mask-background: ${dt('galleria.mask.background')};
 }
 
 .p-galleria-close-button {
