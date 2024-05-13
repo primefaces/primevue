@@ -1,15 +1,10 @@
 import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
-.p-ripple {
-    overflow: hidden;
-    position: relative;
-}
-
 .p-ink {
     display: block;
     position: absolute;
-    background: rgba(255, 255, 255, 0.5);
+    background: ${dt('ripple.background')};
     border-radius: 100%;
     transform: scale(0);
     pointer-events: none;

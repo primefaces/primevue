@@ -9,6 +9,8 @@ const Ripple = BaseRipple.extend('ripple', {
                 this.bindEvents(this.$host);
 
                 this.$host.setAttribute('data-pd-ripple', true);
+                this.$host.style['overflow'] = 'hidden';
+                this.$host.style['position'] = 'relative';
             } else {
                 this.remove(this.$host);
                 this.$host.removeAttribute('data-pd-ripple');
@@ -46,6 +48,9 @@ const Ripple = BaseRipple.extend('ripple', {
             let ink = this.getInk(el);
 
             if (ink) {
+                this.$host.style['overflow'] = '';
+                this.$host.style['position'] = '';
+
                 this.unbindEvents(el);
                 ink.removeEventListener('animationend', this.onAnimationEnd);
                 ink.remove();

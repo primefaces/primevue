@@ -56,6 +56,7 @@ import progressbar from 'primevue/themes/lara/progressbar';
 import progressspinner from 'primevue/themes/lara/progressspinner';
 import radiobutton from 'primevue/themes/lara/radiobutton';
 import rating from 'primevue/themes/lara/rating';
+import ripple from 'primevue/themes/lara/ripple';
 import scrollpanel from 'primevue/themes/lara/scrollpanel';
 import scrolltop from 'primevue/themes/lara/scrolltop';
 import select from 'primevue/themes/lara/select';
@@ -547,6 +548,7 @@ export default {
         toolbar
     },
     directives: {
-        tooltip
+        tooltip,
+        ripple
     }
 };

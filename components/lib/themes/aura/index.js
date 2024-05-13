@@ -56,6 +56,7 @@ import progressbar from 'primevue/themes/aura/progressbar';
 import progressspinner from 'primevue/themes/aura/progressspinner';
 import radiobutton from 'primevue/themes/aura/radiobutton';
 import rating from 'primevue/themes/aura/rating';
+import ripple from 'primevue/themes/aura/ripple';
 import scrollpanel from 'primevue/themes/aura/scrollpanel';
 import scrolltop from 'primevue/themes/aura/scrolltop';
 import select from 'primevue/themes/aura/select';
@@ -542,6 +543,7 @@ export default {
         toolbar
     },
     directives: {
-        tooltip
+        tooltip,
+        ripple
     }
 };

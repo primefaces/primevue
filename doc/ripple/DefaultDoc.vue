@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex flex-column align-items-center gap-3">
         <span>Ripple option at the <i class="pi pi-palette"></i> configurator needs to be turned on for the demo.</span>
-        <div v-ripple class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold">Default</div>
+        <div v-ripple class="ripple-box">Default</div>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,30 +15,72 @@ export default {
         return {
             code: {
                 basic: `
-<div v-ripple class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold">Default</div>
+<div v-ripple class="ripple-box">Default</div>
 `,
                 options: `
 <template>
-    <div class="card card-container flex justify-content-center align-items-center">
-        <div v-ripple class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold">Default</div>
+    <div class="card flex flex-column align-items-center gap-3">
+        <div v-ripple class="ripple-box">Default</div>
     </div>
 </template>
 
 <script>
 <\/script>
+
+<style scoped>
+.ripple-box {
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    font-weight: bold;
+    background: var(--p-content-background);
+    border: 1px solid var(--p-content-border-color);
+    border-radius: var(--p-content-border-radius);
+}
+<\/style>
 `,
                 composition: `
 <template>
-    <div class="card card-container flex justify-content-center align-items-center">
-        <div v-ripple class="p-ripple bg-primary flex select-none justify-content-center align-items-center border-round p-6 font-bold">Default</div>
+    <div class="card flex flex-column align-items-center gap-3">
+        <div v-ripple class="ripple-box">Default</div>
     </div>
 </template>
 
 <script setup>
 <\/script>
+
+<style scoped>
+.ripple-box {
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    font-weight: bold;
+    background: var(--p-content-background);
+    border: 1px solid var(--p-content-border-color);
+    border-radius: var(--p-content-border-radius);
+}
+<\/style>
 `
             }
         };
     }
 };
 </script>
+
+<style scoped>
+.ripple-box {
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    font-weight: bold;
+    background: var(--p-content-background);
+    border: 1px solid var(--p-content-border-color);
+    border-radius: var(--p-content-border-radius);
+}
+</style>
