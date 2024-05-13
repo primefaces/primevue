@@ -462,6 +462,7 @@ const classes = {
         }
     ],
     columnResizer: 'p-treetable-column-resizer',
+    columnHeaderContent: 'p-treetable-column-header-content',
     columnTitle: 'p-treetable-column-title',
     sortIcon: 'p-treetable-sort-icon',
     sortBadge: 'p-treetable-sort-badge',
