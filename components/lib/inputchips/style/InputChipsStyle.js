@@ -58,6 +58,12 @@ const theme = ({ dt }) => `
     padding-top: calc(${dt('inputchips.padding.y')} / 2);
     padding-bottom: calc(${dt('inputchips.padding.y')} / 2);
     border-radius: ${dt('inputchips.chip.border.radius')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+}
+
+.p-inputchips-chip.p-focus .p-chip {
+    background: ${dt('inputchips.chip.focus.background')};
+    color: ${dt('inputchips.chip.focus.color')};
 }
 
 .p-inputchips-input:has(.p-chip) {

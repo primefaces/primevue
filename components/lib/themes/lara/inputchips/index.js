@@ -25,5 +25,19 @@ export default {
     },
     chip: {
         borderRadius: '{border.radius.xs}'
+    },
+    colorScheme: {
+        light: {
+            chip: {
+                focusBackground: '{surface.200}',
+                color: '{surface.800}'
+            }
+        },
+        dark: {
+            chip: {
+                focusBackground: '{surface.700}',
+                color: '{surface.0}'
+            }
+        }
     }
 };

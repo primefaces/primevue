@@ -36,7 +36,7 @@ export default {
         },
         dark: {
             root: {
-                background: '{surface.700}',
+                background: '{surface.800}',
                 color: '{surface.0}'
             },
             icon: {
