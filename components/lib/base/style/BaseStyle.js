@@ -186,18 +186,18 @@ const theme = ({ dt }) => `
 
 @keyframes p-component-overlay-enter-animation {
     from {
-        background-color: transparent;
+        background: transparent;
     }
     to {
-        background-color: ${dt('mask.background')};
+        background: ${dt('mask.background')};
     }
 }
 @keyframes p-component-overlay-leave-animation {
     from {
-        background-color: ${dt('mask.background')};
+        background: ${dt('mask.background')};
     }
     to {
-        background-color: transparent;
+        background: transparent;
     }
 }
 `;

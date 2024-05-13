@@ -236,7 +236,10 @@ export default {
                     color: '{primary.700}',
                     focusColor: '{primary.800}'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)',
+                mask: {
+                    background: 'rgba(0,0,0,0.4)',
+                    color: '{surface.200}'
+                },
                 formField: {
                     background: '{surface.0}',
                     disabledBackground: '{surface.200}',
@@ -355,7 +358,10 @@ export default {
                     color: 'rgba(255,255,255,.87)',
                     focusColor: 'rgba(255,255,255,.87)'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)',
+                mask: {
+                    background: 'rgba(0,0,0,0.4)',
+                    color: '{surface.200}'
+                },
                 formField: {
                     background: '{surface.950}',
                     disabledBackground: '{surface.700}',

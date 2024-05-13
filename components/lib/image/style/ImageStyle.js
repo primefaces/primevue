@@ -5,7 +5,6 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    --p-mask-background: ${dt('image.mask.background')};
 }
 
 .p-image-preview {
@@ -30,7 +29,7 @@ const theme = ({ dt }) => `
     cursor: pointer;
     background: transparent;
     color: ${dt('image.preview.mask.color')};
-    transition: background-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')};
 }
 
 .p-image-preview:hover > .p-image-preview-mask {
@@ -40,18 +39,27 @@ const theme = ({ dt }) => `
 }
 
 .p-image-preview-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: ${dt('image.preview.icon.size')};
+    width: ${dt('image.preview.icon.size')};
+    height: ${dt('image.preview.icon.size')};
 }
 
 .p-image-toolbar {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: ${dt('image.toolbar.position.top')};
+    right: ${dt('image.toolbar.position.right')};
+    left: ${dt('image.toolbar.position.left')};
+    bottom: ${dt('image.toolbar.position.bottom')};
     display: flex;
     z-index: 1;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: ${dt('image.toolbar.padding')};
+    background: ${dt('image.toolbar.background')};
+    backdrop-filter: blur(${dt('image.toolbar.blur')});
+    border-color: ${dt('image.toolbar.border.color')};
+    border-style: solid;
+    border-width: ${dt('image.toolbar.border.width')};
+    border-radius: ${dt('image.toolbar.border.radius')};
+    gap: ${dt('image.toolbar.gap')};
 }
 
 .p-image-action {
@@ -60,16 +68,16 @@ const theme = ({ dt }) => `
     align-items: center;
     color: ${dt('image.action.color')};
     background: transparent;
-    width: 3rem;
+    width: ${dt('image.action.size')};
+    height: ${dt('image.action.size')};
     margin: 0;
     padding: 0;
     border: 0 none;
     cursor: pointer;
     user-select: none;
-    height: 3rem;
-    border-radius: 50%;
+    border-radius: ${dt('image.action.border.radius')};
     outline-color: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
 }
 
 .p-image-action:hover {
@@ -78,14 +86,15 @@ const theme = ({ dt }) => `
 }
 
 .p-image-action:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('toolbar.action.focus.ring.shadow')};
+    outline: ${dt('toolbar.action.focus.ring.width')} ${dt('toolbar.action.focus.ring.style')} ${dt('toolbar.action.focus.ring.color')};
+    outline-offset: ${dt('toolbar.action.focus.ring.offset')};
 }
 
 .p-image-action .p-icon {
-    font-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: ${dt('image.action.icon.size')};
+    width: ${dt('image.action.icon.size')};
+    height: ${dt('image.action.icon.size')};
 }
 
 .p-image-action.p-disabled {

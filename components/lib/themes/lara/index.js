@@ -238,7 +238,10 @@ export default {
                 focusRing: {
                     shadow: '0 0 0 0.2rem {primary.200}'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)',
+                mask: {
+                    background: 'rgba(0,0,0,0.4)',
+                    color: '{surface.200}'
+                },
                 formField: {
                     background: '{surface.0}',
                     disabledBackground: '{surface.200}',
@@ -360,7 +363,10 @@ export default {
                 focusRing: {
                     shadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
                 },
-                maskBackground: 'rgba(0,0,0,0.4)',
+                mask: {
+                    background: 'rgba(0,0,0,0.4)',
+                    color: '{surface.200}'
+                },
                 formField: {
                     background: '{surface.950}',
                     disabledBackground: '{surface.700}',
