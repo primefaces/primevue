@@ -15473,12 +15473,12 @@
                             "description": "Used to pass attributes to the sort icon's DOM element."
                         },
                         {
-                            "name": "sortBadge",
+                            "name": "pcSortBadge",
                             "optional": true,
                             "readonly": false,
-                            "type": "ColumnPassThroughOptionType",
+                            "type": "BadgePassThroughOptions<any>",
                             "default": "",
-                            "description": "Used to pass attributes to the sort badge's DOM element."
+                            "description": "Used to pass attributes to the Badge component."
                         },
                         {
                             "name": "pcHeaderCheckbox",
@@ -15486,7 +15486,7 @@
                             "readonly": false,
                             "type": "CheckboxPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the header checkbox's DOM element."
+                            "description": "Used to pass attributes to the Checkbox component."
                         },
                         {
                             "name": "filter",
@@ -15633,7 +15633,7 @@
                             "description": "Used to pass attributes to the filter add button container's DOM element."
                         },
                         {
-                            "name": "pcFilterAddButton",
+                            "name": "pcFilterAddRuleButton",
                             "optional": true,
                             "readonly": false,
                             "type": "ButtonPassThroughOptions<ColumnSharedPassThroughMethodOptions>",
@@ -18664,7 +18664,7 @@
                             "default": ""
                         },
                         {
-                            "name": "emptyFileChosenMessage",
+                            "name": "noFileChosenMessage",
                             "optional": true,
                             "readonly": false,
                             "type": "string",
@@ -23852,7 +23852,7 @@
                             "value": "\"p-datatable-sort-icon\""
                         },
                         {
-                            "name": "sortBadge",
+                            "name": "pcSortBadge",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-datatable-sort-badge\""
@@ -31611,6 +31611,14 @@
                             "description": "Used to pass attributes to the toggle icon's DOM element."
                         },
                         {
+                            "name": "toggleButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the legend label's DOM element."
+                        },
+                        {
                             "name": "legendLabel",
                             "optional": true,
                             "readonly": false,
@@ -32678,6 +32686,30 @@
                             "type": "any",
                             "default": "",
                             "description": "Style class of the component."
+                        },
+                        {
+                            "name": "chooseButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "null",
+                            "description": "Used to pass all properties of the ButtonProps to the choose button inside the component."
+                        },
+                        {
+                            "name": "uploadButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the upload button inside the component."
+                        },
+                        {
+                            "name": "cancelButtonProps",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "object",
+                            "default": "",
+                            "description": "Used to pass all properties of the ButtonProps to the cancel button inside the component."
                         },
                         {
                             "name": "dt",
@@ -41946,12 +41978,12 @@
                             "description": "Used to pass attributes to the submenu icon's DOM element."
                         },
                         {
-                            "name": "panel",
+                            "name": "overlay",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
-                            "description": "Used to pass attributes to the panel's DOM element."
+                            "description": "Used to pass attributes to the overlay DOM element."
                         },
                         {
                             "name": "grid",
@@ -41970,7 +42002,7 @@
                             "description": "Used to pass attributes to the column's DOM element."
                         },
                         {
-                            "name": "submenuItem",
+                            "name": "submenuLabel",
                             "optional": true,
                             "readonly": false,
                             "type": "MegaMenuPassThroughOptionType",
@@ -41984,14 +42016,6 @@
                             "type": "MegaMenuPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the submenu's DOM element."
-                        },
-                        {
-                            "name": "submenuItemLabel",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "MegaMenuPassThroughOptionType",
-                            "default": "",
-                            "description": "Used to pass attributes to the submenu item label's DOM element."
                         },
                         {
                             "name": "separator",
@@ -47105,7 +47129,7 @@
                             "readonly": false,
                             "type": "object",
                             "default": "",
-                            "description": "Used to pass all properties of the ButtonProps to the move up button inside the component."
+                            "description": "Used to pass all properties of the ButtonProps to the button inside the component."
                         },
                         {
                             "name": "moveUpButtonProps",
@@ -63434,7 +63458,7 @@
                             "description": "Used to pass attributes to the item label's DOM element."
                         },
                         {
-                            "name": "inkbar",
+                            "name": "activeBar",
                             "optional": true,
                             "readonly": false,
                             "type": "TabMenuPassThroughOptionType",
@@ -65926,6 +65950,7 @@
     "themes/aura/progressspinner": {},
     "themes/aura/radiobutton": {},
     "themes/aura/rating": {},
+    "themes/aura/ripple": {},
     "themes/aura/scrollpanel": {},
     "themes/aura/scrolltop": {},
     "themes/aura/select": {},
@@ -66015,6 +66040,7 @@
     "themes/lara/progressspinner": {},
     "themes/lara/radiobutton": {},
     "themes/lara/rating": {},
+    "themes/lara/ripple": {},
     "themes/lara/scrollpanel": {},
     "themes/lara/scrolltop": {},
     "themes/lara/select": {},
@@ -73101,7 +73127,7 @@
                             "value": "\"p-treetable-sort-icon\""
                         },
                         {
-                            "name": "sortBadge",
+                            "name": "pcSortBadge",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-treetable-sort-badge\""
