@@ -22,7 +22,7 @@ export enum TreeTableClasses {
     columnResizer = 'p-treetable-column-resizer',
     columnTitle = 'p-treetable-column-title',
     sortIcon = 'p-treetable-sort-icon',
-    sortBadge = 'p-treetable-sort-badge',
+    pcSortBadge = 'p-treetable-sort-badge',
     tbody = 'p-treetable-tbody',
     nodeToggleButton = 'p-treetable-node-toggle-button',
     nodeToggleIcon = 'p-treetable-node-toggle-icon',

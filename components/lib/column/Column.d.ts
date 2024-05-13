@@ -9,6 +9,7 @@
  *
  */
 import { VNode } from 'vue';
+import { BadgePassThroughOptions } from '../badge';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { CheckboxPassThroughOptionType } from '../checkbox';
@@ -154,11 +155,11 @@ export interface ColumnPassThroughOptions {
      */
     sortIcon?: ColumnPassThroughOptionType;
     /**
-     * Used to pass attributes to the sort badge's DOM element.
+     * Used to pass attributes to the Badge component.
      */
-    sortBadge?: ColumnPassThroughOptionType;
+    pcSortBadge?: BadgePassThroughOptions;
     /**
-     * Used to pass attributes to the header checkbox's DOM element.
+     * Used to pass attributes to the Checkbox component.
      */
     pcHeaderCheckbox?: CheckboxPassThroughOptionType;
     /**

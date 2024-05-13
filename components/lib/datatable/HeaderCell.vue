@@ -29,7 +29,7 @@
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" />
             </span>
-            <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getBadgeValue() }}</span>
+            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getBadgeValue()" />
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import Badge from 'primevue/badge';
 import BaseComponent from 'primevue/basecomponent';
 import SortAltIcon from 'primevue/icons/sortalt';
 import SortAmountDownIcon from 'primevue/icons/sortamountdown';
@@ -365,6 +366,7 @@ export default {
         }
     },
     components: {
+        Badge,
         DTHeaderCheckbox: HeaderCheckbox,
         DTColumnFilter: ColumnFilter,
         SortAltIcon: SortAltIcon,

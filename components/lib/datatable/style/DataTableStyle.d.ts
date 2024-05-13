@@ -22,7 +22,7 @@ export enum DataTableClasses {
     columnHeaderContent = 'p-datatable-column-header-content',
     columnTitle = 'p-datatable-column-title',
     sortIcon = 'p-datatable-sort-icon',
-    sortBadge = 'p-datatable-sort-badge',
+    pcSortBadge = 'p-datatable-sort-badge',
     filter = 'p-datatable-filter',
     filterElementContainer = 'p-datatable-filter-element-container',
     pcColumnFilterButton = 'p-datatable-column-filter-button',
