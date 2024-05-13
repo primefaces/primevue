@@ -314,7 +314,7 @@ export default {
                         icon: {
                             color: '{surface.400}',
                             focusColor: '{surface.500}',
-                            activeColor: '{surface.500}',
+                            activeColor: '{surface.500}'
                         }
                     },
                     submenuLabel: {

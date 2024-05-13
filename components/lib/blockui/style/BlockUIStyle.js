@@ -17,7 +17,7 @@ const theme = ({ dt }) => `
     position: fixed;
 }
 `;
- 
+
 const classes = {
     root: 'p-blockui'
 };
