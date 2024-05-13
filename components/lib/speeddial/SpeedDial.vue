@@ -72,6 +72,9 @@ import Tooltip from 'primevue/tooltip';
 import { DomHandler, UniqueComponentId } from 'primevue/utils';
 import BaseSpeedDial from './BaseSpeedDial.vue';
 
+// Set fix value for SSR.
+const Math_PI = 3.14159265358979;
+
 export default {
     name: 'SpeedDial',
     extends: BaseSpeedDial,
@@ -362,7 +365,7 @@ export default {
                 const radius = this.radius || length * 20;
 
                 if (type === 'circle') {
-                    const step = (2 * Math.PI) / length;
+                    const step = (2 * Math_PI) / length;
 
                     return {
                         left: `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`,
@@ -370,7 +373,7 @@ export default {
                     };
                 } else if (type === 'semi-circle') {
                     const direction = this.direction;
-                    const step = Math.PI / (length - 1);
+                    const step = Math_PI / (length - 1);
                     const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
                     const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
 
@@ -385,7 +388,7 @@ export default {
                     }
                 } else if (type === 'quarter-circle') {
                     const direction = this.direction;
-                    const step = Math.PI / (2 * (length - 1));
+                    const step = Math_PI / (2 * (length - 1));
                     const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
                     const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
 
