@@ -213,9 +213,9 @@ export default {
                     color: '{primary.color}'
                 },
                 secondary: {
-                    hoverBackground: '{surface.50}',
-                    activeBackground: '{surface.100}',
-                    color: '{surface.500}'
+                    hoverBackground: '{surface.100}',
+                    activeBackground: '{surface.200}',
+                    color: '{surface.600}'
                 },
                 success: {
                     hoverBackground: '{green.50}',
@@ -440,9 +440,9 @@ export default {
                     color: '{primary.color}'
                 },
                 secondary: {
-                    hoverBackground: '{surface.800}',
-                    activeBackground: '{surface.700}',
-                    color: '{surface.400}'
+                    hoverBackground: '{surface.700}',
+                    activeBackground: '{surface.600}',
+                    color: '{surface.300}'
                 },
                 success: {
                     hoverBackground: 'color-mix(in srgb, {green.400}, transparent 96%)',
