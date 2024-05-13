@@ -1,4 +1,4 @@
-import Theme, { SharedUtils } from 'primevue/themes';
+import { SharedUtils, Theme } from 'primevue/themes';
 
 export default function (theme, options = {}) {
     const VARIABLE = Theme.defaults.variable;

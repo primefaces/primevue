@@ -1,4 +1,4 @@
-import Theme from 'primevue/themes';
+import { Theme } from 'primevue/themes';
 
 export default (...presets) => {
     const newPreset = SharedUtils.object.mergeKeys(...presets);

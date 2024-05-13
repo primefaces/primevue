@@ -1,6 +1,6 @@
 import { FilterMatchMode } from 'primevue/api';
 import PrimeVueService from 'primevue/service';
-import Theme, { ThemeService } from 'primevue/themes';
+import { Theme, ThemeService } from 'primevue/themes';
 import { inject, reactive, ref, watch } from 'vue';
 
 export const defaultOptions = {

@@ -1,5 +1,4 @@
-import { SharedUtils } from 'primevue/themes';
-import Theme from 'primevue/themes/config';
+import { SharedUtils, Theme } from 'primevue/themes';
 
 export const $dt = (tokenPath) => {
     const theme = Theme.getTheme();

@@ -1,7 +1,7 @@
 import Base from 'primevue/base';
 import BaseStyle from 'primevue/base/style';
 import PrimeVueService from 'primevue/service';
-import Theme, { ThemeService } from 'primevue/themes';
+import { Theme, ThemeService } from 'primevue/themes';
 import { ObjectUtils, UniqueComponentId } from 'primevue/utils';
 import { mergeProps } from 'vue';
 

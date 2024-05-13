@@ -1,4 +1,4 @@
-import Theme, { dt } from 'primevue/themes';
+import { Theme, dt } from 'primevue/themes';
 import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
