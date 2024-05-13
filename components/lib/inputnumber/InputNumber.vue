@@ -550,6 +550,9 @@ export default {
         },
         onPaste(event) {
             event.preventDefault();
+
+            if(this.readonly) return
+
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
             if (data) {
