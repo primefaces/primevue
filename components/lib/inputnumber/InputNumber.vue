@@ -549,6 +549,10 @@ export default {
             }
         },
         onPaste(event) {
+            if (this.readonly || this.disabled) {
+                return
+            }
+            
             event.preventDefault();
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
