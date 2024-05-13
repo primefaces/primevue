@@ -278,10 +278,6 @@
                             "to": "/tabs"
                         },
                         {
-                            "name": "TabView",
-                            "to": "/tabview"
-                        },
-                        {
                             "name": "Toolbar",
                             "to": "/toolbar"
                         }
