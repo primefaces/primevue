@@ -574,8 +574,6 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     outline: ${dt('datatable.row.toggle.button.focus.ring.width')} ${dt('datatable.row.toggle.button.focus.ring.style')} ${dt('datatable.row.toggle.button.focus.ring.color')};
     outline-offset: ${dt('datatable.row.toggle.button.focus.ring.offset')};
 }
-
-
 `;
 
 const classes = {

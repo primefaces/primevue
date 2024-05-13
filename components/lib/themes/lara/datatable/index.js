@@ -69,8 +69,8 @@ export default {
     rowToggleButton: {
         hoverBackground: '{content.hover.background}',
         selectedHoverBackground: '{content.background}',
-        color: '{text.color}',
-        hoverColor: '{text.muted.color}',
+        color: '{text.muted.color}',
+        hoverColor: '{text.color}',
         selectedHoverColor: '{primary.color}',
         size: '1.75rem',
         borderRadius: '50%',
