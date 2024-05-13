@@ -521,8 +521,6 @@ function addService() {
 
 function addConfig() {
     addEntry('config', 'PrimeVue.js', 'config');
-    addEntry('styled', 'PrimeVueStyled.js', 'primevuestyled');
-    addEntry('unstyled', 'PrimeVueUnstyled.js', 'primevueunstyled');
 }
 
 function addPassThrough() {

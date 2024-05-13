@@ -1,6 +1,0 @@
-{
-    "main": "./primevueunstyled.cjs.js",
-    "module": "./primevueunstyled.esm.js",
-    "unpkg": "./primevueunstyled.min.js",
-    "types": "./PrimeVueUnstyled.d.ts"
-}
