@@ -10,15 +10,20 @@ export default {
     dot: {
         size: '0.5rem'
     },
+    sm: {
+        fontSize: '0.625rem',
+        minWidth: '1.25rem',
+        height: '1.25rem'
+    },
     lg: {
-        fontSize: '1.125rem',
-        minWidth: '2.25rem',
-        height: '2.25rem'
+        fontSize: '0.875rem',
+        minWidth: '1.75rem',
+        height: '1.75rem'
     },
     xl: {
-        fontSize: '1.5rem',
-        minWidth: '3rem',
-        height: '3rem'
+        fontSize: '1rem',
+        minWidth: '2rem',
+        height: '2rem'
     },
     colorScheme: {
         light: {

@@ -72,6 +72,13 @@ const theme = ({ dt }) => `
     color: ${dt('badge.contrast.color')};
 }
 
+.p-badge-sm {
+    font-size: ${dt('badge.sm.font.size')};
+    min-width: ${dt('badge.sm.min.width')};
+    height: ${dt('badge.sm.height')};
+    line-height: ${dt('badge.sm.height')};
+}
+
 .p-badge-lg {
     font-size: ${dt('badge.lg.font.size')};
     min-width: ${dt('badge.lg.min.width')};
@@ -93,6 +100,7 @@ const classes = {
         {
             'p-badge-circle': ObjectUtils.isNotEmpty(props.value) && String(props.value).length === 1,
             'p-badge-dot': ObjectUtils.isEmpty(props.value) && !instance.$slots.default,
+            'p-badge-sm': props.size === 'small',
             'p-badge-lg': props.size === 'large',
             'p-badge-xl': props.size === 'xlarge',
             'p-badge-info': props.severity === 'info',
