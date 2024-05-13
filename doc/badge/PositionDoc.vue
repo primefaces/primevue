@@ -1,11 +1,17 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A Badge can be positioned at the top right corner of an element by adding <i>p-overlay-badge</i> style class to the element and embedding the badge inside.</p>
+        <p>A Badge can be added to any element using the directive.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-content-center gap-4">
-        <i v-badge="2" class="pi pi-bell" style="font-size: 2rem" />
-        <i v-badge.danger="'5+'" class="pi pi-calendar" style="font-size: 2rem" />
-        <i v-badge.danger class="pi pi-envelope" style="font-size: 2rem" />
+        <span v-badge="2">
+            <i class="pi pi-bell" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger="'5+'">
+            <i class="pi pi-calendar" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger>
+            <i class="pi pi-envelope" style="font-size: 2rem" />
+        </span>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,16 +22,28 @@ export default {
         return {
             code: {
                 basic: `
-<i v-badge="2" class="pi pi-bell" style="font-size: 2rem" />
-<i v-badge.danger="'5+'" class="pi pi-calendar" style="font-size: 2rem" />
-<i v-badge.danger class="pi pi-envelope" style="font-size: 2rem" />
+<span v-badge="2">
+    <i class="pi pi-bell" style="font-size: 2rem" />
+</span>
+<span v-badge.danger="'5+'">
+    <i class="pi pi-calendar" style="font-size: 2rem" />
+</span>
+<span v-badge.danger>
+    <i class="pi pi-envelope" style="font-size: 2rem" />
+</span>
 `,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-4">
-        <i v-badge="2" class="pi pi-bell" style="font-size: 2rem" />
-        <i v-badge.danger="'5+'" class="pi pi-calendar" style="font-size: 2rem" />
-        <i v-badge.danger class="pi pi-envelope" style="font-size: 2rem" />
+        <span v-badge="2">
+            <i class="pi pi-bell" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger="'5+'">
+            <i class="pi pi-calendar" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger>
+            <i class="pi pi-envelope" style="font-size: 2rem" />
+        </span>
     </div>
 </template>
 
@@ -36,9 +54,15 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-content-center gap-4">
-        <i v-badge="2" class="pi pi-bell" style="font-size: 2rem" />
-        <i v-badge.danger="'5+'" class="pi pi-calendar" style="font-size: 2rem" />
-        <i v-badge.danger class="pi pi-envelope" style="font-size: 2rem" />
+        <span v-badge="2">
+            <i class="pi pi-bell" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger="'5+'">
+            <i class="pi pi-calendar" style="font-size: 2rem" />
+        </span>
+        <span v-badge.danger>
+            <i class="pi pi-envelope" style="font-size: 2rem" />
+        </span>
     </div>
 </template>
 

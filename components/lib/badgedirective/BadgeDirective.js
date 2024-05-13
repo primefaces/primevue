@@ -30,7 +30,7 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
             badge.appendChild(document.createTextNode(el.$_badgeValue));
 
             if (String(el.$_badgeValue).length === 1 && !this.isUnstyled()) {
-                !this.isUnstyled() && DomHandler.addClass(badge, 'p-badge-no-gutter');
+                !this.isUnstyled() && DomHandler.addClass(badge, 'p-badge-circle');
             }
         } else {
             !this.isUnstyled() && DomHandler.addClass(badge, 'p-badge-dot');
@@ -57,8 +57,8 @@ const BadgeDirective = BaseBadgeDirective.extend('badge', {
                 if (el.$_badgeValue) {
                     if (DomHandler.hasClass(badge, 'p-badge-dot')) DomHandler.removeClass(badge, 'p-badge-dot');
 
-                    if (el.$_badgeValue.length === 1) DomHandler.addClass(badge, 'p-badge-no-gutter');
-                    else DomHandler.removeClass(badge, 'p-badge-no-gutter');
+                    if (el.$_badgeValue.length === 1) DomHandler.addClass(badge, 'p-badge-circle');
+                    else DomHandler.removeClass(badge, 'p-badge-circle');
                 } else if (!el.$_badgeValue && !DomHandler.hasClass(badge, 'p-badge-dot')) {
                     DomHandler.addClass(badge, 'p-badge-dot');
                 }

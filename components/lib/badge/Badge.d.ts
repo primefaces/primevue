@@ -72,9 +72,9 @@ export interface BadgeProps {
      */
     severity?: HintedString<'secondary' | 'info' | 'success' | 'warn' | 'danger' | 'contrast'> | null | undefined;
     /**
-     * Size of the badge, valid options are 'large' and 'xlarge'.
+     * Size of the badge, valid options are 'small', 'large', and 'xlarge'.
      */
-    size?: 'large' | 'xlarge' | null | undefined;
+    size?: 'small' | 'large' | 'xlarge' | null | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
