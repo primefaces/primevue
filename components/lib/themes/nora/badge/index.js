@@ -1,6 +1,6 @@
 export default {
     root: {
-        borderRadius: '{border.radius.lg}',
+        borderRadius: '{border.radius.md}',
         padding: '0 0.5rem',
         fontSize: '0.75rem',
         fontWeight: '700',
@@ -10,21 +10,26 @@ export default {
     dot: {
         size: '0.5rem'
     },
+    sm: {
+        fontSize: '0.625rem',
+        minWidth: '1.25rem',
+        height: '1.25rem'
+    },
     lg: {
-        fontSize: '1.125rem',
-        minWidth: '2.25rem',
-        height: '2.25rem'
+        fontSize: '0.875rem',
+        minWidth: '1.75rem',
+        height: '1.75rem'
     },
     xl: {
-        fontSize: '1.5rem',
-        minWidth: '3rem',
-        height: '3rem'
+        fontSize: '1rem',
+        minWidth: '2rem',
+        height: '2rem'
     },
     colorScheme: {
         light: {
             primary: {
                 background: '{primary.color}',
-                color: '{primary.inverse.color}'
+                color: '{primary.contrast.color}'
             },
             secondary: {
                 background: '{surface.100}',
@@ -53,28 +58,28 @@ export default {
         },
         dark: {
             primary: {
-                background: 'color-mix(in srgb, {primary.500}, transparent 84%)',
-                color: '{primary.300}'
+                background: '{primary.color}',
+                color: '{primary.contrast.color}'
             },
             secondary: {
                 background: '{surface.800}',
                 color: '{surface.300}'
             },
             success: {
-                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                color: '{green.300}'
+                background: '{green.400}',
+                color: '{green.950}'
             },
             info: {
-                background: 'color-mix(in srgb, {sky.500}, transparent 84%)',
-                color: '{sky.300}'
+                background: '{sky.400}',
+                color: '{sky.950}'
             },
             warn: {
-                background: 'color-mix(in srgb, {orange.500}, transparent 84%)',
-                color: '{orange.300}'
+                background: '{orange.400}',
+                color: '{orange.950}'
             },
             danger: {
-                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                color: '{red.300}'
+                background: '{red.400}',
+                color: '{red.950}'
             },
             contrast: {
                 background: '{surface.0}',
