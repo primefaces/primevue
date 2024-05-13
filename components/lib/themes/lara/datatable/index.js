@@ -13,7 +13,7 @@ export default {
         gap: '0.5rem',
         padding: '0.75rem 1rem',
         fontWeight: '700',
-        align: 'left',
+        textAlign: 'left',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',

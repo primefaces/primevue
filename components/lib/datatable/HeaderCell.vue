@@ -29,7 +29,7 @@
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" />
             </span>
-            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getBadgeValue()" />
+            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getBadgeValue()" size="small" />
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"

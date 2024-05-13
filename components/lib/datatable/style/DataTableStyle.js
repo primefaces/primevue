@@ -10,58 +10,6 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-.p-datatable-sortable-column {
-    cursor: pointer;
-    user-select: none;
-    outline-color: transparent;
-}
-
-.p-datatable-column-title,
-.p-datatable-sort-icon,
-.p-datatable-sort-badge {
-    vertical-align: middle;
-}
-
-.p-datatable-sort-icon {
-    color: ${dt('datatable.sort.icon.color')};
-    transition: color ${dt('transition.duration')};
-}
-
-.p-datatable-sort-badge.p-badge {
-    display: inline-flex;
-    align-items: center;
-    height: 1rem;
-    min-width: 1rem;
-    line-height: 1rem;
-}
-
-.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
-    background: ${dt('datatable.header.cell.hover.background')};
-    color: ${dt('datatable.header.cell.hover.color')};
-}
-
-.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {
-    color: ${dt('datatable.sort.icon.hover.color')};
-}
-
-.p-datatable-column-sorted {
-    background: ${dt('datatable.header.cell.selected.background')};
-    color: ${dt('datatable.header.cell.selected.color')};
-}
-
-.p-datatable-column-sorted .p-datatable-sort-icon {
-    color: ${dt('datatable.header.cell.selected.color')};
-}
-
-.p-datatable-sortable-column:focus-visible {
-    box-shadow: ${dt('datatable.header.cell.focus.ring.shadow')};
-    outline: ${dt('datatable.header.cell.focus.ring.width')} ${dt('datatable.header.cell.focus.ring.style')} ${dt('datatable.header.cell.focus.ring.color')};
-    outline-offset: ${dt('datatable.header.cell.focus.ring.offset')};
-}
-
-.p-datatable-hoverable .p-datatable-selectable-row {
-    cursor: pointer;
-}
 
 .p-datatable-scrollable > .p-datatable-table-container {
     position: relative;
@@ -341,7 +289,7 @@ const theme = ({ dt }) => `
     font-weight: ${dt('datatable.footer.font.weight')};
 }
 
-.p-datatable-thead > tr > th {
+.p-datatable-header-cell {
     text-align: ${dt('datatable.header.cell.text.align')};
     padding: ${dt('datatable.header.cell.padding')};
     background: ${dt('datatable.header.cell.background')};
@@ -402,6 +350,51 @@ const theme = ({ dt }) => `
     font-weight: ${dt('datatable.footer.cell.font.weight')};
     color: ${dt('datatable.footer.cell.color')};
     background: ${dt('datatable.footer.cell.background')};
+}
+
+.p-datatable-sortable-column {
+    cursor: pointer;
+    user-select: none;
+    outline-color: transparent;
+}
+
+.p-datatable-column-title,
+.p-datatable-sort-icon,
+.p-datatable-sort-badge {
+    vertical-align: middle;
+}
+
+.p-datatable-sort-icon {
+    color: ${dt('datatable.sort.icon.color')};
+    transition: color ${dt('transition.duration')};
+}
+
+.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
+    background: ${dt('datatable.header.cell.hover.background')};
+    color: ${dt('datatable.header.cell.hover.color')};
+}
+
+.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {
+    color: ${dt('datatable.sort.icon.hover.color')};
+}
+
+.p-datatable-column-sorted {
+    background: ${dt('datatable.header.cell.selected.background')};
+    color: ${dt('datatable.header.cell.selected.color')};
+}
+
+.p-datatable-column-sorted .p-datatable-sort-icon {
+    color: ${dt('datatable.header.cell.selected.color')};
+}
+
+.p-datatable-sortable-column:focus-visible {
+    box-shadow: ${dt('datatable.header.cell.focus.ring.shadow')};
+    outline: ${dt('datatable.header.cell.focus.ring.width')} ${dt('datatable.header.cell.focus.ring.style')} ${dt('datatable.header.cell.focus.ring.color')};
+    outline-offset: ${dt('datatable.header.cell.focus.ring.offset')};
+}
+
+.p-datatable-hoverable .p-datatable-selectable-row {
+    cursor: pointer;
 }
 
 .p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
@@ -606,11 +599,13 @@ const classes = {
     headerCell: ({ instance, props, column }) =>
         column && !instance.columnProp(column, 'hidden') && (props.rowGroupMode !== 'subheader' || props.groupRowsBy !== instance.columnProp(column, 'field'))
             ? [
+                  'p-datatable-header-cell',
                   {
                       'p-datatable-frozen-column': instance.columnProp(column, 'frozen')
                   }
               ]
             : [
+                  'p-datatable-header-cell',
                   {
                       'p-datatable-sortable-column': instance.columnProp('sortable'),
                       'p-datatable-resizable-column': instance.resizableColumns,

@@ -10,59 +10,6 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-.p-treetable-sortable-column {
-    cursor: pointer;
-    user-select: none;
-    outline-color: transparent;
-}
-
-.p-treetable-column-title,
-.p-treetable-sort-icon,
-.p-treetable-sort-badge {
-    vertical-align: middle;
-}
-
-.p-treetable-sort-icon {
-    color: ${dt('treetable.sort.icon.color')};
-    transition: color ${dt('transition.duration')};
-}
-
-.p-treetable-sort-badge.p-badge {
-    display: inline-flex;
-    align-items: center;
-    height: 1rem;
-    min-width: 1rem;
-    line-height: 1rem;
-}
-
-.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover {
-    background: ${dt('treetable.header.cell.hover.background')};
-    color: ${dt('treetable.header.cell.hover.color')};
-}
-
-.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover .p-treetable-sort-icon {
-    color: ${dt('treetable.sort.icon.hover.color')};
-}
-
-.p-treetable-column-sorted {
-    background: ${dt('treetable.header.cell.selected.background')};
-    color: ${dt('treetable.header.cell.selected.color')};
-}
-
-.p-treetable-column-sorted .p-treetable-sort-icon {
-    color: ${dt('treetable.header.cell.selected.color')};
-}
-
-.p-treetable-sortable-column:focus-visible {
-    box-shadow: ${dt('treetable.header.cell.focus.ring.shadow')};
-    outline: ${dt('treetable.header.cell.focus.ring.width')} ${dt('treetable.header.cell.focus.ring.style')} ${dt('treetable.header.cell.focus.ring.color')};
-    outline-offset: ${dt('treetable.header.cell.focus.ring.offset')};
-}
-
-.p-treetable-hoverable .p-treetable-selectable-row {
-    cursor: pointer;
-}
-
 .p-treetable-scrollable > .p-treetable-table-container {
     position: relative;
 }
@@ -200,7 +147,7 @@ const theme = ({ dt }) => `
     font-weight: ${dt('treetable.footer.font.weight')};
 }
 
-.p-treetable-thead > tr > th {
+.p-treetable-header-cell {
     text-align: ${dt('treetable.header.cell.text.align')};
     padding: ${dt('treetable.header.cell.padding')};
     background: ${dt('treetable.header.cell.background')};
@@ -261,6 +208,52 @@ const theme = ({ dt }) => `
     font-weight: ${dt('treetable.footer.cell.font.weight')};
     color: ${dt('treetable.footer.cell.color')};
     background: ${dt('treetable.footer.cell.background')};
+}
+
+
+.p-treetable-sortable-column {
+    cursor: pointer;
+    user-select: none;
+    outline-color: transparent;
+}
+
+.p-treetable-column-title,
+.p-treetable-sort-icon,
+.p-treetable-sort-badge {
+    vertical-align: middle;
+}
+
+.p-treetable-sort-icon {
+    color: ${dt('treetable.sort.icon.color')};
+    transition: color ${dt('transition.duration')};
+}
+
+.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover {
+    background: ${dt('treetable.header.cell.hover.background')};
+    color: ${dt('treetable.header.cell.hover.color')};
+}
+
+.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover .p-treetable-sort-icon {
+    color: ${dt('treetable.sort.icon.hover.color')};
+}
+
+.p-treetable-column-sorted {
+    background: ${dt('treetable.header.cell.selected.background')};
+    color: ${dt('treetable.header.cell.selected.color')};
+}
+
+.p-treetable-column-sorted .p-treetable-sort-icon {
+    color: ${dt('treetable.header.cell.selected.color')};
+}
+
+.p-treetable-sortable-column:focus-visible {
+    box-shadow: ${dt('treetable.header.cell.focus.ring.shadow')};
+    outline: ${dt('treetable.header.cell.focus.ring.width')} ${dt('treetable.header.cell.focus.ring.style')} ${dt('treetable.header.cell.focus.ring.color')};
+    outline-offset: ${dt('treetable.header.cell.focus.ring.offset')};
+}
+
+.p-treetable-hoverable .p-treetable-selectable-row {
+    cursor: pointer;
 }
 
 .p-treetable-loading-icon {
@@ -452,10 +445,11 @@ const classes = {
     ],
     thead: 'p-treetable-thead',
     headerCell: ({ instance, props, context }) => [
+        'p-treetable-header-cell',
         {
             'p-treetable-sortable-column': instance.columnProp('sortable'),
             'p-treetable-resizable-column': props.resizableColumns,
-            'p-treetable-column-sorted': context?.sorted,
+            'p-treetable-column-sorted': instance.isColumnSorted(),
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
