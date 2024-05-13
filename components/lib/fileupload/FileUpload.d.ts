@@ -445,6 +445,24 @@ export interface FileUploadProps {
      */
     class?: any;
     /**
+     * Used to pass all properties of the ButtonProps to the choose button inside the component.
+     * @type {ButtonProps}
+     * @defaultValue null
+     */
+    chooseButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the upload button inside the component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary' }
+     */
+    uploadButtonProps?: object | undefined;
+    /**
+     * Used to pass all properties of the ButtonProps to the cancel button inside the component.
+     * @type {ButtonProps}
+     * @defaultValue { severity: 'secondary' }
+     */
+    cancelButtonProps?: object | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

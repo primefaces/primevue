@@ -99,7 +99,23 @@ export default {
             default: undefined
         },
         style: null,
-        class: null
+        class: null,
+        chooseButtonProps: {
+            type: null,
+            default: null
+        },
+        uploadButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary' };
+            }
+        },
+        cancelButtonProps: {
+            type: Object,
+            default() {
+                return { severity: 'secondary' };
+            }
+        }
     },
     style: FileUploadStyle,
     provide() {
