@@ -46,12 +46,13 @@ import EventBus from '@/layouts/AppEventBus';
 import { $t, updatePreset, updateSurfacePalette } from 'primevue/themes';
 import Aura from 'primevue/themes/aura';
 import Lara from 'primevue/themes/lara';
+import Nora from 'primevue/themes/nora';
 
 export default {
     data() {
         return {
             selectedPreset: 'Lara',
-            presets: ['Aura', 'Lara'],
+            presets: ['Aura', 'Lara', 'Nora'],
             selectedPrimaryColor: 'noir',
             selectedSurfaceColor: null,
             primaryColors: [
@@ -206,7 +207,7 @@ export default {
             this.$primevue.config.ripple = value;
         },
         onPresetChange(value) {
-            const preset = value === 'Lara' ? Lara : Aura;
+            const preset = value === 'Nora' ? Nora : value === 'Lara' ? Lara : Aura;
             const surfacePalette = this.surfaces.find((s) => s.name === this.selectedSurfaceColor)?.palette;
 
             $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use({ useDefaultOptions: true });

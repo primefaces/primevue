@@ -3981,6 +3981,14 @@
                     "methods": []
                 }
             }
+        },
+        "tokens": {
+            "description": "Define design tokens used by the component.",
+            "values": {
+                "filters": {
+                    "props": []
+                }
+            }
         }
     },
     "autocomplete": {
@@ -62720,7 +62728,6 @@
             }
         }
     },
-    "styled/PrimeVueStyled": {},
     "tab": {
         "description": "Tab is a helper component for Tabs component.\n\n[Live Demo](https://www.primevue.org/tabs/)",
         "components": {
@@ -65922,14 +65929,540 @@
     "themes/aura/galleria": {},
     "themes/aura/iconfield": {},
     "themes/aura/image": {},
-    "themes/aura": {},
+    "aura": {
+        "description": "[Live Demo](https://www.primevue.org/)",
+        "interfaces": {
+            "description": "Defines the custom interfaces used by the module.",
+            "eventDescription": "Defines the custom events used by the component's emit.",
+            "methodDescription": "Defines methods that can be accessed by the component's reference.",
+            "typeDescription": "Defines the custom types used by the module.",
+            "values": {
+                "ColorSchemeDesignToken": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "colorScheme",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        }
+                    ],
+                    "methods": [],
+                    "extendedBy": "InputTextDesignTokens"
+                },
+                "PaletteDesignToken": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "50",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "100",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "200",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "300",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "400",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "500",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "600",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "700",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "800",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "900",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "950",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        }
+                    ],
+                    "methods": []
+                },
+                "PrimitiveDesignTokens": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "borderRadius",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        },
+                        {
+                            "name": "emerald",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "green",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "lime",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "red",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "orange",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "amber",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "yellow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "teal",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "cyan",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "sky",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "blue",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "indigo",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "violet",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "purple",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "fuchsia",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "pink",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "rose",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "slate",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "gray",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "zinc",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "neutral",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "stone",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                },
+                "SemanticDesignTokens": {
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "transitionDuration",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "focusRing",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        },
+                        {
+                            "name": "iconSize",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "anchorGutter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "primary",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PaletteDesignToken",
+                            "default": ""
+                        },
+                        {
+                            "name": "formField",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Object",
+                            "default": ""
+                        },
+                        {
+                            "name": "[key: string]",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "any"
+                        }
+                    ],
+                    "methods": []
+                }
+            }
+        }
+    },
     "themes/aura/inlinemessage": {},
     "themes/aura/inplace": {},
     "themes/aura/inputchips": {},
     "themes/aura/inputgroup": {},
     "themes/aura/inputnumber": {},
     "themes/aura/inputotp": {},
-    "themes/aura/inputtext": {},
+    "inputtexttheme": {
+        "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "tokens": {
+            "description": "Define design tokens used by the component.",
+            "values": {
+                "Root": {
+                    "description": "Tokens of the root section",
+                    "props": [
+                        {
+                            "name": "background",
+                            "token": "inputtext.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field"
+                        },
+                        {
+                            "name": "disabledBackground",
+                            "token": "inputtext.disabled.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field when disabled"
+                        },
+                        {
+                            "name": "filledBackground",
+                            "token": "inputtext.filled.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field when filled mode"
+                        },
+                        {
+                            "name": "filledFocusBackground",
+                            "token": "inputtext.filled.focus.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field on the focus state of filled mode"
+                        },
+                        {
+                            "name": "borderColor",
+                            "token": "inputtext.border.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Border color of an input field"
+                        },
+                        {
+                            "name": "hoverBorderColor",
+                            "token": "inputtext.hover.border.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Border color of an input field on the hover state"
+                        },
+                        {
+                            "name": "focusBorderColor",
+                            "token": "inputtext.focus.border.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Border color of an input field on the focus state"
+                        },
+                        {
+                            "name": "invalidBorderColor",
+                            "token": "inputtext.invalid.border.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Border color of an input field when invalid"
+                        },
+                        {
+                            "name": "color",
+                            "token": "inputtext.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Color of an input field"
+                        },
+                        {
+                            "name": "disabledColor",
+                            "token": "inputtext.disabled.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Color of an input field when disabled"
+                        },
+                        {
+                            "name": "placeholderColor",
+                            "token": "inputtext.placeholder.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Placeholder color of an input field"
+                        },
+                        {
+                            "name": "shadow",
+                            "token": "inputtext.shadow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Shadow of an input field"
+                        },
+                        {
+                            "name": "paddingX",
+                            "token": "inputtext.padding.x",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Padding right and left of an input field"
+                        },
+                        {
+                            "name": "paddingY",
+                            "token": "inputtext.padding.y",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Padding top and bottom of an input field"
+                        },
+                        {
+                            "name": "borderRadius",
+                            "token": "inputtext.border.radius",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Border radius of an input field"
+                        },
+                        {
+                            "name": "focusRing.width",
+                            "token": "inputtext.focus.ring.width",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Outline width of an input field on the focus state"
+                        },
+                        {
+                            "name": "focusRing.style",
+                            "token": "inputtext.focus.ring.style",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Outline style of an input field on the focus state"
+                        },
+                        {
+                            "name": "focusRing.color",
+                            "token": "inputtext.focus.ring.color",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Outline color of an input field on the focus state"
+                        },
+                        {
+                            "name": "focusRing.offset",
+                            "token": "inputtext.focus.ring.offset",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Outline offset of an input field on the focus state"
+                        },
+                        {
+                            "name": "focusRing.shadow",
+                            "token": "inputtext.focus.ring.shadow",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Shadow of an input field on the focus state"
+                        }
+                    ]
+                }
+            }
+        }
+    },
     "themes/aura/knob": {},
     "themes/aura/listbox": {},
     "themes/aura/megamenu": {},
@@ -73226,7 +73759,6 @@
             }
         }
     },
-    "unstyled/PrimeVueUnstyled": {},
     "useconfirm/UseConfirm": {
         "functions": {
             "description": "Defines the custom functions used by the module.",
