@@ -35,6 +35,7 @@ const theme = ({ dt }) => `
     left: 0;
     width: 100%;
     height: 100%;
+    color: ${dt('mask.color')};
 }
 
 .p-unselectable-text {
