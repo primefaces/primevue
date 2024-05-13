@@ -27,11 +27,9 @@ const theme = ({ dt }) => `
     transition: color ${dt('transition.duration')};
 }
 
-.p-treetable-sort-badge {
+.p-treetable-sort-badge.p-badge {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
     height: 1rem;
     min-width: 1rem;
     line-height: 1rem;
@@ -465,7 +463,7 @@ const classes = {
     columnHeaderContent: 'p-treetable-column-header-content',
     columnTitle: 'p-treetable-column-title',
     sortIcon: 'p-treetable-sort-icon',
-    sortBadge: 'p-treetable-sort-badge',
+    pcSortBadge: 'p-treetable-sort-badge',
     tbody: 'p-treetable-tbody',
     row: ({ instance }) => [
         {

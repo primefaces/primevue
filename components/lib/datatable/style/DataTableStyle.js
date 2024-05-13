@@ -27,11 +27,9 @@ const theme = ({ dt }) => `
     transition: color ${dt('transition.duration')};
 }
 
-.p-datatable-sort-badge {
+.p-datatable-sort-badge.p-badge {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
     height: 1rem;
     min-width: 1rem;
     line-height: 1rem;
@@ -625,7 +623,7 @@ const classes = {
     columnHeaderContent: 'p-datatable-column-header-content',
     columnTitle: 'p-datatable-column-title',
     sortIcon: 'p-datatable-sort-icon',
-    sortBadge: 'p-datatable-sort-badge',
+    pcSortBadge: 'p-datatable-sort-badge',
     filter: ({ props }) => [
         'p-datatable-filter',
         {

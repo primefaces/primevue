@@ -20,12 +20,13 @@
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sortIcon')" />
             </span>
-            <span v-if="isMultiSorted()" :class="cx('sortBadge')" v-bind="getColumnPT('sortBadge')">{{ getMultiSortMetaIndex() + 1 }}</span>
+            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getMultiSortMetaIndex() + 1" />
         </div>
     </th>
 </template>
 
 <script>
+import Badge from 'primevue/badge';
 import BaseComponent from 'primevue/basecomponent';
 import SortAltIcon from 'primevue/icons/sortalt';
 import SortAmountDownIcon from 'primevue/icons/sortamountdown';
@@ -232,6 +233,7 @@ export default {
         }
     },
     components: {
+        Badge,
         SortAltIcon: SortAltIcon,
         SortAmountUpAltIcon: SortAmountUpAltIcon,
         SortAmountDownIcon: SortAmountDownIcon
