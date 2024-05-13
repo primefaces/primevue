@@ -18,12 +18,12 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
+<TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
 `,
                 options: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
+        <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-20rem w-full" />
     </div>
 </template>
 

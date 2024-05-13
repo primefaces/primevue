@@ -1192,6 +1192,13 @@
                     "relatedProp": "",
                     "props": [
                         {
+                            "name": "ADDRESS_BOOK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "ALIGN_CENTER",
                             "optional": false,
                             "readonly": true,
@@ -1339,6 +1346,13 @@
                             "default": ""
                         },
                         {
+                            "name": "ARROW_DOWN_LEFT_AND_ARROW_UP_RIGHT_TO_CENTER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "ARROW_DOWN_RIGHT",
                             "optional": false,
                             "readonly": true,
@@ -1388,21 +1402,35 @@
                             "default": ""
                         },
                         {
-                            "name": "ARROW_H",
+                            "name": "ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
                             "default": ""
                         },
                         {
-                            "name": "ARROW_V",
+                            "name": "ARROWS_ALT",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
                             "default": ""
                         },
                         {
-                            "name": "ARROW_A",
+                            "name": "ARROWS_H",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ARROWS_V",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ASTERISK",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1430,6 +1458,13 @@
                             "default": ""
                         },
                         {
+                            "name": "BARCODE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "BARS",
                             "optional": false,
                             "readonly": true,
@@ -1438,6 +1473,13 @@
                         },
                         {
                             "name": "BELL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BELL_SLASH",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1500,7 +1542,35 @@
                             "default": ""
                         },
                         {
+                            "name": "BUILDING_COLUMNS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "BULLSEYE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALCULATOR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "CALENDAR",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CALENDAR_CLOCK",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1522,13 +1592,6 @@
                         },
                         {
                             "name": "CALENDAR_TIMES",
-                            "optional": false,
-                            "readonly": true,
-                            "type": "string",
-                            "default": ""
-                        },
-                        {
-                            "name": "CALCULATOR",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1577,6 +1640,20 @@
                             "default": ""
                         },
                         {
+                            "name": "CART_ARROW_DOWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CART_MINUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "CART_PLUS",
                             "optional": false,
                             "readonly": true,
@@ -1599,6 +1676,13 @@
                         },
                         {
                             "name": "CHART_PIE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "CHART_SCATTER",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1696,6 +1780,13 @@
                             "default": ""
                         },
                         {
+                            "name": "CLIPBOARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "CLOCK",
                             "optional": false,
                             "readonly": true,
@@ -1780,6 +1871,13 @@
                             "default": ""
                         },
                         {
+                            "name": "CROWN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "DATABASE",
                             "optional": false,
                             "readonly": true,
@@ -1787,7 +1885,7 @@
                             "default": ""
                         },
                         {
-                            "name": "DELETELEFT",
+                            "name": "DELETE_LEFT",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1864,7 +1962,21 @@
                             "default": ""
                         },
                         {
+                            "name": "EQUALS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "ERASER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "ETHEREUM",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1892,6 +2004,13 @@
                             "default": ""
                         },
                         {
+                            "name": "EXPAND",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "EXTERNAL_LINK",
                             "optional": false,
                             "readonly": true,
@@ -1907,6 +2026,13 @@
                         },
                         {
                             "name": "EYE_SLASH",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FACE_SMILE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -1935,6 +2061,20 @@
                         },
                         {
                             "name": "FILE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_ARROW_UP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "FILE_CHECK",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2032,7 +2172,21 @@
                             "default": ""
                         },
                         {
+                            "name": "FOLDER_PLUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "FORWARD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "GAUGE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2067,7 +2221,28 @@
                             "default": ""
                         },
                         {
+                            "name": "GRADUATION_CAP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HAMMER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "HASHTAG",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "HEADPHONES",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2137,6 +2312,13 @@
                             "default": ""
                         },
                         {
+                            "name": "INDIAN_RUPEE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "INFO",
                             "optional": false,
                             "readonly": true,
@@ -2172,6 +2354,13 @@
                             "default": ""
                         },
                         {
+                            "name": "LIGHTBULB",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "LINK",
                             "optional": false,
                             "readonly": true,
@@ -2187,6 +2376,13 @@
                         },
                         {
                             "name": "LIST",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "LIST_CHECK",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2221,7 +2417,28 @@
                             "default": ""
                         },
                         {
+                            "name": "MARS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "MEGAPHONE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MICROCHIP",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "MICROCHIP_AI",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2277,6 +2494,13 @@
                             "default": ""
                         },
                         {
+                            "name": "OBJECTS_COLUMN",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "PALETTE",
                             "optional": false,
                             "readonly": true,
@@ -2298,7 +2522,21 @@
                             "default": ""
                         },
                         {
+                            "name": "PAUSE_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "PAYPAL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PEN_TO_SQUARE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2326,7 +2564,21 @@
                             "default": ""
                         },
                         {
+                            "name": "PINTEREST",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "PLAY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "PLAY_CIRCLE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2390,6 +2642,13 @@
                         },
                         {
                             "name": "QUESTION_CIRCLE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "RECEIPT",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2474,6 +2733,13 @@
                         },
                         {
                             "name": "SHIELD",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SHOP",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2620,6 +2886,13 @@
                             "default": ""
                         },
                         {
+                            "name": "SORT_DOWN_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "SORT_NUMERIC_DOWN",
                             "optional": false,
                             "readonly": true,
@@ -2655,7 +2928,28 @@
                             "default": ""
                         },
                         {
+                            "name": "SORT_UP_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SPARKLES",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "SPINNER",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "SPINNER_DOWN",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2670,6 +2964,20 @@
                         },
                         {
                             "name": "STAR_FILL",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STAR_HALF",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "STAR_HALF_FILL",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2711,14 +3019,14 @@
                             "default": ""
                         },
                         {
-                            "name": "STOPWATCH",
+                            "name": "STOP_CIRCLE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
                             "default": ""
                         },
                         {
-                            "name": "STOP_CIRCLE",
+                            "name": "STOPWATCH",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2809,7 +3117,21 @@
                             "default": ""
                         },
                         {
+                            "name": "THUMBTACK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "TICKET",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TIKTOK",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2837,7 +3159,28 @@
                             "default": ""
                         },
                         {
+                            "name": "TROPHY",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "TRUCK",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TURKISH_LIRA",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "TWITCH",
                             "optional": false,
                             "readonly": true,
                             "type": "string",
@@ -2907,6 +3250,13 @@
                             "default": ""
                         },
                         {
+                            "name": "VENUS",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
                             "name": "VERIFIED",
                             "optional": false,
                             "readonly": true,
@@ -2950,6 +3300,20 @@
                         },
                         {
                             "name": "WALLET",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WAREHOUSE",
+                            "optional": false,
+                            "readonly": true,
+                            "type": "string",
+                            "default": ""
+                        },
+                        {
+                            "name": "WAVE_PULSE",
                             "optional": false,
                             "readonly": true,
                             "type": "string",

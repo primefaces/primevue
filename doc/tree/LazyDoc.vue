@@ -7,11 +7,11 @@
     </DocSectionText>
     <div class="card flex flex-wrap p-fluid gap-3">
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
         </div>
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <label class="font-bold block mb-2">Icon Mode</label>
             <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
         </div>
     </div>
@@ -34,11 +34,11 @@ export default {
 <template>
     <div class="card flex flex-wrap p-fluid gap-3">
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
         </div>
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <label class="font-bold block mb-2">Icon Mode</label>
             <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
         </div>
     </div>
@@ -55,10 +55,10 @@ export default {
     },
     mounted() {
         this.loading = true;
-        this.nodes2 = this.initateNodes2();
+        this.nodes2 = this.initiateNodes2();
 
         setTimeout(() => {
-            this.nodes = this.initateNodes();
+            this.nodes = this.initiateNodes();
             this.loading = false;
             this.nodes2.map((node) => (node.loading = false));
         }, 2000);
@@ -112,7 +112,7 @@ export default {
                 }, 500);
             }
         },
-        initateNodes() {
+        initiateNodes() {
             return [
                 {
                     key: '0',
@@ -131,7 +131,7 @@ export default {
                 }
             ];
         },
-        initateNodes2() {
+        initiateNodes2() {
             return [
                 {
                     key: '0',
@@ -161,11 +161,11 @@ export default {
 <template>
     <div class="card flex flex-wrap p-fluid gap-3">
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Mask Mode</label>
+            <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
         </div>
         <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
-            <label for="mask" class="font-bold block mb-2">Icon Mode</label>
+            <label class="font-bold block mb-2">Icon Mode</label>
             <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
         </div>
     </div>
@@ -183,7 +183,7 @@ onMounted(() => {
     nodes2.value = initiateNodes2();
 
     setTimeout(() => {
-        nodes.value = initateNodes();
+        nodes.value = initiateNodes();
         loading.value = false;
         nodes2.value.map((node) => (node.loading = false));
     }, 2000);
@@ -239,7 +239,7 @@ const onNodeExpand2 = (node) => {
     }
 };
 
-const initateNodes = () => {
+const initiateNodes = () => {
     return [
         {
             key: '0',
@@ -259,7 +259,7 @@ const initateNodes = () => {
     ];
 };
 
-const initateNodes2 = () => {
+const initiateNodes2 = () => {
     return [
         {
             key: '0',
@@ -315,10 +315,10 @@ const initateNodes2 = () => {
     },
     mounted() {
         this.loading = true;
-        this.nodes2 = this.initateNodes2();
+        this.nodes2 = this.initiateNodes2();
 
         setTimeout(() => {
-            this.nodes = this.initateNodes();
+            this.nodes = this.initiateNodes();
             this.loading = false;
             this.nodes2.map((node) => (node.loading = false));
         }, 2000);
@@ -373,7 +373,7 @@ const initateNodes2 = () => {
                 }, 500);
             }
         },
-        initateNodes() {
+        initiateNodes() {
             return [
                 {
                     key: '0',
@@ -392,7 +392,7 @@ const initateNodes2 = () => {
                 }
             ];
         },
-        initateNodes2() {
+        initiateNodes2() {
             return [
                 {
                     key: '0',

@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When content exceeeds viewport, Dialog automatically becomes scrollable.</p>
+        <p>When content exceeds viewport, Dialog automatically becomes scrollable.</p>
     </DocSectionText>
 
     <div class="card flex justify-content-center">
