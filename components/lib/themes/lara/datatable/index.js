@@ -136,19 +136,19 @@ export default {
                 borderColor: '{content.border.color}'
             },
             header: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{text.color}'
             },
             headerCell: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{text.color}'
             },
             footer: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{text.color}'
             },
             footerCell: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{text.color}'
             },
             row: {
