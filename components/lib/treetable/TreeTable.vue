@@ -64,8 +64,8 @@
                                 :sortOrder="d_sortOrder"
                                 :multiSortMeta="d_multiSortMeta"
                                 :sortMode="sortMode"
-                                @column-click="onColumnHeaderClick"
-                                @column-resizestart="onColumnResizeStart"
+                                @column-click="onColumnHeaderClick($event)"
+                                @column-resizestart="onColumnResizeStart($event)"
                                 :index="i"
                                 :unstyled="unstyled"
                                 :pt="pt"
@@ -388,6 +388,7 @@ export default {
                 if (
                     DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
+                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
                     DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
                     DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
@@ -624,7 +625,7 @@ export default {
             let containerLeft = DomHandler.getOffset(this.$el).left;
 
             this.$el.setAttribute('data-p-unselectable-text', 'true');
-            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-unselectable-text');
+            !this.isUnstyled && DomHandler.addStyles(this.$el, { 'user-select': 'none' });
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -666,7 +667,7 @@ export default {
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
             this.$el.removeAttribute('data-p-unselectable-text');
-            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-unselectable-text');
+            !this.isUnstyled && (this.$el.style['user-select'] = '');
 
             this.unbindColumnResizeEvents();
         },

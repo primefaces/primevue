@@ -7,10 +7,6 @@ const theme = ({ dt }) => `
     box-sizing: border-box;
 }
 
-.p-unselectable-text {
-    user-select: none;
-}
-
 /* Non vue overlay animations */
 .p-connected-overlay {
     opacity: 0;
