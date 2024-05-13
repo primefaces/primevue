@@ -101,7 +101,7 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         if (this.type !== 'linear') {
-            const button = DomHandler.findSingle(this.container, '[data-pc-name="button"]');
+            const button = DomHandler.findSingle(this.container, '[data-pc-name="pcbutton"]');
             const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
 
             if (button && firstItem) {
@@ -365,14 +365,14 @@ export default {
                     const step = (2 * Math.PI) / length;
 
                     return {
-                        left: `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`,
-                        top: `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`
+                        left: `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`,
+                        top: `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`
                     };
                 } else if (type === 'semi-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (length - 1);
-                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
 
                     if (direction === 'up') {
                         return { left: x, bottom: y };
@@ -386,8 +386,8 @@ export default {
                 } else if (type === 'quarter-circle') {
                     const direction = this.direction;
                     const step = Math.PI / (2 * (length - 1));
-                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px')})`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px')})`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
 
                     if (direction === 'up-left') {
                         return { right: x, bottom: y };
