@@ -437,7 +437,7 @@ const classes = {
         }
     ],
     loading: 'p-treetable-loading', //TODO: required?
-    mask: 'p-treetable-mask p-component-overlay',
+    mask: 'p-treetable-mask p-overlay-mask',
     loadingIcon: 'p-treetable-loading-icon',
     header: 'p-treetable-header',
     paginator: ({ position }) => 'p-treetable-paginator-' + position,

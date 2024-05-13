@@ -19,7 +19,7 @@
         </div>
 
         <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -61,7 +61,7 @@ export default {
 </div>
 
 <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
-    <span class="p-text-secondary block mb-5">Update your information.</span>
+    <span class="text-color-secondary block mb-5">Update your information.</span>
     <div class="flex align-items-center gap-3 mb-3">
         <label for="username" class="font-semibold w-6rem">Username</label>
         <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -95,7 +95,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -148,7 +148,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />

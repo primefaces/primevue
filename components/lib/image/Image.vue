@@ -158,7 +158,7 @@ export default {
             this.$emit('show');
         },
         onBeforeLeave() {
-            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
         },
         onLeave() {
             DomHandler.unblockBodyScroll();

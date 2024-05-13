@@ -9,11 +9,11 @@ const theme = ({ dt }) => `
     border-radius: ${dt('blockui.border.radius')};
 }
 
-.p-blockui-mask.p-component-overlay {
+.p-blockui-mask.p-overlay-mask {
     position: absolute;
 }
 
-.p-blockui-mask-document.p-component-overlay {
+.p-blockui-mask-document.p-overlay-mask {
     position: fixed;
 }
 `;

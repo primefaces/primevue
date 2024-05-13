@@ -12,7 +12,7 @@
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </div>
             </template>
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -46,7 +46,7 @@ export default {
             <span class="font-bold white-space-nowrap">Amy Elsner</span>
         </div>
     </template>
-    <span class="p-text-secondary block mb-5">Update your information.</span>
+    <span class="text-color-secondary block mb-5">Update your information.</span>
     <div class="flex align-items-center gap-3 mb-3">
         <label for="username" class="font-semibold w-6rem">Username</label>
         <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -72,7 +72,7 @@ export default {
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </div>
             </template>
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />
@@ -110,7 +110,7 @@ export default {
                     <span class="font-bold white-space-nowrap">Amy Elsner</span>
                 </div>
             </template>
-            <span class="p-text-secondary block mb-5">Update your information.</span>
+            <span class="text-color-secondary block mb-5">Update your information.</span>
             <div class="flex align-items-center gap-3 mb-3">
                 <label for="username" class="font-semibold w-6rem">Username</label>
                 <InputText id="username" class="flex-auto" autocomplete="off" />

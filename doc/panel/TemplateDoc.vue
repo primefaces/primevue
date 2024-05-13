@@ -16,7 +16,7 @@
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Updated 2 hours ago</span>
+                    <span class="text-color-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>
@@ -68,7 +68,7 @@ export default {
                 <Button icon="pi pi-user" rounded text></Button>
                 <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
             </div>
-            <span class="p-text-secondary">Updated 2 hours ago</span>
+            <span class="text-color-secondary">Updated 2 hours ago</span>
         </div>
     </template>
     <template #icons>
@@ -98,7 +98,7 @@ export default {
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Updated 2 hours ago</span>
+                    <span class="text-color-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>
@@ -164,7 +164,7 @@ export default {
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="p-text-secondary">Updated 2 hours ago</span>
+                    <span class="text-color-secondary">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>

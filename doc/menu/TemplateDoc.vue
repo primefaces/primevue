@@ -34,9 +34,9 @@
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
+                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column">
+                    <span class="inline-flex flex-column align-items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>
@@ -118,9 +118,9 @@ export default {
         </a>
     </template>
     <template #end>
-        <button v-ripple class="relative overflow-hidden w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
-            <Avatar image="/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-            <span class="inline-flex flex-column">
+        <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
+            <span class="inline-flex flex-column align-items-start">
                 <span class="font-bold">Amy Elsner</span>
                 <span class="text-sm">Admin</span>
             </span>
@@ -159,9 +159,9 @@ export default {
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
+                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column">
+                    <span class="inline-flex flex-column align-items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>
@@ -254,9 +254,9 @@ export default {
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full p-link flex align-items-center p-2 pl-3 text-color hover:surface-200 border-noround">
+                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column">
+                    <span class="inline-flex flex-column align-items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>

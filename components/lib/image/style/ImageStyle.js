@@ -131,7 +131,7 @@ const classes = {
     ],
     previewMask: 'p-image-preview-mask',
     previewIcon: 'p-image-preview-icon',
-    mask: 'p-image-mask p-component-overlay p-component-overlay-enter',
+    mask: 'p-image-mask p-overlay-mask p-overlay-mask-enter',
     toolbar: 'p-image-toolbar',
     rotateRightButton: 'p-image-action p-image-rotate-right-button',
     rotateLeftButton: 'p-image-action p-image-rotate-left-button',

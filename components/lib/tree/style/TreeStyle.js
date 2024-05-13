@@ -160,7 +160,7 @@ const classes = {
             'p-tree-flex-scrollable': props.scrollHeight === 'flex'
         }
     ],
-    mask: 'p-tree-mask p-component-overlay',
+    mask: 'p-tree-mask p-overlay-mask',
     loadingIcon: 'p-tree-loading-icon',
     pcFilterInput: 'p-tree-filter-input',
     wrapper: 'p-tree-root', //TODO: discuss

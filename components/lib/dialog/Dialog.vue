@@ -154,7 +154,7 @@ export default {
         },
         onBeforeLeave() {
             if (this.modal) {
-                !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+                !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
             }
         },
         onLeave() {

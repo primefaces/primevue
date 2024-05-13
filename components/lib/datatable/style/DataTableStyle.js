@@ -589,7 +589,7 @@ const classes = {
             'p-datatable-lg': props.size === 'large'
         }
     ],
-    mask: 'p-datatable-mask p-component-overlay',
+    mask: 'p-datatable-mask p-overlay-mask',
     loadingIcon: 'p-datatable-loading-icon',
     header: 'p-datatable-header',
     pcPaginator: ({ position }) => 'p-datatable-paginator-' + position,
