@@ -1,6 +1,14 @@
 import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
+.p-galleria {
+    overflow: hidden;
+    border-style: solid;
+    border-width: ${dt('galleria.border.width')};
+    border-color: ${dt('galleria.border.color')};
+    border-radius: ${dt('galleria.border.radius')};
+}
+
 .p-galleria-content {
     display: flex;
     flex-direction: column;
@@ -21,40 +29,48 @@ const theme = ({ dt }) => `
 .p-galleria-nav-button {
     position: absolute;
     top: 50%;
-    margin-top: -0.5rem;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: transparent;
+    background: ${dt('galleria.nav.button.background')};
     color: ${dt('galleria.nav.button.color')};
-    width: 3rem;
-    height: 3rem;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
-    border-radius: 50%;
-    margin: 0 0.5rem;
+    width: ${dt('galleria.nav.button.size')};
+    height: ${dt('galleria.nav.button.size')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    margin: calc(-1 * calc(${dt('galleria.nav.button.size')}) / 2) ${dt('galleria.nav.button.gutter')} 0 ${dt('galleria.nav.button.gutter')};
     padding: 0;
     user-select: none;
-    border: none;
+    border: 0 none;
     cursor: pointer;
+    outline-color: transparent;
 }
 
 .p-galleria-nav-button:not(.p-disabled):hover {
     background: ${dt('galleria.nav.button.hover.background')};
+    color: ${dt('galleria.nav.button.hover.color')};
+}
+
+.p-galleria-nav-button:not(.p-disabled):focus-visible {
+    box-shadow: ${dt('galleria.nav.button.focus.ring.shadow')};
+    outline: ${dt('galleria.nav.button.focus.ring.width')} ${dt('galleria.nav.button.focus.ring.style')} ${dt('galleria.nav.button.focus.ring.color')};
+    outline-offset: ${dt('galleria.nav.button.focus.ring.offset')};
 }
 
 .p-galleria-next-icon,
 .p-galleria-prev-icon {
-    font-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: ${dt('galleria.nav.icon.size')};
+    width: ${dt('galleria.nav.icon.size')};
+    height: ${dt('galleria.nav.icon.size')};
 }
 
 .p-galleria-prev-button {
+    border-radius: ${dt('galleria.nav.button.prev.border.radius')};
     left: 0;
 }
 
 .p-galleria-next-button {
+    border-radius: ${dt('galleria.nav.button.next.border.radius')};
     right: 0;
 }
 
@@ -88,7 +104,7 @@ const theme = ({ dt }) => `
     width: 100%;
     background: ${dt('galleria.caption.background')};
     color: ${dt('galleria.caption.color')};
-    padding: 1rem;
+    padding: ${dt('galleria.caption.padding')};
 }
 
 .p-galleria-thumbnails {
@@ -106,18 +122,18 @@ const theme = ({ dt }) => `
     align-items: center;
     overflow: hidden;
     position: relative;
-    margin: 0.5rem;
+    margin: 0 ${dt('galleria.thumbnail.nav.button.gutter')};
     padding: 0;
     border: none;
     user-select: none;
     cursor: pointer;
     background: transparent;
     color: ${dt('galleria.thumbnail.nav.button.color')};
-    width: 2rem;
-    height: 2rem;
+    width: ${dt('galleria.thumbnail.nav.button.size')};
+    height: ${dt('galleria.thumbnail.nav.button.size')};
     transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
-    border-radius: 50%;
+    border-radius: ${dt('galleria.thumbnail.nav.button.border.radius')};
 }
 
 .p-galleria-thumbnail-nav-button:hover {
@@ -126,21 +142,23 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-thumbnail-nav-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('galleria.thumbnail.nav.button.focus.ring.shadow')};
+    outline: ${dt('galleria.thumbnail.nav.button.focus.ring.width')} ${dt('galleria.thumbnail.nav.button.focus.ring.style')} ${dt('galleria.thumbnail.nav.button.focus.ring.color')};
+    outline-offset: ${dt('galleria.thumbnail.nav.button.focus.ring.offset')};
 }
 
-.p-galleria-thumbnail-nav-button span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.p-galleria-thumbnail-nav-button .p-galleria-thumbnail-next-icon,
+.p-galleria-thumbnail-nav-button .p-galleria-thumbnail-prev-icon {
+    font-size: ${dt('galleria.thumbnail.nav.button.icon.size')};
+    width: ${dt('galleria.thumbnail.nav.button.icon.size')};
+    height: ${dt('galleria.thumbnail.nav.button.icon.size')};
 }
 
 .p-galleria-thumbnails-content {
     display: flex;
     flex-direction: row;
     background: ${dt('galleria.thumbnails.content.background')};
-    padding: 1rem 0.25rem;
+    padding: ${dt('galleria.thumbnails.content.padding')};
 }
 
 .p-galleria-thumbnails-viewport {
@@ -163,11 +181,6 @@ const theme = ({ dt }) => `
 
 .p-galleria-thumbnail {
     outline-color: transparent;
-}
-
-.p-galleria-thumbnail:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
 }
 
 .p-galleria-thumbnail-item:hover {
@@ -215,8 +228,8 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: ${dt('galleria.indicator.list.padding')};
+    gap: ${dt('galleria.indicator.list.gap')};
     margin: 0;
     list-style: none;
 }
@@ -225,11 +238,11 @@ const theme = ({ dt }) => `
     display: inline-flex;
     align-items: center;
     background: ${dt('galleria.indicator.button.background')};
-    width: 1rem;
-    height: 1rem;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    width: ${dt('galleria.indicator.button.width')};
+    height: ${dt('galleria.indicator.button.height')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
-    border-radius: 50%;
+    border-radius: ${dt('galleria.indicator.button.border.radius')};
     margin: 0;
     padding: 0;
     border: none;
@@ -242,8 +255,9 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-indicator-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('galleria.indicator.button.focus.ring.shadow')};
+    outline: ${dt('galleria.indicator.button.focus.ring.width')} ${dt('galleria.indicator.button.focus.ring.style')} ${dt('galleria.indicator.button.focus.ring.color')};
+    outline-offset: ${dt('galleria.indicator.button.focus.ring.offset')};
 }
 
 .p-galleria-indicator-active .p-galleria-indicator-button {
@@ -338,24 +352,24 @@ const theme = ({ dt }) => `
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin: 0.5rem;
-    background: transparent;
+    margin: ${dt('galleria.close.button.gutter')};
+    background: ${dt('galleria.close.button.background')};
     color: ${dt('galleria.close.button.color')};
-    width: 3rem;
-    height: 3rem;
+    width: ${dt('galleria.close.button.size')};
+    height: ${dt('galleria.close.button.size')};
     padding: 0;
     border: none;
     user-select: none;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: ${dt('galleria.close.button.border.radius')};
     outline-color: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-galleria-close-icon {
-    font-size: 1.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: ${dt('galleria.close.button.icon.size')};
+    width: ${dt('galleria.close.button.icon.size')};
+    height: ${dt('galleria.close.button.icon.size')};
 }
 
 .p-galleria-close-button:hover {
@@ -364,14 +378,14 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-close-button:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('galleria.close.button.focus.ring.shadow')};
+    outline: ${dt('galleria.close.button.focus.ring.width')} ${dt('galleria.close.button.focus.ring.style')} ${dt('galleria.close.button.focus.ring.color')};
+    outline-offset: ${dt('galleria.close.button.focus.ring.offset')};
 }
 
 .p-galleria-mask .p-galleria-nav-button {
     position: fixed;
     top: 50%;
-    margin-top: -0.5rem;
 }
 
 .p-galleria-enter-active {
