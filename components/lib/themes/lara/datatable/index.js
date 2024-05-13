@@ -6,7 +6,6 @@ export default {
         fontWeight: '700'
     },
     headerCell: {
-        hoverBackground: '{content.hover.background}',
         selectedBackground: '{highlight.background}',
         borderColor: '{datatable.border.color}',
         hoverColor: '{content.hover.color}',
@@ -141,6 +140,7 @@ export default {
             },
             headerCell: {
                 background: '{surface.50}',
+                hoverBackground: '{surface.100}',
                 color: '{text.color}'
             },
             footer: {
@@ -168,6 +168,7 @@ export default {
             },
             headerCell: {
                 background: '{surface.800}',
+                hoverBackground: '{surface.700}',
                 color: '{text.color}'
             },
             footer: {

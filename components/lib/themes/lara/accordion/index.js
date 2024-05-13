@@ -44,10 +44,10 @@ export default {
     colorScheme: {
         light: {
             header: {
-                background: '{surface.100}',
-                hoverBackground: '{surface.200}',
-                activeBackground: '{surface.100}',
-                activeHoverBackground: '{surface.200}'
+                background: '{surface.50}',
+                hoverBackground: '{surface.100}',
+                activeBackground: '{surface.50}',
+                activeHoverBackground: '{surface.100}'
             }
         },
         dark: {

@@ -38,7 +38,7 @@ export default {
     colorScheme: {
         light: {
             header: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{text.color}'
             }
         },

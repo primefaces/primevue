@@ -44,12 +44,12 @@ const theme = ({ dt }) => `
 }
 
 .p-scrollpanel-bar-y {
-    width: ${dt('scrollpanel.bar.size')});
+    width: ${dt('scrollpanel.bar.size')};
     top: 0;
 }
 
 .p-scrollpanel-bar-x {
-    height: ${dt('scrollpanel.bar.size')});
+    height: ${dt('scrollpanel.bar.size')};
     bottom: 0;
 }
 

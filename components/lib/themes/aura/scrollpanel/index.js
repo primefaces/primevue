@@ -1,15 +1,13 @@
 export default {
-    root: {
-        bar: {
-            size: '9px',
-            borderRadius: '{border.radius.sm}',
-            focusRing: {
-                width: '{focus.ring.width}',
-                style: '{focus.ring.style}',
-                color: '{focus.ring.color}',
-                offset: '{focus.ring.offset}',
-                shadow: '{focus.ring.shadow}'
-            }
+    bar: {
+        size: '9px',
+        borderRadius: '{border.radius.sm}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
         }
     },
     colorScheme: {

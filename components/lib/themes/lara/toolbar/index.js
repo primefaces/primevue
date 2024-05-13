@@ -10,7 +10,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 color: '{content.color}'
             }
         },

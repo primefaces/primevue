@@ -37,8 +37,8 @@ export default {
     colorScheme: {
         light: {
             item: {
-                background: '{surface.100}',
-                hoverBackground: '{surface.200}',
+                background: '{surface.50}',
+                hoverBackground: '{surface.100}',
                 activeBackground: '{surface.0}'
             }
         },

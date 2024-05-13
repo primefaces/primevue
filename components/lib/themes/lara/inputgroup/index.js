@@ -5,7 +5,7 @@ export default {
     colorScheme: {
         light: {
             addon: {
-                background: '{surface.100}',
+                background: '{surface.50}',
                 borderColor: '{form.field.border.color}',
                 color: '{text.muted.color}'
             }
