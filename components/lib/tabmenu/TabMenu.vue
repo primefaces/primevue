@@ -39,28 +39,28 @@ export default {
     extends: BaseTabMenu,
     inheritAttrs: false,
     emits: ['update:activeIndex', 'tab-change'],
-    timeout: null,
     data() {
         return {
             d_activeIndex: this.activeIndex
         };
     },
     watch: {
-        activeIndex(newValue) {
-            this.d_activeIndex = newValue;
+        activeIndex: {
+            flush: 'post',
+            handler(newValue) {
+                this.d_activeIndex = newValue;
+                this.updateInkBar();
+            }
         }
     },
     mounted() {
-        this.updateInkBar();
+        this.$nextTick(() => {
+            this.updateInkBar();
+        });
+
         const activeItem = this.findActiveItem();
 
         activeItem && (activeItem.tabIndex = '0');
-    },
-    updated() {
-        this.updateInkBar();
-    },
-    beforeUnmount() {
-        clearTimeout(this.timeout);
     },
     methods: {
         getPTOptions(key, item, index) {
