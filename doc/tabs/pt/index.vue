@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,31 +26,31 @@ export default {
                     id: 'pt.doc.tabs',
                     label: 'Tabs PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Tabs')
+                    data: getPTOptions('Tabs')
                 },
                 {
                     id: 'pt.doc.tablist',
                     label: 'TabList PT Options',
                     component: DocApiTable,
-                    data: getPTOption('TabList')
+                    data: getPTOptions('TabList')
                 },
                 {
                     id: 'pt.doc.tab',
                     label: 'Tab PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Tab')
+                    data: getPTOptions('Tab')
                 },
                 {
                     id: 'pt.doc.tabpanels',
                     label: 'TabPanels PT Options',
                     component: DocApiTable,
-                    data: getPTOption('TabPanels')
+                    data: getPTOptions('TabPanels')
                 },
                 {
                     id: 'pt.doc.tabpanel',
                     label: 'TabPanel PT Options',
                     component: DocApiTable,
-                    data: getPTOption('TabPanel')
+                    data: getPTOptions('TabPanel')
                 }
             ]
         };

@@ -6157,9 +6157,9 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"large\" | \"xlarge\"",
+                            "type": "null | \"small\" | \"large\" | \"xlarge\"",
                             "default": "",
-                            "description": "Size of the badge, valid options are 'large' and 'xlarge'."
+                            "description": "Size of the badge, valid options are 'small', 'large', and 'xlarge'."
                         },
                         {
                             "name": "dt",
@@ -40265,7 +40265,8 @@
                             "name": "root",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-inputtext\""
+                            "value": "\"p-inputtext\"",
+                            "description": "The class of input element"
                         }
                     ]
                 }
@@ -66270,7 +66271,7 @@
     "themes/aura/inputgroup": {},
     "themes/aura/inputnumber": {},
     "themes/aura/inputotp": {},
-    "inputtexttheme": {
+    "aura/inputtext": {
         "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
         "tokens": {
             "description": "Define design tokens used by the component.",
@@ -66552,7 +66553,46 @@
     "themes/lara/inputgroup": {},
     "themes/lara/inputnumber": {},
     "themes/lara/inputotp": {},
-    "themes/lara/inputtext": {},
+    "lara/inputtext": {
+        "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "tokens": {
+            "description": "Define design tokens used by the component.",
+            "values": {
+                "Root": {
+                    "description": "Tokens of the root section",
+                    "props": [
+                        {
+                            "name": "background",
+                            "token": "inputtext.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field"
+                        },
+                        {
+                            "name": "disabledBackground",
+                            "token": "inputtext.disabled.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field when disabled"
+                        },
+                        {
+                            "name": "filledBackground",
+                            "token": "inputtext.filled.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field when filled mode"
+                        }
+                    ]
+                }
+            }
+        }
+    },
     "themes/lara/knob": {},
     "themes/lara/listbox": {},
     "themes/lara/megamenu": {},
@@ -66601,6 +66641,114 @@
     "themes/lara/tree": {},
     "themes/lara/treeselect": {},
     "themes/lara/treetable": {},
+    "themes/nora/accordion": {},
+    "themes/nora/autocomplete": {},
+    "themes/nora/avatar": {},
+    "themes/nora/badge": {},
+    "themes/nora/blockui": {},
+    "themes/nora/breadcrumb": {},
+    "themes/nora/button": {},
+    "themes/nora/buttongroup": {},
+    "themes/nora/card": {},
+    "themes/nora/carousel": {},
+    "themes/nora/cascadeselect": {},
+    "themes/nora/checkbox": {},
+    "themes/nora/chip": {},
+    "themes/nora/colorpicker": {},
+    "themes/nora/confirmdialog": {},
+    "themes/nora/confirmpopup": {},
+    "themes/nora/contextmenu": {},
+    "themes/nora/datatable": {},
+    "themes/nora/dataview": {},
+    "themes/nora/datepicker": {},
+    "themes/nora/dialog": {},
+    "themes/nora/divider": {},
+    "themes/nora/dock": {},
+    "themes/nora/drawer": {},
+    "themes/nora/editor": {},
+    "themes/nora/fieldset": {},
+    "themes/nora/fileupload": {},
+    "themes/nora/floatlabel": {},
+    "themes/nora/galleria": {},
+    "themes/nora/iconfield": {},
+    "themes/nora/image": {},
+    "themes/nora": {},
+    "themes/nora/inlinemessage": {},
+    "themes/nora/inplace": {},
+    "themes/nora/inputchips": {},
+    "themes/nora/inputgroup": {},
+    "themes/nora/inputnumber": {},
+    "themes/nora/inputotp": {},
+    "nora/inputtext": {
+        "description": "InputText renders a text field to enter data.\n\n[Live Demo](https://www.primevue.org/inputtext/)",
+        "tokens": {
+            "description": "Define design tokens used by the component.",
+            "values": {
+                "Root": {
+                    "description": "Tokens of the root section",
+                    "props": [
+                        {
+                            "name": "background",
+                            "token": "inputtext.background",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Background of an input field"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "themes/nora/knob": {},
+    "themes/nora/listbox": {},
+    "themes/nora/megamenu": {},
+    "themes/nora/menu": {},
+    "themes/nora/menubar": {},
+    "themes/nora/message": {},
+    "themes/nora/metergroup": {},
+    "themes/nora/multiselect": {},
+    "themes/nora/orderlist": {},
+    "themes/nora/organizationchart": {},
+    "themes/nora/paginator": {},
+    "themes/nora/panel": {},
+    "themes/nora/panelmenu": {},
+    "themes/nora/password": {},
+    "themes/nora/picklist": {},
+    "themes/nora/popover": {},
+    "themes/nora/progressbar": {},
+    "themes/nora/progressspinner": {},
+    "themes/nora/radiobutton": {},
+    "themes/nora/rating": {},
+    "themes/nora/ripple": {},
+    "themes/nora/scrollpanel": {},
+    "themes/nora/scrolltop": {},
+    "themes/nora/select": {},
+    "themes/nora/selectbutton": {},
+    "themes/nora/skeleton": {},
+    "themes/nora/slider": {},
+    "themes/nora/speeddial": {},
+    "themes/nora/splitbutton": {},
+    "themes/nora/splitter": {},
+    "themes/nora/stepper": {},
+    "themes/nora/steps": {},
+    "themes/nora/tabmenu": {},
+    "themes/nora/tabs": {},
+    "themes/nora/tabview": {},
+    "themes/nora/tag": {},
+    "themes/nora/terminal": {},
+    "themes/nora/textarea": {},
+    "themes/nora/tieredmenu": {},
+    "themes/nora/timeline": {},
+    "themes/nora/toast": {},
+    "themes/nora/togglebutton": {},
+    "themes/nora/toggleswitch": {},
+    "themes/nora/toolbar": {},
+    "themes/nora/tooltip": {},
+    "themes/nora/tree": {},
+    "themes/nora/treeselect": {},
+    "themes/nora/treetable": {},
     "themes/service": {},
     "themes/utils": {},
     "tieredmenu": {

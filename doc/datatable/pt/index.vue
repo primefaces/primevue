@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,25 +26,25 @@ export default {
                     id: 'pt.doc.datatable',
                     label: 'DataTable PT Options',
                     component: DocApiTable,
-                    data: getPTOption('DataTable')
+                    data: getPTOptions('DataTable')
                 },
                 {
                     id: 'pt.doc.column',
                     label: 'Column PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Column')
+                    data: getPTOptions('Column')
                 },
                 {
                     id: 'pt.doc.columngroup',
                     label: 'ColumnGroup PT Options',
                     component: DocApiTable,
-                    data: getPTOption('ColumnGroup')
+                    data: getPTOptions('ColumnGroup')
                 },
                 {
                     id: 'pt.doc.row',
                     label: 'Row PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Row')
+                    data: getPTOptions('Row')
                 }
             ]
         };

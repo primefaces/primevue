@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,7 +26,7 @@ export default {
                     id: 'pt.doc.splitbutton',
                     label: 'SplitButton PT Options',
                     component: DocApiTable,
-                    data: getPTOption('SplitButton')
+                    data: getPTOptions('SplitButton')
                 }
             ]
         };

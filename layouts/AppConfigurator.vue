@@ -31,7 +31,7 @@
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Presets</span>
-                <SelectButton v-model="selectedPreset" @update:modelValue="onPresetChange" :options="presets" :unselectable="false" />
+                <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presets" :unselectable="false" />
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Ripple</span>
@@ -48,11 +48,16 @@ import Aura from 'primevue/themes/aura';
 import Lara from 'primevue/themes/lara';
 import Nora from 'primevue/themes/nora';
 
+const presets = {
+    Aura,
+    Lara,
+    Nora
+};
+
 export default {
     data() {
         return {
-            selectedPreset: 'Lara',
-            presets: ['Aura', 'Lara', 'Nora'],
+            presets: Object.keys(presets),
             selectedPrimaryColor: 'noir',
             selectedSurfaceColor: null,
             primaryColors: [
@@ -207,7 +212,8 @@ export default {
             this.$primevue.config.ripple = value;
         },
         onPresetChange(value) {
-            const preset = value === 'Nora' ? Nora : value === 'Lara' ? Lara : Aura;
+            this.$appState.preset = value;
+            const preset = presets[value];
             const surfacePalette = this.surfaces.find((s) => s.name === this.selectedSurfaceColor)?.palette;
 
             $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use({ useDefaultOptions: true });

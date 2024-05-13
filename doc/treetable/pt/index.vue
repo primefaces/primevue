@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,13 +26,13 @@ export default {
                     id: 'pt.doc.treetable',
                     label: 'TreeTable PT Options',
                     component: DocApiTable,
-                    data: getPTOption('TreeTable')
+                    data: getPTOptions('TreeTable')
                 },
                 {
                     id: 'pt.doc.column',
                     label: 'Column PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Column')
+                    data: getPTOptions('Column')
                 }
             ]
         };

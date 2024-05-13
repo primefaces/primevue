@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,13 +26,13 @@ export default {
                     id: 'pt.doc.splitter',
                     label: 'Splitter PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Splitter')
+                    data: getPTOptions('Splitter')
                 },
                 {
                     id: 'pt.doc.splitterpanel',
                     label: 'SplitterPanel PT Options',
                     component: DocApiTable,
-                    data: getPTOption('SplitterPanel')
+                    data: getPTOptions('SplitterPanel')
                 }
             ]
         };

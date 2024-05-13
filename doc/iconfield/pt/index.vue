@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,13 +26,13 @@ export default {
                     id: 'pt.doc.iconfield',
                     label: 'IconField PT Options',
                     component: DocApiTable,
-                    data: getPTOption('IconField')
+                    data: getPTOptions('IconField')
                 },
                 {
                     id: 'pt.doc.inputicon',
                     label: 'InputIcon PT Options',
                     component: DocApiTable,
-                    data: getPTOption('InputIcon')
+                    data: getPTOptions('InputIcon')
                 }
             ]
         };

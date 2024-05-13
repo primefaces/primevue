@@ -5,7 +5,7 @@ import { reactive } from 'vue';
 const $appState = {
     install: (Vue, options) => {
         Vue.config.globalProperties.$appState = reactive({
-            //theme: 'aura-light-green',
+            preset: 'Lara',
             darkTheme: false,
             codeSandbox: false,
             sourceType: 'options-api',

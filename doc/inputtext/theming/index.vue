@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions, getTokenOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -19,7 +20,16 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    description: 'List of class names used in the styled mode.',
+                    component: DocApiTable,
+                    data: getStyleOptions('InputText')
+                },
+                {
+                    id: 'theming.tokens',
+                    label: 'Design Tokens',
+                    description: `List of design tokens used in <i>${this.$appState.preset}</i> Preset.`,
+                    component: DocApiTable,
+                    data: getTokenOptions(this.$appState.preset, 'InputText')
                 },
                 {
                     id: 'theming.unstyled',
@@ -35,6 +45,14 @@ export default {
                 }
             ]
         };
+    },
+    watch: {
+        '$appState.preset': {
+            flush: 'post',
+            handler(newValue) {
+                this.docs[1] = { ...this.docs[1], description: `List of design tokens used in <i>${newValue}</i> Preset.`, data: getTokenOptions(newValue, 'InputText') };
+            }
+        }
     }
 };
 </script>

@@ -1,6 +1,7 @@
 import APIDocs from '@/doc/common/apidoc/index.json';
+import { $dt } from 'primevue/themes';
 
-export const getPTOption = (name) => {
+export const getPTOptions = (name) => {
     const { props } = APIDocs[name.toLowerCase()].interfaces.values[`${name}PassThroughOptions`] || APIDocs[name.toLowerCase()].interfaces.values[`${name}DirectivePassThroughOptions`];
     const options = APIDocs[name.toLowerCase()].interfaces.values[`${name}PassThroughMethodOptions`];
     let data = [];
@@ -29,6 +30,44 @@ export const getPTOption = (name) => {
                 value: i + 1,
                 label: prop.name,
                 description: prop.description
+            });
+        }
+    }
+
+    return data;
+};
+
+export const getStyleOptions = (name) => {
+    const { members } = APIDocs[name.toLowerCase() + 'style']?.enumerations?.values?.[`${name}Classes`];
+    let data = [];
+
+    for (const member of members) {
+        const { name, value, description } = member;
+
+        data.push({
+            class: value.replaceAll('"', ''),
+            section: name,
+            description
+        });
+    }
+
+    return data;
+};
+
+export const getTokenOptions = (preset, name) => {
+    const values = APIDocs[`${preset.toLowerCase()}/${name.toLowerCase()}`]?.tokens?.values;
+    let data = [];
+
+    for (const [key, value] of Object.entries(values)) {
+        for (const tokens of value?.props) {
+            const { token, description } = tokens;
+            const designToken = $dt(token);
+
+            data.push({
+                token,
+                variable: designToken.name,
+                section: key.toLowerCase(),
+                description: description
             });
         }
     }

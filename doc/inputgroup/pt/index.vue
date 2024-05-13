@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 // import PtDoc from './PTDoc.vue';
 import PTImage from './PTImage.vue';
 
@@ -27,13 +27,13 @@ export default {
                     id: 'pt.doc.inputgroup',
                     label: 'InputGroup PT Options',
                     component: DocApiTable,
-                    data: getPTOption('InputGroup')
+                    data: getPTOptions('InputGroup')
                 },
                 {
                     id: 'pt.doc.inputgroupaddon',
                     label: 'InputGroupAddon PT Options',
                     component: DocApiTable,
-                    data: getPTOption('InputGroupAddon')
+                    data: getPTOptions('InputGroupAddon')
                 }
                 // {
                 //     id: 'pt.demo',

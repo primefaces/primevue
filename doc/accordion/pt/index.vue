@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,32 +26,32 @@ export default {
                     id: 'pt.doc.accordion',
                     label: 'Accordion PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Accordion')
+                    data: getPTOptions('Accordion')
                 },
                 {
                     id: 'pt.doc.accordionpanel',
                     label: 'AccordionPanel PT Options',
                     component: DocApiTable,
-                    data: getPTOption('AccordionPanel')
+                    data: getPTOptions('AccordionPanel')
                 },
                 {
                     id: 'pt.doc.accordionheader',
                     label: 'AccordionHeader PT Options',
                     component: DocApiTable,
-                    data: getPTOption('AccordionHeader')
+                    data: getPTOptions('AccordionHeader')
                 },
                 {
                     id: 'pt.doc.accordioncontent',
                     label: 'AccordionContent PT Options',
                     component: DocApiTable,
-                    data: getPTOption('AccordionContent')
+                    data: getPTOptions('AccordionContent')
                 },
                 {
                     id: 'pt.doc.accordiontab',
                     label: 'AccordionTab PT Options',
                     badge: { value: 'Deprecated since v4', severity: 'warn' },
                     component: DocApiTable,
-                    data: getPTOption('AccordionTab')
+                    data: getPTOptions('AccordionTab')
                 }
             ]
         };

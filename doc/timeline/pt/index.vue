@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getPTOption } from '@/components/doc/helpers/PTHelper.js';
+import { getPTOptions } from '@/components/doc/helpers';
 import PTImage from './PTImage.vue';
 
 export default {
@@ -26,7 +26,7 @@ export default {
                     id: 'pt.doc.timeline',
                     label: 'Timeline PT Options',
                     component: DocApiTable,
-                    data: getPTOption('Timeline')
+                    data: getPTOptions('Timeline')
                 }
             ]
         };
