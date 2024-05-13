@@ -290,7 +290,6 @@ const theme = ({ dt }) => `
 }
 
 .p-datatable-header-cell {
-    text-align: ${dt('datatable.header.cell.text.align')};
     padding: ${dt('datatable.header.cell.padding')};
     background: ${dt('datatable.header.cell.background')};
     border-color: ${dt('datatable.header.cell.border.color')};

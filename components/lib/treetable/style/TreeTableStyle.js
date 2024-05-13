@@ -148,7 +148,6 @@ const theme = ({ dt }) => `
 }
 
 .p-treetable-header-cell {
-    text-align: ${dt('treetable.header.cell.text.align')};
     padding: ${dt('treetable.header.cell.padding')};
     background: ${dt('treetable.header.cell.background')};
     border-color: ${dt('treetable.header.cell.border.color')};

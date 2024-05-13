@@ -18,7 +18,6 @@ export default {
         gap: '0.5rem',
         padding: '0.75rem 1rem',
         fontWeight: '600',
-        align: 'left',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
