@@ -3,70 +3,12 @@ import { useStyle } from 'primevue/usestyle';
 import { ObjectUtils } from 'primevue/utils';
 
 const theme = ({ dt }) => `
-.p-component,
-.p-component * {
+* {
     box-sizing: border-box;
-}
-
-.p-hidden-space {
-    visibility: hidden;
-}
-
-.p-reset {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    text-decoration: none;
-    font-size: 100%;
-    list-style: none;
-}
-
-.p-disabled,
-.p-disabled * {
-    cursor: default;
-    pointer-events: none;
-    user-select: none;
-}
-
-.p-component-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: ${dt('mask.color')};
 }
 
 .p-unselectable-text {
     user-select: none;
-}
-
-.p-sr-only {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal;
-}
-
-.p-link {
-    text-align: left;
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-}
-
-.p-link:disabled {
-    cursor: default;
 }
 
 /* Non vue overlay animations */
@@ -128,31 +70,16 @@ const theme = ({ dt }) => `
     transition: max-height 1s ease-in-out;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-.p-component {
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-.p-component-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-    transition-duration: ${dt('transition.duration')};
+.p-disabled,
+.p-disabled * {
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
 }
 
 .p-disabled,
 .p-component:disabled {
-    opacity: 0.6;
-}
-
-.p-error {
-    color: #f87171;
-}
-
-.p-text-secondary {
-    color: ${dt('text.muted.color')};
+    opacity: ${dt('disabled.opacity')};
 }
 
 .pi {
@@ -164,28 +91,26 @@ const theme = ({ dt }) => `
     height: ${dt('icon.size')};
 }
 
-.p-link {
-    font-family: inherit;
-    font-feature-settings: inherit;
-    font-size: 1rem;
-    border-radius: 6px;
-    outline-color: transparent;
-}
-.p-link:focus-visible {
-    outline: 1px solid ${dt('focus.ring.color')};
-    outline-offset: 2px;
-    box-shadow: none;
+.p-overlay-mask {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition-duration: ${dt('transition.duration')};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: ${dt('mask.color')};
 }
 
-.p-component-overlay-enter {
-    animation: p-component-overlay-enter-animation 150ms forwards;
+.p-overlay-mask-enter {
+    animation: p-overlay-mask-enter-animation 150ms forwards;
 }
 
-.p-component-overlay-leave {
-    animation: p-component-overlay-leave-animation 150ms forwards;
+.p-overlay-mask-leave {
+    animation: p-overlay-mask-leave-animation 150ms forwards;
 }
 
-@keyframes p-component-overlay-enter-animation {
+@keyframes p-overlay-mask-enter-animation {
     from {
         background: transparent;
     }
@@ -193,7 +118,7 @@ const theme = ({ dt }) => `
         background: ${dt('mask.background')};
     }
 }
-@keyframes p-component-overlay-leave-animation {
+@keyframes p-overlay-mask-leave-animation {
     from {
         background: ${dt('mask.background')};
     }

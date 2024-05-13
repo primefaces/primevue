@@ -158,7 +158,7 @@ const classes = {
         return [
             'p-dialog-mask',
             {
-                'p-component-overlay p-component-overlay-enter': props.modal
+                'p-overlay-mask p-overlay-mask-enter': props.modal
             },
             pos ? `p-dialog-${pos}` : ''
         ];

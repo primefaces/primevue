@@ -5,7 +5,7 @@
     <div class="card">
         <Timeline :value="events">
             <template #opposite="slotProps">
-                <small class="p-text-secondary">{{ slotProps.item.date }}</small>
+                <small class="text-color-secondary">{{ slotProps.item.date }}</small>
             </template>
             <template #content="slotProps">
                 {{ slotProps.item.status }}
@@ -29,7 +29,7 @@ export default {
                 basic: `
 <Timeline :value="events">
     <template #opposite="slotProps">
-        <small class="p-text-secondary">{{slotProps.item.date}}</small>
+        <small class="text-color-secondary">{{slotProps.item.date}}</small>
     </template>
     <template #content="slotProps">
         {{slotProps.item.status}}
@@ -41,7 +41,7 @@ export default {
     <div class="card">
         <Timeline :value="events">
             <template #opposite="slotProps">
-                <small class="p-text-secondary">{{slotProps.item.date}}</small>
+                <small class="text-color-secondary">{{slotProps.item.date}}</small>
             </template>
             <template #content="slotProps">
                 {{slotProps.item.status}}
@@ -70,7 +70,7 @@ export default {
     <div class="card">
         <Timeline :value="events">
             <template #opposite="slotProps">
-                <small class="p-text-secondary">{{slotProps.item.date}}</small>
+                <small class="text-color-secondary">{{slotProps.item.date}}</small>
             </template>
             <template #content="slotProps">
                 {{slotProps.item.status}}

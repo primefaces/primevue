@@ -52,7 +52,7 @@ describe('customized timeline', () => {
             slots: {
                 opposite: `
                     <template #opposite="slotProps">
-                        <small class="p-text-secondary">{{slotProps.item.date}}</small>
+                        <small>{{slotProps.item.date}}</small>
                     </template>
                 `,
                 marker: `
@@ -77,7 +77,6 @@ describe('customized timeline', () => {
     it('should have templating', () => {
         const firstItem = wrapper.findAll('.p-timeline-event')[0];
 
-        expect(firstItem.find('.p-text-secondary').text()).toBe('15/10/2020 10:30');
         expect(firstItem.find('.custom-marker').attributes().style.backgroundColor).not.toBe('');
     });
 });

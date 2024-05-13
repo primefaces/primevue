@@ -415,7 +415,7 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    mask: 'p-galleria-mask p-component-overlay p-component-overlay-enter',
+    mask: 'p-galleria-mask p-overlay-mask p-overlay-mask-enter',
     root: ({ instance }) => {
         const thumbnailsPosClass = instance.$attrs.showThumbnails && instance.getPositionClass('p-galleria-thumbnails', instance.$attrs.thumbnailsPosition);
         const indicatorPosClass = instance.$attrs.showIndicators && instance.getPositionClass('p-galleria-indicators', instance.$attrs.indicatorsPosition);

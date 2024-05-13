@@ -46,14 +46,14 @@
     <div class="doc-section-description mt-3">
         <p>
             However the best practice is combining semantic HTML for accessibility while keeping the design for UX. This approach involves hiding a native checkbox for accessibility and using javascript events to update its state. Notice the usage of
-            <i>p-sr-only</i>
+            <i>p-hidden-accessible</i>
             that hides the elements from the user but not from the screen reader.
         </p>
     </div>
     <pre v-code><code>
 &lt;label for="chkbox"&gt;Remember Me&lt;/label&gt;
 &lt;div class="fancy-checkbox" @click="toggle"&gt;
-    &lt;input class="p-sr-only" type="checkbox" id="chkbox" @focus="updateParentVisuals" @blur="updateParentVisuals"
+    &lt;input class="p-hidden-accessible" type="checkbox" id="chkbox" @focus="updateParentVisuals" @blur="updateParentVisuals"
         @keydown="onKeyDown(event)"&gt;
     &lt;i class="checked-icon" v-if="checked"&gt;&lt;/i&gt;
 &lt;/div&gt;

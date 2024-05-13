@@ -126,6 +126,7 @@ export default {
             color: 'transparent',
             offset: '0'
         },
+        disabledOpacity: '0.6',
         iconSize: '1rem',
         anchorGutter: '2px',
         primary: {

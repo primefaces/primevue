@@ -136,7 +136,7 @@ const classes = {
         return [
             'p-drawer-mask',
             {
-                'p-component-overlay p-component-overlay-enter': props.modal,
+                'p-overlay-mask p-overlay-mask-enter': props.modal,
                 'p-drawer-open': instance.containerVisible,
                 'p-drawer-full': instance.fullScreen
             },

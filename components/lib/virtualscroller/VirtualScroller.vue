@@ -657,7 +657,7 @@ export default {
             return [
                 'p-virtualscroller-loader',
                 {
-                    'p-component-overlay': !this.$slots.loader
+                    'p-overlay-mask': !this.$slots.loader
                 }
             ];
         },

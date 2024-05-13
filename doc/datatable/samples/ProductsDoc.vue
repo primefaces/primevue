@@ -79,7 +79,7 @@
         <div class="field">
             <label for="name">Name</label>
             <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
-            <small v-if="submitted && !product.name" class="p-error">Name is required.</small>
+            <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
         </div>
         <div class="field">
             <label for="description">Description</label>
@@ -318,7 +318,7 @@ export default {
             <div class="field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
-                <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
+                <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
             </div>
             <div class="field">
                 <label for="description">Description</label>
@@ -609,7 +609,7 @@ export default {
             <div class="field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
-                <small class="p-error" v-if="submitted && !product.name">Name is required.</small>
+                <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
             </div>
             <div class="field">
                 <label for="description">Description</label>

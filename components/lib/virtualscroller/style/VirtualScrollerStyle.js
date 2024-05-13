@@ -38,7 +38,7 @@ const css = `
     height: 100%;
 }
 
-.p-virtualscroller-loader.p-component-overlay {
+.p-virtualscroller-loader.p-overlay-mask {
     display: flex;
     align-items: center;
     justify-content: center;

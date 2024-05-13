@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         block() {
-            let styleClass = 'p-blockui-mask p-component-overlay p-component-overlay-enter';
+            let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter';
 
             if (this.fullScreen) {
                 styleClass += ' p-blockui-mask-document';
@@ -75,7 +75,7 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-component-overlay-leave');
+            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
 
             if (DomHandler.hasCSSAnimation(this.mask) > 0) {
                 this.mask.addEventListener('animationend', () => {
