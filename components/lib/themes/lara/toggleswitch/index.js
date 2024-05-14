@@ -1,12 +1,12 @@
 export default {
     handle: {
-        borderRadius: '{border.radius.xs}',
+        borderRadius: '50%',
         size: '1.25rem'
     },
     root: {
         width: '3rem',
         height: '1.75rem',
-        borderRadius: '{border.radius.sm}',
+        borderRadius: '30px',
         gap: '0.25rem',
         shadow: '{form.field.shadow}',
         focusRing: {

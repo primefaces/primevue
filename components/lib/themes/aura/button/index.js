@@ -235,7 +235,7 @@ export default {
                 help: {
                     hoverBackground: '{purple.50}',
                     activeBackground: '{purple.100}',
-                    color: '{purple.600}'
+                    color: '{purple.500}'
                 },
                 danger: {
                     hoverBackground: '{red.50}',
@@ -310,7 +310,6 @@ export default {
                     activeBorderColor: '{green.200}',
                     color: '{green.950}',
                     hoverColor: '{green.950}',
-                    activeColor: '{green.950}',
                     activeColor: '{green.950}',
                     focusRing: {
                         color: '{green.400}',

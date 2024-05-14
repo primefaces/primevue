@@ -16,7 +16,7 @@ export default {
         borderColor: '{content.border.color}',
         padding: '0.5rem 0.75rem',
         gap: '0.5rem',
-        fontWeight: '600',
+        fontWeight: '700',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',

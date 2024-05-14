@@ -13,12 +13,12 @@ export default {
     colorScheme: {
         light: {
             bar: {
-                background: '{surface.100}'
+                background: '{surface.200}'
             }
         },
         dark: {
             bar: {
-                background: '{surface.800}'
+                background: '{surface.700}'
             }
         }
     }

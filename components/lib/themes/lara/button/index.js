@@ -235,7 +235,7 @@ export default {
                 help: {
                     hoverBackground: '{purple.50}',
                     activeBackground: '{purple.100}',
-                    color: '{purple.600}'
+                    color: '{purple.500}'
                 },
                 danger: {
                     hoverBackground: '{red.50}',

@@ -5,11 +5,10 @@
     <div class="card">
         <ScrollPanel
             style="width: 100%; height: 200px"
-            :pt="{
-                wrapper: {
-                    style: { 'border-right': '9px solid var(--border-color)' }
-                },
-                barY: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+            :dt="{
+                bar: {
+                    background: '{primary.color}'
+                }
             }"
         >
             <p>
@@ -49,11 +48,10 @@ export default {
                 basic: `
 <ScrollPanel
     style="width: 100%; height: 200px"
-    :pt="{
-        wrapper: {
-            style: { 'border-right': '9px solid var(--border-color)' }
-        },
-        barY: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+    :dt="{
+        bar: {
+            background: '{primary.color}'
+        }
     }"
 >
     ...
@@ -64,11 +62,10 @@ export default {
     <div class="card">
         <ScrollPanel
             style="width: 100%; height: 200px"
-            :pt="{
-                wrapper: {
-                    style: { 'border-right': '9px solid var(--border-color)' }
-                },
-                barY: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+            :dt="{
+                bar: {
+                    background: '{primary.color}'
+                }
             }"
         >
             ...
@@ -84,11 +81,10 @@ export default {
     <div class="card">
         <ScrollPanel
             style="width: 100%; height: 200px"
-            :pt="{
-                wrapper: {
-                    style: { 'border-right': '9px solid var(--border-color)' }
-                },
-                barY: 'hover:bg-primary-400 bg-primary-300 opacity-100'
+            :dt="{
+                bar: {
+                    background: '{primary.color}'
+                }
             }"
         >
             ...
