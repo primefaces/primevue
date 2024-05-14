@@ -1,7 +1,11 @@
 export default {
     handle: {
         borderRadius: '50%',
-        size: '1rem'
+        size: '1rem',
+        background: '{form.field.border.color}',
+        hoverBackground: '{form.field.border.color}',
+        checkedBackground: '{primary.contrast.color}',
+        checkedHoverBackground: '{primary.contrast.color}'
     },
     root: {
         width: '2.5rem',
@@ -15,40 +19,13 @@ export default {
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
             shadow: '{focus.ring.shadow}'
-        }
-    },
-    colorScheme: {
-        light: {
-            root: {
-                background: '{surface.300}',
-                invalidBackground: '{red.400}',
-                hoverBackground: '{surface.400}',
-                checkedBackground: '{primary.color}',
-                checkedHoverBackground: '{primary.hover.color}'
-            },
-            handle: {
-                background: '{surface.0}',
-                hoverBackground: '{surface.0}',
-                checkedBackground: '{surface.0}',
-                checkedHoverBackground: '{surface.0}',
-                invalidBackground: '{surface.0}'
-            }
         },
-        dark: {
-            root: {
-                background: '{surface.700}',
-                invalidBackground: '{red.300}',
-                hoverBackground: '{surface.600}',
-                checkedBackground: '{primary.color}',
-                checkedHoverBackground: '{primary.hover.color}'
-            },
-            handle: {
-                background: '{surface.400}',
-                hoverBackground: '{surface.300}',
-                checkedBackground: '{surface.900}',
-                checkedHoverBackground: '{surface.900}',
-                invalidBackground: '{surface.900}'
-            }
-        }
+        borderWidth: '1px',
+        borderColor: '{form.field.border.color}',
+        invalidBorderColor: '{form.field.invalid.border.color}',
+        background: '{form.field.background}',
+        hoverBackground: '{form.field.background}',
+        checkedBackground: '{primary.color}',
+        checkedHoverBackground: '{primary.color}'
     }
 };

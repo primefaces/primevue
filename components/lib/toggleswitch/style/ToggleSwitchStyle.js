@@ -30,7 +30,9 @@ const theme = ({ dt }) => `
     left: 0;
     right: 0;
     bottom: 0;
-    border: 0 none;
+    border-width: ${dt('toggleswitch.border.width')};
+    border-style: solid;
+    border-color: ${dt('toggleswitch.border.color')};
     background: ${dt('toggleswitch.background')};
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     border-radius: ${dt('toggleswitch.border.radius')};
@@ -84,11 +86,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch.p-invalid > .p-toggleswitch-slider {
-    background: ${dt('toggleswitch.invalid.background')};
-}
-
-.p-toggleswitch.p-invalid > .p-toggleswitch-slider:before {
-    background: ${dt('toggleswitch.handle.invalid.background')};
+    border-color: ${dt('toggleswitch.invalid.border.color')};
 }
 `;
 
