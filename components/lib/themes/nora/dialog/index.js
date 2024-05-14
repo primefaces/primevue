@@ -12,7 +12,7 @@ export default {
     },
     title: {
         fontSize: '1.25rem',
-        fontWeight: '600'
+        fontWeight: '700'
     },
     content: {
         padding: '0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}'

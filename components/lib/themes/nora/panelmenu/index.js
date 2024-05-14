@@ -1,6 +1,6 @@
 export default {
     root: {
-        gap: '0.5rem'
+        gap: '0'
     },
     panel: {
         background: '{content.background}',
@@ -8,13 +8,13 @@ export default {
         borderWidth: '1px',
         color: '{content.color}',
         padding: '0.25rem 0.25rem',
-        borderRadius: '{content.border.radius}',
+        borderRadius: '0',
         first: {
-            borderWidth: '1px',
+            borderWidth: '1px 1px 0 1px',
             topBorderRadius: '{content.border.radius}'
         },
         last: {
-            borderWidth: '1px',
+            borderWidth: '0 1px 1px 1px',
             bottomBorderRadius: '{content.border.radius}'
         }
     },

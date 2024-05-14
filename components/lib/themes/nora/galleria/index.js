@@ -103,24 +103,24 @@ export default {
     colorScheme: {
         light: {
             thumbnailNavButton: {
-                hoverBackground: '{surface.100}',
-                color: '{surface.600}',
-                hoverColor: '{surface.700}'
+                hoverBackground: '{surface.200}',
+                color: '{text.color}',
+                hoverColor: '{text.hover.color}'
             },
             indicatorButton: {
-                background: '{surface.200}',
-                hoverBackground: '{surface.300}'
+                background: '{surface.300}',
+                hoverBackground: '{surface.400}'
             }
         },
         dark: {
             thumbnailNavButton: {
                 hoverBackground: '{surface.700}',
-                color: '{surface.400}',
+                color: '{surface.0}',
                 hoverColor: '{surface.0}'
             },
             indicatorButton: {
-                background: '{surface.700}',
-                hoverBackground: '{surface.600}'
+                background: '{surface.600}',
+                hoverBackground: '{surface.500}'
             }
         }
     }

@@ -97,7 +97,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                borderColor: '{content.border.color}'
+                borderColor: '{surface.300}'
             },
             bodyCell: {
                 selectedBorderColor: '{primary.100}'
@@ -105,7 +105,7 @@ export default {
         },
         dark: {
             root: {
-                borderColor: '{surface.800}'
+                borderColor: '{surface.700}'
             },
             bodyCell: {
                 selectedBorderColor: '{primary.900}'

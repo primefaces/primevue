@@ -19,7 +19,7 @@ export default {
         background: 'rgba(255,255,255,0.1)',
         borderColor: 'rgba(255,255,255,0.2)',
         borderWidth: '1px',
-        borderRadius: '30px',
+        borderRadius: '{content.border.radius}',
         padding: '.5rem',
         gap: '0.5rem'
     },
@@ -29,7 +29,7 @@ export default {
         hoverColor: '{surface.0}',
         size: '3rem',
         iconSize: '1.5rem',
-        borderRadius: '50%',
+        borderRadius: '{content.border.radius}',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',

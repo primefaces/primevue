@@ -5,19 +5,19 @@ export default {
         borderColor: '{content.border.color}'
     },
     item: {
-        background: 'transparent',
-        hoverBackground: 'transparent',
-        activeBackground: 'transparent',
-        borderWidth: '0 0 1px 0',
-        borderColor: '{content.border.color}',
-        hoverBorderColor: '{content.border.color}',
-        activeBorderColor: '{primary.color}',
+        background: '{content.background}',
+        hoverBackground: '{surface.200}',
+        activeBackground: '{primary.color}',
+        borderWidth: '0',
+        borderColor: 'transparent',
+        hoverBorderColor: 'transparent',
+        activeBorderColor: 'transparent',
         color: '{text.muted.color}',
         hoverColor: '{text.color}',
-        activeColor: '{primary.color}',
-        padding: '1rem 1.125rem',
-        fontWeight: '600',
-        margin: '0 0 -1px 0',
+        activeColor: '{primary.contrast.color}',
+        padding: '1rem 1.25rem',
+        fontWeight: '700',
+        margin: '0',
         gap: '0.5rem',
         focusRing: {
             width: '{focus.ring.width}',
@@ -28,13 +28,13 @@ export default {
         }
     },
     itemIcon: {
-        color: '{text.muted.color}',
+        color: '{text.color}',
         hoverColor: '{text.color}',
-        activeColor: '{primary.color}'
+        activeColor: '{primary.contrast.color}'
     },
     activeBar: {
-        height: '1px',
-        bottom: '-1px',
-        background: '{primary.color}'
+        height: '0',
+        bottom: '0',
+        background: 'transparent'
     }
 };

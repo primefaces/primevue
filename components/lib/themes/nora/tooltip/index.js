@@ -9,14 +9,14 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.700}',
+                background: '{surface.900}',
                 color: '{surface.0}'
             }
         },
         dark: {
             root: {
-                background: '{surface.700}',
-                color: '{surface.0}'
+                background: '{surface.0}',
+                color: '{surface.900}'
             }
         }
     }

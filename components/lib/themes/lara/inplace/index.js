@@ -3,11 +3,11 @@ export default {
         padding: '{form.field.padding.y} {form.field.padding.x}',
         borderRadius: '{content.border.radius}',
         focusRing: {
-            width: '{form.field.focus.ring.width}',
-            style: '{form.field.focus.ring.style}',
-            color: '{form.field.focus.ring.color}',
-            offset: '{form.field.focus.ring.offset}',
-            shadow: '{form.field.focus.ring.shadow}'
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
         }
     },
     display: {

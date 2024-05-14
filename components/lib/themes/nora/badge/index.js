@@ -32,23 +32,23 @@ export default {
                 color: '{primary.contrast.color}'
             },
             secondary: {
-                background: '{surface.100}',
-                color: '{surface.600}'
+                background: '{surface.200}',
+                color: '{surface.700}'
             },
             success: {
-                background: '{green.500}',
+                background: '{green.600}',
                 color: '{surface.0}'
             },
             info: {
-                background: '{sky.500}',
+                background: '{sky.600}',
                 color: '{surface.0}'
             },
             warn: {
-                background: '{orange.500}',
+                background: '{orange.600}',
                 color: '{surface.0}'
             },
             danger: {
-                background: '{red.500}',
+                background: '{red.600}',
                 color: '{surface.0}'
             },
             contrast: {
@@ -62,23 +62,23 @@ export default {
                 color: '{primary.contrast.color}'
             },
             secondary: {
-                background: '{surface.800}',
-                color: '{surface.300}'
+                background: '{surface.700}',
+                color: '{surface.200}'
             },
             success: {
-                background: '{green.400}',
+                background: '{green.500}',
                 color: '{green.950}'
             },
             info: {
-                background: '{sky.400}',
+                background: '{sky.500}',
                 color: '{sky.950}'
             },
             warn: {
-                background: '{orange.400}',
+                background: '{orange.500}',
                 color: '{orange.950}'
             },
             danger: {
-                background: '{red.400}',
+                background: '{red.500}',
                 color: '{red.950}'
             },
             contrast: {

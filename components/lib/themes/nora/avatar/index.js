@@ -3,7 +3,7 @@ export default {
         width: '2rem',
         height: '2rem',
         fontSize: '1rem',
-        background: '{content.border.color}',
+        background: '{content.hover.background}',
         borderRadius: '{content.border.radius}'
     },
     group: {
