@@ -168,17 +168,17 @@ export default {
     loadTheme(options = {}) {
         return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, computedStyle));
     },
-    getCommonThemeCSS(params) {
-        return Theme.getCommonCSS(this.name, params);
+    getCommonTheme(params) {
+        return Theme.getCommon(this.name, params);
     },
-    getComponentThemeCSS(params) {
-        return Theme.getComponentCSS(this.name, params);
+    getComponentTheme(params) {
+        return Theme.getComponent(this.name, params);
     },
-    getDirectiveThemeCSS(params) {
-        return Theme.getDirectiveCSS(this.name, params);
+    getDirectiveTheme(params) {
+        return Theme.getDirective(this.name, params);
     },
-    getPresetThemeCSS(preset, selector, params) {
-        return Theme.getPresetCSS(this.name, preset, selector, params);
+    getPresetTheme(preset, selector, params) {
+        return Theme.getCustomPreset(this.name, preset, selector, params);
     },
     getLayerOrderThemeCSS() {
         return Theme.getLayerOrderCSS(this.name);

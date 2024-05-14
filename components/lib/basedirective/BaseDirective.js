@@ -99,10 +99,10 @@ const BaseDirective = {
 
         // common
         if (!Theme.isStyleNameLoaded('common')) {
-            const { primitive, semantic } = instance.$style?.getCommonThemeCSS?.() || {};
+            const { primitive, semantic } = instance.$style?.getCommonTheme?.() || {};
 
-            BaseStyle.load(primitive, { name: 'primitive-variables', ...useStyleOptions });
-            BaseStyle.load(semantic, { name: 'semantic-variables', ...useStyleOptions });
+            BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...useStyleOptions });
+            BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...useStyleOptions });
             BaseStyle.loadTheme({ name: 'global-style', ...useStyleOptions });
 
             Theme.setLoadedStyleName('common');
@@ -110,9 +110,9 @@ const BaseDirective = {
 
         // directive
         if (!Theme.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
-            const { variables } = instance.$style?.getDirectiveThemeCSS?.() || {};
+            const { css } = instance.$style?.getDirectiveTheme?.() || {};
 
-            instance.$style?.load(variables, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
+            instance.$style?.load(css, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
             instance.$style?.loadTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions });
 
             Theme.setLoadedStyleName(instance.$style.name);
@@ -131,8 +131,8 @@ const BaseDirective = {
         const preset = instance.preset();
 
         if (preset && instance.$attrSelector) {
-            const { variables } = instance.$style?.getPresetThemeCSS?.(preset, `[${instance.$attrSelector}]`) || {};
-            const scopedStyle = instance.$style?.load(variables, { name: `${instance.$attrSelector}-${instance.$style.name}`, ...useStyleOptions });
+            const { css } = instance.$style?.getPresetTheme?.(preset, `[${instance.$attrSelector}]`) || {};
+            const scopedStyle = instance.$style?.load(css, { name: `${instance.$attrSelector}-${instance.$style.name}`, ...useStyleOptions });
 
             instance.scopedStyleEl = scopedStyle.el;
         }
@@ -192,6 +192,9 @@ const BaseDirective = {
             el.$instance[hook]?.(el, binding, vnode, prevVnode); // handle hook in directive implementation
             el[`$${name}`] = el.$instance; // expose all options with $<directive_name>
             BaseDirective._hook(name, hook, el, binding, vnode, prevVnode); // handle hooks during directive uses (global and self-definition)
+
+            el.$pd ||= {};
+            el.$pd[name] = { ...el.$pd?.[name], name, instance: el.$instance };
         };
 
         const handleWatch = (el) => {
