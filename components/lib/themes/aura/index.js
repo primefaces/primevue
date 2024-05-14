@@ -361,7 +361,7 @@ export default {
                     focusColor: 'rgba(255,255,255,.87)'
                 },
                 mask: {
-                    background: 'rgba(0,0,0,0.4)',
+                    background: 'rgba(0,0,0,0.6)',
                     color: '{surface.200}'
                 },
                 formField: {

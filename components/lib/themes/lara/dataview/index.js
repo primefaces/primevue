@@ -9,7 +9,7 @@ export default {
         borderColor: '{content.border.color}',
         borderWidth: '0 0 1px 0',
         padding: '0.875rem 1.125rem',
-        borderRadius: '3px 3px 0 0'
+        borderRadius: '5px 5px 0 0'
     },
     content: {
         background: '{content.background}',
@@ -17,7 +17,7 @@ export default {
         borderColor: 'transparent',
         borderWidth: '0',
         padding: '0',
-        borderRadius: '3px'
+        borderRadius: '5px'
     },
     footer: {
         background: '{content.background}',
@@ -25,7 +25,7 @@ export default {
         borderColor: '{content.border.color}',
         borderWidth: '1px 0 0 0',
         padding: '0.875rem 1.125rem',
-        borderRadius: '0 0 3px 3px'
+        borderRadius: '0 0 5px 5px'
     },
     paginatorTop: {
         borderColor: '{content.border.color}',

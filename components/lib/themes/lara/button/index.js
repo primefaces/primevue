@@ -3,17 +3,17 @@ export default {
         borderRadius: '{form.field.border.radius}',
         roundedBorderRadius: '2rem',
         gap: '0.5rem',
-        paddingX: '{form.field.padding.x}',
+        paddingX: '1rem',
         paddingY: '{form.field.padding.y}',
         iconOnlyWidth: '2.75rem',
         sm: {
             fontSize: '0.875rem',
-            paddingX: '0.625rem',
+            paddingX: '0.875rem',
             paddingY: '0.5rem'
         },
         lg: {
             fontSize: '1.125rem',
-            paddingX: '0.875rem',
+            paddingX: '1.125rem',
             paddingY: '0.75rem'
         },
         label: {

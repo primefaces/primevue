@@ -145,7 +145,7 @@ export default {
         formField: {
             paddingX: '0.75rem',
             paddingY: '0.625rem',
-            borderRadius: '{border.radius.sm}',
+            borderRadius: '{border.radius.md}',
             focusRing: {
                 width: '{focus.ring.width}',
                 style: '{focus.ring.style}',
@@ -170,7 +170,7 @@ export default {
             }
         },
         content: {
-            borderRadius: '{border.radius.sm}'
+            borderRadius: '{border.radius.md}'
         },
         navigation: {
             list: {
@@ -192,16 +192,16 @@ export default {
         },
         overlay: {
             select: {
-                borderRadius: '{border.radius.sm}',
+                borderRadius: '{border.radius.md}',
                 shadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)'
             },
             popover: {
-                borderRadius: '{border.radius.sm}',
+                borderRadius: '{border.radius.md}',
                 padding: '1rem',
                 shadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
             },
             modal: {
-                borderRadius: '{border.radius.lg}',
+                borderRadius: '{border.radius.xl}',
                 padding: '1.5rem',
                 shadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
             },
@@ -366,7 +366,7 @@ export default {
                     shadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'
                 },
                 mask: {
-                    background: 'rgba(0,0,0,0.4)',
+                    background: 'rgba(0,0,0,0.6)',
                     color: '{surface.200}'
                 },
                 formField: {
