@@ -16,7 +16,7 @@ const theme = ({ dt }) => `
     line-height: 1;
     left: 0.75rem;
     color: ${dt('floatlabel.color')};
-    transition-duration: ${dt('transition.duration')};
+    transition-duration: ${dt('floatlabel.transition.duration')};
 }
 
 .p-float-label:has(textarea) label {

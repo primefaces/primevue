@@ -29,13 +29,13 @@ export default {
     colorScheme: {
         light: {
             chip: {
-                focusBackground: '{surface.200}',
-                color: '{surface.800}'
+                focusBackground: '{surface.300}',
+                color: '{surface.900}'
             }
         },
         dark: {
             chip: {
-                focusBackground: '{surface.700}',
+                focusBackground: '{surface.600}',
                 color: '{surface.0}'
             }
         }

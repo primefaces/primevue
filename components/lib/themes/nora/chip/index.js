@@ -24,19 +24,19 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.100}',
-                color: '{surface.800}'
+                background: '{surface.200}',
+                color: '{surface.900}'
             },
             icon: {
-                color: '{surface.800}'
+                color: '{surface.900}'
             },
             removeIcon: {
-                color: '{surface.800}'
+                color: '{surface.900}'
             }
         },
         dark: {
             root: {
-                background: '{surface.800}',
+                background: '{surface.700}',
                 color: '{surface.0}'
             },
             icon: {

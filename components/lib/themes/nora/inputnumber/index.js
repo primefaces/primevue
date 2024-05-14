@@ -1,5 +1,12 @@
 export default {
     button: {
+        background: 'transparent',
+        borderColor: '{form.field.border.color}',
+        hoverBorderColor: '{form.field.border.color}',
+        activeBorderColor: '{form.field.border.color}',
+        color: '{form.field.icon.color}',
+        hoverColor: '{form.field.icon.color}',
+        activeColor: '{form.field.icon.color}',
         width: '2.5rem',
         borderRadius: '{form.field.border.radius}',
         verticalPadding: '{form.field.padding.y}'
@@ -7,28 +14,14 @@ export default {
     colorScheme: {
         light: {
             button: {
-                background: 'transparent',
-                hoverBackground: '{surface.100}',
-                activeBackground: '{surface.200}',
-                borderColor: '{form.field.border.color}',
-                hoverBorderColor: '{form.field.border.color}',
-                activeBorderColor: '{form.field.border.color}',
-                color: '{surface.400}',
-                hoverColor: '{surface.500}',
-                activeColor: '{surface.600}'
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}'
             }
         },
         dark: {
             button: {
-                background: 'transparent',
-                hoverBackground: '{surface.800}',
-                activeBackground: '{surface.700}',
-                borderColor: '{form.field.border.color}',
-                hoverBorderColor: '{form.field.border.color}',
-                activeBorderColor: '{form.field.border.color}',
-                color: '{surface.400}',
-                hoverColor: '{surface.300}',
-                activeColor: '{surface.200}'
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}'
             }
         }
     }

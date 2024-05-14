@@ -14,9 +14,8 @@ export default {
         background: '{primary.color}',
         hoverBackground: '{primary.color}',
         content: {
-            background: '{content.background}',
-            hoverBackground: '{primary.color}',
             borderRadius: '50%',
+            hoverBackground: '{primary.color}',
             width: '12px',
             height: '12px',
             shadow: 'none'

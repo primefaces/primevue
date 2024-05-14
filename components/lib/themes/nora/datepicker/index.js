@@ -21,6 +21,10 @@ export default {
     },
     dropdown: {
         width: '2.5rem',
+        background: '{form.field.background}',
+        color: '{form.field.icon.color}',
+        hoverColor: '{form.field.icon.color}',
+        activeColor: '{form.field.icon.color}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',
@@ -103,12 +107,8 @@ export default {
     colorScheme: {
         light: {
             dropdown: {
-                background: '{surface.100}',
                 hoverBackground: '{surface.200}',
-                activeBackground: '{surface.300}',
-                color: '{surface.600}',
-                hoverColor: '{surface.700}',
-                activeColor: '{surface.800}'
+                activeBackground: '{surface.300}'
             },
             today: {
                 background: '{surface.200}',
@@ -117,12 +117,8 @@ export default {
         },
         dark: {
             dropdown: {
-                background: '{surface.800}',
                 hoverBackground: '{surface.700}',
-                activeBackground: '{surface.600}',
-                color: '{surface.300}',
-                hoverColor: '{surface.200}',
-                activeColor: '{surface.100}'
+                activeBackground: '{surface.600}'
             },
             today: {
                 background: '{surface.700}',
