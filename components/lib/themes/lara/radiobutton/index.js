@@ -24,7 +24,7 @@ export default {
         }
     },
     icon: {
-        size: '1rem',
+        size: '0.875rem',
         checkedColor: '{primary.inverse.color}',
         checkedHoverColor: '{primary.inverse.color}',
         disabledColor: '{form.field.disabled.color}'
