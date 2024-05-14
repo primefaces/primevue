@@ -19,7 +19,7 @@
                 <div>
                     <span class="font-medium text-900 block mb-2">Invite Member</span>
                     <InputGroup>
-                        <InputChips disabled></InputChips>
+                        <InputText disabled></InputText>
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
@@ -72,7 +72,7 @@ export default {
         <div>
             <span class="font-medium text-900 block mb-2">Invite Member</span>
             <InputGroup>
-                <InputChips disabled></InputChips>
+                <InputText disabled />
                 <Button label="Invite" icon="pi pi-users"></Button>
             </InputGroup>
         </div>
@@ -114,7 +114,7 @@ export default {
                 <div>
                     <span class="font-medium text-900 block mb-2">Invite Member</span>
                     <InputGroup>
-                        <InputChips disabled></InputChips>
+                        <InputText disabled />
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
@@ -177,7 +177,7 @@ export default {
                 <div>
                     <span class="font-medium text-900 block mb-2">Invite Member</span>
                     <InputGroup>
-                        <InputChips disabled></InputChips>
+                        <InputText disabled />
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
