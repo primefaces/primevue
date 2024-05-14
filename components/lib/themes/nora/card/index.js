@@ -1,7 +1,7 @@
 export default {
     root: {
         background: '{content.background}',
-        borderRadius: '{border.radius.xl}',
+        borderRadius: '{border.radius.sm}',
         color: '{content.color}',
         shadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)'
     },
