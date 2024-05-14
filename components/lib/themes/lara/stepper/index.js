@@ -35,7 +35,7 @@ export default {
         activeBackground: '{primary.color}',
         borderColor: '{content.border.color}',
         color: '{text.muted.color}',
-        activeColor: '{primary.inverse.color}',
+        activeColor: '{primary.contrast.color}',
         size: '2.25rem',
         fontSize: '1.125rem',
         fontWeight: '500',

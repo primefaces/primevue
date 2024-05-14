@@ -8,7 +8,7 @@ export default {
         background: '{primary.color}'
     },
     label: {
-        color: '{primary.inverse.color}',
+        color: '{primary.contrast.color}',
         fontSize: '0.75rem',
         fontWeight: '600'
     }

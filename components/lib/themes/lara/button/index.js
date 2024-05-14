@@ -36,9 +36,9 @@ export default {
                     borderColor: '{primary.color}',
                     hoverBorderColor: '{primary.hover.color}',
                     activeBorderColor: '{primary.active.color}',
-                    color: '{primary.inverseColor}',
-                    hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}',
+                    color: '{primary.contrast.color}',
+                    hoverColor: '{primary.contrast.color}',
+                    activeColor: '{primary.contrast.color}',
                     focusRing: {
                         color: 'transparent',
                         shadow: '0 0 0 0.2rem {primary.200}'
@@ -263,9 +263,9 @@ export default {
                     borderColor: '{primary.color}',
                     hoverBorderColor: '{primary.hover.color}',
                     activeBorderColor: '{primary.active.color}',
-                    color: '{primary.inverseColor}',
-                    hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}',
+                    color: '{primary.contrast.color}',
+                    hoverColor: '{primary.contrast.color}',
+                    activeColor: '{primary.contrast.color}',
                     focusRing: {
                         color: 'transparent',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {primary.color}, transparent 80%)'

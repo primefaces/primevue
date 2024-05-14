@@ -159,7 +159,7 @@ export default {
             padding: '0.25rem 0.25rem',
             gap: '2px',
             header: {
-                padding: '0.5rem 0.75rem 0 0.75rem'
+                padding: '0.5rem 0.75rem 0.25rem 0.75rem'
             },
             option: {
                 padding: '0.5rem 0.75rem',
@@ -368,7 +368,7 @@ export default {
                     background: '{surface.950}',
                     disabledBackground: '{surface.700}',
                     filledBackground: '{surface.800}',
-                    filledFocusBackground: '{surface.950}',
+                    filledFocusBackground: '{surface.800}',
                     borderColor: '{surface.700}',
                     hoverBorderColor: '{surface.600}',
                     focusBorderColor: '{primary.color}',

@@ -17,7 +17,7 @@ export default {
             paddingY: '0.625rem'
         },
         label: {
-            fontWeight: '500'
+            fontWeight: '700'
         },
         raisedShadow: '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
         focusRing: {
@@ -36,9 +36,9 @@ export default {
                     borderColor: '{primary.color}',
                     hoverBorderColor: '{primary.hover.color}',
                     activeBorderColor: '{primary.active.color}',
-                    color: '{primary.inverseColor}',
-                    hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}',
+                    color: '{primary.contrast.color}',
+                    hoverColor: '{primary.contrast.color}',
+                    activeColor: '{primary.contrast.color}',
                     focusRing: {
                         color: '{primary.color}',
                         shadow: 'none'
@@ -263,9 +263,9 @@ export default {
                     borderColor: '{primary.color}',
                     hoverBorderColor: '{primary.hover.color}',
                     activeBorderColor: '{primary.active.color}',
-                    color: '{primary.inverseColor}',
-                    hoverColor: '{primary.inverseColor}',
-                    activeColor: '{primary.inverseColor}',
+                    color: '{primary.contrast.color}',
+                    hoverColor: '{primary.contrast.color}',
+                    activeColor: '{primary.contrast.color}',
                     focusRing: {
                         color: '{primary.color}',
                         shadow: 'none'

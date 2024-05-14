@@ -127,7 +127,7 @@ export default {
                             light: {
                                 primary: {
                                     color: '#09090b',
-                                    inverseColor: '#ffffff',
+                                    contrastColor: '#ffffff',
                                     hoverColor: '#18181b',
                                     activeColor: '#27272a'
                                 },
@@ -141,7 +141,7 @@ export default {
                             dark: {
                                 primary: {
                                     color: '#fafafa',
-                                    inverseColor: '#09090b',
+                                    contrastColor: '#09090b',
                                     hoverColor: '#f4f4f5',
                                     activeColor: '#e4e4e7'
                                 },
@@ -156,41 +156,79 @@ export default {
                     }
                 };
             } else {
-                return {
-                    semantic: {
-                        primary: color.palette,
-                        colorScheme: {
-                            light: {
-                                primary: {
-                                    color: '{primary.500}',
-                                    inverseColor: '#ffffff',
-                                    hoverColor: '{primary.600}',
-                                    activeColor: '{primary.700}'
+                if (this.$appState.preset === 'Nora') {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.600}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.700}',
+                                        activeColor: '{primary.800}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.600}',
+                                        focusBackground: '{primary.700}',
+                                        color: '#ffffff',
+                                        focusColor: '#ffffff'
+                                    }
                                 },
-                                highlight: {
-                                    background: '{primary.50}',
-                                    focusBackground: '{primary.100}',
-                                    color: '{primary.700}',
-                                    focusColor: '{primary.800}'
-                                }
-                            },
-                            dark: {
-                                primary: {
-                                    color: '{primary.400}',
-                                    inverseColor: '{surface.900}',
-                                    hoverColor: '{primary.300}',
-                                    activeColor: '{primary.200}'
-                                },
-                                highlight: {
-                                    background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
-                                    focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
-                                    color: 'rgba(255,255,255,.87)',
-                                    focusColor: 'rgba(255,255,255,.87)'
+                                dark: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.400}',
+                                        activeColor: '{primary.300}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.500}',
+                                        focusBackground: '{primary.400}',
+                                        color: '{surface.900}',
+                                        focusColor: '{surface.900}'
+                                    }
                                 }
                             }
                         }
-                    }
-                };
+                    };
+                } else {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.600}',
+                                        activeColor: '{primary.700}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.50}',
+                                        focusBackground: '{primary.100}',
+                                        color: '{primary.700}',
+                                        focusColor: '{primary.800}'
+                                    }
+                                },
+                                dark: {
+                                    primary: {
+                                        color: '{primary.400}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.300}',
+                                        activeColor: '{primary.200}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                                        color: 'rgba(255,255,255,.87)',
+                                        focusColor: 'rgba(255,255,255,.87)'
+                                    }
+                                }
+                            }
+                        }
+                    };
+                }
             }
         },
         updateColors(type, color) {
