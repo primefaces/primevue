@@ -9,17 +9,18 @@ export default {
         background: 'transparent',
         color: '{text.color}',
         padding: '1.125rem',
-        borderWidth: '0',
+        borderWidth: '0 0 1px 0',
+        borderColor: '{content.border.color}',
         borderRadius: '0'
     },
     toggleableHeader: {
         padding: '0.375rem 1.125rem'
     },
     title: {
-        fontWeight: '600'
+        fontWeight: '700'
     },
     content: {
-        padding: '0 1.125rem 1.125rem 1.125rem'
+        padding: '1.125rem'
     },
     footer: {
         padding: '0 1.125rem 1.125rem 1.125rem'

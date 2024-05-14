@@ -9,6 +9,7 @@ export default {
         background: 'transparent',
         color: '{text.color}',
         padding: '1.125rem',
+        borderColor: '{content.border.color}',
         borderWidth: '0',
         borderRadius: '0'
     },

@@ -4,7 +4,7 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
-        padding: '0 1.125rem 1.125rem 1.125rem'
+        padding: '0.75rem 1.125rem 1.125rem 1.125rem'
     },
     legend: {
         background: '{content.background}',
@@ -13,7 +13,7 @@ export default {
         hoverColor: '{content.hover.color}',
         borderRadius: '{content.border.radius}',
         borderWidth: '1px',
-        borderColor: 'transparent',
+        borderColor: '{content.border.color}',
         padding: '0.5rem 0.75rem',
         gap: '0.5rem',
         fontWeight: '600',

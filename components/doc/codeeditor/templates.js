@@ -427,7 +427,7 @@ const staticStyles = {
     global: `:root {
     --primary-text-color: var(--p-primary-600);
     --primary-color: var(--p-primary-color);
-    --primary-inverse-color: var(--p-primary-inverse-color);
+    --primary-contrast-color: var(--p-primary-inverse-color);
     --primary-hover-color: var(--p-primary-hover-color);
     --text-color: var(--p-surface-700);
     --text-secondary-color: var(--p-surface-500);
@@ -438,7 +438,7 @@ const staticStyles = {
 :root[class='p-dark'] {
     --primary-text-color: var(--p-primary-400);
     --primary-color: var(--p-primary-color);
-    --primary-inverse-color: var(--p-primary-inverse-color);
+    --primary-contrast-color: var(--p-primary-inverse-color);
     --primary-hover-color: var(--p-primary-hover-color);
     --text-color: var(--p-surface-0);
     --text-secondary-color: var(--p-surface-400);
