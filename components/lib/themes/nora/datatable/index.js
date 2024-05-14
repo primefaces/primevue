@@ -5,7 +5,7 @@ export default {
         color: '{content.color}',
         borderWidth: '0 0 1px 0',
         padding: '0.75rem 1rem',
-        fontWeight: '600'
+        fontWeight: '700'
     },
     headerCell: {
         background: '{content.background}',
@@ -17,7 +17,7 @@ export default {
         selectedColor: '{highlight.color}',
         gap: '0.5rem',
         padding: '0.75rem 1rem',
-        fontWeight: '600',
+        fontWeight: '700',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -50,7 +50,7 @@ export default {
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
         padding: '0.75rem 1rem',
-        fontWeight: '600'
+        fontWeight: '700'
     },
     footer: {
         background: '{content.background}',
@@ -137,7 +137,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                borderColor: '{content.border.color}'
+                borderColor: '{surface.300}'
             },
             row: {
                 stripedBackground: '{surface.50}'
@@ -148,7 +148,7 @@ export default {
         },
         dark: {
             root: {
-                borderColor: '{surface.800}'
+                borderColor: '{surface.700}'
             },
             row: {
                 stripedBackground: '{surface.950}'
