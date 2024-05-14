@@ -20,21 +20,7 @@ function registerItems(items = [], options = {}, params) {
 function registerConfig(resolvePath, moduleOptions) {
     const configs = [];
 
-    if (moduleOptions.unstyled === true) {
-        configs.push({
-            name: 'PrimeVueUnstyled',
-            as: 'PrimeVueUnstyled',
-            from: resolvePath({ name: 'PrimeVueUnstyled', as: 'PrimeVueUnstyled', from: `primevue/unstyled`, type: 'config' })
-        });
-    } else if (moduleOptions.unstyled === false) {
-        configs.push({
-            name: 'PrimeVueStyled',
-            as: 'PrimeVueStyled',
-            from: resolvePath({ name: 'PrimeVueStyled', as: 'PrimeVueStyled', from: `primevue/styled`, type: 'config' })
-        });
-    } else {
-        configs.push({ name: 'PrimeVue', as: 'PrimeVue', from: resolvePath({ name: 'PrimeVue', as: 'PrimeVue', from: `primevue/config`, type: 'config' }) });
-    }
+    configs.push({ name: 'PrimeVue', as: 'PrimeVue', from: resolvePath({ name: 'PrimeVue', as: 'PrimeVue', from: `primevue/config`, type: 'config' }) });
 
     return configs;
 }
@@ -115,7 +101,7 @@ function registerStyles(resolvePath, registered, moduleOptions) {
         }
     ];
 
-    if (!moduleOptions.unstyled) {
+    if (!moduleOptions?.options?.unstyled) {
         if (Utils.object.isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',

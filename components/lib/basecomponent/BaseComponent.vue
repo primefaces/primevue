@@ -54,6 +54,7 @@ export default {
         }
     },
     scopedStyleEl: undefined,
+    rootEl: undefined,
     beforeCreate() {
         const _usept = this.pt?.['_usept'];
         const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
@@ -76,9 +77,13 @@ export default {
     },
     mounted() {
         // @todo - improve performance
-        const rootElement = DomHandler.findSingle(this.$el, `[data-pc-name="${ObjectUtils.toFlatCase(this.$.type.name)}"]`);
+        this.rootEl = DomHandler.findSingle(this.$el, `[data-pc-name="${ObjectUtils.toFlatCase(this.$.type.name)}"]`);
 
-        rootElement?.setAttribute(this.$attrSelector, '');
+        if (this.rootEl) {
+            this.rootEl.setAttribute(this.$attrSelector, '');
+            this.rootEl.$pc = { name: this.$.type.name, ...this.$params };
+        }
+
         this._hook('onMounted');
     },
     beforeUpdate() {
@@ -151,10 +156,10 @@ export default {
 
             // common
             if (!Theme.isStyleNameLoaded('common')) {
-                const { primitive, semantic } = this.$style?.getCommonThemeCSS?.() || {};
+                const { primitive, semantic } = this.$style?.getCommonTheme?.() || {};
 
-                BaseStyle.load(primitive, { name: 'primitive-variables', ...this.$styleOptions });
-                BaseStyle.load(semantic, { name: 'semantic-variables', ...this.$styleOptions });
+                BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
+                BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
                 BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions });
 
                 Theme.setLoadedStyleName('common');
@@ -162,9 +167,9 @@ export default {
 
             // component
             if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                const { variables } = this.$style?.getComponentThemeCSS?.() || {};
+                const { css } = this.$style?.getComponentTheme?.() || {};
 
-                this.$style?.load(variables, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
+                this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
                 this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
 
                 Theme.setLoadedStyleName(this.$style.name);
@@ -180,8 +185,8 @@ export default {
             }
         },
         _loadScopedThemeStyles(preset) {
-            const { variables } = this.$style?.getPresetThemeCSS?.(preset, `[${this.$attrSelector}]`) || {};
-            const scopedStyle = this.$style?.load(variables, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
+            const { css } = this.$style?.getPresetTheme?.(preset, `[${this.$attrSelector}]`) || {};
+            const scopedStyle = this.$style?.load(css, { name: `${this.$attrSelector}-${this.$style.name}`, ...this.$styleOptions });
 
             this.scopedStyleEl = scopedStyle.el;
         },

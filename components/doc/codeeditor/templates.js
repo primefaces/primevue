@@ -2,7 +2,7 @@ import pkg from '../../../package.json';
 import { services } from './services';
 
 const PrimeVue = {
-    version: '^4.0.0-beta.2',
+    version: '^4.0.0-beta.3',
     description:
         'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
 };
@@ -102,7 +102,7 @@ import "./flags.css";
 import { createApp } from "vue";
 import App from "./App.vue";
 import { router } from "./router";
-import PrimeVueStyled from "primevue/styled";
+import PrimeVue from "primevue/config";
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
@@ -218,7 +218,7 @@ ${imports}
 
 const app = createApp(App);
 
-app.use(PrimeVueStyled);
+app.use(PrimeVue);
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(DialogService);

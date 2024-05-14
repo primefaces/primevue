@@ -195,7 +195,7 @@ export function setupTheme(app, PrimeVue) {
     );
 
     watch(
-        PrimeVue.config.theme,
+        () => PrimeVue.config.theme,
         (newValue, oldValue) => {
             if (!isChanged.value) {
                 Theme.setTheme(newValue);

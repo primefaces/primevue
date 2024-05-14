@@ -46,42 +46,63 @@ export default {
     },
     getCommon({ name = '', theme = {}, params, set, defaults }) {
         const { preset, options } = theme;
-        let primitive_css, semantic_css;
+        let primitive_css, primitive_tokens, semantic_css, semantic_tokens;
 
         if (SharedUtils.object.isNotEmpty(preset)) {
             const { primitive, semantic } = preset;
             const { colorScheme, ...sRest } = semantic || {};
             const { dark, ...csRest } = colorScheme || {};
-            const prim_css = SharedUtils.object.isNotEmpty(primitive) ? this._toVariables({ primitive }, options).declarations : '';
-            const sRest_css = SharedUtils.object.isNotEmpty(sRest) ? this._toVariables({ semantic: sRest }, options).declarations : '';
-            const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ light: csRest }, options).declarations : '';
-            const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark }, options).declarations : '';
+            const prim_var = SharedUtils.object.isNotEmpty(primitive) ? this._toVariables({ primitive }, options) : {};
+            const sRest_var = SharedUtils.object.isNotEmpty(sRest) ? this._toVariables({ semantic: sRest }, options) : {};
+            const csRest_var = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ light: csRest }, options) : {};
+            const dark_var = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ dark }, options) : {};
+
+            const [prim_css, prim_tokens] = [prim_var.declarations ?? '', prim_var.tokens];
+            const [sRest_css, sRest_tokens] = [sRest_var.declarations ?? '', sRest_var.tokens || []];
+            const [csRest_css, csRest_tokens] = [csRest_var.declarations ?? '', csRest_var.tokens || []];
+            const [dark_css, dark_tokens] = [dark_var.declarations ?? '', dark_var.tokens || []];
 
             primitive_css = this.transformCSS(name, prim_css, 'light', 'variable', options, set, defaults);
+            primitive_tokens = prim_tokens;
 
             const semantic_light_css = this.transformCSS(name, `${sRest_css}${csRest_css}color-scheme:light`, 'light', 'variable', options, set, defaults);
             const semantic_dark_css = this.transformCSS(name, `${dark_css}color-scheme:dark`, 'dark', 'variable', options, set, defaults);
 
             semantic_css = `${semantic_light_css}${semantic_dark_css}`;
+            semantic_tokens = [...new Set([...sRest_tokens, ...csRest_tokens, ...dark_tokens])];
         }
 
         return {
-            primitive: primitive_css,
-            semantic: semantic_css
+            primitive: {
+                css: primitive_css,
+                tokens: primitive_tokens
+            },
+            semantic: {
+                css: semantic_css,
+                tokens: semantic_tokens
+            }
         };
     },
     getPreset({ name = '', preset = {}, options, params, set, defaults, selector }) {
         const _name = name.replace('-directive', '');
         const { colorScheme, ...vRest } = preset;
         const { dark, ...csRest } = colorScheme || {};
-        const vRest_css = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [_name]: vRest }, options).declarations : '';
-        const csRest_css = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [_name]: csRest }, options).declarations : '';
-        const dark_css = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [_name]: dark }, options).declarations : '';
+        const vRest_var = SharedUtils.object.isNotEmpty(vRest) ? this._toVariables({ [_name]: vRest }, options) : {};
+        const csRest_var = SharedUtils.object.isNotEmpty(csRest) ? this._toVariables({ [_name]: csRest }, options) : {};
+        const dark_var = SharedUtils.object.isNotEmpty(dark) ? this._toVariables({ [_name]: dark }, options) : {};
+
+        const [vRest_css, vRest_tokens] = [vRest_var.declarations ?? '', vRest_var.tokens || []];
+        const [csRest_css, csRest_tokens] = [csRest_var.declarations ?? '', csRest_var.tokens || []];
+        const [dark_css, dark_tokens] = [dark_var.declarations ?? '', dark_var.tokens || []];
+        const tokens = [...new Set([...vRest_tokens, ...csRest_tokens, ...dark_tokens])];
 
         const light_variable_css = this.transformCSS(_name, `${vRest_css}${csRest_css}`, 'light', 'variable', options, set, defaults, selector);
         const dark_variable_css = this.transformCSS(_name, dark_css, 'dark', 'variable', options, set, defaults, selector);
 
-        return `${light_variable_css}${dark_variable_css}`;
+        return {
+            css: `${light_variable_css}${dark_variable_css}`,
+            tokens
+        };
     },
     getPresetC({ name = '', theme = {}, params, set, defaults }) {
         const { preset, options } = theme;
@@ -111,7 +132,8 @@ export default {
         return '';
     },
     getCommonStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
-        const common_css = this.getCommon({ name, theme, params, set, defaults });
+        const { primitive, semantic } = this.getCommon({ name, theme, params, set, defaults });
+        const common_css = `${primitive.css}${semantic.css}`;
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
@@ -130,7 +152,7 @@ export default {
             .join('');
     },
     getStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
-        const presetC_css = this.getPresetC({ name, theme, params, set, defaults });
+        const presetC_css = this.getPresetC({ name, theme, params, set, defaults })?.css;
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
