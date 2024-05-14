@@ -5,7 +5,7 @@ export default {
         gap: '0.5rem'
     },
     text: {
-        fontWeight: '500'
+        fontWeight: '600'
     },
     icon: {
         size: '1rem'
@@ -13,78 +13,78 @@ export default {
     colorScheme: {
         light: {
             info: {
-                background: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                borderColor: '{blue.200}',
-                color: '{blue.600}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)'
+                background: '{blue.800}',
+                borderColor: '{blue.800}',
+                color: '{blue.50}',
+                shadow: 'none'
             },
             success: {
-                background: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                borderColor: '{green.200}',
-                color: '{green.600}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)'
+                background: '{green.800}',
+                borderColor: '{green.800}',
+                color: '{green.50}',
+                shadow: 'none'
             },
             warn: {
-                background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                borderColor: '{yellow.200}',
-                color: '{yellow.600}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)'
+                background: '{yellow.600}',
+                borderColor: '{yellow.600}',
+                color: '{yellow.50}',
+                shadow: 'none'
             },
             error: {
-                background: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                borderColor: '{red.200}',
-                color: '{red.600}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)'
+                background: '{red.800}',
+                borderColor: '{red.800}',
+                color: '{red.50}',
+                shadow: 'none'
             },
             secondary: {
-                background: '{surface.100}',
+                background: '{surface.200}',
                 borderColor: '{surface.200}',
-                color: '{surface.600}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)'
+                color: '{surface.700}',
+                shadow: 'none'
             },
             contrast: {
                 background: '{surface.900}',
-                borderColor: '{surface.950}',
+                borderColor: '{surface.900}',
                 color: '{surface.50}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)'
+                shadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)'
             }
         },
         dark: {
             info: {
-                background: 'color-mix(in srgb, {blue.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {blue.700}, transparent 64%)',
-                color: '{blue.500}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {blue.500}, transparent 96%)'
+                background: '{blue.200}',
+                borderColor: '{blue.200}',
+                color: '{blue.950}',
+                shadow: 'none'
             },
             success: {
-                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {green.700}, transparent 64%)',
-                color: '{green.500}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {green.500}, transparent 96%)'
+                background: '{green.200}',
+                borderColor: '{green.200}',
+                color: '{green.950}',
+                shadow: 'none'
             },
             warn: {
-                background: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {yellow.700}, transparent 64%)',
-                color: '{yellow.500}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {yellow.500}, transparent 96%)'
+                background: '{yellow.200}',
+                borderColor: '{yellow.200}',
+                color: '{yellow.950}',
+                shadow: 'none'
             },
             error: {
-                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {red.700}, transparent 64%)',
-                color: '{red.500}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {red.500}, transparent 96%)'
+                background: '{red.200}',
+                borderColor: '{red.200}',
+                color: '{red.950}',
+                shadow: 'none'
             },
             secondary: {
-                background: '{surface.800}',
+                background: '{surface.700}',
                 borderColor: '{surface.700}',
-                color: '{surface.300}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.500}, transparent 96%)'
+                color: '{surface.200}',
+                shadow: 'none'
             },
             contrast: {
                 background: '{surface.0}',
-                borderColor: '{surface.100}',
+                borderColor: '{surface.0}',
                 color: '{surface.950}',
-                boxShadow: '0px 4px 8px 0px color-mix(in srgb, {surface.950}, transparent 96%)'
+                shadow: 'none'
             }
         }
     }

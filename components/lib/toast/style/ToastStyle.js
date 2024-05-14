@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
     gap: ${dt('toast.text.gap')};
 }
 
-.p-toast-summary 
+.p-toast-summary {
     font-weight: ${dt('toast.summary.font.weight')};
     font-size: ${dt('toast.summary.font.size')};
 }
