@@ -13,7 +13,7 @@ export default {
         hoverColor: '{text.color}',
         activeColor: '{primary.color}',
         padding: '1rem 1.25rem',
-        fontWeight: '600',
+        fontWeight: '700',
         margin: '0',
         focusRing: {
             width: '{focus.ring.width}',
