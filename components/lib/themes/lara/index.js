@@ -307,7 +307,7 @@ export default {
                         }
                     },
                     optionGroup: {
-                        background: '{surface.0}',
+                        background: 'transparent',
                         color: '{text.color}'
                     }
                 },
@@ -325,7 +325,7 @@ export default {
                         }
                     },
                     submenuLabel: {
-                        background: '{surface.0}',
+                        background: 'transparent',
                         color: '{text.color}'
                     },
                     submenuIcon: {
@@ -432,7 +432,7 @@ export default {
                         }
                     },
                     optionGroup: {
-                        background: '{surface.900}',
+                        background: 'transparent',
                         color: '{text.color}'
                     }
                 },
@@ -450,7 +450,7 @@ export default {
                         }
                     },
                     submenuLabel: {
-                        background: '{surface.900}',
+                        background: 'transparent',
                         color: '{text.color}'
                     },
                     submenuIcon: {
