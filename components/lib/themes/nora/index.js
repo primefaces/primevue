@@ -150,7 +150,7 @@ export default {
                 width: '2px',
                 style: 'solid',
                 color: '{primary.color}',
-                offset: '-2px',
+                offset: '-1px',
                 shadow: 'none'
             }
         },
@@ -158,7 +158,7 @@ export default {
             padding: '0.125rem 0',
             gap: '0',
             header: {
-                padding: '0.5rem 0.75rem 0.5rem 0.75rem'
+                padding: '0.5rem 0.75rem 0.375rem 0.75rem'
             },
             option: {
                 padding: '0.5rem 0.75rem',
@@ -304,7 +304,7 @@ export default {
                         }
                     },
                     optionGroup: {
-                        background: '{surface.0}',
+                        background: 'transparent',
                         color: '{text.color}'
                     }
                 },
@@ -322,7 +322,7 @@ export default {
                         }
                     },
                     submenuLabel: {
-                        background: '{surface.0}',
+                        background: 'transparent',
                         color: '{text.color}'
                     },
                     submenuIcon: {
@@ -349,15 +349,15 @@ export default {
                 },
                 primary: {
                     color: '{primary.500}',
-                    contrastColor: '{surface.900}',
+                    contrastColor: '{surface.950}',
                     hoverColor: '{primary.400}',
                     activeColor: '{primary.300}'
                 },
                 highlight: {
                     background: '{primary.500}',
                     focusBackground: '{primary.400}',
-                    color: '{surface.900}',
-                    focusColor: '{surface.900}'
+                    color: '{surface.950}',
+                    focusColor: '{surface.950}'
                 },
                 mask: {
                     background: 'rgba(0,0,0,0.6)',
@@ -389,7 +389,7 @@ export default {
                 },
                 content: {
                     background: '{surface.900}',
-                    hoverBackground: '{surface.800}',
+                    hoverBackground: '{surface.700}',
                     borderColor: '{surface.500}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
@@ -426,7 +426,7 @@ export default {
                         }
                     },
                     optionGroup: {
-                        background: '{surface.900}',
+                        background: 'transparent',
                         color: '{text.color}'
                     }
                 },
@@ -444,7 +444,7 @@ export default {
                         }
                     },
                     submenuLabel: {
-                        background: '{surface.900}',
+                        background: 'transparent',
                         color: '{text.color}'
                     },
                     submenuIcon: {
