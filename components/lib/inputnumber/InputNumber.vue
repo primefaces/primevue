@@ -550,7 +550,7 @@ export default {
         },
         onPaste(event) {
             if (this.readonly || this.disabled) {
-                return
+                return;
             }
             
             event.preventDefault();
