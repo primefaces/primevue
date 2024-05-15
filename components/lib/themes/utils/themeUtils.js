@@ -132,16 +132,15 @@ export default {
         return '';
     },
     getCommonStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
-        const { primitive, semantic } = this.getCommon({ name, theme, params, set, defaults });
-        const common_css = `${primitive.css}${semantic.css}`;
+        const common = this.getCommon({ name, theme, params, set, defaults });
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
 
-        return Object.entries(common_css || {})
+        return Object.entries(common || {})
             .reduce((acc, [key, value]) => {
-                if (value) {
-                    const _css = SharedUtils.object.minifyCSS(value);
+                if (value?.css) {
+                    const _css = SharedUtils.object.minifyCSS(value?.css);
                     const id = `${key}-variables`;
 
                     acc.push(`<style type="text/css" data-primevue-style-id="${id}" ${_props}>${_css}</style>`);

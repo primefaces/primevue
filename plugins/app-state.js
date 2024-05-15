@@ -1,5 +1,5 @@
-import Noir from '@/themes/app-theme';
-import PrimeVue from 'primevue/config';
+//import Noir from '@/themes/app-theme';
+//import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
@@ -18,8 +18,7 @@ const $appState = {
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use($appState);
-    nuxtApp.vueApp.use(PrimeVue, {
-        
+    /*nuxtApp.vueApp.use(PrimeVue, {
         theme: Noir
-    });
+    });*/
 });
