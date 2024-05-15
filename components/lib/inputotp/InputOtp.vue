@@ -165,8 +165,8 @@ export default {
             }
         },
         onPaste(event) {
-            if(this.readonly || this.disabled) {
-                return
+            if (this.readonly || this.disabled) {
+                return;
             }
             let paste = event.clipboardData.getData('text');
 
