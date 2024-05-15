@@ -62,6 +62,9 @@ export default {
 
         activeItem && (activeItem.tabIndex = '0');
     },
+    updated() {
+        this.updateInkBar();
+    },
     methods: {
         getPTOptions(key, item, index) {
             return this.ptm(key, {
