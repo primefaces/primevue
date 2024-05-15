@@ -432,7 +432,7 @@ export default {
                 }
 
                 if (!valid) {
-                    this.$refs.focusInput.value = '';
+                    this.$refs.focusInput?.value = '';
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
                 }
