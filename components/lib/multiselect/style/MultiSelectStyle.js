@@ -218,8 +218,8 @@ const classes = {
             'p-multiselect-label-empty': !props.placeholder && (!props.modelValue || props.modelValue.length === 0)
         }
     ],
-    chip: 'p-multiselect-chip',
-    pcChipLabel: 'p-multiselect-chip-label',
+    chipItem: 'p-multiselect-chip-item',
+    pcChip: 'p-multiselect-chip',
     chipIcon: 'p-multiselect-chip-icon',
     dropdown: 'p-multiselect-dropdown',
     loadingIcon: 'p-multiselect-loading-icon',

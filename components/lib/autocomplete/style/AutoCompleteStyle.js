@@ -251,13 +251,13 @@ const classes = {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    chip: ({ instance, i }) => [
-        'p-autocomplete-chip',
+    chipItem: ({ instance, i }) => [
+        'p-autocomplete-chip-item',
         {
             'p-focus': instance.focusedMultipleOptionIndex === i
         }
     ],
-    pcChipLabel: 'p-autocomplete-chip-label',
+    pcChip: 'p-autocomplete-chip',
     chipIcon: 'p-autocomplete-chip-icon',
     inputChip: 'p-autocomplete-input-chip',
     loader: 'p-autocomplete-loader',

@@ -4240,7 +4240,7 @@
                             "description": "Used to pass attributes to the input multiple's DOM element."
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": true,
                             "readonly": false,
                             "type": "AutoCompletePassThroughOptionType",
@@ -4248,7 +4248,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>",
@@ -5373,16 +5373,16 @@
                             "value": "\"p-autocomplete-input-multiple\""
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-autocomplete-chip-item\""
+                        },
+                        {
+                            "name": "pcChip",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-autocomplete-chip\""
-                        },
-                        {
-                            "name": "pcChipLabel",
-                            "optional": false,
-                            "readonly": false,
-                            "value": "\"p-autocomplete-chip-label\""
                         },
                         {
                             "name": "chipIcon",
@@ -14219,7 +14219,7 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
@@ -14227,7 +14227,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -36573,7 +36573,7 @@
                             "description": "Used to pass attributes to the input's DOM element."
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": true,
                             "readonly": false,
                             "type": "InputChipsPassThroughOptionType",
@@ -36581,7 +36581,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>",
@@ -37039,13 +37039,13 @@
                             "value": "\"p-inputchips-input\""
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-inputchips-chip\""
+                            "value": "\"p-inputchips-chip-item\""
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-inputchips-chip-label\""
@@ -45454,7 +45454,7 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": true,
                             "readonly": false,
                             "type": "MultiSelectPassThroughOptionType",
@@ -45462,7 +45462,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>",
@@ -46666,16 +46666,16 @@
                             "value": "\"p-multiselect-label\""
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-multiselect-chip-item\""
+                        },
+                        {
+                            "name": "pcChip",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-multiselect-chip\""
-                        },
-                        {
-                            "name": "pcChipLabel",
-                            "optional": false,
-                            "readonly": false,
-                            "value": "\"p-multiselect-chip-label\""
                         },
                         {
                             "name": "chipIcon",
@@ -71491,7 +71491,7 @@
                             "description": "Used to pass attributes to the label's DOM element."
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
                             "optional": true,
                             "readonly": false,
                             "type": "TreeSelectPassThroughOptionType",
@@ -71499,7 +71499,7 @@
                             "description": "Used to pass attributes to the chip's DOM element."
                         },
                         {
-                            "name": "pcChipLabel",
+                            "name": "pcChip",
                             "optional": true,
                             "readonly": false,
                             "type": "ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>",
@@ -72142,16 +72142,16 @@
                             "value": "\"p-treeselect-label\""
                         },
                         {
-                            "name": "chip",
+                            "name": "chipItem",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-treeselect-chip-item\""
+                        },
+                        {
+                            "name": "pcChip",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-treeselect-chip\""
-                        },
-                        {
-                            "name": "pcChipLabel",
-                            "optional": false,
-                            "readonly": false,
-                            "value": "\"p-treeselect-chip-label\""
                         },
                         {
                             "name": "dropdown",

@@ -20,17 +20,17 @@
                 :key="`${i}_${val}`"
                 :id="id + '_inputchips_item_' + i"
                 role="option"
-                :class="cx('chip', { index: i })"
+                :class="cx('chipItem', { index: i })"
                 :aria-label="val"
                 :aria-selected="true"
                 :aria-setsize="modelValue.length"
                 :aria-posinset="i + 1"
-                v-bind="ptm('chip')"
+                v-bind="ptm('chipItem')"
                 :data-p-focused="focusedIndex === i"
             >
-                <slot name="chip" :class="cx('pcChipLabel')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
+                <slot name="chip" :class="cx('pcChip')" :index="i" :value="val" :removeCallback="(event) => removeOption(event, i)">
                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                    <Chip :class="cx('pcChipLabel')" :label="val" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('pcChipLabel')">
+                    <Chip :class="cx('pcChip')" :label="val" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeItem($event, i)" :pt="ptm('pcChip')">
                         <template #removeicon>
                             <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeItem(event, i)" />
                         </template>

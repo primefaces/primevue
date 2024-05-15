@@ -150,8 +150,8 @@ const classes = {
             'p-treeselect-label-empty': !props.placeholder && instance.emptyValue
         }
     ],
-    chip: 'p-treeselect-chip',
-    pcChipLabel: 'p-treeselect-chip-label',
+    chip: 'p-treeselect-chip-item',
+    pcChip: 'p-treeselect-chip',
     dropdown: 'p-treeselect-dropdown',
     dropdownIcon: 'p-treeselect-dropdown-icon',
     panel: 'p-treeselect-overlay p-component',
