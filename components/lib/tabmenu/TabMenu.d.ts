@@ -55,31 +55,31 @@ export interface TabMenuPassThroughMethodOptions {
  */
 export interface TabMenuPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the tablist's DOM element.
+     * Used to pass attributes to the tablists DOM element.
      */
     tablist?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the items DOM element.
      */
     item?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item itemIcon's DOM element.
+     * Used to pass attributes to the item itemIcons DOM element.
      */
     itemIcon?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: TabMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the inkbar's DOM element.
+     * Used to pass attributes to the inkbars DOM element.
      */
     activeBar?: TabMenuPassThroughOptionType;
     /**

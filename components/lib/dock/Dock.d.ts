@@ -55,31 +55,31 @@ export interface DockPassThroughMethodOptions {
  */
 export interface DockPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the list container's DOM element.
+     * Used to pass attributes to the list containers DOM element.
      */
     listContainer?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the  item's DOM element.
+     * Used to pass attributes to the  items DOM element.
      */
     item?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the item contents DOM element.
      */
     itemContent?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: DockPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: DockPassThroughOptionType;
     /**

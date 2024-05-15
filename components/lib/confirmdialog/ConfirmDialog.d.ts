@@ -66,15 +66,15 @@ export interface ConfirmDialogSharedPassThroughMethodOptions {
  */
 export interface ConfirmDialogPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the header title's DOM element.
+     * Used to pass attributes to the header titles DOM element.
      */
     title?: ConfirmDialogPassThroughOptionType;
     /**
@@ -90,19 +90,19 @@ export interface ConfirmDialogPassThroughOptions {
      */
     closeButtonIcon?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icons DOM element.
      */
     icon?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the message's DOM element.
+     * Used to pass attributes to the messages DOM element.
      */
     message?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footers DOM element.
      */
     footer?: ConfirmDialogPassThroughOptionType;
     /**

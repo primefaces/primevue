@@ -52,75 +52,75 @@ export interface ImagePassThroughMethodOptions {
  */
 export interface ImagePassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the image's DOM element.
+     * Used to pass attributes to the images DOM element.
      */
     image?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the preview mask's DOM element.
+     * Used to pass attributes to the preview masks DOM element.
      */
     previewMask?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the  preview icon's DOM element.
+     * Used to pass attributes to the  preview icons DOM element.
      */
     previewIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the masks DOM element.
      */
     mask?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the toolbar's DOM element.
+     * Used to pass attributes to the toolbars DOM element.
      */
     toolbar?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the rotate right button's DOM element.
+     * Used to pass attributes to the rotate right buttons DOM element.
      */
     rotateRightButton?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the rotate right icon's DOM element.
+     * Used to pass attributes to the rotate right icons DOM element.
      */
     rotateRightIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the rotate left button's DOM element.
+     * Used to pass attributes to the rotate left buttons DOM element.
      */
     rotateLeftButton?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the rotate left icon's DOM element.
+     * Used to pass attributes to the rotate left icons DOM element.
      */
     rotateLeftIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the zoom out button's DOM element.
+     * Used to pass attributes to the zoom out buttons DOM element.
      */
     zoomOutButton?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the zoom out icon's DOM element.
+     * Used to pass attributes to the zoom out icons DOM element.
      */
     zoomOutIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the zoom in button's DOM element.
+     * Used to pass attributes to the zoom in buttons DOM element.
      */
     zoomInButton?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the zoom in icon's DOM element.
+     * Used to pass attributes to the zoom in icons DOM element.
      */
     zoomInIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the close button's DOM element.
+     * Used to pass attributes to the close buttons DOM element.
      */
     closeButton?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the close icon's DOM element.
+     * Used to pass attributes to the close icons DOM element.
      */
     closeIcon?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the original container's DOM element.
+     * Used to pass attributes to the original containers DOM element.
      */
     originalContainer?: ImagePassThroughOptionType;
     /**
-     * Used to pass attributes to the original's DOM element.
+     * Used to pass attributes to the originals DOM element.
      */
     original?: ImagePassThroughOptionType;
     /**

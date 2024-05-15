@@ -51,35 +51,35 @@ export interface BreadcrumbPassThroughMethodOptions {
  */
 export interface BreadcrumbPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the  item's DOM element.
+     * Used to pass attributes to the  items DOM element.
      */
     item?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: BreadcrumbPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator icon's DOM element.
+     * Used to pass attributes to the separator icons DOM element.
      */
     separatorIcon?: BreadcrumbPassThroughOptionType;
     /**

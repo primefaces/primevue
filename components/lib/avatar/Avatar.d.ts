@@ -52,19 +52,19 @@ export interface AvatarPassThroughAttributes {
  */
 export interface AvatarPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: AvatarPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: AvatarPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icons DOM element.
      */
     icon?: AvatarPassThroughOptionType;
     /**
-     * Used to pass attributes to the image's DOM element.
+     * Used to pass attributes to the images DOM element.
      */
     image?: AvatarPassThroughOptionType;
     /**

@@ -100,15 +100,15 @@ export interface SelectFilterEvent {
  */
 export interface SelectPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the clear icon's DOM element.
+     * Used to pass attributes to the clear icons DOM element.
      */
     clearIcon?: SelectPassThroughOptionType<T>;
     /**
@@ -116,15 +116,15 @@ export interface SelectPassThroughOptions<T = any> {
      */
     dropdown?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icons DOM element.
      */
     loadingIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the overlay's DOM element.
+     * Used to pass attributes to the overlays DOM element.
      */
     overlay?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: SelectPassThroughOptionType<T>;
     /**
@@ -143,11 +143,11 @@ export interface SelectPassThroughOptions<T = any> {
      */
     pcFilterIconContainer?: InputIconPassThroughOptions<SelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icons DOM element.
      */
     filterIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the list container's DOM element.
+     * Used to pass attributes to the list containers DOM element.
      */
     listContainer?: SelectPassThroughOptionType<T>;
     /**
@@ -156,55 +156,55 @@ export interface SelectPassThroughOptions<T = any> {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option group's DOM element.
+     * Used to pass attributes to the option groups DOM element.
      */
     optionGroup?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option group label's DOM element.
+     * Used to pass attributes to the option group labels DOM element.
      */
     optionGroupLabel?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option's DOM element.
+     * Used to pass attributes to the options DOM element.
      */
     option?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option label's DOM element.
+     * Used to pass attributes to the option labels DOM element.
      */
     optionLabel?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option check icon's DOM element.
+     * Used to pass attributes to the option check icons DOM element.
      */
     optionCheckIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option blank icon's DOM element.
+     * Used to pass attributes to the option blank icons DOM element.
      */
     optionBlankIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty messages DOM element.
      */
     emptyMessage?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable elements DOM element.
      */
     hiddenFirstFocusableEl?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter results DOM element.
      */
     hiddenFilterResult?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden empty message's DOM element.
+     * Used to pass attributes to the hidden empty messages DOM element.
      */
     hiddenEmptyMessage?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected messages DOM element.
      */
     hiddenSelectedMessage?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable elements DOM element.
      */
     hiddenLastFocusableEl?: SelectPassThroughOptionType<T>;
     /**

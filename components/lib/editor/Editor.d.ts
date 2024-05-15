@@ -117,11 +117,11 @@ export interface EditorLoadEvent {
  */
 export interface EditorPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the toolbar's DOM element.
+     * Used to pass attributes to the toolbars DOM element.
      */
     toolbar?: EditorPassThroughOptionType;
     /**
@@ -129,59 +129,59 @@ export interface EditorPassThroughOptions {
      */
     formats?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the option's DOM element.
+     * Used to pass attributes to the options DOM element.
      */
     option?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the bold's DOM element.
+     * Used to pass attributes to the bolds DOM element.
      */
     bold?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the italic's DOM element.
+     * Used to pass attributes to the italics DOM element.
      */
     italic?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the underline's DOM element.
+     * Used to pass attributes to the underlines DOM element.
      */
     underline?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the color's DOM element.
+     * Used to pass attributes to the colors DOM element.
      */
     color?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the background's DOM element.
+     * Used to pass attributes to the backgrounds DOM element.
      */
     background?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the select's DOM element.
+     * Used to pass attributes to the selects DOM element.
      */
     select?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the link's DOM element.
+     * Used to pass attributes to the links DOM element.
      */
     link?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the image's DOM element.
+     * Used to pass attributes to the images DOM element.
      */
     image?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the code block's DOM element.
+     * Used to pass attributes to the code blocks DOM element.
      */
     codeBlock?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the clean's DOM element.
+     * Used to pass attributes to the cleans DOM element.
      */
     clean?: EditorPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: EditorPassThroughOptionType;
     /**

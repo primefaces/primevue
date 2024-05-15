@@ -50,7 +50,7 @@ export interface SplitterPanelPassThroughMethodOptions {
  */
 export interface SplitterPanelPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: SplitterPanelPassThroughOptionType;
     /**

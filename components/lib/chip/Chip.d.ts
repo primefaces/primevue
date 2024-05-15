@@ -50,15 +50,15 @@ export interface ChipPassThroughMethodOptions<T> {
  */
 export interface ChipPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ChipPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the image's DOM element.
+     * Used to pass attributes to the images DOM element.
      */
     image?: ChipPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icons DOM element.
      */
     icon?: ChipPassThroughOptionType<T>;
     /**
@@ -66,7 +66,7 @@ export interface ChipPassThroughOptions<T = any> {
      */
     label?: ChipPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the removeIcon's DOM element.
+     * Used to pass attributes to the removeIcons DOM element.
      */
     removeIcon?: ChipPassThroughOptionType<T>;
     /**

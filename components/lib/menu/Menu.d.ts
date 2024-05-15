@@ -57,39 +57,39 @@ export interface MenuPassThroughMethodOptions {
  */
 export interface MenuPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu item's DOM element.
+     * Used to pass attributes to the submenu items DOM element.
      */
     submenuItem?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the items DOM element.
      */
     item?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the item contents DOM element.
      */
     itemContent?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: MenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: MenuPassThroughOptionType;
     /**

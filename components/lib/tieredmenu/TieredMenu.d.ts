@@ -57,43 +57,43 @@ export interface TieredMenuPassThroughMethodOptions<T> {
  */
 export interface TieredMenuPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the root list's DOM element.
+     * Used to pass attributes to the root lists DOM element.
      */
     rootList?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list items DOM element.
      */
     item?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the item contents DOM element.
      */
     itemContent?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icons DOM element.
      */
     submenuIcon?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: TieredMenuPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenus DOM element.
      */
     submenu?: TieredMenuPassThroughOptionType<T>;
     /**

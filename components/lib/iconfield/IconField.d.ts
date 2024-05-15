@@ -46,7 +46,7 @@ export interface IconFieldPassThroughMethodOptions<T = any> {
  */
 export interface IconFieldPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: IconFieldPassThroughOptionType<T>;
     /**

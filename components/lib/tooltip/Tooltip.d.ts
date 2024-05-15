@@ -106,15 +106,15 @@ export interface TooltipOptions {
  */
 export interface TooltipDirectivePassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TooltipDirectivePassThroughOptionType;
     /**
-     * Used to pass attributes to the text's DOM element.
+     * Used to pass attributes to the texts DOM element.
      */
     text?: TooltipDirectivePassThroughOptionType;
     /**
-     * Used to pass attributes to the arrow's DOM element.
+     * Used to pass attributes to the arrows DOM element.
      */
     arrow?: TooltipDirectivePassThroughOptionType;
     /**

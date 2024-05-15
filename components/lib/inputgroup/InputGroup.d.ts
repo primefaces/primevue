@@ -42,7 +42,7 @@ export interface InputGroupPassThroughMethodOptions {
  */
 export interface InputGroupPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: InputGroupPassThroughOptionType;
     /**

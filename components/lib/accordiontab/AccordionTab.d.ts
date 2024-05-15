@@ -52,31 +52,31 @@ export interface AccordionTabPassThroughMethodOptions {
  */
 export interface AccordionTabPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the headeraction's DOM element.
+     * Used to pass attributes to the headeractions DOM element.
      */
     headerAction?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the headericon's DOM element.
+     * Used to pass attributes to the headericons DOM element.
      */
     headerIcon?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the headertitle's DOM element.
+     * Used to pass attributes to the headertitles DOM element.
      */
     headerTitle?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggleablecontent's DOM element.
+     * Used to pass attributes to the toggleablecontents DOM element.
      */
     toggleableContent?: AccordionTabPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: AccordionTabPassThroughOptionType;
     /**

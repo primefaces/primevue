@@ -131,7 +131,7 @@ export interface DatePickerBlurEvent {
  */
 export interface DatePickerPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: DatePickerPassThroughOptionType;
     /**
@@ -140,225 +140,225 @@ export interface DatePickerPassThroughOptions {
      */
     pcInput?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the dropdown's DOM element.
+     * Used to pass attributes to the dropdowns DOM element.
      */
     dropdown?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icons DOM element.
      */
     dropdownIcon?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the input icon container's DOM element.
+     * Used to pass attributes to the input icon containers DOM element.
      */
     inputIconContainer?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the input icon's DOM element.
+     * Used to pass attributes to the input icons DOM element.
      */
     inputIcon?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panels DOM element.
      */
     panel?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the calendar container's DOM element.
+     * Used to pass attributes to the calendar containers DOM element.
      */
     calendarContainer?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the calendar's DOM element.
+     * Used to pass attributes to the calendars DOM element.
      */
     calendar?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the previous buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcPreviousButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the title's DOM element.
+     * Used to pass attributes to the titles DOM element.
      */
     title?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the view month's DOM element.
+     * Used to pass attributes to the view months DOM element.
      */
     viewMonth?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the view year's DOM element.
+     * Used to pass attributes to the view years DOM element.
      */
     viewYear?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the decade's DOM element.
+     * Used to pass attributes to the decades DOM element.
      */
     decade?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the view day's DOM element.
+     * Used to pass attributes to the view days DOM element.
      */
     dayView?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the next button's DOM element.
+     * Used to pass attributes to the next buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcNextButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the containers DOM element.
      */
     container?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table's DOM element.
+     * Used to pass attributes to the tables DOM element.
      */
     table?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table header's DOM element.
+     * Used to pass attributes to the table headers DOM element.
      */
     tableHeader?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table header row's DOM element.
+     * Used to pass attributes to the table header rows DOM element.
      */
     tableHeaderRow?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week header's DOM element.
+     * Used to pass attributes to the week headers DOM element.
      */
     weekHeader?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week header label's DOM element.
+     * Used to pass attributes to the week header labels DOM element.
      */
     weekHeaderLabel?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table header cell's DOM element.
+     * Used to pass attributes to the table header cells DOM element.
      */
     tableHeaderCell?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week day cell's DOM element.
+     * Used to pass attributes to the week day cells DOM element.
      */
     weekDayCell?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week day's DOM element.
+     * Used to pass attributes to the week days DOM element.
      */
     weekDay?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table body's DOM element.
+     * Used to pass attributes to the table bodys DOM element.
      */
     tableBody?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table body row's DOM element.
+     * Used to pass attributes to the table body rows DOM element.
      */
     tableBodyRow?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week number's DOM element.
+     * Used to pass attributes to the week numbers DOM element.
      */
     weekNumber?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the week label container's DOM element.
+     * Used to pass attributes to the week label containers DOM element.
      */
     weekLabelContainer?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the day cell's DOM element.
+     * Used to pass attributes to the day cells DOM element.
      */
     dayCell?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the day's DOM element.
+     * Used to pass attributes to the days DOM element.
      */
     day?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the month view's DOM element.
+     * Used to pass attributes to the month views DOM element.
      */
     monthView?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the month's DOM element.
+     * Used to pass attributes to the months DOM element.
      */
     month?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the year view's DOM element.
+     * Used to pass attributes to the year views DOM element.
      */
     yearView?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the year's DOM element.
+     * Used to pass attributes to the years DOM element.
      */
     year?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the time picker's DOM element.
+     * Used to pass attributes to the time pickers DOM element.
      */
     timePicker?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the hour picker's DOM element.
+     * Used to pass attributes to the hour pickers DOM element.
      */
     hourPicker?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the hour's DOM element.
+     * Used to pass attributes to the hours DOM element.
      */
     hour?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator container's DOM element.
+     * Used to pass attributes to the separator containers DOM element.
      */
     separatorContainer?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the minute picker's DOM element.
+     * Used to pass attributes to the minute pickers DOM element.
      */
     minutePicker?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the minute's DOM element.
+     * Used to pass attributes to the minutes DOM element.
      */
     minute?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the second picker's DOM element.
+     * Used to pass attributes to the second pickers DOM element.
      */
     secondPicker?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the second's DOM element.
+     * Used to pass attributes to the seconds DOM element.
      */
     second?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the ampm picker's DOM element.
+     * Used to pass attributes to the ampm pickers DOM element.
      */
     ampmPicker?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the ampm's DOM element.
+     * Used to pass attributes to the ampms DOM element.
      */
     ampm?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the buttonbar's DOM element.
+     * Used to pass attributes to the buttonbars DOM element.
      */
     buttonbar?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the increment button's DOM element.
+     * Used to pass attributes to the increment buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcIncrementButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the decrement button's DOM element.
+     * Used to pass attributes to the decrement buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcDecrementButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the today button's DOM element.
+     * Used to pass attributes to the today buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcTodayButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the clear button's DOM element.
+     * Used to pass attributes to the clear buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcClearButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the aria selected day's DOM element.
+     * Used to pass attributes to the aria selected days DOM element.
      */
     hiddenSelectedDay?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the aria month's DOM element.
+     * Used to pass attributes to the aria months DOM element.
      */
     hiddenMonth?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the aria year's DOM element.
+     * Used to pass attributes to the aria years DOM element.
      */
     hiddenYear?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the datepicker mask's DOM element.
+     * Used to pass attributes to the datepicker masks DOM element.
      */
     datepickerMask?: DatePickerPassThroughOptionType;
     /**

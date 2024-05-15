@@ -46,7 +46,7 @@ export interface InputTextPassThroughMethodOptions<T = any> {
  */
 export interface InputTextPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: InputTextPassThroughOptionType<T>;
     /**

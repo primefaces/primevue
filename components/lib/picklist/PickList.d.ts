@@ -146,7 +146,7 @@ export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent 
  */
 export interface PickListPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: PickListPassThroughOptionType;
     /**
@@ -174,11 +174,11 @@ export interface PickListPassThroughOptions {
      */
     pcList?: ListboxPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the source list containerr's DOM element.
+     * Used to pass attributes to the source list containerrs DOM element.
      */
     sourceListContainer?: PickListPassThroughOptionType;
     /**
-     * Used to pass attributes to the source list's DOM element.
+     * Used to pass attributes to the source lists DOM element.
      */
     sourceList?: PickListPassThroughOptionType;
     /**
@@ -202,15 +202,15 @@ export interface PickListPassThroughOptions {
      */
     moveAllToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the target list container's DOM element.
+     * Used to pass attributes to the target list containers DOM element.
      */
     targetListContainer?: PickListPassThroughOptionType;
     /**
-     * Used to pass attributes to the target list's DOM element.
+     * Used to pass attributes to the target lists DOM element.
      */
     targetList?: PickListPassThroughOptionType;
     /**
-     * Used to pass attributes to the target item's DOM element.
+     * Used to pass attributes to the target items DOM element.
      */
     item?: PickListPassThroughOptionType;
     /**

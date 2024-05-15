@@ -77,71 +77,71 @@ export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent 
  */
 export interface CascadeSelectPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the inputs DOM element.
      */
     input?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown button's DOM element.
+     * Used to pass attributes to the dropdown buttons DOM element.
      */
     dropdown?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icons DOM element.
      */
     dropdownIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icons DOM element.
      */
     loadingIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the overlay's DOM element.
+     * Used to pass attributes to the overlays DOM element.
      */
     overlay?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the list container's DOM element.
+     * Used to pass attributes to the list containers DOM element.
      */
     listContainer?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option's DOM element.
+     * Used to pass attributes to the options DOM element.
      */
     option?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option content's DOM element.
+     * Used to pass attributes to the option contents DOM element.
      */
     optionContent?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option text's DOM element.
+     * Used to pass attributes to the option texts DOM element.
      */
     optionText?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option list's DOM element.
+     * Used to pass attributes to the option lists DOM element.
      */
     optionList?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the group icon's DOM element.
+     * Used to pass attributes to the group icons DOM element.
      */
     groupIcon?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden input container's DOM element.
+     * Used to pass attributes to the hidden input containers DOM element.
      */
     hiddenInputContainer?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected messages DOM element.
      */
     hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the search result message text aria's DOM element.
+     * Used to pass attributes to the search result message text arias DOM element.
      */
     hiddenSearchResult?: CascadeSelectPassThroughOptionType;
     /**

@@ -99,15 +99,15 @@ export interface SplitterResizeEndEvent {
  */
 export interface SplitterPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: SplitterPassThroughOptionType;
     /**
-     * Used to pass attributes to the gutter's DOM element.
+     * Used to pass attributes to the gutters DOM element.
      */
     gutter?: SplitterPassThroughOptionType;
     /**
-     * Used to pass attributes to the gutter handle's DOM element.
+     * Used to pass attributes to the gutter handles DOM element.
      */
     gutterHandle?: SplitterPassThroughOptionType;
     /**

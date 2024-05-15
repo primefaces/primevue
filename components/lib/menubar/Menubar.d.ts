@@ -55,51 +55,51 @@ export interface MenubarPassThroughMethodOptions {
  */
 export interface MenubarPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the root list's DOM element.
+     * Used to pass attributes to the root lists DOM element.
      */
     rootList?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the item's DOM element.
+     * Used to pass attributes to the items DOM element.
      */
     item?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the item contents DOM element.
      */
     itemContent?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu icon's DOM element.
+     * Used to pass attributes to the submenu icons DOM element.
      */
     submenuIcon?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile menu button's DOM element.
+     * Used to pass attributes to the mobile menu buttons DOM element.
      */
     button?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile menu button icon's DOM element.
+     * Used to pass attributes to the mobile menu button icons DOM element.
      */
     buttonicon?: MenubarPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenus DOM element.
      */
     submenu?: MenubarPassThroughOptionType;
     /**

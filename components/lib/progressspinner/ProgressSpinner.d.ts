@@ -45,15 +45,15 @@ export interface ProgressSpinnerPassThroughMethodOptions {
  */
 export interface ProgressSpinnerPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ProgressSpinnerPassThroughOptionType;
     /**
-     * Used to pass attributes to the spinner's DOM element.
+     * Used to pass attributes to the spinners DOM element.
      */
     spinner?: ProgressSpinnerPassThroughOptionType;
     /**
-     * Used to pass attributes to the circle's DOM element.
+     * Used to pass attributes to the circles DOM element.
      */
     circle?: ProgressSpinnerPassThroughOptionType;
     /**

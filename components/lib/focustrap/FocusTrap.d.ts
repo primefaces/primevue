@@ -50,15 +50,15 @@ export interface FocusTrapOptions {
  */
 export interface FocusTrapDirectivePassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Used to pass attributes to the first focusable element's DOM element.
+     * Used to pass attributes to the first focusable elements DOM element.
      */
     firstFocusableElement?: FocusTrapDirectivePassThroughOptionType;
     /**
-     * Used to pass attributes to the last focusable element's DOM element.
+     * Used to pass attributes to the last focusable elements DOM element.
      */
     lastFocusableElement?: FocusTrapDirectivePassThroughOptionType;
     /**

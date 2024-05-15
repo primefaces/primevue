@@ -108,15 +108,15 @@ export interface OrganizationChartCollapsedKeys {
  */
 export interface OrganizationChartPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the table's DOM element.
+     * Used to pass attributes to the tables DOM element.
      */
     table?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the body's DOM element.
+     * Used to pass attributes to the bodys DOM element.
      */
     body?: OrganizationChartPassThroughOptionType;
     /**
@@ -124,47 +124,47 @@ export interface OrganizationChartPassThroughOptions {
      */
     row?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the cell's DOM element.
+     * Used to pass attributes to the cells DOM element.
      */
     cell?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the node's DOM element.
+     * Used to pass attributes to the nodes DOM element.
      */
     node?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the node toggle button's DOM element.
+     * Used to pass attributes to the node toggle buttons DOM element.
      */
     nodeToggleButton?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the node toggle button icon's DOM element.
+     * Used to pass attributes to the node toggle button icons DOM element.
      */
     nodeToggleButtonIcon?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the connectors's DOM element.
+     * Used to pass attributes to the connectorss DOM element.
      */
     connectors?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the lineCell's DOM element.
+     * Used to pass attributes to the lineCells DOM element.
      */
     lineCell?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the connector down's DOM element.
+     * Used to pass attributes to the connector downs DOM element.
      */
     connectorDown?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the connector left's DOM element.
+     * Used to pass attributes to the connector lefts DOM element.
      */
     connectorLeft?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the connector right's DOM element.
+     * Used to pass attributes to the connector rights DOM element.
      */
     connectorRight?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the node children's DOM element.
+     * Used to pass attributes to the node childrens DOM element.
      */
     nodeChildren?: OrganizationChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the nodeCell's DOM element.
+     * Used to pass attributes to the nodeCells DOM element.
      */
     nodeCell?: OrganizationChartPassThroughOptionType;
     /**

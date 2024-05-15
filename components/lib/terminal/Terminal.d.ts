@@ -49,15 +49,15 @@ export interface TerminalPassThroughMethodOptions {
  */
 export interface TerminalPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the welcome message's DOM element.
+     * Used to pass attributes to the welcome messages DOM element.
      */
     welcomeMessage?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: TerminalPassThroughOptionType;
     /**
@@ -65,23 +65,23 @@ export interface TerminalPassThroughOptions {
      */
     commands?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the prompt's DOM element.
+     * Used to pass attributes to the prompts DOM element.
      */
     prompt?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the command's DOM element.
+     * Used to pass attributes to the commands DOM element.
      */
     command?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the response's DOM element.
+     * Used to pass attributes to the responses DOM element.
      */
     response?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the container's DOM element.
+     * Used to pass attributes to the containers DOM element.
      */
     container?: TerminalPassThroughOptionType;
     /**
-     * Used to pass attributes to the command text's DOM element.
+     * Used to pass attributes to the command texts DOM element.
      */
     commandText?: TerminalPassThroughOptionType;
     /**

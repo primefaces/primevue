@@ -51,11 +51,11 @@ export interface StepperPassThroughMethodOptions {
  */
 export interface StepperPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: StepperPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: StepperPassThroughOptionType;
     /**
@@ -63,7 +63,7 @@ export interface StepperPassThroughOptions {
      */
     panels?: StepperPassThroughOptionType;
     /**
-     * Used to pass attributes to the end handler's DOM element.
+     * Used to pass attributes to the end handlers DOM element.
      */
     stepperpanel?: StepperPanelPassThroughOptionType;
     /**

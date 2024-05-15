@@ -50,7 +50,7 @@ export interface TabsPassThroughMethodOptions {
  */
 export interface TabsPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TabsPassThroughOptionType;
     /**

@@ -48,7 +48,7 @@ export interface RowPassThroughMethodOptions {
  */
 export interface RowPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: RowPassThroughOptionType;
     /**

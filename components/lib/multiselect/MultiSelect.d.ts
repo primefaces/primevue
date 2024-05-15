@@ -120,19 +120,19 @@ export interface MultiSelectFilterEvent {
  */
 export interface MultiSelectPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the label container's DOM element.
+     * Used to pass attributes to the label containers DOM element.
      */
     labelContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the chip's DOM element.
+     * Used to pass attributes to the chips DOM element.
      */
     chipItem?: MultiSelectPassThroughOptionType;
     /**
@@ -141,27 +141,27 @@ export interface MultiSelectPassThroughOptions {
      */
     pcChip?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the chip icon's DOM element.
+     * Used to pass attributes to the chip icons DOM element.
      */
     chipIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown's DOM element.
+     * Used to pass attributes to the dropdowns DOM element.
      */
     dropdown?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icons DOM element.
      */
     dropdownIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the overlay's DOM element.
+     * Used to pass attributes to the overlays DOM element.
      */
     overlay?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the header checkbox's DOM element.
+     * Used to pass attributes to the header checkboxs DOM element.
      */
     pcHeaderCheckbox?: MultiSelectPassThroughOptionType;
     /**
@@ -180,11 +180,11 @@ export interface MultiSelectPassThroughOptions {
      */
     pcFilterIconContainer?: InputIconPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icons DOM element.
      */
     filterIcon?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the list container's DOM element.
+     * Used to pass attributes to the list containers DOM element.
      */
     listContainer?: MultiSelectPassThroughOptionType;
     /**
@@ -193,47 +193,47 @@ export interface MultiSelectPassThroughOptions {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option group's DOM element.
+     * Used to pass attributes to the option groups DOM element.
      */
     optionGroup?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option's DOM element.
+     * Used to pass attributes to the options DOM element.
      */
     option?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option label's DOM element.
+     * Used to pass attributes to the option labels DOM element.
      */
     optionLabel?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the option checkbox's DOM element.
+     * Used to pass attributes to the option checkboxs DOM element.
      */
     pcOptionCheckbox?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the emptyMessage's DOM element.
+     * Used to pass attributes to the emptyMessages DOM element.
      */
     emptyMessage?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden input container's DOM element.
+     * Used to pass attributes to the hidden input containers DOM element.
      */
     hiddenInputContainer?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable elements DOM element.
      */
     hiddenFirstFocusableEl?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter results DOM element.
      */
     hiddenFilterResult?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected messages DOM element.
      */
     hiddenSelectedMessage?: MultiSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable elements DOM element.
      */
     hiddenLastFocusableEl?: MultiSelectPassThroughOptionType;
     /**

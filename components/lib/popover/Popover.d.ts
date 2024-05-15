@@ -52,11 +52,11 @@ export interface PopoverPassThroughMethodOptions {
  */
 export interface PopoverPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: PopoverPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: PopoverPassThroughOptionType;
     /**

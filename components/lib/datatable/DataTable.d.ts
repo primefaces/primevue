@@ -654,19 +654,19 @@ export interface DataTableStateEvent {
  */
 export interface DataTablePassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the mask's DOM element.
+     * Used to pass attributes to the masks DOM element.
      */
     mask?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading icon's DOM element.
+     * Used to pass attributes to the loading icons DOM element.
      */
     loadingIcon?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: DataTablePassThroughOptionType;
     /**
@@ -675,7 +675,7 @@ export interface DataTablePassThroughOptions {
      */
     paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the table container's DOM element.
+     * Used to pass attributes to the table containers DOM element.
      */
     tableContainer?: DataTablePassThroughOptionType;
     /**
@@ -684,83 +684,83 @@ export interface DataTablePassThroughOptions {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the table's DOM element.
+     * Used to pass attributes to the tables DOM element.
      */
     table?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the virtual scroller spacer's DOM element.
+     * Used to pass attributes to the virtual scroller spacers DOM element.
      */
     virtualScrollerSpacer?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footers DOM element.
      */
     footer?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the thead's DOM element.
+     * Used to pass attributes to the theads DOM element.
      */
     thead?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the header row's DOM element.
+     * Used to pass attributes to the header rows DOM element.
      */
     headerRow?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the tbody's DOM element.
+     * Used to pass attributes to the tbodys DOM element.
      */
     tbody?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rowg roup header's DOM element.
+     * Used to pass attributes to the rowg roup headers DOM element.
      */
     rowGroupHeader?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row group header cell's DOM element.
+     * Used to pass attributes to the row group header cells DOM element.
      */
     rowGroupHeaderCell?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the body row's DOM element.
+     * Used to pass attributes to the body rows DOM element.
      */
     bodyRow?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row expansion's DOM element.
+     * Used to pass attributes to the row expansions DOM element.
      */
     rowExpansion?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row expansion cell's DOM element.
+     * Used to pass attributes to the row expansion cells DOM element.
      */
     rowExpansionCell?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row group footer's DOM element.
+     * Used to pass attributes to the row group footers DOM element.
      */
     rowGroupFooter?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row group footer cell's DOM element.
+     * Used to pass attributes to the row group footer cells DOM element.
      */
     rowGroupFooterCell?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty messages DOM element.
      */
     emptyMessage?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the empty message cell's DOM element.
+     * Used to pass attributes to the empty message cells DOM element.
      */
     emptyMessageCell?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the tfoot's DOM element.
+     * Used to pass attributes to the tfoots DOM element.
      */
     tfoot?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the footer row's DOM element.
+     * Used to pass attributes to the footer rows DOM element.
      */
     footerRow?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the column resize indicator's DOM element.
+     * Used to pass attributes to the column resize indicators DOM element.
      */
     columnResizeIndicator?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row reorder indicator up's DOM element.
+     * Used to pass attributes to the row reorder indicator ups DOM element.
      */
     rowReorderIndicatorUp?: DataTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the row reorder indicator down's DOM element.
+     * Used to pass attributes to the row reorder indicator downs DOM element.
      */
     rowReorderIndicatorDown?: DataTablePassThroughOptionType;
     /**

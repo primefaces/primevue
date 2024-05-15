@@ -50,23 +50,23 @@ export interface ScrollPanelPassThroughMethodOptions {
  */
 export interface ScrollPanelPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ScrollPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the content container's DOM element.
+     * Used to pass attributes to the content containers DOM element.
      */
     contentContainer?: ScrollPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: ScrollPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the horizontal panel's DOM element.
+     * Used to pass attributes to the horizontal panels DOM element.
      */
     barX?: ScrollPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the vertical panel's DOM element.
+     * Used to pass attributes to the vertical panels DOM element.
      */
     barY?: ScrollPanelPassThroughOptionType;
     /**

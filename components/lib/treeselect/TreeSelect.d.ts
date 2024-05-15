@@ -69,19 +69,19 @@ export interface TreeSelectSharedPassThroughMethodOptions {
  */
 export interface TreeSelectPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the label container's DOM element.
+     * Used to pass attributes to the label containers DOM element.
      */
     labelContainer?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the chip's DOM element.
+     * Used to pass attributes to the chips DOM element.
      */
     chipItem?: TreeSelectPassThroughOptionType;
     /**
@@ -90,19 +90,19 @@ export interface TreeSelectPassThroughOptions {
      */
     pcChip?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the dropdown's DOM element.
+     * Used to pass attributes to the dropdowns DOM element.
      */
     dropdown?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown icon's DOM element.
+     * Used to pass attributes to the dropdown icons DOM element.
      */
     dropdownIcon?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panels DOM element.
      */
     panel?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the tree container's DOM element.
+     * Used to pass attributes to the tree containers DOM element.
      */
     treeContainer?: TreeSelectPassThroughOptionType;
     /**
@@ -111,15 +111,15 @@ export interface TreeSelectPassThroughOptions {
      */
     pcTree?: TreePassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the empty message's DOM element.
+     * Used to pass attributes to the empty messages DOM element.
      */
     emptyMessage?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden input container's DOM element.
+     * Used to pass attributes to the hidden input containers DOM element.
      */
     hiddenInputContainer?: TreeSelectPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden input's DOM element.
+     * Used to pass attributes to the hidden inputs DOM element.
      */
     hiddenInput?: TreeSelectPassThroughOptionType;
     /**

@@ -46,15 +46,15 @@ export interface TagPassThroughMethodOptions {
  */
 export interface TagPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TagPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
+     * Used to pass attributes to the icons DOM element.
      */
     icon?: TagPassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the labels DOM element.
      */
     label?: TagPassThroughOptionType;
     /**

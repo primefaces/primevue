@@ -97,7 +97,7 @@ export interface InputNumberBlurEvent {
  */
 export interface InputNumberPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: InputNumberPassThroughOptionType<T>;
     /**
@@ -106,23 +106,23 @@ export interface InputNumberPassThroughOptions<T = any> {
      */
     pcInput?: InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the button group's DOM element.
+     * Used to pass attributes to the button groups DOM element.
      */
     buttonGroup?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the increment button's DOM element.
+     * Used to pass attributes to the increment buttons DOM element.
      */
     incrementButton?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the increment icon's DOM element.
+     * Used to pass attributes to the increment icons DOM element.
      */
     incrementIcon?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the decrement button's DOM element.
+     * Used to pass attributes to the decrement buttons DOM element.
      */
     decrementButton?: InputNumberPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the decrement icon's DOM element.
+     * Used to pass attributes to the decrement icons DOM element.
      */
     decrementIcon?: InputNumberPassThroughOptionType<T>;
     /**

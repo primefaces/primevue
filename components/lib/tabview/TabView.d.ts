@@ -74,43 +74,43 @@ export interface TabViewClickEvent extends TabViewChangeEvent {}
  */
 export interface TabViewPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the nav container's DOM element.
+     * Used to pass attributes to the nav containers DOM element.
      */
     navContainer?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the nav content's DOM element.
+     * Used to pass attributes to the nav contents DOM element.
      */
     navContent?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     nav?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the inkbar's DOM element.
+     * Used to pass attributes to the inkbars DOM element.
      */
     inkbar?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the previous buttons DOM element.
      */
     previousButton?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous button icon's DOM element.
+     * Used to pass attributes to the previous button icons DOM element.
      */
     previousIcon?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the next button's DOM element.
+     * Used to pass attributes to the next buttons DOM element.
      */
     nextButton?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the next button icon's DOM element.
+     * Used to pass attributes to the next button icons DOM element.
      */
     nextIcon?: TabViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panels DOM element.
      */
     panelContainer?: TabViewPassThroughOptionType;
     /**

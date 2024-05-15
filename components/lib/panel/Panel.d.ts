@@ -82,15 +82,15 @@ export interface PanelToggleEvent {
  */
 export interface PanelPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the title's DOM element.
+     * Used to pass attributes to the titles DOM element.
      */
     title?: PanelPassThroughOptionType;
     /**
@@ -98,20 +98,20 @@ export interface PanelPassThroughOptions {
      */
     headerActions?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggle button button's DOM element.
+     * Used to pass attributes to the toggle button buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcToggleButton?: ButtonPassThroughOptions<PanelSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the content container's DOM element.
+     * Used to pass attributes to the content containers DOM element.
      */
     contentContainer?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: PanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the footer's DOM element.
+     * Used to pass attributes to the footers DOM element.
      */
     footer?: PanelPassThroughOptionType;
     /**

@@ -87,15 +87,15 @@ export interface InputChipsRemoveEvent extends InputChipsAddEvent {}
  */
 export interface InputChipsPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the inputs DOM element.
      */
     input?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the chip's DOM element.
+     * Used to pass attributes to the chips DOM element.
      */
     chipItem?: InputChipsPassThroughOptionType;
     /**
@@ -104,15 +104,15 @@ export interface InputChipsPassThroughOptions {
      */
     pcChip?: ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the chip icon's DOM element.
+     * Used to pass attributes to the chip icons DOM element.
      */
     chipIcon?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the input item's DOM element.
+     * Used to pass attributes to the input items DOM element.
      */
     inputItem?: InputChipsPassThroughOptionType;
     /**
-     * Used to pass attributes to the input item field's DOM element.
+     * Used to pass attributes to the input item fields DOM element.
      */
     inputItemField?: InputChipsPassThroughOptionType;
     /**

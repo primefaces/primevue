@@ -67,35 +67,35 @@ export interface FieldsetToggleEvent {
  */
 export interface FieldsetPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the legend's DOM element.
+     * Used to pass attributes to the legends DOM element.
      */
     legend?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggler's DOM element.
+     * Used to pass attributes to the togglers DOM element.
      */
     toggler?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the toggle icon's DOM element.
+     * Used to pass attributes to the toggle icons DOM element.
      */
     toggleIcon?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the legend label's DOM element.
+     * Used to pass attributes to the legend labels DOM element.
      */
     toggleButton?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the legend label's DOM element.
+     * Used to pass attributes to the legend labels DOM element.
      */
     legendLabel?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the content container's DOM element.
+     * Used to pass attributes to the content containers DOM element.
      */
     contentContainer?: FieldsetPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: FieldsetPassThroughOptionType;
     /**

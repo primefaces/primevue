@@ -57,75 +57,75 @@ export interface PanelMenuPassThroughMethodOptions {
  */
 export interface PanelMenuPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panels DOM element.
      */
     panel?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header content's DOM element.
+     * Used to pass attributes to the header contents DOM element.
      */
     headerContent?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header link's DOM element.
+     * Used to pass attributes to the header links DOM element.
      */
     headerLink?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenuIcon's DOM element.
+     * Used to pass attributes to the submenuIcons DOM element.
      */
     submenuIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header icon's DOM element.
+     * Used to pass attributes to the header icons DOM element.
      */
     headerIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the header label's DOM element.
+     * Used to pass attributes to the header labels DOM element.
      */
     headerLabel?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the content container's DOM element.
+     * Used to pass attributes to the content containers DOM element.
      */
     contentContainer?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the root list's DOM element.
+     * Used to pass attributes to the root lists DOM element.
      */
     rootList?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the list item's DOM element.
+     * Used to pass attributes to the list items DOM element.
      */
     menuitem?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item content's DOM element.
+     * Used to pass attributes to the item contents DOM element.
      */
     itemContent?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item link's DOM element.
+     * Used to pass attributes to the item links DOM element.
      */
     itemLink?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icon's DOM element.
+     * Used to pass attributes to the item icons DOM element.
      */
     itemIcon?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item label's DOM element.
+     * Used to pass attributes to the item labels DOM element.
      */
     itemLabel?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu's DOM element.
+     * Used to pass attributes to the submenus DOM element.
      */
     submenu?: PanelMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the separator's DOM element.
+     * Used to pass attributes to the separators DOM element.
      */
     separator?: PanelMenuPassThroughOptionType;
     /**

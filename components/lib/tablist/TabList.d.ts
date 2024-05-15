@@ -50,7 +50,7 @@ export interface TabListPassThroughMethodOptions {
  */
 export interface TabListPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TabListPassThroughOptionType;
     /**
@@ -62,11 +62,11 @@ export interface TabListPassThroughOptions {
      */
     nextButton?: TabListPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     content?: TabListPassThroughOptionType;
     /**
-     * Used to pass attributes to the inkbar's DOM element.
+     * Used to pass attributes to the inkbars DOM element.
      */
     inkbar?: TabListPassThroughOptionType;
     /**

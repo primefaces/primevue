@@ -67,39 +67,39 @@ export interface ColorPickerChangeEvent {
  */
 export interface ColorPickerPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the preview's DOM element.
+     * Used to pass attributes to the previews DOM element.
      */
     preview?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel's DOM element.
+     * Used to pass attributes to the panels DOM element.
      */
     panel?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the color selector's DOM element.
+     * Used to pass attributes to the color selectors DOM element.
      */
     colorSelector?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the color background's DOM element.
+     * Used to pass attributes to the color backgrounds DOM element.
      */
     colorBackground?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the color handler's DOM element.
+     * Used to pass attributes to the color handlers DOM element.
      */
     colorHandle?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the hue's DOM element.
+     * Used to pass attributes to the hues DOM element.
      */
     hue?: ColorPickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the hue handler's DOM element.
+     * Used to pass attributes to the hue handlers DOM element.
      */
     hueHandle: ColorPickerPassThroughOptionType;
     /**

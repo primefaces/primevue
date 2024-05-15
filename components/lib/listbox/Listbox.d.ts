@@ -117,11 +117,11 @@ export interface ListboxFilterEvent {
  */
 export interface ListboxPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: ListboxPassThroughOptionType<T>;
     /**
@@ -140,11 +140,11 @@ export interface ListboxPassThroughOptions<T = any> {
      */
     pcFilterIconContainer?: InputIconPassThroughOptions<ListboxSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the filter icon's DOM element.
+     * Used to pass attributes to the filter icons DOM element.
      */
     filterIcon?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the list container's DOM element.
+     * Used to pass attributes to the list containers DOM element.
      */
     listContainer?: ListboxPassThroughOptionType<T>;
     /**
@@ -153,43 +153,43 @@ export interface ListboxPassThroughOptions<T = any> {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the lists DOM element.
      */
     list?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option group's DOM element.
+     * Used to pass attributes to the option groups DOM element.
      */
     optionGroup?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option's DOM element.
+     * Used to pass attributes to the options DOM element.
      */
     option?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option check icon's DOM element.
+     * Used to pass attributes to the option check icons DOM element.
      */
     optionCheckIcon?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the option blank icon's DOM element.
+     * Used to pass attributes to the option blank icons DOM element.
      */
     optionBlankIcon?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the emptyMessage's DOM element.
+     * Used to pass attributes to the emptyMessages DOM element.
      */
     emptyMessage?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden first focusable element's DOM element.
+     * Used to pass attributes to the hidden first focusable elements DOM element.
      */
     hiddenFirstFocusableEl?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden filter result's DOM element.
+     * Used to pass attributes to the hidden filter results DOM element.
      */
     hiddenFilterResult?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden selected message's DOM element.
+     * Used to pass attributes to the hidden selected messages DOM element.
      */
     hiddenSelectedMessage?: ListboxPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the hidden last focusable element's DOM element.
+     * Used to pass attributes to the hidden last focusable elements DOM element.
      */
     hiddenLastFocusableEl?: ListboxPassThroughOptionType<T>;
     /**

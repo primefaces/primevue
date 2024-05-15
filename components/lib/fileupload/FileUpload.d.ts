@@ -196,15 +196,15 @@ export interface FileUploadRemoveUploadedFile {
  */
 export interface FileUploadPassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the input's DOM element.
+     * Used to pass attributes to the inputs DOM element.
      */
     input?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the header's DOM element.
+     * Used to pass attributes to the headers DOM element.
      */
     header?: FileUploadPassThroughOptionType;
     /**
@@ -223,7 +223,7 @@ export interface FileUploadPassThroughOptions {
      */
     pcCancelButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the content's DOM element.
+     * Used to pass attributes to the contents DOM element.
      */
     content?: FileUploadPassThroughOptionType;
     /**
@@ -232,28 +232,28 @@ export interface FileUploadPassThroughOptions {
      */
     pcProgressbar?: ProgressBarPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the message's DOM element.
+     * Used to pass attributes to the messages DOM element.
      * @see {@link MessagePassThroughOptions}
      */
     pcMessage?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the file's DOM element.
+     * Used to pass attributes to the files DOM element.
      */
     file?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the file thumbnail's DOM element.
+     * Used to pass attributes to the file thumbnails DOM element.
      */
     fileThumbnail?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the file info's DOM element.
+     * Used to pass attributes to the file infos DOM element.
      */
     fileInfo?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the fileName's DOM element.
+     * Used to pass attributes to the fileNames DOM element.
      */
     fileName?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the fileSize's DOM element.
+     * Used to pass attributes to the fileSizes DOM element.
      */
     fileSize?: FileUploadPassThroughOptionType;
     /**
@@ -266,12 +266,12 @@ export interface FileUploadPassThroughOptions {
      */
     fileActions?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the file remove button's DOM element.
+     * Used to pass attributes to the file remove buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcFileRemoveButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the empty's DOM element.
+     * Used to pass attributes to the emptys DOM element.
      */
     empty?: FileUploadPassThroughOptionType;
     /**
@@ -280,7 +280,7 @@ export interface FileUploadPassThroughOptions {
      */
     pcMessages?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the basic mode's button's DOM element.
+     * Used to pass attributes to the basic mode's buttons DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;

@@ -50,31 +50,31 @@ export interface TimelinePassThroughMethodOptions {
  */
 export interface TimelinePassThroughOptions {
     /**
-     * Used to pass attributes to the root's DOM element.
+     * Used to pass attributes to the roots DOM element.
      */
     root?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event's DOM element.
+     * Used to pass attributes to the events DOM element.
      */
     event?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event opposite's DOM element.
+     * Used to pass attributes to the event opposites DOM element.
      */
     eventOpposite?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event separator's DOM element.
+     * Used to pass attributes to the event separators DOM element.
      */
     eventSeparator?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event marker's DOM element.
+     * Used to pass attributes to the event markers DOM element.
      */
     eventMarker?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event connector's DOM element.
+     * Used to pass attributes to the event connectors DOM element.
      */
     eventConnector?: TimelinePassThroughOptionType;
     /**
-     * Used to pass attributes to the event content's DOM element.
+     * Used to pass attributes to the event contents DOM element.
      */
     eventContent?: TimelinePassThroughOptionType;
     /**
