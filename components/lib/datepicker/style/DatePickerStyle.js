@@ -54,15 +54,15 @@ const theme = ({ dt }) => `
     outline-offset: ${dt('datepicker.dropdown.focus.ring.offset')};
 }
 
-.p-datepicker:has(.p-datepicker-input-icon) {
+.p-datepicker:has(.p-datepicker-input-icon-container) {
     position: relative;
 }
 
-.p-datepicker:has(.p-datepicker-input-icon) .p-datepicker-input {
+.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {
     padding-right: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 
-.p-datepicker-input-icon {
+.p-datepicker-input-icon-container {
     cursor: pointer;
     position: absolute;
     top: 50%;

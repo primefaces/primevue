@@ -108,7 +108,7 @@
             position: absolute;
             top: calc(100% + 2px);
             right: 0;
-            width: 14rem;
+            width: 16rem;
             padding: .75rem;
             background-color: var(--overlay-background);
             border-radius: 6px;
@@ -135,11 +135,12 @@
                     display: flex;
                     gap: .5rem;
                     flex-wrap: wrap;
+                    justify-content: space-between;
     
                     button {
                         border: none;
-                        width: 1em;
-                        height: 1rem;
+                        width: 1.25rem;
+                        height: 1.25rem;
                         border-radius: 50%;
                         cursor: pointer;
                         outline-color: transparent;

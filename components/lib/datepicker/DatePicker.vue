@@ -48,7 +48,7 @@
             </button>
         </slot>
         <template v-else-if="showIcon && iconDisplay === 'input'">
-            <span :class="cx('inputIconContainer')">
+            <span v-if="$slots.inputicon || showIcon" :class="cx('inputIconContainer')">
                 <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                     <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
                 </slot>

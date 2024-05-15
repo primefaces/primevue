@@ -15,7 +15,7 @@
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="slotProps">
-                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
+                    <i class="pi pi-clock" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
@@ -36,7 +36,7 @@ export default {
 <DatePicker v-model="icondisplay" showIcon iconDisplay="input" />
 <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly>
     <template #inputicon="slotProps">
-        <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
+        <i class="pi pi-clock" @click="slotProps.clickCallback" />
     </template>
 </DatePicker>
 `,
@@ -55,7 +55,7 @@ export default {
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="slotProps">
-                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
+                    <i class="pi pi-clock" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
@@ -89,7 +89,7 @@ export default {
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
                 <template #inputicon="slotProps">
-                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
+                    <i class="pi pi-clock" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
