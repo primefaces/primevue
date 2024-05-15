@@ -5,7 +5,7 @@ const Ripple = BaseRipple.extend('ripple', {
     watch: {
         'config.ripple'(newValue) {
             if (newValue) {
-                this.create(this.$host);
+                this.createRipple(this.$host);
                 this.bindEvents(this.$host);
 
                 this.$host.setAttribute('data-pd-ripple', true);
@@ -28,7 +28,7 @@ const Ripple = BaseRipple.extend('ripple', {
         unbindEvents(el) {
             el.removeEventListener('mousedown', this.onMouseDown.bind(this));
         },
-        create(el) {
+        createRipple(el) {
             const ink = DomHandler.createElement('span', {
                 role: 'presentation',
                 'aria-hidden': true,
