@@ -5,7 +5,7 @@ import { reactive } from 'vue';
 const $appState = {
     install: (Vue, options) => {
         Vue.config.globalProperties.$appState = reactive({
-            preset: 'Nora',
+            preset: 'Aura',
             darkTheme: false,
             codeSandbox: false,
             sourceType: 'options-api',
@@ -19,6 +19,7 @@ const $appState = {
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use($appState);
     nuxtApp.vueApp.use(PrimeVue, {
+        
         theme: Noir
     });
 });
