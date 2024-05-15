@@ -1,4 +1,7 @@
 export default {
+    root: {
+        borderRadius: '{form.field.border.radius}'
+    },
     colorScheme: {
         light: {
             root: {

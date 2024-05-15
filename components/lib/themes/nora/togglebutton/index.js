@@ -10,7 +10,7 @@ export default {
         hoverColor: '{form.field.color}',
         checkedBackground: '{highlight.background}',
         checkedColor: '{highlight.color}',
-        checkedBorderColor: '{highlight.focus.background}',
+        checkedBorderColor: '{form.field.border.color}',
         disabledBackground: '{form.field.disabled.background}',
         disabledBorderColor: '{form.field.disabled.background}',
         disabledColor: '{form.field.disabled.color}',

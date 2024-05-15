@@ -6,11 +6,12 @@ const theme = ({ dt }) => `
     user-select: none;
     vertical-align: bottom;
     outline-color: transparent;
-    border-radius: ${dt('border.radius.md')};
+    border-radius: ${dt('selectbutton.border.radius')};
 }
 
 .p-selectbutton .p-togglebutton {
     border-radius: 0;
+    border-width: 1px 1px 1px 0;
 }
 
 .p-selectbutton .p-togglebutton:focus-visible {
@@ -19,13 +20,14 @@ const theme = ({ dt }) => `
 }
 
 .p-selectbutton .p-togglebutton:first-child {
-    border-top-left-radius: ${dt('border.radius.md')};
-    border-bottom-left-radius: ${dt('border.radius.md')};
+    border-left-width: 1px;
+    border-top-left-radius: ${dt('selectbutton.border.radius')};
+    border-bottom-left-radius: ${dt('selectbutton.border.radius')};
 }
 
 .p-selectbutton .p-togglebutton:last-child {
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-top-right-radius: ${dt('selectbutton.border.radius')};
+    border-bottom-right-radius: ${dt('selectbutton.border.radius')};
 }
 
 .p-selectbutton.p-invalid {
