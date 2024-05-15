@@ -29,7 +29,14 @@ export default {
     tabpanel: {
         background: '{content.background}',
         color: '{content.color}',
-        padding: '0.875rem 1.125rem 1.125rem 1.125rem'
+        padding: '0.875rem 1.125rem 1.125rem 1.125rem',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: 'inset {focus.ring.shadow}'
+        }
     },
     navButton: {
         background: '{content.background}',

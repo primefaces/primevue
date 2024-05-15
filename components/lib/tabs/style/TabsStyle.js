@@ -115,6 +115,12 @@ const theme = ({ dt }) => `
     outline: 0 none;
 }
 
+.p-tabpanel:focus-visible {
+    box-shadow: ${dt('tabs.tabpanel.focus.ring.shadow')};
+    outline: ${dt('tabs.tabpanel.focus.ring.width')} ${dt('tabs.tabpanel.focus.ring.style')} ${dt('tabs.tabpanel.focus.ring.color')};
+    outline-offset: ${dt('tabs.tabpanel.focus.ring.offset')};
+}
+
 .p-tablist-active-bar {
     z-index: 1;
     display: block;
