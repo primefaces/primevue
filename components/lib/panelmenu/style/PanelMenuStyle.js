@@ -123,11 +123,11 @@ const theme = ({ dt }) => `
     color: ${dt('panelmenu.item.focus.color')};
 }
 
-.p-panelmenu-item.p-focus > .p-panelmenu-item-icon {
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content .p-panelmenu-item-icon {
     color: ${dt('panelmenu.item.focus.color')};
 }
 
-.p-panelmenu-item.p-focus > .p-panelmenu-submenu-icon {
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content .p-panelmenu-submenu-icon {
     color: ${dt('panelmenu.submenu.icon.focus.color')};
 }
 
