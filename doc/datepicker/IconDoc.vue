@@ -14,8 +14,8 @@
         <div class="flex-auto">
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
-                <template #inputicon="{ clickCallback }">
-                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                <template #inputicon="slotProps">
+                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
@@ -35,8 +35,8 @@ export default {
 <DatePicker v-model="buttondisplay" showIcon :showOnFocus="false" />
 <DatePicker v-model="icondisplay" showIcon iconDisplay="input" />
 <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly>
-    <template #inputicon="{ clickCallback }">
-        <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
+    <template #inputicon="slotProps">
+        <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
     </template>
 </DatePicker>
 `,
@@ -54,8 +54,8 @@ export default {
         <div class="flex-auto">
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
-                <template #inputicon="{ clickCallback }">
-                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                <template #inputicon="slotProps">
+                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
@@ -88,8 +88,8 @@ export default {
         <div class="flex-auto">
             <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
             <DatePicker v-model="templatedisplay" showIcon iconDisplay="input" timeOnly inputId="templatedisplay">
-                <template #inputicon="{ clickCallback }">
-                    <InputIcon class="pi pi-clock cursor-pointer" @click="clickCallback" />
+                <template #inputicon="slotProps">
+                    <InputIcon class="pi pi-clock" :class="slotProps.class" @click="slotProps.clickCallback" />
                 </template>
             </DatePicker>
         </div>
