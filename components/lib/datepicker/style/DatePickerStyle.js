@@ -362,7 +362,7 @@ const classes = {
     dropdown: 'p-datepicker-dropdown',
     inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',
-    panel: ({ instance, props }) => [
+    panel: ({ props }) => [
         'p-datepicker-panel p-component',
         {
             'p-datepicker-panel-inline': props.inline,

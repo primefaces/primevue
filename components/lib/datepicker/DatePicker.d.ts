@@ -148,6 +148,14 @@ export interface DatePickerPassThroughOptions {
      */
     dropdownIcon?: DatePickerPassThroughOptionType;
     /**
+     * Used to pass attributes to the input icon container's DOM element.
+     */
+    inputIconContainer?: DatePickerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the input icon's DOM element.
+     */
+    inputIcon?: DatePickerPassThroughOptionType;
+    /**
      * Used to pass attributes to the panel's DOM element.
      */
     panel?: DatePickerPassThroughOptionType;
