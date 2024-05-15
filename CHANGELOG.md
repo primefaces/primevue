@@ -6,6 +6,40 @@
 
 **Deprecated:**
 
+-   Deprecated: InputChips [\#5744](https://github.com/primefaces/primevue/issues/5744)
+
+**Breaking Changes:**
+
+-   Removed Utility Classes [\#5727](https://github.com/primefaces/primevue/issues/5727)
+-   Fieldset: #legend updates [\#5719](https://github.com/primefaces/primevue/issues/5719)
+-   Table: remove responsiveLayout [\#5717](https://github.com/primefaces/primevue/issues/5717)
+-   FileUpload: basic mode button label & file label changes [\#5715](https://github.com/primefaces/primevue/issues/5715)
+-   Remove Drawer size [\#5714](https://github.com/primefaces/primevue/issues/5714)
+-   Deprecated emits [\#5721](https://github.com/primefaces/primevue/issues/5721)
+-   Deprecated properties [\#5683](https://github.com/primefaces/primevue/issues/5683)
+-   Deprecated slots [\#5682](https://github.com/primefaces/primevue/issues/5682)
+-   Key name changes for pt property [\#5681](https://github.com/primefaces/primevue/issues/5681)
+-   [\#5678](https://github.com/primefaces/primevue/issues/5678)
+
+**Fixed bugs:**
+
+-   Tabs: Ripple Position [\#5690](https://github.com/primefaces/primevue/issues/5690)
+-   [v4 beta1: InputMask] Placeholder attribute does not work [\#5664](https://github.com/primefaces/primevue/issues/5664)
+-   Accordion: "Invalid watch source: undefined" and "Failed to resolve directive: ripple" [\#5733](https://github.com/primefaces/primevue/issues/5733)
+-   v4: TypeError: Theme\_\_default.default.setPreset is not a function when configuring theme configuration using definePreset in vitest tests [\#5689](https://github.com/primefaces/primevue/issues/5689)
+-   [\#5678](https://github.com/primefaces/primevue/issues/5678)
+
+**Implemented New Features and Enhancements:**
+
+-   Remove PrimeVueStyled and PrimeVueUnstyled plugins [\#5728](https://github.com/primefaces/primevue/issues/5728)
+-   Small sized Badge [\#5729](https://github.com/primefaces/primevue/issues/5729)
+
+## [4.0.0-beta-2](https://github.com/primefaces/primevue/tree/4.0.0-beta-2) (2024-05-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta-1...4.0.0-beta-2)
+
+**Deprecated:**
+
 -   Deprecated: TabView [\#5622](https://github.com/primefaces/primevue/issues/5622)
 
 **Breaking Changes:**
