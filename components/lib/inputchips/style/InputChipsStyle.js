@@ -61,7 +61,7 @@ const theme = ({ dt }) => `
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
 }
 
-.p-inputchips-chip.p-focus .p-chip {
+.p-inputchips-chip-item.p-focus .p-chip {
     background: ${dt('inputchips.chip.focus.background')};
     color: ${dt('inputchips.chip.focus.color')};
 }
@@ -119,8 +119,8 @@ const classes = {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }
     ],
-    chip: ({ state, index }) => ['p-inputchips-chip', { 'p-focus': state.focusedIndex === index }],
-    pcChipLabel: 'p-inputchips-chip-label',
+    chipItem: ({ state, index }) => ['p-inputchips-chip-item', { 'p-focus': state.focusedIndex === index }],
+    pcChip: 'p-inputchips-chip',
     chipIcon: 'p-inputchips-chip-icon',
     inputItem: 'p-inputchips-input-item'
 };

@@ -30,10 +30,10 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('chip')" v-bind="ptm('chip')">
+                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('chipItem')" v-bind="ptm('chipItem')">
                             <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                 <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                                <Chip :class="cx('pcChipLabel')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChipLabel')">
+                                <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
                                     <template #removeicon>
                                         <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
                                     </template>

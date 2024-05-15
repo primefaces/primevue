@@ -134,12 +134,12 @@ export interface MultiSelectPassThroughOptions {
     /**
      * Used to pass attributes to the chip's DOM element.
      */
-    chip?: MultiSelectPassThroughOptionType;
+    chipItem?: MultiSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    pcChipLabel?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
+    pcChip?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the chip icon's DOM element.
      */

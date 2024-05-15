@@ -83,12 +83,12 @@ export interface TreeSelectPassThroughOptions {
     /**
      * Used to pass attributes to the chip's DOM element.
      */
-    chip?: TreeSelectPassThroughOptionType;
+    chipItem?: TreeSelectPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    pcChipLabel?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
+    pcChip?: ChipPassThroughOptions<TreeSelectSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the dropdown's DOM element.
      */

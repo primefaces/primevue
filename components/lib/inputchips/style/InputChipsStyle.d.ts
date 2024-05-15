@@ -12,8 +12,8 @@ import { BaseStyle } from '../../base/style';
 export enum InputChipsClasses {
     root = 'p-inputchips',
     input = 'p-inputchips-input',
-    chip = 'p-inputchips-chip',
-    pcChipLabel = 'p-inputchips-chip-label',
+    chipItem = 'p-inputchips-chip-item',
+    pcChip = 'p-inputchips-chip-label',
     chipIcon = 'p-inputchips-chip-icon',
     inputItem = 'p-inputchips-input-item'
 }

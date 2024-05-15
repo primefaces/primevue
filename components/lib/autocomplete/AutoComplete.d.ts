@@ -155,12 +155,12 @@ export interface AutoCompletePassThroughOptions {
     /**
      * Used to pass attributes to the chip's DOM element.
      */
-    chip?: AutoCompletePassThroughOptionType;
+    chipItem?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the Chip.
      * @see {@link ChipPassThroughOptions}
      */
-    pcChipLabel?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
+    pcChip?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the chip icon's DOM element.
      */

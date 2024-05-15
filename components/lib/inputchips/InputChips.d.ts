@@ -97,12 +97,12 @@ export interface InputChipsPassThroughOptions {
     /**
      * Used to pass attributes to the chip's DOM element.
      */
-    chip?: InputChipsPassThroughOptionType;
+    chipItem?: InputChipsPassThroughOptionType;
     /**
      * Used to pass attributes to the Chip component.
      * @see {@link ChipPassThroughOptions}
      */
-    pcChipLabel?: ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>;
+    pcChip?: ChipPassThroughOptions<InputChipsSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the chip icon's DOM element.
      */

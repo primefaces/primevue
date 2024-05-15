@@ -29,8 +29,8 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('chip')" v-bind="ptm('chip')">
-                            <Chip :class="cx('pcChipLabel')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChipLabel')" />
+                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                            <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
                         </div>
                         <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                     </template>
