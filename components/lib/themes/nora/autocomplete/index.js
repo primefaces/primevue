@@ -1,5 +1,5 @@
 export default {
-    inputMultiple: {
+    root: {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
