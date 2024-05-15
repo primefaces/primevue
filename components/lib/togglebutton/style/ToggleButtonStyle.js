@@ -19,8 +19,15 @@ const theme = ({ dt }) => `
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     border-radius: ${dt('togglebutton.border.radius')};
     outline-color: transparent;
-    gap: ${dt('togglebutton.gap')};
     font-weight: ${dt('togglebutton.font.weight')};
+}
+
+.p-togglebutton-content {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: ${dt('togglebutton.gap')};
 }
 
 .p-togglebutton-label,
@@ -100,6 +107,7 @@ const classes = {
             'p-invalid': props.invalid
         }
     ],
+    content: 'p-togglebutton-content',
     icon: 'p-togglebutton-icon',
     label: 'p-togglebutton-label'
 };
