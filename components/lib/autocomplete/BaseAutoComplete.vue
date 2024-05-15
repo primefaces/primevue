@@ -121,6 +121,10 @@ export default {
             type: [String, Object],
             default: null
         },
+        loader: {
+            type: String,
+            default: null
+        },
         loadingIcon: {
             type: String,
             default: null
@@ -172,6 +176,10 @@ export default {
         tabindex: {
             type: Number,
             default: 0
+        },
+        typeahead: {
+            type: Boolean,
+            default: true
         },
         ariaLabel: {
             type: String,

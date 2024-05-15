@@ -83,6 +83,7 @@ export default {
         }
     },
     mounted() {
+        console.warn('Deprecated since v4. Use AutoComplete component instead with its typeahead property.');
         this.id = this.id || UniqueComponentId();
     },
     methods: {

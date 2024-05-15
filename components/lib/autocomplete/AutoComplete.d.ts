@@ -327,6 +327,11 @@ export interface AutoCompleteProps {
      */
     optionGroupChildren?: string | ((data: any) => any[]) | undefined;
     /**
+     * whether typeahead is active or not.
+     * @defaultValue true
+     */
+    typeahead?: boolean | undefined;
+    /**
      * Maximum height of the suggestions overlay.
      * @defaultValue 14rem
      */

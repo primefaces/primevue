@@ -407,28 +407,30 @@ export default {
             this.clicked = false;
         },
         onInput(event) {
-            if (this.searchTimeout) {
-                clearTimeout(this.searchTimeout);
-            }
+            if (this.typeahead) {
+                if (this.searchTimeout) {
+                    clearTimeout(this.searchTimeout);
+                }
 
-            let query = event.target.value;
+                let query = event.target.value;
 
-            if (!this.multiple) {
-                this.updateModel(event, query);
-            }
+                if (!this.multiple) {
+                    this.updateModel(event, query);
+                }
 
-            if (query.length === 0) {
-                this.hide();
-                this.$emit('clear');
-            } else {
-                if (query.length >= this.minLength) {
-                    this.focusedOptionIndex = -1;
-
-                    this.searchTimeout = setTimeout(() => {
-                        this.search(event, query, 'input');
-                    }, this.delay);
-                } else {
+                if (query.length === 0) {
                     this.hide();
+                    this.$emit('clear');
+                } else {
+                    if (query.length >= this.minLength) {
+                        this.focusedOptionIndex = -1;
+
+                        this.searchTimeout = setTimeout(() => {
+                            this.search(event, query, 'input');
+                        }, this.delay);
+                    } else {
+                        this.hide();
+                    }
                 }
             }
         },
@@ -633,15 +635,22 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            if (!this.overlayVisible) {
-                this.focusedOptionIndex = -1; // reset
-                this.onArrowDownKey(event);
-            } else {
-                if (this.focusedOptionIndex !== -1) {
-                    this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+            if (!this.typeahead) {
+                if (this.multiple) {
+                    this.updateModel(event, [...(this.modelValue || []), event.target.value]);
+                    this.$refs.focusInput.value = '';
                 }
+            } else {
+                if (!this.overlayVisible) {
+                    this.focusedOptionIndex = -1; // reset
+                    this.onArrowDownKey(event);
+                } else {
+                    if (this.focusedOptionIndex !== -1) {
+                        this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                    }
 
-                this.hide();
+                    this.hide();
+                }
             }
         },
         onEscapeKey(event) {

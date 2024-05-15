@@ -4547,6 +4547,14 @@
                             "description": "Property name or getter function that refers to the children options of option group."
                         },
                         {
+                            "name": "typeahead",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "whether typeahead is active or not."
+                        },
+                        {
                             "name": "scrollHeight",
                             "optional": true,
                             "readonly": false,
@@ -8843,6 +8851,22 @@
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the dropdown icon's DOM element."
+                        },
+                        {
+                            "name": "inputIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input icon container's DOM element."
+                        },
+                        {
+                            "name": "inputIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input icon's DOM element."
                         },
                         {
                             "name": "panel",
@@ -24947,6 +24971,22 @@
                             "type": "DatePickerPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the dropdown icon's DOM element."
+                        },
+                        {
+                            "name": "inputIconContainer",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input icon container's DOM element."
+                        },
+                        {
+                            "name": "inputIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input icon's DOM element."
                         },
                         {
                             "name": "panel",
@@ -68758,6 +68798,14 @@
                             "type": "ToggleButtonPassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the root's DOM element."
+                        },
+                        {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ToggleButtonPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's DOM element."
                         },
                         {
                             "name": "icon",
