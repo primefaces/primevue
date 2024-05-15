@@ -4,7 +4,6 @@ export default {
         gap: '1rem'
     },
     meters: {
-        background: '{content.border.color}',
         size: '0.5rem'
     },
     label: {
@@ -19,5 +18,17 @@ export default {
     labelList: {
         verticalGap: '0.5rem',
         horizontalGap: '1rem'
+    },
+    colorScheme: {
+        light: {
+            meters: {
+                background: '{surface.300}'
+            }
+        },
+        dark: {
+            meters: {
+                background: '{surface.600}'
+            }
+        }
     }
 };

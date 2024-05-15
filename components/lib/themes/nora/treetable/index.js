@@ -105,7 +105,7 @@ export default {
         },
         dark: {
             root: {
-                borderColor: '{surface.700}'
+                borderColor: '{surface.600}'
             },
             bodyCell: {
                 selectedBorderColor: '{primary.900}'

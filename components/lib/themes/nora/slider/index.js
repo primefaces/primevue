@@ -1,6 +1,5 @@
 export default {
     track: {
-        background: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         size: '3px'
     },
@@ -27,6 +26,18 @@ export default {
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
             shadow: '{focus.ring.shadow}'
+        }
+    },
+    colorScheme: {
+        light: {
+            track: {
+                background: '{surface.300}'
+            }
+        },
+        dark: {
+            track: {
+                background: '{surface.600}'
+            }
         }
     }
 };

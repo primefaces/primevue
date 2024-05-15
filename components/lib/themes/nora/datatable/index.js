@@ -148,7 +148,7 @@ export default {
         },
         dark: {
             root: {
-                borderColor: '{surface.700}'
+                borderColor: '{surface.600}'
             },
             row: {
                 stripedBackground: '{surface.950}'
