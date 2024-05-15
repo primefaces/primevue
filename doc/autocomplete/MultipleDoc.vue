@@ -3,9 +3,7 @@
         <p>Multiple mode is enabled using <i>multiple</i> property used to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
     </DocSectionText>
     <div class="card p-fluid">
-        {{ value }}
         <AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
-        <AutoComplete v-model="value" :typeahead="false" :suggestions="items" @complete="search" />
     </div>
     <DocSectionCode :code="code" />
 </template>
