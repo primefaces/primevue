@@ -42,35 +42,35 @@ export interface CardPassThroughMethodOptions {
  */
 export interface CardPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the bodys DOM element.
+     * Used to pass attributes to the body's DOM element.
      */
     body?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the captions DOM element.
+     * Used to pass attributes to the caption's DOM element.
      */
     caption?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the titles DOM element.
+     * Used to pass attributes to the title's DOM element.
      */
     title?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the subtitles DOM element.
+     * Used to pass attributes to the subtitle's DOM element.
      */
     subtitle?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CardPassThroughOptionType;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: CardPassThroughOptionType;
     /**

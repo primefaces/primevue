@@ -50,11 +50,11 @@ export interface AccordionHeaderPassThroughMethodOptions {
  */
 export interface AccordionHeaderPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionHeaderPassThroughOptionType;
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     toggleicon?: AccordionHeaderPassThroughOptionType;
     /**

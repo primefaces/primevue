@@ -64,15 +64,15 @@ export interface InplaceSharedPassThroughMethodOptions {
  */
 export interface InplacePassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InplacePassThroughOptionType;
     /**
-     * Used to pass attributes to the displays DOM element.
+     * Used to pass attributes to the display's DOM element.
      */
     display?: InplacePassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: InplacePassThroughOptionType;
     /**

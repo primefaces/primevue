@@ -49,7 +49,7 @@ export interface BadgePassThroughAttributes {
  */
 export interface BadgePassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BadgePassThroughOptionType<T>;
     /**

@@ -46,19 +46,19 @@ export interface ButtonPassThroughMethodOptions<T> {
  */
 export interface ButtonPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the loading icons DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: ButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the labels DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ButtonPassThroughOptionType<T>;
     /**

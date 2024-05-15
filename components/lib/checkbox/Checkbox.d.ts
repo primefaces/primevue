@@ -54,19 +54,19 @@ export interface CheckboxPassThroughMethodOptions {
  */
 export interface CheckboxPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CheckboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the inputs DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: CheckboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the boxs DOM element.
+     * Used to pass attributes to the box's DOM element.
      */
     box?: CheckboxPassThroughOptionType;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: CheckboxPassThroughOptionType;
     /**

@@ -38,7 +38,7 @@ export interface ButtonGroupPassThroughMethodOptions {
  */
 export interface ButtonGroupPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ButtonGroupPassThroughOptionType;
     /**

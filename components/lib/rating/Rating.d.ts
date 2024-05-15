@@ -54,27 +54,27 @@ export interface RatingPassThroughMethodOptions {
  */
 export interface RatingPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the options DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
     option?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the on icons DOM element.
+     * Used to pass attributes to the on icon's DOM element.
      */
     onIcon?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the off icons DOM element.
+     * Used to pass attributes to the off icon's DOM element.
      */
     offIcon?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden option input containers DOM element.
+     * Used to pass attributes to the hidden option input container's DOM element.
      */
     hiddenOptionInputContainer?: RatingPassThroughOptionType;
     /**
-     * Used to pass attributes to the hidden option inputs DOM element.
+     * Used to pass attributes to the hidden option input's DOM element.
      */
     hiddenOptionInput?: RatingPassThroughOptionType;
     /**

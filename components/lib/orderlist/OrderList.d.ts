@@ -102,7 +102,7 @@ export interface OrderListSelectionChangeEvent {
  */
 export interface OrderListPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: OrderListPassThroughOptionType;
     /**
@@ -130,7 +130,7 @@ export interface OrderListPassThroughOptions {
      */
     pcMoveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the containers DOM element.
+     * Used to pass attributes to the container's DOM element.
      */
     container?: OrderListPassThroughOptionType;
     /**

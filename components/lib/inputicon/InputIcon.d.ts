@@ -42,7 +42,7 @@ export interface InputIconPassThroughMethodOptions<T = any> {
  */
 export interface InputIconPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: InputIconPassThroughOptionType<T>;
     /**

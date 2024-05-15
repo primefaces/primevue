@@ -53,19 +53,19 @@ export interface RadioButtonPassThroughMethodOptions {
  */
 export interface RadioButtonPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: RadioButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the inputs DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: RadioButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the boxs DOM element.
+     * Used to pass attributes to the box's DOM element.
      */
     box?: RadioButtonPassThroughOptionType;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: RadioButtonPassThroughOptionType;
     /**

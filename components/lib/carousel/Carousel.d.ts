@@ -69,61 +69,61 @@ export interface CarouselSharedPassThroughMethodOptions {
  */
 export interface CarouselPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the content containers DOM element.
+     * Used to pass attributes to the content container's DOM element.
      */
     contentContainer?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the previous buttons DOM element.
+     * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcPreviousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the viewports DOM element.
+     * Used to pass attributes to the viewport's DOM element.
      */
     viewport?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the items lists DOM element.
+     * Used to pass attributes to the items list's DOM element.
      */
     itemList?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the item clones DOM element.
+     * Used to pass attributes to the item clone's DOM element.
      */
     itemClone?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the items DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the next buttons DOM element.
+     * Used to pass attributes to the next button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcNextButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the indicator lists DOM element.
+     * Used to pass attributes to the indicator list's DOM element.
      */
     indicatorList?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the indicators DOM element.
+     * Used to pass attributes to the indicator's DOM element.
      */
     indicator?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the indicator buttons DOM element.
+     * Used to pass attributes to the indicator button's DOM element.
      */
     indicatorButton?: CarouselPassThroughOptionType;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: CarouselPassThroughOptionType;
     /**

@@ -50,19 +50,19 @@ export interface ToggleButtonPassThroughMethodOptions<T = any> {
  */
 export interface ToggleButtonPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToggleButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ToggleButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ToggleButtonPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the labels DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     label?: ToggleButtonPassThroughOptionType<T>;
     /**

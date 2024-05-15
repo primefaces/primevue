@@ -53,7 +53,7 @@ export interface AvatarGroupPassThroughAttributes {
  */
 export interface AvatarGroupPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AvatarGroupPassThroughOptionType;
     /**

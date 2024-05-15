@@ -55,35 +55,35 @@ export interface MegaMenuPassThroughMethodOptions {
  */
 export interface MegaMenuPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the root lists DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
     rootList?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the  items DOM element.
+     * Used to pass attributes to the  item's DOM element.
      */
     item?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item contents DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
     itemContent?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item links DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
     itemLink?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icons DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
     itemIcon?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item labels DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
     itemLabel?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu icons DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: MegaMenuPassThroughOptionType;
     /**
@@ -91,27 +91,27 @@ export interface MegaMenuPassThroughOptions {
      */
     overlay?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the grids DOM element.
+     * Used to pass attributes to the grid's DOM element.
      */
     grid?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the columns DOM element.
+     * Used to pass attributes to the column's DOM element.
      */
     column?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu items DOM element.
+     * Used to pass attributes to the submenu item's DOM element.
      */
     submenuLabel?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenus DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the separators DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: MegaMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the mobile popup menu buttons DOM element.
+     * Used to pass attributes to the mobile popup menu button's DOM element.
      */
     button?: MegaMenuPassThroughOptionType;
     /**

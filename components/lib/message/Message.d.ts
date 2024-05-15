@@ -48,37 +48,37 @@ export interface MessagePassThroughMethodOptions<T = any> {
  */
 export interface MessagePassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the texts DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the buttons DOM element.
+     * Used to pass attributes to the button's DOM element.
      * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the buttons DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     closeButton?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the button icons DOM element.
+     * Used to pass attributes to the button icon's DOM element.
      * @deprecated since v3.30.2. Use 'closeIcon' option.
      */
     buttonIcon?: MessagePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the button icons DOM element.
+     * Used to pass attributes to the button icon's DOM element.
      */
     closeIcon?: MessagePassThroughOptionType<T>;
     /**

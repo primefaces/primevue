@@ -49,15 +49,15 @@ export interface KnobPassThroughMethodOptions {
  */
 export interface KnobPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: KnobPassThroughOptionType;
     /**
-     * Used to pass attributes to the svgs DOM element.
+     * Used to pass attributes to the svg's DOM element.
      */
     svg?: KnobPassThroughOptionType;
     /**
-     * Used to pass attributes to the ranges DOM element.
+     * Used to pass attributes to the range's DOM element.
      */
     range?: KnobPassThroughOptionType;
     /**
@@ -65,7 +65,7 @@ export interface KnobPassThroughOptions {
      */
     value?: KnobPassThroughOptionType;
     /**
-     * Used to pass attributes to the texts DOM element.
+     * Used to pass attributes to the text's DOM element.
      */
     text?: KnobPassThroughOptionType;
     /**

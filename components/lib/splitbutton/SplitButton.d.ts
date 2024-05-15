@@ -67,7 +67,7 @@ export interface SplitButtonSharedPassThroughMethodOptions {
  */
 export interface SplitButtonPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SplitButtonPassThroughOptionType;
     /**

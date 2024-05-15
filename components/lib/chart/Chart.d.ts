@@ -46,11 +46,11 @@ export interface ChartPassThroughMethodOptions {
  */
 export interface ChartPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ChartPassThroughOptionType;
     /**
-     * Used to pass attributes to the canvass DOM element.
+     * Used to pass attributes to the canvas's DOM element.
      */
     canvas?: ChartPassThroughOptionType;
     /**

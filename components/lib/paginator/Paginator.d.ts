@@ -66,59 +66,59 @@ export interface PaginatorSharedPassThroughMethodOptions {
  */
 export interface PaginatorPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the paginator containers DOM element.
+     * Used to pass attributes to the paginator container's DOM element.
      */
     paginatorContainer?: PaginatorPassThroughOptionType<T> | any;
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the content starts DOM element.
+     * Used to pass attributes to the content start's DOM element.
      */
     contentStart?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the first page buttons DOM element.
+     * Used to pass attributes to the first page button's DOM element.
      */
     first?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the first icons DOM element.
+     * Used to pass attributes to the first icon's DOM element.
      */
     firstIcon?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the prev page buttons DOM element.
+     * Used to pass attributes to the prev page button's DOM element.
      */
     prev?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the prev page icons DOM element.
+     * Used to pass attributes to the prev page icon's DOM element.
      */
     prevIcon?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the next page buttons DOM element.
+     * Used to pass attributes to the next page button's DOM element.
      */
     next?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the next page icons DOM element.
+     * Used to pass attributes to the next page icon's DOM element.
      */
     nextIcon?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the last page buttons DOM element.
+     * Used to pass attributes to the last page button's DOM element.
      */
     last?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the last page icons DOM element.
+     * Used to pass attributes to the last page icon's DOM element.
      */
     lastIcon?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the pagess DOM element.
+     * Used to pass attributes to the pages's DOM element.
      */
     pages?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the page buttons DOM element.
+     * Used to pass attributes to the page button's DOM element.
      */
     page?: PaginatorPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the currents DOM element.
+     * Used to pass attributes to the current's DOM element.
      */
     current?: PaginatorPassThroughOptionType<T>;
     /**
@@ -137,7 +137,7 @@ export interface PaginatorPassThroughOptions<T = any> {
      */
     pcJumpToPageInput?: InputNumberPassThroughOptions<PaginatorSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the content ends DOM element.
+     * Used to pass attributes to the content end's DOM element.
      */
     contentEnd?: PaginatorPassThroughOptionType<T>;
     /**

@@ -70,7 +70,7 @@ export interface SpeedDialSharedPassThroughMethodOptions {
  */
 export interface SpeedDialPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SpeedDialPassThroughOptionType;
     /**
@@ -79,11 +79,11 @@ export interface SpeedDialPassThroughOptions {
      */
     pcButton?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the lists DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: SpeedDialPassThroughOptionType;
     /**
-     * Used to pass attributes to the items DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: SpeedDialPassThroughOptionType;
     /**
@@ -92,11 +92,11 @@ export interface SpeedDialPassThroughOptions {
      */
     action?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the action icons DOM element.
+     * Used to pass attributes to the action icon's DOM element.
      */
     actionIcon?: SpeedDialPassThroughOptionType;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: SpeedDialPassThroughOptionType;
     /**

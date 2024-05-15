@@ -50,11 +50,11 @@ export interface BlockUIPassThroughMethodOptions {
  */
 export interface BlockUIPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BlockUIPassThroughOptionType;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: BlockUIPassThroughOptionType;
     /**

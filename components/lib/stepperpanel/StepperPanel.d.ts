@@ -52,35 +52,35 @@ export interface StepperPanelPassThroughMethodOptions {
  */
 export interface StepperPanelPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the items DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the item headers DOM element.
+     * Used to pass attributes to the item header's DOM element.
      */
     itemHeader?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the item numbers DOM element.
+     * Used to pass attributes to the item number's DOM element.
      */
     itemNumber?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the item titles DOM element.
+     * Used to pass attributes to the item title's DOM element.
      */
     itemTitle?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the separators DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel content containers DOM element.
+     * Used to pass attributes to the panel content container's DOM element.
      */
     panelContentContainer?: StepperPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the panel contents DOM element.
+     * Used to pass attributes to the panel content's DOM element.
      */
     panelContent?: StepperPanelPassThroughOptionType;
     /**

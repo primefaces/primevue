@@ -88,11 +88,11 @@ export interface DataViewPageEvent {
  */
 export interface DataViewPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DataViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DataViewPassThroughOptionType;
     /**
@@ -101,15 +101,15 @@ export interface DataViewPassThroughOptions {
      */
     pcPaginator?: PaginatorPassThroughOptionType<DataViewSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DataViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the empty messages DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: DataViewPassThroughOptionType;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: DataViewPassThroughOptionType;
     /**

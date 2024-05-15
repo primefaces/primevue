@@ -67,7 +67,7 @@ export interface PasswordSharedPassThroughMethodOptions {
  */
 export interface PasswordPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: PasswordPassThroughOptionType;
     /**
@@ -76,27 +76,27 @@ export interface PasswordPassThroughOptions {
      */
     ptInput?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the mask icons DOM element.
+     * Used to pass attributes to the mask icon's DOM element.
      */
     maskIcon?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the unmask icons DOM element.
+     * Used to pass attributes to the unmask icon's DOM element.
      */
     unmaskIcon?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the overlays DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
     overlay?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the meters DOM element.
+     * Used to pass attributes to the meter's DOM element.
      */
     meter?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the meter labels DOM element.
+     * Used to pass attributes to the meter label's DOM element.
      */
     meterLabel?: PasswordPassThroughOptionType;
     /**
-     * Used to pass attributes to the meter texts DOM element.
+     * Used to pass attributes to the meter text's DOM element.
      */
     meterText?: PasswordPassThroughOptionType;
     /**

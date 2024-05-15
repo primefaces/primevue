@@ -63,15 +63,15 @@ export interface DialogSharedPassThroughMethodOptions {
  */
 export interface DialogPassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the header titles DOM element.
+     * Used to pass attributes to the header title's DOM element.
      */
     title?: DialogPassThroughOptionType<T>;
     /**
@@ -89,15 +89,15 @@ export interface DialogPassThroughOptions<T = any> {
      */
     pcCloseButton?: ButtonPassThroughOptions<DialogSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: DialogPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: DialogPassThroughOptionType<T>;
     /**

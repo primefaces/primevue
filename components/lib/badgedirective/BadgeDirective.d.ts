@@ -63,7 +63,7 @@ export interface BadgeDirectiveOptions {
  */
 export interface BadgeDirectivePassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: BadgeDirectivePassThroughOptionType;
     /**

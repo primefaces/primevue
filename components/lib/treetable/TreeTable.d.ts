@@ -213,23 +213,23 @@ export interface TreeTableSelectionKeys {
  */
 export interface TreeTablePassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading wrappers DOM element.
+     * Used to pass attributes to the loading wrapper's DOM element.
      */
     loading?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the loading icons DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: TreeTablePassThroughOptionType;
     /**
@@ -238,51 +238,51 @@ export interface TreeTablePassThroughOptions {
      */
     pcPaginator?: PaginatorPassThroughOptionType<TreeTableSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the table containers DOM element.
+     * Used to pass attributes to the table container's DOM element.
      */
     tableContainer?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the tables DOM element.
+     * Used to pass attributes to the table's DOM element.
      */
     table?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the theads DOM element.
+     * Used to pass attributes to the thead's DOM element.
      */
     thead?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the header rows DOM element.
+     * Used to pass attributes to the header row's DOM element.
      */
     headerRow?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the tbodys DOM element.
+     * Used to pass attributes to the tbody's DOM element.
      */
     tbody?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the rows DOM element.
+     * Used to pass attributes to the row's DOM element.
      */
     row?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the empty messages DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the empty message cells DOM element.
+     * Used to pass attributes to the empty message cell's DOM element.
      */
     emptyMessageCell?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the tfoots DOM element.
+     * Used to pass attributes to the tfoot's DOM element.
      */
     tfoot?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the footer rows DOM element.
+     * Used to pass attributes to the footer row's DOM element.
      */
     footerRow?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: TreeTablePassThroughOptionType;
     /**
-     * Used to pass attributes to the column resize indicators DOM element.
+     * Used to pass attributes to the column resize indicator's DOM element.
      */
     columnResizeIndicator?: TreeTablePassThroughOptionType;
     /**

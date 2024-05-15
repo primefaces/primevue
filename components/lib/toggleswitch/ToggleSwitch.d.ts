@@ -49,15 +49,15 @@ export interface ToggleSwitchPassThroughMethodOptions {
  */
 export interface ToggleSwitchPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToggleSwitchPassThroughOptionType;
     /**
-     * Used to pass attributes to the inputs DOM element.
+     * Used to pass attributes to the input's DOM element.
      */
     input?: ToggleSwitchPassThroughOptionType;
     /**
-     * Used to pass attributes to the sliders DOM element.
+     * Used to pass attributes to the slider's DOM element.
      */
     slider?: ToggleSwitchPassThroughOptionType;
     /**

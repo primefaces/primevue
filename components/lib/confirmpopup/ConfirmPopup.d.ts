@@ -68,23 +68,23 @@ export interface ConfirmPopupSharedPassThroughMethodOptions {
  */
 export interface ConfirmPopupPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ConfirmPopupPassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: ConfirmPopupPassThroughOptionType;
     /**
-     * Used to pass attributes to the icons DOM element.
+     * Used to pass attributes to the icon's DOM element.
      */
     icon?: ConfirmPopupPassThroughOptionType;
     /**
-     * Used to pass attributes to the messages DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ConfirmPopupPassThroughOptionType;
     /**
-     * Used to pass attributes to the footers DOM element.
+     * Used to pass attributes to the footer's DOM element.
      */
     footer?: ConfirmPopupPassThroughOptionType;
     /**

@@ -52,48 +52,48 @@ export interface ToastPassThroughMethodOptions {
  */
 export interface ToastPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the messages DOM element.
+     * Used to pass attributes to the message's DOM element.
      */
     message?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the message contents DOM element.
+     * Used to pass attributes to the message content's DOM element.
      */
     messageContent?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the message icons DOM element.
+     * Used to pass attributes to the message icon's DOM element.
      */
     messageIcon?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the message texts DOM element.
+     * Used to pass attributes to the message text's DOM element.
      */
     messageText?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the summarys DOM element.
+     * Used to pass attributes to the summary's DOM element.
      */
     summary?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the details DOM element.
+     * Used to pass attributes to the detail's DOM element.
      */
     detail?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the button containers DOM element.
+     * Used to pass attributes to the button container's DOM element.
      */
     buttonContainer?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the buttons DOM element.
+     * Used to pass attributes to the button's DOM element.
      * @deprecated since v3.30.2. Use 'closeButton' option.
      */
     button?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the buttons DOM element.
+     * Used to pass attributes to the button's DOM element.
      */
     closeButton?: ToastPassThroughOptionType;
     /**
-     * Used to pass attributes to the button icons DOM element.
+     * Used to pass attributes to the button icon's DOM element.
      */
     closeIcon?: ToastPassThroughOptionType;
     /**

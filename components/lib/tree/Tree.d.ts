@@ -103,7 +103,7 @@ export interface TreeFilterEvent {
  */
 export interface TreePassThroughOptions<T = any> {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TreePassThroughOptionType<T>;
     /**
@@ -122,55 +122,55 @@ export interface TreePassThroughOptions<T = any> {
      */
     pcFilterIconContainer?: InputIconPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the filter icons DOM element.
+     * Used to pass attributes to the filter icon's DOM element.
      */
     filterIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the wrappers DOM element.
+     * Used to pass attributes to the wrapper's DOM element.
      */
     wrapper?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the root childrens DOM element.
+     * Used to pass attributes to the root children's DOM element.
      */
     rootChildren?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the nodes DOM element.
+     * Used to pass attributes to the node's DOM element.
      */
     node?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node contents DOM element.
+     * Used to pass attributes to the node content's DOM element.
      */
     nodeContent?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node toggle buttons DOM element.
+     * Used to pass attributes to the node toggle button's DOM element.
      */
     nodeToggleButton?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node toggle icons DOM element.
+     * Used to pass attributes to the node toggle icon's DOM element.
      */
     nodeToggleIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the checkboxs DOM element.
+     * Used to pass attributes to the checkbox's DOM element.
      */
     nodeCheckbox?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node icons DOM element.
+     * Used to pass attributes to the node icon's DOM element.
      */
     nodeIcon?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node labels DOM element.
+     * Used to pass attributes to the node label's DOM element.
      */
     nodeLabel?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the node childrens DOM element.
+     * Used to pass attributes to the node children's DOM element.
      */
     nodeChildren?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: TreePassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the loading icons DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreePassThroughOptionType<T>;
     /**

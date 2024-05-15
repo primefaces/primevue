@@ -45,23 +45,23 @@ export interface SliderPassThroughMethodOptions {
  */
 export interface SliderPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: SliderPassThroughOptionType;
     /**
-     * Used to pass attributes to the ranges DOM element.
+     * Used to pass attributes to the range's DOM element.
      */
     range?: SliderPassThroughOptionType;
     /**
-     * Used to pass attributes to the handles DOM element.
+     * Used to pass attributes to the handle's DOM element.
      */
     handle?: SliderPassThroughOptionType;
     /**
-     * Used to pass attributes to the start handlers DOM element.
+     * Used to pass attributes to the start handler's DOM element.
      */
     startHandler?: SliderPassThroughOptionType;
     /**
-     * Used to pass attributes to the end handlers DOM element.
+     * Used to pass attributes to the end handler's DOM element.
      */
     endHandler?: SliderPassThroughOptionType;
     /**

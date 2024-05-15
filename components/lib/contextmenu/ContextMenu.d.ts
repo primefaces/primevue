@@ -58,43 +58,43 @@ export interface ContextMenuPassThroughMethodOptions {
  */
 export interface ContextMenuPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the root lists DOM element.
+     * Used to pass attributes to the root list's DOM element.
      */
     rootList?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the items DOM element.
+     * Used to pass attributes to the item's DOM element.
      */
     item?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item contents DOM element.
+     * Used to pass attributes to the item content's DOM element.
      */
     itemContent?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item links DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
     itemLink?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item icons DOM element.
+     * Used to pass attributes to the item icon's DOM element.
      */
     itemIcon?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the item labels DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
     itemLabel?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenu icons DOM element.
+     * Used to pass attributes to the submenu icon's DOM element.
      */
     submenuIcon?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the separators DOM element.
+     * Used to pass attributes to the separator's DOM element.
      */
     separator?: ContextMenuPassThroughOptionType;
     /**
-     * Used to pass attributes to the submenus DOM element.
+     * Used to pass attributes to the submenu's DOM element.
      */
     submenu?: ContextMenuPassThroughOptionType;
     /**

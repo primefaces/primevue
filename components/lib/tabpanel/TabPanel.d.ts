@@ -50,26 +50,26 @@ export interface TabPanelPassThroughMethodOptions {
  */
 export interface TabPanelPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: TabPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      * @deprecated since v4. Only supported by TabView.
      */
     header?: TabPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the header actions DOM element.
+     * Used to pass attributes to the header action's DOM element.
      * @deprecated since v4. Only supported by TabView.
      */
     headerAction?: TabPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the titles DOM element.
+     * Used to pass attributes to the title's DOM element.
      * @deprecated since v4. Only supported by TabView.
      */
     headerTitle?: TabPanelPassThroughOptionType;
     /**
-     * Used to pass attributes to the lists DOM element.
+     * Used to pass attributes to the list's DOM element.
      * @deprecated since v4. Only supported by TabView.
      */
     content?: TabPanelPassThroughOptionType;

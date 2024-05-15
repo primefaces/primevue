@@ -50,15 +50,15 @@ export interface AccordionContentPassThroughMethodOptions {
  */
 export interface AccordionContentPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionContentPassThroughOptionType;
     /**
-     * Used to pass attributes to the transitions DOM element.
+     * Used to pass attributes to the transition's DOM element.
      */
     transition?: AccordionContentPassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: AccordionContentPassThroughOptionType;
     /**

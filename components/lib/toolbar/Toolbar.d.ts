@@ -46,19 +46,19 @@ export interface ToolbarPassThroughMethodOptions {
  */
 export interface ToolbarPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: ToolbarPassThroughOptionType;
     /**
-     * Used to pass attributes to the starts DOM element.
+     * Used to pass attributes to the start's DOM element.
      */
     start?: ToolbarPassThroughOptionType;
     /**
-     * Used to pass attributes to the centers DOM element.
+     * Used to pass attributes to the center's DOM element.
      */
     center?: ToolbarPassThroughOptionType;
     /**
-     * Used to pass attributes to the rights DOM element.
+     * Used to pass attributes to the right's DOM element.
      */
     end?: ToolbarPassThroughOptionType;
     /**

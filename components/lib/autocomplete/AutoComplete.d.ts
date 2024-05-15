@@ -140,7 +140,7 @@ export interface AutoCompleteCompleteEvent {
  */
 export interface AutoCompletePassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: AutoCompletePassThroughOptionType;
     /**
@@ -149,11 +149,11 @@ export interface AutoCompletePassThroughOptions {
      */
     pcInput?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions> | AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the input multiples DOM element.
+     * Used to pass attributes to the input multiple's DOM element.
      */
     inputMultiple?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the chips DOM element.
+     * Used to pass attributes to the chip's DOM element.
      */
     chipItem?: AutoCompletePassThroughOptionType;
     /**
@@ -162,27 +162,27 @@ export interface AutoCompletePassThroughOptions {
      */
     pcChip?: ChipPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the chip icons DOM element.
+     * Used to pass attributes to the chip icon's DOM element.
      */
     chipIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the input chips DOM element.
+     * Used to pass attributes to the input chip's DOM element.
      */
     inputChip?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the loaders DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
     loader?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdowns DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
     dropdown?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the dropdown icons DOM element.
+     * Used to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the overlays DOM element.
+     * Used to pass attributes to the overlay's DOM element.
      */
     overlay?: AutoCompletePassThroughOptionType;
     /**
@@ -191,27 +191,27 @@ export interface AutoCompletePassThroughOptions {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the lists DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the option groups DOM element.
+     * Used to pass attributes to the option group's DOM element.
      */
     optionGroup?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the options DOM element.
+     * Used to pass attributes to the option's DOM element.
      */
     option?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the empty messages DOM element.
+     * Used to pass attributes to the empty message's DOM element.
      */
     emptyMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the search result messages DOM element.
+     * Used to pass attributes to the search result message's DOM element.
      */
     searchResultMessage?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the selected messages DOM element.
+     * Used to pass attributes to the selected message's DOM element.
      */
     selectedMessage?: AutoCompletePassThroughOptionType;
     /**

@@ -49,35 +49,35 @@ export interface MeterGroupPassThroughMethodOptions {
  */
 export interface MeterGroupPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the meter containers DOM element.
+     * Used to pass attributes to the meter container's DOM element.
      */
     meters?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the meters DOM element.
+     * Used to pass attributes to the meter's DOM element.
      */
     meter?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the label lists DOM element.
+     * Used to pass attributes to the label list's DOM element.
      */
     labelList?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the label list items DOM element.
+     * Used to pass attributes to the label list item's DOM element.
      */
     label?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the label icon types DOM element.
+     * Used to pass attributes to the label icon type's DOM element.
      */
     labelIcon?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the label list types DOM element.
+     * Used to pass attributes to the label list type's DOM element.
      */
     labelMarker?: MeterGroupPassThroughOptionType;
     /**
-     * Used to pass attributes to the labels DOM element.
+     * Used to pass attributes to the label's DOM element.
      */
     labelText?: MeterGroupPassThroughOptionType;
 }

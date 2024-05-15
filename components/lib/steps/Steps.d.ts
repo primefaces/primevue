@@ -51,27 +51,27 @@ export interface StepsPassThroughMethodOptions {
  */
 export interface StepsPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the lists DOM element.
+     * Used to pass attributes to the list's DOM element.
      */
     list?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the list items DOM element.
+     * Used to pass attributes to the list item's DOM element.
      */
     item?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the item links DOM element.
+     * Used to pass attributes to the item link's DOM element.
      */
     itemLink?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the item numbers DOM element.
+     * Used to pass attributes to the item number's DOM element.
      */
     itemNumber?: StepsPassThroughOptionType;
     /**
-     * Used to pass attributes to the item labels DOM element.
+     * Used to pass attributes to the item label's DOM element.
      */
     itemLabel?: StepsPassThroughOptionType;
     /**

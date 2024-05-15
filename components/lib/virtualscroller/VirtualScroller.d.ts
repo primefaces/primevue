@@ -132,23 +132,23 @@ export interface VirtualScrollerItemOptions {
  */
 export interface VirtualScrollerPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the loaders DOM element.
+     * Used to pass attributes to the loader's DOM element.
      */
     loader?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the loading icons DOM element.
+     * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: VirtualScrollerPassThroughOptionType;
     /**
-     * Used to pass attributes to the spacers DOM element.
+     * Used to pass attributes to the spacer's DOM element.
      */
     spacer?: VirtualScrollerPassThroughOptionType;
     /**

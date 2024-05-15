@@ -67,28 +67,28 @@ export interface DrawerSharedPassThroughMethodOptions {
  */
 export interface DrawerPassThroughOptions {
     /**
-     * Used to pass attributes to the roots DOM element.
+     * Used to pass attributes to the root's DOM element.
      */
     root?: DrawerPassThroughOptionType;
     /**
-     * Used to pass attributes to the headers DOM element.
+     * Used to pass attributes to the header's DOM element.
      */
     header?: DrawerPassThroughOptionType;
     /**
-     * Used to pass attributes to the header contents DOM element.
+     * Used to pass attributes to the header content's DOM element.
      */
     title?: DrawerPassThroughOptionType;
     /**
-     * Used to pass attributes to the close buttons DOM element.
+     * Used to pass attributes to the close button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcCloseButton?: ButtonPassThroughOptions<DrawerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the contents DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: DrawerPassThroughOptionType;
     /**
-     * Used to pass attributes to the masks DOM element.
+     * Used to pass attributes to the mask's DOM element.
      */
     mask?: DrawerPassThroughOptionType;
     /**
