@@ -54,19 +54,19 @@ const theme = ({ dt }) => `
     color: ${dt('inputchips.disabled.color')};
 }
 
-.p-inputchips .p-chip {
+.p-inputchips-chip.p-chip {
     padding-top: calc(${dt('inputchips.padding.y')} / 2);
     padding-bottom: calc(${dt('inputchips.padding.y')} / 2);
     border-radius: ${dt('inputchips.chip.border.radius')};
     transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
 }
 
-.p-inputchips-chip-item.p-focus .p-chip {
+.p-inputchips-chip-item.p-focus .p-inputchips-chip {
     background: ${dt('inputchips.chip.focus.background')};
     color: ${dt('inputchips.chip.focus.color')};
 }
 
-.p-inputchips-input:has(.p-chip) {
+.p-inputchips-input:has(.p-inputchips-chip) {
     padding-left: calc(${dt('inputchips.padding.y')} / 2);
     padding-right: calc(${dt('inputchips.padding.y')} / 2);
 }

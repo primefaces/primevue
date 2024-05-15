@@ -178,15 +178,20 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.disabled.color')};
 }
 
-.p-autocomplete-input-multiple .p-chip {
+.p-autocomplete-chip.p-chip {
     padding-top: calc(${dt('autocomplete.padding.y')} / 2);
     padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
     border-radius: ${dt('autocomplete.chip.border.radius')};
 }
 
-.p-autocomplete-input-multiple:has(.p-chip) {
+.p-autocomplete-input-multiple:has(.p-autocomplete-chip) {
     padding-left: calc(${dt('autocomplete.padding.y')} / 2);
     padding-right: calc(${dt('autocomplete.padding.y')} / 2);
+}
+
+.p-autocomplete-chip-item.p-focus .p-autocomplete-chip {
+    background: ${dt('inputchips.chip.focus.background')};
+    color: ${dt('inputchips.chip.focus.color')};
 }
 
 .p-autocomplete-input-chip {
