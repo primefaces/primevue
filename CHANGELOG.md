@@ -1,8 +1,8 @@
 # Changelog
 
-## [4.0.0-beta-2](https://github.com/primefaces/primevue/tree/4.0.0-beta-2) (2024-05-03)
+## [4.0.0-beta.3](https://github.com/primefaces/primevue/tree/4.0.0-beta.3) (2024-05-15)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta-1...4.0.0-beta-2)
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.2...4.0.0-beta.3)
 
 **Deprecated:**
 
@@ -19,7 +19,6 @@
 -   Deprecated properties [\#5683](https://github.com/primefaces/primevue/issues/5683)
 -   Deprecated slots [\#5682](https://github.com/primefaces/primevue/issues/5682)
 -   Key name changes for pt property [\#5681](https://github.com/primefaces/primevue/issues/5681)
--   [\#5678](https://github.com/primefaces/primevue/issues/5678)
 
 **Fixed bugs:**
 
@@ -27,16 +26,15 @@
 -   [v4 beta1: InputMask] Placeholder attribute does not work [\#5664](https://github.com/primefaces/primevue/issues/5664)
 -   Accordion: "Invalid watch source: undefined" and "Failed to resolve directive: ripple" [\#5733](https://github.com/primefaces/primevue/issues/5733)
 -   v4: TypeError: Theme\_\_default.default.setPreset is not a function when configuring theme configuration using definePreset in vitest tests [\#5689](https://github.com/primefaces/primevue/issues/5689)
--   [\#5678](https://github.com/primefaces/primevue/issues/5678)
 
 **Implemented New Features and Enhancements:**
 
 -   Remove PrimeVueStyled and PrimeVueUnstyled plugins [\#5728](https://github.com/primefaces/primevue/issues/5728)
 -   Small sized Badge [\#5729](https://github.com/primefaces/primevue/issues/5729)
 
-## [4.0.0-beta-2](https://github.com/primefaces/primevue/tree/4.0.0-beta-2) (2024-05-03)
+## [4.0.0-beta.2](https://github.com/primefaces/primevue/tree/4.0.0-beta.2) (2024-05-03)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta-1...4.0.0-beta-2)
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.1...4.0.0-beta.2)
 
 **Deprecated:**
 
@@ -66,9 +64,9 @@
 -   Reimplement: Accordion [\#5643](https://github.com/primefaces/primevue/issues/5643)
 -   New Component: Tabs [\#5621](https://github.com/primefaces/primevue/issues/5621)
 
-## [4.0.0-beta-1](https://github.com/primefaces/primevue/tree/4.0.0-beta-1)
+## [4.0.0-beta.1](https://github.com/primefaces/primevue/tree/4.0.0-beta.1)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...4.0.0-beta-1)
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...4.0.0-beta.1)
 
 **Breaking Changes:**
 
