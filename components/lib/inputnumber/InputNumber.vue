@@ -552,10 +552,8 @@ export default {
             if (this.readonly || this.disabled) {
                 return;
             }
-            
-            event.preventDefault();
 
-            if (this.readonly) return;
+            event.preventDefault();
 
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
