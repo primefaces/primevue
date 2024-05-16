@@ -1155,11 +1155,11 @@ export default {
             }
 
             if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
-                setTimeout(() => {
-                    if (this.input) {
-                        this.input.focus();
-                    }
+                if (this.input) {
+                    this.input.focus();
+                }
 
+                setTimeout(() => {
                     this.overlayVisible = false;
                 }, 150);
             }
@@ -1168,9 +1168,9 @@ export default {
             let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
 
             if (this.showTime) {
-                if (this.hourFormat === '12' && this.currentHour !== 12) {
-                    this.pm ? date.setHours(this.currentHour + 12) : date.setHours(this.currentHour);
-                }
+                (this.hourFormat === '12' && this.currentHour !== 12 && this.pm) ? 
+                    date.setHours(this.currentHour + 12) : 
+                    date.setHours(this.currentHour);
 
                 date.setMinutes(this.currentMinute);
                 date.setSeconds(this.currentSecond);
