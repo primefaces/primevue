@@ -168,6 +168,7 @@ export default {
             if (this.readonly || this.disabled) {
                 return;
             }
+
             let paste = event.clipboardData.getData('text');
 
             if (paste.length) {
