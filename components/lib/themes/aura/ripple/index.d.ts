@@ -25,7 +25,7 @@ export interface RippleDesignTokens extends ColorSchemeDesignToken<RippleDesignT
     /**
      * Used to pass tokens of the root section
      */
-    root: {
+    root?: {
         /**
          * Background of ripple
          *

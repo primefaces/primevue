@@ -31,7 +31,7 @@ export default {
                         {
                             id: 'theming.tokens',
                             label: 'Design Tokens',
-                            description: `List of design tokens used in <i>${this.$appState.preset}</i> Preset.`,
+                            description: 'List of design tokens used in a preset.',
                             component: DocApiTable,
                             data: getTokenOptions(this.$appState.preset, 'InputText')
                         }
@@ -51,14 +51,6 @@ export default {
                 }
             ]
         };
-    },
-    watch: {
-        '$appState.preset': {
-            flush: 'post',
-            handler(newValue) {
-                this.docs[1] = { ...this.docs[1], description: `List of design tokens used in <i>${newValue}</i> Preset.`, data: getTokenOptions(newValue, 'InputText') };
-            }
-        }
     }
 };
 </script>

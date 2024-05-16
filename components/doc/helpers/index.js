@@ -38,7 +38,7 @@ export const getPTOptions = (name) => {
 };
 
 export const getStyleOptions = (name) => {
-    const { members } = APIDocs[name.toLowerCase() + 'style']?.enumerations?.values?.[`${name}Classes`];
+    const { members = [] } = APIDocs[name.toLowerCase() + 'style']?.enumerations?.values?.[`${name}Classes`];
     let data = [];
 
     for (const member of members) {
@@ -57,7 +57,7 @@ export const getTokenOptions = (preset, name) => {
     const values = APIDocs[`${preset.toLowerCase()}/${name.toLowerCase()}`]?.tokens?.values;
     let data = [];
 
-    for (const [key, value] of Object.entries(values)) {
+    for (const [key, value] of Object.entries(values || {})) {
         for (const tokens of value?.props) {
             const { token, description } = tokens;
             const designToken = $dt(token);
