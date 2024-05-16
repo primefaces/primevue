@@ -10,13 +10,22 @@
 import { ColorSchemeDesignToken } from '..';
 
 /**
- * Defines all sections of design tokens
+ * **PrimeVue - InputText**
+ *
+ * _InputText renders a text field to enter data._
+ *
+ * [Live Demo](https://www.primevue.org/inputtext/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group DesignTokens
+ *
  */
-export namespace InputTextDesignToken {
+export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextDesignTokens> {
     /**
-     * Tokens of the root section
+     * Used to pass tokens of the root section
      */
-    export interface Root {
+    root: {
         /**
          * Background of an input field
          *
@@ -142,23 +151,5 @@ export namespace InputTextDesignToken {
              */
             shadow?: string;
         };
-    }
-}
-
-/**
- * **PrimeVue - InputText**
- *
- * _InputText renders a text field to enter data._
- *
- * [Live Demo](https://www.primevue.org/inputtext/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group DesignTokens
- */
-export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextDesignTokens> {
-    /**
-     * Used to pass tokens of the root section
-     */
-    root?: InputTextDesignToken.Root;
+    };
 }
