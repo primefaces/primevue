@@ -35,7 +35,7 @@ primevue: {
                 basic: `
 primevue: {
     directives: {
-        prefix: 'p'
+        prefix: 'p',
         include: ['Ripple', 'Tooltip']    /* Used as v-pripple and v-ptooltip */
     }
 }
