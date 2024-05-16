@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | string) | string | null | undefined;
 
@@ -220,7 +220,9 @@ export interface BreadcrumbSlots {
 /**
  * Defines valid emits in Breadcrumb component.
  */
-export interface BreadcrumbEmits {}
+interface BreadcrumbEmitsOptions {}
+
+export declare type BreadcrumbEmits = EmitFn<BreadcrumbEmitsOptions>;
 
 /**
  * **PrimeVue - Breadcrumb**
@@ -234,11 +236,11 @@ export interface BreadcrumbEmits {}
  * @group Component
  *
  */
-declare class Breadcrumb extends ClassComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits> {}
+declare const Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Breadcrumb: GlobalComponentConstructor<Breadcrumb>;
+        Breadcrumb: GlobalComponentConstructor<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
     }
 }
 

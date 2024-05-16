@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type BlockUIPassThroughOptionType = BlockUIPassThroughAttributes | ((options: BlockUIPassThroughMethodOptions) => BlockUIPassThroughAttributes | string) | string | null | undefined;
 
@@ -140,7 +140,7 @@ export interface BlockUISlots {
 /**
  * Defines valid emits in BlockUI component
  */
-export interface BlockUIEmits {
+interface BlockUIEmitsOptions {
     /**
      * Fired when the element gets blocked.
      */
@@ -150,6 +150,8 @@ export interface BlockUIEmits {
      */
     unblock(): void;
 }
+
+export declare type BlockUIEmits = EmitFn<BlockUIEmitsOptions>;
 
 /**
  * **PrimeVue - BlockUI**
@@ -161,12 +163,13 @@ export interface BlockUIEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class BlockUI extends ClassComponent<BlockUIProps, BlockUISlots, BlockUIEmits> {}
+declare const BlockUI: DefineComponent<BlockUIProps, BlockUISlots, BlockUIEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        BlockUI: GlobalComponentConstructor<BlockUI>;
+        BlockUI: GlobalComponentConstructor<BlockUIProps, BlockUISlots, BlockUIEmits>;
     }
 }
 

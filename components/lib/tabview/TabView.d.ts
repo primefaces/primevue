@@ -12,7 +12,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { TabPanelPassThroughOptionType } from '../tabpanel';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabViewPassThroughOptionType = TabViewPassThroughAttributes | ((options: TabViewPassThroughMethodOptions) => TabViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -251,7 +251,7 @@ export interface TabViewSlots {
 /**
  * Defines valid emits in TabView component.
  */
-export interface TabViewEmits {
+interface TabViewEmitsOptions {
     /**
      * Emitted when the activeIndex changes.
      * @param {number} index - Current activeIndex.
@@ -269,6 +269,8 @@ export interface TabViewEmits {
     'tab-click'(event: TabViewClickEvent): void;
 }
 
+export declare type TabViewEmits = EmitFn<TabViewEmitsOptions>;
+
 /**
  * @deprecated since v4. Use Tabs component instead.
  *
@@ -283,11 +285,11 @@ export interface TabViewEmits {
  * @group Component
  *
  */
-declare class TabView extends ClassComponent<TabViewProps, TabViewSlots, TabViewEmits> {}
+declare const TabView: DefineComponent<TabViewProps, TabViewSlots, TabViewEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabView: GlobalComponentConstructor<TabView>;
+        TabView: GlobalComponentConstructor<TabViewProps, TabViewSlots, TabViewEmits>;
     }
 }
 

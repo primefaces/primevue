@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CardPassThroughOptionType = CardPassThroughAttributes | ((options: CardPassThroughMethodOptions) => CardPassThroughAttributes | string) | string | null | undefined;
 
@@ -141,7 +141,9 @@ export interface CardSlots {
 /**
  * Defines valid emits in Card component.
  */
-export interface CardEmits {}
+interface CardEmitsOptions {}
+
+export declare type CardEmits = EmitFn<CardEmitsOptions>;
 
 /**
  * **PrimeVue - Card**
@@ -153,12 +155,13 @@ export interface CardEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Card extends ClassComponent<CardProps, CardSlots, CardEmits> {}
+declare const Card: DefineComponent<CardProps, CardSlots, CardEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Card: GlobalComponentConstructor<Card>;
+        Card: GlobalComponentConstructor<CardProps, CardSlots, CardEmits>;
     }
 }
 

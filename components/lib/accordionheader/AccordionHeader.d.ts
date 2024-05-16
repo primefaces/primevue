@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionHeaderPassThroughOptionType = AccordionHeaderPassThroughAttributes | ((options: AccordionHeaderPassThroughMethodOptions) => AccordionHeaderPassThroughAttributes | string) | string | null | undefined;
 
@@ -122,7 +122,9 @@ export interface AccordionHeaderSlots {
     toggleicon(): VNode[];
 }
 
-export interface AccordionHeaderEmits {}
+interface AccordionHeaderEmitsOptions {}
+
+export declare type AccordionHeaderEmits = EmitFn<AccordionHeaderEmitsOptions>;
 
 /**
  * **PrimeVue - AccordionHeader**
@@ -136,11 +138,11 @@ export interface AccordionHeaderEmits {}
  * @group Component
  *
  */
-declare class AccordionHeader extends ClassComponent<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits> {}
+declare const AccordionHeader: DefineComponent<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionHeader: GlobalComponentConstructor<AccordionHeader>;
+        AccordionHeader: GlobalComponentConstructor<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
     }
 }
 

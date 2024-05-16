@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ConfirmationOptions } from '../confirmationoptions';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ConfirmPopupPassThroughOptionType = ConfirmPopupPassThroughAttributes | ((options: ConfirmPopupPassThroughMethodOptions) => ConfirmPopupPassThroughAttributes | string) | string | null | undefined;
 
@@ -224,7 +224,9 @@ export interface ConfirmPopupSlots {
 /**
  * Defines valid emits in ConfirmPopup component.
  */
-export interface ConfirmPopupEmits {}
+interface ConfirmPopupEmitsOptions {}
+
+export declare type ConfirmPopupEmits = EmitFn<ConfirmPopupEmitsOptions>;
 
 /**
  * **PrimeVue - ConfirmPopup**
@@ -236,12 +238,13 @@ export interface ConfirmPopupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ConfirmPopup extends ClassComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits> {}
+declare const ConfirmPopup: DefineComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ConfirmPopup: GlobalComponentConstructor<ConfirmPopup>;
+        ConfirmPopup: GlobalComponentConstructor<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
     }
 }
 

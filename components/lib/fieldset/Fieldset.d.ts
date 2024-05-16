@@ -10,7 +10,7 @@
 import { AnchorHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type FieldsetPassThroughOptionType = FieldsetPassThroughAttributes | ((options: FieldsetPassThroughMethodOptions) => FieldsetPassThroughAttributes | string) | string | null | undefined;
 
@@ -216,7 +216,7 @@ export interface FieldsetSlots {
 /**
  * Defines valid emits in Fildset component.
  */
-export interface FieldsetEmits {
+interface FieldsetEmitsOptions {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.
@@ -228,6 +228,8 @@ export interface FieldsetEmits {
      */
     toggle(event: FieldsetToggleEvent): void;
 }
+
+export declare type FieldsetEmits = EmitFn<FieldsetEmitsOptions>;
 
 /**
  * **PrimeVue - Fieldset**
@@ -241,11 +243,11 @@ export interface FieldsetEmits {
  * @group Component
  *
  */
-declare class Fieldset extends ClassComponent<FieldsetProps, FieldsetSlots, FieldsetEmits> {}
+declare const Fieldset: DefineComponent<FieldsetProps, FieldsetSlots, FieldsetEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Fieldset: GlobalComponentConstructor<Fieldset>;
+        Fieldset: GlobalComponentConstructor<FieldsetProps, FieldsetSlots, FieldsetEmits>;
     }
 }
 

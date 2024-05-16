@@ -10,7 +10,7 @@
 import { TransitionProps } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type ColorPickerPassThroughOptionType = ColorPickerPassThroughAttributes | ((options: ColorPickerPassThroughMethodOptions) => ColorPickerPassThroughAttributes | string) | string | null | undefined;
 
@@ -208,7 +208,7 @@ export interface ColorPickerSlots {}
 /**
  * Defines valid emits in ColorPicker component.
  */
-export interface ColorPickerEmits {
+interface ColorPickerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -229,6 +229,8 @@ export interface ColorPickerEmits {
     hide(): void;
 }
 
+export declare type ColorPickerEmits = EmitFn<ColorPickerEmitsOptions>;
+
 /**
  * **PrimeVue - ColorPicker**
  *
@@ -241,11 +243,11 @@ export interface ColorPickerEmits {
  * @group Component
  *
  */
-declare class ColorPicker extends ClassComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits> {}
+declare const ColorPicker: DefineComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ColorPicker: GlobalComponentConstructor<ColorPicker>;
+        ColorPicker: GlobalComponentConstructor<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
     }
 }
 

@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttributes | ((options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -377,7 +377,7 @@ export interface PanelMenuSlots {
 /**
  * Defines valid emits in PanelMenu component.
  */
-export interface PanelMenuEmits {
+interface PanelMenuEmitsOptions {
     /**
      * Emitted when the expandedKeys changes.
      * @param {*} value - New value.
@@ -395,6 +395,8 @@ export interface PanelMenuEmits {
     'panel-close'(event: PanelMenuPanelCloseEvent): void;
 }
 
+export declare type PanelMenuEmits = EmitFn<PanelMenuEmitsOptions>;
+
 /**
  * **PrimeVue - PanelMenu**
  *
@@ -407,11 +409,11 @@ export interface PanelMenuEmits {
  * @group Component
  *
  */
-declare class PanelMenu extends ClassComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits> {}
+declare const PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PanelMenu: GlobalComponentConstructor<PanelMenu>;
+        PanelMenu: GlobalComponentConstructor<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
     }
 }
 

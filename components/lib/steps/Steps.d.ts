@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | string) | string | null | undefined;
 
@@ -214,7 +214,9 @@ export interface StepsSlots {
 /**
  * Defines valid emits in Steps component.
  */
-export interface StepsEmits {}
+interface StepsEmitsOptions {}
+
+export declare type StepsEmits = EmitFn<StepsEmitsOptions>;
 
 /**
  * **PrimeVue - Steps**
@@ -228,11 +230,11 @@ export interface StepsEmits {}
  * @group Component
  *
  */
-declare class Steps extends ClassComponent<StepsProps, StepsSlots, StepsEmits> {}
+declare const Steps: DefineComponent<StepsProps, StepsSlots, StepsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Steps: GlobalComponentConstructor<Steps>;
+        Steps: GlobalComponentConstructor<StepsProps, StepsSlots, StepsEmits>;
     }
 }
 

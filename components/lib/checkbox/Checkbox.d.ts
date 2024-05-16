@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CheckboxPassThroughOptionType = CheckboxPassThroughAttributes | ((options: CheckboxPassThroughMethodOptions) => CheckboxPassThroughAttributes | string) | string | null | undefined;
 
@@ -235,7 +235,7 @@ export interface CheckboxSlots {
 /**
  * Defines valid emits in Checkbox component.
  */
-export interface CheckboxEmits {
+interface CheckboxEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -258,6 +258,8 @@ export interface CheckboxEmits {
     blur(event: Event): void;
 }
 
+export declare type CheckboxEmits = EmitFn<CheckboxEmitsOptions>;
+
 /**
  * **PrimeVue - Checkbox**
  *
@@ -270,11 +272,11 @@ export interface CheckboxEmits {
  * @group Component
  *
  */
-declare class Checkbox extends ClassComponent<CheckboxProps, CheckboxSlots, CheckboxEmits> {}
+declare const Checkbox: DefineComponent<CheckboxProps, CheckboxSlots, CheckboxEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Checkbox: GlobalComponentConstructor<Checkbox>;
+        Checkbox: GlobalComponentConstructor<CheckboxProps, CheckboxSlots, CheckboxEmits>;
     }
 }
 

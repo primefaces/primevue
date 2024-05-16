@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DrawerPassThroughOptionType = DrawerPassThroughAttributes | ((options: DrawerPassThroughMethodOptions) => DrawerPassThroughAttributes | string) | string | null | undefined;
 
@@ -251,7 +251,7 @@ export interface DrawerSlots {
 /**
  * Defines valid emits in Drawer component.
  */
-export interface DrawerEmits {
+interface DrawerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
@@ -267,6 +267,8 @@ export interface DrawerEmits {
     hide(): void;
 }
 
+export declare type DrawerEmits = EmitFn<DrawerEmitsOptions>;
+
 /**
  * **PrimeVue - Drawer**
  *
@@ -277,12 +279,13 @@ export interface DrawerEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Drawer extends ClassComponent<DrawerProps, DrawerSlots, DrawerEmits> {}
+declare const Drawer: DefineComponent<DrawerProps, DrawerSlots, DrawerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Drawer: GlobalComponentConstructor<Drawer>;
+        Drawer: GlobalComponentConstructor<DrawerProps, DrawerSlots, DrawerEmits>;
     }
 }
 

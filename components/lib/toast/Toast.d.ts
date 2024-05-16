@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | string) | string | null | undefined;
 
@@ -332,7 +332,7 @@ export interface ToastSlots {
 /**
  * Defines valid emits in Toast component.
  */
-export interface ToastEmits {
+interface ToastEmitsOptions {
     /**
      * Callback to invoke when the toast is closed.
      * @param {ToastMessageOptions} message - Toast message.
@@ -344,6 +344,8 @@ export interface ToastEmits {
      */
     'life-end'(message: ToastMessageOptions): void;
 }
+
+export declare type ToastEmits = EmitFn<ToastEmitsOptions>;
 
 /**
  * **PrimeVue - Toast**
@@ -357,11 +359,11 @@ export interface ToastEmits {
  * @group Component
  *
  */
-declare class Toast extends ClassComponent<ToastProps, ToastSlots, ToastEmits> {}
+declare const Toast: DefineComponent<ToastProps, ToastSlots, ToastEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Toast: GlobalComponentConstructor<Toast>;
+        Toast: GlobalComponentConstructor<ToastProps, ToastSlots, ToastEmits>;
     }
 }
 

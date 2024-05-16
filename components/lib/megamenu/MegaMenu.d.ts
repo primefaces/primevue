@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -378,7 +378,7 @@ export interface MegaMenuSlots {
 /**
  * Defines valid emits in MegaMenu component.
  */
-export interface MegaMenuEmits {
+interface MegaMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
@@ -390,6 +390,8 @@ export interface MegaMenuEmits {
      */
     blur(event: Event): void;
 }
+
+export declare type MegaMenuEmits = EmitFn<MegaMenuEmitsOptions>;
 
 /**
  * **PrimeVue - MegaMenu**
@@ -403,11 +405,11 @@ export interface MegaMenuEmits {
  * @group Component
  *
  */
-declare class MegaMenu extends ClassComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits> {}
+declare const MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MegaMenu: GlobalComponentConstructor<MegaMenu>;
+        MegaMenu: GlobalComponentConstructor<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
     }
 }
 

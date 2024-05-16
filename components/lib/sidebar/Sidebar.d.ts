@@ -9,7 +9,7 @@
  */
 import 'vue';
 import * as Drawer from '../drawer';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.
@@ -50,7 +50,9 @@ export interface SidebarSlots extends Drawer.DrawerSlots {}
 /**
  * Defines valid emits in Sidebar component.
  */
-export interface SidebarEmits extends Drawer.DrawerEmits {}
+interface SidebarEmitsOptions {}
+
+export declare type SidebarEmits = EmitFn<SidebarEmitsOptions> & Drawer.DrawerEmits;
 
 /**
  * @deprecated Deprecated since v4. Use Drawer component instead.
@@ -64,12 +66,13 @@ export interface SidebarEmits extends Drawer.DrawerEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Sidebar extends ClassComponent<SidebarProps, SidebarSlots, SidebarEmits> {}
+declare const Sidebar: DefineComponent<SidebarProps, SidebarSlots, SidebarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Sidebar: GlobalComponentConstructor<Sidebar>;
+        Sidebar: GlobalComponentConstructor<SidebarProps, SidebarSlots, SidebarEmits>;
     }
 }
 

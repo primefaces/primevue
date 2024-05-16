@@ -10,7 +10,7 @@
 import { InputHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type InputTextPassThroughOptionType<T = any> = InputTextPassThroughAttributes | ((options: InputTextPassThroughMethodOptions<T>) => InputTextPassThroughAttributes | string) | string | null | undefined;
 
@@ -130,13 +130,15 @@ export interface InputTextSlots {}
 /**
  * Defines valid emits in InputText component.
  */
-export interface InputTextEmits {
+interface InputTextEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string | undefined): void;
 }
+
+export declare type InputTextEmits = EmitFn<InputTextEmitsOptions>;
 
 /**
  * **PrimeVue - InputText**
@@ -148,12 +150,13 @@ export interface InputTextEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class InputText extends ClassComponent<InputTextProps, InputTextSlots, InputTextEmits> {}
+declare const InputText: DefineComponent<InputTextProps, InputTextSlots, InputTextEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputText: GlobalComponentConstructor<InputText>;
+        InputText: GlobalComponentConstructor<InputTextProps, InputTextSlots, InputTextEmits>;
     }
 }
 

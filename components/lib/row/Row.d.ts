@@ -8,7 +8,7 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes | string) | string | null | undefined;
 
@@ -94,7 +94,9 @@ export interface RowSlots {}
 /**
  * Defines valid emits in Row component.
  */
-export interface RowEmits {}
+interface RowEmitsOptions {}
+
+export declare type RowEmits = EmitFn<RowEmitsOptions>;
 
 /**
  * **PrimeVue - Row**
@@ -106,12 +108,13 @@ export interface RowEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Row extends ClassComponent<RowProps, RowSlots, RowEmits> {}
+declare const Row: DefineComponent<RowProps, RowSlots, RowEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Row: GlobalComponentConstructor<Row>;
+        Row: GlobalComponentConstructor<RowProps, RowSlots, RowEmits>;
     }
 }
 

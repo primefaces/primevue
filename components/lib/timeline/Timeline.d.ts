@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TimelinePassThroughOptionType = TimelinePassThroughAttributes | ((options: TimelinePassThroughMethodOptions) => TimelinePassThroughAttributes | string) | string | null | undefined;
 
@@ -208,7 +208,9 @@ export interface TimelineSlots {
 /**
  * Defines valid emits in Timeline component.
  */
-export interface TimelineEmits {}
+interface TimelineEmitsOptions {}
+
+export declare type TimelineEmits = EmitFn<TimelineEmitsOptions>;
 
 /**
  * **PrimeVue - Timeline**
@@ -220,12 +222,13 @@ export interface TimelineEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Timeline extends ClassComponent<TimelineProps, TimelineSlots, TimelineEmits> {}
+declare const Timeline: DefineComponent<TimelineProps, TimelineSlots, TimelineEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Timeline: GlobalComponentConstructor<Timeline>;
+        Timeline: GlobalComponentConstructor<TimelineProps, TimelineSlots, TimelineEmits>;
     }
 }
 

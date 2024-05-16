@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ChipPassThroughOptionType<T = any> = ChipPassThroughAttributes | ((options: ChipPassThroughMethodOptions<T>) => ChipPassThroughAttributes | string) | string | null | undefined;
 
@@ -187,13 +187,15 @@ export interface ChipSlots {
 /**
  * Defines valid properties in Chip component.
  */
-export interface ChipEmits {
+interface ChipEmitsOptions {
     /**
      * Callback to invoke when a chip is removed.
      * @param {Event} event - Browser event.
      */
     remove(event: Event): void;
 }
+
+export declare type ChipEmits = EmitFn<ChipEmitsOptions>;
 
 /**
  * **PrimeVue - Chip**
@@ -205,12 +207,13 @@ export interface ChipEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Chip extends ClassComponent<ChipProps, ChipSlots, ChipEmits> {}
+declare const Chip: DefineComponent<ChipProps, ChipSlots, ChipEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Chip: GlobalComponentConstructor<Chip>;
+        Chip: GlobalComponentConstructor<ChipProps, ChipSlots, ChipEmits>;
     }
 }
 

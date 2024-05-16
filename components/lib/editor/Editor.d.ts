@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type EditorPassThroughOptionType = EditorPassThroughAttributes | ((options: EditorPassThroughMethodOptions) => EditorPassThroughAttributes | string) | string | null | undefined;
 
@@ -272,7 +272,7 @@ export interface EditorSlots {
 /**
  * Defines valid emits in Editor component.
  */
-export interface EditorEmits {
+interface EditorEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
@@ -295,6 +295,8 @@ export interface EditorEmits {
     load(event: EditorLoadEvent): void;
 }
 
+export declare type EditorEmits = EmitFn<EditorEmitsOptions>;
+
 /**
  * **PrimeVue - Editor**
  *
@@ -307,11 +309,11 @@ export interface EditorEmits {
  * @group Component
  *
  */
-declare class Editor extends ClassComponent<EditorProps, EditorSlots, EditorEmits> {}
+declare const Editor: DefineComponent<EditorProps, EditorSlots, EditorEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Editor: GlobalComponentConstructor<Editor>;
+        Editor: GlobalComponentConstructor<EditorProps, EditorSlots, EditorEmits>;
     }
 }
 

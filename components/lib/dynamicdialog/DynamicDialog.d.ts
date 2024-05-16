@@ -7,7 +7,7 @@
  * @module dynamicdialog
  *
  */
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Defines valid properties in DynamicDialog component.
@@ -21,14 +21,16 @@ export interface DynamicDialogProps {
 }
 
 /**
- * Defines valid emits in DynamicDialog component.
- */
-export interface DynamicDialogEmits {}
-
-/**
  * Defines valid slots in DynamicDialog component.
  */
 export interface DynamicDialogSlots {}
+
+/**
+ * Defines valid emits in DynamicDialog component.
+ */
+interface DynamicDialogEmitsOptions {}
+
+export declare type DynamicDialogEmits = EmitFn<DynamicDialogEmitsOptions>;
 
 /**
  * **PrimeVue - DynamicDialog**
@@ -40,12 +42,13 @@ export interface DynamicDialogSlots {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class DynamicDialog extends ClassComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits> {}
+declare const DynamicDialog: DefineComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DynamicDialog: GlobalComponentConstructor<DynamicDialog>;
+        DynamicDialog: GlobalComponentConstructor<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
     }
 }
 

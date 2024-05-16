@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { StepperPanelPassThroughOptionType } from '../stepperpanel';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepperPassThroughOptionType = StepperPassThroughAttributes | ((options: StepperPassThroughMethodOptions) => StepperPassThroughAttributes | string) | string | null | undefined;
 
@@ -166,7 +166,7 @@ export interface StepperSlots {
 /**
  * Defines valid emits in Stepper component.
  */
-export interface StepperEmits {
+interface StepperEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.
@@ -177,6 +177,8 @@ export interface StepperEmits {
      */
     'step-change'(event: StepperChangeEvent): void;
 }
+
+export declare type StepperEmits = EmitFn<StepperEmitsOptions>;
 
 /**
  * **PrimeVue - Stepper**
@@ -190,11 +192,11 @@ export interface StepperEmits {
  * @group Component
  *
  */
-declare class Stepper extends ClassComponent<StepperProps, StepperSlots, StepperEmits> {}
+declare const Stepper: DefineComponent<StepperProps, StepperSlots, StepperEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Stepper: GlobalComponentConstructor<Stepper>;
+        Stepper: GlobalComponentConstructor<StepperProps, StepperSlots, StepperEmits>;
     }
 }
 

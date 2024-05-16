@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { ListboxPassThroughOptions } from '../listbox';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
 
@@ -333,7 +333,7 @@ export interface OrderListSlots {
 /**
  * Defines valid slots in OrderList component.
  */
-export interface OrderListEmits {
+interface OrderListEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -356,6 +356,8 @@ export interface OrderListEmits {
     'selection-change'(event: OrderListSelectionChangeEvent): void;
 }
 
+export declare type OrderListEmits = EmitFn<OrderListEmitsOptions>;
+
 /**
  * **PrimeVue - OrderList**
  *
@@ -366,12 +368,13 @@ export interface OrderListEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class OrderList extends ClassComponent<OrderListProps, OrderListSlots, OrderListEmits> {}
+declare const OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OrderList: GlobalComponentConstructor<OrderList>;
+        OrderList: GlobalComponentConstructor<OrderListProps, OrderListSlots, OrderListEmits>;
     }
 }
 

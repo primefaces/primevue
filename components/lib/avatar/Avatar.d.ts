@@ -9,7 +9,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AvatarPassThroughOptionType = AvatarPassThroughAttributes | ((options: AvatarPassThroughMethodOptions) => AvatarPassThroughAttributes | string) | string | null | undefined;
 
@@ -147,12 +147,14 @@ export interface AvatarSlots {
 /**
  * Defines valid emits in Avatar component.
  */
-export interface AvatarEmits {
+interface AvatarEmitsOptions {
     /**
      * Triggered when an error occurs while loading an image file.
      */
     error(event: Event): void;
 }
+
+export declare type AvatarEmits = EmitFn<AvatarEmitsOptions>;
 
 /**
  * **PrimeVue - Avatar**
@@ -164,12 +166,13 @@ export interface AvatarEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Avatar extends ClassComponent<AvatarProps, AvatarSlots, AvatarEmits> {}
+declare const Avatar: DefineComponent<AvatarProps, AvatarSlots, AvatarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Avatar: GlobalComponentConstructor<Avatar>;
+        Avatar: GlobalComponentConstructor<AvatarProps, AvatarSlots, AvatarEmits>;
     }
 }
 

@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabsPassThroughOptionType = TabsPassThroughAttributes | ((options: TabsPassThroughMethodOptions) => TabsPassThroughAttributes | string) | string | null | undefined;
 
@@ -156,7 +156,7 @@ export interface TabsSlots {
 /**
  * Defines valid emits in Tabs component.
  */
-export interface TabsEmits {
+interface TabsEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - Current value.
@@ -164,8 +164,9 @@ export interface TabsEmits {
     'update:value'(value: number): void;
 }
 
+export declare type TabsEmits = EmitFn<TabsEmitsOptions>;
+
 /**
- *
  * **PrimeVue - Tabs**
  *
  * _Tabs facilitates seamless switching between different views._
@@ -177,11 +178,11 @@ export interface TabsEmits {
  * @group Component
  *
  */
-declare class Tabs extends ClassComponent<TabsProps, TabsSlots, TabsEmits> {}
+declare const Tabs: DefineComponent<TabsProps, TabsSlots, TabsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tabs: GlobalComponentConstructor<Tabs>;
+        Tabs: GlobalComponentConstructor<TabsProps, TabsSlots, TabsEmits>;
     }
 }
 

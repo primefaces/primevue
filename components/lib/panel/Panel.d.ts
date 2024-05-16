@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PanelPassThroughOptionType = PanelPassThroughAttributes | ((options: PanelPassThroughMethodOptions) => PanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -243,7 +243,7 @@ export interface PanelSlots {
 /**
  * Defines valid emits in Panel component.
  */
-export interface PanelEmits {
+interface PanelEmitsOptions {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.
@@ -255,6 +255,8 @@ export interface PanelEmits {
      */
     toggle(event: PanelToggleEvent): void;
 }
+
+export declare type PanelEmits = EmitFn<PanelEmitsOptions>;
 
 /**
  * **PrimeVue - Panel**
@@ -268,11 +270,11 @@ export interface PanelEmits {
  * @group Component
  *
  */
-declare class Panel extends ClassComponent<PanelProps, PanelSlots, PanelEmits> {}
+declare const Panel: DefineComponent<PanelProps, PanelSlots, PanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Panel: GlobalComponentConstructor<Panel>;
+        Panel: GlobalComponentConstructor<PanelProps, PanelSlots, PanelEmits>;
     }
 }
 

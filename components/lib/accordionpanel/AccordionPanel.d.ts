@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionPanelPassThroughOptionType = AccordionPanelPassThroughAttributes | ((options: AccordionPanelPassThroughMethodOptions) => AccordionPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -120,7 +120,9 @@ export interface AccordionPanelSlots {
     default(): VNode[];
 }
 
-export interface AccordionPanelEmits {}
+interface AccordionPanelEmitsOptions {}
+
+export declare type AccordionPanelEmits = EmitFn<AccordionPanelEmitsOptions>;
 
 /**
  * **PrimeVue - AccordionPanel**
@@ -134,11 +136,11 @@ export interface AccordionPanelEmits {}
  * @group Component
  *
  */
-declare class AccordionPanel extends ClassComponent<AccordionPanelProps, AccordionPanelSlots, AccordionPanelEmits> {}
+declare const AccordionPanel: DefineComponent<AccordionPanelProps, AccordionPanelSlots, AccordionPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionPanel: GlobalComponentConstructor<AccordionPanel>;
+        AccordionPanel: GlobalComponentConstructor<AccordionPanelProps, AccordionPanelSlots, AccordionPanelEmits>;
     }
 }
 

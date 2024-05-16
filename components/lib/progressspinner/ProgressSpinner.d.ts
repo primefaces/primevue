@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ProgressSpinnerPassThroughOptionType = ProgressSpinnerPassThroughAttributes | ((options: ProgressSpinnerPassThroughMethodOptions) => ProgressSpinnerPassThroughAttributes | string) | string | null | undefined;
 
@@ -117,7 +117,9 @@ export interface ProgressSpinnerSlots {}
 /**
  * Defines valid emits in ProgressSpinner component.
  */
-export interface ProgressSpinnerEmits {}
+interface ProgressSpinnerEmitsOptions {}
+
+export declare type ProgressSpinnerEmits = EmitFn<ProgressSpinnerEmitsOptions>;
 
 /**
  * **PrimeVue - ProgressSpinner**
@@ -129,12 +131,13 @@ export interface ProgressSpinnerEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ProgressSpinner extends ClassComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits> {}
+declare const ProgressSpinner: DefineComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ProgressSpinner: GlobalComponentConstructor<ProgressSpinner>;
+        ProgressSpinner: GlobalComponentConstructor<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
     }
 }
 

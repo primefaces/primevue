@@ -8,7 +8,7 @@
  *
  */
 import * as ToggleSwitch from '../toggleswitch';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 /**
  * Custom passthrough(pt) option method.
  */
@@ -40,7 +40,9 @@ export interface InputSwitchSlots extends ToggleSwitch.ToggleSwitchSlots {}
 /**
  * Defines valid emits in InputSwitch component.
  */
-export interface InputSwitchEmits extends ToggleSwitch.ToggleSwitchEmits {}
+interface InputSwitchEmitsOptions {}
+
+export declare type InputSwitchEmits = EmitFn<InputSwitchEmitsOptions> & ToggleSwitch.ToggleSwitchEmits;
 
 /**
  * @deprecated Deprecated since v4. Use ToggleSwitch component instead.
@@ -56,11 +58,11 @@ export interface InputSwitchEmits extends ToggleSwitch.ToggleSwitchEmits {}
  * @group Component
  *
  */
-declare class InputSwitch extends ClassComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits> {}
+declare const InputSwitch: DefineComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputSwitch: GlobalComponentConstructor<InputSwitch>;
+        InputSwitch: GlobalComponentConstructor<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
     }
 }
 

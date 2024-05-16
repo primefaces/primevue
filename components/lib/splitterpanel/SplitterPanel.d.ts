@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SplitterPanelPassThroughOptionType = SplitterPanelPassThroughAttributes | ((options: SplitterPanelPassThroughMethodOptions) => SplitterPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -120,7 +120,9 @@ export interface SplitterPanelSlots {
     default: () => VNode[];
 }
 
-export interface SplitterPanelEmits {}
+interface SplitterPanelEmitsOptions {}
+
+export declare type SplitterPanelEmits = EmitFn<SplitterPanelEmitsOptions>;
 
 /**
  * **PrimeVue - SplitterPanel**
@@ -134,11 +136,11 @@ export interface SplitterPanelEmits {}
  * @group Component
  *
  */
-declare class SplitterPanel extends ClassComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits> {}
+declare const SplitterPanel: DefineComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SplitterPanel: GlobalComponentConstructor<SplitterPanel>;
+        SplitterPanel: GlobalComponentConstructor<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits>;
     }
 }
 

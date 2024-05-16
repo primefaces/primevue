@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type InlineMessagePassThroughOptionType = InlineMessagePassThroughAttributes | ((options: InlineMessagePassThroughMethodOptions) => InlineMessagePassThroughAttributes | string) | string | null | undefined;
 
@@ -134,7 +134,9 @@ export interface InlineMessageSlots {
     icon(): VNode[];
 }
 
-export interface InlineMessageEmits {}
+interface InlineMessageEmitsOptions {}
+
+export declare type InlineMessageEmits = EmitFn<InlineMessageEmitsOptions>;
 
 /**
  * **PrimeVue - InlineMessage**
@@ -148,11 +150,11 @@ export interface InlineMessageEmits {}
  * @group Component
  *
  */
-declare class InlineMessage extends ClassComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits> {}
+declare const InlineMessage: DefineComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InlineMessage: GlobalComponentConstructor<InlineMessage>;
+        InlineMessage: GlobalComponentConstructor<InlineMessageProps, InlineMessageSlots, InlineMessageEmits>;
     }
 }
 

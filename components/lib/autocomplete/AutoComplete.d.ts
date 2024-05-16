@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ChipPassThroughOptions } from '../chip';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
@@ -778,7 +778,7 @@ export interface AutoCompleteSlots {
 /**
  * Defines valid emits in AutoComplete component.
  */
-export interface AutoCompleteEmits {
+interface AutoCompleteEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -853,6 +853,8 @@ export interface AutoCompleteEmits {
     hide(): void;
 }
 
+export declare type AutoCompleteEmits = EmitFn<AutoCompleteEmitsOptions>;
+
 /**
  * **PrimeVue - AutoComplete**
  *
@@ -865,11 +867,11 @@ export interface AutoCompleteEmits {
  * @group Component
  *
  */
-declare class AutoComplete extends ClassComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits> {}
+declare const AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AutoComplete: GlobalComponentConstructor<AutoComplete>;
+        AutoComplete: GlobalComponentConstructor<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
     }
 }
 

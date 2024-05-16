@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ButtonGroupPassThroughOptionType = ButtonGroupPassThroughAttributes | ((options: ButtonGroupPassThroughMethodOptions) => ButtonGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -93,7 +93,9 @@ export interface ButtonGroupSlots {
 /**
  * Defines valid emits in ButtonGroup component.
  */
-export interface ButtonGroupEmits {}
+interface ButtonGroupEmitsOptions {}
+
+export declare type ButtonGroupEmits = EmitFn<ButtonGroupEmitsOptions>;
 
 /**
  * **PrimeVue - ButtonGroup**
@@ -105,12 +107,13 @@ export interface ButtonGroupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ButtonGroup extends ClassComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits> {}
+declare const ButtonGroup: DefineComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ButtonGroup: GlobalComponentConstructor<ButtonGroup>;
+        ButtonGroup: GlobalComponentConstructor<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
     }
 }
 

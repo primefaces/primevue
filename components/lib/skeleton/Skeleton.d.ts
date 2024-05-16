@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SkeletonPassThroughOptionType = SkeletonPassThroughAttributes | ((options: SkeletonPassThroughMethodOptions) => SkeletonPassThroughAttributes | string) | string | null | undefined;
 
@@ -123,7 +123,9 @@ export interface SkeletonSlots {}
 /**
  * Defines valid emits in Skeleton component.
  */
-export interface SkeletonEmits {}
+interface SkeletonEmitsOptions {}
+
+export declare type SkeletonEmits = EmitFn<SkeletonEmitsOptions>;
 
 /**
  * **PrimeVue - Skeleton**
@@ -135,12 +137,13 @@ export interface SkeletonEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Skeleton extends ClassComponent<SkeletonProps, SkeletonSlots, SkeletonEmits> {}
+declare const Skeleton: DefineComponent<SkeletonProps, SkeletonSlots, SkeletonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Skeleton: GlobalComponentConstructor<Skeleton>;
+        Skeleton: GlobalComponentConstructor<SkeletonProps, SkeletonSlots, SkeletonEmits>;
     }
 }
 

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionPassThroughOptionType = AccordionPassThroughAttributes | ((options: AccordionPassThroughMethodOptions) => AccordionPassThroughAttributes | string) | string | null | undefined;
 
@@ -206,7 +206,7 @@ export interface AccordionSlots {
 /**
  * Defines valid emits in Accordion component.
  */
-export interface AccordionEmits {
+interface AccordionEmitsOptions {
     /**
      * Emitted when the active panel changes.
      * @param {string | string[] | null | undefined} value - Value of new active panel.
@@ -238,6 +238,8 @@ export interface AccordionEmits {
     'tab-click'(event: AccordionClickEvent): void;
 }
 
+export declare type AccordionEmits = EmitFn<AccordionEmitsOptions>;
+
 /**
  * **PrimeVue - Accordion**
  *
@@ -250,11 +252,11 @@ export interface AccordionEmits {
  * @group Component
  *
  */
-declare class Accordion extends ClassComponent<AccordionProps, AccordionSlots, AccordionEmits> {}
+declare const Accordion: DefineComponent<AccordionProps, AccordionSlots, AccordionEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Accordion: GlobalComponentConstructor<Accordion>;
+        Accordion: GlobalComponentConstructor<AccordionProps, AccordionSlots, AccordionEmits>;
     }
 }
 

@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 // import { ToggleButtonPassThroughOptions } from '../togglebutton';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -223,7 +223,7 @@ export interface SelectButtonSlots {
 /**
  * Defines valid emits in SelectButton component.
  */
-export interface SelectButtonEmits {
+interface SelectButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -245,6 +245,8 @@ export interface SelectButtonEmits {
     blur(event: Event): void;
 }
 
+export declare type SelectButtonEmits = EmitFn<SelectButtonEmitsOptions>;
+
 /**
  * **PrimeVue - SelectButton**
  *
@@ -255,12 +257,13 @@ export interface SelectButtonEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class SelectButton extends ClassComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits> {}
+declare const SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SelectButton: GlobalComponentConstructor<SelectButton>;
+        SelectButton: GlobalComponentConstructor<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
     }
 }
 

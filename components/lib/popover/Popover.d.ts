@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type PopoverPassThroughOptionType = PopoverPassThroughAttributes | ((options: PopoverPassThroughMethodOptions) => PopoverPassThroughAttributes | string) | string | null | undefined;
 
@@ -203,7 +203,7 @@ export interface PopoverSlots {
 /**
  * Defines valid emits in Popover component.
  */
-export interface PopoverEmits {
+interface PopoverEmitsOptions {
     /**
      * Callback to invoke when the overlay is shown.
      */
@@ -214,18 +214,9 @@ export interface PopoverEmits {
     hide(): void;
 }
 
-/**
- * **PrimeVue - Popover**
- *
- * _Popover, also known as Popover, is a container component that can overlay other components on page._
- *
- * [Live Demo](https://www.primevue.org/popover/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- */
-declare class Popover extends ClassComponent<PopoverProps, PopoverSlots, PopoverEmits> {
+export declare type PopoverEmits = EmitFn<PopoverEmitsOptions>;
+
+export interface PopoverMethods {
     /**
      * Aligns overlay panel based on the current position of the container.
      */
@@ -254,9 +245,23 @@ declare class Popover extends ClassComponent<PopoverProps, PopoverSlots, Popover
     hide(): void;
 }
 
+/**
+ * **PrimeVue - Popover**
+ *
+ * _Popover, also known as Popover, is a container component that can overlay other components on page._
+ *
+ * [Live Demo](https://www.primevue.org/popover/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const Popover: DefineComponent<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        Popover: GlobalComponentConstructor<Popover>;
+        Popover: GlobalComponentConstructor<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
     }
 }
 

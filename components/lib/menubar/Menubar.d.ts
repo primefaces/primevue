@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | string) | string | null | undefined;
 
@@ -402,7 +402,9 @@ export interface MenubarSlots {
 /**
  * Defines valid emits in Menubar component.
  */
-export interface MenubarEmits {}
+interface MenubarEmitsOptions {}
+
+export declare type MenubarEmits = EmitFn<MenubarEmitsOptions>;
 
 /**
  * **PrimeVue - Menubar**
@@ -416,11 +418,11 @@ export interface MenubarEmits {}
  * @group Component
  *
  */
-declare class Menubar extends ClassComponent<MenubarProps, MenubarSlots, MenubarEmits> {}
+declare const Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Menubar: GlobalComponentConstructor<Menubar>;
+        Menubar: GlobalComponentConstructor<MenubarProps, MenubarSlots, MenubarEmits>;
     }
 }
 

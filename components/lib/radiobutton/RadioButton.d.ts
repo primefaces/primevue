@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type RadioButtonPassThroughOptionType = RadioButtonPassThroughAttributes | ((options: RadioButtonPassThroughMethodOptions) => RadioButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -196,7 +196,7 @@ export interface RadioButtonSlots {}
 /**
  * Defines valid emits in RadioButton component.
  */
-export interface RadioButtonEmits {
+interface RadioButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -219,6 +219,8 @@ export interface RadioButtonEmits {
     blur(event: Event): void;
 }
 
+export declare type RadioButtonEmits = EmitFn<RadioButtonEmitsOptions>;
+
 /**
  * **PrimeVue - RadioButton**
  *
@@ -231,11 +233,11 @@ export interface RadioButtonEmits {
  * @group Component
  *
  */
-declare class RadioButton extends ClassComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits> {}
+declare const RadioButton: DefineComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        RadioButton: GlobalComponentConstructor<RadioButton>;
+        RadioButton: GlobalComponentConstructor<RadioButtonProps, RadioButtonSlots, RadioButtonEmits>;
     }
 }
 

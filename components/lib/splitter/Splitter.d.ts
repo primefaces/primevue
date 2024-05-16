@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SplitterPassThroughOptionType = SplitterPassThroughAttributes | ((options: SplitterPassThroughMethodOptions) => SplitterPassThroughAttributes | string) | string | null | undefined;
 
@@ -206,7 +206,7 @@ export interface SplitterSlots {
 /**
  * Defines valid emits in Splitter component.
  */
-export interface SplitterEmits {
+interface SplitterEmitsOptions {
     /**
      * Callback to invoke when resize starts.
      * @param {SplitterResizeStartEvent} event - Custom resize start event.
@@ -224,6 +224,8 @@ export interface SplitterEmits {
     resizeend(event: SplitterResizeEndEvent): void;
 }
 
+export declare type SplitterEmits = EmitFn<SplitterEmitsOptions>;
+
 /**
  * **PrimeVue - Splitter**
  *
@@ -236,11 +238,11 @@ export interface SplitterEmits {
  * @group Component
  *
  */
-declare class Splitter extends ClassComponent<SplitterProps, SplitterSlots, SplitterEmits> {}
+declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Splitter: GlobalComponentConstructor<Splitter>;
+        Splitter: GlobalComponentConstructor<SplitterProps, SplitterSlots, SplitterEmits>;
     }
 }
 

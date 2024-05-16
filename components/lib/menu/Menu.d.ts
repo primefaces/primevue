@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type MenuPassThroughOptionType = MenuPassThroughAttributes | ((options: MenuPassThroughMethodOptions) => MenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -325,7 +325,7 @@ export interface MenuSlots {
 /**
  * Defines valid emits in Menu component.
  */
-export interface MenuEmits {
+interface MenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
@@ -338,19 +338,9 @@ export interface MenuEmits {
     blur(event: Event): void;
 }
 
-/**
- * **PrimeVue - Menu**
- *
- * _Menu is a navigation / command component that supports dynamic and static positioning._
- *
- * [Live Demo](https://www.primevue.org/menu/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
+export declare type MenuEmits = EmitFn<MenuEmitsOptions>;
+
+export interface MenuMethods {
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
@@ -374,9 +364,23 @@ declare class Menu extends ClassComponent<MenuProps, MenuSlots, MenuEmits> {
     hide(): void;
 }
 
+/**
+ * **PrimeVue - Menu**
+ *
+ * _Menu is a navigation / command component that supports dynamic and static positioning._
+ *
+ * [Live Demo](https://www.primevue.org/menu/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const Menu: DefineComponent<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        Menu: GlobalComponentConstructor<Menu>;
+        Menu: GlobalComponentConstructor<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
     }
 }
 

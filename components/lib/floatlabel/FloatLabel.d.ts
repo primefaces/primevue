@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type FloatLabelPassThroughOptionType = FloatLabelPassThroughAttributes | ((options: FloatLabelPassThroughMethodOptions) => FloatLabelPassThroughAttributes | string) | string | null | undefined;
 
@@ -103,7 +103,9 @@ export interface FloatLabelSlots {
 /**
  * Defines valid emits in FloatLabel component.
  */
-export interface FloatLabelEmits {}
+interface FloatLabelEmitsOptions {}
+
+export declare type FloatLabelEmits = EmitFn<FloatLabelEmitsOptions>;
 
 /**
  * **PrimeVue - FloatLabel**
@@ -117,11 +119,11 @@ export interface FloatLabelEmits {}
  * @group Component
  *
  */
-declare class FloatLabel extends ClassComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits> {}
+declare const FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FloatLabel: GlobalComponentConstructor<FloatLabel>;
+        FloatLabel: GlobalComponentConstructor<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
     }
 }
 

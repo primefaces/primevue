@@ -9,7 +9,7 @@
  */
 import 'vue';
 import * as InputChips from '../inputchips';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.
@@ -61,7 +61,9 @@ export interface ChipsSlots extends InputChips.InputChipsSlots {}
 /**
  * Defines valid emits in Chips component.
  */
-export interface ChipsEmits extends InputChips.InputChipsEmits {}
+interface ChipsEmitsOptions {}
+
+export declare type ChipsEmits = EmitFn<ChipsEmitsOptions> & InputChips.InputChipsEmits;
 
 /**
  * @deprecated Deprecated since v4. Use InputChips component instead.
@@ -77,11 +79,11 @@ export interface ChipsEmits extends InputChips.InputChipsEmits {}
  * @group Component
  *
  */
-declare class Chips extends ClassComponent<ChipsProps, ChipsSlots, ChipsEmits> {}
+declare const Chips: DefineComponent<ChipsProps, ChipsSlots, ChipsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Chips: GlobalComponentConstructor<Chips>;
+        Chips: GlobalComponentConstructor<ChipsProps, ChipsSlots, ChipsEmits>;
     }
 }
 

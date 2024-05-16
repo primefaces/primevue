@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type DatePickerPassThroughOptionType = DatePickerPassThroughAttributes | ((options: DatePickerPassThroughMethodOptions) => DatePickerPassThroughAttributes | string) | string | null | undefined;
 
@@ -988,7 +988,7 @@ export interface DatePickerSlots {
 /**
  * Defines valid emits in DatePicker component.
  */
-export interface DatePickerEmits {
+interface DatePickerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string | Date | string[] | Date[] | undefined} value - New value.
@@ -1048,6 +1048,8 @@ export interface DatePickerEmits {
     keydown(event: Event): void;
 }
 
+export declare type DatePickerEmits = EmitFn<DatePickerEmitsOptions>;
+
 /**
  * **PrimeVue - DatePicker**
  *
@@ -1058,12 +1060,13 @@ export interface DatePickerEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class DatePicker extends ClassComponent<DatePickerProps, DatePickerSlots, DatePickerEmits> {}
+declare const DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DatePicker: GlobalComponentConstructor<DatePicker>;
+        DatePicker: GlobalComponentConstructor<DatePickerProps, DatePickerSlots, DatePickerEmits>;
     }
 }
 

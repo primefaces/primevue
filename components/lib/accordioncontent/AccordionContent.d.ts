@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionContentPassThroughOptionType = AccordionContentPassThroughAttributes | ((options: AccordionContentPassThroughMethodOptions) => AccordionContentPassThroughAttributes | string) | string | null | undefined;
 
@@ -122,7 +122,9 @@ export interface AccordionContentSlots {
     default(): VNode[];
 }
 
-export interface AccordionContentEmits {}
+interface AccordionContentEmitsOptions {}
+
+export declare type AccordionContentEmits = EmitFn<AccordionContentEmitsOptions>;
 
 /**
  * **PrimeVue - AccordionContent**
@@ -136,11 +138,11 @@ export interface AccordionContentEmits {}
  * @group Component
  *
  */
-declare class AccordionContent extends ClassComponent<AccordionContentProps, AccordionContentSlots, AccordionContentEmits> {}
+declare const AccordionContent: DefineComponent<AccordionContentProps, AccordionContentSlots, AccordionContentEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionContent: GlobalComponentConstructor<AccordionContent>;
+        AccordionContent: GlobalComponentConstructor<AccordionContentProps, AccordionContentSlots, AccordionContentEmits>;
     }
 }
 

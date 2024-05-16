@@ -13,7 +13,7 @@ import { IconFieldPassThroughOptions } from '../iconfield';
 import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type ListboxPassThroughOptionType<T = any> = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions<T>) => ListboxPassThroughAttributes | string) | string | null | undefined;
@@ -555,7 +555,7 @@ export interface ListboxSlots {
 /**
  * Defines valid emits in Listbox component.
  */
-export interface ListboxEmits {
+interface ListboxEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -593,6 +593,8 @@ export interface ListboxEmits {
     'option-dblclick'(event: ListboxOptionDblClickEvent): void;
 }
 
+export declare type ListboxEmits = EmitFn<ListboxEmitsOptions>;
+
 /**
  * **PrimeVue - Listbox**
  *
@@ -605,11 +607,11 @@ export interface ListboxEmits {
  * @group Component
  *
  */
-declare class Listbox extends ClassComponent<ListboxProps, ListboxSlots, ListboxEmits> {}
+declare const Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Listbox: GlobalComponentConstructor<Listbox>;
+        Listbox: GlobalComponentConstructor<ListboxProps, ListboxSlots, ListboxEmits>;
     }
 }
 

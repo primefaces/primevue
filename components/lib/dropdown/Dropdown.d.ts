@@ -9,7 +9,7 @@
  */
 import 'vue';
 import * as Select from '../select';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.
@@ -62,22 +62,11 @@ export interface DropdownSlots extends Select.SelectSlots {}
 /**
  * Defines valid emits in Dropdown component.
  */
-export interface DropdownEmits extends Select.SelectEmits {}
+interface DropdownEmitsOptions {}
 
-/**
- * @deprecated Deprecated since v4. Use Select component instead.
- *
- * **PrimeVue - Dropdown**
- *
- * _Dropdown also known as Select, is used to choose an item from a collection of options._
- *
- * [Live Demo](https://www.primevue.org/select/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- */
-declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, DropdownEmits> {
+export declare type DropdownEmits = EmitFn<DropdownEmitsOptions> & Select.SelectEmits;
+
+export interface DropdownMethods {
     /**
      * Shows the overlay.
      * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.
@@ -94,9 +83,25 @@ declare class Dropdown extends ClassComponent<DropdownProps, DropdownSlots, Drop
     hide: (isFocus?: boolean) => void;
 }
 
+/**
+ * @deprecated Deprecated since v4. Use Select component instead.
+ *
+ * **PrimeVue - Dropdown**
+ *
+ * _Dropdown also known as Select, is used to choose an item from a collection of options._
+ *
+ * [Live Demo](https://www.primevue.org/select/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const Dropdown: DefineComponent<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        Dropdown: GlobalComponentConstructor<Dropdown>;
+        Dropdown: GlobalComponentConstructor<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
     }
 }
 

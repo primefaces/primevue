@@ -14,7 +14,7 @@ import { IconFieldPassThroughOptions } from '../iconfield';
 import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
@@ -828,7 +828,7 @@ export interface MultiSelectSlots {
 /**
  * Defines valid emits in MultiSelect component.
  */
-export interface MultiSelectEmits {
+interface MultiSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -877,19 +877,9 @@ export interface MultiSelectEmits {
     'selectall-change'(event: MultiSelectAllChangeEvent): void;
 }
 
-/**
- * **PrimeVue - MultiSelect**
- *
- * _MultiSelect is used to select multiple items from a collection._
- *
- * [Live Demo](https://www.primevue.org/multiselect/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits> {
+export declare type MultiSelectEmits = EmitFn<MultiSelectEmitsOptions>;
+
+export interface MultiSelectMethods {
     /**
      * Shows the overlay.
      * @param {boolean} [isFocus] - Decides whether to focus on the component. Default value is false.
@@ -906,9 +896,23 @@ declare class MultiSelect extends ClassComponent<MultiSelectProps, MultiSelectSl
     hide(isFocus?: boolean): void;
 }
 
+/**
+ * **PrimeVue - MultiSelect**
+ *
+ * _MultiSelect is used to select multiple items from a collection._
+ *
+ * [Live Demo](https://www.primevue.org/multiselect/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        MultiSelect: GlobalComponentConstructor<MultiSelect>;
+        MultiSelect: GlobalComponentConstructor<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
     }
 }
 

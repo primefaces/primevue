@@ -17,7 +17,7 @@ import { DataTablePassThroughOptions } from '../datatable';
 import { PassThroughOptions } from '../passthrough';
 import { RadioButtonPassThroughOptionType } from '../radiobutton';
 import { SelectPassThroughOptionType } from '../select';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
@@ -974,7 +974,9 @@ export interface ColumnSlots {
     nodetoggleicon(): VNode[];
 }
 
-export interface ColumnEmits {}
+interface ColumnEmitsOptions {}
+
+export declare type ColumnEmits = EmitFn<ColumnEmitsOptions>;
 
 /**
  * **PrimeVue - Column**
@@ -986,14 +988,15 @@ export interface ColumnEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Column extends ClassComponent<ColumnProps, ColumnSlots, ColumnEmits> {}
+declare const Column: DefineComponent<ColumnProps, ColumnSlots, ColumnEmits>;
 
-export type ColumnNode = Column & { props: Column['$props'] };
+export type ColumnNode = { props: ColumnProps };
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Column: GlobalComponentConstructor<Column>;
+        Column: GlobalComponentConstructor<ColumnProps, ColumnSlots, ColumnEmits>;
     }
 }
 

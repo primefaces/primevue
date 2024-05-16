@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputOtpPassThroughOptionType = InputOtpPassThroughAttributes | ((options: InputOtpPassThroughMethodOptions) => InputOtpPassThroughAttributes | string) | string | null | undefined;
 
@@ -233,7 +233,7 @@ export interface InputOtpSlots {
 /**
  * Defines valid emits in InputOtp component.
  */
-export interface InputOtpEmits {
+interface InputOtpEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
@@ -256,6 +256,8 @@ export interface InputOtpEmits {
     blur(event: Event): void;
 }
 
+export declare type InputOtpEmits = EmitFn<InputOtpEmitsOptions>;
+
 /**
  * **PrimeVue - InputOtp**
  *
@@ -268,11 +270,11 @@ export interface InputOtpEmits {
  * @group Component
  *
  */
-declare class InputOtp extends ClassComponent<InputOtpProps, InputOtpSlots, InputOtpEmits> {}
+declare const InputOtp: DefineComponent<InputOtpProps, InputOtpSlots, InputOtpEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputOtp: GlobalComponentConstructor<InputOtp>;
+        InputOtp: GlobalComponentConstructor<InputOtpProps, InputOtpSlots, InputOtpEmits>;
     }
 }
 

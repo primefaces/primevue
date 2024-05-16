@@ -13,7 +13,7 @@ import { IconFieldPassThroughOptions } from '../iconfield';
 import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type SelectPassThroughOptionType<T = any> = SelectPassThroughAttributes | ((options: SelectPassThroughMethodOptions<T>) => SelectPassThroughAttributes | string) | string | null | undefined;
@@ -730,7 +730,7 @@ export interface SelectSlots {
 /**
  * Defines valid emits in Select component.
  */
-export interface SelectEmits {
+interface SelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -774,6 +774,27 @@ export interface SelectEmits {
     filter(event: SelectFilterEvent): void;
 }
 
+export declare type SelectEmits = EmitFn<SelectEmitsOptions>;
+
+export interface SelectMethods {
+    /**
+     * Shows the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component.
+     * @defaultValue false.
+     *
+     * @memberof Select
+     */
+    show: (isFocus?: boolean) => void;
+    /**
+     * Hides the overlay.
+     * @param {boolean} [isFocus] - Decides whether to focus on the component.
+     * @defaultValue false.
+     *
+     * @memberof Select
+     */
+    hide: (isFocus?: boolean) => void;
+}
+
 /**
  * **PrimeVue - Select**
  *
@@ -784,27 +805,13 @@ export interface SelectEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Select extends ClassComponent<SelectProps, SelectSlots, SelectEmits> {
-    /**
-     * Shows the overlay.
-     * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.
-     *
-     * @memberof Select
-     */
-    show: (isFocus?: boolean) => void;
-    /**
-     * Hides the overlay.
-     * @param {boolean} [isFocus] - Decides whether to focus on the component. @defaultValue false.
-     *
-     * @memberof Select
-     */
-    hide: (isFocus?: boolean) => void;
-}
+declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Select: GlobalComponentConstructor<Select>;
+        Select: GlobalComponentConstructor<SelectProps, SelectSlots, SelectEmits>;
     }
 }
 

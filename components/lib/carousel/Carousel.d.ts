@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type CarouselPassThroughOptionType = CarouselPassThroughAttributes | ((options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes | string) | string | null | undefined;
 
@@ -370,13 +370,15 @@ export interface CarouselSlots {
 /**
  * Defines valid emits in Carousel component.
  */
-export interface CarouselEmits {
+interface CarouselEmitsOptions {
     /**
      * Emitted when the page changes.
      * @param {number} value - New page value.
      */
     'update:page'(value: number): void;
 }
+
+export declare type CarouselEmits = EmitFn<CarouselEmitsOptions>;
 
 /**
  * **PrimeVue - Carousel**
@@ -390,11 +392,11 @@ export interface CarouselEmits {
  * @group Component
  *
  */
-declare class Carousel extends ClassComponent<CarouselProps, CarouselSlots, CarouselEmits> {}
+declare const Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Carousel: GlobalComponentConstructor<Carousel>;
+        Carousel: GlobalComponentConstructor<CarouselProps, CarouselSlots, CarouselEmits>;
     }
 }
 

@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type ButtonPassThroughOptionType<T = any> = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions<T>) => ButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -232,7 +232,9 @@ export interface ButtonSlots {
 /**
  * Defines valid emits in Button component.
  */
-export interface ButtonEmits {}
+interface ButtonEmitsOptions {}
+
+export declare type ButtonEmits = EmitFn<ButtonEmitsOptions>;
 
 /**
  * **PrimeVue - Button**
@@ -244,12 +246,13 @@ export interface ButtonEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {}
+declare const Button: DefineComponent<ButtonProps, ButtonSlots, ButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Button: GlobalComponentConstructor<Button>;
+        Button: GlobalComponentConstructor<ButtonProps, ButtonSlots, ButtonEmits>;
     }
 }
 

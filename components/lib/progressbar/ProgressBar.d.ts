@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ProgressBarPassThroughOptionType<T = any> = ProgressBarPassThroughAttributes | ((options: ProgressBarPassThroughMethodOptions<T>) => ProgressBarPassThroughAttributes | string) | string | null | undefined;
 
@@ -123,7 +123,9 @@ export interface ProgressBarSlots {
 /**
  * Defines valid emits in ProgressBar component.
  */
-export interface ProgressBarEmits {}
+interface ProgressBarEmitsOptions {}
+
+export declare type ProgressBarEmits = EmitFn<ProgressBarEmitsOptions>;
 
 /**
  * **PrimeVue - ProgressBar**
@@ -135,12 +137,13 @@ export interface ProgressBarEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ProgressBar extends ClassComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits> {}
+declare const ProgressBar: DefineComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ProgressBar: GlobalComponentConstructor<ProgressBar>;
+        ProgressBar: GlobalComponentConstructor<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
     }
 }
 

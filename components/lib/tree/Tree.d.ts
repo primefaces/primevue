@@ -14,7 +14,7 @@ import { InputIconPassThroughOptions } from '../inputicon';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -429,7 +429,7 @@ export interface TreeSlots {
 /**
  * Defines valid emits in Tree component.
  */
-export interface TreeEmits {
+interface TreeEmitsOptions {
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.
@@ -467,6 +467,8 @@ export interface TreeEmits {
     'filter'(event: TreeFilterEvent): void;
 }
 
+export declare type TreeEmits = EmitFn<TreeEmitsOptions>;
+
 /**
  * **PrimeVue - Tree**
  *
@@ -477,12 +479,13 @@ export interface TreeEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Tree extends ClassComponent<TreeProps, TreeSlots, TreeEmits> {}
+declare const Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tree: GlobalComponentConstructor<Tree>;
+        Tree: GlobalComponentConstructor<TreeProps, TreeSlots, TreeEmits>;
     }
 }
 

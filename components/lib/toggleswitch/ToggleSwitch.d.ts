@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ToggleSwitchPassThroughOptionType = ToggleSwitchPassThroughAttributes | ((options: ToggleSwitchPassThroughMethodOptions) => ToggleSwitchPassThroughAttributes | string) | string | null | undefined;
 
@@ -174,7 +174,7 @@ export interface ToggleSwitchSlots {}
 /**
  * Defines valid emits in ToggleSwitch component.
  */
-export interface ToggleSwitchEmits {
+interface ToggleSwitchEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
@@ -197,6 +197,8 @@ export interface ToggleSwitchEmits {
     blur(event: Event): void;
 }
 
+export declare type ToggleSwitchEmits = EmitFn<ToggleSwitchEmitsOptions>;
+
 /**
  * **PrimeVue - ToggleSwitch**
  *
@@ -209,11 +211,11 @@ export interface ToggleSwitchEmits {
  * @group Component
  *
  */
-declare class ToggleSwitch extends ClassComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits> {}
+declare const ToggleSwitch: DefineComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ToggleSwitch: GlobalComponentConstructor<ToggleSwitch>;
+        ToggleSwitch: GlobalComponentConstructor<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
     }
 }
 

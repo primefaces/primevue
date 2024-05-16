@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type MessagePassThroughOptionType<T = any> = MessagePassThroughAttributes | ((options: MessagePassThroughMethodOptions<T>) => MessagePassThroughAttributes | string) | string | null | undefined;
 
@@ -216,7 +216,7 @@ export interface MessageSlots {
 /**
  * Defines valid emits in Message component.
  */
-export interface MessageEmits {
+interface MessageEmitsOptions {
     /**
      * Callback to invoke when a message is closed.
      * @param {Event} event - Browser event.
@@ -227,6 +227,8 @@ export interface MessageEmits {
      */
     'life-end'(): void;
 }
+
+export declare type MessageEmits = EmitFn<MessageEmitsOptions>;
 
 /**
  * **PrimeVue - Message**
@@ -240,11 +242,11 @@ export interface MessageEmits {
  * @group Component
  *
  */
-declare class Message extends ClassComponent<MessageProps, MessageSlots, MessageEmits> {}
+declare const Message: DefineComponent<MessageProps, MessageSlots, MessageEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Message: GlobalComponentConstructor<Message>;
+        Message: GlobalComponentConstructor<MessageProps, MessageSlots, MessageEmits>;
     }
 }
 

@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;
 
@@ -369,7 +369,7 @@ export interface SpeedDialSlots {
 /**
  * Defines valid emits in SpeedDial component.
  */
-export interface SpeedDialEmits {
+interface SpeedDialEmitsOptions {
     /**
      * Fired when the button element clicked.
      * @param {Event} event - Browser event.
@@ -395,6 +395,8 @@ export interface SpeedDialEmits {
     blur(event: Event): void;
 }
 
+export declare type SpeedDialEmits = EmitFn<SpeedDialEmitsOptions>;
+
 /**
  * **PrimeVue - SpeedDial**
  *
@@ -407,11 +409,11 @@ export interface SpeedDialEmits {
  * @group Component
  *
  */
-declare class SpeedDial extends ClassComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits> {}
+declare const SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SpeedDial: GlobalComponentConstructor<SpeedDial>;
+        SpeedDial: GlobalComponentConstructor<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
     }
 }
 

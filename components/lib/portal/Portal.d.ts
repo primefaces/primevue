@@ -1,5 +1,5 @@
 import { VNode } from 'vue';
-import { ClassComponent, GlobalComponentConstructor, HintedString } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor, HintedString } from '../ts-helpers';
 
 type PortalAppendToType = HintedString<'body' | 'self'> | undefined | HTMLElement;
 
@@ -24,13 +24,15 @@ export interface PortalSlots {
     default: () => VNode[];
 }
 
-export declare type PortalEmits = {};
+declare type PortalEmitsOptions = {};
 
-declare class Portal extends ClassComponent<PortalProps, PortalSlots, PortalEmits> {}
+export declare type PortalEmits = EmitFn<PortalEmitsOptions>;
+
+declare const Portal: DefineComponent<PortalProps, PortalSlots, PortalEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Portal: GlobalComponentConstructor<Portal>;
+        Portal: GlobalComponentConstructor<PortalProps, PortalSlots, PortalEmits>;
     }
 }
 

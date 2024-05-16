@@ -13,7 +13,7 @@ import { ChipPassThroughOptions } from '../chip';
 import { PassThroughOptions } from '../passthrough';
 import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
 import { TreeNode } from '../treenode';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -378,7 +378,7 @@ export interface TreeSelectSlots {
 /**
  * Defines valid emits in TreeSelect component.
  */
-export interface TreeSelectEmits {
+interface TreeSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -427,18 +427,9 @@ export interface TreeSelectEmits {
     'node-collapse'(node: TreeNode): void;
 }
 
-/**
- * **PrimeVue - TreeSelect**
- *
- * _TreeSelect is a form component to choose from hierarchical data._
- *
- * [Live Demo](https://www.primevue.org/treeselect/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- */
-declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits> {
+export declare type TreeSelectEmits = EmitFn<TreeSelectEmitsOptions>;
+
+export interface TreeSelectMethods {
     /**
      * Shows the overlay.
      *
@@ -453,9 +444,23 @@ declare class TreeSelect extends ClassComponent<TreeSelectProps, TreeSelectSlots
     hide: () => void;
 }
 
+/**
+ * **PrimeVue - TreeSelect**
+ *
+ * _TreeSelect is a form component to choose from hierarchical data._
+ *
+ * [Live Demo](https://www.primevue.org/treeselect/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        TreeSelect: GlobalComponentConstructor<TreeSelect>;
+        TreeSelect: GlobalComponentConstructor<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
     }
 }
 

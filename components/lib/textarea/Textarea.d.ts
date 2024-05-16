@@ -10,7 +10,7 @@
 import { TextareaHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
 
@@ -136,13 +136,15 @@ export interface TextareaSlots {}
 /**
  * Defines valid emits in Textarea component.
  */
-export interface TextareaEmits {
+interface TextareaEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string) => void;
 }
+
+export declare type TextareaEmits = EmitFn<TextareaEmitsOptions>;
 
 /**
  * **PrimeVue - Textarea**
@@ -156,11 +158,11 @@ export interface TextareaEmits {
  * @group Component
  *
  */
-declare class Textarea extends ClassComponent<TextareaProps, TextareaSlots, TextareaEmits> {}
+declare const Textarea: DefineComponent<TextareaProps, TextareaSlots, TextareaEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Textarea: GlobalComponentConstructor<Textarea>;
+        Textarea: GlobalComponentConstructor<TextareaProps, TextareaSlots, TextareaEmits>;
     }
 }
 

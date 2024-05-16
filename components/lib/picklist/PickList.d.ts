@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions } from '../button';
 import { ListboxPassThroughOptions } from '../listbox';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
 
@@ -544,7 +544,7 @@ export interface PickListSlots {
 /**
  * Defines valid emits in PickList component.
  */
-export interface PickListEmits {
+interface PickListEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -587,6 +587,8 @@ export interface PickListEmits {
     'move-all-to-source'(event: PickListMoveAllToSourceEvent): void;
 }
 
+export declare type PickListEmits = EmitFn<PickListEmitsOptions>;
+
 /**
  * **PrimeVue - PickList**
  *
@@ -597,12 +599,13 @@ export interface PickListEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class PickList extends ClassComponent<PickListProps, PickListSlots, PickListEmits> {}
+declare const PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PickList: GlobalComponentConstructor<PickList>;
+        PickList: GlobalComponentConstructor<PickListProps, PickListSlots, PickListEmits>;
     }
 }
 

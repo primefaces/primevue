@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type KnobPassThroughOptionType = KnobPassThroughAttributes | ((options: KnobPassThroughMethodOptions) => KnobPassThroughAttributes | string) | string | null | undefined;
 
@@ -221,7 +221,7 @@ export interface KnobSlots {}
 /**
  * Defines valid emits in Knob component.
  */
-export interface KnobEmits {
+export interface KnobEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number} event - New value.
@@ -234,6 +234,8 @@ export interface KnobEmits {
     change(value: number): void;
 }
 
+export declare type KnobEmits = EmitFn<KnobEmitsOptions>;
+
 /**
  * **PrimeVue - Knob**
  *
@@ -243,12 +245,14 @@ export interface KnobEmits {
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
+ * @group Component
+ *
  */
-declare class Knob extends ClassComponent<KnobProps, KnobSlots, KnobEmits> {}
+declare const Knob: DefineComponent<KnobProps, KnobSlots, KnobEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Knob: GlobalComponentConstructor<Knob>;
+        Knob: GlobalComponentConstructor<KnobProps, KnobSlots, KnobEmits>;
     }
 }
 

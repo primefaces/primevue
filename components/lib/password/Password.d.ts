@@ -11,7 +11,7 @@ import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
@@ -413,7 +413,7 @@ export interface PasswordSlots {
 /**
  * Defines valid emits in Password component.
  */
-export interface PasswordEmits {
+interface PasswordEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
@@ -426,6 +426,8 @@ export interface PasswordEmits {
     change(event: Event): void;
 }
 
+export declare type PasswordEmits = EmitFn<PasswordEmitsOptions>;
+
 /**
  * **PrimeVue - Password**
  *
@@ -436,12 +438,13 @@ export interface PasswordEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Password extends ClassComponent<PasswordProps, PasswordSlots, PasswordEmits> {}
+declare const Password: DefineComponent<PasswordProps, PasswordSlots, PasswordEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Password: GlobalComponentConstructor<Password>;
+        Password: GlobalComponentConstructor<PasswordProps, PasswordSlots, PasswordEmits>;
     }
 }
 

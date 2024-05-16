@@ -12,7 +12,7 @@ import { ComponentHooks } from '../basecomponent';
 import { DropdownPassThroughOptions } from '../dropdown';
 import { InputNumberPassThroughOptions } from '../inputnumber';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PaginatorPassThroughOptionType<T = any> = PaginatorPassThroughAttributes | ((options: PaginatorPassThroughMethodOptions<T>) => PaginatorPassThroughAttributes | string) | string | null | undefined;
 
@@ -417,7 +417,7 @@ export interface PaginatorSlots {
 /**
  * Defines valid emits in Paginator component.
  */
-export interface PaginatorEmits {
+interface PaginatorEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -435,6 +435,8 @@ export interface PaginatorEmits {
     page(event: PageState): void;
 }
 
+export declare type PaginatorEmits = EmitFn<PaginatorEmitsOptions>;
+
 /**
  * **PrimeVue - Paginator**
  *
@@ -445,12 +447,13 @@ export interface PaginatorEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Paginator extends ClassComponent<PaginatorProps, PaginatorSlots, PaginatorEmits> {}
+declare const Paginator: DefineComponent<PaginatorProps, PaginatorSlots, PaginatorEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Paginator: GlobalComponentConstructor<Paginator>;
+        Paginator: GlobalComponentConstructor<PaginatorProps, PaginatorSlots, PaginatorEmits>;
     }
 }
 

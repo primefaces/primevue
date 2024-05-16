@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TerminalPassThroughOptionType = TerminalPassThroughAttributes | ((options: TerminalPassThroughMethodOptions) => TerminalPassThroughAttributes | string) | string | null | undefined;
 
@@ -153,7 +153,9 @@ export interface TerminalSlots {}
 /**
  * Defines valid emits in Terminal component.
  */
-export interface TerminalEmits {}
+interface TerminalEmitsOptions {}
+
+export declare type TerminalEmits = EmitFn<TerminalEmitsOptions>;
 
 /**
  * **PrimeVue - Terminal**
@@ -165,12 +167,13 @@ export interface TerminalEmits {}
  * ![Primevue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Terminal extends ClassComponent<TerminalProps, TerminalSlots, TerminalEmits> {}
+declare const Terminal: DefineComponent<TerminalProps, TerminalSlots, TerminalEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Terminal: GlobalComponentConstructor<Terminal>;
+        Terminal: GlobalComponentConstructor<TerminalProps, TerminalSlots, TerminalEmits>;
     }
 }
 

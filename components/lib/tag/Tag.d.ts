@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TagPassThroughOptionType = TagPassThroughAttributes | ((options: TagPassThroughMethodOptions) => TagPassThroughAttributes | string) | string | null | undefined;
 
@@ -131,7 +131,9 @@ export interface TagSlots {
 /**
  * Defines valid emits in Tag component.
  */
-export interface TagEmits {}
+interface TagEmitsOptions {}
+
+export declare type TagEmits = EmitFn<TagEmitsOptions>;
 
 /**
  * **PrimeVue - Tag**
@@ -143,12 +145,13 @@ export interface TagEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Tag extends ClassComponent<TagProps, TagSlots, TagEmits> {}
+declare const Tag: DefineComponent<TagProps, TagSlots, TagEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tag: GlobalComponentConstructor<Tag>;
+        Tag: GlobalComponentConstructor<TagProps, TagSlots, TagEmits>;
     }
 }
 

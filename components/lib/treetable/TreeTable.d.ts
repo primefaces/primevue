@@ -13,7 +13,7 @@ import { ColumnPassThroughOptionType } from '../column';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { TreeNode } from '../treenode';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
 
@@ -720,7 +720,7 @@ export interface TreeTableSlots {
 /**
  * Defines valid emits in TreeTable component.
  */
-export interface TreeTableEmits {
+interface TreeTableEmitsOptions {
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.
@@ -798,6 +798,8 @@ export interface TreeTableEmits {
     'column-resize-end'(event: Event): void;
 }
 
+export declare type TreeTableEmits = EmitFn<TreeTableEmitsOptions>;
+
 /**
  * **PrimeVue - TreeTable**
  *
@@ -808,12 +810,13 @@ export interface TreeTableEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class TreeTable extends ClassComponent<TreeTableProps, TreeTableSlots, TreeTableEmits> {}
+declare const TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TreeTable: GlobalComponentConstructor<TreeTable>;
+        TreeTable: GlobalComponentConstructor<TreeTableProps, TreeTableSlots, TreeTableEmits>;
     }
 }
 

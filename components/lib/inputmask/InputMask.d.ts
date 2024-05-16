@@ -10,7 +10,7 @@
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttributes | ((options: InputMaskPassThroughMethodOptions) => InputMaskPassThroughAttributes | string) | string | null | undefined;
 
@@ -174,7 +174,7 @@ export interface InputMaskSlots {}
 /**
  * Defines valid emits in InputMask component.
  */
-export interface InputMaskEmits {
+interface InputMaskEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.
@@ -206,6 +206,8 @@ export interface InputMaskEmits {
     complete: (event: Event) => void;
 }
 
+export declare type InputMaskEmits = EmitFn<InputMaskEmitsOptions>;
+
 /**
  * **PrimeVue - InputMask**
  *
@@ -218,11 +220,11 @@ export interface InputMaskEmits {
  * @group Component
  *
  */
-declare class InputMask extends ClassComponent<InputMaskProps, InputMaskSlots, InputMaskEmits> {}
+declare const InputMask: DefineComponent<InputMaskProps, InputMaskSlots, InputMaskEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputMask: GlobalComponentConstructor<InputMask>;
+        InputMask: GlobalComponentConstructor<InputMaskProps, InputMaskSlots, InputMaskEmits>;
     }
 }
 

@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabPassThroughOptionType = TabPassThroughAttributes | ((options: TabPassThroughMethodOptions) => TabPassThroughAttributes | string) | string | null | undefined;
 
@@ -123,7 +123,9 @@ export interface TabSlots {
     default(): VNode[];
 }
 
-export interface TabEmits {}
+interface TabEmitsOptions {}
+
+export declare type TabEmits = EmitFn<TabEmitsOptions>;
 
 /**
  * **PrimeVue - Tab**
@@ -137,11 +139,11 @@ export interface TabEmits {}
  * @group Component
  *
  */
-declare class Tab extends ClassComponent<TabProps, TabSlots, TabEmits> {}
+declare const Tab: DefineComponent<TabProps, TabSlots, TabEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tab: GlobalComponentConstructor<Tab>;
+        Tab: GlobalComponentConstructor<TabProps, TabSlots, TabEmits>;
     }
 }
 

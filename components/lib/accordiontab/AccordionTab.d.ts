@@ -10,7 +10,7 @@
  */
 import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AccordionTabPassThroughOptionType = AccordionTabPassThroughAttributes | ((options: AccordionTabPassThroughMethodOptions) => AccordionTabPassThroughAttributes | string) | string | null | undefined;
 
@@ -216,7 +216,9 @@ export interface AccordionTabSlots {
 /**
  * Defines valid emits in AcordionTab component.
  */
-export interface AccordionTabEmits {}
+interface AccordionTabEmitsOptions {}
+
+export declare type AccordionTabEmits = EmitFn<AccordionTabEmitsOptions>;
 
 /**
  * @deprecated since v4. Use the new structure of Accordion instead.
@@ -230,12 +232,13 @@ export interface AccordionTabEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class AccordionTab extends ClassComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits> {}
+declare const AccordionTab: DefineComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionTab: GlobalComponentConstructor<AccordionTab>;
+        AccordionTab: GlobalComponentConstructor<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
     }
 }
 

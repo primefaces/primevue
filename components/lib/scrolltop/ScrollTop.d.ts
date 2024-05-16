@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | string) | string | null | undefined;
 
@@ -169,7 +169,9 @@ export interface ScrollTopSlots {
 /**
  * Defines valid emits in ScrollTop component.
  */
-export interface ScrollTopEmits {}
+interface ScrollTopEmitsOptions {}
+
+export declare type ScrollTopEmits = EmitFn<ScrollTopEmitsOptions>;
 
 /**
  * **PrimeVue - ScrollTop**
@@ -181,12 +183,13 @@ export interface ScrollTopEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ScrollTop extends ClassComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits> {}
+declare const ScrollTop: DefineComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ScrollTop: GlobalComponentConstructor<ScrollTop>;
+        ScrollTop: GlobalComponentConstructor<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
     }
 }
 

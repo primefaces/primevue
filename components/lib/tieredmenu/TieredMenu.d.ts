@@ -11,7 +11,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TieredMenuPassThroughOptionType<T = any> = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions<T>) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -348,7 +348,7 @@ export interface TieredMenuSlots {
 /**
  * Defines valid emits in TieredMenuMenu component.
  */
-export interface TieredMenuEmits {
+interface TieredMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
@@ -377,19 +377,9 @@ export interface TieredMenuEmits {
     hide(): void;
 }
 
-/**
- * **PrimeVue - TieredMenu**
- *
- * _TieredMenu displays submenus in nested overlays._
- *
- * [Live Demo](https://www.primevue.org/tieredmenu/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits> {
+export declare type TieredMenuEmits = EmitFn<TieredMenuEmitsOptions>;
+
+export interface TieredMenuMethods {
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event
@@ -412,9 +402,23 @@ declare class TieredMenu extends ClassComponent<TieredMenuProps, TieredMenuSlots
     hide(): void;
 }
 
+/**
+ * **PrimeVue - TieredMenu**
+ *
+ * _TieredMenu displays submenus in nested overlays._
+ *
+ * [Live Demo](https://www.primevue.org/tieredmenu/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        TieredMenu: GlobalComponentConstructor<TieredMenu>;
+        TieredMenu: GlobalComponentConstructor<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
     }
 }
 

@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type SliderPassThroughOptionType = SliderPassThroughAttributes | ((options: SliderPassThroughMethodOptions) => SliderPassThroughAttributes | string) | string | null | undefined;
 
@@ -172,7 +172,7 @@ export interface SliderSlots {}
 /**
  * Defines valid emits in Slider component.
  */
-export interface SliderEmits {
+interface SliderEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.
@@ -190,6 +190,8 @@ export interface SliderEmits {
     slideend(event: SliderSlideEndEvent): void;
 }
 
+export declare type SliderEmits = EmitFn<SliderEmitsOptions>;
+
 /**
  * **PrimeVue - Slider**
  *
@@ -202,11 +204,11 @@ export interface SliderEmits {
  * @group Component
  *
  */
-declare class Slider extends ClassComponent<SliderProps, SliderSlots, SliderEmits> {}
+declare const Slider: DefineComponent<SliderProps, SliderSlots, SliderEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Slider: GlobalComponentConstructor<Slider>;
+        Slider: GlobalComponentConstructor<SliderProps, SliderSlots, SliderEmits>;
     }
 }
 

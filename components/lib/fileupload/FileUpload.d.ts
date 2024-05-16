@@ -14,7 +14,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { MessagePassThroughOptions } from '../message';
 import { PassThroughOptions } from '../passthrough';
 import { ProgressBarPassThroughOptions } from '../progressbar';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
 
@@ -587,7 +587,7 @@ export interface FileUploadSlots {
     }): VNode[];
 }
 
-export interface FileUploadEmits {
+interface FileUploadEmitsOptions {
     /**
      * Callback to invoke when files are selected.
      * @param {FileUploadSelectEvent} event - Custom select event.
@@ -639,6 +639,17 @@ export interface FileUploadEmits {
     removeUploadedFile(event: FileUploadRemoveUploadedFile): void;
 }
 
+export declare type FileUploadEmits = EmitFn<FileUploadEmitsOptions>;
+
+export interface FileUploadMethods {
+    /**
+     * Upload file.
+     *
+     * @memberof FileUpload
+     */
+    upload(): void;
+}
+
 /**
  * **PrimeVue - FileUpload**
  *
@@ -651,18 +662,11 @@ export interface FileUploadEmits {
  * @group Component
  *
  */
-declare class FileUpload extends ClassComponent<FileUploadProps, FileUploadSlots, FileUploadEmits> {
-    /**
-     * Upload file.
-     *
-     * @memberof FileUpload
-     */
-    upload(): void;
-}
+declare const FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FileUpload: GlobalComponentConstructor<FileUpload>;
+        FileUpload: GlobalComponentConstructor<FileUploadProps, FileUploadSlots, FileUploadEmits>;
     }
 }
 

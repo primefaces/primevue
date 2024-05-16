@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DeferredContentPassThroughOptionType = DeferredContentPassThroughAttributes | ((options: DeferredContentPassThroughMethodOptions) => DeferredContentPassThroughAttributes | string) | string | null | undefined;
 
@@ -116,12 +116,14 @@ export interface DeferredContentSlots {
 /**
  * Defines valid emits in DeferredContent component.
  */
-export interface DeferredContentEmits {
+interface DeferredContentEmitsOptions {
     /**
      * Callback to invoke when deferred content is loaded.
      */
     load(): void;
 }
+
+export declare type DeferredContentEmits = EmitFn<DeferredContentEmitsOptions>;
 
 /**
  * **PrimeVue - DeferredContent**
@@ -133,12 +135,13 @@ export interface DeferredContentEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class DeferredContent extends ClassComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits> {}
+declare const DeferredContent: DefineComponent<DeferredContentProps, DeferredContentSlots, DeferredContentEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DeferredContent: GlobalComponentConstructor<DeferredContent>;
+        DeferredContent: GlobalComponentConstructor<DeferredContentProps, DeferredContentSlots, DeferredContentEmits>;
     }
 }
 

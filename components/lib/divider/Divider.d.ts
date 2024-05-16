@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DividerPassThroughOptionType = DividerPassThroughAttributes | ((options: DividerPassThroughMethodOptions) => DividerPassThroughAttributes | string) | string | null | undefined;
 
@@ -116,7 +116,9 @@ export interface DividerSlots {
     default(): VNode[];
 }
 
-export interface DividerEmits {}
+interface DividerEmitsOptions {}
+
+export declare type DividerEmits = EmitFn<DividerEmitsOptions>;
 
 /**
  * **PrimeVue - Divider**
@@ -130,11 +132,11 @@ export interface DividerEmits {}
  * @group Component
  *
  */
-declare class Divider extends ClassComponent<DividerProps, DividerSlots, DividerEmits> {}
+declare const Divider: DefineComponent<DividerProps, DividerSlots, DividerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Divider: GlobalComponentConstructor<Divider>;
+        Divider: GlobalComponentConstructor<DividerProps, DividerSlots, DividerEmits>;
     }
 }
 

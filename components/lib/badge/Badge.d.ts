@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type BadgePassThroughOptionType<T = any> = BadgePassThroughAttributes | ((options: BadgePassThroughMethodOptions<T>) => BadgePassThroughAttributes | string) | string | null | undefined;
 
@@ -109,7 +109,9 @@ export interface BadgeSlots {
 /**
  * Defines valid emits in Badge component.
  */
-export interface BadgeEmits {}
+interface BadgeEmitsOptions {}
+
+export declare type BadgeEmits = EmitFn<BadgeEmitsOptions>;
 
 /**
  * **PrimeVue - Badge**
@@ -121,12 +123,13 @@ export interface BadgeEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Badge extends ClassComponent<BadgeProps, BadgeSlots, BadgeEmits> {}
+declare const Badge: DefineComponent<BadgeProps, BadgeSlots, BadgeEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Badge: GlobalComponentConstructor<Badge>;
+        Badge: GlobalComponentConstructor<BadgeProps, BadgeSlots, BadgeEmits>;
     }
 }
 

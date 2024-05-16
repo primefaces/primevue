@@ -13,7 +13,7 @@ import { ButtonPassThroughOptions } from '../button';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
 import { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from '../tieredmenu';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -311,13 +311,15 @@ export interface SplitButtonSlots {
 /**
  * Defines valid emits in SplitButton component.
  */
-export interface SplitButtonEmits {
+interface SplitButtonEmitsOptions {
     /**
      * Callback to invoke when main button is clicked.
      * @param {Event} event - Browser event.
      */
     click(event: Event): void;
 }
+
+export declare type SplitButtonEmits = EmitFn<SplitButtonEmitsOptions>;
 
 /**
  * **PrimeVue - SplitButton**
@@ -331,11 +333,11 @@ export interface SplitButtonEmits {
  * @group Component
  *
  */
-declare class SplitButton extends ClassComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits> {}
+declare const SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SplitButton: GlobalComponentConstructor<SplitButton>;
+        SplitButton: GlobalComponentConstructor<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
     }
 }
 

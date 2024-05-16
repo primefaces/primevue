@@ -1,27 +1,27 @@
-import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNode, VNodeProps } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, MethodOptions, ObjectEmitsOptions, SlotsType, VNode, VNodeProps, DefineComponent as _DefineComponent } from 'vue';
 
 declare type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
 declare type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void ? I : never;
 
-declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Options = keyof Options> = Options extends Array<infer V>
-    ? (event: V, ...args: any[]) => void
+export declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Options = keyof Options> = Options extends Array<infer V>
+    ? (e: V, ...args: any[]) => void
     : {} extends Options
-    ? (event: string, ...args: any[]) => void
+    ? (e: string, ...args: any[]) => void
     : UnionToIntersection<
           {
-              [key in Event]: Options[key] extends (...args: infer Args) => any ? (event: key, ...args: Args) => void : (event: key, ...args: any[]) => void;
+              [key in Event]: Options[key] extends (...args: infer Args) => any ? (e: key, ...args: Args) => void : (e: key, ...args: any[]) => void;
           }[Event]
       >;
 
-export class ClassComponent<Props, Slots, Emits> {
-    $props: Props & PublicProps;
-    $slots: Slots;
-    $emit: EmitFn<Emits>;
-}
+export type DefineComponent<P = {}, S = {}, E = {}, M = {}> = _DefineComponent<P, {}, {}, {}, M & MethodOptions, {}, {}, E & ObjectEmitsOptions, string, {}, {}, {}, S & SlotsType>;
 
-export type GlobalComponentConstructor<T> = {
-    new (): T;
+export type GlobalComponentConstructor<P = {}, S = {}, E = {}, M = {}> = {
+    new (): {
+        $props: P & PublicProps;
+        $slots: S;
+        $emit: E;
+    } & M;
 };
 
 /**

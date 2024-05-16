@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -313,7 +313,7 @@ export interface DataViewSlots {
 /**
  * Defines valid slots in DataView component.
  */
-export interface DataViewEmits {
+interface DataViewEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -331,6 +331,8 @@ export interface DataViewEmits {
     page(event: DataViewPageEvent): void;
 }
 
+export declare type DataViewEmits = EmitFn<DataViewEmitsOptions>;
+
 /**
  * **PrimeVue - DataView**
  *
@@ -343,11 +345,11 @@ export interface DataViewEmits {
  * @group Component
  *
  */
-declare class DataView extends ClassComponent<DataViewProps, DataViewSlots, DataViewEmits> {}
+declare const DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataView: GlobalComponentConstructor<DataView>;
+        DataView: GlobalComponentConstructor<DataViewProps, DataViewSlots, DataViewEmits>;
     }
 }
 

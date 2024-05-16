@@ -1,4 +1,4 @@
-import { ClassComponent } from '../ts-helpers';
+import { DefineComponent, EmitFn } from '../ts-helpers';
 
 export interface IconProps {
     label?: string | undefined;
@@ -7,6 +7,8 @@ export interface IconProps {
 
 export interface IconSlots {}
 
-export interface IconEmits {}
+interface IconEmitsOptions {}
 
-export declare class Icon extends ClassComponent<IconProps, IconSlots, IconEmits> {}
+export declare type IconEmits = EmitFn<IconEmitsOptions>;
+
+declare const Icon: DefineComponent<IconProps, IconSlots, IconEmits>;

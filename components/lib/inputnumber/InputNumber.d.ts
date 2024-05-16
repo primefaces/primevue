@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { InputTextPassThroughOptions } from '../inputtext';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, Nullable, PassThrough } from '../ts-helpers';
 
 export declare type RoundingMode = 'ceil' | 'floor' | 'expand' | 'trunc' | 'halfCeil' | 'halfFloor' | 'halfExpand' | 'halfTrunc' | 'halfEven';
 
@@ -420,7 +420,7 @@ export interface InputNumberSlots {
 /**
  * Defines valid emits in InputNumber component.
  */
-export interface InputNumberEmits {
+interface InputNumberEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.
@@ -443,6 +443,17 @@ export interface InputNumberEmits {
     blur(event: InputNumberBlurEvent): void;
 }
 
+export declare type InputNumberEmits = EmitFn<InputNumberEmitsOptions>;
+
+export interface InputNumberMethods {
+    /**
+     * Returns Intl.NumberFormat object.
+     *
+     * @memberof InputNumber
+     */
+    getFormatter: () => Intl.NumberFormat | undefined;
+}
+
 /**
  * **PrimeVue - InputNumber**
  *
@@ -453,19 +464,13 @@ export interface InputNumberEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class InputNumber extends ClassComponent<InputNumberProps, InputNumberSlots, InputNumberEmits> {
-    /**
-     * Returns Intl.NumberFormat object.
-     *
-     * @memberof InputNumber
-     */
-    getFormatter: () => Intl.NumberFormat | undefined;
-}
+declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputNumber: GlobalComponentConstructor<InputNumber>;
+        InputNumber: GlobalComponentConstructor<InputNumberProps, InputNumberSlots, InputNumberEmits>;
     }
 }
 

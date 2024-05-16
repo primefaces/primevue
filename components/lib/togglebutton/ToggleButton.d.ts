@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ToggleButtonPassThroughOptionType<T = any> = ToggleButtonPassThroughAttributes | ((options: ToggleButtonPassThroughMethodOptions<T>) => ToggleButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -204,7 +204,7 @@ export interface ToggleButtonSlots {
 /**
  * Defines valid emits in ToggleButton component.
  */
-export interface ToggleButtonEmits {
+interface ToggleButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.
@@ -227,6 +227,8 @@ export interface ToggleButtonEmits {
     blur(event: Event): void;
 }
 
+export declare type ToggleButtonEmits = EmitFn<ToggleButtonEmitsOptions>;
+
 /**
  * **PrimeVue - ToggleButton**
  *
@@ -239,11 +241,11 @@ export interface ToggleButtonEmits {
  * @group Component
  *
  */
-declare class ToggleButton extends ClassComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits> {}
+declare const ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ToggleButton: GlobalComponentConstructor<ToggleButton>;
+        ToggleButton: GlobalComponentConstructor<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
     }
 }
 

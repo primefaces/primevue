@@ -9,7 +9,7 @@
  */
 import 'vue';
 import * as Popover from '../popover';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.
@@ -52,22 +52,11 @@ export interface OverlayPanelSlots extends Popover.PopoverSlots {}
 /**
  * Defines valid emits in OverlayPanel component.
  */
-export interface OverlayPanelEmits extends Popover.PopoverEmits {}
+interface OverlayPanelEmitsOptions {}
 
-/**
- * @deprecated Deprecated since v4. Use Popover component instead.
- *
- * **PrimeVue - OverlayPanel**
- *
- * _OverlayPanel, also known as Popover, is a container component that can overlay other components on page._
- *
- * [Live Demo](https://www.primevue.org/popover/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- */
-declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits> {
+export declare type OverlayPanelEmits = EmitFn<OverlayPanelEmitsOptions> & Popover.PopoverEmits;
+
+export interface OverlayPanelMethods {
     /**
      * Aligns overlay panel based on the current position of the container.
      */
@@ -96,9 +85,25 @@ declare class OverlayPanel extends ClassComponent<OverlayPanelProps, OverlayPane
     hide(): void;
 }
 
+/**
+ * @deprecated Deprecated since v4. Use Popover component instead.
+ *
+ * **PrimeVue - OverlayPanel**
+ *
+ * _OverlayPanel, also known as Popover, is a container component that can overlay other components on page._
+ *
+ * [Live Demo](https://www.primevue.org/popover/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const OverlayPanel: DefineComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits, OverlayPanelMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        OverlayPanel: GlobalComponentConstructor<OverlayPanel>;
+        OverlayPanel: GlobalComponentConstructor<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits, OverlayPanelMethods>;
     }
 }
 

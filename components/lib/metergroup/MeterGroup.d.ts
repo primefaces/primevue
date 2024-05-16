@@ -9,7 +9,7 @@
  */
 import { VNode } from 'vue';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type MeterGroupPassThroughOptionType = MeterGroupPassThroughAttributes | ((options: MeterGroupPassThroughMethodOptions) => MeterGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -285,7 +285,9 @@ export interface MeterGroupSlots {
 /**
  * Defines valid emits in MeterGroup component.
  */
-export interface MeterGroupEmits {}
+interface MeterGroupEmitsOptions {}
+
+export declare type MeterGroupEmits = EmitFn<MeterGroupEmitsOptions>;
 
 /**
  * **PrimeVue - MeterGroup**
@@ -297,12 +299,13 @@ export interface MeterGroupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class MeterGroup extends ClassComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits> {}
+declare const MeterGroup: DefineComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MeterGroup: GlobalComponentConstructor<MeterGroup>;
+        MeterGroup: GlobalComponentConstructor<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
     }
 }
 

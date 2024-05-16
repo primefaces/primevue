@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -251,13 +251,15 @@ export interface TabMenuSlots {
 /**
  * Defines valid emits in TabMenu component.
  */
-export interface TabMenuEmits {
+interface TabMenuEmitsOptions {
     /**
      * Callback to invoke when an active tab is changed.
      * @param {TabMenuChangeEvent} event - Custom tab change event.
      */
     'tab-change'(event: TabMenuChangeEvent): void;
 }
+
+export declare type TabMenuEmits = EmitFn<TabMenuEmitsOptions>;
 
 /**
  * **PrimeVue - TabMenu**
@@ -271,11 +273,11 @@ export interface TabMenuEmits {
  * @group Component
  *
  */
-declare class TabMenu extends ClassComponent<TabMenuProps, TabMenuSlots, TabMenuEmits> {}
+declare const TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabMenu: GlobalComponentConstructor<TabMenu>;
+        TabMenu: GlobalComponentConstructor<TabMenuProps, TabMenuSlots, TabMenuEmits>;
     }
 }
 

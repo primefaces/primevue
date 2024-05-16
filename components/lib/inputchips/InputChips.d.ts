@@ -11,7 +11,7 @@ import { InputHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ChipPassThroughOptions } from '../chip';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputChipsPassThroughOptionType = InputChipsPassThroughAttributes | ((options: InputChipsPassThroughMethodOptions) => InputChipsPassThroughAttributes | string) | string | null | undefined;
 
@@ -320,7 +320,7 @@ export interface InputChipsSlots {
 /**
  * Defines valid emits in InputChips component.
  */
-export interface InputChipsEmits {
+interface InputChipsEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -338,6 +338,8 @@ export interface InputChipsEmits {
     remove(event: InputChipsRemoveEvent): void;
 }
 
+export declare type InputChipsEmits = EmitFn<InputChipsEmitsOptions>;
+
 /**
  * **PrimeVue - InputChips**
  *
@@ -350,11 +352,11 @@ export interface InputChipsEmits {
  * @group Component
  *
  */
-declare class InputChips extends ClassComponent<InputChipsProps, InputChipsSlots, InputChipsEmits> {}
+declare const InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputChips: GlobalComponentConstructor<InputChips>;
+        InputChips: GlobalComponentConstructor<InputChipsProps, InputChipsSlots, InputChipsEmits>;
     }
 }
 

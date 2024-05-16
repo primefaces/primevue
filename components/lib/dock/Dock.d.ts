@@ -11,7 +11,7 @@ import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes | string) | string | null | undefined;
 
@@ -299,7 +299,7 @@ export interface DockSlots {
 /**
  * Defines valid emits in Dock component.
  */
-export interface DockEmits {
+interface DockEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
@@ -311,6 +311,8 @@ export interface DockEmits {
      */
     blur(event: Event): void;
 }
+
+export declare type DockEmits = EmitFn<DockEmitsOptions>;
 
 /**
  * **PrimeVue - Dock**
@@ -324,11 +326,11 @@ export interface DockEmits {
  * @group Component
  *
  */
-declare class Dock extends ClassComponent<DockProps, DockSlots, DockEmits> {}
+declare const Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Dock: GlobalComponentConstructor<Dock>;
+        Dock: GlobalComponentConstructor<DockProps, DockSlots, DockEmits>;
     }
 }
 

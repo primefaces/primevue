@@ -10,7 +10,7 @@
 import { HTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InplacePassThroughOptionType = InplacePassThroughAttributes | ((options: InplacePassThroughMethodOptions) => InplacePassThroughAttributes | string) | string | null | undefined;
 
@@ -167,7 +167,7 @@ export interface InplaceSlots {
 /**
  * Defines valid emits in Inplace component.
  */
-export interface InplaceEmits {
+interface InplaceEmitsOptions {
     /**
      * Emitted when the active changes.
      * @param {boolean} value - New value.
@@ -185,6 +185,8 @@ export interface InplaceEmits {
     close(event: Event): void;
 }
 
+export declare type InplaceEmits = EmitFn<InplaceEmitsOptions>;
+
 /**
  * **PrimeVue - Inplace**
  *
@@ -195,12 +197,13 @@ export interface InplaceEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Inplace extends ClassComponent<InplaceProps, InplaceSlots, InplaceEmits> {}
+declare const Inplace: DefineComponent<InplaceProps, InplaceSlots, InplaceEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Inplace: GlobalComponentConstructor<Inplace>;
+        Inplace: GlobalComponentConstructor<InplaceProps, InplaceSlots, InplaceEmits>;
     }
 }
 

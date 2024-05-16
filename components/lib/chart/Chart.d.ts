@@ -10,7 +10,7 @@
 import { CanvasHTMLAttributes } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ChartPassThroughOptionType = ChartPassThroughAttributes | ((options: ChartPassThroughMethodOptions) => ChartPassThroughAttributes | string) | string | null | undefined;
 
@@ -146,7 +146,7 @@ export interface ChartSlots {}
 /**
  * Defines valid emits in Chart component.
  */
-export interface ChartEmits {
+interface ChartEmitsOptions {
     /**
      * Callback to invoke when a tab gets expanded.
      * @param {ChartSelectEvent} event - Custom select event.
@@ -159,19 +159,9 @@ export interface ChartEmits {
     loaded(chart: any): void;
 }
 
-/**
- * **PrimeVue - Chart**
- *
- * _Chart groups a collection of contents in tabs._
- *
- * [Live Demo](https://www.primevue.org/chart/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
+export declare type ChartEmits = EmitFn<ChartEmitsOptions>;
+
+export interface ChartMethods {
     /**
      * Redraws the graph.
      *
@@ -198,9 +188,23 @@ declare class Chart extends ClassComponent<ChartProps, ChartSlots, ChartEmits> {
     getChart(): any;
 }
 
+/**
+ * **PrimeVue - Chart**
+ *
+ * _Chart groups a collection of contents in tabs._
+ *
+ * [Live Demo](https://www.primevue.org/chart/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const Chart: DefineComponent<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        Chart: GlobalComponentConstructor<Chart>;
+        Chart: GlobalComponentConstructor<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
     }
 }
 

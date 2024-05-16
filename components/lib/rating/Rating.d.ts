@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type RatingPassThroughOptionType = RatingPassThroughAttributes | ((options: RatingPassThroughMethodOptions) => RatingPassThroughAttributes | string) | string | null | undefined;
 
@@ -231,7 +231,7 @@ export interface RatingSlots {
 /**
  * Defines valid emits in Rating component.
  */
-export interface RatingEmits {
+interface RatingEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.
@@ -254,6 +254,8 @@ export interface RatingEmits {
     blur(event: Event): void;
 }
 
+export declare type RatingEmits = EmitFn<RatingEmitsOptions>;
+
 /**
  * **PrimeVue - Rating**
  *
@@ -264,12 +266,13 @@ export interface RatingEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Rating extends ClassComponent<RatingProps, RatingSlots, RatingEmits> {}
+declare const Rating: DefineComponent<RatingProps, RatingSlots, RatingEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Rating: GlobalComponentConstructor<Rating>;
+        Rating: GlobalComponentConstructor<RatingProps, RatingSlots, RatingEmits>;
     }
 }
 

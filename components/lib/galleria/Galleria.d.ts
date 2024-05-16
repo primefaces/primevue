@@ -10,7 +10,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | string) | string | null | undefined;
 
@@ -503,7 +503,7 @@ export interface GalleriaSlots {
 /**
  * Defines valid emits in Galleria component.
  */
-export interface GalleriaEmits {
+interface GalleriaEmitsOptions {
     /**
      * Emitted when the active index changes.
      * @param {number} value - Index of new active item.
@@ -515,6 +515,8 @@ export interface GalleriaEmits {
      */
     'update:visible'(value: boolean): void;
 }
+
+export declare type GalleriaEmits = EmitFn<GalleriaEmitsOptions>;
 
 /**
  * **PrimeVue - Galleria**
@@ -528,11 +530,11 @@ export interface GalleriaEmits {
  * @group Component
  *
  */
-declare class Galleria extends ClassComponent<GalleriaProps, GalleriaSlots, GalleriaEmits> {}
+declare const Galleria: DefineComponent<GalleriaProps, GalleriaSlots, GalleriaEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Galleria: GlobalComponentConstructor<Galleria>;
+        Galleria: GlobalComponentConstructor<GalleriaProps, GalleriaSlots, GalleriaEmits>;
     }
 }
 

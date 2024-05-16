@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputGroupPassThroughOptionType = InputGroupPassThroughAttributes | ((options: InputGroupPassThroughMethodOptions) => InputGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -102,7 +102,9 @@ export interface InputGroupSlots {
 /**
  * Defines valid emits in InputGroup component.
  */
-export interface InputGroupEmits {}
+interface InputGroupEmitsOptions {}
+
+export declare type InputGroupEmits = EmitFn<InputGroupEmitsOptions>;
 
 /**
  * **PrimeVue - InputGroup**
@@ -114,12 +116,13 @@ export interface InputGroupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class InputGroup extends ClassComponent<InputGroupProps, InputGroupSlots, InputGroupEmits> {}
+declare const InputGroup: DefineComponent<InputGroupProps, InputGroupSlots, InputGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputGroup: GlobalComponentConstructor<InputGroup>;
+        InputGroup: GlobalComponentConstructor<InputGroupProps, InputGroupSlots, InputGroupEmits>;
     }
 }
 

@@ -12,7 +12,7 @@ import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { MenuItem } from '../menuitem';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type ContextMenuPassThroughOptionType = ContextMenuPassThroughAttributes | ((options: ContextMenuPassThroughMethodOptions) => ContextMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -341,7 +341,7 @@ export interface ContextMenuSlots {
 /**
  * Defines valid emits in ContextMenu component.
  */
-export interface ContextMenuEmits {
+interface ContextMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
@@ -370,20 +370,9 @@ export interface ContextMenuEmits {
     hide(): void;
 }
 
-/**
- * **PrimeVue - ContextMenu**
- *
- * _ContextMenu displays an overlay menu on right click of its target. Note that components like DataTable has special integration with ContextMenu.
- * Refer to documentation of the individual documentation of the with context menu support._
- *
- * [Live Demo](https://www.primevue.org/contextmenu/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits> {
+export declare type ContextMenuEmits = EmitFn<ContextMenuEmitsOptions>;
+
+export interface ContextMenuMethods {
     /**
      * Toggles the visibility of the menu.
      * @param {Event} event - Browser event.
@@ -406,9 +395,24 @@ declare class ContextMenu extends ClassComponent<ContextMenuProps, ContextMenuSl
     hide(): void;
 }
 
+/**
+ * **PrimeVue - ContextMenu**
+ *
+ * _ContextMenu displays an overlay menu on right click of its target. Note that components like DataTable has special integration with ContextMenu.
+ * Refer to documentation of the individual documentation of the with context menu support._
+ *
+ * [Live Demo](https://www.primevue.org/contextmenu/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const ContextMenu: DefineComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        ContextMenu: GlobalComponentConstructor<ContextMenu>;
+        ContextMenu: GlobalComponentConstructor<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
     }
 }
 

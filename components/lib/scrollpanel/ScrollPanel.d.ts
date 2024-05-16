@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ScrollPanelPassThroughOptionType = ScrollPanelPassThroughAttributes | ((options: ScrollPanelPassThroughMethodOptions) => ScrollPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -148,7 +148,9 @@ export interface ScrollPanelSlots {
     default: () => VNode[];
 }
 
-export interface ScrollPanelEmits {}
+interface ScrollPanelEmitsOptions {}
+
+export declare type ScrollPanelEmits = EmitFn<ScrollPanelEmitsOptions>;
 
 /**
  * **PrimeVue - ScrollPanel**
@@ -162,11 +164,11 @@ export interface ScrollPanelEmits {}
  * @group Component
  *
  */
-declare class ScrollPanel extends ClassComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits> {}
+declare const ScrollPanel: DefineComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ScrollPanel: GlobalComponentConstructor<ScrollPanel>;
+        ScrollPanel: GlobalComponentConstructor<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits>;
     }
 }
 

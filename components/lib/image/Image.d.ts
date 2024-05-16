@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ImagePassThroughOptionType = ImagePassThroughAttributes | ((options: ImagePassThroughMethodOptions) => ImagePassThroughAttributes | string) | string | null | undefined;
 
@@ -329,21 +329,11 @@ export interface ImageSlots {
     }): VNode[];
 }
 
-export interface ImageEmits {}
+interface ImageEmitsOptions {}
 
-/**
- * **PrimeVue - Image**
- *
- * _Displays an image with preview and tranformation options. For multiple image, see Galleria._
- *
- * [Live Demo](https://www.primevue.org/image/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- *
- */
-declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
+export declare type ImageEmits = EmitFn<ImageEmitsOptions>;
+
+export interface ImageMethods {
     /**
      * Triggered when the preview overlay is shown.
      *
@@ -364,9 +354,23 @@ declare class Image extends ClassComponent<ImageProps, ImageSlots, ImageEmits> {
     error(): void;
 }
 
+/**
+ * **PrimeVue - Image**
+ *
+ * _Displays an image with preview and tranformation options. For multiple image, see Galleria._
+ *
+ * [Live Demo](https://www.primevue.org/image/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const Image: DefineComponent<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        Image: GlobalComponentConstructor<Image>;
+        Image: GlobalComponentConstructor<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
     }
 }
 

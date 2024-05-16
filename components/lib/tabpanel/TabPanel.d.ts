@@ -10,7 +10,7 @@
 import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -209,7 +209,9 @@ export interface TabPanelSlots {
     header(): VNode[];
 }
 
-export interface TabPanelEmits {}
+interface TabPanelEmitsOptions {}
+
+export declare type TabPanelEmits = EmitFn<TabPanelEmitsOptions>;
 
 /**
  * **PrimeVue - TabPanel**
@@ -223,11 +225,11 @@ export interface TabPanelEmits {}
  * @group Component
  *
  */
-declare class TabPanel extends ClassComponent<TabPanelProps, TabPanelSlots, TabPanelEmits> {}
+declare const TabPanel: DefineComponent<TabPanelProps, TabPanelSlots, TabPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabPanel: GlobalComponentConstructor<TabPanel>;
+        TabPanel: GlobalComponentConstructor<TabPanelProps, TabPanelSlots, TabPanelEmits>;
     }
 }
 

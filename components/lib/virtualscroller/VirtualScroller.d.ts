@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | string) | string | null | undefined;
 
@@ -464,7 +464,7 @@ export interface VirtualScrollerSlots {
 /**
  * Defines valid emits in VirtualScroller component.
  */
-export interface VirtualScrollerEmits {
+interface VirtualScrollerEmitsOptions {
     /**
      * Emitted when the numToleratedItems changes.
      * @param {number} value - New number tolerated items
@@ -487,18 +487,9 @@ export interface VirtualScrollerEmits {
     'lazy-load'(event: VirtualScrollerLazyEvent): void;
 }
 
-/**
- * **PrimeVue - VirtualScroller**
- *
- * _VirtualScroller is a performant approach to handle huge data efficiently._
- *
- * [Live Demo](https://www.primevue.org/virtualscroller/)
- * --- ---
- * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
- *
- * @group Component
- */
-declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits> {
+export declare type VirtualScrollerEmits = EmitFn<VirtualScrollerEmitsOptions>;
+
+export interface VirtualScrollerMethods {
     /**
      * Scroll to move to a specific position.
      * @param {ScrollToOptions} [options] - scoll options.
@@ -523,9 +514,23 @@ declare class VirtualScroller extends ClassComponent<VirtualScrollerProps, Virtu
     getRenderedRange(): VirtualScrollerRangeMethod;
 }
 
+/**
+ * **PrimeVue - VirtualScroller**
+ *
+ * _VirtualScroller is a performant approach to handle huge data efficiently._
+ *
+ * [Live Demo](https://www.primevue.org/virtualscroller/)
+ * --- ---
+ * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
+ *
+ * @group Component
+ *
+ */
+declare const VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
+
 declare module 'vue' {
     export interface GlobalComponents {
-        VirtualScroller: GlobalComponentConstructor<VirtualScroller>;
+        VirtualScroller: GlobalComponentConstructor<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
     }
 }
 

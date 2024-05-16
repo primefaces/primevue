@@ -9,7 +9,7 @@
  */
 import 'vue';
 import * as DatePicker from '../datepicker';
-import { ClassComponent, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.
@@ -98,7 +98,9 @@ export interface CalendarSlots extends DatePicker.DatePickerSlots {}
 /**
  * Defines valid emits in Calendar component.
  */
-export interface CalendarEmits extends DatePicker.DatePickerEmits {}
+interface CalendarEmitsOptions {}
+
+export declare type CalendarEmits = EmitFn<CalendarEmitsOptions> & DatePicker.DatePickerEmits;
 
 /**
  * @deprecated Deprecated since v4. Use DatePicker component instead.
@@ -112,12 +114,13 @@ export interface CalendarEmits extends DatePicker.DatePickerEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Calendar extends ClassComponent<CalendarProps, CalendarSlots, CalendarEmits> {}
+declare const Calendar: DefineComponent<CalendarProps, CalendarSlots, CalendarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Calendar: GlobalComponentConstructor<Calendar>;
+        Calendar: GlobalComponentConstructor<CalendarProps, CalendarSlots, CalendarEmits>;
     }
 }
 

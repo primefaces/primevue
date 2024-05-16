@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputIconPassThroughOptionType<T = any> = InputIconPassThroughAttributes | ((options: InputIconPassThroughMethodOptions<T>) => InputIconPassThroughAttributes | string) | string | null | undefined;
 
@@ -97,7 +97,9 @@ export interface InputIconSlots {
 /**
  * Defines valid emits in InputIcon component.
  */
-export interface InputIconEmits {}
+interface InputIconEmitsOptions {}
+
+export declare type InputIconEmits = EmitFn<InputIconEmitsOptions>;
 
 /**
  * **PrimeVue - InputIcon**
@@ -109,12 +111,13 @@ export interface InputIconEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class InputIcon extends ClassComponent<InputIconProps, InputIconSlots, InputIconEmits> {}
+declare const InputIcon: DefineComponent<InputIconProps, InputIconSlots, InputIconEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputIcon: GlobalComponentConstructor<InputIcon>;
+        InputIcon: GlobalComponentConstructor<InputIconProps, InputIconSlots, InputIconEmits>;
     }
 }
 

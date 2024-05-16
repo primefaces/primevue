@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type AvatarGroupPassThroughOptionType = AvatarGroupPassThroughAttributes | ((options: AvatarGroupPassThroughMethodOptions) => AvatarGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -101,7 +101,9 @@ export interface AvatarGroupSlots {
 /**
  * Defines valid emits in AvatarGroup component.
  */
-export interface AvatarGroupEmits {}
+interface AvatarGroupEmitsOptions {}
+
+export declare type AvatarGroupEmits = EmitFn<AvatarGroupEmitsOptions>;
 
 /**
  * **PrimeVue - AvatarGroup**
@@ -113,12 +115,13 @@ export interface AvatarGroupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class AvatarGroup extends ClassComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits> {}
+declare const AvatarGroup: DefineComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AvatarGroup: GlobalComponentConstructor<AvatarGroup>;
+        AvatarGroup: GlobalComponentConstructor<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
     }
 }
 

@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type OrganizationChartPassThroughOptionType = OrganizationChartPassThroughAttributes | ((options: OrganizationChartPassThroughMethodOptions) => OrganizationChartPassThroughAttributes | string) | string | null | undefined;
 
@@ -307,7 +307,7 @@ export interface OrganizationChartSlots {
 /**
  * Defines valid emits in OrganizationChart component.
  */
-export interface OrganizationChartEmits {
+interface OrganizationChartEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -340,6 +340,8 @@ export interface OrganizationChartEmits {
     'node-collapsed'(node: OrganizationChartNode): void;
 }
 
+export declare type OrganizationChartEmits = EmitFn<OrganizationChartEmitsOptions>;
+
 /**
  * **PrimeVue - OrganizationChart**
  *
@@ -350,12 +352,13 @@ export interface OrganizationChartEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class OrganizationChart extends ClassComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits> {}
+declare const OrganizationChart: DefineComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OrganizationChart: GlobalComponentConstructor<OrganizationChart>;
+        OrganizationChart: GlobalComponentConstructor<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits>;
     }
 }
 

@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type IconFieldPassThroughOptionType<T = any> = IconFieldPassThroughAttributes | ((options: IconFieldPassThroughMethodOptions<T>) => IconFieldPassThroughAttributes | string) | string | null | undefined;
 
@@ -101,7 +101,9 @@ export interface IconFieldSlots {
 /**
  * Defines valid emits in IconField component.
  */
-export interface IconFieldEmits {}
+interface IconFieldEmitsOptions {}
+
+export declare type IconFieldEmits = EmitFn<IconFieldEmitsOptions>;
 
 /**
  * **PrimeVue - IconField**
@@ -115,11 +117,11 @@ export interface IconFieldEmits {}
  * @group Component
  *
  */
-declare class IconField extends ClassComponent<IconFieldProps, IconFieldSlots, IconFieldEmits> {}
+declare const IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFieldEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        IconField: GlobalComponentConstructor<IconField>;
+        IconField: GlobalComponentConstructor<IconFieldProps, IconFieldSlots, IconFieldEmits>;
     }
 }
 

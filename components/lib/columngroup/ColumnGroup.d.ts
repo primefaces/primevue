@@ -9,7 +9,7 @@
  */
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ColumnGroupPassThroughOptionType = ColumnGroupPassThroughAttributes | ((options: ColumnGroupPassThroughMethodOptions) => ColumnGroupPassThroughAttributes | string) | string | null | undefined;
 
@@ -118,7 +118,9 @@ export interface ColumnGroupSlots {}
 /**
  * Defines valid emits in ColumnGroup component.
  */
-export interface ColumnGroupEmits {}
+interface ColumnGroupEmitsOptions {}
+
+export declare type ColumnGroupEmits = EmitFn<ColumnGroupEmitsOptions>;
 
 /**
  * **PrimeVue - ColumnGroup**
@@ -130,12 +132,13 @@ export interface ColumnGroupEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class ColumnGroup extends ClassComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits> {}
+declare const ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ColumnGroup: GlobalComponentConstructor<ColumnGroup>;
+        ColumnGroup: GlobalComponentConstructor<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
     }
 }
 

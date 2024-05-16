@@ -10,7 +10,7 @@
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type CascadeSelectPassThroughOptionType = CascadeSelectPassThroughAttributes | ((options: CascadeSelectPassThroughMethodOptions) => CascadeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -497,7 +497,7 @@ export interface CascadeSelectSlots {
 /**
  * Defines valid emits in CascadeSelect component.
  */
-export interface CascadeSelectEmits {
+interface CascadeSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -546,6 +546,8 @@ export interface CascadeSelectEmits {
     hide(): void;
 }
 
+export declare type CascadeSelectEmits = EmitFn<CascadeSelectEmitsOptions>;
+
 /**
  * **PrimeVue - CascadeSelect**
  *
@@ -556,12 +558,13 @@ export interface CascadeSelectEmits {
  * ![PrimeVue(https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class CascadeSelect extends ClassComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits> {}
+declare const CascadeSelect: DefineComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        CascadeSelect: GlobalComponentConstructor<CascadeSelect>;
+        CascadeSelect: GlobalComponentConstructor<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
     }
 }
 

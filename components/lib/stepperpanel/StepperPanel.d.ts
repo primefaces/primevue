@@ -10,7 +10,7 @@
 import { TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepperPanelPassThroughOptionType = StepperPanelPassThroughAttributes | ((options: StepperPanelPassThroughMethodOptions) => StepperPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -261,7 +261,9 @@ export interface StepperPanelSlots {
     }): VNode[];
 }
 
-export interface StepperPanelEmits {}
+interface StepperPanelEmitsOptions {}
+
+export declare type StepperPanelEmits = EmitFn<StepperPanelEmitsOptions>;
 
 /**
  * **PrimeVue - StepperPanel**
@@ -275,11 +277,11 @@ export interface StepperPanelEmits {}
  * @group Component
  *
  */
-declare class StepperPanel extends ClassComponent<StepperPanelProps, StepperPanelSlots, StepperPanelEmits> {}
+declare const StepperPanel: DefineComponent<StepperPanelProps, StepperPanelSlots, StepperPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        StepperPanel: GlobalComponentConstructor<StepperPanel>;
+        StepperPanel: GlobalComponentConstructor<StepperPanelProps, StepperPanelSlots, StepperPanelEmits>;
     }
 }
 

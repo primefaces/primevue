@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type ToolbarPassThroughOptionType = ToolbarPassThroughAttributes | ((options: ToolbarPassThroughMethodOptions) => ToolbarPassThroughAttributes | string) | string | null | undefined;
 
@@ -126,7 +126,9 @@ export interface ToolbarSlots {
 /**
  * Defines valid emits in Toolbar component.
  */
-export interface ToolbarEmits {}
+interface ToolbarEmitsOptions {}
+
+export declare type ToolbarEmits = EmitFn<ToolbarEmitsOptions>;
 
 /**
  * **PrimeVue - Toolbar**
@@ -140,11 +142,11 @@ export interface ToolbarEmits {}
  * @group Component
  *
  */
-declare class Toolbar extends ClassComponent<ToolbarProps, ToolbarSlots, ToolbarEmits> {}
+declare const Toolbar: DefineComponent<ToolbarProps, ToolbarSlots, ToolbarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Toolbar: GlobalComponentConstructor<Toolbar>;
+        Toolbar: GlobalComponentConstructor<ToolbarProps, ToolbarSlots, ToolbarEmits>;
     }
 }
 

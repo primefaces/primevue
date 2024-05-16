@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputGroupAddonPassThroughOptionType = InputGroupAddonPassThroughAttributes | ((options: InputGroupAddonPassThroughMethodOptions) => InputGroupAddonPassThroughAttributes | string) | string | null | undefined;
 
@@ -102,7 +102,9 @@ export interface InputGroupAddonSlots {
 /**
  * Defines valid emits in InputGroupAddon component.
  */
-export interface InputGroupAddonEmits {}
+interface InputGroupAddonEmitsOptions {}
+
+export declare type InputGroupAddonEmits = EmitFn<InputGroupAddonEmitsOptions>;
 
 /**
  * **PrimeVue - InputGroupAddon**
@@ -114,12 +116,13 @@ export interface InputGroupAddonEmits {}
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class InputGroupAddon extends ClassComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits> {}
+declare const InputGroupAddon: DefineComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputGroupAddon: GlobalComponentConstructor<InputGroupAddon>;
+        InputGroupAddon: GlobalComponentConstructor<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
     }
 }
 

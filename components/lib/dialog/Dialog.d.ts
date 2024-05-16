@@ -11,7 +11,7 @@ import { HTMLAttributes, TransitionProps, VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { ButtonPassThroughOptions, ButtonProps } from '../button';
 import { PassThroughOptions } from '../passthrough';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type DialogPassThroughOptionType<T = any> = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions<T>) => DialogPassThroughAttributes | string) | string | null | undefined;
 
@@ -392,7 +392,7 @@ export interface DialogSlots {
 /**
  * Defines valid emits in Dialog component.
  */
-export interface DialogEmits {
+interface DialogEmitsOptions {
     /**
      * Emitted when the visible changes.
      * @param {boolean} value - New value.
@@ -427,6 +427,8 @@ export interface DialogEmits {
     dragend(event: Event): void;
 }
 
+export declare type DialogEmits = EmitFn<DialogEmitsOptions>;
+
 /**
  * **PrimeVue - Dialog**
  *
@@ -437,12 +439,13 @@ export interface DialogEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class Dialog extends ClassComponent<DialogProps, DialogSlots, DialogEmits> {}
+declare const Dialog: DefineComponent<DialogProps, DialogSlots, DialogEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Dialog: GlobalComponentConstructor<Dialog>;
+        Dialog: GlobalComponentConstructor<DialogProps, DialogSlots, DialogEmits>;
     }
 }
 

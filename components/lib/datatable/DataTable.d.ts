@@ -15,7 +15,7 @@ import { ColumnGroupPassThroughOptionType } from '../columngroup';
 import { PaginatorPassThroughOptionType } from '../paginator';
 import { PassThroughOptions } from '../passthrough';
 import { RowPassThroughOptionType } from '../row';
-import { ClassComponent, DesignToken, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '../ts-helpers';
 import { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
@@ -1415,7 +1415,7 @@ export interface DataTableSlots {
 /**
  * Defines valid emits in Datatable component.
  */
-export interface DataTableEmits {
+interface DataTableEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -1608,6 +1608,17 @@ export interface DataTableEmits {
     'state-save'(event: DataTableStateEvent): void;
 }
 
+export declare type DataTableEmits = EmitFn<DataTableEmitsOptions>;
+
+export interface DataTableMethods {
+    /**
+     * Exports the data to CSV format.
+     * @param {DataTableExportCSVOptions} [options] - Export options.
+     * @param {Object[]} [data] - Custom exportable data. This param can be used on lazy dataTable.
+     */
+    exportCSV(options?: DataTableExportCSVOptions, data?: any[]): void;
+}
+
 /**
  * **PrimeVue - DataTable**
  *
@@ -1618,19 +1629,13 @@ export interface DataTableEmits {
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
+ *
  */
-declare class DataTable extends ClassComponent<DataTableProps, DataTableSlots, DataTableEmits> {
-    /**
-     * Exports the data to CSV format.
-     * @param {DataTableExportCSVOptions} [options] - Export options.
-     * @param {Object[]} [data] - Custom exportable data. This param can be used on lazy dataTable.
-     */
-    exportCSV(options?: DataTableExportCSVOptions, data?: any[]): void;
-}
+declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataTable: GlobalComponentConstructor<DataTable>;
+        DataTable: GlobalComponentConstructor<DataTableProps, DataTableSlots, DataTableEmits>;
     }
 }
 
