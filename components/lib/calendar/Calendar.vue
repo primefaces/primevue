@@ -255,7 +255,7 @@
                                 v-for="(m, i) of monthPickerValues"
                                 :key="m"
                                 v-ripple
-                                @click="onMonthSelect($event, { month: m, index: i })"
+                                @click="onMonthSelect($event, i)"
                                 @keydown="onMonthCellKeydown($event, { month: m, index: i })"
                                 :class="cx('month', { month: m, index: i })"
                                 v-bind="
@@ -1672,7 +1672,7 @@ export default {
                 clearInterval(this.timePickerTimer);
             }
         },
-        onMonthSelect(event, { month, index }) {
+        onMonthSelect(event, index) {
             if (this.view === 'month') {
                 this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
             } else {
