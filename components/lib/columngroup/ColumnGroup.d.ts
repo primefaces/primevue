@@ -118,7 +118,7 @@ export interface ColumnGroupSlots {}
 /**
  * Defines valid emits in ColumnGroup component.
  */
-interface ColumnGroupEmitsOptions {}
+export interface ColumnGroupEmitsOptions {}
 
 export declare type ColumnGroupEmits = EmitFn<ColumnGroupEmitsOptions>;
 

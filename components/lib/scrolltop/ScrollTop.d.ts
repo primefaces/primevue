@@ -169,7 +169,7 @@ export interface ScrollTopSlots {
 /**
  * Defines valid emits in ScrollTop component.
  */
-interface ScrollTopEmitsOptions {}
+export interface ScrollTopEmitsOptions {}
 
 export declare type ScrollTopEmits = EmitFn<ScrollTopEmitsOptions>;
 

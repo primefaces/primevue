@@ -78,7 +78,7 @@ export interface SelectButtonPassThroughAttributes {
 
 /**
  * Custom change event.
- * @see {@link SelectButtonEmits.change}
+ * @see {@link SelectButtonEmitsOptions.change}
  */
 export interface SelectButtonChangeEvent {
     /**
@@ -223,7 +223,7 @@ export interface SelectButtonSlots {
 /**
  * Defines valid emits in SelectButton component.
  */
-interface SelectButtonEmitsOptions {
+export interface SelectButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

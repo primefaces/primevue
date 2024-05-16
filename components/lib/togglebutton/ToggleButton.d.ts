@@ -204,7 +204,7 @@ export interface ToggleButtonSlots {
 /**
  * Defines valid emits in ToggleButton component.
  */
-interface ToggleButtonEmitsOptions {
+export interface ToggleButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.

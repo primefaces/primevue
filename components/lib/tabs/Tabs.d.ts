@@ -156,7 +156,7 @@ export interface TabsSlots {
 /**
  * Defines valid emits in Tabs component.
  */
-interface TabsEmitsOptions {
+export interface TabsEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - Current value.

@@ -84,7 +84,7 @@ export interface TreeSelectionKeys {
 
 /**
  * Custom filter event.
- * @see {@link TreeEmits.filter}
+ * @see {@link TreeEmitsOptions.filter}
  */
 export interface TreeFilterEvent {
     /**
@@ -429,7 +429,7 @@ export interface TreeSlots {
 /**
  * Defines valid emits in Tree component.
  */
-interface TreeEmitsOptions {
+export interface TreeEmitsOptions {
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.

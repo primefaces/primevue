@@ -140,7 +140,7 @@ export interface BlockUISlots {
 /**
  * Defines valid emits in BlockUI component
  */
-interface BlockUIEmitsOptions {
+export interface BlockUIEmitsOptions {
     /**
      * Fired when the element gets blocked.
      */

@@ -122,7 +122,7 @@ export interface AccordionHeaderSlots {
     toggleicon(): VNode[];
 }
 
-interface AccordionHeaderEmitsOptions {}
+export interface AccordionHeaderEmitsOptions {}
 
 export declare type AccordionHeaderEmits = EmitFn<AccordionHeaderEmitsOptions>;
 

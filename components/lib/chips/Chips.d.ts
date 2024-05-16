@@ -23,13 +23,13 @@ export interface ChipsSharedPassThroughMethodOptions extends InputChips.InputChi
 
 /**
  * Custom add event.
- * @see {@link ChipsEmits.add}
+ * @see {@link ChipsEmitsOptions.add}
  */
 export interface ChipsAddEvent extends InputChips.InputChipsAddEvent {}
 
 /**
  * Custom remove event.
- * @see {@link ChipsEmits.remove}
+ * @see {@link ChipsEmitsOptions.remove}
  * @extends ChipsAddEvent
  */
 export interface ChipsRemoveEvent extends ChipsAddEvent {}
@@ -61,7 +61,7 @@ export interface ChipsSlots extends InputChips.InputChipsSlots {}
 /**
  * Defines valid emits in Chips component.
  */
-interface ChipsEmitsOptions {}
+export interface ChipsEmitsOptions {}
 
 export declare type ChipsEmits = EmitFn<ChipsEmitsOptions> & InputChips.InputChipsEmits;
 

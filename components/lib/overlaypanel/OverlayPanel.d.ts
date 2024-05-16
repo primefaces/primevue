@@ -52,7 +52,7 @@ export interface OverlayPanelSlots extends Popover.PopoverSlots {}
 /**
  * Defines valid emits in OverlayPanel component.
  */
-interface OverlayPanelEmitsOptions {}
+export interface OverlayPanelEmitsOptions {}
 
 export declare type OverlayPanelEmits = EmitFn<OverlayPanelEmitsOptions> & Popover.PopoverEmits;
 

@@ -147,7 +147,7 @@ export interface AvatarSlots {
 /**
  * Defines valid emits in Avatar component.
  */
-interface AvatarEmitsOptions {
+export interface AvatarEmitsOptions {
     /**
      * Triggered when an error occurs while loading an image file.
      */

@@ -123,7 +123,7 @@ export interface TabMenuContext {
 
 /**
  * Custom change event.
- * @see {@link TabMenuEmits['tab-change']}
+ * @see {@link TabMenuEmitsOptions['tab-change']}
  */
 export interface TabMenuChangeEvent {
     /**
@@ -251,7 +251,7 @@ export interface TabMenuSlots {
 /**
  * Defines valid emits in TabMenu component.
  */
-interface TabMenuEmitsOptions {
+export interface TabMenuEmitsOptions {
     /**
      * Callback to invoke when an active tab is changed.
      * @param {TabMenuChangeEvent} event - Custom tab change event.

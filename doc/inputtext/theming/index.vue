@@ -20,16 +20,22 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    description: 'List of class names used in the styled mode.',
-                    component: DocApiTable,
-                    data: getStyleOptions('InputText')
-                },
-                {
-                    id: 'theming.tokens',
-                    label: 'Design Tokens',
-                    description: `List of design tokens used in <i>${this.$appState.preset}</i> Preset.`,
-                    component: DocApiTable,
-                    data: getTokenOptions(this.$appState.preset, 'InputText')
+                    children: [
+                        {
+                            id: 'theming.classes',
+                            label: 'CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('InputText')
+                        },
+                        {
+                            id: 'theming.tokens',
+                            label: 'Design Tokens',
+                            description: `List of design tokens used in <i>${this.$appState.preset}</i> Preset.`,
+                            component: DocApiTable,
+                            data: getTokenOptions(this.$appState.preset, 'InputText')
+                        }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',

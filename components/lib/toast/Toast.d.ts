@@ -332,7 +332,7 @@ export interface ToastSlots {
 /**
  * Defines valid emits in Toast component.
  */
-interface ToastEmitsOptions {
+export interface ToastEmitsOptions {
     /**
      * Callback to invoke when the toast is closed.
      * @param {ToastMessageOptions} message - Toast message.

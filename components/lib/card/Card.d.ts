@@ -141,7 +141,7 @@ export interface CardSlots {
 /**
  * Defines valid emits in Card component.
  */
-interface CardEmitsOptions {}
+export interface CardEmitsOptions {}
 
 export declare type CardEmits = EmitFn<CardEmitsOptions>;
 

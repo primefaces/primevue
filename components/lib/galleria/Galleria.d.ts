@@ -503,7 +503,7 @@ export interface GalleriaSlots {
 /**
  * Defines valid emits in Galleria component.
  */
-interface GalleriaEmitsOptions {
+export interface GalleriaEmitsOptions {
     /**
      * Emitted when the active index changes.
      * @param {number} value - Index of new active item.

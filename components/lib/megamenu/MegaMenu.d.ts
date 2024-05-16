@@ -378,7 +378,7 @@ export interface MegaMenuSlots {
 /**
  * Defines valid emits in MegaMenu component.
  */
-interface MegaMenuEmitsOptions {
+export interface MegaMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.

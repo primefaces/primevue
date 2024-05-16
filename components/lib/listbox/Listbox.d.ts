@@ -68,7 +68,7 @@ export interface ListboxSharedPassThroughMethodOptions {
 
 /**
  * Custom change event.
- * @see {@link ListboxEmits.change}
+ * @see {@link ListboxEmitsOptions.change}
  */
 export interface ListboxChangeEvent {
     /**
@@ -83,7 +83,7 @@ export interface ListboxChangeEvent {
 
 /**
  * Custom double click event.
- * @see {@link ListboxEmits.['item-dblclick']}
+ * @see {@link ListboxEmitsOptions.['item-dblclick']}
  */
 export interface ListboxOptionDblClickEvent {
     /**
@@ -98,7 +98,7 @@ export interface ListboxOptionDblClickEvent {
 
 /**
  * Custom filter event.
- * @see {@link ListboxEmits.filter}
+ * @see {@link ListboxEmitsOptions.filter}
  */
 export interface ListboxFilterEvent {
     /**
@@ -555,7 +555,7 @@ export interface ListboxSlots {
 /**
  * Defines valid emits in Listbox component.
  */
-interface ListboxEmitsOptions {
+export interface ListboxEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

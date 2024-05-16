@@ -208,7 +208,7 @@ export interface TimelineSlots {
 /**
  * Defines valid emits in Timeline component.
  */
-interface TimelineEmitsOptions {}
+export interface TimelineEmitsOptions {}
 
 export declare type TimelineEmits = EmitFn<TimelineEmitsOptions>;
 

@@ -8,14 +8,14 @@
  *
  */
 import { ComponentHooks } from '../basecomponent';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
+import { DefineComponent, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
-export declare type RowPassThroughOptionType = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions) => RowPassThroughAttributes | string) | string | null | undefined;
+export declare type RowPassThroughOptionType<T = any> = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions<T>) => RowPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface RowPassThroughMethodOptions {
+export interface RowPassThroughMethodOptions<T = any> {
     /**
      * Defines instance.
      */
@@ -31,7 +31,7 @@ export interface RowPassThroughMethodOptions {
     /**
      * Defines parent options.
      */
-    parent: any;
+    parent: T;
     /**
      * Defines current options.
      */
@@ -46,11 +46,11 @@ export interface RowPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link RowProps.pt}
  */
-export interface RowPassThroughOptions {
+export interface RowPassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: RowPassThroughOptionType;
+    root?: RowPassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -74,6 +74,11 @@ export interface RowProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Used to pass attributes to DOM elements inside the component.
+     * @type {ButtonPassThroughOptions}
+     */
+    pt?: PassThrough<RowPassThroughOptions<any>>;
 }
 
 /**
@@ -94,7 +99,7 @@ export interface RowSlots {}
 /**
  * Defines valid emits in Row component.
  */
-interface RowEmitsOptions {}
+export interface RowEmitsOptions {}
 
 export declare type RowEmits = EmitFn<RowEmitsOptions>;
 

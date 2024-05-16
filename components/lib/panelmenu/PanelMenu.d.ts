@@ -200,7 +200,7 @@ export interface PanelMenuExpandedKeys {
 
 /**
  * Custom panel open event.
- * @see {@link PanelMenuEmits['panel-open']}
+ * @see {@link PanelMenuEmitsOptions['panel-open']}
  */
 export interface PanelMenuPanelOpenEvent {
     /**
@@ -216,7 +216,7 @@ export interface PanelMenuPanelOpenEvent {
 
 /**
  * Custom panel close event.
- * @see {@link PanelMenuEmits['panel-close']}
+ * @see {@link PanelMenuEmitsOptions['panel-close']}
  * @extends {PanelMenuPanelOpenEvent}
  */
 export interface PanelMenuPanelCloseEvent extends PanelMenuPanelOpenEvent {}
@@ -377,7 +377,7 @@ export interface PanelMenuSlots {
 /**
  * Defines valid emits in PanelMenu component.
  */
-interface PanelMenuEmitsOptions {
+export interface PanelMenuEmitsOptions {
     /**
      * Emitted when the expandedKeys changes.
      * @param {*} value - New value.

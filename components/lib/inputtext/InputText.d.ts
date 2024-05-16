@@ -130,7 +130,7 @@ export interface InputTextSlots {}
 /**
  * Defines valid emits in InputText component.
  */
-interface InputTextEmitsOptions {
+export interface InputTextEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.

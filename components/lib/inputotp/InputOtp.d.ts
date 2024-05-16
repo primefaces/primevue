@@ -233,7 +233,7 @@ export interface InputOtpSlots {
 /**
  * Defines valid emits in InputOtp component.
  */
-interface InputOtpEmitsOptions {
+export interface InputOtpEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.

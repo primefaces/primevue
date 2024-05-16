@@ -348,7 +348,7 @@ export interface TieredMenuSlots {
 /**
  * Defines valid emits in TieredMenuMenu component.
  */
-interface TieredMenuEmitsOptions {
+export interface TieredMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.

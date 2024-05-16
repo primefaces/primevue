@@ -18,13 +18,13 @@ export interface DropdownPassThroughMethodOptions<T> extends Select.SelectPassTh
 
 /**
  * Custom change event.
- * @see {@link DropdownEmits.change}
+ * @see {@link DropdownEmitsOptions.change}
  */
 export interface DropdownChangeEvent extends Select.SelectChangeEvent {}
 
 /**
  * Custom filter event.
- * @see {@link DropdownEmits.filter}
+ * @see {@link DropdownEmitsOptions.filter}
  */
 export interface DropdownFilterEvent extends Select.SelectFilterEvent {}
 
@@ -62,7 +62,7 @@ export interface DropdownSlots extends Select.SelectSlots {}
 /**
  * Defines valid emits in Dropdown component.
  */
-interface DropdownEmitsOptions {}
+export interface DropdownEmitsOptions {}
 
 export declare type DropdownEmits = EmitFn<DropdownEmitsOptions> & Select.SelectEmits;
 

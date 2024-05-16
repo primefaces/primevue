@@ -203,7 +203,7 @@ export interface PopoverSlots {
 /**
  * Defines valid emits in Popover component.
  */
-interface PopoverEmitsOptions {
+export interface PopoverEmitsOptions {
     /**
      * Callback to invoke when the overlay is shown.
      */

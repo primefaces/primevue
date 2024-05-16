@@ -7,7 +7,7 @@ export interface IconProps {
 
 export interface IconSlots {}
 
-interface IconEmitsOptions {}
+export interface IconEmitsOptions {}
 
 export declare type IconEmits = EmitFn<IconEmitsOptions>;
 

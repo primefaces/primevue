@@ -68,7 +68,7 @@ export interface PickListSharedPassThroughMethodOptions {
 
 /**
  * Custom reorder event.
- * @see {@link PickListEmits.reorder}
+ * @see {@link PickListEmitsOptions.reorder}
  */
 export interface PickListReorderEvent {
     /**
@@ -91,7 +91,7 @@ export interface PickListReorderEvent {
 
 /**
  * Custom selection change event.
- * @see {@link PickListEmits['selection-change']}
+ * @see {@link PickListEmitsOptions['selection-change']}
  */
 export interface PickListSelectionChangeEvent {
     /**
@@ -106,7 +106,7 @@ export interface PickListSelectionChangeEvent {
 
 /**
  * Custom move-to-target event.
- * @see {@link PickListEmits['move-to-target']}
+ * @see {@link PickListEmitsOptions['move-to-target']}
  */
 export interface PickListMoveToTargetEvent {
     /**
@@ -121,21 +121,21 @@ export interface PickListMoveToTargetEvent {
 
 /**
  * Custom move-all-to-target event.
- * @see {@link PickListEmits['move-all-to-target']}
+ * @see {@link PickListEmitsOptions['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToTargetEvent extends PickListMoveToTargetEvent {}
 
 /**
  * Custom move-to-source event.
- * @see {@link PickListEmits['move-all-to-target']}
+ * @see {@link PickListEmitsOptions['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveToSourceEvent extends PickListMoveToTargetEvent {}
 
 /**
  * Custom move-all-to-source event.
- * @see {@link PickListEmits['move-all-to-target']}
+ * @see {@link PickListEmitsOptions['move-all-to-target']}
  * @extends PickListMoveToTargetEvent
  */
 export interface PickListMoveAllToSourceEvent extends PickListMoveToTargetEvent {}
@@ -544,7 +544,7 @@ export interface PickListSlots {
 /**
  * Defines valid emits in PickList component.
  */
-interface PickListEmitsOptions {
+export interface PickListEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

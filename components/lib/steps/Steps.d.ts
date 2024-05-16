@@ -214,7 +214,7 @@ export interface StepsSlots {
 /**
  * Defines valid emits in Steps component.
  */
-interface StepsEmitsOptions {}
+export interface StepsEmitsOptions {}
 
 export declare type StepsEmits = EmitFn<StepsEmitsOptions>;
 

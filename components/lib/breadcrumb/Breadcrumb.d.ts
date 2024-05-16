@@ -220,7 +220,7 @@ export interface BreadcrumbSlots {
 /**
  * Defines valid emits in Breadcrumb component.
  */
-interface BreadcrumbEmitsOptions {}
+export interface BreadcrumbEmitsOptions {}
 
 export declare type BreadcrumbEmits = EmitFn<BreadcrumbEmitsOptions>;
 

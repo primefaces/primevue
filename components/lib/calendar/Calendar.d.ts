@@ -28,19 +28,19 @@ export interface CalendarResponsiveOptions extends DatePicker.DatePickerResponsi
 
 /**
  * Custom Calendar month change event.
- * @see {@link CalendarEmits['month-change']]}
+ * @see {@link CalendarEmitsOptions['month-change']]}
  */
 export interface CalendarMonthChangeEvent extends DatePicker.DatePickerMonthChangeEvent {}
 
 /**
  * Custom Calendar year change event.
- * @see {@link CalendarEmits['year-change']]}
+ * @see {@link CalendarEmitsOptions['year-change']]}
  */
 export interface CalendarYearChangeEvent extends DatePicker.DatePickerYearChangeEvent {}
 
 /**
  * Custom Calendar blur event.
- * @see {@link CalendarEmits.blur}
+ * @see {@link CalendarEmitsOptions['blur']}
  */
 export interface CalendarBlurEvent extends DatePicker.DatePickerBlurEvent {}
 
@@ -98,7 +98,7 @@ export interface CalendarSlots extends DatePicker.DatePickerSlots {}
 /**
  * Defines valid emits in Calendar component.
  */
-interface CalendarEmitsOptions {}
+export interface CalendarEmitsOptions {}
 
 export declare type CalendarEmits = EmitFn<CalendarEmitsOptions> & DatePicker.DatePickerEmits;
 

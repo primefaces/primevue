@@ -52,7 +52,7 @@ export interface CascadeSelectPassThroughMethodOptions {
 
 /**
  * Custom change event
- * @see {@link CascadeSelectEmits.change}
+ * @see {@link CascadeSelectEmitsOptions.change}
  */
 export interface CascadeSelectChangeEvent {
     /**
@@ -66,7 +66,7 @@ export interface CascadeSelectChangeEvent {
 }
 
 /**
- * @see {@link CascadeSelectEmits.change}
+ * @see {@link CascadeSelectEmitsOptions.change}
  * @extends CascadeSelectChangeEvent
  */
 export interface CascadeSelectGroupChangeEvent extends CascadeSelectChangeEvent {}
@@ -497,7 +497,7 @@ export interface CascadeSelectSlots {
 /**
  * Defines valid emits in CascadeSelect component.
  */
-interface CascadeSelectEmitsOptions {
+export interface CascadeSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

@@ -101,7 +101,7 @@ export interface TabPanelsSlots {
     default(): VNode[];
 }
 
-interface TabPanelsEmitsOptions {}
+export interface TabPanelsEmitsOptions {}
 
 export declare type TabPanelsEmits = EmitFn<TabPanelsEmitsOptions>;
 

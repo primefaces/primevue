@@ -82,7 +82,7 @@ export interface DatePickerResponsiveOptions {
 
 /**
  * Custom DatePicker month change event.
- * @see {@link DatePickerEmits['month-change']]}
+ * @see {@link DatePickerEmitsOptions['month-change']]}
  */
 export interface DatePickerMonthChangeEvent {
     /**
@@ -97,7 +97,7 @@ export interface DatePickerMonthChangeEvent {
 
 /**
  * Custom DatePicker year change event.
- * @see {@link DatePickerEmits['year-change']]}
+ * @see {@link DatePickerEmitsOptions['year-change']]}
  */
 export interface DatePickerYearChangeEvent {
     /**
@@ -112,7 +112,7 @@ export interface DatePickerYearChangeEvent {
 
 /**
  * Custom DatePicker blur event.
- * @see {@link DatePickerEmits.blur}
+ * @see {@link DatePickerEmitsOptions.blur}
  */
 export interface DatePickerBlurEvent {
     /**
@@ -988,7 +988,7 @@ export interface DatePickerSlots {
 /**
  * Defines valid emits in DatePicker component.
  */
-interface DatePickerEmitsOptions {
+export interface DatePickerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string | Date | string[] | Date[] | undefined} value - New value.

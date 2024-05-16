@@ -329,7 +329,7 @@ export interface ImageSlots {
     }): VNode[];
 }
 
-interface ImageEmitsOptions {}
+export interface ImageEmitsOptions {}
 
 export declare type ImageEmits = EmitFn<ImageEmitsOptions>;
 

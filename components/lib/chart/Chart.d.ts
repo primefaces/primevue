@@ -69,7 +69,7 @@ export interface ChartPassThroughAttributes {
 
 /**
  * Custom select event.
- * @see {@link ChartEmits.select}
+ * @see {@link ChartEmitsOptions.select}
  */
 export interface ChartSelectEvent {
     /**
@@ -146,7 +146,7 @@ export interface ChartSlots {}
 /**
  * Defines valid emits in Chart component.
  */
-interface ChartEmitsOptions {
+export interface ChartEmitsOptions {
     /**
      * Callback to invoke when a tab gets expanded.
      * @param {ChartSelectEvent} event - Custom select event.

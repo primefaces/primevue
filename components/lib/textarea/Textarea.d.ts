@@ -136,7 +136,7 @@ export interface TextareaSlots {}
 /**
  * Defines valid emits in Textarea component.
  */
-interface TextareaEmitsOptions {
+export interface TextareaEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.

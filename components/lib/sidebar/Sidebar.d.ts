@@ -50,7 +50,7 @@ export interface SidebarSlots extends Drawer.DrawerSlots {}
 /**
  * Defines valid emits in Sidebar component.
  */
-interface SidebarEmitsOptions {}
+export interface SidebarEmitsOptions {}
 
 export declare type SidebarEmits = EmitFn<SidebarEmitsOptions> & Drawer.DrawerEmits;
 

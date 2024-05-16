@@ -307,7 +307,7 @@ export interface OrganizationChartSlots {
 /**
  * Defines valid emits in OrganizationChart component.
  */
-interface OrganizationChartEmitsOptions {
+export interface OrganizationChartEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

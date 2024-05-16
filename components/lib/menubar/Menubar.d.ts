@@ -402,7 +402,7 @@ export interface MenubarSlots {
 /**
  * Defines valid emits in Menubar component.
  */
-interface MenubarEmitsOptions {}
+export interface MenubarEmitsOptions {}
 
 export declare type MenubarEmits = EmitFn<MenubarEmitsOptions>;
 

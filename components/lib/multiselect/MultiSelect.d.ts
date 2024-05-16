@@ -71,7 +71,7 @@ export interface MultiSelectSharedPassThroughMethodOptions {
 
 /**
  * Custom change event.
- * @see {@link MultiSelectEmits.change}
+ * @see {@link MultiSelectEmitsOptions.change}
  */
 export interface MultiSelectChangeEvent {
     /**
@@ -86,7 +86,7 @@ export interface MultiSelectChangeEvent {
 
 /**
  * Custom all change event.
- * @see {@link MultiSelectEmits['selectall-change']}
+ * @see {@link MultiSelectEmitsOptions['selectall-change']}
  */
 export interface MultiSelectAllChangeEvent {
     /**
@@ -101,7 +101,7 @@ export interface MultiSelectAllChangeEvent {
 
 /**
  * Custom filter event
- * @see {@link MultiSelectEmits.filter}
+ * @see {@link MultiSelectEmitsOptions.filter}
  */
 export interface MultiSelectFilterEvent {
     /**
@@ -828,7 +828,7 @@ export interface MultiSelectSlots {
 /**
  * Defines valid emits in MultiSelect component.
  */
-interface MultiSelectEmitsOptions {
+export interface MultiSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

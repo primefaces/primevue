@@ -370,7 +370,7 @@ export interface CarouselSlots {
 /**
  * Defines valid emits in Carousel component.
  */
-interface CarouselEmitsOptions {
+export interface CarouselEmitsOptions {
     /**
      * Emitted when the page changes.
      * @param {number} value - New page value.

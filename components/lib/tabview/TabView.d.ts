@@ -48,7 +48,7 @@ export interface TabViewPassThroughMethodOptions {
 
 /**
  * Custom tab change event.
- * @see {@link TabViewEmits['tab-change']}
+ * @see {@link TabViewEmitsOptions['tab-change']}
  */
 export interface TabViewChangeEvent {
     /**
@@ -63,7 +63,7 @@ export interface TabViewChangeEvent {
 
 /**
  * Custom tab change event.
- * @see {@link TabViewEmits['tab-click']}
+ * @see {@link TabViewEmitsOptions['tab-click']}
  * @extends TabViewChangeEvent
  */
 export interface TabViewClickEvent extends TabViewChangeEvent {}
@@ -251,7 +251,7 @@ export interface TabViewSlots {
 /**
  * Defines valid emits in TabView component.
  */
-interface TabViewEmitsOptions {
+export interface TabViewEmitsOptions {
     /**
      * Emitted when the activeIndex changes.
      * @param {number} index - Current activeIndex.

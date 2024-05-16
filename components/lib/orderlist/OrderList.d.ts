@@ -64,7 +64,7 @@ export interface OrderListSharedPassThroughMethodOptions {
 
 /**
  * Custom reorder event
- * @see {@link OrderListEmits.reorder}
+ * @see {@link OrderListEmitsOptions.reorder}
  */
 export interface OrderListReorderEvent {
     /**
@@ -83,7 +83,7 @@ export interface OrderListReorderEvent {
 
 /**
  * Custom selection change event
- * @see {@link OrderListEmits['selection-change']}
+ * @see {@link OrderListEmitsOptions['selection-change']}
  */
 export interface OrderListSelectionChangeEvent {
     /**
@@ -333,7 +333,7 @@ export interface OrderListSlots {
 /**
  * Defines valid slots in OrderList component.
  */
-interface OrderListEmitsOptions {
+export interface OrderListEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

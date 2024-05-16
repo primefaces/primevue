@@ -66,7 +66,7 @@ export interface SelectSharedPassThroughMethodOptions {
 
 /**
  * Custom change event.
- * @see {@link SelectEmits.change}
+ * @see {@link SelectEmitsOptions.change}
  */
 export interface SelectChangeEvent {
     /**
@@ -81,7 +81,7 @@ export interface SelectChangeEvent {
 
 /**
  * Custom filter event.
- * @see {@link SelectEmits.filter}
+ * @see {@link SelectEmitsOptions.filter}
  */
 export interface SelectFilterEvent {
     /**
@@ -730,7 +730,7 @@ export interface SelectSlots {
 /**
  * Defines valid emits in Select component.
  */
-interface SelectEmitsOptions {
+export interface SelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

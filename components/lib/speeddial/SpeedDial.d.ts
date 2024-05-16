@@ -369,7 +369,7 @@ export interface SpeedDialSlots {
 /**
  * Defines valid emits in SpeedDial component.
  */
-interface SpeedDialEmitsOptions {
+export interface SpeedDialEmitsOptions {
     /**
      * Fired when the button element clicked.
      * @param {Event} event - Browser event.

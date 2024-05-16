@@ -61,7 +61,7 @@ export interface DataViewSharedPassThroughMethodOptions {
 
 /**
  * Custom page event.
- * @see {@link DataViewEmits.page}
+ * @see {@link DataViewEmitsOptions.page}
  */
 export interface DataViewPageEvent {
     /**
@@ -313,7 +313,7 @@ export interface DataViewSlots {
 /**
  * Defines valid slots in DataView component.
  */
-interface DataViewEmitsOptions {
+export interface DataViewEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.

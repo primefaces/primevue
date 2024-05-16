@@ -46,7 +46,7 @@ export interface EditorPassThroughMethodOptions {
 
 /**
  * Custom text change event.
- * @see {@link EditorEmits['text-change']}
+ * @see {@link EditorEmitsOptions['text-change']}
  */
 export interface EditorTextChangeEvent {
     /**
@@ -72,7 +72,7 @@ export interface EditorTextChangeEvent {
 }
 /**
  * Custom selection change event.
- * @see {@link EditorEmits['selection-change']}
+ * @see {@link EditorEmitsOptions['selection-change']}
  */
 export interface EditorSelectionChangeEvent {
     /**
@@ -102,7 +102,7 @@ export interface EditorSelectionChangeEvent {
 }
 /**
  * Custom load event.
- * @see {@link EditorEmits.load}
+ * @see {@link EditorEmitsOptions.load}
  */
 export interface EditorLoadEvent {
     /**
@@ -272,7 +272,7 @@ export interface EditorSlots {
 /**
  * Defines valid emits in Editor component.
  */
-interface EditorEmitsOptions {
+export interface EditorEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.

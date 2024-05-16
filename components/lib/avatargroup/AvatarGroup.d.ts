@@ -101,7 +101,7 @@ export interface AvatarGroupSlots {
 /**
  * Defines valid emits in AvatarGroup component.
  */
-interface AvatarGroupEmitsOptions {}
+export interface AvatarGroupEmitsOptions {}
 
 export declare type AvatarGroupEmits = EmitFn<AvatarGroupEmitsOptions>;
 

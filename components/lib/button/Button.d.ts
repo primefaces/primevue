@@ -232,7 +232,7 @@ export interface ButtonSlots {
 /**
  * Defines valid emits in Button component.
  */
-interface ButtonEmitsOptions {}
+export interface ButtonEmitsOptions {}
 
 export declare type ButtonEmits = EmitFn<ButtonEmitsOptions>;
 

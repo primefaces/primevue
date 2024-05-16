@@ -46,7 +46,7 @@ export interface SplitterPanelPassThroughMethodOptions {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link PanelProps.pt}
+ * @see {@link SplitterPanelProps.pt}
  */
 export interface SplitterPanelPassThroughOptions {
     /**
@@ -120,7 +120,7 @@ export interface SplitterPanelSlots {
     default: () => VNode[];
 }
 
-interface SplitterPanelEmitsOptions {}
+export interface SplitterPanelEmitsOptions {}
 
 export declare type SplitterPanelEmits = EmitFn<SplitterPanelEmitsOptions>;
 

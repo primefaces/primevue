@@ -196,7 +196,7 @@ export interface RadioButtonSlots {}
 /**
  * Defines valid emits in RadioButton component.
  */
-interface RadioButtonEmitsOptions {
+export interface RadioButtonEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

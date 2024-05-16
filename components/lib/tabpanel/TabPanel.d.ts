@@ -209,7 +209,7 @@ export interface TabPanelSlots {
     header(): VNode[];
 }
 
-interface TabPanelEmitsOptions {}
+export interface TabPanelEmitsOptions {}
 
 export declare type TabPanelEmits = EmitFn<TabPanelEmitsOptions>;
 

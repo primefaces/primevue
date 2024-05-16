@@ -28,7 +28,7 @@ export interface DynamicDialogSlots {}
 /**
  * Defines valid emits in DynamicDialog component.
  */
-interface DynamicDialogEmitsOptions {}
+export interface DynamicDialogEmitsOptions {}
 
 export declare type DynamicDialogEmits = EmitFn<DynamicDialogEmitsOptions>;
 

@@ -216,7 +216,7 @@ export interface AccordionTabSlots {
 /**
  * Defines valid emits in AcordionTab component.
  */
-interface AccordionTabEmitsOptions {}
+export interface AccordionTabEmitsOptions {}
 
 export declare type AccordionTabEmits = EmitFn<AccordionTabEmitsOptions>;
 

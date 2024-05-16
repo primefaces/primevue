@@ -299,7 +299,7 @@ export interface DockSlots {
 /**
  * Defines valid emits in Dock component.
  */
-interface DockEmitsOptions {
+export interface DockEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.

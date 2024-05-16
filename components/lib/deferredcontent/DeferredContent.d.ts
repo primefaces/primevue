@@ -116,7 +116,7 @@ export interface DeferredContentSlots {
 /**
  * Defines valid emits in DeferredContent component.
  */
-interface DeferredContentEmitsOptions {
+export interface DeferredContentEmitsOptions {
     /**
      * Callback to invoke when deferred content is loaded.
      */

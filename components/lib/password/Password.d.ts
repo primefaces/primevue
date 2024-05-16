@@ -413,7 +413,7 @@ export interface PasswordSlots {
 /**
  * Defines valid emits in Password component.
  */
-interface PasswordEmitsOptions {
+export interface PasswordEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.

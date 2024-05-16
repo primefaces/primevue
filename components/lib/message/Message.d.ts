@@ -216,7 +216,7 @@ export interface MessageSlots {
 /**
  * Defines valid emits in Message component.
  */
-interface MessageEmitsOptions {
+export interface MessageEmitsOptions {
     /**
      * Callback to invoke when a message is closed.
      * @param {Event} event - Browser event.

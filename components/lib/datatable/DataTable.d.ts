@@ -230,7 +230,7 @@ export interface DataTableEditButtonPropsOptions {
 
 /**
  * Custom sort event.
- * @see {@link DataTableEmits.sort}
+ * @see {@link DataTableEmitsOptions.sort}
  */
 export interface DataTableSortEvent {
     /**
@@ -270,7 +270,7 @@ export interface DataTableSortEvent {
 
 /**
  * Custom pagination event.
- * @see {@link DataTableEmits.page}
+ * @see {@link DataTableEmitsOptions.page}
  * @extends DataTableSortEvent
  */
 export interface DataTablePageEvent extends DataTableSortEvent {
@@ -286,7 +286,7 @@ export interface DataTablePageEvent extends DataTableSortEvent {
 
 /**
  * Custom filter event.
- * @see {@link DataTableEmits.filter}
+ * @see {@link DataTableEmitsOptions.filter}
  * @extends DataTableSortEvent
  */
 export interface DataTableFilterEvent extends DataTableSortEvent {
@@ -298,7 +298,7 @@ export interface DataTableFilterEvent extends DataTableSortEvent {
 
 /**
  * Custom row click event.
- * @see {@link DataTableEmits['row-click']}
+ * @see {@link DataTableEmitsOptions['row-click']}
  */
 export interface DataTableRowClickEvent {
     /**
@@ -317,21 +317,21 @@ export interface DataTableRowClickEvent {
 
 /**
  * Custom row double click event.
- * @see {@link DataTableEmits['row-dblclick']]}
+ * @see {@link DataTableEmitsOptions['row-dblclick']]}
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
 
 /**
  * Custom row context menu event.
- * @see {@link DataTableEmits['row-contextmenu']}
+ * @see {@link DataTableEmitsOptions['row-contextmenu']}
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
 
 /**
  * Custom row select event.
- * @see {@link DataTableEmits['row-select']}
+ * @see {@link DataTableEmitsOptions['row-select']}
  */
 export interface DataTableRowSelectEvent {
     /**
@@ -354,14 +354,14 @@ export interface DataTableRowSelectEvent {
 
 /**
  * Custom row unselect event.
- * @see {@link DataTableEmits['row-unselect']}
+ * @see {@link DataTableEmitsOptions['row-unselect']}
  * @extends DataTableRowSelectEvent
  */
 export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
 
 /**
  * Custom row select all event.
- * @see {@link DataTableEmits['row-select-all']}
+ * @see {@link DataTableEmitsOptions['row-select-all']}
  */
 export interface DataTableRowSelectAllEvent {
     /**
@@ -376,7 +376,7 @@ export interface DataTableRowSelectAllEvent {
 
 /**
  * Custom row unselect all event.
- * @see {@link DataTableEmits['row-unselect-all']}
+ * @see {@link DataTableEmitsOptions['row-unselect-all']}
  */
 export interface DataTableRowUnselectAllEvent {
     /**
@@ -387,7 +387,7 @@ export interface DataTableRowUnselectAllEvent {
 
 /**
  * Custom row select all change event.
- * @see {@link DataTableEmits['select-all-change']}
+ * @see {@link DataTableEmitsOptions['select-all-change']}
  */
 export interface DataTableSelectAllChangeEvent {
     /**
@@ -402,7 +402,7 @@ export interface DataTableSelectAllChangeEvent {
 
 /**
  * Custom column resize end event.
- * @see {@link DataTableEmits['column-resize-end']}
+ * @see {@link DataTableEmitsOptions['column-resize-end']}
  */
 export interface DataTableColumnResizeEndEvent {
     /**
@@ -417,7 +417,7 @@ export interface DataTableColumnResizeEndEvent {
 
 /**
  * Custom row column reorder event.
- * @see {@link DataTableEmits['column-reorder']}
+ * @see {@link DataTableEmitsOptions['column-reorder']}
  */
 export interface DataTableColumnReorderEvent {
     /**
@@ -436,7 +436,7 @@ export interface DataTableColumnReorderEvent {
 
 /**
  * Custom row reorder event.
- * @see {@link DataTableEmits['row-reorder']}
+ * @see {@link DataTableEmitsOptions['row-reorder']}
  */
 export interface DataTableRowReorderEvent {
     /**
@@ -459,7 +459,7 @@ export interface DataTableRowReorderEvent {
 
 /**
  * Custom row expand event.
- * @see {@link DataTableEmits['row-expand']}
+ * @see {@link DataTableEmitsOptions['row-expand']}
  */
 export interface DataTableRowExpandEvent {
     /**
@@ -474,14 +474,14 @@ export interface DataTableRowExpandEvent {
 
 /**
  * Custom row collapse event.
- * @see {@link DataTableEmits['row-expand']}
+ * @see {@link DataTableEmitsOptions['row-expand']}
  * @extends DataTableRowExpandEvent
  */
 export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
 
 /**
  * Custom cell edit init event.
- * @see {@link DataTableEmits['cell-edit-init']}
+ * @see {@link DataTableEmitsOptions['cell-edit-init']}
  */
 export interface DataTableCellEditInitEvent {
     /**
@@ -504,14 +504,14 @@ export interface DataTableCellEditInitEvent {
 
 /**
  * Custom cell edit cancel event.
- * @see {@link DataTableEmits['cell-edit-cancel']}
+ * @see {@link DataTableEmitsOptions['cell-edit-cancel']}
  * @extends DataTableCellEditInitEvent
  */
 export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent {}
 
 /**
  * Custom cell edit complete event.
- * @see {@link DataTableEmits['cell-edit-complete']}
+ * @see {@link DataTableEmitsOptions['cell-edit-complete']}
  */
 export interface DataTableCellEditCompleteEvent {
     /**
@@ -550,7 +550,7 @@ export interface DataTableCellEditCompleteEvent {
 
 /**
  * Custom row edit init event.
- * @see {@link DataTableEmits['row-edit-init']}
+ * @see {@link DataTableEmitsOptions['row-edit-init']}
  */
 export interface DataTableRowEditInitEvent {
     /**
@@ -577,21 +577,21 @@ export interface DataTableRowEditInitEvent {
 
 /**
  * Custom row edit save event.
- * @see {@link DataTableEmits['row-edit-save']}
+ * @see {@link DataTableEmitsOptions['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
 export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
 
 /**
  *  Custom row edit cancel event.
- * @see {@link DataTableEmits['row-edit-cancel']}
+ * @see {@link DataTableEmitsOptions['row-edit-cancel']}
  * @extends DataTableRowEditCancelEvent
  */
 export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
 
 /**
  * Custom state event.
- * @see {@link DataTableEmits['state-save']}
+ * @see {@link DataTableEmitsOptions['state-save']}
  */
 export interface DataTableStateEvent {
     /**
@@ -1415,7 +1415,7 @@ export interface DataTableSlots {
 /**
  * Defines valid emits in Datatable component.
  */
-interface DataTableEmitsOptions {
+export interface DataTableEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.

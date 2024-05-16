@@ -123,7 +123,7 @@ export interface RatingContext {
 
 /**
  * Custom change event.
- * @see {@link RatingEmits.change}
+ * @see {@link RatingEmitsOptions.change}
  */
 export interface RatingChangeEvent {
     /**
@@ -231,7 +231,7 @@ export interface RatingSlots {
 /**
  * Defines valid emits in Rating component.
  */
-interface RatingEmitsOptions {
+export interface RatingEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.

@@ -48,7 +48,7 @@ export interface ColorPickerPassThroughMethodOptions {
 
 /**
  * Custom change event.
- * @see {@link ColorPickerEmits.change}
+ * @see {@link ColorPickerEmitsOptions.change}
  */
 export interface ColorPickerChangeEvent {
     /**
@@ -208,7 +208,7 @@ export interface ColorPickerSlots {}
 /**
  * Defines valid emits in ColorPicker component.
  */
-interface ColorPickerEmitsOptions {
+export interface ColorPickerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

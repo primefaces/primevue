@@ -48,7 +48,7 @@ export interface FieldsetPassThroughMethodOptions {
 
 /**
  * Custom toggle event.
- * @see {@link FieldsetEmits.toggle}
+ * @see {@link FieldsetEmitsOptions.toggle}
  */
 export interface FieldsetToggleEvent {
     /**
@@ -216,7 +216,7 @@ export interface FieldsetSlots {
 /**
  * Defines valid emits in Fildset component.
  */
-interface FieldsetEmitsOptions {
+export interface FieldsetEmitsOptions {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.

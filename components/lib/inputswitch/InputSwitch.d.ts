@@ -40,7 +40,7 @@ export interface InputSwitchSlots extends ToggleSwitch.ToggleSwitchSlots {}
 /**
  * Defines valid emits in InputSwitch component.
  */
-interface InputSwitchEmitsOptions {}
+export interface InputSwitchEmitsOptions {}
 
 export declare type InputSwitchEmits = EmitFn<InputSwitchEmitsOptions> & ToggleSwitch.ToggleSwitchEmits;
 

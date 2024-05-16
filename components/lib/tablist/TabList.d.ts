@@ -10,7 +10,7 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabListPassThroughOptionType = TabListPassThroughAttributes | ((options: TabListPassThroughMethodOptions) => TabListPassThroughAttributes | string) | string | null | undefined;
 
@@ -117,7 +117,7 @@ export interface TabListSlots {
     default(): VNode[];
 }
 
-interface TabListEmitsOptions {}
+export interface TabListEmitsOptions {}
 
 export declare type TabListEmits = EmitFn<TabListEmitsOptions>;
 

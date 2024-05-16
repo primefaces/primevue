@@ -251,7 +251,7 @@ export interface DrawerSlots {
 /**
  * Defines valid emits in Drawer component.
  */
-interface DrawerEmitsOptions {
+export interface DrawerEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.

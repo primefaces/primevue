@@ -103,7 +103,7 @@ export interface FloatLabelSlots {
 /**
  * Defines valid emits in FloatLabel component.
  */
-interface FloatLabelEmitsOptions {}
+export interface FloatLabelEmitsOptions {}
 
 export declare type FloatLabelEmits = EmitFn<FloatLabelEmitsOptions>;
 

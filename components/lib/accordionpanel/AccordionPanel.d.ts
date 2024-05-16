@@ -120,7 +120,7 @@ export interface AccordionPanelSlots {
     default(): VNode[];
 }
 
-interface AccordionPanelEmitsOptions {}
+export interface AccordionPanelEmitsOptions {}
 
 export declare type AccordionPanelEmits = EmitFn<AccordionPanelEmitsOptions>;
 

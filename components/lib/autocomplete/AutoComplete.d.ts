@@ -69,7 +69,7 @@ export interface AutoCompleteSharedPassThroughMethodOptions {
 
 /**
  * Custom change event.
- * @see {@link AutoCompleteEmits.change}
+ * @see {@link AutoCompleteEmitsOptions.change}
  */
 export interface AutoCompleteChangeEvent {
     /**
@@ -84,7 +84,7 @@ export interface AutoCompleteChangeEvent {
 
 /**
  * Custom item select event.
- * @see {@link AutoCompleteEmits['item-select']}
+ * @see {@link AutoCompleteEmitsOptions['item-select']}
  */
 export interface AutoCompleteOptionSelectEvent {
     /**
@@ -99,14 +99,14 @@ export interface AutoCompleteOptionSelectEvent {
 
 /**
  * Custom item unselect event.
- * @see {@link AutoCompleteEmits['item-unselect']}
+ * @see {@link AutoCompleteEmitsOptions['item-unselect']}
  * @extends AutoCompleteOptionSelectEvent
  */
 export interface AutoCompleteOptionUnselectEvent extends AutoCompleteOptionSelectEvent {}
 
 /**
  * Custom dropdown click event.
- * @see {@link AutoCompleteEmits['dropdown-click']}
+ * @see {@link AutoCompleteEmitsOptions['dropdown-click']}
  */
 export interface AutoCompleteDropdownClickEvent {
     /**
@@ -121,7 +121,7 @@ export interface AutoCompleteDropdownClickEvent {
 
 /**
  * Custom complete event.
- * @see {@link AutoCompleteEmits.complete}
+ * @see {@link AutoCompleteEmitsOptions.complete}
  */
 export interface AutoCompleteCompleteEvent {
     /**
@@ -778,7 +778,7 @@ export interface AutoCompleteSlots {
 /**
  * Defines valid emits in AutoComplete component.
  */
-interface AutoCompleteEmitsOptions {
+export interface AutoCompleteEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

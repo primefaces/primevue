@@ -392,7 +392,7 @@ export interface DialogSlots {
 /**
  * Defines valid emits in Dialog component.
  */
-interface DialogEmitsOptions {
+export interface DialogEmitsOptions {
     /**
      * Emitted when the visible changes.
      * @param {boolean} value - New value.

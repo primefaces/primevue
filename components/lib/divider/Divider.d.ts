@@ -116,7 +116,7 @@ export interface DividerSlots {
     default(): VNode[];
 }
 
-interface DividerEmitsOptions {}
+export interface DividerEmitsOptions {}
 
 export declare type DividerEmits = EmitFn<DividerEmitsOptions>;
 

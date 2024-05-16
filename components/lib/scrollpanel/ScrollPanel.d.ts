@@ -148,7 +148,7 @@ export interface ScrollPanelSlots {
     default: () => VNode[];
 }
 
-interface ScrollPanelEmitsOptions {}
+export interface ScrollPanelEmitsOptions {}
 
 export declare type ScrollPanelEmits = EmitFn<ScrollPanelEmitsOptions>;
 

@@ -224,7 +224,7 @@ export interface ConfirmPopupSlots {
 /**
  * Defines valid emits in ConfirmPopup component.
  */
-interface ConfirmPopupEmitsOptions {}
+export interface ConfirmPopupEmitsOptions {}
 
 export declare type ConfirmPopupEmits = EmitFn<ConfirmPopupEmitsOptions>;
 

@@ -974,7 +974,7 @@ export interface ColumnSlots {
     nodetoggleicon(): VNode[];
 }
 
-interface ColumnEmitsOptions {}
+export interface ColumnEmitsOptions {}
 
 export declare type ColumnEmits = EmitFn<ColumnEmitsOptions>;
 

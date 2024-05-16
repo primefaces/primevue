@@ -261,7 +261,7 @@ export interface StepperPanelSlots {
     }): VNode[];
 }
 
-interface StepperPanelEmitsOptions {}
+export interface StepperPanelEmitsOptions {}
 
 export declare type StepperPanelEmits = EmitFn<StepperPanelEmitsOptions>;
 

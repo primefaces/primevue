@@ -153,7 +153,7 @@ export interface TerminalSlots {}
 /**
  * Defines valid emits in Terminal component.
  */
-interface TerminalEmitsOptions {}
+export interface TerminalEmitsOptions {}
 
 export declare type TerminalEmits = EmitFn<TerminalEmitsOptions>;
 

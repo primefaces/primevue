@@ -123,7 +123,7 @@ export interface TabSlots {
     default(): VNode[];
 }
 
-interface TabEmitsOptions {}
+export interface TabEmitsOptions {}
 
 export declare type TabEmits = EmitFn<TabEmitsOptions>;
 

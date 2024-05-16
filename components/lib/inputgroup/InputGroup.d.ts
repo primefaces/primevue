@@ -102,7 +102,7 @@ export interface InputGroupSlots {
 /**
  * Defines valid emits in InputGroup component.
  */
-interface InputGroupEmitsOptions {}
+export interface InputGroupEmitsOptions {}
 
 export declare type InputGroupEmits = EmitFn<InputGroupEmitsOptions>;
 

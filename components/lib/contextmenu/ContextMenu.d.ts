@@ -341,7 +341,7 @@ export interface ContextMenuSlots {
 /**
  * Defines valid emits in ContextMenu component.
  */
-interface ContextMenuEmitsOptions {
+export interface ContextMenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.

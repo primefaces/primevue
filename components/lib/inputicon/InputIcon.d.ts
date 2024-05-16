@@ -97,7 +97,7 @@ export interface InputIconSlots {
 /**
  * Defines valid emits in InputIcon component.
  */
-interface InputIconEmitsOptions {}
+export interface InputIconEmitsOptions {}
 
 export declare type InputIconEmits = EmitFn<InputIconEmitsOptions>;
 

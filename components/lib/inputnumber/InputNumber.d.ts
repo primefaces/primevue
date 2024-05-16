@@ -59,7 +59,7 @@ export interface InputNumberSharedPassThroughMethodOptions {
 
 /**
  * Custom input event.
- * @see {@link InputNumberEmits.input}
+ * @see {@link InputNumberEmitsOptions.input}
  */
 export interface InputNumberInputEvent {
     /**
@@ -78,7 +78,7 @@ export interface InputNumberInputEvent {
 
 /**
  * Custom blur event.
- * @see {@link InputNumberEmits.blur}
+ * @see {@link InputNumberEmitsOptions.blur}
  */
 export interface InputNumberBlurEvent {
     /**
@@ -420,7 +420,7 @@ export interface InputNumberSlots {
 /**
  * Defines valid emits in InputNumber component.
  */
-interface InputNumberEmitsOptions {
+export interface InputNumberEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number} value - New value.

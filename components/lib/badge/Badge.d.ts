@@ -109,7 +109,7 @@ export interface BadgeSlots {
 /**
  * Defines valid emits in Badge component.
  */
-interface BadgeEmitsOptions {}
+export interface BadgeEmitsOptions {}
 
 export declare type BadgeEmits = EmitFn<BadgeEmitsOptions>;
 

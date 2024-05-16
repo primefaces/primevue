@@ -167,7 +167,7 @@ export interface InplaceSlots {
 /**
  * Defines valid emits in Inplace component.
  */
-interface InplaceEmitsOptions {
+export interface InplaceEmitsOptions {
     /**
      * Emitted when the active changes.
      * @param {boolean} value - New value.

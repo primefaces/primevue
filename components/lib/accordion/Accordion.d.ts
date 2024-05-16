@@ -46,7 +46,7 @@ export interface AccordionPassThroughMethodOptions {
 }
 /**
  * Custom tab open event.
- * @see {@link AccordionEmits.tab-open}
+ * @see {@link AccordionEmitsOptions.tab-open}
  */
 export interface AccordionTabOpenEvent {
     /**
@@ -62,14 +62,14 @@ export interface AccordionTabOpenEvent {
 
 /**
  * Custom tab close event.
- * @see {@link AccordionEmits.tab-close}
+ * @see {@link AccordionEmitsOptions.tab-close}
  * @extends {AccordionTabOpenEvent}
  */
 export interface AccordionTabCloseEvent extends AccordionTabOpenEvent {}
 
 /**
  * Custom tab open event.
- * @see {@link AccordionEmits.tab-open}
+ * @see {@link AccordionEmitsOptions.tab-open}
  * @extends AccordionTabOpenEvent
  */
 export interface AccordionClickEvent extends AccordionTabOpenEvent {}
@@ -206,7 +206,7 @@ export interface AccordionSlots {
 /**
  * Defines valid emits in Accordion component.
  */
-interface AccordionEmitsOptions {
+export interface AccordionEmitsOptions {
     /**
      * Emitted when the active panel changes.
      * @param {string | string[] | null | undefined} value - Value of new active panel.

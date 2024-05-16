@@ -117,7 +117,7 @@ export interface ProgressSpinnerSlots {}
 /**
  * Defines valid emits in ProgressSpinner component.
  */
-interface ProgressSpinnerEmitsOptions {}
+export interface ProgressSpinnerEmitsOptions {}
 
 export declare type ProgressSpinnerEmits = EmitFn<ProgressSpinnerEmitsOptions>;
 

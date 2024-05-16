@@ -417,7 +417,7 @@ export interface PaginatorSlots {
 /**
  * Defines valid emits in Paginator component.
  */
-interface PaginatorEmitsOptions {
+export interface PaginatorEmitsOptions {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.

@@ -93,7 +93,7 @@ export interface ButtonGroupSlots {
 /**
  * Defines valid emits in ButtonGroup component.
  */
-interface ButtonGroupEmitsOptions {}
+export interface ButtonGroupEmitsOptions {}
 
 export declare type ButtonGroupEmits = EmitFn<ButtonGroupEmitsOptions>;
 

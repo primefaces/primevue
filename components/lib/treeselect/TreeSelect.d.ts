@@ -378,7 +378,7 @@ export interface TreeSelectSlots {
 /**
  * Defines valid emits in TreeSelect component.
  */
-interface TreeSelectEmitsOptions {
+export interface TreeSelectEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

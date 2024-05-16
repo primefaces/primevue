@@ -122,7 +122,7 @@ export interface AccordionContentSlots {
     default(): VNode[];
 }
 
-interface AccordionContentEmitsOptions {}
+export interface AccordionContentEmitsOptions {}
 
 export declare type AccordionContentEmits = EmitFn<AccordionContentEmitsOptions>;
 

@@ -101,7 +101,7 @@ export interface IconFieldSlots {
 /**
  * Defines valid emits in IconField component.
  */
-interface IconFieldEmitsOptions {}
+export interface IconFieldEmitsOptions {}
 
 export declare type IconFieldEmits = EmitFn<IconFieldEmitsOptions>;
 

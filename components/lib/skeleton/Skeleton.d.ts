@@ -123,7 +123,7 @@ export interface SkeletonSlots {}
 /**
  * Defines valid emits in Skeleton component.
  */
-interface SkeletonEmitsOptions {}
+export interface SkeletonEmitsOptions {}
 
 export declare type SkeletonEmits = EmitFn<SkeletonEmitsOptions>;
 

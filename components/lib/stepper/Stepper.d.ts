@@ -96,7 +96,7 @@ export interface StepperState {
 
 /**
  * Custom tab change event.
- * @see {@link StepperEmits['step-change']}
+ * @see {@link StepperEmitsOptions['step-change']}
  */
 export interface StepperChangeEvent {
     /**
@@ -166,7 +166,7 @@ export interface StepperSlots {
 /**
  * Defines valid emits in Stepper component.
  */
-interface StepperEmitsOptions {
+export interface StepperEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.

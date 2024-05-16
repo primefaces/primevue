@@ -174,7 +174,7 @@ export interface InputMaskSlots {}
 /**
  * Defines valid emits in InputMask component.
  */
-interface InputMaskEmitsOptions {
+export interface InputMaskEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {string} value - New value.

@@ -64,7 +64,7 @@ export interface FileUploadPassThroughMethodOptions {
 
 /**
  * Custom select event.
- * @see {@link FileUploadEmits.select}
+ * @see {@link FileUploadEmitsOptions.select}
  */
 export interface FileUploadSelectEvent {
     /**
@@ -79,7 +79,7 @@ export interface FileUploadSelectEvent {
 
 /**
  * Custom before upload event.
- * @see {@link FileUploadEmits['before-upload']}
+ * @see {@link FileUploadEmitsOptions['before-upload']}
  */
 export interface FileUploadBeforeUploadEvent {
     /**
@@ -94,7 +94,7 @@ export interface FileUploadBeforeUploadEvent {
 
 /**
  * Custom progress event.
- * @see {@link FileUploadEmits.progress }
+ * @see {@link FileUploadEmitsOptions.progress }
  */
 export interface FileUploadProgressEvent {
     /**
@@ -109,7 +109,7 @@ export interface FileUploadProgressEvent {
 
 /**
  * Custom upload event.
- * @see {@link FileUploadEmits.upload}
+ * @see {@link FileUploadEmitsOptions.upload}
  */
 export interface FileUploadUploadEvent {
     /**
@@ -124,7 +124,7 @@ export interface FileUploadUploadEvent {
 
 /**
  * Custom uploader event.
- * @see {@link FileUploadEmits.uploader}
+ * @see {@link FileUploadEmitsOptions.uploader}
  */
 export interface FileUploadUploaderEvent {
     /**
@@ -134,7 +134,7 @@ export interface FileUploadUploaderEvent {
 }
 /**
  * Custom error event.
- * @see {@link FileUploadEmits.error}
+ * @see {@link FileUploadEmitsOptions.error}
  */
 export interface FileUploadErrorEvent {
     /**
@@ -148,7 +148,7 @@ export interface FileUploadErrorEvent {
 }
 /**
  * Custom before send event.
- * @see {@link FileUploadEmits['before-send']}
+ * @see {@link FileUploadEmitsOptions['before-send']}
  */
 export interface FileUploadBeforeSendEvent {
     /**
@@ -163,7 +163,7 @@ export interface FileUploadBeforeSendEvent {
 
 /**
  * Custom remove event.
- * @see {@link FileUploadEmits.remove}
+ * @see {@link FileUploadEmitsOptions.remove}
  */
 export interface FileUploadRemoveEvent {
     /**
@@ -177,7 +177,7 @@ export interface FileUploadRemoveEvent {
 }
 /**
  * Custom remove upload file event.
- * @see {@link FileUploadEmits['remove-uploaded-file']}
+ * @see {@link FileUploadEmitsOptions['remove-uploaded-file']}
  */
 export interface FileUploadRemoveUploadedFile {
     /**
@@ -587,7 +587,7 @@ export interface FileUploadSlots {
     }): VNode[];
 }
 
-interface FileUploadEmitsOptions {
+export interface FileUploadEmitsOptions {
     /**
      * Callback to invoke when files are selected.
      * @param {FileUploadSelectEvent} event - Custom select event.

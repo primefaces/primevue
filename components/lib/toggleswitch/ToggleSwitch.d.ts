@@ -174,7 +174,7 @@ export interface ToggleSwitchSlots {}
 /**
  * Defines valid emits in ToggleSwitch component.
  */
-interface ToggleSwitchEmitsOptions {
+export interface ToggleSwitchEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {boolean} value - New value.

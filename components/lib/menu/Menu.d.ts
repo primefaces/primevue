@@ -325,7 +325,7 @@ export interface MenuSlots {
 /**
  * Defines valid emits in Menu component.
  */
-interface MenuEmitsOptions {
+export interface MenuEmitsOptions {
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.

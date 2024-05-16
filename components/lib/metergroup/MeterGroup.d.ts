@@ -285,7 +285,7 @@ export interface MeterGroupSlots {
 /**
  * Defines valid emits in MeterGroup component.
  */
-interface MeterGroupEmitsOptions {}
+export interface MeterGroupEmitsOptions {}
 
 export declare type MeterGroupEmits = EmitFn<MeterGroupEmitsOptions>;
 

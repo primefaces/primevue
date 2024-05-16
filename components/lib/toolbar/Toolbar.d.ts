@@ -126,7 +126,7 @@ export interface ToolbarSlots {
 /**
  * Defines valid emits in Toolbar component.
  */
-interface ToolbarEmitsOptions {}
+export interface ToolbarEmitsOptions {}
 
 export declare type ToolbarEmits = EmitFn<ToolbarEmitsOptions>;
 

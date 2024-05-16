@@ -134,7 +134,7 @@ export interface InlineMessageSlots {
     icon(): VNode[];
 }
 
-interface InlineMessageEmitsOptions {}
+export interface InlineMessageEmitsOptions {}
 
 export declare type InlineMessageEmits = EmitFn<InlineMessageEmitsOptions>;
 

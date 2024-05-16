@@ -107,7 +107,7 @@ export interface TreeTableFilterMeta {
 
 /**
  * Custom sort event.
- * @see {@link TreeTableEmits.sort}
+ * @see {@link TreeTableEmitsOptions.sort}
  */
 export interface TreeTableSortEvent {
     /**
@@ -147,7 +147,7 @@ export interface TreeTableSortEvent {
 
 /**
  * Custom page event.
- * @see {@link TreeTableEmits.sort}
+ * @see {@link TreeTableEmitsOptions.sort}
  * @extends TreeTableSortEvent
  */
 export interface TreeTablePageEvent extends TreeTableSortEvent {
@@ -163,7 +163,7 @@ export interface TreeTablePageEvent extends TreeTableSortEvent {
 
 /**
  * Custom filter event.
- * @see {@link TreeTableEmits.sort}
+ * @see {@link TreeTableEmitsOptions.sort}
  * @extends TreeTableSortEvent
  */
 export interface TreeTableFilterEvent extends TreeTableSortEvent {
@@ -720,7 +720,7 @@ export interface TreeTableSlots {
 /**
  * Defines valid emits in TreeTable component.
  */
-interface TreeTableEmitsOptions {
+export interface TreeTableEmitsOptions {
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.

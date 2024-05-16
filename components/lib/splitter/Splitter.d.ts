@@ -50,7 +50,7 @@ export interface SplitterPassThroughMethodOptions {
 
 /**
  * Custom resize start event.
- * @see {@link SplitterEmits.resizestart}
+ * @see {@link SplitterEmitsOptions.resizestart}
  */
 export interface SplitterResizeStartEvent {
     /**
@@ -65,7 +65,7 @@ export interface SplitterResizeStartEvent {
 
 /**
  * Custom resize event.
- * @see {@link SplitterEmits.resize}
+ * @see {@link SplitterEmitsOptions.resize}
  */
 export interface SplitterResizeEvent {
     /**
@@ -80,7 +80,7 @@ export interface SplitterResizeEvent {
 
 /**
  * Custom resize end event.
- * @see {@link SplitterEmits.resizeend}
+ * @see {@link SplitterEmitsOptions.resizeend}
  */
 export interface SplitterResizeEndEvent {
     /**
@@ -206,7 +206,7 @@ export interface SplitterSlots {
 /**
  * Defines valid emits in Splitter component.
  */
-interface SplitterEmitsOptions {
+export interface SplitterEmitsOptions {
     /**
      * Callback to invoke when resize starts.
      * @param {SplitterResizeStartEvent} event - Custom resize start event.

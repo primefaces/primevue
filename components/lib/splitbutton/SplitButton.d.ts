@@ -311,7 +311,7 @@ export interface SplitButtonSlots {
 /**
  * Defines valid emits in SplitButton component.
  */
-interface SplitButtonEmitsOptions {
+export interface SplitButtonEmitsOptions {
     /**
      * Callback to invoke when main button is clicked.
      * @param {Event} event - Browser event.

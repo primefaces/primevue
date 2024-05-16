@@ -46,7 +46,7 @@ export interface VirtualScrollerPassThroughMethodOptions {
 
 /**
  * Custom scroll index change event.
- * @see {@link VirtualScrollerEmits['scroll-index-change']}
+ * @see {@link VirtualScrollerEmitsOptions['scroll-index-change']}
  */
 export interface VirtualScrollerScrollIndexChangeEvent {
     /**
@@ -61,14 +61,14 @@ export interface VirtualScrollerScrollIndexChangeEvent {
 
 /**
  * Custom lazy event.
- * @see {@link VirtualScrollerEmits['scroll-index-change']}
+ * @see {@link VirtualScrollerEmitsOptions['scroll-index-change']}
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerLazyEvent extends VirtualScrollerScrollIndexChangeEvent {}
 
 /**
  * Custom virtualscroller viewport metadata.
- * @see {@link VirtualScrollerEmits['scroll-index-change']}
+ * @see {@link VirtualScrollerEmitsOptions['scroll-index-change']}
  * @extends VirtualScrollerScrollIndexChangeEvent
  */
 export interface VirtualScrollerViewport extends VirtualScrollerScrollIndexChangeEvent {}
@@ -214,7 +214,7 @@ export interface VirtualScrollerState {
 
 /**
  * Custom virtualscroller loader options
- * @see VirtualScrollerItemOptions
+ * @see {@link VirtualScrollerItemOptions}
  * @extends VirtualScrollerItemOptions
  */
 export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions {}
@@ -464,7 +464,7 @@ export interface VirtualScrollerSlots {
 /**
  * Defines valid emits in VirtualScroller component.
  */
-interface VirtualScrollerEmitsOptions {
+export interface VirtualScrollerEmitsOptions {
     /**
      * Emitted when the numToleratedItems changes.
      * @param {number} value - New number tolerated items

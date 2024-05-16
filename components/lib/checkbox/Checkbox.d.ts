@@ -235,7 +235,7 @@ export interface CheckboxSlots {
 /**
  * Defines valid emits in Checkbox component.
  */
-interface CheckboxEmitsOptions {
+export interface CheckboxEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

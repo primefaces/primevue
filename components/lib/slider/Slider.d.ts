@@ -80,7 +80,7 @@ export interface SliderPassThroughAttributes {
 
 /**
  * Custom slide end event.
- * @see {@link SliderEmits.slideend}
+ * @see {@link SliderEmitsOptions.slideend}
  */
 export interface SliderSlideEndEvent {
     /**
@@ -172,7 +172,7 @@ export interface SliderSlots {}
 /**
  * Defines valid emits in Slider component.
  */
-interface SliderEmitsOptions {
+export interface SliderEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {number | number[]} value - New value.

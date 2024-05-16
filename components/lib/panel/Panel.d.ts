@@ -63,7 +63,7 @@ export interface PanelSharedPassThroughMethodOptions {
 
 /**
  * Custom toggle event.
- * @see {@link PanelEmits.toggle}
+ * @see {@link PanelEmitsOptions.toggle}
  */
 export interface PanelToggleEvent {
     /**
@@ -243,7 +243,7 @@ export interface PanelSlots {
 /**
  * Defines valid emits in Panel component.
  */
-interface PanelEmitsOptions {
+export interface PanelEmitsOptions {
     /**
      * Emitted when the collapsed changes.
      * @param {boolean} value - New value.

@@ -60,7 +60,7 @@ export default {
 
                 if (values) {
                     props = values[`${docName}Props`];
-                    emits = values[`${docName}Emits`];
+                    emits = values[`${docName}EmitsOptions`];
                     slots = values[`${docName}Slots`];
                     events = this.findEvents(values);
                     options = this.findOptions(values, docName); //  MenuItem && ConfirmationOptions

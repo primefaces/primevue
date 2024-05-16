@@ -42,11 +42,10 @@ export const getStyleOptions = (name) => {
     let data = [];
 
     for (const member of members) {
-        const { name, value, description } = member;
+        const { value, description } = member;
 
         data.push({
             class: value.replaceAll('"', ''),
-            section: name,
             description
         });
     }
@@ -66,7 +65,6 @@ export const getTokenOptions = (preset, name) => {
             data.push({
                 token,
                 variable: designToken.name,
-                section: key.toLowerCase(),
                 description: description
             });
         }

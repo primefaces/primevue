@@ -131,7 +131,7 @@ export interface TagSlots {
 /**
  * Defines valid emits in Tag component.
  */
-interface TagEmitsOptions {}
+export interface TagEmitsOptions {}
 
 export declare type TagEmits = EmitFn<TagEmitsOptions>;
 

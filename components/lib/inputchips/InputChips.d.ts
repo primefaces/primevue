@@ -61,7 +61,7 @@ export interface InputChipsSharedPassThroughMethodOptions {
 
 /**
  * Custom add event.
- * @see {@link InputChipsEmits.add}
+ * @see {@link InputChipsEmitsOptions.add}
  */
 export interface InputChipsAddEvent {
     /**
@@ -76,7 +76,7 @@ export interface InputChipsAddEvent {
 
 /**
  * Custom remove event.
- * @see {@link InputChipsEmits.remove}
+ * @see {@link InputChipsEmitsOptions.remove}
  * @extends InputChipsAddEvent
  */
 export interface InputChipsRemoveEvent extends InputChipsAddEvent {}
@@ -320,7 +320,7 @@ export interface InputChipsSlots {
 /**
  * Defines valid emits in InputChips component.
  */
-interface InputChipsEmitsOptions {
+export interface InputChipsEmitsOptions {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.

@@ -123,7 +123,7 @@ export interface ProgressBarSlots {
 /**
  * Defines valid emits in ProgressBar component.
  */
-interface ProgressBarEmitsOptions {}
+export interface ProgressBarEmitsOptions {}
 
 export declare type ProgressBarEmits = EmitFn<ProgressBarEmitsOptions>;
 

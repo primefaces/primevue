@@ -187,7 +187,7 @@ export interface ChipSlots {
 /**
  * Defines valid properties in Chip component.
  */
-interface ChipEmitsOptions {
+export interface ChipEmitsOptions {
     /**
      * Callback to invoke when a chip is removed.
      * @param {Event} event - Browser event.
