@@ -860,7 +860,7 @@ export default {
                 const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
-                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest' });
                 } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
                 }
