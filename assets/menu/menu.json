@@ -95,10 +95,6 @@
                             "to": "/iconfield"
                         },
                         {
-                            "name": "InputChips",
-                            "to": "/inputchips"
-                        },
-                        {
                             "name": "InputGroup",
                             "to": "/inputgroup"
                         },
