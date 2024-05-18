@@ -606,11 +606,6 @@
                 {
                     "name": "PrimeGear",
                     "href": "https://gear.primefaces.org"
-                },
-                {
-                    "name": "PrimeFlex CSS",
-                    "icon": "pi pi-table",
-                    "href": "https://primeflex.org"
                 }
             ]
         }
