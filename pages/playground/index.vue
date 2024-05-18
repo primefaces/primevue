@@ -11,7 +11,7 @@
                     <h1>Playground</h1>
                     <p>Experience PrimeVue right now with the interactive environment.</p>
                 </div>
-                <section class="py-4">
+                <section class="pt-6 pb-6">
                     <iframe class="w-full h-full" style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 2px; min-height: 800px" allowfullscreen src="https://stackblitz.com/edit/vitejs-vite-bpqpcf?file=src%2FApp.vue&embed=1"></iframe>
                 </section>
             </div>
