@@ -1,32 +1,32 @@
 <template>
     <div v-if="!embedded" class="doc-section-code">
-        <div class="doc-section-code-buttons scalein animation-duration-300">
+        <div class="doc-section-code-buttons animate-scalein animation-duration-300">
             <template v-if="codeMode !== 'basic' && !hideToggleCode">
-                <button :class="['py-0 px-2 border-round h-2rem', { 'code-active': codeLang === 'composition' }]" @click="codeLang = 'composition'">Composition API</button>
-                <button :class="['py-0 px-2 border-round h-2rem', { 'code-active': codeLang === 'options' }]" @click="codeLang = 'options'">Options API</button>
+                <button :class="['py-0 pl-2 pr-2 rounded-md h-2rem', { 'code-active': codeLang === 'composition' }]" @click="codeLang = 'composition'">Composition API</button>
+                <button :class="['py-0 pl-2 pr-2 rounded-md h-2rem', { 'code-active': codeLang === 'options' }]" @click="codeLang = 'options'">Options API</button>
             </template>
 
             <template v-if="!hideToggleCode">
-                <button v-tooltip.bottom="{ value: 'Toggle Full Code', class: 'doc-section-code-tooltip' }" type="button" @click="toggleCodeMode('composition')" class="h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center">
+                <button v-tooltip.bottom="{ value: 'Toggle Full Code', class: 'doc-section-code-tooltip' }" type="button" @click="toggleCodeMode('composition')" class="h-8 w-8 p-0 inline-flex items-center justify-center">
                     <i class="pi pi-code"></i>
                 </button>
             </template>
 
             <template v-if="!hideToggleCode && code.data">
-                <button v-tooltip.bottom="{ value: 'View Data', class: 'doc-section-code-tooltip' }" type="button" @click="onToggleData" class="h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center">
+                <button v-tooltip.bottom="{ value: 'View Data', class: 'doc-section-code-tooltip' }" type="button" @click="onToggleData" class="h-8 w-8 p-0 inline-flex items-center justify-center">
                     <i class="pi pi-database"></i>
                 </button>
             </template>
 
             <template v-if="!hideStackBlitz">
-                <button v-tooltip.bottom="{ value: 'Edit in StackBlitz', class: 'doc-section-code-tooltip' }" type="button" class="h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center" @click="showStackblitz">
+                <button v-tooltip.bottom="{ value: 'Edit in StackBlitz', class: 'doc-section-code-tooltip' }" type="button" class="h-8 w-8 p-0 inline-flex items-center justify-center" @click="showStackblitz">
                     <svg role="img" width="13" height="18" viewBox="0 0 13 19" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display: 'block'">
                         <path d="M0 10.6533H5.43896L2.26866 18.1733L12.6667 7.463H7.1986L10.3399 0L0 10.6533Z" />
                     </svg>
                 </button>
             </template>
 
-            <button v-tooltip.bottom="{ value: 'Copy Code', class: 'doc-section-code-tooltip' }" type="button" @click="copyCode" class="h-2rem w-2rem p-0 inline-flex align-items-center justify-content-center">
+            <button v-tooltip.bottom="{ value: 'Copy Code', class: 'doc-section-code-tooltip' }" type="button" @click="copyCode" class="h-8 w-8 p-0 inline-flex items-center justify-center">
                 <i class="pi pi-copy"></i>
             </button>
         </div>
