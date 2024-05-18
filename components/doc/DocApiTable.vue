@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
 
-    <div v-if="!data[0].data" class="doc-tablewrapper mt-4">
+    <div v-if="!data[0].data" class="doc-tablewrapper mt-3">
         <table class="doc-table">
             <thead>
                 <tr>

@@ -1,76 +1,76 @@
 <template>
-    <section class="landing-footer pt-20 pl-8 pr-8 lg:pl-20 lg:pr-20">
+    <section class="landing-footer pt-8 px-5 lg:px-8">
         <div class="landing-footer-container">
-            <div class="flex flex-wrap z-10">
-                <div class="w-1/2 lg:w-1/4 flex">
+            <div class="flex flex-wrap z-1">
+                <div class="w-6 lg:w-3 flex">
                     <ul class="list-none p-0 m-0">
-                        <li class="font-bold mb-8">General</li>
-                        <li class="mb-6">
-                            <PrimeVueNuxtLink to="/setup" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300">Get Started</PrimeVueNuxtLink>
+                        <li class="font-bold mb-5">General</li>
+                        <li class="mb-4">
+                            <PrimeVueNuxtLink to="/setup" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Get Started</PrimeVueNuxtLink>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Examples</a>
+                        <li class="mb-4">
+                            <a href="https://github.com/primefaces/primevue-examples" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Examples</a>
                         </li>
                     </ul>
                 </div>
-                <div class="w-1/2 lg:w-1/4 flex">
+                <div class="w-6 lg:w-3 flex">
                     <ul class="list-none p-0 m-0">
-                        <li class="font-bold mb-8">Support</li>
-                        <li class="mb-6">
-                            <a href="https://github.com/orgs/primefaces/discussions" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Forum</a>
+                        <li class="font-bold mb-5">Support</li>
+                        <li class="mb-4">
+                            <a href="https://github.com/orgs/primefaces/discussions" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Forum</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Discord</a>
+                        <li class="mb-4">
+                            <a href="https://discord.gg/gzKFYnpmCY" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Discord</a>
                         </li>
-                        <li class="mb-6">
-                            <PrimeVueNuxtLink to="/support" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300">PRO Support</PrimeVueNuxtLink>
+                        <li class="mb-4">
+                            <PrimeVueNuxtLink to="/support" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">PRO Support</PrimeVueNuxtLink>
                         </li>
                     </ul>
                 </div>
-                <div class="w-1/2 lg:w-1/4 flex">
+                <div class="w-6 lg:w-3 flex">
                     <ul class="list-none p-0 m-0">
-                        <li class="font-bold mt-8 lg:mt-0 mb-8">Theming</li>
-                        <li class="mb-6">
-                            <PrimeVueNuxtLink to="/theming/styled" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300">Styled Mode</PrimeVueNuxtLink>
+                        <li class="font-bold mt-5 lg:mt-0 mb-5">Theming</li>
+                        <li class="mb-4">
+                            <PrimeVueNuxtLink to="/theming/styled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Styled Mode</PrimeVueNuxtLink>
                         </li>
-                        <li class="mb-6">
-                            <PrimeVueNuxtLink to="/theming/unstyled" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300">Unstyled Mode</PrimeVueNuxtLink>
+                        <li class="mb-4">
+                            <PrimeVueNuxtLink to="/theming/unstyled" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Unstyled Mode</PrimeVueNuxtLink>
                         </li>
                     </ul>
                 </div>
-                <div class="w-1/2 lg:w-1/4 flex">
+                <div class="w-6 lg:w-3 flex">
                     <ul class="list-none p-0 m-0">
-                        <li class="font-bold mt-8 lg:mt-0 mb-8">Resources</li>
-                        <li class="mb-6">
-                            <a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer"
+                        <li class="font-bold mt-5 lg:mt-0 mb-5">Resources</li>
+                        <li class="mb-4">
+                            <a href="https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer"
                                 >PrimeTV</a
                             >
                         </li>
-                        <li class="mb-6">
-                            <a href="https://www.primefaces.org/store/" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Store</a>
+                        <li class="mb-4">
+                            <a href="https://www.primefaces.org/store/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Store</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://github.com/primefaces/primevue" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Source Code</a>
+                        <li class="mb-4">
+                            <a href="https://github.com/primefaces/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Source Code</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://twitter.com/primevue" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        <li class="mb-4">
+                            <a href="https://twitter.com/primevue" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Twitter</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://www.primefaces.org/newsletter" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">Newsletter</a>
+                        <li class="mb-4">
+                            <a href="https://www.primefaces.org/newsletter" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">Newsletter</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="https://gear.primefaces.org/" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300" target="_blank" rel="noopener noreferrer">PrimeGear</a>
+                        <li class="mb-4">
+                            <a href="https://gear.primefaces.org/" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300" target="_blank" rel="noopener noreferrer">PrimeGear</a>
                         </li>
-                        <li class="mb-6">
-                            <a href="mailto:contact@primetek.com.tr" class="text-secondary font-medium hover:text-primary rounded-md transition-all duration-300">Contact Us</a>
+                        <li class="mb-4">
+                            <a href="mailto:contact@primetek.com.tr" class="text-secondary font-medium hover:text-primary border-round transition-all transition-duration-300">Contact Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <hr class="section-divider mt-20" />
+            <hr class="section-divider mt-8" />
 
-            <div class="flex flex-wrap justify-between pt-12 pb-12 gap-8">
+            <div class="flex flex-wrap justify-content-between py-6 gap-5">
                 <span>
                     <svg width="165" height="40" viewBox="0 0 165 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 120px">
                         <path
@@ -115,17 +115,17 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0297 0L17.1214 13.1536L22.5526 0H12.0297Z" fill="var(--primary-color)" />
                     </svg>
                 </span>
-                <div class="flex items-center gap-2">
-                    <a href="https://twitter.com/primevue" class="linkbox block w-12 h-12 flex items-center justify-center">
+                <div class="flex align-items-center gap-2">
+                    <a href="https://twitter.com/primevue" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center">
                         <i class="pi pi-twitter"></i>
                     </a>
-                    <a href="https://github.com/primefaces/primevue" class="linkbox block w-12 h-12 flex items-center justify-center">
+                    <a href="https://github.com/primefaces/primevue" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center">
                         <i class="pi pi-github"></i>
                     </a>
-                    <a href="https://discord.gg/gzKFYnpmCY" class="linkbox block w-12 h-12 flex items-center justify-center">
+                    <a href="https://discord.gg/gzKFYnpmCY" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center">
                         <i class="pi pi-discord"></i>
                     </a>
-                    <a href="https://github.com/orgs/primefaces/discussions" class="linkbox block w-12 h-12 flex items-center justify-center">
+                    <a href="https://github.com/orgs/primefaces/discussions" class="linkbox block w-3rem h-3rem flex align-items-center justify-content-center">
                         <i class="pi pi-comments"></i>
                     </a>
                 </div>
