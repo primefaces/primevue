@@ -869,8 +869,9 @@ export default {
                             const data = this.dataToRender(slotProps.rows);
 
                             this.$emit('update:selection', data);
-                            event.preventDefault();
                         }
+
+                        if (event.code === 'KeyA' && metaKey) event.preventDefault();
 
                         break;
                 }
