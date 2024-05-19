@@ -871,8 +871,6 @@ export default {
                             this.$emit('update:selection', data);
                         }
 
-                        event.preventDefault();
-
                         break;
                 }
             }
