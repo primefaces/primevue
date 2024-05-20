@@ -10,85 +10,85 @@
             </p>
         </div>
 
-        <div class="card p-8">
-            <div class="flex flex-wrap gap-8">
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/cagatay.jpg" class="border-circle mb-4" alt="Cagatay Civici" />
+        <div class="card p-20">
+            <div class="flex flex-wrap gap-20">
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/cagatay.jpg" class="rounded-full mb-6" alt="Cagatay Civici" />
                     <span class="mb-2 text-xl font-bold">Çağatay Çivici</span>
                     <span>Founder</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/mert.jpg" class="border-circle mb-4" alt="Mert Sincan" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/mert.jpg" class="rounded-full mb-6" alt="Mert Sincan" />
                     <span class="mb-2 text-xl font-bold">Mert Sincan</span>
                     <span>CTO</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/onur.jpg" class="border-circle mb-4" alt="Onur Şentüre" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/onur.jpg" class="rounded-full mb-6" alt="Onur Şentüre" />
                     <span class="mb-2 text-xl font-bold">Onur Şentüre</span>
                     <span>Design Lead</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/yigit.jpg" class="border-circle mb-4" alt="Yiğit Fındıklı" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/yigit.jpg" class="rounded-full mb-6" alt="Yiğit Fındıklı" />
                     <span class="mb-2 text-xl font-bold">Yiğit Fındıklı</span>
                     <span>Technical Lead</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/dilara.jpg" class="border-circle mb-4" alt="Dilara Can" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/dilara.jpg" class="rounded-full mb-6" alt="Dilara Can" />
                     <span class="mb-2 text-xl font-bold">Dilara Güngenci</span>
                     <span>Business Administration</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/cetin.jpg" class="border-circle mb-4" alt="Çetin Çakıroğlu" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/cetin.jpg" class="rounded-full mb-6" alt="Çetin Çakıroğlu" />
                     <span class="mb-2 text-xl font-bold">Çetin Çakıroğlu</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/tugce.jpg" class="border-circle mb-4" alt="Tuğçe Küçükoğlu" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/tugce.jpg" class="rounded-full mb-6" alt="Tuğçe Küçükoğlu" />
                     <span class="mb-2 text-xl font-bold">Tuğçe Küçükoğlu</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/atakan.jpg" class="border-circle mb-4" alt="Atakan Tepe" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/atakan.jpg" class="rounded-full mb-6" alt="Atakan Tepe" />
                     <span class="mb-2 text-xl font-bold">Atakan Tepe</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/kerem.jpg" class="border-circle mb-4" alt="Kerem Yıldan" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/kerem.jpg" class="rounded-full mb-6" alt="Kerem Yıldan" />
                     <span class="mb-2 text-xl font-bold">Kerem Yıldan</span>
                     <span>UI/UX Designer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/aliriza.jpg" class="border-circle mb-4" alt="Alirıza Gücal" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/aliriza.jpg" class="rounded-full mb-6" alt="Alirıza Gücal" />
                     <span class="mb-2 text-xl font-bold">Alirıza Gücal</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/umit.jpg" class="border-circle mb-4" alt="Ümit Çelik" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/umit.jpg" class="rounded-full mb-6" alt="Ümit Çelik" />
                     <span class="mb-2 text-xl font-bold">Ümit Çelik</span>
                     <span>UI/UX Designer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/toprak.jpg" class="border-circle mb-4" alt="Toprak Koç" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/toprak.jpg" class="rounded-full mb-6" alt="Toprak Koç" />
                     <span class="mb-2 text-xl font-bold">Toprak Koç</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/mehmet.jpg" class="border-circle mb-4" alt="Mehmet Çetin" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/mehmet.jpg" class="rounded-full mb-6" alt="Mehmet Çetin" />
                     <span class="mb-2 text-xl font-bold">Mehmet Çetin</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/furkan.jpg" class="border-circle mb-4" alt="Furkan Seziş" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/furkan.jpg" class="rounded-full mb-6" alt="Furkan Seziş" />
                     <span class="mb-2 text-xl font-bold">Furkan Seziş</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/burak.jpg" class="border-circle mb-4" alt="Burak Sağlam" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/burak.jpg" class="rounded-full mb-6" alt="Burak Sağlam" />
                     <span class="mb-2 text-xl font-bold">Burak Sağlam</span>
                     <span>Front-End Developer</span>
                 </div>
-                <div class="flex flex-column align-items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/taner.jpg" class="border-circle mb-4" alt="Taner Engin" />
+                <div class="flex flex-col items-center flex-auto">
+                    <img src="https://primefaces.org/cdn/primevue/images/team/taner.jpg" class="rounded-full mb-6" alt="Taner Engin" />
                     <span class="mb-2 text-xl font-bold">Taner Engin</span>
                     <span>Front-End Developer</span>
                 </div>
