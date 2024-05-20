@@ -1,6 +1,6 @@
 <template>
     <template v-for="(doc, i) of docs" :key="doc.label + '_' + i">
-        <section class="py-4">
+        <section class="py-6">
             <template v-if="doc.children">
                 <div :id="doc.id">
                     <DocSectionText :id="doc.id" :label="doc.label" :badge="doc.badge">
