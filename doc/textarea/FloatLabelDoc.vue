@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" style="resize: none" />
             <label>Username</label>
@@ -25,7 +25,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" />
             <label>Username</label>
@@ -45,7 +45,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <Textarea v-model="value" rows="5" cols="30" />
             <label>Username</label>

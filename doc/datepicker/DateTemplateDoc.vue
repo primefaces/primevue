@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content can be placed inside date cells with the <i>date</i> slot that takes a Date as a parameter.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date">
             <template #date="slotProps">
                 <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
@@ -29,7 +29,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date">
             <template #date="slotProps">
                 <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
@@ -51,7 +51,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date">
             <template #date="slotProps">
                 <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>

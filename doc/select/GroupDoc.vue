@@ -5,10 +5,10 @@
             of a group.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-14rem">
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>
@@ -57,9 +57,9 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-14rem">
+<Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
     <template #optiongroup="slotProps">
-        <div class="flex align-items-center">
+        <div class="flex items-center">
             <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
             <div>{{ slotProps.option.label }}</div>
         </div>
@@ -68,10 +68,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-14rem">
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>
@@ -124,10 +124,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-14rem">
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A message disappears after the number of milliseconds defined in the <i>life</i> option. Omit the <i>life</i> option to make the message sticky.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <div class="flex flex-wrap gap-2">
             <Button @click="showSticky" label="Sticky" />
             <Button label="Clear" severity="secondary" @click="clear()" />
@@ -23,7 +23,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button @click="showSticky" label="Sticky" />
@@ -47,7 +47,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button @click="showSticky" label="Sticky" />

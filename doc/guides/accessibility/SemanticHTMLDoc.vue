@@ -26,7 +26,7 @@
 
 </code></pre>
 
-    <div class="doc-section-description mt-3">
+    <div class="doc-section-description mt-4">
         <p>Same layout can be achieved using the semantic elements with screen reader support built-in.</p>
     </div>
     <pre v-code><code>

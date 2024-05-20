@@ -5,7 +5,7 @@
             required to define the property that refers to the children of a group. Note that order of the <i>optionGroupChildren</i> matters as it should correspond to the data hierarchy.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     </div>
     <DocSectionCode :code="code" />
@@ -97,7 +97,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
             :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     </div>
@@ -189,7 +189,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
             :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     </div>

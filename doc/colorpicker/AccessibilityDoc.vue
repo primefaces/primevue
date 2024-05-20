@@ -84,7 +84,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <span class="inline-flex flex-column">
+                            <span class="inline-flex flex-col">
                                 <i class="mb-1">up arrow</i>
                                 <i>down arrow</i>
                             </span>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Severity defines the variant of a badge.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <Badge value="2"></Badge>
         <Badge value="6" severity="secondary"></Badge>
         <Badge value="8" severity="success"></Badge>
@@ -30,7 +30,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <Badge value="2"></Badge>
         <Badge value="6" severity="secondary"></Badge>
         <Badge value="8" severity="success"></Badge>
@@ -46,7 +46,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <Badge value="2"></Badge>
         <Badge value="6" severity="secondary"></Badge>
         <Badge value="8" severity="success"></Badge>

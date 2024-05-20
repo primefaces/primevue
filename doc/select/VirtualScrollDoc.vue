@@ -5,8 +5,8 @@
             <NuxtLink to="/virtualscroller">VirtualScroller</NuxtLink> for more information about the available options as it is used internally by Select.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,13 +20,13 @@ export default {
             code: {
                 basic: `
 <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-    :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />
+    :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />
+            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -43,9 +43,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-14rem" />
+            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
     </div>
 </template>
 

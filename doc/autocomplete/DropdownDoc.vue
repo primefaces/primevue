@@ -5,7 +5,7 @@
             <i>blank</i> is the default mode to send a query with an empty string whereas <i>current</i> setting sends a query with the current value of the input.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
     </div>
     <DocSectionCode :code="code" />
@@ -23,7 +23,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
     </div>
 </template>
@@ -48,7 +48,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
     </div>
 </template>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Menu supports single level of grouping by defining children with the <i>items</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -46,7 +46,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
 </template>
@@ -90,7 +90,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
 </template>

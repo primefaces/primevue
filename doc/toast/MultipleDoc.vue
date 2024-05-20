@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Multiple messages are displayed by passing an array to the <i>show</i> method.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>
@@ -40,7 +40,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <Button label="Multiple" severity="warn" @click="showMultiple()" />
     </div>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Layout of the MeterGroup is configured with the <i>orientation</i> property that accepts either <i>horizontal</i> or <i>vertical</i> as available options.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center" style="height: 360px">
+    <div class="card flex justify-center" style="height: 360px">
         <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
     </div>
     <DocSectionCode :code="code" />
@@ -24,7 +24,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center" style="height: 360px">
+    <div class="card flex justify-center" style="height: 360px">
         <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
     </div>
 </template>
@@ -46,7 +46,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center" style="height: 360px">
+    <div class="card flex justify-center" style="height: 360px">
         <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
     </div>
 </template>

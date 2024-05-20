@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>FloatLabel is used by wrapping the input and its label.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <InputText id="username" v-model="value" />
             <label for="username">Username</label>
@@ -25,7 +25,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <InputText id="username" v-model="value" />
             <label for="username">Username</label>
@@ -46,7 +46,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <InputText id="username" v-model="value" />
             <label for="username">Username</label>

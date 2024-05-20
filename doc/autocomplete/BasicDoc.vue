@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>AutoComplete is used as a controlled component with <i>v-model</i> property. In addition, <i>suggestions</i> property and a <i>complete</i> method are required to query the results.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" :suggestions="items" @complete="search" />
     </div>
     <DocSectionCode :code="code" />
@@ -20,7 +20,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" :suggestions="items" @complete="search" />
     </div>
 </template>
@@ -43,7 +43,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="value" :suggestions="items" @complete="search" />
     </div>
 </template>

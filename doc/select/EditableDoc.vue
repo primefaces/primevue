@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>editable</i> is present, the input can also be entered with typing.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,12 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+<Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -50,8 +50,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
 </template>
 

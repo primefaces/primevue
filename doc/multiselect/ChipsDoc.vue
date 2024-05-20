@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Selected values are displayed as a comma separated list by default, setting <i>display</i> as <i>chip</i> displays them as chips.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-20rem" />
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -23,13 +23,13 @@ export default {
             code: {
                 basic: `
 <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-    :maxSelectedLabels="3" class="w-full md:w-20rem" />
+    :maxSelectedLabels="3" class="w-full md:w-80" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-20rem" />
+            :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 
@@ -52,9 +52,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-20rem" />
+            :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 

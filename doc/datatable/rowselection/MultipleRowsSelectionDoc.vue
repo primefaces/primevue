@@ -7,7 +7,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="flex justify-content-center align-items-center mb-4 gap-2">
+            <div class="flex justify-center items-center mb-6 gap-2">
                 <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
                 <label for="input-metakey">MetaKey</label>
             </div>
@@ -45,7 +45,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex justify-content-center align-items-center mb-4 gap-2">
+        <div class="flex justify-center items-center mb-6 gap-2">
             <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
@@ -78,7 +78,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex justify-content-center align-items-center mb-4 gap-2">
+        <div class="flex justify-center items-center mb-6 gap-2">
             <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>

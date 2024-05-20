@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>severity</i> property defines the variant of a button.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" />
         <Button label="Secondary" severity="secondary" />
         <Button label="Success" severity="success" />
@@ -32,7 +32,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" />
         <Button label="Secondary" severity="secondary" />
         <Button label="Success" severity="success" />
@@ -49,7 +49,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" />
         <Button label="Secondary" severity="secondary" />
         <Button label="Success" severity="success" />

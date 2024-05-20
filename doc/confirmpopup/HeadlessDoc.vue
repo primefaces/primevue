@@ -4,16 +4,16 @@
     </DocSectionText>
     <ConfirmPopup group="headless">
         <template #container="{ message, acceptCallback, rejectCallback }">
-            <div class="border-round p-3">
+            <div class="rounded p-4">
                 <span>{{ message.message }}</span>
-                <div class="flex align-items-center gap-2 mt-3">
+                <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
                     <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="requireConfirmation($event)" label="Save"></Button>
     </div>
     <DocSectionCode :code="code" />
@@ -27,9 +27,9 @@ export default {
                 basic: `
 <ConfirmPopup group="headless">
     <template #container="{ message, acceptCallback, rejectCallback }">
-        <div class="border-round p-3">
+        <div class="rounded p-4">
             <span>{{ message.message }}</span>
-            <div class="flex align-items-center gap-2 mt-3">
+            <div class="flex items-center gap-2 mt-4">
                 <Button label="Save" @click="acceptCallback" size="small"></Button>
                 <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
             </div>
@@ -43,16 +43,16 @@ export default {
     <Toast />
     <ConfirmPopup group="headless">
         <template #container="{ message, acceptCallback, rejectCallback }">
-            <div class="border-round p-3">
+            <div class="rounded p-4">
                 <span>{{ message.message }}</span>
-                <div class="flex align-items-center gap-2 mt-3">
+                <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
                     <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="requireConfirmation($event)" label="Save"></Button>
     </div>
 </template>
@@ -82,16 +82,16 @@ export default {
     <Toast />
     <ConfirmPopup group="headless">
         <template #container="{ message, acceptCallback, rejectCallback }">
-            <div class="border-round p-3">
+            <div class="rounded p-4">
                 <span>{{ message.message }}</span>
-                <div class="flex align-items-center gap-2 mt-3">
+                <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
                     <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="requireConfirmation($event)" label="Save"></Button>
     </div>
 </template>

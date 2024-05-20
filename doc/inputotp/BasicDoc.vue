@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Two-way value binding is defined using <i>v-model</i>. The number of characters is defined with the <i>length</i> property, which is set to 4 by default.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" />
     </div>
 </template>

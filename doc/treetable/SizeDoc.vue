@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="flex justify-content-center mb-4">
+            <div class="flex justify-center mb-6">
                 <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
             </div>
             <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">

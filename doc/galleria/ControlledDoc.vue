@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="mb-3">
+            <div class="mb-4">
                 <Button icon="pi pi-minus" @click="prev" />
                 <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
             </div>
@@ -59,7 +59,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="mb-3">
+        <div class="mb-4">
             <Button icon="pi pi-minus" @click="prev" />
             <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>
@@ -112,7 +112,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="mb-3">
+        <div class="mb-4">
             <Button icon="pi pi-minus" @click="prev" />
             <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
         </div>

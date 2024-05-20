@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Two-way value binding is defined using <i>v-model</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" :feedback="false" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" :feedback="false" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" :feedback="false" />
     </div>
 </template>

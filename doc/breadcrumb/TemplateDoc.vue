@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content can be placed inside the items using the <i>item</i> template. The divider between the items has its own <i>separator</i> template.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ item }">
                 <a class="cursor-pointer" :href="item.url">
@@ -34,7 +34,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ item }">
                 <a class="cursor-pointer" :href="item.url">
@@ -59,7 +59,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items">
             <template #item="{ item }">
                 <a class="cursor-pointer" :href="item.url">

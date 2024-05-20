@@ -3,7 +3,7 @@
         <p>A letter Avatar is defined with the <i>label</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex flex-wrap gap-5">
+        <div class="flex flex-wrap gap-8">
             <div class="flex-auto">
                 <h5>Label</h5>
                 <Avatar label="P" class="mr-2" size="xlarge" />
@@ -45,7 +45,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="flex flex-wrap gap-5">
+    <div class="flex flex-wrap gap-8">
         <div class="flex-auto">
             <h5>Label</h5>
             <Avatar label="P" class="mr-2" size="xlarge" />
@@ -73,7 +73,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="flex flex-wrap gap-5">
+    <div class="flex flex-wrap gap-8">
         <div class="flex-auto">
             <h5>Label</h5>
             <Avatar label="P" class="mr-2" size="xlarge" />

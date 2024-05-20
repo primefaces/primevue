@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>ContextMenu requires a collection of menuitems as its <i>model</i> and the <i>show</i> method needs to be called explicity using an event of the target like <i>contextmenu</i> to display the menu.</p>
     </DocSectionText>
-    <div class="card flex md:justify-content-center">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" class="w-full md:w-30rem border-round shadow-4" @contextmenu="onImageRightClick" aria-haspopup="true" />
+    <div class="card flex md:justify-center">
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" class="w-full md:w-[30rem] rounded shadow-lg" @contextmenu="onImageRightClick" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,13 +19,13 @@ export default {
             ],
             code: {
                 basic: `
-<img alt="Logo" src="/images/nature/nature2.jpg" class="w-full md:w-30rem border-round shadow-4" @contextmenu="onImageRightClick" aria-haspopup="true" />
+<img alt="Logo" src="/images/nature/nature2.jpg" class="w-full md:w-[30rem] rounded shadow-lg" @contextmenu="onImageRightClick" aria-haspopup="true" />
 <ContextMenu ref="menu" :model="items" />
 `,
                 options: `
 <template>
-    <div class="card flex md:justify-content-center">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-30rem border-round shadow-4" aria-haspopup="true" />
+    <div class="card flex md:justify-center">
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-[30rem] rounded shadow-lg" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
 </template>
@@ -51,7 +51,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-30rem border-round shadow-4" aria-haspopup="true" />
+        <img alt="Logo" src="https://primefaces.org/cdn/primevue/images/nature/nature2.jpg" @contextmenu="onImageRightClick" class="w-full md:w-[30rem] rounded shadow-lg" aria-haspopup="true" />
         <ContextMenu ref="menu" :model="items" />
     </div>
 </template>

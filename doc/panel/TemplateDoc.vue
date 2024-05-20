@@ -5,18 +5,18 @@
     <div class="card">
         <Panel toggleable>
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <template #footer>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="text-color-secondary">Updated 2 hours ago</span>
+                    <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>
@@ -57,18 +57,18 @@ export default {
                 basic: `
 <Panel toggleable>
     <template #header>
-        <div class="flex align-items-center gap-2">
+        <div class="flex items-center gap-2">
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
             <span class="font-bold">Amy Elsner</span>
         </div>
     </template>
     <template #footer>
-        <div class="flex flex-wrap align-items-center justify-content-between gap-3">
-            <div class="flex align-items-center gap-2">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
                 <Button icon="pi pi-user" rounded text></Button>
                 <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
             </div>
-            <span class="text-color-secondary">Updated 2 hours ago</span>
+            <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
         </div>
     </template>
     <template #icons>
@@ -87,18 +87,18 @@ export default {
         <Toast />
         <Panel toggleable>
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <template #footer>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="text-color-secondary">Updated 2 hours ago</span>
+                    <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>
@@ -153,18 +153,18 @@ export default {
         <Toast />
         <Panel toggleable>
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" size="large" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
             </template>
             <template #footer>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-3">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
                         <Button icon="pi pi-user" rounded text></Button>
                         <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
                     </div>
-                    <span class="text-color-secondary">Updated 2 hours ago</span>
+                    <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
                 </div>
             </template>
             <template #icons>

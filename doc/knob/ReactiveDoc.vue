@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Knob can be controlled with custom controls as well.</p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center gap-2">
+    <div class="card flex flex-col items-center gap-2">
         <Knob v-model="value" :size="150" readonly />
         <div class="flex gap-2">
             <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />
@@ -27,7 +27,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-2">
+    <div class="card flex flex-col items-center gap-2">
         <Knob v-model="value" :size="150" readonly />
         <div class="flex gap-2">
             <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />
@@ -48,7 +48,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-2">
+    <div class="card flex flex-col items-center gap-2">
         <Knob v-model="value" :size="150" readonly />
         <div class="flex gap-2">
             <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />

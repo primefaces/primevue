@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Multiple buttons are grouped when wrapped inside an element with <i>ButtonGroup</i> component.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />
@@ -26,7 +26,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />
@@ -40,7 +40,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ButtonGroup>
             <Button label="Save" icon="pi pi-check" />
             <Button label="Delete" icon="pi pi-trash" />

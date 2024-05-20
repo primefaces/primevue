@@ -8,12 +8,12 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="flex justify-content-center mb-4">
+            <div class="flex justify-center mb-6">
                 <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
             </div>
             <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
                 <template #header>
-                    <div class="flex justify-content-end">
+                    <div class="flex justify-end">
                         <IconField>
                             <InputIcon class="pi pi-search" />
                             <InputText v-model="filters['global']" placeholder="Global Search" />
@@ -59,7 +59,7 @@ export default {
 <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
 <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
     <template #header>
-        <div class="flex justify-content-end">
+        <div class="flex justify-end">
             <IconField>
                 <InputIcon class="pi pi-search" />
                 <InputText v-model="filters['global']" placeholder="Global Search" />
@@ -86,12 +86,12 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex justify-content-center mb-4">
+        <div class="flex justify-center mb-6">
             <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
         </div>
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
-                <div class="flex justify-content-end">
+                <div class="flex justify-end">
                     <IconField>
                         <InputIcon class="pi pi-search" />
                         <InputText v-model="filters['global']" placeholder="Global Search" />
@@ -141,12 +141,12 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex justify-content-center mb-4">
+        <div class="flex justify-center mb-6">
             <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
         </div>
         <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
             <template #header>
-                <div class="flex justify-content-end">
+                <div class="flex justify-end">
                     <IconField>
                         <InputIcon class="pi pi-search" />
                         <InputText v-model="filters['global']" placeholder="Global Search" />

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>An additional icon is displayed next to the input field when <i>showIcon</i> is present.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
             <DatePicker v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />
@@ -42,7 +42,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
             <DatePicker v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />
@@ -76,7 +76,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
             <DatePicker v-model="buttondisplay" showIcon :showOnFocus="false" inputId="buttondisplay" />

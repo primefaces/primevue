@@ -11,7 +11,7 @@
             the layers, we'd have to write a stronger css or use <i>!important</i> however, with layers, this does not present an issue as your CSS can always override PrimeVue with a more straightforward class name such as <i>my-switch-slider</i>.
             Another advantage of this approach is that it does not force you to figure out the built-in class names of the components.
         </p>
-        <div class="card flex justify-content-center">
+        <div class="card flex justify-center">
             <ToggleSwitch v-model="checked" :pt="{ slider: 'my-switch-slider' }" />
         </div>
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz />

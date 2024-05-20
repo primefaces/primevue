@@ -6,7 +6,7 @@
             <NuxtLink to="/theming/styled">styled mode</NuxtLink> for details.
         </p>
     </DocSectionText>
-    <ul class="flex flex-column gap-2">
+    <ul class="flex flex-col gap-2">
         <li>Files under <i>primevue/resources</i> such as the themes, migration to new styled mode is necessary.</li>
         <li><i>switchTheme</i> function, use the new APIs like <i>usePreset</i> instead to dynamic theme switching.</li>
         <li>The legacy Tailwind preset at <i>primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>

@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>An alternative way to highlight the selected option is displaying a checkmark instead.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,12 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-14rem" />
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -50,8 +50,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
     </div>
 </template>
 

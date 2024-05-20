@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Buttons have built-in badge support with <i>badge</i> and <i>badgeSeverity</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Emails" badge="2" />
         <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>
@@ -20,7 +20,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Emails" badge="2" />
         <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>
@@ -31,7 +31,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Emails" badge="2" />
         <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" outlined />
     </div>

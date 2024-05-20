@@ -5,14 +5,14 @@
             <i>icon</i> is available.
         </p>
     </DocSectionText>
-    <div class="card flex flex-wrap p-fluid gap-3">
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+    <div class="card flex flex-wrap p-fluid gap-4">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
         </div>
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -27,19 +27,19 @@ export default {
             loading: false,
             code: {
                 basic: `
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
-<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
+<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap p-fluid gap-3">
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+    <div class="card flex flex-wrap p-fluid gap-4">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
         </div>
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
         </div>
     </div>
 </template>
@@ -159,14 +159,14 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap p-fluid gap-3">
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+    <div class="card flex flex-wrap p-fluid gap-4">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
         </div>
-        <div class="flex-auto md:flex md:justify-content-start md:align-items-center flex-column">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-30rem"></Tree>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
         </div>
     </div>
 </template>

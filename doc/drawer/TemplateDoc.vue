@@ -2,10 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Additional content at the header section is provided using the <i>header</i> template.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Drawer v-model:visible="visible">
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
@@ -26,7 +26,7 @@ export default {
                 basic: `
 <Drawer v-model:visible="visible">
     <template #header>
-        <div class="flex align-items-center gap-2">
+        <div class="flex items-center gap-2">
             <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
             <span class="font-bold">Amy Elsner</span>
         </div>
@@ -37,10 +37,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Drawer v-model:visible="visible">
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
@@ -63,10 +63,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Drawer v-model:visible="visible">
             <template #header>
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
@@ -33,7 +33,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>
@@ -60,7 +60,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
             <template #option="slotProps">
                 <i :class="slotProps.option.icon"></i>

@@ -5,11 +5,11 @@
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 align-items-center gap-3">
-                    <img class="w-3rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
-                    <div class="flex-1 flex flex-column gap-1">
+                <div class="flex flex-wrap p-1 items-center gap-4">
+                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
-                        <div class="flex align-items-center gap-1">
+                        <div class="flex items-center gap-1">
                             <i class="pi pi-tag text-sm text-secondary"></i>
                             <span class="text-sm text-secondary">{{ item.category }}</span>
                         </div>
@@ -33,11 +33,11 @@ export default {
                 basic: `
 <PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem>
     <template #item="{ item }">
-        <div class="flex flex-wrap p-1 align-items-center gap-3">
-            <img class="w-3rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
-            <div class="flex-1 flex flex-column gap-1">
+        <div class="flex flex-wrap p-1 items-center gap-4">
+            <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+            <div class="flex-1 flex flex-col gap-1">
                 <span class="font-medium">{{ item.name }}</span>
-                <div class="flex align-items-center gap-1">
+                <div class="flex items-center gap-1">
                     <i class="pi pi-tag text-sm text-secondary"></i>
                     <span class="text-sm text-secondary">{{ item.category }}</span>
                 </div>
@@ -52,11 +52,11 @@ export default {
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem>
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 align-items-center gap-3">
-                    <img class="w-3rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
-                    <div class="flex-1 flex flex-column gap-1">
+                <div class="flex flex-wrap p-1 items-center gap-4">
+                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
-                        <div class="flex align-items-center gap-1">
+                        <div class="flex items-center gap-1">
                             <i class="pi pi-tag text-sm text-secondary"></i>
                             <span class="text-sm text-secondary">{{ item.category }}</span>
                         </div>
@@ -87,11 +87,11 @@ export default {
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px">
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 align-items-center gap-3">
-                    <img class="w-3rem flex-shrink-0 border-round" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
-                    <div class="flex-1 flex flex-column gap-1">
+                <div class="flex flex-wrap p-1 items-center gap-4">
+                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
-                        <div class="flex align-items-center gap-1">
+                        <div class="flex items-center gap-1">
                             <i class="pi pi-tag text-sm text-secondary"></i>
                             <span class="text-sm text-secondary">{{ item.category }}</span>
                         </div>

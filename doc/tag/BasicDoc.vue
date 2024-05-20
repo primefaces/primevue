@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Label of the tag is defined with the <i>value</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag value="New"></Tag>
     </div>
     <DocSectionCode :code="code" />
@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag value="New"></Tag>
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag value="New"></Tag>
     </div>
 </template>

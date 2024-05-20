@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Localization information such as grouping and decimal symbols are defined with the <i>locale</i> property which defaults to the user locale.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="locale-user" class="font-bold block mb-2"> User Locale </label>
             <InputNumber v-model="value1" inputId="locale-user" :minFractionDigits="2" />
@@ -40,7 +40,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="locale-user" class="font-bold block mb-2"> User Locale </label>
             <InputNumber v-model="value1" inputId="locale-user" :minFractionDigits="2" />
@@ -75,7 +75,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="locale-user" class="font-bold block mb-2"> User Locale </label>
             <InputNumber v-model="value1" inputId="locale-user" :minFractionDigits="2" />

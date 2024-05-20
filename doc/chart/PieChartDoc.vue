@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>A pie chart is a circular statistical graphic which is divided into slices to illustrate numerical proportion.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
     <DocSectionCode :code="code" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" />
 </template>
@@ -19,12 +19,12 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+<Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 
@@ -76,8 +76,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 

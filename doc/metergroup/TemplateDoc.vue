@@ -5,16 +5,16 @@
     <div class="card">
         <MeterGroup :value="value" labelPosition="start">
             <template #label="{ value }">
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="val.label">
                         <Card class="flex-1">
                             <template #content>
-                                <div class="flex justify-content-between gap-5">
-                                    <div class="flex flex-column gap-1">
+                                <div class="flex justify-between gap-8">
+                                    <div class="flex flex-col gap-1">
                                         <span class="text-secondary text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
-                                    <span class="w-2rem h-2rem border-circle inline-flex justify-content-center align-items-center text-center" :style="{ backgroundColor: `${val.color1}`, color: '#ffffff' }">
+                                    <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: `${val.color1}`, color: '#ffffff' }">
                                         <i :class="val.icon" />
                                     </span>
                                 </div>
@@ -27,14 +27,14 @@
                 <span :class="slotProps.class" :style="{ background: `linear-gradient(to right, ${slotProps.value.color1}, ${slotProps.value.color2})`, width: slotProps.size }" />
             </template>
             <template #start="{ totalPercent }">
-                <div class="flex justify-content-between mt-3 mb-2 relative">
+                <div class="flex justify-between mt-4 mb-2 relative">
                     <span>Storage</span>
                     <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span class="font-medium">1TB</span>
                 </div>
             </template>
             <template #end>
-                <div class="flex justify-content-between mt-3">
+                <div class="flex justify-between mt-4">
                     <Button label="Manage Storage" outlined size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>
@@ -58,16 +58,16 @@ export default {
                 basic: `
 <MeterGroup :value="value" labelPosition="start">
     <template #label="{ value }">
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-4">
             <template v-for="val of value" :key="val.label">
                 <Card class="flex-1">
                     <template #content>
-                        <div class="flex justify-content-between gap-5">
-                            <div class="flex flex-column gap-1">
+                        <div class="flex justify-between gap-8">
+                            <div class="flex flex-col gap-1">
                                 <span class="text-secondary text-sm">{{ val.label }}</span>
                                 <span class="font-bold text-lg">{{ val.value }}%</span>
                             </div>
-                            <span class="w-2rem h-2rem border-circle inline-flex justify-content-center align-items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                            <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
                                 <i :class="val.icon" />
                             </span>
                         </div>
@@ -80,14 +80,14 @@ export default {
         <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
     </template>
     <template #start="{ totalPercent }">
-        <div class="flex justify-content-between mt-3 mb-2 relative">
+        <div class="flex justify-between mt-4 mb-2 relative">
             <span>Storage</span>
             <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
             <span class="font-medium">1TB</span>
         </div>
     </template>
     <template #end>
-        <div class="flex justify-content-between mt-3">
+        <div class="flex justify-between mt-4">
             <Button label="Manage Storage" outlined size="small" />
             <Button label="Update Plan" size="small" />
         </div>
@@ -99,16 +99,16 @@ export default {
     <div class="card">
         <MeterGroup :value="value" labelPosition="start">
             <template #label="{ value }">
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="val.label">
                         <Card class="flex-1">
                             <template #content>
-                                <div class="flex justify-content-between gap-5">
-                                    <div class="flex flex-column gap-1">
+                                <div class="flex justify-between gap-8">
+                                    <div class="flex flex-col gap-1">
                                         <span class="text-secondary text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
-                                    <span class="w-2rem h-2rem border-circle inline-flex justify-content-center align-items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                    <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
                                         <i :class="val.icon" />
                                     </span>
                                 </div>
@@ -121,14 +121,14 @@ export default {
                 <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
             </template>
             <template #start="{ totalPercent }">
-                <div class="flex justify-content-between mt-3 mb-2 relative">
+                <div class="flex justify-between mt-4 mb-2 relative">
                     <span>Storage</span>
                     <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span class="font-medium">1TB</span>
                 </div>
             </template>
             <template #end>
-                <div class="flex justify-content-between mt-3">
+                <div class="flex justify-between mt-4">
                     <Button label="Manage Storage" outlined size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>
@@ -157,16 +157,16 @@ export default {
     <div class="card">
         <MeterGroup :value="value" labelPosition="start">
             <template #label="{ value }">
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="i">
                         <Card class="flex-1">
                             <template #content>
-                                <div class="flex justify-content-between gap-5">
-                                    <div class="flex flex-column gap-1">
+                                <div class="flex justify-between gap-8">
+                                    <div class="flex flex-col gap-1">
                                         <span class="text-secondary text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
-                                    <span class="w-2rem h-2rem border-circle inline-flex justify-content-center align-items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                    <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
                                         <i :class="val.icon" />
                                     </span>
                                 </div>
@@ -179,14 +179,14 @@ export default {
                 <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
             </template>
             <template #start="{ totalPercent }">
-                <div class="flex justify-content-between mt-3 mb-2 relative">
+                <div class="flex justify-between mt-4 mb-2 relative">
                     <span>Storage</span>
                     <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
                     <span class="font-medium">1TB</span>
                 </div>
             </template>
             <template #end>
-                <div class="flex justify-content-between mt-3">
+                <div class="flex justify-between mt-4">
                     <Button label="Manage Storage" outlined size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>

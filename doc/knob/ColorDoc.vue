@@ -5,7 +5,7 @@
             of range and value sections.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
     </div>
     <DocSectionCode :code="code" />
@@ -22,7 +22,7 @@ export default {
 `,
                 options: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
   </div>
 </template>
@@ -39,7 +39,7 @@ export default {
 `,
                 composition: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
   </div>
 </template>

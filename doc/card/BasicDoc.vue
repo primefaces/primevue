@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A simple Card is created with a <i>title</i> property along with the content as children.</p>
     </DocSectionText>
-    <div class="mb-3 p-5">
+    <div class="mb-4 p-8">
         <Card>
             <template #title>Simple Card</template>
             <template #content>

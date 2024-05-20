@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,12 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+<Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -50,8 +50,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
     </div>
 </template>
 

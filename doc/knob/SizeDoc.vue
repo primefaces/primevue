@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Diameter of the knob is defined in pixels using the <i>size</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" :size="200" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" :size="200" />
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" :size="200" />
   </div>
 </template>

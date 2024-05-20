@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of <i>p-ink</i> element.</p>
     </DocSectionText>
-    <div class="card flex flex-column gap-3 align-items-center">
+    <div class="card flex flex-col gap-4 items-center">
         <span>Ripple option at the <i class="pi pi-palette"></i> configurator needs to be turned on for the demo.</span>
-        <div class="flex justify-content-center gap-2">
+        <div class="flex justify-center gap-2">
             <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
             <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
             <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
@@ -25,7 +25,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="flex justify-content-center align-items-center gap-2">
+    <div class="flex justify-center items-center gap-2">
         <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
         <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
         <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
@@ -43,7 +43,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="flex justify-content-center align-items-center gap-2">
+    <div class="flex justify-center items-center gap-2">
         <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
         <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
         <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>

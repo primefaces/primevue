@@ -2,19 +2,19 @@
     <DocSectionText v-bind="$attrs">
         <p>Headless mode is enabled by defining a <i>container</i> slot that lets you implement entire toast UI instead of the default elements.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
+                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-                    <div class="flex flex-column gap-3 w-full">
+                    <div class="flex flex-col gap-4 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-700">{{ message.detail }}</p>
-                        <div class="flex flex-column gap-2">
+                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
+                        <div class="flex flex-col gap-2">
                             <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
-                        <div class="flex gap-3 mb-3">
+                        <div class="flex gap-4 mb-4">
                             <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
                             <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>
@@ -38,16 +38,16 @@ export default {
                 basic: `
 <Toast position="top-center" group="headless" @close="visible = false">
     <template #container="{ message, closeCallback }">
-        <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
+        <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
             <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-            <div class="flex flex-column gap-3 w-full">
+            <div class="flex flex-col gap-4 w-full">
                 <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                <p class="m-0 text-base text-700">{{ message.detail }}</p>
-                <div class="flex flex-column gap-2">
+                <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
+                <div class="flex flex-col gap-2">
                     <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
                     <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                 </div>
-                <div class="flex gap-3 mb-3">
+                <div class="flex gap-4 mb-4">
                     <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
                     <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                 </div>
@@ -59,19 +59,19 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
+                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-                    <div class="flex flex-column gap-3 w-full">
+                    <div class="flex flex-col gap-4 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-700">{{ message.detail }}</p>
-                        <div class="flex flex-column gap-2">
+                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
+                        <div class="flex flex-col gap-2">
                             <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
-                        <div class="flex gap-3 mb-3">
+                        <div class="flex gap-4 mb-4">
                             <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
                             <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>
@@ -126,19 +126,19 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-3 gap-3 w-full bg-black-alpha-90" style="border-radius: 10px">
+                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
                     <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-                    <div class="flex flex-column gap-3 w-full">
+                    <div class="flex flex-col gap-4 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-700">{{ message.detail }}</p>
-                        <div class="flex flex-column gap-2">
+                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
+                        <div class="flex flex-col gap-2">
                             <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
                         </div>
-                        <div class="flex gap-3 mb-3">
+                        <div class="flex gap-4 mb-4">
                             <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
                             <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
                         </div>

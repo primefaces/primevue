@@ -12,7 +12,7 @@
                 </Column>
                 <Column field="representative.name" header="Representative" style="min-width: 200px">
                     <template #body="slotProps">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img :alt="slotProps.data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`" width="32" style="vertical-align: middle" />
                             <span>{{ slotProps.data.representative.name }}</span>
                         </div>
@@ -21,7 +21,7 @@
                 <Column field="name" header="Name" style="min-width: 200px"></Column>
                 <Column field="country" header="Country" style="min-width: 150px">
                     <template #body="slotProps">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.data.country.code}`" style="width: 24px" />
                             <span>{{ slotProps.data.country.name }}</span>
                         </div>
@@ -58,7 +58,7 @@ export default {
     </Column>
     <Column field="representative.name" header="Representative" style="min-width: 200px">
         <template #body="slotProps">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" />
                 <span>{{ slotProps.data.representative.name }}</span>
             </div>
@@ -67,7 +67,7 @@ export default {
     <Column field="name" header="Name" style="min-width: 200px"></Column>
     <Column field="country" header="Country" style="min-width: 150px">
         <template #body="slotProps">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                 <span>{{ slotProps.data.country.name }}</span>
             </div>
@@ -93,7 +93,7 @@ export default {
             </Column>
             <Column field="representative.name" header="Representative" style="min-width: 200px">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" />
                         <span>{{ slotProps.data.representative.name }}</span>
                     </div>
@@ -102,7 +102,7 @@ export default {
             <Column field="name" header="Name" style="min-width: 200px"></Column>
             <Column field="country" header="Country" style="min-width: 150px">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                         <span>{{ slotProps.data.country.name }}</span>
                     </div>
@@ -165,7 +165,7 @@ export default {
             </Column>
             <Column field="representative.name" header="Representative" style="min-width: 200px">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" />
                         <span>{{ slotProps.data.representative.name }}</span>
                     </div>
@@ -174,7 +174,7 @@ export default {
             <Column field="name" header="Name" style="min-width: 200px"></Column>
             <Column field="country" header="Country" style="min-width: 150px">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                         <span>{{ slotProps.data.country.name }}</span>
                     </div>

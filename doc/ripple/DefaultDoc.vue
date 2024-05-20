@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Ripple is enabled by adding add <i>p-ripple</i> class to the target and attach the directive with the v- prefix.</p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <span>Ripple option at the <i class="pi pi-palette"></i> configurator needs to be turned on for the demo.</span>
         <div v-ripple class="ripple-box">Default</div>
     </div>
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <div v-ripple class="ripple-box">Default</div>
     </div>
 </template>
@@ -43,7 +43,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <div v-ripple class="ripple-box">Default</div>
     </div>
 </template>

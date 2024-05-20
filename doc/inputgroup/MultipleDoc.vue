@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Multiple add-ons can be placed inside the same group.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <InputGroup class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <InputGroup class="w-full md:w-[30rem]">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>
@@ -24,7 +24,7 @@ export default {
         return {
             code: {
                 basic: `
-<InputGroup class="w-full md:w-30rem">
+<InputGroup class="w-full md:w-[30rem]">
     <InputGroupAddon>
         <i class="pi pi-clock"></i>
     </InputGroupAddon>
@@ -38,8 +38,8 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <InputGroup class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <InputGroup class="w-full md:w-[30rem]">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>
@@ -55,8 +55,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <InputGroup class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <InputGroup class="w-full md:w-[30rem]">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>

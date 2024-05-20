@@ -5,7 +5,7 @@
     <div class="card">
         <TabMenu :model="items">
             <template #item="{ item, props }">
-                <a v-ripple v-bind="props.action" class="flex align-items-center gap-2">
+                <a v-ripple v-bind="props.action" class="flex items-center gap-2">
                     <img :alt="item.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${item.image}`" style="width: 32px" />
                     <span class="font-bold">{{ item.name }}</span>
                 </a>
@@ -28,7 +28,7 @@ export default {
                 basic: `
 <TabMenu :model="items">
     <template #item="{ item, props }">
-        <a v-ripple v-bind="props.action" class="flex align-items-center gap-2">
+        <a v-ripple v-bind="props.action" class="flex items-center gap-2">
             <img :alt="item.name" :src="\`/images/avatar/\${item.image}\`" style="width: 32px" />
             <span class="font-bold">{{ item.name }}</span>
         </a>
@@ -40,7 +40,7 @@ export default {
     <div class="card">
         <TabMenu :model="items">
             <template #item="{ item, props }">
-                <a v-ripple v-bind="props.action" class="flex align-items-center gap-2">
+                <a v-ripple v-bind="props.action" class="flex items-center gap-2">
                     <img :alt="item.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${item.image}\`" style="width: 32px" />
                     <span class="font-bold">{{ item.name }}</span>
                 </a>
@@ -68,7 +68,7 @@ export default {
     <div class="card">
         <TabMenu :model="items">
             <template #item="{ item, props }">
-                <a v-ripple v-bind="props.action" class="flex align-items-center gap-2">
+                <a v-ripple v-bind="props.action" class="flex items-center gap-2">
                     <img :alt="item.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${item.image}\`" style="width: 32px" />
                     <span class="font-bold">{{ item.name }}</span>
                 </a>

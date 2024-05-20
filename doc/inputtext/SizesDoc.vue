@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the standard.</p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
         <InputText v-model="value3" type="text" size="large" placeholder="Large" />
@@ -25,7 +25,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
         <InputText v-model="value3" type="text" size="large" placeholder="Large" />
@@ -46,7 +46,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />
         <InputText v-model="value2" type="text" placeholder="Normal" />
         <InputText v-model="value3" type="text" size="large" placeholder="Large" />

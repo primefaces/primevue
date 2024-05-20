@@ -2,10 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content for an option is displayed with the <i>option</i> slot that takes an option as a parameter. Additional available templating sections are <i>filter</i> and <i>optionGroup</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-14rem" listStyle="max-height:250px">
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
@@ -34,9 +34,9 @@ export default {
             ],
             code: {
                 basic: `
-<Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-14rem" listStyle="max-height:250px">
+<Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
     <template #option="slotProps">
-        <div class="flex align-items-center">
+        <div class="flex items-center">
             <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
             <div>{{ slotProps.option.name }}</div>
         </div>
@@ -45,10 +45,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-14rem" listStyle="max-height:250px">
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
@@ -81,10 +81,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-14rem" listStyle="max-height:250px">
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>

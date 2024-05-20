@@ -47,7 +47,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <span class="inline-flex flex-column">
+                            <span class="inline-flex flex-col">
                                 <i class="mb-1">enter</i>
                                 <i class="mb-1">space</i>
                                 <i class="mb-1">down arrow</i>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Number of stars to display is defined with <i>stars</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value" :stars="10" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value" :stars="10" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value" :stars="10" />
     </div>
 </template>

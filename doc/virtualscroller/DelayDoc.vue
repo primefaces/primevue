@@ -2,28 +2,28 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>delay</i> property adds a threshold to wait in milliseconds during scrolling for render optimization.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-5">
+    <div class="card flex flex-wrap justify-center gap-8">
         <div>
             <span class="font-bold block mb-2">No Delay</span>
-            <VirtualScroller :items="items" :itemSize="50" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">150ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">500ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
@@ -38,48 +38,48 @@ export default {
             items: null,
             code: {
                 basic: `
-<VirtualScroller :items="items" :itemSize="50" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+<VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
-        <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
 </VirtualScroller>
 
-<VirtualScroller :items="items" :itemSize="50" :delay="150" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+<VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
-        <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
 </VirtualScroller>
 
-<VirtualScroller :items="items" :itemSize="50" :delay="500" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+<VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
-        <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
 </VirtualScroller>
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-5">
+    <div class="card flex flex-wrap justify-center gap-8">
         <div>
             <span class="font-bold block mb-2">No Delay</span>
-            <VirtualScroller :items="items" :itemSize="50" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">150ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">500ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
@@ -101,28 +101,28 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-5">
+    <div class="card flex flex-wrap justify-center gap-8">
         <div>
             <span class="font-bold block mb-2">No Delay</span>
-            <VirtualScroller :items="items" :itemSize="50" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">150ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
         <div>
             <span class="font-bold block mb-2">500ms</span>
-            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border-1 surface-border border-round" style="width: 200px; height: 200px">
+            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex align-items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>

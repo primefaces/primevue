@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The border size is specified with the <i>stroke</i> property as a number in pixels.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" :strokeWidth="5" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" :strokeWidth="5" />
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-  <div class="card flex justify-content-center">
+  <div class="card flex justify-center">
       <Knob v-model="value" :strokeWidth="5" />
   </div>
 </template>

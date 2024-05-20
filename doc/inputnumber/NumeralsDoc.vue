@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>InputNumber is used as a controlled input with <i>v-model</i> property.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>
             <InputNumber v-model="value1" inputId="integeronly" />
@@ -40,7 +40,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>
             <InputNumber v-model="value1" inputId="integeronly" />
@@ -75,7 +75,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>
             <InputNumber v-model="value1" inputId="integeronly" />

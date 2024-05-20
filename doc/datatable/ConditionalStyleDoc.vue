@@ -75,7 +75,7 @@ export default {
     },
     methods: {
         rowClass(data) {
-            return [{ 'bg-primary': data.category === 'Fitness' }];
+            return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
         },
         rowStyle(data) {
             if (data.quantity === 0) {
@@ -84,7 +84,7 @@ export default {
         },
         stockClass(data) {
             return [
-                'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
+                'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
                 {
                     'bg-red-100 text-red-900': data.quantity === 0,
                     'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
@@ -125,7 +125,7 @@ onMounted(() => {
 const products = ref();
 
 const rowClass = (data) => {
-    return [{ 'bg-primary': data.category === 'Fitness' }];
+    return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
 };
 const rowStyle = (data) => {
     if (data.quantity === 0) {
@@ -134,7 +134,7 @@ const rowStyle = (data) => {
 };
 const stockClass = (data) => {
     return [
-        'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
+        'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
         {
             'bg-red-100 text-red-900': data.quantity === 0,
             'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
@@ -167,7 +167,7 @@ const stockClass = (data) => {
             ProductService.getProductsSmall().then((data) => (this.products = data));
         },
         rowClass(data) {
-            return [{ 'bg-primary': data.category === 'Fitness' }];
+            return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
         },
         rowStyle(data) {
             if (data.quantity === 0) {
@@ -176,7 +176,7 @@ const stockClass = (data) => {
         },
         stockClass(data) {
             return [
-                'border-circle w-2rem h-2rem inline-flex font-bold justify-content-center align-items-center text-sm',
+                'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
                 {
                     'bg-red-100 text-red-900': data.quantity === 0,
                     'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,

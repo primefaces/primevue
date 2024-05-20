@@ -5,10 +5,10 @@
             of a group.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>
@@ -57,9 +57,9 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-20rem">
+<MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
     <template #optiongroup="slotProps">
-        <div class="flex align-items-center">
+        <div class="flex items-center">
             <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
             <div>{{ slotProps.option.label }}</div>
         </div>
@@ -68,10 +68,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>
@@ -124,10 +124,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.label }}</div>
                 </div>

@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card">
         <Splitter style="height: 300px" layout="vertical">
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
         </Splitter>
     </div>
     <DocSectionCode :code="code" />
@@ -18,16 +18,16 @@ export default {
             code: {
                 basic: `
 <Splitter style="height: 300px" layout="vertical">
-    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-    <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
+    <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+    <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
 </Splitter>
 `,
                 options: `
 <template>
     <div class="card">
         <Splitter style="height: 300px" layout="vertical">
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
         </Splitter>
     </div>
 </template>
@@ -39,8 +39,8 @@ export default {
 <template>
     <div class="card">
         <Splitter style="height: 300px" layout="vertical">
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex align-items-center justify-content-center"> Panel 2 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
         </Splitter>
     </div>
 </template>

@@ -5,7 +5,7 @@
             detail.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Show" @click="show()" />
     </div>
     <DocSectionCode :code="code" />
@@ -22,7 +22,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <Button label="Show" @click="show()" />
     </div>
@@ -40,7 +40,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <Button label="Show" @click="show()" />
     </div>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p><i>IconField</i> wraps the <i>InputIcon</i> and the input field component.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-3">
+    <div class="card flex flex-wrap justify-center gap-4">
         <IconField>
             <InputIcon class="pi pi-search" />
             <InputText v-model="value1" placeholder="Search" />
@@ -36,7 +36,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-3">
+    <div class="card flex flex-wrap justify-center gap-4">
         <IconField>
             <InputIcon class="pi pi-search" />
             <InputText v-model="value1" placeholder="Search" />
@@ -62,7 +62,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-3">
+    <div class="card flex flex-wrap justify-center gap-4">
         <IconField>
             <InputIcon class="pi pi-search" />
             <InputText v-model="value1" placeholder="Search" />

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>3 slots are included to customize the overlay. These are <i>header</i>, <i>content</i> and <i>footer</i>. Note that content overrides the default meter.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
                 <h6>Pick a password</h6>
@@ -47,7 +47,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
                 <h6>Pick a password</h6>
@@ -78,7 +78,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
                 <h6>Pick a password</h6>

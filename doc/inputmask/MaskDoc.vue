@@ -5,7 +5,7 @@
             <i>-</i> are also accepted.
         </p>
     </DocSectionText>
-    <div class="card p-fluid flex flex-wrap gap-3">
+    <div class="card p-fluid flex flex-wrap gap-4">
         <div class="flex-auto">
             <label for="ssn" class="font-bold block mb-2">SSN</label>
             <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" />
@@ -50,7 +50,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card p-fluid flex flex-wrap gap-3">
+    <div class="card p-fluid flex flex-wrap gap-4">
         <div class="flex-auto">
             <label for="ssn" class="font-bold block mb-2">SSN</label>
             <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" />
@@ -83,7 +83,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card p-fluid flex flex-wrap gap-3">
+    <div class="card p-fluid flex flex-wrap gap-4">
         <div class="flex-auto">
             <label for="ssn" class="font-bold block mb-2">SSN</label>
             <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" />

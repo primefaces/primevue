@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>SplitButton has a default command button and a collection of additional options defined by the <i>model</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SplitButton label="Save" @click="save" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -39,7 +39,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton label="Save" @click="save" :model="items" />
     </div>
@@ -82,7 +82,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton label="Save" @click="save" :model="items" />
     </div>

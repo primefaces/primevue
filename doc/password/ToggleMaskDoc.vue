@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>toggleMask</i> is present, an icon is displayed to show the value as plain text.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" toggleMask />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" toggleMask />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Password v-model="value" toggleMask />
     </div>
 </template>

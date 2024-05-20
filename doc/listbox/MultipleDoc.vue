@@ -5,8 +5,8 @@
             be present.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -25,12 +25,12 @@ export default {
             ],
             code: {
                 basic: `
-<Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-14rem" />
+<Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -53,8 +53,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-14rem" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
     </div>
 </template>
 

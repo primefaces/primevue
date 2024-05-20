@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Children of the component are passed as the content for templating.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
-            <div class="flex align-items-center gap-2 px-1">
+            <div class="flex items-center gap-2 px-1">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
                 <span class="text-base">Italy</span>
             </div>
@@ -20,7 +20,7 @@ export default {
             code: {
                 basic: `
 <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
-    <div class="flex align-items-center gap-2 px-1">
+    <div class="flex items-center gap-2 px-1">
         <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
         <span class="text-base">Italy</span>
     </div>
@@ -28,9 +28,9 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
-            <div class="flex align-items-center gap-2 px-1">
+            <div class="flex items-center gap-2 px-1">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
                 <span class="text-base">Italy</span>
             </div>
@@ -43,9 +43,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
-            <div class="flex align-items-center gap-2 px-1">
+            <div class="flex items-center gap-2 px-1">
                 <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
                 <span class="text-base">Italy</span>
             </div>

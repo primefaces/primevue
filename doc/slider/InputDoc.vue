@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Slider is connected to an input field using two-way binding.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <div class="w-14rem">
-            <InputText v-model.number="value" class="w-full mb-3" />
+    <div class="card flex justify-center">
+        <div class="w-56">
+            <InputText v-model.number="value" class="w-full mb-4" />
             <Slider v-model="value" class="w-full" />
         </div>
     </div>
@@ -23,9 +23,9 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <div class="w-14rem">
-            <InputText v-model.number="value" class="w-full mb-3" />
+    <div class="card flex justify-center">
+        <div class="w-56">
+            <InputText v-model.number="value" class="w-full mb-4" />
             <Slider v-model="value" class="w-full" />
         </div>
     </div>
@@ -43,9 +43,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <div class="w-14rem">
-            <InputText v-model.number="value" class="w-full mb-3" />
+    <div class="card flex justify-center">
+        <div class="w-56">
+            <InputText v-model.number="value" class="w-full mb-4" />
             <Slider v-model="value" class="w-full" />
         </div>
     </div>

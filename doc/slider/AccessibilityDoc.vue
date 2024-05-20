@@ -24,7 +24,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="inline-flex flex-column">
+                            <span class="inline-flex flex-col">
                                 <i class="mb-1">left arrow</i>
                                 <i>up arrow</i>
                             </span>
@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="inline-flex flex-column">
+                            <span class="inline-flex flex-col">
                                 <i class="mb-1">right arrow</i>
                                 <i>down arrow</i>
                             </span>

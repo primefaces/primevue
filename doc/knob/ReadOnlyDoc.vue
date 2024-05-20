@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>readonly</i> present, value cannot be edited.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" readonly />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" readonly />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" readonly />
     </div>
 </template>

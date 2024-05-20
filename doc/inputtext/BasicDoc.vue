@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>InputText is used as a controlled input with <i>v-model</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputText v-model="value" type="text" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputText type="text" v-model="value" />
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputText type="text" v-model="value" />
     </div>
 </template>

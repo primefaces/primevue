@@ -3,8 +3,8 @@
         <p>The default slot allows displaying custom content inside a chip.</p>
     </DocSectionText>
     <div class="card">
-        <Chip class="py-0 pl-0 pr-3">
-            <span class="bg-primary border-circle w-2rem h-2rem flex align-items-center justify-content-center">P</span>
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
             <span class="ml-2 font-medium">PRIME</span>
         </Chip>
     </div>
@@ -17,16 +17,16 @@ export default {
         return {
             code: {
                 basic: `
-<Chip class="py-0 pl-0 pr-3">
-    <span class="bg-primary border-circle w-2rem h-2rem flex align-items-center justify-content-center">P</span>
+<Chip class="py-0 pl-0 pr-4">
+    <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
     <span class="ml-2 font-medium">PRIME</span>
 </Chip>
 `,
                 options: `
 <template>
     <div class="card">
-        <Chip class="py-0 pl-0 pr-3">
-            <span class="bg-primary border-circle w-2rem h-2rem flex align-items-center justify-content-center">P</span>
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
             <span class="ml-2 font-medium">PRIME</span>
         </Chip>
     </div>
@@ -39,8 +39,8 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Chip class="py-0 pl-0 pr-3">
-            <span class="bg-primary border-circle w-2rem h-2rem flex align-items-center justify-content-center">P</span>
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
             <span class="ml-2 font-medium">PRIME</span>
         </Chip>
     </div>

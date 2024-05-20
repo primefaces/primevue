@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused entirely. Certain options can also be disabled using the <i>optionDisabled</i> property.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
+    <div class="card flex flex-wrap justify-center flex-wrap gap-4">
         <SelectButton v-model="value" :options="options1" disabled />
         <SelectButton v-model="value2" :options="options2" optionDisabled="constant" optionLabel="name" />
     </div>
@@ -27,7 +27,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
+    <div class="card flex flex-wrap justify-center flex-wrap gap-4">
         <SelectButton v-model="value" :options="options" disabled />
         <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
     </div>
@@ -51,7 +51,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center flex-wrap gap-3">
+    <div class="card flex flex-wrap justify-center flex-wrap gap-4">
         <SelectButton v-model="value" :options="options" disabled />
         <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
     </div>

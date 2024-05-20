@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom icons are used to override the default icons with <i>onicon</i>, <i>officon</i> and <i>cancelicon</i> slots.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value">
             <template #cancelicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
@@ -39,7 +39,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value">
             <template #cancelicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
@@ -66,7 +66,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Rating v-model="value">
             <template #cancelicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />

@@ -5,13 +5,13 @@
             target is an overlay, <i>hideOnOutsideClick</i> would be handy to hide the target if outside of the popup is clicked.
         </p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center">
+    <div class="card flex flex-col items-center">
         <div>
             <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
-        <div class="my-hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
+        <div class="my-hidden animate-duration-500 box">
+            <div class="flex bg-green-500 text-white items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -25,19 +25,19 @@ export default {
                 basic: `
 <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
 <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
-<div class="my-hidden animation-duration-500 box">
-    <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
+<div class="my-hidden animate-duration-500 box">
+    <div class="flex bg-green-500 text-white items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
 </div>
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center">
+    <div class="card flex flex-col items-center">
         <div>
             <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
-        <div class="my-hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
+        <div class="my-hidden animate-duration-500 box">
+            <div class="flex bg-green-500 text-white items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
         </div>
     </div>
 </template>
@@ -79,13 +79,13 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center">
+    <div class="card flex flex-col items-center">
         <div>
             <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
-        <div class="my-hidden animation-duration-500 box">
-            <div class="flex bg-green-500 text-white align-items-center justify-content-center py-3 border-round-md mt-3 font-bold w-8rem h-8rem">Content</div>
+        <div class="my-hidden animate-duration-500 box">
+            <div class="flex bg-green-500 text-white items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
         </div>
     </div>
 </template>

@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Size of each movement is defined with the <i>step</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" :step="20" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" :step="20" class="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: 20,
             code: {
                 basic: `
-<Slider v-model="value" :step="20" class="w-14rem" />
+<Slider v-model="value" :step="20" class="w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" :step="20" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" :step="20" class="w-56" />
     </div>
 </template>
 
@@ -36,8 +36,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" :step="20" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" :step="20" class="w-56" />
     </div>
 </template>
 

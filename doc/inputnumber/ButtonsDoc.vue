@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Spinner buttons are enabled using the <i>showButtons</i> property and layout is defined with the <i>buttonLayout</i>.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="stacked-buttons" class="font-bold block mb-2"> Stacked </label>
             <InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" />
@@ -49,7 +49,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="stacked-buttons" class="font-bold block mb-2"> Stacked </label>
             <InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" />
@@ -87,7 +87,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="stacked-buttons" class="font-bold block mb-2"> Stacked </label>
             <InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" />

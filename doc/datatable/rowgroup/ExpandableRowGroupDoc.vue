@@ -22,13 +22,13 @@
             >
                 <template #groupheader="slotProps">
                     <img :alt="slotProps.data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.data.representative.image}`" width="32" style="vertical-align: middle" class="ml-2" />
-                    <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
+                    <span class="align-middle ml-2 font-bold leading-normal">{{ slotProps.data.representative.name }}</span>
                 </template>
                 <Column field="representative.name" header="Representative"></Column>
                 <Column field="name" header="Name" style="width: 20%"></Column>
                 <Column field="country" header="Country" style="width: 20%">
                     <template #body="slotProps">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.data.country.code}`" style="width: 24px" />
                             <span>{{ slotProps.data.country.name }}</span>
                         </div>
@@ -42,7 +42,7 @@
                 </Column>
                 <Column field="date" header="Date" style="width: 20%"></Column>
                 <template #groupfooter="slotProps">
-                    <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
+                    <div class="flex justify-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
                 </template>
             </DataTable>
         </div>
@@ -65,13 +65,13 @@ export default {
         sortMode="single" sortField="representative.name" :sortOrder="1">
     <template #groupheader="slotProps">
         <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" class="ml-2" />
-        <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
+        <span class="align-middle ml-2 font-bold leading-normal">{{ slotProps.data.representative.name }}</span>
     </template>
     <Column field="representative.name" header="Representative"></Column>
     <Column field="name" header="Name" style="width: 20%"></Column>
     <Column field="country" header="Country" style="width: 20%">
         <template #body="slotProps">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                 <span>{{ slotProps.data.country.name }}</span>
             </div>
@@ -85,7 +85,7 @@ export default {
     </Column>
     <Column field="date" header="Date" style="width: 20%"></Column>
     <template #groupfooter="slotProps">
-        <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
+        <div class="flex justify-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
     </template>
 </DataTable>
 `,
@@ -97,13 +97,13 @@ export default {
                 sortMode="single" sortField="representative.name" :sortOrder="1">
             <template #groupheader="slotProps">
                 <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" class="ml-2" />
-                <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
+                <span class="align-middle ml-2 font-bold leading-normal">{{ slotProps.data.representative.name }}</span>
             </template>
             <Column field="representative.name" header="Representative"></Column>
             <Column field="name" header="Name" style="width: 20%"></Column>
             <Column field="country" header="Country" style="width: 20%">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                         <span>{{ slotProps.data.country.name }}</span>
                     </div>
@@ -117,7 +117,7 @@ export default {
             </Column>
             <Column field="date" header="Date" style="width: 20%"></Column>
             <template #groupfooter="slotProps">
-                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
+                <div class="flex justify-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
             </template>
         </DataTable>
         <Toast />
@@ -187,13 +187,13 @@ export default {
                 sortMode="single" sortField="representative.name" :sortOrder="1">
             <template #groupheader="slotProps">
                 <img :alt="slotProps.data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.data.representative.image}\`" width="32" style="vertical-align: middle" class="ml-2" />
-                <span class="vertical-align-middle ml-2 font-bold line-height-3">{{ slotProps.data.representative.name }}</span>
+                <span class="align-middle ml-2 font-bold leading-normal">{{ slotProps.data.representative.name }}</span>
             </template>
             <Column field="representative.name" header="Representative"></Column>
             <Column field="name" header="Name" style="width: 20%"></Column>
             <Column field="country" header="Country" style="width: 20%">
                 <template #body="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.data.country.code}\`" style="width: 24px" />
                         <span>{{ slotProps.data.country.name }}</span>
                     </div>
@@ -207,7 +207,7 @@ export default {
             </Column>
             <Column field="date" header="Date" style="width: 20%"></Column>
             <template #groupfooter="slotProps">
-                <div class="flex justify-content-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
+                <div class="flex justify-end font-bold w-full">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</div>
             </template>
         </DataTable>
         <Toast />

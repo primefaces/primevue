@@ -7,7 +7,7 @@
             <TreeTable :value="nodes" tableStyle="min-width: 50rem">
                 <template #header>
                     <div style="text-align: left">
-                        <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip" />
+                        <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip" />
                     </div>
                 </template>
                 <Column field="name" header="Name" :expander="true"></Column>
@@ -32,7 +32,7 @@ export default {
 <TreeTable :value="nodes" tableStyle="min-width: 50rem">
     <template #header>
         <div style="text-align:left">
-            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
+            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
         </div>
     </template>
     <Column field="name" header="Name" :expander="true"></Column>
@@ -45,7 +45,7 @@ export default {
         <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <template #header>
                 <div style="text-align:left">
-                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
                 </div>
             </template>
             <Column field="name" header="Name" :expander="true"></Column>
@@ -90,7 +90,7 @@ export default {
         <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <template #header>
                 <div style="text-align:left">
-                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-16rem" display="chip"/>
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
                 </div>
             </template>
             <Column field="name" header="Name" :expander="true"></Column>

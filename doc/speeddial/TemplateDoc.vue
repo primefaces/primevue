@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card">
-        <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '400px' }">
+        <div class="flex items-end justify-center" :style="{ position: 'relative', height: '400px' }">
             <SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
                 <template #button="{ toggleCallback }">
                     <Button outlined class="border-2" @click="toggleCallback">
@@ -23,7 +23,7 @@
                     </Button>
                 </template>
                 <template #item="{ item, toggleCallback }">
-                    <div class="flex flex-column align-items-center justify-content-between gap-2 p-2 border-1 border-round surface-border w-5rem cursor-pointer" @click="toggleCallback">
+                    <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
                         <span :class="item.icon" />
                         <span>
                             {{ item.label }}
@@ -89,7 +89,7 @@ export default {
         </Button>
     </template>
     <template #item="{ item, toggleCallback }">
-        <div class="flex flex-column align-items-center justify-content-between gap-2 p-2 border-1 border-round surface-border w-5rem cursor-pointer" @click="toggleCallback">
+        <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
             <span :class="item.icon" />
             <span>
                 {{ item.label }}
@@ -101,7 +101,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '400px' }">
+        <div class="flex items-end justify-center" :style="{ position: 'relative', height: '400px' }">
             <SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
                 <template #button="{ toggleCallback }">
                     <Button outlined class="border-2" @click="toggleCallback">
@@ -112,7 +112,7 @@ export default {
                     </Button>
                 </template>
                 <template #item="{ item, toggleCallback }">
-                    <div class="flex flex-column align-items-center justify-content-between gap-2 p-2 border-1 border-round surface-border w-5rem cursor-pointer" @click="toggleCallback">
+                    <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
                         <span :class="item.icon" />
                         <span>
                             {{ item.label }}
@@ -174,7 +174,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex align-items-end justify-content-center" :style="{ position: 'relative', height: '400px' }">
+        <div class="flex items-end justify-center" :style="{ position: 'relative', height: '400px' }">
             <SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
                 <template #button="{ toggleCallback }">
                     <Button outlined class="border-2" @click="toggleCallback">
@@ -185,7 +185,7 @@ export default {
                     </Button>
                 </template>
                 <template #item="{ item, toggleCallback }">
-                    <div class="flex flex-column align-items-center justify-content-between gap-2 p-2 border-1 border-round surface-border w-5rem cursor-pointer" @click="toggleCallback">
+                    <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
                         <span :class="item.icon" />
                         <span>
                             {{ item.label }}

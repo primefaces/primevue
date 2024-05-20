@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A tooltip sample with a custom style and content.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center">
+    <div class="card flex flex-wrap justify-center">
         <Button
             v-tooltip.bottom="{
                 value: 'PrimeVue Rocks',
@@ -12,7 +12,7 @@
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary font-medium'
+                    text: 'bg-primary text-primary-contrast font-medium'
                 }
             }"
             severity="secondary"
@@ -37,7 +37,7 @@ export default {
                     borderBottomColor: 'var(--p-primary-color)'
                 }
             },
-            text: 'bg-primary font-medium'
+            text: 'bg-primary text-primary-contrast font-medium'
         }
     }"
     label="Button"
@@ -45,7 +45,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center">
+    <div class="card flex flex-wrap justify-center">
         <Button
             v-tooltip.bottom="{
                 value: 'PrimeVue Rocks',
@@ -55,7 +55,7 @@ export default {
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary font-medium'
+                    text: 'bg-primary text-primary-contrast font-medium'
                 }
             }"
             severity="secondary"
@@ -66,7 +66,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center">
+    <div class="card flex flex-wrap justify-center">
         <Button
             v-tooltip.bottom="{
                 value: 'PrimeVue Rocks',
@@ -76,7 +76,7 @@ export default {
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary font-medium'
+                    text: 'bg-primary text-primary-contrast font-medium'
                 }
             }"
             severity="secondary"

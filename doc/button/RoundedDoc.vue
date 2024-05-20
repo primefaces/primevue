@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Rounded buttons have a circular border radius.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" rounded />
         <Button label="Secondary" severity="secondary" rounded />
         <Button label="Success" severity="success" rounded />
@@ -32,7 +32,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" rounded />
         <Button label="Secondary" severity="secondary" rounded />
         <Button label="Success" severity="success" rounded />
@@ -49,7 +49,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center flex-wrap gap-3">
+    <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" rounded />
         <Button label="Secondary" severity="secondary" rounded />
         <Button label="Success" severity="success" rounded />

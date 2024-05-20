@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom texts e.g. units can be placed before or after the input section with the <i>prefix</i> and <i>suffix</i> properties.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="mile" class="font-bold block mb-2"> Mile </label>
             <InputNumber v-model="value1" inputId="mile" suffix=" mi" />
@@ -40,7 +40,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="mile" class="font-bold block mb-2"> Mile </label>
             <InputNumber v-model="value1" inputId="mile" suffix=" mi" />
@@ -75,7 +75,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="mile" class="font-bold block mb-2"> Mile </label>
             <InputNumber v-model="value1" inputId="mile" suffix=" mi" />

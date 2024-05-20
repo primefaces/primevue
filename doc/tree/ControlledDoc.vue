@@ -5,12 +5,12 @@
             <i>expandedKeys</i> also supports two-way binding with the v-model directive.
         </p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center">
-        <div class="flex flex-wrap gap-2 mb-4">
+    <div class="card flex flex-col items-center">
+        <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
-        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>
+        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
 </template>
@@ -25,20 +25,20 @@ export default {
             expandedKeys: {},
             code: {
                 basic: `
-<div class="flex flex-wrap gap-2 mb-4">
+<div class="flex flex-wrap gap-2 mb-6">
     <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
     <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
 </div>
-<Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>
+<Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-cente">
-        <div class="flex flex-wrap gap-2 mb-4">
+    <div class="card flex flex-col align-items-cente">
+        <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
-        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>
+        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -81,12 +81,12 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-cente">
-        <div class="flex flex-wrap gap-2 mb-4">
+    <div class="card flex flex-col align-items-cente">
+        <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
-        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-30rem"></Tree>
+        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 

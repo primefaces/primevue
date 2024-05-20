@@ -5,7 +5,7 @@
             <i>chip</i>, <i>header</i> and <i>footer</i> slots are provided for further customization
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
             <template #option="slotProps">
                 <div class="flex align-options-center">
@@ -39,7 +39,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
             <template #option="slotProps">
                 <div class="flex align-options-center">
@@ -83,7 +83,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
             <template #option="slotProps">
                 <div class="flex align-options-center">

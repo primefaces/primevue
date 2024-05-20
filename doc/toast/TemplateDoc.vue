@@ -2,15 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content inside a message is defined with the <i>content</i> template.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-start" style="flex: 1">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-col items-start" style="flex: 1">
+                    <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-900">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
@@ -29,12 +29,12 @@ export default {
                 basic: `
 <Toast position="bottom-center" group="bc" @close="onClose">
     <template #message="slotProps">
-        <div class="flex flex-column align-items-start" style="flex: 1">
-            <div class="flex align-items-center gap-2">
+        <div class="flex flex-col items-start" style="flex: 1">
+            <div class="flex items-center gap-2">
                 <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
-                <span class="font-bold text-900">Amy Elsner</span>
+                <span class="font-bold text-surface-900">Amy Elsner</span>
             </div>
-            <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+            <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
             <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
         </div>
     </template>
@@ -43,15 +43,15 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-start" style="flex: 1">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-col items-start" style="flex: 1">
+                    <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-900">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
@@ -87,15 +87,15 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="bottom-center" group="bc" @close="onClose">
             <template #message="slotProps">
-                <div class="flex flex-column align-items-start" style="flex: 1">
-                    <div class="flex align-items-center gap-2">
+                <div class="flex flex-col items-start" style="flex: 1">
+                    <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-900">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-3 text-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>

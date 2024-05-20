@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>severity</i> option specifies the type of the message.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <div class="flex flex-wrap gap-2">
             <Button label="Success" severity="success" @click="showSuccess" />
             <Button label="Info" severity="info" @click="showInfo" />
@@ -31,7 +31,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button label="Success" severity="success" @click="showSuccess" />
@@ -71,7 +71,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <div class="flex flex-wrap gap-2">
             <Button label="Success" severity="success" @click="showSuccess" />

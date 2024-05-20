@@ -13,7 +13,7 @@
         <div class="card">
             <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
                 <template #header>
-                    <div class="flex flex-wrap justify-content-end gap-2">
+                    <div class="flex flex-wrap justify-end gap-2">
                         <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
                         <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                     </div>
@@ -22,7 +22,7 @@
                 <Column field="name" header="Name"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="shadow-4" width="64" />
+                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
                     </template>
                 </Column>
                 <Column field="price" header="Price">
@@ -42,7 +42,7 @@
                     </template>
                 </Column>
                 <template #expansion="slotProps">
-                    <div class="p-3">
+                    <div class="p-4">
                         <h5>Orders for {{ slotProps.data.name }}</h5>
                         <DataTable :value="slotProps.data.orders">
                             <Column field="id" header="Id" sortable></Column>
@@ -85,7 +85,7 @@ export default {
 <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
     <template #header>
-        <div class="flex flex-wrap justify-content-end gap-2">
+        <div class="flex flex-wrap justify-end gap-2">
             <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
@@ -94,7 +94,7 @@ export default {
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-4" width="64" />
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
         </template>
     </Column>
     <Column field="price" header="Price">
@@ -114,7 +114,7 @@ export default {
         </template>
     </Column>
     <template #expansion="slotProps">
-        <div class="p-3">
+        <div class="p-4">
             <h5>Orders for {{ slotProps.data.name }}</h5>
             <DataTable :value="slotProps.data.orders">
                 <Column field="id" header="Id" sortable></Column>
@@ -146,7 +146,7 @@ export default {
         <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
             <template #header>
-                <div class="flex flex-wrap justify-content-end gap-2">
+                <div class="flex flex-wrap justify-end gap-2">
                     <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
                     <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
@@ -155,7 +155,7 @@ export default {
             <Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-4" width="64" />
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
                 </template>
             </Column>
             <Column field="price" header="Price">
@@ -175,7 +175,7 @@ export default {
                 </template>
             </Column>
             <template #expansion="slotProps">
-                <div class="p-3">
+                <div class="p-4">
                     <h5>Orders for {{ slotProps.data.name }}</h5>
                     <DataTable :value="slotProps.data.orders" >
                         <Column field="id" header="Id" sortable></Column>
@@ -276,7 +276,7 @@ export default {
         <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
             <template #header>
-                <div class="flex flex-wrap justify-content-end gap-2">
+                <div class="flex flex-wrap justify-end gap-2">
                     <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
                     <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
@@ -285,7 +285,7 @@ export default {
             <Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-4" width="64" />
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
                 </template>
             </Column>
             <Column field="price" header="Price">
@@ -305,7 +305,7 @@ export default {
                 </template>
             </Column>
             <template #expansion="slotProps">
-                <div class="p-3">
+                <div class="p-4">
                     <h5>Orders for {{ slotProps.data.name }}</h5>
                     <DataTable :value="slotProps.data.orders">
                         <Column field="id" header="Id" sortable></Column>

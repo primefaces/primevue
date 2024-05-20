@@ -5,16 +5,16 @@
             <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
             <template #footer>
-                <div class="py-2 px-3">
+                <div class="py-2 px-4">
                     <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
                 </div>
             </template>
@@ -42,15 +42,15 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
+<MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
     <template #option="slotProps">
-        <div class="flex align-items-center">
+        <div class="flex items-center">
             <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
             <div>{{ slotProps.option.name }}</div>
         </div>
     </template>
     <template #footer>
-        <div class="py-2 px-3">
+        <div class="py-2 px-4">
             <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
         </div>
     </template>
@@ -58,16 +58,16 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
             <template #footer>
-                <div class="py-2 px-3">
+                <div class="py-2 px-4">
                     <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
                 </div>
             </template>
@@ -99,16 +99,16 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
             <template #footer>
-                <div class="py-2 px-3">
+                <div class="py-2 px-4">
                     <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
                 </div>
             </template>

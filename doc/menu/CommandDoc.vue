@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>command</i> property defines the callback to run when an item is activated by click or a key event.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -35,7 +35,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
         <Toast />
     </div>
@@ -68,7 +68,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
         <Toast />
     </div>

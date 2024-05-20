@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
     <DocSectionCode :code="code" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" />
 </template>
@@ -19,12 +19,12 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+<Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 
@@ -89,8 +89,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 

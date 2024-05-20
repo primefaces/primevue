@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>PanelMenu requires a collection of menuitems as its <i>model</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-20rem" />
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -96,8 +96,8 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-20rem" />
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80" />
     </div>
 </template>
 
@@ -190,8 +190,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <PanelMenu :model="items" class="w-full md:w-20rem" />
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80" />
     </div>
 </template>
 

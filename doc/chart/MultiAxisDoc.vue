@@ -3,7 +3,7 @@
         <p>Multiple axes can be added using the <i>scales</i> option.</p>
     </DocSectionText>
     <div class="card">
-        <Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
     </div>
     <DocSectionCode :code="code" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" />
 </template>
@@ -19,12 +19,12 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
+<Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 `,
                 options: `
 <template>
     <div class="card">
-        <Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
     </div>
 </template>
 
@@ -125,7 +125,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
     </div>
 </template>
 

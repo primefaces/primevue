@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
             <label for="cs-city">City</label>
@@ -100,7 +100,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
@@ -195,7 +195,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
                 :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />

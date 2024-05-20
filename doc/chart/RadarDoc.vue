@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
     <DocSectionCode :code="code" :dependencies="{ 'chart.js': '3.3.2' }" component="Chart" />
 </template>
@@ -19,12 +19,12 @@ export default {
             chartOptions: null,
             code: {
                 basic: `
-<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 
@@ -97,8 +97,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-30rem" />
+    <div class="card flex justify-center">
+        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
     </div>
 </template>
 

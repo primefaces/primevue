@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Monetary values are enabled by setting <i>mode</i> property as <i>currency</i>. In this setting, <i>currency</i> property also needs to be defined using ISO 4217 standard such as "USD" for the US dollar.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="currency-us" class="font-bold block mb-2"> United States </label>
             <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" />
@@ -40,7 +40,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="currency-us" class="font-bold block mb-2"> United States </label>
             <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" />
@@ -75,7 +75,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-3 p-fluid">
+    <div class="card flex flex-wrap gap-4 p-fluid">
         <div class="flex-auto">
             <label for="currency-us" class="font-bold block mb-2"> United States </label>
             <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" />

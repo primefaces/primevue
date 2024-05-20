@@ -4,8 +4,8 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="flex flex-wrap gap-3 mb-5">
-                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+            <div class="flex flex-wrap gap-4 mb-8">
+                <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                     <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
                     <label :for="option.label" class="ml-2"> {{ option.label }} </label>
                 </div>
@@ -15,7 +15,7 @@
                     <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                 </template>
                 <template #thumbnail="slotProps">
-                    <div class="grid grid-nogutter justify-content-center">
+                    <div class="grid grid-cols-12 gap-4 grid-nogutter justify-center">
                         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
                     </div>
                 </template>
@@ -68,7 +68,7 @@ export default {
         <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
     </template>
     <template #thumbnail="slotProps">
-        <div class="grid grid-nogutter justify-content-center">
+        <div class="grid grid-cols-12 gap-4 grid-nogutter justify-center">
             <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
         </div>
     </template>
@@ -77,8 +77,8 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5">
-            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                 <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
                 <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
@@ -88,7 +88,7 @@ export default {
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
             </template>
             <template #thumbnail="slotProps">
-                <div class="grid grid-nogutter justify-content-center">
+                <div class="grid grid-cols-12 gap-4 grid-nogutter justify-center">
                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                 </div>
             </template>
@@ -143,8 +143,8 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5">
-            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                 <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
                 <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
@@ -154,7 +154,7 @@ export default {
                 <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
             </template>
             <template #thumbnail="slotProps">
-                <div class="grid grid-nogutter justify-content-center">
+                <div class="grid grid-cols-12 gap-4 grid-nogutter justify-center">
                     <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
                 </div>
             </template>

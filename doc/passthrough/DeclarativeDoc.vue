@@ -39,7 +39,7 @@ export default {
             code3: {
                 basic: `
 <Panel
-    pt:root:class="border-1 border-solid"
+    pt:root:class="border border-solid"
     pt:header:id="headerId"
     pt:header:data-test-id="testId"
     pt:header:class="bg-blue-500"

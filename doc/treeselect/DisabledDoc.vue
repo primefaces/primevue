@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -17,12 +17,12 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 
@@ -44,8 +44,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" disabled class="md:w-20rem w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 

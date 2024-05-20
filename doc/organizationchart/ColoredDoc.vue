@@ -5,9 +5,9 @@
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data" collapsible>
             <template #person="slotProps">
-                <div class="flex flex-column">
-                    <div class="flex flex-column align-items-center">
-                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-3 w-3rem h-3rem" />
+                <div class="flex flex-col">
+                    <div class="flex flex-col items-center">
+                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
                         <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
                         <span>{{ slotProps.node.data.title }}</span>
                     </div>
@@ -28,7 +28,7 @@ export default {
             data: {
                 key: '0',
                 type: 'person',
-                styleClass: 'bg-indigo-100 text-indigo-900 border-round-xl',
+                styleClass: 'bg-indigo-100 text-indigo-900 rounded-xl',
                 data: {
                     image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
                     name: 'Amy Elsner',
@@ -38,7 +38,7 @@ export default {
                     {
                         key: '0_0',
                         type: 'person',
-                        styleClass: 'bg-purple-100 text-purple-900 border-round-xl',
+                        styleClass: 'bg-purple-100 text-purple-900 rounded-xl',
                         data: {
                             image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
                             name: 'Anna Fali',
@@ -47,18 +47,18 @@ export default {
                         children: [
                             {
                                 label: 'Sales',
-                                styleClass: 'bg-purple-100 text-purple-900 border-round-xl'
+                                styleClass: 'bg-purple-100 text-purple-900 rounded-xl'
                             },
                             {
                                 label: 'Marketing',
-                                styleClass: 'bg-purple-100 text-purple-900 border-round-xl'
+                                styleClass: 'bg-purple-100 text-purple-900 rounded-xl'
                             }
                         ]
                     },
                     {
                         key: '0_1',
                         type: 'person',
-                        styleClass: 'bg-teal-100 text-teal-900 border-round-xl',
+                        styleClass: 'bg-teal-100 text-teal-900 rounded-xl',
                         data: {
                             image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
                             name: 'Stephen Shaw',
@@ -67,11 +67,11 @@ export default {
                         children: [
                             {
                                 label: 'Development',
-                                styleClass: 'bg-teal-100 text-teal-900 border-round-xl'
+                                styleClass: 'bg-teal-100 text-teal-900 rounded-xl'
                             },
                             {
                                 label: 'UI/UX Design',
-                                styleClass: 'bg-teal-100 text-teal-900 border-round-xl'
+                                styleClass: 'bg-teal-100 text-teal-900 rounded-xl'
                             }
                         ]
                     }
@@ -81,9 +81,9 @@ export default {
                 basic: `
 <OrganizationChart :value="data" collapsible>
     <template #person="slotProps">
-        <div class="flex flex-column">
-            <div class="flex flex-column align-items-center">
-                <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-3 w-3rem h-3rem" />
+        <div class="flex flex-col">
+            <div class="flex flex-col items-center">
+                <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
                 <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
                 <span>{{ slotProps.node.data.title }}</span>
             </div>
@@ -99,9 +99,9 @@ export default {
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data" collapsible>
             <template #person="slotProps">
-                <div class="flex flex-column">
-                    <div class="flex flex-column align-items-center">
-                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-3 w-3rem h-3rem" />
+                <div class="flex flex-col">
+                    <div class="flex flex-col items-center">
+                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
                         <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
                         <span>{{ slotProps.node.data.title }}</span>
                     </div>
@@ -121,7 +121,7 @@ export default {
             data: {
                 key: '0',
                 type: 'person',
-                styleClass: 'bg-indigo-100 text-white border-round-xl',
+                styleClass: 'bg-indigo-100 text-white rounded-xl',
                 data: {
                     image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
                     name: 'Amy Elsner',
@@ -131,7 +131,7 @@ export default {
                     {
                         key: '0_0',
                         type: 'person',
-                        styleClass: 'bg-purple-100 text-white border-round-xl',
+                        styleClass: 'bg-purple-100 text-white rounded-xl',
                         data: {
                             image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
                             name: 'Anna Fali',
@@ -140,18 +140,18 @@ export default {
                         children: [
                             {
                                 label: 'Sales',
-                                styleClass: 'bg-purple-100 text-white border-round-xl'
+                                styleClass: 'bg-purple-100 text-white rounded-xl'
                             },
                             {
                                 label: 'Marketing',
-                                styleClass: 'bg-purple-100 text-white border-round-xl'
+                                styleClass: 'bg-purple-100 text-white rounded-xl'
                             }
                         ]
                     },
                     {
                         key: '0_1',
                         type: 'person',
-                        styleClass: 'bg-teal-100 text-white border-round-xl',
+                        styleClass: 'bg-teal-100 text-white rounded-xl',
                         data: {
                             image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
                             name: 'Stephen Shaw',
@@ -160,11 +160,11 @@ export default {
                         children: [
                             {
                                 label: 'Development',
-                                styleClass: 'bg-teal-100 text-white border-round-xl'
+                                styleClass: 'bg-teal-100 text-white rounded-xl'
                             },
                             {
                                 label: 'UI/UX Design',
-                                styleClass: 'bg-teal-100 text-white border-round-xl'
+                                styleClass: 'bg-teal-100 text-white rounded-xl'
                             }
                         ]
                     }
@@ -180,9 +180,9 @@ export default {
     <div class="card overflow-x-auto">
         <OrganizationChart :value="data" collapsible>
             <template #person="slotProps">
-                <div class="flex flex-column">
-                    <div class="flex flex-column align-items-center">
-                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-3 w-3rem h-3rem" />
+                <div class="flex flex-col">
+                    <div class="flex flex-col items-center">
+                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
                         <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
                         <span>{{ slotProps.node.data.title }}</span>
                     </div>
@@ -201,7 +201,7 @@ import { ref } from "vue";
 const data = ref({
     key: '0',
     type: 'person',
-    styleClass: 'bg-indigo-100 text-white border-round-xl',
+    styleClass: 'bg-indigo-100 text-white rounded-xl',
     data: {
         image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
         name: 'Amy Elsner',
@@ -211,7 +211,7 @@ const data = ref({
         {
             key: '0_0',
             type: 'person',
-            styleClass: 'bg-purple-100 text-white border-round-xl',
+            styleClass: 'bg-purple-100 text-white rounded-xl',
             data: {
                 image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
                 name: 'Anna Fali',
@@ -220,18 +220,18 @@ const data = ref({
             children: [
                 {
                     label: 'Sales',
-                    styleClass: 'bg-purple-100 text-white border-round-xl'
+                    styleClass: 'bg-purple-100 text-white rounded-xl'
                 },
                 {
                     label: 'Marketing',
-                    styleClass: 'bg-purple-100 text-white border-round-xl'
+                    styleClass: 'bg-purple-100 text-white rounded-xl'
                 }
             ]
         },
         {
             key: '0_1',
             type: 'person',
-            styleClass: 'bg-teal-100 text-white border-round-xl',
+            styleClass: 'bg-teal-100 text-white rounded-xl',
             data: {
                 image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
                 name: 'Stephen Shaw',
@@ -240,11 +240,11 @@ const data = ref({
             children: [
                 {
                     label: 'Development',
-                    styleClass: 'bg-teal-100 text-white border-round-xl'
+                    styleClass: 'bg-teal-100 text-white rounded-xl'
                 },
                 {
                     label: 'UI/UX Design',
-                    styleClass: 'bg-teal-100 text-white border-round-xl'
+                    styleClass: 'bg-teal-100 text-white rounded-xl'
                 }
             ]
         }

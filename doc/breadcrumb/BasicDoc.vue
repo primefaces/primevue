@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Breadcrumb requires a collection of menuitems as its <i>model</i>, the root item is defined with the <i>home</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -22,7 +22,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items" />
     </div>
 </template>
@@ -48,7 +48,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Breadcrumb :home="home" :model="items" />
     </div>
 </template>

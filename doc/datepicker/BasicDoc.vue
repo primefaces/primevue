@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>DatePicker is used a controlled input component with <i>v-model</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <DatePicker v-model="date" />
     </div>
 </template>

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A group is created by wrapping the input and add-ons with the <i>InputGroup</i> component. Each add-on element is defined as a child of <i>InputGroupAddon</i> component.</p>
     </DocSectionText>
-    <div class="card flex flex-column md:flex-row gap-3">
+    <div class="card flex flex-col md:flex-row gap-4">
         <InputGroup>
             <InputGroupAddon>
                 <i class="pi pi-user"></i>
@@ -50,7 +50,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column md:flex-row gap-3">
+    <div class="card flex flex-col md:flex-row gap-4">
         <InputGroup>
             <InputGroupAddon>
                 <i class="pi pi-user"></i>
@@ -73,7 +73,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column md:flex-row gap-3">
+    <div class="card flex flex-col md:flex-row gap-4">
         <InputGroup>
             <InputGroupAddon>
                 <i class="pi pi-user"></i>

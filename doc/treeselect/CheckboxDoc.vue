@@ -7,8 +7,8 @@
         </p>
     </DocSectionText>
     <DocSectionCode :code="activeNodes" hideToggleCode importCode hideStackBlitz v-bind="$attrs" />
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Items" class="md:w-20rem w-full" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Items" class="md:w-80 w-full" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -33,12 +33,12 @@ export default {
             },
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
+<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 
@@ -60,8 +60,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-20rem w-full" />
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 

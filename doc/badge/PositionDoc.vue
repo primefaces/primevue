@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A Badge can be added to any element using the directive.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-4">
+    <div class="card flex flex-wrap justify-center gap-6">
         <span v-badge="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </span>
@@ -34,7 +34,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-4">
+    <div class="card flex flex-wrap justify-center gap-6">
         <span v-badge="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </span>
@@ -53,7 +53,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-4">
+    <div class="card flex flex-wrap justify-center gap-6">
         <span v-badge="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </span>

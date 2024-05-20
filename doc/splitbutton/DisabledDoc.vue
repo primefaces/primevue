@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>
     <DocSectionCode :code="code" />
@@ -39,7 +39,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>
@@ -81,7 +81,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton label="Save" @click="save" :model="items" disabled />
     </div>

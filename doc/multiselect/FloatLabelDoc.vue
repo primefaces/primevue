@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>
@@ -25,15 +25,15 @@ export default {
             ],
             code: {
                 basic: `
-<FloatLabel class="w-full md:w-20rem">
+<FloatLabel class="w-full md:w-80">
     <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
     <label for="ms-cities">MultiSelect</label>
 </FloatLabel>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>
@@ -59,8 +59,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <MultiSelect id="ms-cities" v-model="selectedCities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
             <label for="ms-cities">MultiSelect</label>
         </FloatLabel>

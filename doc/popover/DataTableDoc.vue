@@ -3,18 +3,18 @@
         <p>An example that displays a DataTable inside a popup to select an item.</p>
     </DocSectionText>
 
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card border-round">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
             <div class="relative">
-                <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
+                <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
-            <div class="flex align-items-center justify-content-between mt-3 mb-2">
-                <span class="text-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-900 text-xl ml-3">{{ '$' + selectedProduct.price }}</span>
+            <div class="flex items-center justify-between mt-4 mb-2">
+                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-600">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">
@@ -22,7 +22,7 @@
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-4rem shadow-1" />
+                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width: 8rem">
@@ -46,15 +46,15 @@ export default {
 <Toast />
 <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-<div v-if="selectedProduct" class="p-5 surface-card border-round">
+<div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
     <div class="relative">
-        <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-4rem shadow-1" class="w-full sm:w-20rem" />
+        <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-16 shadow-sm" class="w-full sm:w-80" />
     </div>
-    <div class="flex align-items-center justify-content-between mt-3 mb-2">
-        <span class="text-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-        <span class="text-900 text-xl ml-3">{{ '$' + selectedProduct.price }}</span>
+    <div class="flex items-center justify-between mt-4 mb-2">
+        <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
+        <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
     </div>
-    <span class="text-600">{{ selectedProduct.category }}</span>
+    <span class="text-surface-600">{{ selectedProduct.category }}</span>
 </div>
 
 <Popover ref="op" appendTo="body">
@@ -62,7 +62,7 @@ export default {
         <Column field="name" header="Name" sortable style="width: 50%"></Column>
         <Column header="Image" style="width: 20%">
             <template #body="slotProps">
-                <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-4rem shadow-1" />
+                <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
             </template>
         </Column>
         <Column field="price" header="Price" sortable style="width: 30%">
@@ -75,19 +75,19 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card border-round">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
             <div class="relative">
-                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
+                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
-            <div class="flex align-items-center justify-content-between mt-3 mb-2">
-                <span class="text-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-900 text-xl ml-3">{{ '$' + selectedProduct.price }}</span>
+            <div class="flex items-center justify-between mt-4 mb-2">
+                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-600">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">
@@ -95,7 +95,7 @@ export default {
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-4rem shadow-1" />
+                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width: 8rem">
@@ -137,19 +137,19 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-5 surface-card border-round">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
             <div class="relative">
-                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-20rem" />
+                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
-            <div class="flex align-items-center justify-content-between mt-3 mb-2">
-                <span class="text-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-900 text-xl ml-3">{{ '$' + selectedProduct.price }}</span>
+            <div class="flex items-center justify-between mt-4 mb-2">
+                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-600">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">
@@ -157,7 +157,7 @@ export default {
                 <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-4rem shadow-1" />
+                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width: 8rem">

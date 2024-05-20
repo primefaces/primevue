@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Two-way binding to a boolean property is defined using the standard v-model directive.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" class="w-24" onLabel="On" offLabel="Off" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,8 +19,8 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" class="w-24" onLabel="On" offLabel="Off" />
     </div>
 </template>
 
@@ -36,8 +36,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" class="w-6rem" onLabel="On" offLabel="Off" />
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" class="w-24" onLabel="On" offLabel="Off" />
     </div>
 </template>
 

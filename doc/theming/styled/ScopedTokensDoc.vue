@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Design tokens can be scoped to a certain component using CSS variables. In this example, first switch uses the global tokens whereas second one overrides the global with its own tokens.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center gap-3">
+    <div class="card flex justify-center gap-4">
         <ToggleSwitch v-model="checked1" />
         <ToggleSwitch v-model="checked2" :dt="amberSwitch" />
     </div>

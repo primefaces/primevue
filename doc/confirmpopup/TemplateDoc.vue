@@ -4,13 +4,13 @@
     </DocSectionText>
     <ConfirmPopup group="templating">
         <template #message="slotProps">
-            <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3 pb-0">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
                 <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
                 <p>{{ slotProps.message.message }}</p>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="showTemplate($event)" label="Save"></Button>
     </div>
     <DocSectionCode :code="code" />
@@ -24,7 +24,7 @@ export default {
                 basic: `
 <ConfirmPopup group="templating">
     <template #message="slotProps">
-        <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3 pb-0">
+        <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
             <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
             <p>{{ slotProps.message.message }}</p>
         </div>
@@ -37,13 +37,13 @@ export default {
     <Toast />
     <ConfirmPopup group="templating">
         <template #message="slotProps">
-            <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3 pb-0">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
                 <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
                 <p>{{ slotProps.message.message }}</p>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="showTemplate($event)" label="Save"></Button>
     </div>
 </template>
@@ -83,13 +83,13 @@ export default {
     <Toast />
     <ConfirmPopup group="templating">
         <template #message="slotProps">
-            <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3 pb-0">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
                 <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
                 <p>{{ slotProps.message.message }}</p>
             </div>
         </template>
     </ConfirmPopup>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button @click="showTemplate($event)" label="Save"></Button>
     </div>
 </template>

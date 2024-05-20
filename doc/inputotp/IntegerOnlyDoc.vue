@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>integerOnly</i> is present, only integers can be accepted as input.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" integerOnly />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" integerOnly />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputOtp v-model="value" integerOnly />
     </div>
 </template>

@@ -5,7 +5,7 @@
             image respectively.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Image alt="Image" preview>
             <template #previewicon>
                 <i class="pi pi-search"></i>
@@ -41,7 +41,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Image alt="Image" preview>
             <template #previewicon>
                 <i class="pi pi-search"></i>
@@ -58,7 +58,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Image alt="Image" preview>
             <template #previewicon>
                 <i class="pi pi-search"></i>

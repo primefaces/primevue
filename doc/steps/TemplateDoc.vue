@@ -5,7 +5,7 @@
     <div class="card">
         <Steps :model="items" class="custom-steps" :readonly="false">
             <template #item="{ item, active }">
-                <span :class="['inline-flex align-items-center justify-content-center align-items-center border-circle border-primary border-1 h-3rem w-3rem z-1 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
+                <span :class="['inline-flex items-center justify-center items-center rounded-full border-primary border h-12 w-12 z-10 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
                     <i :class="[item.icon, 'text-xl']" />
                 </span>
             </template>
@@ -33,7 +33,7 @@ export default {
                 basic: `
 <Steps :model="items" class="custom-steps" :readonly="false">
     <template #item="{ item, active }">
-        <span :class="['inline-flex align-items-center justify-content-center align-items-center border-circle border-primary border-1 h-3rem w-3rem z-1 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
+        <span :class="['inline-flex items-center justify-center items-center rounded-full border-primary border h-12 w-12 z-10 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
             <i :class="[item.icon, 'text-xl']" />
         </span>
     </template>
@@ -44,7 +44,7 @@ export default {
     <div class="card">
         <Steps :model="items" class="custom-steps" :readonly="false">
             <template #item="{ item, active }">
-                <span :class="['inline-flex align-items-center justify-content-center align-items-center border-circle border-primary border-1 h-3rem w-3rem z-1 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
+                <span :class="['inline-flex items-center justify-center items-center rounded-full border-primary border h-12 w-12 z-10 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
                     <i :class="[item.icon, 'text-xl']" />
                 </span>
             </template>
@@ -86,7 +86,7 @@ export default {
     <div class="card">
         <Steps :model="items" class="custom-steps" :readonly="false">
             <template #item="{ item, active }">
-                <span :class="['inline-flex align-items-center justify-content-center align-items-center border-circle border-primary border-1 h-3rem w-3rem z-1 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
+                <span :class="['inline-flex items-center justify-center items-center rounded-full border-primary border h-12 w-12 z-10 cursor-pointer', { 'bg-primary': active, 'surface-overlay text-primary': !active }]">
                     <i :class="[item.icon, 'text-xl']" />
                 </span>
             </template>

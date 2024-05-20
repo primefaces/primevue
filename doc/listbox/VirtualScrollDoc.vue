@@ -5,8 +5,8 @@
             <NuxtLink to="/virtualscroller">VirtualScroller</NuxtLink> for more information about the available options as it is used internally by Listbox.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,13 +20,13 @@ export default {
             code: {
                 basic: `
 <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"    
-            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
     </div>
 </template>
 
@@ -43,9 +43,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
     </div>
 </template>
 

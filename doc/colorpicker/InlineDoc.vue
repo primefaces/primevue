@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>ColorPicker is displayed as a popup by default, add <i>inline</i> property to customize this behavior.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ColorPicker v-model="color" inline />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ColorPicker v-model="color" inline />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ColorPicker v-model="color" inline />
     </div>
 </template>

@@ -6,7 +6,7 @@
         <div class="card">
             <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 
-            <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-4">
+            <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-6">
                 <Column field="name" header="Name" style="min-width: 200px" frozen class="font-bold"></Column>
                 <Column field="id" header="Id" style="min-width: 100px"></Column>
                 <Column field="name" header="Name" style="min-width: 200px"></Column>
@@ -38,7 +38,7 @@ export default {
             code: {
                 basic: `
 <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
-<DataTable :value="customers" scrollable scrollHeight="400px" class="mt-4">
+<DataTable :value="customers" scrollable scrollHeight="400px" class="mt-6">
     <Column field="name" header="Name" style="min-width: 200px" frozen class="font-bold"></Column>
     <Column field="id" header="Id" style="min-width: 100px"></Column>
     <Column field="name" header="Name" style="min-width: 200px"></Column>
@@ -60,7 +60,7 @@ export default {
     <div class="card">
         <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 
-        <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-4">
+        <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-6">
             <Column field="name" header="Name" style="min-width: 200px" frozen class="font-bold"></Column>
             <Column field="id" header="Id" style="min-width: 100px"></Column>
             <Column field="name" header="Name" style="min-width: 200px"></Column>
@@ -107,7 +107,7 @@ export default {
     <div class="card">
         <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
 
-        <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-4">
+        <DataTable :value="customers" scrollable scrollHeight="400px" class="mt-6">
             <Column field="name" header="Name" style="min-width: 200px" frozen class="font-bold"></Column>
             <Column field="id" header="Id" style="min-width: 100px"></Column>
             <Column field="name" header="Name" style="min-width: 200px"></Column>

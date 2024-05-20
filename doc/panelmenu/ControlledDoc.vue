@@ -5,9 +5,9 @@
             value is a boolean.
         </p>
     </DocSectionText>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Button type="button" label="Toggle All" text @click="toggleAll" />
-        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-20rem" />
+        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-80" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -89,9 +89,9 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Button type="button" label="Toggle All" text @click="toggleAll" />
-        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-20rem" />
+        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-80" />
     </div>
 </template>
 
@@ -199,9 +199,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column align-items-center gap-3">
+    <div class="card flex flex-col items-center gap-4">
         <Button type="button" label="Toggle All" text @click="toggleAll" />
-        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-20rem" />
+        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-80" />
     </div>
 </template>
 

@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>InlineMessage component requires a content to display.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InlineMessage severity="info">Username is required</InlineMessage>
     </div>
     <DocSectionCode :code="code" />
@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InlineMessage severity="info">Username is required</InlineMessage>
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InlineMessage severity="info">Username is required</InlineMessage>
     </div>
 </template>

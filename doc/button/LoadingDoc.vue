@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Busy state is controlled with the <i>loading</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button type="button" label="Search" icon="pi pi-check" :loading="loading" @click="load" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
     </div>
 </template>
@@ -44,7 +44,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
     </div>
 </template>

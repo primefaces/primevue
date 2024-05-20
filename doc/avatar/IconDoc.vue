@@ -3,7 +3,7 @@
         <p>A font icon is displayed as an Avatar with the <i>icon</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex flex-wrap gap-5">
+        <div class="flex flex-wrap gap-8">
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
@@ -46,7 +46,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-5">
+        <div class="flex flex-wrap gap-8">
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
@@ -76,7 +76,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-5">
+        <div class="flex flex-wrap gap-8">
             <div class="flex-auto">
                 <h5>Icon</h5>
                 <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />

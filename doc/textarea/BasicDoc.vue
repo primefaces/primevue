@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A model can be bound using the standard <i>v-model</i> directive.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Textarea v-model="value" rows="5" cols="30" style="resize: none" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Textarea v-model="value" rows="5" cols="30" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Textarea v-model="value" rows="5" cols="30" />
     </div>
 </template>

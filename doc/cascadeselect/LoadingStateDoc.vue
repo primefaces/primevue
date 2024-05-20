@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Loading state can be used <i>loading</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect loading placeholder="Loading..." style="min-width: 14rem" />
     </div>
     <DocSectionCode :code="code" />
@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect loading placeholder="Loading..."  style="min-width: 14rem" />
     </div>
 </template>

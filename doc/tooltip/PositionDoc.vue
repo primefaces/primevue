@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>There are four choices to position the tooltip, default value is <i>right</i> and alternatives are <i>top</i>, <i>bottom</i>, <i>left</i>.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
         <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
         <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
@@ -24,7 +24,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
         <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
         <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
@@ -34,7 +34,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
         <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
         <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />

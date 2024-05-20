@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem"></Tree>
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
 </template>
@@ -16,12 +16,12 @@ export default {
             nodes: null,
             code: {
                 basic: `
-<Tree :value="nodes" class="w-full md:w-30rem"></Tree>
+<Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem"></Tree>
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -42,8 +42,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem"></Tree>
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 

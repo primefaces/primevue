@@ -2,10 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Option groups are specified with the <i>optionGroupLabel</i> and <i>optionGroupChildren</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center country-item">
+                <div class="flex items-center country-item">
                     <img :alt="slotProps.item.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.item.code.toLowerCase()} mr-2`" style="width: 18px" />
                     <div>{{ slotProps.item.label }}</div>
                 </div>
@@ -60,7 +60,7 @@ export default {
                 basic: `
 <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
     <template #optiongroup="slotProps">
-        <div class="flex align-items-center country-item">
+        <div class="flex items-center country-item">
             <img :alt="slotProps.item.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.item.code.toLowerCase()} mr-2\`" style="width: 18px" />
             <div>{{ slotProps.item.label }}</div>
         </div>
@@ -69,10 +69,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center country-item">
+                <div class="flex items-center country-item">
                     <img :alt="slotProps.item.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.item.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.item.label }}</div>
                 </div>
@@ -145,10 +145,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
             <template #optiongroup="slotProps">
-                <div class="flex align-items-center country-item">
+                <div class="flex items-center country-item">
                     <img :alt="slotProps.item.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.item.code.toLowerCase()} mr-2\`" style="width: 18px" />
                     <div>{{ slotProps.item.label }}</div>
                 </div>

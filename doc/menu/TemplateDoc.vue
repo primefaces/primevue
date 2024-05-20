@@ -5,11 +5,11 @@
             <i>end</i> are provided to embed content before or after the menu.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Menu :model="items" class="w-full md:w-15rem">
+    <div class="card flex justify-center">
+        <Menu :model="items" class="w-full md:w-60">
             <template #start>
-                <span class="inline-flex align-items-center gap-1 px-2 py-2">
-                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                <span class="inline-flex items-center gap-1 px-2 py-2">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
                         <path
                             d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
                             fill="var(--p-primary-color)"
@@ -26,17 +26,17 @@
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
-                <a v-ripple class="flex align-items-center" v-bind="props.action">
+                <a v-ripple class="flex items-center" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
-                    <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+                    <span v-if="item.shortcut" class="ml-auto border border-surface-200 dark:border-surface-700 rounded bg-surface-100 text-xs p-1">{{ item.shortcut }}</span>
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
+                <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 text-surface-700 dark:text-surface-0 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column align-items-start">
+                    <span class="inline-flex flex-col items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>
@@ -96,10 +96,10 @@ export default {
             ],
             code: {
                 basic: `
-<Menu :model="items" class="w-full md:w-15rem">
+<Menu :model="items" class="w-full md:w-60">
     <template #start>
-        <span class="inline-flex align-items-center gap-1 px-2 py-2">
-            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+        <span class="inline-flex items-center gap-1 px-2 py-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
                 <path d="..." fill="var(--p-primary-color)" />
                 <path d="..." fill="var(--text-color)" />
             </svg>
@@ -110,17 +110,17 @@ export default {
         <span class="text-primary font-bold">{{ item.label }}</span>
     </template>
     <template #item="{ item, props }">
-        <a v-ripple class="flex align-items-center" v-bind="props.action">
+        <a v-ripple class="flex items-center" v-bind="props.action">
             <span :class="item.icon" />
             <span class="ml-2">{{ item.label }}</span>
             <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
-            <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+            <span v-if="item.shortcut" class="ml-auto border border-surface-200 dark:border-surface-700 rounded bg-surface-100 text-xs p-1">{{ item.shortcut }}</span>
         </a>
     </template>
     <template #end>
-        <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
+        <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 text-surface-700 dark:text-surface-0 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
             <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-            <span class="inline-flex flex-column align-items-start">
+            <span class="inline-flex flex-col items-start">
                 <span class="font-bold">Amy Elsner</span>
                 <span class="text-sm">Admin</span>
             </span>
@@ -130,11 +130,11 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Menu :model="items" class="w-full md:w-15rem">
+    <div class="card flex justify-center">
+        <Menu :model="items" class="w-full md:w-60">
             <template #start>
-                <span class="inline-flex align-items-center gap-1 px-2 py-2">
-                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                <span class="inline-flex items-center gap-1 px-2 py-2">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
                         <path
                             d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
                             fill="var(--p-primary-color)"
@@ -151,17 +151,17 @@ export default {
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
-                <a v-ripple class="flex align-items-center" v-bind="props.action">
+                <a v-ripple class="flex items-center" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
-                    <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+                    <span v-if="item.shortcut" class="ml-auto border border-surface-200 dark:border-surface-700 rounded bg-surface-100 text-xs p-1">{{ item.shortcut }}</span>
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
+                <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 text-surface-700 dark:text-surface-0 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column align-items-start">
+                    <span class="inline-flex flex-col items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>
@@ -225,11 +225,11 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Menu :model="items" class="w-full md:w-15rem">
+    <div class="card flex justify-center">
+        <Menu :model="items" class="w-full md:w-60">
             <template #start>
-                <span class="inline-flex align-items-center gap-1 px-2 py-2">
-                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+                <span class="inline-flex items-center gap-1 px-2 py-2">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
                         <path
                             d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
                             fill="var(--p-primary-color)"
@@ -246,17 +246,17 @@ export default {
                 <span class="text-primary font-bold">{{ item.label }}</span>
             </template>
             <template #item="{ item, props }">
-                <a v-ripple class="flex align-items-center" v-bind="props.action">
+                <a v-ripple class="flex items-center" v-bind="props.action">
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                     <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
-                    <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+                    <span v-if="item.shortcut" class="ml-auto border border-surface-200 dark:border-surface-700 rounded bg-surface-100 text-xs p-1">{{ item.shortcut }}</span>
                 </a>
             </template>
             <template #end>
-                <button v-ripple class="relative overflow-hidden w-full border-none bg-transparent flex align-items-start p-2 pl-3 text-color hover:surface-100 border-noround cursor-pointer transition-colors transition-duration-200">
+                <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 text-surface-700 dark:text-surface-0 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
-                    <span class="inline-flex flex-column align-items-start">
+                    <span class="inline-flex flex-col items-start">
                         <span class="font-bold">Amy Elsner</span>
                         <span class="text-sm">Admin</span>
                     </span>

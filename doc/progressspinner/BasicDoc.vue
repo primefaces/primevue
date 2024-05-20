@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>An infinite spin animation is displayed by default.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ProgressSpinner />
     </div>
     <DocSectionCode :code="code" />
@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ProgressSpinner />
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ProgressSpinner />
     </div>
 </template>

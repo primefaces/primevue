@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The label can be customized with the <i>valueTemplate</i> property using either a template string or a function.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" valueTemplate="{value}%" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" valueTemplate="{value}%" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Knob v-model="value" valueTemplate="{value}%" />
     </div>
 </template>

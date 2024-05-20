@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Text to display on a button is defined with the <i>label</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Submit" />
     </div>
     <DocSectionCode :code="code" />
@@ -18,7 +18,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Submit" />
     </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Submit" />
     </div>
 </template>

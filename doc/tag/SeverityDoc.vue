@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Severity defines the variant of a tag.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-content-center gap-2">
+    <div class="card flex flex-wrap justify-center gap-2">
         <Tag value="Primary"></Tag>
         <Tag severity="secondary" value="Secondary"></Tag>
         <Tag severity="success" value="Success"></Tag>
@@ -30,7 +30,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="flex flex-wrap justify-content-center gap-2">
+    <div class="flex flex-wrap justify-center gap-2">
         <Tag value="Primary"></Tag>
         <Tag severity="secondary" value="Secondary"></Tag>
         <Tag severity="success" value="Success"></Tag>
@@ -47,7 +47,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="flex flex-wrap justify-content-center gap-2">
+    <div class="flex flex-wrap justify-center gap-2">
         <Tag value="Primary"></Tag>
         <Tag severity="secondary" value="Secondary"></Tag>
         <Tag severity="success" value="Success"></Tag>

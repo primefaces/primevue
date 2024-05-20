@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>TimeLine orientation is controlled with the <i>layout</i> property, default is <i>vertical</i> having <i>horizontal</i> as the alternative.</p>
     </DocSectionText>
-    <div class="card flex flex-column gap-3">
+    <div class="card flex flex-col gap-4">
         <Timeline :value="events" layout="horizontal" align="top">
             <template #content="slotProps">
                 {{ slotProps.item }}
@@ -53,7 +53,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-column gap-3">
+    <div class="card flex flex-col gap-4">
         <Timeline :value="events" layout="horizontal" align="top">
             <template #content="slotProps">
                 {{ slotProps.item }}
@@ -87,7 +87,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-column gap-3">
+    <div class="card flex flex-col gap-4">
         <Timeline :value="events" layout="horizontal" align="top">
             <template #content="slotProps">
                 {{ slotProps.item }}

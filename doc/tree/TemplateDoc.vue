@@ -2,13 +2,13 @@
     <DocSectionText v-bind="$attrs">
         <p>Each node can have a distinct template by matching the <i>type</i> property to the slot name.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>
@@ -43,7 +43,7 @@ export default {
             ],
             code: {
                 basic: `
-<Tree :value="nodes" class="w-full md:w-30rem">
+<Tree :value="nodes" class="w-full md:w-[30rem]">
     <template #default="slotProps">
         <b>{{ slotProps.node.label }}</b>
     </template>
@@ -54,13 +54,13 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>
@@ -99,13 +99,13 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Tree :value="nodes" class="w-full md:w-30rem">
+    <div class="card flex justify-center">
+        <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>

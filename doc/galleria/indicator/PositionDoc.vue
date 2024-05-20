@@ -4,13 +4,13 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <div class="flex flex-wrap gap-3 mb-5">
-                <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+            <div class="flex flex-wrap gap-4 mb-8">
+                <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                     <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
                     <label :for="option.label" class="ml-2"> {{ option.label }} </label>
                 </div>
             </div>
-            <div class="flex align-items-center mb-5">
+            <div class="flex items-center mb-8">
                 <Checkbox v-model="inside" inputId="inside_cbox" :binary="true"></Checkbox>
                 <label for="inside_cbox" class="ml-2"> Inside </label>
             </div>
@@ -63,13 +63,13 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5">
-            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                 <RadioButton :value="option.value" />
                 <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
         </div>
-        <div class="flex align-items-center mb-5">
+        <div class="flex items-center mb-8">
             <Checkbox v-model="inside" inputId="inside_cbox" :binary="true"></Checkbox>
             <label for="inside_cbox" class="ml-2"> Inside </label>
         </div>
@@ -119,13 +119,13 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap gap-3 mb-5">
-            <div v-for="option in positionOptions" :key="option.label" class="flex align-items-center">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
                 <RadioButton :value="option.value" />
                 <label :for="option.label" class="ml-2"> {{ option.label }} </label>
             </div>
         </div>
-        <div class="flex align-items-center mb-5">
+        <div class="flex items-center mb-8">
             <Checkbox v-model="inside" inputId="inside_cbox" :binary="true"></Checkbox>
             <label for="inside_cbox" class="ml-2"> Inside </label>
         </div>

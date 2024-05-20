@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Two-way binding is defined using the standard <i>v-model</i> directive.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" class="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<Slider v-model="value" class="w-14rem" />
+<Slider v-model="value" class="w-56" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" class="w-56" />
     </div>
 </template>
 
@@ -36,8 +36,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <Slider v-model="value" class="w-14rem" />
+    <div class="card flex justify-center">
+        <Slider v-model="value" class="w-56" />
     </div>
 </template>
 

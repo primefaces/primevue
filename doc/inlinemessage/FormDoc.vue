@@ -3,11 +3,11 @@
         <p>Message component is handy when displaying error messages next to form elements.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex flex-wrap align-items-center mb-3 gap-2">
+        <div class="flex flex-wrap items-center mb-4 gap-2">
             <InputText placeholder="Username" aria-label="username" invalid />
             <InlineMessage>Username is required</InlineMessage>
         </div>
-        <div class="flex flex-wrap align-items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
             <InlineMessage />
         </div>
@@ -21,11 +21,11 @@ export default {
         return {
             code: {
                 basic: `
-<div class="flex flex-wrap align-items-center mb-3 gap-2">
+<div class="flex flex-wrap items-center mb-4 gap-2">
     <InputText placeholder="Username" aria-label="username" invalid />
     <InlineMessage>Username is required</InlineMessage>
 </div>
-<div class="flex flex-wrap align-items-center gap-2">
+<div class="flex flex-wrap items-center gap-2">
     <InputText placeholder="Email" aria-label="email" invalid />
     <InlineMessage />
 </div>
@@ -33,11 +33,11 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap align-items-center mb-3 gap-2">
+        <div class="flex flex-wrap items-center mb-4 gap-2">
             <InputText placeholder="Username" aria-label="username" invalid />
             <InlineMessage>Username is required</InlineMessage>
         </div>
-        <div class="flex flex-wrap align-items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
             <InlineMessage />
         </div>
@@ -50,11 +50,11 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap align-items-center mb-3 gap-2">
+        <div class="flex flex-wrap items-center mb-4 gap-2">
             <InputText placeholder="Username" aria-label="username" invalid />
             <InlineMessage>Username is required</InlineMessage>
         </div>
-        <div class="flex flex-wrap align-items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
             <InlineMessage />
         </div>

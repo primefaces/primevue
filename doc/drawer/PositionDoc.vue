@@ -3,7 +3,7 @@
         <p>Drawer location is configured with the <i>position</i> property that can take <i>left</i>, <i>right</i>, <i>top</i> and <i>bottom</i> as valid values.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex gap-2 justify-content-center">
+        <div class="flex gap-2 justify-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
             <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
             <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
@@ -39,7 +39,7 @@ export default {
             visibleBottom: false,
             code: {
                 basic: `
-<div class="flex gap-2 justify-content-center">
+<div class="flex gap-2 justify-center">
     <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
     <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
     <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
@@ -65,7 +65,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex gap-2 justify-content-center">
+        <div class="flex gap-2 justify-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
             <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
             <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
@@ -106,7 +106,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex gap-2 justify-content-center">
+        <div class="flex gap-2 justify-center">
             <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
             <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
             <Button icon="pi pi-arrow-down" @click="visibleTop = true" />

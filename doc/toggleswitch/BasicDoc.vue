@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Two-way value binding is defined using v-model.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ToggleSwitch v-model="checked" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ToggleSwitch v-model="checked" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ToggleSwitch v-model="checked" />
     </div>
 </template>

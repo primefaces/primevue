@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <Toolbar class="mb-4">
+            <Toolbar class="mb-6">
                 <template #start>
                     <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
@@ -29,7 +29,7 @@
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
             >
                 <template #header>
-                    <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                    <div class="flex flex-wrap gap-2 items-center justify-between">
                         <h4 class="m-0">Manage Products</h4>
                         <IconField>
                             <InputIcon>
@@ -45,7 +45,7 @@
                 <Column field="name" header="Name" sortable style="min-width: 16rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="border-round" style="width: 64px" />
+                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="rounded" style="width: 64px" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width: 8rem">
@@ -75,7 +75,7 @@
     </DeferredDemo>
 
     <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true" class="p-fluid">
-        <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block m-auto pb-3" />
+        <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block m-auto pb-4" />
         <div class="field">
             <label for="name">Name</label>
             <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
@@ -87,7 +87,7 @@
         </div>
 
         <div class="field">
-            <label for="inventoryStatus" class="mb-3">Inventory Status</label>
+            <label for="inventoryStatus" class="mb-4">Inventory Status</label>
             <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
                 <template #value="slotProps">
                     <div v-if="slotProps.value && slotProps.value.value">
@@ -104,28 +104,28 @@
         </div>
 
         <div class="field">
-            <label class="mb-3">Category</label>
-            <div class="formgrid grid">
-                <div class="field-radiobutton col-6">
+            <label class="mb-4">Category</label>
+            <div class="formgrid grid grid-cols-12 gap-4">
+                <div class="field-radiobutton col-span-6">
                     <RadioButton id="category1" v-model="product.category" name="category" value="Accessories" />
                     <label for="category1">Accessories</label>
                 </div>
-                <div class="field-radiobutton col-6">
+                <div class="field-radiobutton col-span-6">
                     <RadioButton id="category2" v-model="product.category" name="category" value="Clothing" />
                     <label for="category2">Clothing</label>
                 </div>
-                <div class="field-radiobutton col-6">
+                <div class="field-radiobutton col-span-6">
                     <RadioButton id="category3" v-model="product.category" name="category" value="Electronics" />
                     <label for="category3">Electronics</label>
                 </div>
-                <div class="field-radiobutton col-6">
+                <div class="field-radiobutton col-span-6">
                     <RadioButton id="category4" v-model="product.category" name="category" value="Fitness" />
                     <label for="category4">Fitness</label>
                 </div>
             </div>
         </div>
 
-        <div class="formgrid grid">
+        <div class="formgrid grid grid-cols-12 gap-4">
             <div class="field col">
                 <label for="price">Price</label>
                 <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
@@ -143,7 +143,7 @@
 
     <Dialog v-model:visible="deleteProductDialog" :style="{ width: '450px' }" header="Confirm" :modal="true">
         <div class="confirmation-content">
-            <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+            <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
             <span v-if="product"
                 >Are you sure you want to delete <b>{{ product.name }}</b
                 >?</span
@@ -157,7 +157,7 @@
 
     <Dialog v-model:visible="deleteProductsDialog" :style="{ width: '450px' }" header="Confirm" :modal="true">
         <div class="confirmation-content">
-            <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+            <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
             <span v-if="product">Are you sure you want to delete the selected products?</span>
         </div>
         <template #footer>
@@ -191,7 +191,7 @@ export default {
             ],
             code: {
                 basic: `
-<Toolbar class="mb-4">
+<Toolbar class="mb-6">
     <template #start>
         <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
         <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
@@ -206,7 +206,7 @@ export default {
     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
     <template #header>
-        <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+        <div class="flex flex-wrap gap-2 items-center justify-between">
             <h4 class="m-0">Manage Products</h4>
             <IconField>
                 <InputIcon>
@@ -221,7 +221,7 @@ export default {
     <Column field="name" header="Name" sortable style="min-width:16rem"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="border-round" style="width: 64px" />
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="rounded" style="width: 64px" />
         </template>
     </Column>
     <Column field="price" header="Price" sortable style="min-width:8rem">
@@ -252,7 +252,7 @@ export default {
 <template>
     <div>
         <div class="card">
-            <Toolbar class="mb-4">
+            <Toolbar class="mb-6">
                 <template #start>
                     <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
@@ -269,7 +269,7 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
                 <template #header>
-                    <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                    <div class="flex flex-wrap gap-2 items-center justify-between">
                         <h4 class="m-0">Manage Products</h4>
 						<IconField>
                             <InputIcon>
@@ -285,7 +285,7 @@ export default {
                 <Column field="name" header="Name" sortable style="min-width:16rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="border-round" style="width: 64px" />
+                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="rounded" style="width: 64px" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width:8rem">
@@ -314,7 +314,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
-            <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-3" />
+            <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-4" />
             <div class="field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
@@ -326,7 +326,7 @@ export default {
             </div>
 
             <div class="field">
-				<label for="inventoryStatus" class="mb-3">Inventory Status</label>
+				<label for="inventoryStatus" class="mb-4">Inventory Status</label>
 				<Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
 					<template #value="slotProps">
 						<div v-if="slotProps.value && slotProps.value.value">
@@ -343,28 +343,28 @@ export default {
 			</div>
 
             <div class="field">
-                <label class="mb-3">Category</label>
-                <div class="formgrid grid">
-                    <div class="field-radiobutton col-6">
+                <label class="mb-4">Category</label>
+                <div class="formgrid grid grid-cols-12 gap-4">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
                         <label for="category1">Accessories</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
                         <label for="category2">Clothing</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
                         <label for="category3">Electronics</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
                         <label for="category4">Fitness</label>
                     </div>
                 </div>
             </div>
 
-            <div class="formgrid grid">
+            <div class="formgrid grid grid-cols-12 gap-4">
                 <div class="field col">
                     <label for="price">Price</label>
                     <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
@@ -382,7 +382,7 @@ export default {
 
         <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+                <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
             </div>
             <template #footer>
@@ -393,7 +393,7 @@ export default {
 
         <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+                <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>
@@ -543,7 +543,7 @@ export default {
 <template>
     <div>
         <div class="card">
-            <Toolbar class="mb-4">
+            <Toolbar class="mb-6">
                 <template #start>
                     <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
                     <Button label="Delete" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
@@ -560,7 +560,7 @@ export default {
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
                 <template #header>
-                    <div class="flex flex-wrap gap-2 align-items-center justify-content-between">
+                    <div class="flex flex-wrap gap-2 items-center justify-between">
                         <h4 class="m-0">Manage Products</h4>
 						<IconField>
                             <InputIcon>
@@ -576,7 +576,7 @@ export default {
                 <Column field="name" header="Name" sortable style="min-width:16rem"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="border-round" style="width: 64px" />
+                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="rounded" style="width: 64px" />
                     </template>
                 </Column>
                 <Column field="price" header="Price" sortable style="min-width:8rem">
@@ -605,7 +605,7 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{width: '450px'}" header="Product Details" :modal="true" class="p-fluid">
-            <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-3" />
+            <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-4" />
             <div class="field">
                 <label for="name">Name</label>
                 <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
@@ -617,7 +617,7 @@ export default {
             </div>
 
             <div class="field">
-				<label for="inventoryStatus" class="mb-3">Inventory Status</label>
+				<label for="inventoryStatus" class="mb-4">Inventory Status</label>
 				<Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status">
 					<template #value="slotProps">
 						<div v-if="slotProps.value && slotProps.value.value">
@@ -634,28 +634,28 @@ export default {
 			</div>
 
             <div class="field">
-                <label class="mb-3">Category</label>
-                <div class="formgrid grid">
-                    <div class="field-radiobutton col-6">
+                <label class="mb-4">Category</label>
+                <div class="formgrid grid grid-cols-12 gap-4">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category1" name="category" value="Accessories" v-model="product.category" />
                         <label for="category1">Accessories</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category2" name="category" value="Clothing" v-model="product.category" />
                         <label for="category2">Clothing</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category3" name="category" value="Electronics" v-model="product.category" />
                         <label for="category3">Electronics</label>
                     </div>
-                    <div class="field-radiobutton col-6">
+                    <div class="field-radiobutton col-span-6">
                         <RadioButton id="category4" name="category" value="Fitness" v-model="product.category" />
                         <label for="category4">Fitness</label>
                     </div>
                 </div>
             </div>
 
-            <div class="formgrid grid">
+            <div class="formgrid grid grid-cols-12 gap-4">
                 <div class="field col">
                     <label for="price">Price</label>
                     <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
@@ -673,7 +673,7 @@ export default {
 
         <Dialog v-model:visible="deleteProductDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+                <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete <b>{{product.name}}</b>?</span>
             </div>
             <template #footer>
@@ -684,7 +684,7 @@ export default {
 
         <Dialog v-model:visible="deleteProductsDialog" :style="{width: '450px'}" header="Confirm" :modal="true">
             <div class="confirmation-content">
-                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+                <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>

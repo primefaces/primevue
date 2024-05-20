@@ -3,7 +3,7 @@
         <p>Buttons can have icons without labels.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" aria-label="Search" />
@@ -13,7 +13,7 @@
             <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
@@ -23,7 +23,7 @@
             <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
@@ -33,7 +33,7 @@
             <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
@@ -43,7 +43,7 @@
             <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3">
+        <div class="flex flex-wrap justify-center gap-4">
             <Button icon="pi pi-check" text rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
@@ -105,7 +105,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" aria-label="Search" />
@@ -115,7 +115,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
@@ -125,7 +125,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
@@ -135,7 +135,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
@@ -145,7 +145,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3">
+        <div class="flex flex-wrap justify-center gap-4">
             <Button icon="pi pi-check" text rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />
@@ -163,7 +163,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" aria-label="Search" />
@@ -173,7 +173,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
@@ -183,7 +183,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" rounded outlined aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" rounded outlined aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" rounded outlined aria-label="Search" />
@@ -193,7 +193,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" rounded outlined aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3 mb-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
             <Button icon="pi pi-check" text raised rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text raised rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text raised rounded aria-label="Search" />
@@ -203,7 +203,7 @@ export default {
             <Button icon="pi pi-times" severity="danger" text raised rounded aria-label="Cancel" />
         </div>
 
-        <div class="flex flex-wrap justify-content-center gap-3">
+        <div class="flex flex-wrap justify-center gap-4">
             <Button icon="pi pi-check" text rounded aria-label="Filter" />
             <Button icon="pi pi-bookmark" severity="secondary" text rounded aria-label="Bookmark" />
             <Button icon="pi pi-search" severity="success" text rounded aria-label="Search" />

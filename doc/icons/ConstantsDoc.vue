@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Constants API is available to reference icons easily when used programmatically.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
@@ -26,7 +26,7 @@ export default {
             code: {
                 basic: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Menu :model="items" />
     </div>
 </template>

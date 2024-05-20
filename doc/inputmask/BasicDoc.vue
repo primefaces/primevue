@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>InputMask is used as a controlled input with <i>v-model</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
     </div>
 </template>

@@ -2,15 +2,15 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>command</i> property defines the callback to run when an item is activated by click or a key event.</p>
     </DocSectionText>
-    <div class="card flex md:justify-content-center">
-        <ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
+    <div class="card flex md:justify-center">
+        <ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]">
             <li
                 v-for="user in users"
                 :key="user.id"
-                :class="['p-2 hover:surface-hover border-round border-1 border-transparent transition-all transition-duration-200 flex align-items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+                :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
                 @contextmenu="onRightClick($event, user)"
             >
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <img :alt="user.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${user.image}`" style="width: 32px" />
                     <span class="font-bold">{{ user.name }}</span>
                 </div>
@@ -69,14 +69,14 @@ export default {
             ],
             code: {
                 basic: `
-<ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
+<ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]">
     <li
         v-for="user in users"
         :key="user.id"
-        :class="['p-2 hover:surface-hover border-round border-1 border-transparent transition-all transition-duration-200 flex align-items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+        :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
         @contextmenu="onRightClick($event, user)"
     >
-        <div class="flex align-items-center gap-2">
+        <div class="flex items-center gap-2">
             <img :alt="user.name" :src="\`/images/avatar/\${user.image}\`" style="width: 32px" />
             <span class="font-bold">{{ user.name }}</span>
         </div>
@@ -88,15 +88,15 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex md:justify-content-center">
-        <ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
+    <div class="card flex md:justify-center">
+        <ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]">
             <li
                 v-for="user in users"
                 :key="user.id"
-                :class="['p-2 hover:surface-hover border-round border-1 border-transparent transition-all transition-duration-200 flex align-items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+                :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
                 @contextmenu="onRightClick($event, user)"
             >
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <img :alt="user.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${user.image}\`" style="width: 32px" />
                     <span class="font-bold">{{ user.name }}</span>
                 </div>
@@ -171,15 +171,15 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex md:justify-content-center">
-        <ul class="m-0 p-0 list-none border-1 surface-border border-round p-3 flex flex-column gap-2 w-full md:w-30rem">
+    <div class="card flex md:justify-center">
+        <ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]">
             <li
                 v-for="user in users"
                 :key="user.id"
-                :class="['p-2 hover:surface-hover border-round border-1 border-transparent transition-all transition-duration-200 flex align-items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+                :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
                 @contextmenu="onRightClick($event, user)"
             >
-                <div class="flex align-items-center gap-2">
+                <div class="flex items-center gap-2">
                     <img :alt="user.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${user.image}\`" style="width: 32px" />
                     <span class="font-bold">{{ user.name }}</span>
                 </div>

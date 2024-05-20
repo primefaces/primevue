@@ -3,10 +3,10 @@
         <p>Tabs can be controlled programmatically using <i>value</i> property.</p>
     </DocSectionText>
     <div class="card">
-        <div class="flex mb-2 gap-2 justify-content-end">
-            <Button @click="value = '0'" rounded label="1" class="w-2rem h-2rem p-0" :outlined="value !== '0'" />
-            <Button @click="value = '1'" rounded label="2" class="w-2rem h-2rem p-0" :outlined="value !== '1'" />
-            <Button @click="value = '2'" rounded label="3" class="w-2rem h-2rem p-0" :outlined="value !== '2'" />
+        <div class="flex mb-2 gap-2 justify-end">
+            <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+            <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+            <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
         </div>
 
         <Tabs v-model:value="value">
@@ -47,10 +47,10 @@ export default {
             value: '0',
             code: {
                 basic: `
-<div class="flex mb-2 gap-2 justify-content-end">
-    <Button @click="value = '0'" rounded label="1" class="w-2rem h-2rem p-0" :outlined="value !== '0'" />
-    <Button @click="value = '1'" rounded label="2" class="w-2rem h-2rem p-0" :outlined="value !== '1'" />
-    <Button @click="value = '2'" rounded label="3" class="w-2rem h-2rem p-0" :outlined="value !== '2'" />
+<div class="flex mb-2 gap-2 justify-end">
+    <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+    <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+    <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
 </div>
 
 <Tabs v-model:value="value">
@@ -84,10 +84,10 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="flex mb-2 gap-2 justify-content-end">
-            <Button @click="value = '0'" rounded label="1" class="w-2rem h-2rem p-0" :outlined="value !== '0'" />
-            <Button @click="value = '1'" rounded label="2" class="w-2rem h-2rem p-0" :outlined="value !== '1'" />
-            <Button @click="value = '2'" rounded label="3" class="w-2rem h-2rem p-0" :outlined="value !== '2'" />
+        <div class="flex mb-2 gap-2 justify-end">
+            <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+            <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+            <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
         </div>
 
         <Tabs v-model:value="value">
@@ -133,10 +133,10 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="flex mb-2 gap-2 justify-content-end">
-            <Button @click="value = '0'" rounded label="1" class="w-2rem h-2rem p-0" :outlined="value !== '0'" />
-            <Button @click="value = '1'" rounded label="2" class="w-2rem h-2rem p-0" :outlined="value !== '1'" />
-            <Button @click="value = '2'" rounded label="3" class="w-2rem h-2rem p-0" :outlined="value !== '2'" />
+        <div class="flex mb-2 gap-2 justify-end">
+            <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+            <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+            <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
         </div>
 
         <Tabs v-model:value="value">

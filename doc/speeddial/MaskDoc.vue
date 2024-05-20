@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Adding <i>mask</i> property displays a modal layer behind the popup items.</p>
     </DocSectionText>
-    <div class="card p-3">
+    <div class="card p-4">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>
@@ -57,7 +57,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card p-3">
+    <div class="card p-4">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>
@@ -112,7 +112,7 @@ data() {
 `,
                 composition: `
 <template>
-    <div class="card p-3">
+    <div class="card p-4">
         <div :style="{ position: 'relative', height: '350px' }">
             <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
         </div>

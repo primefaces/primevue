@@ -37,7 +37,7 @@
                 </Column>
                 <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                     <template #body="{ data }">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
                             <span>{{ data.country.name }}</span>
                         </div>
@@ -48,7 +48,7 @@
                 </Column>
                 <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
                     <template #body="{ data }">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" />
                             <span>{{ data.representative.name }}</span>
                         </div>
@@ -56,7 +56,7 @@
                     <template #filter="{ filterModel }">
                         <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                             <template #option="slotProps">
-                                <div class="flex align-items-center gap-2">
+                                <div class="flex items-center gap-2">
                                     <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" style="width: 32px" />
                                     <span>{{ slotProps.option.name }}</span>
                                 </div>
@@ -126,7 +126,7 @@ export default {
     </Column>
     <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
         <template #body="{ data }">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                 <span>{{ data.country.name }}</span>
             </div>
@@ -137,7 +137,7 @@ export default {
     </Column>
     <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
         <template #body="{ data }">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                 <span>{{ data.representative.name }}</span>
             </div>
@@ -145,7 +145,7 @@ export default {
         <template #filter="{ filterModel }">
             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                 <template #option="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                         <span>{{ slotProps.option.name }}</span>
                     </div>
@@ -189,7 +189,7 @@ export default {
             </Column>
             <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                         <span>{{ data.country.name }}</span>
                     </div>
@@ -200,7 +200,7 @@ export default {
             </Column>
             <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                         <span>{{ data.representative.name }}</span>
                     </div>
@@ -208,7 +208,7 @@ export default {
                 <template #filter="{ filterModel }">
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
-                            <div class="flex align-items-center gap-2">
+                            <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                                 <span>{{ slotProps.option.name }}</span>
                             </div>
@@ -317,7 +317,7 @@ export default {
             </Column>
             <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                         <span>{{ data.country.name }}</span>
                     </div>
@@ -328,7 +328,7 @@ export default {
             </Column>
             <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                         <span>{{ data.representative.name }}</span>
                     </div>
@@ -336,7 +336,7 @@ export default {
                 <template #filter="{ filterModel }">
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
-                            <div class="flex align-items-center gap-2">
+                            <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                                 <span>{{ slotProps.option.name }}</span>
                             </div>

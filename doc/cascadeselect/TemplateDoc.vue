@@ -5,10 +5,10 @@
             required to define the property that refers to the children of a group. Note that order of the <i>optionGroupChildren</i> matters as it should correspond to the data hierarchy.
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
                     <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
@@ -104,7 +104,7 @@ export default {
 <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
     :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
     <template #option="slotProps">
-        <div class="flex align-items-center">
+        <div class="flex items-center">
             <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
             <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
             <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
@@ -115,11 +115,11 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
             :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
                     <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
@@ -216,11 +216,11 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
             :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
             <template #option="slotProps">
-                <div class="flex align-items-center">
+                <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
                     <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>

@@ -3,8 +3,8 @@
         <p>Sample Card implementation using different Skeleton components and PrimeFlex CSS utilities.</p>
     </DocSectionText>
     <div class="card">
-        <div class="border-round border-1 surface-border p-4 surface-card">
-            <div class="flex mb-3">
+        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+            <div class="flex mb-4">
                 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                 <div>
                     <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <Skeleton width="100%" height="150px"></Skeleton>
-            <div class="flex justify-content-between mt-3">
+            <div class="flex justify-between mt-4">
                 <Skeleton width="4rem" height="2rem"></Skeleton>
                 <Skeleton width="4rem" height="2rem"></Skeleton>
             </div>
@@ -28,8 +28,8 @@ export default {
         return {
             code: {
                 basic: `
-<div class="border-round border-1 surface-border p-4 surface-card">
-    <div class="flex mb-3">
+<div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+    <div class="flex mb-4">
         <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
         <div>
             <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -38,7 +38,7 @@ export default {
         </div>
     </div>
     <Skeleton width="100%" height="150px"></Skeleton>
-    <div class="flex justify-content-between mt-3">
+    <div class="flex justify-between mt-4">
         <Skeleton width="4rem" height="2rem"></Skeleton>
         <Skeleton width="4rem" height="2rem"></Skeleton>
     </div>
@@ -47,8 +47,8 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="border-round border-1 surface-border p-4 surface-card">
-            <div class="flex mb-3">
+        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+            <div class="flex mb-4">
                 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                 <div>
                     <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -57,7 +57,7 @@ export default {
                 </div>
             </div>
             <Skeleton width="100%" height="150px"></Skeleton>
-            <div class="flex justify-content-between mt-3">
+            <div class="flex justify-between mt-4">
                 <Skeleton width="4rem" height="2rem"></Skeleton>
                 <Skeleton width="4rem" height="2rem"></Skeleton>
             </div>
@@ -71,8 +71,8 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="border-round border-1 surface-border p-4 surface-card">
-            <div class="flex mb-3">
+        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+            <div class="flex mb-4">
                 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                 <div>
                     <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -81,7 +81,7 @@ export default {
                 </div>
             </div>
             <Skeleton width="100%" height="150px"></Skeleton>
-            <div class="flex justify-content-between mt-3">
+            <div class="flex justify-between mt-4">
                 <Skeleton width="4rem" height="2rem"></Skeleton>
                 <Skeleton width="4rem" height="2rem"></Skeleton>
             </div>

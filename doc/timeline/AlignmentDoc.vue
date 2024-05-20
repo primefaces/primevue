@@ -2,20 +2,20 @@
     <DocSectionText v-bind="$attrs">
         <p>Content location relative the line is defined with the <i>align</i> property.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-6">
-        <Timeline :value="events" class="w-full md:w-20rem">
+    <div class="card flex flex-wrap gap-12">
+        <Timeline :value="events" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="right" class="w-full md:w-20rem">
+        <Timeline :value="events" align="right" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="alternate" class="w-full md:w-20rem">
+        <Timeline :value="events" align="alternate" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
@@ -36,19 +36,19 @@ export default {
             ],
             code: {
                 basic: `
-<Timeline :value="events" class="w-full md:w-20rem">
+<Timeline :value="events" class="w-full md:w-80">
     <template #content="slotProps">
         {{ slotProps.item.status }}
     </template>
 </Timeline>
 
-<Timeline :value="events" align="right" class="w-full md:w-20rem">
+<Timeline :value="events" align="right" class="w-full md:w-80">
     <template #content="slotProps">
         {{ slotProps.item.status }}
     </template>
 </Timeline>
 
-<Timeline :value="events" align="alternate" class="w-full md:w-20rem">
+<Timeline :value="events" align="alternate" class="w-full md:w-80">
     <template #content="slotProps">
         {{ slotProps.item.status }}
     </template>
@@ -56,20 +56,20 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-6">
-        <Timeline :value="events" class="w-full md:w-20rem">
+    <div class="card flex flex-wrap gap-12">
+        <Timeline :value="events" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="right" class="w-full md:w-20rem">
+        <Timeline :value="events" align="right" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="alternate" class="w-full md:w-20rem">
+        <Timeline :value="events" align="alternate" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
@@ -94,20 +94,20 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-6">
-        <Timeline :value="events" class="w-full md:w-20rem">
+    <div class="card flex flex-wrap gap-12">
+        <Timeline :value="events" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="right" class="w-full md:w-20rem">
+        <Timeline :value="events" align="right" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>
         </Timeline>
 
-        <Timeline :value="events" align="alternate" class="w-full md:w-20rem">
+        <Timeline :value="events" align="alternate" class="w-full md:w-80">
             <template #content="slotProps">
                 {{ slotProps.item.status }}
             </template>

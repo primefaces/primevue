@@ -7,12 +7,12 @@
     <p>Colors can be accessed at CSS as a variable and programmatically using the <i>$dt</i> utility.</p>
     <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
     <div class="card">
-        <ul class="p-0 m-0 list-none flex sm:flex-column gap-3 flex-wrap sm:flex-nowrap">
+        <ul class="p-0 m-0 list-none flex sm:flex-col gap-4 flex-wrap sm:flex-nowrap">
             <li v-for="(color, i) of colors" :key="i" class="flex-auto" style="min-width: 6rem">
                 <span class="font-medium capitalize block mb-2 text-center sm:text-left">{{ color }}</span>
-                <div class="flex gap-3 flex-auto flex-column sm:flex-row">
-                    <div v-for="(shade, j) of shades" :key="shade" class="flex flex-column align-items-center gap-1 flex-1">
-                        <div class="border-round h-2rem w-full" :style="`background-color: var(--p-${color}-${shades[j]})`"></div>
+                <div class="flex gap-4 flex-auto flex-col sm:flex-row">
+                    <div v-for="(shade, j) of shades" :key="shade" class="flex flex-col items-center gap-1 flex-1">
+                        <div class="rounded h-8 w-full" :style="`background-color: var(--p-${color}-${shades[j]})`"></div>
                         <span class="text-sm text-secondary font-medium">{{ shades[j] }}</span>
                     </div>
                 </div>

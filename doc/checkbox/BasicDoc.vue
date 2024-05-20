@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Binary checkbox is used as a controlled input with <i>v-model</i> and <i>binary</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Checkbox v-model="checked" :binary="true" />
     </div>
     <DocSectionCode :code="code" />
@@ -19,7 +19,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Checkbox v-model="checked" :binary="true" />
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Checkbox v-model="checked" :binary="true" />
     </div>
 </template>

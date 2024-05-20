@@ -23,12 +23,12 @@ app.use(PrimeVue, {
     pt: {
         panel: {
             header: {
-                class: 'bg-primary'
+                class: 'bg-primary text-primary-contrast'
             }
         },
         autocomplete: {
             input: {
-                root: 'w-16rem' // OR { class: 'w-16rem' }
+                root: 'w-64' // OR { class: 'w-64' }
             }
         }
     }

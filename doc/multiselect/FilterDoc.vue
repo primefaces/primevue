@@ -5,8 +5,8 @@
             fields being utilized. Furthermore, <i>filterMatchMode</i> is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
         </p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-20rem" />
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -26,13 +26,13 @@ export default {
             code: {
                 basic: `
 <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
-    :maxSelectedLabels="3" class="w-full md:w-20rem" />
+    :maxSelectedLabels="3" class="w-full md:w-80" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-20rem" />
+            :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 
@@ -55,9 +55,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-20rem" />
+            :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 

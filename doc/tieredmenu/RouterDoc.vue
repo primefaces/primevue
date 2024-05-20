@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items">
             <template #item="{ item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
@@ -83,7 +83,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items">
             <template #item="{ item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
@@ -150,7 +150,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items">
             <template #item="{ item, props, hasSubmenu }">
                 <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>

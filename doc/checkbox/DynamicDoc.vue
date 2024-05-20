@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Checkboxes can be generated using a list of values.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <div class="flex flex-column gap-3">
-            <div v-for="category of categories" :key="category.key" class="flex align-items-center">
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category of categories" :key="category.key" class="flex items-center">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
                 <label :for="category.key" class="ml-2">{{ category.name }}</label>
             </div>
@@ -26,16 +26,16 @@ export default {
             ],
             code: {
                 basic: `
-<div v-for="category of categories" :key="category.key" class="flex align-items-center">
+<div v-for="category of categories" :key="category.key" class="flex items-center">
     <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
     <label :for="category.key">{{ category.name }}</label>
 </div>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <div class="flex flex-column gap-3">
-            <div v-for="category of categories" :key="category.key" class="flex align-items-center">
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category of categories" :key="category.key" class="flex items-center">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
                 <label :for="category.key">{{ category.name }}</label>
             </div>
@@ -61,9 +61,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <div class="flex flex-column gap-3">
-            <div v-for="category of categories" :key="category.key" class="flex align-items-center">
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category of categories" :key="category.key" class="flex items-center">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
                 <label :for="category.key">{{ category.name }}</label>
             </div>

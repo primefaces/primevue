@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A sample implementation to demonstrate loading components asynchronously, nested content and passing data.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
 
         <DynamicDialog />
@@ -26,7 +26,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
         <Toast />
         <DynamicDialog />
@@ -75,7 +75,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
         <Toast />
         <DynamicDialog />
@@ -144,7 +144,7 @@ const showProducts = () => {
                         content: `
 <template>
 	<div>
-        <div class="flex justify-content-end mt-1 mb-3">
+        <div class="flex justify-end mt-1 mb-4">
             <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
@@ -152,7 +152,7 @@ const showProducts = () => {
 			<Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-4rem" />
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-16" />
                 </template>
             </Column>
 			<Column field="category" header="Category"></Column>
@@ -207,7 +207,7 @@ export default {
 <template>
     <div>
         <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
-        <div class="flex justify-content-end">
+        <div class="flex justify-end">
             <Button type="button" label="Close" @click="closeDialog"></Button>
         </div>
     </div>
@@ -257,7 +257,7 @@ export default {
                         content: `
 <template>
 	<div>
-        <div class="flex justify-content-end mt-1 mb-3">
+        <div class="flex justify-end mt-1 mb-4">
             <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
@@ -265,7 +265,7 @@ export default {
 			<Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-4rem" />
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-16" />
                 </template>
             </Column>
 			<Column field="category" header="Category"></Column>
@@ -320,7 +320,7 @@ const showInfo = () => {
 <template>
     <div>
         <p>There are <strong>{{totalProducts}}</strong> products in total in this list.</p>
-        <div class="flex justify-content-end">
+        <div class="flex justify-end">
             <Button type="button" label="Close" @click="closeDialog"></Button>
         </div>
     </div>

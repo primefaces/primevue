@@ -15,7 +15,7 @@
                 :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']"
             >
                 <template #header>
-                    <div class="flex justify-content-between">
+                    <div class="flex justify-between">
                         <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                         <IconField>
                             <InputIcon>
@@ -37,7 +37,7 @@
                 </Column>
                 <Column header="Country" sortable sortField="country.name" filterField="country.name" style="min-width: 14rem">
                     <template #body="{ data }">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
                             <span>{{ data.country.name }}</span>
                         </div>
@@ -48,7 +48,7 @@
                 </Column>
                 <Column header="Agent" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                     <template #body="{ data }">
-                        <div class="flex align-items-center gap-2">
+                        <div class="flex items-center gap-2">
                             <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" />
                             <span>{{ data.representative.name }}</span>
                         </div>
@@ -56,7 +56,7 @@
                     <template #filter="{ filterModel }">
                         <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                             <template #option="slotProps">
-                                <div class="flex align-items-center gap-2">
+                                <div class="flex items-center gap-2">
                                     <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" style="width: 32px" />
                                     <span>{{ slotProps.option.name }}</span>
                                 </div>
@@ -97,8 +97,8 @@
                         <ProgressBar :value="data.activity" :showValue="false" style="height: 6px"></ProgressBar>
                     </template>
                     <template #filter="{ filterModel }">
-                        <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                        <div class="flex align-items-center justify-content-between px-2">
+                        <Slider v-model="filterModel.value" range class="m-4"></Slider>
+                        <div class="flex items-center justify-between px-2">
                             <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
                             <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
                         </div>
@@ -143,7 +143,7 @@ export default {
 <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
     :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
-        <div class="flex justify-content-between">
+        <div class="flex justify-between">
             <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
             <IconField>
                 <InputIcon>
@@ -165,7 +165,7 @@ export default {
     </Column>
     <Column header="Country" sortable sortField="country.name" filterField="country.name" style="min-width: 14rem">
         <template #body="{ data }">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                 <span>{{ data.country.name }}</span>
             </div>
@@ -176,7 +176,7 @@ export default {
     </Column>
     <Column header="Agent" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
         <template #body="{ data }">
-            <div class="flex align-items-center gap-2">
+            <div class="flex items-center gap-2">
                 <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                 <span>{{ data.representative.name }}</span>
             </div>
@@ -184,7 +184,7 @@ export default {
         <template #filter="{ filterModel }">
             <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                 <template #option="slotProps">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                         <span>{{ slotProps.option.name }}</span>
                     </div>
@@ -225,8 +225,8 @@ export default {
             <ProgressBar :value="data.activity" :showValue="false" style="height: 6px"></ProgressBar>
         </template>
         <template #filter="{ filterModel }">
-            <Slider v-model="filterModel.value" range class="m-3"></Slider>
-            <div class="flex align-items-center justify-content-between px-2">
+            <Slider v-model="filterModel.value" range class="m-4"></Slider>
+            <div class="flex items-center justify-between px-2">
                 <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
                 <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
             </div>
@@ -245,7 +245,7 @@ export default {
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
-                <div class="flex justify-content-between">
+                <div class="flex justify-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
@@ -267,7 +267,7 @@ export default {
             </Column>
             <Column header="Country" sortable sortField="country.name" filterField="country.name" style="min-width: 14rem">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                         <span>{{ data.country.name }}</span>
                     </div>
@@ -278,7 +278,7 @@ export default {
             </Column>
             <Column header="Agent" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                         <span>{{ data.representative.name }}</span>
                     </div>
@@ -286,7 +286,7 @@ export default {
                 <template #filter="{ filterModel }">
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
-                            <div class="flex align-items-center gap-2">
+                            <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                                 <span>{{ slotProps.option.name }}</span>
                             </div>
@@ -327,8 +327,8 @@ export default {
                     <ProgressBar :value="data.activity" :showValue="false" style="height: 6px"></ProgressBar>
                 </template>
                 <template #filter="{ filterModel }">
-                    <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                    <div class="flex align-items-center justify-content-between px-2">
+                    <Slider v-model="filterModel.value" range class="m-4"></Slider>
+                    <div class="flex items-center justify-between px-2">
                         <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
                         <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
                     </div>
@@ -438,7 +438,7 @@ export default {
         <DataTable v-model:filters="filters" v-model:selection="selectedCustomers" :value="customers" paginator :rows="10" dataKey="id" filterDisplay="menu"
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
-                <div class="flex justify-content-between">
+                <div class="flex justify-between">
                     <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
@@ -460,7 +460,7 @@ export default {
             </Column>
             <Column header="Country" sortable sortField="country.name" filterField="country.name" style="min-width: 14rem">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
                         <span>{{ data.country.name }}</span>
                     </div>
@@ -471,7 +471,7 @@ export default {
             </Column>
             <Column header="Agent" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                 <template #body="{ data }">
-                    <div class="flex align-items-center gap-2">
+                    <div class="flex items-center gap-2">
                         <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
                         <span>{{ data.representative.name }}</span>
                     </div>
@@ -479,7 +479,7 @@ export default {
                 <template #filter="{ filterModel }">
                     <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" class="p-column-filter">
                         <template #option="slotProps">
-                            <div class="flex align-items-center gap-2">
+                            <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
                                 <span>{{ slotProps.option.name }}</span>
                             </div>
@@ -520,8 +520,8 @@ export default {
                     <ProgressBar :value="data.activity" :showValue="false" style="height: 6px"></ProgressBar>
                 </template>
                 <template #filter="{ filterModel }">
-                    <Slider v-model="filterModel.value" range class="m-3"></Slider>
-                    <div class="flex align-items-center justify-content-between px-2">
+                    <Slider v-model="filterModel.value" range class="m-4"></Slider>
+                    <div class="flex items-center justify-between px-2">
                         <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
                         <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
                     </div>

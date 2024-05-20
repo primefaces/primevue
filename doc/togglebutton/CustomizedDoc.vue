@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Icons and Labels can be customized using <i>onLabel</i>, <i>offLabel</i>, <i>onIcon</i> and <i>offIcon</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" offIcon="pi pi-lock-open" class="w-9rem" aria-label="Do you confirm" />
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,13 +16,13 @@ export default {
             code: {
                 basic: `
 <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
-    offIcon="pi pi-lock-open" class="w-9rem" aria-label="Do you confirm" />
+    offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
-            offIcon="pi pi-lock-open" class="w-9rem" aria-label="Do you confirm" />
+            offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
     </div>
 </template>
 
@@ -38,9 +38,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
-            offIcon="pi pi-lock-open" class="w-9rem" aria-label="Do you confirm" />
+            offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
     </div>
 </template>
 

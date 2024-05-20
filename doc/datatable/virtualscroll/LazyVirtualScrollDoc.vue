@@ -14,35 +14,35 @@
             >
                 <Column field="id" header="Id" style="width: 20%">
                     <template #loading>
-                        <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                        <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="vin" header="Vin" style="width: 20%">
                     <template #loading>
-                        <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                        <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="year" header="Year" style="width: 20%">
                     <template #loading>
-                        <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                        <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="30%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="brand" header="Brand" style="width: 20%">
                     <template #loading>
-                        <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                        <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
                 <Column field="color" header="Color" style="width: 20%">
                     <template #loading>
-                        <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                        <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
@@ -69,35 +69,35 @@ export default {
         :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
     <Column field="id" header="Id" style="width: 20%">
         <template #loading>
-            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+            <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="60%" height="1rem" />
             </div>
         </template>
     </Column>
     <Column field="vin" header="Vin" style="width: 20%">
         <template #loading>
-            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+            <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="40%" height="1rem" />
             </div>
         </template>
     </Column>
     <Column field="year" header="Year" style="width: 20%">
         <template #loading>
-            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+            <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="30%" height="1rem" />
             </div>
         </template>
     </Column>
     <Column field="brand" header="Brand" style="width: 20%">
         <template #loading>
-            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+            <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="40%" height="1rem" />
             </div>
         </template>
     </Column>
     <Column field="color" header="Color" style="width: 20%">
         <template #loading>
-            <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+            <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="60%" height="1rem" />
             </div>
         </template>
@@ -111,35 +111,35 @@ export default {
                 :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
             <Column field="id" header="Id" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="vin" header="Vin" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="year" header="Year" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="30%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="brand" header="Brand" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="color" header="Color" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
@@ -197,35 +197,35 @@ export default {
                 :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
             <Column field="id" header="Id" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="vin" header="Vin" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="year" header="Year" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="30%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="brand" header="Brand" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
             <Column field="color" header="Color" style="width: 20%">
                 <template #loading>
-                    <div class="flex align-items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
+                    <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>

@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Custom content inside a button is defined as children.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
+            <span class="flex items-center font-bold">
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
                 <span>PrimeVue</span>
             </span>
@@ -44,7 +44,7 @@ export default {
             code: {
                 basic: `
 <SplitButton :model="items" @click="save" severity="contrast">
-    <span class="flex align-items-center font-bold">
+    <span class="flex items-center font-bold">
         <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
         <span>PrimeVue</span>
     </span>
@@ -52,10 +52,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
+            <span class="flex items-center font-bold">
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
                 <span>PrimeVue</span>
             </span>
@@ -103,10 +103,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast />
         <SplitButton :model="items" @click="save" severity="contrast">
-            <span class="flex align-items-center font-bold">
+            <span class="flex items-center font-bold">
                 <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
                 <span>PrimeVue</span>
             </span>

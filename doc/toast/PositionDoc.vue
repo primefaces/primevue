@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A message can be targeted to a certain Toast component by matching the <i>group</i> keys whereas location is customized with the <i>position</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" @click="showTopLeft" />
             <Button label="Bottom Left" severity="warn" @click="showBottomLeft" />
@@ -28,7 +28,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
         <Toast position="bottom-right" group="br" />
@@ -59,7 +59,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
         <Toast position="bottom-right" group="br" />

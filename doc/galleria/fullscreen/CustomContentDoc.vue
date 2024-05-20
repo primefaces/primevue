@@ -3,7 +3,7 @@
         <p>Using <i>activeIndex</i>, Galleria is displayed with a specific initial image.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
-        <div class="card flex justify-content-center">
+        <div class="card flex justify-center">
             <Galleria
                 v-model:activeIndex="activeIndex"
                 v-model:visible="displayCustom"
@@ -24,8 +24,8 @@
                 </template>
             </Galleria>
 
-            <div v-if="images" class="grid" style="max-width: 400px">
-                <div v-for="(image, index) of images" :key="index" class="col-4">
+            <div v-if="images" class="grid grid-cols-12 gap-4" style="max-width: 400px">
+                <div v-for="(image, index) of images" :key="index" class="col-span-4">
                     <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
                 </div>
             </div>
@@ -71,7 +71,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="images" :responsiveOptions="responsiveOptions" :numVisible="7"
             containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
             <template #item="slotProps">
@@ -82,8 +82,8 @@ export default {
             </template>
         </Galleria>
 
-        <div v-if="images" class="grid" style="max-width: 400px">
-            <div v-for="(image, index) of images" :key="index" class="col-4">
+        <div v-if="images" class="grid grid-cols-12 gap-4" style="max-width: 400px">
+            <div v-for="(image, index) of images" :key="index" class="col-span-4">
                 <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
             </div>
         </div>
@@ -129,7 +129,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <Galleria v-model:activeIndex="activeIndex" v-model:visible="displayCustom" :value="images" :responsiveOptions="responsiveOptions" :numVisible="7"
             containerStyle="max-width: 850px" :circular="true" :fullScreen="true" :showItemNavigators="true" :showThumbnails="false">
             <template #item="slotProps">
@@ -140,8 +140,8 @@ export default {
             </template>
         </Galleria>
 
-        <div v-if="images" class="grid" style="max-width: 400px">
-            <div v-for="(image, index) of images" :key="index" class="col-4">
+        <div v-if="images" class="grid grid-cols-12 gap-4" style="max-width: 400px">
+            <div v-for="(image, index) of images" :key="index" class="col-span-4">
                 <img :src="image.thumbnailImageSrc" :alt="image.alt" style="cursor: pointer" @click="imageClick(index)" />
             </div>
         </div>

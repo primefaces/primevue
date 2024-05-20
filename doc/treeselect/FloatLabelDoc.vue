@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </FloatLabel>
@@ -21,15 +21,15 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<FloatLabel class="w-full md:w-20rem">
+<FloatLabel class="w-full md:w-80">
     <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
     <label>Tree Select</label>
 </FloatLabel>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </FloatLabel>
@@ -54,8 +54,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <FloatLabel class="w-full md:w-20rem">
+    <div class="card flex justify-center">
+        <FloatLabel class="w-full md:w-80">
             <TreeSelect v-model="selectedValue" :options="nodes" class="w-full" />
             <label>Tree Select</label>
         </FloatLabel>

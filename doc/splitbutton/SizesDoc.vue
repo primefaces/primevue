@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>SplitButton provides <i>small</i> and <i>large</i> sizes as alternatives to the standard.</p>
     </DocSectionText>
-    <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
+    <div class="card flex items-center justify-center flex-wrap gap-4">
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
@@ -46,7 +46,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
+    <div class="card flex items-center justify-center flex-wrap gap-4">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
@@ -94,7 +94,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex align-items-center justify-content-center flex-wrap gap-3">
+    <div class="card flex items-center justify-center flex-wrap gap-4">
         <Toast />
         <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
         <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>

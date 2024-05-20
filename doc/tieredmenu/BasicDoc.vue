@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>TieredMenu requires a collection of menuitems as its <i>model</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items" />
     </div>
     <DocSectionCode :code="code" />
@@ -87,7 +87,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items" />
     </div>
 </template>
@@ -172,7 +172,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
+    <div class="card flex justify-center">
         <TieredMenu :model="items" />
     </div>
 </template>

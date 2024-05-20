@@ -6,15 +6,15 @@
         <div class="card">
             <DataTable :value="products" tableStyle="min-width: 50rem">
                 <template #header>
-                    <div class="flex flex-wrap align-items-center justify-content-between gap-2">
-                        <span class="text-xl text-900 font-bold">Products</span>
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span class="text-xl text-surface-900 font-bold">Products</span>
                         <Button icon="pi pi-refresh" rounded raised />
                     </div>
                 </template>
                 <Column field="name" header="Name"></Column>
                 <Column header="Image">
                     <template #body="slotProps">
-                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-6rem border-round" />
+                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-24 rounded" />
                     </template>
                 </Column>
                 <Column field="price" header="Price">
@@ -51,15 +51,15 @@ export default {
                 basic: `
 <DataTable :value="products" tableStyle="min-width: 50rem">
     <template #header>
-        <div class="flex flex-wrap align-items-center justify-content-between gap-2">
-            <span class="text-xl text-900 font-bold">Products</span>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xl text-surface-900 font-bold">Products</span>
             <Button icon="pi pi-refresh" rounded raised />
         </div>
     </template>
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-6rem border-round" />
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
         </template>
     </Column>
     <Column field="price" header="Price">
@@ -86,15 +86,15 @@ export default {
     <div class="card">
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-2">
-                    <span class="text-xl text-900 font-bold">Products</span>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xl text-surface-900 font-bold">Products</span>
                     <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-6rem border-round" />
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
                 </template>
             </Column>
             <Column field="price" header="Price">
@@ -158,15 +158,15 @@ export default {
     <div class="card">
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>
-                <div class="flex flex-wrap align-items-center justify-content-between gap-2">
-                    <span class="text-xl text-900 font-bold">Products</span>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xl text-surface-900 font-bold">Products</span>
                     <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
             <Column field="name" header="Name"></Column>
             <Column header="Image">
                 <template #body="slotProps">
-                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-6rem border-round" />
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
                 </template>
             </Column>
             <Column field="price" header="Price">

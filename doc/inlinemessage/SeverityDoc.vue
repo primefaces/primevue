@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>The <i>severity</i> option specifies the type of the message.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
+    <div class="card flex flex-wrap items-center justify-center gap-4">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warn Message</InlineMessage>
@@ -28,7 +28,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
+    <div class="card flex flex-wrap items-center justify-center gap-4">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warn Message</InlineMessage>
@@ -43,7 +43,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap align-items-center justify-content-center gap-3">
+    <div class="card flex flex-wrap items-center justify-center gap-4">
         <InlineMessage severity="success">Success Message</InlineMessage>
         <InlineMessage severity="info">Info Message</InlineMessage>
         <InlineMessage severity="warn">Warn Message</InlineMessage>

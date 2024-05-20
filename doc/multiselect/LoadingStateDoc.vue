@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>Loading state can be used <i>loading</i> property.</p>
     </DocSectionText>
-    <div class="card flex justify-content-center">
-        <MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
+    <div class="card flex justify-center">
+        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,12 +14,12 @@ export default {
         return {
             code: {
                 basic: `
-<MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
+<MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
 `,
                 options: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
+    <div class="card flex justify-center">
+        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
     </div>
 </template>
 
@@ -28,8 +28,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-content-center">
-        <MultiSelect placeholder="Loading..." loading class="w-full md:w-20rem"></MultiSelect>
+    <div class="card flex justify-center">
+        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
     </div>
 </template>
 

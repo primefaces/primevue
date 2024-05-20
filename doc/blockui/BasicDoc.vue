@@ -3,7 +3,7 @@
         <p>The element to block should be placed as a child of BlockUI and <i>blocked</i> property is required to control the state.</p>
     </DocSectionText>
     <div class="card">
-        <div class="mb-3">
+        <div class="mb-4">
             <Button label="Block" @click="blocked = true" class="mr-2"></Button>
             <Button label="Unblock" @click="blocked = false"></Button>
         </div>
@@ -26,7 +26,7 @@ export default {
             blocked: false,
             code: {
                 basic: `
-<div class="mb-3">
+<div class="mb-4">
     <Button label="Block" @click="blocked = true" class="mr-2"></Button>
     <Button label="Unblock" @click="blocked = false"></Button>
 </div>
@@ -42,7 +42,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div class="mb-3">
+        <div class="mb-4">
             <Button label="Block" @click="blocked = true" class="mr-2"></Button>
             <Button label="Unblock" @click="blocked = false"></Button>
         </div>
@@ -70,7 +70,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div class="mb-3">
+        <div class="mb-4">
             <Button label="Block" @click="blocked = true" class="mr-2"></Button>
             <Button label="Unblock" @click="blocked = false"></Button>
         </div>
