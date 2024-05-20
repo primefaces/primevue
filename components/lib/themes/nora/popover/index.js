@@ -5,10 +5,10 @@ export default {
         color: '{overlay.popover.color}',
         borderRadius: '{overlay.popover.border.radius}',
         shadow: '{overlay.popover.shadow}',
-        gutter: '10px'
+        gutter: '10px',
+        arrowOffset: '1.25rem'
     },
     content: {
         padding: '{overlay.popover.padding}'
-    },
-    arrowOffset: '1.25rem'
+    }
 };

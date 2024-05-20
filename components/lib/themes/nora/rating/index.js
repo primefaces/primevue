@@ -1,5 +1,7 @@
 export default {
-    gap: '0.25rem',
+    root: {
+        gap: '0.25rem'
+    },
     icon: {
         size: '1rem',
         color: '{text.muted.color}',

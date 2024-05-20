@@ -4,9 +4,9 @@ export default {
         borderColor: '{overlay.popover.border.color}',
         color: '{overlay.popover.color}',
         borderRadius: '{overlay.popover.border.radius}',
-        padding: '{overlay.popover.padding}',
         shadow: '{overlay.popover.shadow}',
-        gutter: '10px'
+        gutter: '10px',
+        arrowOffset: '1.25rem'
     },
     content: {
         padding: '{overlay.popover.padding}',
@@ -19,6 +19,5 @@ export default {
     footer: {
         gap: '0.5rem',
         padding: '0 {overlay.popover.padding} {overlay.popover.padding} {overlay.popover.padding}'
-    },
-    arrowOffset: '1.25rem'
+    }
 };
