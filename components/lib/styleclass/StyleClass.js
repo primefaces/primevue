@@ -41,7 +41,7 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                 if (!target.$_pstyleclass_animating) {
                     target.$_pstyleclass_animating = true;
 
-                    if (binding.value.enterActiveClass === 'slidedown') {
+                    if (binding.value.enterActiveClass.includes('slidedown')) {
                         target.style.height = '0px';
                         DomHandler.removeClass(target, 'hidden');
                         target.style.maxHeight = target.scrollHeight + 'px';
@@ -69,7 +69,7 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
 
                         target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
 
-                        if (binding.value.enterActiveClass === 'slidedown') {
+                        if (binding.value.enterActiveClass.includes('slidedown')) {
                             target.style.maxHeight = '';
                         }
 

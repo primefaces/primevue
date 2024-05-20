@@ -1,6 +1,6 @@
 <template>
     <li v-for="(menuitem, index) in menu" :key="`_root${index}`">
-        <button v-if="menuitem.children && root" v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'slidedown', leaveToClass: 'hidden', leaveActiveClass: 'slideup' }" type="button">
+        <button v-if="menuitem.children && root" v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'px-slidedown', leaveToClass: 'hidden', leaveActiveClass: 'px-slideup' }" type="button">
             <span class="menu-icon">
                 <i :class="menuitem.icon"></i>
             </span>
@@ -13,7 +13,7 @@
                 <i :class="menuitem.icon"></i>
             </span>
             <span>{{ menuitem.name }}</span>
-            <Tag v-if="menuitem.badge" :value="menuitem.badge" class="ml-auto"></Tag>
+            <Tag v-if="menuitem.badge" :value="menuitem.badge"></Tag>
         </a>
         <PrimeVueNuxtLink v-if="menuitem.to" :to="menuitem.to" :class="{ 'router-link-active': menuitem.to === $route.fullPath }">
             <span v-if="menuitem.icon && root" class="menu-icon">
@@ -24,7 +24,7 @@
         </PrimeVueNuxtLink>
 
         <span v-if="!root && menuitem.children" class="menu-child-category">{{ menuitem.name }}</span>
-        <div v-if="menuitem.children" class="overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out" :class="{ hidden: menuitem.children && root && isActiveRootmenuItem(menuitem) }">
+        <div v-if="menuitem.children" :class="{ hidden: menuitem.children && root && isActiveRootmenuItem(menuitem) }">
             <ol>
                 <AppMenuItem :root="false" :menu="menuitem.children"></AppMenuItem>
             </ol>

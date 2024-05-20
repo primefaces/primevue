@@ -51,22 +51,22 @@
 }
 
 .px-scalein {
-    animation: scalein 150ms linear;
+    animation: px-scalein 150ms linear;
 }
 
 .px-fadein {
-    animation: fadein 150ms linear;
+    animation: px-fadein 150ms linear;
 }
 
 .px-fadeout {
-    animation: fadeout 150ms linear;
+    animation: px-fadeout 150ms linear;
 }
 
 .px-slidedown {
-    animation: slidedown 0.45s ease-in-out;
+    animation: px-slidedown 0.45s ease-in-out;
 }
 
 .px-slideup {
-    animation: slideup 0.45s cubic-bezier(0, 1, 0, 1);
+    animation: px-slideup 0.45s cubic-bezier(0, 1, 0, 1);
 }
   
