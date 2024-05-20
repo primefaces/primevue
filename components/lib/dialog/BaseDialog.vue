@@ -34,10 +34,6 @@ export default {
             type: null,
             default: null
         },
-        rtl: {
-            type: Boolean,
-            default: null
-        },
         maximizable: {
             type: Boolean,
             default: false

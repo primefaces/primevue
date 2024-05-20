@@ -191,11 +191,6 @@ export interface DialogProps {
      */
     contentProps?: HTMLAttributes | undefined;
     /**
-     * When enabled dialog is displayed in RTL direction.
-     * @defaultValue false
-     */
-    rtl?: boolean | undefined;
-    /**
      * Adds a close icon to the header to hide the dialog.
      * @defaultValue true
      */
