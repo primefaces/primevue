@@ -54,12 +54,6 @@ const DialogProps = [
         description: 'Style class of the content section.'
     },
     {
-        name: 'rtl',
-        type: 'boolean',
-        default: 'null',
-        description: 'When enabled dialog is displayed in RTL direction.'
-    },
-    {
         name: 'closable',
         type: 'boolean',
         default: 'true',

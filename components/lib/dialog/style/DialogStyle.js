@@ -166,7 +166,6 @@ const classes = {
     root: ({ props, instance }) => [
         'p-dialog p-component',
         {
-            'p-dialog-rtl': props.rtl,
             'p-dialog-maximized': props.maximizable && instance.maximized
         }
     ],
