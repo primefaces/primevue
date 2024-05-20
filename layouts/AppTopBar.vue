@@ -86,7 +86,7 @@
                 </li>
                 <li>
                     <button
-                        v-styleclass="{ selector: '@next', enterClass: 'px-hidden', enterActiveClass: 'px-scalein', leaveToClass: 'px-hidden', leaveActiveClass: 'px-fadeout', hideOnOutsideClick: true }"
+                        v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
                         type="button"
                         class="topbar-item config-item"
                     >
@@ -96,7 +96,7 @@
                 </li>
                 <li>
                     <button
-                        v-styleclass="{ selector: '@next', enterClass: 'px-hidden', enterActiveClass: 'px-scalein', leaveToClass: 'px-hidden', leaveActiveClass: 'px-fadeout', hideOnOutsideClick: true }"
+                        v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
                         type="button"
                         style="max-width: 8rem"
                         class="topbar-item version-item"
@@ -105,7 +105,7 @@
                         <span class="version-icon pi pi-angle-down"></span>
                     </button>
 
-                    <div class="versions-panel px-hidden">
+                    <div class="versions-panel hidden">
                         <ul>
                             <li v-for="version in versions" :key="version.version" role="none">
                                 <a :href="version.url">
