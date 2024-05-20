@@ -3,8 +3,8 @@ const { transform } = require('typescript');
 module.exports = {
     extend: {
         colors: {
-            primary: 'var(-p-primary-color)',
-            'primary-contrast': 'var(-p-primary-contrast-color)',
+            primary: 'var(--p-primary-color)',
+            'primary-contrast': 'var(--p-primary-contrast-color)',
             'primary-50': 'var(--p-primary-50)',
             'primary-100': 'var(--p-primary-100)',
             'primary-200': 'var(--p-primary-200)',

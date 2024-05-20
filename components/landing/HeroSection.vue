@@ -1,36 +1,36 @@
 <template>
-    <section class="landing-hero py-8 px-5 lg:px-8">
+    <section class="landing-hero py-20 px-8 lg:px-20">
         <div class="flex flex-wrap">
-            <div class="w-full xl:w-6 flex flex-column justify-content-center lg:pr-8 align-items-center xl:align-items-stretch">
-                <h1 class="text-6xl font-bold text-center xl:text-left">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
-                <p class="section-detail xl:text-left text-center px-0 mt-0 mb-5">
+            <div class="w-full xl:w-6/12 flex flex-col justify-center lg:pr-20 items-center xl:items-stretch">
+                <h1 class="text-5xl font-bold text-center xl:text-left leading-tight">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
+                <p class="xl:text-left text-center px-0 mt-0 mb-8 text-surface-500 dark:text-surface-400 font-medium text-xl leading-relaxed">
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
-                <div class="flex align-items-center gap-3">
-                    <PrimeVueNuxtLink to="/setup" class="linkbox active font-semibold py-3 px-4">
+                <div class="flex items-center gap-4">
+                    <PrimeVueNuxtLink to="/setup" class="linkbox active font-semibold py-4 px-6">
                         <span>Get Started</span>
-                        <i class="pi pi-arrow-right ml-3"></i>
+                        <i class="pi pi-arrow-right ml-4"></i>
                     </PrimeVueNuxtLink>
-                    <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox font-semibold py-3 px-4">
+                    <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox font-semibold py-4 px-6">
                         <span>Give a Star</span>
-                        <i class="pi pi-star-fill ml-3 text-yellow-500"></i>
+                        <i class="pi pi-star-fill ml-4 text-yellow-500"></i>
                     </a>
                 </div>
             </div>
-            <div class="w-full xl:w-6 pt-7 xl:pt-0 hidden md:block">
+            <div class="w-full xl:w-6/12 pt-16 xl:pt-0 hidden md:block">
                 <div class="flex">
-                    <div class="flex flex-column w-6 gap-5 pt-8 pr-3">
-                        <div class="box p-4 fadein animation-duration-500">
+                    <div class="flex flex-col w-6/12 gap-8 pt-20 pr-4">
+                        <div class="box p-6 animate-fadein animate-duration-500">
                             <div class="flex gap-2">
-                                <div class="w-6rem flex-shrink-0">
-                                    <span class="text-secondary font-medium block mb-3">Amount</span>
+                                <div class="w-24 flex-shrink-0">
+                                    <span class="text-secondary font-medium block mb-4">Amount</span>
                                     <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="w-full" />
                                 </div>
                                 <div class="flex-auto" style="width: 1%">
-                                    <span class="text-secondary font-semibold block mb-3">Beneficiary</span>
+                                    <span class="text-secondary font-semibold block mb-4">Beneficiary</span>
                                     <Select v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
                                         <template #option="slotProps">
-                                            <div class="flex align-items-center gap-2">
+                                            <div class="flex items-center gap-2">
                                                 <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" width="28" />
                                                 <span>{{ slotProps.option.name }}</span>
                                             </div>
@@ -38,44 +38,44 @@
                                     </Select>
                                 </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-5 mb-3">Account</span>
-                            <div class="flex flex-wrap gap-3">
-                                <div class="flex align-items-center">
+                            <span class="text-secondary font-medium block mt-8 mb-4">Account</span>
+                            <div class="flex flex-wrap gap-4">
+                                <div class="flex items-center">
                                     <RadioButton v-model="radioValue" inputId="category1" value="S" name="radiovalue" @change="setCategory('S')" />
                                     <label for="category1" class="ml-2 font-medium">Savings</label>
                                 </div>
-                                <div class="flex align-items-center">
+                                <div class="flex items-center">
                                     <RadioButton v-model="radioValue" inputId="category2" value="C" name="radiovalue" @change="setCategory('C')" />
                                     <label for="category2" class="ml-2 font-medium">Checking</label>
                                 </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-5 mb-3">Date</span>
+                            <span class="text-secondary font-medium block mt-8 mb-4">Date</span>
                             <DatePicker v-model="dateValue" :showWeek="true" class="w-full" showIcon iconDisplay="input" />
                         </div>
-                        <div class="box p-4 fadein animation-duration-500">
+                        <div class="box p-6 animate-fadein animate-duration-500">
                             <Chart type="line" :data="chartData" :options="chartOptions" />
                         </div>
-                        <div class="box p-4 fadein animation-duration-500">
-                            <div class="flex align-items-center">
+                        <div class="box p-6 animate-fadein animate-duration-500">
+                            <div class="flex items-center">
                                 <Chip label="Vue" class="mr-2 font-medium" />
                                 <Chip label="Typescript" class="mr-2 font-medium" />
                                 <ToggleSwitch v-model="switchValue" class="ml-auto"></ToggleSwitch>
                             </div>
-                            <div class="mt-5 flex justify-content-center">
+                            <div class="mt-8 flex justify-center">
                                 <SelectButton v-model="selectButtonValue" :options="selectButtonOptions" optionLabel="name" />
                             </div>
-                            <div class="mt-5 pt-1 pb-2">
+                            <div class="mt-8 pt-1 pb-2">
                                 <Slider v-model="rangeValues" range class="w-full" />
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-column w-6 gap-5 pl-3">
-                        <div class="box p-4 fadein animation-duration-500">
-                            <div class="surface-card mb-4 w-full text-center p-5" style="border-radius: '10px'">
-                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan-noir.png" alt="Watch" class="w-10rem" />
+                    <div class="flex flex-col w-6/12 gap-8 pl-4">
+                        <div class="box p-6 animate-fadein animate-duration-500">
+                            <div class="mb-6 w-full text-center p-8" style="border-radius: '10px'">
+                                <img src="https://primefaces.org/cdn/primevue/images/landing/air-jordan-noir.png" alt="Watch" class="w-40" />
                             </div>
-                            <div class="flex align-items-center mb-4">
-                                <div class="flex flex-column">
+                            <div class="flex items-center mb-6">
+                                <div class="flex flex-col">
                                     <span class="block font-semibold mb-1">Sneaker</span>
                                     <span class="text-secondary text-sm">Premium Quality</span>
                                 </div>
@@ -83,30 +83,30 @@
                             </div>
                             <Button label="Add to Cart" icon="pi pi-shopping-cart" severity="secondary" class="w-full"></Button>
                         </div>
-                        <div class="box p-4 fadein animation-duration-500">
+                        <div class="box p-6 animate-fadein animate-duration-500">
                             <ul class="list-none p-0 m-0">
-                                <li class="flex align-items-center mb-3">
-                                    <span class="mr-3">
-                                        <Avatar label="AW" class="w-3rem h-3rem" />
+                                <li class="flex items-center mb-4">
+                                    <span class="mr-4">
+                                        <Avatar label="AW" class="w-12 h-12" />
                                     </span>
-                                    <div class="flex flex-column">
+                                    <div class="flex flex-col">
                                         <span class="font-bold mb-1">Amanda Williams</span>
                                         <span class="text-secondary text-sm">Administrator</span>
                                     </div>
                                 </li>
                                 <li class="flex">
-                                    <a class="flex align-items-center p-3 border-round w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
-                                        <i class="pi pi-home text-xl mr-3"></i>
-                                        <span class="flex flex-column">
+                                    <a class="flex items-center p-4 rounded w-full hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors duration-150 cursor-pointer" style="border-radius: '10px'">
+                                        <i class="pi pi-home text-xl mr-4"></i>
+                                        <span class="flex flex-col">
                                             <span class="font-bold mb-1">Dashboard</span>
                                             <span class="m-0 text-secondary text-sm">Control Panel</span>
                                         </span>
                                     </a>
                                 </li>
                                 <li class="flex">
-                                    <a class="flex align-items-center p-3 border-round w-full hover:surface-hover transition-colors transition-duration-150 cursor-pointer" style="border-radius: '10px'">
-                                        <i class="pi pi-envelope text-xl mr-3"></i>
-                                        <span class="flex flex-column">
+                                    <a class="flex items-center p-4 rounded w-full hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors duration-150 cursor-pointer" style="border-radius: '10px'">
+                                        <i class="pi pi-envelope text-xl mr-4"></i>
+                                        <span class="flex flex-col">
                                             <span class="font-bold mb-1">Inbox</span>
                                             <span class="m-0 text-secondary text-sm">View Messages</span>
                                         </span>
@@ -115,9 +115,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="box p-4 fadein animation-duration-500">
-                            <div class="flex justify-content-between align-items-center mb-5">
-                                <span class="inline-flex align-items-center">
+                        <div class="box p-6 animate-fadein animate-duration-500">
+                            <div class="flex justify-between items-center mb-8">
+                                <span class="inline-flex items-center">
                                     <Checkbox id="cbox" v-model="checked" :binary="true" />
                                     <label for="cbox" class="ml-2">Confirm</label>
                                 </span>

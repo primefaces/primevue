@@ -1,9 +1,9 @@
 <template>
-    <section class="landing-themes py-8">
+    <section class="landing-themes py-20">
         <div class="section-header">Components</div>
         <p class="section-detail">The most complete UI component library for Vue.js based on a design-agnostic infrastructure.</p>
-        <div class="themes-main flex mt-7 justify-content-center px-5 lg:px-8">
-            <div class="box overflow-hidden z-1 p-5 table-container">
+        <div class="themes-main flex mt-16 justify-center px-8 lg:px-20">
+            <div class="box overflow-hidden z-10 p-8 table-container">
                 <DataTable
                     v-model:selection="selectedCustomers"
                     v-model:filters="filters"
@@ -19,9 +19,9 @@
                     :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
                 >
                     <template #header>
-                        <div class="flex flex-column sm:flex-row sm:justify-content-between sm:align-items-center">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
                             <h5 class="m-0">Customers</h5>
-                            <IconField class="mt-3 sm:mt-0 w-full sm:w-auto">
+                            <IconField class="mt-4 sm:mt-0 w-full sm:w-auto">
                                 <InputIcon>
                                     <i class="pi pi-search" />
                                 </InputIcon>
@@ -45,7 +45,7 @@
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
                         <template #body="{ data }">
-                            <div class="flex align-items-center gap-2">
+                            <div class="flex items-center gap-2">
                                 <img :alt="data.representative.name" :src="'https://primefaces.org/cdn/primevue/images/avatar/' + data.representative.image" width="32" />
                                 <span>{{ data.representative.name }}</span>
                             </div>
