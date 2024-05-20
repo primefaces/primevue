@@ -271,7 +271,7 @@ module.exports = {
             fadeoutup: 'fadeoutup 0.15s linear',
             fadeindown: 'fadeindown 0.15s linear',
             fadeoutdown: 'fadeoutdown 0.15s linear',
-            width: 'width 1000ms linear',
+            width: 'width 0.45s linear',
             flip: 'flip 0.15s linear',
             flipup: 'flipup 0.15s linear',
             flipleft: 'flipleft 0.15s linear',
