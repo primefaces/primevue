@@ -43443,7 +43443,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "var(--<prefix>primary-color, Black)",
+                            "default": "$dt('knob.value.background')",
                             "description": "Background of the value."
                         },
                         {
@@ -43451,7 +43451,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "var(--<prefix>surface-border, LightGray)",
+                            "default": "$dt('knob.range.background')",
                             "description": "Background color of the range."
                         },
                         {
@@ -43459,7 +43459,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "var(--<prefix>text-color-secondary, Black)",
+                            "default": "$dt('knob.text.color')",
                             "description": "Color of the value text."
                         },
                         {

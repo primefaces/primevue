@@ -151,17 +151,17 @@ export interface KnobProps {
     max?: number | undefined;
     /**
      * Background of the value.
-     * @defaultValue var(--<prefix>primary-color, Black)
+     * @defaultValue $dt('knob.value.background')
      */
     valueColor?: string | undefined;
     /**
      * Background color of the range.
-     * @defaultValue var(--<prefix>surface-border, LightGray)
+     * @defaultValue $dt('knob.range.background')
      */
     rangeColor?: string | undefined;
     /**
      * Color of the value text.
-     * @defaultValue var(--<prefix>text-color-secondary, Black)
+     * @defaultValue $dt('knob.text.color')
      */
     textColor?: string | undefined;
     /**
