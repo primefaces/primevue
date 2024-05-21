@@ -25,7 +25,7 @@
                             <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -61,7 +61,7 @@
                             <div class="pt-6">
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -121,7 +121,7 @@ export default {
                     <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                         <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                             <div>
-                                <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                 <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
                             </div>
                             <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -157,7 +157,7 @@ export default {
                     <div class="pt-6">
                         <div class="flex flex-row justify-between items-start gap-2">
                             <div>
-                                <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                 <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
                             </div>
                             <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -206,7 +206,7 @@ export default {
                             <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -242,7 +242,7 @@ export default {
                             <div class="pt-6">
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -327,7 +327,7 @@ export default {
                             <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
@@ -363,7 +363,7 @@ export default {
                             <div class="pt-6">
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
-                                        <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
                                         <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">

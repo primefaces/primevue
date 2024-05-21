@@ -11,7 +11,7 @@
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
-                                        <span class="text-secondary text-sm">{{ val.label }}</span>
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
                                     <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: `${val.color1}`, color: '#ffffff' }">
@@ -64,7 +64,7 @@ export default {
                     <template #content>
                         <div class="flex justify-between gap-8">
                             <div class="flex flex-col gap-1">
-                                <span class="text-secondary text-sm">{{ val.label }}</span>
+                                <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
                                 <span class="font-bold text-lg">{{ val.value }}%</span>
                             </div>
                             <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
@@ -105,7 +105,7 @@ export default {
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
-                                        <span class="text-secondary text-sm">{{ val.label }}</span>
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
                                     <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
@@ -163,7 +163,7 @@ export default {
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
-                                        <span class="text-secondary text-sm">{{ val.label }}</span>
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
                                         <span class="font-bold text-lg">{{ val.value }}%</span>
                                     </div>
                                     <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">

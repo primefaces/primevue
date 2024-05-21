@@ -10,8 +10,8 @@
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">
-                            <i class="pi pi-tag text-sm text-secondary"></i>
-                            <span class="text-sm text-secondary">{{ item.category }}</span>
+                            <i class="pi pi-tag text-sm text-surface-500 dark:text-surface-400"></i>
+                            <span class="text-sm text-surface-500 dark:text-surface-400">{{ item.category }}</span>
                         </div>
                     </div>
                     <span class="font-bold">${{ item.price }}</span>
@@ -37,8 +37,8 @@ export default {
             <div class="flex-1 flex flex-col gap-1">
                 <span class="font-medium">{{ item.name }}</span>
                 <div class="flex items-center gap-1">
-                    <i class="pi pi-tag text-sm text-secondary"></i>
-                    <span class="text-sm text-secondary">{{ item.category }}</span>
+                    <i class="pi pi-tag text-sm text-surface-500 dark:text-surface-400"></i>
+                    <span class="text-sm text-surface-500 dark:text-surface-400">{{ item.category }}</span>
                 </div>
             </div>
             <span class="font-bold">\${{ item.price }}</span>
@@ -56,8 +56,8 @@ export default {
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">
-                            <i class="pi pi-tag text-sm text-secondary"></i>
-                            <span class="text-sm text-secondary">{{ item.category }}</span>
+                            <i class="pi pi-tag text-sm text-surface-500 dark:text-surface-400"></i>
+                            <span class="text-sm text-surface-500 dark:text-surface-400">{{ item.category }}</span>
                         </div>
                     </div>
                     <span class="font-bold">\${{ item.price }}</span>
@@ -91,8 +91,8 @@ export default {
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">
-                            <i class="pi pi-tag text-sm text-secondary"></i>
-                            <span class="text-sm text-secondary">{{ item.category }}</span>
+                            <i class="pi pi-tag text-sm text-surface-500 dark:text-surface-400"></i>
+                            <span class="text-sm text-surface-500 dark:text-surface-400">{{ item.category }}</span>
                         </div>
                     </div>
                     <span class="font-bold">\${{ item.price }}</span>

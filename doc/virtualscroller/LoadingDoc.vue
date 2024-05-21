@@ -10,7 +10,7 @@
             <span class="font-bold block mb-2">Modal</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
@@ -18,10 +18,10 @@
             <span class="font-bold block mb-2">Skeleton</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
                 <template v-slot:loader="{ options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
                         <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
                     </div>
                 </template>
@@ -40,16 +40,16 @@ export default {
                 basic: `
 <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
-        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
 </VirtualScroller>
 
 <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
     <template v-slot:item="{ item, options }">
-        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
     </template>
     <template v-slot:loader="{ options }">
-        <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
             <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
         </div>
     </template>
@@ -62,7 +62,7 @@ export default {
             <span class="font-bold block mb-2">Modal</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
@@ -70,10 +70,10 @@ export default {
             <span class="font-bold block mb-2">Skeleton</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
                 <template v-slot:loader="{ options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
                         <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
                     </div>
                 </template>
@@ -102,7 +102,7 @@ export default {
             <span class="font-bold block mb-2">Modal</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
             </VirtualScroller>
         </div>
@@ -110,10 +110,10 @@ export default {
             <span class="font-bold block mb-2">Skeleton</span>
             <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
                 <template v-slot:item="{ item, options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">{{ item }}</div>
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
                 </template>
                 <template v-slot:loader="{ options }">
-                    <div :class="['flex items-center p-2', { 'surface-hover': options.odd }]" style="height: 50px">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
                         <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
                     </div>
                 </template>

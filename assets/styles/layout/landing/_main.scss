@@ -38,46 +38,37 @@
         }
     }
 
-    @keyframes clippath {
-        0%,
-        100% {
-            clip-path: inset(0 0 98% 0);
-        }
-        
-        25% {
-            clip-path: inset(0 98% 0 0);
-        }
-        50% {
-            clip-path: inset(98% 0 0 0);
-        }
-        75% {
-            clip-path: inset(0 0 0 98%);
-        }
-    }
-
     .linkbox {
-        transition: background-color .2s, border-color .2s;
+        transition: background-color .2s, border-color .2s, outline-color .2s;
         display: inline-flex;
         align-items: center;
         color: var(--text-color);
         border: 1px solid var(--border-color);
         background-color: var(--card-background);
         border-radius: 10px;
-        cursor: pointer;
+        font-weight: 600;
+        padding: 1rem 1.5rem;
         
+        cursor: pointer;
         @include focus-visible();
 
         &:hover {
             background: var(--hover-background);
         }
 
-        &.active {
+        &.linkbox-primary {
             background: var(--primary-color);
             color: var(--primary-contrast-color);
 
             &:hover {
                 background: var(--primary-hover-color);
             }
+        }
+
+        &.linkbox-icon {
+            width: 3rem;
+            height: 3rem;
+            justify-content: center;
         }
     }
 
@@ -103,6 +94,7 @@
         height: 1px;
         border-bottom: 0 none;
         overflow: hidden;
+        margin-top: 5rem;
     }
 
     &.layout-news-active {
@@ -110,13 +102,6 @@
     }
 }
 
-.text-secondary {
-    color: var(--text-secondary-color);
-}
-
-.hover\:surface-hover:hover {
-    background-color: var(--hover-background);
-}
 
 .landing-footer-container {
     max-width: 1250px !important;
@@ -175,5 +160,22 @@
 
     100% {
         transform: translateX(calc(-100% - 3rem));
+    }
+}
+
+@keyframes clippath {
+    0%,
+    100% {
+        clip-path: inset(0 0 98% 0);
+    }
+    
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
     }
 }

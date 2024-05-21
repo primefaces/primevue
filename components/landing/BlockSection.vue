@@ -1,14 +1,14 @@
 <template>
     <section id="blocks-section" class="landing-blocks pt-20 overflow-hidden">
-        <div class="section-header">Blocks</div>
-        <p class="section-detail">400+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
-        <div class="flex justify-center mt-6">
-            <a href="https://blocks.primevue.org" class="font-semibold py-4 px-6 rounded flex items-center linkbox active z-20">
+        <div class="section-header relative z-30">Blocks</div>
+        <p class="section-detail relative z-30">400+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
+        <div class="flex justify-center mt-6 relative z-30">
+            <a href="https://blocks.primevue.org" class="linkbox linkbox-primary">
                 <span>Explore All</span>
                 <i class="pi pi-arrow-right ml-2"></i>
             </a>
         </div>
-        <section :class="['prime-blocks flex justify-center items-center flex-col z-1', { 'blocks-animation': setAnimation }]">
+        <section :class="['prime-blocks flex justify-center items-center flex-col', { 'blocks-animation': setAnimation }]">
             <div class="flex">
                 <div class="prime-block flex self-stretch p-1">
                     <div class="block-sidebar w-1/12 p-4">

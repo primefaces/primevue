@@ -25,14 +25,9 @@
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <div>
                     <div class="text-2xl text-surface-900 font-semibold mb-4">Enterprise Support</div>
-                    <p class="m-0 leading-normal mb-8 text-secondary text-lg text-surface-800">1 Year Subscription</p>
+                    <p class="m-0 leading-normal mb-8 text-surface-500 dark:text-surface-400 text-lg text-surface-800">1 Year Subscription</p>
                 </div>
-                <a
-                    href="mailto:contact@primetek.com.tr"
-                    class="flex items-center justify-center border bg-indigo-500 rounded block p-4 mb-6 hover:bg-indigo-600 transition-all duration-300 text-white font-medium text-lg"
-                >
-                    Get a Quote
-                </a>
+                <a href="mailto:contact@primetek.com.tr" class="flex items-center justify-center border bg-indigo-500 rounded block p-4 mb-6 hover:bg-indigo-600 transition-all duration-300 text-white font-medium text-lg"> Get a Quote </a>
             </div>
             <div class="flex flex-wrap -mt-4 gap-4 text-surface-800">
                 <ul class="flex-auto list-none p-0 m-0 text-lg p-4">
@@ -86,7 +81,7 @@
 
         <div class="card mb-8">
             <div class="text-2xl text-surface-900 font-semibold mb-4">Enhancement Credits</div>
-            <p class="m-0 leading-normal mb-8 text-secondary text-lg text-surface-800">
+            <p class="m-0 leading-normal mb-8 text-surface-500 dark:text-surface-400 text-lg text-surface-800">
                 New features and enhancement requests are not available in core services and provided via a credit based model instead named PrimeCredit. When you have an enhancement request, initially our team will review your requirement to verify
                 if it is suitable to be included in the open source core library. We cannot guarantee that all requests can be accepted depending on the project roadmap, workload at the time and type of the requirement. After successful verification,
                 we prepare an initial estimate in terms of credits and once this estimate is confirmed by you, implementation will be delivered by our team within an estimated timeframe.
@@ -95,15 +90,15 @@
             <div class="flex flex-col md:flex-row gap-8">
                 <div class="flex-1">
                     <div class="text-xl text-surface-900 font-semibold mb-2 text-xl">New Components</div>
-                    <p class="m-0 leading-normal mb-4 text-secondary text-lg text-surface-800">Brand new components you need that are not already available in the existing UI suite.</p>
+                    <p class="m-0 leading-normal mb-4 text-surface-500 dark:text-surface-400 text-lg text-surface-800">Brand new components you need that are not already available in the existing UI suite.</p>
                 </div>
                 <div class="flex-1">
                     <div class="text-xl text-surface-900 font-semibold mb-2 text-xl">New Features</div>
-                    <p class="m-0 leading-normal mb-4 text-secondary text-lg text-surface-800">Enhancements to the components you need such as new properties, events and templating.</p>
+                    <p class="m-0 leading-normal mb-4 text-surface-500 dark:text-surface-400 text-lg text-surface-800">Enhancements to the components you need such as new properties, events and templating.</p>
                 </div>
                 <div class="flex-1">
                     <div class="text-xl text-surface-900 font-semibold mb-2 text-xl">UX Customization</div>
-                    <p class="m-0 leading-normal mb-4 text-secondary text-lg text-surface-800">Behavioral changes to the existing components.</p>
+                    <p class="m-0 leading-normal mb-4 text-surface-500 dark:text-surface-400 text-lg text-surface-800">Behavioral changes to the existing components.</p>
                 </div>
             </div>
         </div>

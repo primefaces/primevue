@@ -13,7 +13,7 @@
                 <div class="flex gap-4 flex-auto flex-col sm:flex-row">
                     <div v-for="(shade, j) of shades" :key="shade" class="flex flex-col items-center gap-1 flex-1">
                         <div class="rounded h-8 w-full" :style="`background-color: var(--p-${color}-${shades[j]})`"></div>
-                        <span class="text-sm text-secondary font-medium">{{ shades[j] }}</span>
+                        <span class="text-sm text-surface-500 dark:text-surface-400 font-medium">{{ shades[j] }}</span>
                     </div>
                 </div>
             </li>

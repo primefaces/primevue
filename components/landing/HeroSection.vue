@@ -7,11 +7,11 @@
                     Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
                 <div class="flex items-center gap-4">
-                    <PrimeVueNuxtLink to="/setup" class="linkbox active font-semibold py-4 px-6">
+                    <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary">
                         <span>Get Started</span>
                         <i class="pi pi-arrow-right ml-4"></i>
                     </PrimeVueNuxtLink>
-                    <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox font-semibold py-4 px-6">
+                    <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox">
                         <span>Give a Star</span>
                         <i class="pi pi-star-fill ml-4 text-yellow-500"></i>
                     </a>
@@ -23,11 +23,11 @@
                         <div class="box p-6 animate-fadein animate-duration-500">
                             <div class="flex gap-2">
                                 <div class="w-24 flex-shrink-0">
-                                    <span class="text-secondary font-medium block mb-4">Amount</span>
+                                    <span class="text-surface-500 dark:text-surface-400 font-medium block mb-4">Amount</span>
                                     <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="w-full" />
                                 </div>
                                 <div class="flex-auto" style="width: 1%">
-                                    <span class="text-secondary font-semibold block mb-4">Beneficiary</span>
+                                    <span class="text-surface-500 dark:text-surface-400 font-semibold block mb-4">Beneficiary</span>
                                     <Select v-model="user" :options="users" optionLabel="name" placeholder="Select a User" class="w-full">
                                         <template #option="slotProps">
                                             <div class="flex items-center gap-2">
@@ -38,7 +38,7 @@
                                     </Select>
                                 </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-8 mb-4">Account</span>
+                            <span class="text-surface-500 dark:text-surface-400 font-medium block mt-8 mb-4">Account</span>
                             <div class="flex flex-wrap gap-4">
                                 <div class="flex items-center">
                                     <RadioButton v-model="radioValue" inputId="category1" value="S" name="radiovalue" @change="setCategory('S')" />
@@ -49,7 +49,7 @@
                                     <label for="category2" class="ml-2 font-medium">Checking</label>
                                 </div>
                             </div>
-                            <span class="text-secondary font-medium block mt-8 mb-4">Date</span>
+                            <span class="text-surface-500 dark:text-surface-400 font-medium block mt-8 mb-4">Date</span>
                             <DatePicker v-model="dateValue" :showWeek="true" class="w-full" showIcon iconDisplay="input" />
                         </div>
                         <div class="box p-6 animate-fadein animate-duration-500">
@@ -77,7 +77,7 @@
                             <div class="flex items-center mb-6">
                                 <div class="flex flex-col">
                                     <span class="block font-semibold mb-1">Sneaker</span>
-                                    <span class="text-secondary text-sm">Premium Quality</span>
+                                    <span class="text-surface-500 dark:text-surface-400 text-sm">Premium Quality</span>
                                 </div>
                                 <span class="font-medium text-xl ml-auto">$990</span>
                             </div>
@@ -91,7 +91,7 @@
                                     </span>
                                     <div class="flex flex-col">
                                         <span class="font-bold mb-1">Amanda Williams</span>
-                                        <span class="text-secondary text-sm">Administrator</span>
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">Administrator</span>
                                     </div>
                                 </li>
                                 <li class="flex">
@@ -99,7 +99,7 @@
                                         <i class="pi pi-home text-xl mr-4"></i>
                                         <span class="flex flex-col">
                                             <span class="font-bold mb-1">Dashboard</span>
-                                            <span class="m-0 text-secondary text-sm">Control Panel</span>
+                                            <span class="m-0 text-surface-500 dark:text-surface-400 text-sm">Control Panel</span>
                                         </span>
                                     </a>
                                 </li>
@@ -108,7 +108,7 @@
                                         <i class="pi pi-envelope text-xl mr-4"></i>
                                         <span class="flex flex-col">
                                             <span class="font-bold mb-1">Inbox</span>
-                                            <span class="m-0 text-secondary text-sm">View Messages</span>
+                                            <span class="m-0 text-surface-500 dark:text-surface-400 text-sm">View Messages</span>
                                         </span>
                                         <Badge value="3" class="ml-auto"></Badge>
                                     </a>
@@ -245,7 +245,7 @@ export default {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--text-surface-500 dark:text-surface-400-color');
             const surfaceBorder = documentStyle.getPropertyValue('--border-color');
 
             return {
