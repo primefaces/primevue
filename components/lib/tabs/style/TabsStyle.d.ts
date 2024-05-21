@@ -4,7 +4,7 @@
  *
  * [Live Demo](https://www.primevue.org/tabs/)
  *
- * @module tabs
+ * @module tabsstyle
  *
  */
 import { BaseStyle } from '../../base/style';

@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
-.p-inline-message {
+.p-inlinemessage {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,97 +10,97 @@ const theme = ({ dt }) => `
     gap: ${dt('inlinemessage.gap')};
 }
 
-.p-inline-message-text {
+.p-inlinemessage-text {
     font-weight: ${dt('inlinemessage.text.font.weight')};
 }
 
-.p-inline-message-icon {
+.p-inlinemessage-icon {
     flex-shrink: 0;
     font-size: ${dt('inlinemessage.icon.size')};
     width: ${dt('inlinemessage.icon.size')};
     height: ${dt('inlinemessage.icon.size')};
 }
 
-.p-inline-message-icon-only .p-inline-message-text {
+.p-inlinemessage-icon-only .p-inlinemessage-text {
     visibility: hidden;
     width: 0;
 }
 
-.p-fluid .p-inline-message {
+.p-fluid .p-inlinemessage {
     display: flex;
 }
 
-.p-inline-message-info {
+.p-inlinemessage-info {
     background: ${dt('inlinemessage.info.background')};
     border: 1px solid ${dt('inlinemessage.info.border.color')};
     color: ${dt('inlinemessage.info.color')};
     box-shadow: ${dt('inlinemessage.info.shadow')};
 }
 
-.p-inline-message-info .p-inline-message-icon {
+.p-inlinemessage-info .p-inlinemessage-icon {
     color: ${dt('inlinemessage.info.color')};
 }
 
-.p-inline-message-success {
+.p-inlinemessage-success {
     background: ${dt('inlinemessage.success.background')};
     border: 1px solid ${dt('inlinemessage.success.border.color')};
     color: ${dt('inlinemessage.success.color')};
     box-shadow: ${dt('inlinemessage.success.shadow')};
 }
 
-.p-inline-message-success .p-inline-message-icon {
+.p-inlinemessage-success .p-inlinemessage-icon {
     color: ${dt('inlinemessage.success.color')};
 }
 
-.p-inline-message-warn {
+.p-inlinemessage-warn {
     background: ${dt('inlinemessage.warn.background')};
     border: 1px solid ${dt('inlinemessage.warn.border.color')};
     color: ${dt('inlinemessage.warn.color')};
     box-shadow: ${dt('inlinemessage.warn.shadow')};
 }
 
-.p-inline-message-warn .p-inline-message-icon {
+.p-inlinemessage-warn .p-inlinemessage-icon {
     color: ${dt('inlinemessage.warn.color')};
 }
 
-.p-inline-message-error {
+.p-inlinemessage-error {
     background: ${dt('inlinemessage.error.background')};
     border: 1px solid ${dt('inlinemessage.error.border.color')};
     color: ${dt('inlinemessage.error.color')};
     box-shadow: ${dt('inlinemessage.error.shadow')};
 }
 
-.p-inline-message-error .p-inline-message-icon {
+.p-inlinemessage-error .p-inlinemessage-icon {
     color: ${dt('inlinemessage.error.color')};
 }
 
-.p-inline-message-secondary {
+.p-inlinemessage-secondary {
     background: ${dt('inlinemessage.secondary.background')};
     border: 1px solid ${dt('inlinemessage.secondary.border.color')};
     color: ${dt('inlinemessage.secondary.color')};
     box-shadow: ${dt('inlinemessage.secondary.shadow')};
 }
 
-.p-inline-message-secondary .p-inline-message-icon {
+.p-inlinemessage-secondary .p-inlinemessage-icon {
     color: ${dt('inlinemessage.secondary.color')};
 }
 
-.p-inline-message-contrast {
+.p-inlinemessage-contrast {
     background: ${dt('inlinemessage.contrast.background')};
     border: 1px solid ${dt('inlinemessage.contrast.border.color')};
     color: ${dt('inlinemessage.contrast.color')};
     box-shadow: ${dt('inlinemessage.contrast.shadow')};
 }
 
-.p-inline-message-contrast .p-inline-message-icon {
+.p-inlinemessage-contrast .p-inlinemessage-icon {
     color: ${dt('inlinemessage.contrast.color')};
 }
 `;
 
 const classes = {
-    root: ({ props, instance }) => ['p-inline-message p-component p-inline-message-' + props.severity, { 'p-inline-message-icon-only': !instance.$slots.default }],
-    icon: ({ props }) => ['p-inline-message-icon', props.icon],
-    text: 'p-inline-message-text'
+    root: ({ props, instance }) => ['p-inlinemessage p-component p-inlinemessage-' + props.severity, { 'p-inlinemessage-icon-only': !instance.$slots.default }],
+    icon: ({ props }) => ['p-inlinemessage-icon', props.icon],
+    text: 'p-inlinemessage-text'
 };
 
 export default BaseStyle.extend({
