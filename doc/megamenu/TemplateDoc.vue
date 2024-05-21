@@ -5,7 +5,7 @@
         </p>
     </DocSectionText>
     <div class="card">
-        <MegaMenu :model="items" class="p-4 bg-surface-0" style="border-radius: 3rem">
+        <MegaMenu :model="items" class="p-4 bg-surface-0 dark:bg-surface-950" style="border-radius: 3rem">
             <template #start>
                 <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
                     <path
@@ -14,7 +14,7 @@
                     />
                     <path
                         d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                        fill="var(--text-color)"
+                        fill="var(--p-text-color)"
                     />
                 </svg>
             </template>
@@ -23,12 +23,12 @@
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                 </a>
-                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-2">
+                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
                         <i :class="[item.icon, 'text-lg']"></i>
                     </span>
                     <span class="inline-flex flex-col gap-1">
-                        <span class="font-medium text-lg text-surface-900">{{ item.label }}</span>
+                        <span class="font-bold text-lg">{{ item.label }}</span>
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>
@@ -104,7 +104,7 @@ export default {
     <template #start>
         <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
             <path d="..." fill="var(--p-primary-color)" />
-            <path d="..." fill="var(--text-color)" />
+            <path d="..." fill="var(--p-text-color)" />
         </svg>
     </template>
     <template #item="{ item }">
@@ -112,12 +112,12 @@ export default {
             <span :class="item.icon" />
             <span class="ml-2">{{ item.label }}</span>
         </a>
-        <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-2">
+        <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
             <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
                 <i :class="[item.icon, 'text-lg']"></i>
             </span>
             <span class="inline-flex flex-col gap-1">
-                <span class="font-medium text-lg text-surface-900">{{ item.label }}</span>
+                <span class="font-bold text-lg">{{ item.label }}</span>
                 <span class="whitespace-nowrap">{{ item.subtext }}</span>
             </span>
         </a>
@@ -144,7 +144,7 @@ export default {
                     />
                     <path
                         d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                        fill="var(--text-color)"
+                        fill="var(--p-text-color)"
                     />
                 </svg>
             </template>
@@ -153,12 +153,12 @@ export default {
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                 </a>
-                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-2">
+                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
                         <i :class="[item.icon, 'text-lg']"></i>
                     </span>
                     <span class="inline-flex flex-col gap-1">
-                        <span class="font-medium text-lg text-surface-900">{{ item.label }}</span>
+                        <span class="font-bold text-lg">{{ item.label }}</span>
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>
@@ -244,7 +244,7 @@ export default {
                     />
                     <path
                         d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                        fill="var(--text-color)"
+                        fill="var(--p-text-color)"
                     />
                 </svg>
             </template>
@@ -253,12 +253,12 @@ export default {
                     <span :class="item.icon" />
                     <span class="ml-2">{{ item.label }}</span>
                 </a>
-                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-2">
+                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
                         <i :class="[item.icon, 'text-lg']"></i>
                     </span>
                     <span class="inline-flex flex-col gap-1">
-                        <span class="font-medium text-lg text-surface-900">{{ item.label }}</span>
+                        <span class="font-bold text-lg">{{ item.label }}</span>
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>

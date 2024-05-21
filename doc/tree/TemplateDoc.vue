@@ -8,7 +8,7 @@
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 dark:text-surface-0 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>
@@ -60,7 +60,7 @@ export default {
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 dark:text-surface-0 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>
@@ -105,7 +105,7 @@ export default {
                 <b>{{ slotProps.node.label }}</b>
             </template>
             <template #url="slotProps">
-                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 hover:text-primary">{{ slotProps.node.label }}</a>
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 dark:text-surface-0 hover:text-primary">{{ slotProps.node.label }}</a>
             </template>
         </Tree>
     </div>

@@ -26,7 +26,7 @@
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col md:items-end gap-8">
-                                    <span class="text-xl font-semibold text-surface-900">${{ item.price }}</span>
+                                    <span class="text-xl font-semibold">${{ item.price }}</span>
                                     <div class="flex flex-row-reverse md:flex-row gap-2">
                                         <Button icon="pi pi-heart" outlined></Button>
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
@@ -62,7 +62,7 @@
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-6 mt-6">
-                                    <span class="text-2xl font-semibold text-surface-900">${{ item.price }}</span>
+                                    <span class="text-2xl font-semibold">${{ item.price }}</span>
                                     <div class="flex gap-2">
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
                                         <Button icon="pi pi-heart" outlined></Button>
@@ -122,7 +122,7 @@ export default {
                         <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                             <div>
                                 <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
+                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                             </div>
                             <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                 <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -132,7 +132,7 @@ export default {
                             </div>
                         </div>
                         <div class="flex flex-col md:items-end gap-8">
-                            <span class="text-xl font-semibold text-surface-900">\${{ item.price }}</span>
+                            <span class="text-xl font-semibold">\${{ item.price }}</span>
                             <div class="flex flex-row-reverse md:flex-row gap-2">
                                 <Button icon="pi pi-heart" outlined></Button>
                                 <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
@@ -158,7 +158,7 @@ export default {
                         <div class="flex flex-row justify-between items-start gap-2">
                             <div>
                                 <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
+                                <div class="text-lg font-medium mt-1">{{ item.name }}</div>
                             </div>
                             <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                 <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -168,7 +168,7 @@ export default {
                             </div>
                         </div>
                         <div class="flex flex-col gap-6 mt-6">
-                            <span class="text-2xl font-semibold text-surface-900">\${{ item.price }}</span>
+                            <span class="text-2xl font-semibold">\${{ item.price }}</span>
                             <div class="flex gap-2">
                                 <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
                                 <Button icon="pi pi-heart" outlined></Button>
@@ -207,7 +207,7 @@ export default {
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -217,7 +217,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="flex flex-col md:items-end gap-8">
-                                    <span class="text-xl font-semibold text-surface-900">\${{ item.price }}</span>
+                                    <span class="text-xl font-semibold">\${{ item.price }}</span>
                                     <div class="flex flex-row-reverse md:flex-row gap-2">
                                         <Button icon="pi pi-heart" outlined></Button>
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
@@ -243,7 +243,7 @@ export default {
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -253,7 +253,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-6 mt-6">
-                                    <span class="text-2xl font-semibold text-surface-900">\${{ item.price }}</span>
+                                    <span class="text-2xl font-semibold">\${{ item.price }}</span>
                                     <div class="flex gap-2">
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
                                         <Button icon="pi pi-heart" outlined></Button>
@@ -328,7 +328,7 @@ export default {
                                 <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-2">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -338,7 +338,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="flex flex-col md:items-end gap-8">
-                                    <span class="text-xl font-semibold text-surface-900">\${{ item.price }}</span>
+                                    <span class="text-xl font-semibold">\${{ item.price }}</span>
                                     <div class="flex flex-row-reverse md:flex-row gap-2">
                                         <Button icon="pi pi-heart" outlined></Button>
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
@@ -364,7 +364,7 @@ export default {
                                 <div class="flex flex-row justify-between items-start gap-2">
                                     <div>
                                         <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
-                                        <div class="text-lg font-medium text-surface-900 mt-1">{{ item.name }}</div>
+                                        <div class="text-lg font-medium mt-1">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
                                         <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -374,7 +374,7 @@ export default {
                                     </div>
                                 </div>
                                 <div class="flex flex-col gap-6 mt-6">
-                                    <span class="text-2xl font-semibold text-surface-900">\${{ item.price }}</span>
+                                    <span class="text-2xl font-semibold">\${{ item.price }}</span>
                                     <div class="flex gap-2">
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
                                         <Button icon="pi pi-heart" outlined></Button>

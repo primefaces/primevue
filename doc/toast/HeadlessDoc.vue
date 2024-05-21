@@ -6,10 +6,10 @@
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
                 <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
-                    <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
+                    <i class="pi pi-cloud-upload text-green-400 text-2xl"></i>
                     <div class="flex flex-col gap-4 w-full">
                         <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
+                        <p class="m-0 text-base text-white">{{ message.detail }}</p>
                         <div class="flex flex-col gap-2">
                             <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
                             <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>

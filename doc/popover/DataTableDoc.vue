@@ -6,15 +6,15 @@
     <div class="card flex flex-col items-center gap-4">
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
             <div class="relative">
                 <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
             <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
+                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-surface-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">
@@ -46,15 +46,15 @@ export default {
 <Toast />
 <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-<div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
+<div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
     <div class="relative">
         <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-16 shadow-sm" class="w-full sm:w-80" />
     </div>
     <div class="flex items-center justify-between mt-4 mb-2">
-        <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-        <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
+        <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
+        <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
     </div>
-    <span class="text-surface-600">{{ selectedProduct.category }}</span>
+    <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
 </div>
 
 <Popover ref="op" appendTo="body">
@@ -79,15 +79,15 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
             <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
+                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-surface-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">
@@ -141,15 +141,15 @@ export default {
         <Toast />
         <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded">
+        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
             <div class="relative">
                 <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
             </div>
             <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="text-surface-900 font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-surface-900 text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
+                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
+                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
             </div>
-            <span class="text-surface-600">{{ selectedProduct.category }}</span>
+            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
         </div>
 
         <Popover ref="op" appendTo="body">

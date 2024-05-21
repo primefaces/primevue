@@ -7,7 +7,7 @@
             <DataTable :value="products" tableStyle="min-width: 50rem">
                 <template #header>
                     <div class="flex flex-wrap items-center justify-between gap-2">
-                        <span class="text-xl text-surface-900 font-bold">Products</span>
+                        <span class="text-xl font-bold">Products</span>
                         <Button icon="pi pi-refresh" rounded raised />
                     </div>
                 </template>
@@ -52,7 +52,7 @@ export default {
 <DataTable :value="products" tableStyle="min-width: 50rem">
     <template #header>
         <div class="flex flex-wrap items-center justify-between gap-2">
-            <span class="text-xl text-surface-900 font-bold">Products</span>
+            <span class="text-xl font-bold">Products</span>
             <Button icon="pi pi-refresh" rounded raised />
         </div>
     </template>
@@ -87,7 +87,7 @@ export default {
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>
                 <div class="flex flex-wrap items-center justify-between gap-2">
-                    <span class="text-xl text-surface-900 font-bold">Products</span>
+                    <span class="text-xl font-bold">Products</span>
                     <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>
@@ -159,7 +159,7 @@ export default {
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <template #header>
                 <div class="flex flex-wrap items-center justify-between gap-2">
-                    <span class="text-xl text-surface-900 font-bold">Products</span>
+                    <span class="text-xl font-bold">Products</span>
                     <Button icon="pi pi-refresh" rounded raised />
                 </div>
             </template>

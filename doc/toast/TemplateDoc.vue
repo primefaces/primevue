@@ -8,9 +8,9 @@
                 <div class="flex flex-col items-start" style="flex: 1">
                     <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-surface-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-700 dark:text-surface-0">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-700 dark:text-surface-0">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
@@ -32,9 +32,9 @@ export default {
         <div class="flex flex-col items-start" style="flex: 1">
             <div class="flex items-center gap-2">
                 <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
-                <span class="font-bold text-surface-900">Amy Elsner</span>
+                <span class="font-bold text-surface-700 dark:text-surface-0">Amy Elsner</span>
             </div>
-            <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
+            <div class="font-medium text-lg my-4 text-surface-700 dark:text-surface-0">{{ slotProps.message.summary }}</div>
             <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
         </div>
     </template>
@@ -49,9 +49,9 @@ export default {
                 <div class="flex flex-col items-start" style="flex: 1">
                     <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-surface-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-700 dark:text-surface-0">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-700 dark:text-surface-0">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>
@@ -93,9 +93,9 @@ export default {
                 <div class="flex flex-col items-start" style="flex: 1">
                     <div class="flex items-center gap-2">
                         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold text-surface-900">Amy Elsner</span>
+                        <span class="font-bold text-surface-700 dark:text-surface-0">Amy Elsner</span>
                     </div>
-                    <div class="font-medium text-lg my-4 text-surface-900">{{ slotProps.message.summary }}</div>
+                    <div class="font-medium text-lg my-4 text-surface-700 dark:text-surface-0">{{ slotProps.message.summary }}</div>
                     <Button class="p-button-sm" label="Reply" @click="onReply()"></Button>
                 </div>
             </template>

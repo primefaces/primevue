@@ -8,7 +8,7 @@
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Share this document</span>
+                    <span class="font-medium block mb-2">Share this document</span>
                     <InputGroup>
                         <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
                         <InputGroupAddon>
@@ -17,14 +17,14 @@
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Invite Member</span>
+                    <span class="font-medium block mb-2">Invite Member</span>
                     <InputGroup>
                         <InputText disabled></InputText>
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Team Members</span>
+                    <span class="font-medium block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-col gap-4">
                         <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
                             <img :src="`https://primefaces.org/cdn/primevue/images/avatar/${member.image}`" style="width: 32px" />
@@ -61,7 +61,7 @@ export default {
 <Popover ref="op">
     <div class="flex flex-col gap-4 w-[25rem]">
         <div>
-            <span class="font-medium text-surface-900 block mb-2">Share this document</span>
+            <span class="font-medium block mb-2">Share this document</span>
             <InputGroup>
                 <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
                 <InputGroupAddon>
@@ -70,14 +70,14 @@ export default {
             </InputGroup>
         </div>
         <div>
-            <span class="font-medium text-surface-900 block mb-2">Invite Member</span>
+            <span class="font-medium block mb-2">Invite Member</span>
             <InputGroup>
                 <InputText disabled />
                 <Button label="Invite" icon="pi pi-users"></Button>
             </InputGroup>
         </div>
         <div>
-            <span class="font-medium text-surface-900 block mb-2">Team Members</span>
+            <span class="font-medium block mb-2">Team Members</span>
             <ul class="list-none p-0 m-0 flex flex-col gap-4">
                 <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
                     <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
@@ -103,7 +103,7 @@ export default {
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Share this document</span>
+                    <span class="font-medium block mb-2">Share this document</span>
                     <InputGroup>
                         <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
                         <InputGroupAddon>
@@ -112,14 +112,14 @@ export default {
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Invite Member</span>
+                    <span class="font-medium block mb-2">Invite Member</span>
                     <InputGroup>
                         <InputText disabled />
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Team Members</span>
+                    <span class="font-medium block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-col gap-4">
                         <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
                             <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
@@ -166,7 +166,7 @@ export default {
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Share this document</span>
+                    <span class="font-medium block mb-2">Share this document</span>
                     <InputGroup>
                         <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
                         <InputGroupAddon>
@@ -175,14 +175,14 @@ export default {
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Invite Member</span>
+                    <span class="font-medium block mb-2">Invite Member</span>
                     <InputGroup>
                         <InputText disabled />
                         <Button label="Invite" icon="pi pi-users"></Button>
                     </InputGroup>
                 </div>
                 <div>
-                    <span class="font-medium text-surface-900 block mb-2">Team Members</span>
+                    <span class="font-medium block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-col gap-4">
                         <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
                             <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
