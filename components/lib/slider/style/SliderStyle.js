@@ -71,7 +71,7 @@ const theme = ({ dt }) => `
 
 .p-slider-vertical {
     min-height: 100px;
-    height: ${dt('slider.track.size')};
+    width: ${dt('slider.track.size')};
 }
 
 .p-slider-vertical .p-slider-handle {
