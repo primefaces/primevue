@@ -79,3 +79,10 @@ button {
     font-family: inherit;
     font-feature-settings: inherit;
 }
+
+*,
+::before,
+::after {
+    border-width: 0;
+    border-style: solid;
+}

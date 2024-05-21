@@ -78,16 +78,6 @@
                     <span>Front-End Developer</span>
                 </div>
                 <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/furkan.jpg" class="rounded-full mb-6" alt="Furkan Seziş" />
-                    <span class="mb-2 text-xl font-bold">Furkan Seziş</span>
-                    <span>Front-End Developer</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/burak.jpg" class="rounded-full mb-6" alt="Burak Sağlam" />
-                    <span class="mb-2 text-xl font-bold">Burak Sağlam</span>
-                    <span>Front-End Developer</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
                     <img src="https://primefaces.org/cdn/primevue/images/team/taner.jpg" class="rounded-full mb-6" alt="Taner Engin" />
                     <span class="mb-2 text-xl font-bold">Taner Engin</span>
                     <span>Front-End Developer</span>

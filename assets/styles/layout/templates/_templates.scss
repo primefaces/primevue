@@ -1642,36 +1642,3 @@
         }
     }
 }
-
-.templates-page {
-    &-button {
-        display: inline-flex;
-        cursor: pointer;
-        user-select: none;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        background-color: var(--primary-color);
-        color: var(--primary-contrast-color);
-        border: 1px solid var(--border-color);
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        font-family: inherit;
-        font-feature-settings: inherit;
-        transition: background-color var(--p-transition-duration), color var(--p-transition-duration), border-color var(--p-transition-duration), outline-color var(--p-transition-duration);
-        border-radius: var(--p-rounded-base);
-        outline-color: transparent;
-        flex: 1 1 0%;
-
-        &-outlined {
-            background: transparent;
-            color: var(--primary-color);
-            border-color: var(--p-primary-200);
-        }
-
-        &-label {
-            font-weight: 500;
-        }
-    }
-}

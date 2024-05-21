@@ -17,7 +17,7 @@
                     </div>
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
-                        <div class="text-surface-900 text-5xl font-bold mb-4">Best Features of Figma</div>
+                        <div class="text-5xl font-bold mb-4">Best Features of Figma</div>
                         <p class="mb-4 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles and interactive components. It'll always follow the best practices.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
@@ -51,7 +51,7 @@
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">ENTERPRISE GRADE</div>
-                        <div class="text-surface-900 text-5xl font-bold mb-4">Powerful System</div>
+                        <div class="text-5xl font-bold mb-4">Powerful System</div>
                         <p class="mb-4 text-lg">Save countless hours on every project with a carefully designed system that uses Prime UI Suite components. Start producing design results in no time.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
@@ -83,7 +83,7 @@
                     </div>
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
-                        <div class="text-surface-900 text-5xl font-bold mb-4">Two Themes</div>
+                        <div class="text-5xl font-bold mb-4">Two Themes</div>
                         <p class="mb-4 text-lg">PrimeOne is designed based on Lara Blue Light and Lara Blue Dark themes. Easily change the themes of your designs using Figma's Swap Library feature.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
@@ -101,7 +101,7 @@
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
-                        <div class="text-surface-900 text-5xl font-bold mb-4">Tokens Support</div>
+                        <div class="text-5xl font-bold mb-4">Tokens Support</div>
                         <p class="mb-4 text-lg">Empower yourself with unprecedented control over your designs. Tokens Studio integration unlocks a whole new level of flexibility, allowing you to create and manage design tokens seamlessly.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
@@ -145,7 +145,7 @@
             </div>
 
             <div class="card mb-8" style="border-radius: 50px">
-                <div class="text-surface-900 font-bold text-5xl mb-6 text-center">Pricing</div>
+                <div class="font-bold text-5xl mb-6 text-center">Pricing</div>
                 <div class="mb-2 text-center leading-normal text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
                 <a href="https://www.primefaces.org/uikit/licenses" class="mb-12 doc-link text-center block">View License Details</a>
 
@@ -153,12 +153,12 @@
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
-                                <div class="text-surface-900 font-medium text-xl mb-2">Single Designer</div>
-                                <div class="text-surface-600 font-medium">For individual designers</div>
+                                <div class="font-medium text-xl mb-2">Single Designer</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For individual designers</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
-                                    <span class="text-2xl font-bold text-surface-900 line-through text-surface-500 dark:text-surface-400">$99</span>
-                                    <span class="text-2xl font-bold text-surface-900">$49</span>
+                                    <span class="text-2xl font-bold line-through text-surface-500 dark:text-surface-400">$99</span>
+                                    <span class="text-2xl font-bold">$49</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -188,9 +188,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700 mt-auto" />
-                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple"
-                                    >Buy Now</a
-                                >
+                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -198,12 +196,12 @@
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
-                                <div class="text-surface-900 font-medium text-xl mb-2">Team</div>
-                                <div class="text-surface-600 font-medium">For small teams</div>
+                                <div class="font-medium text-xl mb-2">Team</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
-                                    <span class="text-2xl font-bold text-surface-900 line-through text-surface-500 dark:text-surface-400">$249</span>
-                                    <span class="text-2xl font-bold text-surface-900">$149</span>
+                                    <span class="text-2xl font-bold line-through text-surface-500 dark:text-surface-400">$249</span>
+                                    <span class="text-2xl font-bold">$149</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -233,9 +231,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple"
-                                    >Buy Now</a
-                                >
+                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -243,11 +239,11 @@
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
                             <div class="shadow p-8 flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
-                                <div class="text-surface-900 font-medium text-xl mb-2">Enterprise</div>
-                                <div class="text-surface-600 font-medium">For large teams</div>
+                                <div class="font-medium text-xl mb-2">Enterprise</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex gap-4 flex-wrap">
-                                    <span class="text-2xl font-bold text-surface-900">EXCLUSIVE DEALS</span>
+                                    <span class="text-2xl font-bold">EXCLUSIVE DEALS</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
@@ -285,46 +281,46 @@
             </div>
 
             <div class="card" style="border-radius: 50px">
-                <span class="block font-bold text-5xl mb-8 text-center text-surface-900">Frequently Asked Questions</span>
-                <div class="grid grid-cols-12 gap-4">
+                <span class="block font-bold text-5xl mb-8 text-center">Frequently Asked Questions</span>
+                <div class="grid grid-cols-12 gap-4 text-lg">
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">What do I get when I purchase a license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">You'll be able to download two Figma files for light and dark themes.</p>
+                        <div class="leading-normal mb-2 font-medium">What do I get when I purchase a license?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download two Figma files for light and dark themes.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Is there a recurring fee or is the license perpetual?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">UI Kit license is perpetual so requires one time payment, not subscription based.</p>
+                        <div class="leading-normal mb-2 font-medium">Is there a recurring fee or is the license perpetual?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment, not subscription based.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Can I use UI Kit license for commercial projects?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
+                        <div class="leading-normal mb-2 font-medium">Can I use UI Kit license for commercial projects?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Can I create multiple projects for multiple clients?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
+                        <div class="leading-normal mb-2 font-medium">Can I create multiple projects for multiple clients?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
                     </div>
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="text-xl text-surface-900 leading-normal mb-2 text-surface-900">We're a reseller, are we able to purchase a license on behalf of our client?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> so we can transfer the license to your client.</p>
+                        <div class="leading-normal mb-2">We're a reseller, are we able to purchase a license on behalf of our client?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> so we can transfer the license to your client.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Does the enterprise license include contractors within the organization?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">Yes, contractors are also able to use the UI Kit within your company.</p>
+                        <div class="leading-normal mb-2 font-medium">Does the enterprise license include contractors within the organization?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, contractors are also able to use the UI Kit within your company.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Can subsidiary company of a larger organization share the enterprise license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
+                        <div class="leading-normal mb-2 font-medium">Can subsidiary company of a larger organization share the enterprise license?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">What does "free updates" mean?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">All updates will be totally free of charge for existing customers for an unlimited period.</p>
+                        <div class="leading-normal mb-2 font-medium">What does "free updates" mean?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">All updates will be totally free of charge for existing customers for an unlimited period.</p>
                     </div>
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">How can I get support?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">
+                        <div class="leading-normal mb-2 font-medium">How can I get support?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">
                             Support is provided by PrimeTek via
                             <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="doc-link">a dedicated forum channel monitored</a> by PrimeTek support staff.
                         </p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">What does lifetime support mean?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">Support service at the forum does not have a time limit.</p>
+                        <div class="leading-normal mb-2 font-medium">What does lifetime support mean?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Support service at the forum does not have a time limit.</p>
 
-                        <div class="text-xl text-surface-900 leading-normal mb-2 font-medium text-surface-900">Can I include UI Kit in an open source project?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal text-lg text-surface-800">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
+                        <div class="leading-normal mb-2 font-medium">Can I include UI Kit in an open source project?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
                     </div>
                 </div>
             </div>
