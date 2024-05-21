@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const primeui = require('./tailwindcss-primeui');
+const primeui = require('tailwindcss-primeui');
 
 module.exports = {
     corePlugins: {
