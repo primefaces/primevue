@@ -5,9 +5,9 @@
     <div class="card">
         <DataView :value="products">
             <template #list="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12">
-                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                             <div class="md:w-40 relative">
                                 <img class="block xl:block mx-auto rounded w-full" :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
@@ -53,9 +53,9 @@ export default {
                 basic: `
 <DataView :value="products">
     <template #list="slotProps">
-        <div class="grid grid-cols-12 gap-4 grid-nogutter">
-            <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12">
-                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in slotProps.items" :key="index">
+                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                     <div class="md:w-40 relative">
                         <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                         <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
@@ -92,9 +92,9 @@ export default {
     <div class="card">
         <DataView :value="products">
             <template #list="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12">
-                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                             <div class="md:w-40 relative">
                                 <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>
@@ -165,9 +165,9 @@ export default {
     <div class="card">
         <DataView :value="products">
             <template #list="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12">
-                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-top-1 surface-border': index !== 0 }">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                             <div class="md:w-40 relative">
                                 <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
                                 <Tag :value="item.inventoryStatus" :severity="getSeverity(item)" class="absolute" style="left: 4px; top: 4px"></Tag>

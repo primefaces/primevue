@@ -15,8 +15,8 @@
             </template>
 
             <template #list>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="i in 6" :key="i" class="col-span-12">
+                <div class="flex flex-col">
+                    <div v-for="i in 6" :key="i">
                         <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
@@ -39,7 +39,7 @@
             </template>
 
             <template #grid>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 lg:col-span-12 xl:col-span-4 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
                             <div class="flex flex-wrap items-center justify-between gap-2">
@@ -87,8 +87,8 @@ export default {
     </template>
 
     <template #list>
-        <div class="grid grid-cols-12 gap-4 grid-nogutter">
-            <div v-for="i in 6" :key="i" class="col-span-12">
+        <div class="flex flex-col">
+            <div v-for="i in 6" :key="i">
                 <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
                     <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                     <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
@@ -111,7 +111,7 @@ export default {
     </template>
 
     <template #grid>
-        <div class="grid grid-cols-12 gap-4 grid-nogutter">
+        <div class="grid grid-cols-12 gap-4">
             <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 lg:col-span-12 xl:col-span-4 p-2">
                 <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
                     <div class="flex flex-wrap items-center justify-between gap-2">
@@ -148,8 +148,8 @@ export default {
             </template>
 
             <template #list>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="i in 6" :key="i" class="col-span-12">
+                <div class="flex flex-col">
+                    <div v-for="i in 6" :key="i">
                         <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
@@ -172,7 +172,7 @@ export default {
             </template>
 
             <template #grid>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 lg:col-span-12 xl:col-span-4 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
                             <div class="flex flex-wrap items-center justify-between gap-2">
@@ -245,8 +245,8 @@ export default {
             </template>
 
             <template #list>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
-                    <div v-for="i in 6" :key="i" class="col-span-12">
+                <div class="flex flex-col">
+                    <div v-for="i in 6" :key="i">
                         <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
@@ -269,7 +269,7 @@ export default {
             </template>
 
             <template #grid>
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 lg:col-span-12 xl:col-span-4 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
                             <div class="flex flex-wrap items-center justify-between gap-2">
