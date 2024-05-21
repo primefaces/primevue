@@ -245,8 +245,8 @@ export default {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColorSecondary = documentStyle.getPropertyValue('--text-surface-500 dark:text-surface-400-color');
-            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+            const surfaceBorder = documentStyle.getPropertyValue('p-content-border-color');
 
             return {
                 plugins: {

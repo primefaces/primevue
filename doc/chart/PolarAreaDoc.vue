@@ -63,8 +63,8 @@ export default {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
 
             return {
                 plugins: {
@@ -127,8 +127,8 @@ const setChartData = () => {
 };
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const surfaceBorder = documentStyle.getPropertyValue('--border-color');
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
 
     return {
         plugins: {
@@ -190,8 +190,8 @@ const setChartOptions = () => {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const surfaceBorder = documentStyle.getPropertyValue('--border-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
+            const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
 
             return {
                 plugins: {

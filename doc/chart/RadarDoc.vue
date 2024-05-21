@@ -43,7 +43,7 @@ export default {
     methods: {
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
 
             return {
                 labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
@@ -71,8 +71,8 @@ export default {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
             
             return {
                 plugins: {
@@ -115,7 +115,7 @@ const chartOptions = ref();
         
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
 
     return {
         labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
@@ -143,8 +143,8 @@ const setChartData = () => {
 };
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
-    const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
 
     return {
         plugins: {
@@ -186,7 +186,7 @@ const setChartOptions = () => {
     methods: {
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
 
             return {
                 labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
@@ -214,8 +214,8 @@ const setChartOptions = () => {
         },
         setChartOptions() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-secondary-color');
+            const textColor = documentStyle.getPropertyValue('--p-text-color');
+            const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
 
             return {
                 plugins: {
