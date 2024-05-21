@@ -61,7 +61,7 @@ export default {
             selectedPrimaryColor: 'noir',
             selectedSurfaceColor: null,
             primaryColors: [
-                { name: 'noir', palette: { 50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8', 400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46', 800: '#27272a', 900: '#18181b', 950: '#09090b' } },
+                { name: 'noir', palette: {} },
                 { name: 'emerald', palette: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22' } },
                 { name: 'green', palette: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' } },
                 { name: 'lime', palette: { 50: '#f7fee7', 100: '#ecfccb', 200: '#d9f99d', 300: '#bef264', 400: '#a3e635', 500: '#84cc16', 600: '#65a30d', 700: '#4d7c0f', 800: '#3f6212', 900: '#365314', 950: '#1a2e05' } },
@@ -124,34 +124,46 @@ export default {
 
                 return {
                     semantic: {
-                        primary: color.palette,
+                        primary: {
+                            50: '{surface.50}',
+                            100: '{surface.100}',
+                            200: '{surface.200}',
+                            300: '{surface.300}',
+                            400: '{surface.400}',
+                            500: '{surface.500}',
+                            600: '{surface.600}',
+                            700: '{surface.700}',
+                            800: '{surface.800}',
+                            900: '{surface.900}',
+                            950: '{surface.950}'
+                        },
                         colorScheme: {
                             light: {
                                 primary: {
-                                    color: '#09090b',
+                                    color: '{primary.950}',
                                     contrastColor: '#ffffff',
-                                    hoverColor: '#18181b',
-                                    activeColor: '#27272a'
+                                    hoverColor: '{primary.900}',
+                                    activeColor: '{primary.800}'
                                 },
                                 highlight: {
-                                    background: '#09090b',
-                                    focusBackground: '#3f3f46',
+                                    background: '{primary.950}',
+                                    focusBackground: '{primary.700}',
                                     color: '#ffffff',
                                     focusColor: '#ffffff'
                                 }
                             },
                             dark: {
                                 primary: {
-                                    color: '#fafafa',
-                                    contrastColor: '#09090b',
-                                    hoverColor: '#f4f4f5',
-                                    activeColor: '#e4e4e7'
+                                    color: '{primary.50}',
+                                    contrastColor: '{primary.950}',
+                                    hoverColor: '{primary.100}',
+                                    activeColor: '{primary.200}'
                                 },
                                 highlight: {
-                                    background: 'rgba(250, 250, 250, .16)',
-                                    focusBackground: 'rgba(250, 250, 250, .24)',
-                                    color: 'rgba(255,255,255,.87)',
-                                    focusColor: 'rgba(255,255,255,.87)'
+                                    background: '{primary.50}',
+                                    focusBackground: '{primary.300}',
+                                    color: '{primary.950}',
+                                    focusColor: '{primary.950}'
                                 }
                             }
                         }
