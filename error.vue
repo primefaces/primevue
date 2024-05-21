@@ -9,7 +9,7 @@
                     </div>
                     <span class="font-bold" style="font-size: 144px"> 4 </span>
                 </div>
-                <div class="font-bold text-surface-900 text-center text-6xl border-t border-surface-200 dark:border-surface-700 pt-8">PAGE NOT FOUND</div>
+                <div class="font-bold text-center text-6xl border-t border-surface-200 dark:border-surface-700 pt-8">PAGE NOT FOUND</div>
             </div>
         </NuxtLayout>
     </div>
