@@ -120,6 +120,8 @@ export default {
             const color = this.primaryColors.find((c) => c.name === this.selectedPrimaryColor);
 
             if (color.name === 'noir') {
+                document.documentElement.style.setProperty('--logo-color', 'var(--text-secondary-color)');
+
                 return {
                     semantic: {
                         primary: color.palette,
@@ -156,6 +158,8 @@ export default {
                     }
                 };
             } else {
+                document.documentElement.style.setProperty('--logo-color', 'var(--primary-color)');
+
                 if (this.$appState.preset === 'Nora') {
                     return {
                         semantic: {
