@@ -17,7 +17,7 @@
             <template #list>
                 <div class="flex flex-col">
                     <div v-for="i in 6" :key="i">
-                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
+                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
                                 <div class="flex flex-col items-center sm:items-start gap-4">
@@ -89,7 +89,7 @@ export default {
     <template #list>
         <div class="flex flex-col">
             <div v-for="i in 6" :key="i">
-                <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
+                <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
                     <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                     <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
                         <div class="flex flex-col items-center sm:items-start gap-4">
@@ -150,7 +150,7 @@ export default {
             <template #list>
                 <div class="flex flex-col">
                     <div v-for="i in 6" :key="i">
-                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
+                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
                                 <div class="flex flex-col items-center sm:items-start gap-4">
@@ -247,7 +247,7 @@ export default {
             <template #list>
                 <div class="flex flex-col">
                     <div v-for="i in 6" :key="i">
-                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-top-1 surface-border': i !== 0 }">
+                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
                             <Skeleton class="w-9/12 sm:w-64 xl:w-40 h-24 block xl:block mx-auto rounded" />
                             <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
                                 <div class="flex flex-col items-center sm:items-start gap-4">
