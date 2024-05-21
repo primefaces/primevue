@@ -206,18 +206,18 @@ export default {
             license: {
                 documentLink: 'https://ultima.primevue.org/documentation/',
                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
-                showDiscount: true,
+                showDiscount: false,
                 licenseDetails: [
                     {
                         title: 'Basic License',
                         price: '$59',
-                        discount: '$39',
+                        discount: '',
                         included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', 'Lifetime Support', 'Unlimited Updates']
                     },
                     {
                         title: 'Extended License',
                         price: '$590',
-                        discount: '$390',
+                        discount: '',
                         included: ['Commercial Usage', 'Multiple End Products', 'Lifetime Support', 'Unlimited Updates']
                     }
                 ]
