@@ -36,8 +36,6 @@
         "ui library",
         "component library",
         "material",
-        "bootstrap",
-        "fluent",
         "tailwind",
         "unstyled",
         "passthrough"
