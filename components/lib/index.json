@@ -1,0 +1,3478 @@
+{
+    "core": {
+        "utils": {
+            "global": true,
+            "import": {
+                "name": "Utils",
+                "as": "Utils",
+                "from": "primevue/utils",
+                "local": "./components/lib/utils/Utils.js"
+            }
+        },
+        "service": {
+            "global": true,
+            "import": {
+                "name": "PrimeVueService",
+                "as": "PrimeVueService",
+                "from": "primevue/service",
+                "local": "./components/lib/service/PrimeVueService.js"
+            }
+        },
+        "config": {
+            "global": true,
+            "import": {
+                "name": "PrimeVue",
+                "as": "PrimeVue",
+                "from": "primevue/config",
+                "local": "./components/lib/config/PrimeVue.js"
+            }
+        },
+        "api": {
+            "global": true,
+            "import": {
+                "name": "Api",
+                "as": "Api",
+                "from": "primevue/api",
+                "local": "./components/lib/api/Api.js"
+            }
+        },
+        "base": {
+            "global": true,
+            "import": {
+                "name": "Base",
+                "as": "Base",
+                "from": "primevue/base",
+                "local": "./components/lib/base/Base.js"
+            }
+        },
+        "basedirective": {
+            "global": true,
+            "import": {
+                "name": "BaseDirective",
+                "as": "BaseDirective",
+                "from": "primevue/utils",
+                "local": "./components/lib/basedirective/BaseDirective.js"
+            }
+        },
+        "basecomponent": {
+            "global": true,
+            "import": {
+                "name": "BaseComponent",
+                "as": "BaseComponent",
+                "from": "primevue/basecomponent",
+                "local": "./components/lib/basecomponent/BaseComponent.vue"
+            }
+        },
+        "passthrough": {
+            "global": true,
+            "import": {
+                "name": "PassThrough",
+                "as": "PassThrough",
+                "from": "primevue/passthrough",
+                "local": "./components/lib/passthrough/index.js"
+            }
+        },
+        "confirmationeventbus": {
+            "global": true,
+            "import": {
+                "name": "ConfirmationEventBus",
+                "as": "ConfirmationEventBus",
+                "from": "primevue/confirmationeventbus",
+                "local": "./components/lib/confirmationeventbus/ConfirmationEventBus.js"
+            }
+        },
+        "toasteventbus": {
+            "global": true,
+            "import": {
+                "name": "ToastEventBus",
+                "as": "ToastEventBus",
+                "from": "primevue/toasteventbus",
+                "local": "./components/lib/toasteventbus/ToastEventBus.js"
+            }
+        },
+        "overlayeventbus": {
+            "global": true,
+            "import": {
+                "name": "OverlayEventBus",
+                "as": "OverlayEventBus",
+                "from": "primevue/overlayeventbus",
+                "local": "./components/lib/overlayeventbus/OverlayEventBus.js"
+            }
+        },
+        "dynamicdialogeventbus": {
+            "global": true,
+            "import": {
+                "name": "DynamicDialogEventBus",
+                "as": "DynamicDialogEventBus",
+                "from": "primevue/dynamicdialogeventbus",
+                "local": "./components/lib/dynamicdialogeventbus/DynamicDialogEventBus.js"
+            }
+        },
+        "terminalservice": {
+            "global": true,
+            "import": {
+                "name": "TerminalService",
+                "as": "TerminalService",
+                "from": "primevue/terminalservice",
+                "local": "./components/lib/terminalservice/TerminalService.js"
+            }
+        }
+    },
+    "icons": {
+        "baseicon": {
+            "global": true,
+            "import": {
+                "name": "BaseIcon",
+                "as": "BaseIcon",
+                "from": "primevue/baseicon",
+                "local": "./components/lib/baseicon/BaseIcon.vue"
+            }
+        },
+        "angledoubledown": {
+            "global": true,
+            "import": {
+                "name": "AngleDoubleDownIcon",
+                "as": "AngleDoubleDownIcon",
+                "from": "primevue/icons/angledoubledown",
+                "local": "./components/lib/icons/angledoubledown/index.vue"
+            }
+        },
+        "angledoubleleft": {
+            "global": true,
+            "import": {
+                "name": "AngleDoubleLeftIcon",
+                "as": "AngleDoubleLeftIcon",
+                "from": "primevue/icons/angledoubleleft",
+                "local": "./components/lib/icons/angledoubleleft/index.vue"
+            }
+        },
+        "angledoubleright": {
+            "global": true,
+            "import": {
+                "name": "AngleDoubleRightIcon",
+                "as": "AngleDoubleRightIcon",
+                "from": "primevue/icons/angledoubleright",
+                "local": "./components/lib/icons/angledoubleright/index.vue"
+            }
+        },
+        "angledoubleup": {
+            "global": true,
+            "import": {
+                "name": "AngleDoubleUpIcon",
+                "as": "AngleDoubleUpIcon",
+                "from": "primevue/icons/angledoubleup",
+                "local": "./components/lib/icons/angledoubleup/index.vue"
+            }
+        },
+        "angledown": {
+            "global": true,
+            "import": {
+                "name": "AngleDownIcon",
+                "as": "AngleDownIcon",
+                "from": "primevue/icons/angledown",
+                "local": "./components/lib/icons/angledown/index.vue"
+            }
+        },
+        "angleleft": {
+            "global": true,
+            "import": {
+                "name": "AngleLeftIcon",
+                "as": "AngleLeftIcon",
+                "from": "primevue/icons/angleleft",
+                "local": "./components/lib/icons/angleleft/index.vue"
+            }
+        },
+        "angleright": {
+            "global": true,
+            "import": {
+                "name": "AngleRightIcon",
+                "as": "AngleRightIcon",
+                "from": "primevue/icons/angleright",
+                "local": "./components/lib/icons/angleright/index.vue"
+            }
+        },
+        "angleup": {
+            "global": true,
+            "import": {
+                "name": "AngleUpIcon",
+                "as": "AngleUpIcon",
+                "from": "primevue/icons/angleup",
+                "local": "./components/lib/icons/angleup/index.vue"
+            }
+        },
+        "ban": {
+            "global": true,
+            "import": {
+                "name": "BanIcon",
+                "as": "BanIcon",
+                "from": "primevue/icons/ban",
+                "local": "./components/lib/icons/ban/index.vue"
+            }
+        },
+        "bars": {
+            "global": true,
+            "import": {
+                "name": "BarsIcon",
+                "as": "BarsIcon",
+                "from": "primevue/icons/bars",
+                "local": "./components/lib/icons/bars/index.vue"
+            }
+        },
+        "blank": {
+            "global": true,
+            "import": {
+                "name": "BlankIcon",
+                "as": "BlankIcon",
+                "from": "primevue/icons/blank",
+                "local": "./components/lib/icons/blank/index.vue"
+            }
+        },
+        "calendar": {
+            "global": true,
+            "import": {
+                "name": "CalendarIcon",
+                "as": "CalendarIcon",
+                "from": "primevue/icons/calendar",
+                "local": "./components/lib/icons/calendar/index.vue"
+            }
+        },
+        "check": {
+            "global": true,
+            "import": {
+                "name": "CheckIcon",
+                "as": "CheckIcon",
+                "from": "primevue/icons/check",
+                "local": "./components/lib/icons/check/index.vue"
+            }
+        },
+        "chevrondown": {
+            "global": true,
+            "import": {
+                "name": "ChevronDownIcon",
+                "as": "ChevronDownIcon",
+                "from": "primevue/icons/chevrondown",
+                "local": "./components/lib/icons/chevrondown/index.vue"
+            }
+        },
+        "chevronleft": {
+            "global": true,
+            "import": {
+                "name": "ChevronLeftIcon",
+                "as": "ChevronLeftIcon",
+                "from": "primevue/icons/chevronleft",
+                "local": "./components/lib/icons/chevronleft/index.vue"
+            }
+        },
+        "chevronright": {
+            "global": true,
+            "import": {
+                "name": "ChevronRightIcon",
+                "as": "ChevronRightIcon",
+                "from": "primevue/icons/chevronright",
+                "local": "./components/lib/icons/chevronright/index.vue"
+            }
+        },
+        "chevronup": {
+            "global": true,
+            "import": {
+                "name": "ChevronUpIcon",
+                "as": "ChevronUpIcon",
+                "from": "primevue/icons/chevronup",
+                "local": "./components/lib/icons/chevronup/index.vue"
+            }
+        },
+        "exclamationtriangle": {
+            "global": true,
+            "import": {
+                "name": "ExclamationTriangleIcon",
+                "as": "ExclamationTriangleIcon",
+                "from": "primevue/icons/exclamationtriangle",
+                "local": "./components/lib/icons/exclamationtriangle/index.vue"
+            }
+        },
+        "eye": {
+            "global": true,
+            "import": {
+                "name": "EyeIcon",
+                "as": "EyeIcon",
+                "from": "primevue/icons/eye",
+                "local": "./components/lib/icons/eye/index.vue"
+            }
+        },
+        "eyeslash": {
+            "global": true,
+            "import": {
+                "name": "EyeSlashIcon",
+                "as": "EyeSlashIcon",
+                "from": "primevue/icons/eyeslash",
+                "local": "./components/lib/icons/eyeslash/index.vue"
+            }
+        },
+        "filter": {
+            "global": true,
+            "import": {
+                "name": "FilterIcon",
+                "as": "FilterIcon",
+                "from": "primevue/icons/filter",
+                "local": "./components/lib/icons/filter/index.vue"
+            }
+        },
+        "filterslash": {
+            "global": true,
+            "import": {
+                "name": "FilterSlashIcon",
+                "as": "FilterSlashIcon",
+                "from": "primevue/icons/filterslash",
+                "local": "./components/lib/icons/filterslash/index.vue"
+            }
+        },
+        "infocircle": {
+            "global": true,
+            "import": {
+                "name": "InfoCircleIcon",
+                "as": "InfoCircleIcon",
+                "from": "primevue/icons/infocircle",
+                "local": "./components/lib/icons/infocircle/index.vue"
+            }
+        },
+        "minus": {
+            "global": true,
+            "import": {
+                "name": "MinusIcon",
+                "as": "MinusIcon",
+                "from": "primevue/icons/minus",
+                "local": "./components/lib/icons/minus/index.vue"
+            }
+        },
+        "pencil": {
+            "global": true,
+            "import": {
+                "name": "PencilIcon",
+                "as": "PencilIcon",
+                "from": "primevue/icons/pencil",
+                "local": "./components/lib/icons/pencil/index.vue"
+            }
+        },
+        "plus": {
+            "global": true,
+            "import": {
+                "name": "PlusIcon",
+                "as": "PlusIcon",
+                "from": "primevue/icons/plus",
+                "local": "./components/lib/icons/plus/index.vue"
+            }
+        },
+        "refresh": {
+            "global": true,
+            "import": {
+                "name": "RefreshIcon",
+                "as": "RefreshIcon",
+                "from": "primevue/icons/refresh",
+                "local": "./components/lib/icons/refresh/index.vue"
+            }
+        },
+        "search": {
+            "global": true,
+            "import": {
+                "name": "SearchIcon",
+                "as": "SearchIcon",
+                "from": "primevue/icons/search",
+                "local": "./components/lib/icons/search/index.vue"
+            }
+        },
+        "searchminus": {
+            "global": true,
+            "import": {
+                "name": "SearchMinusIcon",
+                "as": "SearchMinusIcon",
+                "from": "primevue/icons/searchminus",
+                "local": "./components/lib/icons/searchminus/index.vue"
+            }
+        },
+        "searchplus": {
+            "global": true,
+            "import": {
+                "name": "SearchPlusIcon",
+                "as": "SearchPlusIcon",
+                "from": "primevue/icons/searchplus",
+                "local": "./components/lib/icons/searchplus/index.vue"
+            }
+        },
+        "sortalt": {
+            "global": true,
+            "import": {
+                "name": "SortAltIcon",
+                "as": "SortAltIcon",
+                "from": "primevue/icons/sortalt",
+                "local": "./components/lib/icons/sortalt/index.vue"
+            }
+        },
+        "sortamountdown": {
+            "global": true,
+            "import": {
+                "name": "SortAmountDownIcon",
+                "as": "SortAmountDownIcon",
+                "from": "primevue/icons/sortamountdown",
+                "local": "./components/lib/icons/sortamountdown/index.vue"
+            }
+        },
+        "sortamountupalt": {
+            "global": true,
+            "import": {
+                "name": "SortAmountUpAltIcon",
+                "as": "SortAmountUpAltIcon",
+                "from": "primevue/icons/sortamountupalt",
+                "local": "./components/lib/icons/sortamountupalt/index.vue"
+            }
+        },
+        "spinner": {
+            "global": true,
+            "import": {
+                "name": "SpinnerIcon",
+                "as": "SpinnerIcon",
+                "from": "primevue/icons/spinner",
+                "local": "./components/lib/icons/spinner/index.vue"
+            }
+        },
+        "star": {
+            "global": true,
+            "import": {
+                "name": "StarIcon",
+                "as": "StarIcon",
+                "from": "primevue/icons/star",
+                "local": "./components/lib/icons/star/index.vue"
+            }
+        },
+        "starfill": {
+            "global": true,
+            "import": {
+                "name": "StarFillIcon",
+                "as": "StarFillIcon",
+                "from": "primevue/icons/starfill",
+                "local": "./components/lib/icons/starfill/index.vue"
+            }
+        },
+        "thlarge": {
+            "global": true,
+            "import": {
+                "name": "ThLargeIcon",
+                "as": "ThLargeIcon",
+                "from": "primevue/icons/thlarge",
+                "local": "./components/lib/icons/thlarge/index.vue"
+            }
+        },
+        "times": {
+            "global": true,
+            "import": {
+                "name": "TimesIcon",
+                "as": "TimesIcon",
+                "from": "primevue/icons/times",
+                "local": "./components/lib/icons/times/index.vue"
+            }
+        },
+        "timescircle": {
+            "global": true,
+            "import": {
+                "name": "TimesCircleIcon",
+                "as": "TimesCircleIcon",
+                "from": "primevue/icons/timescircle",
+                "local": "./components/lib/icons/timescircle/index.vue"
+            }
+        },
+        "trash": {
+            "global": true,
+            "import": {
+                "name": "TrashIcon",
+                "as": "TrashIcon",
+                "from": "primevue/icons/trash",
+                "local": "./components/lib/icons/trash/index.vue"
+            }
+        },
+        "undo": {
+            "global": true,
+            "import": {
+                "name": "UndoIcon",
+                "as": "UndoIcon",
+                "from": "primevue/icons/undo",
+                "local": "./components/lib/icons/undo/index.vue"
+            }
+        },
+        "upload": {
+            "global": true,
+            "import": {
+                "name": "UploadIcon",
+                "as": "UploadIcon",
+                "from": "primevue/icons/upload",
+                "local": "./components/lib/icons/upload/index.vue"
+            }
+        },
+        "windowmaximize": {
+            "global": true,
+            "import": {
+                "name": "WindowMaximizeIcon",
+                "as": "WindowMaximizeIcon",
+                "from": "primevue/icons/windowmaximize",
+                "local": "./components/lib/icons/windowmaximize/index.vue"
+            }
+        },
+        "windowminimize": {
+            "global": true,
+            "import": {
+                "name": "WindowMinimizeIcon",
+                "as": "WindowMinimizeIcon",
+                "from": "primevue/icons/windowminimize",
+                "local": "./components/lib/icons/windowminimize/index.vue"
+            }
+        }
+    },
+    "composables": {
+        "useconfirm": {
+            "global": true,
+            "import": {
+                "name": "UseConfirm",
+                "as": "UseConfirm",
+                "from": "primevue/useconfirm",
+                "local": "./components/lib/useconfirm/UseConfirm.js"
+            }
+        },
+        "usetoast": {
+            "global": true,
+            "import": {
+                "name": "UseToast",
+                "as": "UseToast",
+                "from": "primevue/usetoast",
+                "local": "./components/lib/usetoast/UseToast.js"
+            }
+        },
+        "usedialog": {
+            "global": true,
+            "import": {
+                "name": "UseDialog",
+                "as": "UseDialog",
+                "from": "primevue/usedialog",
+                "local": "./components/lib/usedialog/UseDialog.js"
+            }
+        },
+        "usestyle": {
+            "global": true,
+            "import": {
+                "name": "UseStyle",
+                "as": "UseStyle",
+                "from": "primevue/usestyle",
+                "local": "./components/lib/usestyle/UseStyle.js"
+            }
+        }
+    },
+    "directives": {
+        "ripple": {
+            "global": true,
+            "import": {
+                "name": "Ripple",
+                "as": "Ripple",
+                "from": "primevue/ripple",
+                "local": "./components/lib/ripple/Ripple.js"
+            },
+            "description": "Ripple directive adds ripple effect to the host element.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "RippleStyle",
+                    "as": "RippleStyle",
+                    "from": "primevue/ripple/style",
+                    "local": "./components/lib/ripple/style/RippleStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "ripple",
+                    "as": "ripple",
+                    "from": "primevue/themes/[preset]/ripple",
+                    "local": "./components/lib/themes/[preset]/ripple/index.js"
+                }
+            }
+        },
+        "tooltip": {
+            "global": true,
+            "import": {
+                "name": "Tooltip",
+                "as": "Tooltip",
+                "from": "primevue/tooltip",
+                "local": "./components/lib/tooltip/Tooltip.js"
+            },
+            "description": "Tooltip directive provides advisory information for a component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TooltipStyle",
+                    "as": "TooltipStyle",
+                    "from": "primevue/tooltip/style",
+                    "local": "./components/lib/tooltip/style/TooltipStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tooltip",
+                    "as": "tooltip",
+                    "from": "primevue/themes/[preset]/tooltip",
+                    "local": "./components/lib/themes/[preset]/tooltip/index.js"
+                }
+            }
+        },
+        "focustrap": {
+            "global": true,
+            "import": {
+                "name": "FocusTrap",
+                "as": "FocusTrap",
+                "from": "primevue/focustrap",
+                "local": "./components/lib/focustrap/FocusTrap.js"
+            },
+            "description": "Focus Trap keeps focus within a certain DOM element while tabbing.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "FocusTrapStyle",
+                    "as": "FocusTrapStyle",
+                    "from": "primevue/focustrap/style",
+                    "local": "./components/lib/focustrap/style/FocusTrapStyle.js"
+                }
+            }
+        },
+        "badge": {
+            "import": {
+                "name": "BadgeDirective",
+                "as": "BadgeDirective",
+                "from": "primevue/badgedirective",
+                "local": "./components/lib/badgedirective/BadgeDirective.js"
+            },
+            "description": "Badge directive is a small status indicator for another element.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BadgeDirectiveStyle",
+                    "as": "BadgeDirectiveStyle",
+                    "from": "primevue/badgedirective/style",
+                    "local": "./components/lib/badgedirective/style/BadgeDirectiveStyle.js"
+                }
+            }
+        },
+        "animateonscroll": {
+            "import": {
+                "name": "AnimateOnScroll",
+                "as": "AnimateOnScroll",
+                "from": "primevue/animateonscroll",
+                "local": "./components/lib/animateonscroll/AnimateOnScroll.js"
+            },
+            "description": "AnimateOnScroll manages CSS classes declaratively to during enter/leave animations on scroll or on page load.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AnimateOnScrollStyle",
+                    "as": "AnimateOnScrollStyle",
+                    "from": "primevue/animateonscroll/style",
+                    "local": "./components/lib/animateonscroll/style/AnimateOnScrollStyle.js"
+                }
+            }
+        },
+        "styleclass": {
+            "import": {
+                "name": "StyleClass",
+                "as": "StyleClass",
+                "from": "primevue/styleclass",
+                "local": "./components/lib/styleclass/StyleClass.js"
+            },
+            "description": "StyleClass manages CSS classes declaratively to during enter/leave animations or just to toggle classes on an element.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "StyleClassStyle",
+                    "as": "StyleClassStyle",
+                    "from": "primevue/styleclass/style",
+                    "local": "./components/lib/styleclass/style/StyleClassStyle.js"
+                }
+            }
+        }
+    },
+    "components": {
+        "portal": {
+            "global": true,
+            "import": {
+                "name": "Portal",
+                "as": "Portal",
+                "from": "primevue/portal",
+                "local": "./components/lib/portal/Portal.vue"
+            },
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PortalStyle",
+                    "as": "PortalStyle",
+                    "from": "primevue/portal/style",
+                    "local": "./components/lib/portal/style/PortalStyle.js"
+                }
+            }
+        },
+        "virtualscroller": {
+            "global": true,
+            "import": {
+                "name": "VirtualScroller",
+                "as": "VirtualScroller",
+                "from": "primevue/virtualscroller",
+                "local": "./components/lib/virtualscroller/VirtualScroller.vue"
+            },
+            "description": "VirtualScroller is a performant approach to handle huge data efficiently.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "VirtualScrollerStyle",
+                    "as": "VirtualScrollerStyle",
+                    "from": "primevue/virtualscroller/style",
+                    "local": "./components/lib/virtualscroller/style/VirtualScrollerStyle.js"
+                }
+            }
+        },
+        "button": {
+            "global": true,
+            "import": {
+                "name": "Button",
+                "as": "Button",
+                "from": "primevue/button",
+                "local": "./components/lib/button/Button.vue"
+            },
+            "description": "Button is an extension to standard button element with icons and theming.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ButtonStyle",
+                    "as": "ButtonStyle",
+                    "from": "primevue/button/style",
+                    "local": "./components/lib/button/style/ButtonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "button",
+                    "as": "button",
+                    "from": "primevue/themes/[preset]/button",
+                    "local": "./components/lib/themes/[preset]/button/index.js"
+                }
+            }
+        },
+        "inputtext": {
+            "global": true,
+            "import": {
+                "name": "InputText",
+                "as": "InputText",
+                "from": "primevue/inputtext",
+                "local": "./components/lib/inputtext/InputText.vue"
+            },
+            "description": "InputText renders a text field to enter data.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputTextStyle",
+                    "as": "InputTextStyle",
+                    "from": "primevue/inputtext/style",
+                    "local": "./components/lib/inputtext/style/InputTextStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inputtext",
+                    "as": "inputtext",
+                    "from": "primevue/themes/[preset]/inputtext",
+                    "local": "./components/lib/themes/[preset]/inputtext/index.js"
+                }
+            }
+        },
+        "checkbox": {
+            "global": true,
+            "import": {
+                "name": "Checkbox",
+                "as": "Checkbox",
+                "from": "primevue/checkbox",
+                "local": "./components/lib/checkbox/Checkbox.vue"
+            },
+            "description": "Checkbox is an extension to standard checkbox element with theming.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "CheckboxStyle",
+                    "as": "CheckboxStyle",
+                    "from": "primevue/checkbox/style",
+                    "local": "./components/lib/checkbox/style/CheckboxStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "checkbox",
+                    "as": "checkbox",
+                    "from": "primevue/themes/[preset]/checkbox",
+                    "local": "./components/lib/themes/[preset]/checkbox/index.js"
+                }
+            }
+        },
+        "radiobutton": {
+            "global": true,
+            "import": {
+                "name": "RadioButton",
+                "as": "RadioButton",
+                "from": "primevue/radiobutton",
+                "local": "./components/lib/radiobutton/RadioButton.vue"
+            },
+            "description": "RadioButton is an extension to standard radio button element with theming.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "RadioButton",
+                    "as": "RadioButton",
+                    "from": "primevue/radiobutton/style",
+                    "local": "./components/lib/radiobutton/style/RadioButtonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "radiobutton",
+                    "as": "radiobutton",
+                    "from": "primevue/themes/[preset]/radiobutton",
+                    "local": "./components/lib/themes/[preset]/radiobutton/index.js"
+                }
+            }
+        },
+        "dialog": {
+            "global": true,
+            "import": {
+                "name": "Dialog",
+                "as": "Dialog",
+                "from": "primevue/dialog",
+                "local": "./components/lib/dialog/Dialog.vue"
+            },
+            "description": "Dialog is a container to display content in an overlay window.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DialogStyle",
+                    "as": "DialogStyle",
+                    "from": "primevue/dialog/style",
+                    "local": "./components/lib/dialog/style/DialogStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "dialog",
+                    "as": "dialog",
+                    "from": "primevue/themes/[preset]/dialog",
+                    "local": "./components/lib/themes/[preset]/dialog/index.js"
+                }
+            }
+        },
+        "menu": {
+            "global": true,
+            "import": {
+                "name": "Menu",
+                "as": "Menu",
+                "from": "primevue/menu",
+                "local": "./components/lib/menu/Menu.vue"
+            },
+            "description": "Menu is a navigation / command component that supports dynamic and static positioning.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MenuStyle",
+                    "as": "MenuStyle",
+                    "from": "primevue/menu/style",
+                    "local": "./components/lib/menu/style/MenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "menu",
+                    "as": "menu",
+                    "from": "primevue/themes/[preset]/menu",
+                    "local": "./components/lib/themes/[preset]/menu/index.js"
+                }
+            }
+        },
+        "tieredmenu": {
+            "global": true,
+            "import": {
+                "name": "TieredMenu",
+                "as": "TieredMenu",
+                "from": "primevue/tieredmenu",
+                "local": "./components/lib/tieredmenu/TieredMenu.vue"
+            },
+            "description": "TieredMenu displays submenus in nested overlays.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TieredMenuStyle",
+                    "as": "TieredMenuStyle",
+                    "from": "primevue/tieredmenu/style",
+                    "local": "./components/lib/tieredmenu/style/TieredMenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tieredmenu",
+                    "as": "tieredmenu",
+                    "from": "primevue/themes/[preset]/tieredmenu",
+                    "local": "./components/lib/themes/[preset]/tieredmenu/index.js"
+                }
+            }
+        },
+        "inputnumber": {
+            "global": true,
+            "import": {
+                "name": "InputNumber",
+                "as": "InputNumber",
+                "from": "primevue/inputnumber",
+                "local": "./components/lib/inputnumber/InputNumber.vue"
+            },
+            "description": "InputNumber is an input component to provide numerical input.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputNumberStyle",
+                    "as": "InputNumberStyle",
+                    "from": "primevue/inputnumber/style",
+                    "local": "./components/lib/inputnumber/style/InputNumberStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inputnumber",
+                    "as": "inputnumber",
+                    "from": "primevue/themes/[preset]/inputnumber",
+                    "local": "./components/lib/themes/[preset]/inputnumber/index.js"
+                }
+            }
+        },
+        "paginator": {
+            "global": true,
+            "import": {
+                "name": "Paginator",
+                "as": "Paginator",
+                "from": "primevue/paginator",
+                "local": "./components/lib/paginator/Paginator.vue"
+            },
+            "description": "Paginator is a generic component to display content in paged format.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PaginatorStyle",
+                    "as": "PaginatorStyle",
+                    "from": "primevue/paginator/style",
+                    "local": "./components/lib/paginator/style/PaginatorStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "paginator",
+                    "as": "paginator",
+                    "from": "primevue/themes/[preset]/paginator",
+                    "local": "./components/lib/themes/[preset]/paginator/index.js"
+                }
+            }
+        },
+        "progressbar": {
+            "global": true,
+            "import": {
+                "name": "ProgressBar",
+                "as": "ProgressBar",
+                "from": "primevue/progressbar",
+                "local": "./components/lib/progressbar/ProgressBar.vue"
+            },
+            "description": "ProgressBar is a process status indicator.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ProgressBarStyle",
+                    "as": "ProgressBarStyle",
+                    "from": "primevue/progressbar/style",
+                    "local": "./components/lib/progressbar/style/ProgressBarStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "progressbar",
+                    "as": "progressbar",
+                    "from": "primevue/themes/[preset]/progressbar",
+                    "local": "./components/lib/themes/[preset]/progressbar/index.js"
+                }
+            }
+        },
+        "message": {
+            "global": true,
+            "import": {
+                "name": "Message",
+                "as": "Message",
+                "from": "primevue/message",
+                "local": "./components/lib/message/Message.vue"
+            },
+            "description": "Message groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MessageStyle",
+                    "as": "MessageStyle",
+                    "from": "primevue/message/style",
+                    "local": "./components/lib/message/style/MessageStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "message",
+                    "as": "message",
+                    "from": "primevue/themes/[preset]/message",
+                    "local": "./components/lib/themes/[preset]/message/index.js"
+                }
+            }
+        },
+        "tree": {
+            "global": true,
+            "import": {
+                "name": "Tree",
+                "as": "Tree",
+                "from": "primevue/tree",
+                "local": "./components/lib/tree/Tree.vue"
+            },
+            "description": "Tree is used to display hierarchical data.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TreeStyle",
+                    "as": "TreeStyle",
+                    "from": "primevue/tree/style",
+                    "local": "./components/lib/tree/style/TreeStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tree",
+                    "as": "tree",
+                    "from": "primevue/themes/[preset]/tree",
+                    "local": "./components/lib/themes/[preset]/tree/index.js"
+                }
+            }
+        },
+        "badge": {
+            "global": true,
+            "import": {
+                "name": "Badge",
+                "as": "Badge",
+                "from": "primevue/badge",
+                "local": "./components/lib/badge/Badge.vue"
+            },
+            "description": "Badge represents people using icons, labels and images.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BadgeStyle",
+                    "as": "BadgeStyle",
+                    "from": "primevue/badge/style",
+                    "local": "./components/lib/badge/style/BadgeStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "badge",
+                    "as": "badge",
+                    "from": "primevue/themes/[preset]/badge",
+                    "local": "./components/lib/themes/[preset]/badge/index.js"
+                }
+            }
+        },
+        "togglebutton": {
+            "global": true,
+            "import": {
+                "name": "ToggleButton",
+                "as": "ToggleButton",
+                "from": "primevue/togglebutton",
+                "local": "./components/lib/togglebutton/ToggleButton.vue"
+            },
+            "description": "ToggleButton is used to select a boolean value using a button.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ToggleButtonStyle",
+                    "as": "ToggleButtonStyle",
+                    "from": "primevue/togglebutton/style",
+                    "local": "./components/lib/togglebutton/style/ToggleButtonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "togglebutton",
+                    "as": "togglebutton",
+                    "from": "primevue/themes/[preset]/togglebutton",
+                    "local": "./components/lib/themes/[preset]/togglebutton/index.js"
+                }
+            }
+        },
+        "iconfield": {
+            "global": true,
+            "import": {
+                "name": "IconField",
+                "as": "IconField",
+                "from": "primevue/iconfield",
+                "local": "./components/lib/iconfield/IconField.vue"
+            },
+            "description": "IconField wraps an input and an icon.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "IconFieldStyle",
+                    "as": "IconFieldStyle",
+                    "from": "primevue/iconfield/style",
+                    "local": "./components/lib/iconfield/style/IconFieldStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "iconfield",
+                    "as": "iconfield",
+                    "from": "primevue/themes/[preset]/iconfield",
+                    "local": "./components/lib/themes/[preset]/iconfield/index.js"
+                }
+            }
+        },
+        "inputicon": {
+            "global": true,
+            "import": {
+                "name": "InputIcon",
+                "as": "InputIcon",
+                "from": "primevue/inputicon",
+                "local": "./components/lib/inputicon/InputIcon.vue"
+            },
+            "description": "InputIcon displays an icon.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputIconStyle",
+                    "as": "InputIconStyle",
+                    "from": "primevue/inputicon/style",
+                    "local": "./components/lib/inputicon/style/InputIconStyle.js"
+                }
+            }
+        },
+        "listbox": {
+            "global": true,
+            "import": {
+                "name": "Listbox",
+                "as": "Listbox",
+                "from": "primevue/listbox",
+                "local": "./components/lib/listbox/Listbox.vue"
+            },
+            "description": "ListBox is used to select one or more values from a list of items.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ListboxStyle",
+                    "as": "ListboxStyle",
+                    "from": "primevue/listbox/style",
+                    "local": "./components/lib/listbox/style/ListboxStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "listbox",
+                    "as": "listbox",
+                    "from": "primevue/themes/[preset]/listbox",
+                    "local": "./components/lib/themes/[preset]/listbox/index.js"
+                }
+            }
+        },
+        "chip": {
+            "global": true,
+            "import": {
+                "name": "Chip",
+                "as": "Chip",
+                "from": "primevue/chip",
+                "local": "./components/lib/chip/Chip.vue"
+            },
+            "description": "Chip represents people using icons, labels and images.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ChipStyle",
+                    "as": "ChipStyle",
+                    "from": "primevue/chip/style",
+                    "local": "./components/lib/chip/style/ChipStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "chip",
+                    "as": "chip",
+                    "from": "primevue/themes/[preset]/chip",
+                    "local": "./components/lib/themes/[preset]/chip/index.js"
+                }
+            }
+        },
+        "popover": {
+            "global": true,
+            "import": {
+                "name": "Popover",
+                "as": "Popover",
+                "from": "primevue/popover",
+                "local": "./components/lib/popover/Popover.vue"
+            },
+            "description": "Popover is a container component positioned as connected to its target.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PopoverStyle",
+                    "as": "PopoverStyle",
+                    "from": "primevue/popover/style",
+                    "local": "./components/lib/popover/style/PopoverStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "popover",
+                    "as": "popover",
+                    "from": "primevue/themes/[preset]/popover",
+                    "local": "./components/lib/themes/[preset]/popover/index.js"
+                }
+            }
+        },
+        "toggleswitch": {
+            "global": true,
+            "import": {
+                "name": "ToggleSwitch",
+                "as": "ToggleSwitch",
+                "from": "primevue/toggleswitch",
+                "local": "./components/lib/toggleswitch/ToggleSwitch.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ToggleSwitchStyle",
+                    "as": "ToggleSwitchStyle",
+                    "from": "primevue/toggleswitch/style",
+                    "local": "./components/lib/toggleswitch/style/ToggleSwitchStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "toggleswitch",
+                    "as": "toggleswitch",
+                    "from": "primevue/themes/[preset]/toggleswitch",
+                    "local": "./components/lib/themes/[preset]/toggleswitch/index.js"
+                }
+            }
+        },
+        "drawer": {
+            "global": true,
+            "import": {
+                "name": "Drawer",
+                "as": "Drawer",
+                "from": "primevue/drawer",
+                "local": "./components/lib/drawer/Drawer.vue"
+            },
+            "description": "Drawer is a panel component displayed as an overlay at the edges of the screen.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DrawerStyle",
+                    "as": "DrawerStyle",
+                    "from": "primevue/drawer/style",
+                    "local": "./components/lib/drawer/style/DrawerStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "drawer",
+                    "as": "drawer",
+                    "from": "primevue/themes/[preset]/drawer",
+                    "local": "./components/lib/themes/[preset]/drawer/index.js"
+                }
+            }
+        },
+        "inputchips": {
+            "global": true,
+            "import": {
+                "name": "InputChips",
+                "as": "InputChips",
+                "from": "primevue/inputchips",
+                "local": "./components/lib/inputchips/InputChips.vue"
+            },
+            "description": "InputChips groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputChipsStyle",
+                    "as": "InputChipsStyle",
+                    "from": "primevue/inputchips/style",
+                    "local": "./components/lib/inputchips/style/InputChipsStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inputchips",
+                    "as": "inputchips",
+                    "from": "primevue/themes/[preset]/inputchips",
+                    "local": "./components/lib/themes/[preset]/inputchips/index.js"
+                }
+            }
+        },
+        "datepicker": {
+            "global": true,
+            "import": {
+                "name": "DatePicker",
+                "as": "DatePicker",
+                "from": "primevue/datepicker",
+                "local": "./components/lib/datepicker/DatePicker.vue"
+            },
+            "description": "DatePicker is a form component to work with dates.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DatePickerStyle",
+                    "as": "DatePickerStyle",
+                    "from": "primevue/datepicker/style",
+                    "local": "./components/lib/datepicker/style/DatePickerStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "datepicker",
+                    "as": "datepicker",
+                    "from": "primevue/themes/[preset]/datepicker",
+                    "local": "./components/lib/themes/[preset]/datepicker/index.js"
+                }
+            }
+        },
+        "select": {
+            "global": true,
+            "import": {
+                "name": "Select",
+                "as": "Select",
+                "from": "primevue/select",
+                "local": "./components/lib/select/Select.vue"
+            },
+            "description": "Select also known as Select, is used to choose an item from a collection of options.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SelectStyle",
+                    "as": "SelectStyle",
+                    "from": "primevue/select/style",
+                    "local": "./components/lib/select/style/SelectStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "select",
+                    "as": "select",
+                    "from": "primevue/themes/[preset]/select",
+                    "local": "./components/lib/themes/[preset]/select/index.js"
+                }
+            }
+        },
+        "accordioncontent": {
+            "global": true,
+            "import": {
+                "name": "AccordionContent",
+                "as": "AccordionContent",
+                "from": "primevue/accordioncontent",
+                "local": "./components/lib/accordioncontent/AccordionContent.vue"
+            },
+            "description": "AccordionContent is a helper component for Accordion component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AccordionContentStyle",
+                    "as": "AccordionContentStyle",
+                    "from": "primevue/accordioncontent/style",
+                    "local": "./components/lib/accordioncontent/style/AccordionContentStyle.js"
+                }
+            }
+        },
+        "accordionheader": {
+            "global": true,
+            "import": {
+                "name": "AccordionHeader",
+                "as": "AccordionHeader",
+                "from": "primevue/accordionheader",
+                "local": "./components/lib/accordionheader/AccordionHeader.vue"
+            },
+            "description": "AccordionHeader is a helper component for Accordion component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AccordionHeaderStyle",
+                    "as": "AccordionHeaderStyle",
+                    "from": "primevue/accordionheader/style",
+                    "local": "./components/lib/accordionheader/style/AccordionHeaderStyle.js"
+                }
+            }
+        },
+        "accordionpanel": {
+            "global": true,
+            "import": {
+                "name": "AccordionPanel",
+                "as": "AccordionPanel",
+                "from": "primevue/accordionpanel",
+                "local": "./components/lib/accordionpanel/AccordionPanel.vue"
+            },
+            "description": "AccordionPanel is a helper component for Accordion component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AccordionPanelStyle",
+                    "as": "AccordionPanelStyle",
+                    "from": "primevue/accordionpanel/style",
+                    "local": "./components/lib/accordionpanel/style/AccordionPanelStyle.js"
+                }
+            }
+        },
+        "accordion": {
+            "import": {
+                "name": "Accordion",
+                "as": "Accordion",
+                "from": "primevue/accordion",
+                "local": "./components/lib/accordion/Accordion.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AccordionStyle",
+                    "as": "AccordionStyle",
+                    "from": "primevue/accordion/style",
+                    "local": "./components/lib/accordion/style/AccordionStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "accordion",
+                    "as": "accordion",
+                    "from": "primevue/themes/[preset]/accordion",
+                    "local": "./components/lib/themes/[preset]/accordion/index.js"
+                }
+            }
+        },
+        "accordiontab": {
+            "import": {
+                "name": "AccordionTab",
+                "as": "AccordionTab",
+                "from": "primevue/accordiontab",
+                "local": "./components/lib/accordiontab/AccordionTab.vue"
+            },
+            "description": "AccordionTab is a helper component for Accordion.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AccordionTabStyle",
+                    "as": "AccordionTabStyle",
+                    "from": "primevue/accordiontab/style",
+                    "local": "./components/lib/accordiontab/style/AccordionTabStyle.js"
+                }
+            }
+        },
+        "autocomplete": {
+            "import": {
+                "name": "AutoComplete",
+                "as": "AutoComplete",
+                "from": "primevue/autocomplete",
+                "local": "./components/lib/autocomplete/AutoComplete.vue"
+            },
+            "description": "AutoComplete is an input component that provides real-time suggestions while being typed.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AutoCompleteStyle",
+                    "as": "AutoCompleteStyle",
+                    "from": "primevue/autocomplete/style",
+                    "local": "./components/lib/autocomplete/style/AutoCompleteStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "autocomplete",
+                    "as": "autocomplete",
+                    "from": "primevue/themes/[preset]/autocomplete",
+                    "local": "./components/lib/themes/[preset]/autocomplete/index.js"
+                }
+            }
+        },
+        "avatar": {
+            "import": {
+                "name": "Avatar",
+                "as": "Avatar",
+                "from": "primevue/avatar",
+                "local": "./components/lib/avatar/Avatar.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AvatarStyle",
+                    "as": "AvatarStyle",
+                    "from": "primevue/avatar/style",
+                    "local": "./components/lib/avatar/style/AvatarStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "avatar",
+                    "as": "avatar",
+                    "from": "primevue/themes/[preset]/avatar",
+                    "local": "./components/lib/themes/[preset]/avatar/index.js"
+                }
+            }
+        },
+        "avatargroup": {
+            "import": {
+                "name": "AvatarGroup",
+                "as": "AvatarGroup",
+                "from": "primevue/avatargroup",
+                "local": "./components/lib/avatargroup/AvatarGroup.vue"
+            },
+            "description": "A set of Avatars can be displayed together using the AvatarGroup component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "AvatarGroupStyle",
+                    "as": "AvatarGroupStyle",
+                    "from": "primevue/avatargroup/style",
+                    "local": "./components/lib/avatargroup/style/AvatarGroupStyle.js"
+                }
+            }
+        },
+        "blockui": {
+            "import": {
+                "name": "BlockUI",
+                "as": "BlockUI",
+                "from": "primevue/blockui",
+                "local": "./components/lib/blockui/BlockUI.vue"
+            },
+            "description": "BlockUI represents people using icons, labels and images.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BlockUIStyle",
+                    "as": "BlockUIStyle",
+                    "from": "primevue/blockui/style",
+                    "local": "./components/lib/blockui/style/BlockUIStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "blockui",
+                    "as": "blockui",
+                    "from": "primevue/themes/[preset]/blockui",
+                    "local": "./components/lib/themes/[preset]/blockui/index.js"
+                }
+            }
+        },
+        "breadcrumb": {
+            "import": {
+                "name": "Breadcrumb",
+                "as": "Breadcrumb",
+                "from": "primevue/breadcrumb",
+                "local": "./components/lib/breadcrumb/Breadcrumb.vue"
+            },
+            "description": "Breadcrumb provides contextual information about page hierarchy.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BreadcrumbStyle",
+                    "as": "BreadcrumbStyle",
+                    "from": "primevue/breadcrumb/style",
+                    "local": "./components/lib/breadcrumb/style/BreadcrumbStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "breadcrumb",
+                    "as": "breadcrumb",
+                    "from": "primevue/themes/[preset]/breadcrumb",
+                    "local": "./components/lib/themes/[preset]/breadcrumb/index.js"
+                }
+            }
+        },
+        "buttongroup": {
+            "import": {
+                "name": "ButtonGroup",
+                "as": "ButtonGroup",
+                "from": "primevue/buttongroup",
+                "local": "./components/lib/buttongroup/ButtonGroup.vue"
+            },
+            "description": "A set of Buttons can be displayed together using the ButtonGroup component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ButtonGroupStyle",
+                    "as": "ButtonGroupStyle",
+                    "from": "primevue/buttongroup/style",
+                    "local": "./components/lib/buttongroup/style/ButtonGroupStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "buttongroup",
+                    "as": "buttongroup",
+                    "from": "primevue/themes/[preset]/buttongroup",
+                    "local": "./components/lib/themes/[preset]/buttongroup/index.js"
+                }
+            }
+        },
+        "calendar": {
+            "import": {
+                "name": "Calendar",
+                "as": "Calendar",
+                "from": "primevue/calendar",
+                "local": "./components/lib/calendar/Calendar.vue"
+            },
+            "description": "Calendar also known as DatePicker, is a form component to work with dates.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "CalendarStyle",
+                    "as": "CalendarStyle",
+                    "from": "primevue/calendar/style",
+                    "local": "./components/lib/calendar/style/CalendarStyle.js"
+                }
+            }
+        },
+        "card": {
+            "import": {
+                "name": "Card",
+                "as": "Card",
+                "from": "primevue/card",
+                "local": "./components/lib/card/Card.vue"
+            },
+            "description": "Card is a flexible container component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "CardStyle",
+                    "as": "CardStyle",
+                    "from": "primevue/card/style",
+                    "local": "./components/lib/card/style/CardStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "card",
+                    "as": "card",
+                    "from": "primevue/themes/[preset]/card",
+                    "local": "./components/lib/themes/[preset]/card/index.js"
+                }
+            }
+        },
+        "carousel": {
+            "import": {
+                "name": "Carousel",
+                "as": "Carousel",
+                "from": "primevue/carousel",
+                "local": "./components/lib/carousel/Carousel.vue"
+            },
+            "description": "Carousel is a content slider featuring various customization options.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "CarouselStyle",
+                    "as": "CarouselStyle",
+                    "from": "primevue/carousel/style",
+                    "local": "./components/lib/carousel/style/CarouselStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "carousel",
+                    "as": "carousel",
+                    "from": "primevue/themes/[preset]/carousel",
+                    "local": "./components/lib/themes/[preset]/carousel/index.js"
+                }
+            }
+        },
+        "cascadeselect": {
+            "import": {
+                "name": "CascadeSelect",
+                "as": "CascadeSelect",
+                "from": "primevue/cascadeselect",
+                "local": "./components/lib/cascadeselect/CascadeSelect.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "CascadeSelectStyle",
+                    "as": "CascadeSelectStyle",
+                    "from": "primevue/cascadeselect/style",
+                    "local": "./components/lib/cascadeselect/style/CascadeSelectStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "cascadeselect",
+                    "as": "cascadeselect",
+                    "from": "primevue/themes/[preset]/cascadeselect",
+                    "local": "./components/lib/themes/[preset]/cascadeselect/index.js"
+                }
+            }
+        },
+        "chart": {
+            "import": {
+                "name": "Chart",
+                "as": "Chart",
+                "from": "primevue/chart",
+                "local": "./components/lib/chart/Chart.vue"
+            },
+            "description": "Chart groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ChartStyle",
+                    "as": "ChartStyle",
+                    "from": "primevue/chart/style",
+                    "local": "./components/lib/chart/style/ChartStyle.js"
+                }
+            }
+        },
+        "chips": {
+            "import": {
+                "name": "Chips",
+                "as": "Chips",
+                "from": "primevue/chips",
+                "local": "./components/lib/chips/Chips.vue"
+            },
+            "description": "Chips groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ChipsStyle",
+                    "as": "ChipsStyle",
+                    "from": "primevue/chips/style",
+                    "local": "./components/lib/chips/style/ChipsStyle.js"
+                }
+            }
+        },
+        "colorpicker": {
+            "import": {
+                "name": "ColorPicker",
+                "as": "ColorPicker",
+                "from": "primevue/colorpicker",
+                "local": "./components/lib/colorpicker/ColorPicker.vue"
+            },
+            "description": "ColorPicker groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ColorPickerStyle",
+                    "as": "ColorPickerStyle",
+                    "from": "primevue/colorpicker/style",
+                    "local": "./components/lib/colorpicker/style/ColorPickerStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "colorpicker",
+                    "as": "colorpicker",
+                    "from": "primevue/themes/[preset]/colorpicker",
+                    "local": "./components/lib/themes/[preset]/colorpicker/index.js"
+                }
+            }
+        },
+        "column": {
+            "import": {
+                "name": "Column",
+                "as": "Column",
+                "from": "primevue/column",
+                "local": "./components/lib/column/Column.vue"
+            },
+            "description": "Column component defines various options to specify corresponding features. It is a helper component for DataTable and TreeTable.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ColumnStyle",
+                    "as": "ColumnStyle",
+                    "from": "primevue/column/style",
+                    "local": "./components/lib/column/style/ColumnStyle.js"
+                }
+            }
+        },
+        "columngroup": {
+            "import": {
+                "name": "ColumnGroup",
+                "as": "ColumnGroup",
+                "from": "primevue/columngroup",
+                "local": "./components/lib/columngroup/ColumnGroup.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ColumnGroupStyle",
+                    "as": "ColumnGroupStyle",
+                    "from": "primevue/columngroup/style",
+                    "local": "./components/lib/columngroup/style/ColumnGroupStyle.js"
+                }
+            }
+        },
+        "confirmdialog": {
+            "import": {
+                "name": "ConfirmDialog",
+                "as": "ConfirmDialog",
+                "from": "primevue/confirmdialog",
+                "local": "./components/lib/confirmdialog/ConfirmDialog.vue"
+            },
+            "description": "ConfirmDialog uses a Dialog UI with confirmDialog method or <ConfirmDialog> tag.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ConfirmDialogStyle",
+                    "as": "ConfirmDialogStyle",
+                    "from": "primevue/confirmdialog/style",
+                    "local": "./components/lib/confirmdialog/style/ConfirmDialogStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "confirmdialog",
+                    "as": "confirmdialog",
+                    "from": "primevue/themes/[preset]/confirmdialog",
+                    "local": "./components/lib/themes/[preset]/confirmdialog/index.js"
+                }
+            }
+        },
+        "confirmpopup": {
+            "import": {
+                "name": "ConfirmPopup",
+                "as": "ConfirmPopup",
+                "from": "primevue/confirmpopup",
+                "local": "./components/lib/confirmpopup/ConfirmPopup.vue"
+            },
+            "description": "ConfirmPopup displays a confirmation overlay displayed relatively to its target.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ConfirmPopupStyle",
+                    "as": "ConfirmPopupStyle",
+                    "from": "primevue/confirmpopup/style",
+                    "local": "./components/lib/confirmpopup/style/ConfirmPopupStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "confirmpopup",
+                    "as": "confirmpopup",
+                    "from": "primevue/themes/[preset]/confirmpopup",
+                    "local": "./components/lib/themes/[preset]/confirmpopup/index.js"
+                }
+            }
+        },
+        "contextmenu": {
+            "import": {
+                "name": "ContextMenu",
+                "as": "ContextMenu",
+                "from": "primevue/contextmenu",
+                "local": "./components/lib/contextmenu/ContextMenu.vue"
+            },
+            "description": "ContextMenu displays an overlay menu on right click of its target. Note that components like DataTable has special integration with ContextMenu. Refer to documentation of the individual documentation of the with context menu support.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ContextMenuStyle",
+                    "as": "ContextMenuStyle",
+                    "from": "primevue/contextmenu/style",
+                    "local": "./components/lib/contextmenu/style/ContextMenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "contextmenu",
+                    "as": "contextmenu",
+                    "from": "primevue/themes/[preset]/contextmenu",
+                    "local": "./components/lib/themes/[preset]/contextmenu/index.js"
+                }
+            }
+        },
+        "datatable": {
+            "import": {
+                "name": "DataTable",
+                "as": "DataTable",
+                "from": "primevue/datatable",
+                "local": "./components/lib/datatable/DataTable.vue"
+            },
+            "description": "DataTable displays data in tabular format.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DataTableStyle",
+                    "as": "DataTableStyle",
+                    "from": "primevue/datatable/style",
+                    "local": "./components/lib/datatable/style/DataTableStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "datatable",
+                    "as": "datatable",
+                    "from": "primevue/themes/[preset]/datatable",
+                    "local": "./components/lib/themes/[preset]/datatable/index.js"
+                }
+            }
+        },
+        "dataview": {
+            "import": {
+                "name": "DataView",
+                "as": "DataView",
+                "from": "primevue/dataview",
+                "local": "./components/lib/dataview/DataView.vue"
+            },
+            "description": "DataView displays data in grid or list layout with pagination and sorting features.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DataViewStyle",
+                    "as": "DataViewStyle",
+                    "from": "primevue/dataview/style",
+                    "local": "./components/lib/dataview/style/DataViewStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "dataview",
+                    "as": "dataview",
+                    "from": "primevue/themes/[preset]/dataview",
+                    "local": "./components/lib/themes/[preset]/dataview/index.js"
+                }
+            }
+        },
+        "deferredcontent": {
+            "import": {
+                "name": "DeferredContent",
+                "as": "DeferredContent",
+                "from": "primevue/deferredcontent",
+                "local": "./components/lib/deferredcontent/DeferredContent.vue"
+            },
+            "description": "Accordion groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DeferredContentStyle",
+                    "as": "DeferredContentStyle",
+                    "from": "primevue/deferredcontent/style",
+                    "local": "./components/lib/deferredcontent/style/DeferredContentStyle.js"
+                }
+            }
+        },
+        "divider": {
+            "import": {
+                "name": "Divider",
+                "as": "Divider",
+                "from": "primevue/divider",
+                "local": "./components/lib/divider/Divider.vue"
+            },
+            "description": "Divider is used to separate contents.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DividerStyle",
+                    "as": "DividerStyle",
+                    "from": "primevue/divider/style",
+                    "local": "./components/lib/divider/style/DividerStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "divider",
+                    "as": "divider",
+                    "from": "primevue/themes/[preset]/divider",
+                    "local": "./components/lib/themes/[preset]/divider/index.js"
+                }
+            }
+        },
+        "dock": {
+            "import": {
+                "name": "Dock",
+                "as": "Dock",
+                "from": "primevue/dock",
+                "local": "./components/lib/dock/Dock.vue"
+            },
+            "description": "Dock is a navigation component consisting of menuitems.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DockStyle",
+                    "as": "DockStyle",
+                    "from": "primevue/dock/style",
+                    "local": "./components/lib/dock/style/DockStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "dock",
+                    "as": "dock",
+                    "from": "primevue/themes/[preset]/dock",
+                    "local": "./components/lib/themes/[preset]/dock/index.js"
+                }
+            }
+        },
+        "dropdown": {
+            "import": {
+                "name": "Dropdown",
+                "as": "Dropdown",
+                "from": "primevue/dropdown",
+                "local": "./components/lib/dropdown/Dropdown.vue"
+            },
+            "description": "Dropdown also known as Select, is used to choose an item from a collection of options.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DropdownStyle",
+                    "as": "DropdownStyle",
+                    "from": "primevue/dropdown/style",
+                    "local": "./components/lib/dropdown/style/DropdownStyle.js"
+                }
+            }
+        },
+        "dynamicdialog": {
+            "import": {
+                "name": "DynamicDialog",
+                "as": "DynamicDialog",
+                "from": "primevue/dynamicdialog",
+                "local": "./components/lib/dynamicdialog/DynamicDialog.vue"
+            },
+            "description": "DynamicDialogs can be created dynamically with any component as the content using a DialogService.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "DynamicDialogStyle",
+                    "as": "DynamicDialogStyle",
+                    "from": "primevue/dynamicdialog/style",
+                    "local": "./components/lib/dynamicdialog/style/DynamicDialogStyle.js"
+                }
+            }
+        },
+        "editor": {
+            "import": {
+                "name": "Editor",
+                "as": "Editor",
+                "from": "primevue/editor",
+                "local": "./components/lib/editor/Editor.vue"
+            },
+            "description": "Editor groups a collection of contents in tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "EditorStyle",
+                    "as": "EditorStyle",
+                    "from": "primevue/editor/style",
+                    "local": "./components/lib/editor/style/EditorStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "editor",
+                    "as": "editor",
+                    "from": "primevue/themes/[preset]/editor",
+                    "local": "./components/lib/themes/[preset]/editor/index.js"
+                }
+            }
+        },
+        "fieldset": {
+            "import": {
+                "name": "Fieldset",
+                "as": "Fieldset",
+                "from": "primevue/fieldset",
+                "local": "./components/lib/fieldset/Fieldset.vue"
+            },
+            "description": "Fieldset is a grouping component with the optional content toggle feature.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "FieldsetStyle",
+                    "as": "FieldsetStyle",
+                    "from": "primevue/fieldset/style",
+                    "local": "./components/lib/fieldset/style/FieldsetStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "fieldset",
+                    "as": "fieldset",
+                    "from": "primevue/themes/[preset]/fieldset",
+                    "local": "./components/lib/themes/[preset]/fieldset/index.js"
+                }
+            }
+        },
+        "fileupload": {
+            "import": {
+                "name": "FileUpload",
+                "as": "FileUpload",
+                "from": "primevue/fileupload",
+                "local": "./components/lib/fileupload/FileUpload.vue"
+            },
+            "description": "FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "FileUploadStyle",
+                    "as": "FileUploadStyle",
+                    "from": "primevue/fileupload/style",
+                    "local": "./components/lib/fileupload/style/FileUploadStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "fileupload",
+                    "as": "fileupload",
+                    "from": "primevue/themes/[preset]/fileupload",
+                    "local": "./components/lib/themes/[preset]/fileupload/index.js"
+                }
+            }
+        },
+        "floatlabel": {
+            "import": {
+                "name": "FloatLabel",
+                "as": "FloatLabel",
+                "from": "primevue/floatlabel",
+                "local": "./components/lib/floatlabel/FloatLabel.vue"
+            },
+            "description": "FloatLabel appears on top of the input field when focused.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "FloatLabelStyle",
+                    "as": "FloatLabelStyle",
+                    "from": "primevue/floatlabel/style",
+                    "local": "./components/lib/floatlabel/style/FloatLabelStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "floatlabel",
+                    "as": "floatlabel",
+                    "from": "primevue/themes/[preset]/floatlabel",
+                    "local": "./components/lib/themes/[preset]/floatlabel/index.js"
+                }
+            }
+        },
+        "galleria": {
+            "import": {
+                "name": "Galleria",
+                "as": "Galleria",
+                "from": "primevue/galleria",
+                "local": "./components/lib/galleria/Galleria.vue"
+            },
+            "description": "Galleria is an advanced content gallery component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "GalleriaStyle",
+                    "as": "GalleriaStyle",
+                    "from": "primevue/galleria/style",
+                    "local": "./components/lib/galleria/style/GalleriaStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "galleria",
+                    "as": "galleria",
+                    "from": "primevue/themes/[preset]/galleria",
+                    "local": "./components/lib/themes/[preset]/galleria/index.js"
+                }
+            }
+        },
+        "image": {
+            "import": {
+                "name": "Image",
+                "as": "Image",
+                "from": "primevue/image",
+                "local": "./components/lib/image/Image.vue"
+            },
+            "description": "Displays an image with preview and tranformation options. For multiple image, see Galleria.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ImageStyle",
+                    "as": "ImageStyle",
+                    "from": "primevue/image/style",
+                    "local": "./components/lib/image/style/ImageStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "image",
+                    "as": "image",
+                    "from": "primevue/themes/[preset]/image",
+                    "local": "./components/lib/themes/[preset]/image/index.js"
+                }
+            }
+        },
+        "inlinemessage": {
+            "import": {
+                "name": "InlineMessage",
+                "as": "InlineMessage",
+                "from": "primevue/inlinemessage",
+                "local": "./components/lib/inlinemessage/InlineMessage.vue"
+            },
+            "description": "InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, severity of the message.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InlineMessageStyle",
+                    "as": "InlineMessageStyle",
+                    "from": "primevue/inlinemessage/style",
+                    "local": "./components/lib/inlinemessage/style/InlineMessageStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inlinemessage",
+                    "as": "inlinemessage",
+                    "from": "primevue/themes/[preset]/inlinemessage",
+                    "local": "./components/lib/themes/[preset]/inlinemessage/index.js"
+                }
+            }
+        },
+        "inplace": {
+            "import": {
+                "name": "Inplace",
+                "as": "Inplace",
+                "from": "primevue/inplace",
+                "local": "./components/lib/inplace/Inplace.vue"
+            },
+            "description": "Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InplaceStyle",
+                    "as": "InplaceStyle",
+                    "from": "primevue/inplace/style",
+                    "local": "./components/lib/inplace/style/InplaceStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inplace",
+                    "as": "inplace",
+                    "from": "primevue/themes/[preset]/inplace",
+                    "local": "./components/lib/themes/[preset]/inplace/index.js"
+                }
+            }
+        },
+        "inputgroup": {
+            "import": {
+                "name": "InputGroup",
+                "as": "InputGroup",
+                "from": "primevue/inputgroup",
+                "local": "./components/lib/inputgroup/InputGroup.vue"
+            },
+            "description": "InputGroup displays text, icon, buttons and other content can be grouped next to an input.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputGroupStyle",
+                    "as": "InputGroupStyle",
+                    "from": "primevue/inputgroup/style",
+                    "local": "./components/lib/inputgroup/style/InputGroupStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inputgroup",
+                    "as": "inputgroup",
+                    "from": "primevue/themes/[preset]/inputgroup",
+                    "local": "./components/lib/themes/[preset]/inputgroup/index.js"
+                }
+            }
+        },
+        "inputgroupaddon": {
+            "import": {
+                "name": "InputGroupAddon",
+                "as": "InputGroupAddon",
+                "from": "primevue/inputgroupaddon",
+                "local": "./components/lib/inputgroupaddon/InputGroupAddon.vue"
+            },
+            "description": "InputGroupAddon displays text, icon, buttons and other content can be grouped next to an input.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputGroupAddonStyle",
+                    "as": "InputGroupAddonStyle",
+                    "from": "primevue/inputgroupaddon/style",
+                    "local": "./components/lib/inputgroupaddon/style/InputGroupAddonStyle.js"
+                }
+            }
+        },
+        "inputmask": {
+            "import": {
+                "name": "InputMask",
+                "as": "InputMask",
+                "from": "primevue/inputmask",
+                "local": "./components/lib/inputmask/InputMask.vue"
+            },
+            "description": "InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputMaskStyle",
+                    "as": "InputMaskStyle",
+                    "from": "primevue/inputmask/style",
+                    "local": "./components/lib/inputmask/style/InputMaskStyle.js"
+                }
+            }
+        },
+        "inputotp": {
+            "import": {
+                "name": "InputOtp",
+                "as": "InputOtp",
+                "from": "primevue/inputotp",
+                "local": "./components/lib/inputotp/InputOtp.vue"
+            },
+            "description": "InputOtp is used to enter one time passwords.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputOtpStyle",
+                    "as": "InputOtpStyle",
+                    "from": "primevue/inputotp/style",
+                    "local": "./components/lib/inputotp/style/InputOtpStyle.vue"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "inputotp",
+                    "as": "inputotp",
+                    "from": "primevue/themes/[preset]/inputotp",
+                    "local": "./components/lib/themes/[preset]/inputotp/index.js"
+                }
+            }
+        },
+        "inputswitch": {
+            "import": {
+                "name": "InputSwitch",
+                "as": "InputSwitch",
+                "from": "primevue/inputswitch",
+                "local": "./components/lib/inputswitch/InputSwitch.vue"
+            },
+            "description": "InputSwitch is used to select a boolean value.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "InputSwitchStyle",
+                    "as": "InputSwitchStyle",
+                    "from": "primevue/inputswitch/style",
+                    "local": "./components/lib/inputswitch/style/InputSwitchStyle.js"
+                }
+            }
+        },
+        "knob": {
+            "import": {
+                "name": "Knob",
+                "as": "Knob",
+                "from": "primevue/knob",
+                "local": "./components/lib/knob/Knob.vue"
+            },
+            "description": "Knob is a form component to define number inputs with a dial.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "KnobStyle",
+                    "as": "KnobStyle",
+                    "from": "primevue/knob/style",
+                    "local": "./components/lib/knob/style/KnobStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "knob",
+                    "as": "knob",
+                    "from": "primevue/themes/[preset]/knob",
+                    "local": "./components/lib/themes/[preset]/knob/index.js"
+                }
+            }
+        },
+        "megamenu": {
+            "import": {
+                "name": "MegaMenu",
+                "as": "MegaMenu",
+                "from": "primevue/megamenu",
+                "local": "./components/lib/megamenu/MegaMenu.vue"
+            },
+            "description": "MegaMenu is navigation component that displays submenus together.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MegaMenuStyle",
+                    "as": "MegaMenuStyle",
+                    "from": "primevue/megamenu/style",
+                    "local": "./components/lib/megamenu/style/MegaMenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "megamenu",
+                    "as": "megamenu",
+                    "from": "primevue/themes/[preset]/megamenu",
+                    "local": "./components/lib/themes/[preset]/megamenu/index.js"
+                }
+            }
+        },
+        "menubar": {
+            "import": {
+                "name": "Menubar",
+                "as": "Menubar",
+                "from": "primevue/menubar",
+                "local": "./components/lib/menubar/Menubar.vue"
+            },
+            "description": "Menubar is a horizontal menu component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MenubarStyle",
+                    "as": "MenubarStyle",
+                    "from": "primevue/menubar/style",
+                    "local": "./components/lib/menubar/style/MenubarStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "menubar",
+                    "as": "menubar",
+                    "from": "primevue/themes/[preset]/menubar",
+                    "local": "./components/lib/themes/[preset]/menubar/index.js"
+                }
+            }
+        },
+        "metergroup": {
+            "import": {
+                "name": "MeterGroup",
+                "as": "MeterGroup",
+                "from": "primevue/metergroup",
+                "local": "./components/lib/metergroup/MeterGroup.vue"
+            },
+            "description": "MeterGroup is a group of process status indicators.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MeterGroupStyle",
+                    "as": "MeterGroupStyle",
+                    "from": "primevue/metergroup/style",
+                    "local": "./components/lib/metergroup/style/MeterGroupStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "metergroup",
+                    "as": "metergroup",
+                    "from": "primevue/themes/[preset]/metergroup",
+                    "local": "./components/lib/themes/[preset]/metergroup/index.js"
+                }
+            }
+        },
+        "multiselect": {
+            "import": {
+                "name": "MultiSelect",
+                "as": "MultiSelect",
+                "from": "primevue/multiselect",
+                "local": "./components/lib/multiselect/MultiSelect.vue"
+            },
+            "description": "MultiSelect is used to select multiple items from a collection.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "MultiSelectStyle",
+                    "as": "MultiSelectStyle",
+                    "from": "primevue/multiselect/style",
+                    "local": "./components/lib/multiselect/style/MultiSelectStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "multiselect",
+                    "as": "multiselect",
+                    "from": "primevue/themes/[preset]/multiselect",
+                    "local": "./components/lib/themes/[preset]/multiselect/index.js"
+                }
+            }
+        },
+        "orderlist": {
+            "import": {
+                "name": "OrderList",
+                "as": "OrderList",
+                "from": "primevue/orderlist",
+                "local": "./components/lib/orderlist/OrderList.vue"
+            },
+            "description": "OrderList is used to managed the order of a collection.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "OrderListStyle",
+                    "as": "OrderListStyle",
+                    "from": "primevue/orderlist/style",
+                    "local": "./components/lib/orderlist/style/OrderListStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "orderlist",
+                    "as": "orderlist",
+                    "from": "primevue/themes/[preset]/orderlist",
+                    "local": "./components/lib/themes/[preset]/orderlist/index.js"
+                }
+            }
+        },
+        "organizationchart": {
+            "import": {
+                "name": "OrganizationChart",
+                "as": "OrganizationChart",
+                "from": "primevue/organizationchart",
+                "local": "./components/lib/organizationchart/OrganizationChart.vue"
+            },
+            "description": "OrganizationChart visualizes hierarchical organization data.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "OrganizationChartStyle",
+                    "as": "OrganizationChartStyle",
+                    "from": "primevue/organizationchart/style",
+                    "local": "./components/lib/organizationchart/style/OrganizationChartStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "organizationchart",
+                    "as": "organizationchart",
+                    "from": "primevue/themes/[preset]/organizationchart",
+                    "local": "./components/lib/themes/[preset]/organizationchart/index.js"
+                }
+            }
+        },
+        "overlaypanel": {
+            "import": {
+                "name": "OverlayPanel",
+                "as": "OverlayPanel",
+                "from": "primevue/overlaypanel",
+                "local": "./components/lib/overlaypanel/OverlayPanel.vue"
+            },
+            "description": "OverlayPanel is a container component positioned as connected to its target.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "OverlayPanelStyle",
+                    "as": "OverlayPanelStyle",
+                    "from": "primevue/overlaypanel/style",
+                    "local": "./components/lib/overlaypanel/style/OverlayPanelStyle.js"
+                }
+            }
+        },
+        "panel": {
+            "import": {
+                "name": "Panel",
+                "as": "Panel",
+                "from": "primevue/panel",
+                "local": "./components/lib/panel/Panel.vue"
+            },
+            "description": "Panel is a container with the optional content toggle feature.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PanelStyle",
+                    "as": "PanelStyle",
+                    "from": "primevue/panel/style",
+                    "local": "./components/lib/panel/style/PanelStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "panel",
+                    "as": "panel",
+                    "from": "primevue/themes/[preset]/panel",
+                    "local": "./components/lib/themes/[preset]/panel/index.js"
+                }
+            }
+        },
+        "panelmenu": {
+            "import": {
+                "name": "PanelMenu",
+                "as": "PanelMenu",
+                "from": "primevue/panelmenu",
+                "local": "./components/lib/panelmenu/PanelMenu.vue"
+            },
+            "description": "PanelMenu is a hybrid of Accordion and Tree components.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PanelMenuStyle",
+                    "as": "PanelMenuStyle",
+                    "from": "primevue/panelmenu/style",
+                    "local": "./components/lib/panelmenu/style/PanelMenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "panelmenu",
+                    "as": "panelmenu",
+                    "from": "primevue/themes/[preset]/panelmenu",
+                    "local": "./components/lib/themes/[preset]/panelmenu/index.js"
+                }
+            }
+        },
+        "password": {
+            "import": {
+                "name": "Password",
+                "as": "Password",
+                "from": "primevue/password",
+                "local": "./components/lib/password/Password.vue"
+            },
+            "description": "Password displays strength indicator for password fields.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PasswordStyle",
+                    "as": "PasswordStyle",
+                    "from": "primevue/password/style",
+                    "local": "./components/lib/password/style/PasswordStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "password",
+                    "as": "password",
+                    "from": "primevue/themes/[preset]/password",
+                    "local": "./components/lib/themes/[preset]/password/index.js"
+                }
+            }
+        },
+        "picklist": {
+            "import": {
+                "name": "PickList",
+                "as": "PickList",
+                "from": "primevue/picklist",
+                "local": "./components/lib/picklist/PickList.vue"
+            },
+            "description": "PickList is used to reorder items between different lists.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "PickListStyle",
+                    "as": "PickListStyle",
+                    "from": "primevue/picklist/style",
+                    "local": "./components/lib/picklist/style/PickListStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "picklist",
+                    "as": "picklist",
+                    "from": "primevue/themes/[preset]/picklist",
+                    "local": "./components/lib/themes/[preset]/picklist/index.js"
+                }
+            }
+        },
+        "progressspinner": {
+            "import": {
+                "name": "ProgressSpinner",
+                "as": "ProgressSpinner",
+                "from": "primevue/progressspinner",
+                "local": "./components/lib/progressspinner/ProgressSpinner.vue"
+            },
+            "description": "ProgressSpinner is a process status indicator.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ProgressSpinnerStyle",
+                    "as": "ProgressSpinnerStyle",
+                    "from": "primevue/progressspinner/style",
+                    "local": "./components/lib/progressspinner/style/ProgressSpinnerStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "progressspinner",
+                    "as": "progressspinner",
+                    "from": "primevue/themes/[preset]/progressspinner",
+                    "local": "./components/lib/themes/[preset]/progressspinner/index.js"
+                }
+            }
+        },
+        "rating": {
+            "import": {
+                "name": "Rating",
+                "as": "Rating",
+                "from": "primevue/rating",
+                "local": "./components/lib/rating/Rating.vue"
+            },
+            "description": "Rating component is a star based selection input.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "RatingStyle",
+                    "as": "RatingStyle",
+                    "from": "primevue/rating/style",
+                    "local": "./components/lib/rating/style/RatingStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "rating",
+                    "as": "rating",
+                    "from": "primevue/themes/[preset]/rating",
+                    "local": "./components/lib/themes/[preset]/rating/index.js"
+                }
+            }
+        },
+        "row": {
+            "import": {
+                "name": "Row",
+                "as": "Row",
+                "from": "primevue/row",
+                "local": "./components/lib/row/Row.vue"
+            },
+            "description": "Row component is a helper component used to create grouping structures in DataTable.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "RowStyle",
+                    "as": "RowStyle",
+                    "from": "primevue/row/style",
+                    "local": "./components/lib/row/style/RowStyle.js"
+                }
+            }
+        },
+        "scrollpanel": {
+            "import": {
+                "name": "ScrollPanel",
+                "as": "ScrollPanel",
+                "from": "primevue/scrollpanel",
+                "local": "./components/lib/scrollpanel/ScrollPanel.vue"
+            },
+            "description": "ScrollPanel is a cross browser, lightweight and themable alternative to native browser scrollbar.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ScrollPanelStyle",
+                    "as": "ScrollPanelStyle",
+                    "from": "primevue/scrollpanel/style",
+                    "local": "./components/lib/scrollpanel/style/ScrollPanelStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "scrollpanel",
+                    "as": "scrollpanel",
+                    "from": "primevue/themes/[preset]/scrollpanel",
+                    "local": "./components/lib/themes/[preset]/scrollpanel/index.js"
+                }
+            }
+        },
+        "scrolltop": {
+            "import": {
+                "name": "ScrollTop",
+                "as": "ScrollTop",
+                "from": "primevue/scrolltop",
+                "local": "./components/lib/scrolltop/ScrollTop.vue"
+            },
+            "description": "ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ScrollTopStyle",
+                    "as": "ScrollTopStyle",
+                    "from": "primevue/scrolltop/style",
+                    "local": "./components/lib/scrolltop/style/ScrollTopStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "scrolltop",
+                    "as": "scrolltop",
+                    "from": "primevue/themes/[preset]/scrolltop",
+                    "local": "./components/lib/themes/[preset]/scrolltop/index.js"
+                }
+            }
+        },
+        "selectbutton": {
+            "import": {
+                "name": "SelectButton",
+                "as": "SelectButton",
+                "from": "primevue/selectbutton",
+                "local": "./components/lib/selectbutton/SelectButton.vue"
+            },
+            "description": "SelectButton is used to choose single or multiple items from a list using buttons.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SelectButtonStyle",
+                    "as": "SelectButtonStyle",
+                    "from": "primevue/selectbutton/style",
+                    "local": "./components/lib/selectbutton/style/SelectButtonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "selectbutton",
+                    "as": "selectbutton",
+                    "from": "primevue/themes/[preset]/selectbutton",
+                    "local": "./components/lib/themes/[preset]/selectbutton/index.js"
+                }
+            }
+        },
+        "sidebar": {
+            "import": {
+                "name": "Sidebar",
+                "as": "Sidebar",
+                "from": "primevue/sidebar",
+                "local": "./components/lib/sidebar/Sidebar.vue"
+            },
+            "description": "Sidebar is a panel component displayed as an overlay at the edges of the screen.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SidebarStyle",
+                    "as": "SidebarStyle",
+                    "from": "primevue/sidebar/style",
+                    "local": "./components/lib/sidebar/style/SidebarStyle.js"
+                }
+            }
+        },
+        "skeleton": {
+            "import": {
+                "name": "Skeleton",
+                "as": "Skeleton",
+                "from": "primevue/skeleton",
+                "local": "./components/lib/skeleton/Skeleton.vue"
+            },
+            "description": "Skeleton is a placeholder to display instead of the actual content.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SkeletonStyle",
+                    "as": "SkeletonStyle",
+                    "from": "primevue/skeleton/style",
+                    "local": "./components/lib/skeleton/style/SkeletonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "skeleton",
+                    "as": "skeleton",
+                    "from": "primevue/themes/[preset]/skeleton",
+                    "local": "./components/lib/themes/[preset]/skeleton/index.js"
+                }
+            }
+        },
+        "slider": {
+            "import": {
+                "name": "Slider",
+                "as": "Slider",
+                "from": "primevue/slider",
+                "local": "./components/lib/slider/Slider.vue"
+            },
+            "description": "Slider is a component to provide input with a drag handle.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SliderStyle",
+                    "as": "SliderStyle",
+                    "from": "primevue/slider/style",
+                    "local": "./components/lib/slider/style/SliderStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "slider",
+                    "as": "slider",
+                    "from": "primevue/themes/[preset]/slider",
+                    "local": "./components/lib/themes/[preset]/slider/index.js"
+                }
+            }
+        },
+        "speeddial": {
+            "import": {
+                "name": "SpeedDial",
+                "as": "SpeedDial",
+                "from": "primevue/speeddial",
+                "local": "./components/lib/speeddial/SpeedDial.vue"
+            },
+            "description": "When pressed, a floating action button can display multiple primary actions that can be performed on a page.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SpeedDialStyle",
+                    "as": "SpeedDialStyle",
+                    "from": "primevue/speeddial/style",
+                    "local": "./components/lib/speeddial/style/SpeedDialStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "speeddial",
+                    "as": "speeddial",
+                    "from": "primevue/themes/[preset]/speeddial",
+                    "local": "./components/lib/themes/[preset]/speeddial/index.js"
+                }
+            }
+        },
+        "splitbutton": {
+            "import": {
+                "name": "SplitButton",
+                "as": "SplitButton",
+                "from": "primevue/splitbutton",
+                "local": "./components/lib/splitbutton/SplitButton.vue"
+            },
+            "description": "SplitButton groups a set of commands in an overlay with a default command.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SplitButtonStyle",
+                    "as": "SplitButtonStyle",
+                    "from": "primevue/splitbutton/style",
+                    "local": "./components/lib/splitbutton/style/SplitButtonStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "splitbutton",
+                    "as": "splitbutton",
+                    "from": "primevue/themes/[preset]/splitbutton",
+                    "local": "./components/lib/themes/[preset]/splitbutton/index.js"
+                }
+            }
+        },
+        "splitter": {
+            "import": {
+                "name": "Splitter",
+                "as": "Splitter",
+                "from": "primevue/splitter",
+                "local": "./components/lib/splitter/Splitter.vue"
+            },
+            "description": "Splitter is utilized to separate and resize panels.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SplitterStyle",
+                    "as": "SplitterStyle",
+                    "from": "primevue/splitter/style",
+                    "local": "./components/lib/splitter/style/SplitterStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "splitter",
+                    "as": "splitter",
+                    "from": "primevue/themes/[preset]/splitter",
+                    "local": "./components/lib/themes/[preset]/splitter/index.js"
+                }
+            }
+        },
+        "splitterpanel": {
+            "import": {
+                "name": "SplitterPanel",
+                "as": "SplitterPanel",
+                "from": "primevue/splitterpanel",
+                "local": "./components/lib/splitterpanel/SplitterPanel.vue"
+            },
+            "description": "SplitterPanel is a helper component for Splitter component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "SplitterPanelStyle",
+                    "as": "SplitterPanelStyle",
+                    "from": "primevue/splitterpanel/style",
+                    "local": "./components/lib/splitterpanel/style/SplitterPanelStyle.js"
+                }
+            }
+        },
+        "stepper": {
+            "import": {
+                "name": "Stepper",
+                "as": "Stepper",
+                "from": "primevue/stepper",
+                "local": "./components/lib/stepper/Stepper.vue"
+            },
+            "description": "Stepper is a component that streamlines a wizard-like workflow, organizing content into coherent steps and visually guiding users through a numbered progression in a multi-step process.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "StepperStyle",
+                    "as": "StepperStyle",
+                    "from": "primevue/stepper/style",
+                    "local": "./components/lib/stepper/style/StepperStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "stepper",
+                    "as": "stepper",
+                    "from": "primevue/themes/[preset]/stepper",
+                    "local": "./components/lib/themes/[preset]/stepper/index.js"
+                }
+            }
+        },
+        "stepperpanel": {
+            "import": {
+                "name": "StepperPanel",
+                "as": "StepperPanel",
+                "from": "primevue/stepperpanel",
+                "local": "./components/lib/stepperpanel/StepperPanel.vue"
+            },
+            "description": "StepperPanel is a helper component for Stepper component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "StepperPanelStyle",
+                    "as": "StepperPanelStyle",
+                    "from": "primevue/stepperpanel/style",
+                    "local": "./components/lib/stepperpanel/style/StepperPanelStyle.js"
+                }
+            }
+        },
+        "steps": {
+            "import": {
+                "name": "Steps",
+                "as": "Steps",
+                "from": "primevue/steps",
+                "local": "./components/lib/steps/Steps.vue"
+            },
+            "description": "Steps components is an indicator for the steps in a wizard workflow. Example below uses nested routes with Steps.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "StepsStyle",
+                    "as": "StepsStyle",
+                    "from": "primevue/steps/style",
+                    "local": "./components/lib/steps/style/StepsStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "steps",
+                    "as": "steps",
+                    "from": "primevue/themes/[preset]/steps",
+                    "local": "./components/lib/themes/[preset]/steps/index.js"
+                }
+            }
+        },
+        "tab": {
+            "import": {
+                "name": "Tab",
+                "as": "Tab",
+                "from": "primevue/tab",
+                "local": "./components/lib/tab/Tab.vue"
+            },
+            "description": "Tab is a helper component for Tabs component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabStyle",
+                    "as": "TabStyle",
+                    "from": "primevue/tab/style",
+                    "local": "./components/lib/tab/style/TabStyle.js"
+                }
+            }
+        },
+        "tablist": {
+            "import": {
+                "name": "TabList",
+                "as": "TabList",
+                "from": "primevue/tablist",
+                "local": "./components/lib/tablist/TabList.vue"
+            },
+            "description": "TabList is a helper component for Tabs component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabListStyle",
+                    "as": "TabListStyle",
+                    "from": "primevue/tablist/style",
+                    "local": "./components/lib/tablist/style/TabListStyle.js"
+                }
+            }
+        },
+        "tabmenu": {
+            "import": {
+                "name": "TabMenu",
+                "as": "TabMenu",
+                "from": "primevue/tabmenu",
+                "local": "./components/lib/tabmenu/TabMenu.vue"
+            },
+            "description": "TabMenu is a navigation component that displays items as tab headers. Example below uses nested routes with TabMenu.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabMenuStyle",
+                    "as": "TabMenuStyle",
+                    "from": "primevue/tabmenu/style",
+                    "local": "./components/lib/tabmenu/style/TabMenuStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tabmenu",
+                    "as": "tabmenu",
+                    "from": "primevue/themes/[preset]/tabmenu",
+                    "local": "./components/lib/themes/[preset]/tabmenu/index.js"
+                }
+            }
+        },
+        "tabpanel": {
+            "import": {
+                "name": "TabPanel",
+                "as": "TabPanel",
+                "from": "primevue/tabpanel",
+                "local": "./components/lib/tabpanel/TabPanel.vue"
+            },
+            "description": "TabPanel is a helper component for Tabs component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabPanelStyle",
+                    "as": "TabPanelStyle",
+                    "from": "primevue/tabpanel/style",
+                    "local": "./components/lib/tabpanel/style/TabPanelStyle.js"
+                }
+            }
+        },
+        "tabpanels": {
+            "import": {
+                "name": "TabPanels",
+                "as": "TabPanels",
+                "from": "primevue/tabpanels",
+                "local": "./components/lib/tabpanels/TabPanels.vue"
+            },
+            "description": "TabPanels is a helper component for Tabs component.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabPanelsStyle",
+                    "as": "TabPanelsStyle",
+                    "from": "primevue/tabpanels/style",
+                    "local": "./components/lib/tabpanels/style/TabPanelsStyle.js"
+                }
+            }
+        },
+        "tabs": {
+            "import": {
+                "name": "Tabs",
+                "as": "Tabs",
+                "from": "primevue/tabs",
+                "local": "./components/lib/tabs/Tabs.vue"
+            },
+            "description": "Tabs facilitates seamless switching between different views.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabsStyle",
+                    "as": "TabsStyle",
+                    "from": "primevue/tabs/style",
+                    "local": "./components/lib/tabs/style/TabsStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tabs",
+                    "as": "tabs",
+                    "from": "primevue/themes/[preset]/tabs",
+                    "local": "./components/lib/themes/[preset]/tabs/index.js"
+                }
+            }
+        },
+        "tabview": {
+            "import": {
+                "name": "TabView",
+                "as": "TabView",
+                "from": "primevue/tabview",
+                "local": "./components/lib/tabview/TabView.vue"
+            },
+            "description": "TabView is a container component to group content with tabs.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TabViewStyle",
+                    "as": "TabViewStyle",
+                    "from": "primevue/tabview/style",
+                    "local": "./components/lib/tabview/style/TabView.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tabview",
+                    "as": "tabview",
+                    "from": "primevue/themes/[preset]/tabview",
+                    "local": "./components/lib/themes/[preset]/tabview/index.js"
+                }
+            }
+        },
+        "tag": {
+            "import": {
+                "name": "Tag",
+                "as": "Tag",
+                "from": "primevue/tag",
+                "local": "./components/lib/tag/Tag.vue"
+            },
+            "description": "Tag component is used to categorize content.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TagStyle",
+                    "as": "TagStyle",
+                    "from": "primevue/tag/style",
+                    "local": "./components/lib/tag/style/TagStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "tag",
+                    "as": "tag",
+                    "from": "primevue/themes/[preset]/tag",
+                    "local": "./components/lib/themes/[preset]/tag/index.js"
+                }
+            }
+        },
+        "terminal": {
+            "import": {
+                "name": "Terminal",
+                "as": "Terminal",
+                "from": "primevue/terminal",
+                "local": "./components/lib/terminal/Terminal.vue"
+            },
+            "description": "Terminal is a text based user interface.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TerminalStyle",
+                    "as": "TerminalStyle",
+                    "from": "primevue/terminal/style",
+                    "local": "./components/lib/terminal/style/TerminalStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "terminal",
+                    "as": "terminal",
+                    "from": "primevue/themes/[preset]/terminal",
+                    "local": "./components/lib/themes/[preset]/terminal/index.js"
+                }
+            }
+        },
+        "textarea": {
+            "import": {
+                "name": "Textarea",
+                "as": "Textarea",
+                "from": "primevue/textarea",
+                "local": "./components/lib/textarea/Textarea.vue"
+            },
+            "description": "Textarea is a multi-line text input element.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TextareaStyle",
+                    "as": "TextareaStyle",
+                    "from": "primevue/textarea/style",
+                    "local": "./components/lib/textarea/style/TextareaStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "textarea",
+                    "as": "textarea",
+                    "from": "primevue/themes/[preset]/textarea",
+                    "local": "./components/lib/themes/[preset]/textarea/index.js"
+                }
+            }
+        },
+        "timeline": {
+            "import": {
+                "name": "Timeline",
+                "as": "Timeline",
+                "from": "primevue/timeline",
+                "local": "./components/lib/timeline/Timeline.vue"
+            },
+            "description": "Timeline visualizes a series of chained events.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TimelineStyle",
+                    "as": "TimelineStyle",
+                    "from": "primevue/timeline/style",
+                    "local": "./components/lib/timeline/style/TimelineStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "timeline",
+                    "as": "timeline",
+                    "from": "primevue/themes/[preset]/timeline",
+                    "local": "./components/lib/themes/[preset]/timeline/index.js"
+                }
+            }
+        },
+        "toast": {
+            "import": {
+                "name": "Toast",
+                "as": "Toast",
+                "from": "primevue/toast",
+                "local": "./components/lib/toast/Toast.vue"
+            },
+            "description": "Toast is used to display messages in an overlay.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ToastStyle",
+                    "as": "ToastStyle",
+                    "from": "primevue/toast/style",
+                    "local": "./components/lib/toast/style/ToastStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "toast",
+                    "as": "toast",
+                    "from": "primevue/themes/[preset]/toast",
+                    "local": "./components/lib/themes/[preset]/toast/index.js"
+                }
+            }
+        },
+        "toolbar": {
+            "import": {
+                "name": "Toolbar",
+                "as": "Toolbar",
+                "from": "primevue/toolbar",
+                "local": "./components/lib/toolbar/Toolbar.vue"
+            },
+            "description": "Toolbar is a grouping component for buttons and other content.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "ToolbarStyle",
+                    "as": "ToolbarStyle",
+                    "from": "primevue/toolbar/style",
+                    "local": "./components/lib/toolbar/style/ToolbarStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "toolbar",
+                    "as": "toolbar",
+                    "from": "primevue/themes/[preset]/toolbar",
+                    "local": "./components/lib/themes/[preset]/toolbar/index.js"
+                }
+            }
+        },
+        "treeselect": {
+            "import": {
+                "name": "TreeSelect",
+                "as": "TreeSelect",
+                "from": "primevue/treeselect",
+                "local": "./components/lib/treeselect/TreeSelect.vue"
+            },
+            "description": "TreeSelect is a form component to choose from hierarchical data.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TreeSelectStyle",
+                    "as": "TreeSelectStyle",
+                    "from": "primevue/treeselect/style",
+                    "local": "./components/lib/treeselect/style/TreeSelectStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "treeselect",
+                    "as": "treeselect",
+                    "from": "primevue/themes/[preset]/treeselect",
+                    "local": "./components/lib/themes/[preset]/treeselect/index.js"
+                }
+            }
+        },
+        "treetable": {
+            "import": {
+                "name": "TreeTable",
+                "as": "TreeTable",
+                "from": "primevue/treetable",
+                "local": "./components/lib/treetable/TreeTable.vue"
+            },
+            "description": "TreeTable is used to display hierarchical data in tabular format.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "TreeTableStyle",
+                    "as": "TreeTableStyle",
+                    "from": "primevue/treetable/style",
+                    "local": "./components/lib/treetable/style/TreeTableStyle.js"
+                }
+            },
+            "theme": {
+                "import": {
+                    "name": "treetable",
+                    "as": "treetable",
+                    "from": "primevue/themes/[preset]/treetable",
+                    "local": "./components/lib/themes/[preset]/treetable/index.js"
+                }
+            }
+        }
+    },
+    "themes": {
+        "import": {
+            "name": "Themes",
+            "as": "Themes",
+            "from": "primevue/themes"
+        },
+        "utils": {
+            "import": {
+                "name": "ThemeUtils",
+                "as": "ThemeUtils",
+                "from": "primevue/themes/utils"
+            }
+        },
+        "config": {
+            "import": {
+                "name": "Theme",
+                "as": "Theme",
+                "from": "primevue/themes/config"
+            }
+        },
+        "service": {
+            "import": {
+                "name": "ThemeService",
+                "as": "ThemeService",
+                "from": "primevue/themes/actions"
+            }
+        },
+        "helpers": {
+            "import": {
+                "name": "Helpers",
+                "as": "Helpers",
+                "from": "primevue/themes/helpers"
+            }
+        },
+        "actions": {
+            "import": {
+                "name": "Actions",
+                "as": "Actions",
+                "from": "primevue/themes/actions"
+            }
+        },
+        "presets": {
+            "aura": {
+                "import": {
+                    "name": "Aura",
+                    "as": "Aura",
+                    "from": "primevue/themes/aura"
+                }
+            },
+            "lara": {
+                "import": {
+                    "name": "Lara",
+                    "as": "Lara",
+                    "from": "primevue/themes/lara"
+                }
+            },
+            "nora": {
+                "import": {
+                    "name": "Nora",
+                    "as": "Nora",
+                    "from": "primevue/themes/nora"
+                }
+            }
+        }
+    }
+}
