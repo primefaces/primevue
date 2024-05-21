@@ -3414,41 +3414,47 @@
         "import": {
             "name": "Themes",
             "as": "Themes",
-            "from": "primevue/themes"
+            "from": "primevue/themes",
+            "local": "./components/lib/themes/index.js"
         },
         "utils": {
             "import": {
                 "name": "ThemeUtils",
                 "as": "ThemeUtils",
-                "from": "primevue/themes/utils"
+                "from": "primevue/themes/utils",
+                "local": "./components/lib/themes/utils/index.js"
             }
         },
         "config": {
             "import": {
                 "name": "Theme",
                 "as": "Theme",
-                "from": "primevue/themes/config"
+                "from": "primevue/themes/config",
+                "local": "./components/lib/themes/config/index.js"
             }
         },
         "service": {
             "import": {
                 "name": "ThemeService",
                 "as": "ThemeService",
-                "from": "primevue/themes/actions"
+                "from": "primevue/themes/service",
+                "local": "./components/lib/themes/service/index.js"
             }
         },
         "helpers": {
             "import": {
                 "name": "Helpers",
                 "as": "Helpers",
-                "from": "primevue/themes/helpers"
+                "from": "primevue/themes/helpers",
+                "local": "./components/lib/themes/helpers/index.js"
             }
         },
         "actions": {
             "import": {
                 "name": "Actions",
                 "as": "Actions",
-                "from": "primevue/themes/actions"
+                "from": "primevue/themes/actions",
+                "local": "./components/lib/themes/actions/index.js"
             }
         },
         "presets": {
@@ -3456,21 +3462,24 @@
                 "import": {
                     "name": "Aura",
                     "as": "Aura",
-                    "from": "primevue/themes/aura"
+                    "from": "primevue/themes/aura",
+                    "local": "./components/lib/themes/aura/index.js"
                 }
             },
             "lara": {
                 "import": {
                     "name": "Lara",
                     "as": "Lara",
-                    "from": "primevue/themes/lara"
+                    "from": "primevue/themes/lara",
+                    "local": "./components/lib/themes/lara/index.js"
                 }
             },
             "nora": {
                 "import": {
                     "name": "Nora",
                     "as": "Nora",
-                    "from": "primevue/themes/nora"
+                    "from": "primevue/themes/nora",
+                    "local": "./components/lib/themes/nora/index.js"
                 }
             }
         }
