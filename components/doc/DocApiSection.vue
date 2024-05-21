@@ -53,6 +53,7 @@ export default {
                 const modelValues = APIDocs[moduleName]?.model;
                 let props = null;
                 let emits = null;
+                let methods = null;
                 let slots = null;
                 let events = null;
                 let options = null;
@@ -61,13 +62,13 @@ export default {
                 if (values) {
                     props = values[`${docName}Props`];
                     emits = values[`${docName}EmitsOptions`];
+                    methods = values[`${docName}Methods`];
                     slots = values[`${docName}Slots`];
                     events = this.findEvents(values);
                     options = this.findOptions(values, docName); //  MenuItem && ConfirmationOptions
                     interfaces = this.findOtherInterfaces(values, docName);
                 }
 
-                const methods = componentValues ? componentValues['default'].methods : null;
                 const types = APIDocs[moduleName]['types'];
 
                 const services = modelValues; // (TerminalService && ConfirmationService && ToastService)
@@ -102,12 +103,12 @@ export default {
                     });
                 }
 
-                if (methods && methods.values.length > 0) {
+                if (methods && methods.methods.length > 0) {
                     newDoc.children.push({
                         id: `api.${moduleName}.methods`,
                         label: 'Methods',
                         component: DocApiTable,
-                        data: this.setEmitData(methods.values),
+                        data: this.setEmitData(methods.methods),
                         description: APIDocs[moduleName].interfaces.methodDescription
                     });
                 }
@@ -245,16 +246,19 @@ export default {
                     data: []
                 };
 
-                interfaceData.values.props.forEach((prop) => {
-                    interfaceDatas.data.push({
-                        name: prop.name,
-                        type: prop.type,
-                        default: prop.default,
-                        description: prop.description
+                // Ignore *Methods Interface
+                if (!interfaceData.key.includes('Methods')) {
+                    interfaceData.values.props.forEach((prop) => {
+                        interfaceDatas.data.push({
+                            name: prop.name,
+                            type: prop.type,
+                            default: prop.default,
+                            description: prop.description
+                        });
                     });
-                });
 
-                data.push(interfaceDatas);
+                    data.push(interfaceDatas);
+                }
             }
 
             return data;
