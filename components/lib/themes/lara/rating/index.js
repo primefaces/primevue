@@ -1,6 +1,6 @@
 export default {
     root: {
-        gap: '0.25rem',
+        gap: '0.25rem'
     },
     icon: {
         size: '1.25rem',
