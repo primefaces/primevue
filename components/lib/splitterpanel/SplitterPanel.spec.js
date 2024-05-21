@@ -16,8 +16,8 @@ describe('SplitterPanel.vue', () => {
     });
 
     it('should exist', () => {
-        expect(wrapper.find('.p-splitter-panel').exists()).toBe(true);
-        expect(wrapper.attributes().class).toBe('p-splitter-panel flex align-items-center justify-content-center');
-        expect(wrapper.find('.p-splitter-panel').text()).toBe('Panel 1');
+        expect(wrapper.find('.p-splitterpanel').exists()).toBe(true);
+        expect(wrapper.attributes().class).toBe('p-splitterpanel flex align-items-center justify-content-center');
+        expect(wrapper.find('.p-splitterpanel').text()).toBe('Panel 1');
     });
 });

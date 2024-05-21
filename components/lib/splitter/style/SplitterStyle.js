@@ -65,16 +65,16 @@ const theme = ({ dt }) => `
     cursor: row-resize;
 }
 
-.p-splitter-panel {
+.p-splitterpanel {
     flex-grow: 1;
     overflow: hidden;
 }
 
-.p-splitter-panel-nested {
+.p-splitterpanel-nested {
     display: flex;
 }
 
-.p-splitter-panel .p-splitter {
+.p-splitterpanel .p-splitter {
     flex-grow: 1;
     border: 0 none;
 }

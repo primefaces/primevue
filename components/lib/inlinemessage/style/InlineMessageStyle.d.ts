@@ -10,9 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InlineMessageClasses {
-    root = 'p-inline-message',
-    icon = 'p-inline-message-icon',
-    text = 'p-inline-message-text'
+    root = 'p-inlinemessage',
+    icon = 'p-inlinemessage-icon',
+    text = 'p-inlinemessage-text'
 }
 
 export interface InlineMessageStyle extends BaseStyle {}

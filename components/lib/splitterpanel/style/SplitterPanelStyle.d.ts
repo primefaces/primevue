@@ -10,7 +10,7 @@
 import { BaseStyle } from '../../base/style';
 
 export enum SplitterPanelClasses {
-    root = 'p-splitter-panel'
+    root = 'p-splitterpanel'
 }
 
 export interface SplitterPanelStyle extends BaseStyle {}
