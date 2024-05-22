@@ -43,6 +43,15 @@
                 "as": "Base",
                 "from": "primevue/base",
                 "local": "./components/lib/base/Base.js"
+            },
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BaseStyle",
+                    "as": "BaseStyle",
+                    "from": "primevue/base/style",
+                    "local": "./components/lib/base/style/BaseStyle.js"
+                }
             }
         },
         "basedirective": {
@@ -50,8 +59,17 @@
             "import": {
                 "name": "BaseDirective",
                 "as": "BaseDirective",
-                "from": "primevue/utils",
+                "from": "primevue/basedirective",
                 "local": "./components/lib/basedirective/BaseDirective.js"
+            },
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BaseDirectiveStyle",
+                    "as": "BaseDirectiveStyle",
+                    "from": "primevue/basedirective/style",
+                    "local": "./components/lib/basedirective/style/BaseDirectiveStyle.js"
+                }
             }
         },
         "basecomponent": {
@@ -61,6 +79,15 @@
                 "as": "BaseComponent",
                 "from": "primevue/basecomponent",
                 "local": "./components/lib/basecomponent/BaseComponent.vue"
+            },
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "BaseComponentStyle",
+                    "as": "BaseComponentStyle",
+                    "from": "primevue/basecomponent/style",
+                    "local": "./components/lib/basecomponent/style/BaseComponentStyle.js"
+                }
             }
         },
         "passthrough": {
@@ -583,6 +610,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "ripple",
                     "as": "ripple",
@@ -610,6 +638,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tooltip",
                     "as": "tooltip",
@@ -749,6 +778,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "button",
                     "as": "button",
@@ -776,6 +806,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inputtext",
                     "as": "inputtext",
@@ -803,6 +834,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "checkbox",
                     "as": "checkbox",
@@ -830,6 +862,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "radiobutton",
                     "as": "radiobutton",
@@ -857,6 +890,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "dialog",
                     "as": "dialog",
@@ -884,6 +918,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "menu",
                     "as": "menu",
@@ -911,6 +946,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tieredmenu",
                     "as": "tieredmenu",
@@ -938,6 +974,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inputnumber",
                     "as": "inputnumber",
@@ -965,6 +1002,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "paginator",
                     "as": "paginator",
@@ -992,6 +1030,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "progressbar",
                     "as": "progressbar",
@@ -1019,6 +1058,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "message",
                     "as": "message",
@@ -1046,6 +1086,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tree",
                     "as": "tree",
@@ -1073,6 +1114,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "badge",
                     "as": "badge",
@@ -1100,6 +1142,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "togglebutton",
                     "as": "togglebutton",
@@ -1127,6 +1170,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "iconfield",
                     "as": "iconfield",
@@ -1173,6 +1217,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "listbox",
                     "as": "listbox",
@@ -1200,6 +1245,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "chip",
                     "as": "chip",
@@ -1227,6 +1273,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "popover",
                     "as": "popover",
@@ -1254,6 +1301,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "toggleswitch",
                     "as": "toggleswitch",
@@ -1281,6 +1329,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "drawer",
                     "as": "drawer",
@@ -1308,6 +1357,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inputchips",
                     "as": "inputchips",
@@ -1335,6 +1385,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "datepicker",
                     "as": "datepicker",
@@ -1362,6 +1413,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "select",
                     "as": "select",
@@ -1445,6 +1497,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "accordion",
                     "as": "accordion",
@@ -1489,6 +1542,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "autocomplete",
                     "as": "autocomplete",
@@ -1515,6 +1569,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "avatar",
                     "as": "avatar",
@@ -1559,6 +1614,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "blockui",
                     "as": "blockui",
@@ -1585,6 +1641,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "breadcrumb",
                     "as": "breadcrumb",
@@ -1611,6 +1668,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "buttongroup",
                     "as": "buttongroup",
@@ -1655,6 +1713,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "card",
                     "as": "card",
@@ -1681,6 +1740,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "carousel",
                     "as": "carousel",
@@ -1707,6 +1767,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "cascadeselect",
                     "as": "cascadeselect",
@@ -1769,6 +1830,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "colorpicker",
                     "as": "colorpicker",
@@ -1831,6 +1893,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "confirmdialog",
                     "as": "confirmdialog",
@@ -1857,6 +1920,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "confirmpopup",
                     "as": "confirmpopup",
@@ -1883,6 +1947,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "contextmenu",
                     "as": "contextmenu",
@@ -1909,6 +1974,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "datatable",
                     "as": "datatable",
@@ -1935,6 +2001,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "dataview",
                     "as": "dataview",
@@ -1979,6 +2046,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "divider",
                     "as": "divider",
@@ -2005,6 +2073,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "dock",
                     "as": "dock",
@@ -2067,6 +2136,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "editor",
                     "as": "editor",
@@ -2093,6 +2163,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "fieldset",
                     "as": "fieldset",
@@ -2119,6 +2190,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "fileupload",
                     "as": "fileupload",
@@ -2145,6 +2217,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "floatlabel",
                     "as": "floatlabel",
@@ -2171,6 +2244,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "galleria",
                     "as": "galleria",
@@ -2197,6 +2271,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "image",
                     "as": "image",
@@ -2223,6 +2298,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inlinemessage",
                     "as": "inlinemessage",
@@ -2249,6 +2325,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inplace",
                     "as": "inplace",
@@ -2275,6 +2352,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inputgroup",
                     "as": "inputgroup",
@@ -2337,6 +2415,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "inputotp",
                     "as": "inputotp",
@@ -2381,6 +2460,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "knob",
                     "as": "knob",
@@ -2407,6 +2487,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "megamenu",
                     "as": "megamenu",
@@ -2433,6 +2514,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "menubar",
                     "as": "menubar",
@@ -2459,6 +2541,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "metergroup",
                     "as": "metergroup",
@@ -2485,6 +2568,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "multiselect",
                     "as": "multiselect",
@@ -2511,6 +2595,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "orderlist",
                     "as": "orderlist",
@@ -2537,6 +2622,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "organizationchart",
                     "as": "organizationchart",
@@ -2599,6 +2685,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "panel",
                     "as": "panel",
@@ -2625,6 +2712,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "panelmenu",
                     "as": "panelmenu",
@@ -2651,6 +2739,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "password",
                     "as": "password",
@@ -2677,6 +2766,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "picklist",
                     "as": "picklist",
@@ -2703,6 +2793,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "progressspinner",
                     "as": "progressspinner",
@@ -2729,6 +2820,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "rating",
                     "as": "rating",
@@ -2773,6 +2865,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "scrollpanel",
                     "as": "scrollpanel",
@@ -2799,6 +2892,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "scrolltop",
                     "as": "scrolltop",
@@ -2825,6 +2919,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "selectbutton",
                     "as": "selectbutton",
@@ -2869,6 +2964,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "skeleton",
                     "as": "skeleton",
@@ -2895,6 +2991,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "slider",
                     "as": "slider",
@@ -2921,6 +3018,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "speeddial",
                     "as": "speeddial",
@@ -2947,6 +3045,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "splitbutton",
                     "as": "splitbutton",
@@ -2973,6 +3072,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "splitter",
                     "as": "splitter",
@@ -3017,6 +3117,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "stepper",
                     "as": "stepper",
@@ -3061,6 +3162,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "steps",
                     "as": "steps",
@@ -3123,6 +3225,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tabmenu",
                     "as": "tabmenu",
@@ -3185,6 +3288,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tabs",
                     "as": "tabs",
@@ -3211,6 +3315,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tabview",
                     "as": "tabview",
@@ -3237,6 +3342,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "tag",
                     "as": "tag",
@@ -3263,6 +3369,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "terminal",
                     "as": "terminal",
@@ -3289,6 +3396,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "textarea",
                     "as": "textarea",
@@ -3315,6 +3423,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "timeline",
                     "as": "timeline",
@@ -3341,6 +3450,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "toast",
                     "as": "toast",
@@ -3367,6 +3477,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "toolbar",
                     "as": "toolbar",
@@ -3393,6 +3504,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "treeselect",
                     "as": "treeselect",
@@ -3419,6 +3531,7 @@
                 }
             },
             "theme": {
+                "global": true,
                 "import": {
                     "name": "treetable",
                     "as": "treetable",
@@ -3429,6 +3542,7 @@
         }
     },
     "themes": {
+        "global": true,
         "import": {
             "name": "Themes",
             "as": "Themes",
@@ -3436,6 +3550,7 @@
             "local": "./components/lib/themes/index.js"
         },
         "utils": {
+            "global": true,
             "import": {
                 "name": "ThemeUtils",
                 "as": "ThemeUtils",
@@ -3444,6 +3559,7 @@
             }
         },
         "config": {
+            "global": true,
             "import": {
                 "name": "Theme",
                 "as": "Theme",
@@ -3452,6 +3568,7 @@
             }
         },
         "service": {
+            "global": true,
             "import": {
                 "name": "ThemeService",
                 "as": "ThemeService",
@@ -3460,6 +3577,7 @@
             }
         },
         "helpers": {
+            "global": true,
             "import": {
                 "name": "Helpers",
                 "as": "Helpers",
@@ -3468,6 +3586,7 @@
             }
         },
         "actions": {
+            "global": true,
             "import": {
                 "name": "Actions",
                 "as": "Actions",
@@ -3477,6 +3596,7 @@
         },
         "presets": {
             "aura": {
+                "global": true,
                 "import": {
                     "name": "Aura",
                     "as": "Aura",
@@ -3485,6 +3605,7 @@
                 }
             },
             "lara": {
+                "global": true,
                 "import": {
                     "name": "Lara",
                     "as": "Lara",
@@ -3493,6 +3614,7 @@
                 }
             },
             "nora": {
+                "global": true,
                 "import": {
                     "name": "Nora",
                     "as": "Nora",
