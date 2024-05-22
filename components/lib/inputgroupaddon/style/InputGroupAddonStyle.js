@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const classes = {
-    root: 'p-inputgroup-addon'
+    root: 'p-inputgroupaddon'
 };
 
 export default BaseStyle.extend({

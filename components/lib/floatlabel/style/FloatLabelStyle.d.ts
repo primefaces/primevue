@@ -10,7 +10,10 @@
 import { BaseStyle } from '../../base/style';
 
 export enum FloatLabelClasses {
-    root = 'p-float-label'
+/**
+ * Class name of the root element
+ */
+    root = 'p-floatlabel'
 }
 
 export interface FloatLabelStyle extends BaseStyle {}

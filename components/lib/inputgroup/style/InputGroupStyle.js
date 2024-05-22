@@ -7,7 +7,7 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-.p-inputgroup-addon {
+.p-inputgroupaddon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,7 @@ const theme = ({ dt }) => `
     min-width: 2.5rem;
 }
 
-.p-inputgroup .p-float-label {
+.p-inputgroup .p-floatlabel {
     display: flex;
     align-items: stretch;
     width: 100%;
@@ -35,36 +35,36 @@ const theme = ({ dt }) => `
     width: 1%;
 }
 
-.p-inputgroup-addon:last-child {
+.p-inputgroupaddon:last-child {
     border-right: 1px solid ${dt('inputgroup.addon.border.color')};
 }
 
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-inputwrapper > .p-inputtext,
-.p-inputgroup > .p-float-label > .p-component {
+.p-inputgroup > .p-floatlabel > .p-component {
     border-radius: 0;
     margin: 0;
 }
 
-.p-inputgroup > .p-component + .p-inputgroup-addon,
-.p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroup-addon,
-.p-inputgroup > .p-float-label > .p-component + .p-inputgroup-addon {
+.p-inputgroup > .p-component + .p-inputgroupaddon,
+.p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroupaddon,
+.p-inputgroup > .p-floatlabel > .p-component + .p-inputgroupaddon {
     border-left: 0 none;
 }
 
 .p-inputgroup > .p-component:focus,
 .p-inputgroup > .p-inputwrapper > .p-inputtext:focus,
-.p-inputgroup > .p-float-label > .p-component:focus {
+.p-inputgroup > .p-floatlabel > .p-component:focus {
     z-index: 1;
 }
 
 .p-inputgroup > .p-component:focus ~ label,
 .p-inputgroup > .p-inputwrapper > .p-inputtext:focus~label,
-.p-inputgroup > .p-float-label > .p-component:focus~label {
+.p-inputgroup > .p-floatlabel > .p-component:focus~label {
     z-index: 1;
 }
 
-.p-inputgroup-addon:first-child,
+.p-inputgroupaddon:first-child,
 .p-inputgroup button:first-child,
 .p-inputgroup input:first-child,
 .p-inputgroup > .p-inputwrapper:first-child,
@@ -73,12 +73,12 @@ const theme = ({ dt }) => `
     border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-inputgroup .p-float-label:first-child input {
+.p-inputgroup .p-floatlabel:first-child input {
     border-top-left-radius: ${dt('inputgroup.addon.border.radius')};
     border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-inputgroup-addon:last-child,
+.p-inputgroupaddon:last-child,
 .p-inputgroup button:last-child,
 .p-inputgroup input:last-child,
 .p-inputgroup > .p-inputwrapper:last-child,
@@ -87,7 +87,7 @@ const theme = ({ dt }) => `
     border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-inputgroup .p-float-label:last-child input {
+.p-inputgroup .p-floatlabel:last-child input {
     border-top-right-radius: ${dt('inputgroup.addon.border.radius')};
     border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }

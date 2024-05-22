@@ -10,7 +10,10 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InputGroupAddonClasses {
-    root = 'p-inputgroup-addon'
+/**
+ * Class name of the root element
+ */
+    root = 'p-inputgroupaddon'
 }
 
 export interface InputGroupAddonStyle extends BaseStyle {}
