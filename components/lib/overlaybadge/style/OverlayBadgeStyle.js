@@ -1,0 +1,26 @@
+import BaseStyle from 'primevue/base/style';
+
+const theme = ({ dt }) => `
+.p-overlaybadge {
+    position: relative;
+}
+
+.p-overlaybadge .p-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0;
+    margin: 0;
+}
+`;
+
+const classes = {
+    root: 'p-overlaybadge'
+};
+
+export default BaseStyle.extend({
+    name: 'overlaybadge',
+    theme,
+    classes
+});

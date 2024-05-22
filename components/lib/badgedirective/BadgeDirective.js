@@ -3,6 +3,7 @@ import BaseBadgeDirective from './BaseBadgeDirective';
 
 const BadgeDirective = BaseBadgeDirective.extend('badge', {
     mounted(el, binding) {
+        console.warn('Deprecated since v4. Use OverlayBadge component instead.');
         const id = UniqueComponentId() + '_badge';
 
         const badge = DomHandler.createElement('span', {

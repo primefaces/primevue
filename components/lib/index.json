@@ -2545,6 +2545,24 @@
                 }
             }
         },
+        "overlaybadge": {
+            "import": {
+                "name": "OverlayBadge",
+                "as": "OverlayBadge",
+                "from": "primevue/overlaybadge",
+                "local": "./components/lib/overlaybadge/OverlayBadge.vue"
+            },
+            "description": "OverlayBadge represents people using icon, label, image and badge.",
+            "style": {
+                "global": true,
+                "import": {
+                    "name": "OverlayBadgeStyle",
+                    "as": "OverlayBadgeStyle",
+                    "from": "primevue/overlaybadge/style",
+                    "local": "./components/lib/overlaybadge/style/OverlayBadgeStyle.js"
+                }
+            }
+        },
         "overlaypanel": {
             "import": {
                 "name": "OverlayPanel",

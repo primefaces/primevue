@@ -16,19 +16,6 @@ const theme = ({ dt }) => `
     line-height: ${dt('badge.height')};
 }
 
-.p-overlay-badge {
-    position: relative;
-}
-
-.p-overlay-badge .p-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
-    transform-origin: 100% 0;
-    margin: 0;
-}
-
 .p-badge-dot {
     width: ${dt('badge.dot.size')};
     min-width: ${dt('badge.dot.size')};

@@ -135,6 +135,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/multiselect/style': 'primevue.multiselect.style',
     'primevue/orderlist/style': 'primevue.orderlist.style',
     'primevue/organizationchart/style': 'primevue.organizationchart.style',
+    'primevue/overlaybadge/style': 'primevue.overlaybadge.style',
     'primevue/overlaypanel/style': 'primevue.overlaypanel.style',
     'primevue/paginator/style': 'primevue.paginator.style',
     'primevue/panel/style': 'primevue.panel.style',

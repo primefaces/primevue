@@ -1,0 +1,7 @@
+{
+    "main": "./overlaybadgestyle.cjs.js",
+    "module": "./overlaybadgestyle.esm.js",
+    "unpkg": "./overlaybadgestyle.min.js",
+    "types": "./OverlayBadgeStyle.d.ts",
+    "sideEffects": false
+}

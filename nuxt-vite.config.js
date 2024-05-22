@@ -74,6 +74,7 @@ const STYLE_ALIAS = {
     'primevue/multiselect/style': path.resolve(__dirname, './components/lib/multiselect/style/MultiSelectStyle.js'),
     'primevue/orderlist/style': path.resolve(__dirname, './components/lib/orderlist/style/OrderListStyle.js'),
     'primevue/organizationchart/style': path.resolve(__dirname, './components/lib/organizationchart/style/OrganizationChartStyle.js'),
+    'primevue/overlaybadge/style': path.resolve(__dirname, './components/lib/overlaybadge/style/OverlayBadgeStyle.js'),
     'primevue/overlaypanel/style': path.resolve(__dirname, './components/lib/overlaypanel/style/OverlayPanelStyle.js'),
     'primevue/paginator/style': path.resolve(__dirname, './components/lib/paginator/style/PaginatorStyle.js'),
     'primevue/panel/style': path.resolve(__dirname, './components/lib/panel/style/PanelStyle.js'),
