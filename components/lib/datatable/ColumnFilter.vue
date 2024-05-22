@@ -125,7 +125,7 @@
                                 :pt="getColumnPT('pcFilterAddRuleButton')"
                             >
                                 <template #icon="iconProps">
-                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPT('pcFilterAddButton')['icon']" />
+                                    <component :is="filterAddIconTemplate || 'PlusIcon'" :class="iconProps.class" v-bind="getColumnPT('pcFilterAddRuleButton')['icon']" />
                                 </template>
                             </Button>
                         </div>
