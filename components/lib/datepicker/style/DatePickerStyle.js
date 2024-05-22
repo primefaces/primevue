@@ -382,7 +382,7 @@ const classes = {
     dayView: 'p-datepicker-day-view',
     weekHeader: 'p-datepicker-weekheader p-disabled',
     weekNumber: 'p-datepicker-weeknumber',
-    weekLabelContainer: 'p-disabled',
+    weekLabelContainer: 'p-datepicker-weeklabel-container p-disabled',
     weekDayCell: 'p-datepicker-weekday-cell',
     weekDay: 'p-datepicker-weekday',
     dayCell: ({ date }) => ['p-datepicker-day-cell', { 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }],

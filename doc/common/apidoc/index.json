@@ -28607,7 +28607,8 @@
                             "name": "weekLabelContainer",
                             "optional": false,
                             "readonly": false,
-                            "value": "\"p-disabled\""
+                            "value": "\"p-datepicker-weeklabel-container\"",
+                            "description": "Class name of the week label container element"
                         },
                         {
                             "name": "weekDayCell",
@@ -56156,7 +56157,7 @@
                             "description": "Class name of the root element"
                         },
                         {
-                            "name": "ptInput",
+                            "name": "pcInput",
                             "optional": false,
                             "readonly": false,
                             "value": "\"p-password-input\"",

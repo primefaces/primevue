@@ -82,7 +82,10 @@ export enum DatePickerClasses {
      * Class name of the week number element
      */
     weekNumber = 'p-datepicker-weeknumber',
-    weekLabelContainer = 'p-disabled',
+    /**
+     * Class name of the week label container element
+     */
+    weekLabelContainer = 'p-datepicker-weeklabel-container',
     /**
      * Class name of the week day cell element
      */
