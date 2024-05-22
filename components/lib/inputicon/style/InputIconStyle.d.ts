@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InputIconClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-inputicon'
 }
 

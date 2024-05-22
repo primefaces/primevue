@@ -10,7 +10,13 @@
 import { BaseStyle } from '../../base/style/BaseStyle';
 
 export enum AccordionHeaderClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-accordionheader',
+    /**
+     * Class name of the toggleicon element
+     */
     toggleicon = 'p-accordionheader-toggle-icon'
 }
 

@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InputGroupClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-inputgroup'
 }
 

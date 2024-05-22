@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum SelectButtonClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-selectbutton'
 }
 

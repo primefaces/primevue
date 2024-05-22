@@ -10,8 +10,17 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InplaceClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-inplace',
+    /**
+     * Class name of the display element
+     */
     display = 'p-inplace-display',
+    /**
+     * Class name of the content element
+     */
     content = 'p-inplace-content'
 }
 

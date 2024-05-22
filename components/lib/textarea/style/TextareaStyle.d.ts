@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum TextareaClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-textarea'
 }
 

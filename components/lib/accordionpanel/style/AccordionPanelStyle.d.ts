@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style/BaseStyle';
 
 export enum AccordionPanelClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-accordionpanel'
 }
 

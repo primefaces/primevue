@@ -10,8 +10,17 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ToggleButtonClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-togglebutton',
+    /**
+     * Class name of the icon element
+     */
     icon = 'p-togglebutton-icon',
+    /**
+     * Class name of the label element
+     */
     label = 'p-togglebutton-label'
 }
 

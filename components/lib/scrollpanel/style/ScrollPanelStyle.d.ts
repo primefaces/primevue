@@ -10,10 +10,25 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ScrollPanelClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-scrollpanel',
+    /**
+     * Class name of the content container element
+     */
     contentContainer = 'p-scrollpanel-content-container',
+    /**
+     * Class name of the content element
+     */
     content = 'p-scrollpanel-content',
+    /**
+     * Class name of the bar x element
+     */
     barX = 'p-scrollpanel-bar-x',
+    /**
+     * Class name of the bar y element
+     */
     barY = 'p-scrollpanel-bar-y'
 }
 

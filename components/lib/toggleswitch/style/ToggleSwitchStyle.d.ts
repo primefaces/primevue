@@ -10,8 +10,17 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ToggleSwitchClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-toggleswitch',
+    /**
+     * Class name of the input element
+     */
     input = 'p-toggleswitch-input',
+    /**
+     * Class name of the slider element
+     */
     slider = 'p-toggleswitch-slider'
 }
 

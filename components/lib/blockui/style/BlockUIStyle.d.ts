@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum BlockUIClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-blockui'
 }
 

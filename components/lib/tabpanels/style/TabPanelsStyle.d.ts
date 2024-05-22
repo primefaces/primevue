@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum TabPanelsClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-tabpanels'
 }
 

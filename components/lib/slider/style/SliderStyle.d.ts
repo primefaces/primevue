@@ -10,8 +10,17 @@
 import { BaseStyle } from '../../base/style';
 
 export enum SliderClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-slider',
+    /**
+     * Class name of the range element
+     */
     range = 'p-slider-range',
+    /**
+     * Class name of the handle element
+     */
     handle = 'p-slider-handle'
 }
 

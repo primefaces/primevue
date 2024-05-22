@@ -10,11 +10,29 @@
 import { BaseStyle } from '../../base/style';
 
 export enum FieldsetClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-fieldset',
+    /**
+     * Class name of the legend element
+     */
     legend = 'p-fieldset-legend',
+    /**
+     * Class name of the legend label element
+     */
     legendLabel = 'p-fieldset-legend-label',
+    /**
+     * Class name of the toggle icon element
+     */
     toggleIcon = 'p-fieldset-toggle-icon',
+    /**
+     * Class name of the content container element
+     */
     contentContainer = 'p-fieldset-content-container',
+    /**
+     * Class name of the content element
+     */
     content = 'p-fieldset-content'
 }
 

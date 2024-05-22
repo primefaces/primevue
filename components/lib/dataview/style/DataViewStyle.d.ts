@@ -10,11 +10,29 @@
 import { BaseStyle } from '../../base/style';
 
 export enum DataViewClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-dataview',
+    /**
+     * Class name of the header element
+     */
     header = 'p-dataview-header',
+    /**
+     * Class name of the paginator element
+     */
     pcPaginator = 'p-dataview-paginator-[position]',
+    /**
+     * Class name of the content element
+     */
     content = 'p-dataview-content',
+    /**
+     * Class name of the empty message element
+     */
     emptyMessage = 'p-dataview-empty-message', // TODO: remove?
+    /**
+     * Class name of the footer element
+     */
     footer = 'p-dataview-footer'
 }
 

@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum InputMaskClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-inputmask'
 }
 

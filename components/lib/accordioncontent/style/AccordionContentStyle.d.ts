@@ -10,7 +10,13 @@
 import { BaseStyle } from '../../base/style/BaseStyle';
 
 export enum AccordionContentClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-accordioncontent',
+    /**
+     * Class name of the content element
+     */
     content = 'p-accordioncontent-content'
 }
 

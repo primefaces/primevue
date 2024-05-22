@@ -10,7 +10,13 @@
 import { BaseStyle } from '../../base/style';
 
 export enum OrderListClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-orderlist',
+    /**
+     * Class name of the controls element
+     */
     controls = 'p-orderlist-controls'
 }
 

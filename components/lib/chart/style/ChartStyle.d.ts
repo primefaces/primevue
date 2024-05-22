@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ChartClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-chart'
 }
 

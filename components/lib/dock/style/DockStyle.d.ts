@@ -10,12 +10,33 @@
 import { BaseStyle } from '../../base/style';
 
 export enum DockClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-dock',
+    /**
+     * Class name of the list container element
+     */
     listContainer = 'p-dock-list-container',
+    /**
+     * Class name of the list element
+     */
     list = 'p-dock-list',
+    /**
+     * Class name of the item element
+     */
     item = 'p-dock-item',
+    /**
+     * Class name of the item content element
+     */
     itemContent = 'p-dock-item-content',
+    /**
+     * Class name of the item link element
+     */
     itemLink = 'p-dock-item-link',
+    /**
+     * Class name of the item icon element
+     */
     itemIcon = 'p-dock-item-icon'
 }
 

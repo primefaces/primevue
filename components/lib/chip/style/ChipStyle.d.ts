@@ -10,10 +10,25 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ChipClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-chip',
+    /**
+     * Class name of the image element
+     */
     image = 'p-chip-image',
+    /**
+     * Class name of the icon element
+     */
     icon = 'p-chip-icon',
+    /**
+     * Class name of the label element
+     */
     label = 'p-chip-label',
+    /**
+     * Class name of the remove icon element
+     */
     removeIcon = 'p-chip-remove-icon'
 }
 

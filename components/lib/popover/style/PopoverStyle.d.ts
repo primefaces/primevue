@@ -10,7 +10,13 @@
 import { BaseStyle } from '../../base/style/BaseStyle';
 
 export enum PopoverClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-popover',
+    /**
+     * Class name of the content element
+     */
     content = 'p-popover-content'
 }
 

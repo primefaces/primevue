@@ -10,9 +10,21 @@
 import { BaseStyle } from '../../base/style';
 
 export enum KnobClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-knob',
+    /**
+     * Class name of the range element
+     */
     range = 'p-knob-range',
+    /**
+     * Class name of the value element
+     */
     value = 'p-knob-value',
+    /**
+     * Class name of the text element
+     */
     text = 'p-knob-text'
 }
 

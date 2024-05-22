@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum SkeletonClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-skeleton'
 }
 

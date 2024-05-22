@@ -11,7 +11,7 @@ import { BaseStyle } from '../../base/style';
 
 export enum InputTextClasses {
     /**
-     * The class of input element
+     * The class of root element
      */
     root = 'p-inputtext'
 }

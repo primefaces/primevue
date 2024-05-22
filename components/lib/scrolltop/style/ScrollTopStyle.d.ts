@@ -10,7 +10,13 @@
 import { BaseStyle } from '../../base/style';
 
 export enum ScrollTopClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-scrolltop',
+    /**
+     * Class name of the icon element
+     */
     icon = 'p-scrolltop-icon'
 }
 
