@@ -10,7 +10,7 @@
 import { BaseStyle } from '../../base/style';
 
 export enum TextareaClasses {
-    root = 'p-inputtextarea'
+    root = 'p-textarea'
 }
 
 export interface TextareaStyle extends BaseStyle {}

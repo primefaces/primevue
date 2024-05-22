@@ -1,7 +1,7 @@
 import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
-.p-inputtextarea {
+.p-textarea {
     font-family: inherit;
     font-feature-settings: inherit;
     font-size: 1rem;
@@ -16,44 +16,44 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('textarea.shadow')};
 }
 
-.p-inputtextarea:enabled:hover {
+.p-textarea:enabled:hover {
     border-color: ${dt('textarea.hover.border.color')};
 }
 
-.p-inputtextarea:enabled:focus {
+.p-textarea:enabled:focus {
     border-color: ${dt('textarea.focus.border.color')};
     box-shadow: ${dt('textarea.focus.ring.shadow')};
     outline: ${dt('textarea.focus.ring.width')} ${dt('textarea.focus.ring.style')} ${dt('textarea.focus.ring.color')};
     outline-offset: ${dt('textarea.focus.ring.offset')};
 }
 
-.p-inputtextarea.p-invalid {
+.p-textarea.p-invalid {
     border-color: ${dt('textarea.invalid.border.color')};
 }
 
-.p-inputtextarea.p-variant-filled {
+.p-textarea.p-variant-filled {
     background-color: ${dt('textarea.filled.background')};
 }
 
-.p-inputtextarea.p-variant-filled:enabled:focus {
+.p-textarea.p-variant-filled:enabled:focus {
     background-color: ${dt('textarea.filled.focus.background')};
 }
 
-.p-inputtextarea:disabled {
+.p-textarea:disabled {
     opacity: 1;
     background: ${dt('textarea.disabled.background')};
     color: ${dt('textarea.disabled.color')};
 }
 
-.p-inputtextarea::placeholder {
+.p-textarea::placeholder {
     color: ${dt('textarea.placeholder.color')};
 }
 
-.p-fluid .p-inputtextarea {
+.p-fluid .p-textarea {
     width: 100%;
 }
 
-.p-inputtextarea-resizable {
+.p-textarea-resizable {
     overflow: hidden;
     resize: none;
 }
@@ -61,10 +61,10 @@ const theme = ({ dt }) => `
 
 const classes = {
     root: ({ instance, props }) => [
-        'p-inputtextarea p-component',
+        'p-textarea p-component',
         {
             'p-filled': instance.filled,
-            'p-inputtextarea-resizable ': props.autoResize,
+            'p-textarea-resizable ': props.autoResize,
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
         }

@@ -15,7 +15,7 @@ describe('Textarea.vue', () => {
     });
 
     it('should exist', () => {
-        expect(wrapper.find('.p-inputtextarea.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-textarea.p-component').exists()).toBe(true);
         expect(wrapper.attributes().rows).toBe('1');
         expect(wrapper.attributes().cols).toBe('1');
     });
@@ -23,7 +23,7 @@ describe('Textarea.vue', () => {
     it('should be autoresized', async () => {
         await wrapper.setProps({ autoResize: true });
 
-        expect(wrapper.find('.p-inputtextarea-resizable').exists()).toBe(true);
+        expect(wrapper.find('.p-textarea-resizable').exists()).toBe(true);
     });
 
     it('should input', async () => {
