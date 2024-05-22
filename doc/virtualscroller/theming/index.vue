@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 
 export default {
     data() {
@@ -18,7 +19,15 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes',
+                            label: 'CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('VirtualScroller')
+                        }
+                    ]
                 }
             ]
         };

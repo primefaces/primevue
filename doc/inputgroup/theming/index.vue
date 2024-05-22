@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import InputGroupAddonStyleDoc from './InputGroupAddonStyleDoc.vue';
-import InputGroupStyleDoc from './InputGroupStyleDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -22,15 +22,26 @@ export default {
                     label: 'Styled',
                     children: [
                         {
-                            id: 'theming.inputgroup',
-                            label: 'InputGroup',
-                            component: InputGroupStyleDoc
+                            id: 'theming.classes.inputgroup',
+                            label: 'InputGroup CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('InputGroup')
                         },
                         {
-                            id: 'theming.inputgroupaddon',
-                            label: 'InputGroupAddon',
-                            component: InputGroupAddonStyleDoc
+                            id: 'theming.classes.inputgroupaddon',
+                            label: 'InputGroupAddon CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('InputGroupAddon')
                         }
+                        // {
+                        //     id: 'theming.tokens',
+                        //     label: 'Design Tokens',
+                        //     description: 'List of design tokens used in a preset.',
+                        //     component: DocApiTable,
+                        //     data: getTokenOptions('InputGroup')
+                        // }
                     ]
                 },
                 {

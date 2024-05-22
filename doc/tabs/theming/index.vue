@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -19,7 +20,50 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes.tabs',
+                            label: 'Tabs CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('Tabs')
+                        },
+                        {
+                            id: 'theming.classes.tablist',
+                            label: 'TabList CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('TabList')
+                        },
+                        {
+                            id: 'theming.classes.tab',
+                            label: 'Tab CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('Tab')
+                        },
+                        {
+                            id: 'theming.classes.tabpanels',
+                            label: 'TabPanels CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('TabPanels')
+                        },
+                        {
+                            id: 'theming.classes.tabpanel',
+                            label: 'TabPanel CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('TabPanel')
+                        }
+                        // {
+                        //     id: 'theming.tokens',
+                        //     label: 'Design Tokens',
+                        //     description: 'List of design tokens used in a preset.',
+                        //     component: DocApiTable,
+                        //     data: getTokenOptions('Tabs')
+                        // }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',

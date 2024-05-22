@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 import StyledDoc from './StyledDoc.vue';
 import TailwindDoc from './TailwindDoc.vue';
 
@@ -19,7 +21,15 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes',
+                            label: 'CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('InputMask')
+                        }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',

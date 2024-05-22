@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -19,7 +20,22 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes',
+                            label: 'CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('DataTable')
+                        }
+                        // {
+                        //     id: 'theming.tokens',
+                        //     label: 'Design Tokens',
+                        //     description: 'List of design tokens used in a preset.',
+                        //     component: DocApiTable,
+                        //     data: getTokenOptions('DataTable')
+                        // }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',

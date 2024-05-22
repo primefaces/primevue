@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -19,7 +20,43 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes.accordion',
+                            label: 'Accordion CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('Accordion')
+                        },
+                        {
+                            id: 'theming.classes.accordioncontent',
+                            label: 'AccordionContent CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('AccordionContent')
+                        },
+                        {
+                            id: 'theming.classes.accordionheader',
+                            label: 'AccordionHeader CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('AccordionHeader')
+                        },
+                        {
+                            id: 'theming.classes.accordionpanel',
+                            label: 'AccordionPanel CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('AccordionPanel')
+                        }
+                        // {
+                        //     id: 'theming.tokens',
+                        //     label: 'Design Tokens',
+                        //     description: 'List of design tokens used in a preset.',
+                        //     component: DocApiTable,
+                        //     data: getTokenOptions('Accordion')
+                        // }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',
