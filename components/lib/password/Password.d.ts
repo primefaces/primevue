@@ -74,7 +74,7 @@ export interface PasswordPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    ptInput?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
+    pcInput?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the mask icon's DOM element.
      */

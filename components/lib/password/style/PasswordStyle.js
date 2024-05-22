@@ -83,7 +83,7 @@ const classes = {
             'p-inputwrapper-focus': instance.focused
         }
     ],
-    ptInput: 'p-password-input',
+    pcInput: 'p-password-input',
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
     overlay: 'p-password-overlay p-component',

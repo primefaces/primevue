@@ -55438,7 +55438,7 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
-                            "name": "ptInput",
+                            "name": "pcInput",
                             "optional": true,
                             "readonly": false,
                             "type": "InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>",

@@ -17,7 +17,7 @@ export enum PasswordClasses {
     /**
      * Class name of the pt input element
      */
-    ptInput = 'p-password-input',
+    pcInput = 'p-password-input',
     /**
      * Class name of the mask icon element
      */
