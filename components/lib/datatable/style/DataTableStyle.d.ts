@@ -118,7 +118,10 @@ export enum DataTableClasses {
      * Class name of the filter remove rule button element
      */
     pcFilterRemoveRuleButton = 'p-datatable-filter-remove-rule-button',
-    pcFilterAddButton = 'p-column-filter-add-button',
+    /**
+     * Class name of the filter add rule button element
+     */
+    pcFilterAddRuleButton = 'p-datatable-filter-add-rule-button',
     /**
      * Class name of the filter buttonbar element
      */
