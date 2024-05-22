@@ -10,6 +10,9 @@
 import { BaseStyle } from '../../base/style';
 
 export enum OverlayBadgeClasses {
+    /**
+     * Class name of the root element
+     */
     root = 'p-overlaybadge'
 }
 
