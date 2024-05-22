@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Badge Component" header="Badge" description="Badge is a small status indicator for another element." :componentDocs="docs" :apiDocs="['Badge', 'BadgeDirective']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Badge Component" header="Badge" description="Badge is a small status indicator for another element." :componentDocs="docs" :apiDocs="['Badge', 'OverlayBadge']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>

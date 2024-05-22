@@ -11,11 +11,7 @@ export default {
                 basic: `
 // import as component
 import Badge from 'primevue/badge';
-
-// import as directive
-import BadgeDirective from 'primevue/badgedirective';
-
-app.directive('badge', BadgeDirective);
+import OverlayBadge from 'primevue/overlaybadge'; // optional
 `
             }
         };

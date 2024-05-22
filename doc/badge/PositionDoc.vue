@@ -3,15 +3,15 @@
         <p>A Badge can be added to any element using the directive.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-center gap-6">
-        <span v-badge="2">
+        <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger="'5+'">
+        </OverlayBadge>
+        <OverlayBadge value="5+" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger>
+        </OverlayBadge>
+        <OverlayBadge severity="danger">
             <i class="pi pi-envelope" style="font-size: 2rem" />
-        </span>
+        </OverlayBadge>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,28 +22,28 @@ export default {
         return {
             code: {
                 basic: `
-<span v-badge="2">
+<OverlayBadge value="2">
     <i class="pi pi-bell" style="font-size: 2rem" />
-</span>
-<span v-badge.danger="'5+'">
+</OverlayBadge>
+<OverlayBadge value="5+" severity="danger">
     <i class="pi pi-calendar" style="font-size: 2rem" />
-</span>
-<span v-badge.danger>
+</OverlayBadge>
+<OverlayBadge severity="danger">
     <i class="pi pi-envelope" style="font-size: 2rem" />
-</span>
+</OverlayBadge>
 `,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-center gap-6">
-        <span v-badge="2">
+        <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger="'5+'">
+        </OverlayBadge>
+        <OverlayBadge value="5+" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger>
+        </OverlayBadge>
+        <OverlayBadge severity="danger">
             <i class="pi pi-envelope" style="font-size: 2rem" />
-        </span>
+        </OverlayBadge>
     </div>
 </template>
 
@@ -54,15 +54,15 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-center gap-6">
-        <span v-badge="2">
+        <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger="'5+'">
+        </OverlayBadge>
+        <OverlayBadge value="5+" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
-        </span>
-        <span v-badge.danger>
+        </OverlayBadge>
+        <OverlayBadge severity="danger">
             <i class="pi pi-envelope" style="font-size: 2rem" />
-        </span>
+        </OverlayBadge>
     </div>
 </template>
 

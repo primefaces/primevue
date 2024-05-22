@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StyledDoc from './StyledDoc.vue';
+import DocApiTable from '@/components/doc/DocApiTable.vue';
+import { getStyleOptions, getTokenOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -19,7 +20,29 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    component: StyledDoc
+                    children: [
+                        {
+                            id: 'theming.classes.badge',
+                            label: 'Badge CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('Badge')
+                        },
+                        {
+                            id: 'theming.classes.overlaybadge',
+                            label: 'OverlayBadge CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('OverlayBadge')
+                        },
+                        {
+                            id: 'theming.tokens',
+                            label: 'Design Tokens',
+                            description: 'List of design tokens used in a preset.',
+                            component: DocApiTable,
+                            data: getTokenOptions('Badge')
+                        }
+                    ]
                 },
                 {
                     id: 'theming.unstyled',
