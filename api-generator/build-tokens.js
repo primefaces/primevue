@@ -6,7 +6,6 @@ const THEME_COMPONENTS = ['Accordion','AutoComplete','Avatar','Badge','BlockUI',
 
 const themeName = 'aura';
 const rootDir = path.resolve(__dirname, '../');
-// const overwrittenDirPath = path.resolve(rootDir, 'types/overwritten');
 const overwrittenDirPath = path.resolve(rootDir, 'components/lib/themes/types/overwritten');
 
 try {
