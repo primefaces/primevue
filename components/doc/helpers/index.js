@@ -53,8 +53,8 @@ export const getStyleOptions = (name) => {
     return data;
 };
 
-export const getTokenOptions = (preset, name) => {
-    const values = APIDocs[`${preset.toLowerCase()}/${name.toLowerCase()}`]?.tokens?.values;
+export const getTokenOptions = (name) => {
+    const values = APIDocs[`themes/${name.toLowerCase()}`]?.tokens?.values;
     let data = [];
 
     for (const [key, value] of Object.entries(values || {})) {

@@ -11,7 +11,6 @@
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
 import { getStyleOptions } from '@/components/doc/helpers';
-import StyledDoc from './StyledDoc.vue';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {

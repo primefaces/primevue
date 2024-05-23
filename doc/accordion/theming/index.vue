@@ -10,7 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getStyleOptions } from '@/components/doc/helpers';
+import { getStyleOptions, getTokenOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
 export default {
@@ -48,14 +48,14 @@ export default {
                             description: 'List of class names used in the styled mode.',
                             component: DocApiTable,
                             data: getStyleOptions('AccordionPanel')
+                        },
+                        {
+                            id: 'theming.tokens',
+                            label: 'Design Tokens',
+                            description: 'List of design tokens used in a preset.',
+                            component: DocApiTable,
+                            data: getTokenOptions('Accordion')
                         }
-                        // {
-                        //     id: 'theming.tokens',
-                        //     label: 'Design Tokens',
-                        //     description: 'List of design tokens used in a preset.',
-                        //     component: DocApiTable,
-                        //     data: getTokenOptions('Accordion')
-                        // }
                     ]
                 },
                 {
