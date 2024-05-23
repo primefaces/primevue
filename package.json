@@ -13,9 +13,10 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "build:lib": "npm run build:check && npm run build:package",
-        "build:package": "NODE_ENV=production rollup -c && node build-meta && node api-generator/build-api",
+        "build:lib": "npm run build:api && npm run build:check && npm run build:package",
+        "build:package": "NODE_ENV=production rollup -c && node build-meta",
         "build:check": "npm run format:check && npm run security:check",
+        "build:api": "node ./api-generator/build-api.js && npm run themedoc && npm run apidoc && npm run format",
         "security:check": "npm audit --production --audit-level high",
         "format": "prettier --write \"**/*.{js,vue,d.ts}\" --cache",
         "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
@@ -25,7 +26,7 @@
         "lint": "eslint --ext \".js,.vue\" --ignore-path .gitignore . --cache",
         "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
         "apidoc": "node ./api-generator/build-apidoc.js",
-        "build:api": "node ./api-generator/build-api.js && npm run apidoc"
+        "themedoc": "node ./api-generator/build-tokens.js"
     },
     "keywords": [
         "primevue",

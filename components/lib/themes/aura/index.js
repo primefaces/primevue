@@ -5,7 +5,6 @@ import badge from 'primevue/themes/aura/badge';
 import blockui from 'primevue/themes/aura/blockui';
 import breadcrumb from 'primevue/themes/aura/breadcrumb';
 import button from 'primevue/themes/aura/button';
-import buttongroup from 'primevue/themes/aura/buttongroup';
 import card from 'primevue/themes/aura/card';
 import carousel from 'primevue/themes/aura/carousel';
 import cascadeselect from 'primevue/themes/aura/cascadeselect';
@@ -34,7 +33,6 @@ import inplace from 'primevue/themes/aura/inplace';
 import inputchips from 'primevue/themes/aura/inputchips';
 import inputgroup from 'primevue/themes/aura/inputgroup';
 import inputnumber from 'primevue/themes/aura/inputnumber';
-import inputotp from 'primevue/themes/aura/inputotp';
 import inputtext from 'primevue/themes/aura/inputtext';
 import knob from 'primevue/themes/aura/knob';
 import listbox from 'primevue/themes/aura/listbox';
@@ -58,7 +56,6 @@ import radiobutton from 'primevue/themes/aura/radiobutton';
 import rating from 'primevue/themes/aura/rating';
 import ripple from 'primevue/themes/aura/ripple';
 import scrollpanel from 'primevue/themes/aura/scrollpanel';
-import scrolltop from 'primevue/themes/aura/scrolltop';
 import select from 'primevue/themes/aura/select';
 import selectbutton from 'primevue/themes/aura/selectbutton';
 import skeleton from 'primevue/themes/aura/skeleton';
@@ -465,7 +462,6 @@ export default {
         blockui,
         breadcrumb,
         button,
-        buttongroup,
         datepicker,
         card,
         carousel,
@@ -494,8 +490,6 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
-        inputotp,
-        toggleswitch,
         inputtext,
         knob,
         listbox,
@@ -518,7 +512,6 @@ export default {
         radiobutton,
         rating,
         scrollpanel,
-        scrolltop,
         select,
         selectbutton,
         skeleton,
@@ -537,6 +530,7 @@ export default {
         terminal,
         timeline,
         togglebutton,
+        toggleswitch,
         tree,
         treeselect,
         treetable,

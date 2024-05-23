@@ -5,7 +5,6 @@ import badge from 'primevue/themes/nora/badge';
 import blockui from 'primevue/themes/nora/blockui';
 import breadcrumb from 'primevue/themes/nora/breadcrumb';
 import button from 'primevue/themes/nora/button';
-import buttongroup from 'primevue/themes/nora/buttongroup';
 import card from 'primevue/themes/nora/card';
 import carousel from 'primevue/themes/nora/carousel';
 import cascadeselect from 'primevue/themes/nora/cascadeselect';
@@ -34,7 +33,6 @@ import inplace from 'primevue/themes/nora/inplace';
 import inputchips from 'primevue/themes/nora/inputchips';
 import inputgroup from 'primevue/themes/nora/inputgroup';
 import inputnumber from 'primevue/themes/nora/inputnumber';
-import inputotp from 'primevue/themes/nora/inputotp';
 import inputtext from 'primevue/themes/nora/inputtext';
 import knob from 'primevue/themes/nora/knob';
 import listbox from 'primevue/themes/nora/listbox';
@@ -58,7 +56,6 @@ import radiobutton from 'primevue/themes/nora/radiobutton';
 import rating from 'primevue/themes/nora/rating';
 import ripple from 'primevue/themes/nora/ripple';
 import scrollpanel from 'primevue/themes/nora/scrollpanel';
-import scrolltop from 'primevue/themes/nora/scrolltop';
 import select from 'primevue/themes/nora/select';
 import selectbutton from 'primevue/themes/nora/selectbutton';
 import skeleton from 'primevue/themes/nora/skeleton';
@@ -464,7 +461,6 @@ export default {
         blockui,
         breadcrumb,
         button,
-        buttongroup,
         datepicker,
         card,
         carousel,
@@ -493,8 +489,6 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
-        inputotp,
-        toggleswitch,
         inputtext,
         knob,
         listbox,
@@ -517,7 +511,6 @@ export default {
         radiobutton,
         rating,
         scrollpanel,
-        scrolltop,
         select,
         selectbutton,
         skeleton,
@@ -536,6 +529,7 @@ export default {
         terminal,
         timeline,
         togglebutton,
+        toggleswitch,
         tree,
         treeselect,
         treetable,
