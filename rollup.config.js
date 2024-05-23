@@ -34,6 +34,10 @@ const BABEL_PLUGIN_OPTIONS = {
     babelrc: false
 };
 
+const ALIAS_PLUGIN_OPTIONS = {
+    entries: ALIAS_ENTRIES
+};
+
 const POSTCSS_PLUGIN_OPTIONS = {
     sourceMap: false
 };
@@ -105,13 +109,7 @@ const ENTRY = {
             ENTRY.entries.push({
                 onwarn: ENTRY.onwarn,
                 input,
-                plugins: [
-                    alias({
-                        entries: ALIAS_ENTRIES
-                    }),
-                    ...PLUGINS,
-                    minify && terser(TERSER_PLUGIN_OPTIONS)
-                ],
+                plugins: [alias(ALIAS_PLUGIN_OPTIONS), ...PLUGINS, minify && terser(TERSER_PLUGIN_OPTIONS)],
                 external: GLOBAL_EXTERNALS,
                 inlineDynamicImports: true,
                 output: [
