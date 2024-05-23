@@ -1,7 +1,6 @@
 {
-    "main": "./basecomponentstyle.cjs.js",
-    "module": "./basecomponentstyle.esm.js",
-    "unpkg": "./basecomponentstyle.min.js",
+    "main": "./basecomponentstyle.cjs",
+    "module": "./basecomponentstyle.mjs",
     "types": "./BaseComponentStyle.d.ts",
     "sideEffects": false
 }

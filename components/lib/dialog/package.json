@@ -1,7 +1,6 @@
 {
-    "main": "./dialog.cjs.js",
-    "module": "./dialog.esm.js",
-    "unpkg": "./dialog.min.js",
+    "main": "./dialog.cjs",
+    "module": "./dialog.mjs",
     "types": "./Dialog.d.ts",
     "browser": {
         "./sfc": "./Dialog.vue"

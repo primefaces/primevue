@@ -1,7 +1,6 @@
 {
-    "main": "./floatlabelstyle.cjs.js",
-    "module": "./floatlabelstyle.esm.js",
-    "unpkg": "./floatlabelstyle.min.js",
+    "main": "./floatlabelstyle.cjs",
+    "module": "./floatlabelstyle.mjs",
     "types": "./FloatLabelStyle.d.ts",
     "sideEffects": false
 }

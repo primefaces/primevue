@@ -1,7 +1,6 @@
 {
-    "main": "./tabview.cjs.js",
-    "module": "./tabview.esm.js",
-    "unpkg": "./tabview.min.js",
+    "main": "./tabview.cjs",
+    "module": "./tabview.mjs",
     "types": "./TabView.d.ts",
     "browser": {
         "./sfc": "./TabView.vue"

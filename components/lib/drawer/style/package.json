@@ -1,7 +1,6 @@
 {
-    "main": "./drawerstyle.cjs.js",
-    "module": "./drawerstyle.esm.js",
-    "unpkg": "./drawerstyle.min.js",
+    "main": "./drawerstyle.cjs",
+    "module": "./drawerstyle.mjs",
     "types": "./DrawerStyle.d.ts",
     "sideEffects": false
 }

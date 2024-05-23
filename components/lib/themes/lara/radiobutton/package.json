@@ -1,6 +1,5 @@
 {
-    "main": "./index.cjs.js",
-    "module": "./index.esm.js",
-    "unpkg": "./index.min.js",
+    "main": "./index.cjs",
+    "module": "./index.mjs",
     "types": "../types/radiobutton/index.d.ts"
 }

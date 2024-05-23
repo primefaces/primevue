@@ -1,7 +1,6 @@
 {
-    "main": "./tree.cjs.js",
-    "module": "./tree.esm.js",
-    "unpkg": "./tree.min.js",
+    "main": "./tree.cjs",
+    "module": "./tree.mjs",
     "types": "./Tree.d.ts",
     "browser": {
         "./sfc": "./Tree.vue"

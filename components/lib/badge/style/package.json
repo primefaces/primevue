@@ -1,7 +1,6 @@
 {
-    "main": "./badgestyle.cjs.js",
-    "module": "./badgestyle.esm.js",
-    "unpkg": "./badgestyle.min.js",
+    "main": "./badgestyle.cjs",
+    "module": "./badgestyle.mjs",
     "types": "./BadgeStyle.d.ts",
     "sideEffects": false
 }

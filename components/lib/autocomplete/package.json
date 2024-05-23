@@ -1,7 +1,6 @@
 {
-    "main": "./autocomplete.cjs.js",
-    "module": "./autocomplete.esm.js",
-    "unpkg": "./autocomplete.min.js",
+    "main": "./autocomplete.cjs",
+    "module": "./autocomplete.mjs",
     "types": "./AutoComplete.d.ts",
     "browser": {
         "./sfc": "./AutoComplete.vue"

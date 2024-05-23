@@ -1,7 +1,6 @@
 {
-    "main": "./carousel.cjs.js",
-    "module": "./carousel.esm.js",
-    "unpkg": "./carousel.min.js",
+    "main": "./carousel.cjs",
+    "module": "./carousel.mjs",
     "types": "./Carousel.d.ts",
     "browser": {
         "./sfc": "./Carousel.vue"

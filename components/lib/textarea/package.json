@@ -1,7 +1,6 @@
 {
-    "main": "./textarea.cjs.js",
-    "module": "./textarea.esm.js",
-    "unpkg": "./textarea.min.js",
+    "main": "./textarea.cjs",
+    "module": "./textarea.mjs",
     "types": "./Textarea.d.ts",
     "browser": {
         "./sfc": "./Textarea.vue"

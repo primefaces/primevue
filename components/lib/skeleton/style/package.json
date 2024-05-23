@@ -1,7 +1,6 @@
 {
-    "main": "./skeletonstyle.cjs.js",
-    "module": "./skeletonstyle.esm.js",
-    "unpkg": "./skeletonstyle.min.js",
+    "main": "./skeletonstyle.cjs",
+    "module": "./skeletonstyle.mjs",
     "types": "./SkeletonStyle.d.ts",
     "sideEffects": false
 }

@@ -1,6 +1,5 @@
 {
-    "main": "./ripple.cjs.js",
-    "module": "./ripple.esm.js",
-    "unpkg": "./ripple.min.js",
+    "main": "./ripple.cjs",
+    "module": "./ripple.mjs",
     "types": "./Ripple.d.ts"
 }

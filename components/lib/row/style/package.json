@@ -1,7 +1,6 @@
 {
-    "main": "./rowstyle.cjs.js",
-    "module": "./rowstyle.esm.js",
-    "unpkg": "./rowstyle.min.js",
+    "main": "./rowstyle.cjs",
+    "module": "./rowstyle.mjs",
     "types": "./RowStyle.d.ts",
     "sideEffects": false
 }

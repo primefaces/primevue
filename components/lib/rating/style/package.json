@@ -1,7 +1,6 @@
 {
-    "main": "./ratingstyle.cjs.js",
-    "module": "./ratingstyle.esm.js",
-    "unpkg": "./ratingstyle.min.js",
+    "main": "./ratingstyle.cjs",
+    "module": "./ratingstyle.mjs",
     "types": "./RatingStyle.d.ts",
     "sideEffects": false
 }

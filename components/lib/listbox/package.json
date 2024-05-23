@@ -1,7 +1,6 @@
 {
-    "main": "./listbox.cjs.js",
-    "module": "./listbox.esm.js",
-    "unpkg": "./listbox.min.js",
+    "main": "./listbox.cjs",
+    "module": "./listbox.mjs",
     "types": "./Listbox.d.ts",
     "browser": {
         "./sfc": "./Listbox.vue"

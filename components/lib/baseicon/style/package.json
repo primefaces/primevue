@@ -1,7 +1,6 @@
 {
-    "main": "./baseiconstyle.cjs.js",
-    "module": "./baseiconstyle.esm.js",
-    "unpkg": "./baseiconstyle.min.js",
+    "main": "./baseiconstyle.cjs",
+    "module": "./baseiconstyle.mjs",
     "types": "./BaseIconStyle.d.ts",
     "sideEffects": false
 }

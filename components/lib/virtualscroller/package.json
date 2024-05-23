@@ -1,7 +1,6 @@
 {
-    "main": "./virtualscroller.cjs.js",
-    "module": "./virtualscroller.esm.js",
-    "unpkg": "./virtualscroller.min.js",
+    "main": "./virtualscroller.cjs",
+    "module": "./virtualscroller.mjs",
     "types": "./VirtualScroller.d.ts",
     "browser": {
         "./sfc": "./VirtualScroller.vue"

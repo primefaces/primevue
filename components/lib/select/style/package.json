@@ -1,7 +1,6 @@
 {
-    "main": "./selectstyle.cjs.js",
-    "module": "./selectstyle.esm.js",
-    "unpkg": "./selectstyle.min.js",
+    "main": "./selectstyle.cjs",
+    "module": "./selectstyle.mjs",
     "types": "./SelectStyle.d.ts",
     "sideEffects": false
 }

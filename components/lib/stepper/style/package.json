@@ -1,7 +1,6 @@
 {
-    "main": "./stepperstyle.cjs.js",
-    "module": "./stepperstyle.esm.js",
-    "unpkg": "./stepperstyle.min.js",
+    "main": "./stepperstyle.cjs",
+    "module": "./stepperstyle.mjs",
     "types": "./StepperStyle.d.ts",
     "sideEffects": false
 }

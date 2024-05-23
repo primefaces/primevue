@@ -1,7 +1,6 @@
 {
-    "main": "./tabpanelsstyle.cjs.js",
-    "module": "./tabpanelsstyle.esm.js",
-    "unpkg": "./tabpanelsstyle.min.js",
+    "main": "./tabpanelsstyle.cjs",
+    "module": "./tabpanelsstyle.mjs",
     "types": "./TabPanelsStyle.d.ts",
     "sideEffects": false
 }

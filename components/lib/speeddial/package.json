@@ -1,7 +1,6 @@
 {
-    "main": "./speeddial.cjs.js",
-    "module": "./speeddial.esm.js",
-    "unpkg": "./speeddial.min.js",
+    "main": "./speeddial.cjs",
+    "module": "./speeddial.mjs",
     "types": "./SpeedDial.d.ts",
     "browser": {
         "./sfc": "./SpeedDial.vue"

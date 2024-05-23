@@ -1,7 +1,6 @@
 {
-    "main": "./virtualscrollerstyle.cjs.js",
-    "module": "./virtualscrollerstyle.esm.js",
-    "unpkg": "./virtualscrollerstyle.min.js",
+    "main": "./virtualscrollerstyle.cjs",
+    "module": "./virtualscrollerstyle.mjs",
     "types": "./VirtualScrollerStyle.d.ts",
     "sideEffects": false
 }

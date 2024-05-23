@@ -1,7 +1,6 @@
 {
-    "main": "./iconfield.cjs.js",
-    "module": "./iconfield.esm.js",
-    "unpkg": "./iconfield.min.js",
+    "main": "./iconfield.cjs",
+    "module": "./iconfield.mjs",
     "types": "./IconField.d.ts",
     "browser": {
         "./sfc": "./IconField.vue"

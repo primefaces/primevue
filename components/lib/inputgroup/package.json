@@ -1,7 +1,6 @@
 {
-    "main": "./inputgroup.cjs.js",
-    "module": "./inputgroup.esm.js",
-    "unpkg": "./inputgroup.min.js",
+    "main": "./inputgroup.cjs",
+    "module": "./inputgroup.mjs",
     "types": "./InputGroup.d.ts",
     "browser": {
         "./sfc": "./InputGroup.vue"

@@ -1,7 +1,6 @@
 {
-    "main": "./password.cjs.js",
-    "module": "./password.esm.js",
-    "unpkg": "./password.min.js",
+    "main": "./password.cjs",
+    "module": "./password.mjs",
     "types": "./Password.d.ts",
     "browser": {
         "./sfc": "./Password.vue"

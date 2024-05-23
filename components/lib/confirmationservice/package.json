@@ -1,6 +1,5 @@
 {
-    "main": "./confirmationservice.cjs.js",
-    "module": "./confirmationservice.esm.js",
-    "unpkg": "./confirmationservice.min.js",
+    "main": "./confirmationservice.cjs",
+    "module": "./confirmationservice.mjs",
     "types": "./ConfirmationService.d.ts"
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./accordionstyle.cjs.js",
-    "module": "./accordionstyle.esm.js",
-    "unpkg": "./accordionstyle.min.js",
+    "main": "./accordionstyle.cjs",
+    "module": "./accordionstyle.mjs",
     "types": "./AccordionStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./dynamicdialog.cjs.js",
-    "module": "./dynamicdialog.esm.js",
-    "unpkg": "./dynamicdialog.min.js",
+    "main": "./dynamicdialog.cjs",
+    "module": "./dynamicdialog.mjs",
     "types": "./DynamicDialog.d.ts",
     "browser": {
         "./sfc": "./DynamicDialog.vue"

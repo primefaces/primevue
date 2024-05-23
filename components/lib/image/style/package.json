@@ -1,7 +1,6 @@
 {
-    "main": "./imagestyle.cjs.js",
-    "module": "./imagestyle.esm.js",
-    "unpkg": "./imagestyle.min.js",
+    "main": "./imagestyle.cjs",
+    "module": "./imagestyle.mjs",
     "types": "./ImageStyle.d.ts",
     "sideEffects": false
 }

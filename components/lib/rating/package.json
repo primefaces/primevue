@@ -1,7 +1,6 @@
 {
-    "main": "./rating.cjs.js",
-    "module": "./rating.esm.js",
-    "unpkg": "./rating.min.js",
+    "main": "./rating.cjs",
+    "module": "./rating.mjs",
     "types": "./Rating.d.ts",
     "browser": {
         "./sfc": "./Rating.vue"

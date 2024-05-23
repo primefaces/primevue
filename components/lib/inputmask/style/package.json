@@ -1,7 +1,6 @@
 {
-    "main": "./inputmaskstyle.cjs.js",
-    "module": "./inputmaskstyle.esm.js",
-    "unpkg": "./inputmaskstyle.min.js",
+    "main": "./inputmaskstyle.cjs",
+    "module": "./inputmaskstyle.mjs",
     "types": "./InputMaskStyle.d.ts",
     "sideEffects": false
 }

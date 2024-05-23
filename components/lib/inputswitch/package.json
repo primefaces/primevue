@@ -1,7 +1,6 @@
 {
-    "main": "./inputswitch.cjs.js",
-    "module": "./inputswitch.esm.js",
-    "unpkg": "./inputswitch.min.js",
+    "main": "./inputswitch.cjs",
+    "module": "./inputswitch.mjs",
     "types": "./InputSwitch.d.ts",
     "browser": {
         "./sfc": "./InputSwitch.vue"

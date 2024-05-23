@@ -1,7 +1,6 @@
 {
-    "main": "./inputgroupstyle.cjs.js",
-    "module": "./inputgroupstyle.esm.js",
-    "unpkg": "./inputgroupstyle.min.js",
+    "main": "./inputgroupstyle.cjs",
+    "module": "./inputgroupstyle.mjs",
     "types": "./InputGroupStyle.d.ts",
     "sideEffects": false
 }

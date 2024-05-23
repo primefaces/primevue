@@ -1,7 +1,6 @@
 {
-    "main": "./buttongroup.cjs.js",
-    "module": "./buttongroup.esm.js",
-    "unpkg": "./buttongroup.min.js",
+    "main": "./buttongroup.cjs",
+    "module": "./buttongroup.mjs",
     "types": "./ButtonGroup.d.ts",
     "browser": {
         "./sfc": "./ButtonGroup.vue"

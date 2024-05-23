@@ -1,7 +1,6 @@
 {
-    "main": "./metergroup.cjs.js",
-    "module": "./metergroup.esm.js",
-    "unpkg": "./metergroup.min.js",
+    "main": "./metergroup.cjs",
+    "module": "./metergroup.mjs",
     "types": "./MeterGroup.d.ts",
     "browser": {
         "./sfc": "./MeterGroup.vue"

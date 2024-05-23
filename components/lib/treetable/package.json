@@ -1,7 +1,6 @@
 {
-    "main": "./treetable.cjs.js",
-    "module": "./treetable.esm.js",
-    "unpkg": "./treetable.min.js",
+    "main": "./treetable.cjs",
+    "module": "./treetable.mjs",
     "types": "./TreeTable.d.ts",
     "browser": {
         "./sfc": "./TreeTable.vue"

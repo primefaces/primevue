@@ -1,5 +1,4 @@
 {
-    "main": "./confirmationeventbus.cjs.js",
-    "module": "./confirmationeventbus.esm.js",
-    "unpkg": "./confirmationeventbus.min.js"
+    "main": "./confirmationeventbus.cjs",
+    "module": "./confirmationeventbus.mjs"
 }

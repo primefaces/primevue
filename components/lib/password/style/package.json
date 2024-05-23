@@ -1,7 +1,6 @@
 {
-    "main": "./passwordstyle.cjs.js",
-    "module": "./passwordstyle.esm.js",
-    "unpkg": "./passwordstyle.min.js",
+    "main": "./passwordstyle.cjs",
+    "module": "./passwordstyle.mjs",
     "types": "./PasswordStyle.d.ts",
     "sideEffects": false
 }

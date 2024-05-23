@@ -1,7 +1,6 @@
 {
-    "main": "./divider.cjs.js",
-    "module": "./divider.esm.js",
-    "unpkg": "./divider.min.js",
+    "main": "./divider.cjs",
+    "module": "./divider.mjs",
     "types": "./Divider.d.ts",
     "browser": {
         "./sfc": "./Divider.vue"

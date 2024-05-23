@@ -1,7 +1,6 @@
 {
-    "main": "./inputgroupaddon.cjs.js",
-    "module": "./inputgroupaddon.esm.js",
-    "unpkg": "./inputgroupaddon.min.js",
+    "main": "./inputgroupaddon.cjs",
+    "module": "./inputgroupaddon.mjs",
     "types": "./InputGroupAddon.d.ts",
     "browser": {
         "./sfc": "./InputGroupAddon.vue"

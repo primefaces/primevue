@@ -1,7 +1,6 @@
 {
-    "main": "./menustyle.cjs.js",
-    "module": "./menustyle.esm.js",
-    "unpkg": "./menustyle.min.js",
+    "main": "./menustyle.cjs",
+    "module": "./menustyle.mjs",
     "types": "./MenuStyle.d.ts",
     "sideEffects": false
 }

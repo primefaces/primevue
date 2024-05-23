@@ -1,7 +1,6 @@
 {
-    "main": "./scrolltopstyle.cjs.js",
-    "module": "./scrolltopstyle.esm.js",
-    "unpkg": "./scrolltopstyle.min.js",
+    "main": "./scrolltopstyle.cjs",
+    "module": "./scrolltopstyle.mjs",
     "types": "./ScrollTopStyle.d.ts",
     "sideEffects": false
 }

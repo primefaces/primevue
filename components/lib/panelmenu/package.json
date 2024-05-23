@@ -1,7 +1,6 @@
 {
-    "main": "./panelmenu.cjs.js",
-    "module": "./panelmenu.esm.js",
-    "unpkg": "./panelmenu.min.js",
+    "main": "./panelmenu.cjs",
+    "module": "./panelmenu.mjs",
     "types": "./PanelMenu.d.ts",
     "browser": {
         "./sfc": "./PanelMenu.vue"

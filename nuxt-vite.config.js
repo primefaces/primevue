@@ -1,5 +1,7 @@
 import path from 'path';
 
+export const THEME_PRESETS = ['aura', 'lara', 'nora'];
+
 /* @todo: Refactor alias: https://github.com/rollup/plugins/tree/master/packages/alias#regular-expression-aliases */
 
 const STYLE_ALIAS = {
@@ -211,7 +213,7 @@ const THEME_ALIAS = {
     'primevue/themes/service': path.resolve(__dirname, './components/lib/themes/service/index.js'),
     'primevue/themes/helpers': path.resolve(__dirname, './components/lib/themes/helpers/index.js'),
     'primevue/themes/actions': path.resolve(__dirname, './components/lib/themes/actions/index.js'),
-    ...createThemeAlias(['aura', 'lara', 'nora']),
+    ...createThemeAlias(THEME_PRESETS),
     'primevue/themes': path.resolve(__dirname, './components/lib/themes/index.js')
 };
 

@@ -1,7 +1,6 @@
 {
-    "main": "./inputchipsstyle.cjs.js",
-    "module": "./inputchipsstyle.esm.js",
-    "unpkg": "./inputchipsstyle.min.js",
+    "main": "./inputchipsstyle.cjs",
+    "module": "./inputchipsstyle.mjs",
     "types": "./InputChipsStyle.d.ts",
     "sideEffects": false
 }

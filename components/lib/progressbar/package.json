@@ -1,7 +1,6 @@
 {
-    "main": "./progressbar.cjs.js",
-    "module": "./progressbar.esm.js",
-    "unpkg": "./progressbar.min.js",
+    "main": "./progressbar.cjs",
+    "module": "./progressbar.mjs",
     "types": "./ProgressBar.d.ts",
     "browser": {
         "./sfc": "./ProgressBar.vue"

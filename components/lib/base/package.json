@@ -1,5 +1,4 @@
 {
-    "main": "./base.cjs.js",
-    "module": "./base.esm.js",
-    "unpkg": "./base.min.js"
+    "main": "./base.cjs",
+    "module": "./base.mjs"
 }

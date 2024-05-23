@@ -1,7 +1,6 @@
 {
-    "main": "./splitter.cjs.js",
-    "module": "./splitter.esm.js",
-    "unpkg": "./splitter.min.js",
+    "main": "./splitter.cjs",
+    "module": "./splitter.mjs",
     "types": "./Splitter.d.ts",
     "browser": {
         "./sfc": "./Splitter.vue"

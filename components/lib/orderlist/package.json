@@ -1,7 +1,6 @@
 {
-    "main": "./orderlist.cjs.js",
-    "module": "./orderlist.esm.js",
-    "unpkg": "./orderlist.min.js",
+    "main": "./orderlist.cjs",
+    "module": "./orderlist.mjs",
     "types": "./OrderList.d.ts",
     "browser": {
         "./sfc": "./OrderList.vue"

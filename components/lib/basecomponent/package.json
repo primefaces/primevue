@@ -1,7 +1,6 @@
 {
-    "main": "./basecomponent.cjs.js",
-    "module": "./basecomponent.esm.js",
-    "unpkg": "./basecomponent.min.js",
+    "main": "./basecomponent.cjs",
+    "module": "./basecomponent.mjs",
     "types": "./BaseComponent.d.ts",
     "browser": {
         "./sfc": "./BaseComponent.vue"

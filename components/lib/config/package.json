@@ -1,6 +1,5 @@
 {
-    "main": "./config.cjs.js",
-    "module": "./config.esm.js",
-    "unpkg": "./config.min.js",
+    "main": "./config.cjs",
+    "module": "./config.mjs",
     "types": "./PrimeVue.d.ts"
 }

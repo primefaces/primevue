@@ -1,7 +1,6 @@
 {
-    "main": "./inputicon.cjs.js",
-    "module": "./inputicon.esm.js",
-    "unpkg": "./inputicon.min.js",
+    "main": "./inputicon.cjs",
+    "module": "./inputicon.mjs",
     "types": "./InputIcon.d.ts",
     "browser": {
         "./sfc": "./InputIcon.vue"

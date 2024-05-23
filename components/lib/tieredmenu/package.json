@@ -1,7 +1,6 @@
 {
-    "main": "./tieredmenu.cjs.js",
-    "module": "./tieredmenu.esm.js",
-    "unpkg": "./tieredmenu.min.js",
+    "main": "./tieredmenu.cjs",
+    "module": "./tieredmenu.mjs",
     "types": "./TieredMenu.d.ts",
     "browser": {
         "./sfc": "./TieredMenu.vue"

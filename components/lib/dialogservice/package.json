@@ -1,6 +1,5 @@
 {
-    "main": "./dialogservice.cjs.js",
-    "module": "./dialogservice.esm.js",
-    "unpkg": "./dialogservice.min.js",
+    "main": "./dialogservice.cjs",
+    "module": "./dialogservice.mjs",
     "types": "./DialogService.d.ts"
 }

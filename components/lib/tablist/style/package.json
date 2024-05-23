@@ -1,7 +1,6 @@
 {
-    "main": "./tabliststyle.cjs.js",
-    "module": "./tabliststyle.esm.js",
-    "unpkg": "./tabliststyle.min.js",
+    "main": "./tabliststyle.cjs",
+    "module": "./tabliststyle.mjs",
     "types": "./TabListStyle.d.ts",
     "sideEffects": false
 }

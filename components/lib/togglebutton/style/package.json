@@ -1,7 +1,6 @@
 {
-    "main": "./togglebuttonstyle.cjs.js",
-    "module": "./togglebuttonstyle.esm.js",
-    "unpkg": "./togglebuttonstyle.min.js",
+    "main": "./togglebuttonstyle.cjs",
+    "module": "./togglebuttonstyle.mjs",
     "types": "./ToggleButtonStyle.d.ts",
     "sideEffects": false
 }

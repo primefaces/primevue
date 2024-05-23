@@ -1,7 +1,6 @@
 {
-    "main": "./avatargroupstyle.cjs.js",
-    "module": "./avatargroupstyle.esm.js",
-    "unpkg": "./avatargroupstyle.min.js",
+    "main": "./avatargroupstyle.cjs",
+    "module": "./avatargroupstyle.mjs",
     "types": "./AvatarGroupStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./tabs.cjs.js",
-    "module": "./tabs.esm.js",
-    "unpkg": "./tabs.min.js",
+    "main": "./tabs.cjs",
+    "module": "./tabs.mjs",
     "types": "./Tabs.d.ts",
     "browser": {
         "./sfc": "./Tabs.vue"

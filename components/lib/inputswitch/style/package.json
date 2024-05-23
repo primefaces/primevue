@@ -1,7 +1,6 @@
 {
-    "main": "./inputswitchstyle.cjs.js",
-    "module": "./inputswitchstyle.esm.js",
-    "unpkg": "./inputswitchstyle.min.js",
+    "main": "./inputswitchstyle.cjs",
+    "module": "./inputswitchstyle.mjs",
     "types": "./InputSwitchStyle.d.ts",
     "sideEffects": false
 }

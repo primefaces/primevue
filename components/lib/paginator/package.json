@@ -1,7 +1,6 @@
 {
-    "main": "./paginator.cjs.js",
-    "module": "./paginator.esm.js",
-    "unpkg": "./paginator.min.js",
+    "main": "./paginator.cjs",
+    "module": "./paginator.mjs",
     "types": "./Paginator.d.ts",
     "browser": {
         "./sfc": "./Paginator.vue"

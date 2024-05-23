@@ -1,7 +1,6 @@
 {
-    "main": "./chipsstyle.cjs.js",
-    "module": "./chipsstyle.esm.js",
-    "unpkg": "./chipsstyle.min.js",
+    "main": "./chipsstyle.cjs",
+    "module": "./chipsstyle.mjs",
     "types": "./ChipsStyle.d.ts",
     "sideEffects": false
 }

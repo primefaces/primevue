@@ -1,7 +1,6 @@
 {
-    "main": "./scrollpanelstyle.cjs.js",
-    "module": "./scrollpanelstyle.esm.js",
-    "unpkg": "./scrollpanelstyle.min.js",
+    "main": "./scrollpanelstyle.cjs",
+    "module": "./scrollpanelstyle.mjs",
     "types": "./ScrollPanelStyle.d.ts",
     "sideEffects": false
 }

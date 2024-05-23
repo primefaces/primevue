@@ -1,6 +1,5 @@
 {
-    "main": "./usetoast.cjs.js",
-    "module": "./usetoast.esm.js",
-    "unpkg": "./usetoast.min.js",
+    "main": "./usetoast.cjs",
+    "module": "./usetoast.mjs",
     "types": "./UseToast.d.ts"
 }

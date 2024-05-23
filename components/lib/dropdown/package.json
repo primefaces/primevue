@@ -1,7 +1,6 @@
 {
-    "main": "./dropdown.cjs.js",
-    "module": "./dropdown.esm.js",
-    "unpkg": "./dropdown.min.js",
+    "main": "./dropdown.cjs",
+    "module": "./dropdown.mjs",
     "types": "./Dropdown.d.ts",
     "browser": {
         "./sfc": "./Dropdown.vue"

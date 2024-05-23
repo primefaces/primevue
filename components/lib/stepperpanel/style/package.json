@@ -1,7 +1,6 @@
 {
-    "main": "./stepperpanelstyle.cjs.js",
-    "module": "./stepperpanelstyle.esm.js",
-    "unpkg": "./stepperpanelstyle.min.js",
+    "main": "./stepperpanelstyle.cjs",
+    "module": "./stepperpanelstyle.mjs",
     "types": "./StepperPanelStyle.d.ts",
     "sideEffects": false
 }

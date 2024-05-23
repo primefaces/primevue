@@ -1,6 +1,5 @@
 {
-    "main": "./badgedirective.cjs.js",
-    "module": "./badgedirective.esm.js",
-    "unpkg": "./badgedirective.min.js",
+    "main": "./badgedirective.cjs",
+    "module": "./badgedirective.mjs",
     "types": "./BadgeDirective.d.ts"
 }

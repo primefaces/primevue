@@ -1,7 +1,6 @@
 {
-    "main": "./tabstyle.cjs.js",
-    "module": "./tabstyle.esm.js",
-    "unpkg": "./tabstyle.min.js",
+    "main": "./tabstyle.cjs",
+    "module": "./tabstyle.mjs",
     "types": "./TabStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./dockstyle.cjs.js",
-    "module": "./dockstyle.esm.js",
-    "unpkg": "./dockstyle.min.js",
+    "main": "./dockstyle.cjs",
+    "module": "./dockstyle.mjs",
     "types": "./DockStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./avatarstyle.cjs.js",
-    "module": "./avatarstyle.esm.js",
-    "unpkg": "./avatarstyle.min.js",
+    "main": "./avatarstyle.cjs",
+    "module": "./avatarstyle.mjs",
     "types": "./AvatarStyle.d.ts",
     "sideEffects": false
 }

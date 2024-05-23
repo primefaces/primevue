@@ -1,7 +1,6 @@
 {
-    "main": "./skeleton.cjs.js",
-    "module": "./skeleton.esm.js",
-    "unpkg": "./skeleton.min.js",
+    "main": "./skeleton.cjs",
+    "module": "./skeleton.mjs",
     "types": "./Skeleton.d.ts",
     "browser": {
         "./sfc": "./Skeleton.vue"

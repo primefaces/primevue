@@ -1,7 +1,6 @@
 {
-    "main": "./portal.cjs.js",
-    "module": "./portal.esm.js",
-    "unpkg": "./portal.min.js",
+    "main": "./portal.cjs",
+    "module": "./portal.mjs",
     "types": "./Portal.d.ts",
     "browser": {
         "./sfc": "./Portal.vue"

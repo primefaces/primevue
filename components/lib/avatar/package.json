@@ -1,7 +1,6 @@
 {
-    "main": "./avatar.cjs.js",
-    "module": "./avatar.esm.js",
-    "unpkg": "./avatar.min.js",
+    "main": "./avatar.cjs",
+    "module": "./avatar.mjs",
     "types": "./Avatar.d.ts",
     "browser": {
         "./sfc": "./Avatar.vue"

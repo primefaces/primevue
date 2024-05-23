@@ -1,7 +1,6 @@
 {
-    "main": "./dock.cjs.js",
-    "module": "./dock.esm.js",
-    "unpkg": "./dock.min.js",
+    "main": "./dock.cjs",
+    "module": "./dock.mjs",
     "types": "./Dock.d.ts",
     "browser": {
         "./sfc": "./Dock.vue"

@@ -1,7 +1,6 @@
 {
-    "main": "./knob.cjs.js",
-    "module": "./knob.esm.js",
-    "unpkg": "./knob.min.js",
+    "main": "./knob.cjs",
+    "module": "./knob.mjs",
     "types": "./Knob.d.ts",
     "browser": {
         "./sfc": "./Knob.vue"

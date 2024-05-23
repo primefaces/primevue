@@ -1,7 +1,6 @@
 {
-    "main": "./dynamicdialogstyle.cjs.js",
-    "module": "./dynamicdialogstyle.esm.js",
-    "unpkg": "./dynamicdialogstyle.min.js",
+    "main": "./dynamicdialogstyle.cjs",
+    "module": "./dynamicdialogstyle.mjs",
     "types": "./DynamicDialogStyle.d.ts",
     "sideEffects": false
 }

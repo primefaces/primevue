@@ -1,7 +1,6 @@
 {
-    "main": "./inputnumberstyle.cjs.js",
-    "module": "./inputnumberstyle.esm.js",
-    "unpkg": "./inputnumberstyle.min.js",
+    "main": "./inputnumberstyle.cjs",
+    "module": "./inputnumberstyle.mjs",
     "types": "./InputNumberStyle.d.ts",
     "sideEffects": false
 }

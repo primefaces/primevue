@@ -1,7 +1,6 @@
 {
-    "main": "./overlaybadge.cjs.js",
-    "module": "./overlaybadge.esm.js",
-    "unpkg": "./overlaybadge.min.js",
+    "main": "./overlaybadge.cjs",
+    "module": "./overlaybadge.mjs",
     "types": "./OverlayBadge.d.ts",
     "browser": {
         "./sfc": "./OverlayBadge.vue"

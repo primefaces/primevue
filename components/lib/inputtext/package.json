@@ -1,7 +1,6 @@
 {
-    "main": "./inputtext.cjs.js",
-    "module": "./inputtext.esm.js",
-    "unpkg": "./inputtext.min.js",
+    "main": "./inputtext.cjs",
+    "module": "./inputtext.mjs",
     "types": "./InputText.d.ts",
     "browser": {
         "./sfc": "./InputText.vue"

@@ -1,7 +1,6 @@
 {
-    "main": "./picklist.cjs.js",
-    "module": "./picklist.esm.js",
-    "unpkg": "./picklist.min.js",
+    "main": "./picklist.cjs",
+    "module": "./picklist.mjs",
     "types": "./PickList.d.ts",
     "browser": {
         "./sfc": "./PickList.vue"

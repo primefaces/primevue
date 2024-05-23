@@ -1,7 +1,6 @@
 {
-    "main": "./confirmpopup.cjs.js",
-    "module": "./confirmpopup.esm.js",
-    "unpkg": "./confirmpopup.min.js",
+    "main": "./confirmpopup.cjs",
+    "module": "./confirmpopup.mjs",
     "types": "./ConfirmPopup.d.ts",
     "browser": {
         "./sfc": "./ConfirmPopup.vue"

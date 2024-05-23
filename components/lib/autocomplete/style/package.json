@@ -1,7 +1,6 @@
 {
-    "main": "./autocompletestyle.cjs.js",
-    "module": "./autocompletestyle.esm.js",
-    "unpkg": "./autocompletestyle.min.js",
+    "main": "./autocompletestyle.cjs",
+    "module": "./autocompletestyle.mjs",
     "types": "./AutoCompleteStyle.d.ts",
     "sideEffects": false
 }

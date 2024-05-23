@@ -1,7 +1,6 @@
 {
-    "main": "./timelinestyle.cjs.js",
-    "module": "./timelinestyle.esm.js",
-    "unpkg": "./timelinestyle.min.js",
+    "main": "./timelinestyle.cjs",
+    "module": "./timelinestyle.mjs",
     "types": "./TimelineStyle.d.ts",
     "sideEffects": false
 }

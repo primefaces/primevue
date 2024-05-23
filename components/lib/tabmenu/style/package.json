@@ -1,7 +1,6 @@
 {
-    "main": "./tabmenustyle.cjs.js",
-    "module": "./tabmenustyle.esm.js",
-    "unpkg": "./tabmenustyle.min.js",
+    "main": "./tabmenustyle.cjs",
+    "module": "./tabmenustyle.mjs",
     "types": "./TabMenuStyle.d.ts",
     "sideEffects": false
 }

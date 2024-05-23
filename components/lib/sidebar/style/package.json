@@ -1,7 +1,6 @@
 {
-    "main": "./sidebarstyle.cjs.js",
-    "module": "./sidebarstyle.esm.js",
-    "unpkg": "./sidebarstyle.min.js",
+    "main": "./sidebarstyle.cjs",
+    "module": "./sidebarstyle.mjs",
     "types": "./SidebarStyle.d.ts",
     "sideEffects": false
 }

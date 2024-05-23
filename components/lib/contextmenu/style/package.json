@@ -1,7 +1,6 @@
 {
-    "main": "./contextmenustyle.cjs.js",
-    "module": "./contextmenustyle.esm.js",
-    "unpkg": "./contextmenustyle.min.js",
+    "main": "./contextmenustyle.cjs",
+    "module": "./contextmenustyle.mjs",
     "types": "./ContextMenuStyle.d.ts",
     "sideEffects": false
 }

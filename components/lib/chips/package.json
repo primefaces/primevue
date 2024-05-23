@@ -1,7 +1,6 @@
 {
-    "main": "./chips.cjs.js",
-    "module": "./chips.esm.js",
-    "unpkg": "./chips.min.js",
+    "main": "./chips.cjs",
+    "module": "./chips.mjs",
     "types": "./Chips.d.ts",
     "browser": {
         "./sfc": "./Chips.vue"

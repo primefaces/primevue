@@ -1,7 +1,6 @@
 {
-    "main": "./popoverstyle.cjs.js",
-    "module": "./popoverstyle.esm.js",
-    "unpkg": "./popoverstyle.min.js",
+    "main": "./popoverstyle.cjs",
+    "module": "./popoverstyle.mjs",
     "types": "./PopoverStyle.d.ts",
     "sideEffects": false
 }

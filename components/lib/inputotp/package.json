@@ -1,7 +1,6 @@
 {
-    "main": "./inputotp.cjs.js",
-    "module": "./inputotp.esm.js",
-    "unpkg": "./inputotp.min.js",
+    "main": "./inputotp.cjs",
+    "module": "./inputotp.mjs",
     "types": "./InputOtp.d.ts",
     "browser": {
         "./sfc": "./InputOtp.vue"

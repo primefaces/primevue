@@ -1,7 +1,6 @@
 {
-    "main": "./animateonscrollstyle.cjs.js",
-    "module": "./animateonscrollstyle.esm.js",
-    "unpkg": "./animateonscrollstyle.min.js",
+    "main": "./animateonscrollstyle.cjs",
+    "module": "./animateonscrollstyle.mjs",
     "types": "./AnimateOnScrollStyle.d.ts",
     "sideEffects": false
 }

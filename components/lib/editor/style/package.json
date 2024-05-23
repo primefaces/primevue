@@ -1,7 +1,6 @@
 {
-    "main": "./editorstyle.cjs.js",
-    "module": "./editorstyle.esm.js",
-    "unpkg": "./editorstyle.min.js",
+    "main": "./editorstyle.cjs",
+    "module": "./editorstyle.mjs",
     "types": "./EditorStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./sidebar.cjs.js",
-    "module": "./sidebar.esm.js",
-    "unpkg": "./sidebar.min.js",
+    "main": "./sidebar.cjs",
+    "module": "./sidebar.mjs",
     "types": "./Sidebar.d.ts",
     "browser": {
         "./sfc": "./Sidebar.vue"

@@ -1,6 +1,5 @@
 {
-    "main": "./utils.cjs.js",
-    "module": "./utils.esm.js",
-    "unpkg": "./utils.min.js",
+    "main": "./utils.cjs",
+    "module": "./utils.mjs",
     "types": "./Utils.d.ts"
 }

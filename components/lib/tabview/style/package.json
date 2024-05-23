@@ -1,7 +1,6 @@
 {
-    "main": "./tabviewstyle.cjs.js",
-    "module": "./tabviewstyle.esm.js",
-    "unpkg": "./tabviewstyle.min.js",
+    "main": "./tabviewstyle.cjs",
+    "module": "./tabviewstyle.mjs",
     "types": "./TabViewStyle.d.ts",
     "sideEffects": false
 }

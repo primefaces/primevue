@@ -1,7 +1,6 @@
 {
-    "main": "./tooltipstyle.cjs.js",
-    "module": "./tooltipstyle.esm.js",
-    "unpkg": "./tooltipstyle.min.js",
+    "main": "./tooltipstyle.cjs",
+    "module": "./tooltipstyle.mjs",
     "types": "./TooltipStyle.d.ts",
     "sideEffects": false
 }

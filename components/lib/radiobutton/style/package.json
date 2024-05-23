@@ -1,7 +1,6 @@
 {
-    "main": "./radiobuttonstyle.cjs.js",
-    "module": "./radiobuttonstyle.esm.js",
-    "unpkg": "./radiobuttonstyle.min.js",
+    "main": "./radiobuttonstyle.cjs",
+    "module": "./radiobuttonstyle.mjs",
     "types": "./RadioButtonStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./accordiontab.cjs.js",
-    "module": "./accordiontab.esm.js",
-    "unpkg": "./accordiontab.min.js",
+    "main": "./accordiontab.cjs",
+    "module": "./accordiontab.mjs",
     "types": "./AccordionTab.d.ts",
     "browser": {
         "./sfc": "./AccordionTab.vue"

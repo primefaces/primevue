@@ -1,6 +1,5 @@
 {
-    "main": "./tooltip.cjs.js",
-    "module": "./tooltip.esm.js",
-    "unpkg": "./tooltip.min.js",
+    "main": "./tooltip.cjs",
+    "module": "./tooltip.mjs",
     "types": "./Tooltip.d.ts"
 }

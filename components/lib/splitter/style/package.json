@@ -1,7 +1,6 @@
 {
-    "main": "./splitterstyle.cjs.js",
-    "module": "./splitterstyle.esm.js",
-    "unpkg": "./splitterstyle.min.js",
+    "main": "./splitterstyle.cjs",
+    "module": "./splitterstyle.mjs",
     "types": "./SplitterStyle.d.ts",
     "sideEffects": false
 }

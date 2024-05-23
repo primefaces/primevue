@@ -1,7 +1,6 @@
 {
-    "main": "./toolbar.cjs.js",
-    "module": "./toolbar.esm.js",
-    "unpkg": "./toolbar.min.js",
+    "main": "./toolbar.cjs",
+    "module": "./toolbar.mjs",
     "types": "./Toolbar.d.ts",
     "browser": {
         "./sfc": "./Toolbar.vue"

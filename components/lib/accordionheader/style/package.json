@@ -1,7 +1,6 @@
 {
-    "main": "./accordionheaderstyle.cjs.js",
-    "module": "./accordionheaderstyle.esm.js",
-    "unpkg": "./accordionheaderstyle.min.js",
+    "main": "./accordionheaderstyle.cjs",
+    "module": "./accordionheaderstyle.mjs",
     "types": "./AccordionHeaderStyle.d.ts",
     "sideEffects": false
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./multiselect.cjs.js",
-    "module": "./multiselect.esm.js",
-    "unpkg": "./multiselect.min.js",
+    "main": "./multiselect.cjs",
+    "module": "./multiselect.mjs",
     "types": "./MultiSelect.d.ts",
     "browser": {
         "./sfc": "./MultiSelect.vue"

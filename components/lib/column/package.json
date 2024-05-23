@@ -1,7 +1,6 @@
 {
-    "main": "./column.cjs.js",
-    "module": "./column.esm.js",
-    "unpkg": "./column.min.js",
+    "main": "./column.cjs",
+    "module": "./column.mjs",
     "types": "./Column.d.ts",
     "browser": {
         "./sfc": "./Column.vue"

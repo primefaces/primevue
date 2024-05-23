@@ -1,6 +1,5 @@
 {
-    "main": "./usestyle.cjs.js",
-    "module": "./usestyle.esm.js",
-    "unpkg": "./usestyle.min.js",
+    "main": "./usestyle.cjs",
+    "module": "./usestyle.mjs",
     "types": "./UseStyle.d.ts"
 }

@@ -1,7 +1,6 @@
 {
-    "main": "./drawer.cjs.js",
-    "module": "./drawer.esm.js",
-    "unpkg": "./drawer.min.js",
+    "main": "./drawer.cjs",
+    "module": "./drawer.mjs",
     "types": "./Drawer.d.ts",
     "browser": {
         "./sfc": "./Drawer.vue"

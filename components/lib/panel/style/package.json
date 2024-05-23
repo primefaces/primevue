@@ -1,7 +1,6 @@
 {
-    "main": "./panelstyle.cjs.js",
-    "module": "./panelstyle.esm.js",
-    "unpkg": "./panelstyle.min.js",
+    "main": "./panelstyle.cjs",
+    "module": "./panelstyle.mjs",
     "types": "./PanelStyle.d.ts",
     "sideEffects": false
 }

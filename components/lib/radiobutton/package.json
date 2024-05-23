@@ -1,7 +1,6 @@
 {
-    "main": "./radiobutton.cjs.js",
-    "module": "./radiobutton.esm.js",
-    "unpkg": "./radiobutton.min.js",
+    "main": "./radiobutton.cjs",
+    "module": "./radiobutton.mjs",
     "types": "./RadioButton.d.ts",
     "browser": {
         "./sfc": "./RadioButton.vue"
