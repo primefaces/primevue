@@ -1,5 +1,5 @@
 {
-    "main": "./accordionpanelstyle.cjs",
+    "main": "./accordionpanelstyle.mjs",
     "module": "./accordionpanelstyle.mjs",
     "types": "./AccordionPanelStyle.d.ts",
     "sideEffects": false

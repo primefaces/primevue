@@ -1,5 +1,5 @@
 {
-    "main": "./fieldsetstyle.cjs",
+    "main": "./fieldsetstyle.mjs",
     "module": "./fieldsetstyle.mjs",
     "types": "./FieldsetStyle.d.ts",
     "sideEffects": false

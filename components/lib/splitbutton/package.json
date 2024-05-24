@@ -1,5 +1,5 @@
 {
-    "main": "./splitbutton.cjs",
+    "main": "./splitbutton.mjs",
     "module": "./splitbutton.mjs",
     "types": "./SplitButton.d.ts",
     "browser": {

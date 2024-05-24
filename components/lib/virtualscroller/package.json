@@ -1,5 +1,5 @@
 {
-    "main": "./virtualscroller.cjs",
+    "main": "./virtualscroller.mjs",
     "module": "./virtualscroller.mjs",
     "types": "./VirtualScroller.d.ts",
     "browser": {

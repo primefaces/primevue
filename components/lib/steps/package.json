@@ -1,5 +1,5 @@
 {
-    "main": "./steps.cjs",
+    "main": "./steps.mjs",
     "module": "./steps.mjs",
     "types": "./Steps.d.ts",
     "browser": {

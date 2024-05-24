@@ -1,5 +1,5 @@
 {
-    "main": "./knobstyle.cjs",
+    "main": "./knobstyle.mjs",
     "module": "./knobstyle.mjs",
     "types": "./KnobStyle.d.ts",
     "sideEffects": false

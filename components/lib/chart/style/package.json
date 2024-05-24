@@ -1,5 +1,5 @@
 {
-    "main": "./chartstyle.cjs",
+    "main": "./chartstyle.mjs",
     "module": "./chartstyle.mjs",
     "types": "./ChartStyle.d.ts",
     "sideEffects": false

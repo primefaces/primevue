@@ -139,7 +139,7 @@ function addFile() {
                     const input = process.env.INPUT_DIR + folderName + '/' + file;
                     const output = process.env.OUTPUT_DIR + folderName + '/' + name;
 
-                    ENTRY.format.cjs_es({ input, output });
+                    ENTRY.format.es({ input, output });
                 }
             });
         });
@@ -157,7 +157,7 @@ function addIcon() {
                     const input = process.env.INPUT_DIR + 'icons/' + folderName + '/' + file;
                     const output = process.env.OUTPUT_DIR + 'icons/' + folderName + '/' + name;
 
-                    ENTRY.format.cjs_es({ input, output });
+                    ENTRY.format.es({ input, output });
                 }
             });
         });
@@ -174,7 +174,7 @@ function addStyle() {
                         const input = process.env.INPUT_DIR + folderName + '/style/' + file;
                         const output = process.env.OUTPUT_DIR + folderName + '/style/' + name;
 
-                        ENTRY.format.cjs_es({ input, output });
+                        ENTRY.format.es({ input, output });
                     }
                 });
             } catch {}
@@ -208,18 +208,18 @@ function addThemes() {
             const input = process.env.INPUT_DIR + folderName + '/' + file;
             const output = process.env.OUTPUT_DIR + folderName + '/' + 'index';
 
-            ENTRY.format.cjs_es({ input, output });
+            ENTRY.format.es({ input, output });
         }
     );
 }
 
 function addCore() {
-    ENTRY.format.cjs_es({ input: process.env.INPUT_DIR + 'config/PrimeVue.js', output: process.env.OUTPUT_DIR + 'config/config' });
-    ENTRY.format.cjs_es({ input: process.env.INPUT_DIR + 'service/PrimeVueService.js', output: process.env.OUTPUT_DIR + 'service/primevueservice' });
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'config/PrimeVue.js', output: process.env.OUTPUT_DIR + 'config/config' });
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'service/PrimeVueService.js', output: process.env.OUTPUT_DIR + 'service/primevueservice' });
 }
 
 function addPassThrough() {
-    ENTRY.format.cjs_es({ input: process.env.INPUT_DIR + 'passthrough/index.js', output: process.env.OUTPUT_DIR + 'passthrough/index' });
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'passthrough/index.js', output: process.env.OUTPUT_DIR + 'passthrough/index' });
 }
 
 function addLibrary() {

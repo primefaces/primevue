@@ -1,5 +1,5 @@
 {
-    "main": "./slider.cjs",
+    "main": "./slider.mjs",
     "module": "./slider.mjs",
     "types": "./Slider.d.ts",
     "browser": {

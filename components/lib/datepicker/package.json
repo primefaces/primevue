@@ -1,5 +1,5 @@
 {
-    "main": "./datepicker.cjs",
+    "main": "./datepicker.mjs",
     "module": "./datepicker.mjs",
     "types": "./DatePicker.d.ts",
     "browser": {

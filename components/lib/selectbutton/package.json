@@ -1,5 +1,5 @@
 {
-    "main": "./selectbutton.cjs",
+    "main": "./selectbutton.mjs",
     "module": "./selectbutton.mjs",
     "types": "./SelectButton.d.ts",
     "browser": {

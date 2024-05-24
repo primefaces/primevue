@@ -1,5 +1,5 @@
 {
-    "main": "./virtualscrollerstyle.cjs",
+    "main": "./virtualscrollerstyle.mjs",
     "module": "./virtualscrollerstyle.mjs",
     "types": "./VirtualScrollerStyle.d.ts",
     "sideEffects": false

@@ -1,5 +1,5 @@
 {
-    "main": "./buttonstyle.cjs",
+    "main": "./buttonstyle.mjs",
     "module": "./buttonstyle.mjs",
     "types": "./ButtonStyle.d.ts",
     "sideEffects": false

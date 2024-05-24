@@ -1,5 +1,5 @@
 {
-    "main": "./editor.cjs",
+    "main": "./editor.mjs",
     "module": "./editor.mjs",
     "types": "./Editor.d.ts",
     "browser": {

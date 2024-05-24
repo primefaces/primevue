@@ -1,5 +1,5 @@
 {
-    "main": "./drawer.cjs",
+    "main": "./drawer.mjs",
     "module": "./drawer.mjs",
     "types": "./Drawer.d.ts",
     "browser": {

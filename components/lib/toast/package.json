@@ -1,5 +1,5 @@
 {
-    "main": "./toast.cjs",
+    "main": "./toast.mjs",
     "module": "./toast.mjs",
     "types": "./Toast.d.ts",
     "browser": {

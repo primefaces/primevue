@@ -1,5 +1,5 @@
 {
-    "main": "./datatable.cjs",
+    "main": "./datatable.mjs",
     "module": "./datatable.mjs",
     "types": "./DataTable.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./tabstyle.cjs",
+    "main": "./tabstyle.mjs",
     "module": "./tabstyle.mjs",
     "types": "./TabStyle.d.ts",
     "sideEffects": false

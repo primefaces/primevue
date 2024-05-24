@@ -1,5 +1,5 @@
 {
-    "main": "./chip.cjs",
+    "main": "./chip.mjs",
     "module": "./chip.mjs",
     "types": "./Chip.d.ts",
     "browser": {

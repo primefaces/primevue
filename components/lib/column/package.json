@@ -1,5 +1,5 @@
 {
-    "main": "./column.cjs",
+    "main": "./column.mjs",
     "module": "./column.mjs",
     "types": "./Column.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./dialogservice.cjs",
+    "main": "./dialogservice.mjs",
     "module": "./dialogservice.mjs",
     "types": "./DialogService.d.ts"
 }

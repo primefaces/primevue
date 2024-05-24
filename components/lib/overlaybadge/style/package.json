@@ -1,5 +1,5 @@
 {
-    "main": "./overlaybadgestyle.cjs",
+    "main": "./overlaybadgestyle.mjs",
     "module": "./overlaybadgestyle.mjs",
     "types": "./OverlayBadgeStyle.d.ts",
     "sideEffects": false

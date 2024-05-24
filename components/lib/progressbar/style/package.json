@@ -1,5 +1,5 @@
 {
-    "main": "./progressbarstyle.cjs",
+    "main": "./progressbarstyle.mjs",
     "module": "./progressbarstyle.mjs",
     "types": "./ProgressBarStyle.d.ts",
     "sideEffects": false

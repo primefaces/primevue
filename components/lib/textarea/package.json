@@ -1,5 +1,5 @@
 {
-    "main": "./textarea.cjs",
+    "main": "./textarea.mjs",
     "module": "./textarea.mjs",
     "types": "./Textarea.d.ts",
     "browser": {

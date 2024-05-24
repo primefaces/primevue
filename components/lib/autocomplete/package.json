@@ -1,5 +1,5 @@
 {
-    "main": "./autocomplete.cjs",
+    "main": "./autocomplete.mjs",
     "module": "./autocomplete.mjs",
     "types": "./AutoComplete.d.ts",
     "browser": {

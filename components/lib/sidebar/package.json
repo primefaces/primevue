@@ -1,5 +1,5 @@
 {
-    "main": "./sidebar.cjs",
+    "main": "./sidebar.mjs",
     "module": "./sidebar.mjs",
     "types": "./Sidebar.d.ts",
     "browser": {

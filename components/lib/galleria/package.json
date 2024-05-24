@@ -1,5 +1,5 @@
 {
-    "main": "./galleria.cjs",
+    "main": "./galleria.mjs",
     "module": "./galleria.mjs",
     "types": "./Galleria.d.ts",
     "browser": {

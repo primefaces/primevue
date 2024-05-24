@@ -1,5 +1,5 @@
 {
-    "main": "./chart.cjs",
+    "main": "./chart.mjs",
     "module": "./chart.mjs",
     "types": "./Chart.d.ts",
     "browser": {

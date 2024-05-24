@@ -1,5 +1,5 @@
 {
-    "main": "./buttongroup.cjs",
+    "main": "./buttongroup.mjs",
     "module": "./buttongroup.mjs",
     "types": "./ButtonGroup.d.ts",
     "browser": {

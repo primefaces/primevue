@@ -1,5 +1,5 @@
 {
-    "main": "./stepperpanel.cjs",
+    "main": "./stepperpanel.mjs",
     "module": "./stepperpanel.mjs",
     "types": "./StepperPanel.d.ts",
     "browser": {

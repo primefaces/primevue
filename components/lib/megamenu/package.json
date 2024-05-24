@@ -1,5 +1,5 @@
 {
-    "main": "./megamenu.cjs",
+    "main": "./megamenu.mjs",
     "module": "./megamenu.mjs",
     "types": "./MegaMenu.d.ts",
     "browser": {

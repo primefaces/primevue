@@ -1,5 +1,5 @@
 {
-    "main": "./terminalstyle.cjs",
+    "main": "./terminalstyle.mjs",
     "module": "./terminalstyle.mjs",
     "types": "./TerminalStyle.d.ts",
     "sideEffects": false

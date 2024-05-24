@@ -1,5 +1,5 @@
 {
-    "main": "./inlinemessage.cjs",
+    "main": "./inlinemessage.mjs",
     "module": "./inlinemessage.mjs",
     "types": "./InlineMessage.d.ts",
     "browser": {

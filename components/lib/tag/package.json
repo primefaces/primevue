@@ -1,5 +1,5 @@
 {
-    "main": "./tag.cjs",
+    "main": "./tag.mjs",
     "module": "./tag.mjs",
     "types": "./Tag.d.ts",
     "browser": {

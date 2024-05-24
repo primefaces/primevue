@@ -1,5 +1,5 @@
 {
-    "main": "./tabview.cjs",
+    "main": "./tabview.mjs",
     "module": "./tabview.mjs",
     "types": "./TabView.d.ts",
     "browser": {

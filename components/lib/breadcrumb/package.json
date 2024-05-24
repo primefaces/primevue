@@ -1,5 +1,5 @@
 {
-    "main": "./breadcrumb.cjs",
+    "main": "./breadcrumb.mjs",
     "module": "./breadcrumb.mjs",
     "types": "./Breadcrumb.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./dialogstyle.cjs",
+    "main": "./dialogstyle.mjs",
     "module": "./dialogstyle.mjs",
     "types": "./DialogStyle.d.ts",
     "sideEffects": false

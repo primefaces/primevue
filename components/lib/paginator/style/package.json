@@ -1,5 +1,5 @@
 {
-    "main": "./paginatorstyle.cjs",
+    "main": "./paginatorstyle.mjs",
     "module": "./paginatorstyle.mjs",
     "types": "./PaginatorStyle.d.ts",
     "sideEffects": false

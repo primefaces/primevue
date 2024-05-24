@@ -1,5 +1,5 @@
 {
-    "main": "./treetable.cjs",
+    "main": "./treetable.mjs",
     "module": "./treetable.mjs",
     "types": "./TreeTable.d.ts",
     "browser": {

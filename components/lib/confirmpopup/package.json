@@ -1,5 +1,5 @@
 {
-    "main": "./confirmpopup.cjs",
+    "main": "./confirmpopup.mjs",
     "module": "./confirmpopup.mjs",
     "types": "./ConfirmPopup.d.ts",
     "browser": {

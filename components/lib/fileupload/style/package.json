@@ -1,5 +1,5 @@
 {
-    "main": "./fileuploadstyle.cjs",
+    "main": "./fileuploadstyle.mjs",
     "module": "./fileuploadstyle.mjs",
     "types": "./FileUploadStyle.d.ts",
     "sideEffects": false

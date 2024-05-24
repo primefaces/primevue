@@ -1,5 +1,5 @@
 {
-    "main": "./dialog.cjs",
+    "main": "./dialog.mjs",
     "module": "./dialog.mjs",
     "types": "./Dialog.d.ts",
     "browser": {

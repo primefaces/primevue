@@ -1,5 +1,5 @@
 {
-    "main": "./chipsstyle.cjs",
+    "main": "./chipsstyle.mjs",
     "module": "./chipsstyle.mjs",
     "types": "./ChipsStyle.d.ts",
     "sideEffects": false

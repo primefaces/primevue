@@ -1,5 +1,5 @@
 {
-    "main": "./organizationchartstyle.cjs",
+    "main": "./organizationchartstyle.mjs",
     "module": "./organizationchartstyle.mjs",
     "types": "./OrganizationChartStyle.d.ts",
     "sideEffects": false

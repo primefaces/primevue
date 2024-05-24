@@ -1,5 +1,5 @@
 {
-    "main": "./tab.cjs",
+    "main": "./tab.mjs",
     "module": "./tab.mjs",
     "types": "./Tab.d.ts",
     "browser": {

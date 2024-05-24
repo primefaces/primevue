@@ -1,5 +1,5 @@
 {
-    "main": "./carousel.cjs",
+    "main": "./carousel.mjs",
     "module": "./carousel.mjs",
     "types": "./Carousel.d.ts",
     "browser": {

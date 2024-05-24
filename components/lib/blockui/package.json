@@ -1,5 +1,5 @@
 {
-    "main": "./blockui.cjs",
+    "main": "./blockui.mjs",
     "module": "./blockui.mjs",
     "types": "./BlockUI.d.ts",
     "browser": {

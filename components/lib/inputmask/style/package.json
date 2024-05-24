@@ -1,5 +1,5 @@
 {
-    "main": "./inputmaskstyle.cjs",
+    "main": "./inputmaskstyle.mjs",
     "module": "./inputmaskstyle.mjs",
     "types": "./InputMaskStyle.d.ts",
     "sideEffects": false

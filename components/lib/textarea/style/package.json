@@ -1,5 +1,5 @@
 {
-    "main": "./textareastyle.cjs",
+    "main": "./textareastyle.mjs",
     "module": "./textareastyle.mjs",
     "types": "./TextareaStyle.d.ts",
     "sideEffects": false

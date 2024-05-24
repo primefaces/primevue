@@ -1,5 +1,5 @@
 {
-    "main": "./dropdownstyle.cjs",
+    "main": "./dropdownstyle.mjs",
     "module": "./dropdownstyle.mjs",
     "types": "./DropdownStyle.d.ts",
     "sideEffects": false

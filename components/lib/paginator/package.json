@@ -1,5 +1,5 @@
 {
-    "main": "./paginator.cjs",
+    "main": "./paginator.mjs",
     "module": "./paginator.mjs",
     "types": "./Paginator.d.ts",
     "browser": {

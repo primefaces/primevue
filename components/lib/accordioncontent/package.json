@@ -1,5 +1,5 @@
 {
-    "main": "./accordioncontent.cjs",
+    "main": "./accordioncontent.mjs",
     "module": "./accordioncontent.mjs",
     "types": "./AccordionContent.d.ts",
     "browser": {

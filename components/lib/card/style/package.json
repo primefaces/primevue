@@ -1,5 +1,5 @@
 {
-    "main": "./cardstyle.cjs",
+    "main": "./cardstyle.mjs",
     "module": "./cardstyle.mjs",
     "types": "./CardStyle.d.ts",
     "sideEffects": false

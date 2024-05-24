@@ -1,5 +1,5 @@
 {
-    "main": "./message.cjs",
+    "main": "./message.mjs",
     "module": "./message.mjs",
     "types": "./Message.d.ts",
     "browser": {

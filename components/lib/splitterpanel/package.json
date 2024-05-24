@@ -1,5 +1,5 @@
 {
-    "main": "./splitterpanel.cjs",
+    "main": "./splitterpanel.mjs",
     "module": "./splitterpanel.mjs",
     "types": "./SplitterPanel.d.ts",
     "browser": {

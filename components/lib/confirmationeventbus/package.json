@@ -1,4 +1,4 @@
 {
-    "main": "./confirmationeventbus.cjs",
+    "main": "./confirmationeventbus.mjs",
     "module": "./confirmationeventbus.mjs"
 }

@@ -1,5 +1,5 @@
 {
-    "main": "./config.cjs",
+    "main": "./config.mjs",
     "module": "./config.mjs",
     "types": "./PrimeVue.d.ts"
 }

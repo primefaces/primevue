@@ -1,5 +1,5 @@
 {
-    "main": "./ripple.cjs",
+    "main": "./ripple.mjs",
     "module": "./ripple.mjs",
     "types": "./Ripple.d.ts"
 }

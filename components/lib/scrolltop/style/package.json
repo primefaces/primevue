@@ -1,5 +1,5 @@
 {
-    "main": "./scrolltopstyle.cjs",
+    "main": "./scrolltopstyle.mjs",
     "module": "./scrolltopstyle.mjs",
     "types": "./ScrollTopStyle.d.ts",
     "sideEffects": false

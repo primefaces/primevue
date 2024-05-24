@@ -1,5 +1,5 @@
 {
-    "main": "./picklist.cjs",
+    "main": "./picklist.mjs",
     "module": "./picklist.mjs",
     "types": "./PickList.d.ts",
     "browser": {

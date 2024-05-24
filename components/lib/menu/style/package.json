@@ -1,5 +1,5 @@
 {
-    "main": "./menustyle.cjs",
+    "main": "./menustyle.mjs",
     "module": "./menustyle.mjs",
     "types": "./MenuStyle.d.ts",
     "sideEffects": false

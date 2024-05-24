@@ -1,5 +1,5 @@
 {
-    "main": "./inplace.cjs",
+    "main": "./inplace.mjs",
     "module": "./inplace.mjs",
     "types": "./Inplace.d.ts",
     "browser": {

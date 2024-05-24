@@ -1,5 +1,5 @@
 {
-    "main": "./badge.cjs",
+    "main": "./badge.mjs",
     "module": "./badge.mjs",
     "types": "./Badge.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./accordiontab.cjs",
+    "main": "./accordiontab.mjs",
     "module": "./accordiontab.mjs",
     "types": "./AccordionTab.d.ts",
     "browser": {

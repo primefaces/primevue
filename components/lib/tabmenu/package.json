@@ -1,5 +1,5 @@
 {
-    "main": "./tabmenu.cjs",
+    "main": "./tabmenu.mjs",
     "module": "./tabmenu.mjs",
     "types": "./TabMenu.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./rating.cjs",
+    "main": "./rating.mjs",
     "module": "./rating.mjs",
     "types": "./Rating.d.ts",
     "browser": {

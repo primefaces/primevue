@@ -1,5 +1,5 @@
 {
-    "main": "./listbox.cjs",
+    "main": "./listbox.mjs",
     "module": "./listbox.mjs",
     "types": "./Listbox.d.ts",
     "browser": {

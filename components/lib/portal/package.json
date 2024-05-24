@@ -1,5 +1,5 @@
 {
-    "main": "./portal.cjs",
+    "main": "./portal.mjs",
     "module": "./portal.mjs",
     "types": "./Portal.d.ts",
     "browser": {

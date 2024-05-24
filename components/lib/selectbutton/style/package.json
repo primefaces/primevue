@@ -1,5 +1,5 @@
 {
-    "main": "./selectbuttonstyle.cjs",
+    "main": "./selectbuttonstyle.mjs",
     "module": "./selectbuttonstyle.mjs",
     "types": "./SelectButtonStyle.d.ts",
     "sideEffects": false

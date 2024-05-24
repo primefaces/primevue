@@ -1,5 +1,5 @@
 {
-    "main": "./terminal.cjs",
+    "main": "./terminal.mjs",
     "module": "./terminal.mjs",
     "types": "./Terminal.d.ts",
     "browser": {

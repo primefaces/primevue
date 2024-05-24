@@ -1,5 +1,5 @@
 {
-    "main": "./metergroup.cjs",
+    "main": "./metergroup.mjs",
     "module": "./metergroup.mjs",
     "types": "./MeterGroup.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./timelinestyle.cjs",
+    "main": "./timelinestyle.mjs",
     "module": "./timelinestyle.mjs",
     "types": "./TimelineStyle.d.ts",
     "sideEffects": false

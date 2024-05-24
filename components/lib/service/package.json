@@ -1,4 +1,4 @@
 {
-    "main": "./primevueservice.cjs",
+    "main": "./primevueservice.mjs",
     "module": "./primevueservice.mjs"
 }

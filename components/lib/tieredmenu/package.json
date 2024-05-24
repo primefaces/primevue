@@ -1,5 +1,5 @@
 {
-    "main": "./tieredmenu.cjs",
+    "main": "./tieredmenu.mjs",
     "module": "./tieredmenu.mjs",
     "types": "./TieredMenu.d.ts",
     "browser": {

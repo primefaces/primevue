@@ -1,5 +1,5 @@
 {
-    "main": "./confirmdialog.cjs",
+    "main": "./confirmdialog.mjs",
     "module": "./confirmdialog.mjs",
     "types": "./ConfirmDialog.d.ts",
     "browser": {

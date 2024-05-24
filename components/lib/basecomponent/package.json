@@ -1,5 +1,5 @@
 {
-    "main": "./basecomponent.cjs",
+    "main": "./basecomponent.mjs",
     "module": "./basecomponent.mjs",
     "types": "./BaseComponent.d.ts",
     "browser": {

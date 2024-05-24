@@ -1,5 +1,5 @@
 {
-    "main": "./ratingstyle.cjs",
+    "main": "./ratingstyle.mjs",
     "module": "./ratingstyle.mjs",
     "types": "./RatingStyle.d.ts",
     "sideEffects": false

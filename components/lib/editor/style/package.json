@@ -1,5 +1,5 @@
 {
-    "main": "./editorstyle.cjs",
+    "main": "./editorstyle.mjs",
     "module": "./editorstyle.mjs",
     "types": "./EditorStyle.d.ts",
     "sideEffects": false

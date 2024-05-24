@@ -1,5 +1,5 @@
 {
-    "main": "./tieredmenustyle.cjs",
+    "main": "./tieredmenustyle.mjs",
     "module": "./tieredmenustyle.mjs",
     "types": "./TieredMenuStyle.d.ts",
     "sideEffects": false

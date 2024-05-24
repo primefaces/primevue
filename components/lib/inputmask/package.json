@@ -1,5 +1,5 @@
 {
-    "main": "./inputmask.cjs",
+    "main": "./inputmask.mjs",
     "module": "./inputmask.mjs",
     "types": "./InputMask.d.ts",
     "browser": {

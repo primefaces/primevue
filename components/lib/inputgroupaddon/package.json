@@ -1,5 +1,5 @@
 {
-    "main": "./inputgroupaddon.cjs",
+    "main": "./inputgroupaddon.mjs",
     "module": "./inputgroupaddon.mjs",
     "types": "./InputGroupAddon.d.ts",
     "browser": {

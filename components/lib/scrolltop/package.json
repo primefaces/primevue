@@ -1,5 +1,5 @@
 {
-    "main": "./scrolltop.cjs",
+    "main": "./scrolltop.mjs",
     "module": "./scrolltop.mjs",
     "types": "./ScrollTop.d.ts",
     "browser": {

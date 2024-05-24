@@ -1,5 +1,5 @@
 {
-    "main": "./styleclassstyle.cjs",
+    "main": "./styleclassstyle.mjs",
     "module": "./styleclassstyle.mjs",
     "types": "./StyleClassStyle.d.ts",
     "sideEffects": false

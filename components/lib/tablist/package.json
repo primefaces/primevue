@@ -1,5 +1,5 @@
 {
-    "main": "./tablist.cjs",
+    "main": "./tablist.mjs",
     "module": "./tablist.mjs",
     "types": "./TabList.d.ts",
     "browser": {

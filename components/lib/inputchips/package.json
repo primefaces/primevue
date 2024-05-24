@@ -1,5 +1,5 @@
 {
-    "main": "./inputchips.cjs",
+    "main": "./inputchips.mjs",
     "module": "./inputchips.mjs",
     "types": "./InputChips.d.ts",
     "browser": {

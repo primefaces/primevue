@@ -1,5 +1,5 @@
 {
-    "main": "./accordionstyle.cjs",
+    "main": "./accordionstyle.mjs",
     "module": "./accordionstyle.mjs",
     "types": "./AccordionStyle.d.ts",
     "sideEffects": false

@@ -1,5 +1,5 @@
 {
-    "main": "./divider.cjs",
+    "main": "./divider.mjs",
     "module": "./divider.mjs",
     "types": "./Divider.d.ts",
     "browser": {

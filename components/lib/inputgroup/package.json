@@ -1,5 +1,5 @@
 {
-    "main": "./inputgroup.cjs",
+    "main": "./inputgroup.mjs",
     "module": "./inputgroup.mjs",
     "types": "./InputGroup.d.ts",
     "browser": {

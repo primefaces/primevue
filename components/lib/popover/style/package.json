@@ -1,5 +1,5 @@
 {
-    "main": "./popoverstyle.cjs",
+    "main": "./popoverstyle.mjs",
     "module": "./popoverstyle.mjs",
     "types": "./PopoverStyle.d.ts",
     "sideEffects": false

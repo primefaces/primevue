@@ -1,5 +1,5 @@
 {
-    "main": "./stepsstyle.cjs",
+    "main": "./stepsstyle.mjs",
     "module": "./stepsstyle.mjs",
     "types": "./StepsStyle.d.ts",
     "sideEffects": false

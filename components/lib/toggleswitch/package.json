@@ -1,5 +1,5 @@
 {
-    "main": "./toggleswitch.cjs",
+    "main": "./toggleswitch.mjs",
     "module": "./toggleswitch.mjs",
     "types": "./ToggleSwitch.d.ts",
     "browser": {

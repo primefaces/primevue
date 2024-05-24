@@ -1,5 +1,5 @@
 {
-    "main": "./fieldset.cjs",
+    "main": "./fieldset.mjs",
     "module": "./fieldset.mjs",
     "types": "./Fieldset.d.ts",
     "browser": {

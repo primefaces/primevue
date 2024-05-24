@@ -1,5 +1,5 @@
 {
-    "main": "./speeddial.cjs",
+    "main": "./speeddial.mjs",
     "module": "./speeddial.mjs",
     "types": "./SpeedDial.d.ts",
     "browser": {

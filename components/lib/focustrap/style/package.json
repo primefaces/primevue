@@ -1,5 +1,5 @@
 {
-    "main": "./focustrapstyle.cjs",
+    "main": "./focustrapstyle.mjs",
     "module": "./focustrapstyle.mjs",
     "types": "./FocusTrapStyle.d.ts",
     "sideEffects": false

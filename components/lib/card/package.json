@@ -1,5 +1,5 @@
 {
-    "main": "./card.cjs",
+    "main": "./card.mjs",
     "module": "./card.mjs",
     "types": "./Card.d.ts",
     "browser": {

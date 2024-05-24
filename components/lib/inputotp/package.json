@@ -1,5 +1,5 @@
 {
-    "main": "./inputotp.cjs",
+    "main": "./inputotp.mjs",
     "module": "./inputotp.mjs",
     "types": "./InputOtp.d.ts",
     "browser": {

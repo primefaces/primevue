@@ -1,5 +1,5 @@
 {
-    "main": "./tabpanels.cjs",
+    "main": "./tabpanels.mjs",
     "module": "./tabpanels.mjs",
     "types": "./TabPanels.d.ts",
     "browser": {

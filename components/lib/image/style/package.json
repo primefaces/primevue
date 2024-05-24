@@ -1,5 +1,5 @@
 {
-    "main": "./imagestyle.cjs",
+    "main": "./imagestyle.mjs",
     "module": "./imagestyle.mjs",
     "types": "./ImageStyle.d.ts",
     "sideEffects": false

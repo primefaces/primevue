@@ -1,5 +1,5 @@
 {
-    "main": "./columnstyle.cjs",
+    "main": "./columnstyle.mjs",
     "module": "./columnstyle.mjs",
     "types": "./ColumnStyle.d.ts",
     "sideEffects": false

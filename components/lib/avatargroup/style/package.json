@@ -1,5 +1,5 @@
 {
-    "main": "./avatargroupstyle.cjs",
+    "main": "./avatargroupstyle.mjs",
     "module": "./avatargroupstyle.mjs",
     "types": "./AvatarGroupStyle.d.ts",
     "sideEffects": false

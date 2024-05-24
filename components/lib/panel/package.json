@@ -1,5 +1,5 @@
 {
-    "main": "./panel.cjs",
+    "main": "./panel.mjs",
     "module": "./panel.mjs",
     "types": "./Panel.d.ts",
     "browser": {

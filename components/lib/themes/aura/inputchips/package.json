@@ -1,5 +1,5 @@
 {
-    "main": "./index.cjs",
+    "main": "./index.mjs",
     "module": "./index.mjs",
     "types": "../types/inputchips/index.d.ts"
 }

@@ -1,4 +1,4 @@
 {
-    "main": "./toasteventbus.cjs",
+    "main": "./toasteventbus.mjs",
     "module": "./toasteventbus.mjs"
 }

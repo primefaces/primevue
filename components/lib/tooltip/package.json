@@ -1,5 +1,5 @@
 {
-    "main": "./tooltip.cjs",
+    "main": "./tooltip.mjs",
     "module": "./tooltip.mjs",
     "types": "./Tooltip.d.ts"
 }

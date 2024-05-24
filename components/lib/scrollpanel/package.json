@@ -1,5 +1,5 @@
 {
-    "main": "./scrollpanel.cjs",
+    "main": "./scrollpanel.mjs",
     "module": "./scrollpanel.mjs",
     "types": "./ScrollPanel.d.ts",
     "browser": {

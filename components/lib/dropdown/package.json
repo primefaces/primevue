@@ -1,5 +1,5 @@
 {
-    "main": "./dropdown.cjs",
+    "main": "./dropdown.mjs",
     "module": "./dropdown.mjs",
     "types": "./Dropdown.d.ts",
     "browser": {

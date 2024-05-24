@@ -1,4 +1,4 @@
 {
-    "main": "./dynamicdialogeventbus.cjs",
+    "main": "./dynamicdialogeventbus.mjs",
     "module": "./dynamicdialogeventbus.mjs"
 }

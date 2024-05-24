@@ -1,5 +1,5 @@
 {
-    "main": "./password.cjs",
+    "main": "./password.mjs",
     "module": "./password.mjs",
     "types": "./Password.d.ts",
     "browser": {

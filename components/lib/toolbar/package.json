@@ -1,5 +1,5 @@
 {
-    "main": "./toolbar.cjs",
+    "main": "./toolbar.mjs",
     "module": "./toolbar.mjs",
     "types": "./Toolbar.d.ts",
     "browser": {

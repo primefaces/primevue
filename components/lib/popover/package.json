@@ -1,5 +1,5 @@
 {
-    "main": "./popover.cjs",
+    "main": "./popover.mjs",
     "module": "./popover.mjs",
     "types": "./Popover.d.ts",
     "browser": {

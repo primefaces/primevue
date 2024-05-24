@@ -1,5 +1,5 @@
 {
-    "main": "./ripplestyle.cjs",
+    "main": "./ripplestyle.mjs",
     "module": "./ripplestyle.mjs",
     "types": "./RippleStyle.d.ts",
     "sideEffects": false

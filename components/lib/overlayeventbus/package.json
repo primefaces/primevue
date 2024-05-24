@@ -1,4 +1,4 @@
 {
-    "main": "./overlayeventbus.cjs",
+    "main": "./overlayeventbus.mjs",
     "module": "./overlayeventbus.mjs"
 }

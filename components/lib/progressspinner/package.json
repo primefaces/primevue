@@ -1,5 +1,5 @@
 {
-    "main": "./progressspinner.cjs",
+    "main": "./progressspinner.mjs",
     "module": "./progressspinner.mjs",
     "types": "./ProgressSpinner.d.ts",
     "browser": {

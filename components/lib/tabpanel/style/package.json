@@ -1,5 +1,5 @@
 {
-    "main": "./tabpanelstyle.cjs",
+    "main": "./tabpanelstyle.mjs",
     "module": "./tabpanelstyle.mjs",
     "types": "./TabPanelStyle.d.ts",
     "sideEffects": false

@@ -1,5 +1,5 @@
 {
-    "main": "./treeselect.cjs",
+    "main": "./treeselect.mjs",
     "module": "./treeselect.mjs",
     "types": "./TreeSelect.d.ts",
     "browser": {

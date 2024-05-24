@@ -1,5 +1,5 @@
 {
-    "main": "./orderliststyle.cjs",
+    "main": "./orderliststyle.mjs",
     "module": "./orderliststyle.mjs",
     "types": "./OrderListStyle.d.ts",
     "sideEffects": false

@@ -1,5 +1,5 @@
 {
-    "main": "./splitterpanelstyle.cjs",
+    "main": "./splitterpanelstyle.mjs",
     "module": "./splitterpanelstyle.mjs",
     "types": "./SplitterPanelStyle.d.ts",
     "sideEffects": false

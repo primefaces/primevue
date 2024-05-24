@@ -1,5 +1,5 @@
 {
-    "main": "./speeddialstyle.cjs",
+    "main": "./speeddialstyle.mjs",
     "module": "./speeddialstyle.mjs",
     "types": "./SpeedDialStyle.d.ts",
     "sideEffects": false

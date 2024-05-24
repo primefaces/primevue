@@ -1,5 +1,5 @@
 {
-    "main": "./floatlabel.cjs",
+    "main": "./floatlabel.mjs",
     "module": "./floatlabel.mjs",
     "types": "./FloatLabel.d.ts",
     "browser": {

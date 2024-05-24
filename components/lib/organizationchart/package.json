@@ -1,5 +1,5 @@
 {
-    "main": "./organizationchart.cjs",
+    "main": "./organizationchart.mjs",
     "module": "./organizationchart.mjs",
     "types": "./OrganizationChart.d.ts",
     "browser": {

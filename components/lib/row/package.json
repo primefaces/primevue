@@ -1,5 +1,5 @@
 {
-    "main": "./row.cjs",
+    "main": "./row.mjs",
     "module": "./row.mjs",
     "types": "./Row.d.ts",
     "browser": {

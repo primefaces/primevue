@@ -1,5 +1,5 @@
 {
-    "main": "./pickliststyle.cjs",
+    "main": "./pickliststyle.mjs",
     "module": "./pickliststyle.mjs",
     "types": "./PickListStyle.d.ts",
     "sideEffects": false

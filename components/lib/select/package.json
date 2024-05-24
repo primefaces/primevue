@@ -1,5 +1,5 @@
 {
-    "main": "./select.cjs",
+    "main": "./select.mjs",
     "module": "./select.mjs",
     "types": "./Select.d.ts",
     "browser": {

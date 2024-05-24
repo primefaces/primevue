@@ -1,5 +1,5 @@
 {
-    "main": "./cascadeselectstyle.cjs",
+    "main": "./cascadeselectstyle.mjs",
     "module": "./cascadeselectstyle.mjs",
     "types": "./CascadeSelectStyle.d.ts",
     "sideEffects": false

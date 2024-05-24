@@ -1,5 +1,5 @@
 {
-    "main": "./knob.cjs",
+    "main": "./knob.mjs",
     "module": "./knob.mjs",
     "types": "./Knob.d.ts",
     "browser": {

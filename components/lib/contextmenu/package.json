@@ -1,5 +1,5 @@
 {
-    "main": "./contextmenu.cjs",
+    "main": "./contextmenu.mjs",
     "module": "./contextmenu.mjs",
     "types": "./ContextMenu.d.ts",
     "browser": {

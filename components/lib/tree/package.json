@@ -1,5 +1,5 @@
 {
-    "main": "./tree.cjs",
+    "main": "./tree.mjs",
     "module": "./tree.mjs",
     "types": "./Tree.d.ts",
     "browser": {

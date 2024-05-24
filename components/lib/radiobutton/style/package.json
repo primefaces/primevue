@@ -1,5 +1,5 @@
 {
-    "main": "./radiobuttonstyle.cjs",
+    "main": "./radiobuttonstyle.mjs",
     "module": "./radiobuttonstyle.mjs",
     "types": "./RadioButtonStyle.d.ts",
     "sideEffects": false

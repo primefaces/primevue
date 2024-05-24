@@ -1,5 +1,5 @@
 {
-    "main": "./inputtextstyle.cjs",
+    "main": "./inputtextstyle.mjs",
     "module": "./inputtextstyle.mjs",
     "types": "./InputTextStyle.d.ts",
     "sideEffects": false

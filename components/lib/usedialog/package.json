@@ -1,5 +1,5 @@
 {
-    "main": "./usedialog.cjs",
+    "main": "./usedialog.mjs",
     "module": "./usedialog.mjs",
     "types": "./UseDialog.d.ts"
 }

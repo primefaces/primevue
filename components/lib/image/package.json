@@ -1,5 +1,5 @@
 {
-    "main": "./image.cjs",
+    "main": "./image.mjs",
     "module": "./image.mjs",
     "types": "./Image.d.ts",
     "browser": {

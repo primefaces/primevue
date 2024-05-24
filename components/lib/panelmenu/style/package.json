@@ -1,5 +1,5 @@
 {
-    "main": "./panelmenustyle.cjs",
+    "main": "./panelmenustyle.mjs",
     "module": "./panelmenustyle.mjs",
     "types": "./PanelMenuStyle.d.ts",
     "sideEffects": false

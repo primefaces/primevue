@@ -1,5 +1,5 @@
 {
-    "main": "./drawerstyle.cjs",
+    "main": "./drawerstyle.mjs",
     "module": "./drawerstyle.mjs",
     "types": "./DrawerStyle.d.ts",
     "sideEffects": false

@@ -1,5 +1,5 @@
 {
-    "main": "./overlaypanel.cjs",
+    "main": "./overlaypanel.mjs",
     "module": "./overlaypanel.mjs",
     "types": "./OverlayPanel.d.ts",
     "browser": {

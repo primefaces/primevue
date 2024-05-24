@@ -1,5 +1,5 @@
 {
-    "main": "./skeletonstyle.cjs",
+    "main": "./skeletonstyle.mjs",
     "module": "./skeletonstyle.mjs",
     "types": "./SkeletonStyle.d.ts",
     "sideEffects": false

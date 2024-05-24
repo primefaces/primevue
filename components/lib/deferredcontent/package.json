@@ -1,5 +1,5 @@
 {
-    "main": "./deferredcontent.cjs",
+    "main": "./deferredcontent.mjs",
     "module": "./deferredcontent.mjs",
     "types": "./DeferredContent.d.ts",
     "browser": {

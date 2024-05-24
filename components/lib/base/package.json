@@ -1,4 +1,4 @@
 {
-    "main": "./base.cjs",
+    "main": "./base.mjs",
     "module": "./base.mjs"
 }

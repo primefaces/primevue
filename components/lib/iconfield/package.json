@@ -1,5 +1,5 @@
 {
-    "main": "./iconfield.cjs",
+    "main": "./iconfield.mjs",
     "module": "./iconfield.mjs",
     "types": "./IconField.d.ts",
     "browser": {

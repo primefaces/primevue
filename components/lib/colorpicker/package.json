@@ -1,5 +1,5 @@
 {
-    "main": "./colorpicker.cjs",
+    "main": "./colorpicker.mjs",
     "module": "./colorpicker.mjs",
     "types": "./ColorPicker.d.ts",
     "browser": {

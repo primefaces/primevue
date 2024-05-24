@@ -1,5 +1,5 @@
 {
-    "main": "./useconfirm.cjs",
+    "main": "./useconfirm.mjs",
     "module": "./useconfirm.mjs",
     "types": "./UseConfirm.d.ts"
 }

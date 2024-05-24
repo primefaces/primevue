@@ -1,5 +1,5 @@
 {
-    "main": "./inputswitch.cjs",
+    "main": "./inputswitch.mjs",
     "module": "./inputswitch.mjs",
     "types": "./InputSwitch.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./datepickerstyle.cjs",
+    "main": "./datepickerstyle.mjs",
     "module": "./datepickerstyle.mjs",
     "types": "./DatePickerStyle.d.ts",
     "sideEffects": false

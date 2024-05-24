@@ -1,5 +1,5 @@
 {
-    "main": "./dataview.cjs",
+    "main": "./dataview.mjs",
     "module": "./dataview.mjs",
     "types": "./DataView.d.ts",
     "browser": {

@@ -1,5 +1,5 @@
 {
-    "main": "./usestyle.cjs",
+    "main": "./usestyle.mjs",
     "module": "./usestyle.mjs",
     "types": "./UseStyle.d.ts"
 }

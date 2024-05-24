@@ -1,5 +1,5 @@
 {
-    "main": "./dividerstyle.cjs",
+    "main": "./dividerstyle.mjs",
     "module": "./dividerstyle.mjs",
     "types": "./DividerStyle.d.ts",
     "sideEffects": false

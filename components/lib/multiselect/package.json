@@ -1,5 +1,5 @@
 {
-    "main": "./multiselect.cjs",
+    "main": "./multiselect.mjs",
     "module": "./multiselect.mjs",
     "types": "./MultiSelect.d.ts",
     "browser": {

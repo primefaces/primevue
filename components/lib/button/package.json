@@ -1,5 +1,5 @@
 {
-    "main": "./button.cjs",
+    "main": "./button.mjs",
     "module": "./button.mjs",
     "types": "./Button.d.ts",
     "browser": {

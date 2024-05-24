@@ -1,5 +1,5 @@
 {
-    "main": "./checkbox.cjs",
+    "main": "./checkbox.mjs",
     "module": "./checkbox.mjs",
     "types": "./Checkbox.d.ts",
     "browser": {

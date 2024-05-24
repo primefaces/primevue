@@ -1,5 +1,5 @@
 {
-    "main": "./menubar.cjs",
+    "main": "./menubar.mjs",
     "module": "./menubar.mjs",
     "types": "./Menubar.d.ts",
     "browser": {

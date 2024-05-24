@@ -1,5 +1,5 @@
 {
-    "main": "./inputicon.cjs",
+    "main": "./inputicon.mjs",
     "module": "./inputicon.mjs",
     "types": "./InputIcon.d.ts",
     "browser": {

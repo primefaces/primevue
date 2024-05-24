@@ -1,5 +1,5 @@
 {
-    "main": "./inputnumber.cjs",
+    "main": "./inputnumber.mjs",
     "module": "./inputnumber.mjs",
     "types": "./InputNumber.d.ts",
     "browser": {
