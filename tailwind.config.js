@@ -7,5 +7,14 @@ module.exports = {
     },
     darkMode: ['selector', '[class="p-dark"]'],
     content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/doc/**/*.{js,vue,ts}', './components/landing/**/*.{js,vue,ts}', './components/template/**/*.{js,vue,ts}', './doc/**/*.{js,vue,ts}', './error.vue'],
-    plugins: [primeui]
+    plugins: [primeui],
+    theme: {
+        screens: {
+            sm: '576px',
+            md: '768px',
+            lg: '992px',
+            xl: '1200px',
+            '2xl': '1920px'
+        }
+    }
 };
