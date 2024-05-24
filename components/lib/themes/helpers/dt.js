@@ -20,8 +20,8 @@ export const dt = (...args) => {
 
 export const dtwt = (theme = {}, tokenPath, fallback, type = 'variable') => {
     if (tokenPath) {
-        const VARIABLE = Theme.defaults.variable;
-        const { prefix, transform } = theme?.options || {};
+        const { variable: VARIABLE, options: OPTIONS } = Theme.defaults || {};
+        const { prefix, transform } = theme?.options || OPTIONS || {};
         const regex = /{([^}]*)}/g;
         const token = SharedUtils.object.test(regex, tokenPath) ? tokenPath : `{${tokenPath}}`;
         const isStrictTransform = type === 'value' || transform === 'strict'; // @todo - TRANSFORM: strict | lenient(default)
