@@ -151,12 +151,13 @@ export default {
             .join('');
     },
     getStyleSheet({ name = '', theme = {}, params, props = {}, set, defaults }) {
-        const presetC_css = this.getPresetC({ name, theme, params, set, defaults })?.css;
+        const options = { name, theme, params, set, defaults };
+        const preset_css = (name.includes('-directive') ? this.getPresetD(options) : this.getPresetC(options))?.css;
         const _props = Object.entries(props)
             .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
             .join(' ');
 
-        return presetC_css ? `<style type="text/css" data-primevue-style-id="${name}-variables" ${_props}>${SharedUtils.object.minifyCSS(presetC_css)}</style>` : '';
+        return preset_css ? `<style type="text/css" data-primevue-style-id="${name}-variables" ${_props}>${SharedUtils.object.minifyCSS(preset_css)}</style>` : '';
     },
     createTokens(obj = {}, defaults, parentKey = '', parentPath = '', tokens = {}) {
         Object.entries(obj).forEach(([key, value]) => {

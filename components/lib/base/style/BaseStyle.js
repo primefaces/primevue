@@ -203,7 +203,7 @@ export default {
         let css = [Theme.getStyleSheet(this.name, params, props)];
 
         if (this.theme) {
-            const name = `${this.name}-style`;
+            const name = this.name === 'base' ? 'global-style' : `${this.name}-style`;
             const _css = ObjectUtils.getItemValue(this.theme, { dt });
             const _style = ObjectUtils.minifyCSS(Theme.transformCSS(name, _css));
             const _props = Object.entries(props)
