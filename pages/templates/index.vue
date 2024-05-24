@@ -3,7 +3,6 @@
         <div class="doc-intro">
             <h1>Templates</h1>
             <p>Highly customizable application templates to get started in no time with style. Designed and implemented by PrimeTek.</p>
-            <Button style="display: none" />
         </div>
 
         <div class="templates-page grid grid-cols-12 gap-4">
