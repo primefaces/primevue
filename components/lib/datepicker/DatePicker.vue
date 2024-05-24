@@ -240,7 +240,7 @@
                                                         })
                                                     "
                                                     :data-p-disabled="!date.selectable"
-                                                    :data-p-highlight="isSelected(date)"
+                                                    :data-p-selected="isSelected(date)"
                                                     data-pc-group-section="tablebodycelllabel"
                                                 >
                                                     <slot name="date" :date="date">{{ date.day }}</slot>
@@ -273,7 +273,7 @@
                                     })
                                 "
                                 :data-p-disabled="!m.selectable"
-                                :data-p-highlight="isMonthSelected(i)"
+                                :data-p-selected="isMonthSelected(i)"
                             >
                                 {{ m.value }}
                                 <div v-if="isMonthSelected(i)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenMonth')" :data-p-hidden-accessible="true">
@@ -299,7 +299,7 @@
                                     })
                                 "
                                 :data-p-disabled="!y.selectable"
-                                :data-p-highlight="isYearSelected(y.value)"
+                                :data-p-selected="isYearSelected(y.value)"
                             >
                                 {{ y.value }}
                                 <div v-if="isYearSelected(y.value)" class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenYear')" :data-p-hidden-accessible="true">
@@ -2487,18 +2487,18 @@ export default {
 
             if (this.currentView === 'month') {
                 let cells = DomHandler.find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"][data-p-highlight="true"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"][data-p-selected="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else if (this.currentView === 'year') {
                 let cells = DomHandler.find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"][data-p-highlight="true"]');
+                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"][data-p-selected="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else {
-                cell = DomHandler.findSingle(this.overlay, 'span[data-p-highlight="true"]');
+                cell = DomHandler.findSingle(this.overlay, 'span[data-p-selected="true"]');
 
                 if (!cell) {
                     let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not([data-p-disabled="true"]):not([data-p-ink="true"])');

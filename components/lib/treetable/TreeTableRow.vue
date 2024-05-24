@@ -15,7 +15,7 @@
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
         v-bind="ptm('row', ptmOptions)"
-        :data-p-highlight="selected"
+        :data-p-selected="selected"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -290,14 +290,14 @@ export default {
         },
         onTabKey() {
             const rows = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
-            const hasSelectedRow = rows.some((row) => DomHandler.getAttribute(row, 'data-p-highlight') || row.getAttribute('aria-checked') === 'true');
+            const hasSelectedRow = rows.some((row) => DomHandler.getAttribute(row, 'data-p-selected') || row.getAttribute('aria-checked') === 'true');
 
             rows.forEach((row) => {
                 row.tabIndex = -1;
             });
 
             if (hasSelectedRow) {
-                const selectedNodes = rows.filter((node) => DomHandler.getAttribute(node, 'data-p-highlight') || node.getAttribute('aria-checked') === 'true');
+                const selectedNodes = rows.filter((node) => DomHandler.getAttribute(node, 'data-p-selected') || node.getAttribute('aria-checked') === 'true');
 
                 selectedNodes[0].tabIndex = 0;
 

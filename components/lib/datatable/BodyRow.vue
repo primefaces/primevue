@@ -35,8 +35,8 @@
             v-bind="getBodyRowPTOptions('bodyRow')"
             :data-p-index="rowIndex"
             :data-p-selectable-row="selectionMode ? true : false"
-            :data-p-highlight="selection && isSelected"
-            :data-p-highlight-contextmenu="contextMenuSelection && isSelectedWithContextMenu"
+            :data-p-selected="selection && isSelected"
+            :data-p-selected-contextmenu="contextMenuSelection && isSelectedWithContextMenu"
         >
             <template v-for="(col, i) of columns">
                 <DTBodyCell

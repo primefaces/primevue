@@ -148,7 +148,7 @@
                                             @click="onOptionSelect($event, option, getOptionIndex(i, getItemOptions), true)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                             v-bind="getCheckboxPTOptions(option, getItemOptions, i, 'option')"
-                                            :data-p-highlight="isSelected(option)"
+                                            :data-p-selected="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >

@@ -460,7 +460,7 @@ export default {
         },
         scrollValueInView() {
             if (this.overlay) {
-                let selectedItem = DomHandler.findSingle(this.overlay, '[data-p-highlight="true"]');
+                let selectedItem = DomHandler.findSingle(this.overlay, '[data-p-selected="true"]');
 
                 if (selectedItem) {
                     selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });

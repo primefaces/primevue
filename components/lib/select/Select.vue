@@ -139,7 +139,7 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @click="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                            :data-p-highlight="isSelected(option)"
+                                            :data-p-selected="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'option')"

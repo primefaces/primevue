@@ -87,7 +87,7 @@
                                 @touchend="onOptionTouchEnd()"
                                 @dblclick="onOptionDblClick($event, option)"
                                 v-bind="getPTOptions(option, getItemOptions, i, 'option')"
-                                :data-p-highlight="isSelected(option)"
+                                :data-p-selected="isSelected(option)"
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"
                             >

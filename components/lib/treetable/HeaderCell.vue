@@ -10,7 +10,7 @@
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
         :data-p-sortable-column="columnProp('sortable')"
         :data-p-resizable-column="resizableColumns"
-        :data-p-highlight="isColumnSorted()"
+        :data-p-sorted="isColumnSorted()"
         :data-p-frozen-column="columnProp('frozen')"
     >
         <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>

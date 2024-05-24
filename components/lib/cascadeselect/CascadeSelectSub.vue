@@ -13,7 +13,7 @@
                 :aria-posinset="index + 1"
                 v-bind="getPTOptions(processedOption, index, 'option')"
                 :data-p-option-group="isOptionGroup(processedOption)"
-                :data-p-highlight="isOptionActive(processedOption)"
+                :data-p-active="isOptionActive(processedOption)"
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >

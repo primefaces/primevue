@@ -959,7 +959,7 @@ export default {
             const rows = DomHandler.find(body, 'tr[data-p-selectable-row="true"]');
 
             if (event.code === 'Tab' && rows && rows.length > 0) {
-                const firstSelectedRow = DomHandler.findSingle(body, 'tr[data-p-highlight="true"]');
+                const firstSelectedRow = DomHandler.findSingle(body, 'tr[data-p-selected="true"]');
                 const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
                 if (firstSelectedRow) {

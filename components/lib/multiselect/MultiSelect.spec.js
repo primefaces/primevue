@@ -49,7 +49,7 @@ describe('MultiSelect.vue', () => {
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0]] });
         await wrapper.vm.onContainerClick();
 
-        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-highlight']).toBe('true');
+        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-selected']).toBe('true');
         expect(wrapper.find('.p-multiselect-label').text()).toBe('New York');
     });
 
@@ -63,8 +63,8 @@ describe('MultiSelect.vue', () => {
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0], wrapper.vm.options[1]] });
         await wrapper.vm.onContainerClick();
 
-        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-highlight']).toBe('true');
-        expect(wrapper.findAll('li.p-multiselect-item')[1].attributes()['data-p-highlight']).toBe('true');
+        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-selected']).toBe('true');
+        expect(wrapper.findAll('li.p-multiselect-item')[1].attributes()['data-p-selected']).toBe('true');
     });
 
     it('should close panel', async () => {

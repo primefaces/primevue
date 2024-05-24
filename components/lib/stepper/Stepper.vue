@@ -12,10 +12,9 @@
                     role="presentation"
                     v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'item', index) }"
                     data-pc-name="stepperpanel"
-                    :data-p-highlight="isStepActive(index)"
+                    :data-p-active="isStepActive(index)"
                     :data-p-disabled="isItemDisabled(index)"
                     :data-pc-index="index"
-                    :data-p-active="isStepActive(index)"
                 >
                     <slot name="header">
                         <StepperHeader
@@ -77,10 +76,9 @@
                 :aria-current="isStepActive(index) ? 'step' : undefined"
                 v-bind="{ ...getStepPT(step, 'root', index), ...getStepPT(step, 'panel', index) }"
                 data-pc-name="stepperpanel"
-                :data-p-highlight="isStepActive(index)"
+                :data-p-active="isStepActive(index)"
                 :data-p-disabled="isItemDisabled(index)"
                 :data-pc-index="index"
-                :data-p-active="isStepActive(index)"
             >
                 <div :class="cx('stepper.item', { step, index })" v-bind="getStepPT(step, 'item', index)">
                     <slot name="header">

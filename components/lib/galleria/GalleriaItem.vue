@@ -26,7 +26,7 @@
                 @mouseenter="onIndicatorMouseEnter(index)"
                 @keydown="onIndicatorKeyDown($event, index)"
                 v-bind="ptm('indicator', getIndicatorPTOptions(index))"
-                :data-p-highlight="isIndicatorItemActive(index)"
+                :data-p-active="isIndicatorItemActive(index)"
             >
                 <button v-if="!templates['indicator']" type="button" :tabindex="activeIndex === index ? '0' : '-1'" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton', getIndicatorPTOptions(index))"></button>
                 <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
@@ -214,7 +214,7 @@ export default {
         },
         onTabKey() {
             const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
-            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-highlight') === true);
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-active') === true);
 
             const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);

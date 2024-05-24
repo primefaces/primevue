@@ -17,7 +17,7 @@
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
         :data-p-sortable-column="columnProp('sortable')"
         :data-p-resizable-column="resizableColumns"
-        :data-p-highlight="isColumnSorted()"
+        :data-p-sorted="isColumnSorted()"
         :data-p-filter-column="filterColumn"
         :data-p-frozen-column="columnProp('frozen')"
         :data-p-reorderable-column="reorderableColumns"

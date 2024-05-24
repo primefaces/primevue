@@ -10,7 +10,7 @@
                     @click="onItemClick($event, item, i)"
                     @keydown="onKeydownItem($event, item, i)"
                     v-bind="getPTOptions('item', item, i)"
-                    :data-p-highlight="d_activeIndex === i"
+                    :data-p-active="d_activeIndex === i"
                     :data-p-disabled="disabled(item)"
                 >
                     <template v-if="!$slots.item">
@@ -183,7 +183,7 @@ export default {
             return siblings ? siblings[siblings.length - 1].children[0] : null;
         },
         findActiveItem() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-highlight="true"]');
+            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
 
             return activeItem ? activeItem.children[0] : null;
         },
@@ -193,7 +193,7 @@ export default {
             focusableItem.focus();
         },
         onTabKey() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-highlight="true"]');
+            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
             const focusedItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="itemlink"][tabindex="0"]');
 
             if (focusedItem !== activeItem.children[0]) {
@@ -217,7 +217,7 @@ export default {
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i];
 
-                if (DomHandler.getAttribute(tab, 'data-p-highlight')) {
+                if (DomHandler.getAttribute(tab, 'data-p-active')) {
                     this.$refs.inkbar.style.width = DomHandler.getWidth(tab) + 'px';
                     this.$refs.inkbar.style.left = DomHandler.getOffset(tab).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
                     inkHighlighted = true;

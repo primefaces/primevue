@@ -14,7 +14,7 @@
                     @click="onHeaderClick($event, item)"
                     @keydown="onHeaderKeyDown($event, item)"
                     v-bind="getPTOptions('header', item, index)"
-                    :data-p-highlight="isItemActive(item)"
+                    :data-p-active="isItemActive(item)"
                     :data-p-disabled="isItemDisabled(item)"
                 >
                     <div :class="cx('headerContent')" v-bind="getPTOptions('headerContent', item, index)">
@@ -164,14 +164,14 @@ export default {
             }
         },
         onHeaderArrowDownKey(event) {
-            const rootList = DomHandler.getAttribute(event.currentTarget, 'data-p-highlight') === true ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="rootlist"]') : null;
+            const rootList = DomHandler.getAttribute(event.currentTarget, 'data-p-active') === true ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
             event.preventDefault();
         },
         onHeaderArrowUpKey(event) {
             const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
-            const rootList = DomHandler.getAttribute(prevHeader, 'data-p-highlight') === true ? DomHandler.findSingle(prevHeader.nextElementSibling, '[data-pc-section="rootlist"]') : null;
+            const rootList = DomHandler.getAttribute(prevHeader, 'data-p-active') === true ? DomHandler.findSingle(prevHeader.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
             rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
             event.preventDefault();

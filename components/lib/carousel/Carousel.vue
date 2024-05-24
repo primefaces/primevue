@@ -78,7 +78,7 @@
                 </Button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicatorList'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicatorList')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-highlight="d_page === i">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-active="d_page === i">
                     <button
                         :class="cx('indicatorButton')"
                         type="button"
@@ -498,7 +498,7 @@ export default {
         },
         onTabKey() {
             const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
-            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-highlight') === true);
+            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-active') === true);
 
             const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);

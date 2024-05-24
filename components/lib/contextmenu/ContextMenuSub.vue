@@ -16,7 +16,7 @@
                     :aria-setsize="getAriaSetSize()"
                     :aria-posinset="getAriaPosInset(index)"
                     v-bind="getPTOptions('item', processedItem, index)"
-                    :data-p-highlight="isItemActive(processedItem)"
+                    :data-p-active="isItemActive(processedItem)"
                     :data-p-focused="isItemFocused(processedItem)"
                     :data-p-disabled="isItemDisabled(processedItem)"
                 >

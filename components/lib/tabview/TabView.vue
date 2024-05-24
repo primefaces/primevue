@@ -27,10 +27,9 @@
                         role="presentation"
                         v-bind="{ ...getTabProp(tab, 'headerProps'), ...getTabPT(tab, 'root', index), ...getTabPT(tab, 'header', index) }"
                         data-pc-name="tabpanel"
-                        :data-p-highlight="d_activeIndex === index"
+                        :data-p-active="d_activeIndex === index"
                         :data-p-disabled="getTabProp(tab, 'disabled')"
                         :data-pc-index="index"
-                        :data-p-active="d_activeIndex === index"
                     >
                         <a
                             :id="getTabHeaderActionId(index)"

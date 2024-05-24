@@ -508,7 +508,7 @@ export default {
             this.updateSelection(event);
         },
         updateListScroll(listElement) {
-            const listItems = DomHandler.find(listElement, '[data-pc-section="item"][data-p-highlight="true"]');
+            const listItems = DomHandler.find(listElement, '[data-pc-section="item"][data-p-selected="true"]');
 
             if (listItems && listItems.length) {
                 switch (this.reorderDirection) {

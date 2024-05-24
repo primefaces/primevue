@@ -229,7 +229,7 @@ export default {
         updateListScroll() {
             this.list = DomHandler.findSingle(this.$refs.listbox.$el, '[data-pc-section="list"]');
 
-            const listItems = DomHandler.find(this.list, '[data-pc-section="item"][data-p-highlight="true"]');
+            const listItems = DomHandler.find(this.list, '[data-pc-section="item"][data-p-selected="true"]');
 
             if (listItems && listItems.length) {
                 switch (this.reorderDirection) {
