@@ -39,7 +39,7 @@ const theme = ({ dt }) => `
 .p-progressbar-indeterminate .p-progressbar-value::before {
     content: "";
     position: absolute;
-    background-color: inherit;
+    background: inherit;
     top: 0;
     left: 0;
     bottom: 0;
@@ -50,7 +50,7 @@ const theme = ({ dt }) => `
 .p-progressbar-indeterminate .p-progressbar-value::after {
     content: "";
     position: absolute;
-    background-color: inherit;
+    background: inherit;
     top: 0;
     left: 0;
     bottom: 0;

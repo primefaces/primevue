@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('inputchips.border.color')};
     border-radius: ${dt('inputchips.border.radius')};
     width: 100%;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('inputchips.shadow')};
 }

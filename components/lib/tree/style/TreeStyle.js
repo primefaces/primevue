@@ -79,7 +79,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     background: transparent;
     border-radius: ${dt('tree.node.toggle.button.border.radius')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     outline-color: transparent;
     padding: 0;
 }

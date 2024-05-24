@@ -130,7 +130,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 

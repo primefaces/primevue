@@ -126,7 +126,7 @@ const theme = ({ dt }) => `
     position: absolute;
     bottom: -1px;
     height: 1px;
-    background-color: ${dt('tabview.tab.active.border.color')};
+    background: ${dt('tabview.tab.active.border.color')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
 }
 `;

@@ -19,7 +19,7 @@ const theme = ({ dt }) => `
 .p-terminal-prompt-value {
     flex: 1 1 auto;
     border: 0 none;
-    background-color: transparent;
+    background: transparent;
     color: inherit;
     padding: 0;
     outline: 0 none;

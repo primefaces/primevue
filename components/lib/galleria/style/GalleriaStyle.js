@@ -131,7 +131,7 @@ const theme = ({ dt }) => `
     color: ${dt('galleria.thumbnail.nav.button.color')};
     width: ${dt('galleria.thumbnail.nav.button.size')};
     height: ${dt('galleria.thumbnail.nav.button.size')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     border-radius: ${dt('galleria.thumbnail.nav.button.border.radius')};
 }
@@ -261,7 +261,7 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-indicator-active .p-galleria-indicator-button {
-    background-color: ${dt('galleria.indicator.button.active.background')};
+    background: ${dt('galleria.indicator.button.active.background')};
 }
 
 .p-galleria-indicators-left .p-galleria-items-container,

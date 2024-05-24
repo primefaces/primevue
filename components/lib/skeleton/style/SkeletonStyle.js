@@ -3,7 +3,7 @@ import BaseStyle from 'primevue/base/style';
 const theme = ({ dt }) => `
 .p-skeleton {
     overflow: hidden;
-    background-color: ${dt('skeleton.background')};
+    background: ${dt('skeleton.background')};
     border-radius: ${dt('skeleton.border.radius')};
 }
 

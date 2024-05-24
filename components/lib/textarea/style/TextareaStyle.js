@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
     background: ${dt('textarea.background')};
     padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
     appearance: none;
     border-radius: ${dt('textarea.border.radius')};
     outline-color: transparent;
@@ -32,11 +32,11 @@ const theme = ({ dt }) => `
 }
 
 .p-textarea.p-variant-filled {
-    background-color: ${dt('textarea.filled.background')};
+    background: ${dt('textarea.filled.background')};
 }
 
 .p-textarea.p-variant-filled:enabled:focus {
-    background-color: ${dt('textarea.filled.focus.background')};
+    background: ${dt('textarea.filled.focus.background')};
 }
 
 .p-textarea:disabled {

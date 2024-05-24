@@ -156,7 +156,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     background: transparent;
     border-radius: ${dt('menubar.mobile.button.border.radius')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 

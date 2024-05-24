@@ -57,7 +57,7 @@ const theme = ({ dt }) => `
     max-width: 100%;
     color: ${dt('stepper.item.title.color')};
     font-weight: ${dt('stepper.item.title.font.weight')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-stepper-item-number {
@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
     background: ${dt('stepper.separator.background')};
     width: 100%;
     height: ${dt('stepper.separator.size')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-stepper-panels {

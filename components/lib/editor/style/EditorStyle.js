@@ -320,25 +320,25 @@ const theme = ({ dt }) => `
     margin: 0 0 0 auto;
 }
 .ql-editor .ql-bg-black {
-    background-color: #000;
+    background: #000;
 }
 .ql-editor .ql-bg-red {
-    background-color: #e60000;
+    background: #e60000;
 }
 .ql-editor .ql-bg-orange {
-    background-color: #f90;
+    background: #f90;
 }
 .ql-editor .ql-bg-yellow {
-    background-color: #ff0;
+    background: #ff0;
 }
 .ql-editor .ql-bg-green {
-    background-color: #008a00;
+    background: #008a00;
 }
 .ql-editor .ql-bg-blue {
-    background-color: #06c;
+    background: #06c;
 }
 .ql-editor .ql-bg-purple {
-    background-color: #93f;
+    background: #93f;
 }
 .ql-editor .ql-color-white {
     color: #fff;
@@ -623,7 +623,7 @@ const theme = ({ dt }) => `
 }
 .ql-snow .ql-editor code,
 .ql-snow .ql-editor pre {
-    background-color: #f0f0f0;
+    background: #f0f0f0;
     border-radius: 3px;
 }
 .ql-snow .ql-editor pre {
@@ -637,7 +637,7 @@ const theme = ({ dt }) => `
     padding: 2px 4px;
 }
 .ql-snow .ql-editor pre.ql-syntax {
-    background-color: #23241f;
+    background: #23241f;
     color: #f8f8f2;
     overflow: visible;
 }
@@ -668,7 +668,7 @@ const theme = ({ dt }) => `
     line-height: 22px;
 }
 .ql-snow .ql-picker-options {
-    background-color: #fff;
+    background: #fff;
     display: none;
     min-width: 100%;
     padding: 4px 8px;
@@ -843,10 +843,10 @@ const theme = ({ dt }) => `
     font-size: 32px;
 }
 .ql-snow .ql-color-picker.ql-background .ql-picker-item {
-    background-color: #fff;
+    background: #fff;
 }
 .ql-snow .ql-color-picker.ql-color .ql-picker-item {
-    background-color: #000;
+    background: #000;
 }
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
@@ -878,7 +878,7 @@ const theme = ({ dt }) => `
     border-top: 0px;
 }
 .ql-snow .ql-tooltip {
-    background-color: #fff;
+    background: #fff;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 5px #ddd;
     color: #444;

@@ -115,7 +115,7 @@ const theme = ({ dt }) => `
 
 .p-timeline-event-connector {
     flex-grow: 1;
-    background-color: ${dt('timeline.event.connector.color')};
+    background: ${dt('timeline.event.connector.color')};
 }
 
 .p-timeline-horizontal {

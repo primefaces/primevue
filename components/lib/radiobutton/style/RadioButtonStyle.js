@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
     background: ${dt('radiobutton.background')};
     width: ${dt('radiobutton.width')};
     height: ${dt('radiobutton.height')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('radiobutton.shadow')};
 }

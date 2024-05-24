@@ -32,7 +32,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('datepicker.dropdown.border.color')};
     border-left: 0 none;
     color: ${dt('datepicker.dropdown.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
     outline-color: transparent;
 }
 

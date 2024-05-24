@@ -64,7 +64,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     border-radius: ${dt('listbox.option.border.radius')};
     color: ${dt('listbox.option.color')};
-    transition: background-color ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
 }
 
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
