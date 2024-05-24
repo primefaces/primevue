@@ -8,7 +8,7 @@
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -71,8 +71,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid grid-cols-12 gap-4',
-            options: ['list', 'grid grid-cols-12 gap-4'],
+            layout: 'grid',
+            options: ['list', 'grid'],
             code: {
                 basic: `
 <DataView :value="products" :layout="layout">
@@ -80,7 +80,7 @@ export default {
         <div class="flex justify-end">
             <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                 <template #option="{ option }">
-                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                 </template>
             </SelectButton>
         </div>
@@ -141,7 +141,7 @@ export default {
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -203,8 +203,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid grid-cols-12 gap-4',
-            options: ['list', 'grid grid-cols-12 gap-4'],
+            layout: 'grid',
+            options: ['list', 'grid'],
         }
     },
     mounted() {
@@ -238,7 +238,7 @@ export default {
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -302,8 +302,8 @@ onMounted(() => {
 });
 
 const products = ref();
-const layout = ref('grid grid-cols-12 gap-4');
-const options = ref(['list', 'grid grid-cols-12 gap-4']);
+const layout = ref('grid');
+const options = ref(['list', 'grid']);
 
 const getSeverity = (product) => {
     switch (product.inventoryStatus) {

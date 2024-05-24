@@ -54,7 +54,7 @@ describe('DataView.vue', () => {
             slots: {
                 grid: `
                     <template #grid="slotProps">
-                        <div class="grid grid-nogutter">
+                        <div class="grid">
                             <div v-for="(item, index) in slotProps.items" :key="index"  class="col-12 md:col-4">
                                 <div class="product-grid-item card">
                                     <div class="product-grid-item-top">

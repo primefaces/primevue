@@ -8,7 +8,7 @@
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -49,7 +49,7 @@
             </template>
 
             <template #grid="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                             <div class="bg-surface-50 flex justify-center rounded p-4">
@@ -95,8 +95,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid grid-cols-12 gap-4',
-            options: ['list', 'grid grid-cols-12 gap-4'],
+            layout: 'grid',
+            options: ['list', 'grid'],
             code: {
                 basic: `
 <DataView :value="products" :layout="layout">
@@ -104,7 +104,7 @@ export default {
         <div class="flex justify-end">
             <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                 <template #option="{ option }">
-                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                 </template>
             </SelectButton>
         </div>
@@ -145,7 +145,7 @@ export default {
     </template>
 
     <template #grid="slotProps">
-        <div class="grid grid-cols-12 gap-4 grid-nogutter">
+        <div class="grid grid-cols-12 gap-4">
             <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
                 <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                     <div class="bg-surface-50 flex justify-center rounded p-4">
@@ -189,7 +189,7 @@ export default {
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -230,7 +230,7 @@ export default {
             </template>
 
             <template #grid="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                             <div class="bg-surface-50 flex justify-center rounded p-4">
@@ -275,8 +275,8 @@ export default {
     data() {
         return {
             products: null,
-            layout: 'grid grid-cols-12 gap-4',
-            options: ['list', 'grid grid-cols-12 gap-4'],
+            layout: 'grid',
+            options: ['list', 'grid'],
         }
     },
     mounted() {
@@ -310,7 +310,7 @@ export default {
                 <div class="flex justify-end">
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
-                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-th-large']" />
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
                         </template>
                     </SelectButton>
                 </div>
@@ -351,7 +351,7 @@ export default {
             </template>
 
             <template #grid="slotProps">
-                <div class="grid grid-cols-12 gap-4 grid-nogutter">
+                <div class="grid grid-cols-12 gap-4">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
                         <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
                             <div class="bg-surface-50 flex justify-center rounded p-4">
@@ -398,8 +398,8 @@ onMounted(() => {
 });
 
 const products = ref();
-const layout = ref('grid grid-cols-12 gap-4');
-const options = ref(['list', 'grid grid-cols-12 gap-4']);
+const layout = ref('grid');
+const options = ref(['list', 'grid']);
 
 const getSeverity = (product) => {
     switch (product.inventoryStatus) {
