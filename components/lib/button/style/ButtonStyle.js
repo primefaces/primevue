@@ -36,15 +36,20 @@ const theme = ({ dt }) => `
 }
 
 .p-button-icon-only {
-    justify-content: center;
     width: ${dt('button.icon.only.width')};
     padding-left: 0;
     padding-right: 0;
+    gap: 0;
 }
 
 .p-button-icon-only.p-button-rounded {
     border-radius: 50%;
     height: ${dt('button.icon.only.width')};
+}
+
+.p-button-icon-only .p-button-label {
+    visibility: hidden;
+    width: 0;
 }
 
 .p-button-sm {
