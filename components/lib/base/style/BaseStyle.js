@@ -88,22 +88,21 @@ const theme = ({ dt }) => `
 }
 
 .p-overlay-mask {
-    background: rgba(0, 0, 0, 0.4);
-    transition-duration: ${dt('mask.transition.duration')};
+    background: ${dt('mask.background')};
+    color: ${dt('mask.color')};
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    color: ${dt('mask.color')};
 }
 
 .p-overlay-mask-enter {
-    animation: p-overlay-mask-enter-animation 150ms forwards;
+    animation: p-overlay-mask-enter-animation ${dt('mask.transition.duration')} forwards;
 }
 
 .p-overlay-mask-leave {
-    animation: p-overlay-mask-leave-animation 150ms forwards;
+    animation: p-overlay-mask-leave-animation ${dt('mask.transition.duration')} forwards;
 }
 
 @keyframes p-overlay-mask-enter-animation {

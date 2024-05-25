@@ -171,6 +171,9 @@ export default {
         content: {
             borderRadius: '{border.radius.md}'
         },
+        mask: {
+            transitionDuration: '0.15s'
+        },
         navigation: {
             list: {
                 padding: '0.5rem 0',
