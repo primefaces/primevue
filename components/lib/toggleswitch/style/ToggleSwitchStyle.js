@@ -55,6 +55,7 @@ const theme = ({ dt }) => `
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
     background: ${dt('toggleswitch.checked.background')};
+    border-color: ${dt('toggleswitch.checked.border.color')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider:before {
@@ -64,6 +65,7 @@ const theme = ({ dt }) => `
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {
     background: ${dt('toggleswitch.hover.background')};
+    border-color: ${dt('toggleswitch.hover.border.color')};
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider:before {
@@ -72,6 +74,7 @@ const theme = ({ dt }) => `
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider {
     background: ${dt('toggleswitch.checked.hover.background')};
+    border-color: ${dt('toggleswitch.checked.hover.border.color')};
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider:before {
@@ -79,7 +82,6 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {
-    border-color: ${dt('toggleswitch.focus.border.color')};
     box-shadow: ${dt('toggleswitch.focus.ring.shadow')};
     outline: ${dt('toggleswitch.focus.ring.width')} ${dt('toggleswitch.focus.ring.style')} ${dt('toggleswitch.focus.ring.color')};
     outline-offset: ${dt('toggleswitch.focus.ring.offset')};

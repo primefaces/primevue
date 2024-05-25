@@ -14,6 +14,9 @@ export default {
         },
         borderWidth: '1px',
         borderColor: 'transparent',
+        hoverBorderColor: 'transparent',
+        checkedBorderColor: 'transparent',
+        checkedHoverBorderColor: 'transparent',
         invalidBorderColor: '{form.field.invalid.border.color}',
         transitionDuration: '{form.field.transition.duration}',
         slideDuration: '0.2s'
