@@ -3,16 +3,16 @@ export default {
         width: '1.25rem',
         height: '1.25rem',
         background: '{form.field.background}',
-        checkedBackground: '{primary.color}',
-        checkedHoverBackground: '{primary.hover.color}',
+        checkedBackground: '{form.field.background}',
+        checkedHoverBackground: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
-        focusBorderColor: '{form.field.border.color}',
-        checkedBorderColor: '{primary.color}',
-        checkedHoverBorderColor: '{primary.hover.color}',
-        checkedFocusBorderColor: '{primary.color}',
+        focusBorderColor: '{form.field.focus.border.color}',
+        checkedBorderColor: '{form.field.border.color}',
+        checkedHoverBorderColor: '{form.field.hover.border.color}',
+        checkedFocusBorderColor: '{form.field.focus.border.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',
         shadow: '{form.field.shadow}',
         focusRing: {
@@ -26,8 +26,8 @@ export default {
     },
     icon: {
         size: '0.75rem',
-        checkedColor: '{primary.contrast.color}',
-        checkedHoverColor: '{primary.contrast.color}',
+        checkedColor: '{primary.color}',
+        checkedHoverColor: '{primary.color}',
         disabledColor: '{form.field.disabled.color}'
     }
 };
