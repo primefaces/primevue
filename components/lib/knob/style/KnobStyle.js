@@ -18,13 +18,15 @@ const theme = ({ dt }) => `
 }
 
 .p-knob svg {
-    border-radius: ${dt('border.radius.md')};
+    border-radius: 50%;
     outline-color: transparent;
-    transition: outline-color ${dt('knob.transition.duration')};
+    transition: background ${dt('knob.transition.duration')}, color ${dt('knob.transition.duration')}, outline-color ${dt('knob.transition.duration')}, box-shadow ${dt('knob.transition.duration')};
 }
+
 .p-knob svg:focus-visible {
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('knob.focus.ring.shadow')};
+    outline: ${dt('knob.focus.ring.width')} ${dt('knob.focus.ring.style')} ${dt('knob.focus.ring.color')};
+    outline-offset: ${dt('knob.focus.ring.offset')};
 }
 
 @keyframes p-knob-dash-frame {

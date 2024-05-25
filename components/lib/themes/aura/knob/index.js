@@ -1,6 +1,13 @@
 export default {
     root: {
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{transition.duration}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     value: {
         background: '{primary.color}'
