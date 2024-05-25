@@ -1,6 +1,5 @@
 export default {
     meter: {
-        borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         height: '.75rem'
     },
@@ -18,6 +17,9 @@ export default {
     },
     colorScheme: {
         light: {
+            meter: {
+                background: '{surface.300}'
+            },
             strength: {
                 weakBackground: '{red.600}',
                 mediumBackground: '{yellow.600}',
@@ -25,6 +27,9 @@ export default {
             }
         },
         dark: {
+            meter: {
+                background: '{surface.600}'
+            },
             strength: {
                 weakBackground: '{red.500}',
                 mediumBackground: '{yellow.500}',

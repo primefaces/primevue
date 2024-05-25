@@ -1,6 +1,6 @@
 export default {
     meter: {
-        borderColor: '{content.border.color}',
+        background: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         height: '.75rem'
     },

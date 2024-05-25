@@ -12,7 +12,7 @@ const theme = ({ dt }) => `
 
 .p-password-meter {
     height: ${dt('password.meter.height')};
-    background: ${dt('password.meter.border.color')};
+    background: ${dt('password.meter.background')};
     border-radius: ${dt('password.meter.border.radius')};
 }
 
