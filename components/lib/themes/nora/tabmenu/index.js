@@ -9,7 +9,7 @@ export default {
     },
     item: {
         background: '{content.background}',
-        hoverBackground: '{surface.200}',
+        hoverBackground: '{content.hover.background}',
         activeBackground: '{primary.color}',
         borderWidth: '0',
         borderColor: 'transparent',
