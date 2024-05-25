@@ -32,7 +32,7 @@ export default {
         },
         badgeSeverity: {
             type: String,
-            default: null
+            default: 'secondary'
         },
         loading: {
             type: Boolean,

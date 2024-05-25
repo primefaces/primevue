@@ -12,7 +12,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/button/AccessibilityDoc.vue';
-import BadgesDoc from '@/doc/button/BadgesDoc.vue';
+import BadgeDoc from '@/doc/button/BadgeDoc.vue';
 import BasicDoc from '@/doc/button/BasicDoc.vue';
 import ButtonGroupDoc from '@/doc/button/ButtonGroupDoc.vue';
 import DisabledDoc from '@/doc/button/DisabledDoc.vue';
@@ -102,9 +102,9 @@ export default {
                     component: IconOnlyDoc
                 },
                 {
-                    id: 'badges',
-                    label: 'Badges',
-                    component: BadgesDoc
+                    id: 'badge',
+                    label: 'Badge',
+                    component: BadgeDoc
                 },
                 {
                     id: 'buttongroup',

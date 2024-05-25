@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Buttons have built-in support for badges to display a badge inline.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" severity="secondary" badge="4" badgeSeverity="info" />
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,14 +15,14 @@ export default {
         return {
             code: {
                 basic: `
-<Button type="button" label="Emails" badge="8" />
-<Button type="button" label="Messages" icon="pi pi-users" severity="secondary" badge="4" badgeSeverity="info" />
+<Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+<Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" severity="secondary" badge="4" badgeSeverity="info" />
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
     </div>
 </template>
 
@@ -31,9 +31,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Button type="button" label="Emails" badge="8" />
-        <Button type="button" label="Messages" icon="pi pi-users" severity="secondary" badge="4" badgeSeverity="info" />
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
     </div>
 </template>
 

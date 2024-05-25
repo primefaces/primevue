@@ -25,6 +25,7 @@ export default {
             style: '{form.field.focus.ring.style}',
             offset: '{form.field.focus.ring.offset}'
         },
+        badgeSize: '1rem',
         transitionDuration: '{form.field.transition.duration}'
     },
     colorScheme: {

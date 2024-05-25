@@ -16,7 +16,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     font-family: inherit;
     font-feature-settings: inherit;
-    transition: background ${dt('button.transition.duration')}, color ${dt('button.transition.duration')}, border-color ${dt('button.transition.duration')}, outline-color ${dt('button.transition.duration')}, box-shadow ${dt('button.transition.duration')};
+    transition: background ${dt('button.transition.duration')}, color ${dt('button.transition.duration')}, border-color ${dt('button.transition.duration')}, 
+            outline-color ${dt('button.transition.duration')}, box-shadow ${dt('button.transition.duration')};
     border-radius: ${dt('button.border.radius')};
     outline-color: transparent;
     gap: ${dt('button.gap')};
@@ -99,11 +100,9 @@ const theme = ({ dt }) => `
 }
 
 .p-button .p-badge {
-    min-width: 1rem;
-    height: 1rem;
-    line-height: 1rem;
-    background: ${dt('button.primary.color')};
-    color: ${dt('button.primary.background')};
+    min-width: ${dt('button.badge.size')};
+    height: ${dt('button.badge.size')};
+    line-height: ${dt('button.badge.size')};
 }
 
 .p-button-raised {
