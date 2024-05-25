@@ -3,7 +3,11 @@
         <p>Multiple mode is enabled using <i>multiple</i> property used to select more than one value from the autocomplete. In this case, value reference should be an array.</p>
     </DocSectionText>
     <div class="card p-fluid">
-        <AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
+        <label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+        <AutoComplete v-model="value1" inputId="multiple-ac-1" multiple :suggestions="items" @complete="search" />
+
+        <label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+        <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple @complete="search" :typeahead="false" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,16 +16,25 @@
 export default {
     data() {
         return {
-            value: '',
+            value1: null,
+            value2: null,
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
+<label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+<AutoComplete v-model="value1" inputId="multiple-ac-1" multiple :suggestions="items" @complete="search" />
+
+<label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+<AutoComplete v-model="value2" inputId="multiple-ac-2" multiple @complete="search" :typeahead="false" />
 `,
                 options: `
 <template>
     <div class="card p-fluid">
-        <AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
+        <label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+        <AutoComplete v-model="value1" inputId="multiple-ac-1" multiple :suggestions="items" @complete="search" />
+
+        <label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+        <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple @complete="search" :typeahead="false" />
     </div>
 </template>
 
@@ -29,7 +42,8 @@ export default {
 export default {
     data() {
         return {
-            value: '',
+            value1: null,
+            value2: null,
             items: []
         };
     },
@@ -44,14 +58,19 @@ export default {
                 composition: `
 <template>
     <div class="card p-fluid">
-        <AutoComplete v-model="value" multiple :suggestions="items" @complete="search" />
+        <label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+        <AutoComplete v-model="value1" inputId="multiple-ac-1" multiple :suggestions="items" @complete="search" />
+
+        <label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+        <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple @complete="search" :typeahead="false" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const value = ref("");
+const value1 = ref(null);
+const value2 = ref(null);
 const items = ref([]);
 
 const search = (event) => {
