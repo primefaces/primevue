@@ -34,7 +34,7 @@ const theme = ({ dt }) => `
     user-select: none;
     overflow: hidden;
     position: relative;
-    background: transparent;
+    background: ${dt('paginator.nav.button.background')};
     border: 0 none;
     color: ${dt('paginator.nav.button.color')};
     min-width: ${dt('paginator.nav.button.width')};
@@ -55,13 +55,18 @@ const theme = ({ dt }) => `
     outline-offset: ${dt('paginator.nav.button.focus.ring.offset')};
 }
 
-.p-paginator-page:not(.p-disabled):not(.p-paginator-page-active):hover,
+.p-paginator-page:not(.p-disabled):not(.p-paginator-page-selected):hover,
 .p-paginator-first:not(.p-disabled):hover,
 .p-paginator-prev:not(.p-disabled):hover,
 .p-paginator-next:not(.p-disabled):hover,
 .p-paginator-last:not(.p-disabled):hover {
     background: ${dt('paginator.nav.button.hover.background')};
     color: ${dt('paginator.nav.button.hover.color')};
+}
+
+.p-paginator-page.p-paginator-page-selected {
+    background: ${dt('paginator.nav.button.selected.background')};
+    color: ${dt('paginator.nav.button.selected.color')};
 }
 
 .p-paginator-current {
@@ -74,13 +79,8 @@ const theme = ({ dt }) => `
     gap: ${dt('paginator.gap')};
 }
 
-.p-paginator-page.p-paginator-page-active {
-    background: ${dt('highlight.background')};
-    color: ${dt('highlight.color')};
-}
-
 .p-paginator-jtp-input .p-inputtext {
-    max-width: 2.5rem;
+    max-width: ${dt('paginator.jump.to.page.input.max.width')};
 }
 `;
 
@@ -126,7 +126,7 @@ const classes = {
     page: ({ props, pageLink }) => [
         'p-paginator-page',
         {
-            'p-paginator-page-active': pageLink - 1 === props.page
+            'p-paginator-page-selected': pageLink - 1 === props.page
         }
     ],
     current: 'p-paginator-current',

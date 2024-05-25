@@ -8,9 +8,12 @@ export default {
         transitionDuration: '{transition.duration}'
     },
     navButton: {
+        background: 'transparent',
         hoverBackground: '{content.hover.background}',
-        color: '{text.color}',
-        hoverColor: '{text.color}',
+        selectedBackground: '{highlight.background}',
+        color: '{text.muted.color}',
+        hoverColor: '{text.hover.muted.color}',
+        selectedColor: '{highlight.color}',
         width: '2.5rem',
         height: '2.5rem',
         borderRadius: '{content.border.radius}',
