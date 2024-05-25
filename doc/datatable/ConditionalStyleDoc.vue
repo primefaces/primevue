@@ -10,9 +10,7 @@
                 <Column field="category" header="Category"></Column>
                 <Column field="quantity" header="Quantity">
                     <template #body="slotProps">
-                        <div :class="stockClass(slotProps.data)">
-                            {{ slotProps.data.quantity }}
-                        </div>
+                        <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
                     </template>
                 </Column>
             </DataTable>
@@ -36,9 +34,7 @@ export default {
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity">
         <template #body="slotProps">
-            <div :class="stockClass(slotProps.data)">
-                {{ slotProps.data.quantity }}
-            </div>
+            <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
         </template>
     </Column>
 </DataTable>
@@ -52,9 +48,7 @@ export default {
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity">
                 <template #body="slotProps">
-                    <div :class="stockClass(slotProps.data)">
-                        {{ slotProps.data.quantity }}
-                    </div>
+                    <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
                 </template>
             </Column>
         </DataTable>
@@ -75,22 +69,17 @@ export default {
     },
     methods: {
         rowClass(data) {
-            return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
+            return [{ '!bg-primary !text-primary-contrast': data.category === 'Fitness' }];
         },
         rowStyle(data) {
             if (data.quantity === 0) {
                 return { fontWeight: 'bold', fontStyle: 'italic' };
             }
         },
-        stockClass(data) {
-            return [
-                'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
-                {
-                    'bg-red-100 text-red-900': data.quantity === 0,
-                    'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
-                    'bg-teal-100 text-teal-900': data.quantity > 10
-                }
-            ];
+        stockSeverity(data) {
+            if (data.quantity === 0) return 'danger';
+            else if (data.quantity > 0 && data.quantity < 10) return 'warn';
+            else return 'success';
         }
     }
 };
@@ -105,9 +94,7 @@ export default {
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity">
                 <template #body="slotProps">
-                    <div :class="stockClass(slotProps.data)">
-                        {{ slotProps.data.quantity }}
-                    </div>
+                    <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
                 </template>
             </Column>
         </DataTable>
@@ -125,23 +112,18 @@ onMounted(() => {
 const products = ref();
 
 const rowClass = (data) => {
-    return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
+    return [{ '!bg-primary !text-primary-contrast': data.category === 'Fitness' }];
 };
 const rowStyle = (data) => {
     if (data.quantity === 0) {
         return { fontWeight: 'bold', fontStyle: 'italic' };
     }
 };
-const stockClass = (data) => {
-    return [
-        'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
-        {
-            'bg-red-100 text-red-900': data.quantity === 0,
-            'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
-            'bg-teal-100 text-teal-900': data.quantity > 10
-        }
-    ];
-};
+const stockSeverity = (data) => {
+    if (data.quantity === 0) return 'danger';
+    else if (data.quantity > 0 && data.quantity < 10) return 'warn';
+    else return 'success';
+}
 
 <\/script>
 `,
@@ -167,22 +149,17 @@ const stockClass = (data) => {
             ProductService.getProductsSmall().then((data) => (this.products = data));
         },
         rowClass(data) {
-            return [{ 'bg-primary text-primary-contrast': data.category === 'Fitness' }];
+            return [{ '!bg-primary !text-primary-contrast': data.category === 'Fitness' }];
         },
         rowStyle(data) {
             if (data.quantity === 0) {
                 return { fontWeight: 'bold', fontStyle: 'italic' };
             }
         },
-        stockClass(data) {
-            return [
-                'rounded-full w-8 h-8 inline-flex font-bold justify-center items-center text-sm',
-                {
-                    'bg-red-100 text-red-900': data.quantity === 0,
-                    'bg-blue-100 text-blue-900': data.quantity > 0 && data.quantity < 10,
-                    'bg-teal-100 text-teal-900': data.quantity > 10
-                }
-            ];
+        stockSeverity(data) {
+            if (data.quantity === 0) return 'danger';
+            else if (data.quantity > 0 && data.quantity < 10) return 'warn';
+            else return 'success';
         }
     }
 };
