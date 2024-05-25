@@ -8,7 +8,8 @@ const theme = ({ dt }) => `
     user-select: none;
     background: ${dt('select.background')};
     border: 1px solid ${dt('select.border.color')};
-    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, outline-color ${dt('select.transition.duration')}, box-shadow ${dt('select.transition.duration')};
+    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, 
+        outline-color ${dt('select.transition.duration')}, box-shadow ${dt('select.transition.duration')};
     border-radius: ${dt('select.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('select.shadow')};
@@ -156,7 +157,8 @@ input.p-select-label {
     border: 0 none;
     color: ${dt('select.option.color')};
     background: transparent;
-    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, box-shadow ${dt('select.transition.duration')}, outline-color ${dt('select.transition.duration')};
+    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, 
+            box-shadow ${dt('select.transition.duration')}, outline-color ${dt('select.transition.duration')};
     border-radius: ${dt('select.option.border.radius')};
 }
 
@@ -177,9 +179,8 @@ input.p-select-label {
 
 .p-select-option-check-icon {
     position: relative;
-    margin-left: -0.375rem;
-    margin-right: 0.375rem;
-    color: ${dt('select.checkmark.color')};
+    margin-inline-start: ${dt('select.checkmark.gutter.start')};
+    margin-inline-end: ${dt('select.checkmark.gutter.end')};
 }
 
 .p-select-empty-message {

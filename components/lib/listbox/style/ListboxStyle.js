@@ -6,7 +6,8 @@ const theme = ({ dt }) => `
     color: ${dt('listbox.color')};
     border: 1px solid ${dt('listbox.border.color')};
     border-radius: ${dt('listbox.border.radius')};
-    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
+    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, 
+            box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('listbox.shadow')};
 }
@@ -64,7 +65,8 @@ const theme = ({ dt }) => `
     border: 0 none;
     border-radius: ${dt('listbox.option.border.radius')};
     color: ${dt('listbox.option.color')};
-    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
+    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, 
+            box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
 }
 
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
@@ -89,9 +91,8 @@ const theme = ({ dt }) => `
 
 .p-listbox-option-check-icon {
     position: relative;
-    margin-left: -0.375rem;
-    margin-right: 0.375rem;
-    color: ${dt('listbox.checkmark.color')};
+    margin-inline-start: ${dt('listbox.checkmark.gutter.start')};
+    margin-inline-end: ${dt('listbox.checkmark.gutter.end')};
 }
 
 .p-listbox-option-group {

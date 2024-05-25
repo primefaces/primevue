@@ -63,7 +63,9 @@ export default {
         color: '{form.field.icon.color}'
     },
     checkmark: {
-        color: '{list.option.color}'
+        color: '{list.option.color}',
+        gutterStart: '-0.375rem',
+        gutterEnd: '0.375rem'
     },
     emptyMessage: {
         padding: '{list.option.padding}'

@@ -60,7 +60,9 @@ export default {
         padding: '{list.option.group.padding}'
     },
     checkmark: {
-        color: '{list.option.color}'
+        color: '{list.option.color}',
+        gutterStart: '-0.5rem',
+        gutterEnd: '0.5rem'
     },
     emptyMessage: {
         padding: '{list.option.padding}'
