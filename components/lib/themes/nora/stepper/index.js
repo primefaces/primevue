@@ -35,10 +35,10 @@ export default {
     },
     itemNumber: {
         background: '{content.background}',
-        activeBackground: '{content.background}',
+        activeBackground: '{primary.color}',
         borderColor: '{content.border.color}',
         color: '{text.muted.color}',
-        activeColor: '{primary.color}',
+        activeColor: '{primary.contrast.color}',
         size: '2rem',
         fontSize: '1.143rem',
         fontWeight: '500',
