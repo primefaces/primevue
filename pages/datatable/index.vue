@@ -31,7 +31,6 @@ import TemplateDoc from '@/doc/datatable/TemplateDoc.vue';
 import ExpandModeDoc from '@/doc/datatable/colresize/ExpandModeDoc.vue';
 import FitModeDoc from '@/doc/datatable/colresize/FitModeDoc.vue';
 import CellEditDoc from '@/doc/datatable/edit/CellEditDoc.vue';
-import FilterSortEditDoc from '@/doc/datatable/edit/FilterSortEditDoc.vue';
 import RowEditDoc from '@/doc/datatable/edit/RowEditDoc.vue';
 import AdvancedFilterDoc from '@/doc/datatable/filter/AdvancedFilterDoc.vue';
 import BasicFilterDoc from '@/doc/datatable/filter/BasicFilterDoc.vue';
@@ -207,11 +206,6 @@ export default {
                             id: 'row_edit',
                             label: 'Row',
                             component: RowEditDoc
-                        },
-                        {
-                            id: 'cell_edit_filter_sort',
-                            label: 'Filter & Sort Cell Edit',
-                            component: FilterSortEditDoc
                         }
                     ]
                 },
