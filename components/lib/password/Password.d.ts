@@ -88,6 +88,10 @@ export interface PasswordPassThroughOptions {
      */
     overlay?: PasswordPassThroughOptionType;
     /**
+     * Used to pass attributes to the overlay's content DOM element.
+     */
+    content?: PasswordPassThroughOptionType;
+    /**
      * Used to pass attributes to the meter's DOM element.
      */
     meter?: PasswordPassThroughOptionType;

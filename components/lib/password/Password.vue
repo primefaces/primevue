@@ -49,10 +49,12 @@
                 >
                     <slot name="header"></slot>
                     <slot name="content">
-                        <div :class="cx('meter')" v-bind="ptm('meter')">
-                            <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
+                        <div :class="cx('content')" v-bind="ptm('content')">
+                            <div :class="cx('meter')" v-bind="ptm('meter')">
+                                <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
+                            </div>
+                            <div :class="cx('info')" v-bind="ptm('info')">{{ infoText }}</div>
                         </div>
-                        <div :class="cx('info')" v-bind="ptm('info')">{{ infoText }}</div>
                     </slot>
                     <slot name="footer"></slot>
                 </div>

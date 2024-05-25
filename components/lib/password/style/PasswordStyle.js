@@ -51,9 +51,12 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('password.overlay.border.color')};
     box-shadow: ${dt('password.overlay.shadow')};
     border-radius: ${dt('password.overlay.border.radius')};
+}
+
+.p-password-content {
     display: flex;
     flex-direction: column;
-    gap: ${dt('password.overlay.gap')}
+    gap: ${dt('password.content.gap')};
 }
 
 .p-password-toggle-mask-icon {
@@ -87,6 +90,7 @@ const classes = {
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
     overlay: 'p-password-overlay p-component',
+    content: 'p-password-content',
     meter: 'p-password-meter',
     meterLabel: ({ instance }) => `p-password-meter-label ${instance.meter ? 'p-password-meter-' + instance.meter.strength : ''}`,
     meterText: 'p-password-meter-text'

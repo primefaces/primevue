@@ -12,7 +12,9 @@ export default {
         borderRadius: '{overlay.popover.border.radius}',
         color: '{overlay.popover.color}',
         padding: '{overlay.popover.padding}',
-        shadow: '{overlay.popover.shadow}',
+        shadow: '{overlay.popover.shadow}'
+    },
+    content: {
         gap: '0.5rem'
     },
     colorScheme: {

@@ -5,12 +5,11 @@
     <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
-                <h6>Pick a password</h6>
+                <div class="font-semibold text-xm mb-4">Pick a password</div>
             </template>
             <template #footer>
                 <Divider />
-                <p class="mt-2">Suggestions</p>
-                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                <ul class="pl-2 ml-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -31,12 +30,11 @@ export default {
                 basic: `
 <Password v-model="value">
     <template #header>
-        <h6>Pick a password</h6>
+        <div class="font-semibold text-xm mb-4">Pick a password</div>
     </template>
     <template #footer>
         <Divider />
-        <p class="mt-2">Suggestions</p>
-        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+        <ul class="pl-2 ml-2 my-0 leading-normal">
             <li>At least one lowercase</li>
             <li>At least one uppercase</li>
             <li>At least one numeric</li>
@@ -50,12 +48,11 @@ export default {
     <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
-                <h6>Pick a password</h6>
+                <div class="font-semibold text-xm mb-4">Pick a password</div>
             </template>
             <template #footer>
                 <Divider />
-                <p class="mt-2">Suggestions</p>
-                <ul class="pl-2 ml-2 style="line-height: 1.5">
+                <ul class="pl-2 ml-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -81,12 +78,11 @@ export default {
     <div class="card flex justify-center">
         <Password v-model="value">
             <template #header>
-                <h6>Pick a password</h6>
+                <div class="font-semibold text-xm mb-4">Pick a password</div>
             </template>
             <template #footer>
                 <Divider />
-                <p class="mt-2">Suggestions</p>
-                <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                <ul class="pl-2 ml-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
