@@ -297,8 +297,8 @@ export default {
                         selectedColor: '{highlight.color}',
                         selectedFocusColor: '{highlight.focus.color}',
                         icon: {
-                            color: '{text.color}',
-                            focusColor: '{text.hover.color}'
+                            color: '{text.muted.color}',
+                            focusColor: '{text.hover.muted.color}'
                         }
                     },
                     optionGroup: {
@@ -314,9 +314,9 @@ export default {
                         focusColor: '{primary.contrast.color}',
                         activeColor: '{text.hover.color}',
                         icon: {
-                            color: '{text.color}',
+                            color: '{text.muted.color}',
                             focusColor: '{primary.contrast.color}',
-                            activeColor: '{text.hover.color}'
+                            activeColor: '{text.hover.muted.color}'
                         }
                     },
                     submenuLabel: {
@@ -324,9 +324,9 @@ export default {
                         color: '{text.color}'
                     },
                     submenuIcon: {
-                        color: '{text.color}',
+                        color: '{text.muted.color}',
                         focusColor: '{primary.contrast.color}',
-                        activeColor: '{text.hover.color}'
+                        activeColor: '{text.hover.muted.color}'
                     }
                 }
             },
@@ -419,8 +419,8 @@ export default {
                         selectedColor: '{highlight.color}',
                         selectedFocusColor: '{highlight.focus.color}',
                         icon: {
-                            color: '{surface.0}',
-                            focusColor: '{surface.0}'
+                            color: '{text.muted.color}',
+                            focusColor: '{text.hover.muted.color}'
                         }
                     },
                     optionGroup: {
@@ -436,9 +436,9 @@ export default {
                         focusColor: '{primary.contrast.color}',
                         activeColor: '{text.color}',
                         icon: {
-                            color: '{text.color}',
+                            color: '{text.muted.color}',
                             focusColor: '{primary.contrast.color}',
-                            activeColor: '{text.color}'
+                            activeColor: '{text.hover.muted.color}'
                         }
                     },
                     submenuLabel: {
@@ -446,9 +446,9 @@ export default {
                         color: '{text.color}'
                     },
                     submenuIcon: {
-                        color: '{text.color}',
+                        color: '{text.muted.color}',
                         focusColor: '{primary.contrast.color}',
-                        activeColor: '{text.color}'
+                        activeColor: '{text.hover.muted.color}'
                     }
                 }
             }
