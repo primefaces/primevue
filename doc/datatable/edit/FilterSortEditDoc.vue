@@ -21,7 +21,7 @@
             >
                 <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
+                        <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" />
                     </template>
                     <template #editor="{ data, field }">
                         <InputText v-model="data[field]" autofocus />
@@ -62,7 +62,7 @@ export default {
 >
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
         <template #filter="{ filterModel, filterCallback }">
-            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
+            <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" />
         </template>
         <template #editor="{ data, field }">
             <InputText v-model="data[field]" autofocus />
@@ -85,7 +85,7 @@ export default {
         >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
+                    <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" />
                 </template>
                 <template #editor="{ data, field }">
                     <InputText v-model="data[field]" autofocus />
@@ -177,7 +177,7 @@ export default {
         >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%" sortable filter>
                 <template #filter="{ filterModel, filterCallback }">
-                    <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" class="p-column-filter" />
+                    <InputText v-model="filterModel.value" v-tooltip.top.focus="'Hit enter key to filter'" type="text" @keydown.enter="filterCallback()" />
                 </template>
                 <template #editor="{ data, field }">
                     <InputText v-model="data[field]" autofocus />

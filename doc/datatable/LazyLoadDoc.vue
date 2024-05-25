@@ -38,7 +38,7 @@
                 <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
                 <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
                     </template>
                 </Column>
                 <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -49,12 +49,12 @@
                         </div>
                     </template>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
                     </template>
                 </Column>
                 <Column field="company" header="Company" filterMatchMode="contains" sortable>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
                     </template>
                 </Column>
                 <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -65,7 +65,7 @@
                         </div>
                     </template>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
                     </template>
                 </Column>
             </DataTable>
@@ -108,7 +108,7 @@ export default {
     <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
     <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
         </template>
     </Column>
     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -119,12 +119,12 @@ export default {
             </div>
         </template>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
         </template>
     </Column>
     <Column field="company" header="Company" filterMatchMode="contains" sortable>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
         </template>
     </Column>
     <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -135,7 +135,7 @@ export default {
             </div>
         </template>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
         </template>
     </Column>
 </DataTable>
@@ -150,7 +150,7 @@ export default {
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -161,12 +161,12 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="company" header="Company" filterMatchMode="contains" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -177,7 +177,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
         </DataTable>
@@ -284,7 +284,7 @@ export default {
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -295,12 +295,12 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="company" header="Company" filterMatchMode="contains" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
             <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -311,7 +311,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
                 </template>
             </Column>
         </DataTable>
