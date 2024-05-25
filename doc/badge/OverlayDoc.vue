@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A Badge can be added to any element using the directive.</p>
+        <p>A badge can be added to any element by encapsulating the content with the <i>OverlayBadge</i> component.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-center gap-6">
         <OverlayBadge value="2">

@@ -11,7 +11,7 @@ export default {
                 basic: `
 // import as component
 import Badge from 'primevue/badge';
-import OverlayBadge from 'primevue/overlaybadge'; // optional
+import OverlayBadge from 'primevue/overlaybadge';
 `
             }
         };
