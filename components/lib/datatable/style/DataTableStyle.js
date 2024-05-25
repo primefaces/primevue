@@ -10,7 +10,6 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-
 .p-datatable-scrollable > .p-datatable-table-container {
     position: relative;
 }

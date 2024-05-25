@@ -134,7 +134,6 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('treetable.header.border.width')};
     padding: ${dt('treetable.header.padding')};
-    font-weight: ${dt('treetable.header.font.weight')};
 }
 
 .p-treetable-footer {
@@ -144,7 +143,6 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('treetable.footer.border.width')};
     padding: ${dt('treetable.footer.padding')};
-    font-weight: ${dt('treetable.footer.font.weight')};
 }
 
 .p-treetable-header-cell {
@@ -154,15 +152,22 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: 0 0 1px 0;
     color: ${dt('treetable.header.cell.color')};
-    font-weight: ${dt('treetable.header.font.weight')};
-    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
+    font-weight: normal;
+    text-align: left;
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, 
+            outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
+}
+
+.p-treetable-column-title {
+    font-weight: ${dt('treetable.column.title.font.weight')};
 }
 
 .p-treetable-tbody > tr {
     outline-color: transparent;
     background: ${dt('treetable.row.background')};
     color: ${dt('treetable.row.color')};
-    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, 
+            outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
 }
 
 .p-treetable-tbody > tr > td {
@@ -204,11 +209,13 @@ const theme = ({ dt }) => `
     border-color: ${dt('treetable.footer.cell.border.color')};
     border-style: solid;
     border-width: 0 0 1px 0;
-    font-weight: ${dt('treetable.footer.cell.font.weight')};
     color: ${dt('treetable.footer.cell.color')};
     background: ${dt('treetable.footer.cell.background')};
 }
 
+.p-treetable-column-footer {
+    font-weight: ${dt('treetable.column.footer.font.weight')};
+}
 
 .p-treetable-sortable-column {
     cursor: pointer;
@@ -392,7 +399,8 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
     background: transparent;
     cursor: pointer;
     border-radius: ${dt('treetable.node.toggle.button.border.radius')};
-    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, 
+            outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
     outline-color: transparent;
     user-select: none;
 }
