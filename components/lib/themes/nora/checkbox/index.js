@@ -1,6 +1,6 @@
 export default {
     root: {
-        borderRadius: '{border.radius.sm}',
+        borderRadius: '{border.radius.xs}',
         width: '1.25rem',
         height: '1.25rem',
         background: '{form.field.background}',
