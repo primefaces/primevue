@@ -93,6 +93,7 @@ const theme = ({ dt }) => `
     position: relative;
     margin-inline-start: ${dt('listbox.checkmark.gutter.start')};
     margin-inline-end: ${dt('listbox.checkmark.gutter.end')};
+    color: ${dt('listbox.checkmark.color')};
 }
 
 .p-listbox-option-group {

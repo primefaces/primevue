@@ -181,6 +181,7 @@ input.p-select-label {
     position: relative;
     margin-inline-start: ${dt('select.checkmark.gutter.start')};
     margin-inline-end: ${dt('select.checkmark.gutter.end')};
+    color: ${dt('select.checkmark.color')};
 }
 
 .p-select-empty-message {
