@@ -21,9 +21,9 @@
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuItem'), item.class]" role="none" v-bind="ptm('submenuItem')">
-                                <!--TODO: submenuheader deprecated since v4.0. Use submenuitem-->
-                                <slot :name="$slots.submenuitem ? 'submenuitem' : 'submenuheader'" :item="item">{{ label(item) }}</slot>
+                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuLabel'), item.class]" role="none" v-bind="ptm('submenuLabel')">
+                                <!--TODO: submenuheader deprecated since v4.0. Use submenulabel-->
+                                <slot :name="$slots.submenulabel ? 'submenulabel' : 'submenuheader'" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem

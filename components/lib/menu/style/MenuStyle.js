@@ -69,7 +69,7 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('menu.shadow')};
 }
 
-.p-menu-submenu-item {
+.p-menu-submenu-label {
     background: ${dt('menu.submenu.label.background')};
     padding: ${dt('menu.submenu.label.padding')};
     color: ${dt('menu.submenu.label.color')};
@@ -90,7 +90,7 @@ const classes = {
     ],
     start: 'p-menu-start',
     list: 'p-menu-list',
-    submenuItem: 'p-menu-submenu-item',
+    submenuLabel: 'p-menu-submenu-label',
     separator: 'p-menu-separator',
     end: 'p-menu-end',
     item: ({ instance }) => [

@@ -67,7 +67,7 @@ export interface MenuPassThroughOptions {
     /**
      * Used to pass attributes to the submenu item's DOM element.
      */
-    submenuItem?: MenuPassThroughOptionType;
+    submenuLabel?: MenuPassThroughOptionType;
     /**
      * Used to pass attributes to the item's DOM element.
      */
