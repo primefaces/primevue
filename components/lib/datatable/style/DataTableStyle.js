@@ -419,7 +419,7 @@ const theme = ({ dt }) => `
 }
 
 .p-datatable-gridlines .p-datatable-header {
-    border-width: 1px;
+    border-width: 1px 1px 0 1px;
 }
 
 .p-datatable-gridlines .p-datatable-footer {
@@ -427,7 +427,7 @@ const theme = ({ dt }) => `
 }
 
 .p-datatable-gridlines .p-datatable-paginator-top {
-    border-width: 0 1px 0 1px;
+    border-width: 1px 1px 0 1px;
 }
 
 .p-datatable-gridlines .p-datatable-paginator-bottom {
@@ -458,7 +458,7 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     border-width: 1px;
 }
 
-.p-datatable-gridlines .p-datatable-tfoot>tr>td {
+.p-datatable-gridlines .p-datatable-tfoot > tr > td {
     border-width: 1px 0 1px 1px;
 }
 
@@ -466,7 +466,7 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     border-width: 1px 1px 1px 1px;
 }
 
-.p-datatable.p-datatable-gridlines .p-datatable-thead +.p-datatable-tfoot > tr > td {
+.p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td {
     border-width: 0 0 1px 1px;
 }
 
