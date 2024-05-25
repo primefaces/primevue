@@ -19,7 +19,8 @@ export default {
         hoverBackground: '{form.field.background}',
         checkedBackground: '{primary.color}',
         checkedHoverBackground: '{primary.color}',
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        slideDuration: '0.1s'
     },
     handle: {
         borderRadius: '50%',

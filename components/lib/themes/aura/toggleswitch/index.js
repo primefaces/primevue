@@ -15,7 +15,8 @@ export default {
         borderWidth: '1px',
         borderColor: 'transparent',
         invalidBorderColor: '{form.field.invalid.border.color}',
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        slideDuration: '0.2s'
     },
     handle: {
         borderRadius: '50%',

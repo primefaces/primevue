@@ -24,17 +24,17 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch-slider {
-    position: absolute;
+    display: inline-block;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     border-width: ${dt('toggleswitch.border.width')};
     border-style: solid;
     border-color: ${dt('toggleswitch.border.color')};
     background: ${dt('toggleswitch.background')};
-    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, border-color ${dt('toggleswitch.transition.duration')}, outline-color ${dt('toggleswitch.transition.duration')}, box-shadow ${dt('toggleswitch.transition.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, border-color ${dt('toggleswitch.transition.duration')}, outline-color ${dt('toggleswitch.transition.duration')}, box-shadow ${dt(
+    'toggleswitch.transition.duration'
+)};
     border-radius: ${dt('toggleswitch.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('toggleswitch.shadow')};
@@ -50,7 +50,7 @@ const theme = ({ dt }) => `
     left: ${dt('toggleswitch.gap')};
     margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
-    transition: all ${dt('toggleswitch.transition.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
