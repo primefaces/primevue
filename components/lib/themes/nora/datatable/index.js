@@ -7,8 +7,7 @@ export default {
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
         borderWidth: '1px 0 1px 0',
-        padding: '0.75rem 1rem',
-        fontWeight: '700'
+        padding: '0.75rem 1rem'
     },
     headerCell: {
         background: '{content.background}',
@@ -20,7 +19,6 @@ export default {
         selectedColor: '{highlight.color}',
         gap: '0.5rem',
         padding: '0.75rem 1rem',
-        fontWeight: '700',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -28,6 +26,9 @@ export default {
             offset: '-1px',
             shadow: '{focus.ring.shadow}'
         }
+    },
+    columnTitle: {
+        fontWeight: '700'
     },
     row: {
         background: '{content.background}',
@@ -52,7 +53,9 @@ export default {
         background: '{content.background}',
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
-        padding: '0.75rem 1rem',
+        padding: '0.75rem 1rem'
+    },
+    columnFooter: {
         fontWeight: '700'
     },
     footer: {
@@ -60,8 +63,7 @@ export default {
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
         borderWidth: '0 0 1px 0',
-        padding: '0.75rem 1rem',
-        fontWeight: '700'
+        padding: '0.75rem 1rem'
     },
     dropPointColor: '{primary.color}',
     columnResizerWidth: '0.5rem',

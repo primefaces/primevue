@@ -297,6 +297,10 @@ export interface ColumnPassThroughOptions {
      */
     footerCell?: ColumnPassThroughOptionType;
     /**
+     * Used to pass attributes to the footer content DOM element.
+     */
+    columnFooter?: ColumnPassThroughOptionType;
+    /**
      * Used to pass attributes to the body cell content's DOM element.
      */
     bodyCellContent?: ColumnPassThroughOptionType;

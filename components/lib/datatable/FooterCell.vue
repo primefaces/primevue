@@ -1,7 +1,7 @@
 <template>
     <td :style="containerStyle" :class="containerClass" role="cell" :colspan="columnProp('colspan')" :rowspan="columnProp('rowspan')" v-bind="{ ...getColumnPT('root'), ...getColumnPT('footerCell') }" :data-p-frozen-column="columnProp('frozen')">
         <component v-if="column.children && column.children.footer" :is="column.children.footer" :column="column" />
-        {{ columnProp('footer') }}
+        <span v-if="columnProp('footer')" :class="cx('columnFooter')" v-bind="getColumnPT('columnFooter')">{{ columnProp('footer') }}</span>
     </td>
 </template>
 

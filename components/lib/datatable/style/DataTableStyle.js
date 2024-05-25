@@ -164,7 +164,8 @@ const theme = ({ dt }) => `
     color: ${dt('datatable.filter.constraint.color')};
     border-radius: ${dt('datatable.filter.constraint.border.radius')};
     cursor: pointer;
-    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, 
+        box-shadow ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-filter-constraint-selected {
@@ -276,7 +277,6 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('datatable.header.border.width')};
     padding: ${dt('datatable.header.padding')};
-    font-weight: ${dt('datatable.header.font.weight')};
 }
 
 .p-datatable-footer {
@@ -286,7 +286,6 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('datatable.footer.border.width')};
     padding: ${dt('datatable.footer.padding')};
-    font-weight: ${dt('datatable.footer.font.weight')};
 }
 
 .p-datatable-header-cell {
@@ -296,15 +295,22 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: 0 0 1px 0;
     color: ${dt('datatable.header.cell.color')};
-    font-weight: ${dt('datatable.header.font.weight')};
-    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
+    font-weight: normal;
+    text-align: left;
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, 
+            outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
+}
+
+.p-datatable-column-title {
+    font-weight: ${dt('datatable.column.title.font.weight')};
 }
 
 .p-datatable-tbody > tr {
     outline-color: transparent;
     background: ${dt('datatable.row.background')};
     color: ${dt('datatable.row.color')};
-    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, 
+            outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-tbody > tr > td {
@@ -346,9 +352,12 @@ const theme = ({ dt }) => `
     border-color: ${dt('datatable.footer.cell.border.color')};
     border-style: solid;
     border-width: 0 0 1px 0;
-    font-weight: ${dt('datatable.footer.cell.font.weight')};
     color: ${dt('datatable.footer.cell.color')};
     background: ${dt('datatable.footer.cell.background')};
+}
+
+.p-datatable-column-footer {
+    font-weight: ${dt('datatable.column.footer.font.weight')};
 }
 
 .p-datatable-sortable-column {
@@ -544,7 +553,8 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     background: transparent;
     cursor: pointer;
     border-radius: ${dt('datatable.row.toggle.button.border.radius')};
-    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, 
+            outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
     outline-color: transparent;
     user-select: none;
 }
@@ -616,6 +626,7 @@ const classes = {
     columnResizer: 'p-datatable-column-resizer',
     columnHeaderContent: 'p-datatable-column-header-content',
     columnTitle: 'p-datatable-column-title',
+    columnFooter: 'p-datatable-column-footer',
     sortIcon: 'p-datatable-sort-icon',
     pcSortBadge: 'p-datatable-sort-badge',
     filter: ({ props }) => [
