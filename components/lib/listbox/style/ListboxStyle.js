@@ -69,6 +69,10 @@ const theme = ({ dt }) => `
             box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
 }
 
+.p-listbox-striped li:nth-child(even of .p-listbox-option) {
+    background: ${dt('listbox.option.striped.background')};
+}
+
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {
     background: ${dt('listbox.option.selected.background')};
     color: ${dt('listbox.option.selected.color')};

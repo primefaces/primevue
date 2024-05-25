@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" stripedRows />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -20,13 +20,13 @@ export default {
             code: {
                 basic: `
 <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
+    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" stripedRows />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"    
-            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" stripedRows />
     </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
-            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" />
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" stripedRows />
     </div>
 </template>
 

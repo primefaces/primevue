@@ -50,5 +50,17 @@ export default {
     },
     emptyMessage: {
         padding: '{list.option.padding}'
+    },
+    colorScheme: {
+        light: {
+            option: {
+                stripedBackground: '{surface.100}'
+            }
+        },
+        dark: {
+            option: {
+                stripedBackground: '{surface.800}'
+            }
+        }
     }
 };
