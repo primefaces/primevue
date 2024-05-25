@@ -2,8 +2,9 @@ import BaseStyle from 'primevue/base/style';
 
 const theme = ({ dt }) => `
 .p-inplace-display {
-    display: inline;
+    display: inline-block;
     cursor: pointer;
+    border: 1px solid transparent;
     padding: ${dt('inplace.padding')};
     border-radius: ${dt('inplace.border.radius')};
     transition: background ${dt('inplace.transition.duration')}, color ${dt('inplace.transition.duration')}, outline-color ${dt('inplace.transition.duration')}, box-shadow ${dt('inplace.transition.duration')};
@@ -22,7 +23,7 @@ const theme = ({ dt }) => `
 }
 
 .p-inplace-content {
-    display: inline;
+    display: block;
 }
 `;
 

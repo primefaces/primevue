@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Using the <i>open</i> event, data can be loaded in a lazy manner before displaying it in a table.</p>
+        <p>The <i>open</i> event is used to initialize the content such as loading data in a lazy manner.</p>
     </DocSectionText>
     <div class="card">
         <Inplace @open="loadData">
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         loadData() {
-            ProductService.getProductsSmall().then((data) => (this.products = data));
+            ProductService.getProductsMini().then((data) => (this.products = data));
         }
     }
 }
@@ -97,7 +97,7 @@ import {ProductService} from "@/service/ProductService";
 
 const products = ref();
 const loadData = () => {
-    ProductService.getProductsSmall().then((data) => (products.value = data));
+    ProductService.getProductsMini().then((data) => (products.value = data));
 }
 <\/script>
 `
@@ -106,7 +106,7 @@ const loadData = () => {
     },
     methods: {
         loadData() {
-            ProductService.getProductsSmall().then((data) => (this.products = data));
+            ProductService.getProductsMini().then((data) => (this.products = data));
         }
     }
 };

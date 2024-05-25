@@ -3,13 +3,15 @@
         <p>Any content such as an image can be placed inside an Inplace.</p>
     </DocSectionText>
     <div class="card">
-        <Inplace class="w-full">
+        <Inplace>
             <template #display>
-                <span class="pi pi-search" style="vertical-align: middle"></span>
-                <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
+                <span class="inline-flex items-center gap-2">
+                    <span class="pi pi-image"></span>
+                    <span>View Photo</span>
+                </span>
             </template>
             <template #content>
-                <img class="w-full" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg" />
+                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
             </template>
         </Inplace>
     </div>
@@ -24,11 +26,13 @@ export default {
                 basic: `
 <Inplace>
     <template #display>
-        <span class="pi pi-search" style="vertical-align: middle"></span>
-        <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
+        <span class="inline-flex items-center gap-2">
+            <span class="pi pi-image"></span>
+            <span>View Photo</span>
+        </span>
     </template>
     <template #content>
-        <img class="w-full" alt="Nature" src="/images/nature/nature1.jpg" />
+        <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
     </template>
 </Inplace>
 `,
@@ -37,11 +41,13 @@ export default {
     <div class="card">
         <Inplace>
             <template #display>
-                <span class="pi pi-search" style="vertical-align: middle"></span>
-                <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
+                <span class="inline-flex items-center gap-2">
+                    <span class="pi pi-image"></span>
+                    <span>View Photo</span>
+                </span>
             </template>
             <template #content>
-                <img class="w-full" src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg"/>
+                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
             </template>
         </Inplace>
     </div>
@@ -55,11 +61,13 @@ export default {
     <div class="card">
         <Inplace>
             <template #display>
-                <span class="pi pi-search" style="vertical-align: middle"></span>
-                <span style="margin-left: 0.5rem; vertical-align: middle">View Picture</span>
+                <span class="inline-flex items-center gap-2">
+                    <span class="pi pi-image"></span>
+                    <span>View Photo</span>
+                </span>
             </template>
             <template #content>
-                <img class="w-full" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature1.jpg" />
+                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
             </template>
         </Inplace>
     </div>
