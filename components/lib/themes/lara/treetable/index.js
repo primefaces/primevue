@@ -51,7 +51,7 @@ export default {
     },
     footer: {
         borderColor: '{treetable.border.color}',
-        borderWidth: '0 0 1px',
+        borderWidth: '0 0 1px 0',
         padding: '0.75rem 1rem',
         fontWeight: '700'
     },

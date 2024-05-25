@@ -6,9 +6,9 @@ export default {
         background: '{content.background}',
         borderColor: '{treetable.border.color}',
         color: '{content.color}',
-        borderWidth: '0 0 1px 0',
+        borderWidth: '1px 0 1px 0',
         padding: '0.75rem 1rem',
-        fontWeight: '600'
+        fontWeight: '700'
     },
     headerCell: {
         background: '{content.background}',
@@ -20,7 +20,7 @@ export default {
         selectedColor: '{highlight.color}',
         gap: '0.5rem',
         padding: '0.75rem 1rem',
-        fontWeight: '600',
+        fontWeight: '700',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -54,12 +54,15 @@ export default {
         borderColor: '{treetable.border.color}',
         color: '{content.color}',
         padding: '0.75rem 1rem',
-        fontWeight: '600'
+        fontWeight: '700'
     },
     footer: {
         background: '{content.background}',
         borderColor: '{treetable.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        borderWidth: '0 0 1px 0',
+        padding: '0.75rem 1rem',
+        fontWeight: '700'
     },
     columnResizerWidth: '0.5rem',
     resizeIndicator: {

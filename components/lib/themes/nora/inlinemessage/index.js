@@ -5,7 +5,7 @@ export default {
         gap: '0.5rem'
     },
     text: {
-        fontWeight: '600'
+        fontWeight: '700'
     },
     icon: {
         size: '1rem'

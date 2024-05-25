@@ -59,7 +59,10 @@ export default {
     footer: {
         background: '{content.background}',
         borderColor: '{treetable.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        borderWidth: '0 0 1px 0',
+        padding: '0.75rem 1rem',
+        fontWeight: '600'
     },
     columnResizerWidth: '0.5rem',
     resizeIndicator: {
