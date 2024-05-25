@@ -31,12 +31,13 @@ export default {
     itemTitle: {
         color: '{text.muted.color}',
         activeColor: '{primary.color}',
-        fontWeight: '500'
+        fontWeight: '700'
     },
     itemNumber: {
         background: '{content.background}',
         activeBackground: '{primary.color}',
         borderColor: '{content.border.color}',
+        activeBorderColor: '{primary.color}',
         color: '{text.muted.color}',
         activeColor: '{primary.contrast.color}',
         size: '2rem',

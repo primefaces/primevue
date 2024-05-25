@@ -25,6 +25,7 @@ export default {
         background: '{content.background}',
         activeBackground: '{content.background}',
         borderColor: '{content.border.color}',
+        activeBorderColor: '{content.border.color}',
         color: '{text.muted.color}',
         activeColor: '{primary.color}',
         size: '2rem',

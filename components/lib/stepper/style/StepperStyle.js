@@ -92,6 +92,7 @@ const theme = ({ dt }) => `
 
 .p-stepper-item-active .p-stepper-item-number {
     background: ${dt('stepper.item.number.active.background')};
+    border-color: ${dt('stepper.item.number.active.border.color')};
     color: ${dt('stepper.item.number.active.color')};
 }
 

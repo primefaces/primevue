@@ -108,6 +108,7 @@ const theme = ({ dt }) => `
 
 .p-steps-item-active .p-steps-item-number {
     background: ${dt('steps.item.number.active.background')};
+    border-color: ${dt('steps.item.number.active.border.color')};
     color: ${dt('steps.item.number.active.color')};
 }
 
