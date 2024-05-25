@@ -132,7 +132,7 @@ export interface ScrollTopProps {
     /**
      * Used to pass all properties of the ButtonProps to the Button component.
      * @type {ButtonProps}
-     * @defaultValue { severity: 'secondary', rounded: true }
+     * @defaultValue { rounded: true }
      */
     buttonProps?: object | undefined;
     /**

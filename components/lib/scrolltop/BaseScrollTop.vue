@@ -25,7 +25,7 @@ export default {
         buttonProps: {
             type: Object,
             default: () => {
-                return { severity: 'secondary' };
+                return { rounded: true };
             }
         }
     },
