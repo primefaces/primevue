@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('inputchips.border.color')};
     border-radius: ${dt('inputchips.border.radius')};
     width: 100%;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('inputchips.transition.duration')}, color ${dt('inputchips.transition.duration')}, border-color ${dt('inputchips.transition.duration')}, outline-color ${dt('inputchips.transition.duration')}, box-shadow ${dt('inputchips.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('inputchips.shadow')};
 }
@@ -58,7 +58,7 @@ const theme = ({ dt }) => `
     padding-top: calc(${dt('inputchips.padding.y')} / 2);
     padding-bottom: calc(${dt('inputchips.padding.y')} / 2);
     border-radius: ${dt('inputchips.chip.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('inputchips.transition.duration')}, color ${dt('inputchips.transition.duration')};
 }
 
 .p-inputchips-chip-item.p-focus .p-inputchips-chip {

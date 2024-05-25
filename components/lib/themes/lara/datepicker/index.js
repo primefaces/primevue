@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     panel: {
         background: '{content.background}',
         borderColor: '{content.border.color}',

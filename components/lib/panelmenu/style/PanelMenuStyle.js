@@ -35,7 +35,7 @@ const theme = ({ dt }) => `
 
 .p-panelmenu-header-content {
     border-radius: ${dt('panelmenu.item.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('panelmenu.transition.duration')}, color ${dt('panelmenu.transition.duration')}, outline-color ${dt('panelmenu.transition.duration')}, box-shadow ${dt('panelmenu.transition.duration')};
     outline-color: transparent;
     color: ${dt('panelmenu.item.color')};
 }
@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
 
 .p-panelmenu-item-content {
     border-radius: ${dt('panelmenu.item.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('panelmenu.transition.duration')}, color ${dt('panelmenu.transition.duration')}, outline-color ${dt('panelmenu.transition.duration')}, box-shadow ${dt('panelmenu.transition.duration')};
     color: ${dt('panelmenu.item.color')};
     outline-color: transparent;
 }

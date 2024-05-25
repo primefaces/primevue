@@ -21,7 +21,8 @@ export default {
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
             shadow: '{focus.ring.shadow}'
-        }
+        },
+        transitionDuration: '{form.field.transition.duration}'
     },
     icon: {
         size: '0.75rem',

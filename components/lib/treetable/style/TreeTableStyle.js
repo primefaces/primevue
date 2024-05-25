@@ -155,14 +155,14 @@ const theme = ({ dt }) => `
     border-width: 0 0 1px 0;
     color: ${dt('treetable.header.cell.color')};
     font-weight: ${dt('treetable.header.font.weight')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
 }
 
 .p-treetable-tbody > tr {
     outline-color: transparent;
     background: ${dt('treetable.row.background')};
     color: ${dt('treetable.row.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
 }
 
 .p-treetable-tbody > tr > td {
@@ -224,7 +224,7 @@ const theme = ({ dt }) => `
 
 .p-treetable-sort-icon {
     color: ${dt('treetable.sort.icon.color')};
-    transition: color ${dt('transition.duration')};
+    transition: color ${dt('treetable.transition.duration')};
 }
 
 .p-treetable-sortable-column:not(.p-treetable-column-sorted):hover {
@@ -392,7 +392,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
     background: transparent;
     cursor: pointer;
     border-radius: ${dt('treetable.node.toggle.button.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')}, outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
     outline-color: transparent;
     user-select: none;
 }

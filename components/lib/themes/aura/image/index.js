@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     preview: {
         icon: {
             size: '1.5rem'

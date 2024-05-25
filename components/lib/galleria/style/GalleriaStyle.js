@@ -37,7 +37,7 @@ const theme = ({ dt }) => `
     color: ${dt('galleria.nav.button.color')};
     width: ${dt('galleria.nav.button.size')};
     height: ${dt('galleria.nav.button.size')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('galleria.transition.duration')}, color ${dt('galleria.transition.duration')}, outline-color ${dt('galleria.transition.duration')}, box-shadow ${dt('galleria.transition.duration')};
     margin: calc(-1 * calc(${dt('galleria.nav.button.size')}) / 2) ${dt('galleria.nav.button.gutter')} 0 ${dt('galleria.nav.button.gutter')};
     padding: 0;
     user-select: none;
@@ -85,7 +85,7 @@ const theme = ({ dt }) => `
 .p-galleria-hover-navigators .p-galleria-nav-button {
     pointer-events: none;
     opacity: 0;
-    transition: opacity ${dt('transition.duration')} ease-in-out;
+    transition: opacity ${dt('galleria.transition.duration')} ease-in-out;
 }
 
 .p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button {
@@ -131,7 +131,7 @@ const theme = ({ dt }) => `
     color: ${dt('galleria.thumbnail.nav.button.color')};
     width: ${dt('galleria.thumbnail.nav.button.size')};
     height: ${dt('galleria.thumbnail.nav.button.size')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('galleria.transition.duration')}, color ${dt('galleria.transition.duration')}, outline-color ${dt('galleria.transition.duration')};
     outline-color: transparent;
     border-radius: ${dt('galleria.thumbnail.nav.button.border.radius')};
 }
@@ -240,7 +240,7 @@ const theme = ({ dt }) => `
     background: ${dt('galleria.indicator.button.background')};
     width: ${dt('galleria.indicator.button.width')};
     height: ${dt('galleria.indicator.button.height')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('galleria.transition.duration')}, color ${dt('galleria.transition.duration')}, outline-color ${dt('galleria.transition.duration')}, box-shadow ${dt('galleria.transition.duration')};
     outline-color: transparent;
     border-radius: ${dt('galleria.indicator.button.border.radius')};
     margin: 0;
@@ -362,7 +362,7 @@ const theme = ({ dt }) => `
     cursor: pointer;
     border-radius: ${dt('galleria.close.button.border.radius')};
     outline-color: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('galleria.transition.duration')}, color ${dt('galleria.transition.duration')}, outline-color ${dt('galleria.transition.duration')};
 }
 
 .p-galleria-close-icon {

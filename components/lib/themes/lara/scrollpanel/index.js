@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     bar: {
         size: '9px',
         borderRadius: '{border.radius.xs}',

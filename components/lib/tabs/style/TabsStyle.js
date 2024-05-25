@@ -47,7 +47,7 @@ const theme = ({ dt }) => `
     background: ${dt('tabs.nav.button.background')};
     color: ${dt('tabs.nav.button.color')};
     width: ${dt('tabs.nav.button.width')};
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: color ${dt('tabs.transition.duration')}, outline-color ${dt('tabs.transition.duration')}, box-shadow ${dt('tabs.transition.duration')};
     box-shadow: ${dt('tabs.nav.button.shadow')};
     outline-color: transparent;
     cursor: pointer;
@@ -84,7 +84,7 @@ const theme = ({ dt }) => `
     color: ${dt('tabs.tab.color')};
     padding: ${dt('tabs.tab.padding')};
     font-weight: ${dt('tabs.tab.font.weight')};
-    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('tabs.transition.duration')}, border-color ${dt('tabs.transition.duration')}, color ${dt('tabs.transition.duration')}, outline-color ${dt('tabs.transition.duration')}, box-shadow ${dt('tabs.transition.duration')};
     margin: ${dt('tabs.tab.margin')};
     outline-color: transparent;
 }

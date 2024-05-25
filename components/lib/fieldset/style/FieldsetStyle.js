@@ -17,7 +17,7 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-color: ${dt('fieldset.legend.border.color')};
     padding: ${dt('fieldset.legend.padding')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('fieldset.transition.duration')}, color ${dt('fieldset.transition.duration')}, outline-color ${dt('fieldset.transition.duration')}, box-shadow ${dt('fieldset.transition.duration')};
 }
 
 .p-fieldset-toggleable > .p-fieldset-legend {
@@ -38,7 +38,7 @@ const theme = ({ dt }) => `
     background: transparent;
     border: 0 none;
     border-radius: ${dt('fieldset.legend.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('fieldset.transition.duration')}, color ${dt('fieldset.transition.duration')}, outline-color ${dt('fieldset.transition.duration')}, box-shadow ${dt('fieldset.transition.duration')};
     outline-color: transparent;
 }
 
@@ -59,7 +59,7 @@ const theme = ({ dt }) => `
 
 .p-fieldset-toggle-icon {
     color: ${dt('fieldset.toggle.icon.color')};
-    transition: color ${dt('transition.duration')};
+    transition: color ${dt('fieldset.transition.duration')};
 }
 
 .p-fieldset-toggleable > .p-fieldset-legend:hover .p-fieldset-toggle-icon {

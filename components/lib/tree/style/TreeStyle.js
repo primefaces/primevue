@@ -37,7 +37,7 @@ const theme = ({ dt }) => `
     outline-color: transparent;
     color: ${dt('tree.node.color')};
     gap: ${dt('tree.node.gap')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('tree.transition.duration')}, color ${dt('tree.transition.duration')}, outline-color ${dt('tree.transition.duration')}, box-shadow ${dt('tree.transition.duration')};
 }
 
 .p-tree-node:focus-visible > .p-tree-node-content {
@@ -79,7 +79,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     background: transparent;
     border-radius: ${dt('tree.node.toggle.button.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('tree.transition.duration')}, color ${dt('tree.transition.duration')}, border-color ${dt('tree.transition.duration')}, outline-color ${dt('tree.transition.duration')}, box-shadow ${dt('tree.transition.duration')};
     outline-color: transparent;
     padding: 0;
 }
@@ -109,7 +109,7 @@ const theme = ({ dt }) => `
 
 .p-tree-node-icon {
     color: ${dt('tree.node.icon.color')};
-    transition: color ${dt('transition.duration')};
+    transition: color ${dt('tree.transition.duration')};
 }
 
 .p-tree-node-content.p-tree-node-selected .p-tree-node-icon {

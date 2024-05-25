@@ -24,7 +24,8 @@ export default {
             width: '{form.field.focus.ring.width}',
             style: '{form.field.focus.ring.style}',
             offset: '{form.field.focus.ring.offset}'
-        }
+        },
+        transitionDuration: '{form.field.transition.duration}'
     },
     colorScheme: {
         light: {

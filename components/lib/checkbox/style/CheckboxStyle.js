@@ -36,13 +36,13 @@ const theme = ({ dt }) => `
     background: ${dt('checkbox.background')};
     width: ${dt('checkbox.width')};
     height: ${dt('checkbox.width')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('checkbox.transition.duration')}, color ${dt('checkbox.transition.duration')}, border-color ${dt('checkbox.transition.duration')}, box-shadow ${dt('checkbox.transition.duration')}, outline-color ${dt('checkbox.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('checkbox.shadow')};
 }
 
 .p-checkbox-icon {
-    transition-duration: ${dt('transition.duration')};
+    transition-duration: ${dt('checkbox.transition.duration')};
     color: ${dt('checkbox.icon.color')};
     font-size: ${dt('checkbox.icon.size')};
     width: ${dt('checkbox.icon.size')};

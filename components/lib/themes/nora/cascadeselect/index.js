@@ -21,7 +21,8 @@ export default {
             color: '{form.field.focus.ring.color}',
             offset: '{form.field.focus.ring.offset}',
             shadow: '{form.field.focus.ring.shadow}'
-        }
+        },
+        transitionDuration: '{form.field.transition.duration}'
     },
     dropdown: {
         width: '2.5rem',

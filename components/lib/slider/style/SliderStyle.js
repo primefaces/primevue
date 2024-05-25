@@ -17,7 +17,7 @@ const theme = ({ dt }) => `
     width: ${dt('slider.handle.width')};
     background: ${dt('slider.handle.background')};
     border-radius: ${dt('slider.handle.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('slider.transition.duration')}, color ${dt('slider.transition.duration')}, border-color ${dt('slider.transition.duration')}, box-shadow ${dt('slider.transition.duration')}, outline-color ${dt('slider.transition.duration')};
     outline-color: transparent;
 }
 
@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
     background: ${dt('slider.handle.content.background')};
     border-radius: ${dt('slider.handle.content.border.radius')};
     box-shadow: ${dt('slider.handle.content.shadow')};
-    transition: background ${dt('transition.duration')};
+    transition: background ${dt('slider.transition.duration')};
 }
 
 .p-slider:not(.p-disabled) .p-slider-handle:hover {

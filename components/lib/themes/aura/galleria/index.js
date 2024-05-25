@@ -2,7 +2,8 @@ export default {
     root: {
         borderWidth: '1px',
         borderColor: '{content.border.color}',
-        borderRadius: '{content.border.radius}'
+        borderRadius: '{content.border.radius}',
+        transitionDuration: '{transition.duration}'
     },
     navButton: {
         background: 'rgba(255, 255, 255, 0.1)',

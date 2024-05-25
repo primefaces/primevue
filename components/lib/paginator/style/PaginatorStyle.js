@@ -39,7 +39,7 @@ const theme = ({ dt }) => `
     color: ${dt('paginator.nav.button.color')};
     min-width: ${dt('paginator.nav.button.width')};
     height: ${dt('paginator.nav.button.height')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('paginator.transition.duration')}, color ${dt('paginator.transition.duration')}, outline-color ${dt('paginator.transition.duration')}, box-shadow ${dt('paginator.transition.duration')};
     border-radius: ${dt('paginator.nav.button.border.radius')};
     padding: 0;
     margin: 0;

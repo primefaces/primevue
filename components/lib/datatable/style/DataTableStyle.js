@@ -164,7 +164,7 @@ const theme = ({ dt }) => `
     color: ${dt('datatable.filter.constraint.color')};
     border-radius: ${dt('datatable.filter.constraint.border.radius')};
     cursor: pointer;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-filter-constraint-selected {
@@ -297,14 +297,14 @@ const theme = ({ dt }) => `
     border-width: 0 0 1px 0;
     color: ${dt('datatable.header.cell.color')};
     font-weight: ${dt('datatable.header.font.weight')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-tbody > tr {
     outline-color: transparent;
     background: ${dt('datatable.row.background')};
     color: ${dt('datatable.row.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-tbody > tr > td {
@@ -365,7 +365,7 @@ const theme = ({ dt }) => `
 
 .p-datatable-sort-icon {
     color: ${dt('datatable.sort.icon.color')};
-    transition: color ${dt('transition.duration')};
+    transition: color ${dt('datatable.transition.duration')};
 }
 
 .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
@@ -544,7 +544,7 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     background: transparent;
     cursor: pointer;
     border-radius: ${dt('datatable.row.toggle.button.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('datatable.transition.duration')}, color ${dt('datatable.transition.duration')}, border-color ${dt('datatable.transition.duration')}, outline-color ${dt('datatable.transition.duration')}, box-shadow ${dt('datatable.transition.duration')};
     outline-color: transparent;
     user-select: none;
 }

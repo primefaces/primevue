@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     color: ${dt('listbox.color')};
     border: 1px solid ${dt('listbox.border.color')};
     border-radius: ${dt('listbox.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('listbox.shadow')};
 }
@@ -64,7 +64,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     border-radius: ${dt('listbox.option.border.radius')};
     color: ${dt('listbox.option.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('listbox.transition.duration')}, color ${dt('listbox.transition.duration')}, border-color ${dt('listbox.transition.duration')}, box-shadow ${dt('listbox.transition.duration')}, outline-color ${dt('listbox.transition.duration')};
 }
 
 .p-listbox .p-listbox-list .p-listbox-option.p-listbox-option-selected {

@@ -4,7 +4,8 @@ export default {
         borderColor: '{content.border.color}',
         color: '{content.color}',
         borderRadius: '{content.border.radius}',
-        shadow: '{overlay.navigation.shadow}'
+        shadow: '{overlay.navigation.shadow}',
+        transitionDuration: '{transition.duration}'
     },
     list: {
         padding: '{navigation.list.padding}',

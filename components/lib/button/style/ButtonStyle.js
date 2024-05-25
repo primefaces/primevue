@@ -16,7 +16,7 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     font-family: inherit;
     font-feature-settings: inherit;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('button.transition.duration')}, color ${dt('button.transition.duration')}, border-color ${dt('button.transition.duration')}, outline-color ${dt('button.transition.duration')}, box-shadow ${dt('button.transition.duration')};
     border-radius: ${dt('button.border.radius')};
     outline-color: transparent;
     gap: ${dt('button.gap')};

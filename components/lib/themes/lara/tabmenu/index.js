@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     tablist: {
         borderWidth: '0',
         background: '{content.background}',

@@ -9,7 +9,7 @@ const theme = ({ dt }) => `
     background: ${dt('inputtext.background')};
     padding: ${dt('inputtext.padding.y')} ${dt('inputtext.padding.x')};
     border: 1px solid ${dt('inputtext.border.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('inputtext.transition.duration')}, color ${dt('inputtext.transition.duration')}, border-color ${dt('inputtext.transition.duration')}, outline-color ${dt('inputtext.transition.duration')}, box-shadow ${dt('inputtext.transition.duration')};
     appearance: none;
     border-radius: ${dt('inputtext.border.radius')};
     outline-color: transparent;

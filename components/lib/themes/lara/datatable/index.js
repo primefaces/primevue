@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     header: {
         borderColor: '{datatable.border.color}',
         borderWidth: '1px 0 1px 0',

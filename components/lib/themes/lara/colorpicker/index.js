@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     preview: {
         width: '1.75rem',
         height: '1.75rem',

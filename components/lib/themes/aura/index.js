@@ -150,7 +150,8 @@ export default {
                 color: 'transparent',
                 offset: '0',
                 shadow: 'none'
-            }
+            },
+            transitionDuration: '{transition.duration}'
         },
         list: {
             padding: '0.25rem 0.25rem',

@@ -2,7 +2,8 @@ export default {
     root: {
         padding: '1.25rem',
         background: '{content.background}',
-        gap: '0.5rem'
+        gap: '0.5rem',
+        transitionDuration: '{transition.duration}'
     },
     item: {
         color: '{text.muted.color}',

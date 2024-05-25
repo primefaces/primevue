@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     button: {
         width: '2.5rem',
         borderRadius: '{form.field.border.radius}',

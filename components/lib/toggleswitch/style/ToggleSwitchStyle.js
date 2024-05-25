@@ -34,7 +34,7 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-color: ${dt('toggleswitch.border.color')};
     background: ${dt('toggleswitch.background')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, border-color ${dt('toggleswitch.transition.duration')}, outline-color ${dt('toggleswitch.transition.duration')}, box-shadow ${dt('toggleswitch.transition.duration')};
     border-radius: ${dt('toggleswitch.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('toggleswitch.shadow')};
@@ -50,7 +50,7 @@ const theme = ({ dt }) => `
     left: ${dt('toggleswitch.gap')};
     margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
-    transition: all ${dt('transition.duration')};
+    transition: all ${dt('toggleswitch.transition.duration')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {

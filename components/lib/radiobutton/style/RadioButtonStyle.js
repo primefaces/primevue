@@ -36,13 +36,13 @@ const theme = ({ dt }) => `
     background: ${dt('radiobutton.background')};
     width: ${dt('radiobutton.width')};
     height: ${dt('radiobutton.height')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('radiobutton.transition.duration')}, color ${dt('radiobutton.transition.duration')}, border-color ${dt('radiobutton.transition.duration')}, box-shadow ${dt('radiobutton.transition.duration')}, outline-color ${dt('radiobutton.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('radiobutton.shadow')};
 }
 
 .p-radiobutton-icon {
-    transition-duration: ${dt('transition.duration')};
+    transition-duration: ${dt('radiobutton.transition.duration')};
     background: transparent;
     font-size: ${dt('radiobutton.icon.size')};
     width: ${dt('radiobutton.icon.size')};

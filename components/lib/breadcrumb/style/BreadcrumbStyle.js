@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
     text-decoration: none;
     display: flex;
     align-items: center;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('breadcrumb.transition.duration')}, color ${dt('breadcrumb.transition.duration')}, outline-color ${dt('breadcrumb.transition.duration')}, box-shadow ${dt('breadcrumb.transition.duration')};
     border-radius: ${dt('breadcrumb.item.border.radius')};
     outline-color: transparent;
     color: ${dt('breadcrumb.item.color')};

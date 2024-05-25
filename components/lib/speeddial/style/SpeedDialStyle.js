@@ -12,8 +12,8 @@ const theme = ({ dt }) => `
 }
 
 .p-speeddial-button.p-speeddial-rotate {
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')},
-    box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background ${dt('speeddial.transition.duration')}, color ${dt('speeddial.transition.duration')}, border-color ${dt('speeddial.transition.duration')},
+    box-shadow ${dt('speeddial.transition.duration')}, outline-color ${dt('speeddial.transition.duration')};
     will-change: transform;
 }
 
@@ -24,7 +24,7 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: top 0s linear ${dt('transition.duration')};
+    transition: top 0s linear ${dt('speeddial.transition.duration')};
     pointer-events: none;
     outline: 0 none;
     z-index: 2;

@@ -4,7 +4,8 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
-        padding: '0.75rem 1.125rem 1.125rem 1.125rem'
+        padding: '0.75rem 1.125rem 1.125rem 1.125rem',
+        transitionDuration: '{transition.duration}'
     },
     legend: {
         background: '{content.background}',

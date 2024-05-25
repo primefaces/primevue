@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
     height: ${dt('message.close.button.height')};
     border-radius: ${dt('message.close.button.border.radius')};
     background: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('message.transition.duration')}, color ${dt('message.transition.duration')}, outline-color ${dt('message.transition.duration')}, box-shadow ${dt('message.transition.duration')};
     outline-color: transparent;
     color: inherit;
     padding: 0;

@@ -3,7 +3,8 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        borderRadius: '{content.border.radius}'
+        borderRadius: '{content.border.radius}',
+        transitionDuration: '{transition.duration}'
     },
     header: {
         background: 'transparent',

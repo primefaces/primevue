@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
     cursor: pointer;
     background: transparent;
     color: ${dt('image.preview.mask.color')};
-    transition: background ${dt('transition.duration')};
+    transition: background ${dt('image.transition.duration')};
 }
 
 .p-image-preview:hover > .p-image-preview-mask {
@@ -77,7 +77,7 @@ const theme = ({ dt }) => `
     user-select: none;
     border-radius: ${dt('image.action.border.radius')};
     outline-color: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('image.transition.duration')}, color ${dt('image.transition.duration')}, outline-color ${dt('image.transition.duration')}, box-shadow ${dt('image.transition.duration')};
 }
 
 .p-image-action:hover {

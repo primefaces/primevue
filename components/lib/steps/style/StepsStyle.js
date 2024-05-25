@@ -54,7 +54,7 @@ const theme = ({ dt }) => `
     align-items: center;
     overflow: hidden;
     text-decoration: none;
-    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: outline-color ${dt('steps.transition.duration')}, box-shadow ${dt('steps.transition.duration')};
     border-radius: ${dt('steps.item.link.border.radius')};
     outline-color: transparent;
     gap: ${dt('steps.item.link.gap')};

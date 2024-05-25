@@ -1,12 +1,4 @@
 export default {
-    handle: {
-        borderRadius: '50%',
-        size: '1rem',
-        background: '{form.field.border.color}',
-        hoverBackground: '{form.field.border.color}',
-        checkedBackground: '{primary.contrast.color}',
-        checkedHoverBackground: '{primary.contrast.color}'
-    },
     root: {
         width: '2.5rem',
         height: '1.5rem',
@@ -26,6 +18,15 @@ export default {
         background: '{form.field.background}',
         hoverBackground: '{form.field.background}',
         checkedBackground: '{primary.color}',
-        checkedHoverBackground: '{primary.color}'
+        checkedHoverBackground: '{primary.color}',
+        transitionDuration: '{form.field.transition.duration}'
+    },
+    handle: {
+        borderRadius: '50%',
+        size: '1rem',
+        background: '{form.field.border.color}',
+        hoverBackground: '{form.field.border.color}',
+        checkedBackground: '{primary.contrast.color}',
+        checkedHoverBackground: '{primary.contrast.color}'
     }
 };

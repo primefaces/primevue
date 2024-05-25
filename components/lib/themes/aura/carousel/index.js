@@ -15,7 +15,8 @@ export default {
                 offset: '{focus.ring.offset}',
                 shadow: '{focus.ring.shadow}'
             }
-        }
+        },
+        transitionDuration: '{transition.duration}'
     },
     colorScheme: {
         light: {

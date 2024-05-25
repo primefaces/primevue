@@ -44,7 +44,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('autocomplete.dropdown.border.color')};
     border-left: 0 none;
     color: ${dt('autocomplete.dropdown.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')}, outline-color ${dt('autocomplete.transition.duration')}, box-shadow ${dt('autocomplete.transition.duration')};
     outline-color: transparent;
 }
 
@@ -102,7 +102,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     color: ${dt('autocomplete.option.color')};
     background: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')};
+    transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')};
     border-radius: ${dt('autocomplete.option.border.radius')};
 }
 
@@ -144,7 +144,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('autocomplete.border.color')};
     border-radius: ${dt('autocomplete.border.radius')};
     width: 100%;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')}, outline-color ${dt('autocomplete.transition.duration')}, box-shadow ${dt('autocomplete.transition.duration')};
     outline-color: transparent;
     box-shadow: ${dt('autocomplete.shadow')};
 }

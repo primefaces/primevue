@@ -54,7 +54,7 @@ const theme = ({ dt }) => `
     position: relative;
     cursor: pointer;
     background: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('toast.transition.duration')}, color ${dt('toast.transition.duration')}, outline-color ${dt('toast.transition.duration')}, box-shadow ${dt('toast.transition.duration')};
     outline-color: transparent;
     color: inherit;
     width: ${dt('toast.close.button.width')};

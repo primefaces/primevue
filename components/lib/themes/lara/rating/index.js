@@ -1,6 +1,7 @@
 export default {
     root: {
-        gap: '0.25rem'
+        gap: '0.25rem',
+        transitionDuration: '{transition.duration}'
     },
     icon: {
         size: '1.25rem',

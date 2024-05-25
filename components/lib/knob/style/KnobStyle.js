@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
 .p-knob svg {
     border-radius: ${dt('border.radius.md')};
     outline-color: transparent;
-    transition: outline-color ${dt('transition.duration')};
+    transition: outline-color ${dt('knob.transition.duration')};
 }
 .p-knob svg:focus-visible {
     outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};

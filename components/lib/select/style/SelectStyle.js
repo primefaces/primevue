@@ -8,7 +8,7 @@ const theme = ({ dt }) => `
     user-select: none;
     background: ${dt('select.background')};
     border: 1px solid ${dt('select.border.color')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, outline-color ${dt('select.transition.duration')}, box-shadow ${dt('select.transition.duration')};
     border-radius: ${dt('select.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('select.shadow')};
@@ -156,7 +156,7 @@ input.p-select-label {
     border: 0 none;
     color: ${dt('select.option.color')};
     background: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('select.transition.duration')}, color ${dt('select.transition.duration')}, border-color ${dt('select.transition.duration')}, box-shadow ${dt('select.transition.duration')}, outline-color ${dt('select.transition.duration')};
     border-radius: ${dt('select.option.border.radius')};
 }
 

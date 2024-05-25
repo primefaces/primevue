@@ -32,7 +32,7 @@ const theme = ({ dt }) => `
 }
 
 .p-megamenu-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('megamenu.transition.duration')}, color ${dt('megamenu.transition.duration')};
     border-radius: ${dt('megamenu.item.border.radius')};
     color: ${dt('megamenu.item.color')};
 }
@@ -230,7 +230,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     background: transparent;
     border-radius: ${dt('megamenu.mobile.button.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, ox-shadow ${dt('transition.duration')};
+    transition: background ${dt('megamenu.transition.duration')}, color ${dt('megamenu.transition.duration')}, outline-color ${dt('megamenu.transition.duration')}, ox-shadow ${dt('megamenu.transition.duration')};
     outline-color: transparent;
 }
 

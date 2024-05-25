@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     track: {
         borderRadius: '{content.border.radius}',
         size: '3px'

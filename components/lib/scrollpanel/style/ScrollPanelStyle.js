@@ -31,10 +31,10 @@ const theme = ({ dt }) => `
     cursor: pointer;
     opacity: 0;
     outline-color: transparent;
-    transition: outline-color ${dt('transition.duration')};
+    transition: outline-color ${dt('scrollpanel.transition.duration')};
     background: ${dt('scrollpanel.bar.background')};
     border: 0 none;
-    transition: outline-color ${dt('transition.duration')}, opacity ${dt('transition.duration')};
+    transition: outline-color ${dt('scrollpanel.transition.duration')}, opacity ${dt('scrollpanel.transition.duration')};
 }
 
 .p-scrollpanel-bar:focus-visible {

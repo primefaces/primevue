@@ -27,7 +27,7 @@ const theme = ({ dt }) => `
 .p-splitter-gutter-handle {
     border-radius: ${dt('splitter.handle.border.radius')};
     background: ${dt('splitter.handle.background')};
-    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: outline-color ${dt('splitter.transition.duration')}, box-shadow ${dt('splitter.transition.duration')};
     outline-color: transparent;
 }
 

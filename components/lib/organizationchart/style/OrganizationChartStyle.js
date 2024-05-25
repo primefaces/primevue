@@ -21,7 +21,7 @@ const theme = ({ dt }) => `
     color: ${dt('organizationchart.node.color')};
     padding: ${dt('organizationchart.node.padding')};
     border-radius: ${dt('organizationchart.node.border.radius')};
-    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('organizationchart.transition.duration')}, border-color ${dt('organizationchart.transition.duration')}, color ${dt('organizationchart.transition.duration')}, box-shadow ${dt('organizationchart.transition.duration')};
 }
 
 .p-organizationchart-node:has(.p-organizationchart-node-toggle-button) {
@@ -57,7 +57,7 @@ const theme = ({ dt }) => `
     justify-content: center;
     align-items: center;
     outline-color: transparent;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('organizationchart.transition.duration')}, color ${dt('organizationchart.transition.duration')}, border-color ${dt('organizationchart.transition.duration')}, outline-color ${dt('organizationchart.transition.duration')}, box-shadow ${dt('organizationchart.transition.duration')};
 }
 
 .p-organizationchart-node-toggle-button:hover {

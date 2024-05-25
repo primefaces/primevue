@@ -149,7 +149,8 @@ export default {
                 color: '{focus.ring.color}',
                 offset: '{focus.ring.offset}',
                 shadow: '{focus.ring.shadow}'
-            }
+            },
+            transitionDuration: '{transition.duration}'
         },
         list: {
             padding: '0.5rem 0',

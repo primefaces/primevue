@@ -51,7 +51,7 @@ const theme = ({ dt }) => `
     width: ${dt('carousel.indicator.width')};
     height: ${dt('carousel.indicator.height')};
     border: 0 none;
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('carousel.transition.duration')}, color ${dt('carousel.transition.duration')}, outline-color ${dt('carousel.transition.duration')}, box-shadow ${dt('carousel.transition.duration')};
     outline-color: transparent;
     border-radius: ${dt('carousel.indicator.border.radius')};
     padding: 0;

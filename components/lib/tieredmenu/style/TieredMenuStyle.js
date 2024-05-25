@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tieredmenu-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('tieredmenu.transition.duration')}, color ${dt('tieredmenu.transition.duration')};
     border-radius: ${dt('tieredmenu.item.border.radius')};
     color: ${dt('tieredmenu.item.color')};
 }

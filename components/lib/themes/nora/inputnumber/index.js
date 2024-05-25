@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{transition.duration}'
+    },
     button: {
         background: 'transparent',
         borderColor: '{form.field.border.color}',

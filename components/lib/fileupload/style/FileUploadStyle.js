@@ -28,7 +28,7 @@ const theme = ({ dt }) => `
 .p-fileupload-content {
     border: 1px solid transparent;
     position: relative;
-    transition: border-color ${dt('transition.duration')};
+    transition: border-color ${dt('fileupload.transition.duration')};
     padding: ${dt('fileupload.content.padding')};
 }
 

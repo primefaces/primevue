@@ -3,7 +3,8 @@ export default {
         borderRadius: '16px',
         paddingX: '0.875rem',
         paddingY: '0.625rem',
-        gap: '0.5rem'
+        gap: '0.5rem',
+        transitionDuration: '{transition.duration}'
     },
     image: {
         width: '2rem',

@@ -1,5 +1,6 @@
 export default {
     root: {
-        gap: '0.5rem'
+        gap: '0.5rem',
+        transitionDuration: '{transition.duration}'
     }
 };

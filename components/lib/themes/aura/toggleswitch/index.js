@@ -1,8 +1,4 @@
 export default {
-    handle: {
-        borderRadius: '50%',
-        size: '1rem'
-    },
     root: {
         width: '2.5rem',
         height: '1.5rem',
@@ -18,7 +14,12 @@ export default {
         },
         borderWidth: '1px',
         borderColor: 'transparent',
-        invalidBorderColor: '{form.field.invalid.border.color}'
+        invalidBorderColor: '{form.field.invalid.border.color}',
+        transitionDuration: '{form.field.transition.duration}'
+    },
+    handle: {
+        borderRadius: '50%',
+        size: '1rem'
     },
     colorScheme: {
         light: {

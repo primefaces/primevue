@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
     background: ${dt('inputnumber.button.background')};
     color: ${dt('inputnumber.button.color')};
     width: ${dt('inputnumber.button.width')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, border-color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('inputnumber.transition.duration')}, color ${dt('inputnumber.transition.duration')}, border-color ${dt('inputnumber.transition.duration')}, outline-color ${dt('inputnumber.transition.duration')};
 }
 
 .p-inputnumber-button:hover {

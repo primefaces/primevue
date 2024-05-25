@@ -32,7 +32,7 @@ const theme = ({ dt }) => `
     color: ${dt('tabmenu.item.color')};
     padding: ${dt('tabmenu.item.padding')};
     font-weight: ${dt('tabmenu.item.font.weight')};
-    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('tabmenu.transition.duration')}, border-color ${dt('tabmenu.transition.duration')}, color ${dt('tabmenu.transition.duration')}, outline-color ${dt('tabmenu.transition.duration')}, box-shadow ${dt('tabmenu.transition.duration')};
     margin: ${dt('tabmenu.item.margin')};
     outline-color: transparent;
     gap: ${dt('tabmenu.item.gap')};
@@ -47,7 +47,7 @@ const theme = ({ dt }) => `
 
 .p-tabmenu-item-icon {
     color: ${dt('tabmenu.item.icon.color')};
-    transition: background ${dt('transition.duration')}, border-color ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('tabmenu.transition.duration')}, border-color ${dt('tabmenu.transition.duration')}, color ${dt('tabmenu.transition.duration')}, outline-color ${dt('tabmenu.transition.duration')}, box-shadow ${dt('tabmenu.transition.duration')};
 }
 
 .p-tabmenu-item-label {

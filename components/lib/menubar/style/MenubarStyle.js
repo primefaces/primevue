@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
 }
 
 .p-menubar-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('menubar.transition.duration')}, color ${dt('menubar.transition.duration')};
     border-radius: ${dt('menubar.item.border.radius')};
     color: ${dt('menubar.item.color')};
 }
@@ -156,7 +156,7 @@ const theme = ({ dt }) => `
     border: 0 none;
     background: transparent;
     border-radius: ${dt('menubar.mobile.button.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: background ${dt('menubar.transition.duration')}, color ${dt('menubar.transition.duration')}, outline-color ${dt('menubar.transition.duration')};
     outline-color: transparent;
 }
 

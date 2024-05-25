@@ -49,7 +49,7 @@ const theme = ({ dt }) => `
     font-weight: 600;
     border-top-right-radius: ${dt('border.radius.md')};
     border-top-left-radius: ${dt('border.radius.md')};
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: color ${dt('tabview.transition.duration')}, outline-color ${dt('tabview.transition.duration')};
     margin: 0 0 -1px 0;
     outline-color: transparent;
 }
@@ -88,7 +88,7 @@ const theme = ({ dt }) => `
     width: 2.5rem;
     border-radius: 0;
     outline-color: transparent;
-    transition: color ${dt('transition.duration')}, outline-color ${dt('transition.duration')};
+    transition: color ${dt('tabview.transition.duration')}, outline-color ${dt('tabview.transition.duration')};
     box-shadow: ${dt('tabview.nav.button.shadow')};
     border: none;
     cursor: pointer;

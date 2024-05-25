@@ -4,7 +4,8 @@ export default {
         color: '{content.color}',
         padding: '1rem',
         gap: '2px',
-        indent: '1rem'
+        indent: '1rem',
+        transitionDuration: '{transition.duration}'
     },
     node: {
         padding: '0.25rem 0.5rem',

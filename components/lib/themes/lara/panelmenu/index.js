@@ -1,6 +1,7 @@
 export default {
     root: {
-        gap: '0'
+        gap: '0',
+        transitionDuration: '{transition.duration}'
     },
     panel: {
         background: '{content.background}',

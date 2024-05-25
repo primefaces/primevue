@@ -41,7 +41,7 @@ const theme = ({ dt }) => `
     height: ${dt('chip.remove.icon.size')};
     color: ${dt('chip.remove.icon.color')};
     border-radius: 50%;
-    transition: outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: outline-color ${dt('chip.transition.duration')}, box-shadow ${dt('chip.transition.duration')};
     outline-color: transparent;
 }
 

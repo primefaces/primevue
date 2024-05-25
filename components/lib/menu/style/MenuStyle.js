@@ -20,7 +20,7 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('menu.transition.duration')}, color ${dt('menu.transition.duration')};
     border-radius: ${dt('menu.item.border.radius')};
     color: ${dt('menu.item.color')};
 }

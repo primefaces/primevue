@@ -1,4 +1,7 @@
 export default {
+    root: {
+        transitionDuration: '{form.field.transition.duration}'
+    },
     value: {
         background: '{primary.color}'
     },

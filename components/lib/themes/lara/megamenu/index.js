@@ -10,7 +10,8 @@ export default {
         },
         horizontalOrientation: {
             padding: '0.75rem 1rem'
-        }
+        },
+        transitionDuration: '{transition.duration}'
     },
     baseItem: {
         borderRadius: '{content.border.radius}',

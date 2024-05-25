@@ -1,6 +1,7 @@
 export default {
     root: {
-        gutter: '0.75rem'
+        gutter: '0.75rem',
+        transitionDuration: '{transition.duration}'
     },
     node: {
         background: '{content.background}',

@@ -2,7 +2,8 @@ export default {
     root: {
         width: '25rem',
         borderRadius: '{content.border.radius}',
-        borderWidth: '0 0 0 6px'
+        borderWidth: '0 0 0 6px',
+        transitionDuration: '{transition.duration}'
     },
     icon: {
         size: '1.25rem'

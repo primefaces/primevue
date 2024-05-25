@@ -4,7 +4,8 @@ export default {
         gap: '0.25rem',
         borderRadius: '{content.border.radius}',
         background: '{content.background}',
-        color: '{content.color}'
+        color: '{content.color}',
+        transitionDuration: '{transition.duration}'
     },
     navButton: {
         hoverBackground: '{content.hover.background}',

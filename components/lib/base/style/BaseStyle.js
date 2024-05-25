@@ -89,7 +89,7 @@ const theme = ({ dt }) => `
 
 .p-overlay-mask {
     background: rgba(0, 0, 0, 0.4);
-    transition-duration: ${dt('transition.duration')};
+    transition-duration: ${dt('mask.transition.duration')};
     position: fixed;
     top: 0;
     left: 0;

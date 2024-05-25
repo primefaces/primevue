@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     cursor: pointer;
     padding: ${dt('inplace.padding')};
     border-radius: ${dt('inplace.border.radius')};
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')}, outline-color ${dt('transition.duration')}, box-shadow ${dt('transition.duration')};
+    transition: background ${dt('inplace.transition.duration')}, color ${dt('inplace.transition.duration')}, outline-color ${dt('inplace.transition.duration')}, box-shadow ${dt('inplace.transition.duration')};
     outline-color: transparent;
 }
 

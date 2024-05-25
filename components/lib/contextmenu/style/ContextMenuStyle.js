@@ -39,7 +39,7 @@ const theme = ({ dt }) => `
 }
 
 .p-contextmenu-item-content {
-    transition: background ${dt('transition.duration')}, color ${dt('transition.duration')};
+    transition: background ${dt('contextmenu.transition.duration')}, color ${dt('contextmenu.transition.duration')};
     border-radius: ${dt('contextmenu.item.border.radius')};
     color: ${dt('contextmenu.item.color')};
 }

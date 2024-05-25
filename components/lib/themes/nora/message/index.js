@@ -2,7 +2,8 @@ export default {
     root: {
         margin: '1rem 0',
         borderRadius: '{content.border.radius}',
-        borderWidth: '1px'
+        borderWidth: '1px',
+        transitionDuration: '{transition.duration}'
     },
     content: {
         padding: '0.5rem 0.75rem',
