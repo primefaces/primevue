@@ -6,7 +6,7 @@ export default {
         background: '{content.background}',
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
-        borderWidth: '0 0 1px 0',
+        borderWidth: '1px 0 1px 0',
         padding: '0.75rem 1rem',
         fontWeight: '700'
     },
@@ -58,7 +58,10 @@ export default {
     footer: {
         background: '{content.background}',
         borderColor: '{datatable.border.color}',
-        color: '{content.color}'
+        color: '{content.color}',
+        borderWidth: '0 0 1px 0',
+        padding: '0.75rem 1rem',
+        fontWeight: '700'
     },
     dropPointColor: '{primary.color}',
     columnResizerWidth: '0.5rem',

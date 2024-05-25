@@ -16,7 +16,6 @@ export default {
         gap: '0.5rem',
         padding: '0.75rem 1rem',
         fontWeight: '700',
-
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -51,7 +50,7 @@ export default {
     },
     footer: {
         borderColor: '{datatable.border.color}',
-        borderWidth: '0 0 1px',
+        borderWidth: '0 0 1px 0',
         padding: '0.75rem 1rem',
         fontWeight: '700'
     },
