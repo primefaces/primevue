@@ -1,10 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Data filtering is enabled by defining the <i>filters</i> property referring to a <i>DataTableFilterMeta</i> instance. Each column to filter also requires <i>filter</i> to be enabled. Built-in filter element is a input field and using
-            <i>filterElement</i>, it is possible to customize the filtering with your own UI. Filter elements are display within a separe row when <i>filterDisplay</i> is defined as <i>row</i>.
+            Data filtering is enabled by defining the <i>filters</i> model referring to a <i>DataTableFilterMeta</i> instance and specifying a filter element for a column using the <i>filter</i> template. This template receives a
+            <i>filterModel</i> and <i>filterCallback</i> to build your own UI.
         </p>
-        <p>The optional global filtering searches the data against a single value that is bound to the <i>global</i> key of the <i>filters</i> object. The fields to search against is defined with the <i>globalFilterFields</i>.</p>
+        <p>The optional global filtering searches the data against a single value that is bound to the <i>global</i> key of the <i>filters</i> object. The fields to search against are defined with the <i>globalFilterFields</i>.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">

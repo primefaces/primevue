@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>filterDisplay</i> is set as <i>menu</i>, filtering is done via popups with support for multiple constraints and advanced templating.</p>
+        <p>When <i>filterDisplay</i> is set as <i>menu</i>, filtering UI is placed inside a popover with support for multiple constraints and advanced templating.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
