@@ -6,7 +6,7 @@
         <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </OverlayBadge>
-        <OverlayBadge value="5+" severity="danger">
+        <OverlayBadge value="4" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
         </OverlayBadge>
         <OverlayBadge severity="danger">
@@ -25,7 +25,7 @@ export default {
 <OverlayBadge value="2">
     <i class="pi pi-bell" style="font-size: 2rem" />
 </OverlayBadge>
-<OverlayBadge value="5+" severity="danger">
+<OverlayBadge value="4" severity="danger">
     <i class="pi pi-calendar" style="font-size: 2rem" />
 </OverlayBadge>
 <OverlayBadge severity="danger">
@@ -38,7 +38,7 @@ export default {
         <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </OverlayBadge>
-        <OverlayBadge value="5+" severity="danger">
+        <OverlayBadge value="4" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
         </OverlayBadge>
         <OverlayBadge severity="danger">
@@ -57,7 +57,7 @@ export default {
         <OverlayBadge value="2">
             <i class="pi pi-bell" style="font-size: 2rem" />
         </OverlayBadge>
-        <OverlayBadge value="5+" severity="danger">
+        <OverlayBadge value="4" severity="danger">
             <i class="pi pi-calendar" style="font-size: 2rem" />
         </OverlayBadge>
         <OverlayBadge severity="danger">

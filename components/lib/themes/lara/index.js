@@ -44,6 +44,7 @@ import metergroup from 'primevue/themes/lara/metergroup';
 import multiselect from 'primevue/themes/lara/multiselect';
 import orderlist from 'primevue/themes/lara/orderlist';
 import organizationchart from 'primevue/themes/lara/organizationchart';
+import overlaybadge from 'primevue/themes/lara/overlaybadge';
 import paginator from 'primevue/themes/lara/paginator';
 import panel from 'primevue/themes/lara/panel';
 import panelmenu from 'primevue/themes/lara/panelmenu';
@@ -507,6 +508,7 @@ export default {
         multiselect,
         orderlist,
         organizationchart,
+        overlaybadge,
         popover,
         paginator,
         password,

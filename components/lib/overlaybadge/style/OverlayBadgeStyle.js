@@ -12,6 +12,9 @@ const theme = ({ dt }) => `
     transform: translate(50%, -50%);
     transform-origin: 100% 0;
     margin: 0;
+    outline-width: ${dt('overlaybadge.outline.width')};
+    outline-style: solid;
+    outline-color: ${dt('overlaybadge.outline.color')};
 }
 `;
 

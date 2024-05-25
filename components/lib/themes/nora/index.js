@@ -44,6 +44,7 @@ import metergroup from 'primevue/themes/nora/metergroup';
 import multiselect from 'primevue/themes/nora/multiselect';
 import orderlist from 'primevue/themes/nora/orderlist';
 import organizationchart from 'primevue/themes/nora/organizationchart';
+import overlaybadge from 'primevue/themes/nora/overlaybadge';
 import paginator from 'primevue/themes/nora/paginator';
 import panel from 'primevue/themes/nora/panel';
 import panelmenu from 'primevue/themes/nora/panelmenu';
@@ -501,6 +502,7 @@ export default {
         multiselect,
         orderlist,
         organizationchart,
+        overlaybadge,
         popover,
         paginator,
         password,

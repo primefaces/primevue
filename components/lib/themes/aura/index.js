@@ -44,6 +44,7 @@ import metergroup from 'primevue/themes/aura/metergroup';
 import multiselect from 'primevue/themes/aura/multiselect';
 import orderlist from 'primevue/themes/aura/orderlist';
 import organizationchart from 'primevue/themes/aura/organizationchart';
+import overlaybadge from 'primevue/themes/aura/overlaybadge';
 import paginator from 'primevue/themes/aura/paginator';
 import panel from 'primevue/themes/aura/panel';
 import panelmenu from 'primevue/themes/aura/panelmenu';
@@ -502,6 +503,7 @@ export default {
         multiselect,
         orderlist,
         organizationchart,
+        overlaybadge,
         popover,
         paginator,
         password,
