@@ -383,7 +383,7 @@ export default {
                 primary: {
                     hoverBackground: 'color-mix(in srgb, {primary.color}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {primary.color}, transparent 84%)',
-                    borderColor: '{primary.900}',
+                    borderColor: '{primary.700}',
                     color: '{primary.color}'
                 },
                 secondary: {
@@ -395,31 +395,31 @@ export default {
                 success: {
                     hoverBackground: 'color-mix(in srgb, {green.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {green.400}, transparent 84%)',
-                    borderColor: '{green.900}',
+                    borderColor: '{green.700}',
                     color: '{green.400}'
                 },
                 info: {
                     hoverBackground: 'color-mix(in srgb, {sky.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {sky.400}, transparent 84%)',
-                    borderColor: '{sky.900}',
+                    borderColor: '{sky.700}',
                     color: '{sky.400}'
                 },
                 warn: {
                     hoverBackground: 'color-mix(in srgb, {orange.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {orange.400}, transparent 84%)',
-                    borderColor: '{orange.900}',
+                    borderColor: '{orange.700}',
                     color: '{orange.400}'
                 },
                 help: {
                     hoverBackground: 'color-mix(in srgb, {help.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {help.400}, transparent 84%)',
-                    borderColor: '{purple.900}',
+                    borderColor: '{purple.700}',
                     color: '{purple.400}'
                 },
                 danger: {
                     hoverBackground: 'color-mix(in srgb, {danger.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {danger.400}, transparent 84%)',
-                    borderColor: '{red.900}',
+                    borderColor: '{red.700}',
                     color: '{red.400}'
                 },
                 contrast: {
