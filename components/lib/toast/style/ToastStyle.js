@@ -8,11 +8,7 @@ const theme = ({ dt }) => `
 }
 
 .p-toast-message {
-    backdrop-filter: blur(${dt('toast.blur')});
     margin: 0 0 1rem 0;
-    border-radius: ${dt('toast.border.radius')};
-    border-width: ${dt('toast.border.width')};
-    border-style: solid;
 }
 
 .p-toast-message-icon {
@@ -65,6 +61,18 @@ const theme = ({ dt }) => `
     padding: 0;
     border: none;
     user-select: none;
+}
+
+.p-toast-message-info,
+.p-toast-message-success,
+.p-toast-message-warn,
+.p-toast-message-error,
+.p-toast-message-secondary,
+.p-toast-message-contrast {
+    border-width: ${dt('toast.border.width')};
+    border-style: solid;
+    backdrop-filter: blur(${dt('toast.blur')});
+    border-radius: ${dt('toast.border.radius')};
 }
 
 .p-toast-close-icon {

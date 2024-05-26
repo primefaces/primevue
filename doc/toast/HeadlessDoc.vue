@@ -5,19 +5,18 @@
     <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
-                    <i class="pi pi-cloud-upload text-green-400 text-2xl"></i>
-                    <div class="flex flex-col gap-4 w-full">
-                        <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-white">{{ message.detail }}</p>
-                        <div class="flex flex-col gap-2">
-                            <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
-                            <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
-                        </div>
-                        <div class="flex gap-4 mb-4">
-                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
-                        </div>
+                <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+                    <div class="flex items-center gap-5">
+                        <i class="pi pi-cloud-upload text-primary-50 dark:text-primary-900 text-2xl"></i>
+                        <span class="font-bold text-base text-primary-50 dark:text-primary-900">{{ message.summary }}</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                        <label class="text-sm font-bold text-primary-50 dark:text-primary-900">{{ progress }}% uploaded</label>
+                    </div>
+                    <div class="flex gap-4 mb-4 justify-end">
+                        <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                        <Button label="Cancel" size="small" @click="closeCallback"></Button>
                     </div>
                 </section>
             </template>
@@ -38,19 +37,18 @@ export default {
                 basic: `
 <Toast position="top-center" group="headless" @close="visible = false">
     <template #container="{ message, closeCallback }">
-        <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
-            <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-            <div class="flex flex-col gap-4 w-full">
-                <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
-                <div class="flex flex-col gap-2">
-                    <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
-                    <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
-                </div>
-                <div class="flex gap-4 mb-4">
-                    <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
-                    <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
-                </div>
+        <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+            <div class="flex items-center gap-5">
+                <i class="pi pi-cloud-upload text-primary-50 dark:text-primary-900 text-2xl"></i>
+                <span class="font-bold text-base text-primary-50 dark:text-primary-900">{{ message.summary }}</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                <label class="text-sm font-bold text-primary-50 dark:text-primary-900">{{ progress }}% uploaded</label>
+            </div>
+            <div class="flex gap-4 mb-4 justify-end">
+                <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                <Button label="Cancel" size="small" @click="closeCallback"></Button>
             </div>
         </section>
     </template>
@@ -62,19 +60,18 @@ export default {
     <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
-                    <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-                    <div class="flex flex-col gap-4 w-full">
-                        <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
-                        <div class="flex flex-col gap-2">
-                            <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
-                            <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
-                        </div>
-                        <div class="flex gap-4 mb-4">
-                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
-                        </div>
+                <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+                    <div class="flex items-center gap-5">
+                        <i class="pi pi-cloud-upload text-primary-50 dark:text-primary-900 text-2xl"></i>
+                        <span class="font-bold text-base text-primary-50 dark:text-primary-900">{{ message.summary }}</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                        <label class="text-sm font-bold text-primary-50 dark:text-primary-900">{{ progress }}% uploaded</label>
+                    </div>
+                    <div class="flex gap-4 mb-4 justify-end">
+                        <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                        <Button label="Cancel" size="small" @click="closeCallback"></Button>
                     </div>
                 </section>
             </template>
@@ -100,7 +97,7 @@ export default {
     methods: {
         show() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless' });
+                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
                 this.visible = true;
                 this.progress = 0;
 
@@ -129,19 +126,18 @@ export default {
     <div class="card flex justify-center">
         <Toast position="top-center" group="headless" @close="visible = false">
             <template #container="{ message, closeCallback }">
-                <section class="flex p-4 gap-4 w-full bg-black/90" style="border-radius: 10px">
-                    <i class="pi pi-cloud-upload text-primary-500 text-2xl"></i>
-                    <div class="flex flex-col gap-4 w-full">
-                        <p class="m-0 font-semibold text-base text-white">{{ message.summary }}</p>
-                        <p class="m-0 text-base text-surface-700">{{ message.detail }}</p>
-                        <div class="flex flex-col gap-2">
-                            <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }"></ProgressBar>
-                            <label class="text-right text-xs text-white">{{ progress }}% uploaded...</label>
-                        </div>
-                        <div class="flex gap-4 mb-4">
-                            <Button label="Another Upload?" text class="py-1 px-2" @click="closeCallback"></Button>
-                            <Button label="Cancel" text class="text-white py-1 px-2" @click="closeCallback"></Button>
-                        </div>
+                <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+                    <div class="flex items-center gap-5">
+                        <i class="pi pi-cloud-upload text-primary-50 dark:text-primary-900 text-2xl"></i>
+                        <span class="font-bold text-base text-primary-50 dark:text-primary-900">{{ message.summary }}</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                        <label class="text-sm font-bold text-primary-50 dark:text-primary-900">{{ progress }}% uploaded</label>
+                    </div>
+                    <div class="flex gap-4 mb-4 justify-end">
+                        <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                        <Button label="Cancel" size="small" @click="closeCallback"></Button>
                     </div>
                 </section>
             </template>
@@ -166,7 +162,7 @@ onUnmounted(() => {
 
 const show = () => {
     if (!visible.value) {
-        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless' });
+        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
         visible.value = true;
         progress.value = 0;
 
@@ -199,7 +195,7 @@ const show = () => {
     methods: {
         show() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless' });
+                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
                 this.visible = true;
                 this.progress = 0;
 
