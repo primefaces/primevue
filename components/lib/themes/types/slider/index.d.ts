@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface SliderDesignTokens extends ColorSchemeDesignToken<SliderDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken slider.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the track section
      */
     track?: {

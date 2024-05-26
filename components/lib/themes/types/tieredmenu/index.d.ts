@@ -45,6 +45,12 @@ export interface TieredMenuDesignTokens extends ColorSchemeDesignToken<TieredMen
          * @designToken tieredmenu.shadow
          */
         shadow?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken tieredmenu.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the list section

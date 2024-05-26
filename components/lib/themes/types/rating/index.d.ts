@@ -21,6 +21,12 @@ export interface RatingDesignTokens extends ColorSchemeDesignToken<RatingDesignT
          * @designToken rating.gap
          */
         gap?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken rating.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the icon section

@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePickerDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken datepicker.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the panel section
      */
     panel?: {

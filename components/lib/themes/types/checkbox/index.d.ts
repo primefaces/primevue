@@ -146,6 +146,12 @@ export interface CheckboxDesignTokens extends ColorSchemeDesignToken<CheckboxDes
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken checkbox.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the icon section

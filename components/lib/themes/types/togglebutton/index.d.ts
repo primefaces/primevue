@@ -99,6 +99,12 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
             shadow?: string;
         };
         /**
+         * Transition duration of root
+         *
+         * @designToken togglebutton.transition.duration
+         */
+        transitionDuration?: string;
+        /**
          * Background of root
          *
          * @designToken togglebutton.background

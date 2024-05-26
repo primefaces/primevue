@@ -51,6 +51,12 @@ export interface MenubarDesignTokens extends ColorSchemeDesignToken<MenubarDesig
          * @designToken menubar.padding
          */
         padding?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken menubar.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the base item section

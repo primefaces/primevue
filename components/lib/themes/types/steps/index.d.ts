@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface StepsDesignTokens extends ColorSchemeDesignToken<StepsDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken steps.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the separator section
      */
     separator?: {
@@ -119,6 +130,12 @@ export interface StepsDesignTokens extends ColorSchemeDesignToken<StepsDesignTok
          * @designToken steps.item.number.border.color
          */
         borderColor?: string;
+        /**
+         * Active border color of item number
+         *
+         * @designToken steps.item.number.active.border.color
+         */
+        activeBorderColor?: string;
         /**
          * Color of item number
          *

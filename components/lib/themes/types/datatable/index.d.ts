@@ -12,6 +12,23 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken datatable.transition.duration
+         */
+        transitionDuration?: string;
+        /**
+         * Border color of root
+         *
+         * @designToken datatable.border.color
+         */
+        borderColor?: string;
+    };
+    /**
      * Used to pass tokens of the header section
      */
     header?: {
@@ -45,12 +62,6 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.header.padding
          */
         padding?: string;
-        /**
-         * Font weight of header
-         *
-         * @designToken datatable.header.font.weight
-         */
-        fontWeight?: string;
     };
     /**
      * Used to pass tokens of the header cell section
@@ -111,12 +122,6 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          */
         padding?: string;
         /**
-         * Font weight of header cell
-         *
-         * @designToken datatable.header.cell.font.weight
-         */
-        fontWeight?: string;
-        /**
          * Focus ring of header cell
          */
         focusRing?: {
@@ -151,6 +156,17 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
              */
             shadow?: string;
         };
+    };
+    /**
+     * Used to pass tokens of the column title section
+     */
+    columnTitle?: {
+        /**
+         * Font weight of column title
+         *
+         * @designToken datatable.column.title.font.weight
+         */
+        fontWeight?: string;
     };
     /**
      * Used to pass tokens of the row section
@@ -285,10 +301,15 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.footer.cell.padding
          */
         padding?: string;
+    };
+    /**
+     * Used to pass tokens of the column footer section
+     */
+    columnFooter?: {
         /**
-         * Font weight of footer cell
+         * Font weight of column footer
          *
-         * @designToken datatable.footer.cell.font.weight
+         * @designToken datatable.column.footer.font.weight
          */
         fontWeight?: string;
     };
@@ -314,6 +335,18 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.footer.color
          */
         color?: string;
+        /**
+         * Border width of footer
+         *
+         * @designToken datatable.footer.border.width
+         */
+        borderWidth?: string;
+        /**
+         * Padding of footer
+         *
+         * @designToken datatable.footer.padding
+         */
+        padding?: string;
     };
     /**
      * Used to pass tokens of the drop point color section
@@ -802,16 +835,5 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.paginator.bottom.border.width
          */
         borderWidth?: string;
-    };
-    /**
-     * Used to pass tokens of the root section
-     */
-    root?: {
-        /**
-         * Border color of root
-         *
-         * @designToken datatable.border.color
-         */
-        borderColor?: string;
     };
 }

@@ -45,6 +45,12 @@ export interface FieldsetDesignTokens extends ColorSchemeDesignToken<FieldsetDes
          * @designToken fieldset.padding
          */
         padding?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken fieldset.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the legend section

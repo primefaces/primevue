@@ -140,5 +140,11 @@ export interface TextareaDesignTokens extends ColorSchemeDesignToken<TextareaDes
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken textarea.transition.duration
+         */
+        transitionDuration?: string;
     };
 }

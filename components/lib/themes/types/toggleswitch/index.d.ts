@@ -12,47 +12,6 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleSwitchDesignTokens> {
     /**
-     * Used to pass tokens of the handle section
-     */
-    handle?: {
-        /**
-         * Border radius of handle
-         *
-         * @designToken toggleswitch.handle.border.radius
-         */
-        borderRadius?: string;
-        /**
-         * Size of handle
-         *
-         * @designToken toggleswitch.handle.size
-         */
-        size?: string;
-        /**
-         * Background of handle
-         *
-         * @designToken toggleswitch.handle.background
-         */
-        background?: string;
-        /**
-         * Hover background of handle
-         *
-         * @designToken toggleswitch.handle.hover.background
-         */
-        hoverBackground?: string;
-        /**
-         * Checked background of handle
-         *
-         * @designToken toggleswitch.handle.checked.background
-         */
-        checkedBackground?: string;
-        /**
-         * Checked hover background of handle
-         *
-         * @designToken toggleswitch.handle.checked.hover.background
-         */
-        checkedHoverBackground?: string;
-    };
-    /**
      * Used to pass tokens of the root section
      */
     root?: {
@@ -134,11 +93,41 @@ export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleS
          */
         borderColor?: string;
         /**
+         * Hover border color of root
+         *
+         * @designToken toggleswitch.hover.border.color
+         */
+        hoverBorderColor?: string;
+        /**
+         * Checked border color of root
+         *
+         * @designToken toggleswitch.checked.border.color
+         */
+        checkedBorderColor?: string;
+        /**
+         * Checked hover border color of root
+         *
+         * @designToken toggleswitch.checked.hover.border.color
+         */
+        checkedHoverBorderColor?: string;
+        /**
          * Invalid border color of root
          *
          * @designToken toggleswitch.invalid.border.color
          */
         invalidBorderColor?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken toggleswitch.transition.duration
+         */
+        transitionDuration?: string;
+        /**
+         * Slide duration of root
+         *
+         * @designToken toggleswitch.slide.duration
+         */
+        slideDuration?: string;
         /**
          * Background of root
          *
@@ -161,6 +150,47 @@ export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleS
          * Checked hover background of root
          *
          * @designToken toggleswitch.checked.hover.background
+         */
+        checkedHoverBackground?: string;
+    };
+    /**
+     * Used to pass tokens of the handle section
+     */
+    handle?: {
+        /**
+         * Border radius of handle
+         *
+         * @designToken toggleswitch.handle.border.radius
+         */
+        borderRadius?: string;
+        /**
+         * Size of handle
+         *
+         * @designToken toggleswitch.handle.size
+         */
+        size?: string;
+        /**
+         * Background of handle
+         *
+         * @designToken toggleswitch.handle.background
+         */
+        background?: string;
+        /**
+         * Hover background of handle
+         *
+         * @designToken toggleswitch.handle.hover.background
+         */
+        hoverBackground?: string;
+        /**
+         * Checked background of handle
+         *
+         * @designToken toggleswitch.handle.checked.background
+         */
+        checkedBackground?: string;
+        /**
+         * Checked hover background of handle
+         *
+         * @designToken toggleswitch.handle.checked.hover.background
          */
         checkedHoverBackground?: string;
     };

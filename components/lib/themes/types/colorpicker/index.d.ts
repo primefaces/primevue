@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface ColorPickerDesignTokens extends ColorSchemeDesignToken<ColorPickerDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken colorpicker.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the preview section
      */
     preview?: {

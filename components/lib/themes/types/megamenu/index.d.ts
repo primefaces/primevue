@@ -73,6 +73,12 @@ export interface MegaMenuDesignTokens extends ColorSchemeDesignToken<MegaMenuDes
              */
             padding?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken megamenu.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the base item section

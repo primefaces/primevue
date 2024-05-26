@@ -140,6 +140,12 @@ export interface InputChipsDesignTokens extends ColorSchemeDesignToken<InputChip
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken inputchips.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the chip section

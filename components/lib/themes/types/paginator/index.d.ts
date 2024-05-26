@@ -45,17 +45,35 @@ export interface PaginatorDesignTokens extends ColorSchemeDesignToken<PaginatorD
          * @designToken paginator.color
          */
         color?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken paginator.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the nav button section
      */
     navButton?: {
         /**
+         * Background of nav button
+         *
+         * @designToken paginator.nav.button.background
+         */
+        background?: string;
+        /**
          * Hover background of nav button
          *
          * @designToken paginator.nav.button.hover.background
          */
         hoverBackground?: string;
+        /**
+         * Selected background of nav button
+         *
+         * @designToken paginator.nav.button.selected.background
+         */
+        selectedBackground?: string;
         /**
          * Color of nav button
          *
@@ -68,6 +86,12 @@ export interface PaginatorDesignTokens extends ColorSchemeDesignToken<PaginatorD
          * @designToken paginator.nav.button.hover.color
          */
         hoverColor?: string;
+        /**
+         * Selected color of nav button
+         *
+         * @designToken paginator.nav.button.selected.color
+         */
+        selectedColor?: string;
         /**
          * Width of nav button
          *

@@ -140,6 +140,12 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken treeselect.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the dropdown section

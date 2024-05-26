@@ -140,6 +140,12 @@ export interface MultiSelectDesignTokens extends ColorSchemeDesignToken<MultiSel
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken multiselect.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the dropdown section

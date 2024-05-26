@@ -45,6 +45,12 @@ export interface TreeDesignTokens extends ColorSchemeDesignToken<TreeDesignToken
          * @designToken tree.indent
          */
         indent?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken tree.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the node section

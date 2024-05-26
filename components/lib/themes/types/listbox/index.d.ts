@@ -110,6 +110,12 @@ export interface ListboxDesignTokens extends ColorSchemeDesignToken<ListboxDesig
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken listbox.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the list section
@@ -197,6 +203,12 @@ export interface ListboxDesignTokens extends ColorSchemeDesignToken<ListboxDesig
          * @designToken listbox.option.border.radius
          */
         borderRadius?: string;
+        /**
+         * Striped background of option
+         *
+         * @designToken listbox.option.striped.background
+         */
+        stripedBackground?: string;
     };
     /**
      * Used to pass tokens of the option group section
@@ -237,6 +249,18 @@ export interface ListboxDesignTokens extends ColorSchemeDesignToken<ListboxDesig
          * @designToken listbox.checkmark.color
          */
         color?: string;
+        /**
+         * Gutter start of checkmark
+         *
+         * @designToken listbox.checkmark.gutter.start
+         */
+        gutterStart?: string;
+        /**
+         * Gutter end of checkmark
+         *
+         * @designToken listbox.checkmark.gutter.end
+         */
+        gutterEnd?: string;
     };
     /**
      * Used to pass tokens of the empty message section

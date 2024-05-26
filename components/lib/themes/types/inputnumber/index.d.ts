@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface InputNumberDesignTokens extends ColorSchemeDesignToken<InputNumberDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken inputnumber.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the button section
      */
     button?: {

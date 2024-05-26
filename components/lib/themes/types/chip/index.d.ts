@@ -40,6 +40,12 @@ export interface ChipDesignTokens extends ColorSchemeDesignToken<ChipDesignToken
          */
         gap?: string;
         /**
+         * Transition duration of root
+         *
+         * @designToken chip.transition.duration
+         */
+        transitionDuration?: string;
+        /**
          * Background of root
          *
          * @designToken chip.background

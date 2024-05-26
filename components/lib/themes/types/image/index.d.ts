@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface ImageDesignTokens extends ColorSchemeDesignToken<ImageDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken image.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the preview section
      */
     preview?: {

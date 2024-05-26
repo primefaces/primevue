@@ -138,6 +138,18 @@ export interface ButtonDesignTokens extends ColorSchemeDesignToken<ButtonDesignT
             offset?: string;
         };
         /**
+         * Badge size of root
+         *
+         * @designToken button.badge.size
+         */
+        badgeSize?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken button.transition.duration
+         */
+        transitionDuration?: string;
+        /**
          * Primary of root
          */
         primary?: {

@@ -62,6 +62,12 @@ export interface InplaceDesignTokens extends ColorSchemeDesignToken<InplaceDesig
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken inplace.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the display section

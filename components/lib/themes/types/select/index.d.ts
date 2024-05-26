@@ -140,6 +140,12 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken select.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the dropdown section
@@ -330,6 +336,18 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
          * @designToken select.checkmark.color
          */
         color?: string;
+        /**
+         * Gutter start of checkmark
+         *
+         * @designToken select.checkmark.gutter.start
+         */
+        gutterStart?: string;
+        /**
+         * Gutter end of checkmark
+         *
+         * @designToken select.checkmark.gutter.end
+         */
+        gutterEnd?: string;
     };
     /**
      * Used to pass tokens of the empty message section

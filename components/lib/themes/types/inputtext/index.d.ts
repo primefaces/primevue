@@ -140,5 +140,11 @@ export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextD
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken inputtext.transition.duration
+         */
+        transitionDuration?: string;
     };
 }

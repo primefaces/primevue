@@ -21,5 +21,11 @@ export interface SpeedDialDesignTokens extends ColorSchemeDesignToken<SpeedDialD
          * @designToken speeddial.gap
          */
         gap?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken speeddial.transition.duration
+         */
+        transitionDuration?: string;
     };
 }

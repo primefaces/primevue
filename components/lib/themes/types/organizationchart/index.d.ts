@@ -21,6 +21,12 @@ export interface OrganizationChartDesignTokens extends ColorSchemeDesignToken<Or
          * @designToken organizationchart.gutter
          */
         gutter?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken organizationchart.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the node section

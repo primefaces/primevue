@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface AccordionDesignTokens extends ColorSchemeDesignToken<AccordionDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken accordion.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the panel section
      */
     panel?: {

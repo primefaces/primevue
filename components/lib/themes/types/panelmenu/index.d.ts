@@ -21,6 +21,12 @@ export interface PanelMenuDesignTokens extends ColorSchemeDesignToken<PanelMenuD
          * @designToken panelmenu.gap
          */
         gap?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken panelmenu.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the panel section

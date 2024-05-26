@@ -45,6 +45,12 @@ export interface MenuDesignTokens extends ColorSchemeDesignToken<MenuDesignToken
          * @designToken menu.shadow
          */
         shadow?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken menu.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the list section

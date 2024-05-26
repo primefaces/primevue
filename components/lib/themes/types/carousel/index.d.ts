@@ -90,6 +90,12 @@ export interface CarouselDesignTokens extends ColorSchemeDesignToken<CarouselDes
                 shadow?: string;
             };
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken carousel.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the indicator section

@@ -33,6 +33,12 @@ export interface ToastDesignTokens extends ColorSchemeDesignToken<ToastDesignTok
          * @designToken toast.border.width
          */
         borderWidth?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken toast.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the icon section

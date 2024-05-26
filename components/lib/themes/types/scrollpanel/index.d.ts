@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface ScrollPanelDesignTokens extends ColorSchemeDesignToken<ScrollPanelDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken scrollpanel.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the bar section
      */
     bar?: {

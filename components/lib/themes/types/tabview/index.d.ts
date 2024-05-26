@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface TabViewDesignTokens extends ColorSchemeDesignToken<TabViewDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken tabview.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the tab list section
      */
     tabList?: {

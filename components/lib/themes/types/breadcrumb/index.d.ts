@@ -33,6 +33,12 @@ export interface BreadcrumbDesignTokens extends ColorSchemeDesignToken<Breadcrum
          * @designToken breadcrumb.gap
          */
         gap?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken breadcrumb.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the item section

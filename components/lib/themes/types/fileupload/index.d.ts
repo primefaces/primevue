@@ -39,6 +39,12 @@ export interface FileUploadDesignTokens extends ColorSchemeDesignToken<FileUploa
          * @designToken fileupload.border.radius
          */
         borderRadius?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken fileupload.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the header section

@@ -33,6 +33,12 @@ export interface GalleriaDesignTokens extends ColorSchemeDesignToken<GalleriaDes
          * @designToken galleria.border.radius
          */
         borderRadius?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken galleria.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the nav button section

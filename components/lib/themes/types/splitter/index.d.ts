@@ -33,6 +33,12 @@ export interface SplitterDesignTokens extends ColorSchemeDesignToken<SplitterDes
          * @designToken splitter.color
          */
         color?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken splitter.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the gutter section

@@ -140,6 +140,12 @@ export interface RadioButtonDesignTokens extends ColorSchemeDesignToken<RadioBut
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken radiobutton.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the icon section

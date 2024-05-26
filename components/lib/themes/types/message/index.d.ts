@@ -33,6 +33,12 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
          * @designToken message.border.width
          */
         borderWidth?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken message.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the content section

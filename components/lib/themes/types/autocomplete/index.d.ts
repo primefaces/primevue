@@ -140,6 +140,12 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken autocomplete.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the overlay section

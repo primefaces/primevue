@@ -12,6 +12,17 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface StepperDesignTokens extends ColorSchemeDesignToken<StepperDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken stepper.transition.duration
+         */
+        transitionDuration?: string;
+    };
+    /**
      * Used to pass tokens of the separator section
      */
     separator?: {
@@ -170,6 +181,12 @@ export interface StepperDesignTokens extends ColorSchemeDesignToken<StepperDesig
          * @designToken stepper.item.number.border.color
          */
         borderColor?: string;
+        /**
+         * Active border color of item number
+         *
+         * @designToken stepper.item.number.active.border.color
+         */
+        activeBorderColor?: string;
         /**
          * Color of item number
          *

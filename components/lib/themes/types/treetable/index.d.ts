@@ -12,6 +12,23 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableDesignTokens> {
     /**
+     * Used to pass tokens of the root section
+     */
+    root?: {
+        /**
+         * Transition duration of root
+         *
+         * @designToken treetable.transition.duration
+         */
+        transitionDuration?: string;
+        /**
+         * Border color of root
+         *
+         * @designToken treetable.border.color
+         */
+        borderColor?: string;
+    };
+    /**
      * Used to pass tokens of the header section
      */
     header?: {
@@ -45,12 +62,6 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          * @designToken treetable.header.padding
          */
         padding?: string;
-        /**
-         * Font weight of header
-         *
-         * @designToken treetable.header.font.weight
-         */
-        fontWeight?: string;
     };
     /**
      * Used to pass tokens of the header cell section
@@ -111,12 +122,6 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          */
         padding?: string;
         /**
-         * Font weight of header cell
-         *
-         * @designToken treetable.header.cell.font.weight
-         */
-        fontWeight?: string;
-        /**
          * Focus ring of header cell
          */
         focusRing?: {
@@ -151,6 +156,17 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
              */
             shadow?: string;
         };
+    };
+    /**
+     * Used to pass tokens of the column title section
+     */
+    columnTitle?: {
+        /**
+         * Font weight of column title
+         *
+         * @designToken treetable.column.title.font.weight
+         */
+        fontWeight?: string;
     };
     /**
      * Used to pass tokens of the row section
@@ -285,10 +301,15 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          * @designToken treetable.footer.cell.padding
          */
         padding?: string;
+    };
+    /**
+     * Used to pass tokens of the column footer section
+     */
+    columnFooter?: {
         /**
-         * Font weight of footer cell
+         * Font weight of column footer
          *
-         * @designToken treetable.footer.cell.font.weight
+         * @designToken treetable.column.footer.font.weight
          */
         fontWeight?: string;
     };
@@ -314,6 +335,18 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          * @designToken treetable.footer.color
          */
         color?: string;
+        /**
+         * Border width of footer
+         *
+         * @designToken treetable.footer.border.width
+         */
+        borderWidth?: string;
+        /**
+         * Padding of footer
+         *
+         * @designToken treetable.footer.padding
+         */
+        padding?: string;
     };
     /**
      * Used to pass tokens of the column resizer width section
@@ -516,16 +549,5 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          * @designToken treetable.paginator.bottom.border.width
          */
         borderWidth?: string;
-    };
-    /**
-     * Used to pass tokens of the root section
-     */
-    root?: {
-        /**
-         * Border color of root
-         *
-         * @designToken treetable.border.color
-         */
-        borderColor?: string;
     };
 }

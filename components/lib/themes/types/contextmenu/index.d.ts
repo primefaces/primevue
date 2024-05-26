@@ -45,6 +45,12 @@ export interface ContextMenuDesignTokens extends ColorSchemeDesignToken<ContextM
          * @designToken contextmenu.shadow
          */
         shadow?: string;
+        /**
+         * Transition duration of root
+         *
+         * @designToken contextmenu.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the list section

@@ -140,6 +140,12 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
              */
             shadow?: string;
         };
+        /**
+         * Transition duration of root
+         *
+         * @designToken cascadeselect.transition.duration
+         */
+        transitionDuration?: string;
     };
     /**
      * Used to pass tokens of the dropdown section

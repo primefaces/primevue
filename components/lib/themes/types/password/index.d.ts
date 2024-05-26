@@ -16,11 +16,11 @@ export interface PasswordDesignTokens extends ColorSchemeDesignToken<PasswordDes
      */
     meter?: {
         /**
-         * Border color of meter
+         * Background of meter
          *
-         * @designToken password.meter.border.color
+         * @designToken password.meter.background
          */
-        borderColor?: string;
+        background?: string;
         /**
          * Border radius of meter
          *
@@ -85,10 +85,15 @@ export interface PasswordDesignTokens extends ColorSchemeDesignToken<PasswordDes
          * @designToken password.overlay.shadow
          */
         shadow?: string;
+    };
+    /**
+     * Used to pass tokens of the content section
+     */
+    content?: {
         /**
-         * Gap of overlay
+         * Gap of content
          *
-         * @designToken password.overlay.gap
+         * @designToken password.content.gap
          */
         gap?: string;
     };
