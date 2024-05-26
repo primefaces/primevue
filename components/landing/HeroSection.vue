@@ -4,7 +4,7 @@
             <div class="w-full xl:w-6/12 flex flex-col justify-center lg:pr-20 items-center xl:items-stretch">
                 <h1 class="text-5xl font-bold text-center xl:text-left leading-tight">The Next-Gen UI Suite for <span class="font-bold text-primary">Vue.js</span></h1>
                 <p class="xl:text-left text-center px-0 mt-0 mb-8 text-surface-500 dark:text-surface-400 font-medium text-xl leading-relaxed">
-                    Elevate your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
+                    Enhance your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
                 </p>
                 <div class="flex items-center gap-4">
                     <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary">
