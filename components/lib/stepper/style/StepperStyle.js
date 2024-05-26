@@ -31,7 +31,9 @@ const theme = ({ dt }) => `
     align-items: center;
     text-decoration: none;
     cursor: pointer;
-    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')};
+    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')}, box-shadow ${dt(
+    'stepper.transition.duration'
+)};
     border-radius: ${dt('stepper.item.header.border.radius')};
     outline-color: transparent;
     background: transparent;
@@ -57,7 +59,9 @@ const theme = ({ dt }) => `
     max-width: 100%;
     color: ${dt('stepper.item.title.color')};
     font-weight: ${dt('stepper.item.title.font.weight')};
-    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')};
+    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
+    'stepper.transition.duration'
+)};
 }
 
 .p-stepper-item-number {
@@ -114,7 +118,9 @@ const theme = ({ dt }) => `
     background: ${dt('stepper.separator.background')};
     width: 100%;
     height: ${dt('stepper.separator.size')};
-    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')};
+    transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
+    'stepper.transition.duration'
+)};
 }
 
 .p-stepper-panels {

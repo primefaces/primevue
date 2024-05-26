@@ -23,7 +23,9 @@ const theme = ({ dt }) => `
     border-color: ${dt('accordion.header.border.color')};
     font-weight: ${dt('accordion.header.font.weight')};
     border-radius: ${dt('accordion.header.border.radius')};
-    transition: background ${dt('accordion.transition.duration')}; color ${dt('accordion.transition.duration')}color ${dt('accordion.transition.duration')}, outline-color ${dt('accordion.transition.duration')}, box-shadow ${dt('accordion.transition.duration')};
+    transition: background ${dt('accordion.transition.duration')}; color ${dt('accordion.transition.duration')}color ${dt('accordion.transition.duration')}, outline-color ${dt('accordion.transition.duration')}, box-shadow ${dt(
+    'accordion.transition.duration'
+)};
     outline-color: transparent;
 }
 

@@ -7,7 +7,7 @@ export default {
         borderColor: '{datatable.border.color}',
         color: '{content.color}',
         borderWidth: '0 0 1px 0',
-        padding: '0.75rem 1rem',
+        padding: '0.75rem 1rem'
     },
     headerCell: {
         background: '{content.background}',
@@ -28,7 +28,7 @@ export default {
         }
     },
     columnTitle: {
-        fontWeight: '600',
+        fontWeight: '600'
     },
     row: {
         background: '{content.background}',
@@ -56,7 +56,7 @@ export default {
         padding: '0.75rem 1rem'
     },
     columnFooter: {
-        fontWeight: '600',
+        fontWeight: '600'
     },
     footer: {
         background: '{content.background}',

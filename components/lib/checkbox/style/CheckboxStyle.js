@@ -36,7 +36,9 @@ const theme = ({ dt }) => `
     background: ${dt('checkbox.background')};
     width: ${dt('checkbox.width')};
     height: ${dt('checkbox.width')};
-    transition: background ${dt('checkbox.transition.duration')}, color ${dt('checkbox.transition.duration')}, border-color ${dt('checkbox.transition.duration')}, box-shadow ${dt('checkbox.transition.duration')}, outline-color ${dt('checkbox.transition.duration')};
+    transition: background ${dt('checkbox.transition.duration')}, color ${dt('checkbox.transition.duration')}, border-color ${dt('checkbox.transition.duration')}, box-shadow ${dt('checkbox.transition.duration')}, outline-color ${dt(
+    'checkbox.transition.duration'
+)};
     outline-color: transparent;
     box-shadow: ${dt('checkbox.shadow')};
 }
