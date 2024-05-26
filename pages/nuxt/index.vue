@@ -29,7 +29,6 @@ import DirectivesDoc from '@/doc/nuxt/configuration/DirectivesDoc.vue';
 import ImportPTDoc from '@/doc/nuxt/configuration/ImportPTDoc.vue';
 import ImportThemeDoc from '@/doc/nuxt/configuration/ImportThemeDoc.vue';
 import OptionsDoc from '@/doc/nuxt/configuration/OptionsDoc.vue';
-import UnstyledDoc from '@/doc/nuxt/configuration/UnstyledDoc.vue';
 import UsePrimeVueDoc from '@/doc/nuxt/configuration/UsePrimeVueDoc.vue';
 
 export default {
@@ -59,11 +58,6 @@ export default {
                             id: 'useprimevue',
                             label: 'usePrimeVue',
                             component: UsePrimeVueDoc
-                        },
-                        {
-                            id: 'unstyled',
-                            label: 'unstyled',
-                            component: UnstyledDoc
                         },
                         {
                             id: 'options',

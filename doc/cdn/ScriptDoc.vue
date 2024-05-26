@@ -16,7 +16,8 @@ export default {
             code: {
                 basic: `
 https://unpkg.com/vue@3/dist/vue.global.js
-https://unpkg.com/primevue/core/core.min.js
+https://unpkg.com/primevue/umd/primevue.min.js
+https://unpkg.com/primevue/umd/themes/{preset}.min.js  // Optional, see theming section.
 `
             }
         };

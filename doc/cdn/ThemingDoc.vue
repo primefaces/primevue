@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Include the theme file with a link element, see <NuxtLink to="/theming/#themes">themes</NuxtLink> section for the complete list of available themes to choose from.</p>
+        <p>Include the theme preset via a script element after adding PrimeVue, see <NuxtLink to="/theming/styled/#presets">preset</NuxtLink> section for the complete list of available presets to choose from.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
@@ -11,7 +11,9 @@ export default {
         return {
             code: {
                 basic: `
-<link rel="stylesheet" href="https://unpkg.com/primevue/resources/themes/lara-light-green/theme.css" />
+<!-- <script src="https://unpkg.com/primevue/umd/themes/{preset}.min.js"><\/script> -->
+
+<script src="https://unpkg.com/primevue/umd/themes/aura.min.js"><\/script>
 `
             }
         };

@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import ComponentDoc from '@/doc/cdn/ComponentDoc.vue';
 import CreateAppDoc from '@/doc/cdn/CreateAppDoc.vue';
 import ExampleDoc from '@/doc/cdn/ExampleDoc.vue';
 import PluginDoc from '@/doc/cdn/PluginDoc.vue';
@@ -46,11 +45,6 @@ export default {
                     id: 'theming',
                     label: 'Theming',
                     component: ThemingDoc
-                },
-                {
-                    id: 'component',
-                    label: 'Component',
-                    component: ComponentDoc
                 },
                 {
                     id: 'example',

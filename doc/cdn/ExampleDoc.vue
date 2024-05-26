@@ -17,12 +17,11 @@ export default {
     <title>PrimeVue + CDN</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://unpkg.com/primevue/resources/themes/lara-light-green/theme.css" />
   </head>
   <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
-    <script src="https://unpkg.com/primevue/core/core.min.js"><\/script>
-    <script src="https://unpkg.com/primevue/datepicker/datepicker.min.js"><\/script>
+    <script src="https://unpkg.com/primevue/umd/primevue.min.js"><\/script>
+    <script src="https://unpkg.com/primevue/umd/themes/aura.min.js"><\/script>
 
     <div id="app">
       <p-datepicker v-model="date"></p-datepicker>
@@ -36,14 +35,20 @@ export default {
       const app = createApp({
         setup() {
           const date = ref();
+
           return {
-            date,
+            date
           };
         },
       });
 
-      app.use(primevue.config.default);
-      app.component('p-datepicker', primevue.datepicker);
+      app.use(PrimeVue.Config, {
+        theme: {
+            preset: PrimeVue.Themes.Aura
+        }
+      });
+
+      app.component('p-datepicker', PrimeVue.DatePicker);
 
       app.mount('#app');
     <\/script>
