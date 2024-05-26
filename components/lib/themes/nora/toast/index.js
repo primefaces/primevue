@@ -38,7 +38,7 @@ export default {
     },
     colorScheme: {
         light: {
-            blur: '1.5px',
+            blur: '0',
             info: {
                 background: '{blue.800}',
                 borderColor: '{blue.800}',
@@ -125,7 +125,7 @@ export default {
             }
         },
         dark: {
-            blur: '10px',
+            blur: '0',
             info: {
                 background: '{blue.200}',
                 borderColor: '{blue.200}',

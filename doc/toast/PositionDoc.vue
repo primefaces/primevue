@@ -5,8 +5,8 @@
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" @click="showTopLeft" />
-            <Button label="Bottom Left" severity="warn" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
+            <Button label="Bottom Left" @click="showBottomLeft" />
+            <Button label="Bottom Right" @click="showBottomRight" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -23,8 +23,8 @@ export default {
 <Toast position="bottom-right" group="br" />
 
 <Button label="Top Left" @click="showTopLeft" />
-<Button label="Bottom Left" severity="warn" @click="showBottomLeft" />
-<Button label="Bottom Right" severity="help" @click="showBottomRight" />
+<Button label="Bottom Left" @click="showBottomLeft" />
+<Button label="Bottom Right" @click="showBottomRight" />
 `,
                 options: `
 <template>
@@ -35,8 +35,8 @@ export default {
 
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" @click="showTopLeft" />
-            <Button label="Bottom Left" severity="warn" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
+            <Button label="Bottom Left" @click="showBottomLeft" />
+            <Button label="Bottom Right" @click="showBottomRight" />
         </div>
     </div>
 </template>
@@ -66,8 +66,8 @@ export default {
 
         <div class="flex flex-wrap gap-2">
             <Button label="Top Left" @click="showTopLeft" />
-            <Button label="Bottom Left" severity="warn" @click="showBottomLeft" />
-            <Button label="Bottom Right" severity="help" @click="showBottomRight" />
+            <Button label="Bottom Left" @click="showBottomLeft" />
+            <Button label="Bottom Right" @click="showBottomRight" />
         </div>
     </div>
 </template>
