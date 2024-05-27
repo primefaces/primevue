@@ -7,7 +7,7 @@
         <div class="doc-main">
             <div class="doc-intro">
                 <h1>Configuration</h1>
-                <p>Global configuration options of the components.</p>
+                <p>Application widge configuration for PrimeVue.</p>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -21,6 +21,7 @@ import InputStyleDoc from '@/doc/configuration/InputStyleDoc.vue';
 import PTDoc from '@/doc/configuration/PTDoc.vue';
 import PTOptionsDoc from '@/doc/configuration/PTOptionsDoc.vue';
 import RippleDoc from '@/doc/configuration/RippleDoc.vue';
+import ThemeDoc from '@/doc/configuration/ThemeDoc.vue';
 import UnstyledDoc from '@/doc/configuration/UnstyledDoc.vue';
 import ZIndexDoc from '@/doc/configuration/ZIndexDoc.vue';
 import NonceDoc from '@/doc/configuration/csp/NonceDoc.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'import',
                     label: 'Import',
                     component: ImportDoc
+                },
+                {
+                    id: 'theme',
+                    label: 'Theme',
+                    component: ThemeDoc
                 },
                 {
                     id: 'unstyled',
