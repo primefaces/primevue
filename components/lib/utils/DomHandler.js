@@ -328,7 +328,7 @@ export default {
             element.style.top = top + 'px';
             element.style.left = left + 'px';
             element.style.transformOrigin = origin;
-            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1').variable : $dt('anchor.gutter').variable);
+            gutter && (element.style.marginTop = origin === 'bottom' ? `calc(${$dt('anchor.gutter', '2px').variable} * -1)` : $dt('anchor.gutter').variable);
         }
     },
 
@@ -367,7 +367,7 @@ export default {
             element.style.top = top + 'px';
             element.style.left = left + 'px';
             element.style.transformOrigin = origin;
-            gutter && (element.style.marginTop = origin === 'bottom' ? $dt('{anchor.gutter} * -1').variable : $dt('anchor.gutter').variable);
+            gutter && (element.style.marginTop = origin === 'bottom' ? `calc(${$dt('anchor.gutter', '2px').variable} * -1)` : $dt('anchor.gutter').variable);
         }
     },
 
