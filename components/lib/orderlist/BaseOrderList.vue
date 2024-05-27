@@ -42,7 +42,7 @@ export default {
             type: String,
             default: '960px'
         },
-        stripedRows: {
+        striped: {
             type: Boolean,
             default: false
         },

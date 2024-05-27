@@ -94,7 +94,7 @@ export default {
             type: String,
             default: undefined
         },
-        stripedRows: {
+        striped: {
             type: Boolean,
             default: false
         },

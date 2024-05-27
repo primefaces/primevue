@@ -355,7 +355,7 @@ export interface PickListProps {
      * Whether to displays rows with alternating colors.
      * @defaultValue false
      */
-    stripedRows?: boolean | undefined;
+    striped?: boolean | undefined;
     /**
      * Whether to show buttons of source list.
      * @defaultValue true

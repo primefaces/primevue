@@ -398,7 +398,7 @@ export interface ListboxProps {
      * Whether to displays rows with alternating colors.
      * @defaultValue false
      */
-    stripedRows?: boolean | undefined;
+    striped?: boolean | undefined;
     /**
      * Index of the element in tabbing order.
      */

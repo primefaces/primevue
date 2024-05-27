@@ -45,7 +45,7 @@
             :dataKey="dataKey"
             :autoOptionFocus="autoOptionFocus"
             :focusOnHover="focusOnHover"
-            :stripedRows="stripedRows"
+            :striped="striped"
             :disabled="disabled"
             :ariaLabel="ariaLabel"
             :ariaLabelledby="ariaLabelledby"
