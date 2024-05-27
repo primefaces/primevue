@@ -103,7 +103,7 @@ const classes = {
     header: 'p-carousel-header',
     contentContainer: 'p-carousel-content-container',
     content: 'p-carousel-content',
-    pcPreviousButton: ({ instance }) => [
+    pcPrevButton: ({ instance }) => [
         'p-carousel-prev-button',
         {
             'p-disabled': instance.backwardIsDisabled

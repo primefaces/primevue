@@ -381,7 +381,7 @@ const classes = {
     calendarContainer: 'p-datepicker-calendar-container',
     calendar: 'p-datepicker-calendar',
     header: 'p-datepicker-header',
-    pcPreviousButton: 'p-datepicker-prev-button',
+    pcPrevButton: 'p-datepicker-prev-button',
     title: 'p-datepicker-title',
     viewMonth: 'p-datepicker-view-month',
     viewYear: 'p-datepicker-view-year',

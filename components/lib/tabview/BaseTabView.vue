@@ -26,7 +26,7 @@ export default {
             type: Boolean,
             default: false
         },
-        previousButtonProps: {
+        prevButtonProps: {
             type: null,
             default: null
         },

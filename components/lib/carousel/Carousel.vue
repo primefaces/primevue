@@ -7,18 +7,18 @@
             <div :class="[cx('content'), contentClass]" :aria-live="allowAutoplay ? 'polite' : 'off'" v-bind="ptm('content')">
                 <Button
                     v-if="showNavigators"
-                    :class="cx('pcPreviousButton')"
+                    :class="cx('pcPrevButton')"
                     :disabled="backwardIsDisabled"
                     :aria-label="ariaPrevButtonLabel"
                     :unstyled="unstyled"
                     @click="navBackward"
                     v-bind="prevButtonProps"
-                    :pt="ptm('pcPreviousButton')"
+                    :pt="ptm('pcPrevButton')"
                     data-pc-group-section="navigator"
                 >
                     <template #icon="slotProps">
-                        <slot name="previousicon">
-                            <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="[cx('previousButtonIcon'), slotProps.icon]" v-bind="ptm('pcPreviousButton')['icon']" />
+                        <slot name="previcon">
+                            <component :is="isVertical() ? 'ChevronUpIcon' : 'ChevronLeftIcon'" :class="slotProps.icon" v-bind="ptm('pcPrevButton')['icon']" />
                         </slot>
                     </template>
                 </Button>
@@ -72,7 +72,7 @@
                 >
                     <template #icon="slotProps">
                         <slot name="nexticon">
-                            <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="[cx('nextButtonIcon'), slotProps.class]" v-bind="ptm('pcNextButton')['icon']" />
+                            <component :is="isVertical() ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="slotProps.class" v-bind="ptm('pcNextButton')['icon']" />
                         </slot>
                     </template>
                 </Button>

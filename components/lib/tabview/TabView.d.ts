@@ -96,11 +96,11 @@ export interface TabViewPassThroughOptions {
     /**
      * Used to pass attributes to the previous button's DOM element.
      */
-    previousButton?: TabViewPassThroughOptionType;
+    prevButton?: TabViewPassThroughOptionType;
     /**
      * Used to pass attributes to the previous button icon's DOM element.
      */
-    previousIcon?: TabViewPassThroughOptionType;
+    prevIcon?: TabViewPassThroughOptionType;
     /**
      * Used to pass attributes to the next button's DOM element.
      */
@@ -193,7 +193,7 @@ export interface TabViewProps {
      * Used to pass all properties of the HTMLButtonElement to the previous button.
      * @deprecated since v3.26.0. Use 'pt' property instead.
      */
-    previousButtonProps?: ButtonHTMLAttributes | undefined;
+    prevButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Used to pass all properties of the HTMLButtonElement to the next button.
      * @deprecated since v3.26.0. Use 'pt' property instead.
@@ -201,7 +201,7 @@ export interface TabViewProps {
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Previous icon of the scrollable tabview.
-     * @deprecated since v3.27.0. Use 'previousicon' slot.
+     * @deprecated since v3.27.0. Use 'previcon' slot.
      */
     prevIcon?: string | undefined;
     /**
@@ -241,7 +241,7 @@ export interface TabViewSlots {
     /**
      * Previous button icon template for the scrollable component.
      */
-    previousicon(): VNode[];
+    previcon(): VNode[];
     /**
      * Next button icon template for the scrollable component.
      */

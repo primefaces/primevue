@@ -10,7 +10,7 @@ const classes = {
     ],
     tabs: 'p-tablist-tab-list',
     inkbar: 'p-tablist-active-bar',
-    previousButton: 'p-tablist-prev-button p-tablist-nav-button',
+    prevButton: 'p-tablist-prev-button p-tablist-nav-button',
     nextButton: 'p-tablist-next-button p-tablist-nav-button'
 };
 

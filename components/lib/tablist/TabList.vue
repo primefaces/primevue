@@ -4,14 +4,14 @@
             v-if="showNavigators && isPrevButtonEnabled"
             ref="prevButton"
             v-ripple
-            :class="cx('previousButton')"
+            :class="cx('prevButton')"
             :aria-label="prevButtonAriaLabel"
             :tabindex="$pcTabs.tabindex"
             @click="onPrevButtonClick"
-            v-bind="ptm('previousButton')"
+            v-bind="ptm('prevButton')"
             data-pc-group-section="navigator"
         >
-            <component :is="templates.previousicon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('previousIcon')" />
+            <component :is="templates.previcon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('prevIcon')" />
         </button>
         <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
             <div ref="tabs" :class="cx('tabs')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabs')">

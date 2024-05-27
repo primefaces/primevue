@@ -139,7 +139,7 @@ const classes = {
         }
     ],
     navContainer: 'p-tabview-tablist-container',
-    previousButton: 'p-tabview-prev-button',
+    prevButton: 'p-tabview-prev-button',
     navContent: 'p-tabview-tablist-scroll-container',
     nav: 'p-tabview-tablist',
     tab: {

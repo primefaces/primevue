@@ -48,7 +48,7 @@ const DatePickerProps = [
         description: 'Icon of the calendar button.'
     },
     {
-        name: 'previousIcon',
+        name: 'previcon',
         type: 'string',
         default: 'null',
         description: 'Icon to show in the previous button.'
@@ -484,7 +484,7 @@ const DatePickerSlots = [
         description: 'Custom dropdown icon template.'
     },
     {
-        name: 'previousicon',
+        name: 'previcon',
         description: 'Custom previous icon template.'
     },
     {

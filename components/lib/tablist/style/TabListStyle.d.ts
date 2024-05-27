@@ -29,7 +29,7 @@ export enum TabListClasses {
     /**
      * Class name of the previous button element
      */
-    previousButton = 'p-tablist-prev-button',
+    prevButton = 'p-tablist-prev-button',
     /**
      * Class name of the next button element
      */

@@ -88,7 +88,7 @@ export interface CarouselPassThroughOptions {
      * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    pcPreviousButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
+    pcPrevButton?: ButtonPassThroughOptions<CarouselSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the viewport's DOM element.
      */

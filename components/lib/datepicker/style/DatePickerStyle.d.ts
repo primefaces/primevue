@@ -49,7 +49,7 @@ export enum DatePickerClasses {
     /**
      * Class name of the previous button element
      */
-    pcPreviousButton = 'p-datepicker-prev-button',
+    pcPrevButton = 'p-datepicker-prev-button',
     /**
      * Class name of the title element
      */

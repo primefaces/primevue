@@ -22,7 +22,7 @@ export enum TabViewClasses {
     /**
      * Class name of the previous button element
      */
-    previousButton = 'p-tabview-prev-button',
+    prevButton = 'p-tabview-prev-button',
     /**
      * Class name of the nav content element
      */

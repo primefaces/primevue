@@ -56,7 +56,7 @@ export interface TabListPassThroughOptions {
     /**
      * Used to pass attributes to the previous button component.
      */
-    previousButton?: TabListPassThroughOptionType;
+    prevButton?: TabListPassThroughOptionType;
     /**
      * Used to pass attributes to the next button component.
      */

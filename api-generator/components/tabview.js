@@ -30,7 +30,7 @@ const TabViewProps = [
         description: 'When enabled, the focused tab is activated.'
     },
     {
-        name: 'previousButtonProps',
+        name: 'prevButtonProps',
         type: 'any',
         default: 'null',
         description: 'Used to pass all properties of the HTMLButtonElement to the previous button.'

@@ -115,7 +115,7 @@ const CarouselSlots = [
         description: 'Custom content for the component item.'
     },
     {
-        name: 'previousicon',
+        name: 'previcon',
         description: 'Custom previous icon template.'
     },
     {

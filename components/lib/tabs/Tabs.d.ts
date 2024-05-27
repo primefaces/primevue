@@ -146,7 +146,7 @@ export interface TabsSlots {
     /**
      * Previous button icon template for the scrollable component.
      */
-    previousicon(): VNode[];
+    previcon(): VNode[];
     /**
      * Next button icon template for the scrollable component.
      */

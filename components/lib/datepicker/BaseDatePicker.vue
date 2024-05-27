@@ -39,7 +39,7 @@ export default {
             type: String,
             default: undefined
         },
-        previousIcon: {
+        prevIcon: {
             type: String,
             default: undefined
         },

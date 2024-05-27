@@ -48,7 +48,7 @@ const CalendarProps = [
         description: 'Icon of the calendar button.'
     },
     {
-        name: 'previousIcon',
+        name: 'prevIcon',
         type: 'string',
         default: 'null',
         description: 'Icon to show in the previous button.'
@@ -484,7 +484,7 @@ const CalendarSlots = [
         description: 'Custom dropdown icon template.'
     },
     {
-        name: 'previousicon',
+        name: 'prevIcon',
         description: 'Custom previous icon template.'
     },
     {

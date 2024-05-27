@@ -6,15 +6,15 @@
                 ref="prevBtn"
                 v-ripple
                 type="button"
-                :class="cx('previousButton')"
+                :class="cx('prevButton')"
                 :tabindex="tabindex"
                 :aria-label="prevButtonAriaLabel"
                 @click="onPrevButtonClick"
-                v-bind="{ ...previousButtonProps, ...ptm('previousButton') }"
+                v-bind="{ ...prevButtonProps, ...ptm('prevButton') }"
                 data-pc-group-section="navbutton"
             >
-                <slot name="previousicon">
-                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('previousIcon')" />
+                <slot name="previcon">
+                    <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" aria-hidden="true" :class="prevIcon" v-bind="ptm('prevIcon')" />
                 </slot>
             </button>
             <div ref="content" :class="cx('navContent')" @scroll="onScroll" v-bind="ptm('navContent')">

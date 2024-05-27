@@ -175,7 +175,7 @@ export interface DatePickerPassThroughOptions {
      * Used to pass attributes to the previous button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
-    pcPreviousButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcPrevButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the title's DOM element.
      */
@@ -570,9 +570,9 @@ export interface DatePickerProps {
     icon?: string | undefined;
     /**
      * Icon to show in the previous button.
-     * @deprecated since v3.27.0. Use 'previousicon' slot.
+     * @deprecated since v3.27.0. Use 'previcon' slot.
      */
-    previousIcon?: string | undefined;
+    prevIcon?: string | undefined;
     /**
      * Icon to show in the next button.
      * @deprecated since v3.27.0. Use 'nexticon' slot.
@@ -937,7 +937,7 @@ export interface DatePickerSlots {
      * Custom previous icon template.
      * @param {Object} scope - previous icon slot's params.
      */
-    previousicon(scope: {
+    previcon(scope: {
         /**
          * Style class of the previous icon
          */

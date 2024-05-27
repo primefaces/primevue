@@ -29,7 +29,7 @@ export enum CarouselClasses {
     /**
      * Class name of the previous button element
      */
-    pcPreviousButton = 'p-carousel-prev-button',
+    pcPrevButton = 'p-carousel-prev-button',
     /**
      * Class name of the viewport element
      */

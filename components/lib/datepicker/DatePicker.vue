@@ -78,19 +78,19 @@
                                     <Button
                                         v-show="showOtherMonths ? groupIndex === 0 : false"
                                         :ref="previousButtonRef"
-                                        :class="cx('pcPreviousButton')"
+                                        :class="cx('pcPrevButton')"
                                         :disabled="disabled"
                                         :aria-label="currentView === 'year' ? $primevue.config.locale.prevDecade : currentView === 'month' ? $primevue.config.locale.prevYear : $primevue.config.locale.prevMonth"
                                         :unstyled="unstyled"
                                         @click="onPrevButtonClick"
                                         @keydown="onContainerButtonKeydown"
                                         v-bind="navigatorButtonProps"
-                                        :pt="ptm('pcPreviousButton')"
+                                        :pt="ptm('pcPrevButton')"
                                         data-pc-group-section="navigator"
                                     >
                                         <template #icon="slotProps">
-                                            <slot name="previousicon">
-                                                <component :is="previousIcon ? 'span' : 'ChevronLeftIcon'" :class="[previousIcon, slotProps.class]" v-bind="ptm('pcPreviousButton')['icon']" />
+                                            <slot name="previcon">
+                                                <component :is="prevIcon ? 'span' : 'ChevronLeftIcon'" :class="[prevIcon, slotProps.class]" v-bind="ptm('pcPrevButton')['icon']" />
                                             </slot>
                                         </template>
                                     </Button>
