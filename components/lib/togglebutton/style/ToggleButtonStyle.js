@@ -16,9 +16,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     font-family: inherit;
     font-feature-settings: inherit;
-    transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')}, outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt(
-    'togglebutton.transition.duration'
-)};
+    transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')}, 
+        outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt('togglebutton.transition.duration')};
     border-radius: ${dt('togglebutton.border.radius')};
     outline-color: transparent;
     font-weight: ${dt('togglebutton.font.weight')};
@@ -41,9 +40,8 @@ const theme = ({ dt }) => `
 .p-togglebutton::before {
     content: "";
     background: transparent;
-    transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')}, outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt(
-    'togglebutton.transition.duration'
-)};
+    transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')}, 
+            outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt('togglebutton.transition.duration')};
     position: absolute;
     left: ${dt('togglebutton.content.left')};
     top: ${dt('togglebutton.content.top')};
