@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import NewFeaturesDoc from '@/doc/migration/v4/NewFeaturesDoc.vue';
-import OverviewDoc from '@/doc/migration/v4/OverviewDoc.vue';
-import ComponentsDoc from '@/doc/migration/v4/breakingchanges/ComponentsDoc.vue';
-import StyledModeDoc from '@/doc/migration/v4/breakingchanges/StyledModeDoc.vue';
+import NewFeaturesDoc from '@/doc/guides/migration/v4/NewFeaturesDoc.vue';
+import OverviewDoc from '@/doc/guides/migration/v4/OverviewDoc.vue';
+import ComponentsDoc from '@/doc/guides/migration/v4/breakingchanges/ComponentsDoc.vue';
+import StyledModeDoc from '@/doc/guides/migration/v4/breakingchanges/StyledModeDoc.vue';
 
 export default {
     data() {

@@ -19,11 +19,6 @@
             ]
         },
         {
-            "name": "Migration to V4",
-            "icon": "pi pi-sync",
-            "to": "/migration/v4"
-        },
-        {
             "name": "Installation",
             "icon": "pi pi-cloud-download",
             "children": [
@@ -540,6 +535,11 @@
                 {
                     "name": "Accessibility",
                     "to": "/guides/accessibility"
+                },
+                {
+                    "name": "Migration to V4",
+                    "icon": "pi pi-sync",
+                    "to": "/guides/migration/v4"
                 },
                 {
                     "name": "PrimeTV",
