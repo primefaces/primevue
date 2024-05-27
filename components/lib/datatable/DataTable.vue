@@ -792,7 +792,7 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
-                if (event.target?.getAttribute('data-pc-section') === 'rowtogglericon' || event.target?.parentElement?.getAttribute('data-pc-section') === 'rowtogglericon') return;
+                if (event.target?.getAttribute('data-pc-section') === 'rowtoggleicon' || event.target?.parentElement?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
 
                 const targetRow = event.target?.closest('tr[data-p-selectable-row="true"]');
 

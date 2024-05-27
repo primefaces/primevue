@@ -293,10 +293,21 @@ export interface OrganizationChartSlots {
      */
     [key: string]: (node: any) => VNode[];
     /**
+     * @deprecated since v4.0. Use 'toggleicon' slot instead.
      * Custom toggler icon template.
      * @param {Object} scope - togglericon slot's params.
      */
     togglericon(scope: {
+        /**
+         * Curent state of the node
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
+     * Custom toggler icon template.
+     * @param {Object} scope - togglericon slot's params.
+     */
+    toggleicon(scope: {
         /**
          * Curent state of the node
          */

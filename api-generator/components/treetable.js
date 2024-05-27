@@ -478,7 +478,7 @@ const TreeTableSlots = [
         description: 'Custom loading icon template.'
     },
     {
-        name: 'togglericon',
+        name: 'toggleicon',
         description: 'Custom toggler icon template.'
     },
     {

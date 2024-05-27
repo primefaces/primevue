@@ -176,7 +176,6 @@ const classes = {
     ],
     nodeToggleButton: 'p-tree-node-toggle-button',
     nodeToggleIcon: 'p-tree-node-toggle-icon',
-    nodeTogglerIcon: 'p-tree-node-toggler-icon', //TODO: discuss
     nodeCheckbox: 'p-tree-node-checkbox',
     nodeIcon: 'p-tree-node-icon',
     nodeLabel: 'p-tree-node-label',

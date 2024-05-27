@@ -378,10 +378,40 @@ export interface TreeSlots {
         class: string;
     }): VNode[];
     /**
-     * Custom toggler icon template.
-     * @param {Object} scope - togglericon slot's params.
+     * @deprecated since v4.0. Use 'nodetoggleicon' slot instead.
+     * Custom toggle icon template.
+     * @param {Object} scope - toggleicon slot's params.
      */
     togglericon(scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+        /**
+         * Expanded state of the node
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
+     * @deprecated since v4.0. Use 'nodetoggleicon' slot instead.
+     * Custom node toggle icon template.
+     * @param {Object} scope - toggleicon slot's params.
+     */
+    nodetogglericon(scope: {
+        /**
+         * Tree node instance
+         */
+        node: TreeNode;
+        /**
+         * Expanded state of the node
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
+     * Custom node toggle icon template.
+     * @param {Object} scope - toggleicon slot's params.
+     */
+    nodetoggleicon(scope: {
         /**
          * Tree node instance
          */

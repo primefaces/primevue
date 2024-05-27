@@ -17,11 +17,13 @@
         <div :class="cx('nodeContent')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('nodeContent')" :data-p-selected="checkboxMode ? checked : selected" :data-p-selectable="selectable">
             <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
-                    <component v-if="templates['nodetogglericon']" :is="templates['nodetogglericon']" :class="cx('nodetogglericon')" />
-                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodetogglericon')" />
+                    <!-- TODO: nodetogglericon deprecated since v4.0-->
+                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :class="cx('nodeToggleIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodeToggleIcon')" />
                 </template>
                 <template v-else>
-                    <component v-if="templates['togglericon']" :is="templates['togglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <!-- TODO: togglericon deprecated since v4.0-->
+                    <component v-if="templates['nodetoggleicon'] || templates['togglericon']" :is="templates['nodetoggleicon'] || templates['togglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
                     <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>

@@ -346,10 +346,25 @@ export interface TreeSelectSlots {
         class: string;
     }): VNode[];
     /**
+     * @deprecated since v4.0. Use 'itemtoggleicon' slot instead.
      * Custom item toggler icon template.
      * @param {Object} scope - item toggler icon slot's params.
      */
     itemtogglericon(scope: {
+        /**
+         * Node instance
+         */
+        node: TreeNode | any;
+        /**
+         * Expanded state of the node
+         */
+        expanded: TreeNode[];
+    }): VNode[];
+    /**
+     * Custom item toggle icon template.
+     * @param {Object} scope - item toggle icon slot's params.
+     */
+    itemtoggleicon(scope: {
         /**
          * Node instance
          */

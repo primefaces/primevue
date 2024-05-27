@@ -301,11 +301,7 @@ const ColumnSlots = [
         description: 'Custom loading template.'
     },
     {
-        name: 'rowtogglericon',
-        description: 'Custom row toggler icon template.'
-    },
-    {
-        name: 'rowtogglericon',
+        name: 'rowtoggleicon',
         description: 'Custom row toggler icon template.'
     },
     {

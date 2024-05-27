@@ -92,7 +92,7 @@ const OrganizationChartEvents = [
 
 const OrganizationChartSlots = [
     {
-        name: 'togglericon',
+        name: 'toggleicon',
         description: 'Custom toggler icon template.'
     }
 ];
