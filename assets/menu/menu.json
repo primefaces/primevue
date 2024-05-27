@@ -499,9 +499,18 @@
             "to": "/passthrough"
         },
         {
-            "name": "Tailwind Presets",
+            "name": "Tailwind CSS",
             "icon": "pi pi-heart",
-            "href": "https://tailwind.primevue.org/"
+            "children": [
+                {
+                    "name": "Integration",
+                    "to": "/tailwind"
+                },
+                {
+                    "name": "Presets",
+                    "href": "https://tailwind.primevue.org"
+                }
+            ]
         },
         {
             "name": "Figma UI Kit",
