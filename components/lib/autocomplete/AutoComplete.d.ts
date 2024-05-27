@@ -147,7 +147,7 @@ export interface AutoCompletePassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions> | AutoCompletePassThroughOptionType;
+    pcInput?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the input multiple's DOM element.
      */
