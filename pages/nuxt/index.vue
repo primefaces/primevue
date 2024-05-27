@@ -20,7 +20,7 @@
 <script>
 import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/nuxt/ExamplesDoc.vue';
-import ModuleSetupDoc from '@/doc/nuxt/ModuleSetupDoc.vue';
+import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
 import UsageDoc from '@/doc/nuxt/UsageDoc.vue';
 import CSSLayerOrderDoc from '@/doc/nuxt/configuration/CSSLayerOrderDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
@@ -41,9 +41,9 @@ export default {
                     component: DownloadDoc
                 },
                 {
-                    id: 'module-setup',
-                    label: 'Module Setup',
-                    component: ModuleSetupDoc
+                    id: 'setup',
+                    label: 'Setup',
+                    component: SetupDoc
                 },
                 {
                     id: 'usage',
@@ -52,7 +52,7 @@ export default {
                 },
                 {
                     id: 'configuration',
-                    label: 'Module Configuration',
+                    label: 'Configuration',
                     children: [
                         {
                             id: 'useprimevue',

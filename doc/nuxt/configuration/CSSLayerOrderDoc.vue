@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Defines the CSS layer order setting for compatibility with libraries like Tailwind and Bootstrap in styled mode. Visit the <NuxtLink to="/theming/styled/#options">CSS Layer</NuxtLink> guide for detailed information.</p>
+        <p>
+            When the layer is enabled at the theme configuration, defines the CSS layer order setting for compatibility with libraries like Tailwind and Bootstrap in styled mode. Visit the
+            <NuxtLink to="/theming/styled/#csslayer">CSS Layer</NuxtLink> guide for detailed information.
+        </p>
     </DocSectionText>
     <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
     <DocSectionCode :code="code2" importCode hideToggleCode hideStackBlitz />
