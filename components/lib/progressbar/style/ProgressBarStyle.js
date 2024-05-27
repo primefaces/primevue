@@ -125,7 +125,6 @@ const classes = {
             'p-progressbar-indeterminate': instance.indeterminate
         }
     ],
-    indeterminateContainer: 'p-progressbar-indeterminate-container',
     value: 'p-progressbar-value',
     label: 'p-progressbar-label'
 };

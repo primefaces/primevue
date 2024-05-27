@@ -30,10 +30,4 @@ describe('ProgressBar.vue', () => {
 
         expect(wrapper.find('.p-progressbar-label').exists()).toBe(false);
     });
-
-    it('should be indeterminated', async () => {
-        await wrapper.setProps({ mode: 'indeterminate' });
-
-        expect(wrapper.find('.p-progressbar-indeterminate-container').exists()).toBe(true);
-    });
 });

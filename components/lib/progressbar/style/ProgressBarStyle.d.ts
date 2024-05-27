@@ -15,10 +15,6 @@ export enum ProgressBarClasses {
      */
     root = 'p-progressbar',
     /**
-     * Class name of the indeterminate container element
-     */
-    indeterminateContainer = 'p-progressbar-indeterminate-container',
-    /**
      * Class name of the value element
      */
     value = 'p-progressbar-value',
