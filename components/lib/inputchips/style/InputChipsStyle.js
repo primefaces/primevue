@@ -118,7 +118,7 @@ const classes = {
     input: ({ props, instance }) => [
         'p-inputchips-input',
         {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
         }
     ],
     chipItem: ({ state, index }) => ['p-inputchips-chip-item', { 'p-focus': state.focusedIndex === index }],

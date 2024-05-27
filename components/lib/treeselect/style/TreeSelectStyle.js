@@ -138,7 +138,7 @@ const classes = {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-focus': instance.focused,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled',
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible

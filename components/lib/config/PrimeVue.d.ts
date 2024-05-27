@@ -110,7 +110,11 @@ import { VirtualScrollerPassThroughOptions } from '../virtualscroller';
 
 export interface PrimeVueConfiguration {
     ripple?: boolean;
+    /**
+     * @deprecated since v4.0. Use 'inputVariant' instead.
+     */
     inputStyle?: 'filled' | 'outlined' | undefined;
+    inputVariant?: 'filled' | 'outlined' | undefined;
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;

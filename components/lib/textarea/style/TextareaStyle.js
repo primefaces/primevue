@@ -68,7 +68,7 @@ const classes = {
             'p-filled': instance.filled,
             'p-textarea-resizable ': props.autoResize,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
         }
     ]
 };

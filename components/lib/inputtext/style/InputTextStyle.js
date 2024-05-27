@@ -64,7 +64,7 @@ const classes = {
             'p-inputtext-sm': props.size === 'small',
             'p-inputtext-lg': props.size === 'large',
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
         }
     ]
 };

@@ -15,7 +15,7 @@ primevue: {
     options: {
         unstyled: true,
         ripple: true,
-        inputStyle: 'filled'
+        inputVariant: 'filled'
     }
 }
 `

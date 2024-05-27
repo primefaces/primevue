@@ -257,7 +257,7 @@ const classes = {
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
         }
     ],
     chipItem: ({ instance, i }) => [

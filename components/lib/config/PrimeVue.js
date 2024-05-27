@@ -6,6 +6,7 @@ import { inject, reactive, ref, watch } from 'vue';
 export const defaultOptions = {
     ripple: false,
     inputStyle: null,
+    inputVariant: null,
     locale: {
         startsWith: 'Starts with',
         contains: 'Contains',
