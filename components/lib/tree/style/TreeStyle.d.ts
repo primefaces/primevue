@@ -51,10 +51,6 @@ export enum TreeClasses {
      */
     nodeToggleIcon = 'p-tree-node-toggle-icon',
     /**
-     * Class name of the node toggler icon element
-     */
-    nodeTogglerIcon = 'p-tree-node-toggler-icon',
-    /**
      * Class name of the node checkbox element
      */
     nodeCheckbox = 'p-tree-node-checkbox',

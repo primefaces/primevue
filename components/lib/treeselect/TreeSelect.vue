@@ -77,7 +77,11 @@
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
                         >
-                            <template v-if="$slots.itemtogglericon" #togglericon="iconProps">
+                            <template v-if="$slots.itemtoggleicon" #toggleicon="iconProps">
+                                <slot name="itemtoggleicon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            </template>
+                            <!--TODO: itemtogglericon deprecated since v4.0-->
+                            <template v-else-if="$slots.itemtogglericon" #togglericon="iconProps">
                                 <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
                             </template>
                             <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconProps">

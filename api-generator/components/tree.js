@@ -155,7 +155,7 @@ const TreeSlots = [
         description: 'Custom search icon template.'
     },
     {
-        name: 'togglericon',
+        name: 'toggleicon',
         description: 'Custom toggler icon template.'
     },
     {

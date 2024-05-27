@@ -66,7 +66,7 @@ const PanelSlots = [
         description: "Custom content for the header's icon."
     },
     {
-        name: 'togglericon',
+        name: 'toggleicon',
         description: "Custom content for the component's toggler icon."
     },
     {

@@ -62,7 +62,7 @@ const FieldsetSlots = [
         description: 'Custom legend template.'
     },
     {
-        name: 'togglericon',
+        name: 'toggleicon',
         description: 'Custom toggler icon template.'
     }
 ];

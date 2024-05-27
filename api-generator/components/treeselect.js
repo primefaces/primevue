@@ -224,7 +224,7 @@ const TreeSelectSlots = [
         description: 'Custom content for the dropdown indicator'
     },
     {
-        name: 'itemtogglericon',
+        name: 'itemtoggleicon',
         description: 'Custom item toggler icon template.'
     },
     {

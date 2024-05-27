@@ -1177,7 +1177,7 @@ const DataTableSlots = [
         description: 'Custom reorder indicator down icon template.'
     },
     {
-        name: 'rowgrouptogglericon',
+        name: 'rowgrouptoggleicon',
         description: 'Custom rowgroup toggler icon template.'
     },
     {
