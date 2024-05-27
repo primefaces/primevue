@@ -538,12 +538,14 @@
                 },
                 {
                     "name": "Migration to V4",
-                    "icon": "pi pi-sync",
                     "to": "/guides/migration/v4"
                 },
                 {
+                    "name": "PrimeFlex",
+                    "to": "/guides/primeflex"
+                },
+                {
                     "name": "PrimeTV",
-                    "icon": "pi pi-youtube",
                     "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
                 }
             ]
