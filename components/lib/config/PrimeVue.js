@@ -1,4 +1,5 @@
 import { FilterMatchMode } from 'primevue/api';
+import BaseStyle from 'primevue/base/style';
 import PrimeVueService from 'primevue/service';
 import { Theme, ThemeService } from 'primevue/themes';
 import { inject, reactive, ref, watch } from 'vue';
@@ -171,14 +172,35 @@ export function setup(app, options) {
     app.config.globalProperties.$primevue = PrimeVue;
     app.provide(PrimeVueSymbol, PrimeVue);
 
-    setupTheme(app, PrimeVue);
+    setupConfig(app, PrimeVue);
 
     return PrimeVue;
 }
 
-export function setupTheme(app, PrimeVue) {
-    const isChanged = ref(false);
+export function setupConfig(app, PrimeVue) {
+    const isThemeChanged = ref(false);
 
+    /*** Methods and Services ***/
+    const loadCommonTheme = () => {
+        // common
+        if (!Theme.isStyleNameLoaded('common')) {
+            const { primitive, semantic } = BaseStyle.getCommonTheme?.() || {};
+            const styleOptions = { nonce: PrimeVue.config?.csp?.nonce };
+
+            BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...styleOptions });
+            BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...styleOptions });
+            BaseStyle.loadTheme({ name: 'global-style', ...styleOptions });
+
+            Theme.setLoadedStyleName('common');
+        }
+    };
+
+    ThemeService.on('theme:change', function (newTheme) {
+        isThemeChanged.value = true;
+        app.config.globalProperties.$primevue.config.theme = newTheme;
+    });
+
+    /*** Watchers ***/
     watch(
         PrimeVue.config,
         (newValue, oldValue) => {
@@ -198,20 +220,31 @@ export function setupTheme(app, PrimeVue) {
     watch(
         () => PrimeVue.config.theme,
         (newValue, oldValue) => {
-            if (!isChanged.value) {
+            if (!isThemeChanged.value) {
                 Theme.setTheme(newValue);
             }
 
-            isChanged.value = false;
+            if (!PrimeVue.config.unstyled) {
+                loadCommonTheme();
+            }
+
+            isThemeChanged.value = false;
             PrimeVueService.emit('config:theme:change', { newValue, oldValue });
         },
         { immediate: true, deep: true }
     );
 
-    ThemeService.on('theme:change', function (newTheme) {
-        isChanged.value = true;
-        app.config.globalProperties.$primevue.config.theme = newTheme;
-    });
+    watch(
+        () => PrimeVue.config.unstyled,
+        (newValue, oldValue) => {
+            if (!newValue && PrimeVue.config.theme) {
+                loadCommonTheme();
+            }
+
+            PrimeVueService.emit('config:unstyled:change', { newValue, oldValue });
+        },
+        { immediate: true, deep: true }
+    );
 }
 
 export default {
