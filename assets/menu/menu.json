@@ -503,7 +503,7 @@
                             "to": "/colors"
                         },
                         {
-                            "name": "SASS API",
+                            "name": "Sass API",
                             "href": "https://www.primefaces.org/designer/api/primevue/3.9.0"
                         }
                     ]
