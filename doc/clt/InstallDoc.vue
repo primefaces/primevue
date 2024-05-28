@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-prime vue add
+prime vue install
 `
             }
         };
