@@ -16,6 +16,8 @@
 export default {
     data() {
         return {
+            shades: [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950],
+            colors: ['primary', 'surface'],
             code1: {
                 basic: `
 npm i tailwindcss-primeui

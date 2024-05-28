@@ -20,7 +20,7 @@ import ExtensionsDoc from '@/doc/tailwind/ExtensionsDoc.vue';
 import OverviewDoc from '@/doc/tailwind/OverviewDoc.vue';
 import PluginDoc from '@/doc/tailwind/PluginDoc.vue';
 import PresetsDoc from '@/doc/tailwind/PresetsDoc.vue';
-import SamplesDoc from '@/doc/tailwind/SamplesDoc.vue';
+import ColorPaletteDoc from '@/doc/tailwind/samples/ColorPaletteDoc.vue';
 
 export default {
     data() {
@@ -49,7 +49,13 @@ export default {
                 {
                     id: 'samples',
                     label: 'Samples',
-                    component: SamplesDoc
+                    description: 'Example uses cases with PrimeVue and Tailwind CSS.',
+                    children: [
+                        {
+                            label: 'Color Palette',
+                            component: ColorPaletteDoc
+                        }
+                    ]
                 }
             ]
         };

@@ -55,6 +55,20 @@
             ]
         },
         {
+            "name": "Theming",
+            "icon": "pi pi-palette",
+            "children": [
+                {
+                    "name": "Styled Mode",
+                    "to": "/theming/styled"
+                },
+                {
+                    "name": "Unstyled Mode",
+                    "to": "/theming/unstyled"
+                }
+            ]
+        },
+        {
             "name": "Components",
             "icon": "pi pi-compass",
             "children": [
@@ -476,20 +490,6 @@
                             "to": "/terminal"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Theming",
-            "icon": "pi pi-palette",
-            "children": [
-                {
-                    "name": "Styled Mode",
-                    "to": "/theming/styled"
-                },
-                {
-                    "name": "Unstyled Mode",
-                    "to": "/theming/unstyled"
                 }
             ]
         },
