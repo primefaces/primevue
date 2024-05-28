@@ -21,6 +21,8 @@ import OverviewDoc from '@/doc/tailwind/OverviewDoc.vue';
 import PluginDoc from '@/doc/tailwind/PluginDoc.vue';
 import PresetsDoc from '@/doc/tailwind/PresetsDoc.vue';
 import ColorPaletteDoc from '@/doc/tailwind/samples/ColorPaletteDoc.vue';
+import FormDoc from '@/doc/tailwind/samples/FormDoc.vue';
+import HeadlessDoc from '@/doc/tailwind/samples/HeadlessDoc.vue';
 
 export default {
     data() {
@@ -52,8 +54,19 @@ export default {
                     description: 'Example uses cases with PrimeVue and Tailwind CSS.',
                     children: [
                         {
+                            id: 'colorpalette',
                             label: 'Color Palette',
                             component: ColorPaletteDoc
+                        },
+                        {
+                            id: 'form',
+                            label: 'Form',
+                            component: FormDoc
+                        },
+                        {
+                            id: 'headless',
+                            label: 'Headless',
+                            component: HeadlessDoc
                         }
                     ]
                 }

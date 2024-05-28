@@ -53,7 +53,7 @@ export default {
             visible: false,
             code: {
                 basic: `
-                <Button label="Login" icon="pi pi-user" @click="visible = true" />
+<Button label="Login" icon="pi pi-user" @click="visible = true" />
 
 <Dialog
     v-model:visible="visible"
