@@ -34,7 +34,7 @@
             </template>
         </Dialog>
     </div>
-    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

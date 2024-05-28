@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import AnimationsDoc from '@/doc/tailwind/AnimationsDoc.vue';
 import ExtensionsDoc from '@/doc/tailwind/ExtensionsDoc.vue';
 import OverviewDoc from '@/doc/tailwind/OverviewDoc.vue';
 import PluginDoc from '@/doc/tailwind/PluginDoc.vue';
@@ -69,7 +70,12 @@ export default {
                             component: HeadlessDoc
                         }
                     ]
-                }
+                },
+                {
+                    id: 'animations',
+                    label: 'Animations',
+                    component: AnimationsDoc
+                },
             ]
         };
     }
