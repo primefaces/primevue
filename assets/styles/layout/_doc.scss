@@ -1,3 +1,17 @@
+@mixin mark() {
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: .875rem;
+    font-weight: 500;
+    font-style: normal;
+    background: var(--mark-background);
+    color: var(--mark-text);
+}
+
+.mark {
+    @include mark();
+}
+
 .doc-tabmenu {
     list-style: none;
     margin: 0;
@@ -132,13 +146,7 @@
         font-size: 1rem;
 
         i {
-            border-radius: 6px;
-            padding: 2px 6px;
-            font-size: .875rem;
-            font-weight: 500;
-            font-style: normal;
-            background: var(--mark-background);
-            color: var(--mark-text);
+            @include mark();
         }
 
         a {

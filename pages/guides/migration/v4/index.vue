@@ -6,7 +6,7 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Introduction</h1>
+                <h1>Migration</h1>
                 <p>Migration guide to PrimeVue v4.</p>
             </div>
             <DocSections :docs="docs" />
@@ -16,10 +16,9 @@
 </template>
 
 <script>
-import NewFeaturesDoc from '@/doc/guides/migration/v4/NewFeaturesDoc.vue';
 import OverviewDoc from '@/doc/guides/migration/v4/OverviewDoc.vue';
-import ComponentsDoc from '@/doc/guides/migration/v4/breakingchanges/ComponentsDoc.vue';
-import StyledModeDoc from '@/doc/guides/migration/v4/breakingchanges/StyledModeDoc.vue';
+import BreakingDoc from '@/doc/guides/migration/v4/changes/BreakingDoc.vue';
+import CompatibleDoc from '@/doc/guides/migration/v4/changes/CompatibleDoc.vue';
 
 export default {
     data() {
@@ -31,23 +30,19 @@ export default {
                     component: OverviewDoc
                 },
                 {
-                    id: 'newfeatures',
-                    label: 'New Features',
-                    component: NewFeaturesDoc
-                },
-                {
-                    id: 'breakingchanges',
-                    label: 'Breaking Changes',
+                    id: 'changes',
+                    label: 'Changes',
+                    description: 'The list of backward compatible and breaking changes.',
                     children: [
                         {
-                            id: 'styledmode',
-                            label: 'Styled Mode',
-                            component: StyledModeDoc
+                            id: 'compatible',
+                            label: 'Compatible',
+                            component: CompatibleDoc
                         },
                         {
-                            id: 'components',
-                            label: 'Components',
-                            component: ComponentsDoc
+                            id: 'breaking',
+                            label: 'Breaking',
+                            component: BreakingDoc
                         }
                     ]
                 }
