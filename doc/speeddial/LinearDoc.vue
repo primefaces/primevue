@@ -3,7 +3,7 @@
         <p>SpeedDial items are defined with the <i>model</i> property based on MenuModel API. Default orientation of the items is linear and <i>direction</i> property is used to define the position of the items related to the button.</p>
     </DocSectionText>
     <div class="card">
-        <div :style="{ position: 'relative', height: '500px' }">
+        <div style="position: relative; height: 500px">
             <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
             <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
             <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
@@ -64,7 +64,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <div :style="{ position: 'relative', height: '500px' }">
+        <div style="position: relative; height: 500px">
             <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
             <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
             <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
@@ -123,7 +123,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <div :style="{ position: 'relative', height: '500px' }">
+        <div style="position: relative; height: 500px">
             <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', bottom: 0 }" />
             <SpeedDial :model="items" direction="down" :style="{ position: 'absolute', left: 'calc(50% - 2rem)', top: 0 }" />
             <SpeedDial :model="items" direction="left" :style="{ position: 'absolute', top: 'calc(50% - 2rem)', right: 0 }" />
