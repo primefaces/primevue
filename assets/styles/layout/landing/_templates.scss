@@ -92,7 +92,8 @@
                 border-bottom: 4px solid var(--border-color);
             }
 
-            &.border-none {
+            &.block-middle {
+                border: 0 none;
                 box-shadow: none;
 
                 &:before {

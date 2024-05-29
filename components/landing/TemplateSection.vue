@@ -21,7 +21,7 @@
                 <div class="template-block block-3 mr-2 lg:mb-0 flex justify-center items-center" :style="{ backgroundImage: imageBg('atlantis') }">
                     <a class="templates-btn" target="_blank" href="https://atlantis.primevue.org/">Atlantis Preview</a>
                 </div>
-                <div class="template-block block-middle border-0 box-shadow-none mr-2 hidden lg:flex justify-center items-center flex-col">
+                <div class="template-block block-middle mr-2 hidden lg:flex justify-center items-center flex-col">
                     <img class="img-1" :src="templateImg()" height="110" />
                 </div>
                 <div class="template-block block-4 ml-2 flex justify-center items-center" :style="{ backgroundImage: imageBg('apollo') }">
