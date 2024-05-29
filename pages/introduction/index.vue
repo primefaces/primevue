@@ -24,7 +24,6 @@ import AccessibilityDoc from '@/doc/introduction/AccessibilityDoc.vue';
 import AddOnsDoc from '@/doc/introduction/AddOnsDoc.vue';
 import OverviewDoc from '@/doc/introduction/OverviewDoc.vue';
 import PassThroughDoc from '@/doc/introduction/PassThroughDoc.vue';
-import SupportDoc from '@/doc/introduction/SupportDoc.vue';
 import ThemingDoc from '@/doc/introduction/ThemingDoc.vue';
 
 export default {
@@ -55,11 +54,6 @@ export default {
                     id: 'add-ons',
                     label: 'Add-Ons',
                     component: AddOnsDoc
-                },
-                {
-                    id: 'support',
-                    label: 'Support',
-                    component: SupportDoc
                 }
             ]
         };
