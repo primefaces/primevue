@@ -3,7 +3,7 @@
         <p>Specify the <i>variant</i> property as <i>filled</i> to display the component with a higher visual emphasis than the default <i>outlined</i> style.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" variant="filled" binary />
+        <RadioButton v-model="value" value="1" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +12,15 @@
 export default {
     data() {
         return {
-            checked: false,
+            value: null,
             code: {
                 basic: `
-<RadioButton v-model="checked" variant="filled" binary />
+<RadioButton v-model="value" value="1" variant="filled" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" variant="filled" binary />
+        <RadioButton v-model="value" value="1" variant="filled" />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            checked: true
+            value: null
         }
     }
 }
@@ -37,14 +37,14 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" variant="filled" binary />
+        <RadioButton v-model="value" value="1" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const checked = ref(false);
+const value = ref(null);
 <\/script>
 `
             }

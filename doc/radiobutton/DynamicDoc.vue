@@ -30,7 +30,6 @@ export default {
     <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
     <label :for="category.key" class="ml-2">{{ category.name }}</label>
 </div>
-
 `,
                 options: `
 <template>
