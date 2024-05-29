@@ -17,7 +17,7 @@
 
 <script>
 import ImportDoc from '@/doc/configuration/ImportDoc.vue';
-import InputStyleDoc from '@/doc/configuration/InputStyleDoc.vue';
+import InputVariantDoc from '@/doc/configuration/InputVariantDoc.vue';
 import PTDoc from '@/doc/configuration/PTDoc.vue';
 import PTOptionsDoc from '@/doc/configuration/PTOptionsDoc.vue';
 import RippleDoc from '@/doc/configuration/RippleDoc.vue';
@@ -64,9 +64,9 @@ export default {
                     component: RippleDoc
                 },
                 {
-                    id: 'inputstyle',
-                    label: 'InputStyle',
-                    component: InputStyleDoc
+                    id: 'inputvariant',
+                    label: 'InputVariant',
+                    component: InputVariantDoc
                 },
                 {
                     id: 'zindex',
