@@ -6,7 +6,7 @@
         <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
             <template #item="{ item }">
                 <div class="flex flex-wrap p-1 items-center gap-4">
-                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">
@@ -33,7 +33,7 @@ export default {
 <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
     <template #item="{ item }">
         <div class="flex flex-wrap p-1 items-center gap-4">
-            <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+            <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
             <div class="flex-1 flex flex-col gap-1">
                 <span class="font-medium">{{ item.name }}</span>
                 <div class="flex items-center gap-1">
@@ -52,7 +52,7 @@ export default {
         <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
             <template #item="{ item }">
                 <div class="flex flex-wrap p-1 items-center gap-4">
-                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">
@@ -87,7 +87,7 @@ export default {
         <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
             <template #item="{ item }">
                 <div class="flex flex-wrap p-1 items-center gap-4">
-                    <img class="w-12 flex-shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
                         <div class="flex items-center gap-1">

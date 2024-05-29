@@ -6,7 +6,7 @@
         <Drawer v-model:visible="visible">
             <template #container="{ closeCallback }">
                 <div class="flex flex-col h-full">
-                    <div class="flex items-center justify-between px-6 pt-4 flex-shrink-0">
+                    <div class="flex items-center justify-between px-6 pt-4 shrink-0">
                         <span class="inline-flex items-center gap-2">
                             <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -21,7 +21,7 @@
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined class="h-8 w-8"></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">
@@ -202,7 +202,7 @@ export default {
 <Drawer v-model:visible="visible">
     <template #container="{ closeCallback }">
         <div class="flex flex-col h-full">
-            <div class="flex items-center justify-between px-6 pt-4 flex-shrink-0">
+            <div class="flex items-center justify-between px-6 pt-4 shrink-0">
                 <span class="inline-flex items-center gap-2">
                     <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="..." fill="var(--p-primary-color)" />
@@ -211,7 +211,7 @@ export default {
                     <span class="font-semibold text-2xl text-primary">Your Logo</span>
                 </span>
                 <span>
-                    <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined class="h-8 w-8"></Button>
+                    <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
                 </span>
             </div>
             <div class="overflow-y-auto">
@@ -385,7 +385,7 @@ export default {
         <Drawer v-model:visible="visible">
             <template #container="{ closeCallback }">
                 <div class="flex flex-col h-full">
-                    <div class="flex items-center justify-between px-6 pt-4 flex-shrink-0">
+                    <div class="flex items-center justify-between px-6 pt-4 shrink-0">
                         <span class="inline-flex items-center gap-2">
                             <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -400,7 +400,7 @@ export default {
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined class="h-8 w-8"></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">
@@ -586,7 +586,7 @@ export default {
         <Drawer v-model:visible="visible">
             <template #container="{ closeCallback }">
                 <div class="flex flex-col h-full">
-                    <div class="flex items-center justify-between px-6 pt-4 flex-shrink-0">
+                    <div class="flex items-center justify-between px-6 pt-4 shrink-0">
                         <span class="inline-flex items-center gap-2">
                             <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -601,7 +601,7 @@ export default {
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined class="h-8 w-8"></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">

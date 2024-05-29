@@ -22,7 +22,7 @@
                     <div class="flex flex-col w-6/12 gap-8 pt-20 pr-4">
                         <div class="box p-6 animate-fadein animate-duration-500">
                             <div class="flex gap-2">
-                                <div class="w-24 flex-shrink-0">
+                                <div class="w-24 shrink-0">
                                     <span class="text-surface-500 dark:text-surface-400 font-medium block mb-4">Amount</span>
                                     <InputNumber v-model="value1" mode="currency" currency="USD" locale="en-US" class="w-full" inputClass="w-full" />
                                 </div>

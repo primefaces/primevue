@@ -160,7 +160,7 @@
                                     <span class="text-2xl font-bold text-surface-500 dark:text-surface-400">$99</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
+                                <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">1 Designer</span>
@@ -202,7 +202,7 @@
                                     <span class="text-2xl font-bold text-surface-500 dark:text-surface-400">$249</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
+                                <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">Up to 5 Designers</span>
@@ -244,7 +244,7 @@
                                     <span class="text-2xl font-bold">EXCLUSIVE DEALS</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <ul class="list-none p-0 m-0 flex-grow-1 text-lg">
+                                <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span class="font-bold">Unlimited Designers</span>

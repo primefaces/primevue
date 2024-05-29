@@ -16,7 +16,7 @@
         <div class="overflow-auto">
             <div style="min-width: 1200px">
                 <div class="flex gap-4 mb-4">
-                    <div class="flex-shrink-0 w-56"></div>
+                    <div class="shrink-0 w-56"></div>
                     <div class="flex-1 bg-gray-500 text-white font-bold text-center p-4 text-xl rounded">Q1</div>
                     <div class="flex-1 bg-gray-500 text-white font-bold text-center p-4 text-xl rounded">Q2</div>
                     <div class="flex-1 bg-gray-500 text-white font-bold text-center p-4 text-xl rounded">Q3</div>
@@ -25,7 +25,7 @@
 
                 <div class="flex flex-col gap-4">
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="flex-shrink-0 p-4 bg-blue-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">COMPONENTS</div>
+                        <div class="shrink-0 p-4 bg-blue-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">COMPONENTS</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">New Theming</h2>
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="flex-shrink-0 p-4 bg-indigo-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">Figma UI Kit</div>
+                        <div class="shrink-0 p-4 bg-indigo-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">Figma UI Kit</div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-indigo-500 border-l-8">
@@ -129,7 +129,7 @@
                         <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="flex-shrink-0 p-4 bg-teal-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">SHOWCASE</div>
+                        <div class="shrink-0 p-4 bg-teal-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">SHOWCASE</div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col">
@@ -144,7 +144,7 @@
                         <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="flex-shrink-0 p-4 bg-orange-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">PrimeBlocks</div>
+                        <div class="shrink-0 p-4 bg-orange-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">PrimeBlocks</div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-8">
@@ -167,7 +167,7 @@
                         <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="flex-shrink-0 p-4 bg-pink-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">Design</div>
+                        <div class="shrink-0 p-4 bg-pink-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">Design</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-pink-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">New UI Theme</h2>
