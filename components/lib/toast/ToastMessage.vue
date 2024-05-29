@@ -7,7 +7,7 @@
                 <div :class="cx('messageText')" v-bind="ptm('messageText')">
                     <span :class="cx('summary')" v-bind="ptm('summary')">{{ message.summary }}</span>
                     <div :class="cx('detail')" v-bind="ptm('detail')">
-                        <template v-if="!message.detail?.__v_isVNode">
+                        <template v-if="!isVNode(message.detail)">
                             {{ message.detail }}
                         </template>
                         <component v-else :is="message.detail" />
@@ -32,6 +32,7 @@ import InfoCircleIcon from 'primevue/icons/infocircle';
 import TimesIcon from 'primevue/icons/times';
 import TimesCircleIcon from 'primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
+import { isVNode } from 'vue';
 
 export default {
     name: 'ToastMessage',
@@ -96,7 +97,8 @@ export default {
                 clearTimeout(this.closeTimeout);
                 this.closeTimeout = null;
             }
-        }
+        },
+        isVNode
     },
     computed: {
         iconComponent() {
