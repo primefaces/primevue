@@ -18,6 +18,7 @@ import DisabledDoc from '@/doc/tabs/DisabledDoc.vue';
 import DynamicDoc from '@/doc/tabs/DynamicDoc.vue';
 import ImportDoc from '@/doc/tabs/ImportDoc.vue';
 import ScrollableDoc from '@/doc/tabs/ScrollableDoc.vue';
+import TabMenuDoc from '@/doc/tabs/TabMenuDoc.vue';
 import TemplateDoc from '@/doc/tabs/TemplateDoc.vue';
 import PTComponent from '@/doc/tabs/pt/index.vue';
 import ThemingDoc from '@/doc/tabs/theming/index.vue';
@@ -60,6 +61,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'tabmenu',
+                    label: 'TabMenu',
+                    component: TabMenuDoc
                 },
                 {
                     id: 'accessibility',
