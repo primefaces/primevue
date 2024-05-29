@@ -203,9 +203,8 @@ const theme = ({ dt }) => `
     width: ${dt('datepicker.date.width')};
     height: ${dt('datepicker.date.height')};
     border-radius: ${dt('datepicker.date.border.radius')};
-    transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, box-shadow ${dt('datepicker.transition.duration')}, outline-color ${dt(
-    'datepicker.transition.duration'
-)};
+    transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, 
+        box-shadow ${dt('datepicker.transition.duration')}, outline-color ${dt('datepicker.transition.duration')};
     border: 1px solid transparent;
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
@@ -235,6 +234,10 @@ const theme = ({ dt }) => `
 .p-datepicker-today > .p-datepicker-day-selected {
     background: ${dt('datepicker.date.selected.background')};
     color: ${dt('datepicker.date.selected.color')};
+}
+
+.p-datepicker-weeknumber {
+    text-align: center
 }
 
 .p-datepicker-month-view {
