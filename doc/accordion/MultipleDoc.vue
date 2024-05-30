@@ -3,7 +3,7 @@
         <p>Only one tab at a time can be active by default, enabling <i>multiple</i> property changes this behavior to allow multiple panels. In this case <i>value</i> needs to be an array.</p>
     </DocSectionText>
     <div class="card">
-        <Accordion value="0" multiple>
+        <Accordion :value="['0']" multiple>
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
@@ -42,7 +42,7 @@ export default {
         return {
             code: {
                 basic: `
-<Accordion value="0" multiple>
+<Accordion :value="['0']" multiple>
     <AccordionPanel value="0">
         <AccordionHeader>Header I</AccordionHeader>
         <AccordionContent>
@@ -75,7 +75,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <Accordion value="0" multiple>
+        <Accordion :value="['0']" multiple>
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
@@ -113,7 +113,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Accordion value="0" multiple>
+        <Accordion :value="['0']" multiple>
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
