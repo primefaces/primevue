@@ -10,45 +10,45 @@
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-[30rem]"></div>
         <div
             v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }"
-            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out"
+            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"
         >
             <span class="text-3xl font-bold">fade-left</span>
         </div>
         <div class="h-[30rem]"></div>
         <div
             v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }"
-            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out"
+            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"
         >
             <span class="text-3xl font-bold">fade-right</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">zoom</span>
         </div>
         <div class="h-[30rem]"></div>
         <div
             v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }"
-            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out"
+            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"
         >
             <span class="text-3xl font-bold">flip-left</span>
         </div>
         <div class="h-[30rem]"></div>
         <div
             v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }"
-            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out"
+            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"
         >
             <span class="text-3xl font-bold">flip-y</span>
         </div>
         <div class="h-[30rem]"></div>
         <div
             v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }"
-            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out"
+            class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out"
         >
             <span class="text-3xl font-bold">scalein</span>
         </div>
@@ -62,31 +62,31 @@ export default {
         return {
             code: {
                 basic: `
-<div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+<div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
     <span class="text-3xl font-bold">fade-in</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+<div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
     <span class="text-3xl font-bold">fade-left</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+<div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
     <span class="text-3xl font-bold">fade-right</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+<div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
     <span class="text-3xl font-bold">zoom</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+<div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
     <span class="text-3xl font-bold">flip-left</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+<div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
     <span class="text-3xl font-bold">flip-y</span>
 </div>
 
-<div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+<div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
     <span class="text-3xl font-bold">scalein</span>
 </div>
 `,
@@ -100,31 +100,31 @@ export default {
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">fade-left</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">fade-right</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">zoom</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">flip-left</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">flip-y</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">scalein</span>
         </div>
     </div>
@@ -162,31 +162,31 @@ export default {
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-fadein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">fade-in</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-fadeinleft', leaveClass: 'animate-fadeoutleft' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">fade-left</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-fadeinright', leaveClass: 'animate-fadeoutright' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">fade-right</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000">
+        <div v-animateonscroll="{ enterClass: 'animate-zoomin', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000">
             <span class="text-3xl font-bold">zoom</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-flipleft', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">flip-left</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-flipup', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">flip-y</span>
         </div>
         <div class="h-[30rem]"></div>
-        <div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded animate-duration-1000 animate-ease-in-out">
+        <div v-animateonscroll="{ enterClass: 'animate-scalein', leaveClass: 'animate-fadeout' }" class="flex bg-primary text-primary-contrast shadow-lg justify-center items-center h-40 w-40 sm:h-60 sm:w-60 rounded-2xl animate-duration-1000 animate-ease-in-out">
             <span class="text-3xl font-bold">scalein</span>
         </div>
     </div>
