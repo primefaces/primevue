@@ -7,7 +7,7 @@
             <template #label="{ value }">
                 <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="val.label">
-                        <Card class="flex-1">
+                        <Card class="flex-1 border border-surface shadow-none">
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
@@ -60,7 +60,7 @@ export default {
     <template #label="{ value }">
         <div class="flex flex-wrap gap-4">
             <template v-for="val of value" :key="val.label">
-                <Card class="flex-1">
+                <Card class="flex-1 border border-surface shadow-none">
                     <template #content>
                         <div class="flex justify-between gap-8">
                             <div class="flex flex-col gap-1">
@@ -101,7 +101,7 @@ export default {
             <template #label="{ value }">
                 <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="val.label">
-                        <Card class="flex-1">
+                        <Card class="flex-1 border border-surface shadow-none">
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
@@ -159,7 +159,7 @@ export default {
             <template #label="{ value }">
                 <div class="flex flex-wrap gap-4">
                     <template v-for="val of value" :key="i">
-                        <Card class="flex-1">
+                        <Card class="flex-1 border border-surface shadow-none">
                             <template #content>
                                 <div class="flex justify-between gap-8">
                                     <div class="flex flex-col gap-1">
