@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Unstyled mode instructs the components not to add any built-in style classes so that they can be styled using custom css or libraries like Tailwind, Bootstrap or PrimeFlex. Visit
-            <NuxtLink to="/unstyled">Unstyled mode</NuxtLink> documentation for more information.
+            <NuxtLink to="/theming/unstyled">Unstyled mode</NuxtLink> documentation for more information.
         </p>
 
         <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
