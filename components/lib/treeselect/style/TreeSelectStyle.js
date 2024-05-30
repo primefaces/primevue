@@ -103,6 +103,11 @@ const theme = ({ dt }) => `
     overflow: hidden;
 }
 
+
+.p-treeselect-tree-container {
+    overflow: auto;
+}
+
 .p-treeselect-empty-message {
     padding: ${dt('treeselect.empty.message.padding')};
     background: transparent;

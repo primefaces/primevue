@@ -174,7 +174,7 @@ export interface TreeSelectProps {
     options?: TreeNode[] | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
-     * @defaultValue 14rem
+     * @defaultValue 20rem
      */
     scrollHeight?: string | undefined;
     /**

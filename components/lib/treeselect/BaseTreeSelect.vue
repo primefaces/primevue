@@ -10,7 +10,7 @@ export default {
         options: Array,
         scrollHeight: {
             type: String,
-            default: '14rem'
+            default: '20rem'
         },
         placeholder: {
             type: String,
