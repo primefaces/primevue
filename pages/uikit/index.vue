@@ -157,7 +157,7 @@
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For individual designers</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
-                                    <span class="text-2xl font-bold text-surface-500 dark:text-surface-400">$99</span>
+                                    <span class="text-2xl font-bold">$99</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
@@ -199,7 +199,7 @@
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
-                                    <span class="text-2xl font-bold text-surface-500 dark:text-surface-400">$249</span>
+                                    <span class="text-2xl font-bold">$249</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
