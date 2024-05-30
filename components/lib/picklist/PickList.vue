@@ -60,8 +60,9 @@
                     <slot name="sourceheader"></slot>
                 </template>
                 <template #option="{ option, selected, index }">
-                    <slot name="item" :item="option" :selected="selected" :index="index" />
+                    <slot :name="$slots.option ? 'option' : 'item'" :item="option" :option="option" :selected="selected" :index="index" />
                 </template>
+                <!-- //TODO: item slot deprecated since v4.0. Use option slot. -->
             </Listbox>
         </div>
         <div :class="cx('transferControls')" v-bind="ptm('transferControls')" data-pc-group-section="controls">
@@ -124,8 +125,9 @@
                     <slot name="targetheader"></slot>
                 </template>
                 <template #option="{ option, selected, index }">
-                    <slot name="item" :item="option" :selected="selected" :index="index" />
+                    <slot :name="$slots.option ? 'option' : 'item'" :item="option" :option="option" :selected="selected" :index="index" />
                 </template>
+                <!-- //TODO: item slot deprecated since v4.0. Use option slot. -->
             </Listbox>
         </div>
         <div v-if="showTargetControls" :class="cx('targetControls')" v-bind="ptm('targetControls')" data-pc-group-section="controls">

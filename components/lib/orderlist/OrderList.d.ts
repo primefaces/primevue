@@ -291,6 +291,7 @@ export interface OrderListSlots {
      */
     header(): VNode[];
     /**
+     * @deprecated since v4.0. Use option slot instead.
      * Custom item template.
      * @param {Object} scope - item slot's params.
      */
@@ -305,6 +306,24 @@ export interface OrderListSlots {
         selected: boolean;
         /**
          * Index of the item.
+         */
+        index: number;
+    }): VNode[];
+    /**
+     * Custom option template.
+     * @param {Object} scope - option slot's params.
+     */
+    option(scope: {
+        /**
+         * Option of the component
+         */
+        option: any;
+        /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
+         * Index of the option.
          */
         index: number;
     }): VNode[];
