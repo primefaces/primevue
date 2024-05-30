@@ -12,6 +12,12 @@ const theme = ({ dt }) => `
     gap: ${dt('megamenu.gap')};
 }
 
+.p-megamenu-start, 
+.p-megamenu-end {
+    display: flex;
+    align-items: center;
+}
+
 .p-megamenu-root-list {
     margin: 0;
     padding: 0;

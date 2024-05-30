@@ -32,7 +32,7 @@
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>
-                <div v-else class="flex flex-col items-start gap-4">
+                <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
                     <Button :label="item.label" outlined />
@@ -121,7 +121,7 @@ export default {
                 <span class="whitespace-nowrap">{{ item.subtext }}</span>
             </span>
         </a>
-        <div v-else class="flex flex-col items-start gap-4">
+        <div v-else class="flex flex-col items-start gap-4 p-2">
             <img alt="megamenu-demo" :src="item.image" class="w-full" />
             <span>{{ item.subtext }}</span>
             <Button :label="item.label" outlined />
@@ -162,7 +162,7 @@ export default {
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>
-                <div v-else class="flex flex-col items-start gap-4">
+                <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
                     <Button :label="item.label" outlined />
@@ -262,7 +262,7 @@ export default {
                         <span class="whitespace-nowrap">{{ item.subtext }}</span>
                     </span>
                 </a>
-                <div v-else class="flex flex-col items-start gap-4">
+                <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
                     <Button :label="item.label" outlined />
