@@ -11,7 +11,6 @@ import CaptionDoc from '@/doc/galleria/CaptionDoc.vue';
 import ControlledDoc from '@/doc/galleria/ControlledDoc.vue';
 import ImportDoc from '@/doc/galleria/ImportDoc.vue';
 import ResponsiveDoc from '@/doc/galleria/ResponsiveDoc.vue';
-import ThumbnailDoc from '@/doc/galleria/ThumbnailDoc.vue';
 import CustomContentDoc from '@/doc/galleria/fullscreen/CustomContentDoc.vue';
 import WithThumbnailsDoc from '@/doc/galleria/fullscreen/WithThumbnailsDoc.vue';
 import WithoutThumbnailsDoc from '@/doc/galleria/fullscreen/WithoutThumbnailsDoc.vue';
@@ -71,12 +70,12 @@ export default {
                             component: TemplateDoc
                         }
                     ]
-                },
+                } /*,
                 {
                     id: 'thumbnail',
                     label: 'Thumbnail',
                     component: ThumbnailDoc
-                },
+                },*/,
                 {
                     id: 'responsive',
                     label: 'Responsive',
