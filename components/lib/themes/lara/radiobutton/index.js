@@ -25,7 +25,7 @@ export default {
         transitionDuration: '{form.field.transition.duration}'
     },
     icon: {
-        size: '0.875rem',
+        size: '1rem',
         checkedColor: '{primary.contrast.color}',
         checkedHoverColor: '{primary.contrast.color}',
         disabledColor: '{form.field.disabled.color}'
