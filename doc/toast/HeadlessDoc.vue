@@ -97,7 +97,7 @@ export default {
     methods: {
         show() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
+                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg rounded-2xl' });
                 this.visible = true;
                 this.progress = 0;
 
@@ -162,7 +162,7 @@ onUnmounted(() => {
 
 const show = () => {
     if (!visible.value) {
-        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
+        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg rounded-2xl' });
         visible.value = true;
         progress.value = 0;
 
@@ -195,7 +195,7 @@ const show = () => {
     methods: {
         show() {
             if (!this.visible) {
-                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg' });
+                this.$toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg rounded-2xl' });
                 this.visible = true;
                 this.progress = 0;
 
