@@ -456,7 +456,7 @@ const classes = {
         {
             'p-treetable-sortable-column': instance.columnProp('sortable'),
             'p-treetable-resizable-column': props.resizableColumns,
-            'p-treetable-column-sorted': instance.isColumnSorted(),
+            'p-treetable-column-sorted': context?.sorted,
             'p-treetable-frozen-column': instance.columnProp('frozen')
         }
     ],
