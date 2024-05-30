@@ -1,7 +1,17 @@
+@import './_apollo';
+@import './_atlantis';
+@import './_avalon';
+@import './_diamond';
+@import './_freya';
+@import './_poseidon';
+@import './_sakai';
+@import './_ultima';
+@import './_verona';
+
 .template {
     display: flex;
     flex-direction: column;
-    gap: 2.19rem;
+    gap: 2rem;
 }
 
 // TEMPLATE YOUTUBE
@@ -211,10 +221,9 @@
                 }
 
                 &-description {
-                    color: var(--p-surface-600);
-                    font-size: 0.875rem;
+                    color: var(--text-secondary-color);
                     font-weight: 400;
-                    line-height: 1.3125rem;
+                    line-height: 1.5;
                     margin: 0;
                 }
             }
@@ -304,18 +313,17 @@
 
             h2 {
                 margin: 1.25rem 0 0;
-                color: var(--p-surface-900, var(--p-surface-900, #212121));
-                font-size: 1.09375rem;
+                color: var(--p-surface-900);
+                font-size: 1rem;
                 font-weight: 600;
                 line-height: 1.3125rem;
             }
 
             p {
                 margin: 0.75rem 0 0;
-                color: var(--p-surface-600, #757575);
-                font-size: 0.875rem;
+                color: var(--text-secondary-color);
                 font-weight: 400;
-                line-height: 1.3125rem;
+                line-height: 1.5;
             }
         }
     }
@@ -626,9 +634,8 @@
 
         &-description {
             color: var(--p-surface-600, #757575);
-            font-size: 1.09375rem;
             font-weight: 400;
-            line-height: 1.64375rem;
+            line-height: 1.5;
             margin: 0.75rem 0 0;
         }
 
@@ -770,7 +777,6 @@
 
             h2 {
                 margin: 0;
-                color: var(--p-surface-900);
                 text-align: center;
                 font-size: 3rem;
                 font-weight: 600;
@@ -877,22 +883,19 @@
                     flex: 1;
 
                     h5 {
-                        color: var(--p-surface-900, var(--color-surface-900, #212121));
-                        font-size: 1.09375rem;
+                        font-size: 1.25rem;
                         font-weight: 600;
-                        line-height: 1.3125rem;
                         margin: 0;
                     }
 
                     p {
-                        color: var(--p-surface-600, #757575);
-                        font-size: 0.875rem;
+                        color: var(--text-secondary-color);
                         font-weight: 400;
-                        line-height: 1.3125rem;
+                        line-height: 1.5;
                         margin: 0.38rem 0 0;
 
                         a {
-                            color: var(--p-primary-400);
+                            color: var(--primary-text-color);
 
                             &:hover {
                                 text-decoration: underline;
@@ -1107,12 +1110,12 @@
 .template {
     display: flex;
     flex-direction: column;
-    gap: 2.19rem;
+    gap: 2rem;
 
     &-hero {
         width: 100%;
         height: 36.25rem;
-        background: var(--p-primary-500);
+        background: var(--primary-color);
         border-radius: 2rem;
         position: relative;
         overflow: hidden;
@@ -1141,11 +1144,10 @@
             }
 
             p {
-                font-size: 0.875rem;
-                font-weight: 400;
-                line-height: normal;
+                line-height: 1.5;
+                font-size: 1rem;
                 margin: 1rem 0 0;
-                color: var(--p-primary-inverse-color);
+                color: var(--primary-contrast-color);
             }
 
             &-buttons {
@@ -1160,10 +1162,8 @@
                     height: 2.5rem;
                     flex: 1;
                     border-radius: 3rem;
-
-                    font-size: 0.875rem;
                     font-weight: 700;
-                    line-height: 1.0625rem;
+                    line-height: 1;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
@@ -1171,20 +1171,20 @@
                 }
 
                 &-btn1 {
-                    border: 1px solid #212121;
-                    background: #212121;
+                    border: 1px solid var(--p-surface-900);
+                    background: var(--p-surface-900);
                     color: white;
 
                     &:hover {
-                        border-color: #444444;
-                        background-color: #444444;
+                        border-color: var(--p-surface-700);
+                        background-color: var(--p-surface-700);
                     }
                 }
 
                 &-btn2 {
                     background-color: var(--p-primary-600);
                     border-color: var(--p-primary-600);
-                    color: var(--p-primary-inverse-color);
+                    color: white;
 
                     &:hover {
                         background-color: var(--p-primary-700);
@@ -1195,7 +1195,7 @@
             }
 
             &-links {
-                margin-top: 1rem;
+                margin-top: 1.5rem;
                 display: flex;
                 align-items: center;
                 gap: 1rem;
@@ -1204,13 +1204,14 @@
                     display: flex;
                     align-items: flex-end;
                     gap: 0.5rem;
-                    color: var(--p-primary-inverse-color);
+                    color: var(--primary-contrast-color);
 
                     span {
-                        font-size: 0.75rem;
-                        font-weight: 300;
                         line-height: normal;
-                        text-decoration-line: underline;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
@@ -1367,7 +1368,7 @@
         h2 {
             color: var(--p-surface-900);
             text-align: center;
-            font-size: 3.42857rem;
+            font-size: 3.5rem;
             font-weight: 600;
             line-height: 4rem;
             margin: 0;
@@ -1509,7 +1510,7 @@
             &-title {
                 color: var(--p-surface-900);
                 font-weight: 600;
-                line-height: 1.5rem;
+                line-height: 1.5;
             }
 
             &-pricing {
@@ -1528,7 +1529,6 @@
             }
 
             button {
-                padding: 0.25rem 0.75rem;
                 border-radius: 0.375rem;
                 background: var(--p-surface-900);
                 text-align: center;
@@ -1536,6 +1536,7 @@
                 outline: none;
                 border: none;
                 min-height: 2rem;
+                padding: 0.5rem 0.75rem;
                 cursor: pointer;
                 transition: all 0.2s ease;
 
@@ -1545,7 +1546,6 @@
 
                 color: var(--p-surface-0);
                 text-align: center;
-                font-size: 0.875rem;
                 font-weight: 500;
                 line-height: 1.5rem;
                 letter-spacing: -0.00875rem;
@@ -1559,27 +1559,24 @@
 
                 p {
                     color: var(--p-surface-500);
-                    font-size: 0.875rem;
                     font-weight: 400;
-                    line-height: 1.5rem;
-                    letter-spacing: -0.00875rem;
+                    line-height: 1.5;
                     margin: 0;
                 }
             }
         }
 
         &-description {
-            color: var(--p-surface-500);
+            color: var(--text-secondary-color);
             text-align: center;
-            font-size: 0.875rem;
-            line-height: 1.5rem;
+            line-height: 1.5;
             letter-spacing: -0.00875rem;
             max-width: 46.75rem;
             margin: 1.5rem auto 0;
         }
 
         &-visit {
-            font-size: 0.875rem;
+            color: var(--text-secondary-color);
             font-weight: 400;
             line-height: 1.5rem;
             letter-spacing: -0.00875rem;
@@ -1587,13 +1584,12 @@
             margin: 1.5rem auto 0;
 
             a {
-                color: var(--p-primary-500);
-                text-decoration-line: underline;
+                color: var(--primary-text-color);
                 cursor: pointer;
                 transition: all 0.2s ease;
 
                 &:hover {
-                    color: var(--p-primary-300);
+                    text-decoration: underline;
                 }
             }
         }
