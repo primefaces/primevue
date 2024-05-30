@@ -41,14 +41,14 @@ export default {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.375rem',
+        padding: '0.375rem 0.625rem',
         borderRadius: '{content.border.radius}'
     },
     viewYear: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.375rem',
+        padding: '0.375rem 0.625rem',
         borderRadius: '{content.border.radius}'
     },
     group: {

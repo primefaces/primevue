@@ -47,13 +47,13 @@ export default {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.25rem'
+        padding: '0.25rem 0.5rem'
     },
     viewYear: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.25rem'
+        padding: '0.25rem 0.5rem'
     },
     group: {
         borderColor: '{content.border.color}',
