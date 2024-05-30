@@ -447,6 +447,10 @@ export interface PickListSlots {
          */
         item: any;
         /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
          * Index of the item
          */
         index: number;

@@ -59,8 +59,8 @@
                 <template v-if="$slots.sourceheader" #header>
                     <slot name="sourceheader"></slot>
                 </template>
-                <template #option="{ option, index }">
-                    <slot name="item" :item="option" :index="index" />
+                <template #option="{ option, selected, index }">
+                    <slot name="item" :item="option" :selected="selected" :index="index" />
                 </template>
             </Listbox>
         </div>
@@ -123,8 +123,8 @@
                 <template v-if="$slots.targetheader" #header>
                     <slot name="targetheader"></slot>
                 </template>
-                <template #option="{ option, index }">
-                    <slot name="item" :item="option" :index="index" />
+                <template #option="{ option, selected, index }">
+                    <slot name="item" :item="option" :selected="selected" :index="index" />
                 </template>
             </Listbox>
         </div>

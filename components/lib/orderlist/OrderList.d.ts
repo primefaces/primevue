@@ -300,6 +300,10 @@ export interface OrderListSlots {
          */
         item: any;
         /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
          * Index of the item.
          */
         index: number;

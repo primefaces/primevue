@@ -479,6 +479,10 @@ export interface ListboxSlots {
          */
         option: any;
         /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
          * Index of the option
          */
         index: number;
