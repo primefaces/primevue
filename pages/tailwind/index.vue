@@ -75,7 +75,7 @@ export default {
                     id: 'animations',
                     label: 'Animations',
                     component: AnimationsDoc
-                },
+                }
             ]
         };
     }
