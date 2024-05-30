@@ -148,7 +148,7 @@
                                                 <CheckIcon v-if="isSelected(option)" :class="cx('optionCheckIcon')" v-bind="ptm('optionCheckIcon')" />
                                                 <BlankIcon v-else :class="cx('optionBlankIcon')" v-bind="ptm('optionBlankIcon')" />
                                             </template>
-                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                            <slot name="option" :option="option" :selected="isSelected(option)" :index="getOptionIndex(i, getItemOptions)">
                                                 <span :class="cx('optionLabel')" v-bind="ptm('optionLabel')">{{ getOptionLabel(option) }}</span>
                                             </slot>
                                         </li>

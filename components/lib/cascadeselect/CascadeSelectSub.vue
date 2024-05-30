@@ -18,7 +18,7 @@
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
                 <div v-ripple :class="cx('optionContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'optionContent')">
-                    <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" />
+                    <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" :selected="isOptionGroup(processedOption) ? false : isOptionSelected(processedOption)" />
                     <span v-else :class="cx('optionText')" v-bind="getPTOptions(processedOption, index, 'optionText')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
                         <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />

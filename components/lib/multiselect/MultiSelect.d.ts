@@ -639,6 +639,10 @@ export interface MultiSelectSlots {
          */
         option: any;
         /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
          * Index of the option
          */
         index: number;

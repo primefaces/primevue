@@ -163,7 +163,7 @@
                                                     />
                                                 </template>
                                             </Checkbox>
-                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">
+                                            <slot name="option" :option="option" :selected="isSelected(option)" :index="getOptionIndex(i, getItemOptions)">
                                                 <span v-bind="ptm('optionLabel')">{{ getOptionLabel(option) }}</span>
                                             </slot>
                                         </li>

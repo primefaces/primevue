@@ -460,6 +460,10 @@ export interface CascadeSelectSlots {
          * Option instance
          */
         option: any;
+        /**
+         * Selection state
+         */
+        selected: boolean;
     }): VNode[];
     /**
      * Custom value template.
