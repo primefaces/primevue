@@ -99,7 +99,8 @@ const theme = ({ dt }) => `
     white-space: nowrap;
     position: relative;
     overflow: hidden;
-    margin: 2px 0;
+    display: flex;
+    align-items: center;
     padding: ${dt('autocomplete.option.padding')};
     border: 0 none;
     color: ${dt('autocomplete.option.color')};
