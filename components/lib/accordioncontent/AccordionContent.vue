@@ -8,8 +8,7 @@
             </component>
         </transition>
     </template>
-
-    <slot v-else :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs"></slot>
+    <slot v-else :class="cx('root')" :active="$pcAccordionPanel.active" :a11yAttrs="a11yAttrs"></slot>
 </template>
 
 <script>

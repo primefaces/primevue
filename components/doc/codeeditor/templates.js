@@ -139,7 +139,6 @@ import ThemeSwitcher from './components/ThemeSwitcher.vue';
 import { router } from "./router";
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
-import Accordion from 'primevue/accordion';
 import AccordionPanel from 'primevue/accordionpanel';
 import AccordionHeader from 'primevue/accordionheader';
 import AccordionContent from 'primevue/accordioncontent';
