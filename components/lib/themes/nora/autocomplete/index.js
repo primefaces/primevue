@@ -71,7 +71,7 @@ export default {
         }
     },
     chip: {
-        borderRadius: '{border.radius.sm}'
+        borderRadius: '{border.radius.xs}'
     },
     emptyMessage: {
         padding: '{list.option.padding}'

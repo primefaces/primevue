@@ -42,6 +42,6 @@ export default {
         padding: '{list.option.padding}'
     },
     chip: {
-        borderRadius: '{border.radius.xs}'
+        borderRadius: '{border.radius.sm}'
     }
 };

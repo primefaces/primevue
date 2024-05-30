@@ -25,7 +25,7 @@ export default {
         transitionDuration: '{form.field.transition.duration}'
     },
     chip: {
-        borderRadius: '{border.radius.xs}'
+        borderRadius: '{border.radius.sm}'
     },
     colorScheme: {
         light: {

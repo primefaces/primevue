@@ -4,7 +4,7 @@ export default {
     },
     bar: {
         size: '9px',
-        borderRadius: '{border.radius.sm}',
+        borderRadius: '{border.radius.xs}',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',

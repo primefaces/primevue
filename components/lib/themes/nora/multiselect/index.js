@@ -61,7 +61,7 @@ export default {
         padding: '{list.option.group.padding}'
     },
     chip: {
-        borderRadius: '{border.radius.sm}'
+        borderRadius: '{border.radius.xs}'
     },
     emptyMessage: {
         padding: '{list.option.padding}'
