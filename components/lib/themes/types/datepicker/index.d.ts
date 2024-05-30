@@ -266,6 +266,12 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          * @designToken datepicker.view.month.padding
          */
         padding?: string;
+        /**
+         * Border radius of view month
+         *
+         * @designToken datepicker.view.month.border.radius
+         */
+        borderRadius?: string;
     };
     /**
      * Used to pass tokens of the view year section
@@ -295,6 +301,12 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          * @designToken datepicker.view.year.padding
          */
         padding?: string;
+        /**
+         * Border radius of view year
+         *
+         * @designToken datepicker.view.year.border.radius
+         */
+        borderRadius?: string;
     };
     /**
      * Used to pass tokens of the group section
