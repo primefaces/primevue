@@ -23,7 +23,6 @@
                     :placeholder="filterPlaceholder"
                     role="searchbox"
                     autocomplete="off"
-                    :invalid="invalid"
                     :disabled="disabled"
                     :unstyled="unstyled"
                     :aria-owns="id + '_list'"

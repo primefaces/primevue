@@ -85,7 +85,6 @@
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('pcFilter')"
                                 :placeholder="filterPlaceholder"
-                                :invalid="invalid"
                                 :variant="variant"
                                 :unstyled="unstyled"
                                 role="searchbox"
