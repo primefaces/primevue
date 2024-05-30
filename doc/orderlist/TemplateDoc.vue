@@ -1,17 +1,17 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>For custom content support define an <i>item</i> template that gets the item instance as a parameter. In addition <i>header</i> slot is provided for further customization.</p>
+        <p>For custom content support define an <i>option</i> template that gets the item instance as a parameter. In addition <i>header</i> slot is provided for further customization.</p>
     </DocSectionText>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
-            <template #item="{ item, selected }">
+            <template #option="{ option, selected }">
                 <div class="flex flex-wrap p-1 items-center gap-4 w-full">
-                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
                     <div class="flex-1 flex flex-col">
-                        <span class="font-medium text-sm">{{ item.name }}</span>
-                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ item.category }}</span>
+                        <span class="font-medium text-sm">{{ option.name }}</span>
+                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
                     </div>
-                    <span class="font-bold sm:ml-8">${{ item.price }}</span>
+                    <span class="font-bold sm:ml-8">${{ option.price }}</span>
                 </div>
             </template>
         </OrderList>
@@ -28,14 +28,14 @@ export default {
             code: {
                 basic: `
 <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
-    <template #item="{ item, selected }">
+    <template #option="{ option , selected }">
         <div class="flex flex-wrap p-1 items-center gap-4 w-full">
-            <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+            <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
             <div class="flex-1 flex flex-col">
-                <span class="font-medium text-sm">{{ item.name }}</span>
-                <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ item.category }}</span>
+                <span class="font-medium text-sm">{{ option.name }}</span>
+                <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
             </div>
-            <span class="font-bold sm:ml-8">\${{ item.price }}</span>
+            <span class="font-bold sm:ml-8">\${{ option.price }}</span>
         </div>
     </template>
 </OrderList>
@@ -44,14 +44,14 @@ export default {
 <template>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
-            <template #item="{ item, selected }">
+            <template #option="{ option , selected }">
                 <div class="flex flex-wrap p-1 items-center gap-4 w-full">
-                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
                     <div class="flex-1 flex flex-col">
-                        <span class="font-medium text-sm">{{ item.name }}</span>
-                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ item.category }}</span>
+                        <span class="font-medium text-sm">{{ option.name }}</span>
+                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
                     </div>
-                    <span class="font-bold sm:ml-8">\${{ item.price }}</span>
+                    <span class="font-bold sm:ml-8">\${{ option.price }}</span>
                 </div>
             </template>
         </OrderList>
@@ -76,14 +76,14 @@ export default {
 <template>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
-            <template #item="{ item, selected }">
+            <template #option="{ option , selected }">
                 <div class="flex flex-wrap p-1 items-center gap-4 w-full">
-                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
                     <div class="flex-1 flex flex-col">
-                        <span class="font-medium text-sm">{{ item.name }}</span>
-                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ item.category }}</span>
+                        <span class="font-medium text-sm">{{ option.name }}</span>
+                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
                     </div>
-                    <span class="font-bold sm:ml-8">\${{ item.price }}</span>
+                    <span class="font-bold sm:ml-8">\${{ option.price }}</span>
                 </div>
             </template>
         </OrderList>

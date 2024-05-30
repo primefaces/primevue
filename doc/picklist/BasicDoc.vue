@@ -1,11 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>PickList requires a multidimensional array as its value bound with the <i>v-model </i>directive and a template for its content that gets the <i>item</i> instance and the index via slotProps.</p>
+        <p>PickList requires a multidimensional array as its value bound with the <i>v-model </i>directive and a template for its content that gets the <i>option</i> instance and the index via slotProps.</p>
     </DocSectionText>
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option }">
+                {{ option.name }}
             </template>
         </PickList>
     </div>
@@ -22,8 +22,8 @@ export default {
             code: {
                 basic: `
 <PickList v-model="products" dataKey="id" breakpoint="1400px">
-    <template #item="{ item }">
-        {{ item.name }}
+    <template #option="{ option  }">
+        {{ option.name }}
     </template>
 </PickList>
 `,
@@ -31,8 +31,8 @@ export default {
 <template>
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option  }">
+                {{ option.name }}
             </template>
         </PickList>
     </div>
@@ -56,8 +56,8 @@ export default {
 <template>
     <div class="card">
         <PickList v-model="products" dataKey="id" breakpoint="1400px">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option  }">
+                {{ option.name }}
             </template>
         </PickList>
     </div>

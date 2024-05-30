@@ -1,11 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>OrderList requires an array as its value bound with the <i>v-model</i> directive and <i>item</i> template for its content.</p>
+        <p>OrderList requires an array as its value bound with the <i>v-model</i> directive and <i>option</i> template for its content.</p>
     </DocSectionText>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option }">
+                {{ option.name }}
             </template>
         </OrderList>
     </div>
@@ -22,8 +22,8 @@ export default {
             code: {
                 basic: `
 <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
-    <template #item="{ item }">
-        {{ item.name }}
+    <template #option="{ option }">
+        {{ option.name }}
     </template>
 </OrderList>
 `,
@@ -31,8 +31,8 @@ export default {
 <template>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option }">
+                {{ option.name }}
             </template>
         </OrderList>
     </div>
@@ -56,8 +56,8 @@ export default {
 <template>
     <div class="card sm:flex sm:justify-center">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
-            <template #item="{ item }">
-                {{ item.name }}
+            <template #option="{ option }">
+                {{ option.name }}
             </template>
         </OrderList>
     </div>
