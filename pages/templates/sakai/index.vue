@@ -56,7 +56,7 @@ export default {
             features2Data: [
                 {
                     title: 'Fully Responsive',
-                    description: 'Atlantis is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
+                    description: 'Sakai is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
                     src: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-features2-responsive.png'
                 },
                 {
