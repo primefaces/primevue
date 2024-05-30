@@ -1,6 +1,30 @@
 # Changelog
 
-## [4.0.0-beta.3](https://github.com/primefaces/primevue/tree/4.0.0-beta.3) (2024-05-15)
+## [4.0.0-beta.4](https://github.com/primefaces/primevue/tree/4.0.0-beta.4) (2024-05-30)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.3...4.0.0-beta.4)
+
+**Deprecated:**
+
+-   Deprecate inputStyle and add inputVariant [\#5786](https://github.com/primefaces/primevue/issues/5786)
+
+**Breaking Changes:**
+
+-   Deprecated slots [\#5785](https://github.com/primefaces/primevue/issues/5785)
+-   Renamed properties [\#5784](https://github.com/primefaces/primevue/issues/5784)
+-   Add OverlayBadge component, deprecate Badge directive [\#5769](https://github.com/primefaces/primevue/issues/5769)
+-   Dialog: rtl removed [\#5763](https://github.com/primefaces/primevue/issues/5763)
+
+**Fixed bugs:**
+
+-   Popover: Arrow offset uses wrong design token [\#5755](https://github.com/primefaces/primevue/issues/5755)
+-   InputNumber: Missing type declaration for buttons leads to form submit on button click [\#5700](https://github.com/primefaces/primevue/issues/5700)
+-   DatePicker: Focus blink on select [\#5676](https://github.com/primefaces/primevue/issues/5676)
+
+**Implemented New Features and Enhancements:**
+
+-   Load primitive, semantic and global styles in styled mode [\#5789](https://github.com/primefaces/primevue/issues/5789)
+-   [All components]: TypeScript emits are in an incompatible format with defineEmits [\#5405](https://github.com/primefaces/primevue/issues/5405)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.2...4.0.0-beta.3)
 
