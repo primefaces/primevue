@@ -126,11 +126,11 @@ export default {
         }
     },
     paginatorTop: {
-        borderColor: '{content.border.color}',
+        borderColor: '{datatable.border.color}',
         borderWidth: '0 0 1px 0'
     },
     paginatorBottom: {
-        borderColor: '{content.border.color}',
+        borderColor: '{datatable.border.color}',
         borderWidth: '0 0 1px 0'
     },
     colorScheme: {
