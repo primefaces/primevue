@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DataView requires a <i>value</i> to display along with a <i>list</i> slot that receives an object in the collection to return content.</p>
+        <p>DataView requires a <i>value</i> to display along with a <i>list</i> slot for item content.</p>
     </DocSectionText>
     <div class="card">
         <DataView :value="products">

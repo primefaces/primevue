@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DataView supports <i>list</i> and <i>grid</i> display modes defined with the <i>layout</i> property.</p>
+        <p>DataView supports <i>list</i> and <i>grid</i> display modes defined with the <i>layout</i> property. The <i>grid</i> mode is not built-in for flexibility purposes and requires a library with CSS grid features like Tailwind.</p>
     </DocSectionText>
     <div class="card">
         <DataView :value="products" :layout="layout">
