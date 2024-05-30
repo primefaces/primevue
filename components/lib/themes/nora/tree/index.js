@@ -19,7 +19,7 @@ export default {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
             color: '{focus.ring.color}',
-            offset: '-1px',
+            offset: '-2px',
             shadow: '{focus.ring.shadow}'
         },
         gap: '0.25rem'
