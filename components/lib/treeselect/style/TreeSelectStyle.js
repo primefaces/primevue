@@ -100,6 +100,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('treeselect.overlay.border.color')};
     border-radius: ${dt('treeselect.overlay.border.radius')};
     box-shadow: ${dt('treeselect.overlay.shadow')};
+    overflow: hidden;
 }
 
 .p-treeselect-empty-message {
