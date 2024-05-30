@@ -15,6 +15,7 @@
             <span>{{ menuitem.name }}</span>
             <Tag v-if="menuitem.badge" :value="menuitem.badge"></Tag>
         </a>
+
         <PrimeVueNuxtLink v-if="menuitem.to" :to="menuitem.to" :class="{ 'router-link-active': menuitem.to === $route.fullPath }">
             <span v-if="menuitem.icon && root" class="menu-icon">
                 <i :class="menuitem.icon"></i>
@@ -47,7 +48,8 @@ export default {
     methods: {
         isActiveRootmenuItem(menuitem) {
             return (
-                menuitem.children && !menuitem.children.some((item) => item.to === `/${this.$router.currentRoute.value?.name?.replace('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${this.$router.currentRoute.value.name}`)))
+                menuitem.children &&
+                !menuitem.children.some((item) => item.to === `/${this.$router.currentRoute.value?.name?.replaceAll('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${this.$router.currentRoute.value.name}`)))
             );
         }
     }
