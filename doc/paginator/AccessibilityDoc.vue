@@ -4,7 +4,7 @@
         <p>Paginator is placed inside a <i>nav</i> element to indicate a navigation section. All of the paginator elements can be customized using templating however the default behavious is listed below.</p>
 
         <p>
-            First, previous, next and last page navigators elements with <i>aria-label</i> attributes referring to the <i>aria.firstPageLabel</i>, <i>aria.prevPageLabel</i>, <i>aria.nextPageLabel</i> and <i>aria.lastPageLabel</i> properties of the
+            First, previous, next and last page navigators elements with <i>aria-label</i> attributes referring to the <i>aria.firstPageLabel</i>, <i>aria.previousPageLabel</i>, <i>aria.nextPageLabel</i> and <i>aria.lastPageLabel</i> properties of the
             <NuxtLink to="/configuration/#locale">locale</NuxtLink> API respectively.
         </p>
 
