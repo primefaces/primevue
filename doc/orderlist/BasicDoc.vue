@@ -2,8 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <p>OrderList requires an array as its value bound with the <i>v-model</i> directive and <i>item</i> template for its content.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" pt:pcList:root="w-full md:w-56">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
             <template #item="{ item }">
                 {{ item.name }}
             </template>
@@ -21,7 +21,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<OrderList v-model="products" dataKey="id" breakpoint="1400px" pt:pcList:root="w-full md:w-56">
+<OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
     <template #item="{ item }">
         {{ item.name }}
     </template>
@@ -29,8 +29,8 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card lg:flex lg:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" pt:pcList:root="w-full md:w-56">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
             <template #item="{ item }">
                 {{ item.name }}
             </template>
@@ -54,8 +54,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card lg:flex lg:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" pt:pcList:root="w-full md:w-56">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
             <template #item="{ item }">
                 {{ item.name }}
             </template>

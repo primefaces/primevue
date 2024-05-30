@@ -2,10 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>For custom content support define an <i>item</i> template that gets the item instance as a parameter. In addition <i>header</i> slot is provided for further customization.</p>
     </DocSectionText>
-    <div class="card lg:flex lg:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 items-center gap-4">
+                <div class="flex flex-wrap p-1 items-center gap-4 w-full">
                     <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
@@ -30,9 +30,9 @@ export default {
             products: null,
             code: {
                 basic: `
-<OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
+<OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
     <template #item="{ item }">
-        <div class="flex flex-wrap p-1 items-center gap-4">
+        <div class="flex flex-wrap p-1 items-center gap-4 w-full">
             <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
             <div class="flex-1 flex flex-col gap-1">
                 <span class="font-medium">{{ item.name }}</span>
@@ -48,10 +48,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card lg:flex lg:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 items-center gap-4">
+                <div class="flex flex-wrap p-1 items-center gap-4 w-full">
                     <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
@@ -83,10 +83,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card lg:flex lg:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
             <template #item="{ item }">
-                <div class="flex flex-wrap p-1 items-center gap-4">
+                <div class="flex flex-wrap p-1 items-center gap-4 w-full">
                     <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + item.image" :alt="item.name" />
                     <div class="flex-1 flex flex-col gap-1">
                         <span class="font-medium">{{ item.name }}</span>
