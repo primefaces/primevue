@@ -26,6 +26,8 @@
 -   Load primitive, semantic and global styles in styled mode [\#5789](https://github.com/primefaces/primevue/issues/5789)
 -   [All components]: TypeScript emits are in an incompatible format with defineEmits [\#5405](https://github.com/primefaces/primevue/issues/5405)
 
+## [4.0.0-beta.3](https://github.com/primefaces/primevue/tree/4.0.0-beta.3) (2024-05-15)
+
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.2...4.0.0-beta.3)
 
 **Deprecated:**
