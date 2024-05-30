@@ -94,7 +94,6 @@
                                 @vue:updated="onFilterUpdated"
                                 :class="cx('pcFilter')"
                                 :placeholder="filterPlaceholder"
-                                :invalid="invalid"
                                 :disabled="disabled"
                                 :variant="variant"
                                 :unstyled="unstyled"
