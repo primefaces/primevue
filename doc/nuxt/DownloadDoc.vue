@@ -15,16 +15,16 @@ export default {
             code: {
                 basic: `
 # Using npm
-npm install primevue@4.0.0-rc.1
-npm install --save-dev nuxt-primevue@4.0.0-rc.1
+npm install primevue@4.0.0-beta.4
+npm install --save-dev nuxt-primevue@4.0.0-beta.4
 
 # Using yarn
-yarn add primevue@4.0.0-rc.1
-yarn add --dev nuxt-primevue@4.0.0-rc.1
+yarn add primevue@4.0.0-beta.4
+yarn add --dev nuxt-primevue@4.0.0-beta.4
 
 # Using pnpm
-pnpm add primevue@4.0.0-rc.1
-pnpm add -D nuxt-primevue@4.0.0-rc.1
+pnpm add primevue@4.0.0-beta.4
+pnpm add -D nuxt-primevue@4.0.0-beta.4
 `
             }
         };
