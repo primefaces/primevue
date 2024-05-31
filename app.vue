@@ -1,7 +1,11 @@
 <template>
-    <NuxtLayout>
-        <NuxtPage />
-    </NuxtLayout>
+    <Html :dir="$appState.rtl ? 'rtl' : 'ltr'">
+        <Body>
+            <NuxtLayout>
+                <NuxtPage />
+            </NuxtLayout>
+        </Body>
+    </Html>
 </template>
 
 <script>

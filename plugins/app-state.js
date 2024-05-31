@@ -8,6 +8,7 @@ const $appState = {
             newsActive: false,
             announcement: null,
             ripple: false,
+            rtl: false,
             storageKey: 'primevue'
         });
     }
@@ -15,4 +16,9 @@ const $appState = {
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use($appState);
+
+    // use cookie
+    const direction = useCookie('direction-rtl');
+
+    nuxtApp.vueApp.config.globalProperties.$appState.rtl = direction.value;
 });

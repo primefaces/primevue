@@ -22,6 +22,11 @@
             </section>
 
             <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
+                <span class="text-xl font-semibold">Rtl</span>
+                <InputSwitch :modelValue="rtlActive" @update:modelValue="onDirectionChange" />
+            </section>
+
+            <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border">
                 <span class="text-xl font-semibold">Input Variant</span>
                 <SelectButton :modelValue="inputStyle" @update:modelValue="onInputStyleChange" :options="inputStyles" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </section>
@@ -355,6 +360,17 @@ export default {
         onRippleChange(value) {
             this.$appState.ripple = value;
         },
+        onDirectionChange(value) {
+            this.$appState.rtl = value;
+
+            const directionCookie = useCookie('direction-rtl', { expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) });
+
+            if(value) {
+                directionCookie.value = value;
+            } else {
+                directionCookie.value = null;
+            }
+        },
         onInputStyleChange(value) {
             this.$primevue.config.inputStyle = value;
         },
@@ -401,6 +417,9 @@ export default {
         },
         rippleActive() {
             return this.$appState.ripple;
+        },
+        rtlActive() {
+            return this.$appState.rtl;
         },
         inputStyle() {
             return this.$primevue.config.inputStyle || 'outlined';

@@ -1,0 +1,162 @@
+html[dir="rtl"] {
+    .layout-sidebar {
+        margin-right: 0 !important;
+        margin-left: 4rem !important;
+    }
+
+    .doc-section-nav {
+        margin-left: 0 !important;
+        margin-right: 4rem !important;
+    }
+
+
+    /**
+        ****** Margin ******
+     */
+    .mr-2 {
+        margin-right: 0 !important;
+        margin-left: 0.5rem !important;
+    }
+
+    .ml-2 {
+        margin-left: 0 !important;
+        margin-right: 0.5rem !important;
+    }
+
+    /**
+        ****** Autocomplete ******
+     */
+    .p-autocomplete {
+        direction: rtl !important;
+
+        &.p-autocomplete-dd {
+            .p-autocomplete-input, .p-autocomplete-multiple-container {
+                border-radius: 0 !important;
+                border-top-right-radius: 6px !important;
+                border-bottom-right-radius: 6px !important;
+            }
+
+            .p-autocomplete-dropdown {
+                border-radius: 0 !important;
+                border-top-left-radius: 6px !important;
+                border-bottom-left-radius: 6px !important;
+            }
+        }
+
+        .p-autocomplete-loader {
+            right: unset !important;
+            left: 0.75rem !important;
+        }
+    }
+
+    .p-autocomplete-panel .p-autocomplete-items img {
+        margin-right: 0 !important;
+        margin-left: 0.5rem !important;
+    }
+
+    .p-float-label > label {
+        left: unset !important;
+        right: 0.75rem !important;
+    }
+    .p-icon-field-left.p-float-label > label {
+        left: unset !important;
+        right: 2.5rem !important;
+    }
+
+    /**
+        ****** CascadeSelect ******
+     */
+    .p-cascadeselect-panel {
+        .p-cascadeselect-item {
+            .p-cascadeselect-group-icon {
+                margin-left: 0 !important;
+                margin-right: auto !important;
+                transform: rotate(180deg);
+            }
+            .p-cascadeselect-panel {
+                left: 0 !important;
+                right: 100% !important;
+            }
+        }
+    }
+
+    /**
+        ****** Dropdown ******
+     */
+    .p-dropdown img, .p-dropdown-items-wrapper img, .p-listbox-list-wrapper img {
+        margin-right: 0 !important;
+        margin-left: 0.5rem !important;
+    }
+
+    .p-dropdown-filter {
+        padding-right: 0.5rem !important;
+        padding-left: 1.75rem !important;
+        margin-right: 0 !important;
+        margin-left: -1.75rem !important;
+    }
+
+    .p-dropdown.p-dropdown-clearable .p-dropdown-label {
+        padding-right: 0.5rem !important;
+        padding-left: 1.75rem !important;
+    }
+
+    .p-dropdown-clear-icon {
+        right: unset !important;
+        left: 2.5rem !important;
+    }
+
+
+
+    /**
+        ****** Chips ******
+     */
+    .p-chips .p-chips-multiple-container .p-chips-token .p-chips-token-icon {
+        margin-left: unset !important;
+        margin-right: 0.5rem !important;
+        margin-top: 0.1rem;
+    }
+
+    .p-chips .p-chips-multiple-container:has(.p-chips-token) .p-chips-input-token {
+        margin-left: unset !important;
+        margin-right: 0.5rem;
+    }
+
+    .p-chips .p-chips-multiple-container .p-chips-token > div {
+        display: flex;
+        flex-direction: row-reverse;
+
+        i {
+            margin-left: 0.5rem;
+        }
+    }
+
+    /**
+        ****** InputGroup ******
+     */
+    .p-inputgroup-addon:first-child, .p-inputgroup button:first-child, .p-inputgroup input:first-child, .p-inputgroup > .p-inputwrapper:first-child, .p-inputgroup > .p-inputwrapper:first-child > .p-inputtext {
+        border-radius: 0 6px 6px 0;
+    }
+
+    .p-inputgroup-addon:last-child, .p-inputgroup button:last-child, .p-inputgroup input:last-child, .p-inputgroup > .p-inputwrapper:last-child, .p-inputgroup > .p-inputwrapper:last-child > .p-inputtext {
+        border-radius: 6px 0 0 6px !important;
+    }
+
+    /**
+        ****** Listbox ******
+     */
+    .p-listbox .p-listbox-header .p-listbox-filter {
+        padding-right: 2.3rem !important;
+        padding-left: 0.5rem !important;
+    }
+
+    .p-breadcrumb .p-breadcrumb-list li.p-menuitem-separator {
+        transform: rotate(180deg);
+    }
+
+    /**
+        ****** Breadcrumb ******
+     */
+    .p-breadcrumb .p-breadcrumb-list {
+        flex-direction: row-reverse;
+    }
+}
