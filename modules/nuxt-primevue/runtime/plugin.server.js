@@ -6,8 +6,8 @@ const defineNitroPlugin = (def) => def;
 
 export default defineNitroPlugin(async (nitroApp) => {
     nitroApp.hooks.hook('render:html', (html) => {
-        html.head.push(styles);
-        html.head.push(themes);
+        html.head.unshift(styles);
+        html.head.unshift(themes);
         //html.htmlAttrs.push('class="p-dark"'); // @todo
     });
 });
