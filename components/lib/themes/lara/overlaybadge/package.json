@@ -1,0 +1,5 @@
+{
+    "main": "./index.mjs",
+    "module": "./index.mjs",
+    "types": "../types/overlaybadge/index.d.ts"
+}
