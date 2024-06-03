@@ -19,7 +19,7 @@
                             fill="var(--text-color)"
                         />
                     </svg>
-                    <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+                    <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
             <template #submenuheader="{ item }">
@@ -103,7 +103,7 @@ export default {
                 <path d="..." fill="var(--primary-color)" />
                 <path d="..." fill="var(--text-color)" />
             </svg>
-            <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+            <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
         </span>
     </template>
     <template #submenuheader="{ item }">
@@ -144,7 +144,7 @@ export default {
                             fill="var(--text-color)"
                         />
                     </svg>
-                    <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+                    <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
             <template #submenuheader="{ item }">
@@ -239,7 +239,7 @@ export default {
                             fill="var(--text-color)"
                         />
                     </svg>
-                    <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+                    <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
                 </span>
             </template>
             <template #submenuheader="{ item }">
