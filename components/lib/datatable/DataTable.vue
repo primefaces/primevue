@@ -871,7 +871,9 @@ export default {
                             this.$emit('update:selection', data);
                         }
 
-                        event.preventDefault();
+                        const isCopyShortcut = event.code === 'KeyC' && metaKey;
+
+                        if (!isCopyShortcut) event.preventDefault();
 
                         break;
                 }
