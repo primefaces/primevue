@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <ToggleSwitch v-model="checked" invalid />
+        <ToggleSwitch v-model="checked" :invalid="!checked" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             checked: false,
             code: {
                 basic: `
-<ToggleSwitch v-model="checked" invalid />
+<ToggleSwitch v-model="checked" :invalid="!checked" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <ToggleSwitch v-model="checked" invalid />
+        <ToggleSwitch v-model="checked" :invalid="!checked" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <ToggleSwitch v-model="checked" invalid />
+        <ToggleSwitch v-model="checked" :invalid="!checked" />
     </div>
 </template>
 

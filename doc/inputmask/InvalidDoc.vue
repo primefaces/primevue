@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" invalid />
+        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" :invalid="value === ''" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: '',
             code: {
                 basic: `
-<InputMask v-model="value" mask="99-999999" placeholder="99-999999" invalid />
+<InputMask v-model="value" mask="99-999999" placeholder="99-999999" :invalid="value ===''"  />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" invalid />
+        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" :invalid="value ===''"  />
     </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" invalid />
+        <InputMask v-model="value" mask="99-999999" placeholder="99-999999" :invalid="value ===''"  />
     </div>
 </template>
 

@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" invalid class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -15,15 +15,15 @@ export default {
     data() {
         return {
             nodes: null,
-            selectedValue: null,
+            selectedValue: {},
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" invalid class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" invalid class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             nodes: null,
-            selectedValue: null,
+            selectedValue: {},
         }
     },
     mounted() {
@@ -46,7 +46,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" invalid class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
     </div>
 </template>
 
@@ -55,7 +55,7 @@ import { ref, onMounted } from 'vue';
 import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
-const selectedValue = ref(null);
+const selectedValue = ref({});
 
 onMounted(() => {
     NodeService.getTreeNodes().then((data) => (nodes.value = data));

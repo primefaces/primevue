@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" invalid class="w-full md:w-56" />
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -22,12 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" invalid class="w-full md:w-56" />
+<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" invalid class="w-full md:w-56" />
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
     </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" invalid class="w-full md:w-56" />
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
     </div>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DatePicker is used a controlled input component with <i>v-model</i> property.</p>
+        <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <DatePicker v-model="date" invalid />
+        <DatePicker v-model="date" :invalid="date === null" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             date: null,
             code: {
                 basic: `
-<DatePicker v-model="date" invalid />
+<DatePicker v-model="date" :invalid="date === null"  />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <DatePicker v-model="date" invalid />
+        <DatePicker v-model="date" :invalid="date === null"  />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <DatePicker v-model="date" invalid />
+        <DatePicker v-model="date" :invalid="date === null"  />
     </div>
 </template>
 

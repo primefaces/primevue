@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30" invalid style="resize: none" />
+        <Textarea v-model="value" rows="5" cols="30" :invalid="value === ''" style="resize: none" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: '',
             code: {
                 basic: `
-<Textarea v-model="value" rows="5" cols="30" invalid />
+<Textarea v-model="value" rows="5" cols="30" :invalid="value ===''"  />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30" invalid />
+        <Textarea v-model="value" rows="5" cols="30" :invalid="value ===''"  />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30"   invalid />
+        <Textarea v-model="value" rows="5" cols="30" :invalid="value ===''"  />
     </div>
 </template>
 
