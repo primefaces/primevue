@@ -689,7 +689,7 @@ export interface ColumnSlots {
          */
         editorInitCallback: (event: Event) => void;
         /**
-         * Row toggler callback unction
+         * Row toggler callback function
          * @param {Event} event - Browser event
          */
         rowTogglerCallback: (event: Event) => void;
