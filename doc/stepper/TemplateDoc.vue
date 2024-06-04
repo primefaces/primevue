@@ -1,54 +1,74 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Stepper provides various templating options to customize the default UI design.</p>
+        <p>Custom content for a tab is defined using <i>as</i> or <i>asChild</i> properties.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Stepper v-model:activeStep="active">
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-user" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ nextCallback }">
+        <Stepper v-model:value="activeStep" class="basis-[40rem]">
+            <StepList>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+                    <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-user" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+                    <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-star" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+                    <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-id-card" />
+                            </span>
+                        </button>
+                    </div>
+                </Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-user" />
-                                </InputIcon>
-                                <InputText id="input" v-model="name" type="text" placeholder="Name" />
-                            </IconField>
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
                         </div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-envelope" />
-                                </InputIcon>
-                                <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                            </IconField>
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
                         </div>
                         <div class="field p-fluid">
-                            <Password v-model="password" toggleMask placeholder="Password" />
+                            <Password v-model="password" placeholder="Password" />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-star" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback, nextCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="2">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-center gap-4">
@@ -65,20 +85,11 @@
                         </div>
                     </div>
                     <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-id-card" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="3">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
                         <div class="text-center">
@@ -86,10 +97,10 @@
                         </div>
                     </div>
                     <div class="flex pt-6 justify-start">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
+                </StepPanel>
+            </StepPanels>
         </Stepper>
     </div>
     <DocSectionCode :code="code" />
@@ -99,7 +110,7 @@
 export default {
     data() {
         return {
-            active: 0,
+            activeStep: 1,
             name: null,
             email: null,
             password: null,
@@ -115,52 +126,72 @@ export default {
             option10: false,
             code: {
                 basic: `
-<Stepper v-model:activeStep="active">
-    <StepperPanel>
-        <template #header="{ index, clickCallback }">
-            <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                    <i class="pi pi-user" />
-                </span>
-            </button>
-        </template>
-        <template #content="{ nextCallback }">
+<Stepper v-model:value="activeStep" class="basis-[40rem]">
+    <StepList>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+            <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-user" />
+                    </span>
+                </button>
+                <Divider />
+            </div>
+        </Step>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+            <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-star" />
+                    </span>
+                </button>
+                <Divider />
+            </div>
+        </Step>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+            <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-id-card" />
+                    </span>
+                </button>
+            </div>
+        </Step>
+    </StepList>
+    <StepPanels>
+        <StepPanel v-slot="{ activateCallback }" :value="1">
             <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                 <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
+                        <div class="field p-fluid">
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                        </div>
+                        <div class="field p-fluid">
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                        </div>
                 <div class="field p-fluid">
-                    <IconField>
-                        <InputIcon>
-                            <i class="pi pi-user" />
-                        </InputIcon>
-                        <InputText id="input" v-model="name" type="text" placeholder="Name" />
-                    </IconField>
-                </div>
-                <div class="field p-fluid">
-                    <IconField>
-                        <InputIcon>
-                            <i class="pi pi-envelope" />
-                        </InputIcon>
-                        <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                    </IconField>
-                </div>
-                <div class="field p-fluid">
-                    <Password v-model="password" toggleMask placeholder="Password" />
+                    <Password v-model="password" placeholder="Password" />
                 </div>
             </div>
             <div class="flex pt-6 justify-end">
-                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
             </div>
-        </template>
-    </StepperPanel>
-    <StepperPanel>
-        <template #header="{ index, clickCallback }">
-            <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                    <i class="pi pi-star" />
-                </span>
-            </button>
-        </template>
-        <template #content="{ prevCallback, nextCallback }">
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" :value="2">
             <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                 <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
                 <div class="flex flex-wrap justify-center gap-4">
@@ -177,20 +208,11 @@ export default {
                 </div>
             </div>
             <div class="flex pt-6 justify-between">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
             </div>
-        </template>
-    </StepperPanel>
-    <StepperPanel>
-        <template #header="{ index, clickCallback }">
-            <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                    <i class="pi pi-id-card" />
-                </span>
-            </button>
-        </template>
-        <template #content="{ prevCallback }">
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" :value="3">
             <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                 <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
                 <div class="text-center">
@@ -198,61 +220,81 @@ export default {
                 </div>
             </div>
             <div class="flex pt-6 justify-start">
-                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
             </div>
-        </template>
-    </StepperPanel>
+        </StepPanel>
+    </StepPanels>
 </Stepper>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Stepper v-model:activeStep="active">
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-user" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ nextCallback }">
+        <Stepper v-model:value="activeStep" class="basis-[40rem]">
+            <StepList>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+                    <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-user" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+                    <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-star" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+                    <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-id-card" />
+                            </span>
+                        </button>
+                    </div>
+                </Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-user" />
-                                </InputIcon>
-                                <InputText id="input" v-model="name" type="text" placeholder="Name" />
-                            </IconField>
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
                         </div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-envelope" />
-                                </InputIcon>
-                                <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                            </IconField>
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
                         </div>
                         <div class="field p-fluid">
-                            <Password v-model="password" toggleMask placeholder="Password" />
+                            <Password v-model="password" placeholder="Password" />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-star" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback, nextCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="2">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-center gap-4">
@@ -269,20 +311,11 @@ export default {
                         </div>
                     </div>
                     <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-id-card" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="3">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
                         <div class="text-center">
@@ -290,11 +323,11 @@ export default {
                         </div>
                     </div>
                     <div class="flex pt-6 justify-start">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
-            </Stepper>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
     </div>
 </template>
 
@@ -302,7 +335,7 @@ export default {
 export default {
     data() {
         return {
-            active: 0,
+            activeStep: 1,
             name: null,
             email: null,
             password: null,
@@ -320,63 +353,76 @@ export default {
     }
 }
 <\/script>
-
-<style scoped>
-.p-stepper {
-    flex-basis: 40rem;
-}
-<\/style>
-
 `,
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Stepper v-model:activeStep="active">
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-user" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ nextCallback }">
+        <Stepper v-model:value="activeStep" class="basis-[40rem]">
+            <StepList>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+                    <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-user" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+                    <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-star" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+                    <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-id-card" />
+                            </span>
+                        </button>
+                    </div>
+                </Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-user" />
-                                </InputIcon>
-                                <InputText id="input" v-model="name" type="text" placeholder="Name" />
-                            </IconField>
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
                         </div>
                         <div class="field p-fluid">
-                            <IconField>
-                                <InputIcon>
-                                    <i class="pi pi-envelope" />
-                                </InputIcon>
-                                <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                            </IconField>
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
                         </div>
                         <div class="field p-fluid">
-                            <Password v-model="password" toggleMask placeholder="Password" />
+                            <Password v-model="password" placeholder="Password" />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-star" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback, nextCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="2">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
                         <div class="flex flex-wrap justify-center gap-4">
@@ -393,20 +439,11 @@ export default {
                         </div>
                     </div>
                     <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="nextCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
                     </div>
-                </template>
-            </StepperPanel>
-            <StepperPanel>
-                <template #header="{ index, clickCallback }">
-                    <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="clickCallback">
-                        <span :class="['rounded-full border-2 w-12 h-12 inline-flex items-center justify-center', { 'bg-primary text-primary-contrast border-primary': index <= active, 'border-surface-200 dark:border-surface-700': index > active }]">
-                            <i class="pi pi-id-card" />
-                        </span>
-                    </button>
-                </template>
-                <template #content="{ prevCallback }">
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="3">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
                         <div class="text-center">
@@ -414,10 +451,10 @@ export default {
                         </div>
                     </div>
                     <div class="flex pt-6 justify-start">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="prevCallback" />
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
                     </div>
-                </template>
-            </StepperPanel>
+                </StepPanel>
+            </StepPanels>
         </Stepper>
     </div>
 </template>
@@ -425,7 +462,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const active = ref(0);
+const activeStep = ref(1);
 const completed = ref(false);
 const products = ref();
 const name = ref();
@@ -443,22 +480,9 @@ const option9 = ref(false);
 const option10 = ref(false);
 
 <\/script>
-
-<style scoped>
-.p-stepper {
-    flex-basis: 40rem;
-}
-<\/style>
-
 `
             }
         };
     }
 };
 </script>
-
-<style scoped>
-.p-stepper {
-    flex-basis: 40rem;
-}
-</style>

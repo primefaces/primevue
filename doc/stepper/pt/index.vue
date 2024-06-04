@@ -30,9 +30,33 @@ export default {
                 },
                 {
                     id: 'pt.doc.stepperpanel',
-                    label: 'StepperPanel PT Options',
+                    label: 'StepList PT Options',
                     component: DocApiTable,
-                    data: getPTOptions('StepperPanel')
+                    data: getPTOptions('StepList')
+                },
+                {
+                    id: 'pt.doc.stepperpanel',
+                    label: 'StepPanels PT Options',
+                    component: DocApiTable,
+                    data: getPTOptions('StepPanels')
+                },
+                {
+                    id: 'pt.doc.stepperpanel',
+                    label: 'StepItem PT Options',
+                    component: DocApiTable,
+                    data: getPTOptions('StepItem')
+                },
+                {
+                    id: 'pt.doc.stepperpanel',
+                    label: 'Step PT Options',
+                    component: DocApiTable,
+                    data: getPTOptions('Step')
+                },
+                {
+                    id: 'pt.doc.stepperpanel',
+                    label: 'StepPanel PT Options',
+                    component: DocApiTable,
+                    data: getPTOptions('StepPanel')
                 }
             ]
         };

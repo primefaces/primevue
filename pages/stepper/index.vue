@@ -12,7 +12,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/stepper/AccessibilityDoc.vue';
-import BasicDoc from '@/doc/stepper/BasicDoc.vue';
+import HorizontalDoc from '@/doc/stepper/HorizontalDoc.vue';
 import ImportDoc from '@/doc/stepper/ImportDoc.vue';
 import LinearDoc from '@/doc/stepper/LinearDoc.vue';
 import TemplateDoc from '@/doc/stepper/TemplateDoc.vue';
@@ -30,9 +30,9 @@ export default {
                     component: ImportDoc
                 },
                 {
-                    id: 'basic',
-                    label: 'Basic',
-                    component: BasicDoc
+                    id: 'horizontal',
+                    label: 'Horizontal',
+                    component: HorizontalDoc
                 },
                 {
                     id: 'vertical',

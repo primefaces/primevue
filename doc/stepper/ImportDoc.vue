@@ -10,7 +10,11 @@ export default {
             code: {
                 basic: `
 import Stepper from 'primevue/stepper';
-import StepperPanel from 'primevue/stepperpanel';
+import StepList from 'primevue/steplist';
+import StepPanels from 'primevue/steppanels';
+import StepItem from 'primevue/stepitem';
+import Step from 'primevue/step';
+import StepPanel from 'primevue/steppanel';
 `
             }
         };

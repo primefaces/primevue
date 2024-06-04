@@ -23,10 +23,45 @@ export default {
                     children: [
                         {
                             id: 'theming.classes',
-                            label: 'CSS Classes',
+                            label: 'Stepper CSS Classes',
                             description: 'List of class names used in the styled mode.',
                             component: DocApiTable,
                             data: getStyleOptions('Stepper')
+                        },
+                        {
+                            id: 'theming.classes',
+                            label: 'StepList CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('StepList')
+                        },
+                        {
+                            id: 'theming.classes',
+                            label: 'StepPanels CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('StepPanels')
+                        },
+                        {
+                            id: 'theming.classes',
+                            label: 'StepItem CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('StepItem')
+                        },
+                        {
+                            id: 'theming.classes',
+                            label: 'Step CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('Step')
+                        },
+                        {
+                            id: 'theming.classes',
+                            label: 'StepPanel CSS Classes',
+                            description: 'List of class names used in the styled mode.',
+                            component: DocApiTable,
+                            data: getStyleOptions('StepPanel')
                         },
                         {
                             id: 'theming.tokens',

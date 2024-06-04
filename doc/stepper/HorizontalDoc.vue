@@ -1,9 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>linear</i> property is present, current step must be completed in order to move to the next step.</p>
+        <DocSectionText v-bind="$attrs">
+            <p>Stepepr comprises a combination of <i>StepList</i>, <i>Step</i>, <i>StepPanels</i> and <i>StepPanel</i> components. The <i>value</i> property is essential for associating Step and StepPanel with each other.</p>
+        </DocSectionText>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Stepper value="1" linear class="basis-[50rem]">
+        <Stepper value="1" class="basis-[50rem]">
             <StepList>
                 <Step value="1">Header I</Step>
                 <Step value="2">Header II</Step>
@@ -47,7 +49,7 @@ export default {
         return {
             code: {
                 basic: `
-<Stepper value="1" linear>
+<Stepper value="1">
     <StepList>
         <Step value="1">Header I</Step>
         <Step value="2">Header II</Step>
@@ -85,7 +87,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Stepper value="1" linear class="basis-[50rem]">
+        <Stepper value="1" class="basis-[50rem]">
             <StepList>
                 <Step value="1">Header I</Step>
                 <Step value="2">Header II</Step>
@@ -125,7 +127,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Stepper value="1" linear class="basis-[50rem]">
+        <Stepper value="1" class="basis-[50rem]">
             <StepList>
                 <Step value="1">Header I</Step>
                 <Step value="2">Header II</Step>
