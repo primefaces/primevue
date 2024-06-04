@@ -239,72 +239,72 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
         color?: string;
     };
     /**
-     * Used to pass tokens of the view month section
+     * Used to pass tokens of the select month section
      */
-    viewMonth?: {
+    selectMonth?: {
         /**
-         * Hover background of view month
+         * Hover background of select month
          *
-         * @designToken datepicker.view.month.hover.background
+         * @designToken datepicker.select.month.hover.background
          */
         hoverBackground?: string;
         /**
-         * Color of view month
+         * Color of select month
          *
-         * @designToken datepicker.view.month.color
+         * @designToken datepicker.select.month.color
          */
         color?: string;
         /**
-         * Hover color of view month
+         * Hover color of select month
          *
-         * @designToken datepicker.view.month.hover.color
+         * @designToken datepicker.select.month.hover.color
          */
         hoverColor?: string;
         /**
-         * Padding of view month
+         * Padding of select month
          *
-         * @designToken datepicker.view.month.padding
+         * @designToken datepicker.select.month.padding
          */
         padding?: string;
         /**
-         * Border radius of view month
+         * Border radius of select month
          *
-         * @designToken datepicker.view.month.border.radius
+         * @designToken datepicker.select.month.border.radius
          */
         borderRadius?: string;
     };
     /**
-     * Used to pass tokens of the view year section
+     * Used to pass tokens of the select year section
      */
-    viewYear?: {
+    selectYear?: {
         /**
-         * Hover background of view year
+         * Hover background of select year
          *
-         * @designToken datepicker.view.year.hover.background
+         * @designToken datepicker.select.year.hover.background
          */
         hoverBackground?: string;
         /**
-         * Color of view year
+         * Color of select year
          *
-         * @designToken datepicker.view.year.color
+         * @designToken datepicker.select.year.color
          */
         color?: string;
         /**
-         * Hover color of view year
+         * Hover color of select year
          *
-         * @designToken datepicker.view.year.hover.color
+         * @designToken datepicker.select.year.hover.color
          */
         hoverColor?: string;
         /**
-         * Padding of view year
+         * Padding of select year
          *
-         * @designToken datepicker.view.year.padding
+         * @designToken datepicker.select.year.padding
          */
         padding?: string;
         /**
-         * Border radius of view year
+         * Border radius of select year
          *
-         * @designToken datepicker.view.year.border.radius
+         * @designToken datepicker.select.year.border.radius
          */
         borderRadius?: string;
     };

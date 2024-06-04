@@ -183,11 +183,11 @@ export interface DatePickerPassThroughOptions {
     /**
      * Used to pass attributes to the view month's DOM element.
      */
-    viewMonth?: DatePickerPassThroughOptionType;
+    selectMonth?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the view year's DOM element.
      */
-    viewYear?: DatePickerPassThroughOptionType;
+    selectYear?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the decade's DOM element.
      */

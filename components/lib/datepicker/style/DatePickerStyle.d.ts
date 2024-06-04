@@ -55,13 +55,13 @@ export enum DatePickerClasses {
      */
     title = 'p-datepicker-title',
     /**
-     * Class name of the view month element
+     * Class name of the select month element
      */
-    viewMonth = 'p-datepicker-view-month',
+    selectMonth = 'p-datepicker-select-month',
     /**
-     * Class name of the view year element
+     * Class name of the select year element
      */
-    viewYear = 'p-datepicker-view-year',
+    selectYear = 'p-datepicker-select-year',
     /**
      * Class name of the decade element
      */

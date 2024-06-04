@@ -118,8 +118,8 @@ const theme = ({ dt }) => `
     font-weight: ${dt('datepicker.title.font.weight')};
 }
 
-.p-datepicker-view-year,
-.p-datepicker-view-month {
+.p-datepicker-select-year,
+.p-datepicker-select-month {
     border: none;
     background: transparent;
     margin: 0;
@@ -130,24 +130,24 @@ const theme = ({ dt }) => `
 )};
 }
 
-.p-datepicker-view-month {
+.p-datepicker-select-month {
     padding: ${dt('datepicker.view.month.padding')};
     color: ${dt('datepicker.view.month.color')};
     border-radius: ${dt('datepicker.view.month.border.radius')};
 }
 
-.p-datepicker-view-year {
+.p-datepicker-select-year {
     padding: ${dt('datepicker.view.year.padding')};
     color: ${dt('datepicker.view.year.color')};
     border-radius: ${dt('datepicker.view.year.border.radius')};
 }
 
-.p-datepicker-view-month:enabled:hover {
+.p-datepicker-select-month:enabled:hover {
     background: ${dt('datepicker.view.month.hover.background')};
     color: ${dt('datepicker.view.month.hover.color')};
 }
 
-.p-datepicker-view-year:enabled:hover {
+.p-datepicker-select-year:enabled:hover {
     background: ${dt('datepicker.view.year.hover.background')};
     color: ${dt('datepicker.view.year.hover.color')};
 }
@@ -203,7 +203,7 @@ const theme = ({ dt }) => `
     width: ${dt('datepicker.date.width')};
     height: ${dt('datepicker.date.height')};
     border-radius: ${dt('datepicker.date.border.radius')};
-    transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, 
+    transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')},
         box-shadow ${dt('datepicker.transition.duration')}, outline-color ${dt('datepicker.transition.duration')};
     border: 1px solid transparent;
     outline-color: transparent;
@@ -386,8 +386,8 @@ const classes = {
     header: 'p-datepicker-header',
     pcPrevButton: 'p-datepicker-prev-button',
     title: 'p-datepicker-title',
-    viewMonth: 'p-datepicker-view-month',
-    viewYear: 'p-datepicker-view-year',
+    selectMonth: 'p-datepicker-select-month',
+    selectYear: 'p-datepicker-select-year',
     decade: 'p-datepicker-decade',
     pcNextButton: 'p-datepicker-next-button',
     dayView: 'p-datepicker-day-view',

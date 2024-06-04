@@ -101,10 +101,10 @@
                                                 type="button"
                                                 @click="switchToYearView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('viewYear')"
+                                                :class="cx('selectYear')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseYear"
-                                                v-bind="ptm('viewYear')"
+                                                v-bind="ptm('selectYear')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getYear(month) }}
@@ -114,10 +114,10 @@
                                                 type="button"
                                                 @click="switchToMonthView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('viewMonth')"
+                                                :class="cx('selectMonth')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseMonth"
-                                                v-bind="ptm('viewMonth')"
+                                                v-bind="ptm('selectMonth')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getMonthName(month.month) }}
@@ -129,10 +129,10 @@
                                                 type="button"
                                                 @click="switchToMonthView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('viewMonth')"
+                                                :class="cx('selectMonth')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseMonth"
-                                                v-bind="ptm('viewMonth')"
+                                                v-bind="ptm('selectMonth')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getMonthName(month.month) }}
@@ -142,10 +142,10 @@
                                                 type="button"
                                                 @click="switchToYearView"
                                                 @keydown="onContainerButtonKeydown"
-                                                :class="cx('viewYear')"
+                                                :class="cx('selectYear')"
                                                 :disabled="switchViewButtonDisabled"
                                                 :aria-label="$primevue.config.locale.chooseYear"
-                                                v-bind="ptm('viewYear')"
+                                                v-bind="ptm('selectYear')"
                                                 data-pc-group-section="view"
                                             >
                                                 {{ getYear(month) }}

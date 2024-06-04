@@ -43,13 +43,13 @@ export default {
     inputIcon: {
         color: '{form.field.icon.color}'
     },
-    viewMonth: {
+    selectMonth: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
         padding: '0.25rem 0.5rem'
     },
-    viewYear: {
+    selectYear: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
