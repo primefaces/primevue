@@ -6,7 +6,7 @@
         :componentDocs="docs"
         :themingDocs="themingDoc"
         :ptTabComponent="ptComponent"
-        :apiDocs="['Stepper', 'StepperPanel']"
+        :apiDocs="['Stepper', 'StepList', 'StepPanels', 'StepItem', 'Step', 'StepPanel']"
     />
 </template>
 
