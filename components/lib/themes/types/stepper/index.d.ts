@@ -39,21 +39,11 @@ export interface StepperDesignTokens extends ColorSchemeDesignToken<StepperDesig
          */
         activeBackground?: string;
         /**
-         * Orientation of separator
+         * Margin of separator
+         *
+         * @designToken stepper.separator.margin
          */
-        orientation?: {
-            /**
-             * Orientation vertical of separator
-             */
-            vertical?: {
-                /**
-                 * Orientation vertical margin of separator
-                 *
-                 * @designToken stepper.separator.orientation.vertical.margin
-                 */
-                margin?: string;
-            };
-        };
+        margin?: string;
         /**
          * Size of separator
          *
@@ -62,238 +52,217 @@ export interface StepperDesignTokens extends ColorSchemeDesignToken<StepperDesig
         size?: string;
     };
     /**
-     * Used to pass tokens of the item section
+     * Used to pass tokens of the step section
      */
-    item?: {
+    step?: {
         /**
-         * Padding of item
+         * Padding of step
          *
-         * @designToken stepper.item.padding
+         * @designToken stepper.step.padding
          */
         padding?: string;
         /**
-         * Gap of item
+         * Gap of step
          *
-         * @designToken stepper.item.gap
+         * @designToken stepper.step.gap
          */
         gap?: string;
     };
     /**
-     * Used to pass tokens of the item header section
+     * Used to pass tokens of the step header section
      */
-    itemHeader?: {
+    stepHeader?: {
         /**
-         * Padding of item header
+         * Padding of step header
          *
-         * @designToken stepper.item.header.padding
+         * @designToken stepper.step.header.padding
          */
         padding?: string;
         /**
-         * Border radius of item header
+         * Border radius of step header
          *
-         * @designToken stepper.item.header.border.radius
+         * @designToken stepper.step.header.border.radius
          */
         borderRadius?: string;
         /**
-         * Focus ring of item header
+         * Focus ring of step header
          */
         focusRing?: {
             /**
-             * Focus ring width of item header
+             * Focus ring width of step header
              *
-             * @designToken stepper.item.header.focus.ring.width
+             * @designToken stepper.step.header.focus.ring.width
              */
             width?: string;
             /**
-             * Focus ring style of item header
+             * Focus ring style of step header
              *
-             * @designToken stepper.item.header.focus.ring.style
+             * @designToken stepper.step.header.focus.ring.style
              */
             style?: string;
             /**
-             * Focus ring color of item header
+             * Focus ring color of step header
              *
-             * @designToken stepper.item.header.focus.ring.color
+             * @designToken stepper.step.header.focus.ring.color
              */
             color?: string;
             /**
-             * Focus ring offset of item header
+             * Focus ring offset of step header
              *
-             * @designToken stepper.item.header.focus.ring.offset
+             * @designToken stepper.step.header.focus.ring.offset
              */
             offset?: string;
             /**
-             * Focus ring shadow of item header
+             * Focus ring shadow of step header
              *
-             * @designToken stepper.item.header.focus.ring.shadow
+             * @designToken stepper.step.header.focus.ring.shadow
              */
             shadow?: string;
         };
         /**
-         * Gap of item header
+         * Gap of step header
          *
-         * @designToken stepper.item.header.gap
+         * @designToken stepper.step.header.gap
          */
         gap?: string;
     };
     /**
-     * Used to pass tokens of the item title section
+     * Used to pass tokens of the step title section
      */
-    itemTitle?: {
+    stepTitle?: {
         /**
-         * Color of item title
+         * Color of step title
          *
-         * @designToken stepper.item.title.color
+         * @designToken stepper.step.title.color
          */
         color?: string;
         /**
-         * Active color of item title
+         * Active color of step title
          *
-         * @designToken stepper.item.title.active.color
+         * @designToken stepper.step.title.active.color
          */
         activeColor?: string;
         /**
-         * Font weight of item title
+         * Font weight of step title
          *
-         * @designToken stepper.item.title.font.weight
+         * @designToken stepper.step.title.font.weight
          */
         fontWeight?: string;
     };
     /**
-     * Used to pass tokens of the item number section
+     * Used to pass tokens of the step number section
      */
-    itemNumber?: {
+    stepNumber?: {
         /**
-         * Background of item number
+         * Background of step number
          *
-         * @designToken stepper.item.number.background
+         * @designToken stepper.step.number.background
          */
         background?: string;
         /**
-         * Active background of item number
+         * Active background of step number
          *
-         * @designToken stepper.item.number.active.background
+         * @designToken stepper.step.number.active.background
          */
         activeBackground?: string;
         /**
-         * Border color of item number
+         * Border color of step number
          *
-         * @designToken stepper.item.number.border.color
+         * @designToken stepper.step.number.border.color
          */
         borderColor?: string;
         /**
-         * Active border color of item number
+         * Active border color of step number
          *
-         * @designToken stepper.item.number.active.border.color
+         * @designToken stepper.step.number.active.border.color
          */
         activeBorderColor?: string;
         /**
-         * Color of item number
+         * Color of step number
          *
-         * @designToken stepper.item.number.color
+         * @designToken stepper.step.number.color
          */
         color?: string;
         /**
-         * Active color of item number
+         * Active color of step number
          *
-         * @designToken stepper.item.number.active.color
+         * @designToken stepper.step.number.active.color
          */
         activeColor?: string;
         /**
-         * Size of item number
+         * Size of step number
          *
-         * @designToken stepper.item.number.size
+         * @designToken stepper.step.number.size
          */
         size?: string;
         /**
-         * Font size of item number
+         * Font size of step number
          *
-         * @designToken stepper.item.number.font.size
+         * @designToken stepper.step.number.font.size
          */
         fontSize?: string;
         /**
-         * Font weight of item number
+         * Font weight of step number
          *
-         * @designToken stepper.item.number.font.weight
+         * @designToken stepper.step.number.font.weight
          */
         fontWeight?: string;
         /**
-         * Border radius of item number
+         * Border radius of step number
          *
-         * @designToken stepper.item.number.border.radius
+         * @designToken stepper.step.number.border.radius
          */
         borderRadius?: string;
         /**
-         * Shadow of item number
+         * Shadow of step number
          *
-         * @designToken stepper.item.number.shadow
+         * @designToken stepper.step.number.shadow
          */
         shadow?: string;
     };
     /**
-     * Used to pass tokens of the vertical panel container section
+     * Used to pass tokens of the steppanels section
      */
-    verticalPanelContainer?: {
+    steppanels?: {
         /**
-         * Padding left of vertical panel container
+         * Padding of steppanels
          *
-         * @designToken stepper.vertical.panel.container.padding.left
+         * @designToken stepper.steppanels.padding
          */
-        paddingLeft?: string;
+        padding?: string;
     };
     /**
-     * Used to pass tokens of the panel content section
+     * Used to pass tokens of the steppanel section
      */
-    panelContent?: {
+    steppanel?: {
         /**
-         * Background of panel content
+         * Background of steppanel
          *
-         * @designToken stepper.panel.content.background
+         * @designToken stepper.steppanel.background
          */
         background?: string;
         /**
-         * Color of panel content
+         * Color of steppanel
          *
-         * @designToken stepper.panel.content.color
+         * @designToken stepper.steppanel.color
          */
         color?: string;
         /**
-         * Orientation of panel content
+         * Padding of steppanel
+         *
+         * @designToken stepper.steppanel.padding
          */
-        orientation?: {
+        padding?: string;
+        /**
+         * Last of steppanel
+         */
+        last?: {
             /**
-             * Orientation horizontal of panel content
+             * Last padding of steppanel
+             *
+             * @designToken stepper.steppanel.last.padding
              */
-            horizontal?: {
-                /**
-                 * Orientation horizontal padding of panel content
-                 *
-                 * @designToken stepper.panel.content.orientation.horizontal.padding
-                 */
-                padding?: string;
-            };
-            /**
-             * Orientation vertical of panel content
-             */
-            vertical?: {
-                /**
-                 * Orientation vertical padding of panel content
-                 *
-                 * @designToken stepper.panel.content.orientation.vertical.padding
-                 */
-                padding?: string;
-                /**
-                 * Orientation vertical last of panel content
-                 */
-                last?: {
-                    /**
-                     * Orientation vertical last padding of panel content
-                     *
-                     * @designToken stepper.panel.content.orientation.vertical.last.padding
-                     */
-                    padding?: string;
-                };
-            };
+            padding?: string;
         };
     };
 }

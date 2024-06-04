@@ -5,18 +5,14 @@ export default {
     separator: {
         background: '{content.border.color}',
         activeBackground: '{primary.color}',
-        orientation: {
-            vertical: {
-                margin: '0 0 0 1.625rem'
-            }
-        },
+        margin: '0 0 0 1.625rem',
         size: '2px'
     },
-    item: {
+    step: {
         padding: '0.5rem',
         gap: '1rem'
     },
-    itemHeader: {
+    stepHeader: {
         padding: '0',
         borderRadius: '{content.border.radius}',
         focusRing: {
@@ -28,12 +24,12 @@ export default {
         },
         gap: '0.5rem'
     },
-    itemTitle: {
+    stepTitle: {
         color: '{text.muted.color}',
         activeColor: '{primary.color}',
         fontWeight: '700'
     },
-    itemNumber: {
+    stepNumber: {
         background: '{content.background}',
         activeBackground: '{primary.color}',
         borderColor: '{content.border.color}',
@@ -46,22 +42,15 @@ export default {
         borderRadius: '50%',
         shadow: 'none'
     },
-    verticalPanelContainer: {
-        paddingLeft: '1rem'
+    steppanels: {
+        padding: '0.875rem 0.5rem 1.125rem 0.5rem'
     },
-    panelContent: {
+    steppanel: {
         background: '{content.background}',
         color: '{content.color}',
-        orientation: {
-            horizontal: {
-                padding: '0.875rem 0.5rem 1.125rem 0.5rem'
-            },
-            vertical: {
-                padding: '0 0 0 1rem',
-                last: {
-                    padding: '0 0 0 3rem'
-                }
-            }
+        padding: '0 0 0 1rem',
+        last: {
+            padding: '0 0 0 1.625rem'
         }
     }
 };

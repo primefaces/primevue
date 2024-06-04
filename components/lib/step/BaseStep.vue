@@ -1,24 +1,32 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import StepperStyle from 'primevue/stepper/style';
+import StepStyle from 'primevue/step/style';
 
 export default {
-    name: 'BaseStepper',
+    name: 'BaseStep',
     extends: BaseComponent,
     props: {
         value: {
             type: [String, Number],
             default: undefined
         },
-        linear: {
+        disabled: {
             type: Boolean,
             default: false
+        },
+        asChild: {
+            type: Boolean,
+            default: false
+        },
+        as: {
+            type: String,
+            default: 'DIV'
         }
     },
-    style: StepperStyle,
+    style: StepStyle,
     provide() {
         return {
-            $pcStepper: this,
+            $pcStep: this,
             $parentInstance: this
         };
     }

@@ -1,24 +1,20 @@
 <script>
 import BaseComponent from 'primevue/basecomponent';
-import StepperStyle from 'primevue/stepper/style';
+import StepPanelsStyle from 'primevue/steppanels/style';
 
 export default {
-    name: 'BaseStepper',
+    name: 'BaseStepPanels',
     extends: BaseComponent,
     props: {
         value: {
-            type: [String, Number],
+            type: String,
             default: undefined
-        },
-        linear: {
-            type: Boolean,
-            default: false
         }
     },
-    style: StepperStyle,
+    style: StepPanelsStyle,
     provide() {
         return {
-            $pcStepper: this,
+            $pcStepPanels: this,
             $parentInstance: this
         };
     }

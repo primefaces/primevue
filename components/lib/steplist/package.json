@@ -1,0 +1,11 @@
+{
+    "main": "./steplist.mjs",
+    "module": "./steplist.mjs",
+    "types": "./StepList.d.ts",
+    "browser": {
+        "./sfc": "./StepList.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

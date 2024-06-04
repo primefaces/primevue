@@ -10,7 +10,6 @@
 import { VNode } from 'vue';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
-import { StepperPanelPassThroughOptionType } from '../stepperpanel';
 import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type StepperPassThroughOptionType = StepperPassThroughAttributes | ((options: StepperPassThroughMethodOptions) => StepperPassThroughAttributes | string) | string | null | undefined;
@@ -55,18 +54,6 @@ export interface StepperPassThroughOptions {
      */
     root?: StepperPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
-     */
-    list?: StepperPassThroughOptionType;
-    /**
-     * Used to pass attributes to the panels' DOM element.
-     */
-    panels?: StepperPassThroughOptionType;
-    /**
-     * Used to pass attributes to the end handler's DOM element.
-     */
-    stepperpanel?: StepperPanelPassThroughOptionType;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -85,9 +72,9 @@ export interface StepperPassThroughAttributes {
  */
 export interface StepperState {
     /**
-     * Current active index state.
+     * Current active value state.
      */
-    d_activeStep: number;
+    d_value: any;
     /**
      * Unique id for the Stepper component.
      */
@@ -95,34 +82,14 @@ export interface StepperState {
 }
 
 /**
- * Custom tab change event.
- * @see {@link StepperEmitsOptions['step-change']}
- */
-export interface StepperChangeEvent {
-    /**
-     * Browser event
-     */
-    originalEvent: Event;
-    /**
-     * Index of the selected stepper panel
-     */
-    index: number;
-}
-
-/**
  * Defines valid properties in Stepper component.
  */
 export interface StepperProps {
     /**
-     * Active step index of stepper.
-     * @defaultValue 0
+     * Active value of stepper.
+     * @defaultValue null
      */
-    activeStep?: number | undefined;
-    /**
-     * Orientation of the stepper.
-     * @defaultValue horizontal
-     */
-    orientation?: 'horizontal' | 'vertical' | undefined;
+    value?: string | number | undefined;
     /**
      * Whether the steps are clickable or not.
      * @defaultValue false
@@ -154,6 +121,10 @@ export interface StepperProps {
  */
 export interface StepperSlots {
     /**
+     * Custom default template.
+     */
+    default(): VNode[];
+    /**
      * Custom start template.
      */
     start(): VNode[];
@@ -169,13 +140,9 @@ export interface StepperSlots {
 export interface StepperEmitsOptions {
     /**
      * Emitted when the value changes.
-     * @param {number | number[]} value - New value.
+     * @param {any} value - New value.
      */
-    'update:activeStep'(value: number): void;
-    /**
-     * Callback to invoke when an active panel is changed.
-     */
-    'step-change'(event: StepperChangeEvent): void;
+    'update:value'(value: any): void;
 }
 
 export declare type StepperEmits = EmitFn<StepperEmitsOptions>;

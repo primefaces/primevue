@@ -266,6 +266,8 @@ export interface StepperPanelEmitsOptions {}
 export declare type StepperPanelEmits = EmitFn<StepperPanelEmitsOptions>;
 
 /**
+ * @deprecated since v4. Use the new structure of Stepper instead.
+ *
  * **PrimeVue - StepperPanel**
  *
  * _StepperPanel is a helper component for Stepper component._
