@@ -366,13 +366,91 @@ export default {
                 this.repeat(event, null, -1);
             }
         },
-        onUserInput() {
+        onUserInput(event) {
             if (this.isSpecialChar) {
                 this.$refs.input.$el.value = this.lastValue;
             }
 
             this.isSpecialChar = false;
+            event.preventDefault();
+
+            if (this.readonly) {
+                return;
+            }
+
+            var selectionStart = event.target.selectionStart;
+            var selectionEnd = event.target.selectionEnd;
+            var inputValue = event.target.value;
+            var newValueStr = null;
+
+            this.$refs.input.$el.value = this.lastValue;
+
+            switch (event.inputType) {
+                case 'insertText':
+                    if (this.readonly) {
+                        return;
+                    }
+
+                    const _char = inputValue[inputValue.length - 1];
+                    const isDecimalSign = this.isDecimalSign(_char.toString());
+                    const isMinusSign = this.isMinusSign(_char.toString());
+
+                    if (/^\d$/.test(_char) || isMinusSign || isDecimalSign) {
+                        this.insert(event, _char, {
+                            isDecimalSign: isDecimalSign,
+                            isMinusSign: isMinusSign
+                        });
+                    }
+
+                    break;
+
+                case 'deleteContentBackward': {
+                    event.preventDefault();
+
+                    if (selectionStart === selectionEnd) {
+                        var _deleteChar = event.target.value.charAt(selectionStart);
+                        var { decimalCharIndex, decimalCharIndexWithoutPrefix } = this.getDecimalCharIndexes(event.target.value);
+
+                        if (this.isNumeralChar(_deleteChar)) {
+                            var _decimalLength = this.getDecimalLength(event.target.value);
+
+                            if (this._group.test(_deleteChar)) {
+                                this._group.lastIndex = 0;
+                                newValueStr = event.target.value.slice(0, selectionStart) + event.target.value.slice(selectionStart + 2);
+                            } else if (this._decimal.test(_deleteChar)) {
+                                this._decimal.lastIndex = 0;
+
+                                if (_decimalLength) {
+                                    this.$refs.input.$el.setSelectionRange(selectionStart + 1, selectionStart + 1);
+                                } else {
+                                    newValueStr = event.target.value.slice(0, selectionStart) + event.target.value.slice(selectionStart + 1);
+                                }
+                            } else if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
+                                var _insertedText = this.isDecimalMode() && (this.minFractionDigits || 0) < _decimalLength ? '' : '0';
+
+                                newValueStr = event.target.value.slice(0, selectionStart) + _insertedText + event.target.value.slice(selectionStart + 1);
+                            } else if (decimalCharIndexWithoutPrefix === 1) {
+                                newValueStr = event.target.value.slice(0, selectionStart) + '0' + event.target.value.slice(selectionStart + 1);
+                                newValueStr = this.parseValue(newValueStr) > 0 ? newValueStr : '';
+                            } else {
+                                newValueStr = event.target.value.slice(0, selectionStart) + event.target.value.slice(selectionStart + 1);
+                            }
+                        }
+
+                        this.updateValue(event, newValueStr, null, 'delete-back-single');
+                        // added by me
+                        this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
+                    } else {
+                        newValueStr = this.deleteRange(event.target.value, selectionStart, selectionEnd);
+                        this.updateValue(event, newValueStr, null, 'delete-range');
+                        this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
+                    }
+
+                    break;
+                }
+            }
         },
+
         onInputKeyDown(event) {
             if (this.readonly) {
                 return;
