@@ -9,7 +9,7 @@
             <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
         </div>
 
-        <Accordion :value="active">
+        <Accordion v-model:value="active">
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
@@ -55,7 +55,7 @@ export default {
     <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
 </div>
 
-<Accordion :value="active">
+<Accordion v-model:value="active">
     <AccordionPanel value="0">
         <AccordionHeader>Header I</AccordionHeader>
         <AccordionContent>
@@ -94,7 +94,7 @@ export default {
             <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
         </div>
 
-        <Accordion :value="active">
+        <Accordion v-model:value="active">
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
@@ -145,7 +145,7 @@ export default {
             <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
         </div>
 
-        <Accordion :value="active">
+        <Accordion v-model:value="active">
             <AccordionPanel value="0">
                 <AccordionHeader>Header I</AccordionHeader>
                 <AccordionContent>
