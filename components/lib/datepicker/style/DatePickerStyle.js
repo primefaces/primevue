@@ -396,12 +396,45 @@ const classes = {
     weekLabelContainer: 'p-datepicker-weeklabel-container p-disabled',
     weekDayCell: 'p-datepicker-weekday-cell',
     weekDay: 'p-datepicker-weekday',
-    dayCell: ({ date }) => ['p-datepicker-day-cell', { 'p-datepicker-other-month': date.otherMonth, 'p-datepicker-today': date.today }],
-    day: ({ instance, props, date }) => ['p-datepicker-day', { 'p-datepicker-day-selected': instance.isSelected(date) && date.selectable, 'p-disabled': props.disabled || !date.selectable }],
+    dayCell: ({ date }) => [
+        'p-datepicker-day-cell',
+        {
+            'p-datepicker-other-month': date.otherMonth,
+            'p-datepicker-today': date.today
+        }
+    ],
+    day: ({ instance, props, date }) => {
+        let selectedDayClass = '';
+
+        if (instance.isRangeSelection() && instance.isSelected(date) && date.selectable) {
+            selectedDayClass = date.day === props.modelValue[0].getDate() || date.day === props.modelValue[1].getDate() ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
+        }
+
+        return [
+            'p-datepicker-day',
+            {
+                'p-datepicker-day-selected': !instance.isRangeSelection() && instance.isSelected(date) && date.selectable,
+                'p-disabled': props.disabled || !date.selectable
+            },
+            selectedDayClass
+        ];
+    },
     monthView: 'p-datepicker-month-view',
-    month: ({ instance, props, month, index }) => ['p-datepicker-month', { 'p-datepicker-month-selected': instance.isMonthSelected(index), 'p-disabled': props.disabled || !month.selectable }],
+    month: ({ instance, props, month, index }) => [
+        'p-datepicker-month',
+        {
+            'p-datepicker-month-selected': instance.isMonthSelected(index),
+            'p-disabled': props.disabled || !month.selectable
+        }
+    ],
     yearView: 'p-datepicker-year-view',
-    year: ({ instance, props, year }) => ['p-datepicker-year', { 'p-datepicker-year-selected': instance.isYearSelected(year.value), 'p-disabled': props.disabled || !year.selectable }],
+    year: ({ instance, props, year }) => [
+        'p-datepicker-year',
+        {
+            'p-datepicker-year-selected': instance.isYearSelected(year.value),
+            'p-disabled': props.disabled || !year.selectable
+        }
+    ],
     timePicker: 'p-datepicker-time-picker',
     hourPicker: 'p-datepicker-hour-picker',
     pcIncrementButton: 'p-datepicker-increment-button',
