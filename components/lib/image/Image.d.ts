@@ -271,11 +271,6 @@ export interface ImageSlots {
          */
         style: any;
         /**
-         * Image error function.
-         * @deprecated since v3.39.0. Use 'errorCallback' property instead.
-         */
-        onError: () => void;
-        /**
          * Preview click function.
          */
         errorCallback: () => void;
@@ -296,11 +291,6 @@ export interface ImageSlots {
         style: any;
         /**
          * Preview click function.
-         * @deprecated since v3.39.0. Use 'previewCallback' property instead.
-         */
-        onClick: () => void;
-        /**
-         * Preview click function.
          */
         previewCallback: () => void;
     }): VNode[];
@@ -317,11 +307,6 @@ export interface ImageSlots {
          * Style of the original image element.
          */
         style: any;
-        /**
-         * Original click function.
-         * @deprecated since v3.39.0. Use 'previewCallback' property instead.
-         */
-        onClick: () => void;
         /**
          * Preview click function.
          */

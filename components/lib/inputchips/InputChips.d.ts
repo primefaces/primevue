@@ -282,12 +282,6 @@ export interface InputChipsSlots {
         /**
          * chip icon function.
          * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, index: number) => void;
-        /**
-         * chip icon function.
-         * @param {Event} event - Browser event
          */
         removeCallback: (event: Event, index: number) => void;
     }): VNode[];
@@ -304,12 +298,6 @@ export interface InputChipsSlots {
          * Index of the token.
          */
         index: number;
-        /**
-         * chip icon function.
-         * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, index: number) => void;
         /**
          * chip icon function.
          * @param {Event} event - Browser event

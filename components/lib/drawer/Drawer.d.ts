@@ -234,11 +234,6 @@ export interface DrawerSlots {
     container(scope: {
         /**
          * Close drawer function.
-         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
-         */
-        onClose: () => void;
-        /**
-         * Close drawer function.
          */
         closeCallback: () => void;
     }): VNode[];

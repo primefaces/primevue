@@ -597,11 +597,6 @@ export interface MultiSelectSlots {
         value: any;
     }): VNode[];
     /**
-     * Custom indicator template.
-     * @deprecated since v3.27.0. Use 'loadingicon and dropdownicon' slot.
-     */
-    indicator(): VNode[];
-    /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
      */
@@ -722,13 +717,6 @@ export interface MultiSelectSlots {
          * Chip icon function.
          * @param {Event} event - Browser event
          * @param {any} item - Item
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, item: any) => void;
-        /**
-         * Chip icon function.
-         * @param {Event} event - Browser event
-         * @param {any} item - Item
          */
         removeCallback: (event: Event, item: any) => void;
     }): VNode[];
@@ -745,13 +733,6 @@ export interface MultiSelectSlots {
          * Item of the token.
          */
         item: any;
-        /**
-         * Chip icon function.
-         * @param {Event} event - Browser event
-         * @param {any} item - Item
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, item: any) => void;
         /**
          * Chip icon function.
          * @param {Event} event - Browser event

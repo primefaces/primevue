@@ -608,27 +608,6 @@ export interface DatePickerProps {
      */
     view?: 'date' | 'month' | 'year' | undefined;
     /**
-     * Whether the month should be rendered as a dropdown instead of text.
-     *
-     * @deprecated since version 3.9.0, Navigator is always on.
-     * @defaultValue false
-     */
-    monthNavigator?: boolean | undefined;
-    /**
-     * Whether the year should be rendered as a dropdown instead of text.
-     *
-     * @deprecated since version 3.9.0, Navigator is always on.
-     * @defaultValue false
-     */
-    yearNavigator?: boolean | undefined;
-    /**
-     * The range of years displayed in the year drop-down in (nnnn:nnnn) format such as (2000:2020).
-     *
-     * @deprecated since version 3.9.0, Years are based on decades by default.
-     * @defaultValue false
-     */
-    yearRange?: string | undefined;
-    /**
      * The minimum selectable date.
      */
     minDate?: Date | undefined;

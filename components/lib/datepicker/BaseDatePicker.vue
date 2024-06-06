@@ -68,18 +68,6 @@ export default {
             type: String,
             default: 'date'
         },
-        monthNavigator: {
-            type: Boolean,
-            default: false
-        },
-        yearNavigator: {
-            type: Boolean,
-            default: false
-        },
-        yearRange: {
-            type: String,
-            default: null
-        },
         minDate: {
             type: Date,
             value: null

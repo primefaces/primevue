@@ -45,7 +45,7 @@ export interface InputSwitchEmitsOptions {}
 export declare type InputSwitchEmits = EmitFn<InputSwitchEmitsOptions> & ToggleSwitch.ToggleSwitchEmits;
 
 /**
- * @deprecated Deprecated since v4. Use ToggleSwitch component instead.
+ * @deprecated since v4. Use ToggleSwitch component instead.
  *
  * **PrimeVue - InputSwitch**
  *

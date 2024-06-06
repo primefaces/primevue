@@ -103,7 +103,7 @@ export interface CalendarEmitsOptions {}
 export declare type CalendarEmits = EmitFn<CalendarEmitsOptions> & DatePicker.DatePickerEmits;
 
 /**
- * @deprecated Deprecated since v4. Use DatePicker component instead.
+ * @deprecated since v4. Use DatePicker component instead.
  *
  * **PrimeVue - Calendar**
  *

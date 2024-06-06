@@ -217,12 +217,6 @@ export interface MenuProps {
      */
     baseZIndex?: number | undefined;
     /**
-     * Whether to apply 'router-link-active-exact' class if route exactly matches the item path.
-     * @deprecated since v3.40.0.
-     * @defaultValue true
-     */
-    exact?: boolean | undefined;
-    /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;

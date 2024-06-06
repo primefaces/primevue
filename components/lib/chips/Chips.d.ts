@@ -66,7 +66,7 @@ export interface ChipsEmitsOptions {}
 export declare type ChipsEmits = EmitFn<ChipsEmitsOptions> & InputChips.InputChipsEmits;
 
 /**
- * @deprecated Deprecated since v4. Use InputChips component instead.
+ * @deprecated since v4. Use InputChips component instead.
  *
  * **PrimeVue - Chips**
  *

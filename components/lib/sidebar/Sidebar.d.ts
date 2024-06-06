@@ -55,7 +55,7 @@ export interface SidebarEmitsOptions {}
 export declare type SidebarEmits = EmitFn<SidebarEmitsOptions> & Drawer.DrawerEmits;
 
 /**
- * @deprecated Deprecated since v4. Use Drawer component instead.
+ * @deprecated since v4. Use Drawer component instead.
  *
  * **PrimeVue - Sidebar**
  *

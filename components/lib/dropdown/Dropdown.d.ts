@@ -84,7 +84,7 @@ export interface DropdownMethods {
 }
 
 /**
- * @deprecated Deprecated since v4. Use Select component instead.
+ * @deprecated since v4. Use Select component instead.
  *
  * **PrimeVue - Dropdown**
  *

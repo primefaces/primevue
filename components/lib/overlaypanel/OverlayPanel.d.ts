@@ -86,7 +86,7 @@ export interface OverlayPanelMethods {
 }
 
 /**
- * @deprecated Deprecated since v4. Use Popover component instead.
+ * @deprecated since v4. Use Popover component instead.
  *
  * **PrimeVue - OverlayPanel**
  *

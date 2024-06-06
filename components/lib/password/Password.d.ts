@@ -217,18 +217,8 @@ export interface PasswordProps extends InputHTMLAttributes {
     toggleMask?: boolean | undefined;
     /**
      * Icon to hide displaying the password as plain text.
-     * @deprecated since v3.27.0. Use 'maskicon' slot.
-     */
-    hideIcon?: string | undefined;
-    /**
-     * Icon to hide displaying the password as plain text.
      */
     maskIcon?: string | undefined;
-    /**
-     * Icon to show displaying the password as plain text.
-     * @deprecated since v3.27.0. Use 'unmaskicon' slot.
-     */
-    showIcon?: string | undefined;
     /**
      * Icon to show displaying the password as plain text.
      */
@@ -357,11 +347,6 @@ export interface PasswordSlots {
      */
     hideicon(scope: {
         /**
-         * Hide icon click event
-         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
-         */
-        onClick: () => void;
-        /**
          * Mask icon click event
          */
         toggleCallback: () => void;
@@ -371,11 +356,6 @@ export interface PasswordSlots {
      * @param {Object} scope - maskicon slot's params.
      */
     maskicon(scope: {
-        /**
-         * Hide icon click event
-         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
-         */
-        onClick: () => void;
         /**
          * Mask icon click event
          */
@@ -389,11 +369,6 @@ export interface PasswordSlots {
     showicon(scope: {
         /**
          * Unmask icon click event
-         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
-         */
-        onClick: () => void;
-        /**
-         * Unmask icon click event
          */
         toggleCallback: () => void;
     }): VNode[];
@@ -402,11 +377,6 @@ export interface PasswordSlots {
      * @param {Object} scope - showicon slot's params.
      */
     unmaskicon(scope: {
-        /**
-         * Unmask icon click event
-         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
-         */
-        onClick: () => void;
         /**
          * Unmask icon click event
          */

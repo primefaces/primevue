@@ -22,11 +22,6 @@ export interface StyleClassOptions {
     selector?: HintedString<'@next' | '@prev' | '@parent' | '@grandparent'> | undefined;
     /**
      * Style class to add when item begins to get displayed.
-     * @deprecated since v3.41.0. Use 'enterFromClass' option instead.
-     */
-    enterClass?: string | undefined;
-    /**
-     * Style class to add when item begins to get displayed.
      */
     enterFromClass?: string | undefined;
     /**
@@ -37,11 +32,6 @@ export interface StyleClassOptions {
      * Style class to add when item begins to get displayed.
      */
     enterToClass?: string | undefined;
-    /**
-     * Style class to add when item begins to get hidden.
-     * @deprecated since v3.41.0. Use 'leaveFromClass' option instead.
-     */
-    leaveClass?: string | undefined;
     /**
      * Style class to add when item begins to get hidden.
      */

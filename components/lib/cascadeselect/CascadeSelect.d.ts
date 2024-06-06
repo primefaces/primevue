@@ -480,11 +480,6 @@ export interface CascadeSelectSlots {
         placeholder: string;
     }): VNode[];
     /**
-     * Custom indicator template.
-     * @deprecated since v3.27.0. Use 'dropdownicon or loadingicon' slots.
-     */
-    indicator(): VNode[];
-    /**
      * Custom dropdown icon template.
      */
     dropdownicon(): VNode[];

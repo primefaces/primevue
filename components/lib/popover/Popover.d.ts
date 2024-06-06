@@ -179,17 +179,6 @@ export interface PopoverSlots {
     container(scope: {
         /**
          * Close overlay panel function.
-         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
-         */
-        onClose: () => void;
-        /**
-         * Close button keydown function.
-         * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'keydownCallback' property instead.
-         */
-        onKeydown: (event: Event) => void;
-        /**
-         * Close overlay panel function.
          */
         closeCallback: () => void;
         /**

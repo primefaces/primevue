@@ -306,11 +306,6 @@ export interface AutoCompleteProps {
      */
     suggestions?: any[];
     /**
-     * @deprecated since v3.16.0. Use 'optionLabel' property instead.
-     * Property name or getter function of a suggested object to resolve and display.
-     */
-    field?: string | ((data: any) => string) | undefined;
-    /**
      * Property name or getter function to use as the label of an option.
      */
     optionLabel?: string | ((data: any) => string) | undefined;
@@ -346,12 +341,6 @@ export interface AutoCompleteProps {
      * @defaultValue blank
      */
     dropdownMode?: 'blank' | 'current' | undefined;
-    /**
-     * @deprecated since v3.16.0
-     * Highlights automatically the first item of the dropdown to be selected.
-     * @defaultValue false
-     */
-    autoHighlight?: boolean | undefined;
     /**
      * Specifies if multiple values can be selected.
      * @defaultValue false
@@ -587,21 +576,6 @@ export interface AutoCompleteSlots {
         suggestions: any[];
     }): VNode[];
     /**
-     * @deprecated since v3.16.0
-     * Custom content for each item.
-     * @param {Object} scope - item slot's params.
-     */
-    item(scope: {
-        /**
-         * Option instance
-         */
-        item: any;
-        /**
-         * Index of the option
-         */
-        index: number;
-    }): VNode[];
-    /**
      * Custom option template.
      * @param {Object} scope - option slot's params.
      */
@@ -620,11 +594,6 @@ export interface AutoCompleteSlots {
      * @param {Object} scope - option group slot's params.
      */
     optiongroup(scope: {
-        /**
-         * @deprecated since v3.16.0. Use the 'option' instead.
-         * Option instance
-         */
-        item: any;
         /**
          * Option instance
          */
@@ -699,12 +668,6 @@ export interface AutoCompleteSlots {
         /**
          * Remove token icon function.
          * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, index: number) => void;
-        /**
-         * Remove token icon function.
-         * @param {Event} event - Browser event
          */
         removeCallback: (event: Event, index: number) => void;
     }): VNode[];
@@ -721,12 +684,6 @@ export interface AutoCompleteSlots {
          * Index of the token.
          */
         index: number;
-        /**
-         * Remove token icon function.
-         * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event, index: number) => void;
         /**
          * Remove token icon function.
          * @param {Event} event - Browser event

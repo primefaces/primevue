@@ -318,11 +318,6 @@ export interface ToastSlots {
          */
         message: any;
         /**
-         * Close toast function
-         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
-         */
-        onClose: () => void;
-        /**
          * Close sidebar function.
          */
         closeCallback: () => void;

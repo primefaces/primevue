@@ -65,18 +65,8 @@ export interface MessagePassThroughOptions<T = any> {
     text?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button's DOM element.
-     * @deprecated since v3.30.2. Use 'closeButton' option.
-     */
-    button?: MessagePassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the button's DOM element.
      */
     closeButton?: MessagePassThroughOptionType<T>;
-    /**
-     * Used to pass attributes to the button icon's DOM element.
-     * @deprecated since v3.30.2. Use 'closeIcon' option.
-     */
-    buttonIcon?: MessagePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the button icon's DOM element.
      */
@@ -201,11 +191,6 @@ export interface MessageSlots {
      * @param {Object} scope - container slot's params.
      */
     container(scope: {
-        /**
-         * Close message function.
-         * @deprecated since v3.39.0. Use 'closeCallback' property instead.
-         */
-        onClose: () => void;
         /**
          * Close message function.
          */

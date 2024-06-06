@@ -345,12 +345,6 @@ export interface SpeedDialSlots {
         /**
          * Button click function
          * @param {Event} event - Browser event.
-         * @deprecated since v3.39.0. Use 'toggleCallback' property instead.
-         */
-        onClick: (event: Event) => void;
-        /**
-         * Button click function
-         * @param {Event} event - Browser event.
          */
         toggleCallback: (event: Event) => void;
     }): VNode[];

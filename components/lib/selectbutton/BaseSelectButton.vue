@@ -12,10 +12,6 @@ export default {
         optionValue: null,
         optionDisabled: null,
         multiple: Boolean,
-        unselectable: {
-            type: Boolean,
-            default: true
-        },
         allowEmpty: {
             type: Boolean,
             default: true

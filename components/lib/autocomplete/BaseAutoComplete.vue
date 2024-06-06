@@ -11,11 +11,6 @@ export default {
             type: Array,
             default: null
         },
-        field: {
-            // TODO: Deprecated since v3.16.0
-            type: [String, Function],
-            default: null
-        },
         optionLabel: null,
         optionDisabled: null,
         optionGroupLabel: null,
@@ -31,11 +26,6 @@ export default {
         dropdownMode: {
             type: String,
             default: 'blank'
-        },
-        autoHighlight: {
-            // TODO: Deprecated since v3.16.0. Use selectOnFocus property instead.
-            type: Boolean,
-            default: false
         },
         multiple: {
             type: Boolean,

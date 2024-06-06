@@ -1,7 +1,7 @@
 <template>
     <transition name="p-message" appear v-bind="ptmi('transition')">
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
-            <slot v-if="$slots.container" name="container" :onClose="close" :closeCallback="close"></slot>
+            <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
             <div v-else :class="cx('content')" v-bind="ptm('content')">
                 <slot name="messageicon" class="p-message-icon">
                     <component :is="icon ? 'span' : iconComponent" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
@@ -9,10 +9,10 @@
                 <div class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
+                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
                     <slot name="closeicon">
-                        <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
-                        <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
+                        <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')" />
+                        <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')" />
                     </slot>
                 </button>
             </div>

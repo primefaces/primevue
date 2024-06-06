@@ -115,11 +115,6 @@ export interface TabViewPassThroughOptions {
     panelContainer?: TabViewPassThroughOptionType;
     /**
      * Used to pass attributes to TabPanel helper components.
-     * @deprecated since v3.30.1. Use 'tabpanel' property instead.
-     */
-    tab?: TabPanelPassThroughOptionType;
-    /**
-     * Used to pass attributes to TabPanel helper components.
      */
     tabpanel?: TabPanelPassThroughOptionType;
     /**

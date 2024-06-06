@@ -163,12 +163,6 @@ export interface TabMenuProps {
      */
     model?: MenuItem[] | undefined;
     /**
-     * Defines if active route highlight should match the exact route path.
-     * @deprecated since v3.40.0.
-     * @defaultValue true
-     */
-    exact?: boolean | undefined;
-    /**
      * Active index of menuitem.
      * @defaultValue 0
      */

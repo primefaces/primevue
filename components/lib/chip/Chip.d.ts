@@ -162,18 +162,6 @@ export interface ChipSlots {
         /**
          * Remove icon click event
          * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'removeCallback' property instead.
-         */
-        onClick: (event: Event) => void;
-        /**
-         * Remove icon keydown event
-         * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'keydownCallback' property instead.
-         */
-        onKeydown: (event: Event) => void;
-        /**
-         * Remove icon click event
-         * @param {Event} event - Browser event
          */
         removeCallback: (event: Event) => void;
         /**

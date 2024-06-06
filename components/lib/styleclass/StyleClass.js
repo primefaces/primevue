@@ -51,11 +51,6 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
 
                     DomHandler.addClass(target, binding.value.enterActiveClass);
 
-                    // enterClass will be deprecated, use enterFromClass
-                    if (binding.value.enterClass) {
-                        DomHandler.removeClass(target, binding.value.enterClass);
-                    }
-
                     if (binding.value.enterFromClass) {
                         DomHandler.removeClass(target, binding.value.enterFromClass);
                     }
@@ -79,11 +74,6 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                     target.addEventListener('animationend', target.$p_styleclass_enterlistener);
                 }
             } else {
-                // enterClass will be deprecated, use enterFromClass
-                if (binding.value.enterClass) {
-                    DomHandler.removeClass(target, binding.value.enterClass);
-                }
-
                 if (binding.value.enterFromClass) {
                     DomHandler.removeClass(target, binding.value.enterFromClass);
                 }
@@ -103,11 +93,6 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                     target.$_pstyleclass_animating = true;
                     DomHandler.addClass(target, binding.value.leaveActiveClass);
 
-                    // leaveClass will be deprecated, use leaveFromClass
-                    if (binding.value.leaveClass) {
-                        DomHandler.removeClass(target, binding.value.leaveClass);
-                    }
-
                     if (binding.value.leaveFromClass) {
                         DomHandler.removeClass(target, binding.value.leaveFromClass);
                     }
@@ -126,11 +111,6 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                     target.addEventListener('animationend', target.$p_styleclass_leavelistener);
                 }
             } else {
-                // leaveClass will be deprecated, use leaveFromClass
-                if (binding.value.leaveClass) {
-                    DomHandler.removeClass(target, binding.value.leaveClass);
-                }
-
                 if (binding.value.leaveFromClass) {
                     DomHandler.removeClass(target, binding.value.leaveFromClass);
                 }

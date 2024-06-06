@@ -571,11 +571,6 @@ export interface SelectSlots {
         placeholder: string;
     }): VNode[];
     /**
-     * Custom indicator template.
-     * @deprecated since v3.27.0. Use 'dropdownicon or loadingicon' slots.
-     */
-    indicator(): VNode[];
-    /**
      * Custom header template of panel.
      * @param {Object} scope - header slot's params.
      */
@@ -683,16 +678,6 @@ export interface SelectSlots {
      * @param {Object} scope - clear icon slot's params.
      */
     clearicon(scope: {
-        /**
-         * Style class of the clear icon
-         */
-        class: any;
-        /**
-         * Clear icon click function.
-         * @param {Event} event - Browser event
-         * @deprecated since v3.39.0. Use 'clearCallback' property instead.
-         */
-        onClick: (event: Event) => void;
         /**
          * Clear icon click function.
          * @param {Event} event - Browser event

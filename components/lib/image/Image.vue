@@ -1,6 +1,6 @@
 <template>
     <span :class="containerClass" :style="style" v-bind="ptmi('root')">
-        <slot name="image" :onError="onError" :errorCallback="onError">
+        <slot name="image" :errorCallback="onError">
             <img :style="imageStyle" :class="imageClass" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
         <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('previewMask')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('previewMask') }">
@@ -45,7 +45,7 @@
                 <transition name="p-image-original" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
                     <div v-if="previewVisible" v-bind="ptm('originalContainer')">
                         <!-- TODO: preview deprecated since v4.0-->
-                        <slot :name="$slots.original ? 'original' : 'preview'" :class="cx('original')" :style="imagePreviewStyle" :onClick="onPreviewImageClick" :previewCallback="onPreviewImageClick">
+                        <slot :name="$slots.original ? 'original' : 'preview'" :class="cx('original')" :style="imagePreviewStyle" :previewCallback="onPreviewImageClick">
                             <img :src="$attrs.src" :class="cx('original')" :style="imagePreviewStyle" @click="onPreviewImageClick" v-bind="ptm('original')" />
                         </slot>
                     </div>

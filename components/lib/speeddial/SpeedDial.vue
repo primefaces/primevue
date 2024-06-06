@@ -1,6 +1,6 @@
 <template>
     <div :ref="containerRef" :class="containerClass" :style="[style, sx('root')]" v-bind="ptmi('root')">
-        <slot name="button" :visible="d_visible" :onClick="onClick" :toggleCallback="onClick">
+        <slot name="button" :visible="d_visible" :toggleCallback="onClick">
             <Button
                 :class="[cx('pcButton'), buttonClass]"
                 :disabled="disabled"

@@ -8,7 +8,6 @@
  *
  */
 import { VNode } from 'vue';
-import { AccordionTabPassThroughOptionType } from '../accordiontab';
 import { ComponentHooks } from '../basecomponent';
 import { PassThroughOptions } from '../passthrough';
 import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
@@ -83,16 +82,6 @@ export interface AccordionPassThroughOptions {
      * Used to pass attributes to the root's DOM element.
      */
     root?: AccordionPassThroughOptionType;
-    /**
-     * Used to pass attributes to AccordionTab helper components.
-     * @deprecated since v3.30.1. Use 'accordiontab' property instead.
-     */
-    tab?: AccordionTabPassThroughOptionType;
-    /**
-     * Used to pass attributes to AccordionTab helper components.
-     * @deprecated since v4. Use new structure instead.
-     */
-    accordiontab?: AccordionTabPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

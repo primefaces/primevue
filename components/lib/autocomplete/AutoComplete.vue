@@ -136,7 +136,7 @@
                             <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" :aria-label="listAriaLabel" v-bind="ptm('list')">
                                 <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                     <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
-                                        <slot name="optiongroup" :option="option.optionGroup" :item="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
+                                        <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                                     </li>
                                     <li
                                         v-else
@@ -158,8 +158,6 @@
                                         v-bind="getPTOptions(option, getItemOptions, i, 'option')"
                                     >
                                         <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
-                                        <slot v-else name="item" :item="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
-                                        <!--TODO: Deprecated since v3.16.0-->
                                     </li>
                                 </template>
                                 <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
@@ -258,7 +256,7 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.field || this.optionLabel ? ObjectUtils.resolveFieldData(option, this.field || this.optionLabel) : option;
+            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
             return option; // TODO: The 'optionValue' properties can be added.
@@ -863,7 +861,7 @@ export default {
                 this.focusedOptionIndex = index;
                 this.scrollInView();
 
-                if (this.selectOnFocus || this.autoHighlight) {
+                if (this.selectOnFocus) {
                     this.onOptionSelect(event, this.visibleOptions[index], false);
                 }
             }
@@ -881,7 +879,7 @@ export default {
             });
         },
         autoUpdateModel() {
-            if ((this.selectOnFocus || this.autoHighlight) && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
