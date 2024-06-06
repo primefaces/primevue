@@ -253,10 +253,6 @@
                         <td>Enter a password</td>
                     </tr>
                     <tr>
-                        <td>emptyFilterMessage</td>
-                        <td>No results found', // @deprecated Use 'emptySearchMessage' option instea</td>
-                    </tr>
-                    <tr>
                         <td>searchMessage</td>
                         <td>{0} results are available</td>
                     </tr>

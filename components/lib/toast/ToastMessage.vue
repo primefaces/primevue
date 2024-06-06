@@ -11,8 +11,8 @@
             </template>
             <component v-else :is="templates.message" :message="message"></component>
             <div v-if="message.closable !== false" v-bind="ptm('buttonContainer')">
-                <button v-ripple :class="cx('closeButton')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('button'), ...ptm('closeButton') }">
-                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="{ ...ptm('buttonIcon'), ...ptm('closeIcon') }" />
+                <button v-ripple :class="cx('closeButton')" type="button" :aria-label="closeAriaLabel" @click="onCloseClick" autofocus v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+                    <component :is="templates.closeicon || 'TimesIcon'" :class="[cx('closeIcon'), closeIcon]" v-bind="ptm('closeIcon')" />
                 </button>
             </div>
         </div>

@@ -423,17 +423,14 @@ export interface FileUploadProps {
     showCancelButton?: boolean | undefined;
     /**
      * Icon of the choose button.
-     * @deprecated since v3.27.0. Use 'chooseicon' slot.
      */
     chooseIcon?: string | undefined;
     /**
      * Icon of the upload button.
-     * @deprecated since v3.27.0. Use 'updateicon' slot.
      */
     uploadIcon?: string | undefined;
     /**
      * Icon of the cancel button.
-     * @deprecated since v3.27.0. Use 'cancelicon' slot.
      */
     cancelIcon?: string | undefined;
     /**

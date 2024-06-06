@@ -186,22 +186,18 @@ export interface TabViewProps {
     selectOnFocus?: boolean | undefined;
     /**
      * Used to pass all properties of the HTMLButtonElement to the previous button.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     prevButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Used to pass all properties of the HTMLButtonElement to the next button.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
      * Previous icon of the scrollable tabview.
-     * @deprecated since v3.27.0. Use 'previcon' slot.
      */
     prevIcon?: string | undefined;
     /**
      * Next icon of the scrollable tabview.
-     * @deprecated since v3.27.0. Use 'next' slot.
      */
     nextIcon?: string | undefined;
     /**

@@ -106,12 +106,10 @@ export interface ToggleButtonProps {
     modelValue?: boolean | undefined;
     /**
      * Icon for the on state.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     onIcon?: string | undefined;
     /**
      * Icon for the off state.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     offIcon?: string | undefined;
     /**

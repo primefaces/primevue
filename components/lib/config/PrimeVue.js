@@ -69,7 +69,7 @@ export const defaultOptions = {
         medium: 'Medium',
         strong: 'Strong',
         passwordPrompt: 'Enter a password',
-        emptyFilterMessage: 'No results found', // @deprecated Use 'emptySearchMessage' option instead.
+        emptyFilterMessage: 'No results found',
         searchMessage: '{0} results are available',
         selectionMessage: '{0} items selected',
         emptySelectionMessage: 'No selected item',

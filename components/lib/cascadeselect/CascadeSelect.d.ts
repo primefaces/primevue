@@ -357,17 +357,14 @@ export interface CascadeSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the dropdown.
-     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in the option group.
-     * @deprecated since v3.27.0. Use 'optiongroupicon' slot.
      */
     optionGroupIcon?: string | undefined;
     /**

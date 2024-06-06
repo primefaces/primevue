@@ -121,7 +121,6 @@ export interface ScrollTopProps {
     threshold?: number | undefined;
     /**
      * Icon to display.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**

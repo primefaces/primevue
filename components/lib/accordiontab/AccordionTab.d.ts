@@ -110,12 +110,10 @@ export interface AccordionTabProps {
     headerClass?: any;
     /**
      * Used to pass all properties of the HTMLDivElement to the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerProps?: HTMLAttributes | undefined;
     /**
      * Used to pass all properties of the HTMLAnchorElement to the focusable anchor element inside the tab header.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     headerActionProps?: AnchorHTMLAttributes | undefined;
     /**
@@ -128,7 +126,6 @@ export interface AccordionTabProps {
     contentClass?: any;
     /**
      * Used to pass all properties of the HTMLDivElement to the tab content.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     contentProps?: HTMLAttributes | undefined;
     /**
@@ -199,12 +196,6 @@ export interface AccordionTabSlots {
          * Index of the tab
          */
         index: number;
-        /**
-         * Whether the tab is active
-         * @param {number} index - Index of the tab
-         * @deprecated since v3.40.0. Use 'active' property instead.
-         */
-        isTabActive: (index: number) => void;
         /**
          * Whether the tab is active
          * @param {number} index - Index of the tab

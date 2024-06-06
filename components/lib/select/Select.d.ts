@@ -432,22 +432,18 @@ export interface SelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in clear button.
-     * @deprecated since v3.27.0. Use 'clearicon' slot.
      */
     clearIcon?: string | undefined;
     /**
      * Icon to display in the select.
-     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**

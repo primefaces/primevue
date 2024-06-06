@@ -443,32 +443,26 @@ export interface MultiSelectProps {
     loading?: boolean | undefined;
     /**
      * Icon to display in the checkboxes.
-     * @deprecated since v3.27.0. Use 'checkboxicon' slot.
      */
     checkboxIcon?: string | undefined;
     /**
      * Icon to display in the dropdown close button.
-     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the dropdown.
-     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
      * Icon to display in filter input.
-     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**
      * Icon to display in loading state.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @deprecated since v4.0. Use 'chipicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**

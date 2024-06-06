@@ -165,7 +165,6 @@ export interface DrawerProps {
     closeButtonProps?: object | undefined;
     /**
      * Icon to display in the drawer close button.
-     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**

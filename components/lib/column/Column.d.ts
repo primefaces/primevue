@@ -503,7 +503,6 @@ export interface ColumnProps {
     rowReorder?: boolean | undefined;
     /**
      * Icon of the drag handle to reorder rows.
-     * @deprecated since v3.27.0. Use 'rowreordericon' slot.
      */
     rowReorderIcon?: string | undefined;
     /**

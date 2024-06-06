@@ -565,27 +565,22 @@ export interface DatePickerProps {
     iconDisplay?: 'button' | 'input' | undefined;
     /**
      * Icon of the datepicker button.
-     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     icon?: string | undefined;
     /**
      * Icon to show in the previous button.
-     * @deprecated since v3.27.0. Use 'previcon' slot.
      */
     prevIcon?: string | undefined;
     /**
      * Icon to show in the next button.
-     * @deprecated since v3.27.0. Use 'nexticon' slot.
      */
     nextIcon?: string | undefined;
     /**
      * Icon to show in each of the increment buttons.
-     * @deprecated since v3.27.0. Use 'incrementicon' slot.
      */
     incrementIcon?: string | undefined;
     /**
      * Icon to show in each of the decrement buttons.
-     * @deprecated since v3.27.0. Use 'decrementicon' slot.
      */
     decrementIcon?: string | undefined;
     /**

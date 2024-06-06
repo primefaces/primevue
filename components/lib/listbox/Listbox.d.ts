@@ -405,7 +405,6 @@ export interface ListboxProps {
     tabindex?: number | string | undefined;
     /**
      * Icon to display in filter input.
-     * @deprecated since v3.27.0. Use 'filtericon' slot.
      */
     filterIcon?: string | undefined;
     /**

@@ -85,11 +85,6 @@ export interface ToastPassThroughOptions {
     buttonContainer?: ToastPassThroughOptionType;
     /**
      * Used to pass attributes to the button's DOM element.
-     * @deprecated since v3.30.2. Use 'closeButton' option.
-     */
-    button?: ToastPassThroughOptionType;
-    /**
-     * Used to pass attributes to the button's DOM element.
      */
     closeButton?: ToastPassThroughOptionType;
     /**
@@ -209,32 +204,26 @@ export interface ToastProps {
     breakpoints?: ToastBreakpointsType;
     /**
      * Icon to display in the toast close button.
-     * @deprecated since v3.27.0. Use 'closeicon' slot.
      */
     closeIcon?: string | undefined;
     /**
      * Icon to display in the toast with info severity.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     infoIcon?: string | undefined;
     /**
      * Icon to display in the toast with warn severity.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     warnIcon?: string | undefined;
     /**
      * Icon to display in the toast with error severity.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     errorIcon?: string | undefined;
     /**
      * Icon to display in the toast with success severity.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     successIcon?: string | undefined;
     /**
      * Used to pass all properties of the HTMLButtonElement to the close button.
-     * @deprecated since v3.26.0. Use 'pt' property.
      */
     closeButtonProps?: ButtonHTMLAttributes | undefined;
     /**

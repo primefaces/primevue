@@ -498,7 +498,6 @@ export interface TreeTableProps {
     loading?: boolean | undefined;
     /**
      * The icon to show while indicating data load is in progress.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**

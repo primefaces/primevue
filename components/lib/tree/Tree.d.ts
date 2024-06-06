@@ -264,7 +264,6 @@ export interface TreeProps {
     loading?: boolean | undefined;
     /**
      * Icon to display when tree is loading.
-     * @deprecated since v3.27.0. Use 'loadingicon' slot.
      */
     loadingIcon?: string | undefined;
     /**

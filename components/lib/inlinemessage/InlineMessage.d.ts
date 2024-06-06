@@ -97,7 +97,6 @@ export interface InlineMessageProps {
     severity?: HintedString<'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast'> | undefined;
     /**
      * Display a custom icon for the message.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**

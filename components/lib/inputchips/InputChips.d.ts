@@ -192,12 +192,10 @@ export interface InputChipsProps {
     inputStyle?: object | undefined;
     /**
      * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     inputProps?: InputHTMLAttributes | undefined;
     /**
      * Icon to display in chip remove action.
-     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**

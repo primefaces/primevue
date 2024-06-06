@@ -84,7 +84,6 @@ export interface AvatarProps {
     label?: string | undefined;
     /**
      * Defines the icon to display.
-     * @deprecated since v3.27.0. Use 'icon' slot.
      */
     icon?: string | undefined;
     /**

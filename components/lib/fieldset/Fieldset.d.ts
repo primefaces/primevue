@@ -147,7 +147,6 @@ export interface FieldsetProps {
     collapsed?: boolean | undefined;
     /**
      * Used to pass the custom value to read for the AnchorHTMLAttributes inside the component.
-     * @deprecated since v3.26.0. Use 'pt' property instead.
      */
     toggleButtonProps?: AnchorHTMLAttributes | undefined;
     /**

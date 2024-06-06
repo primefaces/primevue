@@ -430,7 +430,6 @@ export interface AutoCompleteProps {
     overlayClass?: string | object | undefined;
     /**
      * Icon to display in the dropdown.
-     * @deprecated since v3.27.0. Use 'dropdownicon' slot.
      */
     dropdownIcon?: string | undefined;
     /**
@@ -448,7 +447,6 @@ export interface AutoCompleteProps {
     loader?: string | undefined;
     /**
      * Icon to display in chip remove action.
-     * @deprecated since v3.27.0. Use 'removetokenicon' slot.
      */
     removeTokenIcon?: string | undefined;
     /**
