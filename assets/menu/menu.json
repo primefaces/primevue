@@ -601,7 +601,7 @@
                 },
                 {
                     "name": "PRO Support",
-                    "to": "/support"
+                    "href": "https://v4.primevue.org/support"
                 }
             ]
         },
@@ -615,7 +615,7 @@
                 },
                 {
                     "name": "Roadmap",
-                    "to": "/roadmap"
+                    "href": "https://v4.primevue.org/roadmap"
                 },
                 {
                     "name": "Source Code",
