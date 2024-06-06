@@ -48,11 +48,11 @@
                             <i class="pi pi-check-circle mr-4 text-green-500"></i>
                             <span class="leading-normal">1 year term</span>
                         </li>
-                        <li class="flex items-cente mb-4">
+                        <li class="flex items-center mb-4">
                             <i class="pi pi-check-circle mr-4 text-green-500"></i>
                             <span class="leading-normal">Minimum 30 Hours for initiation</span>
                         </li>
-                        <li class="flex items-cente mb-4">
+                        <li class="flex items-center mb-4">
                             <i class="pi pi-check-circle mr-4 text-green-500"></i>
                             <span class="leading-normal">Up to 5 accounts</span>
                         </li>
