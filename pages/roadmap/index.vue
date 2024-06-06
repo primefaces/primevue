@@ -155,14 +155,14 @@
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col">
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-teal-500 border-l-8">
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">V4 Update</h2>
                                 <p class="mt-0 mb-4 leading-normal">Update all templates to PrimeVue v4, replace PrimeFlex demos with Tailwind.</p>
                                 <div class="bg-surface-200 rounded">
                                     <div class="bg-teal-500 rounded" style="width: 0%; height: 4px"></div>
                                 </div>
                             </div>
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-teal-500 border-l-8">
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Genesis</h2>
                                 <p class="mt-0 mb-4 leading-normal">Brand new template application.</p>
                                 <div class="bg-surface-200 rounded">
