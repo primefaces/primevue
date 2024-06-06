@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Uninstally primeclt utility.</p>
+        <p>Uninstall primeclt utility.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
