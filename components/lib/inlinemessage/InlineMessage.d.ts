@@ -138,6 +138,8 @@ export interface InlineMessageEmitsOptions {}
 export declare type InlineMessageEmits = EmitFn<InlineMessageEmitsOptions>;
 
 /**
+ * @deprecated since v4. Use Message component instead.
+ *
  * **PrimeVue - InlineMessage**
  *
  * _InlineMessage component is useful in cases where a single message needs to be displayed related to an element such as forms. It has one property, severity of the message._
