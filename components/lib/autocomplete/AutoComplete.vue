@@ -157,7 +157,7 @@
                                         :data-p-disabled="isOptionDisabled(option)"
                                         v-bind="getPTOptions(option, getItemOptions, i, 'option')"
                                     >
-                                        <slot v-if="$slots.option" name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
+                                        <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                     </li>
                                 </template>
                                 <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
