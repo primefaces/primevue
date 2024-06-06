@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex flex-col xl:flex-row mb-8 gap-8">
+        <div class="flex flex-col md:flex-row mb-8 gap-8">
             <div class="card flex-1 !m-0 relative overflow-hidden">
                 <i class="pi pi-github absolute opacity-20" style="bottom: -50px; right: -50px; font-size: 200px; transform: rotateX(45deg) rotateY(0deg) rotateZ(-45deg)"></i>
                 <div class="text-2xl font-semibold mb-4 relative">Community Support</div>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="grid grid-cols-3 gap-8 mb-8">
-            <div class="card !m-0 col-span-1">
+            <div class="card !m-0 col-span-full lg:col-span-1">
                 <div class="flex justify-between">
                     <div class="text-2xl font-semibold mb-4">Service Features</div>
                     <span class="font-bold text-lg">200$/h</span>
@@ -72,7 +72,7 @@
                 </div>
                 <a href="mailto:primetek.com.tr" class="block mt-4 w-full bg-primary rounded-border py-3 px-4 hover:bg-primary-emphasis text-center transition-all duration-300 text-primary-contrast font-semibold text-lg leading-none"> Buy Now </a>
             </div>
-            <div class="card !m-0 col-span-2">
+            <div class="card !m-0 col-span-full lg:col-span-2">
                 <div class="text-2xl font-semibold mb-4">How It Works</div>
                 <ul class="flex flex-col gap-4 list-none m-0 p-0 text-lg">
                     <li>
@@ -158,36 +158,48 @@
 
         <div class="card m-0">
             <div class="text-2xl font-semibold mb-8">Frequently Asked Questions</div>
-            <div class="flex flex-wrap text-lg -ml-8 -mt-8">
-                <div class="w-full lg:w-4/12 p-8">
-                    <div class="leading-normal mb-2 font-medium">How many issue tracker accounts do we get?</div>
-                    <p class="mt-0 mb-8 p-0 leading-normal">We provide one account per organization.</p>
-
-                    <div class="leading-normal mb-2 font-medium">What is the duration of the service?</div>
-                    <p class="mt-0 mb-8 p-0 leading-normal">Service ends either when all support hours are used or after 1 year.</p>
-
-                    <div class="leading-normal mb-2 font-medium">What happens if we extend after 1 year and we have unused hours?</div>
-                    <p class="mt-0 p-0 leading-normal">Unused hours expire and are not transferred to the new term.</p>
+            <div class="flex flex-col md:flex-row text-lg gap-8">
+                <div class="flex-1 flex flex-col gap-8">
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">How many issue tracker accounts do we get?</div>
+                        <p class="!m-0 leading-normal">We provide one account per organization.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">What is the duration of the service?</div>
+                        <p class="!m-0 leading-normal">Service ends either when all support hours are used or after 1 year.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">What happens if we extend after 1 year and we have unused hours?</div>
+                        <p class="!m-0 leading-normal">Unused hours expire and are not transferred to the new term.</p>
+                    </div>
                 </div>
-                <div class="w-full lg:w-4/12 p-8">
-                    <div class="leading-normal mb-2 font-medium">Is there a minimum hour requirement?</div>
-                    <p class="mt-0 mb-8 p-0 leading-normal">At least 30 hours are required to initiate the service.</p>
-
-                    <div class="leading-normal mb-2 font-medium">What are hours used for?</div>
-                    <p class="mt-0 mb-8 p-0 leading-normal">Hours are utilized when creating tickets, filing defects, requesting enhancements, POC implementations of a use case and questions.</p>
-
-                    <div class="leading-normal mb-2 font-medium">What happens if the issue takes longer or shorter than the approved estimate?</div>
-                    <p class="mt-0 p-0 leading-normal">The confirmed estimate is still used even if it takes longer to resolve the issue.</p>
+                <div class="flex-1 flex flex-col gap-8">
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">Is there a minimum hour requirement?</div>
+                        <p class="!m-0 leading-normal">At least 30 hours are required to initiate the service.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">What are hours used for?</div>
+                        <p class="!m-0 leading-normal">Hours are utilized when creating tickets, filing defects, requesting enhancements, POC implementations of a use case and questions.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">What happens if the issue takes longer or shorter than the approved estimate?</div>
+                        <p class="!m-0 leading-normal">The confirmed estimate is still used even if it takes longer to resolve the issue.</p>
+                    </div>
                 </div>
-                <div class="w-full lg:w-4/12 p-8">
-                    <div class="leading-normal mb-2 font-medium">Who provides the service?</div>
-                    <p class="mt-0 mb-8 p-0 leading-normal">Support service is provided by the PrimeVue team at PrimeTek.</p>
-
-                    <div class="leading-normal mb-2 font-medium">Can we request new features and enhancements?</div>
-                    <p class="mt-0 p-0 leading-normal">Yes, initially the request needs to be approved by PrimeTek based on project roadmap fit. As a result, not all requests may be accepted.</p>
-
-                    <div class="leading-normal mb-2 font-medium">We are a reseller, can we purchase this support for our client?</div>
-                    <p class="mt-0 p-0 leading-normal">That is possible, the service will be provided to your client even if you are the contact in purchase process.</p>
+                <div class="flex-1 flex flex-col gap-8">
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">Who provides the service?</div>
+                        <p class="!m-0 leading-normal">Support service is provided by the PrimeVue team at PrimeTek.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">Can we request new features and enhancements?</div>
+                        <p class="!m-0 leading-normal">Yes, initially the request needs to be approved by PrimeTek based on project roadmap fit. As a result, not all requests may be accepted.</p>
+                    </div>
+                    <div>
+                        <div class="leading-normal mb-2 font-semibold">We are a reseller, can we purchase this support for our client?</div>
+                        <p class="!m-0 leading-normal">That is possible, the service will be provided to your client even if you are the contact in purchase process.</p>
+                    </div>
                 </div>
             </div>
         </div>
