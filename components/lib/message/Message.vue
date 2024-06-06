@@ -40,28 +40,18 @@ export default {
             visible: true
         };
     },
-    watch: {
-        sticky(newValue) {
-            if (!newValue) {
-                this.closeAfterDelay();
-            }
-        }
-    },
     mounted() {
-        if (!this.sticky) {
-            this.closeAfterDelay();
+        if (this.life) {
+            setTimeout(() => {
+                this.visible = false;
+                this.$emit('life-end');
+            }, this.life);
         }
     },
     methods: {
         close(event) {
             this.visible = false;
             this.$emit('close', event);
-        },
-        closeAfterDelay() {
-            setTimeout(() => {
-                this.visible = false;
-                this.$emit('life-end');
-            }, this.life);
         }
     },
     computed: {

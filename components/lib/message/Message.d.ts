@@ -111,17 +111,18 @@ export interface MessageProps {
     severity?: HintedString<'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast'> | undefined;
     /**
      * Whether the message can be closed manually using the close icon.
-     * @defaultValue true
+     * @defaultValue false
      */
     closable?: boolean | undefined;
     /**
+     * @deprecated since 4.0.
      * When enabled, message is not removed automatically.
      * @defaultValue true
      */
     sticky?: boolean | undefined;
     /**
      * Delay in milliseconds to close the message automatically.
-     * @defaultValue 3000
+     * @defaultValue null
      */
     life?: number | undefined;
     /**

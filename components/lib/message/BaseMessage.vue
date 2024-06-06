@@ -12,15 +12,11 @@ export default {
         },
         closable: {
             type: Boolean,
-            default: true
-        },
-        sticky: {
-            type: Boolean,
-            default: true
+            default: false
         },
         life: {
             type: Number,
-            default: 3000
+            default: null
         },
         icon: {
             type: String,
