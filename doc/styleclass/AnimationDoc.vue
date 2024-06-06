@@ -1,13 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Classes to apply during enter and leave animations are specified using the <i>enterClass</i>, <i>enterActiveClass</i>, <i>enterToClass</i>, <i>leaveClass</i>, <i>leaveActiveClass</i>,<i>leaveToClass</i>properties. In addition in case the
-            target is an overlay, <i>hideOnOutsideClick</i> would be handy to hide the target if outside of the popup is clicked.
+            Classes to apply during enter and leave animations are specified using the <i>enterFromClass</i>, <i>enterActiveClass</i>, <i>enterToClass</i>, <i>leaveFromClass</i>, <i>leaveActiveClass</i>,<i>leaveToClass</i>properties. In addition in
+            case the target is an overlay, <i>hideOnOutsideClick</i> would be handy to hide the target if outside of the popup is clicked.
         </p>
     </DocSectionText>
     <div class="card flex flex-col items-center">
         <div>
-            <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="my-hidden animate-duration-500 box">
@@ -23,7 +23,7 @@ export default {
         return {
             code: {
                 basic: `
-<Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
+<Button v-styleclass="{ selector: '.box', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
 <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
 <div class="my-hidden animate-duration-500 box">
     <div class="flex bg-green-500 text-white items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
@@ -33,7 +33,7 @@ export default {
 <template>
     <div class="card flex flex-col items-center">
         <div>
-            <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="my-hidden animate-duration-500 box">
@@ -81,7 +81,7 @@ export default {
 <template>
     <div class="card flex flex-col items-center">
         <div>
-            <Button v-styleclass="{ selector: '.box', enterClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="Show" class="mr-2" />
             <Button v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="Hide" severity="secondary" />
         </div>
         <div class="my-hidden animate-duration-500 box">
