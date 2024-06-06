@@ -14,13 +14,12 @@
                     :rowHover="true"
                     filterDisplay="menu"
                     :loading="loading"
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink"
                     :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
                 >
                     <template #header>
                         <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                            <h5 class="m-0">Customers</h5>
+                            <span class="text-xl font-bold">Customers</span>
                             <IconField class="mt-4 sm:mt-0 w-full sm:w-auto">
                                 <InputIcon>
                                     <i class="pi pi-search" />
