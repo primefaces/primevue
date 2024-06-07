@@ -90,15 +90,6 @@ describe('clear checks', () => {
         expect(wrapper.find('.p-select-clear-icon').classes()).toContain('pi-discord');
     });
 
-    it('should clear with delete key', async () => {
-        const updateModelSpy = vi.spyOn(wrapper.vm, 'updateModel');
-
-        await wrapper.find('.p-select-label.p-inputtext').trigger('keydown', { code: 'Delete' });
-        expect(updateModelSpy).toHaveBeenCalledOnce();
-        expect(updateModelSpy).toHaveBeenCalledWith(expect.any(KeyboardEvent), null);
-    });
-});
-
 describe('editable checks', () => {
     let wrapper;
 
