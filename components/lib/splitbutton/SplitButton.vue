@@ -4,6 +4,7 @@
             type="button"
             :class="cx('button')"
             :label="label"
+            :icon="icon"
             :disabled="disabled"
             :severity="severity"
             :text="text"
