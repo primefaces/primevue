@@ -213,7 +213,7 @@ export interface TreeSelectProps {
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No results found
+     * @defaultValue No available options
      */
     emptyMessage?: string | undefined;
     /**
