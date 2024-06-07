@@ -132,7 +132,7 @@ export default {
             if (event.ctrlKey || event.metaKey) {
                 return;
             }
-            
+
             switch (event.code) {
                 case 'ArrowLeft':
                     this.moveToPrev(event);
