@@ -403,7 +403,7 @@ function addStyle() {
                         addEntry(folderName + '/style', file, name);
                     }
                 });
-            } catch { }
+            } catch {}
         });
 }
 
