@@ -25101,7 +25101,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "No results found",
+                            "default": "No available options",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -34532,7 +34532,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "No results found",
+                            "default": "No available options",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -38729,7 +38729,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "No results found'",
+                            "default": "No available options",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
@@ -58396,7 +58396,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": "No results found",
+                            "default": "No available options",
                             "description": "Text to display when there are no options available. Defaults to value from PrimeVue locale configuration."
                         },
                         {
