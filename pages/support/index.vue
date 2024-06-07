@@ -23,7 +23,7 @@
             <div class="card !m-0 col-span-full lg:col-span-1">
                 <div class="flex items-center justify-between mb-4">
                     <div class="text-2xl font-semibold">Service Features</div>
-                    <span class="font-bold text-lg">200$/h</span>
+                    <span class="font-bold text-lg">$200/h</span>
                 </div>
                 <div class="gap-8 px-4">
                     <ul class="flex-auto list-none m-0 p-0 text-lg">
