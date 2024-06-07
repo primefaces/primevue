@@ -44,7 +44,7 @@ export default {
     name: 'ContextMenu',
     extends: BaseContextMenu,
     inheritAttrs: false,
-    emits: ['focus', 'blur', 'show', 'hide'],
+    emits: ['focus', 'blur', 'show', 'hide', 'before-hide', 'before-show'],
     target: null,
     outsideClickListener: null,
     resizeListener: null,
@@ -125,6 +125,7 @@ export default {
             this.visible ? this.hide() : this.show(event);
         },
         show(event) {
+            this.$emit('before-show');
             this.activeItemPath = [];
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
             DomHandler.focus(this.list);
@@ -137,6 +138,7 @@ export default {
             event.preventDefault();
         },
         hide() {
+            this.$emit('before-hide');
             this.visible = false;
             this.activeItemPath = [];
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
