@@ -452,8 +452,14 @@ export default {
         },
         onHomeKey(event, pressedInInputText = false) {
             if (pressedInInputText) {
-                event.currentTarget.setSelectionRange(0, 0);
-                this.focusedOptionIndex = -1;
+                const target = event.currentTarget;
+
+                if (event.shiftKey) {
+                    target.setSelectionRange(0, event.target.selectionStart);
+                } else {
+                    target.setSelectionRange(0, 0);
+                    this.focusedOptionIndex = -1;
+                }
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;
                 let optionIndex = this.findFirstOptionIndex();
@@ -470,10 +476,15 @@ export default {
         onEndKey(event, pressedInInputText = false) {
             if (pressedInInputText) {
                 const target = event.currentTarget;
-                const len = target.value.length;
 
-                target.setSelectionRange(len, len);
-                this.focusedOptionIndex = -1;
+                if (event.shiftKey) {
+                    target.setSelectionRange(event.target.selectionStart, target.value.length);
+                } else {
+                    const len = target.value.length;
+
+                    target.setSelectionRange(len, len);
+                    this.focusedOptionIndex = -1;
+                }
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;
                 let optionIndex = this.findLastOptionIndex();

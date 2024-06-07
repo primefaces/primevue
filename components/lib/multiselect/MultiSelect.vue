@@ -602,13 +602,15 @@ export default {
             pressedInInputText && (this.focusedOptionIndex = -1);
         },
         onHomeKey(event, pressedInInputText = false) {
-            const { currentTarget } = event;
-
             if (pressedInInputText) {
-                const len = currentTarget.value.length;
+                const target = event.currentTarget;
 
-                currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
-                this.focusedOptionIndex = -1;
+                if (event.shiftKey) {
+                    target.setSelectionRange(0, event.target.selectionStart);
+                } else {
+                    target.setSelectionRange(0, 0);
+                    this.focusedOptionIndex = -1;
+                }
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;
                 let optionIndex = this.findFirstOptionIndex();
@@ -625,13 +627,17 @@ export default {
             event.preventDefault();
         },
         onEndKey(event, pressedInInputText = false) {
-            const { currentTarget } = event;
-
             if (pressedInInputText) {
-                const len = currentTarget.value.length;
+                const target = event.currentTarget;
 
-                currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
-                this.focusedOptionIndex = -1;
+                if (event.shiftKey) {
+                    target.setSelectionRange(event.target.selectionStart, target.value.length);
+                } else {
+                    const len = target.value.length;
+
+                    target.setSelectionRange(len, len);
+                    this.focusedOptionIndex = -1;
+                }
             } else {
                 let metaKey = event.metaKey || event.ctrlKey;
                 let optionIndex = this.findLastOptionIndex();
