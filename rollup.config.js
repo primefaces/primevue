@@ -109,6 +109,7 @@ const CORE_STYLE_DEPENDENCIES = {
     'primevue/editor/style': 'primevue.editor.style',
     'primevue/fieldset/style': 'primevue.fieldset.style',
     'primevue/fileupload/style': 'primevue.fileupload.style',
+    'primevue/floatlabel/style': 'primevue.floatlabel.style',
     'primevue/focustrap/style': 'primevue.focustrap.style',
     'primevue/galleria/style': 'primevue.galleria.style',
     'primevue/image/style': 'primevue.image.style',
@@ -402,7 +403,7 @@ function addStyle() {
                         addEntry(folderName + '/style', file, name);
                     }
                 });
-            } catch {}
+            } catch { }
         });
 }
 
