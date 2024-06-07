@@ -57919,7 +57919,7 @@
                     "props": [
                         {
                             "name": "key",
-                            "optional": true,
+                            "optional": false,
                             "readonly": false,
                             "type": "string",
                             "default": "",
