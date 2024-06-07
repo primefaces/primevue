@@ -390,39 +390,31 @@ export default {
             }
         },
         findPreviousEditableColumn(cell) {
-            let prevCell = cell.previousElementSibling;
+            let prevCell = cell?.previousElementSibling;
 
             if (!prevCell) {
-                let previousRow = cell.parentElement.previousElementSibling;
+                let previousRow = cell?.parentElement.previousElementSibling;
 
                 if (previousRow) {
                     prevCell = previousRow.lastElementChild;
-                }
-            }
-
-            if (prevCell) {
+                } else return null;
+            } else {
                 if (DomHandler.getAttribute(prevCell, 'data-p-editable-column')) return prevCell;
                 else return this.findPreviousEditableColumn(prevCell);
-            } else {
-                return null;
             }
         },
         findNextEditableColumn(cell) {
-            let nextCell = cell.nextElementSibling;
+            let nextCell = cell?.nextElementSibling;
 
             if (!nextCell) {
-                let nextRow = cell.parentElement.nextElementSibling;
+                let nextRow = cell?.parentElement.nextElementSibling;
 
                 if (nextRow) {
                     nextCell = nextRow.firstElementChild;
-                }
-            }
-
-            if (nextCell) {
+                } else return null;
+            } else {
                 if (DomHandler.getAttribute(nextCell, 'data-p-editable-column')) return nextCell;
                 else return this.findNextEditableColumn(nextCell);
-            } else {
-                return null;
             }
         },
         onRowEditInit(event) {
