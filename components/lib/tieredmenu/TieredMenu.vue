@@ -383,7 +383,7 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            if (this.focusedItemInfo.level !== 0) {
+            if (this.popup || this.focusedItemInfo.level !== 0) {
                 const _focusedItemInfo = this.focusedItemInfo;
 
                 this.hide(event, false);
