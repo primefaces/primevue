@@ -226,7 +226,7 @@ export default {
         },
         unblockScroll() {
             // TODO: refactor this to use a better way to check if there are any dialogs opened
-            const dialogMap = this.$parentInstance.instanceMap;
+            const dialogMap = this.$parentInstance?.instanceMap || {};
             const isDialogsOpened = Object.values(dialogMap).some((instance) => instance.visible);
 
             if (!isDialogsOpened) DomHandler.unblockBodyScroll();
