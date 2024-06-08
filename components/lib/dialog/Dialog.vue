@@ -211,7 +211,7 @@ export default {
             }
 
             if (!this.modal) {
-                this.maximized ? DomHandler.blockBodyScroll() : DomHandler.unblockBodyScroll();
+                this.maximized ? DomHandler.blockBodyScroll() : this.unblockScroll();
             }
         },
         enableDocumentSettings() {
@@ -221,8 +221,15 @@ export default {
         },
         unbindDocumentState() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                DomHandler.unblockBodyScroll();
+                this.unblockScroll();
             }
+        },
+        unblockScroll() {
+            // TODO: refactor this to use a better way to check if there are any dialogs opened
+            const dialogMap = this.$parentInstance.instanceMap;
+            const isDialogsOpened = Object.values(dialogMap).some((instance) => instance.visible);
+
+            if (!isDialogsOpened) DomHandler.unblockBodyScroll();
         },
         onKeyDown(event) {
             if (event.code === 'Escape' && this.closeOnEscape) {
