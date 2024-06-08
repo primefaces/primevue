@@ -849,11 +849,19 @@ export default {
     },
 
     blockBodyScroll(className = 'p-overflow-hidden') {
+        const isBlocked = document.body.classList.contains(className);
+
+        if (isBlocked) return;
+
         document.body.style.setProperty('--scrollbar-width', this.calculateBodyScrollbarWidth() + 'px');
         this.addClass(document.body, className);
     },
 
     unblockBodyScroll(className = 'p-overflow-hidden') {
+        const isBlocked = document.body.classList.contains(className);
+
+        if (!isBlocked) return;
+
         document.body.style.removeProperty('--scrollbar-width');
         this.removeClass(document.body, className);
     }
