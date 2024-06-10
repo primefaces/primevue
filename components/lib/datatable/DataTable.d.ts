@@ -128,7 +128,7 @@ export interface DataTableSortMeta {
     /**
      * Column field
      */
-    field: string;
+    field: string | ((item: any) => string) | undefined;
     /**
      * Column sort order
      */
