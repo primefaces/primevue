@@ -18774,7 +18774,7 @@
                             "name": "field",
                             "optional": false,
                             "readonly": false,
-                            "type": "string",
+                            "type": "undefined | string | Function",
                             "default": "",
                             "description": "Column field"
                         },
