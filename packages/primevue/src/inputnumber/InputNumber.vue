@@ -529,6 +529,15 @@ export default {
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
 
+            if (event.code === 'NumpadDecimal' && !isDecimalSign) {
+                const decimalSign = this.numberFormat.formatToParts(1.1).find(({ type }) => type === 'decimal').value;
+
+                if (char !== decimalSign) {
+                    isDecimalSign = true;
+                    char = decimalSign;
+                }
+            }
+
             if (event.code !== 'Enter') {
                 event.preventDefault();
             }
