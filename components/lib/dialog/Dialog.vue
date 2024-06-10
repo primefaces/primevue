@@ -85,7 +85,7 @@ export default {
             maximized: false,
             focusableMax: null,
             focusableClose: null,
-            focusElementOnHide: null,
+            focusElementOnHide: null
         };
     },
     watch: {

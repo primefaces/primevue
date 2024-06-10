@@ -55,7 +55,7 @@ export default {
             confirmation: null,
             autoFocusAccept: null,
             autoFocusReject: null,
-            focusElementOnHide: null,
+            focusElementOnHide: null
         };
     },
     target: null,
