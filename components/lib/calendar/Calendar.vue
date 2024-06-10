@@ -993,8 +993,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                     const panelElement = event.target.closest('[data-pc-section="panel"]');
-                     const isElementInPanel = panelElement && panelElement.contains(event.target);
+                    const panelElement = event.target.closest('[data-pc-section="panel"]');
+                    const isElementInPanel = panelElement && panelElement.contains(event.target);
 
                     if (this.overlayVisible && this.isOutsideClicked(event) && !isElementInPanel) {
                         this.overlayVisible = false;
