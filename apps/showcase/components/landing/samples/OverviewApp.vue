@@ -39,9 +39,7 @@
                     <div class="flex-1 text-color font-semibold leading-6">Crypto Analytics</div>
                     <div class="flex items-center gap-5">
                         <div v-for="(item, index) in chartData?.datasets" :key="index" class="flex items-center gap-2">
-                            <div class="p-1 rounded-full border border-surface flex items-center justify-center">
-                                <div class="w-2 h-2 rounded-full" :style="{ backgroundColor: item.backgroundColor }"></div>
-                            </div>
+                            <div class="w-3 h-3 rounded-full" :style="{ backgroundColor: item.backgroundColor }"></div>
                             <span class="font-medium text-color leading-6">{{ item.label }}</span>
                         </div>
                     </div>
@@ -151,7 +149,6 @@ export default {
             chartOptions: {},
             chartPlugins: [],
             dates: [],
-
             selectedTime: 'Monthly',
             timeOptions: ['Monthly', 'Weekly', 'Yearly'],
             menuItems: [
@@ -196,7 +193,6 @@ export default {
         this.chartPlugings = this.setChartPlugins();
 
         this.redrawListener = () => {
-            console.log('sss');
             this.chartData = this.setChartData();
             this.chartOptions = this.setChartOptions();
         };
@@ -244,13 +240,11 @@ export default {
             };
         },
         setChartOptions() {
-            const darkMode = document.documentElement.classList.contains('p-dark');
             const documentStyle = getComputedStyle(document.documentElement);
-
-            const backgroundColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-900' : '--p-surface-0');
+            const backgroundColor = documentStyle.getPropertyValue('--p-content-background');
             const textColor = documentStyle.getPropertyValue('--p-text-color');
-            const borderColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-800' : '--p-surface-100');
-            const textMutedColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-500' : '--p-surface-400');
+            const borderColor = documentStyle.getPropertyValue('--p-content-border-color');
+            const textMutedColor = documentStyle.getPropertyValue('--p-text-muted-color');
 
             const getOrCreateTooltip = (chart) => {
                 let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
@@ -391,10 +385,7 @@ export default {
                     x: {
                         stacked: true,
                         ticks: {
-                            color: textMutedColor,
-                            font: {
-                                weight: 'lighter'
-                            }
+                            color: textMutedColor
                         },
                         grid: {
                             color: 'transparent',
@@ -402,19 +393,14 @@ export default {
                         }
                     },
                     y: {
-                        border: {
-                            display: false
-                        },
                         stacked: true,
                         ticks: {
-                            color: textMutedColor,
-                            font: {
-                                weight: 'lighter'
-                            }
+                            color: textMutedColor
                         },
                         grid: {
                             color: borderColor,
-                            borderColor: 'transparent'
+                            borderColor: 'transparent',
+                            drawTicks: false
                         }
                     }
                 }
