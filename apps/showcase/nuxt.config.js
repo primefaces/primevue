@@ -6,13 +6,10 @@ const baseUrl = '/';
 export default defineNuxtConfig({
     typescript: false,
     modules: ['nuxt-gtag', '@primevue/nuxt-module'],
-    components: [
-        '~/components',
-        {
-            path: '~/components/layout',
-            prefetch: false
-        }
-    ],
+    components: {
+        path: '~/components',
+        pathPrefix: false
+    },
     vite: {
         resolve: {
             optimizeDeps: {
