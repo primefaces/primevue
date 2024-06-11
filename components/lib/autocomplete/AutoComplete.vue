@@ -431,7 +431,7 @@ export default {
                     }
                 }
 
-                if (!valid) {
+                if (!valid && this.$refs.focusInput) {
                     this.$refs.focusInput.value = '';
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
