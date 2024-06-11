@@ -1,142 +1,116 @@
-import { Plugin } from 'vue';
-import { AccordionPassThroughOptions } from '../../../primevue/src/accordion/Accordion';
-import { AccordionContentPassThroughOptions } from '../../../primevue/src/accordioncontent/AccordionContent';
-import { AccordionHeaderPassThroughOptions } from '../../../primevue/src/accordionheader/AccordionHeader';
-import { AccordionPanelPassThroughOptions } from '../../../primevue/src/accordionpanel/AccordionPanel';
-import { AccordionTabPassThroughOptions } from '../../../primevue/src/accordiontab/AccordionTab';
-import { AnimateOnScrollDirectivePassThroughOptions } from '../../../primevue/src/animateonscroll/AnimateOnScroll';
-import { AutoCompletePassThroughOptions } from '../../../primevue/src/autocomplete/AutoComplete';
-import { AvatarPassThroughOptions } from '../../../primevue/src/avatar/Avatar';
-import { AvatarGroupPassThroughOptions } from '../../../primevue/src/avatargroup/AvatarGroup';
-import { BadgePassThroughOptions } from '../../../primevue/src/badge/Badge';
-import { BadgeDirectivePassThroughOptions } from '../../../primevue/src/badgedirective/BadgeDirective';
-import { BlockUIPassThroughOptions } from '../../../primevue/src/blockui/BlockUI';
-import { BreadcrumbPassThroughOptions } from '../../../primevue/src/breadcrumb/Breadcrumb';
-import { ButtonPassThroughOptions } from '../../../primevue/src/button/Button';
-import { CalendarPassThroughOptions } from '../../../primevue/src/calendar/Calendar';
-import { CardPassThroughOptions } from '../../../primevue/src/card/Card';
-import { CarouselPassThroughOptions } from '../../../primevue/src/carousel/Carousel';
-import { CascadeSelectPassThroughOptions } from '../../../primevue/src/cascadeselect/CascadeSelect';
-import { ChartPassThroughOptions } from '../../../primevue/src/chart/Chart';
-import { CheckboxPassThroughOptions } from '../../../primevue/src/checkbox/Checkbox';
-import { ChipPassThroughOptions } from '../../../primevue/src/chip/Chip';
-import { ChipsPassThroughOptions } from '../../../primevue/src/chips/Chips';
-import { ColorPickerPassThroughOptions } from '../../../primevue/src/colorpicker/ColorPicker';
-import { ColumnPassThroughOptions } from '../../../primevue/src/column/Column';
-import { ColumnGroupPassThroughOptions } from '../../../primevue/src/columngroup/ColumnGroup';
-import { ConfirmDialogPassThroughOptions } from '../../../primevue/src/confirmdialog/ConfirmDialog';
-import { ConfirmPopupPassThroughOptions } from '../../../primevue/src/confirmpopup/ConfirmPopup';
-import { ContextMenuPassThroughOptions } from '../../../primevue/src/contextmenu/ContextMenu';
-import { DataTablePassThroughOptions } from '../../../primevue/src/datatable/DataTable';
-import { DataViewPassThroughOptions } from '../../../primevue/src/dataview/DataView';
-import { DatePickerPassThroughOptions } from '../../../primevue/src/datepicker/DatePicker';
-import { DeferredContentPassThroughOptions } from '../../../primevue/src/deferredcontent/DeferredContent';
-import { DialogPassThroughOptions } from '../../../primevue/src/dialog/Dialog';
-import { DividerPassThroughOptions } from '../../../primevue/src/divider/Divider';
-import { DockPassThroughOptions } from '../../../primevue/src/dock/Dock';
-import { DrawerPassThroughOptions } from '../../../primevue/src/drawer/Drawer';
-import { DropdownPassThroughOptions } from '../../../primevue/src/dropdown/Dropdown';
-import { EditorPassThroughOptions } from '../../../primevue/src/editor/Editor';
-import { FieldsetPassThroughOptions } from '../../../primevue/src/fieldset/Fieldset';
-import { FileUploadPassThroughOptions } from '../../../primevue/src/fileupload/FileUpload';
-import { FocusTrapDirectivePassThroughOptions } from '../../../primevue/src/focustrap/FocusTrap';
-import { GalleriaPassThroughOptions } from '../../../primevue/src/galleria/Galleria';
-import { ImagePassThroughOptions } from '../../../primevue/src/image/Image';
-import { InlineMessagePassThroughOptions } from '../../../primevue/src/inlinemessage/InlineMessage';
-import { InplacePassThroughOptions } from '../../../primevue/src/inplace/Inplace';
-import { InputChipsPassThroughOptions } from '../../../primevue/src/inputchips/InputChips';
-import { InputMaskPassThroughOptions } from '../../../primevue/src/inputmask/InputMask';
-import { InputNumberPassThroughOptions } from '../../../primevue/src/inputnumber/InputNumber';
-import { InputSwitchPassThroughOptions } from '../../../primevue/src/inputswitch/InputSwitch';
-import { InputTextPassThroughOptions } from '../../../primevue/src/inputtext/InputText';
-import { KnobPassThroughOptions } from '../../../primevue/src/knob/Knob';
-import { ListboxPassThroughOptions } from '../../../primevue/src/listbox/Listbox';
-import { MegaMenuPassThroughOptions } from '../../../primevue/src/megamenu/MegaMenu';
-import { MenuPassThroughOptions } from '../../../primevue/src/menu/Menu';
-import { MenubarPassThroughOptions } from '../../../primevue/src/menubar/Menubar';
-import { MessagePassThroughOptions } from '../../../primevue/src/message/Message';
-import { MultiSelectPassThroughOptions } from '../../../primevue/src/multiselect/MultiSelect';
-import { OrderListPassThroughOptions } from '../../../primevue/src/orderlist/OrderList';
-import { OrganizationChartPassThroughOptions } from '../../../primevue/src/organizationchart/OrganizationChart';
-import { OverlayPanelPassThroughOptions } from '../../../primevue/src/overlaypanel/OverlayPanel';
-import { PaginatorPassThroughOptions } from '../../../primevue/src/paginator/Paginator';
-import { PanelPassThroughOptions } from '../../../primevue/src/panel/Panel';
-import { PanelMenuPassThroughOptions } from '../../../primevue/src/panelmenu/PanelMenu';
-import { PassThroughOptions } from '../../../primevue/src/passthrough';
-import { PasswordPassThroughOptions } from '../../../primevue/src/password/Password';
-import { PickListPassThroughOptions } from '../../../primevue/src/picklist/PickList';
-import { PopoverPassThroughOptions } from '../../../primevue/src/popover/Popover';
-import { ProgressBarPassThroughOptions } from '../../../primevue/src/progressbar/ProgressBar';
-import { ProgressSpinnerPassThroughOptions } from '../../../primevue/src/progressspinner/ProgressSpinner';
-import { RadioButtonPassThroughOptions } from '../../../primevue/src/radiobutton/RadioButton';
-import { RatingPassThroughOptions } from '../../../primevue/src/rating/Rating';
-import { RippleDirectivePassThroughOptions } from '../../../primevue/src/ripple/Ripple';
-import { RowPassThroughOptions } from '../../../primevue/src/row/Row';
-import { ScrollPanelPassThroughOptions } from '../../../primevue/src/scrollpanel/ScrollPanel';
-import { ScrollTopPassThroughOptions } from '../../../primevue/src/scrolltop/ScrollTop';
-import { SelectPassThroughOptions } from '../../../primevue/src/select/Select';
-import { SelectButtonPassThroughOptions } from '../../../primevue/src/selectbutton/SelectButton';
-import { SidebarPassThroughOptions } from '../../../primevue/src/sidebar/Sidebar';
-import { SkeletonPassThroughOptions } from '../../../primevue/src/skeleton/Skeleton';
-import { SliderPassThroughOptions } from '../../../primevue/src/slider/Slider';
-import { SpeedDialPassThroughOptions } from '../../../primevue/src/speeddial/SpeedDial';
-import { SplitButtonPassThroughOptions } from '../../../primevue/src/splitbutton/SplitButton';
-import { SplitterPassThroughOptions } from '../../../primevue/src/splitter/Splitter';
-import { SplitterPanelPassThroughOptions } from '../../../primevue/src/splitterpanel/SplitterPanel';
-import { StepsPassThroughOptions } from '../../../primevue/src/steps/Steps';
-import { StyleClassDirectivePassThroughOptions } from '../../../primevue/src/styleclass/StyleClass';
-import { TabPassThroughOptions } from '../../../primevue/src/tab/Tab';
-import { TabListPassThroughOptions } from '../../../primevue/src/tablist/TabList';
-import { TabMenuPassThroughOptions } from '../../../primevue/src/tabmenu/TabMenu';
-import { TabPanelPassThroughOptions } from '../../../primevue/src/tabpanel/TabPanel';
-import { TabPanelsPassThroughOptions } from '../../../primevue/src/tabpanels/TabPanels';
-import { TabsPassThroughOptions } from '../../../primevue/src/tabs/Tabs';
-import { TabViewPassThroughOptions } from '../../../primevue/src/tabview/TabView';
-import { TagPassThroughOptions } from '../../../primevue/src/tag/Tag';
-import { TerminalPassThroughOptions } from '../../../primevue/src/terminal/Terminal';
-import { TextareaPassThroughOptions } from '../../../primevue/src/textarea/Textarea';
-import { TieredMenuPassThroughOptions } from '../../../primevue/src/tieredmenu/TieredMenu';
-import { TimelinePassThroughOptions } from '../../../primevue/src/timeline/Timeline';
-import { ToastPassThroughOptions } from '../../../primevue/src/toast/Toast';
-import { ToggleButtonPassThroughOptions } from '../../../primevue/src/togglebutton/ToggleButton';
-import { ToggleSwitchPassThroughOptions } from '../../../primevue/src/toggleswitch/ToggleSwitch';
-import { ToolbarPassThroughOptions } from '../../../primevue/src/toolbar/Toolbar';
-import { TooltipDirectivePassThroughOptions } from '../../../primevue/src/tooltip/Tooltip';
-import { TreePassThroughOptions } from '../../../primevue/src/tree/Tree';
-import { TreeSelectPassThroughOptions } from '../../../primevue/src/treeselect/TreeSelect';
-import { TreeTablePassThroughOptions } from '../../../primevue/src/treetable/TreeTable';
-import { DefaultPassThrough, PassThrough } from '../../../primevue/src/ts-helpers';
-import { VirtualScrollerPassThroughOptions } from '../../../primevue/src/virtualscroller/VirtualScroller';
+import type { PrimeVueConfiguration as PrimeVueCoreConfiguration } from '@primevue/core/config';
+import type { AccordionPassThroughOptions } from 'primevue/accordion';
+import type { AccordionContentPassThroughOptions } from 'primevue/accordioncontent';
+import type { AccordionHeaderPassThroughOptions } from 'primevue/accordionheader';
+import type { AccordionPanelPassThroughOptions } from 'primevue/accordionpanel';
+import type { AccordionTabPassThroughOptions } from 'primevue/accordiontab';
+import type { AnimateOnScrollDirectivePassThroughOptions } from 'primevue/animateonscroll';
+import type { AutoCompletePassThroughOptions } from 'primevue/autocomplete';
+import type { AvatarPassThroughOptions } from 'primevue/avatar';
+import type { AvatarGroupPassThroughOptions } from 'primevue/avatargroup';
+import type { BadgePassThroughOptions } from 'primevue/badge';
+import type { BadgeDirectivePassThroughOptions } from 'primevue/badgedirective';
+import type { BlockUIPassThroughOptions } from 'primevue/blockui';
+import type { BreadcrumbPassThroughOptions } from 'primevue/breadcrumb';
+import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { CalendarPassThroughOptions } from 'primevue/calendar';
+import type { CardPassThroughOptions } from 'primevue/card';
+import type { CarouselPassThroughOptions } from 'primevue/carousel';
+import type { CascadeSelectPassThroughOptions } from 'primevue/cascadeselect';
+import type { ChartPassThroughOptions } from 'primevue/chart';
+import type { CheckboxPassThroughOptions } from 'primevue/checkbox';
+import type { ChipPassThroughOptions } from 'primevue/chip';
+import type { ChipsPassThroughOptions } from 'primevue/chips';
+import type { ColorPickerPassThroughOptions } from 'primevue/colorpicker';
+import type { ColumnPassThroughOptions } from 'primevue/column';
+import type { ColumnGroupPassThroughOptions } from 'primevue/columngroup';
+import type { ConfirmDialogPassThroughOptions } from 'primevue/confirmdialog';
+import type { ConfirmPopupPassThroughOptions } from 'primevue/confirmpopup';
+import type { ContextMenuPassThroughOptions } from 'primevue/contextmenu';
+import type { DataTablePassThroughOptions } from 'primevue/datatable';
+import type { DataViewPassThroughOptions } from 'primevue/dataview';
+import type { DatePickerPassThroughOptions } from 'primevue/datepicker';
+import type { DeferredContentPassThroughOptions } from 'primevue/deferredcontent';
+import type { DialogPassThroughOptions } from 'primevue/dialog';
+import type { DividerPassThroughOptions } from 'primevue/divider';
+import type { DockPassThroughOptions } from 'primevue/dock';
+import type { DrawerPassThroughOptions } from 'primevue/drawer';
+import type { DropdownPassThroughOptions } from 'primevue/dropdown';
+import type { EditorPassThroughOptions } from 'primevue/editor';
+import type { FieldsetPassThroughOptions } from 'primevue/fieldset';
+import type { FileUploadPassThroughOptions } from 'primevue/fileupload';
+import type { FocusTrapDirectivePassThroughOptions } from 'primevue/focustrap';
+import type { GalleriaPassThroughOptions } from 'primevue/galleria';
+import type { ImagePassThroughOptions } from 'primevue/image';
+import type { InlineMessagePassThroughOptions } from 'primevue/inlinemessage';
+import type { InplacePassThroughOptions } from 'primevue/inplace';
+import type { InputChipsPassThroughOptions } from 'primevue/inputchips';
+import type { InputMaskPassThroughOptions } from 'primevue/inputmask';
+import type { InputNumberPassThroughOptions } from 'primevue/inputnumber';
+import type { InputSwitchPassThroughOptions } from 'primevue/inputswitch';
+import type { InputTextPassThroughOptions } from 'primevue/inputtext';
+import type { KnobPassThroughOptions } from 'primevue/knob';
+import type { ListboxPassThroughOptions } from 'primevue/listbox';
+import type { MegaMenuPassThroughOptions } from 'primevue/megamenu';
+import type { MenuPassThroughOptions } from 'primevue/menu';
+import type { MenubarPassThroughOptions } from 'primevue/menubar';
+import type { MessagePassThroughOptions } from 'primevue/message';
+import type { MultiSelectPassThroughOptions } from 'primevue/multiselect';
+import type { OrderListPassThroughOptions } from 'primevue/orderlist';
+import type { OrganizationChartPassThroughOptions } from 'primevue/organizationchart';
+import type { OverlayPanelPassThroughOptions } from 'primevue/overlaypanel';
+import type { PaginatorPassThroughOptions } from 'primevue/paginator';
+import type { PanelPassThroughOptions } from 'primevue/panel';
+import type { PanelMenuPassThroughOptions } from 'primevue/panelmenu';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { PasswordPassThroughOptions } from 'primevue/password';
+import type { PickListPassThroughOptions } from 'primevue/picklist';
+import type { PopoverPassThroughOptions } from 'primevue/popover';
+import type { ProgressBarPassThroughOptions } from 'primevue/progressbar';
+import type { ProgressSpinnerPassThroughOptions } from 'primevue/progressspinner';
+import type { RadioButtonPassThroughOptions } from 'primevue/radiobutton';
+import type { RatingPassThroughOptions } from 'primevue/rating';
+import type { RippleDirectivePassThroughOptions } from 'primevue/ripple';
+import type { RowPassThroughOptions } from 'primevue/row';
+import type { ScrollPanelPassThroughOptions } from 'primevue/scrollpanel';
+import type { ScrollTopPassThroughOptions } from 'primevue/scrolltop';
+import type { SelectPassThroughOptions } from 'primevue/select';
+import type { SelectButtonPassThroughOptions } from 'primevue/selectbutton';
+import type { SidebarPassThroughOptions } from 'primevue/sidebar';
+import type { SkeletonPassThroughOptions } from 'primevue/skeleton';
+import type { SliderPassThroughOptions } from 'primevue/slider';
+import type { SpeedDialPassThroughOptions } from 'primevue/speeddial';
+import type { SplitButtonPassThroughOptions } from 'primevue/splitbutton';
+import type { SplitterPassThroughOptions } from 'primevue/splitter';
+import type { SplitterPanelPassThroughOptions } from 'primevue/splitterpanel';
+import type { StepsPassThroughOptions } from 'primevue/steps';
+import type { StyleClassDirectivePassThroughOptions } from 'primevue/styleclass';
+import type { TabPassThroughOptions } from 'primevue/tab';
+import type { TabListPassThroughOptions } from 'primevue/tablist';
+import type { TabMenuPassThroughOptions } from 'primevue/tabmenu';
+import type { TabPanelPassThroughOptions } from 'primevue/tabpanel';
+import type { TabPanelsPassThroughOptions } from 'primevue/tabpanels';
+import type { TabsPassThroughOptions } from 'primevue/tabs';
+import type { TabViewPassThroughOptions } from 'primevue/tabview';
+import type { TagPassThroughOptions } from 'primevue/tag';
+import type { TerminalPassThroughOptions } from 'primevue/terminal';
+import type { TextareaPassThroughOptions } from 'primevue/textarea';
+import type { TieredMenuPassThroughOptions } from 'primevue/tieredmenu';
+import type { TimelinePassThroughOptions } from 'primevue/timeline';
+import type { ToastPassThroughOptions } from 'primevue/toast';
+import type { ToggleButtonPassThroughOptions } from 'primevue/togglebutton';
+import type { ToggleSwitchPassThroughOptions } from 'primevue/toggleswitch';
+import type { ToolbarPassThroughOptions } from 'primevue/toolbar';
+import type { TooltipDirectivePassThroughOptions } from 'primevue/tooltip';
+import type { TreePassThroughOptions } from 'primevue/tree';
+import type { TreeSelectPassThroughOptions } from 'primevue/treeselect';
+import type { TreeTablePassThroughOptions } from 'primevue/treetable';
+import type { DefaultPassThrough, PassThrough } from 'primevue/ts-helpers';
+import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller';
 
-export interface PrimeVueConfiguration {
-    ripple?: boolean;
-    /**
-     * @deprecated since v4.0. Use 'inputVariant' instead.
-     */
-    inputStyle?: 'filled' | 'outlined' | undefined;
-    inputVariant?: 'filled' | 'outlined' | undefined;
-    locale?: PrimeVueLocaleOptions;
-    filterMatchModeOptions?: any;
-    zIndex?: PrimeVueZIndexOptions;
-    theme?: any;
-    unstyled?: boolean;
-    pt?: PassThrough<PrimeVuePTOptions>;
-    ptOptions?: PassThroughOptions;
-    csp?: PrimeVueCSPOptions;
-}
+export * from '@primevue/core/config';
 
-export declare const defaultOptions: PrimeVueConfiguration;
-
-export interface PrimeVueZIndexOptions {
-    modal?: number;
-    overlay?: number;
-    menu?: number;
-    tooltip?: number;
-}
-
-export interface PrimeVueCSPOptions {
-    nonce?: string;
-}
+export interface PrimeVueConfiguration extends PrimeVueCoreConfiguration<PassThrough<PrimeVuePTOptions>, PassThroughOptions> {}
 
 export interface PrimeVuePTOptions {
     accordion?: DefaultPassThrough<AccordionPassThroughOptions>;
@@ -275,151 +249,4 @@ export interface PrimeVuePTOptions {
     global?: {
         css?: ((options: any) => string | undefined) | string | undefined;
     };
-}
-
-export interface PrimeVueLocaleAriaOptions {
-    trueLabel?: string;
-    falseLabel?: string;
-    nullLabel?: string;
-    star?: string;
-    stars?: string;
-    selectAll?: string;
-    unselectAll?: string;
-    close?: string;
-    previous?: string;
-    next?: string;
-    navigation?: string;
-    scrollTop?: string;
-    moveUp?: string;
-    moveTop?: string;
-    moveDown?: string;
-    moveBottom?: string;
-    moveToTarget?: string;
-    moveToSource?: string;
-    moveAllToTarget?: string;
-    moveAllToSource?: string;
-    pageLabel?: string;
-    firstPageLabel?: string;
-    lastPageLabel?: string;
-    nextPageLabel?: string;
-    prevPageLabel?: string;
-    rowsPerPageLabel?: string;
-    jumpToPageDropdownLabel?: string;
-    jumpToPageInputLabel?: string;
-    selectRow?: string;
-    unselectRow?: string;
-    expandRow?: string;
-    collapseRow?: string;
-    showFilterMenu?: string;
-    hideFilterMenu?: string;
-    filterOperator?: string;
-    filterConstraint?: string;
-    editRow?: string;
-    saveEdit?: string;
-    cancelEdit?: string;
-    listView?: string;
-    gridView?: string;
-    slide?: string;
-    slideNumber?: string;
-    zoomImage?: string;
-    zoomIn?: string;
-    zoomOut?: string;
-    rotateRight?: string;
-    rotateLeft?: string;
-    listLabel?: string;
-}
-
-export interface PrimeVueLocaleOptions {
-    startsWith?: string;
-    contains?: string;
-    notContains?: string;
-    endsWith?: string;
-    equals?: string;
-    notEquals?: string;
-    noFilter?: string;
-    lt?: string;
-    lte?: string;
-    gt?: string;
-    gte?: string;
-    dateIs?: string;
-    dateIsNot?: string;
-    dateBefore?: string;
-    dateAfter?: string;
-    clear?: string;
-    apply?: string;
-    matchAll?: string;
-    matchAny?: string;
-    addRule?: string;
-    removeRule?: string;
-    accept?: string;
-    reject?: string;
-    choose?: string;
-    upload?: string;
-    cancel?: string;
-    completed?: string;
-    pending?: string;
-    fileSizeTypes: string[];
-    dayNames: string[];
-    dayNamesShort: string[];
-    dayNamesMin: string[];
-    monthNames: string[];
-    monthNamesShort: string[];
-    chooseYear?: string;
-    chooseMonth?: string;
-    chooseDate?: string;
-    prevDecade?: string;
-    nextDecade?: string;
-    prevYear?: string;
-    nextYear?: string;
-    prevMonth?: string;
-    nextMonth?: string;
-    prevHour?: string;
-    nextHour?: string;
-    prevMinute?: string;
-    nextMinute?: string;
-    prevSecond?: string;
-    nextSecond?: string;
-    am?: string;
-    pm?: string;
-    today?: string;
-    weekHeader?: string;
-    firstDayOfWeek?: number;
-    showMonthAfterYear?: boolean;
-    dateFormat?: string;
-    weak?: string;
-    medium?: string;
-    strong?: string;
-    passwordPrompt?: string;
-    emptyFilterMessage?: string;
-    searchMessage?: string;
-    selectionMessage?: string;
-    emptySelectionMessage?: string;
-    emptySearchMessage?: string;
-    emptyMessage?: string;
-    fileChosenMessage?: string;
-    noFileChosenMessage?: string;
-    aria?: PrimeVueLocaleAriaOptions;
-}
-
-export declare function usePrimeVue(): {
-    config: PrimeVueConfiguration;
-};
-
-declare const plugin: Plugin;
-export default plugin;
-
-declare module 'vue/types/vue' {
-    interface Vue {
-        $primevue: {
-            config: PrimeVueConfiguration;
-        };
-    }
-}
-
-declare module '@vue/runtime-core' {
-    interface ComponentCustomProperties {
-        $primevue: {
-            config: PrimeVueConfiguration;
-        };
-    }
 }
