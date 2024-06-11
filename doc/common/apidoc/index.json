@@ -8869,6 +8869,14 @@
                             "description": "Used to pass all properties of the HTMLDivElement to the overlay panel inside the component."
                         },
                         {
+                            "name": "name",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Name of the element."
+                        },
+                        {
                             "name": "ariaLabelledby",
                             "optional": true,
                             "readonly": false,
