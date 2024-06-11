@@ -100,7 +100,7 @@
         closeIcon="pi pi-sign-out"
         :pt="{
             root: {
-                class: '!max-w-2xl !w-full !h-[100vh] rounded-l-2xl'
+                class: '!max-w-2xl !w-full !h-screen rounded-l-2xl'
             },
             footer: {
                 class: 'hidden'
@@ -111,7 +111,7 @@
         }"
     >
         <template #container="">
-            <div class="flex flex-col h-[100vh] overflow-auto">
+            <div class="flex flex-col h-screen overflow-auto">
                 <div class="">
                     <div class="flex align-items-center gap-3 p-6">
                         <Avatar image="https://www.primefaces.org/cdn/primevue/images/landing/apps/avatar11.jpg" size="large" class="rounded-xl overflow-hidden" />
@@ -581,7 +581,8 @@ export default {
         },
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);
-            const darkMode = document.documentElement.classList.contains('p-dark');
+            const borderColor = documentStyle.getPropertyValue('--p-content-border-color');
+            const hoverBackgroundColor = documentStyle.getPropertyValue('--p-primary-color');
 
             return {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -589,7 +590,7 @@ export default {
                     {
                         type: 'bar',
                         label: 'Investment Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue(darkMode ? '--p-surface-700' : '--p-surface-200') + ' 100%, transparent)',
+                        backgroundColor: 'color-mix(in srgb, ' + borderColor + ' 100%, transparent)',
                         data: [100, 201, 404, 300, 140, 220, 314, 520, 145, 234, 325, 147],
                         borderRadius: {
                             topLeft: 4,
@@ -597,20 +598,18 @@ export default {
                         },
                         borderSkipped: true,
                         barThickness: 20,
-                        hoverBackgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue(darkMode ? '--p-surface-0' : '--p-surface-800') + ' 100%, transparent)',
+                        hoverBackgroundColor: 'color-mix(in srgb, ' + hoverBackgroundColor + ' 100%, transparent)',
                         hoverTransition: '1s ease all'
                     }
                 ]
             };
         },
         setChartOptions() {
-            const darkMode = document.documentElement.classList.contains('p-dark');
             const documentStyle = getComputedStyle(document.documentElement);
-
-            const backgroundColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-900' : '--p-surface-0');
+            const backgroundColor = documentStyle.getPropertyValue('--p-content-background');
             const textColor = documentStyle.getPropertyValue('--p-text-color');
-            const borderColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-800' : '--p-surface-100');
-            const textMutedColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-500' : '--p-surface-400');
+            const borderColor = documentStyle.getPropertyValue('--p-content-border-color');
+            const textMutedColor = documentStyle.getPropertyValue('--p-text-muted-color');
 
             const getOrCreateTooltip = (chart) => {
                 let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
@@ -703,10 +702,7 @@ export default {
                     x: {
                         stacked: true,
                         ticks: {
-                            color: textMutedColor,
-                            font: {
-                                weight: 'lighter'
-                            }
+                            color: textMutedColor
                         },
                         grid: {
                             color: 'transparent',
@@ -719,10 +715,7 @@ export default {
                         },
                         stacked: true,
                         ticks: {
-                            color: textMutedColor,
-                            font: {
-                                weight: 'lighter'
-                            }
+                            color: textMutedColor
                         },
                         grid: {
                             color: borderColor,
@@ -733,7 +726,7 @@ export default {
             };
         },
         setLineChartData() {
-            const darkMode = document.documentElement.classList.contains('p-dark');
+            const darkMode = this.$appState.darkTheme;
 
             return {
                 labels: ['31', '1', '2', '3', '4', '5', '6', '7', '8'],
@@ -806,13 +799,13 @@ export default {
             };
         },
         setLineChartOptions() {
-            const darkMode = document.documentElement.classList.contains('p-dark');
+            const darkMode = this.$appState.darkTheme;
             const documentStyle = getComputedStyle(document.documentElement);
 
-            const backgroundColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-900' : '--p-surface-0');
+            const backgroundColor = documentStyle.getPropertyValue('--p-content-background');
             const textColor = documentStyle.getPropertyValue('--p-text-color');
-            const borderColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-800' : '--p-surface-100');
-            const textMutedColor = documentStyle.getPropertyValue(darkMode ? '--p-surface-500' : '--p-surface-400');
+            const borderColor = documentStyle.getPropertyValue('--p-content-border-color');
+            const textMutedColor = documentStyle.getPropertyValue('--p-text-muted-color');
 
             const getOrCreateTooltip = (chart) => {
                 let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
@@ -905,10 +898,7 @@ export default {
                     x: {
                         stacked: true,
                         ticks: {
-                            color: textMutedColor,
-                            font: {
-                                weight: 'lighter'
-                            }
+                            color: textMutedColor
                         },
                         grid: {
                             color: 'transparent',
