@@ -13,7 +13,12 @@
         "resolveJsonModule": true,
         "isolatedModules": false,
         "jsx": "preserve",
-        "incremental": true
+        "incremental": true,
+        "baseUrl": ".",
+        "paths": {
+            "@primevue/core/*": ["./src/*"],
+            "primevue/*": ["../../packages/primevue/src/*"]
+        }
     },
     "include": ["**/*.ts", "src/*"],
     "exclude": ["node_modules", "dist"]

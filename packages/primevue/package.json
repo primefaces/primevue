@@ -312,8 +312,6 @@
         "./usestyle/style": "./src/usestyle/style/UseStyleStyle.js",
         "./usetoast": "./src/usetoast/UseToast.js",
         "./usetoast/style": "./src/usetoast/style/UseToastStyle.js",
-        "./utils": "./src/utils/Utils.js",
-        "./utils/style": "./src/utils/style/UtilsStyle.js",
         "./virtualscroller": "./src/virtualscroller/VirtualScroller.vue",
         "./virtualscroller/style": "./src/virtualscroller/style/VirtualScrollerStyle.js",
         "./*": "./*"
