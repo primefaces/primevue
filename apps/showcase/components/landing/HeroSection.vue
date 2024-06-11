@@ -90,7 +90,7 @@
                                 }
                             ]"
                         >
-                            <a @click="toggleSlimMenu" class="cursor-pointer block p-0 m-0 leading-none">
+                            <a v-if="false" @click="toggleSlimMenu" class="cursor-pointer block p-0 m-0 leading-none">
                                 <i :class="isSlimMenu ? 'pi pi-window-maximize' : 'pi pi-window-minimize'"></i>
                                 <span :class="isSlimMenu ? 'hidden' : 'font-medium leading-8'">・</span>
                                 <span :class="isSlimMenu ? 'hidden' : 'font-medium leading-none'"> Slim Mode</span>
@@ -151,7 +151,7 @@ export default {
                 { icon: 'pi pi-cog', title: 'Settings' }
             ],
             selectedSampleAppsSidebarNav: 'Overview',
-            isSlimMenu: false,
+            isSlimMenu: true,
             isSlimMenuSelected: false,
             sampleOptions: [
                 { icon: 'pi pi-home', title: 'Overview', src: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/sampleshots/overview' },
@@ -163,14 +163,14 @@ export default {
             ],
             selectedSampleOption: { icon: 'pi pi-home', title: 'Overview', src: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/sampleshots/overview' }
         };
-    },
+    } /*,
     beforeUnmount() {
         window.removeEventListener('resize', this.handleResize);
     },
     mounted() {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
-    },
+    },*/,
     methods: {
         setSelectedSampleAppsSidebarNav(title) {
             this.selectedSampleAppsSidebarNav = title;
@@ -184,10 +184,6 @@ export default {
             }
         },
         toggleSlimMenu() {
-            this.isSlimMenu = !this.isSlimMenu;
-            this.isSlimMenuSelected = this.isSlimMenu;
-        },
-        changeMenu() {
             this.isSlimMenu = !this.isSlimMenu;
             this.isSlimMenuSelected = this.isSlimMenu;
         }
