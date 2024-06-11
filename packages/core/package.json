@@ -26,7 +26,9 @@
         "./usestyle": "./src/usestyle/UseStyle.js",
         "./utils": "./src/utils/Utils.js"
     },
+    "types": "./src/index.d.ts",
     "publishConfig": {
+        "types": "./index.d.ts",
         "exports": {
             "./*": {
                 "types": "./*/index.d.ts",
