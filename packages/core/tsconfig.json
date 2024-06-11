@@ -17,7 +17,7 @@
         "baseUrl": ".",
         "paths": {
             "@primevue/core/*": ["./src/*"],
-            "primevue/*": ["../../packages/primevue/src/*"]
+            "primevue/themes/*": ["../../packages/themes/src/*"]
         }
     },
     "include": ["**/*.ts", "src/*"],
