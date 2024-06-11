@@ -7,11 +7,11 @@
  * @module tabmenu
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { MenuItem } from 'primevue/menuitem';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { MenuItem } from '../menuitem';
-import { PassThroughOptions } from '../passthrough';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | string) | string | null | undefined;
 

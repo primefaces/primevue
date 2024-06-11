@@ -7,10 +7,10 @@
  * @module inputgroup
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { PassThroughOptions } from '../passthrough';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type InputGroupPassThroughOptionType = InputGroupPassThroughAttributes | ((options: InputGroupPassThroughMethodOptions) => InputGroupPassThroughAttributes | string) | string | null | undefined;
 

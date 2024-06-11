@@ -4,8 +4,8 @@
  *
  * @module dialogservice-usedialog
  */
+import type { DynamicDialogInstance, DynamicDialogOptions } from 'primevue/dynamicdialogoptions';
 import { Plugin } from 'vue';
-import { DynamicDialogInstance, DynamicDialogOptions } from '../dynamicdialogoptions';
 
 declare const plugin: Plugin;
 export default plugin;

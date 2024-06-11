@@ -6,8 +6,8 @@
  *
  * @module animateonscroll
  */
+import type { DirectiveHooks } from '@primevue/core/basedirective';
 import { DirectiveBinding, ObjectDirective } from 'vue';
-import { DirectiveHooks } from '../basedirective/BaseDirective';
 
 /**
  * Defines options of AnimateOnScroll.

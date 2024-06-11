@@ -8,17 +8,17 @@
  * @module column
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { BadgePassThroughOptions } from 'primevue/badge';
+import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { CheckboxPassThroughOptionType } from 'primevue/checkbox';
+import type { DataTablePassThroughOptions } from 'primevue/datatable';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { RadioButtonPassThroughOptionType } from 'primevue/radiobutton';
+import type { SelectPassThroughOptionType } from 'primevue/select';
+import type { VirtualScrollerLoaderOptions } from 'primevue/virtualscroller';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { BadgePassThroughOptions } from '../badge';
-import { ButtonPassThroughOptions } from '../button';
-import { CheckboxPassThroughOptionType } from '../checkbox';
-import { DataTablePassThroughOptions } from '../datatable';
-import { PassThroughOptions } from '../passthrough';
-import { RadioButtonPassThroughOptionType } from '../radiobutton';
-import { SelectPassThroughOptionType } from '../select';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
-import { VirtualScrollerLoaderOptions } from '../virtualscroller';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
 

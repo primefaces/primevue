@@ -7,14 +7,14 @@
  * @module fileupload
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { BadgePassThroughOptions } from 'primevue/badge';
+import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { MessagePassThroughOptions } from 'primevue/message';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ProgressBarPassThroughOptions } from 'primevue/progressbar';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { BadgePassThroughOptions } from '../badge';
-import { ButtonPassThroughOptions } from '../button';
-import { MessagePassThroughOptions } from '../message';
-import { PassThroughOptions } from '../passthrough';
-import { ProgressBarPassThroughOptions } from '../progressbar';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type FileUploadPassThroughOptionType = FileUploadPassThroughAttributes | ((options: FileUploadPassThroughMethodOptions) => FileUploadPassThroughAttributes | string) | string | null | undefined;
 

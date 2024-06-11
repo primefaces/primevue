@@ -7,9 +7,9 @@
  * @module chips
  *
  */
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as InputChips from 'primevue/inputchips';
 import 'vue';
-import * as InputChips from '../inputchips';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.

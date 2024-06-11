@@ -7,7 +7,7 @@
  * @module inputswitchstyle
  *
  */
-import { ToggleSwitchStyle } from '../../toggleswitch/style/ToggleSwitchStyle';
+import type { ToggleSwitchStyle } from 'primevue/toggleswitch/style';
 
 export enum InputSwitchClasses {}
 

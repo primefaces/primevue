@@ -1,5 +1,5 @@
+import type { DefineComponent, EmitFn, GlobalComponentConstructor, HintedString } from '@primevue/core';
 import { VNode } from 'vue';
-import { DefineComponent, EmitFn, GlobalComponentConstructor, HintedString } from '../ts-helpers';
 
 type PortalAppendToType = HintedString<'body' | 'self'> | undefined | HTMLElement;
 

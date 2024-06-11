@@ -7,9 +7,9 @@
  * @module dropdown
  *
  */
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as Select from 'primevue/select';
 import 'vue';
-import * as Select from '../select';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.

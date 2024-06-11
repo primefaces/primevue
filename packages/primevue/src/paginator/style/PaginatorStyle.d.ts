@@ -7,7 +7,7 @@
  * @module paginatorstyle
  *
  */
-import { BaseStyle } from '../../base/style';
+import type { BaseStyle } from '@primevue/core/base/style';
 
 export enum PaginatorClasses {
     /**

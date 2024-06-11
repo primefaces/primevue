@@ -7,11 +7,11 @@
  * @module dialog
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { HTMLAttributes, TransitionProps, VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ButtonPassThroughOptions, ButtonProps } from '../button';
-import { PassThroughOptions } from '../passthrough';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type DialogPassThroughOptionType<T = any> = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions<T>) => DialogPassThroughAttributes | string) | string | null | undefined;
 

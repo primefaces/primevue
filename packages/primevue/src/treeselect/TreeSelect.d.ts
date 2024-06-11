@@ -7,13 +7,13 @@
  * @module treeselect
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ChipPassThroughOptions } from 'primevue/chip';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { TreeExpandedKeys, TreePassThroughOptions } from 'primevue/tree';
+import type { TreeNode } from 'primevue/treenode';
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ChipPassThroughOptions } from '../chip';
-import { PassThroughOptions } from '../passthrough';
-import { TreeExpandedKeys, TreePassThroughOptions } from '../tree';
-import { TreeNode } from '../treenode';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 

@@ -7,12 +7,12 @@
  * @module picklist
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { ListboxPassThroughOptions } from 'primevue/listbox';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ButtonPassThroughOptions } from '../button';
-import { ListboxPassThroughOptions } from '../listbox';
-import { PassThroughOptions } from '../passthrough';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
 

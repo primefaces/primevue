@@ -7,7 +7,7 @@
  * @module calendarstyle
  *
  */
-import { DatePickerStyle } from '../../datepicker/style/DatePickerStyle';
+import type { DatePickerStyle } from 'primevue/datepicker/style';
 
 export enum CalendarClasses {}
 

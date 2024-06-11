@@ -7,7 +7,7 @@
  * @module accordionheaderstyle
  *
  */
-import { BaseStyle } from '../../base/style/BaseStyle';
+import type { BaseStyle } from '@primevue/core/base/style';
 
 export enum AccordionHeaderClasses {
     /**

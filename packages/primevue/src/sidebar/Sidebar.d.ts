@@ -7,9 +7,9 @@
  * @module sidebar
  *
  */
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as Drawer from 'primevue/drawer';
 import 'vue';
-import * as Drawer from '../drawer';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.

@@ -7,13 +7,13 @@
  * @module treetable
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ColumnPassThroughOptionType } from 'primevue/column';
+import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { TreeNode } from 'primevue/treenode';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ColumnPassThroughOptionType } from '../column';
-import { PaginatorPassThroughOptionType } from '../paginator';
-import { PassThroughOptions } from '../passthrough';
-import { TreeNode } from '../treenode';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreeTablePassThroughOptionType = TreeTablePassThroughAttributes | ((options: TreeTablePassThroughMethodOptions) => TreeTablePassThroughAttributes | string) | string | null | undefined;
 

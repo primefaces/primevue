@@ -7,11 +7,11 @@
  * @module selectbutton
  *
  */
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { PassThroughOptions } from '../passthrough';
-// import { ToggleButtonPassThroughOptions } from '../togglebutton';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+// import { ToggleButtonPassThroughOptions } from 'primevue/togglebutton';
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 

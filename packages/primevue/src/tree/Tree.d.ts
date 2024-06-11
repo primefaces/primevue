@@ -7,14 +7,14 @@
  * @module tree
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
+import type { InputIconPassThroughOptions } from 'primevue/inputicon';
+import type { InputTextPassThroughOptions } from 'primevue/inputtext';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { TreeNode } from 'primevue/treenode';
 import { VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { IconFieldPassThroughOptions } from '../iconfield';
-import { InputIconPassThroughOptions } from '../inputicon';
-import { InputTextPassThroughOptions } from '../inputtext';
-import { PassThroughOptions } from '../passthrough';
-import { TreeNode } from '../treenode';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 

@@ -5,7 +5,7 @@
  * @module confirmationoptions
  *
  */
-import { ButtonProps } from '../button';
+import type { ButtonProps } from 'primevue/button';
 
 /**
  * Confirmation Service options.

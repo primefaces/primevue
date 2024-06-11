@@ -7,9 +7,9 @@
  * @module calendar
  *
  */
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as DatePicker from 'primevue/datepicker';
 import 'vue';
-import * as DatePicker from '../datepicker';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.

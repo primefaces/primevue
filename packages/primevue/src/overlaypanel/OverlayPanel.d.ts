@@ -7,9 +7,9 @@
  * @module overlaypanel
  *
  */
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as Popover from 'primevue/popover';
 import 'vue';
-import * as Popover from '../popover';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
 
 /**
  * Custom passthrough(pt) option method.

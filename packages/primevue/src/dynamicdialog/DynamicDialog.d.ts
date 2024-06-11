@@ -7,7 +7,7 @@
  * @module dynamicdialog
  *
  */
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
 
 /**
  * Defines valid properties in DynamicDialog component.

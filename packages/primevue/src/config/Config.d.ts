@@ -1,3 +1,4 @@
+import type { DefaultPassThrough, PassThrough } from '@primevue/core';
 import type { PrimeVueConfiguration as PrimeVueCoreConfiguration } from '@primevue/core/config';
 import type { AccordionPassThroughOptions } from 'primevue/accordion';
 import type { AccordionContentPassThroughOptions } from 'primevue/accordioncontent';
@@ -105,7 +106,6 @@ import type { TooltipDirectivePassThroughOptions } from 'primevue/tooltip';
 import type { TreePassThroughOptions } from 'primevue/tree';
 import type { TreeSelectPassThroughOptions } from 'primevue/treeselect';
 import type { TreeTablePassThroughOptions } from 'primevue/treetable';
-import type { DefaultPassThrough, PassThrough } from 'primevue/ts-helpers';
 import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller';
 
 export * from '@primevue/core/config';

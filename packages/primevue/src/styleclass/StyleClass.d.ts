@@ -7,10 +7,10 @@
  * @module styleclass
  *
  */
+import type { DesignToken, HintedString, PassThrough } from '@primevue/core';
+import type { DirectiveHooks } from '@primevue/core/basedirective';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { DirectiveBinding, ObjectDirective } from 'vue';
-import { DirectiveHooks } from '../basedirective';
-import { PassThroughOptions } from '../passthrough';
-import { DesignToken, HintedString, PassThrough } from '../ts-helpers';
 
 /**
  * Defines options of StyleClass.

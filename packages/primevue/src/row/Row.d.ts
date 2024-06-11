@@ -7,8 +7,8 @@
  * @module row
  *
  */
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { DefineComponent, EmitFn, GlobalComponentConstructor, PassThrough } from '../ts-helpers';
+import type { DefineComponent, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
 
 export declare type RowPassThroughOptionType<T = any> = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions<T>) => RowPassThroughAttributes | string) | string | null | undefined;
 

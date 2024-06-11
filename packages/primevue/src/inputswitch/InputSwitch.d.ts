@@ -7,8 +7,8 @@
  * @module inputswitch
  *
  */
-import * as ToggleSwitch from '../toggleswitch';
-import { DefineComponent, EmitFn, GlobalComponentConstructor } from '../ts-helpers';
+import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import * as ToggleSwitch from 'primevue/toggleswitch';
 /**
  * Custom passthrough(pt) option method.
  */

@@ -7,13 +7,13 @@
  * @module splitbutton
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { MenuItem } from 'primevue/menuitem';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from 'primevue/tieredmenu';
 import { ButtonHTMLAttributes, VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ButtonPassThroughOptions } from '../button';
-import { MenuItem } from '../menuitem';
-import { PassThroughOptions } from '../passthrough';
-import { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from '../tieredmenu';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 

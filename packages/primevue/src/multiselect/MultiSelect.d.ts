@@ -7,15 +7,15 @@
  * @module multiselect
  *
  */
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
+import type { ChipPassThroughOptions } from 'primevue/chip';
+import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
+import type { InputIconPassThroughOptions } from 'primevue/inputicon';
+import type { InputTextPassThroughOptions } from 'primevue/inputtext';
+import type { PassThroughOptions } from 'primevue/passthrough';
+import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
 import { TransitionProps, VNode } from 'vue';
-import { ComponentHooks } from '../../../core/src/basecomponent';
-import { ChipPassThroughOptions } from '../chip';
-import { IconFieldPassThroughOptions } from '../iconfield';
-import { InputIconPassThroughOptions } from '../inputicon';
-import { InputTextPassThroughOptions } from '../inputtext';
-import { PassThroughOptions } from '../passthrough';
-import { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '../ts-helpers';
-import { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from '../virtualscroller';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
 

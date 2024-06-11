@@ -7,10 +7,10 @@
  * @module ripple
  *
  */
+import type { DesignToken, PassThrough } from '@primevue/core';
+import type { DirectiveHooks } from '@primevue/core/basedirective';
+import type { PassThroughOptions } from 'primevue/passthrough';
 import { DirectiveBinding, ObjectDirective } from 'vue';
-import { DirectiveHooks } from '../basedirective';
-import { PassThroughOptions } from '../passthrough';
-import { DesignToken, PassThrough } from '../ts-helpers';
 
 export declare type RippleDirectivePassThroughOptionType = RippleDirectivePassThroughAttributes | null | undefined;
 
