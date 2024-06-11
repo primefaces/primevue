@@ -228,6 +228,10 @@ export default {
             type: null,
             default: null
         },
+        name: {
+            type: String,
+            default: null
+        },
         ariaLabelledby: {
             type: String,
             default: null

@@ -773,6 +773,10 @@ export interface CalendarProps {
      */
     panelProps?: HTMLAttributes | undefined;
     /**
+     * Name of the element.
+     */
+    name?: string | undefined;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;

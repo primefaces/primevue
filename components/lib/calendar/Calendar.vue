@@ -4,6 +4,7 @@
             v-if="!inline"
             :ref="inputRef"
             :id="inputId"
+            :name="name"
             type="text"
             role="combobox"
             :class="[cx('input'), inputClass]"
