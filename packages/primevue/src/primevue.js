@@ -775,7 +775,7 @@ export * from './usestyle/UseStyle.js';
 export * from './usetoast/UseToast.js';
 
 // Utils
-export * from './utils/Utils.js';
+export * from '@primevue/core/utils';
 
 // VirtualScroller
 export * from './virtualscroller/VirtualScroller.vue';
