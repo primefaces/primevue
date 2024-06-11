@@ -1,0 +1,6 @@
+{
+    "main": "./AccordionPanelStyle.js",
+    "module": "./AccordionPanelStyle.js",
+    "types": "./AccordionPanelStyle.d.ts",
+    "sideEffects": false
+}

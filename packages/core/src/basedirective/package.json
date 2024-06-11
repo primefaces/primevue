@@ -1,0 +1,5 @@
+{
+    "main": "./BaseDirective.js",
+    "module": "./BaseDirective.js",
+    "types": "./BaseDirective.d.ts"
+}

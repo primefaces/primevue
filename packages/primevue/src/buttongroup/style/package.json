@@ -1,0 +1,6 @@
+{
+    "main": "./ButtonGroupStyle.js",
+    "module": "./ButtonGroupStyle.js",
+    "types": "./ButtonGroupStyle.d.ts",
+    "sideEffects": false
+}

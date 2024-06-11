@@ -1,0 +1,6 @@
+{
+    "main": "./SplitterPanelStyle.js",
+    "module": "./SplitterPanelStyle.js",
+    "types": "./SplitterPanelStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,6 @@
+{
+    "main": "./InlineMessageStyle.js",
+    "module": "./InlineMessageStyle.js",
+    "types": "./InlineMessageStyle.d.ts",
+    "sideEffects": false
+}

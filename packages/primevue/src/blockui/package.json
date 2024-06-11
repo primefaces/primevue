@@ -1,0 +1,11 @@
+{
+    "main": "./BlockUI.vue",
+    "module": "./BlockUI.vue",
+    "types": "./BlockUI.d.ts",
+    "browser": {
+        "./sfc": "./BlockUI.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

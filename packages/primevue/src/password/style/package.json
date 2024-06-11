@@ -1,0 +1,6 @@
+{
+    "main": "./PasswordStyle.js",
+    "module": "./PasswordStyle.js",
+    "types": "./PasswordStyle.d.ts",
+    "sideEffects": false
+}

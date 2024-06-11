@@ -1,0 +1,11 @@
+{
+    "main": "./Badge.vue",
+    "module": "./Badge.vue",
+    "types": "./Badge.d.ts",
+    "browser": {
+        "./sfc": "./Badge.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

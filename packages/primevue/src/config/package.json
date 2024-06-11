@@ -1,0 +1,5 @@
+{
+    "main": "./Config.js",
+    "module": "./Config.js",
+    "types": "./Config.d.ts"
+}

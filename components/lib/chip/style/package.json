@@ -1,6 +1,0 @@
-{
-    "main": "./chipstyle.mjs",
-    "module": "./chipstyle.mjs",
-    "types": "./ChipStyle.d.ts",
-    "sideEffects": false
-}

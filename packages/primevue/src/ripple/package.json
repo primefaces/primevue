@@ -1,0 +1,5 @@
+{
+    "main": "./Ripple.js",
+    "module": "./Ripple.js",
+    "types": "./Ripple.d.ts"
+}

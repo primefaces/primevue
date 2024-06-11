@@ -1,6 +1,0 @@
-{
-    "main": "./sidebarstyle.mjs",
-    "module": "./sidebarstyle.mjs",
-    "types": "./SidebarStyle.d.ts",
-    "sideEffects": false
-}

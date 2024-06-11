@@ -1,0 +1,6 @@
+{
+    "main": "./SpeedDialStyle.js",
+    "module": "./SpeedDialStyle.js",
+    "types": "./SpeedDialStyle.d.ts",
+    "sideEffects": false
+}

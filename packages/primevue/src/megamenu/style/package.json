@@ -1,0 +1,6 @@
+{
+    "main": "./MegaMenuStyle.js",
+    "module": "./MegaMenuStyle.js",
+    "types": "./MegaMenuStyle.d.ts",
+    "sideEffects": false
+}

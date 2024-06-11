@@ -1,6 +1,0 @@
-{
-    "main": "./deferredcontentstyle.mjs",
-    "module": "./deferredcontentstyle.mjs",
-    "types": "./DeferredContentStyle.d.ts",
-    "sideEffects": false
-}

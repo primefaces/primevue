@@ -1,0 +1,6 @@
+{
+    "main": "./ButtonStyle.js",
+    "module": "./ButtonStyle.js",
+    "types": "./ButtonStyle.d.ts",
+    "sideEffects": false
+}

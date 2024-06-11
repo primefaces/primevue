@@ -1,6 +1,0 @@
-{
-    "main": "./selectstyle.mjs",
-    "module": "./selectstyle.mjs",
-    "types": "./SelectStyle.d.ts",
-    "sideEffects": false
-}

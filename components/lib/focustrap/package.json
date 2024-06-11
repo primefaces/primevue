@@ -1,5 +1,0 @@
-{
-    "main": "./focustrap.mjs",
-    "module": "./focustrap.mjs",
-    "types": "./FocusTrap.d.ts"
-}

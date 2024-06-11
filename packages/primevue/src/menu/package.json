@@ -1,0 +1,11 @@
+{
+    "main": "./Menu.vue",
+    "module": "./Menu.vue",
+    "types": "./Menu.d.ts",
+    "browser": {
+        "./sfc": "./Menu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

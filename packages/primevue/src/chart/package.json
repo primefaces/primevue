@@ -1,0 +1,11 @@
+{
+    "main": "./Chart.vue",
+    "module": "./Chart.vue",
+    "types": "./Chart.d.ts",
+    "browser": {
+        "./sfc": "./Chart.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

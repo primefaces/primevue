@@ -1,6 +1,0 @@
-{
-    "main": "./stepperpanelstyle.mjs",
-    "module": "./stepperpanelstyle.mjs",
-    "types": "./StepperPanelStyle.d.ts",
-    "sideEffects": false
-}

@@ -1,0 +1,11 @@
+{
+    "main": "./ProgressBar.vue",
+    "module": "./ProgressBar.vue",
+    "types": "./ProgressBar.d.ts",
+    "browser": {
+        "./sfc": "./ProgressBar.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

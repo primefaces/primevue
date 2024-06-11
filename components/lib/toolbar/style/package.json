@@ -1,6 +1,0 @@
-{
-    "main": "./toolbarstyle.mjs",
-    "module": "./toolbarstyle.mjs",
-    "types": "./ToolbarStyle.d.ts",
-    "sideEffects": false
-}

@@ -1,5 +1,0 @@
-{
-    "main": "./basedirective.mjs",
-    "module": "./basedirective.mjs",
-    "types": "./BaseDirective.d.ts"
-}

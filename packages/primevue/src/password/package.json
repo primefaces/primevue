@@ -1,0 +1,11 @@
+{
+    "main": "./Password.vue",
+    "module": "./Password.vue",
+    "types": "./Password.d.ts",
+    "browser": {
+        "./sfc": "./Password.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

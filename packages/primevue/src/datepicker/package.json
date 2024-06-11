@@ -1,0 +1,11 @@
+{
+    "main": "./DatePicker.vue",
+    "module": "./DatePicker.vue",
+    "types": "./DatePicker.d.ts",
+    "browser": {
+        "./sfc": "./DatePicker.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

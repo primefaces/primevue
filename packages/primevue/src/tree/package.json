@@ -1,0 +1,11 @@
+{
+    "main": "./Tree.vue",
+    "module": "./Tree.vue",
+    "types": "./Tree.d.ts",
+    "browser": {
+        "./sfc": "./Tree.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

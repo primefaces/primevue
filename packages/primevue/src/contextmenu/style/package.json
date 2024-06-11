@@ -1,0 +1,6 @@
+{
+    "main": "./ContextMenuStyle.js",
+    "module": "./ContextMenuStyle.js",
+    "types": "./ContextMenuStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./ColorPicker.vue",
+    "module": "./ColorPicker.vue",
+    "types": "./ColorPicker.d.ts",
+    "browser": {
+        "./sfc": "./ColorPicker.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

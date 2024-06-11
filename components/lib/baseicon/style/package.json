@@ -1,6 +1,0 @@
-{
-    "main": "./baseiconstyle.mjs",
-    "module": "./baseiconstyle.mjs",
-    "types": "./BaseIconStyle.d.ts",
-    "sideEffects": false
-}

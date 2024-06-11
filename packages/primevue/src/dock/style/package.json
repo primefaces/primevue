@@ -1,0 +1,6 @@
+{
+    "main": "./DockStyle.js",
+    "module": "./DockStyle.js",
+    "types": "./DockStyle.d.ts",
+    "sideEffects": false
+}

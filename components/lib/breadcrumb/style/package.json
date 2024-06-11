@@ -1,6 +1,0 @@
-{
-    "main": "./breadcrumbstyle.mjs",
-    "module": "./breadcrumbstyle.mjs",
-    "types": "./BreadcrumbStyle.d.ts",
-    "sideEffects": false
-}

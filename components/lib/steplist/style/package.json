@@ -1,6 +1,0 @@
-{
-    "main": "./stepliststyle.mjs",
-    "module": "./stepliststyle.mjs",
-    "types": "./StepListStyle.d.ts",
-    "sideEffects": false
-}

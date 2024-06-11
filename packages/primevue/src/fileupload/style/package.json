@@ -1,0 +1,6 @@
+{
+    "main": "./FileUploadStyle.js",
+    "module": "./FileUploadStyle.js",
+    "types": "./FileUploadStyle.d.ts",
+    "sideEffects": false
+}

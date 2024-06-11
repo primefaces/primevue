@@ -1,0 +1,11 @@
+{
+    "main": "./AccordionContent.vue",
+    "module": "./AccordionContent.vue",
+    "types": "./AccordionContent.d.ts",
+    "browser": {
+        "./sfc": "./AccordionContent.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

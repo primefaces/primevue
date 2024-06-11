@@ -1,0 +1,11 @@
+{
+    "main": "./TabMenu.vue",
+    "module": "./TabMenu.vue",
+    "types": "./TabMenu.d.ts",
+    "browser": {
+        "./sfc": "./TabMenu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

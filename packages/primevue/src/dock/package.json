@@ -1,0 +1,11 @@
+{
+    "main": "./Dock.vue",
+    "module": "./Dock.vue",
+    "types": "./Dock.d.ts",
+    "browser": {
+        "./sfc": "./Dock.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

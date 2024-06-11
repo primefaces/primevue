@@ -1,0 +1,11 @@
+{
+    "main": "./OverlayBadge.vue",
+    "module": "./OverlayBadge.vue",
+    "types": "./OverlayBadge.d.ts",
+    "browser": {
+        "./sfc": "./OverlayBadge.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

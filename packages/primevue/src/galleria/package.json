@@ -1,0 +1,11 @@
+{
+    "main": "./Galleria.vue",
+    "module": "./Galleria.vue",
+    "types": "./Galleria.d.ts",
+    "browser": {
+        "./sfc": "./Galleria.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

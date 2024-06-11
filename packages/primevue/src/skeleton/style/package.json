@@ -1,0 +1,6 @@
+{
+    "main": "./SkeletonStyle.js",
+    "module": "./SkeletonStyle.js",
+    "types": "./SkeletonStyle.d.ts",
+    "sideEffects": false
+}

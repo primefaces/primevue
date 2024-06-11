@@ -1,0 +1,11 @@
+{
+    "main": "./Message.vue",
+    "module": "./Message.vue",
+    "types": "./Message.d.ts",
+    "browser": {
+        "./sfc": "./Message.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

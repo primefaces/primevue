@@ -1,0 +1,11 @@
+{
+    "main": "./TreeSelect.vue",
+    "module": "./TreeSelect.vue",
+    "types": "./TreeSelect.d.ts",
+    "browser": {
+        "./sfc": "./TreeSelect.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

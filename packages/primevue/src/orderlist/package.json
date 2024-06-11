@@ -1,0 +1,11 @@
+{
+    "main": "./OrderList.vue",
+    "module": "./OrderList.vue",
+    "types": "./OrderList.d.ts",
+    "browser": {
+        "./sfc": "./OrderList.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

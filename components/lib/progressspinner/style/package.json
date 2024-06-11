@@ -1,6 +1,0 @@
-{
-    "main": "./progressspinnerstyle.mjs",
-    "module": "./progressspinnerstyle.mjs",
-    "types": "./ProgressSpinnerStyle.d.ts",
-    "sideEffects": false
-}

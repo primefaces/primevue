@@ -1,0 +1,10 @@
+{
+    "main": "./BaseIcon.vue",
+    "module": "./BaseIcon.vue",
+    "browser": {
+        "./sfc": "./BaseIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

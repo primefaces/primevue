@@ -1,6 +1,0 @@
-{
-    "main": "./inputnumberstyle.mjs",
-    "module": "./inputnumberstyle.mjs",
-    "types": "./InputNumberStyle.d.ts",
-    "sideEffects": false
-}

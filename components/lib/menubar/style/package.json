@@ -1,6 +1,0 @@
-{
-    "main": "./menubarstyle.mjs",
-    "module": "./menubarstyle.mjs",
-    "types": "./MenubarStyle.d.ts",
-    "sideEffects": false
-}

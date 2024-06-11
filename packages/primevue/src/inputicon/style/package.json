@@ -1,0 +1,6 @@
+{
+    "main": "./InputIconStyle.js",
+    "module": "./InputIconStyle.js",
+    "types": "./InputIconStyle.d.ts",
+    "sideEffects": false
+}

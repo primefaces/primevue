@@ -1,0 +1,6 @@
+{
+    "main": "./TerminalStyle.js",
+    "module": "./TerminalStyle.js",
+    "types": "./TerminalStyle.d.ts",
+    "sideEffects": false
+}

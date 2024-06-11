@@ -1,0 +1,6 @@
+{
+    "main": "./InputSwitchStyle.js",
+    "module": "./InputSwitchStyle.js",
+    "types": "./InputSwitchStyle.d.ts",
+    "sideEffects": false
+}

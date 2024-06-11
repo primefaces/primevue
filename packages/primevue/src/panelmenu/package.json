@@ -1,0 +1,11 @@
+{
+    "main": "./PanelMenu.vue",
+    "module": "./PanelMenu.vue",
+    "types": "./PanelMenu.d.ts",
+    "browser": {
+        "./sfc": "./PanelMenu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

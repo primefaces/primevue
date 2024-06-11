@@ -1,0 +1,11 @@
+{
+    "main": "./ScrollPanel.vue",
+    "module": "./ScrollPanel.vue",
+    "types": "./ScrollPanel.d.ts",
+    "browser": {
+        "./sfc": "./ScrollPanel.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

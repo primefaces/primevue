@@ -1,0 +1,6 @@
+{
+    "main": "./TabMenuStyle.js",
+    "module": "./TabMenuStyle.js",
+    "types": "./TabMenuStyle.d.ts",
+    "sideEffects": false
+}

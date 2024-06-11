@@ -1,0 +1,11 @@
+{
+    "main": "./AccordionTab.vue",
+    "module": "./AccordionTab.vue",
+    "types": "./AccordionTab.d.ts",
+    "browser": {
+        "./sfc": "./AccordionTab.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

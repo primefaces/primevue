@@ -1,0 +1,6 @@
+{
+    "main": "./BlockUIStyle.js",
+    "module": "./BlockUIStyle.js",
+    "types": "./BlockUIStyle.d.ts",
+    "sideEffects": false
+}

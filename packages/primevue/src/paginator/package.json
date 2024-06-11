@@ -1,0 +1,11 @@
+{
+    "main": "./Paginator.vue",
+    "module": "./Paginator.vue",
+    "types": "./Paginator.d.ts",
+    "browser": {
+        "./sfc": "./Paginator.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

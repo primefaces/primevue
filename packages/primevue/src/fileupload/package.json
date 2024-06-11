@@ -1,0 +1,11 @@
+{
+    "main": "./FileUpload.vue",
+    "module": "./FileUpload.vue",
+    "types": "./FileUpload.d.ts",
+    "browser": {
+        "./sfc": "./FileUpload.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

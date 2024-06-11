@@ -1,0 +1,4 @@
+{
+    "main": "./PrimeVueService.js",
+    "module": "./PrimeVueService.js"
+}

@@ -1,6 +1,0 @@
-{
-    "main": "./portalstyle.mjs",
-    "module": "./portalstyle.mjs",
-    "types": "./PortalStyle.d.ts",
-    "sideEffects": false
-}

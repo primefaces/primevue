@@ -1,0 +1,11 @@
+{
+    "main": "./InputIcon.vue",
+    "module": "./InputIcon.vue",
+    "types": "./InputIcon.d.ts",
+    "browser": {
+        "./sfc": "./InputIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

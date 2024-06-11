@@ -1,0 +1,44 @@
+{
+    "name": "@primevue/metadata",
+    "version": "4.0.0-beta.5",
+    "private": false,
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/metadata"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "main": "./src/index.ts",
+    "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.mts",
+        "exports": {
+            ".": {
+                "types": "./index.d.mts",
+                "import": "./index.mjs"
+            }
+        },
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs"
+    },
+    "devDependencies": {
+        "tsup": "^8.1.0"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

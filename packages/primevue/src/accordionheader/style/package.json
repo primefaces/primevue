@@ -1,0 +1,6 @@
+{
+    "main": "./AccordionHeaderStyle.js",
+    "module": "./AccordionHeaderStyle.js",
+    "types": "./AccordionHeaderStyle.d.ts",
+    "sideEffects": false
+}

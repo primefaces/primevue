@@ -1,0 +1,6 @@
+{
+    "main": "./StepperStyle.js",
+    "module": "./StepperStyle.js",
+    "types": "./StepperStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,5 +1,0 @@
-{
-    "main": "./toastservice.mjs",
-    "module": "./toastservice.mjs",
-    "types": "./ToastService.d.ts"
-}

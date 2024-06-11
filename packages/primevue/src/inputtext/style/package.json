@@ -1,0 +1,6 @@
+{
+    "main": "./InputTextStyle.js",
+    "module": "./InputTextStyle.js",
+    "types": "./InputTextStyle.d.ts",
+    "sideEffects": false
+}

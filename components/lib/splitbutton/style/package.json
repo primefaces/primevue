@@ -1,6 +1,0 @@
-{
-    "main": "./splitbuttonstyle.mjs",
-    "module": "./splitbuttonstyle.mjs",
-    "types": "./SplitButtonStyle.d.ts",
-    "sideEffects": false
-}

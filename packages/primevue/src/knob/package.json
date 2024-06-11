@@ -1,0 +1,11 @@
+{
+    "main": "./Knob.vue",
+    "module": "./Knob.vue",
+    "types": "./Knob.d.ts",
+    "browser": {
+        "./sfc": "./Knob.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,6 +1,0 @@
-{
-    "main": "./togglebuttonstyle.mjs",
-    "module": "./togglebuttonstyle.mjs",
-    "types": "./ToggleButtonStyle.d.ts",
-    "sideEffects": false
-}

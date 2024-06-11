@@ -1,6 +1,0 @@
-{
-    "main": "./dataviewstyle.mjs",
-    "module": "./dataviewstyle.mjs",
-    "types": "./DataViewStyle.d.ts",
-    "sideEffects": false
-}

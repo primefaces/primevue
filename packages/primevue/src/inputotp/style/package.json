@@ -1,0 +1,6 @@
+{
+    "main": "./InputOtpStyle.js",
+    "module": "./InputOtpStyle.js",
+    "types": "./InputOtpStyle.d.ts",
+    "sideEffects": false
+}

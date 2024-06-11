@@ -1,0 +1,6 @@
+{
+    "main": "./EditorStyle.js",
+    "module": "./EditorStyle.js",
+    "types": "./EditorStyle.d.ts",
+    "sideEffects": false
+}

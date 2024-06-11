@@ -1,6 +1,0 @@
-{
-    "main": "./calendarstyle.mjs",
-    "module": "./calendarstyle.mjs",
-    "types": "./CalendarStyle.d.ts",
-    "sideEffects": false
-}

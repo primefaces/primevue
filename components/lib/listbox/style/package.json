@@ -1,6 +1,0 @@
-{
-    "main": "./listboxstyle.mjs",
-    "module": "./listboxstyle.mjs",
-    "types": "./ListboxStyle.d.ts",
-    "sideEffects": false
-}

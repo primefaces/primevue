@@ -1,0 +1,11 @@
+{
+    "main": "./Portal.vue",
+    "module": "./Portal.vue",
+    "types": "./Portal.d.ts",
+    "browser": {
+        "./sfc": "./Portal.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

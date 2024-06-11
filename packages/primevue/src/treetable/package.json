@@ -1,0 +1,11 @@
+{
+    "main": "./TreeTable.vue",
+    "module": "./TreeTable.vue",
+    "types": "./TreeTable.d.ts",
+    "browser": {
+        "./sfc": "./TreeTable.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

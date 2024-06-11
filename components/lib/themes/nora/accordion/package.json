@@ -1,5 +1,0 @@
-{
-    "main": "./index.mjs",
-    "module": "./index.mjs",
-    "types": "../types/accordion/index.d.ts"
-}

@@ -1,6 +1,0 @@
-{
-    "main": "./dropdownstyle.mjs",
-    "module": "./dropdownstyle.mjs",
-    "types": "./DropdownStyle.d.ts",
-    "sideEffects": false
-}

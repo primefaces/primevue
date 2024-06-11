@@ -1,0 +1,11 @@
+{
+    "main": "./InputChips.vue",
+    "module": "./InputChips.vue",
+    "types": "./InputChips.d.ts",
+    "browser": {
+        "./sfc": "./InputChips.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

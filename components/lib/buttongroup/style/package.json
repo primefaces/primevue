@@ -1,6 +1,0 @@
-{
-    "main": "./buttongroupstyle.mjs",
-    "module": "./buttongroupstyle.mjs",
-    "types": "./ButtonGroupStyle.d.ts",
-    "sideEffects": false
-}

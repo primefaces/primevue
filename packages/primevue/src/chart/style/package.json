@@ -1,0 +1,6 @@
+{
+    "main": "./ChartStyle.js",
+    "module": "./ChartStyle.js",
+    "types": "./ChartStyle.d.ts",
+    "sideEffects": false
+}

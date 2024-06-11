@@ -1,0 +1,6 @@
+{
+    "main": "./InputChipsStyle.js",
+    "module": "./InputChipsStyle.js",
+    "types": "./InputChipsStyle.d.ts",
+    "sideEffects": false
+}

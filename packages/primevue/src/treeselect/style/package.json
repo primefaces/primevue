@@ -1,0 +1,6 @@
+{
+    "main": "./TreeSelectStyle.js",
+    "module": "./TreeSelectStyle.js",
+    "types": "./TreeSelectStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,6 +1,0 @@
-{
-    "main": "./inputgroupstyle.mjs",
-    "module": "./inputgroupstyle.mjs",
-    "types": "./InputGroupStyle.d.ts",
-    "sideEffects": false
-}

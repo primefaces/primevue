@@ -1,0 +1,11 @@
+{
+    "main": "./Timeline.vue",
+    "module": "./Timeline.vue",
+    "types": "./Timeline.d.ts",
+    "browser": {
+        "./sfc": "./Timeline.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

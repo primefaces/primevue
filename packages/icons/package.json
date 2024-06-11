@@ -1,0 +1,47 @@
+{
+    "name": "@primevue/icons",
+    "version": "4.0.0-beta.5",
+    "private": false,
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/icons"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "types": "./src/index.d.ts",
+    "exports": {
+        "./baseicon/style": "./src/baseicon/style/BaseIconStyle.js",
+        "./baseicon": "./src/baseicon/BaseIcon.vue",
+        "./*": "./src/*/index.vue"
+    },
+    "publishConfig": {
+        "types": "./index.d.ts",
+        "exports": {
+            "./*": {
+                "types": "./*/index.d.ts",
+                "import": "./*/index.mjs"
+            }
+        },
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && rollup -c && pnpm run build:postbuild",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs"
+    },
+    "dependencies": {
+        "@primevue/core": "workspace:*"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

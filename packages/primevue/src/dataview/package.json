@@ -1,0 +1,11 @@
+{
+    "main": "./DataView.vue",
+    "module": "./DataView.vue",
+    "types": "./DataView.d.ts",
+    "browser": {
+        "./sfc": "./DataView.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

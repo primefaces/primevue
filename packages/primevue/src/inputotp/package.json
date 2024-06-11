@@ -1,0 +1,11 @@
+{
+    "main": "./InputOtp.vue",
+    "module": "./InputOtp.vue",
+    "types": "./InputOtp.d.ts",
+    "browser": {
+        "./sfc": "./InputOtp.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

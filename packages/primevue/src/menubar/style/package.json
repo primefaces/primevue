@@ -1,0 +1,6 @@
+{
+    "main": "./MenubarStyle.js",
+    "module": "./MenubarStyle.js",
+    "types": "./MenubarStyle.d.ts",
+    "sideEffects": false
+}

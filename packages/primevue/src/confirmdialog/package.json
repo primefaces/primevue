@@ -1,0 +1,11 @@
+{
+    "main": "./ConfirmDialog.vue",
+    "module": "./ConfirmDialog.vue",
+    "types": "./ConfirmDialog.d.ts",
+    "browser": {
+        "./sfc": "./ConfirmDialog.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

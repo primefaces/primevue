@@ -1,6 +1,0 @@
-{
-    "main": "./iconfieldstyle.mjs",
-    "module": "./iconfieldstyle.mjs",
-    "types": "./IconFieldStyle.d.ts",
-    "sideEffects": false
-}

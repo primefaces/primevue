@@ -1,0 +1,5 @@
+{
+    "main": "./Utils.js",
+    "module": "./Utils.js",
+    "types": "./Utils.d.ts"
+}

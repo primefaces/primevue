@@ -1,0 +1,6 @@
+{
+    "main": "./CascadeSelectStyle.js",
+    "module": "./CascadeSelectStyle.js",
+    "types": "./CascadeSelectStyle.d.ts",
+    "sideEffects": false
+}

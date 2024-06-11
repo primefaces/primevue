@@ -1,0 +1,6 @@
+{
+    "main": "./RowStyle.js",
+    "module": "./RowStyle.js",
+    "types": "./RowStyle.d.ts",
+    "sideEffects": false
+}

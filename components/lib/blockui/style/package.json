@@ -1,6 +1,0 @@
-{
-    "main": "./blockuistyle.mjs",
-    "module": "./blockuistyle.mjs",
-    "types": "./BlockUIStyle.d.ts",
-    "sideEffects": false
-}

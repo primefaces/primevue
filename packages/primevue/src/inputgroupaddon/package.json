@@ -1,0 +1,11 @@
+{
+    "main": "./InputGroupAddon.vue",
+    "module": "./InputGroupAddon.vue",
+    "types": "./InputGroupAddon.d.ts",
+    "browser": {
+        "./sfc": "./InputGroupAddon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

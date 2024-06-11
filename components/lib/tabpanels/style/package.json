@@ -1,6 +1,0 @@
-{
-    "main": "./tabpanelsstyle.mjs",
-    "module": "./tabpanelsstyle.mjs",
-    "types": "./TabPanelsStyle.d.ts",
-    "sideEffects": false
-}

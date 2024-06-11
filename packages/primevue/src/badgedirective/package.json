@@ -1,0 +1,5 @@
+{
+    "main": "./BadgeDirective.js",
+    "module": "./BadgeDirective.js",
+    "types": "./BadgeDirective.d.ts"
+}

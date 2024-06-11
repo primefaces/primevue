@@ -1,0 +1,11 @@
+{
+    "main": "./PickList.vue",
+    "module": "./PickList.vue",
+    "types": "./PickList.d.ts",
+    "browser": {
+        "./sfc": "./PickList.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

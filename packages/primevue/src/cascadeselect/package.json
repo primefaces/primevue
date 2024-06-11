@@ -1,0 +1,11 @@
+{
+    "main": "./CascadeSelect.vue",
+    "module": "./CascadeSelect.vue",
+    "types": "./CascadeSelect.d.ts",
+    "browser": {
+        "./sfc": "./CascadeSelect.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

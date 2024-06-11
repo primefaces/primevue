@@ -1,0 +1,11 @@
+{
+    "main": "./Card.vue",
+    "module": "./Card.vue",
+    "types": "./Card.d.ts",
+    "browser": {
+        "./sfc": "./Card.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

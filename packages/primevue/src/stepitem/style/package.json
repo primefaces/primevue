@@ -1,0 +1,6 @@
+{
+    "main": "./StepItemStyle.js",
+    "module": "./StepItemStyle.js",
+    "types": "./StepItemStyle.d.ts",
+    "sideEffects": false
+}

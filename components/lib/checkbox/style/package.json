@@ -1,6 +1,0 @@
-{
-    "main": "./checkboxstyle.mjs",
-    "module": "./checkboxstyle.mjs",
-    "types": "./CheckboxStyle.d.ts",
-    "sideEffects": false
-}

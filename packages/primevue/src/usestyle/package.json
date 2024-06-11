@@ -1,0 +1,5 @@
+{
+    "main": "./UseStyle.js",
+    "module": "./UseStyle.js",
+    "types": "./UseStyle.d.ts"
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./Select.vue",
+    "module": "./Select.vue",
+    "types": "./Select.d.ts",
+    "browser": {
+        "./sfc": "./Select.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

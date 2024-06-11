@@ -1,0 +1,6 @@
+{
+    "main": "./ProgressBarStyle.js",
+    "module": "./ProgressBarStyle.js",
+    "types": "./ProgressBarStyle.d.ts",
+    "sideEffects": false
+}

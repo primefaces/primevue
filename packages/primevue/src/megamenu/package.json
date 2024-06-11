@@ -1,0 +1,11 @@
+{
+    "main": "./MegaMenu.vue",
+    "module": "./MegaMenu.vue",
+    "types": "./MegaMenu.d.ts",
+    "browser": {
+        "./sfc": "./MegaMenu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

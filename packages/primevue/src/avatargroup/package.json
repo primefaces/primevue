@@ -1,0 +1,11 @@
+{
+    "main": "./AvatarGroup.vue",
+    "module": "./AvatarGroup.vue",
+    "types": "./AvatarGroup.d.ts",
+    "browser": {
+        "./sfc": "./AvatarGroup.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

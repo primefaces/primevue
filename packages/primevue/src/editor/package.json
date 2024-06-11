@@ -1,0 +1,11 @@
+{
+    "main": "./Editor.vue",
+    "module": "./Editor.vue",
+    "types": "./Editor.d.ts",
+    "browser": {
+        "./sfc": "./Editor.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

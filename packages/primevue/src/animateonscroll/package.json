@@ -1,0 +1,5 @@
+{
+    "main": "./AnimateOnScroll.js",
+    "module": "./AnimateOnScroll.js",
+    "types": "./AnimateOnScroll.d.ts"
+}

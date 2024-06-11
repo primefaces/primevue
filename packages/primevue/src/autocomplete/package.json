@@ -1,0 +1,11 @@
+{
+    "main": "./AutoComplete.vue",
+    "module": "./AutoComplete.vue",
+    "types": "./AutoComplete.d.ts",
+    "browser": {
+        "./sfc": "./AutoComplete.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

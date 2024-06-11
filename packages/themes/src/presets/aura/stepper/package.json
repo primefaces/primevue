@@ -1,0 +1,5 @@
+{
+    "main": "./index.js",
+    "module": "./index.js",
+    "types": "../types/stepper/index.d.ts"
+}

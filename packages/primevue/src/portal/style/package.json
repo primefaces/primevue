@@ -1,0 +1,6 @@
+{
+    "main": "./PortalStyle.js",
+    "module": "./PortalStyle.js",
+    "types": "./PortalStyle.d.ts",
+    "sideEffects": false
+}
