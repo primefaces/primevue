@@ -53,7 +53,7 @@
                 :aria-posinset="i + 1"
                 v-bind="ptm('token')"
             >
-                <slot name="chip" :value="option">
+                <slot name="chip" :value="option" v-bind="ptm('tokenLabel')">
                     <span :class="cx('tokenLabel')" v-bind="ptm('tokenLabel')">{{ getOptionLabel(option) }}</span>
                 </slot>
                 <slot name="removetokenicon" :class="cx('removeTokenIcon')" :index="i" :onClick="(event) => removeOption(event, i)" :removeCallback="(event) => removeOption(event, i)">
