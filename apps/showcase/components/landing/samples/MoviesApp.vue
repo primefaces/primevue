@@ -143,14 +143,14 @@ export default {
                 { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover10.png', name: 'Shutter Island', bookmarked: false, point: '4.7', watchedPercent: 70, categories: ['Mystery', 'Thriller'] }
             ],
             popularMovies: [
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover7.png', name: 'Twelve Angry Men', bookmarked: false, point: '4.7', categories: ['Crime', 'Drama'] },
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover8.png', name: 'Saving Private Ryan', bookmarked: true, point: '4.7', categories: ['Drama', 'War'] },
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover9.png', name: 'Seven', bookmarked: false, point: '4.7', categories: ['Crime', 'Drama', 'Mystery'] },
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover7.png', name: 'Twelve Angry Men', bookmarked: false, point: '4.6', categories: ['Crime', 'Drama'] },
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover8.png', name: 'Saving Private Ryan', bookmarked: true, point: '4.4', categories: ['Drama', 'War'] },
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover9.png', name: 'Seven', bookmarked: false, point: '4.3', categories: ['Crime', 'Drama', 'Mystery'] },
                 { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover10.png', name: 'Shutter Island', bookmarked: false, point: '4.7', categories: ['Mystery', 'Thriller'] },
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover11.png', name: 'Basic Instinct', bookmarked: true, point: '4.7', categories: ['Drama', 'Mystery', 'Thriller'] },
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover11.png', name: 'Basic Instinct', bookmarked: true, point: '4.3', categories: ['Drama', 'Mystery', 'Thriller'] },
                 { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover12.png', name: 'Big Hero 6', bookmarked: false, point: '4.7', categories: ['Animation', 'Action', 'Adventure'] },
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover13.png', name: 'The Lord Of The Rings: Fellowship of the ring', bookmarked: true, point: '4.7', categories: ['Action', 'Adventure', 'Drama'] },
-                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover14.png', name: 'Kill Bill', bookmarked: true, point: '4.7', categories: ['Action', 'Crime', 'Thriller'] }
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover13.png', name: 'The Lord Of The Rings: Fellowship of the ring', bookmarked: true, point: '4.9', categories: ['Action', 'Adventure', 'Drama'] },
+                { image: 'https://www.primefaces.org/cdn/primevue/images/landing/apps/movie-cover14.png', name: 'Kill Bill', bookmarked: true, point: '4.5', categories: ['Action', 'Crime', 'Thriller'] }
             ]
         };
     },

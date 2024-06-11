@@ -85,7 +85,7 @@
                 <Column field="more" header="More">
                     <template #body>
                         <div class="flex justify-end w-full">
-                            <Button @click="visibleRight = true" icon="pi pi-ellipsis-h" outlined severity="secondary" />
+                            <Button @click="visibleRight = true" icon="pi pi-ellipsis-h" rounded outlined severity="secondary" />
                         </div>
                     </template>
                 </Column>
