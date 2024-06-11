@@ -932,7 +932,13 @@ export default {
         label() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
 
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
+            if (selectedOptionIndex !== -1) {
+                return this.getOptionLabel(this.visibleOptions[selectedOptionIndex]);
+            } else {
+                const selectedValue = this.getOptionLabel(this.modelValue);
+
+                return selectedValue || this.placeholder || 'p-emptylabel';
+            }
         },
         editableInputValue() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
