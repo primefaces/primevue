@@ -83,6 +83,7 @@
                 <div :class="isSlimMenu ? 'w-12 flex flex-col items-center' : 'w-auto'">
                     <div class="mt-10 flex flex-col gap-2">
                         <div
+                            v-if="false"
                             v-tooltip="isSlimMenu ? 'Expanded Mode' : null"
                             class="px-4 py-1 flex items-center gap-1 cursor-pointer text-base rounded-lg transition-all select-none text-muted-color hover:bg-emphasis"
                             :class="[
@@ -92,7 +93,7 @@
                                 }
                             ]"
                         >
-                            <a v-if="false" @click="toggleSlimMenu" class="cursor-pointer block p-0 m-0 leading-none">
+                            <a @click="toggleSlimMenu" class="cursor-pointer block p-0 m-0 leading-none">
                                 <i :class="isSlimMenu ? 'pi pi-window-maximize' : 'pi pi-window-minimize'"></i>
                                 <span :class="isSlimMenu ? 'hidden' : 'font-medium leading-8'">・</span>
                                 <span :class="isSlimMenu ? 'hidden' : 'font-medium leading-none'"> Slim Mode</span>
