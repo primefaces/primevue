@@ -804,9 +804,10 @@ export default {
             if (this.selectAll !== null) {
                 this.$emit('selectall-change', { originalEvent: event, checked: !this.allSelected });
             } else {
-                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
-
-                this.updateModel(event, value);
+                let currentSelectedValues = this.modelValue || [];
+                let visibleOptionsValues = this.visibleOptions.filter(option => this.isValidOption(option)).map(option => this.getOptionValue(option));
+                let mergedValues = [...new Set([...currentSelectedValues, ...visibleOptionsValues])];
+                this.updateModel(event, mergedValues);
             }
         },
         removeOption(event, optionValue) {
