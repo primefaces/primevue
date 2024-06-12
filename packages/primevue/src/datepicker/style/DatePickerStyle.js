@@ -226,6 +226,11 @@ const theme = ({ dt }) => `
     color: ${dt('datepicker.date.selected.color')};
 }
 
+.p-datepicker-day-selected-range {
+    background: ${dt('datepicker.date.range.selected.background')};
+    color: ${dt('datepicker.date.range.selected.color')};
+}
+
 .p-datepicker-today > .p-datepicker-day {
     background: ${dt('datepicker.today.background')};
     color: ${dt('datepicker.today.color')};
@@ -234,6 +239,11 @@ const theme = ({ dt }) => `
 .p-datepicker-today > .p-datepicker-day-selected {
     background: ${dt('datepicker.date.selected.background')};
     color: ${dt('datepicker.date.selected.color')};
+}
+
+.p-datepicker-today > .p-datepicker-day-selected-range {
+    background: ${dt('datepicker.date.range.selected.background')};
+    color: ${dt('datepicker.date.range.selected.color')};
 }
 
 .p-datepicker-weeknumber {
