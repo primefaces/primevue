@@ -9420,9 +9420,11 @@
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     border-radius: 6px;
   }
+
+  /* !! */
   .p-toast .p-toast-message .p-toast-message-content {
     padding: 0.75rem;
-    border-width: 1px;
+    border-width: 10px;
   }
   .p-toast .p-toast-message .p-toast-message-content .p-toast-message-text {
     margin: 0 0 0 0.5rem;
@@ -9459,7 +9461,7 @@
   .p-toast .p-toast-message.p-toast-message-info {
     background: rgba(239, 246, 255, 0.95);
     border: solid #bfdbfe;
-    border-width: 1px;
+    border-width: 10px;
     color: #2563eb;
   }
   .p-toast .p-toast-message.p-toast-message-info .p-toast-message-icon,
@@ -10799,7 +10801,6 @@
 }
 @layer primevue {
   .p-accordion .p-accordion-header .p-accordion-header-link {
-    border-radius: 6px !important;
     flex-direction: row-reverse;
     justify-content: space-between;
   }

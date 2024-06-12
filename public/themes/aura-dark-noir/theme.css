@@ -10797,7 +10797,6 @@
 }
 @layer primevue {
   .p-accordion .p-accordion-header .p-accordion-header-link {
-    border-radius: 6px !important;
     flex-direction: row-reverse;
     justify-content: space-between;
   }
