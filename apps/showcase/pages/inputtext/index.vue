@@ -11,6 +11,7 @@ import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
+import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
 import PTComponent from '@/doc/inputtext/pt/index.vue';
 import ThemingDoc from '@/doc/inputtext/theming/index.vue';
 
@@ -28,20 +29,20 @@ export default {
                     label: 'Basic',
                     component: BasicDoc
                 },
-                /*{
-                    id: 'sizes',
-                    label: 'Sizes',
-                    component: SizesDoc
-                },*/
-                {
-                    id: 'helptext',
-                    label: 'HelpText',
-                    component: HelpTextDoc
-                },
                 {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
+                },
+                {
+                    id: 'helptext',
+                    label: 'Help Text',
+                    component: HelpTextDoc
                 },
                 {
                     id: 'filled',

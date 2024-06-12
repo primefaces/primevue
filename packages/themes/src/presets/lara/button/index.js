@@ -8,12 +8,12 @@ export default {
         iconOnlyWidth: '2.75rem',
         sm: {
             fontSize: '0.875rem',
-            paddingX: '0.875rem',
+            paddingX: '0.625rem',
             paddingY: '0.5rem'
         },
         lg: {
             fontSize: '1.125rem',
-            paddingX: '1.125rem',
+            paddingX: '0.875rem',
             paddingY: '0.75rem'
         },
         label: {

@@ -51,6 +51,16 @@ const theme = ({ dt }) => `
     color: ${dt('inputtext.placeholder.color')};
 }
 
+.p-inputtext-sm {
+    font-size: ${dt('inputtext.sm.font.size')};
+    padding: ${dt('inputtext.sm.padding.y')} ${dt('inputtext.sm.padding.x')};
+}
+
+.p-inputtext-lg {
+    font-size: ${dt('inputtext.lg.font.size')};
+    padding: ${dt('inputtext.lg.padding.y')} ${dt('inputtext.lg.padding.x')};
+}
+
 .p-fluid .p-inputtext {
     width: 100%;
 }

@@ -22,6 +22,16 @@ export default {
             offset: '{form.field.focus.ring.offset}',
             shadow: '{form.field.focus.ring.shadow}'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            fontSize: '0.875rem',
+            paddingX: '0.625rem',
+            paddingY: '0.5rem'
+        },
+        lg: {
+            fontSize: '1.125rem',
+            paddingX: '0.875rem',
+            paddingY: '0.75rem'
+        }
     }
 };
