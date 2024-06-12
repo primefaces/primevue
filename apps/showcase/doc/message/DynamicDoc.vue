@@ -2,10 +2,12 @@
     <DocSectionText v-bind="$attrs">
         <p>Multiple messages can be displayed using the standard v-for directive.</p>
     </DocSectionText>
-    <div class="card">
-        <Button label="Show" @click="addMessages()" />
-        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
-        <transition-group name="p-message" tag="div">
+    <div class="card flex flex-col items-center justify-center gap-4">
+        <div class="flex gap-2">
+            <Button label="Show" @click="addMessages()" />
+            <Button label="Clear" severity="secondary" @click="clearMessages()" />
+        </div>
+        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
             <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
         </transition-group>
     </div>
@@ -22,16 +24,18 @@ export default {
                 basic: `
 <Button label="Show" @click="addMessages()" />
 <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
-<transition-group name="p-message" tag="div">
+<transition-group name="p-message" tag="div" class="mt-4 flex flex-col gap-4">
     <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
 </transition-group>
 `,
                 options: `
 <template>
-    <div class="card">
-        <Button label="Show" @click="addMessages()" />
-        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
-        <transition-group name="p-message" tag="div">
+    <div class="card flex flex-col items-center justify-center gap-4">
+        <div class="flex gap-2">
+            <Button label="Show" @click="addMessages()" />
+            <Button label="Clear" severity="secondary" @click="clearMessages()" />
+        </div>
+        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
             <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
         </transition-group>
     </div>
@@ -63,10 +67,12 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card">
-        <Button label="Show" @click="addMessages()" />
-        <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
-        <transition-group name="p-message" tag="div">
+    <div class="card flex flex-col items-center justify-center gap-4">
+        <div class="flex gap-2">
+            <Button label="Show" @click="addMessages()" />
+            <Button label="Clear" severity="secondary" @click="clearMessages()" />
+        </div>
+        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
             <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
         </transition-group>
     </div>

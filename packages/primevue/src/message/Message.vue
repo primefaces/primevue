@@ -6,7 +6,7 @@
                 <slot name="messageicon" class="p-message-icon">
                     <component :is="icon ? 'span' : iconComponent" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
                 </slot>
-                <div class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
+                <div v-if="$slots.default" class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
                 <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">

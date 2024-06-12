@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Icon property and the <i>messageicon</i> slots are available to customize the icon of the message</p>
     </DocSectionText>
-    <div class="card">
+    <div class="card flex justify-center gap-4">
         <Message severity="info" icon="pi pi-send">Info Message</Message>
         <Message severity="success">
             <template #messageicon>
@@ -30,7 +30,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card">
+    <div class="card flex justify-center gap-4">
         <Message severity="info" icon="pi pi-send">Info Message</Message>
         <Message severity="success">
             <template #messageicon>
@@ -46,7 +46,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card">
+    <div class="card flex justify-center gap-4">
         <Message severity="info" icon="pi pi-send">Info Message</Message>
         <Message severity="success">
             <template #messageicon>

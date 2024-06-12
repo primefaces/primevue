@@ -1,6 +1,5 @@
 export default {
     root: {
-        margin: '1.125rem 0',
         borderRadius: '{content.border.radius}',
         borderWidth: '0 0 0 6px',
         transitionDuration: '{transition.duration}'

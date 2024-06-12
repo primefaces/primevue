@@ -8,9 +8,10 @@ import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
 import CustomIconDoc from '@/doc/message/CustomIconDoc.vue';
 import DynamicDoc from '@/doc/message/DynamicDoc.vue';
+import FormDoc from '@/doc/message/FormDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
+import LifeDoc from '@/doc/message/LifeDoc.vue';
 import SeverityDoc from '@/doc/message/SeverityDoc.vue';
-import StickyDoc from '@/doc/message/StickyDoc.vue';
 import PTComponent from '@/doc/message/pt/index.vue';
 import ThemingDoc from '@/doc/message/theming/index.vue';
 
@@ -34,6 +35,11 @@ export default {
                     component: SeverityDoc
                 },
                 {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
+                },
+                {
                     id: 'dynamic',
                     label: 'Dynamic',
                     component: DynamicDoc
@@ -44,9 +50,9 @@ export default {
                     component: ClosabledDoc
                 },
                 {
-                    id: 'sticky',
-                    label: 'Sticky',
-                    component: StickyDoc
+                    id: 'life',
+                    label: 'Life',
+                    component: LifeDoc
                 },
                 {
                     id: 'custom-icon',

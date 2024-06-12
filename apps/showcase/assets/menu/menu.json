@@ -362,10 +362,6 @@
                             "to": "/panelmenu"
                         },
                         {
-                            "name": "Steps",
-                            "to": "/steps"
-                        },
-                        {
                             "name": "TieredMenu",
                             "to": "/tieredmenu"
                         }
@@ -386,10 +382,6 @@
                         {
                             "name": "Message",
                             "to": "/message"
-                        },
-                        {
-                            "name": "InlineMessage",
-                            "to": "/inlinemessage"
                         },
                         {
                             "name": "Toast",

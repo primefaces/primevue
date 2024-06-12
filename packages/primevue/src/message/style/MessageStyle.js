@@ -2,7 +2,6 @@ import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
 .p-message {
-    margin: ${dt('message.margin')};
     border-radius: ${dt('message.border.radius')};
     border-width: ${dt('message.border.width')};
     border-style: solid;
@@ -13,6 +12,7 @@ const theme = ({ dt }) => `
     align-items: center;
     padding: ${dt('message.content.padding')};
     gap: ${dt('message.content.gap')};
+    height: 100%;
 }
 
 .p-message-icon {
