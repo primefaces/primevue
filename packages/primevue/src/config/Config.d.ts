@@ -1,5 +1,5 @@
 import type { DefaultPassThrough, PassThrough } from '@primevue/core';
-import type { PrimeVueConfiguration as PrimeVueCoreConfiguration } from '@primevue/core/config';
+import type { PrimeVueCSPOptions, PrimeVueLocaleOptions, PrimeVueZIndexOptions } from '@primevue/core/config';
 import type { AccordionPassThroughOptions } from 'primevue/accordion';
 import type { AccordionContentPassThroughOptions } from 'primevue/accordioncontent';
 import type { AccordionHeaderPassThroughOptions } from 'primevue/accordionheader';
@@ -110,7 +110,22 @@ import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller
 
 export * from '@primevue/core/config';
 
-export interface PrimeVueConfiguration extends PrimeVueCoreConfiguration<PassThrough<PrimeVuePTOptions>, PassThroughOptions> {}
+export interface PrimeVueConfiguration {
+    ripple?: boolean;
+    /**
+     * @deprecated since v4.0. Use 'inputVariant' instead.
+     */
+    inputStyle?: 'filled' | 'outlined' | undefined;
+    inputVariant?: 'filled' | 'outlined' | undefined;
+    locale?: PrimeVueLocaleOptions;
+    filterMatchModeOptions?: any;
+    zIndex?: PrimeVueZIndexOptions;
+    theme?: any;
+    unstyled?: boolean;
+    pt?: PassThrough<PrimeVuePTOptions>;
+    ptOptions?: PassThroughOptions;
+    csp?: PrimeVueCSPOptions;
+}
 
 export interface PrimeVuePTOptions {
     accordion?: DefaultPassThrough<AccordionPassThroughOptions>;

@@ -1,6 +1,6 @@
 import { Plugin } from 'vue';
 
-export interface PrimeVueConfiguration<PrimeVuePTOptions = any, PassThroughOptions = any> {
+export interface PrimeVueConfiguration {
     ripple?: boolean;
     /**
      * @deprecated since v4.0. Use 'inputVariant' instead.
@@ -12,8 +12,8 @@ export interface PrimeVueConfiguration<PrimeVuePTOptions = any, PassThroughOptio
     zIndex?: PrimeVueZIndexOptions;
     theme?: any;
     unstyled?: boolean;
-    pt?: PrimeVuePTOptions;
-    ptOptions?: PassThroughOptions;
+    pt?: any;
+    ptOptions?: any;
     csp?: PrimeVueCSPOptions;
 }
 
