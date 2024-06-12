@@ -57,7 +57,7 @@
 import ChevronDownIcon from 'primevue/icons/chevrondown';
 import ChevronRightIcon from 'primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
-import { DomHandler, UniqueComponentId } from 'primevue/utils';
+import { DomHandler, UniqueComponentId, ObjectUtils } from 'primevue/utils';
 import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
 
@@ -91,7 +91,7 @@ export default {
             return this.multiple ? this.d_activeIndex && this.d_activeIndex.includes(index) : this.d_activeIndex === index;
         },
         getTabProp(tab, name) {
-            return tab.props ? tab.props[name] : undefined;
+            return ObjectUtils.getVNodeProp(tab, name);
         },
         getKey(tab, index) {
             return this.getTabProp(tab, 'header') || index;
