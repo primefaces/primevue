@@ -632,6 +632,7 @@ export default {
         },
         onTabKey(event) {
             if (this.focusedOptionIndex !== -1) {
+                event.preventDefault();
                 this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
             }
 
