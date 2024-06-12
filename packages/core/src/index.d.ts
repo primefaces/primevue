@@ -41,3 +41,17 @@ export declare type DesignToken<T = void> = T | object | undefined;
 export declare type DefaultPassThrough<T = void> = T | ((instance?: VNode) => T | undefined) | undefined;
 
 export declare type HintedString<T extends string> = (string & {}) | T;
+
+/**
+ * Modules
+ */
+export * from '@primevue/core/api';
+export * from '@primevue/core/base/style';
+export * from '@primevue/core/basecomponent';
+export * from '@primevue/core/basecomponent/style';
+export * from '@primevue/core/basedirective';
+export * from '@primevue/core/config';
+export { default as PrimeVue } from '@primevue/core/config';
+export * from '@primevue/core/service';
+export * from '@primevue/core/usestyle';
+export * from '@primevue/core/utils';

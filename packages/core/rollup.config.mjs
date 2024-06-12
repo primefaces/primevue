@@ -174,6 +174,7 @@ const ENTRY = {
 };
 
 function addCore() {
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'index.js', output: process.env.OUTPUT_DIR + 'index' });
     ENTRY.format.es({ input: process.env.INPUT_DIR + 'config/PrimeVue.js', output: process.env.OUTPUT_DIR + 'config/index' });
     ENTRY.format.es({ input: process.env.INPUT_DIR + 'service/PrimeVueService.js', output: process.env.OUTPUT_DIR + 'service/index' });
 }

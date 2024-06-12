@@ -1,3 +1,25 @@
+// API
+export * from '@primevue/core';
+
+// BaseIcon
+export { default as BaseIcon } from '@primevue/icons/baseicon';
+export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
+
+// Themes
+export * from '@primevue/themes';
+
+// UseConfirm
+export * from './useconfirm/UseConfirm.js';
+
+// UseDialog
+export * from './usedialog/UseDialog.js';
+
+// UseToast
+export * from './usetoast/UseToast.js';
+
+// UseStyle
+export * from './usestyle/UseStyle.js';
+
 // Accordion
 export * from './accordion/Accordion.vue';
 export { default as Accordion } from './accordion/Accordion.vue';
@@ -34,9 +56,6 @@ export { default as AnimateOnScroll } from './animateonscroll/AnimateOnScroll.js
 export * from './animateonscroll/style/AnimateOnScrollStyle.js';
 export { default as AnimateOnScrollStyle } from './animateonscroll/style/AnimateOnScrollStyle.js';
 
-// Api
-export * from '@primevue/core/api';
-
 // AutoComplete
 export * from './autocomplete/AutoComplete.vue';
 export { default as AutoComplete } from './autocomplete/AutoComplete.vue';
@@ -66,28 +85,6 @@ export * from './badgedirective/BadgeDirective.js';
 export { default as BadgeDirective } from './badgedirective/BadgeDirective.js';
 export * from './badgedirective/style/BadgeDirectiveStyle.js';
 export { default as BadgeDirectiveStyle } from './badgedirective/style/BadgeDirectiveStyle.js';
-
-// Base
-export * from '@primevue/core/base';
-export { default as Base } from '@primevue/core/base';
-export * from '@primevue/core/base/style';
-export { default as BaseStyle } from '@primevue/core/base/style';
-
-// BaseComponent
-export * from '@primevue/core/basecomponent';
-export { default as BaseComponent } from '@primevue/core/basecomponent';
-export * from '@primevue/core/basecomponent/style';
-export { default as BaseComponentStyle } from '@primevue/core/basecomponent/style';
-
-// BaseDirective
-export * from '@primevue/core/basedirective';
-export { default as BaseDirective } from '@primevue/core/basedirective';
-
-// BaseIcon
-export * from '@primevue/icons/baseicon';
-export { default as BaseIcon } from '@primevue/icons/baseicon';
-export * from '@primevue/icons/baseicon/style';
-export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 
 // BlockUI
 export * from './blockui/BlockUI.vue';
@@ -180,8 +177,8 @@ export * from './columngroup/style/ColumnGroupStyle.js';
 export { default as ColumnGroupStyle } from './columngroup/style/ColumnGroupStyle.js';
 
 // Config
-export * from '@primevue/core/config';
-export { default as Config } from '@primevue/core/config';
+export * from './config/Config.js';
+export { default as Config } from './config/Config.js';
 
 // ConfirmationEventBus
 export * from './confirmationeventbus/ConfirmationEventBus.js';
@@ -277,6 +274,12 @@ export { default as DynamicDialogStyle } from './dynamicdialog/style/DynamicDial
 export * from './dynamicdialogeventbus/DynamicDialogEventBus.js';
 export { default as DynamicDialogEventBus } from './dynamicdialogeventbus/DynamicDialogEventBus.js';
 
+// Editor
+export * from './editor/Editor.vue';
+export { default as Editor } from './editor/Editor.vue';
+export * from './editor/style/EditorStyle.js';
+export { default as EditorStyle } from './editor/style/EditorStyle.js';
+
 // Fieldset
 export * from './fieldset/Fieldset.vue';
 export { default as Fieldset } from './fieldset/Fieldset.vue';
@@ -288,6 +291,12 @@ export * from './fileupload/FileUpload.vue';
 export { default as FileUpload } from './fileupload/FileUpload.vue';
 export * from './fileupload/style/FileUploadStyle.js';
 export { default as FileUploadStyle } from './fileupload/style/FileUploadStyle.js';
+
+// FloatLabel
+export * from './floatlabel/FloatLabel.vue';
+export { default as FloatLabel } from './floatlabel/FloatLabel.vue';
+export * from './floatlabel/style/FloatLabelStyle.js';
+export { default as FloatLabelStyle } from './floatlabel/style/FloatLabelStyle.js';
 
 // FocusTrap
 export * from './focustrap/FocusTrap.js';
@@ -473,9 +482,6 @@ export { default as PanelMenu } from './panelmenu/PanelMenu.vue';
 export * from './panelmenu/style/PanelMenuStyle.js';
 export { default as PanelMenuStyle } from './panelmenu/style/PanelMenuStyle.js';
 
-// PassThrough
-export * from './passthrough/index.js';
-
 // Password
 export * from './password/Password.vue';
 export { default as Password } from './password/Password.vue';
@@ -560,10 +566,6 @@ export { default as SelectButton } from './selectbutton/SelectButton.vue';
 export * from './selectbutton/style/SelectButtonStyle.js';
 export { default as SelectButtonStyle } from './selectbutton/style/SelectButtonStyle.js';
 
-// PrimeVueService
-export * from '@primevue/core/service';
-export { default as PrimeVueService } from '@primevue/core/service';
-
 // Sidebar
 export * from './sidebar/Sidebar.vue';
 export { default as Sidebar } from './sidebar/Sidebar.vue';
@@ -605,6 +607,36 @@ export * from './splitterpanel/SplitterPanel.vue';
 export { default as SplitterPanel } from './splitterpanel/SplitterPanel.vue';
 export * from './splitterpanel/style/SplitterPanelStyle.js';
 export { default as SplitterPanelStyle } from './splitterpanel/style/SplitterPanelStyle.js';
+
+// Step
+export * from './step/Step.vue';
+export { default as Step } from './step/Step.vue';
+export * from './step/style/StepStyle.js';
+export { default as StepStyle } from './step/style/StepStyle.js';
+
+// StepItem
+export * from './stepitem/StepItem.vue';
+export { default as StepItem } from './stepitem/StepItem.vue';
+export * from './stepitem/style/StepItemStyle.js';
+export { default as StepItemStyle } from './stepitem/style/StepItemStyle.js';
+
+// StepList
+export * from './steplist/StepList.vue';
+export { default as StepList } from './steplist/StepList.vue';
+export * from './steplist/style/StepListStyle.js';
+export { default as StepListStyle } from './steplist/style/StepListStyle.js';
+
+// StepPanel
+export * from './steppanel/StepPanel.vue';
+export { default as StepPanel } from './steppanel/StepPanel.vue';
+export * from './steppanel/style/StepPanelStyle.js';
+export { default as StepPanelStyle } from './steppanel/style/StepPanelStyle.js';
+
+// StepPanels
+export * from './steppanels/StepPanels.vue';
+export { default as StepPanels } from './steppanels/StepPanels.vue';
+export * from './steppanels/style/StepPanelsStyle.js';
+export { default as StepPanelsStyle } from './steppanels/style/StepPanelsStyle.js';
 
 // Stepper
 export * from './stepper/Stepper.vue';
@@ -762,26 +794,8 @@ export { default as TreeTable } from './treetable/TreeTable.vue';
 export * from './treetable/style/TreeTableStyle.js';
 export { default as TreeTableStyle } from './treetable/style/TreeTableStyle.js';
 
-// UseConfirm
-export * from './useconfirm/UseConfirm.js';
-
-// UseDialog
-export * from './usedialog/UseDialog.js';
-
-// UseStyle
-export * from './usestyle/UseStyle.js';
-
-// UseToast
-export * from './usetoast/UseToast.js';
-
-// Utils
-export * from '@primevue/core/utils';
-
 // VirtualScroller
 export * from './virtualscroller/VirtualScroller.vue';
 export { default as VirtualScroller } from './virtualscroller/VirtualScroller.vue';
 export * from './virtualscroller/style/VirtualScrollerStyle.js';
 export { default as VirtualScrollerStyle } from './virtualscroller/style/VirtualScrollerStyle.js';
-
-// Themes
-export * from '@primevue/themes';
