@@ -129,6 +129,10 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
+            if (event.ctrlKey || event.metaKey) {
+                return;
+            }
+
             switch (event.code) {
                 case 'ArrowLeft':
                     this.moveToPrev(event);

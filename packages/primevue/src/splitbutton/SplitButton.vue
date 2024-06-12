@@ -7,6 +7,7 @@
             :disabled="disabled"
             :severity="severity"
             :text="text"
+            :icon="icon"
             :outlined="outlined"
             :size="size"
             :aria-label="label"

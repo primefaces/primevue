@@ -732,6 +732,10 @@ export interface DatePickerProps {
      */
     placeholder?: string | undefined;
     /**
+     * Name of the element.
+     */
+    name?: string | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */

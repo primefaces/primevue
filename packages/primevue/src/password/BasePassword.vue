@@ -12,11 +12,11 @@ export default {
             default: null
         },
         mediumRegex: {
-            type: String,
+            type: [String, RegExp],
             default: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})' // eslint-disable-line
         },
         strongRegex: {
-            type: String,
+            type: [String, RegExp],
             default: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})' // eslint-disable-line
         },
         weakLabel: {

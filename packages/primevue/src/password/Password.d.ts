@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
@@ -182,12 +182,12 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Regex for a medium level password.
      * @defaultValue ^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})
      */
-    mediumRegex?: string | undefined;
+    mediumRegex?: string | RegExp | undefined;
     /**
      * Regex for a strong level password.
      * @defaultValue ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})
      */
-    strongRegex?: string | undefined;
+    strongRegex?: string | RegExp | undefined;
     /**
      * Text for a weak password. Defaults to PrimeVue Locale configuration.
      */

@@ -383,11 +383,12 @@ export default {
             this.onEnterKey(event);
         },
         onEscapeKey(event) {
-            if (this.focusedItemInfo.level !== 0) {
+            if (this.popup || this.focusedItemInfo.level !== 0) {
                 const _focusedItemInfo = this.focusedItemInfo;
 
                 this.hide(event, false);
-                !this.popup && (this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey.split('_')[0]), level: 0, parentKey: '' });
+                this.focusedItemInfo = { index: Number(_focusedItemInfo.parentKey.split('_')[0]), level: 0, parentKey: '' };
+                this.popup && DomHandler.focus(this.target);
             }
 
             event.preventDefault();
