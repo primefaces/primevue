@@ -109,6 +109,7 @@ import type { TreeTablePassThroughOptions } from 'primevue/treetable';
 import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller';
 
 export * from '@primevue/core/config';
+export { default } from '@primevue/core/config';
 
 export interface PrimeVueConfiguration {
     ripple?: boolean;

@@ -150,5 +150,53 @@ export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextD
     * @designToken inputtext.transition.duration
     */
     transitionDuration?: string;
+    /**
+    * Sm of root
+    */
+    sm?: {
+        
+    /**
+    * Sm font size of root
+    *
+    * @designToken inputtext.sm.font.size
+    */
+    fontSize?: string;
+    /**
+    * Sm padding x of root
+    *
+    * @designToken inputtext.sm.padding.x
+    */
+    paddingX?: string;
+    /**
+    * Sm padding y of root
+    *
+    * @designToken inputtext.sm.padding.y
+    */
+    paddingY?: string;
+    };
+    /**
+    * Lg of root
+    */
+    lg?: {
+        
+    /**
+    * Lg font size of root
+    *
+    * @designToken inputtext.lg.font.size
+    */
+    fontSize?: string;
+    /**
+    * Lg padding x of root
+    *
+    * @designToken inputtext.lg.padding.x
+    */
+    paddingX?: string;
+    /**
+    * Lg padding y of root
+    *
+    * @designToken inputtext.lg.padding.y
+    */
+    paddingY?: string;
+    };
     }
 }

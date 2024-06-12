@@ -14,6 +14,8 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "main": "./src/index.ts",
+    "module": "./src/index.ts",
+    "types": "./src/index.ts",
     "publishConfig": {
         "main": "./index.mjs",
         "module": "./index.mjs",

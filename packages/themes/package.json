@@ -14,6 +14,7 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "main": "./src/index.js",
+    "module": "./src/index.js",
     "types": "./src/index.d.ts",
     "exports": {
         ".": "./src/index.js",
@@ -30,8 +31,20 @@
                 "types": "./index.d.ts",
                 "import": "./index.mjs"
             },
-            "./*": {
+            "./aura/*": {
                 "types": "./types/*/index.d.ts",
+                "import": "./aura/*/index.mjs"
+            },
+            "./lara/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./lara/*/index.mjs"
+            },
+            "./nora/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./nora/*/index.mjs"
+            },
+            "./*": {
+                "types": "./*/index.d.ts",
                 "import": "./*/index.mjs"
             }
         },

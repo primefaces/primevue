@@ -13,6 +13,7 @@
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
+    "types": "./src/index.d.ts",
     "exports": {
         "./api": "./src/api/Api.js",
         "./base/style": "./src/base/style/BaseStyle.js",
@@ -25,7 +26,6 @@
         "./usestyle": "./src/usestyle/UseStyle.js",
         "./utils": "./src/utils/Utils.js"
     },
-    "types": "./src/index.d.ts",
     "publishConfig": {
         "types": "./index.d.ts",
         "exports": {
