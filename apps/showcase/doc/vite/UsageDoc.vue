@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. In a future update with a vite plugin, components would be
-            imported automatically and optimized with tree shaking at build time.
+            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. If you prefer importing components manually, view the
+            <NuxtLink to="/autoimport">autoimport</NuxtLink> guide.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
