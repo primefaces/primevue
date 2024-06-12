@@ -616,6 +616,12 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
+            if (event.isComposing) {
+                event.preventDefault();
+
+                return;
+            }
+
             if (!this.overlayVisible) {
                 this.focusedOptionIndex = -1; // reset
                 this.onArrowDownKey(event);
