@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @click="onMaskClick" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" v-bind="ptm('mask')">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :onClose="close" :onMaximize="(event) => maximize(event)" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
@@ -93,6 +93,7 @@ export default {
             this.id = newValue || UniqueComponentId();
         }
     },
+    isMaskMouseDown: false,
     documentKeydownListener: null,
     container: null,
     mask: null,
@@ -171,10 +172,22 @@ export default {
             this.unbindGlobalListeners();
             this.$emit('after-hide');
         },
-        onMaskClick(event) {
-            if (this.dismissableMask && this.modal && this.mask === event.target) {
+        onMaskMouseDown(event) {
+            if (!this.isContainerEventTarget(event)) {
+                this.isMaskMouseDown = true;
+            }
+        },
+        onMaskMouseUp(event) {
+            const isMaskClicked = this.isMaskMouseDown && !this.isContainerEventTarget(event);
+
+            if (this.dismissableMask && this.modal && isMaskClicked) {
                 this.close();
             }
+
+            this.isMaskMouseDown = false;
+        },
+        isContainerEventTarget(event) {
+            return this.container && this.container.contains(event.target);
         },
         focus() {
             const findFocusableElement = (container) => {

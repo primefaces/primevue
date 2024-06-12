@@ -44,6 +44,7 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
+            @mousedown="onMenubarMouseDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
             @item-mousemove="onItemMouseMove"
@@ -92,6 +93,7 @@ export default {
             }
         }
     },
+    isMenubarMouseDown: false,
     outsideClickListener: null,
     container: null,
     menubar: null,
@@ -171,6 +173,7 @@ export default {
         },
         onFocus(event) {
             this.focused = true;
+            this.isMenubarMouseDown = false;
 
             if (!this.popup) {
                 this.focusedItemInfo = this.focusedItemInfo.index !== -1 ? this.focusedItemInfo : { index: this.findFirstFocusedItemIndex(), level: 0, parentKey: '' };
@@ -262,6 +265,9 @@ export default {
 
             grouped && (this.dirty = true);
             isFocus && DomHandler.focus(this.menubar);
+        },
+        onMenubarMouseDown() {
+            this.isMenubarMouseDown = true;
         },
         onItemClick(event) {
             const { originalEvent, processedItem } = event;
@@ -442,21 +448,25 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.container && !this.container.contains(event.target);
-                    const isOutsideTarget = !(this.target && (this.target === event.target || this.target.contains(event.target)));
+                    const isMenubarMouseUp = this.menubar && this.menubar.contains(event.target);
+                    const isTargetMouseUp = this.target && this.target.contains(event.target);
+                    const isOutsideClicked = !this.isMenubarMouseDown && !isMenubarMouseUp && !isTargetMouseUp;
 
-                    if (isOutsideContainer && isOutsideTarget) {
+                    if (isOutsideClicked) {
                         this.hide();
                     }
+
+                    this.isMenubarMouseDown = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isMenubarMouseDown = false;
             }
         },
         bindResizeListener() {

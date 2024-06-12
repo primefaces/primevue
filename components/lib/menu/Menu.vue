@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" @mousedown="onContainerMouseDown" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
@@ -89,6 +89,7 @@ export default {
             this.id = newValue || UniqueComponentId();
         }
     },
+    isContainerMouseDown: false,
     target: null,
     outsideClickListener: null,
     scrollHandler: null,
@@ -302,23 +303,27 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.container && !this.container.contains(event.target);
-                    const isOutsideTarget = !(this.target && (this.target === event.target || this.target.contains(event.target)));
+                    const isContainerMouseUp = this.container && this.container.contains(event.target);
+                    const isTargetMouseUp = this.target && (this.target === event.target || this.target.contains(event.target));
+                    const isOutsideClicked = !this.isContainerMouseDown && !isContainerMouseUp && !isTargetMouseUp;
 
-                    if (this.overlayVisible && isOutsideContainer && isOutsideTarget) {
+                    if (this.overlayVisible && isOutsideClicked) {
                         this.hide();
-                    } else if (!this.popup && isOutsideContainer && isOutsideTarget) {
+                    } else if (!this.popup && isOutsideClicked) {
                         this.focusedOptionIndex = -1;
                     }
+
+                    this.isContainerMouseDown = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mouseup', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mouseup', this.outsideClickListener);
                 this.outsideClickListener = null;
+                this.isContainerMouseDown = false;
             }
         },
         bindScrollListener() {
@@ -368,6 +373,9 @@ export default {
                 originalEvent: event,
                 target: this.target
             });
+        },
+        onContainerMouseDown() {
+            this.isContainerMouseDown = true;
         },
         containerRef(el) {
             this.container = el;
