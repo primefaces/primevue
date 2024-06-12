@@ -31,7 +31,6 @@ export function updatePackageJson(localPackageJson) {
     const pkg = JSON.parse(fs.readFileSync(localPackageJson, { encoding: 'utf8', flag: 'r' }));
 
     pkg.version = packageJson.version;
-    pkg.private = false;
     pkg.author = packageJson.author;
     pkg.homepage = packageJson.homepage;
     pkg.license = packageJson.license;

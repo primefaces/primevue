@@ -10,7 +10,6 @@ const pkgJson = require(pkg);
 const packageJson = require(path.resolve(workspaceDir, 'package.json'));
 
 pkgJson.version = packageJson.version;
-pkgJson.private = false;
 pkgJson.author = packageJson.author;
 pkgJson.homepage = packageJson.homepage;
 pkgJson.license = packageJson.license;

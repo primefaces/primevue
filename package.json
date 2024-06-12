@@ -1,7 +1,6 @@
 {
     "name": "@primevue/monorepo",
     "version": "4.0.0-beta.5",
-    "private": false,
     "author": "PrimeTek Informatics",
     "homepage": "https://primevue.org/",
     "repository": {
@@ -14,8 +13,8 @@
     },
     "scripts": {
         "setup": "rm -rf **/node_modules **/dist ./pnpm-lock.yaml && pnpm install",
-        "release": "pnpm run build && pnpm recursive publish --filter '!apps/*' --no-git-checks",
-        "release:beta": "pnpm run build && pnpm recursive publish --filter '!apps/*' --no-git-checks --tag beta",
+        "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks",
+        "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --tag beta",
         "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
         "build:check": "pnpm run format:check && pnpm run security:check",
         "build:packages": "pnpm run build:metadata && pnpm run build:resolver && pnpm run build:core && pnpm run build:lib && pnpm run build:module && pnpm run build:themes && pnpm run build:icons && pnpm run build:showcase",
