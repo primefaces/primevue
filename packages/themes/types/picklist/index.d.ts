@@ -1,4 +1,3 @@
-
 /**
  *
  * PickList Design Tokens
@@ -12,29 +11,26 @@
 import { ColorSchemeDesignToken } from '..';
 
 export interface PickListDesignTokens extends ColorSchemeDesignToken<PickListDesignTokens> {
-
     /**
-    * Used to pass tokens of the root section
-    */
+     * Used to pass tokens of the root section
+     */
     root?: {
-        
+        /**
+         * Gap of root
+         *
+         * @designToken picklist.gap
+         */
+        gap?: string;
+    };
     /**
-    * Gap of root
-    *
-    * @designToken picklist.gap
-    */
-    gap?: string;
-    }
-    /**
-    * Used to pass tokens of the controls section
-    */
+     * Used to pass tokens of the controls section
+     */
     controls?: {
-        
-    /**
-    * Gap of controls
-    *
-    * @designToken picklist.controls.gap
-    */
-    gap?: string;
-    }
+        /**
+         * Gap of controls
+         *
+         * @designToken picklist.controls.gap
+         */
+        gap?: string;
+    };
 }
