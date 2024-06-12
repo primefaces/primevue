@@ -1,5 +1,5 @@
 <template>
-    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')">
+    <div :class="[cx('container'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('container')" @mouseenter="onEnter" @mouseleave="onLeave">
         <component v-if="templates.container" :is="templates.container" :message="message" :onClose="onCloseClick" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('content'), message.contentStyleClass]" v-bind="ptm('content')">
             <template v-if="!templates.message">
@@ -69,11 +69,7 @@ export default {
         }
     },
     mounted() {
-        if (this.message.life) {
-            this.closeTimeout = setTimeout(() => {
-                this.close({ message: this.message, type: 'life-end' });
-            }, this.message.life);
-        }
+        this.startCloseTimeout();
     },
     beforeUnmount() {
         this.clearCloseTimeout();
@@ -86,10 +82,23 @@ export default {
             this.clearCloseTimeout();
             this.close({ message: this.message, type: 'close' });
         },
+        onEnter() {
+            this.clearCloseTimeout();
+        },
+        onLeave() {
+            this.startCloseTimeout();
+        },
         clearCloseTimeout() {
             if (this.closeTimeout) {
                 clearTimeout(this.closeTimeout);
                 this.closeTimeout = null;
+            }
+        },
+        startCloseTimeout() {
+            if (this.message.life) {
+                this.closeTimeout = setTimeout(() => {
+                    this.close({ message: this.message, type: 'life-end' });
+                }, this.message.life);
             }
         }
     },
