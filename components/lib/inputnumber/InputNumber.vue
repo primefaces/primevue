@@ -24,19 +24,18 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            v-bind="inputProps"
-            :pt="ptm('input')"
+            v-bind="{ ...inputProps, ...ptm('input') }"
             :unstyled="unstyled"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
-            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="incrementButtonProps" :pt="ptm('incrementButton')" :unstyled="unstyled">
+            <INButton :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{...incrementButtonProps, ...ptm('incrementButton')}" :unstyled="unstyled">
                 <template #icon>
                     <slot name="incrementbuttonicon">
                         <component :is="incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="incrementButtonIcon" v-bind="ptm('incrementButton')['icon']" data-pc-section="incrementbuttonicon" />
                     </slot>
                 </template>
             </INButton>
-            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="decrementButtonProps" :pt="ptm('decrementButton')" :unstyled="unstyled">
+            <INButton :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" v-bind="{...decrementButtonProps, ...ptm('decrementButton')}" :unstyled="unstyled">
                 <template #icon>
                     <slot name="decrementbuttonicon">
                         <component :is="decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="decrementButtonIcon" v-bind="ptm('decrementButton')['icon']" data-pc-section="decrementbuttonicon" />
@@ -51,8 +50,7 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="incrementButtonProps"
-            :pt="ptm('incrementButton')"
+            v-bind="{...incrementButtonProps, ...ptm('incrementButton')}"
             :unstyled="unstyled"
         >
             <template #icon>
@@ -68,8 +66,7 @@
             :disabled="disabled"
             :tabindex="-1"
             aria-hidden="true"
-            v-bind="decrementButtonProps"
-            :pt="ptm('decrementButton')"
+            v-bind="{...decrementButtonProps, ...ptm('decrementButton')}"
             :unstyled="unstyled"
         >
             <template #icon>
