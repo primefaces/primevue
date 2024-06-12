@@ -64,7 +64,7 @@ export default {
                 },
                 {
                     id: 'tabmenu',
-                    label: 'TabMenu',
+                    label: 'Tab Menu',
                     component: TabMenuDoc
                 },
                 {

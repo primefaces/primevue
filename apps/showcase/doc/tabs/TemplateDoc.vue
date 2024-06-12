@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content for a tab is defined using <i>as</i> or <i>asChild</i> properties.</p>
+        <p>
+            Custom content for a tab is defined with the default slot. The optional <i>as</i> property controls the default container element of a tab, for example setting it to a <i>div</i> renders a div for the header instead of a button. The
+            <i>asChild</i> option enables the headless mode for further customization by passing callbacks and properties to implement your own tab header.
+        </p>
     </DocSectionText>
     <div class="card">
         <Tabs value="0">

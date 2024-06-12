@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Tabs can be controlled programmatically using <i>value</i> property.</p>
+        <p>Tabs can be controlled programmatically using <i>value</i> property as a model.</p>
     </DocSectionText>
     <div class="card">
         <div class="flex mb-2 gap-2 justify-end">

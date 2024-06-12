@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Layout of the Stepper is configured with the <i>StepItem</i> helper component.</p>
+        <p>Horizontal layout requires <i>StepItem</i> as a wrapper of <i>Step</i> and <i>StepPanel</i> components.</p>
     </DocSectionText>
     <div class="card">
         <Stepper value="1">
@@ -10,7 +10,7 @@
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                    <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>
@@ -21,9 +21,9 @@
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-between">
+                    <div class="flex py-6 gap-2">
                         <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                        <Button label="Next" iconPos="right" @click="activateCallback('3')" />
+                        <Button label="Next" @click="activateCallback('3')" />
                     </div>
                 </StepPanel>
             </StepItem>
@@ -33,7 +33,7 @@
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                    <div class="py-6">
                         <Button label="Back" severity="secondary" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>
@@ -56,7 +56,7 @@ export default {
             <div class="flex flex-col h-48">
                 <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
             </div>
-            <div class="flex pt-6 justify-start">
+             <div class="py-6">
                 <Button label="Next" @click="activateCallback('2')" />
             </div>
         </StepPanel>
@@ -67,9 +67,9 @@ export default {
             <div class="flex flex-col h-48">
                 <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
             </div>
-            <div class="flex pt-6 justify-between">
+            <div class="flex py-6 gap-2">
                 <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                <Button label="Next" iconPos="right" @click="activateCallback('3')" />
+                <Button label="Next" @click="activateCallback('3')" />
             </div>
         </StepPanel>
     </StepItem>
@@ -79,7 +79,7 @@ export default {
             <div class="flex flex-col h-48">
                 <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
             </div>
-            <div class="flex pt-6 justify-start">
+             <div class="py-6">
                 <Button label="Back" severity="secondary" @click="activateCallback('2')" />
             </div>
         </StepPanel>
@@ -96,7 +96,7 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                     <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>
@@ -107,9 +107,9 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-between">
+                    <div class="flex py-6 gap-2">
                         <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                        <Button label="Next" iconPos="right" @click="activateCallback('3')" />
+                        <Button label="Next" @click="activateCallback('3')" />
                     </div>
                 </StepPanel>
             </StepItem>
@@ -119,7 +119,7 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                     <div class="py-6">
                         <Button label="Back" severity="secondary" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>
@@ -138,7 +138,7 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                    <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>
@@ -149,9 +149,9 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
                     </div>
-                    <div class="flex pt-6 justify-between">
+                    <div class="flex py-6 gap-2">
                         <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                        <Button label="Next" iconPos="right" @click="activateCallback('3')" />
+                        <Button label="Next" @click="activateCallback('3')" />
                     </div>
                 </StepPanel>
             </StepItem>
@@ -161,7 +161,7 @@ export default {
                     <div class="flex flex-col h-48">
                         <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
                     </div>
-                    <div class="flex pt-6 justify-start">
+                    <div class="py-6">
                         <Button label="Back" severity="secondary" @click="activateCallback('2')" />
                     </div>
                 </StepPanel>

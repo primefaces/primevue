@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Tabs comprises a combination of <i>TabList</i>, <i>Tab</i>, <i>TabPanels</i> and <i>Tab</i> components. The <i>value</i> property is essential for associating Tab and TabPanel with each other.</p>
+        <p>Tabs is defined using <i>TabList</i>, <i>Tab</i>, <i>TabPanels</i> and <i>Tab</i> components. Tab and TabPanel components are associated with their <i>value</i> properties</p>
     </DocSectionText>
     <div class="card">
         <Tabs value="0">

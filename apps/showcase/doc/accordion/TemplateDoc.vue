@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Header content of a panel is customized with the <i>default</i> slot.</p>
+        <p>
+            Custom content for a header is defined with the default slot. The optional <i>as</i> property controls the default container element of a header, for example setting it to a <i>div</i> renders a div for the header instead of a button. The
+            <i>asChild</i> option enables the headless mode for further customization by passing callbacks and properties to implement your own header.
+        </p>
     </DocSectionText>
     <div class="card">
         <Accordion value="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">

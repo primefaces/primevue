@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content for a tab is defined using <i>as</i> or <i>asChild</i> properties.</p>
+        <p>
+            Custom content for a step is defined with the default slot. The optional <i>as</i> property controls the default container element of a step, for example setting it to a <i>button</i> renders a button for the header instead of a div. The
+            <i>asChild</i> option enables the headless mode for further customization by passing callbacks and properties to implement your own step.
+        </p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Stepper v-model:value="activeStep" class="basis-[40rem]">

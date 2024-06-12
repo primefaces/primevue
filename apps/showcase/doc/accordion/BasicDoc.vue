@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Accordion comprises a combination of <i>AccordionPanel</i>, <i>AccordionHeader</i> and <i>AccordionContent</i> components. Each AccordionPanel must contain a unique <i>value</i> property, and that can be set to Accordion's
-            <i>value</i> property to extend any panel.
-        </p>
+        <p>Accordion is defined using <i>AccordionPanel</i>, <i>AccordionHeader</i> and <i>AccordionContent</i> components. Each AccordionPanel must contain a unique <i>value</i> property to specify the active item.</p>
     </DocSectionText>
     <div class="card">
         <Accordion value="0">

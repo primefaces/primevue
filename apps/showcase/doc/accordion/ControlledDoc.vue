@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Accordion can be controlled programmatically using a binding to <i>value</i> along with <i>v-model</i> to update the active value.</p>
+        <p>Panels can be controlled programmatically using <i>value</i> property as a model.</p>
     </DocSectionText>
     <div class="card">
         <div class="flex mb-4 gap-2 justify-end">
