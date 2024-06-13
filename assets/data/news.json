@@ -1,8 +1,8 @@
 {
-    "id": 57,
-    "content": "🎉 v4.0.0-beta.3 is out with the new Styled Mode",
+    "id": 58,
+    "content": "🎉 v4.0.0-rc.1 is out with the new Styled Mode",
     "linkText": "Learn More",
-    "linkHref": "http://v4.primevue.org",
+    "linkHref": "http://primevue.org",
     "backgroundStyle": "background-color:var(--primary-color)",
     "textStyle": "color:var(--primary-color-text);font-weight:500",
     "linkStyle": "color:var(--primary-color-text);font-weight:700;text-decoration: underline;"
