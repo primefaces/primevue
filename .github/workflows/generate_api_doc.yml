@@ -4,7 +4,7 @@ on:
     push:
         branches: [master]
         paths:
-            - '**/**/*.d.ts'
+            - '**/**/**/*.d.ts'
             - '/api-generator/build-apidoc.js'
 
 permissions:
