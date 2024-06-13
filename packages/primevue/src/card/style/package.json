@@ -1,0 +1,6 @@
+{
+    "main": "./CardStyle.js",
+    "module": "./CardStyle.js",
+    "types": "./CardStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./Chip.vue",
+    "module": "./Chip.vue",
+    "types": "./Chip.d.ts",
+    "browser": {
+        "./sfc": "./Chip.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

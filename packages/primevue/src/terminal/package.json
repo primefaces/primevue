@@ -1,0 +1,11 @@
+{
+    "main": "./Terminal.vue",
+    "module": "./Terminal.vue",
+    "types": "./Terminal.d.ts",
+    "browser": {
+        "./sfc": "./Terminal.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

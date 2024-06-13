@@ -1,0 +1,78 @@
+{
+    "name": "@primevue/nuxt-module",
+    "version": "4.0.0-rc.1",
+    "author": "PrimeTek Informatics",
+    "description": "Nuxt module for PrimeVue",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/nuxt-module"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+        "vue",
+        "vue.js",
+        "vue3",
+        "nuxt",
+        "nuxt3",
+        "primevue",
+        "primevue nuxt module",
+        "primevue nuxt3",
+        "primevue 4"
+    ],
+    "sideEffects": false,
+    "type": "module",
+    "main": "./src/module.ts",
+    "types": "./src/types.d.ts",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "main": "./dist/module.cjs",
+        "types": "./dist/types.d.ts",
+        "exports": {
+            ".": {
+                "types": "./dist/types.d.ts",
+                "import": "./dist/module.mjs",
+                "require": "./dist/module.cjs"
+            }
+        },
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && pnpm run prepack",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "prepack": "nuxt-module-build",
+        "dev": "nuxi dev playground",
+        "dev:build": "nuxi build playground",
+        "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+        "test": "vitest run",
+        "test:watch": "vitest watch"
+    },
+    "dependencies": {
+        "@nuxt/kit": "^3.7.3",
+        "pathe": "^1.1.2",
+        "primevue": "workspace:*",
+        "@primevue/metadata": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^18.17.17",
+        "@nuxt/devtools": "^0.8.5",
+        "@nuxt/eslint-config": "^0.2.0",
+        "@nuxt/module-builder": "^0.5.1",
+        "@nuxt/schema": "^3.7.3",
+        "@nuxt/test-utils": "^3.7.3",
+        "changelogen": "^0.5.5",
+        "nitropack": "^2.6.3",
+        "nuxt": "3.3.2",
+        "vitest": "^1.6.0"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

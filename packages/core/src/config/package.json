@@ -1,0 +1,5 @@
+{
+    "main": "./PrimeVue.js",
+    "module": "./PrimeVue.js",
+    "types": "./PrimeVue.d.ts"
+}

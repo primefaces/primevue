@@ -1,0 +1,11 @@
+{
+    "main": "./InputSwitch.vue",
+    "module": "./InputSwitch.vue",
+    "types": "./InputSwitch.d.ts",
+    "browser": {
+        "./sfc": "./InputSwitch.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

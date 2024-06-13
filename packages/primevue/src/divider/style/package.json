@@ -1,0 +1,6 @@
+{
+    "main": "./DividerStyle.js",
+    "module": "./DividerStyle.js",
+    "types": "./DividerStyle.d.ts",
+    "sideEffects": false
+}

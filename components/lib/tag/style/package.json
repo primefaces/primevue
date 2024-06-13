@@ -1,6 +1,0 @@
-{
-    "main": "./tagstyle.mjs",
-    "module": "./tagstyle.mjs",
-    "types": "./TagStyle.d.ts",
-    "sideEffects": false
-}

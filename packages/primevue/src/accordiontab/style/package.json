@@ -1,0 +1,6 @@
+{
+    "main": "./AccordionTabStyle.js",
+    "module": "./AccordionTabStyle.js",
+    "types": "./AccordionTabStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./SpeedDial.vue",
+    "module": "./SpeedDial.vue",
+    "types": "./SpeedDial.d.ts",
+    "browser": {
+        "./sfc": "./SpeedDial.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

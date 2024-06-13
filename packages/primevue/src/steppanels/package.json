@@ -1,0 +1,11 @@
+{
+    "main": "./StepPanels.vue",
+    "module": "./StepPanels.vue",
+    "types": "./StepPanels.d.ts",
+    "browser": {
+        "./sfc": "./StepPanels.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./BaseComponent.vue",
+    "module": "./BaseComponent.vue",
+    "types": "./BaseComponent.d.ts",
+    "browser": {
+        "./sfc": "./BaseComponent.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

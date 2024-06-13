@@ -1,0 +1,11 @@
+{
+    "main": "./Drawer.vue",
+    "module": "./Drawer.vue",
+    "types": "./Drawer.d.ts",
+    "browser": {
+        "./sfc": "./Drawer.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./InputMask.vue",
+    "module": "./InputMask.vue",
+    "types": "./InputMask.d.ts",
+    "browser": {
+        "./sfc": "./InputMask.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

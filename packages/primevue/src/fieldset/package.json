@@ -1,0 +1,11 @@
+{
+    "main": "./Fieldset.vue",
+    "module": "./Fieldset.vue",
+    "types": "./Fieldset.d.ts",
+    "browser": {
+        "./sfc": "./Fieldset.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

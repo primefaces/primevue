@@ -1,6 +1,0 @@
-{
-    "main": "./badgestyle.mjs",
-    "module": "./badgestyle.mjs",
-    "types": "./BadgeStyle.d.ts",
-    "sideEffects": false
-}

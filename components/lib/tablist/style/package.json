@@ -1,6 +1,0 @@
-{
-    "main": "./tabliststyle.mjs",
-    "module": "./tabliststyle.mjs",
-    "types": "./TabListStyle.d.ts",
-    "sideEffects": false
-}

@@ -1,0 +1,11 @@
+{
+    "main": "./Toolbar.vue",
+    "module": "./Toolbar.vue",
+    "types": "./Toolbar.d.ts",
+    "browser": {
+        "./sfc": "./Toolbar.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

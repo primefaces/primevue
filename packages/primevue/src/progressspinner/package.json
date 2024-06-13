@@ -1,0 +1,11 @@
+{
+    "main": "./ProgressSpinner.vue",
+    "module": "./ProgressSpinner.vue",
+    "types": "./ProgressSpinner.d.ts",
+    "browser": {
+        "./sfc": "./ProgressSpinner.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

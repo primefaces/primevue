@@ -1,6 +1,0 @@
-{
-    "main": "./tooltipstyle.mjs",
-    "module": "./tooltipstyle.mjs",
-    "types": "./TooltipStyle.d.ts",
-    "sideEffects": false
-}

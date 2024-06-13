@@ -1,0 +1,11 @@
+{
+    "main": "./MeterGroup.vue",
+    "module": "./MeterGroup.vue",
+    "types": "./MeterGroup.d.ts",
+    "browser": {
+        "./sfc": "./MeterGroup.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

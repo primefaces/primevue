@@ -1,0 +1,11 @@
+{
+    "main": "./Slider.vue",
+    "module": "./Slider.vue",
+    "types": "./Slider.d.ts",
+    "browser": {
+        "./sfc": "./Slider.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

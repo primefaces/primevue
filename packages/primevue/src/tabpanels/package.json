@@ -1,0 +1,11 @@
+{
+    "main": "./TabPanels.vue",
+    "module": "./TabPanels.vue",
+    "types": "./TabPanels.d.ts",
+    "browser": {
+        "./sfc": "./TabPanels.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

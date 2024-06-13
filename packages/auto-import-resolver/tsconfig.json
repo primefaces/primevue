@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "es2022",
+        "moduleResolution": "Node",
+        "baseUrl": ".",
+        "paths": {
+            "@primevue/auto-import-resolver/*": ["./*"],
+            "@primevue/metadata/*": ["../../packages/metadata/src/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}

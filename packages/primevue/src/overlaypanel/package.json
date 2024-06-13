@@ -1,0 +1,11 @@
+{
+    "main": "./OverlayPanel.vue",
+    "module": "./OverlayPanel.vue",
+    "types": "./OverlayPanel.d.ts",
+    "browser": {
+        "./sfc": "./OverlayPanel.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

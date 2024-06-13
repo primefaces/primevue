@@ -1,0 +1,11 @@
+{
+    "main": "./Steps.vue",
+    "module": "./Steps.vue",
+    "types": "./Steps.d.ts",
+    "browser": {
+        "./sfc": "./Steps.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,6 +1,0 @@
-{
-    "main": "./accordionheaderstyle.mjs",
-    "module": "./accordionheaderstyle.mjs",
-    "types": "./AccordionHeaderStyle.d.ts",
-    "sideEffects": false
-}

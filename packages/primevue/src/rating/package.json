@@ -1,0 +1,11 @@
+{
+    "main": "./Rating.vue",
+    "module": "./Rating.vue",
+    "types": "./Rating.d.ts",
+    "browser": {
+        "./sfc": "./Rating.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

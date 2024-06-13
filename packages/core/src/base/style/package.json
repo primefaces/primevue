@@ -1,0 +1,6 @@
+{
+    "main": "./BaseStyle.js",
+    "module": "./BaseStyle.js",
+    "types": "./BaseStyle.d.ts",
+    "sideEffects": false
+}

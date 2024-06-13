@@ -1,6 +1,0 @@
-{
-    "main": "./inputotpstyle.mjs",
-    "module": "./inputotpstyle.mjs",
-    "types": "./InputOtpStyle.d.ts",
-    "sideEffects": false
-}

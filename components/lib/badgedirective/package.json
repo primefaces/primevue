@@ -1,5 +1,0 @@
-{
-    "main": "./badgedirective.mjs",
-    "module": "./badgedirective.mjs",
-    "types": "./BadgeDirective.d.ts"
-}

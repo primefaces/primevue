@@ -1,0 +1,6 @@
+{
+    "main": "./DeferredContentStyle.js",
+    "module": "./DeferredContentStyle.js",
+    "types": "./DeferredContentStyle.d.ts",
+    "sideEffects": false
+}

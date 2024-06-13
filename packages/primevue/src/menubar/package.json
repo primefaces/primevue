@@ -1,0 +1,11 @@
+{
+    "main": "./Menubar.vue",
+    "module": "./Menubar.vue",
+    "types": "./Menubar.d.ts",
+    "browser": {
+        "./sfc": "./Menubar.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

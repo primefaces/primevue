@@ -1,0 +1,6 @@
+{
+    "main": "./OrderListStyle.js",
+    "module": "./OrderListStyle.js",
+    "types": "./OrderListStyle.d.ts",
+    "sideEffects": false
+}

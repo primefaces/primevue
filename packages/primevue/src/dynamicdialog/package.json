@@ -1,0 +1,11 @@
+{
+    "main": "./DynamicDialog.vue",
+    "module": "./DynamicDialog.vue",
+    "types": "./DynamicDialog.d.ts",
+    "browser": {
+        "./sfc": "./DynamicDialog.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

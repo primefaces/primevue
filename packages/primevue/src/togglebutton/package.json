@@ -1,0 +1,11 @@
+{
+    "main": "./ToggleButton.vue",
+    "module": "./ToggleButton.vue",
+    "types": "./ToggleButton.d.ts",
+    "browser": {
+        "./sfc": "./ToggleButton.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

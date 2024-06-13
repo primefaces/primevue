@@ -1,6 +1,0 @@
-{
-    "main": "./autocompletestyle.mjs",
-    "module": "./autocompletestyle.mjs",
-    "types": "./AutoCompleteStyle.d.ts",
-    "sideEffects": false
-}

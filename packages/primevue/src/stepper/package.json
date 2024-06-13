@@ -1,0 +1,11 @@
+{
+    "main": "./Stepper.vue",
+    "module": "./Stepper.vue",
+    "types": "./Stepper.d.ts",
+    "browser": {
+        "./sfc": "./Stepper.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

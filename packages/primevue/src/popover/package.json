@@ -1,0 +1,11 @@
+{
+    "main": "./Popover.vue",
+    "module": "./Popover.vue",
+    "types": "./Popover.d.ts",
+    "browser": {
+        "./sfc": "./Popover.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

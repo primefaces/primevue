@@ -1,0 +1,5 @@
+{
+    "main": "./TerminalService.js",
+    "module": "./TerminalService.js",
+    "types": "./TerminalService.d.ts"
+}

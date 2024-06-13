@@ -1,6 +1,0 @@
-{
-    "main": "./messagestyle.mjs",
-    "module": "./messagestyle.mjs",
-    "types": "./MessageStyle.d.ts",
-    "sideEffects": false
-}

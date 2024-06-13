@@ -1,0 +1,11 @@
+{
+    "main": "./ContextMenu.vue",
+    "module": "./ContextMenu.vue",
+    "types": "./ContextMenu.d.ts",
+    "browser": {
+        "./sfc": "./ContextMenu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

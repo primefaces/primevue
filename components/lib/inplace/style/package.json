@@ -1,6 +1,0 @@
-{
-    "main": "./inplacestyle.mjs",
-    "module": "./inplacestyle.mjs",
-    "types": "./InplaceStyle.d.ts",
-    "sideEffects": false
-}

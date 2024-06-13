@@ -1,0 +1,11 @@
+{
+    "main": "./Avatar.vue",
+    "module": "./Avatar.vue",
+    "types": "./Avatar.d.ts",
+    "browser": {
+        "./sfc": "./Avatar.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

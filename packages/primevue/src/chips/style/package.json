@@ -1,0 +1,6 @@
+{
+    "main": "./ChipsStyle.js",
+    "module": "./ChipsStyle.js",
+    "types": "./ChipsStyle.d.ts",
+    "sideEffects": false
+}

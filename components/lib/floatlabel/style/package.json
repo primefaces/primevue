@@ -1,6 +1,0 @@
-{
-    "main": "./floatlabelstyle.mjs",
-    "module": "./floatlabelstyle.mjs",
-    "types": "./FloatLabelStyle.d.ts",
-    "sideEffects": false
-}

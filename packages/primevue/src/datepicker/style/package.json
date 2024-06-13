@@ -1,0 +1,6 @@
+{
+    "main": "./DatePickerStyle.js",
+    "module": "./DatePickerStyle.js",
+    "types": "./DatePickerStyle.d.ts",
+    "sideEffects": false
+}

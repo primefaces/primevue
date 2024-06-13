@@ -1,6 +1,0 @@
-{
-    "main": "./toaststyle.mjs",
-    "module": "./toaststyle.mjs",
-    "types": "./ToastStyle.d.ts",
-    "sideEffects": false
-}

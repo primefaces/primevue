@@ -1,6 +1,0 @@
-{
-    "main": "./dockstyle.mjs",
-    "module": "./dockstyle.mjs",
-    "types": "./DockStyle.d.ts",
-    "sideEffects": false
-}

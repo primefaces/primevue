@@ -1,0 +1,11 @@
+{
+    "main": "./TieredMenu.vue",
+    "module": "./TieredMenu.vue",
+    "types": "./TieredMenu.d.ts",
+    "browser": {
+        "./sfc": "./TieredMenu.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

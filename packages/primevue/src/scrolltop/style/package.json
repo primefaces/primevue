@@ -1,0 +1,6 @@
+{
+    "main": "./ScrollTopStyle.js",
+    "module": "./ScrollTopStyle.js",
+    "types": "./ScrollTopStyle.d.ts",
+    "sideEffects": false
+}

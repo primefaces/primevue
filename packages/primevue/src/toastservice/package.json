@@ -1,0 +1,5 @@
+{
+    "main": "./ToastService.js",
+    "module": "./ToastService.js",
+    "types": "./ToastService.d.ts"
+}

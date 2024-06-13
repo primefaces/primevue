@@ -1,0 +1,6 @@
+{
+    "main": "./OrganizationChartStyle.js",
+    "module": "./OrganizationChartStyle.js",
+    "types": "./OrganizationChartStyle.d.ts",
+    "sideEffects": false
+}

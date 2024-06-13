@@ -1,0 +1,11 @@
+{
+    "main": "./Column.vue",
+    "module": "./Column.vue",
+    "types": "./Column.d.ts",
+    "browser": {
+        "./sfc": "./Column.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./SplitterPanel.vue",
+    "module": "./SplitterPanel.vue",
+    "types": "./SplitterPanel.d.ts",
+    "browser": {
+        "./sfc": "./SplitterPanel.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

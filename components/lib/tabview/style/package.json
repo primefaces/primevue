@@ -1,6 +1,0 @@
-{
-    "main": "./tabviewstyle.mjs",
-    "module": "./tabviewstyle.mjs",
-    "types": "./TabViewStyle.d.ts",
-    "sideEffects": false
-}

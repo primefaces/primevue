@@ -1,0 +1,11 @@
+{
+    "main": "./Inplace.vue",
+    "module": "./Inplace.vue",
+    "types": "./Inplace.d.ts",
+    "browser": {
+        "./sfc": "./Inplace.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

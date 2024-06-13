@@ -1,0 +1,11 @@
+{
+    "main": "./Calendar.vue",
+    "module": "./Calendar.vue",
+    "types": "./Calendar.d.ts",
+    "browser": {
+        "./sfc": "./Calendar.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./SplitButton.vue",
+    "module": "./SplitButton.vue",
+    "types": "./SplitButton.d.ts",
+    "browser": {
+        "./sfc": "./SplitButton.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

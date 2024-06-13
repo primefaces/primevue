@@ -1,0 +1,11 @@
+{
+    "main": "./OrganizationChart.vue",
+    "module": "./OrganizationChart.vue",
+    "types": "./OrganizationChart.d.ts",
+    "browser": {
+        "./sfc": "./OrganizationChart.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

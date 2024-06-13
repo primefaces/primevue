@@ -1,0 +1,6 @@
+{
+    "main": "./ConfirmDialogStyle.js",
+    "module": "./ConfirmDialogStyle.js",
+    "types": "./ConfirmDialogStyle.d.ts",
+    "sideEffects": false
+}

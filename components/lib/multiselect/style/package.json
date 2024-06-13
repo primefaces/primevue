@@ -1,6 +1,0 @@
-{
-    "main": "./multiselectstyle.mjs",
-    "module": "./multiselectstyle.mjs",
-    "types": "./MultiSelectStyle.d.ts",
-    "sideEffects": false
-}

@@ -1,0 +1,11 @@
+{
+    "main": "./Dropdown.vue",
+    "module": "./Dropdown.vue",
+    "types": "./Dropdown.d.ts",
+    "browser": {
+        "./sfc": "./Dropdown.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

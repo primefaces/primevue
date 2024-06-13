@@ -1,0 +1,11 @@
+{
+    "main": "./InputGroup.vue",
+    "module": "./InputGroup.vue",
+    "types": "./InputGroup.d.ts",
+    "browser": {
+        "./sfc": "./InputGroup.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

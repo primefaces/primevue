@@ -1,0 +1,6 @@
+{
+    "main": "./InplaceStyle.js",
+    "module": "./InplaceStyle.js",
+    "types": "./InplaceStyle.d.ts",
+    "sideEffects": false
+}

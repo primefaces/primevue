@@ -1,0 +1,6 @@
+{
+    "main": "./BreadcrumbStyle.js",
+    "module": "./BreadcrumbStyle.js",
+    "types": "./BreadcrumbStyle.d.ts",
+    "sideEffects": false
+}

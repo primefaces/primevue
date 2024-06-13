@@ -1,5 +1,0 @@
-{
-    "main": "./terminalservice.mjs",
-    "module": "./terminalservice.mjs",
-    "types": "./TerminalService.d.ts"
-}

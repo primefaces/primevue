@@ -1,0 +1,11 @@
+{
+    "main": "./Checkbox.vue",
+    "module": "./Checkbox.vue",
+    "types": "./Checkbox.d.ts",
+    "browser": {
+        "./sfc": "./Checkbox.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

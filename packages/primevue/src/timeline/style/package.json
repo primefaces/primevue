@@ -1,0 +1,6 @@
+{
+    "main": "./TimelineStyle.js",
+    "module": "./TimelineStyle.js",
+    "types": "./TimelineStyle.d.ts",
+    "sideEffects": false
+}

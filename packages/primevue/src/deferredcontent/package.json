@@ -1,0 +1,11 @@
+{
+    "main": "./DeferredContent.vue",
+    "module": "./DeferredContent.vue",
+    "types": "./DeferredContent.d.ts",
+    "browser": {
+        "./sfc": "./DeferredContent.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

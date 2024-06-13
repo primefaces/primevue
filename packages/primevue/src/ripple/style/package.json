@@ -1,0 +1,6 @@
+{
+    "main": "./RippleStyle.js",
+    "module": "./RippleStyle.js",
+    "types": "./RippleStyle.d.ts",
+    "sideEffects": false
+}

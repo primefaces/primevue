@@ -1,0 +1,6 @@
+{
+    "main": "./GalleriaStyle.js",
+    "module": "./GalleriaStyle.js",
+    "types": "./GalleriaStyle.d.ts",
+    "sideEffects": false
+}

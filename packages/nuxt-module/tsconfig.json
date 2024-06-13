@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "es2022",
+        "moduleResolution": "Node",
+        "baseUrl": ".",
+        "paths": {
+            "primevue/*": ["../../packages/primevue/src/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}

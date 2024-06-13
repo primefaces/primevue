@@ -1,0 +1,11 @@
+{
+    "main": "./Listbox.vue",
+    "module": "./Listbox.vue",
+    "types": "./Listbox.d.ts",
+    "browser": {
+        "./sfc": "./Listbox.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

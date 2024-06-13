@@ -1,6 +1,0 @@
-{
-    "main": "./treestyle.mjs",
-    "module": "./treestyle.mjs",
-    "types": "./TreeStyle.d.ts",
-    "sideEffects": false
-}

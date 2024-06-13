@@ -1,0 +1,6 @@
+{
+    "main": "./ColorPickerStyle.js",
+    "module": "./ColorPickerStyle.js",
+    "types": "./ColorPickerStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./FloatLabel.vue",
+    "module": "./FloatLabel.vue",
+    "types": "./FloatLabel.d.ts",
+    "browser": {
+        "./sfc": "./FloatLabel.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "main": "./PanelStyle.js",
+    "module": "./PanelStyle.js",
+    "types": "./PanelStyle.d.ts",
+    "sideEffects": false
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./Dialog.vue",
+    "module": "./Dialog.vue",
+    "types": "./Dialog.d.ts",
+    "browser": {
+        "./sfc": "./Dialog.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

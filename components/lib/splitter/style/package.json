@@ -1,6 +1,0 @@
-{
-    "main": "./splitterstyle.mjs",
-    "module": "./splitterstyle.mjs",
-    "types": "./SplitterStyle.d.ts",
-    "sideEffects": false
-}

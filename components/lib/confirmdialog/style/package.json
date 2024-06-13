@@ -1,6 +1,0 @@
-{
-    "main": "./confirmdialogstyle.mjs",
-    "module": "./confirmdialogstyle.mjs",
-    "types": "./ConfirmDialogStyle.d.ts",
-    "sideEffects": false
-}

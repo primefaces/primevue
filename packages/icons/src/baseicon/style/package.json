@@ -1,0 +1,6 @@
+{
+    "main": "./BaseIconStyle.js",
+    "module": "./BaseIconStyle.js",
+    "types": "./BaseIconStyle.d.ts",
+    "sideEffects": false
+}

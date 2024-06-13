@@ -1,6 +1,0 @@
-{
-    "main": "./datatablestyle.mjs",
-    "module": "./datatablestyle.mjs",
-    "types": "./DataTableStyle.d.ts",
-    "sideEffects": false
-}

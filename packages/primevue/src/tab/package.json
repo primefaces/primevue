@@ -1,0 +1,11 @@
+{
+    "main": "./Tab.vue",
+    "module": "./Tab.vue",
+    "types": "./Tab.d.ts",
+    "browser": {
+        "./sfc": "./Tab.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

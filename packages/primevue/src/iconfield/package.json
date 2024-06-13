@@ -1,0 +1,11 @@
+{
+    "main": "./IconField.vue",
+    "module": "./IconField.vue",
+    "types": "./IconField.d.ts",
+    "browser": {
+        "./sfc": "./IconField.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

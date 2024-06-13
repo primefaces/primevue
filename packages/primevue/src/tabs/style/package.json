@@ -1,0 +1,6 @@
+{
+    "main": "./TabsStyle.js",
+    "module": "./TabsStyle.js",
+    "types": "./TabsStyle.d.ts",
+    "sideEffects": false
+}

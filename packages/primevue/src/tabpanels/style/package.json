@@ -1,0 +1,6 @@
+{
+    "main": "./TabPanelsStyle.js",
+    "module": "./TabPanelsStyle.js",
+    "types": "./TabPanelsStyle.d.ts",
+    "sideEffects": false
+}
