@@ -144,11 +144,11 @@ export default {
             versions: [
                 {
                     name: 'v4',
-                    url: 'https://v4.primevue.org'
+                    url: 'https://primevue.org'
                 },
                 {
                     name: 'v3',
-                    url: 'https://www.primevue.org'
+                    url: 'https://v3.primevue.org'
                 },
                 {
                     name: 'v2',
