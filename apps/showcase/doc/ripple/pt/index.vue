@@ -23,7 +23,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.steps',
+                    id: 'pt.doc.ripple',
                     label: 'Ripple PT Options',
                     component: DocApiTable,
                     data: getPTOptions('Ripple')

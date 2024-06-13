@@ -23,7 +23,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.steps',
+                    id: 'pt.doc.slider',
                     label: 'Slider PT Options',
                     component: DocApiTable,
                     data: getPTOptions('Slider')
