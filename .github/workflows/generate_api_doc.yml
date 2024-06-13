@@ -4,7 +4,7 @@ on:
     push:
         branches: [master]
         paths:
-            - '**/**/**/*.d.ts'
+            - '**/**/*.d.ts'
             - '/api-generator/build-apidoc.js'
 
 permissions:
@@ -29,7 +29,7 @@ jobs:
                   cache: 'npm'
 
             - name: Install node packages
-              run: npm run setup
+              run: npm install
 
             - name: Generate api doc
               run: npm run apidoc
