@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-wrap gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
-            <Message severity="error" />
+            <Message severity="error" icon="pi pi-times-circle" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -27,7 +27,7 @@ export default {
 </div>
 <div class="flex flex-wrap gap-2">
     <InputText placeholder="Email" aria-label="email" invalid />
-    <Message severity="error" />
+    <Message severity="error" icon="pi pi-times-circle" />
 </div>
 `,
                 options: `
@@ -39,7 +39,7 @@ export default {
         </div>
         <div class="flex flex-wrap gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
-            <Message severity="error" />
+            <Message severity="error" icon="pi pi-times-circle" />
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@ export default {
         </div>
         <div class="flex flex-wrap gap-2">
             <InputText placeholder="Email" aria-label="email" invalid />
-            <Message severity="error" />
+            <Message severity="error" icon="pi pi-times-circle" />
         </div>
     </div>
 </template>

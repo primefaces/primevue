@@ -168,9 +168,9 @@ export interface MessageSlots {
     default(): VNode[];
     /**
      * Custom message icon template.
-     * @param {Object} scope - messageicon slot's params.
+     * @param {Object} scope - icon slot's params.
      */
-    messageicon(scope: {
+    icon(scope: {
         /**
          * Style class of the item icon element.
          */

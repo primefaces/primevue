@@ -174,11 +174,12 @@ const theme = ({ dt }) => `
 .p-message.p-message-leave-to {
     max-height: 0;
     opacity: 0;
+    margin: 0;
 }
 
 .p-message-leave-active {
     overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin 0.3s;
 }
 
 .p-message-leave-active .p-message-close-button {

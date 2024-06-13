@@ -3,8 +3,8 @@
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
             <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
             <div v-else :class="cx('content')" v-bind="ptm('content')">
-                <slot name="messageicon" class="p-message-icon">
-                    <component :is="icon ? 'span' : iconComponent" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
+                <slot name="icon" class="p-message-icon">
+                    <component :is="icon ? 'span' : null" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
                 </slot>
                 <div v-if="$slots.default" class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>

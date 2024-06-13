@@ -7,8 +7,8 @@
             <Button label="Show" @click="addMessages()" />
             <Button label="Clear" severity="secondary" @click="clearMessages()" />
         </div>
-        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
-            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+        <transition-group name="p-message" tag="div" class="flex flex-col">
+            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity" class="mt-4">{{ msg.content }}</Message>
         </transition-group>
     </div>
     <DocSectionCode :code="code" />
@@ -24,8 +24,8 @@ export default {
                 basic: `
 <Button label="Show" @click="addMessages()" />
 <Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
-<transition-group name="p-message" tag="div" class="mt-4 flex flex-col gap-4">
-    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+<transition-group name="p-message" tag="div" class="flex flex-col">
+    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity" class="mt-4">{{ msg.content }}</Message>
 </transition-group>
 `,
                 options: `
@@ -35,8 +35,8 @@ export default {
             <Button label="Show" @click="addMessages()" />
             <Button label="Clear" severity="secondary" @click="clearMessages()" />
         </div>
-        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
-            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+        <transition-group name="p-message" tag="div" class="flex flex-col">
+            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity" class="mt-4">{{ msg.content }}</Message>
         </transition-group>
     </div>
 </template>
@@ -72,8 +72,8 @@ export default {
             <Button label="Show" @click="addMessages()" />
             <Button label="Clear" severity="secondary" @click="clearMessages()" />
         </div>
-        <transition-group name="p-message" tag="div" class="flex flex-col gap-4">
-            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity">{{ msg.content }}</Message>
+        <transition-group name="p-message" tag="div" class="flex flex-col">
+            <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity" class="mt-4">{{ msg.content }}</Message>
         </transition-group>
     </div>
 </template>

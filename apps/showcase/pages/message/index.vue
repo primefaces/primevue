@@ -6,9 +6,9 @@
 import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
-import CustomIconDoc from '@/doc/message/CustomIconDoc.vue';
 import DynamicDoc from '@/doc/message/DynamicDoc.vue';
 import FormDoc from '@/doc/message/FormDoc.vue';
+import IconDoc from '@/doc/message/IconDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import LifeDoc from '@/doc/message/LifeDoc.vue';
 import SeverityDoc from '@/doc/message/SeverityDoc.vue';
@@ -35,6 +35,11 @@ export default {
                     component: SeverityDoc
                 },
                 {
+                    id: 'icon',
+                    label: 'Icon',
+                    component: IconDoc
+                },
+                {
                     id: 'form',
                     label: 'Form',
                     component: FormDoc
@@ -53,11 +58,6 @@ export default {
                     id: 'life',
                     label: 'Life',
                     component: LifeDoc
-                },
-                {
-                    id: 'custom-icon',
-                    label: 'Custom Icon',
-                    component: CustomIconDoc
                 },
                 {
                     id: 'accessibility',
