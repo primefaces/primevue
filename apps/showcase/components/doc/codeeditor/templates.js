@@ -377,7 +377,6 @@ app.component('TabMenu', TabMenu);
 app.component('TabView', TabView);
 app.component('Tabs', Tabs);
 app.component('TabList', TabList);
-app.component('TabView', TabView);
 app.component('Tab', Tab);
 app.component('TabPanels', TabPanels);
 app.component('TabPanel', TabPanel);
