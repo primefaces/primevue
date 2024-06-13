@@ -3,7 +3,7 @@
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" disabled :value="checked" />
+        <RadioButton v-model="value" :value="1" disabled />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +12,15 @@
 export default {
     data() {
         return {
-            checked: true,
+            value: null,
             code: {
                 basic: `
-<RadioButton v-model="checked" disabled :value="checked" />
+<RadioButton v-model="value" :value="1" disabled  />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" disabled :value="checked" />
+        <RadioButton v-model="value" :value="1" disabled  />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            checked: true
+            value: null
         }
     }
 }
@@ -37,14 +37,14 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <RadioButton v-model="checked" disabled :value="checked" />
+        <RadioButton v-model="value" :value="1" disabled  />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const checked = ref(false);
+const value = ref(null);
 <\/script>
 `
             }
