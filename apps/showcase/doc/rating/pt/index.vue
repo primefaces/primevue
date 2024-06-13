@@ -23,7 +23,7 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.steps',
+                    id: 'pt.doc.rating',
                     label: 'Rating PT Options',
                     component: DocApiTable,
                     data: getPTOptions('Rating')
