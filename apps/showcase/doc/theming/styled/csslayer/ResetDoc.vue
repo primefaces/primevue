@@ -6,7 +6,6 @@
             wrapping your CSS in a layer like <i>reset</i> and make sure <i>primevue</i> comes after your layer since layers defined after has higher precedence. This way, your Reset CSS does not get in the way of PrimeVue components.
         </p>
         <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
-        <p>If you are using Nuxt, use the built-in <i>cssLayerOrder</i> property of the PrimeVue nuxt module instead.</p>
     </DocSectionText>
 </template>
 
