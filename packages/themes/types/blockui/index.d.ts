@@ -1,3 +1,4 @@
+
 /**
  *
  * BlockUI Design Tokens
@@ -11,15 +12,17 @@
 import { ColorSchemeDesignToken } from '..';
 
 export interface BlockUIDesignTokens extends ColorSchemeDesignToken<BlockUIDesignTokens> {
+
     /**
-     * Used to pass tokens of the root section
-     */
+    * Used to pass tokens of the root section
+    */
     root?: {
-        /**
-         * Border radius of root
-         *
-         * @designToken blockui.border.radius
-         */
-        borderRadius?: string;
-    };
+        
+    /**
+    * Border radius of root
+    *
+    * @designToken blockui.border.radius
+    */
+    borderRadius?: string;
+    }
 }

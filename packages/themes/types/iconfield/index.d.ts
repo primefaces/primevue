@@ -1,3 +1,4 @@
+
 /**
  *
  * IconField Design Tokens
@@ -11,15 +12,17 @@
 import { ColorSchemeDesignToken } from '..';
 
 export interface IconFieldDesignTokens extends ColorSchemeDesignToken<IconFieldDesignTokens> {
+
     /**
-     * Used to pass tokens of the icon section
-     */
+    * Used to pass tokens of the icon section
+    */
     icon?: {
-        /**
-         * Color of icon
-         *
-         * @designToken iconfield.icon.color
-         */
-        color?: string;
-    };
+        
+    /**
+    * Color of icon
+    *
+    * @designToken iconfield.icon.color
+    */
+    color?: string;
+    }
 }
