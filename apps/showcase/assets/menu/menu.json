@@ -583,7 +583,7 @@
                 },
                 {
                     "name": "Changelog",
-                    "href": "https://github.com/primefaces/primevue/blob/master/CHANGELOG.md"
+                    "href": "https://github.com/primefaces/primevue/blob/master/packages/primevue/CHANGELOG.md"
                 },
                 {
                     "name": "Store",
