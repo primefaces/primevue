@@ -6,10 +6,7 @@
         <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
 
         <h3>CSS Layer</h3>
-        <p>
-            Enable PrimeVue CSS layer and configure the tailwind styles to have higher specificity with layering. This way, <i>!</i> prefix is not required. If you are using Nuxt, there is a
-            <NuxtLink to="/nuxt/#layerorder">cssLayerOrder</NuxtLink> property to define the order.
-        </p>
+        <p>Enable PrimeVue CSS layer and configure the tailwind styles to have higher specificity with layering. This way, <i>!</i> prefix is not required.</p>
         <DocSectionCode :code="code2" importCode hideToggleCode hideStackBlitz />
         <DocSectionCode :code="code3" importCode hideToggleCode hideStackBlitz />
     </DocSectionText>
@@ -35,7 +32,10 @@ app.use(PrimeVue, {
     theme: {
         preset: Aura,
         options: {
-            cssLayer: true
+            cssLayer: {
+                name: 'primevue',
+                order: 'tailwind-base, primevue, tailwind-utilities'
+            }
         }
     }
  });

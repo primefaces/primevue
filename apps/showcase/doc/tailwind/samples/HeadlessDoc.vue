@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <Button label="Login" icon="pi pi-user" @click="visible = true" />
 
-        <Dialog v-model:visible="visible" pt:root:class="border-0" pt:mask:class="backdrop-blur-sm">
+        <Dialog v-model:visible="visible" pt:root:class="!border-0" pt:mask:class="backdrop-blur-sm">
             <template #container="{ closeCallback }">
                 <div class="flex flex-col px-8 py-8 gap-6" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--p-primary-400), var(--p-primary-700))">
                     <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
@@ -20,15 +20,15 @@
                     </svg>
                     <div class="inline-flex flex-col gap-2">
                         <label for="username" class="text-primary-50 font-semibold">Username</label>
-                        <InputText id="username" class="bg-white/20 border-0 p-4 text-primary-50 w-80"></InputText>
+                        <InputText id="username" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80"></InputText>
                     </div>
                     <div class="inline-flex flex-col gap-2">
                         <label for="password" class="text-primary-50 font-semibold">Password</label>
-                        <InputText id="password" class="bg-white/20 border-0 p-4 text-primary-50 w-80" type="password"></InputText>
+                        <InputText id="password" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80" type="password"></InputText>
                     </div>
                     <div class="flex items-center gap-4">
-                        <Button label="Cancel" @click="closeCallback" text class="p-4 w-full text-primary-50 border border-white/30 hover:bg-white/10"></Button>
-                        <Button label="Sign-In" @click="closeCallback" text class="p-4 w-full text-primary-50 border border-white/30 hover:bg-white/10"></Button>
+                        <Button label="Cancel" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                        <Button label="Sign-In" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
                     </div>
                 </div>
             </template>
@@ -46,7 +46,7 @@ export default {
                 basic: `
 <Button label="Login" icon="pi pi-user" @click="visible = true" />
 
-<Dialog v-model:visible="visible" pt:root:class="border-0" pt:mask:class="backdrop-blur-sm">
+<Dialog v-model:visible="visible" pt:root:class="!border-0" pt:mask:class="backdrop-blur-sm">
     <template #container="{ closeCallback }">
         <div class="flex flex-col px-8 py-8 gap-6" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--p-primary-400), var(--p-primary-700))">
             <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
@@ -61,15 +61,15 @@ export default {
             </svg>
             <div class="inline-flex flex-col gap-2">
                 <label for="username" class="text-primary-50 font-semibold">Username</label>
-                <InputText id="username" class="bg-white/20 border-0 p-4 text-primary-50 w-80"></InputText>
+                <InputText id="username" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80"></InputText>
             </div>
             <div class="inline-flex flex-col gap-2">
                 <label for="password" class="text-primary-50 font-semibold">Password</label>
-                <InputText id="password" class="bg-white/20 border-0 p-4 text-primary-50 w-80" type="password"></InputText>
+                <InputText id="password" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80" type="password"></InputText>
             </div>
             <div class="flex items-center gap-4">
-                <Button label="Cancel" @click="closeCallback" text class="p-4 w-full text-primary-50 border border-white/30 hover:bg-white/10"></Button>
-                <Button label="Sign-In" @click="closeCallback" text class="p-4 w-full text-primary-50 border border-white/30 hover:bg-white/10"></Button>
+                <Button label="Cancel" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                <Button label="Sign-In" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
             </div>
         </div>
     </template>

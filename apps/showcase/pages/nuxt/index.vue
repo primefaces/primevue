@@ -22,7 +22,6 @@ import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/nuxt/ExamplesDoc.vue';
 import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
 import UsageDoc from '@/doc/nuxt/UsageDoc.vue';
-import CSSLayerOrderDoc from '@/doc/nuxt/configuration/CSSLayerOrderDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
 import ComposablesDoc from '@/doc/nuxt/configuration/ComposablesDoc.vue';
 import DirectivesDoc from '@/doc/nuxt/configuration/DirectivesDoc.vue';
@@ -88,11 +87,6 @@ export default {
                             id: 'importtheme',
                             label: 'importTheme',
                             component: ImportThemeDoc
-                        },
-                        {
-                            id: 'layerorder',
-                            label: 'cssLayerOrder',
-                            component: CSSLayerOrderDoc
                         }
                     ]
                 },

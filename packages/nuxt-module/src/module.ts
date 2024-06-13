@@ -14,7 +14,7 @@ export default defineNuxtModule<ModuleOptions>({
     defaults: {
         usePrimeVue: true,
         resolvePath: undefined,
-        cssLayerOrder: 'tailwind-base, primevue, tailwind-utilities',
+        //cssLayerOrder: undefined,
         importPT: undefined,
         importTheme: undefined,
         options: {},
