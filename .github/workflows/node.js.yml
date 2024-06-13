@@ -26,7 +26,7 @@ jobs:
 
             - name: Build
               run: |
-                  npm install
+                  npm run setup
 
             - name: Lint Check
               if: ${{ success() }}

@@ -32,7 +32,7 @@ jobs:
 
       - name: Install packages
         run: |
-          npm install
+          npm run setup
 
       - name: Code Format
         id: codeFormat
