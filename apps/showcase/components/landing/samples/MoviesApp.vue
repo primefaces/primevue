@@ -51,10 +51,10 @@
                                     :showValue="false"
                                     :pt="{
                                         root: {
-                                            class: 'h-1.5 bg-surface-950 dark:bg-surface-50 rounded-full'
+                                            class: '!h-1.5 !bg-surface-950 dark:!bg-surface-50 !rounded-full'
                                         },
                                         value: {
-                                            class: 'bg-surface-0 dark:bg-surface-950 rounded-full'
+                                            class: '!bg-surface-0 dark:!bg-surface-950 !rounded-full'
                                         }
                                     }"
                                 ></ProgressBar>

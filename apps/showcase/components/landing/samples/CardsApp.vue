@@ -295,14 +295,14 @@
                                     v-model="memberSelectedTypes[0]"
                                     :options="memberTypes"
                                     optionLabel="name"
-                                    placeholder="Select a role"
-                                    class="w-16"
+                                    placeholder="Select"
+                                    class="!w-16"
                                     :pt="{
-                                        root: { class: 'border-0 shadow-none' },
-                                        label: { class: 'p-0 text-muted-color text-sm' },
-                                        dropdown: { class: 'p-0 w-auto' },
-                                        dropdownicon: { class: 'w-3 h-3' },
-                                        option: { class: 'text-sm px-2 py-1' }
+                                        root: { class: '!border-0 !shadow-none' },
+                                        label: { class: '!p-0 !text-muted-color !text-sm' },
+                                        dropdown: { class: '!p-0 !w-auto' },
+                                        dropdownicon: { class: '!w-3 !h-3' },
+                                        option: { class: '!text-sm !px-2 !py-1' }
                                     }"
                                 />
                             </div>
@@ -316,14 +316,14 @@
                                     v-model="memberSelectedTypes[1]"
                                     :options="memberTypes"
                                     optionLabel="name"
-                                    placeholder="Select a role"
-                                    class="w-16"
+                                    placeholder="Select"
+                                    class="!w-16"
                                     :pt="{
-                                        root: { class: 'border-0 shadow-none' },
-                                        label: { class: 'p-0 text-muted-color text-sm' },
-                                        dropdown: { class: 'p-0 w-auto' },
-                                        dropdownicon: { class: 'w-3 h-3' },
-                                        option: { class: 'text-sm px-2 py-1' }
+                                        root: { class: '!border-0 !shadow-none' },
+                                        label: { class: '!p-0 !text-muted-color !text-sm' },
+                                        dropdown: { class: '!p-0 !w-auto' },
+                                        dropdownicon: { class: '!w-3 !h-3' },
+                                        option: { class: '!text-sm !px-2 !py-1' }
                                     }"
                                 />
                             </div>
@@ -337,14 +337,14 @@
                                     v-model="memberSelectedTypes[2]"
                                     :options="memberTypes"
                                     optionLabel="name"
-                                    placeholder="Select a role"
-                                    class="w-16"
+                                    placeholder="Select"
+                                    class="!w-16"
                                     :pt="{
-                                        root: { class: 'border-0 shadow-none' },
-                                        label: { class: 'p-0 text-muted-color text-sm' },
-                                        dropdown: { class: 'p-0 w-auto' },
-                                        dropdownicon: { class: 'w-3 h-3' },
-                                        option: { class: 'text-sm px-2 py-1' }
+                                        root: { class: '!border-0 !shadow-none' },
+                                        label: { class: '!p-0 !text-muted-color !text-sm' },
+                                        dropdown: { class: '!p-0 !w-auto' },
+                                        dropdownicon: { class: '!w-3 !h-3' },
+                                        option: { class: '!text-sm !px-2 !py-1' }
                                     }"
                                 />
                             </div>
