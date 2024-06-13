@@ -3,8 +3,8 @@ import BaseStyle from '@primevue/core/base/style';
 const theme = ({ dt }) => `
 .p-message {
     border-radius: ${dt('message.border.radius')};
-    border-width: ${dt('message.border.width')};
-    border-style: solid;
+    outline-width: ${dt('message.border.width')};
+    outline-style: solid;
 }
 
 .p-message-content {
@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
     height: ${dt('message.close.button.height')};
     border-radius: ${dt('message.close.button.border.radius')};
     background: transparent;
-    transition: background ${dt('message.transition.duration')}, color ${dt('message.transition.duration')}, outline-color ${dt('message.transition.duration')}, box-shadow ${dt('message.transition.duration')};
+    transition: background ${dt('message.transition.duration')}, color ${dt('message.transition.duration')}, outline-color ${dt('message.transition.duration')}, box-shadow ${dt('message.transition.duration')}, opacity 0.3s;
     outline-color: transparent;
     color: inherit;
     padding: 0;
@@ -54,7 +54,7 @@ const theme = ({ dt }) => `
 
 .p-message-info {
     background: ${dt('message.info.background')};
-    border-color: ${dt('message.info.border.color')};
+    outline-color: ${dt('message.info.border.color')};
     color: ${dt('message.info.color')};
     box-shadow: ${dt('message.info.shadow')};
 }
@@ -70,7 +70,7 @@ const theme = ({ dt }) => `
 
 .p-message-success {
     background: ${dt('message.success.background')};
-    border-color: ${dt('message.success.border.color')};
+    outline-color: ${dt('message.success.border.color')};
     color: ${dt('message.success.color')};
     box-shadow: ${dt('message.success.shadow')};
 }
@@ -86,7 +86,7 @@ const theme = ({ dt }) => `
 
 .p-message-warn {
     background: ${dt('message.warn.background')};
-    border-color: ${dt('message.warn.border.color')};
+    outline-color: ${dt('message.warn.border.color')};
     color: ${dt('message.warn.color')};
     box-shadow: ${dt('message.warn.shadow')};
 }
@@ -102,7 +102,7 @@ const theme = ({ dt }) => `
 
 .p-message-error {
     background: ${dt('message.error.background')};
-    border-color: ${dt('message.error.border.color')};
+    outline-color: ${dt('message.error.border.color')};
     color: ${dt('message.error.color')};
     box-shadow: ${dt('message.error.shadow')};
 }
@@ -118,7 +118,7 @@ const theme = ({ dt }) => `
 
 .p-message-secondary {
     background: ${dt('message.secondary.background')};
-    border-color: ${dt('message.secondary.border.color')};
+    outline-color: ${dt('message.secondary.border.color')};
     color: ${dt('message.secondary.color')};
     box-shadow: ${dt('message.secondary.shadow')};
 }
@@ -134,7 +134,7 @@ const theme = ({ dt }) => `
 
 .p-message-contrast {
     background: ${dt('message.contrast.background')};
-    border-color: ${dt('message.contrast.border.color')};
+    outline-color: ${dt('message.contrast.border.color')};
     color: ${dt('message.contrast.color')};
     box-shadow: ${dt('message.contrast.shadow')};
 }
@@ -174,16 +174,15 @@ const theme = ({ dt }) => `
 .p-message.p-message-leave-to {
     max-height: 0;
     opacity: 0;
-    margin: 0;
 }
 
 .p-message-leave-active {
     overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s, margin 0.15s;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), opacity 0.3s;
 }
 
 .p-message-leave-active .p-message-close-button {
-    display: none;
+    opacity: 0;
 }
 `;
 
