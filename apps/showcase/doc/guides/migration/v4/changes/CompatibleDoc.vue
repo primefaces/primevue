@@ -10,11 +10,13 @@
             <li><i class="mark">Sidebar</i> -> <i class="mark">Drawer</i>.</li>
         </ul>
 
-        <h4>Obsolete Components</h4>
-        <p>Components that are deprecated because of their functionality being provided by other components.</p>
+        <h4>Deprecated Components</h4>
+        <p>Components that are deprecated since their functionality is provided by other components.</p>
         <ul class="flex flex-col gap-2 leading-normal">
             <li><i class="mark">Chips</i> | Use AutoComplete with <i class="mark">multiple</i> enabled and <i class="mark">typeahead</i> disabled.</li>
             <li><i class="mark">TabMenu</i> | Use Tabs without panels.</li>
+            <li><i class="mark">Steps</i> | Use Stepper without panels.</li>
+            <li><i class="mark">InlineMessage</i> | Use Message component.</li>
             <li><i class="mark">BadgeDirective</i> | Use OverlayBadge instead.</li>
             <li><i class="mark">TabView</i> | Use the new Tabs components.</li>
             <li><i class="mark">Accordion</i> | Use with the new <i>AccordionHeader</i> and <i>AccordionContent</i> components.</li>

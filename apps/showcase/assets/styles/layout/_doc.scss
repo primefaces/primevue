@@ -1,7 +1,7 @@
 @mixin mark() {
     border-radius: 6px;
     padding: 2px 6px;
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 500;
     font-style: normal;
     background: var(--mark-background);
@@ -152,6 +152,10 @@
         a {
             @include doc-link();
         }
+    }
+
+    li {
+        font-size: 1.125rem;
     }
 }
 

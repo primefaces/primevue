@@ -6,6 +6,7 @@
             is the only available built-in preset; however, by v4 final, two more presets named Lara and Nora would be included, as well as the Material Design theme. If you had a custom theme for v3, the theme needs to be recreated using the new
             APIs. See the customization section at <NuxtLink to="/theming/styled">styled mode</NuxtLink> for details.
         </p>
+
         <h4>Removed Components</h4>
         <ul class="flex flex-col gap-2 leading-normal">
             <li><i class="mark">TriStateCheckbox</i> | Use Checkbox with indeterminate option.</li>
@@ -23,6 +24,12 @@
             <li>The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>
         </ul>
 
+        <h4>Message and InlineMesasge</h4>
+        <p>
+            <i class="mark">InlineMessage</i> is deprecated due to overlap with the <i>Message</i>. The spacing, closable and life properties of the <i>Message</i> have breaking changes to provide <i>InlineMessage</i> functionality. Default margin is
+            removed, closable is false by default and messages do not disappear automatically.
+        </p>
+
         <h4>PT Section Names</h4>
         <p>
             The experimental PassThrough feature is not production ready, there are changes on the PT section names due to alignment with CSS classes for certain components. If when component element is another PrimeVue component <i>pc</i> prefix is
@@ -31,9 +38,9 @@
 
         <h4>Removed Features</h4>
         <ul class="flex flex-col gap-2 leading-normal">
-            <li>Sidebar/Drawer <i>size</i> property is removed, use a responsive class utilty as replacement, demos have new examples.</li>
-            <li>Rating <i>cancel</i> prop is removed as toggling the selected star value clears it.</li>
-            <li>Inplace <i>closable</i> is removed in favor of templating and <i>closeCallback</i> prop.</li>
+            <li>Sidebar/Drawer <i class="mark">size</i> property is removed, use a responsive class utilty as replacement, demos have new examples.</li>
+            <li>Rating <i class="mark">cancel</i> prop is removed as toggling the selected star value clears it.</li>
+            <li>Inplace <i class="mark">closable</i> is removed in favor of templating and <i>closeCallback</i> prop.</li>
         </ul>
     </DocSectionText>
 </template>
