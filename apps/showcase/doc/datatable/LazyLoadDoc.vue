@@ -445,16 +445,13 @@ const onRowUnselect = () => {
             this.loading = true;
             this.lazyParams = { ...this.lazyParams, first: event?.first || this.first };
 
-            setTimeout(
-                () => {
-                    CustomerService.getCustomers({ lazyEvent: JSON.stringify(this.lazyParams) }).then((data) => {
-                        this.customers = data.customers;
-                        this.totalRecords = data.totalRecords;
-                        this.loading = false;
-                    });
-                },
-                Math.random() * 1000 + 250
-            );
+            setTimeout(() => {
+                CustomerService.getCustomers({ lazyEvent: JSON.stringify(this.lazyParams) }).then((data) => {
+                    this.customers = data.customers;
+                    this.totalRecords = data.totalRecords;
+                    this.loading = false;
+                });
+            }, Math.random() * 1000 + 250);
         },
         onPage(event) {
             this.lazyParams = event;

@@ -32,8 +32,8 @@ const theme = ({ dt }) => `
     text-decoration: none;
     cursor: pointer;
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')}, box-shadow ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
     border-radius: ${dt('stepper.step.header.border.radius')};
     outline-color: transparent;
     background: transparent;
@@ -60,8 +60,8 @@ const theme = ({ dt }) => `
     color: ${dt('stepper.step.title.color')};
     font-weight: ${dt('stepper.step.title.font.weight')};
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
 }
 
 .p-step-number {
@@ -123,8 +123,8 @@ const theme = ({ dt }) => `
     width: 100%;
     height: ${dt('stepper.separator.size')};
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
 }
 
 .p-steppanels {

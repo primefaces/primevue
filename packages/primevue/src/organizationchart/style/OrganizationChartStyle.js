@@ -58,8 +58,8 @@ const theme = ({ dt }) => `
     align-items: center;
     outline-color: transparent;
     transition: background ${dt('organizationchart.transition.duration')}, color ${dt('organizationchart.transition.duration')}, border-color ${dt('organizationchart.transition.duration')}, outline-color ${dt(
-        'organizationchart.transition.duration'
-    )}, box-shadow ${dt('organizationchart.transition.duration')};
+    'organizationchart.transition.duration'
+)}, box-shadow ${dt('organizationchart.transition.duration')};
 }
 
 .p-organizationchart-node-toggle-button:hover {

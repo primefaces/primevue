@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('multiselect.background')};
     border: 1px solid ${dt('multiselect.border.color')};
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, outline-color ${dt('multiselect.transition.duration')}, box-shadow ${dt(
-        'multiselect.transition.duration'
-    )};
+    'multiselect.transition.duration'
+)};
     border-radius: ${dt('multiselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('multiselect.shadow')};
@@ -148,8 +148,8 @@ const theme = ({ dt }) => `
     color: ${dt('multiselect.option.color')};
     background: transparent;
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, box-shadow ${dt('multiselect.transition.duration')}, outline-color ${dt(
-        'multiselect.transition.duration'
-    )};
+    'multiselect.transition.duration'
+)};
     border-radius: ${dt('multiselect.option.border.radius')}
 }
 

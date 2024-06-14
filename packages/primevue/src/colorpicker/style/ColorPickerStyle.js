@@ -17,8 +17,8 @@ const theme = ({ dt }) => `
     border: 0 none;
     border-radius: ${dt('colorpicker.preview.border.radius')};
     transition: background ${dt('colorpicker.transition.duration')}, color ${dt('colorpicker.transition.duration')}, border-color ${dt('colorpicker.transition.duration')}, outline-color ${dt('colorpicker.transition.duration')}, box-shadow ${dt(
-        'colorpicker.transition.duration'
-    )};
+    'colorpicker.transition.duration'
+)};
     outline-color: transparent;
     cursor: pointer;
 }

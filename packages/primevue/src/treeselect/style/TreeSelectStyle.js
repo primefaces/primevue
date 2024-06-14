@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.background')};
     border: 1px solid ${dt('treeselect.border.color')};
     transition: background ${dt('treeselect.transition.duration')}, color ${dt('treeselect.transition.duration')}, border-color ${dt('treeselect.transition.duration')}, outline-color ${dt('treeselect.transition.duration')}, box-shadow ${dt(
-        'treeselect.transition.duration'
-    )};
+    'treeselect.transition.duration'
+)};
     border-radius: ${dt('treeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('treeselect.shadow')};

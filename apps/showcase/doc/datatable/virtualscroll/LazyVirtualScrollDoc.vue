@@ -294,22 +294,19 @@ const loadCarsLazy = (event) => {
             }
 
             //simulate remote connection with a timeout
-            this.loadLazyTimeout = setTimeout(
-                () => {
-                    let _virtualCars = [...this.virtualCars];
-                    let { first, last } = event;
+            this.loadLazyTimeout = setTimeout(() => {
+                let _virtualCars = [...this.virtualCars];
+                let { first, last } = event;
 
-                    //load data of required page
-                    const loadedCars = this.cars.slice(first, last);
+                //load data of required page
+                const loadedCars = this.cars.slice(first, last);
 
-                    //populate page of virtual cars
-                    Array.prototype.splice.apply(_virtualCars, [...[first, last - first], ...loadedCars]);
+                //populate page of virtual cars
+                Array.prototype.splice.apply(_virtualCars, [...[first, last - first], ...loadedCars]);
 
-                    this.virtualCars = _virtualCars;
-                    this.lazyLoading = false;
-                },
-                Math.random() * 1000 + 250
-            );
+                this.virtualCars = _virtualCars;
+                this.lazyLoading = false;
+            }, Math.random() * 1000 + 250);
         }
     }
 };

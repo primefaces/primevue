@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('cascadeselect.background')};
     border: 1px solid ${dt('cascadeselect.border.color')};
     transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, outline-color ${dt(
-        'cascadeselect.transition.duration'
-    )}, box-shadow ${dt('cascadeselect.transition.duration')};
+    'cascadeselect.transition.duration'
+)}, box-shadow ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('cascadeselect.shadow')};
@@ -133,8 +133,8 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
     transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
-        'cascadeselect.transition.duration'
-    )}, outline-color ${dt('cascadeselect.transition.duration')};
+    'cascadeselect.transition.duration'
+)}, outline-color ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
