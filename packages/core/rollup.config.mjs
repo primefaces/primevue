@@ -36,6 +36,7 @@ const ALIAS_ENTRIES = [
             const files = fs.readdirSync(folderPath);
             const targetFile = files.find((file) => {
                 const ext = path.extname(file);
+
                 return ['.vue', '.js'].includes(ext) && path.basename(file, ext).toLowerCase() === fName.toLowerCase();
             });
 
