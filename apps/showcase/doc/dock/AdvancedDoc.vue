@@ -901,6 +901,16 @@ const commandHandler = (text) => {
                     response = Math.floor(Math.random() * 100);
                     break;
 
+                case 'clear':
+                    response = '';
+                    let terminal = document.querySelector('.p-terminal-command-list');
+                    let children = terminal.children;
+                    let length = children.length;
+                    for (let i = 1; i < length + 1; i++) {
+                        terminal.removeChild(children[0]);
+                    }
+                    break;
+
                 default:
                     response = 'Unknown command: ' + command;
             }
