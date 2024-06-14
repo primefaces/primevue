@@ -83,7 +83,7 @@ const theme = ({ dt }) => `
 }
 
 .p-select:has(.p-select-clear-icon) .p-select-label {
-    padding-right: calc(1 + ${dt('select.padding.x')});
+    padding-right: calc(1rem + ${dt('select.padding.x')});
 }
 
 .p-select.p-disabled .p-select-label {
