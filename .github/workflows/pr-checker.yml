@@ -24,33 +24,33 @@ jobs:
         with:
           message: 'Thanks a lot for your contribution! But, PR does not seem to be linked to any issues. Please [manually link to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-or-branch-to-an-issue-using-the-issue-sidebar) or mention it in the description using #<issue_id>.'
 
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 18
           cache: 'npm'
 
       - name: Install packages
         run: |
-          npm run setup
+          pnpm run setup
 
       - name: Code Format
         id: codeFormat
         run: |
-          npm run format:check
+          pnpm run format:check
 
       - name: Unit Test
         id: unitTest
         run: |
-          npm run test:unit
+          pnpm run test:unit
 
       - name: Lint
         run: |
-          npm run lint
+          pnpm run lint
 
       - name: Security
         run: |
-          npm run security:check
+          pnpm run security:check
 
       - name: Add Code Format Fail Comment
         if: always() && steps.codeFormat.outcome == 'failure'
