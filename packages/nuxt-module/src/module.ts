@@ -53,15 +53,12 @@ export default defineNuxtModule<ModuleOptions>({
 
         //nuxt.options.build.transpile.push('nuxt');
         nuxt.options.build.transpile.push('primevue');
-        /*nuxt.options.build.transpile.push('@primevue/core');
-        nuxt.options.build.transpile.push('@primevue/icons');
-        nuxt.options.build.transpile.push('@primevue/themes');*/
 
         const styleContent = () => `
 ${registered.styles.map((style: any) => `import ${style.as} from '${style.from}';`).join('\n')}
 ${
     hasTheme
-        ? `import { Theme } from '@primevue/themes';
+        ? `import { Theme } from '@primeuix/styled';
 import ${importTheme.as} from '${normalize(importTheme.from)}';\n`
         : ''
 }

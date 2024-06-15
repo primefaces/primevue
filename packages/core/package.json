@@ -44,10 +44,11 @@
         "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
         "build:package": "pnpm run build:prebuild && rollup -c && pnpm run build:postbuild",
         "build:prebuild": "node ./scripts/prebuild.mjs",
-        "build:postbuild": "node ./scripts/postbuild.mjs"
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primevue/themes": "workspace:*"
+        "@primeuix/styled": "^0.0.1"
     },
     "peerDependencies": {
         "vue": "^3.0.0"

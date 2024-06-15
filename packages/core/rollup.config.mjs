@@ -19,7 +19,7 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue'];
-const INLINE_EXTERNALS = [/@primevue\/themes\/.*/];
+const INLINE_EXTERNALS = ['@primeuix/styled'];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias
@@ -42,8 +42,7 @@ const ALIAS_ENTRIES = [
 
             return targetFile ? path.join(folderPath, targetFile) : null;
         }
-    },
-    { find: '@primevue/themes', replacement: path.resolve(__dirname, '../themes/src/index.js') }
+    }
 ];
 
 // plugins

@@ -51,6 +51,7 @@
         "dev": "nuxi dev playground",
         "dev:build": "nuxi build playground",
         "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+        "dev:link": "pnpm link --global && npm link",
         "test": "vitest run",
         "test:watch": "vitest watch"
     },

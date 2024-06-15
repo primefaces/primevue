@@ -6,7 +6,7 @@ export { default as BaseIcon } from '@primevue/icons/baseicon';
 export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 
 // Themes
-export * from '@primevue/themes';
+export * from '@primeuix/styled';
 
 // UseConfirm
 export * from './useconfirm/UseConfirm.js';

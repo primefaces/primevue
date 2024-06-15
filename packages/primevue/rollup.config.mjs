@@ -19,7 +19,7 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue', 'chart.js/auto', 'quill'];
-const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/];
+const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/, '@primeuix/styled'];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias
@@ -56,8 +56,7 @@ const ALIAS_ENTRIES = [
     { find: '@primevue/core/utils', replacement: path.resolve(__dirname, '../core/src/utils/Utils.js') },
     { find: '@primevue/core', replacement: path.resolve(__dirname, '../core/src/index.js') },
     { find: '@primevue/icons/baseicon/style', replacement: path.resolve(__dirname, '../icons/src/baseicon/style/BaseIconStyle.js') },
-    { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, '../icons/src/baseicon/BaseIcon.vue') },
-    { find: '@primevue/themes', replacement: path.resolve(__dirname, '../themes/src/index.js') }
+    { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, '../icons/src/baseicon/BaseIcon.vue') }
 ];
 
 // plugins

@@ -1,4 +1,4 @@
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/styled';
 
 export default {
     innerWidth(el) {

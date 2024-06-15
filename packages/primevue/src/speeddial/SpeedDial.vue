@@ -66,7 +66,7 @@
 <script>
 import { DomHandler, UniqueComponentId } from '@primevue/core/utils';
 import PlusIcon from '@primevue/icons/plus';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/styled';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';

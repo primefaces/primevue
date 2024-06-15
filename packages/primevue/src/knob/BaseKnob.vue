@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/styled';
 import KnobStyle from 'primevue/knob/style';
 
 export default {

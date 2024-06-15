@@ -59,7 +59,7 @@
 
 <script>
 import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from '@primevue/core/utils';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/styled';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
