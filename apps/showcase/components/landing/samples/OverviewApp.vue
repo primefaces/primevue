@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="mt-4 flex flex-wrap gap-6 items-start justify-between">
-            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" />
+            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" />
             <div class="flex items-center gap-2">
                 <Button label="Download" icon="pi pi-download" iconPos="right" />
                 <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon iconDisplay="input" placeholder="06/11/2024 - 06/22/2024" />
