@@ -26,7 +26,7 @@
                 </Button>
             </div>
         </div>
-        <div class="mt-4 flex flex-wrap gap-6 items-start justify-between">
+        <div class="mt-4 flex flex-wrap gap-6 items-center justify-between">
             <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" />
             <div class="flex items-center gap-2">
                 <Button label="Download" icon="pi pi-download" iconPos="right" />
@@ -61,7 +61,18 @@
                         tableClass="overflow-x-auto dark:bg-surface-950"
                         paginatorTemplate="PrevPageLink PageLinks NextPageLink  CurrentPageReport RowsPerPageDropdown"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                        :pt="{}"
+                        pt:pcpaginator:root="!bg-transparent"
+                        :dt="{
+                            header: {
+                                background: 'transparent'
+                            },
+                            headerCell: {
+                                background: 'transparent'
+                            },
+                            row: {
+                                background: 'transparent'
+                            }
+                        }"
                     >
                         <Column header="Id" class="w-1/12">
                             <template #body="slotProps">

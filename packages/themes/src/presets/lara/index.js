@@ -396,7 +396,7 @@ export default {
                     hoverMutedColor: '{surface.300}'
                 },
                 content: {
-                    background: 'transparent',
+                    background: '{surface.900}',
                     hoverBackground: '{surface.800}',
                     borderColor: '{surface.700}',
                     color: '{text.color}',

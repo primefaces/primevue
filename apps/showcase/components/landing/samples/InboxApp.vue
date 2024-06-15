@@ -62,6 +62,14 @@
                         }
                     }
                 }"
+                :dt="{
+                    headerCell: {
+                        background: 'transparent'
+                    },
+                    row: {
+                        background: 'transparent'
+                    }
+                }"
             >
                 <template #header>
                     <div class="flex xl:items-center justify-between gap-2 flex-col xl:flex-row">
