@@ -31,7 +31,7 @@
         "dev": "pnpm --filter showcase dev",
         "module:dev": "pnpm --filter @primevue/nuxt-module dev",
         "security:check": "pnpm audit --prod --audit-level high",
-        "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" \"!packages/themes/types/**/*.d.ts\"",
+        "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" \"!packages/themes/types/**/*.d.ts\" --cache",
         "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\" \"!packages/themes/types/**/*.d.ts\"",
         "lint": "eslint --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore . --cache",
         "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore ."
