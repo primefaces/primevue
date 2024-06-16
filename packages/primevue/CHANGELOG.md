@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.0-rc.2](https://github.com/primefaces/primevue/tree/4.0.0-rc.2) (2024-06-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-rc.1...4.0.0-rc.2)
+
+**Fixed bugs:**
+
+- Themes are installed by the wrong package [\#5898](https://github.com/primefaces/primevue/issues/5898)
+- [nuxt] Could not access pt. The only available runtime config keys on the client side are public and app [\#5895](https://github.com/primefaces/primevue/issues/5895)
+- primevue@4.0.0-rc.1 incorrect background colors [\#5894](https://github.com/primefaces/primevue/issues/5894)
+- Menu: Using the popup mode, the menu has a transparent background in dark mode. [\#5890](https://github.com/primefaces/primevue/issues/5890)
+- Select: Invalid padding calc when clear icon present [\#5847](https://github.com/primefaces/primevue/issues/5847)
+
 ## [4.0.0-beta.5](https://github.com/primefaces/primevue/tree/4.0.0-beta.5) (2024-06-12)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-beta.4...4.0.0-beta.5)
