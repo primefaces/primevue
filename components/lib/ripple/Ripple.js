@@ -3,7 +3,7 @@ import BaseRipple from './BaseRipple';
 
 const Ripple = BaseRipple.extend('ripple', {
     mounted(el) {
-        const config = el?.$instance?.$config;
+        const config = el?.$instance?.$primevueConfig;
 
         if (config && config.ripple) {
             this.create(el);

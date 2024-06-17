@@ -22,7 +22,7 @@ const BaseDirective = {
             return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
         };
 
-        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$config?.ptOptions || {};
+        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$primevueConfig?.ptOptions || {};
         const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT(), getValue, key, params) : undefined;
         const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global: global || {} });
         const datasets = BaseDirective._getPTDatasets(instance, key);
@@ -57,7 +57,7 @@ const BaseDirective = {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$config?.ptOptions || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$primevueConfig?.ptOptions || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 
@@ -105,7 +105,7 @@ const BaseDirective = {
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
                 $style: { classes: undefined, inlineStyles: undefined, loadStyle: () => {}, ...options?.style },
-                $config: config,
+                $primevueConfig: config,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
