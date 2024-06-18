@@ -58,6 +58,8 @@ const theme = ({ dt }) => `
 .p-tooltip-bottom .p-tooltip-arrow {
     margin-left: calc(-1 * ${dt('tooltip.gutter')});
     border-width: 0 ${dt('tooltip.gutter')} ${dt('tooltip.gutter')} ${dt('tooltip.gutter')};
+    border-top-color: ${dt('tooltip.background')};
+    border-bottom-color: ${dt('tooltip.background')};
 }
 `;
 
