@@ -225,7 +225,10 @@ const FilterService = {
             }
 
             return value.getTime() > filter.getTime();
-        }
+        },
+        noop(value, filter) {
+            return true;
+        },
     },
     register(rule, fn) {
         this.filters[rule] = fn;
