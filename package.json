@@ -14,9 +14,9 @@
     "scripts": {
         "setup": "rm -rf **/node_modules **/dist ./pnpm-lock.yaml && pnpm install",
         "link": "pnpm --filter './packages/*' dev:link",
-        "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks",
-        "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --tag beta",
-        "release:rc": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --tag rc",
+        "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
+        "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag beta",
+        "release:rc": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag rc",
         "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
         "build:check": "pnpm run format:check && pnpm run security:check",
         "build:packages": "pnpm run build:metadata && pnpm run build:resolver && pnpm run build:core && pnpm run build:lib && pnpm run build:module && pnpm run build:themes && pnpm run build:icons && pnpm run build:showcase",
