@@ -421,6 +421,11 @@ export interface SelectProps {
      */
     overlayClass?: string | object | undefined;
     /**
+     * Closes the dropdown when option is selected.
+     * @defaultValue true
+     */
+    closeOnSelect?: boolean;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */

@@ -181,6 +181,10 @@ export default {
         ariaLabelledby: {
             type: String,
             default: null
+        },
+        closeOnSelect: {
+            type: Boolean,
+            default: true
         }
     },
     style: SelectStyle,

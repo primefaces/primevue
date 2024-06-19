@@ -468,7 +468,7 @@ export default {
 
             DomHandler.focus(focusableEl);
         },
-        onOptionSelect(event, option, isHide = true) {
+        onOptionSelect(event, option, isHide = this.closeOnSelect) {
             const value = this.getOptionValue(option);
 
             this.updateModel(event, value);
@@ -570,7 +570,7 @@ export default {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                 }
 
-                this.overlayVisible && this.hide();
+                this.closeOnSelect && this.overlayVisible && this.hide();
                 event.preventDefault();
             } else {
                 const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
@@ -639,7 +639,7 @@ export default {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                 }
 
-                this.hide();
+                this.closeOnSelect && this.hide();
             }
 
             event.preventDefault();
