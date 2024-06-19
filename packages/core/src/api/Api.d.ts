@@ -16,6 +16,7 @@ export interface FilterMatchModeOptions {
     readonly DATE_IS_NOT: string;
     readonly DATE_BEFORE: string;
     readonly DATE_AFTER: string;
+    readonly NOOP: string;
 }
 
 export declare const FilterMatchMode: FilterMatchModeOptions;
