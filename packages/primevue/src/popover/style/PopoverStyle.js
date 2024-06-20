@@ -39,7 +39,7 @@ const theme = ({ dt }) => `
 .p-popover:after,
 .p-popover:before {
     bottom: 100%;
-    left: ${dt('popover.arrow.offset')};
+    left: calc(${dt('popover.arrow.offset')} + 1.25rem);
     content: " ";
     height: 0;
     width: 0;

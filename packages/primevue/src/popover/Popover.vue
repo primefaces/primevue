@@ -155,7 +155,7 @@ export default {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
 
-            this.container.style.setProperty($dt('popover.arrow.left').name, `${arrowLeft}px`);
+            this.container.style.setProperty($dt('popover.arrow.offset').name, `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-popover-flipped', 'true');
