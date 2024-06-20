@@ -42,11 +42,8 @@ export default defineNuxtConfig({
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
     primevue: {
-        usePrimeVue: true,
-        importTheme: { from: '@/themes/app-theme.js' },
-        components: {
-            exclude: []
-        }
+        autoImport: true,
+        importTheme: { from: '@/themes/app-theme.js' }
     },
     app: {
         baseURL: baseUrl,
