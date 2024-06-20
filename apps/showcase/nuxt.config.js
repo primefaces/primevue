@@ -2,6 +2,16 @@ import path from 'path';
 
 const baseUrl = '/';
 
+const alias = {
+    primevue: path.resolve(__dirname, '../../packages/primevue/src'),
+    '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
+    '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
+    '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
+    '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
+    '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
+    '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
+};
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
@@ -15,34 +25,18 @@ export default defineNuxtConfig({
             optimizeDeps: {
                 disabled: true
             },
-            alias: {
-                primevue: path.resolve(__dirname, '../../packages/primevue/src'),
-                '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
-                '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
-                '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
-                '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
-                '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
-                '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
-            }
+            alias
         }
     },
     nitro: {
-        alias: {
-            primevue: path.resolve(__dirname, '../../packages/primevue/src'),
-            '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
-            '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
-            '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
-            '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
-            '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
-            '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
-        }
+        alias
     },
     routeRules: {
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
     primevue: {
-        autoImport: true,
+        autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
         importTheme: { from: '@/themes/app-theme.js' }
     },
     app: {
