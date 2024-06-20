@@ -1,5 +1,5 @@
-import { components, directives, type MetaType } from '@primevue/metadata';
-import type { ComponentResolveResult, ComponentResolver } from 'unplugin-vue-components/types';
+import { components, directives, MetaType } from '@primevue/metadata';
+import type { ComponentResolver, ComponentResolveResult } from 'unplugin-vue-components/types';
 
 export interface PrimeVueResolverOptions {
     components?: {

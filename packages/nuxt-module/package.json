@@ -31,6 +31,14 @@
     "files": [
         "dist"
     ],
+    "build": {
+        "externals": [
+            "primevue",
+            "@primevue/metadata",
+            "@primevue/auto-import-resolver",
+            "unplugin-vue-components"
+        ]
+    },
     "publishConfig": {
         "main": "./dist/module.cjs",
         "types": "./dist/types.d.ts",
