@@ -1,5 +1,8 @@
 import { addPlugin, addPluginTemplate, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit';
+import { PrimeVueResolver } from '@primevue/auto-import-resolver';
+import type { MetaType } from '@primevue/metadata';
 import { normalize } from 'pathe';
+import Components from 'unplugin-vue-components/nuxt';
 import { register } from './register';
 import type { ModuleOptions } from './types';
 
@@ -13,6 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
     },
     defaults: {
         usePrimeVue: true,
+        autoImport: false,
         resolvePath: undefined,
         //cssLayerOrder: undefined,
         importPT: undefined,
@@ -43,7 +47,7 @@ export default defineNuxtModule<ModuleOptions>({
 
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
-        const { importPT, importTheme, options } = moduleOptions;
+        const { autoImport, importPT, importTheme, options } = moduleOptions;
         const hasTheme = importTheme && !options?.unstyled;
 
         nuxt.options.runtimeConfig.public.primevue = {
@@ -54,8 +58,36 @@ export default defineNuxtModule<ModuleOptions>({
         //nuxt.options.build.transpile.push('nuxt');
         nuxt.options.build.transpile.push('primevue');
 
-        const styleContent = () => `
-${registered.styles.map((style: any) => `import ${style.as} from '${style.from}';`).join('\n')}
+        let registeredStyles: MetaType[] = registered.styles;
+
+        if (autoImport) {
+            Components(
+                {
+                    dts: false,
+                    resolvers: [
+                        PrimeVueResolver({
+                            components: moduleOptions.components,
+                            directives: moduleOptions.directives,
+                            resolve: (meta: MetaType) => {
+                                registeredStyles.push({
+                                    ...meta,
+                                    name: `${meta.name}Style`,
+                                    as: `${meta.as}Style`,
+                                    from: `${meta.from}/style`
+                                });
+                            }
+                        })
+                    ]
+                },
+                nuxt
+            );
+        }
+
+        const styleContent = () => {
+            const uniqueRegisteredStyles = Array.from(new Map(registeredStyles?.map((m: MetaType) => [m.name, m])).values());
+
+            return `
+${uniqueRegisteredStyles?.map((style: MetaType) => `import ${style.as} from '${style.from}';`).join('\n')}
 ${
     hasTheme
         ? `import { Theme } from '@primeuix/styled';
@@ -69,18 +101,19 @@ const styleProps = {
 }
 const styles = [
   ${registered.injectStylesAsString.join('')},
-  ${registered.styles.map((item) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
+  ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
 ${hasTheme ? `Theme.setTheme(${importTheme.as})` : ''}
 
 const themes = [
-    ${hasTheme ? `${registered.styles[0].as} && ${registered.styles[0].as}.getCommonThemeStyleSheet ? ${registered.styles[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''` : ''},
-    ${hasTheme ? registered.styles.map((item) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',') : ''}
+    ${`${uniqueRegisteredStyles?.[0].as} && ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet ? ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''`},
+    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
 export { styles, stylesToTop, themes };
 `;
+        };
 
         nuxt.options.alias['#primevue-style'] = addTemplate({
             filename: 'primevue-style.mjs',
@@ -94,9 +127,9 @@ export { styles, stylesToTop, themes };
             getContents() {
                 return `
 import { defineNuxtPlugin, useRuntimeConfig } from '#imports';
-${registered.config.map((config: any) => `import ${config.as} from '${config.from}';`).join('\n')}
-${registered.services.map((service: any) => `import ${service.as} from '${service.from}';`).join('\n')}
-${registered.directives.map((directive: any) => `import ${directive.as} from '${directive.from}';`).join('\n')}
+${registered.config.map((config: MetaType) => `import ${config.as} from '${config.from}';`).join('\n')}
+${registered.services.map((service: MetaType) => `import ${service.as} from '${service.from}';`).join('\n')}
+${!autoImport && registered.directives.map((directive: MetaType) => `import ${directive.as} from '${directive.from}';`).join('\n')}
 ${importPT ? `import ${importPT.as} from '${normalize(importPT.from)}';\n` : ''}
 ${hasTheme ? `import ${importTheme.as} from '${normalize(importTheme.from)}';\n` : ''}
 
@@ -108,8 +141,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
   const theme = ${hasTheme ? `{ theme: ${importTheme.as} }` : `{}`};
 
   usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt, ...theme });
-  ${registered.services.map((service: any) => `vueApp.use(${service.as});`).join('\n')}
-  ${registered.directives.map((directive: any) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
+  ${registered.services.map((service: MetaType) => `vueApp.use(${service.as});`).join('\n')}
+  ${!autoImport && registered.directives.map((directive: MetaType) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
 });
         `;
             }

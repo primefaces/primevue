@@ -59,7 +59,8 @@
         "@nuxt/kit": "^3.7.3",
         "pathe": "^1.1.2",
         "primevue": "workspace:*",
-        "@primevue/metadata": "workspace:*"
+        "@primevue/auto-import-resolver": "workspace:*",
+        "unplugin-vue-components": "0.27.0"
     },
     "devDependencies": {
         "@types/node": "^18.17.17",

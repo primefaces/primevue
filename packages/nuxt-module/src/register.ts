@@ -1,6 +1,7 @@
 import { addComponent, addImports } from '@nuxt/kit';
 import type { MetaType } from '@primevue/metadata';
 import { components, composables, directives } from '@primevue/metadata';
+import type { PrimeVueConfiguration } from 'primevue/config';
 import type { ConstructsType, ModuleOptions, ResolvePathOptions } from './types';
 import { Utils } from './utils';
 
@@ -28,7 +29,8 @@ function registerConfig(resolvePath: any) {
     ];
 }
 
-function registerComponents(resolvePath: any, options: ConstructsType = {}) {
+function registerComponents(resolvePath: any, moduleOptions: ModuleOptions) {
+    const options: ConstructsType = moduleOptions.components || {};
     const items: MetaType[] = registerItems(components, options, { components });
 
     return items.map((item: MetaType) => {
@@ -42,7 +44,7 @@ function registerComponents(resolvePath: any, options: ConstructsType = {}) {
             global: true
         };
 
-        addComponent(opt);
+        !moduleOptions.autoImport && addComponent(opt);
 
         return {
             ..._item,
@@ -51,7 +53,8 @@ function registerComponents(resolvePath: any, options: ConstructsType = {}) {
     });
 }
 
-function registerDirectives(resolvePath: any, options: ConstructsType = {}) {
+function registerDirectives(resolvePath: any, moduleOptions: ModuleOptions) {
+    const options: ConstructsType = moduleOptions.directives || {};
     const items: MetaType[] = registerItems(directives, options, { directives });
 
     return items.map((item: MetaType) => {
@@ -66,7 +69,8 @@ function registerDirectives(resolvePath: any, options: ConstructsType = {}) {
     });
 }
 
-function registerComposables(resolvePath: any, options: ConstructsType = {}) {
+function registerComposables(resolvePath: any, moduleOptions: ModuleOptions) {
+    const options: ConstructsType = moduleOptions.composables || {};
     const items: MetaType[] = registerItems(composables, options, { composables });
 
     return items.map((item: MetaType) => {
@@ -95,7 +99,9 @@ function registerServices(resolvePath: any, registered: any) {
     }));
 }
 
-function registerStyles(resolvePath: any, registered: any, options: any) {
+function registerStyles(resolvePath: any, registered: any, moduleOptions: ModuleOptions) {
+    const options: PrimeVueConfiguration = moduleOptions.options || {};
+
     const styles: MetaType[] = [
         {
             name: 'BaseStyle',
@@ -104,7 +110,7 @@ function registerStyles(resolvePath: any, registered: any, options: any) {
         }
     ];
 
-    if (!options?.unstyled) {
+    if (!moduleOptions.autoImport && !options?.unstyled) {
         if (Utils.object.isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',
@@ -128,28 +134,29 @@ function registerStyles(resolvePath: any, registered: any, options: any) {
     return styles;
 }
 
-function registerInjectStylesAsString(options: any) {
+function registerInjectStylesAsString(moduleOptions: ModuleOptions) {
     return [];
 }
 
-function registerInjectStylesAsStringToTop(options: any) {
-    return [Utils.object.createStyleAsString(options.cssLayerOrder ? `@layer ${options.cssLayerOrder}` : undefined, { name: 'layer-order' })];
+function registerInjectStylesAsStringToTop(moduleOptions: any) {
+    // @todo - Remove `cssLayerOrder`
+    return [Utils.object.createStyleAsString(moduleOptions.cssLayerOrder ? `@layer ${moduleOptions.cssLayerOrder}` : undefined, { name: 'layer-order' })];
 }
 
 export function register(moduleOptions: ModuleOptions) {
     const resolvePath = (resolveOptions: ResolvePathOptions) => Utils.object.getPath(moduleOptions.resolvePath, resolveOptions);
 
     const config = registerConfig(resolvePath);
-    const components = registerComponents(resolvePath, moduleOptions.components);
-    const directives = registerDirectives(resolvePath, moduleOptions.directives);
-    const composables = registerComposables(resolvePath, moduleOptions.composables);
+    const components = registerComponents(resolvePath, moduleOptions);
+    const directives = registerDirectives(resolvePath, moduleOptions);
+    const composables = registerComposables(resolvePath, moduleOptions);
     const registered = {
         components,
         directives,
         composables
     };
     const services = registerServices(resolvePath, registered);
-    const styles = registerStyles(resolvePath, registered, moduleOptions.options);
+    const styles = registerStyles(resolvePath, registered, moduleOptions);
     const injectStylesAsString = registerInjectStylesAsString(moduleOptions);
     const injectStylesAsStringToTop = registerInjectStylesAsStringToTop(moduleOptions);
 
