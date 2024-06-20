@@ -173,6 +173,8 @@ export default {
             this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
             this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
 
+            this.alignOverlay();
+
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -220,8 +222,6 @@ export default {
                         }
 
                         this.visible = false;
-                    } else {
-                        this.alignOverlay();
                     }
                 };
 
