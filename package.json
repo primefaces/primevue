@@ -49,6 +49,7 @@
         "eslint-plugin-nuxt": "^4.0.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.4.0",
+        "typescript": "^4.9.4",
         "prettier": "2.7.1",
         "pnpm": "9.1.4"
     },
