@@ -1168,6 +1168,11 @@ export interface DataTableProps {
      * Whether to show grid lines between cells.
      * @defaultValue false
      */
+    showHeaders?: boolean | undefined;
+    /**
+     * Whether to display table headers
+     * @defaultValue true
+     */
     showGridlines?: boolean | undefined;
     /**
      * Whether to displays rows with alternating colors.
