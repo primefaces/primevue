@@ -1,32 +1,38 @@
 name: Daily Build
 
 on:
-  schedule:
-    - cron: '0 6 * * *'
+    schedule:
+        - cron: '0 6 * * *'
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  nightly:
-    if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    name: Node ${{ matrix.node-version }}
+    nightly:
+        if: github.repository == 'primefaces/primevue' && github.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
+        name: Node ${{ matrix.node-version }}
 
-    strategy:
-      matrix:
-        node-version: [18, 20]
+        strategy:
+            matrix:
+                node-version: [18, 20]
 
-    steps:
-    - uses: actions/checkout@v4
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
 
-    - name: Build
-      run: |
-        pnpm run setup
-        pnpm run build:lib
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'pnpm'
+
+            - name: Build
+              run: |
+                  pnpm run setup
+                  pnpm run build:lib
