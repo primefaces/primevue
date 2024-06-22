@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Rows are grouped with the <i>groupRowsBy</i> property. When <i>rowGroupMode</i> is set as <i>subheader</i>, a header and footer can be displayed for each group. The content of a group header is provided with <i>groupheader</i> and footer
+            Rows are grouped with the <i>groupRowsBy</i> property. When <i>rowGroupMode</i> is set, a header and footer can be displayed for each group. The content of a group header is provided with <i>groupheader</i> and footer
             with <i>groupfooter</i> slots.
         </p>
     </DocSectionText>
