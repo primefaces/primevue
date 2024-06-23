@@ -83,7 +83,7 @@ export default {
     methods: {
         pickColor(event) {
             let rect = this.colorSelector.getBoundingClientRect();
-            let top = rect.top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            let top = rect.top + (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0);
             let left = rect.left + document.body.scrollLeft;
             let saturation = Math.floor((100 * Math.max(0, Math.min(150, (event.pageX || event.changedTouches[0].pageX) - left))) / 150);
             let brightness = Math.floor((100 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
@@ -99,13 +99,23 @@ export default {
             this.updateInput();
             this.updateModel(event);
         },
+        getYPosition(event) {
+            if (event.pageY !== undefined) return event.pageY;
+            else if (event.changedTouches && event.changedTouches[0].pageY !== undefined) {
+                return event.changedTouches[0].pageY;
+            } else {
+                return 0;
+            }
+        },
         pickHue(event) {
-            let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            const top = this.hueView.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            const yPos = this.getYPosition(event);
 
+            const hue = Math.floor((360 * (150 - Math.max(0, Math.min(150, yPos - top)))) / 150);
             this.hsbValue = this.validateHSB({
-                h: Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
-                s: 100,
-                b: 100
+                h: hue,
+                s: this.hsbValue.s,
+                b: this.hsbValue.b
             });
 
             this.selfUpdate = true;
