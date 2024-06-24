@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-import { palette } from '@primeuix/styled';
+import { palette } from '@primevue/themes';
 
 // custom color
 const values1 = palette('#10b981');
