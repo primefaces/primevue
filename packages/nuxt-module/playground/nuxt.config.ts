@@ -1,3 +1,6 @@
+// @ts-ignore
+import Aura from '@primevue/themes/aura';
+
 export default defineNuxtConfig({
     modules: ['../src/module'],
     primevue: {
@@ -5,6 +8,9 @@ export default defineNuxtConfig({
         options: {
             // ripple, inputStyle etc.
             ripple: true,
+            theme: {
+                preset: Aura
+            },
             pt: {
                 panel: {
                     header: 'my-panel-header'
