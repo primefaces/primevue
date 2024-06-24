@@ -226,6 +226,10 @@ export interface CheckboxSlots {
          */
         checked: boolean;
         /**
+         * Indeterminate state of the checkbox.
+         */
+        indeterminate?: boolean | undefined;
+        /**
          * Style class of the icon.
          */
         class: string;
