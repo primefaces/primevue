@@ -56,7 +56,7 @@
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -233,7 +233,7 @@ export default {
     <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
     <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
         <template #body="slotProps">
-            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+            <Rating :modelValue="slotProps.data.rating" :readonly="true" />
         </template>
     </Column>
     <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -305,7 +305,7 @@ export default {
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -597,7 +597,7 @@ export default {
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">

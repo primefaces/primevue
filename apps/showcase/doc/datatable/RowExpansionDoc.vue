@@ -33,7 +33,7 @@
                 <Column field="category" header="Category"></Column>
                 <Column field="rating" header="Reviews">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" readonly :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" readonly />
                     </template>
                 </Column>
                 <Column header="Status">
@@ -105,7 +105,7 @@ export default {
     <Column field="category" header="Category"></Column>
     <Column field="rating" header="Reviews">
         <template #body="slotProps">
-            <Rating :modelValue="slotProps.data.rating" readonly :cancel="false" />
+            <Rating :modelValue="slotProps.data.rating" readonly />
         </template>
     </Column>
     <Column header="Status">
@@ -166,7 +166,7 @@ export default {
             <Column field="category" header="Category"></Column>
             <Column field="rating" header="Reviews">
                 <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" readonly :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" readonly />
                 </template>
             </Column>
             <Column header="Status">
@@ -296,7 +296,7 @@ export default {
             <Column field="category" header="Category"></Column>
             <Column field="rating" header="Reviews">
                 <template #body="slotProps">
-                    <Rating :modelValue="slotProps.data.rating" readonly :cancel="false" />
+                    <Rating :modelValue="slotProps.data.rating" readonly />
                 </template>
             </Column>
             <Column header="Status">
