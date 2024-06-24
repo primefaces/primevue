@@ -110,8 +110,8 @@ export default {
         pickHue(event) {
             const top = this.hueView.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0);
             const yPos = this.getYPosition(event);
-
             const hue = Math.floor((360 * (150 - Math.max(0, Math.min(150, yPos - top)))) / 150);
+
             this.hsbValue = this.validateHSB({
                 h: hue,
                 s: this.hsbValue.s,
