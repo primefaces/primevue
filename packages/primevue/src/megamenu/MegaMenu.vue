@@ -50,6 +50,7 @@
             @keydown="onKeyDown"
             @item-click="onItemClick"
             @item-mouseenter="onItemMouseEnter"
+            @item-mousemove="onItemMouseMove"
         />
         <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
             <slot name="end"></slot>
@@ -184,8 +185,8 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
-            this.focusedItemInfo = { index: -1, key: '', parentKey: '' };
+            // this.focused = false;
+            // this.focusedItemInfo = { index: -1, key: '', parentKey: '' };
             this.searchValue = '';
             this.dirty = false;
             this.$emit('blur', event);
@@ -289,13 +290,23 @@ export default {
                 if (grouped) {
                     this.onItemChange(event);
                 } else {
+                    const rootProcessedItem = root ? processedItem : this.activeItem;
+
                     this.hide(originalEvent);
+                    this.changeFocusedItemInfo(originalEvent, rootProcessedItem ? rootProcessedItem.index : -1);
+
+                    !this.mobile && DomHandler.focus(this.menubar);
                 }
             }
         },
         onItemMouseEnter(event) {
             if (!this.mobileActive && this.dirty) {
                 this.onItemChange(event);
+            }
+        },
+        onItemMouseMove(event) {
+            if (this.focused) {
+                this.changeFocusedItemIndex(event, event.processedItem.index);
             }
         },
         menuButtonClick(event) {

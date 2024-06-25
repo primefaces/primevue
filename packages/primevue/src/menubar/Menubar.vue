@@ -178,8 +178,8 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
-            this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
+            // this.focused = false;
+            // this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
             this.searchValue = '';
             this.dirty = false;
             this.$emit('blur', event);

@@ -56,6 +56,7 @@
                                 :unstyled="unstyled"
                                 @item-click="$emit('item-click', $event)"
                                 @item-mouseenter="$emit('item-mouseenter', $event)"
+                                @item-mousemove="$emit('item-mousemove', $event)"
                             />
                         </div>
                     </div>
@@ -85,7 +86,7 @@ export default {
     name: 'MegaMenuSub',
     hostName: 'MegaMenu',
     extends: BaseComponent,
-    emits: ['item-click', 'item-mouseenter'],
+    emits: ['item-click', 'item-mouseenter', 'item-mousemove'],
     props: {
         menuId: {
             type: String,
@@ -179,6 +180,9 @@ export default {
         },
         onItemMouseEnter(event, processedItem) {
             this.$emit('item-mouseenter', { originalEvent: event, processedItem });
+        },
+        onItemMouseMove(event, processedItem) {
+            this.$emit('item-mousemove', { originalEvent: event, processedItem });
         },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;

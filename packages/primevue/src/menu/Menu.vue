@@ -309,7 +309,7 @@ export default {
                     if (this.overlayVisible && isOutsideContainer && isOutsideTarget) {
                         this.hide();
                     } else if (!this.popup && isOutsideContainer && isOutsideTarget) {
-                        this.focusedOptionIndex = -1;
+                        // this.focusedOptionIndex = -1;
                     }
                 };
 
