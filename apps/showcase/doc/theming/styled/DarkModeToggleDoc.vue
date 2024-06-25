@@ -44,7 +44,8 @@ app.use(PrimeVue, {
             code3: {
                 basic: `
 const toggleColorScheme() {
-    document.body.classList.toggle("my-app-dark");
+    const element = document.querySelector('html');
+    element.classList.toggle('my-app-dark');
 }
 `
             }
