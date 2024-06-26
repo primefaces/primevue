@@ -31,10 +31,10 @@ const showProducts = () => {
                 basic: `
 <script setup>
 /* ProductListDemo.vue */
-const emit = defineEmits(['onCancel', 'onSave'])
+const emit = defineEmits(['cancel', 'save'])
 
 function buttonClick() {
-    emit('onCancel', {user: 'primetime'});
+    emit('cancel', {user: 'primetime'});
 }
 <\/script>
 `
