@@ -149,6 +149,10 @@ export interface MultiSelectPassThroughOptions {
      */
     dropdown?: MultiSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the loading icon's DOM element.
+     */
+    loadingIcon?: MultiSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the dropdown icon's DOM element.
      */
     dropdownIcon?: MultiSelectPassThroughOptionType;
