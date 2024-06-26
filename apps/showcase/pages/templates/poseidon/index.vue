@@ -50,14 +50,10 @@
         <TemplateFeaturesAnimation :featuresData="animationFeaturesData1"></TemplateFeaturesAnimation>
         <PoseidonSeparator />
         <TemplateFeatures :featuresData="features2Data" displayType="vertical"></TemplateFeatures>
-        <PoseidonSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import PoseidonSeparator from '@/doc/templates/PoseidonSeparator.vue';
-
 export default {
     data() {
         return {
@@ -201,9 +197,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        PoseidonSeparator
     }
 };
 </script>

@@ -55,14 +55,10 @@
                 file as they are available in <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.
             </template>
         </TemplateFeaturesAnimation>
-        <FreyaSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import FreyaSeparator from '@/doc/templates/FreyaSeparator.vue';
-
 export default {
     data() {
         return {
@@ -231,9 +227,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        FreyaSeparator
     }
 };
 </script>

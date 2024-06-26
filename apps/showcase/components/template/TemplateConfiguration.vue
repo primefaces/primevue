@@ -1,6 +1,6 @@
 <template>
     <div class="px-6 py-6 sm:px-10 sm:py-5 lg:py-20 lg:px-8 rounded-3xl bg-surface-0 dark:bg-surface-900">
-        <div class="p-6 md:p-8 rounded-2xl lg:rounded-3xl border border-surface max-w-3xl w-full mx-auto">
+        <div v-animateonscroll.once="{ enterClass: 'animate-fadein' }" class="p-6 md:p-8 rounded-2xl lg:rounded-3xl border border-surface max-w-3xl w-full mx-auto animate-duration-500">
             <div class="rounded-lg lg:rounded-xl border border-surface overflow-hidden">
                 <div class="py-1 px-6 h-14 flex items-center gap-2">
                     <div v-for="(c, i) of ['#ED6B5D', '#F4BE50', '#61C554']" :key="i" class="w-3 h-3 rounded-full" :style="{ background: c }" />

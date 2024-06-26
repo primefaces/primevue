@@ -69,14 +69,10 @@
         </TemplateFeaturesAnimation>
         <AtlantisSeparator />
         <TemplateFeatures :featuresData="features2Data" displayType="vertical" />
-        <AtlantisSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import AtlantisSeparator from '@/doc/templates/ApolloSeparator.vue';
-
 export default {
     data() {
         return {
@@ -245,9 +241,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        AtlantisSeparator
     }
 };
 </script>

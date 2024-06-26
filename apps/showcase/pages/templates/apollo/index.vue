@@ -53,14 +53,10 @@
         </TemplateFeaturesAnimation>
         <ApolloSeparator />
         <TemplateFeatures :featuresData="apolloFeatures2Data" displayType="vertical" />
-        <ApolloSeparator />
-        <TemplateRelated :relatedData="apolloRelatedData" />
     </div>
 </template>
 
 <script>
-import ApolloSeparator from '@/doc/templates/ApolloSeparator.vue';
-
 export default {
     data() {
         return {
@@ -253,9 +249,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        ApolloSeparator
     }
 };
 </script>
