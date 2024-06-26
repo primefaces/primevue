@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getAttribute, focus, findSingle } from '@primeuix/utils/dom';
+import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 import BaseTab from './BaseTab.vue';
@@ -98,12 +99,12 @@ export default {
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;
 
-            return element ? (DomHandler.getAttribute(element, 'data-p-disabled') || DomHandler.getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findNextTab(element) : DomHandler.findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findPrevTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return element ? (DomHandler.getAttribute(element, 'data-p-disabled') || DomHandler.getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : DomHandler.findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findFirstTab() {
             return this.findNextTab(this.$pcTabList.$refs.content.firstElementChild, true);
@@ -115,7 +116,7 @@ export default {
             this.$pcTabs.updateValue(this.value);
         },
         changeFocusedTab(event, element) {
-            DomHandler.focus(element);
+            focus(element);
             this.scrollInView(element);
         },
         scrollInView(element) {
@@ -124,7 +125,7 @@ export default {
     },
     computed: {
         active() {
-            return ObjectUtils.equals(this.$pcTabs?.d_value, this.value);
+            return equals(this.$pcTabs?.d_value, this.value);
         },
         id() {
             return `${this.$pcTabs?.id}_tab_${this.value}`;

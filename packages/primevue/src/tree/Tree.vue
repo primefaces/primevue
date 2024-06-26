@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import IconField from 'primevue/iconfield';
@@ -205,7 +205,7 @@ export default {
             let matched = false;
 
             for (let field of searchFields) {
-                let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
+                let fieldValue = String(resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
 
                 if (fieldValue.indexOf(filterText) > -1) {
                     matched = true;

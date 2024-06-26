@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { isClient } from '@primeuix/utils/dom';
 
 export default {
     name: 'Portal',
@@ -30,7 +30,7 @@ export default {
         };
     },
     mounted() {
-        this.mounted = DomHandler.isClient();
+        this.mounted = isClient();
     },
     computed: {
         inline() {

@@ -14,7 +14,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { addStyle, absolutePosition, getOffset, addClass, focus, isClient, isTouchDevice, setAttribute } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { $dt } from '@primeuix/styled';
 import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -69,7 +71,7 @@ export default {
         this.target = null;
 
         if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
         }
 
         if (this.overlayEventListener) {
@@ -102,7 +104,7 @@ export default {
         },
         onEnter(el) {
             this.container.setAttribute(this.attributeSelector, '');
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
 
             if (this.dismissable) {
@@ -113,7 +115,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
+                ZIndex.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
             }
 
             this.overlayEventListener = (e) => {
@@ -141,14 +143,14 @@ export default {
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
+                ZIndex.clear(el);
             }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target, false);
+            absolutePosition(this.container, this.target, false);
 
-            const containerOffset = DomHandler.getOffset(this.container);
-            const targetOffset = DomHandler.getOffset(this.target);
+            const containerOffset = getOffset(this.container);
+            const targetOffset = getOffset(this.target);
             let arrowLeft = 0;
 
             if (containerOffset.left < targetOffset.left) {
@@ -159,13 +161,13 @@ export default {
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-popover-flipped', 'true');
-                !this.isUnstyled && DomHandler.addClass(this.container, 'p-popover-flipped');
+                !this.isUnstyled && addClass(this.container, 'p-popover-flipped');
             }
         },
         onContentKeydown(event) {
             if (event.code === 'Escape' && this.closeOnEscape) {
                 this.hide();
-                DomHandler.focus(this.target);
+                focus(this.target);
             }
         },
         onButtonKeydown(event) {
@@ -205,7 +207,7 @@ export default {
             }
         },
         bindOutsideClickListener() {
-            if (!this.outsideClickListener && DomHandler.isClient()) {
+            if (!this.outsideClickListener && isClient()) {
                 this.outsideClickListener = (event) => {
                     if (this.visible && !this.selfClick && !this.isTargetClicked(event)) {
                         this.visible = false;
@@ -243,7 +245,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible && !isTouchDevice()) {
                         this.visible = false;
                     }
                 };
@@ -267,7 +269,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
-                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';

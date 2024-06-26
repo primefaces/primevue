@@ -1,4 +1,4 @@
-import DomHandler from './DomHandler';
+import { getScrollableParents } from '@primeuix/utils/dom';
 
 export default class ConnectedOverlayScrollHandler {
     constructor(element, listener = () => {}) {
@@ -7,7 +7,7 @@ export default class ConnectedOverlayScrollHandler {
     }
 
     bindScrollListener() {
-        this.scrollableParents = DomHandler.getScrollableParents(this.element);
+        this.scrollableParents = getScrollableParents(this.element);
 
         for (let i = 0; i < this.scrollableParents.length; i++) {
             this.scrollableParents[i].addEventListener('scroll', this.listener);

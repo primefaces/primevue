@@ -206,7 +206,10 @@
 
 <script>
 import { FilterService } from '@primevue/core/api';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { focus, getFirstFocusableElement, getLastFocusableElement, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, getFocusableElements, findSingle } from '@primeuix/utils/dom';
+import { resolveFieldData, isPrintableCharacter, equals, isNotEmpty, findLastIndex } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
@@ -270,7 +273,7 @@ export default {
         }
 
         if (this.overlay) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
             this.overlay = null;
         }
     },
@@ -279,13 +282,13 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? resolveFieldData(option, this.optionValue) : option;
         },
         getOptionRenderKey(option, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option) + `_${index}`;
+            return this.dataKey ? resolveFieldData(option, this.dataKey) : this.getOptionLabel(option) + `_${index}`;
         },
         getHeaderCheckboxPTOptions(key) {
             return this.ptm(key, {
@@ -308,16 +311,16 @@ export default {
                 return true;
             }
 
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+            return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
         isOptionGroup(option) {
             return this.optionGroupLabel && option.optionGroup && option.group;
         },
         getOptionGroupLabel(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+            return resolveFieldData(optionGroup, this.optionGroupLabel);
         },
         getOptionGroupChildren(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
+            return resolveFieldData(optionGroup, this.optionGroupChildren);
         },
         getAriaPosInset(index) {
             return (this.optionGroupLabel ? index - this.visibleOptions.slice(0, index).filter((option) => this.isOptionGroup(option)).length : index) + 1;
@@ -327,7 +330,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.findSelectedOptionIndex();
 
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+            isFocus && focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -338,7 +341,7 @@ export default {
                 this.searchValue = '';
 
                 this.resetFilterOnHide && (this.filterValue = null);
-                isFocus && DomHandler.focus(this.$refs.focusInput);
+                isFocus && focus(this.$refs.focusInput);
             };
 
             setTimeout(() => {
@@ -430,7 +433,7 @@ export default {
                         break;
                     }
 
-                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         this.searchOptions(event);
                         event.preventDefault();
@@ -453,14 +456,14 @@ export default {
             this.clicked = true;
         },
         onFirstHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onLastHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onOptionSelect(event, option, index = -1, isFocus = false) {
             if (this.disabled || this.isOptionDisabled(option)) {
@@ -470,12 +473,12 @@ export default {
             let selected = this.isSelected(option);
             let value = null;
 
-            if (selected) value = this.modelValue.filter((val) => !ObjectUtils.equals(val, this.getOptionValue(option), this.equalityKey));
+            if (selected) value = this.modelValue.filter((val) => !equals(val, this.getOptionValue(option), this.equalityKey));
             else value = [...(this.modelValue || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
             index !== -1 && (this.focusedOptionIndex = index);
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+            isFocus && focus(this.$refs.focusInput);
         },
         onOptionMouseMove(event, index) {
             if (this.focusOnHover) {
@@ -689,7 +692,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    DomHandler.focus(event.shiftKey ? this.$refs.lastHiddenFocusableElementOnOverlay : this.$refs.firstHiddenFocusableElementOnOverlay);
+                    focus(event.shiftKey ? this.$refs.lastHiddenFocusableElementOnOverlay : this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 } else {
@@ -705,13 +708,13 @@ export default {
             this.startRangeIndex = this.focusedOptionIndex;
         },
         onOverlayEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput.$el);
+            this.autoFilterFocus && focus(this.$refs.filterInput.$el);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -729,14 +732,14 @@ export default {
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$el);
+                relativePosition(this.overlay, this.$el);
             } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
+                absolutePosition(this.overlay, this.$el);
             }
         },
         bindOutsideClickListener() {
@@ -775,7 +778,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.hide();
                     }
                 };
@@ -794,7 +797,7 @@ export default {
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
-            const matchedOption = options.find((option) => !this.isOptionGroup(option) && ObjectUtils.equals(this.getOptionValue(option), value, this.equalityKey));
+            const matchedOption = options.find((option) => !this.isOptionGroup(option) && equals(this.getOptionValue(option), value, this.equalityKey));
 
             return matchedOption ? this.getOptionLabel(matchedOption) : null;
         },
@@ -819,7 +822,7 @@ export default {
         },
         removeOption(event, optionValue) {
             event.stopPropagation();
-            let value = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
+            let value = this.modelValue.filter((val) => !equals(val, optionValue, this.equalityKey));
 
             this.updateModel(event, value);
         },
@@ -827,19 +830,19 @@ export default {
             this.filterValue = null;
         },
         hasFocusableElements() {
-            return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
+            return getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
             return this.isValidOption(option) && typeof this.getOptionLabel(option) === 'string' && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
-            return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
+            return isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isEquals(value1, value2) {
-            return ObjectUtils.equals(value1, value2, this.equalityKey);
+            return equals(value1, value2, this.equalityKey);
         },
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
@@ -850,7 +853,7 @@ export default {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
         },
         findLastOptionIndex() {
-            return ObjectUtils.findLastIndex(this.visibleOptions, (option) => this.isValidOption(option));
+            return findLastIndex(this.visibleOptions, (option) => this.isValidOption(option));
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
@@ -858,7 +861,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
-            const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+            const matchedOptionIndex = index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
@@ -878,7 +881,7 @@ export default {
             return this.hasSelectedOption ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
         },
         findLastSelectedOptionIndex() {
-            return this.hasSelectedOption ? ObjectUtils.findLastIndex(this.visibleOptions, (option) => this.isValidSelectedOption(option)) : -1;
+            return this.hasSelectedOption ? findLastIndex(this.visibleOptions, (option) => this.isValidSelectedOption(option)) : -1;
         },
         findNextSelectedOptionIndex(index) {
             const matchedOptionIndex = this.hasSelectedOption && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
@@ -886,7 +889,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
         },
         findPrevSelectedOptionIndex(index) {
-            const matchedOptionIndex = this.hasSelectedOption && index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
+            const matchedOptionIndex = this.hasSelectedOption && index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
         },
@@ -920,7 +923,7 @@ export default {
 
             let optionIndex = -1;
 
-            if (ObjectUtils.isNotEmpty(this.searchValue)) {
+            if (isNotEmpty(this.searchValue)) {
                 if (this.focusedOptionIndex !== -1) {
                     optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
                     optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
@@ -959,7 +962,7 @@ export default {
         scrollInView(index = -1) {
             this.$nextTick(() => {
                 const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+                const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
                     element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
@@ -1033,7 +1036,7 @@ export default {
             let label;
 
             if (this.modelValue && this.modelValue.length) {
-                if (ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue.length > this.maxSelectedLabels) {
+                if (isNotEmpty(this.maxSelectedLabels) && this.modelValue.length > this.maxSelectedLabels) {
                     return this.getSelectedItemsLabel();
                 } else {
                     label = '';
@@ -1053,13 +1056,13 @@ export default {
             return label;
         },
         chipSelectedItems() {
-            return ObjectUtils.isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels ? this.modelValue.slice(0, this.maxSelectedLabels) : this.modelValue;
+            return isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels ? this.modelValue.slice(0, this.maxSelectedLabels) : this.modelValue;
         },
         allSelected() {
-            return this.selectAll !== null ? this.selectAll : ObjectUtils.isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
+            return this.selectAll !== null ? this.selectAll : isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
         },
         hasSelectedOption() {
-            return ObjectUtils.isNotEmpty(this.modelValue);
+            return isNotEmpty(this.modelValue);
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
@@ -1071,7 +1074,7 @@ export default {
             return this.selectionLimit && this.modelValue && this.modelValue.length === this.selectionLimit;
         },
         filterResultMessageText() {
-            return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
+            return isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
             return this.filterMessage || this.$primevue.config.locale.searchMessage || '';

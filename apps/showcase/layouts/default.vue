@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 import AppFooter from './AppFooter.vue';
 import AppMenu from './AppMenu.vue';
 import AppNews from './AppNews.vue';
@@ -39,7 +39,7 @@ export default {
                 }
 
                 this.sidebarActive = false;
-                DomHandler.unblockBodyScroll('blocked-scroll');
+                unblockBodyScroll('blocked-scroll');
                 this.$toast.removeAllGroups();
             }
         }
@@ -48,15 +48,15 @@ export default {
         onMenuButtonClick() {
             if (this.sidebarActive) {
                 this.sidebarActive = false;
-                DomHandler.unblockBodyScroll('blocked-scroll');
+                unblockBodyScroll('blocked-scroll');
             } else {
                 this.sidebarActive = true;
-                DomHandler.blockBodyScroll('blocked-scroll');
+                blockBodyScroll('blocked-scroll');
             }
         },
         onMaskClick() {
             this.sidebarActive = false;
-            DomHandler.unblockBodyScroll('blocked-scroll');
+            unblockBodyScroll('blocked-scroll');
         },
         isOutdatedIE() {
             let ua = window.navigator.userAgent;

@@ -48,7 +48,8 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.0.1"
+        "@primeuix/utils": "^0.0.3",
+        "@primeuix/styled": "^0.0.3"
     },
     "peerDependencies": {
         "vue": "^3.0.0"

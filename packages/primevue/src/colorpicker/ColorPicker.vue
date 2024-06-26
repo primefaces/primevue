@@ -21,7 +21,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
+import { relativePosition, absolutePosition, addClass, removeClass, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseColorPicker from './BaseColorPicker.vue';
@@ -72,7 +74,7 @@ export default {
         }
 
         if (this.picker && this.autoZIndex) {
-            ZIndexUtils.clear(this.picker);
+            ZIndex.clear(this.picker);
         }
 
         this.clearRefs();
@@ -349,7 +351,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
+                ZIndex.set('overlay', el, this.baseZIndex, this.$primevue.config.zIndex.overlay);
             }
 
             this.$emit('show');
@@ -363,12 +365,12 @@ export default {
         },
         onOverlayAfterLeave(el) {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
+                ZIndex.clear(el);
             }
         },
         alignOverlay() {
-            if (this.appendTo === 'self') DomHandler.relativePosition(this.picker, this.$refs.input);
-            else DomHandler.absolutePosition(this.picker, this.$refs.input);
+            if (this.appendTo === 'self') relativePosition(this.picker, this.$refs.input);
+            else absolutePosition(this.picker, this.$refs.input);
         },
         onInputClick() {
             if (this.disabled) {
@@ -410,7 +412,7 @@ export default {
             this.colorDragging = true;
             this.pickColor(event);
             this.$el.setAttribute('p-colorpicker-dragging', 'true');
-            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            !this.isUnstyled && addClass(this.$el, 'p-colorpicker-dragging');
             event.preventDefault();
         },
         onDrag(event) {
@@ -428,7 +430,7 @@ export default {
             this.colorDragging = false;
             this.hueDragging = false;
             this.$el.setAttribute('p-colorpicker-dragging', 'false');
-            !this.isUnstyled && DomHandler.removeClass(this.$el, 'p-colorpicker-dragging');
+            !this.isUnstyled && removeClass(this.$el, 'p-colorpicker-dragging');
             this.unbindDragListeners();
         },
         onHueMousedown(event) {
@@ -446,7 +448,7 @@ export default {
 
             this.hueDragging = true;
             this.pickHue(event);
-            !this.isUnstyled && DomHandler.addClass(this.$el, 'p-colorpicker-dragging');
+            !this.isUnstyled && addClass(this.$el, 'p-colorpicker-dragging');
         },
         isInputClicked(event) {
             return this.$refs.input && this.$refs.input.isSameNode(event.target);
@@ -495,7 +497,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.overlayVisible = false;
                     }
                 };

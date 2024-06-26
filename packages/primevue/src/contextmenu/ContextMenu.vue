@@ -35,7 +35,10 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { focus, findSingle, addStyle, getHiddenElementOuterWidth, getHiddenElementOuterHeight, getViewport, isTouchDevice } from '@primeuix/utils/dom';
+import { resolve, isNotEmpty, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
 import Portal from 'primevue/portal';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
@@ -68,7 +71,7 @@ export default {
             this.id = newValue || UniqueComponentId();
         },
         activeItemPath(newPath) {
-            if (ObjectUtils.isNotEmpty(newPath)) {
+            if (isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
                 this.bindResizeListener();
             } else if (!this.visible) {
@@ -90,7 +93,7 @@ export default {
         this.unbindDocumentContextMenuListener();
 
         if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
         }
 
         this.target = null;
@@ -98,7 +101,7 @@ export default {
     },
     methods: {
         getItemProp(item, name) {
-            return item ? ObjectUtils.getItemValue(item[name]) : undefined;
+            return item ? resolve(item[name]) : undefined;
         },
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
@@ -110,7 +113,7 @@ export default {
             return this.getItemProp(item, 'visible') !== false;
         },
         isItemGroup(item) {
-            return ObjectUtils.isNotEmpty(this.getItemProp(item, 'items'));
+            return isNotEmpty(this.getItemProp(item, 'items'));
         },
         isItemSeparator(item) {
             return this.getItemProp(item, 'separator');
@@ -119,7 +122,7 @@ export default {
             return processedItem ? this.getItemLabel(processedItem.item) : undefined;
         },
         isProccessedItemGroup(processedItem) {
-            return processedItem && ObjectUtils.isNotEmpty(processedItem.items);
+            return processedItem && isNotEmpty(processedItem.items);
         },
         toggle(event) {
             this.visible ? this.hide() : this.show(event);
@@ -128,7 +131,7 @@ export default {
             this.$emit('before-show');
             this.activeItemPath = [];
             this.focusedItemInfo = { index: -1, level: 0, parentKey: '' };
-            DomHandler.focus(this.list);
+            focus(this.list);
 
             this.pageX = event.pageX;
             this.pageY = event.pageY;
@@ -208,7 +211,7 @@ export default {
                     break;
 
                 default:
-                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && isPrintableCharacter(event.key)) {
                         this.searchItems(event, event.key);
                     }
 
@@ -218,10 +221,10 @@ export default {
         onItemChange(event) {
             const { processedItem, isFocus } = event;
 
-            if (ObjectUtils.isEmpty(processedItem)) return;
+            if (isEmpty(processedItem)) return;
 
             const { index, key, level, parentKey, items } = processedItem;
-            const grouped = ObjectUtils.isNotEmpty(items);
+            const grouped = isNotEmpty(items);
             const activeItemPath = this.activeItemPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
             if (grouped) {
@@ -232,7 +235,7 @@ export default {
             this.focusedItemInfo = { index, level, parentKey };
             this.activeItemPath = activeItemPath;
 
-            isFocus && DomHandler.focus(this.list);
+            isFocus && focus(this.list);
         },
         onItemClick(event) {
             const { processedItem } = event;
@@ -245,7 +248,7 @@ export default {
                 this.activeItemPath = this.activeItemPath.filter((p) => key !== p.key && key.startsWith(p.key));
                 this.focusedItemInfo = { index, level, parentKey };
 
-                DomHandler.focus(this.list);
+                focus(this.list);
             } else {
                 grouped ? this.onItemChange(event) : this.hide();
             }
@@ -285,7 +288,7 @@ export default {
         onArrowLeftKey(event) {
             const processedItem = this.visibleItems[this.focusedItemInfo.index];
             const parentItem = this.activeItemPath.find((p) => p.key === processedItem.parentKey);
-            const root = ObjectUtils.isEmpty(processedItem.parent);
+            const root = isEmpty(processedItem.parent);
 
             if (!root) {
                 this.focusedItemInfo = { index: -1, parentKey: parentItem ? parentItem.parentKey : '' };
@@ -320,8 +323,8 @@ export default {
         },
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
-                const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
-                const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="itemlink"]');
+                const element = findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
+                const anchorElement = element && findSingle(element, 'a[data-pc-section="itemlink"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
                 const processedItem = this.visibleItems[this.focusedItemInfo.index];
@@ -352,11 +355,11 @@ export default {
             this.hide();
         },
         onEnter(el) {
-            DomHandler.addStyles(el, { position: 'absolute' });
+            addStyle(el, { position: 'absolute' });
             this.position();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
         },
         onAfterEnter() {
@@ -364,7 +367,7 @@ export default {
             this.bindResizeListener();
 
             this.$emit('show');
-            DomHandler.focus(this.list);
+            focus(this.list);
         },
         onLeave() {
             this.$emit('hide');
@@ -372,7 +375,7 @@ export default {
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
+                ZIndex.clear(el);
             }
 
             this.unbindOutsideClickListener();
@@ -381,9 +384,9 @@ export default {
         position() {
             let left = this.pageX + 1;
             let top = this.pageY + 1;
-            let width = this.container.offsetParent ? this.container.offsetWidth : DomHandler.getHiddenElementOuterWidth(this.container);
-            let height = this.container.offsetParent ? this.container.offsetHeight : DomHandler.getHiddenElementOuterHeight(this.container);
-            let viewport = DomHandler.getViewport();
+            let width = this.container.offsetParent ? this.container.offsetWidth : getHiddenElementOuterWidth(this.container);
+            let height = this.container.offsetParent ? this.container.offsetHeight : getHiddenElementOuterHeight(this.container);
+            let viewport = getViewport();
 
             //flip
             if (left + width - document.body.scrollLeft > viewport.width) {
@@ -431,7 +434,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible && !isTouchDevice()) {
                         this.hide();
                     }
                 };
@@ -476,7 +479,7 @@ export default {
             return this.visibleItems.findIndex((processedItem) => this.isValidItem(processedItem));
         },
         findLastItemIndex() {
-            return ObjectUtils.findLastIndex(this.visibleItems, (processedItem) => this.isValidItem(processedItem));
+            return findLastIndex(this.visibleItems, (processedItem) => this.isValidItem(processedItem));
         },
         findNextItemIndex(index) {
             const matchedItemIndex = index < this.visibleItems.length - 1 ? this.visibleItems.slice(index + 1).findIndex((processedItem) => this.isValidItem(processedItem)) : -1;
@@ -484,7 +487,7 @@ export default {
             return matchedItemIndex > -1 ? matchedItemIndex + index + 1 : index;
         },
         findPrevItemIndex(index) {
-            const matchedItemIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleItems.slice(0, index), (processedItem) => this.isValidItem(processedItem)) : -1;
+            const matchedItemIndex = index > 0 ? findLastIndex(this.visibleItems.slice(0, index), (processedItem) => this.isValidItem(processedItem)) : -1;
 
             return matchedItemIndex > -1 ? matchedItemIndex : index;
         },
@@ -545,7 +548,7 @@ export default {
         },
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemIdx;
-            const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+            const element = findSingle(this.list, `li[id="${id}"]`);
 
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
@@ -589,7 +592,7 @@ export default {
             return processedItem ? processedItem.items : this.processedItems;
         },
         focusedItemIdx() {
-            return this.focusedItemInfo.index !== -1 ? `${this.id}${ObjectUtils.isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
+            return this.focusedItemInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {

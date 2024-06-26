@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { getWindowScrollLeft, getWindowScrollTop, getAttribute } from '@primeuix/utils/dom';
 import BaseSlider from './BaseSlider.vue';
 
 export default {
@@ -85,8 +85,8 @@ export default {
         updateDomData() {
             let rect = this.$el.getBoundingClientRect();
 
-            this.initX = rect.left + DomHandler.getWindowScrollLeft();
-            this.initY = rect.top + DomHandler.getWindowScrollTop();
+            this.initX = rect.left + getWindowScrollLeft();
+            this.initY = rect.top + getWindowScrollTop();
             this.barWidth = this.$el.offsetWidth;
             this.barHeight = this.$el.offsetHeight;
         },
@@ -175,7 +175,7 @@ export default {
                 return;
             }
 
-            if (DomHandler.getAttribute(event.target, 'data-pc-section') !== 'handle') {
+            if (getAttribute(event.target, 'data-pc-section') !== 'handle') {
                 this.updateDomData();
                 this.setValue(event);
             }

@@ -166,7 +166,9 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { find, scrollInView, setAttribute } from '@primeuix/utils/dom';
+import { findIndexInList, isEmpty } from '@primeuix/utils/object';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
@@ -266,7 +268,7 @@ export default {
 
                 for (let i = 0; i < selectionList.length; i++) {
                     let selectedItem = selectionList[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
+                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = valueList[selectedItemIndex];
@@ -294,7 +296,7 @@ export default {
 
                 for (let i = 0; i < selectionList.length; i++) {
                     let selectedItem = selectionList[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
+                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = valueList.splice(selectedItemIndex, 1)[0];
@@ -320,7 +322,7 @@ export default {
 
                 for (let i = selectionList.length - 1; i >= 0; i--) {
                     let selectedItem = selectionList[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
+                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
 
                     if (selectedItemIndex !== valueList.length - 1) {
                         let movedItem = valueList[selectedItemIndex];
@@ -348,7 +350,7 @@ export default {
 
                 for (let i = selectionList.length - 1; i >= 0; i--) {
                     let selectedItem = selectionList[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, valueList);
+                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
 
                     if (selectedItemIndex !== valueList.length - 1) {
                         let movedItem = valueList.splice(selectedItemIndex, 1)[0];
@@ -376,8 +378,8 @@ export default {
                 for (let i = 0; i < selection.length; i++) {
                     let selectedItem = selection[i];
 
-                    if (ObjectUtils.findIndexInList(selectedItem, targetList) == -1) {
-                        targetList.push(sourceList.splice(ObjectUtils.findIndexInList(selectedItem, sourceList), 1)[0]);
+                    if (findIndexInList(selectedItem, targetList) == -1) {
+                        targetList.push(sourceList.splice(findIndexInList(selectedItem, sourceList), 1)[0]);
                     }
                 }
 
@@ -428,8 +430,8 @@ export default {
                 for (let i = 0; i < selection.length; i++) {
                     let selectedItem = selection[i];
 
-                    if (ObjectUtils.findIndexInList(selectedItem, sourceList) == -1) {
-                        sourceList.push(targetList.splice(ObjectUtils.findIndexInList(selectedItem, targetList), 1)[0]);
+                    if (findIndexInList(selectedItem, sourceList) == -1) {
+                        sourceList.push(targetList.splice(findIndexInList(selectedItem, targetList), 1)[0]);
                     }
                 }
 
@@ -476,10 +478,10 @@ export default {
 
             this.itemTouched = false;
             const selectionList = this.d_selection[listIndex];
-            const selectedIndex = ObjectUtils.findIndexInList(item, selectionList);
+            const selectedIndex = findIndexInList(item, selectionList);
             const selected = selectedIndex != -1;
             const metaSelection = this.itemTouched ? false : this.metaKeySelection;
-            const selectedId = DomHandler.find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
+            const selectedId = find(this.$refs[listType].$el, '[data-pc-section="item"]')[index].getAttribute('id');
 
             this.focusedOptionIndex = selectedId;
             let _selection;
@@ -510,12 +512,12 @@ export default {
             this.updateSelection(event);
         },
         updateListScroll(listElement) {
-            const listItems = DomHandler.find(listElement, '[data-pc-section="item"][data-p-selected="true"]');
+            const listItems = find(listElement, '[data-pc-section="item"][data-p-selected="true"]');
 
             if (listItems && listItems.length) {
                 switch (this.reorderDirection) {
                     case 'up':
-                        DomHandler.scrollInView(listElement, listItems[0]);
+                        scrollInView(listElement, listItems[0]);
                         break;
 
                     case 'top':
@@ -523,7 +525,7 @@ export default {
                         break;
 
                     case 'down':
-                        DomHandler.scrollInView(listElement, listItems[listItems.length - 1]);
+                        scrollInView(listElement, listItems[listItems.length - 1]);
                         break;
 
                     case 'bottom':
@@ -563,7 +565,7 @@ export default {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
-                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = `
@@ -591,7 +593,7 @@ export default {
             return this.disabled ? true : this.d_selection && (!this.d_selection[index] || !this.d_selection[index].length) ? true : false;
         },
         moveAllDisabled(list) {
-            return this.disabled ? true : ObjectUtils.isEmpty(this[list]);
+            return this.disabled ? true : isEmpty(this[list]);
         }
     },
     computed: {

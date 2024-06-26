@@ -64,7 +64,8 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { findSingle, find, focus, hasClass } from '@primeuix/utils/dom';
 import PlusIcon from '@primevue/icons/plus';
 import { $dt } from '@primeuix/styled';
 import Button from 'primevue/button';
@@ -104,8 +105,8 @@ export default {
         this.id = this.id || UniqueComponentId();
 
         if (this.type !== 'linear') {
-            const button = DomHandler.findSingle(this.container, '[data-pc-name="pcbutton"]');
-            const firstItem = DomHandler.findSingle(this.list, '[data-pc-section="item"]');
+            const button = findSingle(this.container, '[data-pc-name="pcbutton"]');
+            const firstItem = findSingle(this.list, '[data-pc-section="item"]');
 
             if (button && firstItem) {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
@@ -244,21 +245,21 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
+            const items = find(this.container, '[data-pc-section="item"]');
             const itemIndex = [...items].findIndex((item) => item.id === this.focusedOptionIndex);
-            const buttonEl = DomHandler.findSingle(this.container, 'button');
+            const buttonEl = findSingle(this.container, 'button');
 
             this.onItemClick(event, this.model[itemIndex]);
             this.onBlur(event);
 
-            buttonEl && DomHandler.focus(buttonEl);
+            buttonEl && focus(buttonEl);
         },
         onEscapeKey() {
             this.hide();
 
-            const buttonEl = DomHandler.findSingle(this.container, 'button');
+            const buttonEl = findSingle(this.container, 'button');
 
-            buttonEl && DomHandler.focus(buttonEl);
+            buttonEl && focus(buttonEl);
         },
         onArrowUp(event) {
             if (this.direction === 'down') {
@@ -327,19 +328,19 @@ export default {
             event.preventDefault();
         },
         changeFocusedOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+            const items = find(this.container, '[data-pc-section="item"]');
+            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
 
             if (filteredItems[index]) {
                 this.focusedOptionIndex = filteredItems[index].getAttribute('id');
-                const buttonEl = DomHandler.findSingle(filteredItems[index], '[type="button"]');
+                const buttonEl = findSingle(filteredItems[index], '[type="button"]');
 
-                buttonEl && DomHandler.focus(buttonEl);
+                buttonEl && focus(buttonEl);
             }
         },
         findPrevOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+            const items = find(this.container, '[data-pc-section="item"]');
+            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 
@@ -348,8 +349,8 @@ export default {
             return matchedOptionIndex;
         },
         findNextOptionIndex(index) {
-            const items = DomHandler.find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !DomHandler.hasClass(DomHandler.findSingle(item, 'a'), 'p-disabled'));
+            const items = find(this.container, '[data-pc-section="item"]');
+            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 

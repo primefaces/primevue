@@ -75,7 +75,8 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { nestedPosition } from '@primeuix/utils/dom';
+import { resolve, isNotEmpty } from '@primeuix/utils/object';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
@@ -128,7 +129,7 @@ export default {
             return this.getItemId(processedItem);
         },
         getItemProp(processedItem, name, params) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name], params) : undefined;
+            return processedItem && processedItem.item ? resolve(processedItem.item[name], params) : undefined;
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
@@ -160,10 +161,10 @@ export default {
             return this.focusedItemId === this.getItemId(processedItem);
         },
         isItemGroup(processedItem) {
-            return ObjectUtils.isNotEmpty(processedItem.items);
+            return isNotEmpty(processedItem.items);
         },
         onEnter() {
-            DomHandler.nestedPosition(this.container, this.level);
+            nestedPosition(this.container, this.level);
         },
         onItemClick(event, processedItem) {
             this.getItemProp(processedItem, 'command', { originalEvent: event, item: processedItem.item });

@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolveFieldData, localeComparator, sort } from '@primeuix/utils/object';
 import Paginator from 'primevue/paginator';
 import BaseDataView from './BaseDataView.vue';
 
@@ -96,7 +96,7 @@ export default {
     },
     methods: {
         getKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
+            return this.dataKey ? resolveFieldData(item, this.dataKey) : index;
         },
         onPage(event) {
             this.d_first = event.first;
@@ -109,13 +109,13 @@ export default {
         sort() {
             if (this.value) {
                 const value = [...this.value];
-                const comparer = ObjectUtils.localeComparator();
+                const comparer = localeComparator();
 
                 value.sort((data1, data2) => {
-                    let value1 = ObjectUtils.resolveFieldData(data1, this.sortField);
-                    let value2 = ObjectUtils.resolveFieldData(data2, this.sortField);
+                    let value1 = resolveFieldData(data1, this.sortField);
+                    let value2 = resolveFieldData(data2, this.sortField);
 
-                    return ObjectUtils.sort(value1, value2, this.sortOrder, comparer);
+                    return sort(value1, value2, this.sortOrder, comparer);
                 });
 
                 return value;

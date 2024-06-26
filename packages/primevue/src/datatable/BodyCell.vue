@@ -128,7 +128,9 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
+import { getFirstFocusableElement, invokeElementMethod, getAttribute, getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BarsIcon from '@primevue/icons/bars';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
@@ -242,7 +244,7 @@ export default {
 
         if (this.d_editing && (this.editMode === 'cell' || (this.editMode === 'row' && this.columnProp('rowEditor')))) {
             setTimeout(() => {
-                const focusableEl = DomHandler.getFirstFocusableElement(this.$el);
+                const focusableEl = getFirstFocusableElement(this.$el);
 
                 focusableEl && focusableEl.focus();
             }, 1);
@@ -256,7 +258,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return ObjectUtils.getVNodeProp(this.column, prop);
+            return getVNodeProp(this.column, prop);
         },
         getColumnPT(key) {
             const columnMetaData = {
@@ -279,7 +281,7 @@ export default {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined;
         },
         resolveFieldData() {
-            return ObjectUtils.resolveFieldData(this.rowData, this.field);
+            return resolveFieldData(this.rowData, this.field);
         },
         toggleRow(event) {
             this.$emit('row-toggle', {
@@ -393,7 +395,7 @@ export default {
             let targetCell = this.findPreviousEditableColumn(currentCell);
 
             if (targetCell) {
-                DomHandler.invokeElementMethod(targetCell, 'click');
+                invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
         },
@@ -402,7 +404,7 @@ export default {
             let targetCell = this.findNextEditableColumn(currentCell);
 
             if (targetCell) {
-                DomHandler.invokeElementMethod(targetCell, 'click');
+                invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
         },
@@ -410,7 +412,7 @@ export default {
             if (element) {
                 let cell = element;
 
-                while (cell && !DomHandler.getAttribute(cell, 'data-p-cell-editing')) {
+                while (cell && !getAttribute(cell, 'data-p-cell-editing')) {
                     cell = cell.parentElement;
                 }
 
@@ -431,7 +433,7 @@ export default {
             }
 
             if (prevCell) {
-                if (DomHandler.getAttribute(prevCell, 'data-p-editable-column')) return prevCell;
+                if (getAttribute(prevCell, 'data-p-editable-column')) return prevCell;
                 else return this.findPreviousEditableColumn(prevCell);
             } else {
                 return null;
@@ -449,7 +451,7 @@ export default {
             }
 
             if (nextCell) {
-                if (DomHandler.getAttribute(nextCell, 'data-p-editable-column')) return nextCell;
+                if (getAttribute(nextCell, 'data-p-editable-column')) return nextCell;
                 else return this.findNextEditableColumn(nextCell);
             } else {
                 return null;
@@ -488,19 +490,19 @@ export default {
 
                 if (align === 'right') {
                     let right = 0;
-                    let next = DomHandler.getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
-                    let prev = DomHandler.getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';

@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from '@primevue/core/utils';
+import { getWindowScrollTop } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import Button from 'primevue/button';
 import { mergeProps } from 'vue';
@@ -37,7 +38,7 @@ export default {
         else if (this.target === 'parent') this.unbindParentScrollListener();
 
         if (this.container) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
             this.overlay = null;
         }
     },
@@ -63,7 +64,7 @@ export default {
         },
         bindDocumentScrollListener() {
             this.scrollListener = () => {
-                this.checkVisibility(DomHandler.getWindowScrollTop());
+                this.checkVisibility(getWindowScrollTop());
             };
 
             window.addEventListener('scroll', this.scrollListener);
@@ -81,10 +82,10 @@ export default {
             }
         },
         onEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
         },
         onAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         containerRef(el) {
             this.container = el ? el.$el : undefined;

@@ -1,6 +1,6 @@
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { ObjectUtils } from '@primevue/core/utils';
 import BaseIconStyle from '@primevue/icons/baseicon/style';
 
 export default {
@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         pti() {
-            const isLabelEmpty = ObjectUtils.isEmpty(this.label);
+            const isLabelEmpty = isEmpty(this.label);
 
             return {
                 ...(!this.isUnstyled && {

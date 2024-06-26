@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { getUserAgent } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
 import BaseInputMask from './BaseInputMask.vue';
 
@@ -103,7 +103,7 @@ export default {
                 pos,
                 begin,
                 end;
-            let iPhone = /iphone/i.test(DomHandler.getUserAgent());
+            let iPhone = /iphone/i.test(getUserAgent());
 
             this.oldVal = this.$el.value;
 
@@ -170,7 +170,7 @@ export default {
                         this.writeBuffer();
                         next = this.seekNext(p);
 
-                        if (/android/i.test(DomHandler.getUserAgent())) {
+                        if (/android/i.test(getUserAgent())) {
                             //Path for CSP Violation on FireFox OS 1.1
                             let proxy = () => {
                                 this.caret(next);
@@ -468,7 +468,7 @@ export default {
                 '*': '[A-Za-z0-9]'
             };
 
-            let ua = DomHandler.getUserAgent();
+            let ua = getUserAgent();
 
             this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
 

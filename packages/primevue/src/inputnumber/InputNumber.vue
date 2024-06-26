@@ -72,7 +72,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getSelection, clearSelection } from '@primeuix/utils/dom';
+import { isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
@@ -501,7 +502,7 @@ export default {
                 case 'Home':
                     event.preventDefault();
 
-                    if (!ObjectUtils.isEmpty(this.min)) {
+                    if (isNotEmpty(this.min)) {
                         this.updateModel(event, this.min);
                     }
 
@@ -510,7 +511,7 @@ export default {
                 case 'End':
                     event.preventDefault();
 
-                    if (!ObjectUtils.isEmpty(this.max)) {
+                    if (isNotEmpty(this.max)) {
                         this.updateModel(event, this.max);
                     }
 
@@ -740,7 +741,7 @@ export default {
         onInputClick() {
             const currentValue = this.$refs.input.$el.value;
 
-            if (!this.readonly && currentValue !== DomHandler.getSelection()) {
+            if (!this.readonly && currentValue !== getSelection()) {
                 this.initCursor();
             }
         },
@@ -913,7 +914,7 @@ export default {
         onInputFocus(event) {
             this.focused = true;
 
-            if (!this.disabled && !this.readonly && this.$refs.input.$el.value !== DomHandler.getSelection() && this.highlightOnFocus) {
+            if (!this.disabled && !this.readonly && this.$refs.input.$el.value !== getSelection() && this.highlightOnFocus) {
                 event.target.select();
             }
 
@@ -932,7 +933,7 @@ export default {
             this.updateModel(event, newValue);
 
             if (!this.disabled && !this.readonly && this.highlightOnFocus) {
-                DomHandler.clearSelection();
+                clearSelection();
             }
         },
         clearTimer() {

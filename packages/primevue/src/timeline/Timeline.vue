@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BaseTimeline from './BaseTimeline.vue';
 
 export default {
@@ -29,7 +29,7 @@ export default {
     inheritAttrs: false,
     methods: {
         getKey(item, index) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(item, this.dataKey) : index;
+            return this.dataKey ? resolveFieldData(item, this.dataKey) : index;
         },
         getPTOptions(key, index) {
             return this.ptm(key, {

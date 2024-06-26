@@ -23,7 +23,8 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { findSingle, focus } from '@primeuix/utils/dom';
+import { resolve, isNotEmpty, isPrintableCharacter, findLast, isEmpty } from '@primeuix/utils/object';
 import PanelMenuSub from './PanelMenuSub.vue';
 
 export default {
@@ -68,7 +69,7 @@ export default {
     },
     methods: {
         getItemProp(processedItem, name) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+            return processedItem && processedItem.item ? resolve(processedItem.item[name]) : undefined;
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
@@ -83,7 +84,7 @@ export default {
             return this.activeItemPath.some((path) => path.key === processedItem.parentKey);
         },
         isItemGroup(processedItem) {
-            return ObjectUtils.isNotEmpty(processedItem.items);
+            return isNotEmpty(processedItem.items);
         },
         onFocus(event) {
             this.focused = true;
@@ -142,7 +143,7 @@ export default {
                     break;
 
                 default:
-                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && isPrintableCharacter(event.key)) {
                         this.searchItems(event, event.key);
                     }
 
@@ -150,32 +151,32 @@ export default {
             }
         },
         onArrowDownKey(event) {
-            const processedItem = ObjectUtils.isNotEmpty(this.focusedItem) ? this.findNextItem(this.focusedItem) : this.findFirstItem();
+            const processedItem = isNotEmpty(this.focusedItem) ? this.findNextItem(this.focusedItem) : this.findFirstItem();
 
             this.changeFocusedItem({ originalEvent: event, processedItem, focusOnNext: true });
             event.preventDefault();
         },
         onArrowUpKey(event) {
-            const processedItem = ObjectUtils.isNotEmpty(this.focusedItem) ? this.findPrevItem(this.focusedItem) : this.findLastItem();
+            const processedItem = isNotEmpty(this.focusedItem) ? this.findPrevItem(this.focusedItem) : this.findLastItem();
 
             this.changeFocusedItem({ originalEvent: event, processedItem, selfCheck: true });
             event.preventDefault();
         },
         onArrowLeftKey(event) {
-            if (ObjectUtils.isNotEmpty(this.focusedItem)) {
+            if (isNotEmpty(this.focusedItem)) {
                 const matched = this.activeItemPath.some((p) => p.key === this.focusedItem.key);
 
                 if (matched) {
                     this.activeItemPath = this.activeItemPath.filter((p) => p.key !== this.focusedItem.key);
                 } else {
-                    this.focusedItem = ObjectUtils.isNotEmpty(this.focusedItem.parent) ? this.focusedItem.parent : this.focusedItem;
+                    this.focusedItem = isNotEmpty(this.focusedItem.parent) ? this.focusedItem.parent : this.focusedItem;
                 }
 
                 event.preventDefault();
             }
         },
         onArrowRightKey(event) {
-            if (ObjectUtils.isNotEmpty(this.focusedItem)) {
+            if (isNotEmpty(this.focusedItem)) {
                 const grouped = this.isItemGroup(this.focusedItem);
 
                 if (grouped) {
@@ -201,9 +202,9 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
-            if (ObjectUtils.isNotEmpty(this.focusedItem)) {
-                const element = DomHandler.findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
-                const anchorElement = element && (DomHandler.findSingle(element, '[data-pc-section="itemlink"]') || DomHandler.findSingle(element, 'a,button'));
+            if (isNotEmpty(this.focusedItem)) {
+                const element = findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
+                const anchorElement = element && (findSingle(element, '[data-pc-section="itemlink"]') || findSingle(element, 'a,button'));
 
                 anchorElement ? anchorElement.click() : element && element.click();
             }
@@ -224,7 +225,7 @@ export default {
             }
 
             this.focusedItem = processedItem;
-            DomHandler.focus(this.$el);
+            focus(this.$el);
         },
         onItemMouseMove(event) {
             if (this.focused) {
@@ -249,7 +250,7 @@ export default {
             return this.visibleItems.find((processedItem) => this.isValidItem(processedItem));
         },
         findLastItem() {
-            return ObjectUtils.findLast(this.visibleItems, (processedItem) => this.isValidItem(processedItem));
+            return findLast(this.visibleItems, (processedItem) => this.isValidItem(processedItem));
         },
         findNextItem(processedItem) {
             const index = this.visibleItems.findIndex((item) => item.key === processedItem.key);
@@ -259,7 +260,7 @@ export default {
         },
         findPrevItem(processedItem) {
             const index = this.visibleItems.findIndex((item) => item.key === processedItem.key);
-            const matchedItem = index > 0 ? ObjectUtils.findLast(this.visibleItems.slice(0, index), (pItem) => this.isValidItem(pItem)) : undefined;
+            const matchedItem = index > 0 ? findLast(this.visibleItems.slice(0, index), (pItem) => this.isValidItem(pItem)) : undefined;
 
             return matchedItem || processedItem;
         },
@@ -269,24 +270,24 @@ export default {
             let matchedItem = null;
             let matched = false;
 
-            if (ObjectUtils.isNotEmpty(this.focusedItem)) {
+            if (isNotEmpty(this.focusedItem)) {
                 const focusedItemIndex = this.visibleItems.findIndex((processedItem) => processedItem.key === this.focusedItem.key);
 
                 matchedItem = this.visibleItems.slice(focusedItemIndex).find((processedItem) => this.isItemMatched(processedItem));
-                matchedItem = ObjectUtils.isEmpty(matchedItem) ? this.visibleItems.slice(0, focusedItemIndex).find((processedItem) => this.isItemMatched(processedItem)) : matchedItem;
+                matchedItem = isEmpty(matchedItem) ? this.visibleItems.slice(0, focusedItemIndex).find((processedItem) => this.isItemMatched(processedItem)) : matchedItem;
             } else {
                 matchedItem = this.visibleItems.find((processedItem) => this.isItemMatched(processedItem));
             }
 
-            if (ObjectUtils.isNotEmpty(matchedItem)) {
+            if (isNotEmpty(matchedItem)) {
                 matched = true;
             }
 
-            if (ObjectUtils.isEmpty(matchedItem) && ObjectUtils.isEmpty(this.focusedItem)) {
+            if (isEmpty(matchedItem) && isEmpty(this.focusedItem)) {
                 matchedItem = this.findFirstItem();
             }
 
-            if (ObjectUtils.isNotEmpty(matchedItem)) {
+            if (isNotEmpty(matchedItem)) {
                 this.changeFocusedItem({
                     originalEvent: event,
                     processedItem: matchedItem,
@@ -308,7 +309,7 @@ export default {
         changeFocusedItem(event) {
             const { originalEvent, processedItem, focusOnNext, selfCheck, allowHeaderFocus = true } = event;
 
-            if (ObjectUtils.isNotEmpty(this.focusedItem) && this.focusedItem.key !== processedItem.key) {
+            if (isNotEmpty(this.focusedItem) && this.focusedItem.key !== processedItem.key) {
                 this.focusedItem = processedItem;
                 this.scrollInView();
             } else if (allowHeaderFocus) {
@@ -316,7 +317,7 @@ export default {
             }
         },
         scrollInView() {
-            const element = DomHandler.findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
+            const element = findSingle(this.$el, `li[id="${`${this.focusedItemId}`}"]`);
 
             if (element) {
                 element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
@@ -389,7 +390,7 @@ export default {
             return this.flatItems(this.processedItems);
         },
         focusedItemId() {
-            return ObjectUtils.isNotEmpty(this.focusedItem) ? `${this.panelId}_${this.focusedItem.key}` : null;
+            return isNotEmpty(this.focusedItem) ? `${this.panelId}_${this.focusedItem.key}` : null;
         }
     },
     components: {

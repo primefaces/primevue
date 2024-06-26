@@ -53,7 +53,9 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { focus, getAttribute, findSingle } from '@primeuix/utils/dom';
+import { equals, resolve } from '@primeuix/utils/object';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import { mergeProps } from 'vue';
@@ -82,7 +84,7 @@ export default {
     },
     methods: {
         getItemProp(item, name) {
-            return item ? ObjectUtils.getItemValue(item[name]) : undefined;
+            return item ? resolve(item[name]) : undefined;
         },
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
@@ -98,7 +100,7 @@ export default {
             });
         },
         isItemActive(item) {
-            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : this.multiple ? this.activeItems.some((subItem) => ObjectUtils.equals(item, subItem)) : ObjectUtils.equals(item, this.activeItem);
+            return this.expandedKeys ? this.expandedKeys[this.getItemProp(item, 'key')] : this.multiple ? this.activeItems.some((subItem) => equals(item, subItem)) : equals(item, this.activeItem);
         },
         isItemVisible(item) {
             return this.getItemProp(item, 'visible') !== false;
@@ -107,7 +109,7 @@ export default {
             return this.getItemProp(item, 'disabled');
         },
         isItemFocused(item) {
-            return ObjectUtils.equals(item, this.activeItem);
+            return equals(item, this.activeItem);
         },
         getPanelId(index) {
             return `${this.id}_${index}`;
@@ -133,7 +135,7 @@ export default {
             }
 
             this.changeActiveItem(event, item);
-            DomHandler.focus(event.currentTarget);
+            focus(event.currentTarget);
         },
         onHeaderKeyDown(event, item) {
             switch (event.code) {
@@ -164,16 +166,16 @@ export default {
             }
         },
         onHeaderArrowDownKey(event) {
-            const rootList = DomHandler.getAttribute(event.currentTarget, 'data-p-active') === true ? DomHandler.findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="rootlist"]') : null;
+            const rootList = getAttribute(event.currentTarget, 'data-p-active') === true ? findSingle(event.currentTarget.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
-            rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
+            rootList ? focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: true });
             event.preventDefault();
         },
         onHeaderArrowUpKey(event) {
             const prevHeader = this.findPrevHeader(event.currentTarget.parentElement) || this.findLastHeader();
-            const rootList = DomHandler.getAttribute(prevHeader, 'data-p-active') === true ? DomHandler.findSingle(prevHeader.nextElementSibling, '[data-pc-section="rootlist"]') : null;
+            const rootList = getAttribute(prevHeader, 'data-p-active') === true ? findSingle(prevHeader.nextElementSibling, '[data-pc-section="rootlist"]') : null;
 
-            rootList ? DomHandler.focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
+            rootList ? focus(rootList) : this.updateFocusedHeader({ originalEvent: event, focusOnNext: false });
             event.preventDefault();
         },
         onHeaderHomeKey(event) {
@@ -185,22 +187,22 @@ export default {
             event.preventDefault();
         },
         onHeaderEnterKey(event, item) {
-            const headerAction = DomHandler.findSingle(event.currentTarget, '[data-pc-section="headerlink"]');
+            const headerAction = findSingle(event.currentTarget, '[data-pc-section="headerlink"]');
 
             headerAction ? headerAction.click() : this.onHeaderClick(event, item);
             event.preventDefault();
         },
         findNextHeader(panelElement, selfCheck = false) {
             const nextPanelElement = selfCheck ? panelElement : panelElement.nextElementSibling;
-            const headerElement = DomHandler.findSingle(nextPanelElement, '[data-pc-section="header"]');
+            const headerElement = findSingle(nextPanelElement, '[data-pc-section="header"]');
 
-            return headerElement ? (DomHandler.getAttribute(headerElement, 'data-p-disabled') ? this.findNextHeader(headerElement.parentElement) : headerElement) : null;
+            return headerElement ? (getAttribute(headerElement, 'data-p-disabled') ? this.findNextHeader(headerElement.parentElement) : headerElement) : null;
         },
         findPrevHeader(panelElement, selfCheck = false) {
             const prevPanelElement = selfCheck ? panelElement : panelElement.previousElementSibling;
-            const headerElement = DomHandler.findSingle(prevPanelElement, '[data-pc-section="header"]');
+            const headerElement = findSingle(prevPanelElement, '[data-pc-section="header"]');
 
-            return headerElement ? (DomHandler.getAttribute(headerElement, 'data-p-disabled') ? this.findPrevHeader(headerElement.parentElement) : headerElement) : null;
+            return headerElement ? (getAttribute(headerElement, 'data-p-disabled') ? this.findPrevHeader(headerElement.parentElement) : headerElement) : null;
         },
         findFirstHeader() {
             return this.findNextHeader(this.$el.firstElementChild, true);
@@ -211,7 +213,7 @@ export default {
         updateFocusedHeader(event) {
             const { originalEvent, focusOnNext, selfCheck } = event;
             const panelElement = originalEvent.currentTarget.closest('[data-pc-section="panel"]');
-            const header = selfCheck ? DomHandler.findSingle(panelElement, '[data-pc-section="header"]') : focusOnNext ? this.findNextHeader(panelElement) : this.findPrevHeader(panelElement);
+            const header = selfCheck ? findSingle(panelElement, '[data-pc-section="header"]') : focusOnNext ? this.findNextHeader(panelElement) : this.findPrevHeader(panelElement);
 
             header ? this.changeFocusedHeader(originalEvent, header) : focusOnNext ? this.onHeaderHomeKey(originalEvent) : this.onHeaderEndKey(originalEvent);
         },
@@ -220,12 +222,12 @@ export default {
                 const active = this.isItemActive(item);
                 const eventName = !active ? 'panel-open' : 'panel-close';
 
-                this.activeItem = selfActive ? item : this.activeItem && ObjectUtils.equals(item, this.activeItem) ? null : item;
+                this.activeItem = selfActive ? item : this.activeItem && equals(item, this.activeItem) ? null : item;
 
                 if (this.multiple) {
                     // activeItem and activeItems should be separated because it should be only one focused root item
-                    if (this.activeItems.some((subItem) => ObjectUtils.equals(item, subItem))) {
-                        this.activeItems = this.activeItems.filter((subItem) => !ObjectUtils.equals(item, subItem));
+                    if (this.activeItems.some((subItem) => equals(item, subItem))) {
+                        this.activeItems = this.activeItems.filter((subItem) => !equals(item, subItem));
                     } else {
                         this.activeItems.push(item);
                     }
@@ -246,7 +248,7 @@ export default {
             }
         },
         changeFocusedHeader(event, element) {
-            element && DomHandler.focus(element);
+            element && focus(element);
         },
         getMenuItemProps(item, index) {
             return {

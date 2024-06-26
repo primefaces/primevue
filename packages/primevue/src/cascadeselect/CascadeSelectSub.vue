@@ -55,7 +55,8 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { nestedPosition } from '@primeuix/utils/dom';
+import { resolveFieldData, isNotEmpty } from '@primeuix/utils/object';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 
@@ -91,13 +92,13 @@ export default {
     watch: {
         isParentMount: {
             handler(newValue) {
-                newValue && DomHandler.nestedPosition(this.container, this.level);
+                newValue && nestedPosition(this.container, this.level);
             }
         }
     },
     mounted() {
         // entering order correction when an option is selected
-        (this.isParentMount || this.level === 0) && DomHandler.nestedPosition(this.container, this.level);
+        (this.isParentMount || this.level === 0) && nestedPosition(this.container, this.level);
         this.mounted = true;
     },
     methods: {
@@ -105,10 +106,10 @@ export default {
             return `${this.selectId}_${processedOption.key}`;
         },
         getOptionLabel(processedOption) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionLabel) : processedOption.option;
+            return this.optionLabel ? resolveFieldData(processedOption.option, this.optionLabel) : processedOption.option;
         },
         getOptionValue(processedOption) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(processedOption.option, this.optionValue) : processedOption.option;
+            return this.optionValue ? resolveFieldData(processedOption.option, this.optionValue) : processedOption.option;
         },
         getPTOptions(processedOption, index, key) {
             return this.ptm(key, {
@@ -124,16 +125,16 @@ export default {
             });
         },
         isOptionDisabled(processedOption) {
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(processedOption.option, this.optionDisabled) : false;
+            return this.optionDisabled ? resolveFieldData(processedOption.option, this.optionDisabled) : false;
         },
         getOptionGroupLabel(processedOption) {
-            return this.optionGroupLabel ? ObjectUtils.resolveFieldData(processedOption.option, this.optionGroupLabel) : null;
+            return this.optionGroupLabel ? resolveFieldData(processedOption.option, this.optionGroupLabel) : null;
         },
         getOptionGroupChildren(processedOption) {
             return processedOption.children;
         },
         isOptionGroup(processedOption) {
-            return ObjectUtils.isNotEmpty(processedOption.children);
+            return isNotEmpty(processedOption.children);
         },
         isOptionSelected(processedOption) {
             return !this.isOptionGroup(processedOption) && this.isOptionActive(processedOption);

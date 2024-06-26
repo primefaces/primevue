@@ -19,7 +19,7 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue', 'chart.js/auto', 'quill'];
-const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/, '@primeuix/styled'];
+const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/, '@primeuix/styled', /@primeuix\/utils\/.*/];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias

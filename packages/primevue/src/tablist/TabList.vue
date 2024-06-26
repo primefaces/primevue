@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { getWidth, findSingle, getHeight, getOuterHeight, getOuterWidth, getOffset } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import BaseTabList from './BaseTabList.vue';
@@ -88,14 +88,14 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content);
+            const width = getWidth(content);
             const pos = content.scrollLeft - width;
 
             content.scrollLeft = pos <= 0 ? 0 : pos;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
+            const width = getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft + width;
             const lastPos = content.scrollWidth - width;
 
@@ -111,20 +111,20 @@ export default {
         },
         updateInkBar() {
             const { content, inkbar, tabs } = this.$refs;
-            const activeTab = DomHandler.findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
+            const activeTab = findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
 
             if (this.$pcTabs.isVertical()) {
-                inkbar.style.height = DomHandler.getOuterHeight(activeTab) + 'px';
-                inkbar.style.top = DomHandler.getOffset(activeTab).top - DomHandler.getOffset(tabs).top + 'px';
+                inkbar.style.height = getOuterHeight(activeTab) + 'px';
+                inkbar.style.top = getOffset(activeTab).top - getOffset(tabs).top + 'px';
             } else {
-                inkbar.style.width = DomHandler.getOuterWidth(activeTab) + 'px';
-                inkbar.style.left = DomHandler.getOffset(activeTab).left - DomHandler.getOffset(tabs).left + 'px';
+                inkbar.style.width = getOuterWidth(activeTab) + 'px';
+                inkbar.style.left = getOffset(activeTab).left - getOffset(tabs).left + 'px';
             }
         },
         updateButtonState() {
             const { list, content } = this.$refs;
             const { scrollLeft, scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
-            const [width, height] = [DomHandler.getWidth(content), DomHandler.getHeight(content)];
+            const [width, height] = [getWidth(content), getHeight(content)];
 
             if (this.$pcTabs.isVertical()) {
                 this.isPrevButtonEnabled = scrollTop !== 0;
@@ -137,7 +137,7 @@ export default {
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;
 
-            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + DomHandler.getWidth(el) : acc), 0);
+            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
         }
     },
     computed: {

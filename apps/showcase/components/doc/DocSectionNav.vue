@@ -21,7 +21,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { findSingle, getHeight, getOffset, getWindowScrollTop, isVisible } from '@primeuix/utils/dom';
+import { isNotEmpty } from '@primeuix/utils/object';
 
 export default {
     props: ['docs'],
@@ -49,16 +50,16 @@ export default {
     methods: {
         onScroll() {
             if (!this.isScrollBlocked) {
-                const labels = [...document.querySelectorAll(':is(h1,h2,h3).doc-section-label')].filter((el) => DomHandler.isVisible(el));
+                const labels = [...document.querySelectorAll(':is(h1,h2,h3).doc-section-label')].filter((el) => isVisible(el));
 
-                const windowScrollTop = DomHandler.getWindowScrollTop();
+                const windowScrollTop = getWindowScrollTop();
 
                 labels.forEach((label) => {
-                    const { top } = DomHandler.getOffset(label);
+                    const { top } = getOffset(label);
                     const threshold = this.getThreshold(label);
 
                     if (top - threshold <= windowScrollTop) {
-                        const link = DomHandler.findSingle(label, 'a');
+                        const link = findSingle(label, 'a');
 
                         this.activeId = link.id;
                     }
@@ -69,7 +70,7 @@ export default {
             this.scrollEndTimer = setTimeout(() => {
                 this.isScrollBlocked = false;
 
-                const activeItem = DomHandler.findSingle(this.$refs.nav, '.active-navbar-item');
+                const activeItem = findSingle(this.$refs.nav, '.active-navbar-item');
 
                 activeItem && activeItem.scrollIntoView({ block: 'nearest', inline: 'start' });
             }, 50);
@@ -89,19 +90,19 @@ export default {
         },
         getThreshold(label) {
             if (!this.topbarHeight) {
-                const topbar = DomHandler.findSingle(document.body, '.layout-topbar');
+                const topbar = findSingle(document.body, '.layout-topbar');
 
-                this.topbarHeight = topbar ? DomHandler.getHeight(topbar) : 0;
+                this.topbarHeight = topbar ? getHeight(topbar) : 0;
             }
 
-            return this.topbarHeight + DomHandler.getHeight(label) * 1.5;
+            return this.topbarHeight + getHeight(label) * 1.5;
         },
         getIdOfTheSection(section) {
             return section.querySelector('a').getAttribute('id');
         },
         scrollCurrentUrl() {
             const hash = window.location.hash.substring(1);
-            const hasHash = ObjectUtils.isNotEmpty(hash);
+            const hasHash = isNotEmpty(hash);
             const id = hasHash ? hash : (this.docs[0] || {}).id;
 
             this.activeId = id;

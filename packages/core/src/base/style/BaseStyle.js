@@ -1,6 +1,6 @@
 import { Theme, dt } from '@primeuix/styled';
+import { minifyCSS, resolve } from '@primeuix/utils/object';
 import { useStyle } from '@primevue/core/usestyle';
-import { ObjectUtils } from '@primevue/core/utils';
 
 const theme = ({ dt }) => `
 * {
@@ -157,9 +157,9 @@ export default {
     classes,
     inlineStyles,
     load(style, options = {}, transform = (cs) => cs) {
-        const computedStyle = transform(ObjectUtils.getItemValue(style, { dt }));
+        const computedStyle = transform(resolve(style, { dt }));
 
-        return computedStyle ? useStyle(ObjectUtils.minifyCSS(computedStyle), { name: this.name, ...options }) : {};
+        return computedStyle ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
     },
     loadCSS(options = {}) {
         return this.load(this.css, options);
@@ -184,8 +184,8 @@ export default {
     },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
-            const _css = ObjectUtils.getItemValue(this.css, { dt });
-            const _style = ObjectUtils.minifyCSS(`${_css}${extendedCSS}`);
+            const _css = resolve(this.css, { dt });
+            const _style = minifyCSS(`${_css}${extendedCSS}`);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
@@ -203,8 +203,8 @@ export default {
 
         if (this.theme) {
             const name = this.name === 'base' ? 'global-style' : `${this.name}-style`;
-            const _css = ObjectUtils.getItemValue(this.theme, { dt });
-            const _style = ObjectUtils.minifyCSS(Theme.transformCSS(name, _css));
+            const _css = resolve(this.theme, { dt });
+            const _style = minifyCSS(Theme.transformCSS(name, _css));
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');

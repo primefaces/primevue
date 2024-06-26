@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { equals } from '@primeuix/utils/object';
 import { mergeProps } from 'vue';
 import BaseTabPanel from './BaseTabPanel.vue';
 
@@ -23,7 +23,7 @@ export default {
     inject: ['$pcTabs'],
     computed: {
         active() {
-            return ObjectUtils.equals(this.$pcTabs?.d_value, this.value);
+            return equals(this.$pcTabs?.d_value, this.value);
         },
         id() {
             return `${this.$pcTabs?.id}_tabpanel_${this.value}`;

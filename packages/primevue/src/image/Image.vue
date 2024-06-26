@@ -56,7 +56,8 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from '@primevue/core/utils';
+import { blockBodyScroll, isAttributeEquals, focus, addClass, unblockBodyScroll } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import EyeIcon from '@primevue/icons/eye';
 import RefreshIcon from '@primevue/icons/refresh';
 import SearchMinusIcon from '@primevue/icons/searchminus';
@@ -83,7 +84,7 @@ export default {
     },
     beforeUnmount() {
         if (this.mask) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
         }
     },
     methods: {
@@ -95,7 +96,7 @@ export default {
         },
         onImageClick() {
             if (this.preview) {
-                DomHandler.blockBodyScroll();
+                blockBodyScroll();
                 this.maskVisible = true;
                 setTimeout(() => {
                     this.previewVisible = true;
@@ -106,7 +107,7 @@ export default {
             this.previewClick = true;
         },
         onMaskClick(event) {
-            const isBarActionsClicked = DomHandler.isAttributeEquals(event.target, 'data-pc-section-group', 'action') || event.target.closest('[data-pc-section-group="action"]');
+            const isBarActionsClicked = isAttributeEquals(event.target, 'data-pc-section-group', 'action') || event.target.closest('[data-pc-section-group="action"]');
 
             if (!this.previewClick && !isBarActionsClicked) {
                 this.previewVisible = false;
@@ -121,7 +122,7 @@ export default {
                 case 'Escape':
                     this.hidePreview();
                     setTimeout(() => {
-                        DomHandler.focus(this.$refs.previewButton);
+                        focus(this.$refs.previewButton);
                     }, 200);
                     event.preventDefault();
 
@@ -151,21 +152,21 @@ export default {
             this.previewClick = true;
         },
         onBeforeEnter() {
-            ZIndexUtils.set('modal', this.mask, this.$primevue.config.zIndex.modal);
+            ZIndex.set('modal', this.mask, this.$primevue.config.zIndex.modal);
         },
         onEnter() {
             this.focus();
             this.$emit('show');
         },
         onBeforeLeave() {
-            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
+            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
         },
         onLeave() {
-            DomHandler.unblockBodyScroll();
+            unblockBodyScroll();
             this.$emit('hide');
         },
         onAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
             this.maskVisible = false;
         },
         focus() {
@@ -179,7 +180,7 @@ export default {
             this.previewVisible = false;
             this.rotate = 0;
             this.scale = 1;
-            DomHandler.unblockBodyScroll();
+            unblockBodyScroll();
         }
     },
     computed: {

@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { find } from '@primeuix/utils/dom';
+import { findIndexInList } from '@primeuix/utils/object';
 import StepperSeparator from '../stepper/StepperSeparator.vue';
 import BaseStep from './BaseStep.vue';
 
@@ -32,8 +33,8 @@ export default {
     },
     mounted() {
         if (this.$el && this.$pcStepList) {
-            let index = ObjectUtils.findIndexInList(this.$el, DomHandler.find(this.$pcStepper.$el, '[data-pc-name="step"]'));
-            let stepLen = DomHandler.find(this.$pcStepper.$el, '[data-pc-name="step"]').length;
+            let index = findIndexInList(this.$el, find(this.$pcStepper.$el, '[data-pc-name="step"]'));
+            let stepLen = find(this.$pcStepper.$el, '[data-pc-name="step"]').length;
 
             this.isSeparatorVisible = index !== stepLen - 1;
         }

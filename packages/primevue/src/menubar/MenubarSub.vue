@@ -73,7 +73,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolve, isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
@@ -131,7 +131,7 @@ export default {
             return this.getItemId(processedItem);
         },
         getItemProp(processedItem, name, params) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name], params) : undefined;
+            return processedItem && processedItem.item ? resolve(processedItem.item[name], params) : undefined;
         },
         getItemLabel(processedItem) {
             return this.getItemProp(processedItem, 'label');
@@ -164,7 +164,7 @@ export default {
             return this.focusedItemId === this.getItemId(processedItem);
         },
         isItemGroup(processedItem) {
-            return ObjectUtils.isNotEmpty(processedItem.items);
+            return isNotEmpty(processedItem.items);
         },
         onItemClick(event, processedItem) {
             this.getItemProp(processedItem, 'command', { originalEvent: event, item: processedItem.item });

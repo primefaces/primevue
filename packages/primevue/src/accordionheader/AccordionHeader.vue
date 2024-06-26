@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { findSingle, getAttribute, focus } from '@primeuix/utils/dom';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
@@ -101,17 +101,17 @@ export default {
             return headerElement?.closest('[data-pc-name="accordionpanel"]');
         },
         findHeader(panelElement) {
-            return DomHandler.findSingle(panelElement, '[data-pc-name="accordionheader"]');
+            return findSingle(panelElement, '[data-pc-name="accordionheader"]');
         },
         findNextPanel(panelElement, selfCheck = false) {
             const element = selfCheck ? panelElement : panelElement.nextElementSibling;
 
-            return element ? (DomHandler.getAttribute(element, 'data-p-disabled') ? this.findNextPanel(element) : this.findHeader(element)) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') ? this.findNextPanel(element) : this.findHeader(element)) : null;
         },
         findPrevPanel(panelElement, selfCheck = false) {
             const element = selfCheck ? panelElement : panelElement.previousElementSibling;
 
-            return element ? (DomHandler.getAttribute(element, 'data-p-disabled') ? this.findPrevPanel(element) : this.findHeader(element)) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') ? this.findPrevPanel(element) : this.findHeader(element)) : null;
         },
         findFirstPanel() {
             return this.findNextPanel(this.$pcAccordion.$el.firstElementChild, true);
@@ -123,7 +123,7 @@ export default {
             this.$pcAccordion.updateValue(this.$pcAccordionPanel.value);
         },
         changeFocusedPanel(event, element) {
-            DomHandler.focus(this.findHeader(element));
+            focus(this.findHeader(element));
         }
     },
     computed: {

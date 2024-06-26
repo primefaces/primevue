@@ -1,5 +1,5 @@
+import { isNotEmpty } from '@primeuix/utils/object';
 import BaseStyle from '@primevue/core/base/style';
-import { ObjectUtils } from '@primevue/core/utils';
 
 const theme = ({ dt }) => `
 .p-autocomplete {
@@ -249,7 +249,7 @@ const classes = {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue || ObjectUtils.isNotEmpty(instance.inputValue),
+            'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible
         }

@@ -63,7 +63,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler } from '@primevue/core/utils';
+import { getAttribute, findSingle, find } from '@primeuix/utils/dom';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -136,7 +136,7 @@ export default {
             });
         },
         onClick(event) {
-            if (this.toggleClicked || DomHandler.getAttribute(event.target, '[data-pc-section="nodetogglebutton"]') || DomHandler.getAttribute(event.target.parentElement, '[data-pc-section="nodetogglebutton"]')) {
+            if (this.toggleClicked || getAttribute(event.target, '[data-pc-section="nodetogglebutton"]') || getAttribute(event.target.parentElement, '[data-pc-section="nodetogglebutton"]')) {
                 this.toggleClicked = false;
 
                 return;
@@ -246,7 +246,7 @@ export default {
             });
         },
         onArrowLeft(event) {
-            const togglerElement = DomHandler.findSingle(event.currentTarget, '[data-pc-section="nodetogglebutton"]');
+            const togglerElement = findSingle(event.currentTarget, '[data-pc-section="nodetogglebutton"]');
 
             if (this.level === 0 && !this.expanded) {
                 return false;
@@ -274,7 +274,7 @@ export default {
             this.setAllNodesTabIndexes();
         },
         setAllNodesTabIndexes() {
-            const nodes = DomHandler.find(this.$refs.currentNode.closest('[data-pc-section="rootchildren"]'), '[role="treeitem"]');
+            const nodes = find(this.$refs.currentNode.closest('[data-pc-section="rootchildren"]'), '[role="treeitem"]');
 
             const hasSelectedNode = [...nodes].some((node) => node.getAttribute('aria-selected') === 'true' || node.getAttribute('aria-checked') === 'true');
 
@@ -294,7 +294,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.currentNode.parentElement, '[role="treeitem"]')];
+                const elements = [...find(this.$refs.currentNode.parentElement, '[role="treeitem"]')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 
@@ -313,7 +313,7 @@ export default {
             const parentListElement = node.closest('ul').closest('li');
 
             if (parentListElement) {
-                const prevNodeButton = DomHandler.findSingle(parentListElement, 'button');
+                const prevNodeButton = findSingle(parentListElement, 'button');
 
                 if (prevNodeButton && prevNodeButton.style.visibility !== 'hidden') {
                     return parentListElement;
@@ -401,7 +401,7 @@ export default {
         getParentNodeElement(nodeElement) {
             const parentNodeElement = nodeElement.parentElement.parentElement;
 
-            return DomHandler.getAttribute(parentNodeElement, 'role') === 'treeitem' ? parentNodeElement : null;
+            return getAttribute(parentNodeElement, 'role') === 'treeitem' ? parentNodeElement : null;
         },
         focusNode(element) {
             element.focus();
