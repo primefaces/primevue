@@ -11,11 +11,13 @@
                 </div>
                 <p class="text-primary-contrast mt-4 mb-0 lg:text-base text-sm">{{ templateHeroData.description }}</p>
                 <div class="flex items-center gap-4 mt-8">
-                    <a :href="templateHeroData.liveHref" target="_blank" class="flex-1 py-3.5 bg-surface-900 border-surface-900 hover:bg-surface-700 text-surface-0 rounded-full text-center font-semibold transition-all leading-none">Live Demo</a>
+                    <a :href="templateHeroData.liveHref" target="_blank" class="flex-1 py-3.5 border border-primary-contrast hover:bg-primary-contrast/10 text-primary-contrast rounded-full text-center font-semibold transition-all leading-none"
+                        >Live Demo</a
+                    >
                     <a
                         :href="templateHeroData.storeHref ?? 'https://www.primefaces.org/store/'"
                         target="_blank"
-                        class="flex-1 rounded-full text-center font-semibold w-full bg-primary-600 border-primary-600 hover:bg-primary-700 text-surface-0 py-3.5 transition-all leading-none"
+                        class="flex-1 rounded-full border text-center font-semibold w-full bg-primary-600 border-primary-600 hover:bg-primary-700 text-surface-0 py-3.5 transition-all leading-none"
                     >
                         {{ templateHeroData.free ? 'Source Code' : 'Buy Now' }}
                     </a>
