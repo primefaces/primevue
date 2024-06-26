@@ -313,16 +313,6 @@ export default {
                 return d;
             });
         },
-        formatDate(value) {
-            return value.toLocaleDateString('en-US', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-        },
-        formatCurrency(value) {
-            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-        },
         getSeverity(status) {
             switch (status) {
                 case 'unqualified':
@@ -466,16 +456,6 @@ const getCustomers = (data) => {
         return d;
     });
 };
-const formatDate = (value) => {
-    return value.toLocaleDateString('en-US', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-};
-const formatCurrency = (value) => {
-    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-};
 const getSeverity = (status) => {
     switch (status) {
         case 'unqualified':
@@ -533,16 +513,6 @@ const getSeverity = (status) => {
 
                 return d;
             });
-        },
-        formatDate(value) {
-            return value.toLocaleDateString('en-US', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-        },
-        formatCurrency(value) {
-            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         },
         getSeverity(status) {
             switch (status) {
