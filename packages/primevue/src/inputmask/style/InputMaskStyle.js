@@ -2,9 +2,9 @@ import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
     root: ({ instance }) => [
-        'p-inputmask  p-inputwrapper',
+        'p-inputmask',
         {
-            'p-inputwrapper-filled': instance.filled
+            'p-filled': instance.filled
         }
     ]
 };
