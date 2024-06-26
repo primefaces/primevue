@@ -1,25 +1,30 @@
 <template>
-    <div class="template-features-animation-wrapper">
-        <div v-if="title" class="template-features-animation-title">
-            <h2>{{ title }}</h2>
-        </div>
-        <div ref="animationRef" class="template-features-animation">
-            <div class="template-features-animation-left">
+    <div class="px-6 py-6 sm:px-10 sm:py-5 lg:py-20 lg:px-8 rounded-2xl lg:rounded-3xl bg-surface-0 dark:bg-surface-900">
+        <h2 v-if="title" class="text-center text-surface-900 dark:text-surface-0 text-3xl lg:text-5xl font-semibold lg:pt-0 pt-6 mb-12">{{ title }}</h2>
+        <div ref="animationRef" class="flex flex-col-reverse lg:flex-row items-start gap-10 w-full max-w-2xl lg:max-w-6xl mx-auto p-4 lg:p-7 rounded-3xl border border-surface">
+            <div class="flex flex-col gap-4 flex-1">
                 <template v-for="(data, index) in featuresData" :key="index">
                     <div
                         @click="handleClick(data.id)"
                         @mouseenter="enterCardArea(data.id)"
                         @mouseleave="leaveCardArea(data.id)"
-                        :class="`template-features-animation-left-card ${selectedID === data.id ? 'template-features-animation-left-card-active' : ''}`"
+                        :class="`template-features-animation-card group template-features-animation-left-card p-4 flex items-start gap-2 md:gap-4 xl:gap-6 cursor-pointer rounded-xl transition-all hover:bg-primary-50 dark:hover:bg-primary/15 ${
+                            selectedID === data.id ? 'template-features-animation-card-active rounded-xl bg-primary-50 dark:bg-primary/15 transition-all' : ''
+                        }`"
                     >
-                        <div class="template-features-animation-left-card-order">
-                            <div>{{ orderNumber(index) }}</div>
-                            <div>{{ orderNumber(index) }}</div>
-                            <div>{{ orderNumber(index) }}</div>
+                        <div class="template-features-animation-card-order w-14 h-full -mt-1 relative transition-all">
+                            <div class="text-[2.5rem] font-bold absolute top-0 left-0 text-primary-400 [-webkit-text-stroke:1.2px_var(--p-primary-400)]">{{ orderNumber(index) }}</div>
+                            <div
+                                class="text-[2.5rem] font-bold absolute top-0 left-0 transition-all dark:text-surface-900 group-hover:text-surface-50 dark:group-hover:text-surface-900"
+                                :class="selectedID === data.id ? 'text-surface-50' : 'text-surface-0'"
+                            >
+                                {{ orderNumber(index) }}
+                            </div>
+                            <div class="text-[2.5rem] font-bold absolute top-0 left-0 text-transparent">{{ orderNumber(index) }}</div>
                         </div>
-                        <div class="template-features-animation-left-card-content">
-                            <h5>{{ data.title }}</h5>
-                            <p>
+                        <div class="flex-1">
+                            <h5 class="text-lg lg:text-xl font-semibold m-0">{{ data.title }}</h5>
+                            <p class="text-sm lg:text-base text-muted-color mt-1 mb-0 [&>a]:text-primary [&>a]:hover:underline">
                                 <template v-if="data.slotType">
                                     <slot :name="data.slotType" />
                                 </template>
@@ -31,7 +36,7 @@
                     </div>
                 </template>
             </div>
-            <div class="template-features-animation-right">
+            <div class="flex-1 w-full lg:w-fit rounded-2xl bg-surface-100 dark:bg-surface-800 overflow-hidden flex sm:min-w-[30rem]">
                 <TemplateFeaturesAnimationInline
                     v-if="featuresData[selectedID - 1]?.type === 'inline-animation'"
                     :inlineFeaturesData="featuresData[selectedID - 1]?.inlineFeaturesData"
@@ -40,7 +45,7 @@
                     :parentID="selectedID"
                     :inlineSeconds="animationSeconds / featuresData[selectedID - 1]?.inlineFeaturesData.length"
                 />
-                <img v-else :src="featuresData[selectedID - 1]?.src" alt="Animation Feature Image" />
+                <img v-else class="w-full h-auto object-cover flex" :src="featuresData[selectedID - 1]?.src" alt="Animation Feature Image" />
             </div>
         </div>
     </div>

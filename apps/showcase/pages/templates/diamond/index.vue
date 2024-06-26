@@ -1,5 +1,5 @@
 <template>
-    <div class="diamond template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="190" height="40" viewBox="0 0 190 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +19,9 @@
                         </clipPath>
                     </defs>
                 </svg>
+            </template>
+            <template #pattern>
+                <img class="select-none absolute z-[6] w-[62rem] h-[44rem] -top-8 -left-36 md:-left-12" src="https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png" alt="Template Hero Pattern" />
             </template>
         </TemplateHero>
         <DiamondSeparator />

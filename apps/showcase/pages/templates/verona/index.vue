@@ -1,5 +1,5 @@
 <template>
-    <div className="verona template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="142" height="40" viewBox="0 0 142 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +32,9 @@
                         </clipPath>
                     </defs>
                 </svg>
+            </template>
+            <template #pattern>
+                <img class="select-none absolute z-[6] opacity-90 w-[110rem] h-auto bottom-80 left-0 md:-bottom-8 md:-left-4" src="https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png" alt="Template Hero Pattern" />
             </template>
         </TemplateHero>
         <VeronaSeparator />

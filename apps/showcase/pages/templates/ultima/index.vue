@@ -1,5 +1,5 @@
 <template>
-    <div class="ultima template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="209" height="40" viewBox="0 0 209 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,6 +26,13 @@
                         </clipPath>
                     </defs>
                 </svg>
+            </template>
+            <template #pattern>
+                <img
+                    class="select-none absolute z-[6] opacity-75 w-[80rem] h-auto bottom-8 -left-64 md:-bottom-[26rem] md:-left-[22rem]"
+                    src="https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png"
+                    alt="Template Hero Pattern"
+                />
             </template>
         </TemplateHero>
         <UltimaSeparator />

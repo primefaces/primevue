@@ -1,5 +1,5 @@
 <template>
-    <div class="apollo template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="235" height="40" viewBox="0 0 235 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,6 +22,9 @@
                         :fill="fillColor"
                     />
                 </svg>
+            </template>
+            <template #pattern>
+                <img class="select-none absolute md:bottom-0 bottom-80 left-0 z-[6] md:w-[95rem] h-auto w-[90rem] opacity-60" src="https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png" alt="Template Hero Pattern" />
             </template>
         </TemplateHero>
         <ApolloSeparator />

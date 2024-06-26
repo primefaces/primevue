@@ -1,5 +1,5 @@
 <template>
-    <div class="sakai template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,6 +27,13 @@
                         </clipPath>
                     </defs>
                 </svg>
+            </template>
+            <template #pattern>
+                <img
+                    class="select-none absolute z-[6] opacity-60 w-[50rem] h-[18rem] md:w-[52rem] md:h-[20rem] lg:w-[64rem] lg:h-[28rem] bottom-[26rem] md:bottom-0 left-0"
+                    src="https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png"
+                    alt="Template Hero Pattern"
+                />
             </template>
         </TemplateHero>
         <SakaiSeparator />

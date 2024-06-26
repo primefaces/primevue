@@ -1,5 +1,5 @@
 <template>
-    <div class="avalon template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg xmlns="http://www.w3.org/2000/svg" width="125" height="40" viewBox="0 0 125 40" fill="none">
@@ -13,6 +13,13 @@
                     />
                     <path d="M105.398 0.555555H113.065L119.009 23.8333H119.12V0.555555H124.565V39.4444H118.287L110.954 11.0556H110.842V39.4444H105.398V0.555555Z" :fill="fillColor" />
                 </svg>
+            </template>
+            <template #pattern>
+                <img
+                    class="select-none absolute md:w-[60rem] h-auto md:bottom-0 bottom-40 -left-32 xl:-left-12 md:-left-32 z-[6] opacity-75"
+                    src="https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png"
+                    alt="Template Hero Pattern"
+                />
             </template>
         </TemplateHero>
         <AvalonSeparator />
@@ -225,7 +232,7 @@ export default {
             },
             templateHeroData: {
                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png',
-                rectangle: true,
+                rectangle: false,
                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard1.png',
                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard2.png',
                 description: 'A modern and easy to use premium application template with highly customizable layout features. Based on a bootstrap styling, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',

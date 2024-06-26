@@ -1,5 +1,5 @@
 <template>
-    <div class="freya template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="139" height="40" viewBox="0 0 139 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,6 +22,13 @@
                         :fill="fillColor"
                     />
                 </svg>
+            </template>
+            <template #pattern>
+                <img
+                    class="select-none absolute z-[6] w-[58rem] md:w-[50rem] h-auto top-12 md:top-32 -left-24 md:-left-12 opacity-75"
+                    src="https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-pattern.png"
+                    alt="Template Hero Pattern"
+                />
             </template>
         </TemplateHero>
         <FreyaSeparator />

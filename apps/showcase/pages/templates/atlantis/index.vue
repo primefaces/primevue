@@ -1,5 +1,5 @@
 <template>
-    <div class="atlantis template">
+    <div class="flex flex-col gap-8">
         <TemplateHero :templateHeroData="templateHeroData">
             <template #logo>
                 <svg width="149" height="40" viewBox="0 0 149 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,6 +36,13 @@
                         :fill="fillColor"
                     />
                 </svg>
+            </template>
+            <template #pattern>
+                <img
+                    class="select-none absolute md:-bottom-28 bottom-36 -left-20 md:-left-28 z-[6] md:w-[50rem] h-auto w-[60rem] opacity-75"
+                    src="https://primefaces.org/cdn/primevue/images/templates/atlantis/atlantis-hero-pattern.png"
+                    alt="Template Hero Pattern"
+                />
             </template>
         </TemplateHero>
         <AtlantisSeparator />
