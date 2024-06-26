@@ -112,6 +112,10 @@ export interface InputMaskProps {
      */
     mask?: string | undefined;
     /**
+     * Style class of the input field.
+     */
+    class?: string | object | undefined;
+    /**
      * Placeholder text for the input.
      */
     placeholder?: string | undefined;

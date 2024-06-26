@@ -11,6 +11,10 @@ export default {
             type: String,
             default: '_'
         },
+        class: {
+            type: [String, Object],
+            default: null
+        },
         mask: {
             type: String,
             default: null

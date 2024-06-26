@@ -1,7 +1,7 @@
 <template>
     <InputText
         :value="modelValue"
-        :class="cx('root')"
+        :class="inputClass"
         :readonly="readonly"
         :disabled="disabled"
         :invalid="invalid"
@@ -516,6 +516,9 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        inputClass() {
+            return [this.cx('root'), this.class];
         },
         ptmParams() {
             return {
