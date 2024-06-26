@@ -1,5 +1,4 @@
 <template>
-    <!-- (0 ?featuresData.slice(i===0?(0, Math.ceil(featuresData.length / 2)):(featuresData.length / 2)):featuresData.slice(i===0?(0, Math.ceil(featuresData.length / 2)):(featuresData.length / 2))) -->
     <div>
         <div v-if="displayType === 'vertical'" class="px-6 py-6 sm:px-10 sm:py-10 lg:py-20 rounded-3xl bg-surface-0 dark:bg-surface-900">
             <div class="mx-auto max-w-3xl flex sm:flex-row flex-col items-start gap-6">
@@ -12,7 +11,7 @@
                     }"
                 >
                     <template v-for="(data, j) of i === 0 ? featuresData.slice(0, Math.ceil(featuresData.length / 2)) : featuresData.slice(featuresData.length / 2)" :key="j">
-                        <div class="w-full p-4 md:p-5 rounded-2xl border border-surface">
+                        <div v-animateonscroll.once="{ enterClass: 'animate-fadein' }" class="w-full p-4 md:p-5 rounded-2xl border border-surface animate-duration-500">
                             <div class="w-full bg-surface-100 dark:bg-surface-800 rounded-lg overflow-hidden flex">
                                 <img class="w-full h-auto rounded-lg" :src="$appState.darkTheme ? data.darkSrc || data.src : data.src" :alt="data.title" />
                             </div>
@@ -26,7 +25,7 @@
         <div v-else class="px-6 py-6 sm:px-10 sm:py-10 lg:py-20 rounded-3xl bg-surface-0 dark:bg-surface-900">
             <div class="flex flex-wrap justify-center gap-6 mx-auto w-full max-w-5xl">
                 <template v-for="(data, index) in featuresData" :key="index">
-                    <div class="p-5 rounded-2xl border border-surface flex-1 min-w-80 max-w-96">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-fadein' }" class="p-5 rounded-2xl border border-surface flex-1 min-w-80 max-w-96 animate-duration-500">
                         <div class="flex w-full mb-5 bg-surface-100 dark:bg-surface-800 overflow-hidden rounded-lg">
                             <img class="w-full" :src="$appState.darkTheme ? data.darkSrc || data.src : data.src" :alt="data.title" />
                         </div>

@@ -48,14 +48,10 @@
         </TemplateFeaturesAnimation>
         <DiamondSeparator />
         <TemplateFeatures :featuresData="features2Data" displayType="vertical" />
-        <DiamondSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import DiamondSeparator from '@/doc/templates/DiamondSeparator.vue';
-
 export default {
     data() {
         return {
@@ -230,9 +226,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        DiamondSeparator
     }
 };
 </script>

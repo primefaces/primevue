@@ -44,14 +44,10 @@
         </TemplateFeaturesAnimation>
         <AvalonSeparator />
         <TemplateFeatures :featuresData="features2Data" displayType="vertical" />
-        <AvalonSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import AvalonSeparator from '@/doc/templates/AvalonSeparator.vue';
-
 export default {
     data() {
         return {
@@ -245,9 +241,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        AvalonSeparator
     }
 };
 </script>

@@ -1,7 +1,11 @@
 <template>
     <div class="px-6 py-6 sm:px-10 sm:py-5 lg:py-20 lg:px-8 rounded-2xl lg:rounded-3xl bg-surface-0 dark:bg-surface-900">
         <h2 v-if="title" class="text-center text-surface-900 dark:text-surface-0 text-3xl lg:text-5xl font-semibold lg:pt-0 pt-6 mb-12">{{ title }}</h2>
-        <div ref="animationRef" class="flex flex-col-reverse lg:flex-row items-start gap-10 w-full max-w-2xl lg:max-w-6xl mx-auto p-4 lg:p-7 rounded-3xl border border-surface">
+        <div
+            ref="animationRef"
+            v-animateonscroll.once="{ enterClass: 'animate-fadein' }"
+            class="flex flex-col-reverse lg:flex-row items-start gap-10 w-full max-w-2xl lg:max-w-6xl mx-auto p-4 lg:p-7 rounded-3xl border border-surface animate-duration-500"
+        >
             <div class="flex flex-col gap-4 flex-1">
                 <template v-for="(data, index) in featuresData" :key="index">
                     <div

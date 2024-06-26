@@ -59,14 +59,10 @@
         </TemplateFeaturesAnimation>
         <UltimaSeparator />
         <TemplateFeatures :featuresData="features2Data" displayType="vertical" />
-        <UltimaSeparator />
-        <TemplateRelated :relatedData="relatedData" />
     </div>
 </template>
 
 <script>
-import UltimaSeparator from '@/doc/templates/UltimaSeparator.vue';
-
 export default {
     data() {
         return {
@@ -235,9 +231,6 @@ export default {
         fillColor() {
             return this.$appState.darkTheme ? 'var(--p-surface-900)' : 'var(--p-surface-0)';
         }
-    },
-    components: {
-        UltimaSeparator
     }
 };
 </script>
