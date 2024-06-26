@@ -52,11 +52,11 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/utils": "^0.0.3",
-        "@primeuix/styled": "^0.0.3"
+        "@primeuix/styled": "^0.0.4"
     },
     "peerDependencies": {
-        "vue": "^3.0.0"
+        "vue": "^3.0.0",
+        "@primeuix/utils": "^0.0.4"
     },
     "engines": {
         "node": ">=12.11.0"
