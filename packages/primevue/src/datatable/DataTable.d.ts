@@ -1165,13 +1165,13 @@ export interface DataTableProps {
      */
     breakpoint?: string | undefined;
     /**
-     * Whether to show grid lines between cells.
-     * @defaultValue false
+     * Whether to display table headers
+     * @defaultValue true
      */
     showHeaders?: boolean | undefined;
     /**
-     * Whether to display table headers
-     * @defaultValue true
+     * Whether to show grid lines between cells.
+     * @defaultValue false
      */
     showGridlines?: boolean | undefined;
     /**
