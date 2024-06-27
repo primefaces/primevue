@@ -717,17 +717,18 @@ export default {
             return false;
         },
         isYearSelected(year) {
-            if (this.isComparable()) {
-                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+            if (!this.isComparable()) return false;
 
-                if (this.isMultipleSelection()) {
-                    return value.some((currentValue) => currentValue.getFullYear() === year);
-                } else {
-                    return value.getFullYear() === year;
-                }
+            if (this.isMultipleSelection()) {
+                return this.modelValue.some((currentValue) => currentValue.getFullYear() === year);
+            } else if (this.isRangeSelection()) {
+                const start = this.modelValue[0] ? this.modelValue[0].getFullYear() : null;
+                const end = this.modelValue[1] ? this.modelValue[1].getFullYear() : null;
+
+                return start === year || end === year || (start < year && end > year);
+            } else {
+                return this.modelValue.getFullYear() === year;
             }
-
-            return false;
         },
         isDateEquals(value, dateMeta) {
             if (value) return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
