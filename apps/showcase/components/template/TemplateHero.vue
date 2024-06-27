@@ -7,7 +7,7 @@
             />
             <div class="z-10 relative">
                 <div class="h-8 lg:h-10 [&>svg]:h-full [&>svg]:w-auto select-none">
-                    <slot name="logo" />
+                    <component :is="templateHeroData.logo"> </component>
                 </div>
                 <p class="text-primary-contrast mt-4 mb-0 lg:text-base text-sm">{{ templateHeroData.description }}</p>
                 <div class="flex items-center gap-4 mt-8">
@@ -51,6 +51,7 @@
 
 <script>
 export default {
+    name: 'TemplateHero',
     props: {
         templateHeroData: {
             type: null,

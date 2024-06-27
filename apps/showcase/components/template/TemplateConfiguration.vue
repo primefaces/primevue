@@ -13,8 +13,8 @@
                     <img class="w-28 lg:w-32 h-28 lg:h-32 absolute right-6 bottom-4" src="https://primefaces.org/cdn/primevue/images/templates/vue-3d-logo.png" alt="Vue 3D Logo" />
                 </div>
             </div>
-            <h3 class="text-lg lg:text-2xl text-surface-900 dark:text-surface-0 font-bold">{{ title }}</h3>
-            <p class="text-sm lg:text-base text-surface-600 dark:text-surface-400 mt-3 mb-0">{{ description }}</p>
+            <h3 class="text-lg lg:text-2xl text-surface-900 dark:text-surface-0 font-bold">{{ configurationData.title }}</h3>
+            <p class="text-sm lg:text-base text-surface-600 dark:text-surface-400 mt-3 mb-0">{{ configurationData.description }}</p>
         </div>
     </div>
 </template>
@@ -22,12 +22,8 @@
 <script>
 export default {
     props: {
-        title: {
-            type: String,
-            default: null
-        },
-        description: {
-            type: String,
+        configurationData: {
+            type: null,
             default: null
         }
     }

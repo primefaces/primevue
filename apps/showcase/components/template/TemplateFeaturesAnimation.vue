@@ -63,7 +63,7 @@ export default {
             default: null
         },
         title: {
-            type: null,
+            type: String,
             default: null
         }
     },
