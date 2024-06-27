@@ -31,16 +31,12 @@ export default {
                                 docHref: 'https://sakai.primevue.org/documentation',
                                 free: true,
                                 storeHref: 'https://github.com/primefaces/sakai-vue',
-                                supportHref: 'https://github.com/primefaces/sakai-vue/issues'
+                                supportHref: 'https://github.com/primefaces/sakai-vue/issues',
+                                pattern: {
+                                    className: 'select-none absolute z-[6] opacity-60 w-[50rem] h-[18rem] md:w-[52rem] md:h-[20rem] lg:w-[64rem] lg:h-[28rem] bottom-[26rem] md:bottom-0 left-0',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img
-                    class="select-none absolute z-[6] opacity-60 w-[50rem] h-[18rem] md:w-[52rem] md:h-[20rem] lg:w-[64rem] lg:h-[28rem] bottom-[26rem] md:bottom-0 left-0"
-                    src="https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png"
-                    alt="Template Hero Pattern"
-                />`
                         }
                     },
                     {

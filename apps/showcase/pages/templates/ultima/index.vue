@@ -30,16 +30,12 @@ export default {
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard2.png',
                                 liveHref: 'https://ultima.primevue.org',
-                                docHref: 'https://ultima.primevue.org/documentation'
+                                docHref: 'https://ultima.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute z-[6] opacity-75 w-[80rem] h-auto bottom-8 -left-64 md:-bottom-[26rem] md:-left-[22rem]',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img
-                    class="select-none absolute z-[6] opacity-75 w-[80rem] h-auto bottom-8 -left-64 md:-bottom-[26rem] md:-left-[22rem]"
-                    src="https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png"
-                    alt="Template Hero Pattern"
-                />`
                         }
                     },
                     {
