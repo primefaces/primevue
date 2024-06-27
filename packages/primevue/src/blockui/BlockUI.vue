@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { createElement, blockBodyScroll, addClass, hasCSSAnimation, unblockBodyScroll } from '@primeuix/utils/dom';
+import { addClass, blockBodyScroll, createElement, hasCSSAnimation, unblockBodyScroll } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import BaseBlockUI from './BaseBlockUI.vue';
 
@@ -93,7 +93,7 @@ export default {
                 document.body.removeChild(this.mask);
                 unblockBodyScroll();
             } else {
-                this.$refs.container.removeChild(this.mask);
+                this.$refs.container?.removeChild(this.mask);
             }
 
             this.isBlocked = false;
