@@ -28,12 +28,12 @@ export default {
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard2.png',
                                 description: 'Application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 24 PrimeVue themes.',
                                 liveHref: 'https://apollo.primevue.org',
-                                docHref: 'https://apollo.primevue.org/documentation'
+                                docHref: 'https://apollo.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute md:bottom-0 bottom-80 left-0 z-[6] md:w-[95rem] h-auto w-[90rem] opacity-60',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img class="select-none absolute md:bottom-0 bottom-80 left-0 z-[6] md:w-[95rem] h-auto w-[90rem] opacity-60" src="https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png" alt="Template Hero Pattern" />`
                         }
                     },
                     {

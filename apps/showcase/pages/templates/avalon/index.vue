@@ -30,16 +30,12 @@ export default {
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard2.png',
                                 description: 'A modern and easy to use premium application template with highly customizable layout features. Based on a bootstrap styling, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
                                 liveHref: 'https://avalon.primevue.org/',
-                                docHref: 'https://avalon.primevue.org/documentation'
+                                docHref: 'https://avalon.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute md:w-[60rem] h-auto md:bottom-0 bottom-40 -left-32 xl:-left-12 md:-left-32 z-[6] opacity-75',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img
-                    class="select-none absolute md:w-[60rem] h-auto md:bottom-0 bottom-40 -left-32 xl:-left-12 md:-left-32 z-[6] opacity-75"
-                    src="https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png"
-                    alt="Template Hero Pattern"
-                />`
                         }
                     },
                     {

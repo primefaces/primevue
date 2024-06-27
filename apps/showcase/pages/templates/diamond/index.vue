@@ -29,12 +29,12 @@ export default {
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-dashboard2.png',
                                 description: 'An amazing application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 30 PrimeVue themes.',
                                 liveHref: 'https://diamond.primevue.org',
-                                docHref: 'https://diamond.primevue.org/documentation'
+                                docHref: 'https://diamond.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute z-[6] w-[62rem] h-[44rem] -top-8 -left-36 md:-left-12',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img class="select-none absolute z-[6] w-[62rem] h-[44rem] -top-8 -left-36 md:-left-12" src="https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png" alt="Template Hero Pattern" />`
                         }
                     },
                     {
