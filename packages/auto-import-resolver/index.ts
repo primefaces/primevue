@@ -32,7 +32,7 @@ export function PrimeVueResolver(options: PrimeVueResolverOptions = {}): Compone
 
                 if (cMeta) {
                     return (
-                        options?.resolve(cMeta, 'component') ?? {
+                        options.resolve?(cMeta, 'component') ?? {
                             from: cMeta.from
                         }
                     );
@@ -48,7 +48,7 @@ export function PrimeVueResolver(options: PrimeVueResolverOptions = {}): Compone
 
                 if (dMeta) {
                     return (
-                        options?.resolve(dMeta, 'directive') ?? {
+                        options.resolve?(dMeta, 'directive') ?? {
                             as: dMeta.as,
                             from: dMeta.from
                         }
