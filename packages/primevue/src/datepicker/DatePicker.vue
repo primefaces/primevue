@@ -717,17 +717,29 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            if (this.isComparable()) {
-                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+            if (!this.isComparable()) return false;
 
-                if (this.isMultipleSelection()) {
-                    return value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
+            if (this.isMultipleSelection()) {
+                return this.modelValue.some((v) => v.getMonth() === month && v.getFullYear() === this.currentYear);
+            } else if (this.isRangeSelection()) {
+                const [start, end] = this.modelValue;
+                const startYear = start ? start.getFullYear() : null;
+                const endYear = end ? end.getFullYear() : null;
+                const startMonth = start ? start.getMonth() : null;
+                const endMonth = end ? end.getMonth() : null;
+
+                if (!end) {
+                    return startYear === this.currentYear && startMonth === month;
                 } else {
-                    return value.getMonth() === month && value.getFullYear() === this.currentYear;
-                }
-            }
+                    const currentDate = new Date(this.currentYear, month, 1);
+                    const startDate = new Date(startYear, startMonth, 1);
+                    const endDate = new Date(endYear, endMonth, 1);
 
-            return false;
+                    return currentDate >= startDate && currentDate <= endDate;
+                }
+            } else {
+                return this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear;
+            }
         },
         isYearSelected(year) {
             if (this.isComparable()) {
