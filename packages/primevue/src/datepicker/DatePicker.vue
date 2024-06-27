@@ -720,20 +720,14 @@ export default {
             if (!this.isComparable()) return false;
 
             if (this.isMultipleSelection()) {
-                return this.modelValue.some((v) => v.getMonth() === month && v.getFullYear() === this.currentYear);
+                return this.modelValue.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
             } else if (this.isRangeSelection()) {
-                const [start, end] = this.modelValue;
-                const startYear = start ? start.getFullYear() : null;
-                const endYear = end ? end.getFullYear() : null;
-                const startMonth = start ? start.getMonth() : null;
-                const endMonth = end ? end.getMonth() : null;
-
-                if (!end) {
-                    return startYear === this.currentYear && startMonth === month;
+                if (!this.modelValue[1]) {
+                    return this.modelValue[0].getFullYear() === this.currentYear && this.modelValue[0].getMonth() === month;
                 } else {
                     const currentDate = new Date(this.currentYear, month, 1);
-                    const startDate = new Date(startYear, startMonth, 1);
-                    const endDate = new Date(endYear, endMonth, 1);
+                    const startDate = new Date(this.modelValue[0].getFullYear(), this.modelValue[0].getMonth(), 1);
+                    const endDate = new Date(this.modelValue[1].getFullYear(), this.modelValue[1].getMonth(), 1);
 
                     return currentDate >= startDate && currentDate <= endDate;
                 }
