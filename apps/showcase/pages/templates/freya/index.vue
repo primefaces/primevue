@@ -29,16 +29,12 @@ export default {
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-dashboard2.png',
                                 description: 'Freya is a modern admin template for developers and IT professionals. It comes with a huge collection of reusable UI components and dozens of built-in layouts for various purposes.',
                                 liveHref: 'https://www.primefaces.org/freya-vue/',
-                                docHref: 'https://freya.primevue.org/documentation'
+                                docHref: 'https://freya.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute z-[6] w-[58rem] md:w-[50rem] h-auto top-12 md:top-32 -left-24 md:-left-12 opacity-75',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img
-                    class="select-none absolute z-[6] w-[58rem] md:w-[50rem] h-auto top-12 md:top-32 -left-24 md:-left-12 opacity-75"
-                    src="https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-pattern.png"
-                    alt="Template Hero Pattern"
-                />`
                         }
                     },
                     {

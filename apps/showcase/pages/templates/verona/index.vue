@@ -29,12 +29,12 @@ export default {
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard2.png',
                                 liveHref: 'https://verona.primevue.org/',
-                                docHref: 'https://verona.primevue.org/documentation'
+                                docHref: 'https://verona.primevue.org/documentation',
+                                pattern: {
+                                    className: 'select-none absolute z-[6] opacity-90 w-[110rem] h-auto bottom-80 left-0 md:-bottom-8 md:-left-4',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png'
+                                }
                             }
-                        },
-                        slots: {
-                            pattern: `
-                    <img class="select-none absolute z-[6] opacity-90 w-[110rem] h-auto bottom-80 left-0 md:-bottom-8 md:-left-4" src="https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png" alt="Template Hero Pattern" />`
                         }
                     },
                     {
