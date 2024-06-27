@@ -33,10 +33,11 @@
         "security:check": "pnpm audit --prod --audit-level high",
         "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" \"!packages/themes/types/**/*.d.ts\" --cache",
         "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\" \"!packages/themes/types/**/*.d.ts\"",
-        "lint": "eslint --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore . --cache",
+        "lint": "eslint --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore .",
         "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore ."
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.18.9",
         "@babel/preset-env": "^7.21.5",
         "@rollup/plugin-babel": "^6.0.3",
         "@rollup/plugin-alias": "^5.1.0",
