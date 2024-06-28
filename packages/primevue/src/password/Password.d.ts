@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
