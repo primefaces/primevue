@@ -1,0 +1,61 @@
+{
+    "name": "@primevue/tailwindcss-presets",
+    "version": "4.0.0-rc.3",
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/themes"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "exports": {
+        "./aura": "./src/aura/index.js",
+        "./lara": "./src/lara/index.js"
+    },
+    "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.ts",
+        "exports": {
+            ".": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs"
+            },
+            "./aura/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./aura/*/index.mjs"
+            },
+            "./lara/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./lara/*/index.mjs"
+            },
+            "./nora/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./nora/*/index.mjs"
+            },
+            "./*": {
+                "types": "./*/index.d.ts",
+                "import": "./*/index.mjs"
+            }
+        },
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && pnpm run build:tokens && rollup -c && pnpm run build:postbuild",
+        "build:tokens": "node ./scripts/build-tokens.js",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

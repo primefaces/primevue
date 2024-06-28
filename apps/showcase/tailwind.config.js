@@ -6,7 +6,16 @@ module.exports = {
         preflight: false
     },
     darkMode: ['selector', '[class="p-dark"]'],
-    content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/doc/**/*.{js,vue,ts}', './components/landing/**/*.{js,vue,ts}', './components/template/**/*.{js,vue,ts}', './doc/**/*.{js,vue,ts}', './error.vue'],
+    content: [
+        './pages/**/*.vue',
+        './layouts/**/*.vue',
+        './components/doc/**/*.{js,vue,ts}',
+        './components/landing/**/*.{js,vue,ts}',
+        './components/template/**/*.{js,vue,ts}',
+        './doc/**/*.{js,vue,ts}',
+        './error.vue',
+        '../../packages/tailwindcss-presets/src/**/*.js'
+    ],
     plugins: [primeui],
     theme: {
         screens: {

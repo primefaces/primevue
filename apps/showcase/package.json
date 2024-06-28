@@ -62,7 +62,8 @@
         "primevue": "workspace:*",
         "@primevue/core": "workspace:*",
         "@primevue/nuxt-module": "workspace:*",
-        "@primevue/themes": "workspace:*"
+        "@primevue/themes": "workspace:*",
+        "@primevue/tailwindcss-presets": "workspace:*"
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",

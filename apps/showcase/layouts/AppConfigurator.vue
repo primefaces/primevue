@@ -34,6 +34,10 @@
                 <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presets" :unselectable="false" />
             </div>
             <div class="config-panel-settings">
+                <span class="config-panel-label">Tailwind - Aura</span>
+                <ToggleSwitch :modelValue="tailwindActive" @update:modelValue="onTailwindChange" />
+            </div>
+            <div class="config-panel-settings">
                 <span class="config-panel-label">Ripple</span>
                 <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
             </div>
@@ -43,6 +47,7 @@
 
 <script>
 import EventBus from '@/layouts/AppEventBus';
+import TailwindAura from '@primevue/tailwindcss-presets/aura';
 import { $t, updatePreset, updateSurfacePalette } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara';
@@ -266,6 +271,10 @@ export default {
         onRippleChange(value) {
             this.$primevue.config.ripple = value;
         },
+        onTailwindChange(value) {
+            this.$primevue.config.unstyled = value;
+            this.$primevue.config.pt = value ? TailwindAura : undefined;
+        },
         onPresetChange(value) {
             this.$appState.preset = value;
             const preset = presets[value];
@@ -277,6 +286,9 @@ export default {
     computed: {
         rippleActive() {
             return this.$primevue.config.ripple;
+        },
+        tailwindActive() {
+            return this.$primevue.config.unstyled;
         },
         selectedPrimaryColor() {
             return this.$appState.primary;
