@@ -8,7 +8,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/primefaces/primevue.git",
-        "directory": "packages/themes"
+        "directory": "packages/tailwindcss-presets"
     },
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
@@ -34,10 +34,6 @@
                 "types": "./types/*/index.d.ts",
                 "import": "./lara/*/index.mjs"
             },
-            "./nora/*": {
-                "types": "./types/*/index.d.ts",
-                "import": "./nora/*/index.mjs"
-            },
             "./*": {
                 "types": "./*/index.d.ts",
                 "import": "./*/index.mjs"
@@ -54,6 +50,9 @@
         "build:prebuild": "node ./scripts/prebuild.mjs",
         "build:postbuild": "node ./scripts/postbuild.mjs",
         "dev:link": "pnpm link --global && npm link"
+    },
+    "peerDependencies": {
+        "primevue": "workspace:*"
     },
     "engines": {
         "node": ">=12.11.0"

@@ -14,7 +14,7 @@ module.exports = {
         './components/template/**/*.{js,vue,ts}',
         './doc/**/*.{js,vue,ts}',
         './error.vue',
-        '../../packages/tailwindcss-presets/src/**/*.js'
+        '../../packages/tailwindcss-presets/src/**/*.{js,ts}'
     ],
     plugins: [primeui],
     theme: {

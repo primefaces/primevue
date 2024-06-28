@@ -9,7 +9,8 @@ const alias = {
     '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
     '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
     '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
-    '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
+    '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src'),
+    '@primevue/tailwindcss-presets': path.resolve(__dirname, '../../packages/tailwindcss-presets/src')
 };
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
