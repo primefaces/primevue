@@ -1,6 +1,6 @@
 {
     "name": "showcase",
-    "version": "4.0.0-rc.2",
+    "version": "4.0.0-rc.3",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -20,6 +20,7 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "build:prebuild": "node ./scripts/prebuild.js",
+        "build:apidoc": "node ./scripts/build-apidoc.js",
         "test:unit": "vitest run",
         "test:unit:watch": "vitest watch",
         "test:coverage": "vitest run --coverage"
