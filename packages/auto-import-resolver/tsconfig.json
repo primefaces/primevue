@@ -1,7 +1,6 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "module": "es2022",
-        "moduleResolution": "Node",
         "baseUrl": ".",
         "paths": {
             "@primevue/auto-import-resolver/*": ["./*"],

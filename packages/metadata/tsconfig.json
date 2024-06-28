@@ -1,7 +1,3 @@
 {
-    "compilerOptions": {
-        "module": "es2022",
-        "moduleResolution": "Node"
-    },
-    "exclude": ["node_modules"]
+    "extends": "../../tsconfig.json"
 }

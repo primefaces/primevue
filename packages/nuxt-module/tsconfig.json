@@ -1,13 +1,11 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "module": "es2022",
-        "moduleResolution": "Node",
         "baseUrl": ".",
         "paths": {
             "primevue/*": ["../../packages/primevue/src/*"],
             "@primevue/metadata/*": ["../../packages/metadata/src/*"],
             "@primevue/auto-import-resolver/*": ["../../packages/auto-import-resolver/src/*"]
         }
-    },
-    "exclude": ["node_modules"]
+    }
 }

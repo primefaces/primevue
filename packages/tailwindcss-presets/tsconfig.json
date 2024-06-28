@@ -3,9 +3,8 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@primevue/core/*": ["./src/*"]
+            "primevue/*": ["../../packages/primevue/src/*"],
         }
     },
-    "include": ["**/*.ts", "src/*"],
-    "exclude": ["node_modules", "dist"]
+    "include": ["src/**/*", "dist/**/*"]
 }

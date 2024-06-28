@@ -1,19 +1,6 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "target": "es5",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": false,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": false,
-        "jsx": "preserve",
-        "incremental": true,
         "baseUrl": ".",
         "paths": {
             "primevue/*": ["./src/*"],
