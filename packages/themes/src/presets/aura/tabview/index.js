@@ -25,12 +25,12 @@ export default {
     colorScheme: {
         light: {
             navButton: {
-                boxShadow: '0px 0px 10px 50px rgba(255, 255, 255, 0.6)'
+                shadow: '0px 0px 10px 50px rgba(255, 255, 255, 0.6)'
             }
         },
         dark: {
             navButton: {
-                boxShadow: '0px 0px 10px 50px color-mix(in srgb, {content.background}, transparent 50%)'
+                shadow: '0px 0px 10px 50px color-mix(in srgb, {content.background}, transparent 50%)'
             }
         }
     }
