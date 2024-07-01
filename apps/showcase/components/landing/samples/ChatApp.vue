@@ -46,7 +46,7 @@
                         <Avatar
                             v-bind="chat.image ? { image: chat.image } : { label: chat.capName }"
                             :class="{
-                                'bg-violet-100 text-violet-950': !chat.image
+                                '!bg-primary-100 !text-primary-950': !chat.image
                             }"
                             class="text-base font-medium flex"
                             size="large"
@@ -93,7 +93,7 @@
                         <Avatar
                             v-bind="message.image ? { image: message.image } : { label: message.capName }"
                             :class="{
-                                'bg-blue-100 text-blue-950': !message.image
+                                'bg-primary-100 text-primary-950': !message.image
                             }"
                             class="w-10 h-10 text-sm font-medium"
                             shape="circle"
