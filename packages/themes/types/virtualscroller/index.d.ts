@@ -12,20 +12,31 @@ import { ColorSchemeDesignToken } from '..';
 
 export interface VirtualScrollerDesignTokens extends ColorSchemeDesignToken<VirtualScrollerDesignTokens> {
     /**
-     * Used to pass tokens of the root section
+     * Used to pass tokens of the mask section
      */
-    mask?: {
+    loaderMask?: {
         /**
-         * Background of mask
+         * Background of loader mask
          *
-         * @designToken mask.background
+         * @designToken virtualscroller.loader.mask.background
          */
         background?: string;
         /**
-         * Color of mask
+         * Color of loader mask
          *
-         * @designToken mask.color
+         * @designToken virtualscroller.loader.mask.color
          */
         color?: string;
+    };
+    /**
+     * Used to pass tokens of the loader icon section
+     */
+    loaderIcon?: {
+        /**
+         * Size of the loader icon
+         *
+         * @designToken virtualscroller.loader.icon.size
+         */
+        size?: string;
     };
 }
