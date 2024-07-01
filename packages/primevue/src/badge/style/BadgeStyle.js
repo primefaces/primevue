@@ -5,6 +5,7 @@ const theme = ({ dt }) => `
 .p-badge {
     display: inline-flex;
     border-radius: ${dt('badge.border.radius')};
+    align-items: center;
     justify-content: center;
     padding: ${dt('badge.padding')};
     background: ${dt('badge.primary.background')};
@@ -13,7 +14,6 @@ const theme = ({ dt }) => `
     font-weight: ${dt('badge.font.weight')};
     min-width: ${dt('badge.min.width')};
     height: ${dt('badge.height')};
-    line-height: ${dt('badge.height')};
 }
 
 .p-badge-dot {
@@ -63,21 +63,18 @@ const theme = ({ dt }) => `
     font-size: ${dt('badge.sm.font.size')};
     min-width: ${dt('badge.sm.min.width')};
     height: ${dt('badge.sm.height')};
-    line-height: ${dt('badge.sm.height')};
 }
 
 .p-badge-lg {
     font-size: ${dt('badge.lg.font.size')};
     min-width: ${dt('badge.lg.min.width')};
     height: ${dt('badge.lg.height')};
-    line-height: ${dt('badge.lg.height')};
 }
 
 .p-badge-xl {
     font-size: ${dt('badge.xl.font.size')};
     min-width: ${dt('badge.xl.min.width')};
     height: ${dt('badge.xl.height')};
-    line-height: ${dt('badge.xl.height')};
 }
 `;
 

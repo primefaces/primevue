@@ -97,6 +97,12 @@ export interface ChipDesignTokens extends ColorSchemeDesignToken<ChipDesignToken
      */
     removeIcon?: {
         /**
+         * Size of remove icon
+         *
+         * @designToken chip.remove.icon.size
+         */
+        size?: string;
+        /**
          * Focus ring of remove icon
          */
         focusRing?: {

@@ -36,7 +36,7 @@ const theme = ({ dt }) => `
 
 .p-chip-remove-icon {
     cursor: pointer;
-    font-size: ${dt('chip.remove.icon.font.size')};
+    font-size: ${dt('chip.remove.icon.size')};
     width: ${dt('chip.remove.icon.size')};
     height: ${dt('chip.remove.icon.size')};
     color: ${dt('chip.remove.icon.color')};

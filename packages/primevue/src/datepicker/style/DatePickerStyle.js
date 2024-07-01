@@ -131,25 +131,25 @@ const theme = ({ dt }) => `
 }
 
 .p-datepicker-select-month {
-    padding: ${dt('datepicker.view.month.padding')};
-    color: ${dt('datepicker.view.month.color')};
-    border-radius: ${dt('datepicker.view.month.border.radius')};
+    padding: ${dt('datepicker.select.month.padding')};
+    color: ${dt('datepicker.select.month.color')};
+    border-radius: ${dt('datepicker.select.month.border.radius')};
 }
 
 .p-datepicker-select-year {
-    padding: ${dt('datepicker.view.year.padding')};
-    color: ${dt('datepicker.view.year.color')};
-    border-radius: ${dt('datepicker.view.year.border.radius')};
+    padding: ${dt('datepicker.select.year.padding')};
+    color: ${dt('datepicker.select.year.color')};
+    border-radius: ${dt('datepicker.select.year.border.radius')};
 }
 
 .p-datepicker-select-month:enabled:hover {
-    background: ${dt('datepicker.view.month.hover.background')};
-    color: ${dt('datepicker.view.month.hover.color')};
+    background: ${dt('datepicker.select.month.hover.background')};
+    color: ${dt('datepicker.select.month.hover.color')};
 }
 
 .p-datepicker-select-year:enabled:hover {
-    background: ${dt('datepicker.view.year.hover.background')};
-    color: ${dt('datepicker.view.year.hover.color')};
+    background: ${dt('datepicker.select.year.hover.background')};
+    color: ${dt('datepicker.select.year.hover.color')};
 }
 
 .p-datepicker-calendar-container {

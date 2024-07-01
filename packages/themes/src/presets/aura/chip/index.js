@@ -14,6 +14,7 @@ export default {
         size: '1rem'
     },
     removeIcon: {
+        size: '1rem',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
