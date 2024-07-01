@@ -386,6 +386,10 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
     gap: ${dt('treetable.body.cell.gap')};
 }
 
+.p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-node-toggle-button {
+    color: inherit;
+}
+
 .p-treetable-node-toggle-button {
     display: inline-flex;
     align-items: center;
@@ -412,7 +416,7 @@ p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
 
 .p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-node-toggle-button:hover {
     background: ${dt('treetable.node.toggle.button.selected.hover.background')};
-    ${dt('treetable.node.toggle.button.selected.hover.color')};
+    color: ${dt('treetable.node.toggle.button.selected.hover.color')};
 }
 
 .p-treetable-node-toggle-button:focus-visible {
