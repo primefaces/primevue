@@ -28,11 +28,6 @@
                     <span>Design Lead</span>
                 </div>
                 <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/yigit.jpg" class="rounded-full mb-6" alt="Yiğit Fındıklı" />
-                    <span class="mb-2 text-xl font-bold">Yiğit Fındıklı</span>
-                    <span>Technical Lead</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
                     <img src="https://primefaces.org/cdn/primevue/images/team/dilara.jpg" class="rounded-full mb-6" alt="Dilara Can" />
                     <span class="mb-2 text-xl font-bold">Dilara Güngenci</span>
                     <span>Business Administration</span>
@@ -50,16 +45,6 @@
                 <div class="flex flex-col items-center flex-auto">
                     <img src="https://primefaces.org/cdn/primevue/images/team/atakan.jpg" class="rounded-full mb-6" alt="Atakan Tepe" />
                     <span class="mb-2 text-xl font-bold">Atakan Tepe</span>
-                    <span>Front-End Developer</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/kerem.jpg" class="rounded-full mb-6" alt="Kerem Yıldan" />
-                    <span class="mb-2 text-xl font-bold">Kerem Yıldan</span>
-                    <span>UI/UX Designer</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/aliriza.jpg" class="rounded-full mb-6" alt="Alirıza Gücal" />
-                    <span class="mb-2 text-xl font-bold">Alirıza Gücal</span>
                     <span>Front-End Developer</span>
                 </div>
                 <div class="flex flex-col items-center flex-auto">
