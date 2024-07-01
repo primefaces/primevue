@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { isVisible, getWidth, getHeight, findSingle } from '@primeuix/utils/dom';
+import { findSingle, getHeight, getWidth, isVisible } from '@primeuix/utils/dom';
 import SpinnerIcon from '@primevue/icons/spinner';
 import BaseVirtualScroller from './BaseVirtualScroller.vue';
 
@@ -657,7 +657,7 @@ export default {
             return [
                 'p-virtualscroller-loader',
                 {
-                    'p-overlay-mask': !this.$slots.loader
+                    'p-virtualscroller-loader-mask': !this.$slots.loader
                 }
             ];
         },

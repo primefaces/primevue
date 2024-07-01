@@ -1,6 +1,6 @@
 import BaseStyle from '@primevue/core/base/style';
 
-const css = `
+const theme = ({ dt }) => `
 .p-virtualscroller {
     position: relative;
     overflow: auto;
@@ -14,7 +14,6 @@ const css = `
     position: absolute;
     top: 0;
     left: 0;
-    /* contain: content; */
     min-height: 100%;
     min-width: 100%;
     will-change: transform;
@@ -30,34 +29,32 @@ const css = `
     pointer-events: none;
 }
 
-.p-virtualscroller .p-virtualscroller-loader {
+.p-virtualscroller-loader {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: ${dt('virtualscroller.loader.mask.background')};
+    color: ${dt('virtualscroller.loader.mask.color')};
 }
 
-.p-virtualscroller-loader.p-overlay-mask {
+.p-virtualscroller-loader-mask {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .p-virtualscroller-loading-icon {
-    font-size: 2rem;
-}
-
-.p-virtualscroller-loading-icon.p-icon {
-    width: 2rem;
-    height: 2rem;
+    font-size: ${dt('virtualscroller.loader.icon.size')};
+    width: ${dt('virtualscroller.loader.icon.size')};
+    height: ${dt('virtualscroller.loader.icon.size')};
 }
 
 .p-virtualscroller-horizontal > .p-virtualscroller-content {
     display: flex;
 }
 
-/* Inline */
 .p-virtualscroller-inline .p-virtualscroller-content {
     position: static;
 }
@@ -65,5 +62,5 @@ const css = `
 
 export default BaseStyle.extend({
     name: 'virtualscroller',
-    css
+    theme
 });

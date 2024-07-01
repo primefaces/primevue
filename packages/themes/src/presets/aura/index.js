@@ -82,6 +82,7 @@ import tooltip from '@primevue/themes/aura/tooltip';
 import tree from '@primevue/themes/aura/tree';
 import treeselect from '@primevue/themes/aura/treeselect';
 import treetable from '@primevue/themes/aura/treetable';
+import virtualscroller from '@primevue/themes/aura/virtualscroller';
 
 export default {
     primitive: {
@@ -541,7 +542,8 @@ export default {
         treeselect,
         treetable,
         toast,
-        toolbar
+        toolbar,
+        virtualscroller
     },
     directives: {
         tooltip,

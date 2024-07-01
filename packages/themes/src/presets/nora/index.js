@@ -1,3 +1,4 @@
+import virtualscroller from '@primevue/themes/aura/virtualscroller';
 import accordion from '@primevue/themes/nora/accordion';
 import autocomplete from '@primevue/themes/nora/autocomplete';
 import avatar from '@primevue/themes/nora/avatar';
@@ -541,7 +542,8 @@ export default {
         treeselect,
         treetable,
         toast,
-        toolbar
+        toolbar,
+        virtualscroller
     },
     directives: {
         tooltip,
