@@ -12,7 +12,7 @@
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary text-primary-contrast font-medium'
+                    text: '!bg-primary !text-primary-contrast !font-medium'
                 }
             }"
             severity="secondary"
@@ -37,7 +37,7 @@ export default {
                     borderBottomColor: 'var(--p-primary-color)'
                 }
             },
-            text: 'bg-primary text-primary-contrast font-medium'
+            text: '!bg-primary !text-primary-contrast !font-medium'
         }
     }"
     label="Button"
@@ -55,7 +55,7 @@ export default {
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary text-primary-contrast font-medium'
+                    text: '!bg-primary !text-primary-contrast !font-medium'
                 }
             }"
             severity="secondary"
@@ -76,7 +76,7 @@ export default {
                             borderBottomColor: 'var(--p-primary-color)'
                         }
                     },
-                    text: 'bg-primary text-primary-contrast font-medium'
+                    text: '!bg-primary !text-primary-contrast !font-medium'
                 }
             }"
             severity="secondary"
