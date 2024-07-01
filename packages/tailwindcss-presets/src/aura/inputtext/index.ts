@@ -6,9 +6,6 @@ export default {
             // Font
             'leading-none',
 
-            // Flex
-            { 'flex-1 w-[1%]': parent.instance.$name == 'InputGroup' },
-
             // Spacing
             'm-0',
             {
@@ -18,32 +15,27 @@ export default {
             },
 
             // Shape
-            { 'rounded-md': parent.instance.$name !== 'InputGroup' },
-            { 'first:rounded-l-md rounded-none last:rounded-r-md': parent.instance.$name == 'InputGroup' },
-            { 'border-0 border-y border-l last:border-r': parent.instance.$name == 'InputGroup' },
-            { 'first:ml-0 -ml-px': parent.instance.$name == 'InputGroup' && !props.showButtons },
+            'rounded-md',
 
             // Colors
             'text-surface-800 dark:text-white/80',
             'placeholder:text-surface-400 dark:placeholder:text-surface-500',
-            { 'bg-surface-0 dark:bg-surface-950': !context.disabled },
             'border',
-            { 'border-surface-300 dark:border-surface-700': !props.invalid },
+            'data-[pc-disabled=false]:bg-surface-0 dark:data-[pc-disabled=false]:bg-surface-950',
+            'data-[pc-invalid=false]:border-surface-300 dark:data-[pc-invalid=false]:border-surface-700',
 
             // Invalid State
-            'invalid:focus:ring-red-200',
-            'invalid:hover:border-red-500',
-            { 'border-red-500 dark:border-red-400': props.invalid },
+            'data-[pc-invalid=true]:focus:ring-red-200',
+            'data-[pc-invalid=true]:hover:border-red-500',
+            'data-[pc-invalid=true]:border-red-500 dark:data-[pc-invalid=true]:border-red-400',
 
             // States
-            {
-                'hover:border-surface-400 dark:hover:border-surface-600': !context.disabled && !props.invalid,
-                'focus:outline-none focus:outline-offset-0 focus:ring-1 focus:ring-primary-500 dark:focus:ring-primary-400 focus:z-10': !context.disabled,
-                'bg-surface-200 dark:bg-surface-700 select-none pointer-events-none cursor-default': context.disabled
-            },
+            'data-[pc-disabled=false]:hover:border-surface-400 dark:data-[pc-disabled=false]:hover:border-surface-600',
+            'data-[pc-disabled=false]:focus:outline-none data-[pc-disabled=false]:focus:outline-offset-0 data-[pc-disabled=false]:focus:ring-1 data-[pc-disabled=false]:focus:ring-primary-500 dark:data-[pc-disabled=false]:focus:ring-primary-400 data-[pc-disabled=false]:focus:z-10',
+            'data-[pc-disabled=true]:bg-surface-200 dark:data-[pc-disabled=true]:bg-surface-700 data-[pc-disabled=true]:select-none data-[pc-disabled=true]:pointer-events-none data-[pc-disabled=true]:cursor-default',
 
             // Filled State *for FloatLabel
-            { filled: parent.instance?.$name == 'FloatLabel' && context.filled },
+            // { filled: parent.instance?.$name == 'FloatLabel' && context.filled },
 
             // Misc
             'appearance-none',

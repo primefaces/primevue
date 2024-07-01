@@ -1,6 +1,11 @@
 <template>
     <div class="config-panel hidden">
         <div class="config-panel-content">
+            <div class="config-panel-settings">
+                <span class="config-panel-label">Tailwind - Aura</span>
+                <SelectButton v-model="mode" @update:modelValue="onTailwindChange" :options="modeOptions" :unselectable="false" />
+            </div>
+            <div class="border-0 border-b border-surface-200" />
             <div class="config-panel-colors">
                 <span class="config-panel-label">Primary</span>
                 <div>
@@ -32,10 +37,6 @@
             <div class="config-panel-settings">
                 <span class="config-panel-label">Presets</span>
                 <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presets" :unselectable="false" />
-            </div>
-            <div class="config-panel-settings">
-                <span class="config-panel-label">Tailwind - Aura</span>
-                <ToggleSwitch :modelValue="tailwindActive" @update:modelValue="onTailwindChange" />
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Ripple</span>
@@ -115,7 +116,9 @@ export default {
                     name: 'ocean',
                     palette: { 0: '#ffffff', 50: '#fbfcfc', 100: '#F7F9F8', 200: '#EFF3F2', 300: '#DADEDD', 400: '#B1B7B6', 500: '#828787', 600: '#5F7274', 700: '#415B61', 800: '#29444E', 900: '#183240', 950: '#0c1920' }
                 }
-            ]
+            ],
+            mode: 'Styled',
+            modeOptions: ['Styled', 'Unstyled']
         };
     },
     methods: {
@@ -272,8 +275,8 @@ export default {
             this.$primevue.config.ripple = value;
         },
         onTailwindChange(value) {
-            this.$primevue.config.unstyled = value;
-            this.$primevue.config.pt = value ? TailwindAura : undefined;
+            this.$primevue.config.unstyled = value !== 'Styled';
+            this.$primevue.config.pt = value !== 'Styled' ? TailwindAura : undefined;
         },
         onPresetChange(value) {
             this.$appState.preset = value;

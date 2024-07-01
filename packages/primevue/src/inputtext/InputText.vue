@@ -1,5 +1,5 @@
 <template>
-    <input type="text" :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="getPTOptions('root')" />
+    <input type="text" :class="cx('root')" :value="modelValue" :aria-invalid="invalid" :data-pc-disabled="isDisabled" :data-pc-filled="filled" :data-pc-invalid="invalid" @input="onInput" v-bind="getPTOptions('root')" />
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
             return _ptm(key, {
                 context: {
                     filled: this.filled,
-                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
+                    disabled: this.isDisabled
                 }
             });
         },
@@ -28,6 +28,9 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        isDisabled() {
+            return this.$attrs.disabled || this.$attrs.disabled === '';
         }
     }
 };
