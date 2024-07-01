@@ -42,6 +42,14 @@ export default {
             type: String,
             default: undefined
         },
+        as: {
+            type: String,
+            default: 'BUTTON'
+        },
+        asChild: {
+            type: Boolean,
+            default: false
+        },
         link: {
             type: Boolean,
             default: false
