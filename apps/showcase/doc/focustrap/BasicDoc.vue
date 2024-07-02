@@ -2,20 +2,20 @@
     <DocSectionText v-bind="$attrs">
         <p>FocusTrap is enabled by attaching the directive with the v- prefix.</p>
     </DocSectionText>
-    <div class="card flex justify-center p-fluid">
+    <div class="card flex justify-center">
         <div v-focustrap class="w-full sm:w-80 flex flex-col gap-6">
             <IconField>
                 <InputIcon>
                     <i class="pi pi-user" />
                 </InputIcon>
-                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
+                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus fluid />
             </IconField>
 
             <IconField>
                 <InputIcon>
                     <i class="pi pi-envelope" />
                 </InputIcon>
-                <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
             </IconField>
 
             <div class="flex items-center gap-2">
@@ -43,14 +43,14 @@ export default {
         <InputIcon>
             <i class="pi pi-user" />
         </InputIcon>
-        <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
+        <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus fluid />
     </IconField>
 
     <IconField>
         <InputIcon>
             <i class="pi pi-envelope" />
         </InputIcon>
-        <InputText id="email" v-model="email" type="email" placeholder="Email" />
+        <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
     </IconField>
 
     <div class="flex items-center gap-2">
@@ -63,20 +63,20 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center p-fluid">
+    <div class="card flex justify-center">
         <div v-focustrap class="w-full sm:w-80 flex flex-col gap-6">
             <IconField>
                 <InputIcon>
                     <i class="pi pi-user" />
                 </InputIcon>
-                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
+                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus fluid />
             </IconField>
 
             <IconField>
                 <InputIcon>
                     <i class="pi pi-envelope" />
                 </InputIcon>
-                <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
             </IconField>
 
             <div class="flex items-center gap-2">
@@ -103,20 +103,20 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center p-fluid">
+    <div class="card flex justify-center">
         <div v-focustrap class="w-full sm:w-80 flex flex-col gap-6">
             <IconField>
                 <InputIcon>
                     <i class="pi pi-user" />
                 </InputIcon>
-                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus />
+                <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus fluid />
             </IconField>
 
             <IconField>
                 <InputIcon>
                     <i class="pi pi-envelope" />
                 </InputIcon>
-                <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
             </IconField>
 
             <div class="flex items-center gap-2">

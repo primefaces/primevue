@@ -11,7 +11,7 @@
         <p>Note that, the implementation of <i>checkbox selection</i> in lazy mode needs to be handled manually as in this example since the DataTable cannot know about the whole dataset.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
-        <div class="card p-fluid">
+        <div class="card">
             <DataTable
                 ref="dt"
                 v-model:filters="filters"
@@ -38,7 +38,7 @@
                 <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
                 <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" fluid />
                     </template>
                 </Column>
                 <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -49,12 +49,12 @@
                         </div>
                     </template>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" fluid />
                     </template>
                 </Column>
                 <Column field="company" header="Company" filterMatchMode="contains" sortable>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" fluid />
                     </template>
                 </Column>
                 <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -65,7 +65,7 @@
                         </div>
                     </template>
                     <template #filter="{ filterModel, filterCallback }">
-                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" />
+                        <InputText v-model="filterModel.value" type="text" @keydown.enter="filterCallback()" placeholder="Search" fluid />
                     </template>
                 </Column>
             </DataTable>
@@ -108,7 +108,7 @@ export default {
     <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
     <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
         </template>
     </Column>
     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -119,12 +119,12 @@ export default {
             </div>
         </template>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
         </template>
     </Column>
     <Column field="company" header="Company" filterMatchMode="contains" sortable>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
         </template>
     </Column>
     <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -135,14 +135,14 @@ export default {
             </div>
         </template>
         <template #filter="{filterModel,filterCallback}">
-            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
         </template>
     </Column>
 </DataTable>
 `,
                 options: `
 <template>
-	<div class="card p-fluid">
+	<div class="card">
         <DataTable :value="customers" lazy paginator :first="first" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
             :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
             :globalFilterFields="['name','country.name', 'company', 'representative.name']"
@@ -150,7 +150,7 @@ export default {
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -161,12 +161,12 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="company" header="Company" filterMatchMode="contains" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -177,7 +177,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
         </DataTable>
@@ -276,7 +276,7 @@ export default {
 `,
                 composition: `
 <template>
-	<div class="card p-fluid">
+	<div class="card">
         <DataTable :value="customers" lazy paginator :first="first" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
             :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
             :globalFilterFields="['name','country.name', 'company', 'representative.name']"
@@ -284,7 +284,7 @@ export default {
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
@@ -295,12 +295,12 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="company" header="Company" filterMatchMode="contains" sortable>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
             <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
@@ -311,7 +311,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{filterModel,filterCallback}">
-                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search"/>
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
                 </template>
             </Column>
         </DataTable>
