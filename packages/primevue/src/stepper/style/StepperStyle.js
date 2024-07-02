@@ -179,7 +179,7 @@ const theme = ({ dt }) => `
 }
 
 .p-stepitem:last-of-type .p-steppanel {
-    padding: ${dt('stepper.steppanel.last.padding')};
+    padding-inline-start: ${dt('stepper.step.number.size')};
 }
 `;
 
