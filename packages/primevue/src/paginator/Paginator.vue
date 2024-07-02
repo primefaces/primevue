@@ -4,81 +4,83 @@
             <div v-if="$slots.start" :class="cx('contentStart')" v-bind="ptm('contentStart')">
                 <slot name="start" :state="currentState"></slot>
             </div>
-            <template v-for="item in value" :key="item">
-                <FirstPageLink
-                    v-if="item === 'FirstPageLink'"
-                    :aria-label="getAriaLabel('firstPageLabel')"
-                    :template="$slots.firsticon || $slots.firstpagelinkicon"
-                    @click="changePageToFirst($event)"
-                    :disabled="isFirstPage || empty"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <PrevPageLink
-                    v-else-if="item === 'PrevPageLink'"
-                    :aria-label="getAriaLabel('prevPageLabel')"
-                    :template="$slots.previcon || $slots.prevpagelinkicon"
-                    @click="changePageToPrev($event)"
-                    :disabled="isFirstPage || empty"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <NextPageLink
-                    v-else-if="item === 'NextPageLink'"
-                    :aria-label="getAriaLabel('nextPageLabel')"
-                    :template="$slots.nexticon || $slots.nextpagelinkicon"
-                    @click="changePageToNext($event)"
-                    :disabled="isLastPage || empty"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <LastPageLink
-                    v-else-if="item === 'LastPageLink'"
-                    :aria-label="getAriaLabel('lastPageLabel')"
-                    :template="$slots.lasticon || $slots.lastpagelinkicon"
-                    @click="changePageToLast($event)"
-                    :disabled="isLastPage || empty"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
-                <CurrentPageReport
-                    v-else-if="item === 'CurrentPageReport'"
-                    aria-live="polite"
-                    :template="currentPageReportTemplate"
-                    :currentPage="currentPage"
-                    :page="page"
-                    :pageCount="pageCount"
-                    :first="d_first"
-                    :rows="d_rows"
-                    :totalRecords="totalRecords"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <RowsPerPageDropdown
-                    v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions"
-                    :aria-label="getAriaLabel('rowsPerPageLabel')"
-                    :rows="d_rows"
-                    :options="rowsPerPageOptions"
-                    @rows-change="onRowChange($event)"
-                    :disabled="empty"
-                    :templates="$slots"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <JumpToPageDropdown
-                    v-else-if="item === 'JumpToPageDropdown'"
-                    :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
-                    :page="page"
-                    :pageCount="pageCount"
-                    @page-change="changePage($event)"
-                    :disabled="empty"
-                    :templates="$slots"
-                    :unstyled="unstyled"
-                    :pt="pt"
-                />
-                <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
-            </template>
+            <div :class="cx('content')" v-bind="ptm('content')">
+                <template v-for="item in value" :key="item">
+                    <FirstPageLink
+                        v-if="item === 'FirstPageLink'"
+                        :aria-label="getAriaLabel('firstPageLabel')"
+                        :template="$slots.firsticon || $slots.firstpagelinkicon"
+                        @click="changePageToFirst($event)"
+                        :disabled="isFirstPage || empty"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <PrevPageLink
+                        v-else-if="item === 'PrevPageLink'"
+                        :aria-label="getAriaLabel('prevPageLabel')"
+                        :template="$slots.previcon || $slots.prevpagelinkicon"
+                        @click="changePageToPrev($event)"
+                        :disabled="isFirstPage || empty"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <NextPageLink
+                        v-else-if="item === 'NextPageLink'"
+                        :aria-label="getAriaLabel('nextPageLabel')"
+                        :template="$slots.nexticon || $slots.nextpagelinkicon"
+                        @click="changePageToNext($event)"
+                        :disabled="isLastPage || empty"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <LastPageLink
+                        v-else-if="item === 'LastPageLink'"
+                        :aria-label="getAriaLabel('lastPageLabel')"
+                        :template="$slots.lasticon || $slots.lastpagelinkicon"
+                        @click="changePageToLast($event)"
+                        :disabled="isLastPage || empty"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
+                    <CurrentPageReport
+                        v-else-if="item === 'CurrentPageReport'"
+                        aria-live="polite"
+                        :template="currentPageReportTemplate"
+                        :currentPage="currentPage"
+                        :page="page"
+                        :pageCount="pageCount"
+                        :first="d_first"
+                        :rows="d_rows"
+                        :totalRecords="totalRecords"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <RowsPerPageDropdown
+                        v-else-if="item === 'RowsPerPageDropdown' && rowsPerPageOptions"
+                        :aria-label="getAriaLabel('rowsPerPageLabel')"
+                        :rows="d_rows"
+                        :options="rowsPerPageOptions"
+                        @rows-change="onRowChange($event)"
+                        :disabled="empty"
+                        :templates="$slots"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <JumpToPageDropdown
+                        v-else-if="item === 'JumpToPageDropdown'"
+                        :aria-label="getAriaLabel('jumpToPageDropdownLabel')"
+                        :page="page"
+                        :pageCount="pageCount"
+                        @page-change="changePage($event)"
+                        :disabled="empty"
+                        :templates="$slots"
+                        :unstyled="unstyled"
+                        :pt="pt"
+                    />
+                    <JumpToPageInput v-else-if="item === 'JumpToPageInput'" :page="currentPage" @page-change="changePage($event)" :disabled="empty" :unstyled="unstyled" :pt="pt" />
+                </template>
+            </div>
             <div v-if="$slots.end" :class="cx('contentEnd')" v-bind="ptm('contentEnd')">
                 <slot name="end" :state="currentState"></slot>
             </div>
