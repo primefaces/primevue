@@ -358,10 +358,6 @@ export interface DatePickerPassThroughOptions {
      */
     hiddenYear?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the datepicker mask's DOM element.
-     */
-    datepickerMask?: DatePickerPassThroughOptionType;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
