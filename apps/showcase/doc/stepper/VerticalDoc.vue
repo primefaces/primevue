@@ -8,7 +8,7 @@
                 <Step>Header I</Step>
                 <StepPanel v-slot="{ activateCallback }">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                     <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
@@ -54,7 +54,7 @@ export default {
         <Step>Header I</Step>
         <StepPanel v-slot="{ activateCallback }">
             <div class="flex flex-col h-48">
-                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
             </div>
              <div class="py-6">
                 <Button label="Next" @click="activateCallback('2')" />
@@ -94,7 +94,7 @@ export default {
                 <Step>Header I</Step>
                 <StepPanel v-slot="{ activateCallback }">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                      <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
@@ -136,7 +136,7 @@ export default {
                 <Step>Header I</Step>
                 <StepPanel v-slot="{ activateCallback }">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                     <div class="py-6">
                         <Button label="Next" @click="activateCallback('2')" />
