@@ -87,11 +87,11 @@ const theme = ({ dt }) => `
     visibility: hidden;
 }
 
-.p-fluid .p-cascadeselect {
+.p-cascadeselect-fluid {
     display: flex;
 }
 
-.p-fluid .p-cascadeselect .p-cascadeselect-label {
+.p-cascadeselect-fluid .p-cascadeselect-label {
     width: 1%;
 }
 
@@ -200,7 +200,8 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-cascadeselect-open': instance.overlayVisible
+            'p-cascadeselect-open': instance.overlayVisible,
+            'p-cascadeselect-fluid': props.fluid
         }
     ],
     label: ({ instance, props }) => [

@@ -78,14 +78,6 @@ const theme = ({ dt }) => `
     font-weight: ${dt('button.label.font.weight')};
 }
 
-.p-fluid .p-button {
-    width: 100%;
-}
-
-.p-fluid .p-button-icon-only {
-    width: ${dt('button.icon.only.width')};
-}
-
 .p-button:not(:disabled):hover {
     background: ${dt('button.primary.hover.background')};
     border: 1px solid ${dt('button.primary.hover.border.color')};

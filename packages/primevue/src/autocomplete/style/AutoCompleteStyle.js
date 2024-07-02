@@ -229,11 +229,11 @@ const theme = ({ dt }) => `
     padding: ${dt('autocomplete.empty.message.padding')};
 }
 
-.p-fluid .p-autocomplete {
+.p-autocomplete-fluid {
     display: flex;
 }
 
-.p-fluid .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input {
+.p-autocomplete-fluid:has(.p-autocomplete-dropdown) .p-autocomplete-input {
     width: 1%;
 }
 `;
@@ -251,7 +251,8 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
-            'p-autocomplete-open': instance.overlayVisible
+            'p-autocomplete-open': instance.overlayVisible,
+            'p-autocomplete-fluid': props.fluid
         }
     ],
     pcInput: 'p-autocomplete-input',
