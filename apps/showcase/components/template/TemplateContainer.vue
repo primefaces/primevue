@@ -21,7 +21,12 @@ export default {
     },
     computed: {
         components() {
-            return this.templateData.components;
+            return this.templateData.components.map((component) => {
+                return {
+                    ...component,
+                    name: markRaw(component.name)
+                };
+            });
         }
     }
 };
