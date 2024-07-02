@@ -5,7 +5,7 @@ const classes = {
         'p-step',
         {
             'p-step-active': instance.active,
-            'p-disabled': instance.isStepDisabled() || props.disabled
+            'p-disabled': !instance.active && (instance.isStepDisabled() || props.disabled)
         }
     ],
     header: 'p-step-header',
