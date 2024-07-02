@@ -238,6 +238,10 @@ export default {
             type: String,
             default: '960px'
         },
+        showHeaders: {
+            type: Boolean,
+            default: true
+        },
         showGridlines: {
             type: Boolean,
             default: false
