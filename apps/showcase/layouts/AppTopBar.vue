@@ -61,7 +61,7 @@
             </div>
 
             <ul class="topbar-items">
-                <li v-if="false">
+                <li>
                     <div id="docsearch"></div>
                 </li>
                 <li>
@@ -128,7 +128,7 @@
 <script>
 import AppConfigurator from '@/layouts/AppConfigurator';
 import EventBus from '@/layouts/AppEventBus';
-//import docsearch from '@docsearch/js';
+import docsearch from '@docsearch/js';
 
 export default {
     emits: ['menubutton-click'],
@@ -162,7 +162,7 @@ export default {
     mounted() {
         this.bindScrollListener();
 
-        /*docsearch({
+        docsearch({
             container: '#docsearch',
             appId: '01CMUF4W4R',
             indexName: 'primevue',
@@ -183,7 +183,7 @@ export default {
                     return item;
                 });
             }
-        });*/
+        });
     },
     beforeUnmount() {
         if (this.scrollListener) {
