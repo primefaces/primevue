@@ -93,9 +93,9 @@
 </template>
 
 <script>
+import { equals, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { resolveFieldData, equals, isNotEmpty } from '@primeuix/utils/object';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import { mergeProps } from 'vue';
@@ -495,7 +495,7 @@ export default {
                 for (let col of this.columns) {
                     let _selectionMode = this.columnProp(col, 'selectionMode');
 
-                    if (isNotEmpty(_selectionMode) && _selectionMode === 'multiple') {
+                    if (isNotEmpty(_selectionMode)) {
                         columnSelectionMode = _selectionMode;
                         break;
                     }
