@@ -131,15 +131,15 @@ const theme = ({ dt }) => `
     flex: 1 1 auto;
 }
 
-.p-fluid .p-inputnumber {
+.p-inputnumber-fluid {
     width: 100%;
 }
 
-.p-fluid .p-inputnumber .p-inputnumber-input {
+.p-inputnumber-fluid .p-inputnumber-input {
     width: 1%;
 }
 
-.p-fluid .p-inputnumber-vertical .p-inputnumber-input {
+.p-inputnumber-fluid.p-inputnumber-vertical .p-inputnumber-input {
     width: 100%;
 }
 `;
@@ -152,7 +152,8 @@ const classes = {
             'p-inputwrapper-focus': instance.focused,
             'p-inputnumber-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
-            'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical'
+            'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical',
+            'p-inputnumber-fluid': instance.fluid
         }
     ],
     pcInput: 'p-inputnumber-input',

@@ -5,6 +5,12 @@ import InputGroupStyle from 'primevue/inputgroup/style';
 export default {
     name: 'BaseInputGroup',
     extends: BaseComponent,
+    props: {
+        fluid: {
+            type: Boolean,
+            default: false
+        }
+    },
     style: InputGroupStyle,
     provide() {
         return {

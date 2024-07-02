@@ -376,6 +376,11 @@ export interface SelectProps {
      */
     showClear?: boolean | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * @deprecated since v4.0. Use 'labelId' instead.
      * Identifier of the underlying input element.
      */

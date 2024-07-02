@@ -232,6 +232,10 @@ export default {
                 return { severity: 'secondary', text: true, rounded: true };
             }
         },
+        fluid: {
+            type: Boolean,
+            default: false
+        },
         ariaLabelledby: {
             type: String,
             default: null

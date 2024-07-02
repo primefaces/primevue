@@ -502,6 +502,11 @@ export interface AutoCompleteProps {
      */
     tabindex?: number | string | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * Defines a string value that labels an interactive element.
      */
     ariaLabel?: string | undefined;
@@ -528,11 +533,6 @@ export interface AutoCompleteProps {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Spans 100% width of the container when enabled.
-     * @defaultValue false
-     */
-    fluid?: boolean;
 }
 
 /**

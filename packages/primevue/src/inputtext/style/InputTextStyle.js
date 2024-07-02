@@ -61,7 +61,7 @@ const theme = ({ dt }) => `
     padding: ${dt('inputtext.lg.padding.y')} ${dt('inputtext.lg.padding.x')};
 }
 
-.p-fluid .p-inputtext {
+.p-inputtext-fluid {
     width: 100%;
 }
 `;
@@ -74,7 +74,8 @@ const classes = {
             'p-inputtext-sm': props.size === 'small',
             'p-inputtext-lg': props.size === 'large',
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-inputtext-fluid': props.fluid
         }
     ]
 };

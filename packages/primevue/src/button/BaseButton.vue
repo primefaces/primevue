@@ -81,6 +81,10 @@ export default {
         plain: {
             type: Boolean,
             default: false
+        },
+        fluid: {
+            type: Boolean,
+            default: false
         }
     },
     style: ButtonStyle,

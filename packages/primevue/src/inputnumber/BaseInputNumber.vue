@@ -133,6 +133,10 @@ export default {
             type: String,
             default: null
         },
+        fluid: {
+            type: Boolean,
+            default: false
+        },
         inputId: {
             type: String,
             default: null

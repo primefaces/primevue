@@ -98,10 +98,6 @@ const theme = ({ dt }) => `
 .p-inputchips-input-item input::placeholder {
     color: ${dt('inputchips.placeholder.color')};
 }
-
-.p-fluid .p-inputchips {
-    display: flex;
-}
 `;
 
 const classes = {

@@ -10,6 +10,7 @@
             :icon="icon"
             :outlined="outlined"
             :size="size"
+            :fluid="fluid"
             :aria-label="label"
             @click="onDefaultButtonClick"
             v-bind="buttonProps"

@@ -416,6 +416,11 @@ export interface CascadeSelectProps {
      */
     tabindex?: number | string | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
@@ -442,11 +447,6 @@ export interface CascadeSelectProps {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Spans 100% width of the container when enabled.
-     * @defaultValue false
-     */
-    fluid?: boolean;
 }
 
 /**

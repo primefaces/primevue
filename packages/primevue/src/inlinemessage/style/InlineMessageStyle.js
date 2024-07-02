@@ -26,10 +26,6 @@ const theme = ({ dt }) => `
     width: 0;
 }
 
-.p-fluid .p-inlinemessage {
-    display: flex;
-}
-
 .p-inlinemessage-info {
     background: ${dt('inlinemessage.info.background')};
     border: 1px solid ${dt('inlinemessage.info.border.color')};

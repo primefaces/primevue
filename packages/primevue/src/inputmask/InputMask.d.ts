@@ -145,6 +145,11 @@ export interface InputMaskProps {
      */
     variant?: 'outlined' | 'filled' | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */

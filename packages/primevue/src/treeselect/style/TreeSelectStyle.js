@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
     background: transparent;
 }
 
-.p-fluid .p-treeselect {
+.p-treeselect-fluid {
     display: flex;
 }
 
@@ -147,7 +147,8 @@ const classes = {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-treeselect-open': instance.overlayVisible
+            'p-treeselect-open': instance.overlayVisible,
+            'p-treeselect-fluid': props.fluid
         }
     ],
     labelContainer: 'p-treeselect-label-container',

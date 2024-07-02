@@ -51,7 +51,7 @@ const theme = ({ dt }) => `
     color: ${dt('textarea.placeholder.color')};
 }
 
-.p-fluid .p-textarea {
+.p-textarea-fluid {
     width: 100%;
 }
 
@@ -68,7 +68,8 @@ const classes = {
             'p-filled': instance.filled,
             'p-textarea-resizable ': props.autoResize,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-textarea-fluid': props.fluid
         }
     ]
 };

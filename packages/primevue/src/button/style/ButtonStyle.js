@@ -78,6 +78,14 @@ const theme = ({ dt }) => `
     font-weight: ${dt('button.label.font.weight')};
 }
 
+.p-button-fluid {
+    width: 100%;
+}
+
+.p-button-fluid.p-button-icon-only {
+    width: ${dt('button.icon.only.width')};
+}
+
 .p-button:not(:disabled):hover {
     background: ${dt('button.primary.hover.background')};
     border: 1px solid ${dt('button.primary.hover.border.color')};
@@ -607,7 +615,8 @@ const classes = {
             'p-button-outlined': props.outlined,
             'p-button-sm': props.size === 'small',
             'p-button-lg': props.size === 'large',
-            'p-button-plain': props.plain
+            'p-button-plain': props.plain,
+            'p-button-fluid': props.fluid
         }
     ],
     loadingIcon: 'p-button-loading-icon',

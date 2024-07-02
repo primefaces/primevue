@@ -7,6 +7,7 @@
         :invalid="invalid"
         :variant="variant"
         :placeholder="placeholder"
+        :fluid="fluid"
         :unstyled="unstyled"
         @input="onInput"
         @focus="onFocus"

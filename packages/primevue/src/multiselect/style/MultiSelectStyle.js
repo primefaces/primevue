@@ -191,7 +191,7 @@ const theme = ({ dt }) => `
     padding: calc(${dt('multiselect.padding.y')} / 2) calc(${dt('multiselect.padding.x')} / 2);
 }
 
-.p-fluid .p-multiselect {
+.p-multiselect-fluid {
     display: flex;
 }
 `;
@@ -211,7 +211,8 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-multiselect-open': instance.overlayVisible
+            'p-multiselect-open': instance.overlayVisible,
+            'p-multiselect-fluid': props.fluid
         }
     ],
     labelContainer: 'p-multiselect-label-container',

@@ -365,6 +365,11 @@ export interface MultiSelectProps {
      */
     variant?: 'outlined' | 'filled' | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;

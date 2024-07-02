@@ -34,6 +34,10 @@ export default {
             type: Boolean,
             default: false
         },
+        fluid: {
+            type: Boolean,
+            default: false
+        },
         class: {
             type: null,
             default: null

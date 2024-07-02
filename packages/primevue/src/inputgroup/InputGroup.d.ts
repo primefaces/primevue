@@ -23,6 +23,10 @@ export interface InputGroupPassThroughMethodOptions {
      */
     instance: any;
     /**
+     * Defines valid properties.
+     */
+    props: InputGroupProps;
+    /**
      * Defines valid attributes.
      */
     attrs: any;
@@ -63,6 +67,11 @@ export interface InputGroupPassThroughAttributes {
  * Defines valid properties in InputGroup component.
  */
 export interface InputGroupProps {
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

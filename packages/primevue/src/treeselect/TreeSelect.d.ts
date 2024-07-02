@@ -205,6 +205,11 @@ export interface TreeSelectProps {
      */
     selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * Style class of the overlay panel.
      */
     panelClass?: any;

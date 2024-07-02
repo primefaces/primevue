@@ -178,6 +178,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     plain?: boolean | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

@@ -46,6 +46,10 @@ export default {
         variant: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: false
         }
     },
     style: InputMaskStyle,

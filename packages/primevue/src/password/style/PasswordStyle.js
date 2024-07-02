@@ -35,8 +35,12 @@ const theme = ({ dt }) => `
     background: ${dt('password.strength.strong.background')};
 }
 
-.p-fluid .p-password {
+.p-password-fluid {
     display: flex;
+}
+
+.p-password-fluid .p-password-input {
+    width: 100%;
 }
 
 .p-password-input::-ms-reveal,
@@ -83,7 +87,8 @@ const classes = {
         'p-password p-component p-inputwrapper',
         {
             'p-inputwrapper-filled': instance.filled,
-            'p-inputwrapper-focus': instance.focused
+            'p-inputwrapper-focus': instance.focused,
+            'p-password-fluid': props.fluid
         }
     ],
     pcInput: 'p-password-input',

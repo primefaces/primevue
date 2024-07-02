@@ -785,6 +785,11 @@ export interface DatePickerProps {
      */
     timepickerButtonProps?: object | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue false
+     */
+    fluid?: boolean;
+    /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;

@@ -71,11 +71,11 @@ const theme = ({ dt }) => `
     color: ${dt('datepicker.input.icon.color')};
 }
 
-.p-fluid .p-datepicker {
+.p-datepicker-fluid {
     display: flex;
 }
 
-.p-fluid .p-datepicker-input {
+.p-datepicker-fluid .p-datepicker-input {
     width: 1%;
 }
 
@@ -374,6 +374,7 @@ const classes = {
         'p-datepicker p-component p-inputwrapper',
         {
             'p-invalid': props.invalid,
+            'p-datepicker-fluid': props.fluid,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
             'p-focus': state.focused || state.overlayVisible
