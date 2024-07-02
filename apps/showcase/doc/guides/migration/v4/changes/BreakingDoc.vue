@@ -42,5 +42,12 @@
             <li>Rating <i class="mark">cancel</i> prop is removed as toggling the selected star value clears it.</li>
             <li>Inplace <i class="mark">closable</i> is removed in favor of templating and <i>closeCallback</i> prop.</li>
         </ul>
+
+        <h4>Removed Style Classes</h4>
+        <ul class="flex flex-col gap-2 leading-normal">
+            <li><i class="mark">.p-link</i>, use a button in link mode.</li>
+            <li><i class="mark">.p-highlight</i>, each component have its own class such as <i class="mark">.p-select-option-selected</i>.</li>
+            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> properties of components.</li>
+        </ul>
     </DocSectionText>
 </template>
