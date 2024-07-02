@@ -86,7 +86,7 @@
                                 <component v-else-if="slotProps.checked" :is="checkboxIcon ? 'span' : 'CheckIcon'" :class="[slotProps.class, { [checkboxIcon]: slotProps.checked }]" v-bind="getHeaderCheckboxPTOptions('pcHeaderCheckbox.icon')" />
                             </template>
                         </Checkbox>
-                        <IconField :class="cx('pcFilterContainer')" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
+                        <IconField v-if="filter" :class="cx('pcFilterContainer')" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                             <InputText
                                 ref="filterInput"
                                 :value="filterValue"
@@ -205,11 +205,11 @@
 </template>
 
 <script>
+import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, getFirstFocusableElement, getLastFocusableElement, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, getFocusableElements, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isPrintableCharacter, equals, isNotEmpty, findLastIndex } from '@primeuix/utils/object';
-import { ZIndex } from '@primeuix/utils/zindex';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
