@@ -5,7 +5,14 @@
             <i>root</i>, <i>label</i> and <i>icon</i> elements to add a custom style.
         </p>
         <div class="card flex justify-center">
-            <Button label="Search" icon="pi pi-search" unstyled pt:root="bg-teal-500 hover:bg-teal-700 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2" pt:label="text-white font-bold text-lg" pt:icon="text-white text-xl" />
+            <Button
+                label="Search"
+                icon="pi pi-search"
+                unstyled
+                pt:root="bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2"
+                pt:label="text-white font-bold text-lg"
+                pt:icon="text-white text-xl"
+            />
         </div>
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
     </DocSectionText>
@@ -17,10 +24,14 @@ export default {
         return {
             code: {
                 basic: `
-<Button label="Search" icon="pi pi-search" unstyled
-    pt:root="bg-teal-500 hover:bg-teal-700 cursor-pointer py-3 px-4 rounded-full border-0 flex gap-2"
-    pt:label="text-white font-bold text-xl"
-    pt:icon="text-white text-2xl" />
+<Button
+    label="Search"
+    icon="pi pi-search"
+    unstyled
+    pt:root="bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2"
+    pt:label="text-white font-bold text-lg"
+    pt:icon="text-white text-xl"
+/>
 `
             }
         };
