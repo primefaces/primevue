@@ -114,10 +114,10 @@ export interface TabViewDesignTokens extends ColorSchemeDesignToken<TabViewDesig
          */
         hoverColor?: string;
         /**
-         * Box shadow of nav button
+         * Shadow of nav button
          *
-         * @designToken tabview.nav.button.box.shadow
+         * @designToken tabview.nav.button.shadow
          */
-        boxShadow?: string;
+        shadow?: string;
     };
 }

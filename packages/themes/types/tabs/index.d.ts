@@ -291,11 +291,11 @@ export interface TabsDesignTokens extends ColorSchemeDesignToken<TabsDesignToken
             shadow?: string;
         };
         /**
-         * Box shadow of nav button
+         * Shadow of nav button
          *
-         * @designToken tabs.nav.button.box.shadow
+         * @designToken tabs.nav.button.shadow
          */
-        boxShadow?: string;
+        shadow?: string;
     };
     /**
      * Used to pass tokens of the active bar section

@@ -100,6 +100,12 @@ export interface CheckboxDesignTokens extends ColorSchemeDesignToken<CheckboxDes
          */
         checkedFocusBorderColor?: string;
         /**
+         * Checked disabled border color of root
+         *
+         * @designToken checkbox.checked.disabled.border.color
+         */
+        checkedDisabledBorderColor?: string;
+        /**
          * Invalid border color of root
          *
          * @designToken checkbox.invalid.border.color
