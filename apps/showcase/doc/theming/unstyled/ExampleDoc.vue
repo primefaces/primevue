@@ -1,22 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Here is a sample that provides a style using PrimeFlex CSS library. Before beginning, head over to the pass through section <NuxtLink to="/button">button</NuxtLink> documentation to learn more about the components internals. We'll be
-            using the <i>root</i>, <i>label</i> and <i>icon</i> elements to add a custom style.
+            Here is a sample that provides a style using Tailwind CSS. Before beginning, head over to the pass through section <NuxtLink to="/button">button</NuxtLink> documentation to learn more about the components internals. We'll be using the
+            <i>root</i>, <i>label</i> and <i>icon</i> elements to add a custom style.
         </p>
         <div class="card flex justify-center">
-            <Button
-                label="Check"
-                icon="pi pi-check"
-                unstyled
-                :pt="{
-                    root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-4 rounded border-0 flex gap-2' },
-                    label: { class: 'text-white font-bold text-xl' },
-                    icon: 'text-white text-2xl'
-                }"
-            />
+            <Button label="Search" icon="pi pi-search" unstyled pt:root="bg-teal-500 hover:bg-teal-700 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2" pt:label="text-white font-bold text-lg" pt:icon="text-white text-xl" />
         </div>
-        <DocSectionCode :code="code" />
+        <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
     </DocSectionText>
 </template>
 
@@ -26,43 +17,10 @@ export default {
         return {
             code: {
                 basic: `
-<Button label="Check" icon="pi pi-check" unstyled
-    :pt="{
-        root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-4 rounded border-0 flex gap-2' },
-        label: { class: 'text-white font-bold text-xl' },
-        icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
-    }"
-/>
-`,
-                options: `
-<template>
-    <div class="card">
-        <Button label="Check" icon="pi pi-check" unstyled
-            :pt="{
-                root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-4 rounded border-0 flex gap-2' },
-                label: { class: 'text-white font-bold text-xl' },
-                icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
-            }"
-        />
-    </div>
-</template>
-
-<script>
-<\/script>
-`,
-                composition: `
-<template>
-    <Button label="Check" icon="pi pi-check" unstyled
-        :pt="{
-            root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-4 rounded border-0 flex gap-2' },
-            label: { class: 'text-white font-bold text-xl' },
-            icon: 'text-white text-2xl' // OR { class: 'text-white text-2xl' }
-        }"
-    />
-</template>
-
-<script setup>
-<\/script>
+<Button label="Search" icon="pi pi-search" unstyled
+    pt:root="bg-teal-500 hover:bg-teal-700 cursor-pointer py-3 px-4 rounded-full border-0 flex gap-2"
+    pt:label="text-white font-bold text-xl"
+    pt:icon="text-white text-2xl" />
 `
             }
         };
