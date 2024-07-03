@@ -53,14 +53,14 @@ export default {
                     component: DynamicDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
-                },
-                {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'disabled',

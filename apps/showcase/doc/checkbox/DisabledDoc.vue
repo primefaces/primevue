@@ -32,7 +32,8 @@ export default {
 export default {
     data() {
         return {
-            checked: false
+            checked1: false,
+            checked2: true,
         };
     }
 };
@@ -49,7 +50,8 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const checked = ref(false);
+const checked1 = ref(false);
+const checked2 = ref(true);
 <\/script>
 `
             }

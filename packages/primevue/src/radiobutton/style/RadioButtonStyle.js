@@ -111,10 +111,11 @@ const theme = ({ dt }) => `
 
 .p-radiobutton.p-disabled .p-radiobutton-box {
     background: ${dt('radiobutton.disabled.background')};
+    border-color: ${dt('radiobutton.checked.disabled.border.color')};
 }
 
-.p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon {
-    color: ${dt('radiobutton.icon.disabled.color')};
+.p-radiobutton-checked.p-disabled .p-radiobutton-box .p-radiobutton-icon {
+    background: ${dt('radiobutton.icon.disabled.color')};
 }
 `;
 
