@@ -14,13 +14,16 @@ export default {
         return {
             code1: {
                 basic: `
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    unstyled: true
-});
+export default defineNuxtConfig({
+    modules: [
+        '@primevue/nuxt-module'
+    ],
+    primevue: {
+        options: {
+            unstyled: true
+        }
+    }
+})
 `
             }
         };

@@ -16,8 +16,8 @@ export default {
             code: {
                 basic: `
 https://unpkg.com/vue@3/dist/vue.global.js
-https://unpkg.com/primevue@4.0.0-rc.2/umd/primevue.min.js
-https://unpkg.com/@primevue/themes@4.0.0-rc.2/umd/aura.min.js  // see theming for alternatives
+https://unpkg.com/primevue/umd/primevue.min.js
+https://unpkg.com/@primevue/themes/umd/aura.min.js  // see theming for alternatives
 `
             }
         };

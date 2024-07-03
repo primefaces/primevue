@@ -11,11 +11,11 @@ export default {
         return {
             code: {
                 basic: `
-<!-- <script src="https://unpkg.com/@primevue/themes@4.0.0-rc.2/umd/{preset}.min.js"><\/script> -->
+<!-- <script src="https://unpkg.com/@primevue/themes/umd/{preset}.min.js"><\/script> -->
 
-<script src="https://unpkg.com/@primevue/themes@4.0.0-rc.2/umd/aura.min.js"><\/script>
-<script src="https://unpkg.com/@primevue/themes@4.0.0-rc.2/umd/lara.min.js"><\/script>
-<script src="https://unpkg.com/@primevue/themes@4.0.0-rc.2/umd/nora.min.js"><\/script>
+<script src="https://unpkg.com/@primevue/themes/umd/aura.min.js"><\/script>
+<script src="https://unpkg.com/@primevue/themes/umd/lara.min.js"><\/script>
+<script src="https://unpkg.com/@primevue/themes/umd/nora.min.js"><\/script>
 `
             }
         };

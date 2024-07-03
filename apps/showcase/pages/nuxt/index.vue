@@ -18,9 +18,12 @@
 </template>
 
 <script>
+import AutoImportDoc from '@/doc/nuxt/AutoImportDoc.vue';
 import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/nuxt/ExamplesDoc.vue';
 import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
+import StyledModeDoc from '@/doc/nuxt/StyledModeDoc.vue';
+import UnstyledModeDoc from '@/doc/nuxt/UnstyledModeDoc.vue';
 import UsageDoc from '@/doc/nuxt/UsageDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
 import ComposablesDoc from '@/doc/nuxt/configuration/ComposablesDoc.vue';
@@ -45,6 +48,23 @@ export default {
                     component: SetupDoc
                 },
                 {
+                    id: 'theming',
+                    label: 'Theming',
+                    description: 'PrimeVue has two styling modes; Styled and Unstyled. If you are just getting started, begin with the styled mode.',
+                    children: [
+                        {
+                            id: 'styled',
+                            label: 'Styled Mode',
+                            component: StyledModeDoc
+                        },
+                        {
+                            id: 'unstyled',
+                            label: 'Unstyled Mode',
+                            component: UnstyledModeDoc
+                        }
+                    ]
+                },
+                {
                     id: 'usage',
                     label: 'Usage',
                     component: UsageDoc
@@ -64,6 +84,21 @@ export default {
                             component: OptionsDoc
                         },
                         {
+                            id: 'autoimport',
+                            label: 'autoImport',
+                            component: AutoImportDoc
+                        },
+                        {
+                            id: 'importpt',
+                            label: 'importPT',
+                            component: ImportPTDoc
+                        },
+                        {
+                            id: 'importtheme',
+                            label: 'importTheme',
+                            component: ImportThemeDoc
+                        },
+                        {
                             id: 'components',
                             label: 'components',
                             component: ComponentsDoc
@@ -77,16 +112,6 @@ export default {
                             id: 'composables',
                             label: 'composables',
                             component: ComposablesDoc
-                        },
-                        {
-                            id: 'importpt',
-                            label: 'importPT',
-                            component: ImportPTDoc
-                        },
-                        {
-                            id: 'importtheme',
-                            label: 'importTheme',
-                            component: ImportThemeDoc
                         }
                     ]
                 },

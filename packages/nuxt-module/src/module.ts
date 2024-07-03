@@ -16,7 +16,7 @@ export default defineNuxtModule<ModuleOptions>({
     },
     defaults: {
         usePrimeVue: true,
-        autoImport: false,
+        autoImport: true,
         resolvePath: undefined,
         //cssLayerOrder: undefined,
         importPT: undefined,
