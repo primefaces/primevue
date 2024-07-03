@@ -21,7 +21,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <RadioButton v-model="value" :value="1" disabled />
         <RadioButton v-model="value" :value="2" disabled />
     </div>
@@ -39,7 +39,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <RadioButton v-model="value" :value="1" disabled />
         <RadioButton v-model="value" :value="2" disabled />
     </div>
