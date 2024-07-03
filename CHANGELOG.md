@@ -1,5 +1,26 @@
 # Changelog
 
+## [4.0.0](https://github.com/primefaces/primevue/tree/4.0.0-rc.3) (2024-07-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-rc.3...4.0.0)
+
+**Breaking Changes:**
+
+-   Remove .p-fluid and add new fluid property [\#6000](https://github.com/primefaces/primevue/issues/6000)
+
+**Fixed bugs:**
+
+-   options.resolve is not a function in auto-import-resolver package [\#6003](https://github.com/primefaces/primevue/issues/6003)
+-   DataTable: highlightOnSelect single selection defect [\#6002](https://github.com/primefaces/primevue/issues/6002)
+-   Stepper: linear mode disabled header defect [\#6001](https://github.com/primefaces/primevue/issues/6001)
+-   OverlayBadge: Failed to resolve component: Badge [\#5991](https://github.com/primefaces/primevue/issues/5991)
+-   Nuxt module component autoImport in v4 rc3 doesn't work with component prefixes [\#5980](https://github.com/primefaces/primevue/issues/5980)
+-   MultiSelect: 'v-if="filter"' erroneously removed in v4 [\#5978](https://github.com/primefaces/primevue/issues/5978)
+
+**Implemented New Features and Enhancements:**
+
+-   Add as and asChild property to Button [\#5996](https://github.com/primefaces/primevue/issues/5996)
+
 ## [4.0.0-rc.3](https://github.com/primefaces/primevue/tree/4.0.0-rc.3) (2024-06-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-rc.2...4.0.0-rc.3)
