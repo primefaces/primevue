@@ -94,6 +94,12 @@ export interface RadioButtonDesignTokens extends ColorSchemeDesignToken<RadioBut
          */
         checkedFocusBorderColor?: string;
         /**
+         * Checked disabled border color of root
+         *
+         * @designToken radiobutton.checked.disabled.border.color
+         */
+        checkedDisabledBorderColor?: string;
+        /**
          * Invalid border color of root
          *
          * @designToken radiobutton.invalid.border.color

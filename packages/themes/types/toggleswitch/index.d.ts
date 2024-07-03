@@ -129,6 +129,12 @@ export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleS
          */
         slideDuration?: string;
         /**
+         * Disabled background of root
+         *
+         * @designToken toggleswitch.disabled.background
+         */
+        disabledBackground?: string;
+        /**
          * Background of root
          *
          * @designToken toggleswitch.background
@@ -169,6 +175,12 @@ export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleS
          * @designToken toggleswitch.handle.size
          */
         size?: string;
+        /**
+         * Disabled background of handle
+         *
+         * @designToken toggleswitch.handle.disabled.background
+         */
+        disabledBackground?: string;
         /**
          * Background of handle
          *
