@@ -6,11 +6,15 @@
 </template>
 
 <script>
+import Badge from 'primevue/badge';
 import BaseOverlayBadge from './BaseOverlayBadge.vue';
 
 export default {
     name: 'OverlayBadge',
     extends: BaseOverlayBadge,
-    inheritAttrs: false
+    inheritAttrs: false,
+    components: {
+        Badge
+    }
 };
 </script>
