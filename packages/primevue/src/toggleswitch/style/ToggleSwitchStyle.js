@@ -90,6 +90,18 @@ const theme = ({ dt }) => `
 .p-toggleswitch.p-invalid > .p-toggleswitch-slider {
     border-color: ${dt('toggleswitch.invalid.border.color')};
 }
+
+.p-toggleswitch.p-disabled {
+    opacity: 1;
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-slider {
+    background: ${dt('toggleswitch.disabled.background')};
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-slider:before {
+    background: ${dt('toggleswitch.handle.disabled.background')};
+}
 `;
 
 const inlineStyles = {

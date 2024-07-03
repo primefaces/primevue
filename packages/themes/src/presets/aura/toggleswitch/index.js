@@ -19,11 +19,13 @@ export default {
         checkedHoverBorderColor: 'transparent',
         invalidBorderColor: '{form.field.invalid.border.color}',
         transitionDuration: '{form.field.transition.duration}',
-        slideDuration: '0.2s'
+        slideDuration: '0.2s',
+        disabledBackground: '{form.field.disabled.background}'
     },
     handle: {
         borderRadius: '50%',
-        size: '1rem'
+        size: '1rem',
+        disabledBackground: '{form.field.disabled.color}'
     },
     colorScheme: {
         light: {
