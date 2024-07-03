@@ -106,6 +106,7 @@ const theme = ({ dt }) => `
 
 .p-checkbox.p-disabled .p-checkbox-box {
     background: ${dt('checkbox.disabled.background')};
+    border-color: ${dt('checkbox.checked.disabled.border.color')};
 }
 
 .p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {
