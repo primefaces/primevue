@@ -101,7 +101,7 @@ export interface MegaMenuPassThroughOptions {
     /**
      * Used to pass attributes to the submenu item's DOM element.
      */
-    submenuLabel?: MegaMenuPassThroughOptionType;
+    submenulabel?: MegaMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
