@@ -13,7 +13,7 @@ export interface TreeNode {
     /**
      * Mandatory unique key of the node.
      */
-    key?: string;
+    key: string;
     /**
      * Label of the node.
      */
