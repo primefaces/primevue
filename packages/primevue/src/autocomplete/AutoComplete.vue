@@ -511,8 +511,10 @@ export default {
             if (this.overlayVisible) {
                 this.hide(true);
             } else {
-                focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
-                query = this.$refs.focusInput.$el.value;
+                let target = this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el;
+
+                focus(target);
+                query = target.value;
 
                 if (this.dropdownMode === 'blank') this.search(event, '', 'dropdown');
                 else if (this.dropdownMode === 'current') this.search(event, query, 'dropdown');
