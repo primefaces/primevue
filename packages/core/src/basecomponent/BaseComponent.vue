@@ -1,10 +1,10 @@
 <script>
+import { Theme, ThemeService } from '@primeuix/styled';
+import { findSingle } from '@primeuix/utils/dom';
+import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { Theme, ThemeService } from '@primeuix/styled';
-import { toFlatCase, isNotEmpty, getKeyValue, isString, isArray, resolve } from '@primeuix/utils/object';
-import { findSingle } from '@primeuix/utils/dom';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
