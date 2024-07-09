@@ -86,7 +86,7 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('accordion.content.border.width')};
     border-color: ${dt('accordion.content.border.color')};
-    background: color: ${dt('accordion.content.background')};
+    background-color: ${dt('accordion.content.background')};
     color: ${dt('accordion.content.color')};
     padding: ${dt('accordion.content.padding')}
 }
