@@ -72,7 +72,7 @@
         "build:postbuild": "node ./scripts/postbuild.mjs",
         "dev:link": "pnpm link --global && npm link"
     },
-    "peerDependencies": {
+    "dependencies": {
         "@primeuix/styled": "^0.0.5"
     },
     "engines": {

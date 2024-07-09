@@ -68,10 +68,13 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.7.3",
-        "pathe": "^1.1.2",
+        "@primeuix/styled": "^0.0.5",
+        "@primeuix/utils": "^0.0.5",
         "primevue": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
-        "unplugin-vue-components": "0.27.0"
+        "@primevue/metadata": "workspace:*",
+        "unplugin-vue-components": "0.27.0",
+        "pathe": "^1.1.2"
     },
     "devDependencies": {
         "@types/node": "^18.17.17",

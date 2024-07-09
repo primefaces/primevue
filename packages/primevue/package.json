@@ -322,6 +322,8 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
+        "@primeuix/styled": "^0.0.5",
+        "@primeuix/utils": "^0.0.5",
         "@primevue/core": "workspace:*",
         "@primevue/icons": "workspace:*"
     },
