@@ -137,6 +137,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     hiddenInputContainer?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;

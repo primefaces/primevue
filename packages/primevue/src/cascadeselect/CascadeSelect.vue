@@ -22,7 +22,7 @@
                 @focus="onFocus"
                 @blur="onBlur"
                 @keydown="onKeyDown"
-                v-bind="{ ...inputProps, ...ptm('input') }"
+                v-bind="{ ...inputProps, ...ptm('hiddenInput') }"
             />
         </div>
         <span :class="cx('label')" v-bind="ptm('label')">
@@ -86,10 +86,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isString, isNotEmpty, isPrintableCharacter, isEmpty, findLastIndex, equals } from '@primeuix/utils/object';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, isString, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import AngleRightIcon from '@primevue/icons/angleright';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';

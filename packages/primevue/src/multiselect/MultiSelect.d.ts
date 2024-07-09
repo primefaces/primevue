@@ -225,6 +225,10 @@ export interface MultiSelectPassThroughOptions {
      */
     hiddenInputContainer?: MultiSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: MultiSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the hidden first focusable element's DOM element.
      */
     hiddenFirstFocusableEl?: MultiSelectPassThroughOptionType;
