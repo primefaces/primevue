@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
 
 .p-datatable-scrollable .p-datatable-frozen-column {
     position: sticky;
-    background: inherit;
+    background: ${dt('datatable.header.cell.background')};
 }
 
 .p-datatable-scrollable th.p-datatable-frozen-column {
