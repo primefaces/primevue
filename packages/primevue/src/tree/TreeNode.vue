@@ -62,8 +62,8 @@
 </template>
 
 <script>
+import { find, findSingle, getAttribute } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
-import { getAttribute, findSingle, find } from '@primeuix/utils/dom';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
