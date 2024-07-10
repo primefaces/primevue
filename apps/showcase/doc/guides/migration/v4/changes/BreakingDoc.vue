@@ -49,5 +49,20 @@
             <li><i class="mark">.p-highlight</i>, each component have its own class such as <i class="mark">.p-select-option-selected</i>.</li>
             <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> properties of components.</li>
         </ul>
+
+        <h4>Tailwind CSS Presets</h4>
+        <p>
+            The <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind CSS</a> presets for the unstyled mode do not support v4 yet, an update is under development and scheduled for the end of July
+            2024.
+        </p>
+
+        <h4>Premium Templates</h4>
+        <p>Application templates like Apollo do not support v4 yet, all templates will be updated to v4 by the end of August 2024 with new enhancements based on new theming api.</p>
+
+        <h4>Nuxt Module</h4>
+        <p>
+            The <a href="https://www.npmjs.com/package/nuxt-primevue" target="_blank" rel="noopener noreferrer" class="doc-link">nuxt-primevue</a> module has been replaced with the new
+            <a href="https://www.npmjs.com/package/@primevue/nuxt-module" target="_blank" rel="noopener noreferrer" class="doc-link">@primevue/nuxt-module</a>. The old module is still maintained for v3 users.
+        </p>
     </DocSectionText>
 </template>
