@@ -3,7 +3,7 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Password :invalid="value === null" />
+        <Password v-model="value" :invalid="value === null" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<Password :invalid="value === null"  />
+<Password v-model="value" :invalid="value === null"  />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Password :invalid="value === null"  />
+        <Password v-model="value" :invalid="value === null"  />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Password :invalid="value === null"  />
+        <Password v-model="value" :invalid="value === null"  />
     </div>
 </template>
 
