@@ -67,31 +67,31 @@
         </div>
         <div :class="cx('transferControls')" v-bind="ptm('transferControls')" data-pc-group-section="controls">
             <slot name="movecontrolsstart"></slot>
-            <Button :aria-label="moveToTargetAriaLabel" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="{ ...buttonProps, ...moveToTargetProps }" :pt="ptm('moveToTargetButton')" :unstyled="unstyled">
+            <Button :aria-label="moveToTargetAriaLabel" @click="moveToTarget" :disabled="moveDisabled(0)" v-bind="{ ...buttonProps, ...moveToTargetProps }" :pt="ptm('pcMoveToTargetButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetotargeticon" :viewChanged="viewChanged">
-                        <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" v-bind="ptm('moveToTargetButton')['icon']" data-pc-section="movetotargeticon" />
+                        <component :is="viewChanged ? 'AngleDownIcon' : 'AngleRightIcon'" v-bind="ptm('pcMoveToTargetButton')['icon']" data-pc-section="movetotargeticon" />
                     </slot>
                 </template>
             </Button>
-            <Button :aria-label="moveAllToTargetAriaLabel" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="{ ...buttonProps, ...moveAllToTargetProps }" :pt="ptm('moveAllToTargetButton')" :unstyled="unstyled">
+            <Button :aria-label="moveAllToTargetAriaLabel" @click="moveAllToTarget" :disabled="moveAllDisabled('sourceList')" v-bind="{ ...buttonProps, ...moveAllToTargetProps }" :pt="ptm('pcMoveAllToTargetButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltotargeticon" :viewChanged="viewChanged">
-                        <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" v-bind="ptm('moveAllToTargetButton')['icon']" data-pc-section="movealltotargeticon" />
+                        <component :is="viewChanged ? 'AngleDoubleDownIcon' : 'AngleDoubleRightIcon'" v-bind="ptm('pcMoveAllToTargetButton')['icon']" data-pc-section="movealltotargeticon" />
                     </slot>
                 </template>
             </Button>
-            <Button :aria-label="moveToSourceAriaLabel" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="{ ...buttonProps, ...moveToSourceProps }" :pt="ptm('moveToSourceButton')" :unstyled="unstyled">
+            <Button :aria-label="moveToSourceAriaLabel" @click="moveToSource" :disabled="moveDisabled(1)" v-bind="{ ...buttonProps, ...moveToSourceProps }" :pt="ptm('pcMoveToSourceButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movetosourceicon" :viewChanged="viewChanged">
-                        <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" v-bind="ptm('moveToSourceButton')['icon']" data-pc-section="movetosourceicon" />
+                        <component :is="viewChanged ? 'AngleUpIcon' : 'AngleLeftIcon'" v-bind="ptm('pcMoveToSourceButton')['icon']" data-pc-section="movetosourceicon" />
                     </slot>
                 </template>
             </Button>
-            <Button :aria-label="moveAllToSourceAriaLabel" @click="moveAllToSource" :disabled="moveAllDisabled('targetList')" v-bind="{ ...buttonProps, ...moveAllToSourceProps }" :pt="ptm('moveAllToSourceButton')" :unstyled="unstyled">
+            <Button :aria-label="moveAllToSourceAriaLabel" @click="moveAllToSource" :disabled="moveAllDisabled('targetList')" v-bind="{ ...buttonProps, ...moveAllToSourceProps }" :pt="ptm('pcMoveAllToSourceButton')" :unstyled="unstyled">
                 <template #icon>
                     <slot name="movealltosourceicon" :viewChanged="viewChanged">
-                        <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('moveAllToSourceButton')['icon']" data-pc-section="movealltosourceicon" />
+                        <component :is="viewChanged ? 'AngleDoubleUpIcon' : 'AngleDoubleLeftIcon'" v-bind="ptm('pcMoveAllToSourceButton')['icon']" data-pc-section="movealltosourceicon" />
                     </slot>
                 </template>
             </Button>
@@ -166,9 +166,9 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { find, scrollInView, setAttribute } from '@primeuix/utils/dom';
 import { findIndexInList, isEmpty } from '@primeuix/utils/object';
+import { UniqueComponentId } from '@primevue/core/utils';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
