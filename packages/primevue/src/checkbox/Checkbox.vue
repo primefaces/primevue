@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { equals, contains } from '@primeuix/utils/object';
+import { contains, equals } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import MinusIcon from '@primevue/icons/minus';
 import BaseCheckbox from './BaseCheckbox.vue';
@@ -58,6 +58,7 @@ export default {
             return _ptm(key, {
                 context: {
                     checked: this.checked,
+                    indeterminate: this.d_indeterminate,
                     disabled: this.disabled
                 }
             });

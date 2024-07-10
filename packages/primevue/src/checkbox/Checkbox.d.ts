@@ -206,6 +206,11 @@ export interface CheckboxContext {
      */
     checked: boolean;
     /**
+     * Current indeterminate state of the item as a boolean.
+     * @defaultValue false
+     */
+    indeterminate: boolean;
+    /**
      * Current disabled state of the item as a boolean.
      * @defaultValue false
      */
