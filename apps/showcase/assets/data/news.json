@@ -1,6 +1,6 @@
 {
-    "id": 62,
-    "content": "Introducing New V4 Theming",
+    "id": 63,
+    "content": "Migration to V4",
     "linkText": "Learn More",
-    "linkHref": "http://primevue.org/theming/styled"
+    "linkHref": "https://primevue.org/guides/migration/v4/"
 }
