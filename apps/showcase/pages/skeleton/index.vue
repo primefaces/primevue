@@ -46,7 +46,7 @@ export default {
                 },
                 {
                     id: 'datatable',
-                    label: 'Datatable',
+                    label: 'DataTable',
                     component: DataTableDoc
                 },
                 {
