@@ -37,15 +37,17 @@ export default {
                 basic: `
 <div class="flex flex-col md:flex-row">
     <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
-        <div class="flex flex-wrap justify-center items-center gap-2">
-            <label class="w-[6rem]">Username</label>
-            <InputText id="username" type="text" class="w-[12rem]" />
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" type="text" />
         </div>
-        <div class="flex flex-wrap justify-center items-center gap-2">
-            <label class="w-[6rem]">Password</label>
-            <InputText id="password" type="password" class="w-[12rem]" />
+        <div class="flex flex-col gap-2">
+            <label for="password">Password</label>
+            <InputText id="password" type="password" />
         </div>
-        <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+        <div class="flex">
+            <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+        </div>
     </div>
     <div class="w-full md:w-2/12">
         <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -61,15 +63,17 @@ export default {
     <div class="card">
         <div class="flex flex-col md:flex-row">
             <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
-                <div class="flex flex-wrap justify-center items-center gap-2">
-                    <label class="w-[6rem]">Username</label>
-                    <InputText id="username" type="text" class="w-[12rem]" />
+                <div class="flex flex-col gap-2">
+                    <label for="username">Username</label>
+                    <InputText id="username" type="text" />
                 </div>
-                <div class="flex flex-wrap justify-center items-center gap-2">
-                    <label class="w-[6rem]">Password</label>
-                    <InputText id="password" type="password" class="w-[12rem]" />
+                <div class="flex flex-col gap-2">
+                    <label for="password">Password</label>
+                    <InputText id="password" type="password" />
                 </div>
-                <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                <div class="flex">
+                    <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                </div>
             </div>
             <div class="w-full md:w-2/12">
                 <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
@@ -90,15 +94,17 @@ export default {
     <div class="card">
         <div class="flex flex-col md:flex-row">
             <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
-                <div class="flex flex-wrap justify-center items-center gap-2">
-                    <label class="w-[6rem]">Username</label>
-                    <InputText id="username" type="text" class="w-[12rem]" />
+                <div class="flex flex-col gap-2">
+                    <label for="username">Username</label>
+                    <InputText id="username" type="text" />
                 </div>
-                <div class="flex flex-wrap justify-center items-center gap-2">
-                    <label class="w-[6rem]">Password</label>
-                    <InputText id="password" type="password" class="w-[12rem]" />
+                <div class="flex flex-col gap-2">
+                    <label for="password">Password</label>
+                    <InputText id="password" type="password" />
                 </div>
-                <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                <div class="flex">
+                    <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                </div>
             </div>
             <div class="w-full md:w-2/12">
                 <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
