@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" v-bind="ptmi('root')">
-        <input v-if="!inline" ref="input" type="text" :class="cx('preview')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('preview')" />
+        <input v-if="!inline" ref="input" :id="inputId" type="text" :class="cx('preview')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('preview')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass]" @click="onOverlayClick" v-bind="ptm('panel')">
@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
-import { relativePosition, absolutePosition, addClass, removeClass, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addClass, isTouchDevice, relativePosition, removeClass } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseColorPicker from './BaseColorPicker.vue';
