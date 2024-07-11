@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';    
-import { absolutePosition, addClass, isTouchDevice, relativePosition, removeClass } from '@primeuix/utils/dom';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
+import { relativePosition, absolutePosition, addClass, removeClass, isTouchDevice } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
