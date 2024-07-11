@@ -201,6 +201,10 @@ export interface ColorPickerProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Identifier of the focus input to match a label defined for the dropdown.
+     */
+    inputId?: string | undefined;
 }
 
 export interface ColorPickerSlots {}
