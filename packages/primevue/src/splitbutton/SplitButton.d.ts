@@ -84,7 +84,7 @@ export interface SplitButtonPassThroughOptions {
      * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
-    ptMenu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
+    pcMenu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
