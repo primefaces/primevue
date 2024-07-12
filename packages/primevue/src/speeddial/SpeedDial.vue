@@ -23,7 +23,7 @@
                 </template>
             </Button>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" :class="cx('list')" :style="sx('list')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('menu')">
+        <ul :ref="listRef" :id="id + '_list'" :class="cx('list')" :style="sx('list')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('list')">
             <template v-for="(item, index) of model" :key="index">
                 <li
                     v-if="isItemVisible(item)"
@@ -64,10 +64,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { findSingle, find, focus, hasClass } from '@primeuix/utils/dom';
-import PlusIcon from '@primevue/icons/plus';
 import { $dt } from '@primeuix/styled';
+import { find, findSingle, focus, hasClass } from '@primeuix/utils/dom';
+import { UniqueComponentId } from '@primevue/core/utils';
+import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
