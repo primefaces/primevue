@@ -1,6 +1,6 @@
 <template>
     <span :class="cx('pages')" v-bind="ptm('pages')">
-        <button
+        <a
             v-for="pageLink of value"
             :key="pageLink"
             v-ripple
@@ -13,7 +13,7 @@
             :data-p-active="pageLink - 1 === page"
         >
             {{ pageLink }}
-        </button>
+        </a>
     </span>
 </template>
 
