@@ -943,6 +943,12 @@ export interface DataTableProps {
      */
     filterDisplay?: 'menu' | 'row' | undefined;
     /**
+     * A valid query selector or an HTMLElement to specify where the overlay gets attached.
+     * Special keywords are 'body' for document body and 'self' for the element itself.
+     * @defaultValue body
+     */
+    filterOverlayAppendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
+    /**
      * 	An array of fields as string or function to use in global filtering.
      */
     globalFilterFields?: (string | ((data: any) => string))[] | undefined;

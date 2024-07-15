@@ -69,6 +69,7 @@
                             :filters="filters"
                             :filtersStore="filtersStore"
                             :filterInputProps="filterInputProps"
+                            :filterOverlayAppendTo="filterOverlayAppendTo"
                             @filter-change="$emit('filter-change', $event)"
                             @filter-apply="$emit('filter-apply')"
                             :filterMenuStyle="columnProp(col, 'filterMenuStyle')"
@@ -231,6 +232,10 @@ export default {
         filterInputProps: {
             type: null,
             default: null
+        },
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
         }
     },
     provide() {

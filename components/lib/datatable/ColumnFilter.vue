@@ -21,7 +21,7 @@
         <button v-if="showClearButton && display === 'row'" :class="cx('headerFilterClearButton')" type="button" @click="clearFilter()" v-bind="getColumnPT('headerFilterClearButton', ptmHeaderFilterClearParams)">
             <component :is="filterClearIconTemplate || 'FilterSlashIcon'" v-bind="getColumnPT('filterClearIcon')" />
         </button>
-        <Portal>
+        <Portal :appendTo="filterOverlayAppendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
                 <div
                     v-if="overlayVisible"
@@ -275,7 +275,11 @@ export default {
             type: null,
             default: null
         },
-        column: null
+        column: null,
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
+        }
     },
     data() {
         return {

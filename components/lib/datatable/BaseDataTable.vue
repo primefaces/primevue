@@ -273,6 +273,10 @@ export default {
         filterInputProps: {
             type: null,
             default: null
+        },
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
         }
     },
     style: DataTableStyle,

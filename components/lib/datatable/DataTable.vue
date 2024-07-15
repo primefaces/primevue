@@ -87,6 +87,7 @@
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
                             :filterInputProps="filterInputProps"
+                            :filterOverlayAppendTo="filterOverlayAppendTo"
                             :first="d_first"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
