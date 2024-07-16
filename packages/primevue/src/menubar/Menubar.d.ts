@@ -97,7 +97,7 @@ export interface MenubarPassThroughOptions {
     /**
      * Used to pass attributes to the mobile menu button icon's DOM element.
      */
-    buttonicon?: MenubarPassThroughOptionType;
+    buttonIcon?: MenubarPassThroughOptionType;
     /**
      * Used to pass attributes to the submenu's DOM element.
      */
