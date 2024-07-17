@@ -9,7 +9,7 @@
             </div>
         </template>
         <IconField v-if="filter" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilterInput')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilter')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilter')" />
             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                 <!--TODO: searchicon deprecated since v4.0-->
                 <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
