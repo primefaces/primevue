@@ -113,10 +113,6 @@ const theme = ({ dt }) => `
     background: ${dt('stepper.separator.active.background')};
 }
 
-.p-step:has(~ .p-step-active) .p-stepper-separator {
-    background: ${dt('stepper.separator.active.background')};
-}
-
 .p-stepper-separator {
     flex: 1 1 0;
     background: ${dt('stepper.separator.background')};
