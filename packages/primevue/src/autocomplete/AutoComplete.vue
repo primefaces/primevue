@@ -512,7 +512,7 @@ export default {
                 this.hide(true);
             } else {
                 focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
-                query = this.$refs.focusInput.$el.value;
+                query = this.multiple ? this.$refs.focusInput.value : this.$refs.focusInput.$el.value;
 
                 if (this.dropdownMode === 'blank') this.search(event, '', 'dropdown');
                 else if (this.dropdownMode === 'current') this.search(event, query, 'dropdown');
