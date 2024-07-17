@@ -14,6 +14,7 @@
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
+            :fluid="fluid"
             :disabled="disabled"
             :variant="variant"
             :invalid="invalid"
@@ -64,9 +65,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
 import EyeSlashIcon from '@primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
