@@ -86,6 +86,7 @@
                             :filters="d_filters"
                             :filtersStore="filters"
                             :filterDisplay="filterDisplay"
+                            :filterOverlayAppendTo="filterOverlayAppendTo"
                             :filterButtonProps="headerFilterButtonProps"
                             :filterInputProps="filterInputProps"
                             :first="d_first"

@@ -71,6 +71,7 @@
                             :filtersStore="filtersStore"
                             :filterInputProps="filterInputProps"
                             :filterButtonProps="filterButtonProps"
+                            :filterOverlayAppendTo="filterOverlayAppendTo"
                             @filter-change="$emit('filter-change', $event)"
                             @filter-apply="$emit('filter-apply')"
                             :filterMenuStyle="columnProp(col, 'filterMenuStyle')"
@@ -237,6 +238,10 @@ export default {
         filterButtonProps: {
             type: null,
             default: null
+        },
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
         }
     },
     provide() {

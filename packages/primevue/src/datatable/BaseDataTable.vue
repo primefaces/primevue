@@ -296,6 +296,10 @@ export default {
                     cancel: { severity: 'secondary', text: true, rounded: true }
                 };
             }
+        },
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
         }
     },
     style: DataTableStyle,

@@ -31,7 +31,7 @@
                 <component :is="filterClearIconTemplate || 'FilterSlashIcon'" :class="slotProps.class" v-bind="getColumnPT('filterClearIcon')" />
             </template>
         </Button>
-        <Portal>
+        <Portal :appendTo="filterOverlayAppendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
                 <div
                     v-if="overlayVisible"
@@ -293,6 +293,10 @@ export default {
         filterButtonProps: {
             type: null,
             default: null
+        },
+        filterOverlayAppendTo: {
+            type: [String, Object],
+            default: 'body'
         },
         column: null
     },
