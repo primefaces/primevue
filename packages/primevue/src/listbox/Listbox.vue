@@ -15,7 +15,7 @@
             <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
         </div>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
-            <IconField :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
+            <IconField :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                 <InputText
                     v-model="filterValue"
                     type="text"
@@ -132,10 +132,10 @@
 </template>
 
 <script>
+import { findSingle, focus, getFirstFocusableElement, isElement } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { FilterService } from '@primevue/core/api';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, isElement, getFirstFocusableElement, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isPrintableCharacter, isNotEmpty, equals, findLastIndex } from '@primeuix/utils/object';
 import BlankIcon from '@primevue/icons/blank';
 import CheckIcon from '@primevue/icons/check';
 import SearchIcon from '@primevue/icons/search';

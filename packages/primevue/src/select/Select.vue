@@ -76,7 +76,7 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
-                        <IconField :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
+                        <IconField :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                             <InputText
                                 ref="filterInput"
                                 type="text"
@@ -190,11 +190,11 @@
 </template>
 
 <script>
+import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, isAndroid, getFirstFocusableElement, getLastFocusableElement, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, isVisible, getFocusableElements, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isPrintableCharacter, isNotEmpty, equals, findLastIndex } from '@primeuix/utils/object';
-import { ZIndex } from '@primeuix/utils/zindex';
 import BlankIcon from '@primevue/icons/blank';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';

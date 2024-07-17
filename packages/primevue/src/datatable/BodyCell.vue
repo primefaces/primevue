@@ -88,7 +88,8 @@
                 :aria-label="initButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditInit"
-                v-bind="{ ...getColumnPT('pcRowEditorInit'), ...editButtonProps.init }"
+                v-bind="editButtonProps.init"
+                :pt="getColumnPT('pcRowEditorInit')"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
@@ -101,7 +102,8 @@
                 :aria-label="saveButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditSave"
-                v-bind="{ ...getColumnPT('pcRowEditorSave'), ...editButtonProps.save }"
+                v-bind="editButtonProps.save"
+                :pt="getColumnPT('pcRowEditorSave')"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
@@ -114,7 +116,8 @@
                 :aria-label="cancelButtonAriaLabel"
                 :unstyled="unstyled"
                 @click="onRowEditCancel"
-                v-bind="{ ...getColumnPT('pcRowEditorCancel'), ...editButtonProps.cancel }"
+                v-bind="editButtonProps.cancel"
+                :pt="getColumnPT('pcRowEditorCancel')"
                 data-pc-group-section="rowactionbutton"
             >
                 <template #icon="slotProps">
@@ -127,10 +130,10 @@
 </template>
 
 <script>
+import { getAttribute, getFirstFocusableElement, getNextElementSibling, getOuterWidth, getPreviousElementSibling, invokeElementMethod } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { getFirstFocusableElement, invokeElementMethod, getAttribute, getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
 import BarsIcon from '@primevue/icons/bars';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';

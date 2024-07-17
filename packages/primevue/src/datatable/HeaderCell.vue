@@ -29,7 +29,7 @@
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" />
             </span>
-            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getBadgeValue()" size="small" />
+            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" :pt="getColumnPT('pcSortBadge')" :value="getBadgeValue()" size="small" />
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
@@ -84,9 +84,9 @@
 </template>
 
 <script>
+import { getAttribute, getIndex, getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { getAttribute, getNextElementSibling, getOuterWidth, getPreviousElementSibling, getIndex } from '@primeuix/utils/dom';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from '@primevue/icons/sortamountupalt';

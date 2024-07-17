@@ -2,7 +2,7 @@
     <Checkbox :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :aria-label="checkboxAriaLabel" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowCheckbox')">
         <template #icon="slotProps">
             <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="slotProps.checked" :class="slotProps.class" />
-            <CheckIcon v-else-if="!rowCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcRowCheckbox.icon')" />
+            <CheckIcon v-else-if="!rowCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcRowCheckbox')['icon']" />
         </template>
     </Checkbox>
 </template>
