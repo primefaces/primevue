@@ -128,8 +128,8 @@ const theme = ({ dt }) => `
 }
 
 .p-steppanel {
-    background: ${dt('stepper.steppanel.content.background')};
-    color: ${dt('stepper.steppanel.content.color')};
+    background: ${dt('stepper.steppanel.background')};
+    color: ${dt('stepper.steppanel.color')};
 }
 
 .p-stepper:has(.p-stepitem) {
