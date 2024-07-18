@@ -14,9 +14,9 @@
             <component :is="templates.previcon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('prevIcon')" />
         </button>
         <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
-            <div ref="tabs" :class="cx('tabs')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabs')">
+            <div ref="tabs" :class="cx('tabList')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
                 <slot></slot>
-                <span ref="inkbar" :class="cx('inkbar')" role="presentation" aria-hidden="true" v-bind="ptm('inkbar')"></span>
+                <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true" v-bind="ptm('activeBar')"></span>
             </div>
         </div>
         <button
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { getWidth, findSingle, getHeight, getOuterHeight, getOuterWidth, getOffset } from '@primeuix/utils/dom';
+import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import BaseTabList from './BaseTabList.vue';

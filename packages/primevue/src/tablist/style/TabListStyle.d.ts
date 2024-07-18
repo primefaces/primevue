@@ -21,11 +21,11 @@ export enum TabListClasses {
     /**
      * Class name of the tabs element
      */
-    tabs = 'p-tablist-tab-list',
+    tabList = 'p-tablist-tab-list',
     /**
-     * Class name of the inkbar element
+     * Class name of the activebar element
      */
-    inkbar = 'p-tablist-active-bar',
+    activeBar = 'p-tablist-active-bar',
     /**
      * Class name of the previous button element
      */
