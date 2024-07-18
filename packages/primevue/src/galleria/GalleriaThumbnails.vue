@@ -4,15 +4,15 @@
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="cx('previousThumbnailButton')"
+                :class="cx('thumbnailPrevButton')"
                 :disabled="isNavBackwardDisabled()"
                 type="button"
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
-                v-bind="{ ...prevButtonProps, ...ptm('previousThumbnailButton') }"
+                v-bind="{ ...prevButtonProps, ...ptm('thumbnailPrevButton') }"
                 data-pc-group-section="thumbnailnavigator"
             >
-                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('previousThumbnailIcon')" v-bind="ptm('previousThumbnailIcon')" />
+                <component :is="templates.previousthumbnailicon || (isVertical ? 'ChevronUpIcon' : 'ChevronLeftIcon')" :class="cx('thumbnailPrevIcon')" v-bind="ptm('thumbnailPrevIcon')" />
             </button>
             <div :class="cx('thumbnailsViewport')" :style="{ height: isVertical ? contentHeight : '' }" v-bind="ptm('thumbnailsViewport')">
                 <div
@@ -56,15 +56,15 @@
             <button
                 v-if="showThumbnailNavigators"
                 v-ripple
-                :class="cx('nextThumbnailButton')"
+                :class="cx('thumbnailNextButton')"
                 :disabled="isNavForwardDisabled()"
                 type="button"
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
-                v-bind="{ ...nextButtonProps, ...ptm('nextThumbnailButton') }"
+                v-bind="{ ...nextButtonProps, ...ptm('thumbnailNextButton') }"
                 data-pc-group-section="thumbnailnavigator"
             >
-                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('nextThumbnailIcon')" v-bind="ptm('nextThumbnailIcon')" />
+                <component :is="templates.nextthumbnailicon || (isVertical ? 'ChevronDownIcon' : 'ChevronRightIcon')" :class="cx('thumbnailNextIcon')" v-bind="ptm('thumbnailNextIcon')" />
             </button>
         </div>
     </div>

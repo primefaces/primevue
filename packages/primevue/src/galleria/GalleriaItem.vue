@@ -1,14 +1,14 @@
 <template>
     <div :class="cx('itemsContainer')" v-bind="ptm('itemsContainer')">
         <div :class="cx('items')" v-bind="ptm('items')">
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('previousItemButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')" data-pc-group-section="itemnavigator">
-                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('previousItemIcon')" v-bind="ptm('previousItemIcon')" />
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('prevButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('prevButton')" data-pc-group-section="itemnavigator">
+                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('prevIcon')" v-bind="ptm('prevIcon')" />
             </button>
             <div :id="id + '_item_' + activeIndex" :class="cx('item')" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel" v-bind="ptm('item')">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextItemButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextItemButton')" data-pc-group-section="itemnavigator">
-                <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextItemIcon')" v-bind="ptm('nextItemIcon')" />
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextButton')" data-pc-group-section="itemnavigator">
+                <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextIcon')" v-bind="ptm('nextIcon')" />
             </button>
             <div v-if="templates['caption']" :class="cx('caption')" v-bind="ptm('caption')">
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
@@ -36,8 +36,8 @@
 </template>
 
 <script>
+import { find, findSingle, getAttribute } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
-import { find, getAttribute, findSingle } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';

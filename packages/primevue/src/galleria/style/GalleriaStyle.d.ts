@@ -49,11 +49,11 @@ export enum GalleriaClasses {
     /**
      * Class name of the previous item button element
      */
-    previousItemButton = 'p-galleria-prev-button',
+    prevButton = 'p-galleria-prev-button',
     /**
      * Class name of the previous item icon element
      */
-    previousItemIcon = 'p-galleria-prev-icon',
+    prevIcon = 'p-galleria-prev-icon',
     /**
      * Class name of the item element
      */
@@ -61,11 +61,11 @@ export enum GalleriaClasses {
     /**
      * Class name of the next item button element
      */
-    nextItemButton = 'p-galleria-next-button',
+    nextButton = 'p-galleria-next-button',
     /**
      * Class name of the next item icon element
      */
-    nextItemIcon = 'p-galleria-next-icon',
+    nextIcon = 'p-galleria-next-icon',
     /**
      * Class name of the caption element
      */
