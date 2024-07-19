@@ -191,7 +191,7 @@
 
 <script>
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
-import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
@@ -433,7 +433,7 @@ export default {
             this.clicked = false;
         },
         isClearIconVisible() {
-            return this.showClear && this.modelValue != null && !isEmpty(this.options);
+            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
         },
         onEditableInput(event) {
             const value = event.target.value;
