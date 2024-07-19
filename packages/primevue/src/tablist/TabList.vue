@@ -40,6 +40,7 @@ import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWid
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import BaseTabList from './BaseTabList.vue';
+import Ripple from 'primevue/ripple';
 
 export default {
     name: 'TabList',
@@ -160,6 +161,9 @@ export default {
     components: {
         ChevronLeftIcon,
         ChevronRightIcon
+    },
+    directives: {
+        ripple: Ripple
     }
 };
 </script>
