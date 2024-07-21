@@ -7,7 +7,7 @@
  * @module datatable
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonProps } from 'primevue/button';
 import type { ColumnPassThroughOptionType } from 'primevue/column';
@@ -1628,7 +1628,7 @@ export interface DataTableMethods {
  * @group Component
  *
  */
-declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
+declare const DataTable: GlobalComponentConstructor<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {

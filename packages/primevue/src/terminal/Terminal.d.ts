@@ -7,7 +7,7 @@
  * @module terminal
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -169,7 +169,7 @@ export declare type TerminalEmits = EmitFn<TerminalEmitsOptions>;
  * @group Component
  *
  */
-declare const Terminal: DefineComponent<TerminalProps, TerminalSlots, TerminalEmits>;
+declare const Terminal: GlobalComponentConstructor<TerminalProps, TerminalSlots, TerminalEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

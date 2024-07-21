@@ -7,7 +7,7 @@
  * @module tree
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
 import type { InputIconPassThroughOptions } from 'primevue/inputicon';
@@ -514,7 +514,7 @@ export declare type TreeEmits = EmitFn<TreeEmitsOptions>;
  * @group Component
  *
  */
-declare const Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
+declare const Tree: GlobalComponentConstructor<TreeProps, TreeSlots, TreeEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

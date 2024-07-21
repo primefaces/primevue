@@ -7,7 +7,7 @@
  * @module splitterpanel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -136,7 +136,7 @@ export declare type SplitterPanelEmits = EmitFn<SplitterPanelEmitsOptions>;
  * @group Component
  *
  */
-declare const SplitterPanel: DefineComponent<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits>;
+declare const SplitterPanel: GlobalComponentConstructor<SplitterPanelProps, SplitterPanelSlots, SplitterPanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

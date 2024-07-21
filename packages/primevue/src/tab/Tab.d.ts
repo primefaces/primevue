@@ -7,7 +7,7 @@
  * @module tab
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -139,7 +139,7 @@ export declare type TabEmits = EmitFn<TabEmitsOptions>;
  * @group Component
  *
  */
-declare const Tab: DefineComponent<TabProps, TabSlots, TabEmits>;
+declare const Tab: GlobalComponentConstructor<TabProps, TabSlots, TabEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

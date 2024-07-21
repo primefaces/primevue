@@ -7,7 +7,7 @@
  * @module dynamicdialog
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { EmitFn, GlobalComponentConstructor } from '@primevue/core';
 
 /**
  * Defines valid properties in DynamicDialog component.
@@ -44,7 +44,7 @@ export declare type DynamicDialogEmits = EmitFn<DynamicDialogEmitsOptions>;
  * @group Component
  *
  */
-declare const DynamicDialog: DefineComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
+declare const DynamicDialog: GlobalComponentConstructor<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

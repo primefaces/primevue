@@ -7,7 +7,7 @@
  * @module chips
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { EmitFn, GlobalComponentConstructor } from '@primevue/core';
 import * as InputChips from 'primevue/inputchips';
 import 'vue';
 
@@ -79,7 +79,7 @@ export declare type ChipsEmits = EmitFn<ChipsEmitsOptions> & InputChips.InputChi
  * @group Component
  *
  */
-declare const Chips: DefineComponent<ChipsProps, ChipsSlots, ChipsEmits>;
+declare const Chips: GlobalComponentConstructor<ChipsProps, ChipsSlots, ChipsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

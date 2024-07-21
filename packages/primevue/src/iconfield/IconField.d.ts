@@ -7,7 +7,7 @@
  * @module iconfield
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -117,7 +117,7 @@ export declare type IconFieldEmits = EmitFn<IconFieldEmitsOptions>;
  * @group Component
  *
  */
-declare const IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFieldEmits>;
+declare const IconField: GlobalComponentConstructor<IconFieldProps, IconFieldSlots, IconFieldEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

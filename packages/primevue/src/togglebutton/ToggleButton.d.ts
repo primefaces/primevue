@@ -7,7 +7,7 @@
  * @module togglebutton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -239,7 +239,7 @@ export declare type ToggleButtonEmits = EmitFn<ToggleButtonEmitsOptions>;
  * @group Component
  *
  */
-declare const ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
+declare const ToggleButton: GlobalComponentConstructor<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

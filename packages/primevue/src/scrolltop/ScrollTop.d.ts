@@ -7,7 +7,7 @@
  * @module scrolltop
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -184,7 +184,7 @@ export declare type ScrollTopEmits = EmitFn<ScrollTopEmitsOptions>;
  * @group Component
  *
  */
-declare const ScrollTop: DefineComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
+declare const ScrollTop: GlobalComponentConstructor<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

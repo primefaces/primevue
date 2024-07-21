@@ -7,7 +7,7 @@
  * @module row
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 
 export declare type RowPassThroughOptionType<T = any> = RowPassThroughAttributes | ((options: RowPassThroughMethodOptions<T>) => RowPassThroughAttributes | string) | string | null | undefined;
@@ -115,7 +115,7 @@ export declare type RowEmits = EmitFn<RowEmitsOptions>;
  * @group Component
  *
  */
-declare const Row: DefineComponent<RowProps, RowSlots, RowEmits>;
+declare const Row: GlobalComponentConstructor<RowProps, RowSlots, RowEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

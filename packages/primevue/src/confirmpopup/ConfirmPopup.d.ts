@@ -7,7 +7,7 @@
  * @module confirmpopup
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import { ButtonPassThroughOptions } from 'primevue/button';
 import { ConfirmationOptions } from 'primevue/confirmationoptions';
@@ -230,7 +230,7 @@ export declare type ConfirmPopupEmits = EmitFn<ConfirmPopupEmitsOptions>;
  * @group Component
  *
  */
-declare const ConfirmPopup: DefineComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
+declare const ConfirmPopup: GlobalComponentConstructor<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

@@ -7,7 +7,7 @@
  * @module chart
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { CanvasHTMLAttributes } from 'vue';
@@ -200,7 +200,7 @@ export interface ChartMethods {
  * @group Component
  *
  */
-declare const Chart: DefineComponent<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
+declare const Chart: GlobalComponentConstructor<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {

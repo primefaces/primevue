@@ -7,7 +7,7 @@
  * @module inplace
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { HTMLAttributes, VNode } from 'vue';
@@ -198,7 +198,7 @@ export declare type InplaceEmits = EmitFn<InplaceEmitsOptions>;
  * @group Component
  *
  */
-declare const Inplace: DefineComponent<InplaceProps, InplaceSlots, InplaceEmits>;
+declare const Inplace: GlobalComponentConstructor<InplaceProps, InplaceSlots, InplaceEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
