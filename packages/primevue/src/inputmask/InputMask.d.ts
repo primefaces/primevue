@@ -65,6 +65,11 @@ export interface InputMaskPassThroughOptions {
      */
     root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
+     */
+    pcInputText?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */

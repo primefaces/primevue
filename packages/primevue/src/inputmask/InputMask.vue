@@ -15,13 +15,14 @@
         @keydown="onKeyDown"
         @keypress="onKeyPress"
         @paste="onPaste"
-        :pt="ptmi('root', ptmParams)"
+        :pt="rootPTOptions"
     />
 </template>
 
 <script>
 import { getUserAgent } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
+import { mergeProps } from 'vue';
 import BaseInputMask from './BaseInputMask.vue';
 
 export default {
@@ -520,6 +521,9 @@ export default {
         },
         inputClass() {
             return [this.cx('root'), this.class];
+        },
+        rootPTOptions() {
+            return mergeProps(this.ptmi('root', this.ptmParams), this.ptm('pcInputText', this.ptmParams));
         },
         ptmParams() {
             return {
