@@ -24,7 +24,7 @@
             <li>The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>
         </ul>
 
-        <h4>Message and InlineMesasge</h4>
+        <h4>Message and InlineMessage</h4>
         <p>
             <i class="mark">InlineMessage</i> is deprecated due to overlap with the <i>Message</i>. The spacing, closable and life properties of the <i>Message</i> have breaking changes to provide <i>InlineMessage</i> functionality. Default margin is
             removed, closable is false by default and messages do not disappear automatically.
