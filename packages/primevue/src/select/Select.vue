@@ -48,7 +48,7 @@
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
-        <slot v-if="isClearIconVisible()" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
         </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
@@ -431,9 +431,6 @@ export default {
             }
 
             this.clicked = false;
-        },
-        isClearIconVisible() {
-            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
         },
         onEditableInput(event) {
             const value = event.target.value;
@@ -992,6 +989,9 @@ export default {
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
+        },
+        isClearIconVisible() {
+            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
