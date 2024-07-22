@@ -144,7 +144,7 @@ importers:
     devDependencies:
       tsup:
         specifier: ^8.1.0
-        version: 8.2.1(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5)
+        version: 8.2.2(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5)
       unplugin-vue-components:
         specifier: ^0.27.0
         version: 0.27.0(@babel/parser@7.24.8)(@nuxt/kit@3.12.4(magicast@0.3.4)(rollup@4.19.0))(rollup@4.19.0)(vue@3.4.33(typescript@5.5.3))
@@ -177,7 +177,7 @@ importers:
     devDependencies:
       tsup:
         specifier: ^8.1.0
-        version: 8.2.1(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5)
+        version: 8.2.2(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5)
     publishDirectory: dist
 
   packages/nuxt-module:
@@ -3759,14 +3759,6 @@ packages:
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
 
-  fdir@6.2.0:
-    resolution: {integrity: sha512-9XaWcDl0riOX5j2kYfy0kKdg7skw3IY6kA4LFT8Tk2yF9UdrADUy8D6AJuBLtf7ISm/MksumwAHE3WVbMRyCLw==}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
-
   file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -5026,10 +5018,6 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  picomatch@4.0.2:
-    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
-    engines: {node: '>=12'}
-
   pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
@@ -6205,8 +6193,8 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
-  tsup@8.2.1:
-    resolution: {integrity: sha512-ArA/s1GvXbovrnNeTtLphz7D2+OiFVCARviT8RmnWxFdH44dFt8v2tqz54MjJyqZC+QgjKjRuTlWKvC3CkAq3Q==}
+  tsup@8.2.2:
+    resolution: {integrity: sha512-MufIuzdSt6HYPOeOtjUXLR4rqRJySi6XsRNZdwvjC2XR+xghsu2L3vSmYmX+k4S1mO6j0OlUEyVQ3Fc0H66XcA==}
     engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
@@ -10968,10 +10956,6 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
-  fdir@6.2.0(picomatch@4.0.2):
-    optionalDependencies:
-      picomatch: 4.0.2
-
   file-entry-cache@6.0.1:
     dependencies:
       flat-cache: 3.2.0
@@ -12576,8 +12560,6 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  picomatch@4.0.2: {}
-
   pify@2.3.0: {}
 
   pify@5.0.0: {}
@@ -13777,7 +13759,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.2.1(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5):
+  tsup@8.2.2(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.0)
       cac: 6.7.14
@@ -13786,10 +13768,9 @@ snapshots:
       debug: 4.3.5
       esbuild: 0.23.0
       execa: 5.1.1
-      fdir: 6.2.0(picomatch@4.0.2)
+      globby: 11.1.0
       joycon: 3.1.1
       picocolors: 1.0.1
-      picomatch: 4.0.2
       postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.39)(yaml@2.4.5)
       resolve-from: 5.0.0
       rollup: 4.19.0
