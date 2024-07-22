@@ -42,7 +42,7 @@
                         :unstyled="unstyled"
                         :pt="pt"
                     />
-                    <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
+                    <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :unstyled="unstyled" :pt="pt" />
                     <CurrentPageReport
                         v-else-if="item === 'CurrentPageReport'"
                         aria-live="polite"
@@ -89,8 +89,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { setAttribute } from '@primeuix/utils/dom';
+import { UniqueComponentId } from '@primevue/core/utils';
 import BasePaginator from './BasePaginator.vue';
 import CurrrentPageReport from './CurrentPageReport.vue';
 import FirstPageLink from './FirstPageLink.vue';
