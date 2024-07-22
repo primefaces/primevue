@@ -1,6 +1,27 @@
 # Changelog
 
-## [4.0.0](https://github.com/primefaces/primevue/tree/4.0.0-rc.3) (2024-07-03)
+## [4.0.1](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
+
+**Fixed bugs:**
+
+-   SELECT: hide clear button when options is empty in Dropdown [\#6084](https://github.com/primefaces/primevue/issues/6084)
+-   Lara theme type [\#6065](https://github.com/primefaces/primevue/issues/6065)
+-   Paginator: v4 page buttons still have PrimeVue classes in unstyled mode [\#6064](https://github.com/primefaces/primevue/issues/6064)
+-   TabList: ripple warn when Ripple is not been registered. [\#6057](https://github.com/primefaces/primevue/issues/6057)
+-   Stepper: Nested Components are re-mounted [\#6052](https://github.com/primefaces/primevue/issues/6052)
+-   Tree: filter pt implementation defect [\#6043](https://github.com/primefaces/primevue/issues/6043)
+-   DataTable: Frozen Columns, the headers of fixed columns will overlap. [\#6036](https://github.com/primefaces/primevue/issues/6036)
+-   IconField: Does not support multiple icons[\#6034](https://github.com/primefaces/primevue/issues/6034)
+-   InputMask: Passed props are not set [\#6025](https://github.com/primefaces/primevue/issues/6025)
+-   BaseComponent: Missing import 'isFunction' [\#6024](https://github.com/primefaces/primevue/issues/6024)
+-   Failed to use Primevue 4 with yarn [\#6020](https://github.com/primefaces/primevue/issues/6020)
+-   TABS: Globally enabling Ripple breaks Scrollable Tabs [\#6017](https://github.com/primefaces/primevue/issues/6017)
+-   Accordion: Theming content background not working [\#5997](https://github.com/primefaces/primevue/issues/5997)
+-   AutoComplete: Combining multiple + dropdown does not work [\#5881](https://github.com/primefaces/primevue/issues/5881)
+
+## [4.0.0](https://github.com/primefaces/primevue/tree/4.0.0) (2024-07-03)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0-rc.3...4.0.0)
 
