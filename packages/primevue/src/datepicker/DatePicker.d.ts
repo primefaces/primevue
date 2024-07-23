@@ -609,7 +609,7 @@ export interface DatePickerProps {
     /**
      * Array with dates to disable.
      */
-    disabledDates?: Date[] | undefined;
+    disabledDates?: Date[] | (({ day, month, year }: { day: number; month: number; year: number }) => boolean) | undefined;
     /**
      * Array with disabled weekday numbers.
      */
