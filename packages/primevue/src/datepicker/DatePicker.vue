@@ -531,7 +531,7 @@
 
 <script>
 import { absolutePosition, addStyle, find, findSingle, getAttribute, getFocusableElements, getIndex, getOuterWidth, isTouchDevice, relativePosition, setAttribute } from '@primeuix/utils/dom';
-import { localeComparator } from '@primeuix/utils/object';
+import { isFunction, localeComparator } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import CalendarIcon from '@primevue/icons/calendar';
@@ -1111,10 +1111,14 @@ export default {
         },
         isDateDisabled(day, month, year) {
             if (this.disabledDates) {
-                for (let disabledDate of this.disabledDates) {
-                    if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
-                        return true;
+                if (!isFunction(this.disabledDates)) {
+                    for (let disabledDate of this.disabledDates) {
+                        if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
+                            return true;
+                        }
                     }
+                } else {
+                    return this.disabledDates({ day, month: month + 1, year });
                 }
             }
 
