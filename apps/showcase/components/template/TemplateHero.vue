@@ -25,11 +25,11 @@
                 <div class="flex items-center gap-4 mt-6">
                     <a class="flex items-center gap-2 text-primary-contrast lg:text-base text-sm" :href="templateHeroData.supportHref ?? 'https://github.com/orgs/primefaces/discussions/categories/primevue-templates'" target="_blank">
                         <i class="pi pi-github" />
-                        <span class="hover:underline">{{ templateHeroData.free ? 'Open Issues' : 'Get Support' }}</span>
+                        <span class="hover:underline">{{ templateHeroData.free ? 'Open Issues' : 'Community' }}</span>
                     </a>
                     <a class="flex items-center gap-2 text-primary-contrast lg:text-base text-sm" :href="templateHeroData.docHref" target="_blank">
                         <i class="pi pi-book" />
-                        <span class="hover:underline">Read Doc</span>
+                        <span class="hover:underline">Documentation</span>
                     </a>
                 </div>
             </div>

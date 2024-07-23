@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import TemplateConfiguration from '../../../components/template/TemplateConfiguration.vue';
-import TemplateFeatures from '../../../components/template/TemplateFeatures.vue';
-import TemplateFeaturesAnimation from '../../../components/template/TemplateFeaturesAnimation.vue';
-import TemplateHero from '../../../components/template/TemplateHero.vue';
-import TemplateLicense from '../../../components/template/TemplateLicense.vue';
-import PoseidonLogo from '../../../components/template/logo/PoseidonLogo.vue';
+import TemplateConfiguration from '@/components/template/TemplateConfiguration.vue';
+import TemplateFeatures from '@/components/template/TemplateFeatures.vue';
+import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAnimation.vue';
+import TemplateHero from '@/components/template/TemplateHero.vue';
+import TemplateLicense from '@/components/template/TemplateLicense.vue';
+import PoseidonLogo from '@/components/template/logo/PoseidonLogo.vue';
 
 export default {
     data() {

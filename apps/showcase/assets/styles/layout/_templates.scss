@@ -19,6 +19,9 @@
     }
 }
 
+.template-features a {
+    @include doc-link();
+}
 
 @keyframes p-features-order-animation {
     0% {

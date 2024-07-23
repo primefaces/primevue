@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="template-features">
         <div v-if="displayType === 'vertical'" class="px-6 py-6 sm:px-10 sm:py-10 lg:py-20 rounded-3xl bg-surface-0 dark:bg-surface-900">
             <div class="mx-auto max-w-3xl flex sm:flex-row flex-col items-start gap-6">
                 <div
@@ -16,7 +16,7 @@
                                 <img class="w-full h-auto rounded-lg" :src="$appState.darkTheme ? data.darkSrc || data.src : data.src" :alt="data.title" />
                             </div>
                             <h2 class="mt-5 mb-0 text-lg text-surface-900 dark:text-surface-0 font-semibold">{{ data.title }}</h2>
-                            <p class="mt-2 mb-0 text-muted-color text-sm">{{ data.description }}</p>
+                            <p class="mt-2 mb-0 text-muted-color" v-html="data.description"></p>
                         </div>
                     </template>
                 </div>
@@ -31,7 +31,7 @@
                         </div>
                         <div>
                             <h5 class="text-surface-900 dark:text-surface-0 font-semibold mb-2 text-lg">{{ data.title }}</h5>
-                            <p class="m-0 text-muted-color text-sm">{{ data.description }}</p>
+                            <p class="m-0 text-muted-color" v-html="data.description"></p>
                         </div>
                     </div>
                 </template>
