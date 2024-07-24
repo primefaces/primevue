@@ -21,6 +21,21 @@ describe('InputMask.vue', () => {
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual(['1']);
     });
 
+    it('pass id and name to input element', async () => {
+        const wrapper = mount(InputMask, {
+            props: {
+                modelValue: null,
+                mask: '99-999999',
+                placeholder: '99-999999',
+                id: 'foo',
+                name: 'baa'
+            }
+        });
+
+        expect(wrapper.find('input').attributes().id).toBe('foo');
+        expect(wrapper.find('input').attributes().name).toBe('baa');
+    });
+
     it('keydown event', async () => {
         const wrapper = mount(InputMask, {
             props: {

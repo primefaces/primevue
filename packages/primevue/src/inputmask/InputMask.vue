@@ -1,5 +1,6 @@
 <template>
     <InputText
+        v-bind="rootPTOptions"
         :value="modelValue"
         :class="inputClass"
         :readonly="readonly"
