@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>theme</i> property is used to customize the initial theme, prefer the <i>PrimeVue</i> plugin for custom configuration instead of the preconfigured <i>PrimeVueStyled</i>.</p>
+        <p>The <i>theme</i> property is used to customize the initial theme.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
 </template>

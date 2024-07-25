@@ -1,6 +1,5 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <div class="doc-notification">Currently, the Tailwind CSS Presets are not compatible with v4 and will be with a future update after v4 final.</div>
         <p>
             In unstyled mode of PrimeVue, default styling elements like design tokens and css classes are turned off so that you have full control over the component styling with pass-through properties. This feature is quite useful when you'd like
             to build your own UI library based on a custom design by wrapping PrimeVue components or simply utilitze Tailwind CSS to style the PrimeVue components.
