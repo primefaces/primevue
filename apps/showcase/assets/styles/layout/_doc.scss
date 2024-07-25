@@ -52,6 +52,7 @@
             border-top-left-radius: 6px;
             white-space: nowrap;
             --p-focus-ring-offset: -1px;
+            @include focus-visible();
 
             &:hover {
                 border-bottom-color: var(--hover-border-color);
@@ -61,7 +62,6 @@
                 outline: 0 none;
             }
 
-            @include focus-visible();
         }
 
         &.doc-tabmenu-active {
@@ -215,8 +215,8 @@
                 outline-color: transparent;
                 cursor: pointer;
                 user-select: none;
-                @include focus-visible();
                 --p-focus-ring-offset: -1px;
+                @include focus-visible();
             }
 
             &:hover {
