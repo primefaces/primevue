@@ -358,10 +358,6 @@ export interface DatePickerPassThroughOptions {
      */
     hiddenYear?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the datepicker mask's DOM element.
-     */
-    datepickerMask?: DatePickerPassThroughOptionType;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -788,6 +784,11 @@ export interface DatePickerProps {
      * @defaultValue { severity: 'secondary', text: true }
      */
     timepickerButtonProps?: object | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

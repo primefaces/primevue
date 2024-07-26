@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('multiselect.background')};
     border: 1px solid ${dt('multiselect.border.color')};
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, outline-color ${dt('multiselect.transition.duration')}, box-shadow ${dt(
-        'multiselect.transition.duration'
-    )};
+    'multiselect.transition.duration'
+)};
     border-radius: ${dt('multiselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('multiselect.shadow')};
@@ -148,8 +148,8 @@ const theme = ({ dt }) => `
     color: ${dt('multiselect.option.color')};
     background: transparent;
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, box-shadow ${dt('multiselect.transition.duration')}, outline-color ${dt(
-        'multiselect.transition.duration'
-    )};
+    'multiselect.transition.duration'
+)};
     border-radius: ${dt('multiselect.option.border.radius')}
 }
 
@@ -191,7 +191,7 @@ const theme = ({ dt }) => `
     padding: calc(${dt('multiselect.padding.y')} / 2) calc(${dt('multiselect.padding.x')} / 2);
 }
 
-.p-fluid .p-multiselect {
+.p-multiselect-fluid {
     display: flex;
 }
 `;
@@ -211,7 +211,8 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-multiselect-open': instance.overlayVisible
+            'p-multiselect-open': instance.overlayVisible,
+            'p-multiselect-fluid': instance.hasFluid
         }
     ],
     labelContainer: 'p-multiselect-label-container',

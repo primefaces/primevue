@@ -33,8 +33,8 @@ const theme = ({ dt }) => `
     padding: ${dt('tabmenu.item.padding')};
     font-weight: ${dt('tabmenu.item.font.weight')};
     transition: background ${dt('tabmenu.transition.duration')}, border-color ${dt('tabmenu.transition.duration')}, color ${dt('tabmenu.transition.duration')}, outline-color ${dt('tabmenu.transition.duration')}, box-shadow ${dt(
-        'tabmenu.transition.duration'
-    )};
+    'tabmenu.transition.duration'
+)};
     margin: ${dt('tabmenu.item.margin')};
     outline-color: transparent;
     gap: ${dt('tabmenu.item.gap')};
@@ -50,8 +50,8 @@ const theme = ({ dt }) => `
 .p-tabmenu-item-icon {
     color: ${dt('tabmenu.item.icon.color')};
     transition: background ${dt('tabmenu.transition.duration')}, border-color ${dt('tabmenu.transition.duration')}, color ${dt('tabmenu.transition.duration')}, outline-color ${dt('tabmenu.transition.duration')}, box-shadow ${dt(
-        'tabmenu.transition.duration'
-    )};
+    'tabmenu.transition.duration'
+)};
 }
 
 .p-tabmenu-item-label {

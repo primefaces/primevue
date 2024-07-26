@@ -16,7 +16,7 @@
         <h3>Semantic Tokens</h3>
         <p>
             Semantic tokens define content and their names indicate where they are utilized, a well known example of a semantic token is the <i>primary.color</i>. Semantic tokens map to primitive tokens or other semantic tokens. The
-            <i>colorScheme</i> token group is a special variable to define tokens based on the color scheme active in the application, this allows defining different tokens based on the color scheme like implementing dark mode.
+            <i>colorScheme</i> token group is a special variable to define tokens based on the color scheme active in the application, this allows defining different tokens based on the color scheme like dark mode.
         </p>
 
         <h3>Component Tokens</h3>

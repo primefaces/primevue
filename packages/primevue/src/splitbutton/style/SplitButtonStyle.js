@@ -32,7 +32,7 @@ const theme = ({ dt }) => `
     min-width: 100%;
 }
 
-.p-fluid .p-splitbutton {
+.p-splitbutton-fluid {
     display: flex;
 }
 
@@ -52,11 +52,12 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance, props }) => [
         'p-splitbutton p-component',
         {
             'p-splitbutton-raised': props.raised,
-            'p-splitbutton-rounded': props.rounded
+            'p-splitbutton-rounded': props.rounded,
+            'p-splitbutton-fluid': instance.hasFluid
         }
     ],
     pcButton: 'p-splitbutton-button',

@@ -13,6 +13,7 @@
                     :errorIcon="errorIcon"
                     :successIcon="successIcon"
                     :closeButtonProps="closeButtonProps"
+                    :unstyled="unstyled"
                     @close="remove($event)"
                     :pt="pt"
                 />
@@ -22,7 +23,10 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { setAttribute } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import BaseToast from './BaseToast.vue';
@@ -55,7 +59,7 @@ export default {
         this.destroyStyle();
 
         if (this.$refs.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.$refs.container);
+            ZIndex.clear(this.$refs.container);
         }
 
         ToastEventBus.off('add', this.onAdd);
@@ -99,13 +103,13 @@ export default {
             this.$refs.container.setAttribute(this.attributeSelector, '');
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
+                ZIndex.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
         },
         onLeave() {
-            if (this.$refs.container && this.autoZIndex && ObjectUtils.isEmpty(this.messages)) {
+            if (this.$refs.container && this.autoZIndex && isEmpty(this.messages)) {
                 setTimeout(() => {
-                    ZIndexUtils.clear(this.$refs.container);
+                    ZIndex.clear(this.$refs.container);
                 }, 200);
             }
         },
@@ -113,7 +117,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
-                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';

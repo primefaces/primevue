@@ -134,20 +134,17 @@ const onLazyLoad = (event) => {
             }
 
             //imitate delay of a backend call
-            this.loadLazyTimeout = setTimeout(
-                () => {
-                    const { first, last } = event;
-                    const lazyItems = [...this.lazyItems];
+            this.loadLazyTimeout = setTimeout(() => {
+                const { first, last } = event;
+                const lazyItems = [...this.lazyItems];
 
-                    for (let i = first; i < last; i++) {
-                        lazyItems[i] = `Item #${i}`;
-                    }
+                for (let i = first; i < last; i++) {
+                    lazyItems[i] = `Item #${i}`;
+                }
 
-                    this.lazyItems = lazyItems;
-                    this.lazyLoading = false;
-                },
-                Math.random() * 1000 + 250
-            );
+                this.lazyItems = lazyItems;
+                this.lazyLoading = false;
+            }, Math.random() * 1000 + 250);
         }
     }
 };

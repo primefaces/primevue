@@ -2,7 +2,7 @@
  * Ported from useStyleTag in @vueuse/core
  * https://github.com/vueuse
  */
-import { DomHandler } from '@primevue/core/utils';
+import { isClient, isExist, setAttribute, setAttributes } from '@primeuix/utils/dom';
 import { getCurrentInstance, nextTick, onMounted, readonly, ref, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
@@ -18,7 +18,7 @@ export function useStyle(css, options = {}) {
     const cssRef = ref(css);
     const styleRef = ref(null);
 
-    const defaultDocument = DomHandler.isClient() ? window.document : undefined;
+    const defaultDocument = isClient() ? window.document : undefined;
     const {
         document = defaultDocument,
         immediate = true,
@@ -48,15 +48,15 @@ export function useStyle(css, options = {}) {
         if (!styleRef.value.isConnected) {
             cssRef.value = _css || css;
 
-            DomHandler.setAttributes(styleRef.value, {
+            setAttributes(styleRef.value, {
                 type: 'text/css',
                 id: _id,
                 media,
                 nonce: _nonce
             });
             first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
-            DomHandler.setAttribute(styleRef.value, 'data-primevue-style-id', _name);
-            DomHandler.setAttributes(styleRef.value, _styleProps);
+            setAttribute(styleRef.value, 'data-primevue-style-id', _name);
+            setAttributes(styleRef.value, _styleProps);
             styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
             onStyleMounted?.(_name);
         }
@@ -78,7 +78,7 @@ export function useStyle(css, options = {}) {
     const unload = () => {
         if (!document || !isLoaded.value) return;
         stop();
-        DomHandler.isExist(styleRef.value) && document.head.removeChild(styleRef.value);
+        isExist(styleRef.value) && document.head.removeChild(styleRef.value);
         isLoaded.value = false;
     };
 

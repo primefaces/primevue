@@ -74,6 +74,10 @@ export interface PaginatorPassThroughOptions<T = any> {
      */
     root?: PaginatorPassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the content DOM element.
+     */
+    content?: PaginatorPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the content start's DOM element.
      */
     contentStart?: PaginatorPassThroughOptionType<T>;

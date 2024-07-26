@@ -28,9 +28,9 @@ const theme = ({ dt }) => `
 }
 
 .p-inputgroup .p-inputtext,
-.p-fluid .p-inputgroup .p-inputtext,
+.p-inputgroup-fluid .p-inputtext,
 .p-inputgroup .p-inputwrapper,
-.p-fluid .p-inputgroup .p-input {
+.p-inputgroup-fluid .p-input {
     flex: 1 1 auto;
     width: 1%;
 }
@@ -92,17 +92,22 @@ const theme = ({ dt }) => `
     border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-fluid .p-inputgroup .p-button {
+.p-inputgroup-fluid .p-button {
     width: auto;
 }
 
-.p-fluid .p-inputgroup .p-button.p-button-icon-only {
+.p-inputgroup-fluid .p-button.p-button-icon-only {
     width: 2.5rem;
 }
 `;
 
 const classes = {
-    root: 'p-inputgroup'
+    root: ({ instance }) => [
+        'p-inputgroup',
+        {
+            'p-inputgroup-fluid': instance.hasFluid
+        }
+    ]
 };
 
 export default BaseStyle.extend({

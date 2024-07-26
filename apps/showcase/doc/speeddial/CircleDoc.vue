@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }" class="flex items-center justify-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warn" :style="{ position: 'absolute' }" />
+            <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -53,13 +53,13 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warn" :style="{ position: 'absolute' }" />
+<SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
 `,
                 options: `
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }" class="flex items-center justify-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warn" :style="{ position: 'absolute' }" />
+            <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
             <Toast />
         </div>
     </div>
@@ -115,7 +115,7 @@ export default {
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '500px' }" class="flex items-center justify-center">
-            <SpeedDial :model="items" :radius="80" type="circle" buttonClass="p-button-warn" :style="{ position: 'absolute' }" />
+            <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
             <Toast />
         </div>
     </div>

@@ -15,7 +15,7 @@ export default {
             home: {
                 icon: 'pi pi-home'
             },
-            items: [{ label: 'Electronics' }, { label: 'Computer' }, { label: 'Accessories' }, { label: 'Keyboard' }, { label: 'Wireless' }],
+            items: [{ label: 'Electronics' }, { label: 'Computer', icon: 'pi pi-desktop' }, { label: 'Accessories' }, { label: 'Keyboard' }, { label: 'Wireless' }],
             code: {
                 basic: `
 <Breadcrumb :home="home" :model="items" />

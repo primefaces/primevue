@@ -13,6 +13,14 @@ const theme = ({ dt }) => `
     gap: ${dt('paginator.gap')};
 }
 
+.p-paginator-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: ${dt('paginator.gap')};
+}
+
 .p-paginator-content-start {
     margin-right: auto;
 }
@@ -92,6 +100,7 @@ const classes = {
             [`p-paginator-${key}`]: instance.hasBreakpoints()
         }
     ],
+    content: 'p-paginator-content',
     contentStart: 'p-paginator-content-start',
     contentEnd: 'p-paginator-content-end',
     first: ({ instance }) => [

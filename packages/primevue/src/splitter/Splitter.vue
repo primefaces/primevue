@@ -22,7 +22,9 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
+import { getWidth, getHeight, getOuterWidth, getOuterHeight } from '@primeuix/utils/dom';
+import { isArray } from '@primeuix/utils/object';
 import BaseSplitter from './BaseSplitter.vue';
 
 export default {
@@ -85,7 +87,7 @@ export default {
         },
         onResizeStart(event, index, isKeyDown) {
             this.gutterElement = event.currentTarget || event.target.parentElement;
-            this.size = this.horizontal ? DomHandler.getWidth(this.$el) : DomHandler.getHeight(this.$el);
+            this.size = this.horizontal ? getWidth(this.$el) : getHeight(this.$el);
 
             if (!isKeyDown) {
                 this.dragging = true;
@@ -96,11 +98,11 @@ export default {
             this.nextPanelElement = this.gutterElement.nextElementSibling;
 
             if (isKeyDown) {
-                this.prevPanelSize = this.horizontal ? DomHandler.getOuterWidth(this.prevPanelElement, true) : DomHandler.getOuterHeight(this.prevPanelElement, true);
-                this.nextPanelSize = this.horizontal ? DomHandler.getOuterWidth(this.nextPanelElement, true) : DomHandler.getOuterHeight(this.nextPanelElement, true);
+                this.prevPanelSize = this.horizontal ? getOuterWidth(this.prevPanelElement, true) : getOuterHeight(this.prevPanelElement, true);
+                this.nextPanelSize = this.horizontal ? getOuterWidth(this.nextPanelElement, true) : getOuterHeight(this.nextPanelElement, true);
             } else {
-                this.prevPanelSize = (100 * (this.horizontal ? DomHandler.getOuterWidth(this.prevPanelElement, true) : DomHandler.getOuterHeight(this.prevPanelElement, true))) / this.size;
-                this.nextPanelSize = (100 * (this.horizontal ? DomHandler.getOuterWidth(this.nextPanelElement, true) : DomHandler.getOuterHeight(this.nextPanelElement, true))) / this.size;
+                this.prevPanelSize = (100 * (this.horizontal ? getOuterWidth(this.prevPanelElement, true) : getOuterHeight(this.prevPanelElement, true))) / this.size;
+                this.nextPanelSize = (100 * (this.horizontal ? getOuterWidth(this.nextPanelElement, true) : getOuterHeight(this.nextPanelElement, true))) / this.size;
             }
 
             this.prevPanelIndex = index;
@@ -263,13 +265,13 @@ export default {
             if (newPrevPanelSize > 100 || newPrevPanelSize < 0) return false;
             if (newNextPanelSize > 100 || newNextPanelSize < 0) return false;
 
-            let prevPanelMinSize = ObjectUtils.getVNodeProp(this.panels[this.prevPanelIndex], 'minSize');
+            let prevPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex], 'minSize');
 
             if (this.panels[this.prevPanelIndex].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
-            let newPanelMinSize = ObjectUtils.getVNodeProp(this.panels[this.prevPanelIndex + 1], 'minSize');
+            let newPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex + 1], 'minSize');
 
             if (this.panels[this.prevPanelIndex + 1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
                 return false;
@@ -326,7 +328,7 @@ export default {
             }
         },
         saveState() {
-            if (ObjectUtils.isArray(this.panelSizes)) {
+            if (isArray(this.panelSizes)) {
                 this.getStorage().setItem(this.stateKey, JSON.stringify(this.panelSizes));
             }
         },

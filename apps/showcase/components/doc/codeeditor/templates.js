@@ -2,7 +2,7 @@ import pkg from '../../../package.json';
 import { services } from './services';
 
 const PrimeVue = {
-    version: '^4.0.0-beta.4',
+    version: '^4.0.0',
     description:
         'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
 };
@@ -13,7 +13,8 @@ const core_dependencies = {
     vue: '^3.2.45',
     '@vitejs/plugin-vue': '^4.0.0',
     vite: '^4.0.0',
-    primevue: PrimeVue.version || 'latest',
+    '@primevue/themes': pkg.version || PrimeVue.version || 'latest',
+    primevue: pkg.version || PrimeVue.version || 'latest',
     primeicons: app_dependencies['primeicons'] || 'latest',
     tailwindcss: app_dependencies['tailwindcss'] || 'latest',
     autoprefixer: app_dependencies['autoprefixer'] || 'latest',
@@ -171,6 +172,7 @@ import DynamicDialog from 'primevue/dynamicdialog';
 import Fieldset from 'primevue/fieldset';
 import FileUpload from 'primevue/fileupload';
 import FloatLabel from 'primevue/floatlabel';
+import Fluid from 'primevue/fluid';
 import FocusTrap from 'primevue/focustrap';
 import Galleria from 'primevue/galleria';
 import IconField from 'primevue/iconfield';
@@ -312,6 +314,7 @@ app.component('DynamicDialog', DynamicDialog);
 app.component('Fieldset', Fieldset);
 app.component('FileUpload', FileUpload);
 app.component('FloatLabel', FloatLabel);
+app.component('Fluid', Fluid);
 app.component('Galleria', Galleria);
 app.component('IconField', IconField);
 app.component('Image', Image);

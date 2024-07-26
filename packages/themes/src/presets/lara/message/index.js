@@ -1,7 +1,7 @@
 export default {
     root: {
         borderRadius: '{content.border.radius}',
-        borderWidth: '0 0 0 6px',
+        borderWidth: '1px',
         transitionDuration: '{transition.duration}'
     },
     content: {
@@ -32,7 +32,7 @@ export default {
         light: {
             info: {
                 background: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                borderColor: '{blue.500}',
+                borderColor: 'transparent',
                 color: '{blue.600}',
                 shadow: 'none',
                 closeButton: {
@@ -45,7 +45,7 @@ export default {
             },
             success: {
                 background: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                borderColor: '{green.500}',
+                borderColor: 'transparent',
                 color: '{green.600}',
                 shadow: 'none',
                 closeButton: {
@@ -58,7 +58,7 @@ export default {
             },
             warn: {
                 background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                borderColor: '{yellow.500}',
+                borderColor: 'transparent',
                 color: '{yellow.600}',
                 shadow: 'none',
                 closeButton: {
@@ -71,7 +71,7 @@ export default {
             },
             error: {
                 background: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                borderColor: '{red.500}',
+                borderColor: 'transparent',
                 color: '{red.600}',
                 shadow: 'none',
                 closeButton: {
@@ -84,7 +84,7 @@ export default {
             },
             secondary: {
                 background: '{surface.100}',
-                borderColor: '{surface.500}',
+                borderColor: 'transparent',
                 color: '{surface.600}',
                 shadow: 'none',
                 closeButton: {
@@ -97,7 +97,7 @@ export default {
             },
             contrast: {
                 background: '{surface.900}',
-                borderColor: '{primary.color}',
+                borderColor: 'transparent',
                 color: '{surface.50}',
                 shadow: 'none',
                 closeButton: {
@@ -112,7 +112,7 @@ export default {
         dark: {
             info: {
                 background: 'color-mix(in srgb, {blue.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {blue.700}, transparent 64%)',
+                borderColor: 'transparent',
                 color: '{blue.500}',
                 shadow: 'none',
                 closeButton: {
@@ -125,7 +125,7 @@ export default {
             },
             success: {
                 background: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {green.700}, transparent 64%)',
+                borderColor: 'transparent',
                 color: '{green.500}',
                 shadow: 'none',
                 closeButton: {
@@ -138,7 +138,7 @@ export default {
             },
             warn: {
                 background: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {yellow.700}, transparent 64%)',
+                borderColor: 'transparent',
                 color: '{yellow.500}',
                 shadow: 'none',
                 closeButton: {
@@ -151,7 +151,7 @@ export default {
             },
             error: {
                 background: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {red.700}, transparent 64%)',
+                borderColor: 'transparent',
                 color: '{red.500}',
                 shadow: 'none',
                 closeButton: {
@@ -164,7 +164,7 @@ export default {
             },
             secondary: {
                 background: '{surface.800}',
-                borderColor: '{surface.700}',
+                borderColor: 'transparent',
                 color: '{surface.300}',
                 shadow: 'none',
                 closeButton: {
@@ -177,7 +177,7 @@ export default {
             },
             contrast: {
                 background: '{surface.0}',
-                borderColor: '{primary.color}',
+                borderColor: 'transparent',
                 color: '{surface.950}',
                 shadow: 'none',
                 closeButton: {

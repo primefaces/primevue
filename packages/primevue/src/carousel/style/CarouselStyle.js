@@ -15,6 +15,7 @@ const theme = ({ dt }) => `
 .p-carousel-content {
     display: flex;
     flex-direction: row;
+    gap: ${dt('carousel.content.gap')};
 }
 
 .p-carousel-viewport {

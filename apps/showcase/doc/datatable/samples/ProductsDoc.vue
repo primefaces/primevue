@@ -56,7 +56,7 @@
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -75,20 +75,20 @@
     </DeferredDemo>
 
     <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true">
-        <div class="flex flex-col gap-6 p-fluid">
+        <div class="flex flex-col gap-6">
             <img v-if="product.image" :src="`https://primefaces.org/cdn/primevue/images/product/${product.image}`" :alt="product.image" class="block m-auto pb-4" />
             <div>
                 <label for="name" class="block font-bold mb-3">Name</label>
-                <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
+                <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
                 <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
             </div>
             <div>
                 <label for="description" class="block font-bold mb-3">Description</label>
-                <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" />
+                <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" fluid />
             </div>
             <div>
                 <label for="inventoryStatus" class="block font-bold mb-3">Inventory Status</label>
-                <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status"></Select>
+                <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status" fluid></Select>
             </div>
 
             <div>
@@ -116,11 +116,11 @@
             <div class="grid grid-cols-12 gap-4">
                 <div class="col-span-6">
                     <label for="price" class="block font-bold mb-3">Price</label>
-                    <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
+                    <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" fluid />
                 </div>
                 <div class="col-span-6">
                     <label for="quantity" class="block font-bold mb-3">Quantity</label>
-                    <InputNumber id="quantity" v-model="product.quantity" integeronly />
+                    <InputNumber id="quantity" v-model="product.quantity" integeronly fluid />
                 </div>
             </div>
         </div>
@@ -233,7 +233,7 @@ export default {
     <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
     <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
         <template #body="slotProps">
-            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+            <Rating :modelValue="slotProps.data.rating" :readonly="true" />
         </template>
     </Column>
     <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -305,7 +305,7 @@ export default {
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -323,20 +323,20 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true">
-            <div class="flex flex-col gap-6 p-fluid">
+            <div class="flex flex-col gap-6">
                 <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-4" />
                 <div>
                     <label for="name" class="block font-bold mb-3">Name</label>
-                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
+                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
                     <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
                 </div>
                 <div>
                     <label for="description" class="block font-bold mb-3">Description</label>
-                    <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" />
+                    <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" fluid />
                 </div>
                 <div>
                     <label for="inventoryStatus" class="block font-bold mb-3">Inventory Status</label>
-                    <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status"></Select>
+                    <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status" fluid></Select>
                 </div>
 
                 <div>
@@ -364,11 +364,11 @@ export default {
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-6">
                         <label for="price" class="block font-bold mb-3">Price</label>
-                        <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
+                        <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" fluid />
                     </div>
                     <div class="col-span-6">
                         <label for="quantity" class="block font-bold mb-3">Quantity</label>
-                        <InputNumber id="quantity" v-model="product.quantity" integeronly />
+                        <InputNumber id="quantity" v-model="product.quantity" integeronly fluid />
                     </div>
                 </div>
             </div>
@@ -597,7 +597,7 @@ export default {
                 <Column field="category" header="Category" sortable style="min-width: 10rem"></Column>
                 <Column field="rating" header="Reviews" sortable style="min-width: 12rem">
                     <template #body="slotProps">
-                        <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
+                        <Rating :modelValue="slotProps.data.rating" :readonly="true" />
                     </template>
                 </Column>
                 <Column field="inventoryStatus" header="Status" sortable style="min-width: 12rem">
@@ -615,20 +615,20 @@ export default {
         </div>
 
         <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Product Details" :modal="true">
-            <div class="flex flex-col gap-6 p-fluid">
+            <div class="flex flex-col gap-6">
                 <img v-if="product.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${product.image}\`" :alt="product.image" class="block m-auto pb-4" />
                 <div>
                     <label for="name" class="block font-bold mb-3">Name</label>
-                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" />
+                    <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
                     <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
                 </div>
                 <div>
                     <label for="description" class="block font-bold mb-3">Description</label>
-                    <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" />
+                    <Textarea id="description" v-model="product.description" required="true" rows="3" cols="20" fluid />
                 </div>
                 <div>
                     <label for="inventoryStatus" class="block font-bold mb-3">Inventory Status</label>
-                    <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status"></Select>
+                    <Select id="inventoryStatus" v-model="product.inventoryStatus" :options="statuses" optionLabel="label" placeholder="Select a Status" fluid></Select>
                 </div>
 
                 <div>
@@ -656,11 +656,11 @@ export default {
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-6">
                         <label for="price" class="block font-bold mb-3">Price</label>
-                        <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" />
+                        <InputNumber id="price" v-model="product.price" mode="currency" currency="USD" locale="en-US" fluid />
                     </div>
                     <div class="col-span-6">
                         <label for="quantity" class="block font-bold mb-3">Quantity</label>
-                        <InputNumber id="quantity" v-model="product.quantity" integeronly />
+                        <InputNumber id="quantity" v-model="product.quantity" integeronly fluid />
                     </div>
                 </div>
             </div>

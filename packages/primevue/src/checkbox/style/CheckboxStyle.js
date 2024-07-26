@@ -35,10 +35,10 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('checkbox.border.color')};
     background: ${dt('checkbox.background')};
     width: ${dt('checkbox.width')};
-    height: ${dt('checkbox.width')};
+    height: ${dt('checkbox.height')};
     transition: background ${dt('checkbox.transition.duration')}, color ${dt('checkbox.transition.duration')}, border-color ${dt('checkbox.transition.duration')}, box-shadow ${dt('checkbox.transition.duration')}, outline-color ${dt(
-        'checkbox.transition.duration'
-    )};
+    'checkbox.transition.duration'
+)};
     outline-color: transparent;
     box-shadow: ${dt('checkbox.shadow')};
 }
@@ -106,6 +106,7 @@ const theme = ({ dt }) => `
 
 .p-checkbox.p-disabled .p-checkbox-box {
     background: ${dt('checkbox.disabled.background')};
+    border-color: ${dt('checkbox.checked.disabled.border.color')};
 }
 
 .p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {

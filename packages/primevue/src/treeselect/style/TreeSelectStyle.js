@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.background')};
     border: 1px solid ${dt('treeselect.border.color')};
     transition: background ${dt('treeselect.transition.duration')}, color ${dt('treeselect.transition.duration')}, border-color ${dt('treeselect.transition.duration')}, outline-color ${dt('treeselect.transition.duration')}, box-shadow ${dt(
-        'treeselect.transition.duration'
-    )};
+    'treeselect.transition.duration'
+)};
     border-radius: ${dt('treeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('treeselect.shadow')};
@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
     background: transparent;
 }
 
-.p-fluid .p-treeselect {
+.p-treeselect-fluid {
     display: flex;
 }
 
@@ -147,7 +147,8 @@ const classes = {
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-treeselect-open': instance.overlayVisible
+            'p-treeselect-open': instance.overlayVisible,
+            'p-treeselect-fluid': instance.hasFluid
         }
     ],
     labelContainer: 'p-treeselect-label-container',

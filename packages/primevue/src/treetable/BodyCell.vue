@@ -40,7 +40,9 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
+import { getNextElementSibling, getPreviousElementSibling, getOuterWidth } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -125,7 +127,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         columnProp(prop) {
-            return ObjectUtils.getVNodeProp(this.column, prop);
+            return getVNodeProp(this.column, prop);
         },
         getColumnPT(key) {
             const columnMetaData = {
@@ -173,19 +175,19 @@ export default {
 
                 if (align === 'right') {
                     let right = 0;
-                    let next = DomHandler.getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
-                    let prev = DomHandler.getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';
@@ -193,7 +195,7 @@ export default {
             }
         },
         resolveFieldData(rowData, field) {
-            return ObjectUtils.resolveFieldData(rowData, field);
+            return resolveFieldData(rowData, field);
         },
         toggleCheckbox() {
             this.$emit('checkbox-toggle');

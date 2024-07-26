@@ -24,8 +24,8 @@ const theme = ({ dt }) => `
     font-weight: ${dt('accordion.header.font.weight')};
     border-radius: ${dt('accordion.header.border.radius')};
     transition: background ${dt('accordion.transition.duration')}; color ${dt('accordion.transition.duration')}color ${dt('accordion.transition.duration')}, outline-color ${dt('accordion.transition.duration')}, box-shadow ${dt(
-        'accordion.transition.duration'
-    )};
+    'accordion.transition.duration'
+)};
     outline-color: transparent;
 }
 
@@ -86,7 +86,7 @@ const theme = ({ dt }) => `
     border-style: solid;
     border-width: ${dt('accordion.content.border.width')};
     border-color: ${dt('accordion.content.border.color')};
-    background: color: ${dt('accordion.content.background')};
+    background-color: ${dt('accordion.content.background')};
     color: ${dt('accordion.content.color')};
     padding: ${dt('accordion.content.padding')}
 }

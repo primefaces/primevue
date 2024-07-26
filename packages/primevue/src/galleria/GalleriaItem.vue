@@ -1,14 +1,14 @@
 <template>
     <div :class="cx('itemsContainer')" v-bind="ptm('itemsContainer')">
         <div :class="cx('items')" v-bind="ptm('items')">
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('previousItemButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('previousItemButton')" data-pc-group-section="itemnavigator">
-                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('previousItemIcon')" v-bind="ptm('previousItemIcon')" />
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('prevButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('prevButton')" data-pc-group-section="itemnavigator">
+                <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('prevIcon')" v-bind="ptm('prevIcon')" />
             </button>
             <div :id="id + '_item_' + activeIndex" :class="cx('item')" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel" v-bind="ptm('item')">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextItemButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextItemButton')" data-pc-group-section="itemnavigator">
-                <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextItemIcon')" v-bind="ptm('nextItemIcon')" />
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextButton')" data-pc-group-section="itemnavigator">
+                <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextIcon')" v-bind="ptm('nextIcon')" />
             </button>
             <div v-if="templates['caption']" :class="cx('caption')" v-bind="ptm('caption')">
                 <component v-if="templates.caption" :is="templates.caption" :item="activeItem" />
@@ -36,8 +36,8 @@
 </template>
 
 <script>
+import { find, findSingle, getAttribute } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler } from '@primevue/core/utils';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
@@ -191,7 +191,7 @@ export default {
             }
         },
         onRightKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, activeIndex + 1 === indicators.length ? indicators.length - 1 : activeIndex + 1);
@@ -207,29 +207,29 @@ export default {
             this.changedFocusedIndicator(activeIndex, 0);
         },
         onEndKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
             const activeIndex = this.findFocusedIndicatorIndex();
 
             this.changedFocusedIndicator(activeIndex, indicators.length - 1);
         },
         onTabKey() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
-            const highlightedIndex = indicators.findIndex((ind) => DomHandler.getAttribute(ind, 'data-p-active') === true);
+            const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const highlightedIndex = indicators.findIndex((ind) => getAttribute(ind, 'data-p-active') === true);
 
-            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
 
             indicators[activeIndex].children[0].tabIndex = '-1';
             indicators[highlightedIndex].children[0].tabIndex = '0';
         },
         findFocusedIndicatorIndex() {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
-            const activeIndicator = DomHandler.findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+            const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
 
             return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
         },
         changedFocusedIndicator(prevInd, nextInd) {
-            const indicators = [...DomHandler.find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
+            const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
 
             indicators[prevInd].children[0].tabIndex = '-1';
             indicators[nextInd].children[0].tabIndex = '0';

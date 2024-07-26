@@ -33,8 +33,8 @@ const theme = ({ dt }) => `
     border-color: ${dt('toggleswitch.border.color')};
     background: ${dt('toggleswitch.background')};
     transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, border-color ${dt('toggleswitch.transition.duration')}, outline-color ${dt('toggleswitch.transition.duration')}, box-shadow ${dt(
-        'toggleswitch.transition.duration'
-    )};
+    'toggleswitch.transition.duration'
+)};
     border-radius: ${dt('toggleswitch.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('toggleswitch.shadow')};
@@ -89,6 +89,18 @@ const theme = ({ dt }) => `
 
 .p-toggleswitch.p-invalid > .p-toggleswitch-slider {
     border-color: ${dt('toggleswitch.invalid.border.color')};
+}
+
+.p-toggleswitch.p-disabled {
+    opacity: 1;
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-slider {
+    background: ${dt('toggleswitch.disabled.background')};
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-slider:before {
+    background: ${dt('toggleswitch.handle.disabled.background')};
 }
 `;
 

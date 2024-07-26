@@ -10,6 +10,7 @@
             :icon="icon"
             :outlined="outlined"
             :size="size"
+            :fluid="fluid"
             :aria-label="label"
             @click="onDefaultButtonClick"
             v-bind="buttonProps"
@@ -50,7 +51,7 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('ptMenu')">
+        <PVSMenu ref="menu" :id="id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('pcMenu')">
             <template v-if="$slots.menuitemicon" #itemicon="slotProps">
                 <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
             </template>
@@ -62,6 +63,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Button from 'primevue/button';
@@ -73,6 +75,9 @@ export default {
     extends: BaseSplitButton,
     inheritAttrs: false,
     emits: ['click'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -117,6 +122,9 @@ export default {
     computed: {
         containerClass() {
             return [this.cx('root'), this.class];
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

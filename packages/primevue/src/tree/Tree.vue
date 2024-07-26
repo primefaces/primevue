@@ -8,9 +8,9 @@
                 </slot>
             </div>
         </template>
-        <IconField v-if="filter" :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" v-bind="ptm('pcFilterInput')" />
-            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+        <IconField v-if="filter" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilter')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilter')" />
+            <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                 <!--TODO: searchicon deprecated since v4.0-->
                 <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
                     <SearchIcon :class="cx('filterIcon')" v-bind="ptm('filterIcon')" />
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import IconField from 'primevue/iconfield';
@@ -205,7 +205,7 @@ export default {
             let matched = false;
 
             for (let field of searchFields) {
-                let fieldValue = String(ObjectUtils.resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
+                let fieldValue = String(resolveFieldData(node, field)).toLocaleLowerCase(this.filterLocale);
 
                 if (fieldValue.indexOf(filterText) > -1) {
                     matched = true;

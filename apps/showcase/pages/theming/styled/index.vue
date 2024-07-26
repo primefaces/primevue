@@ -23,7 +23,7 @@ import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import CaseStyleDoc from '@/doc/theming/styled/CaseStyleDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
-import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
+import DarkModeDoc from '@/doc/theming/styled/DarkModeDoc.vue';
 import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
 import ReservedKeysDoc from '@/doc/theming/styled/ReservedKeysDoc.vue';
 import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
@@ -181,9 +181,9 @@ export default {
                     component: ColorsDoc
                 },
                 {
-                    id: 'darkmodetoggle',
-                    label: 'Dark Mode Toggle',
-                    component: DarkModeToggleDoc
+                    id: 'darkmode',
+                    label: 'Dark Mode',
+                    component: DarkModeDoc
                 },
                 {
                     id: 'csslayer',

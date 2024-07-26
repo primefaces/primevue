@@ -1,4 +1,4 @@
-import { DomHandler } from '@primevue/core/utils';
+import { addClass, createElement, getAttribute, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth, removeClass } from '@primeuix/utils/dom';
 import BaseRipple from './BaseRipple';
 
 const Ripple = BaseRipple.extend('ripple', {
@@ -29,7 +29,7 @@ const Ripple = BaseRipple.extend('ripple', {
             el.removeEventListener('mousedown', this.onMouseDown.bind(this));
         },
         createRipple(el) {
-            const ink = DomHandler.createElement('span', {
+            const ink = createElement('span', {
                 role: 'presentation',
                 'aria-hidden': true,
                 'data-p-ink': true,
@@ -64,29 +64,29 @@ const Ripple = BaseRipple.extend('ripple', {
                 return;
             }
 
-            !this.isUnstyled() && DomHandler.removeClass(ink, 'p-ink-active');
+            !this.isUnstyled() && removeClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'false');
 
-            if (!DomHandler.getHeight(ink) && !DomHandler.getWidth(ink)) {
-                let d = Math.max(DomHandler.getOuterWidth(target), DomHandler.getOuterHeight(target));
+            if (!getHeight(ink) && !getWidth(ink)) {
+                let d = Math.max(getOuterWidth(target), getOuterHeight(target));
 
                 ink.style.height = d + 'px';
                 ink.style.width = d + 'px';
             }
 
-            let offset = DomHandler.getOffset(target);
-            let x = event.pageX - offset.left + document.body.scrollTop - DomHandler.getWidth(ink) / 2;
-            let y = event.pageY - offset.top + document.body.scrollLeft - DomHandler.getHeight(ink) / 2;
+            let offset = getOffset(target);
+            let x = event.pageX - offset.left + document.body.scrollTop - getWidth(ink) / 2;
+            let y = event.pageY - offset.top + document.body.scrollLeft - getHeight(ink) / 2;
 
             ink.style.top = y + 'px';
             ink.style.left = x + 'px';
 
-            !this.isUnstyled() && DomHandler.addClass(ink, 'p-ink-active');
+            !this.isUnstyled() && addClass(ink, 'p-ink-active');
             ink.setAttribute('data-p-ink-active', 'true');
 
             this.timeout = setTimeout(() => {
                 if (ink) {
-                    !this.isUnstyled() && DomHandler.removeClass(ink, 'p-ink-active');
+                    !this.isUnstyled() && removeClass(ink, 'p-ink-active');
                     ink.setAttribute('data-p-ink-active', 'false');
                 }
             }, 401);
@@ -96,11 +96,11 @@ const Ripple = BaseRipple.extend('ripple', {
                 clearTimeout(this.timeout);
             }
 
-            !this.isUnstyled() && DomHandler.removeClass(event.currentTarget, 'p-ink-active');
+            !this.isUnstyled() && removeClass(event.currentTarget, 'p-ink-active');
             event.currentTarget.setAttribute('data-p-ink-active', 'false');
         },
         getInk(el) {
-            return el && el.children ? [...el.children].find((child) => DomHandler.getAttribute(child, 'data-pc-name') === 'ripple') : undefined;
+            return el && el.children ? [...el.children].find((child) => getAttribute(child, 'data-pc-name') === 'ripple') : undefined;
         }
     }
 });

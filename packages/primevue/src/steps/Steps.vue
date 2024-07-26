@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { findSingle, find } from '@primeuix/utils/dom';
 import { mergeProps } from 'vue';
 import BaseSteps from './BaseSteps.vue';
 
@@ -160,12 +160,12 @@ export default {
             return prevItem ? prevItem.children[0] : null;
         },
         findFirstItem() {
-            const firstSibling = DomHandler.findSingle(this.$refs.list, '[data-pc-section="item"]');
+            const firstSibling = findSingle(this.$refs.list, '[data-pc-section="item"]');
 
             return firstSibling ? firstSibling.children[0] : null;
         },
         findLastItem() {
-            const siblings = DomHandler.find(this.$refs.list, '[data-pc-section="item"]');
+            const siblings = find(this.$refs.list, '[data-pc-section="item"]');
 
             return siblings ? siblings[siblings.length - 1].children[0] : null;
         },

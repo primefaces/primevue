@@ -71,7 +71,9 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { getOuterHeight } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BodyRow from './BodyRow.vue';
 
 export default {
@@ -249,13 +251,13 @@ export default {
     },
     methods: {
         getRowKey(rowData, rowIndex) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(rowData, this.dataKey) : rowIndex;
+            return this.dataKey ? resolveFieldData(rowData, this.dataKey) : rowIndex;
         },
         updateFrozenRowStickyPosition() {
-            this.$el.style.top = DomHandler.getOuterHeight(this.$el.previousElementSibling) + 'px';
+            this.$el.style.top = getOuterHeight(this.$el.previousElementSibling) + 'px';
         },
         updateFrozenRowGroupHeaderStickyPosition() {
-            let tableHeaderHeight = DomHandler.getOuterHeight(this.$el.previousElementSibling);
+            let tableHeaderHeight = getOuterHeight(this.$el.previousElementSibling);
 
             this.rowGroupHeaderStyleObject.top = tableHeaderHeight + 'px';
         },

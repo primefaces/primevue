@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { addClass, removeClass } from '@primeuix/utils/dom';
 import PlusIcon from '@primevue/icons/plus';
 import TimesIcon from '@primevue/icons/times';
 import UploadIcon from '@primevue/icons/upload';
@@ -296,7 +296,7 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled) {
-                !this.isUnstyled && DomHandler.addClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
@@ -304,13 +304,13 @@ export default {
         },
         onDragLeave() {
             if (!this.disabled) {
-                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
             }
         },
         onDrop(event) {
             if (!this.disabled) {
-                !this.isUnstyled && DomHandler.removeClass(this.$refs.content, 'p-fileupload-highlight');
+                !this.isUnstyled && removeClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', false);
                 event.stopPropagation();
                 event.preventDefault();

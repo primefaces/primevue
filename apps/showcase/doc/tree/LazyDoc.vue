@@ -5,7 +5,7 @@
             <i>icon</i> is available.
         </p>
     </DocSectionText>
-    <div class="card flex flex-wrap p-fluid gap-4">
+    <div class="card flex flex-wrap gap-4">
         <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
@@ -32,7 +32,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap p-fluid gap-4">
+    <div class="card flex flex-wrap gap-4">
         <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
@@ -159,7 +159,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap p-fluid gap-4">
+    <div class="card flex flex-wrap gap-4">
         <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
             <label class="font-bold block mb-2">Mask Mode</label>
             <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>

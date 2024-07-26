@@ -438,21 +438,21 @@ const classes = {
     footer: 'p-galleria-footer',
     itemsContainer: 'p-galleria-items-container',
     items: 'p-galleria-items',
-    previousItemButton: ({ instance }) => [
+    prevButton: ({ instance }) => [
         'p-galleria-prev-button p-galleria-nav-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
     ],
-    previousItemIcon: 'p-galleria-prev-icon',
+    prevIcon: 'p-galleria-prev-icon',
     item: 'p-galleria-item',
-    nextItemButton: ({ instance }) => [
+    nextButton: ({ instance }) => [
         'p-galleria-next-button p-galleria-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }
     ],
-    nextItemIcon: 'p-galleria-next-icon',
+    nextIcon: 'p-galleria-next-icon',
     caption: 'p-galleria-caption',
     indicatorList: 'p-galleria-indicator-list',
     indicator: ({ instance, index }) => [
@@ -464,13 +464,13 @@ const classes = {
     indicatorButton: 'p-galleria-indicator-button',
     thumbnails: 'p-galleria-thumbnails',
     thumbnailContent: 'p-galleria-thumbnails-content',
-    previousThumbnailButton: ({ instance }) => [
+    thumbnailPrevButton: ({ instance }) => [
         'p-galleria-thumbnail-prev-button p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavBackwardDisabled()
         }
     ],
-    previousThumbnailIcon: 'p-galleria-thumbnail-prev-icon',
+    thumbnailPrevIcon: 'p-galleria-thumbnail-prev-icon',
     thumbnailsViewport: 'p-galleria-thumbnails-viewport',
     thumbnailItems: 'p-galleria-thumbnail-items',
     thumbnailItem: ({ instance, index, activeIndex }) => [
@@ -483,13 +483,13 @@ const classes = {
         }
     ],
     thumbnail: 'p-galleria-thumbnail',
-    nextThumbnailButton: ({ instance }) => [
+    thumbnailNextButton: ({ instance }) => [
         'p-galleria-thumbnail-next-button  p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }
     ],
-    nextThumbnailIcon: 'p-galleria-thumbnail-next-icon'
+    thumbnailNextIcon: 'p-galleria-thumbnail-next-icon'
 };
 
 export default BaseStyle.extend({

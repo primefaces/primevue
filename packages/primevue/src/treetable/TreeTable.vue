@@ -169,7 +169,9 @@
 
 <script>
 import { FilterService } from '@primevue/core/api';
-import { DomHandler, HelperSet, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { HelperSet, getVNodeProp, UniqueComponentId } from '@primevue/core/utils';
+import { getOffset, addStyle, getIndex, find, getOuterWidth, getAttribute, setAttribute, clearSelection } from '@primeuix/utils/dom';
+import { resolveFieldData, localeComparator, sort } from '@primeuix/utils/object';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import BaseTreeTable from './BaseTreeTable.vue';
@@ -248,7 +250,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+            return getVNodeProp(col, prop);
         },
         ptHeaderCellOptions(column) {
             return {
@@ -280,7 +282,7 @@ export default {
             }
         },
         nodeKey(node) {
-            return ObjectUtils.resolveFieldData(node, this.dataKey);
+            return resolveFieldData(node, this.dataKey);
         },
         handleSelectionWithMetaKey(event) {
             const originalEvent = event.originalEvent;
@@ -386,15 +388,15 @@ export default {
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (
-                    DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    getAttribute(targetNode, 'data-p-sortable-column') === true ||
+                    getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
+                    getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
+                    getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
                     targetNode.closest('[data-p-sortable-column="true"]')
                 ) {
-                    DomHandler.clearSelection();
+                    clearSelection();
 
                     if (this.sortMode === 'single') {
                         if (this.d_sortField === columnField) {
@@ -444,13 +446,13 @@ export default {
         },
         sortNodesSingle(nodes) {
             let _nodes = [...nodes];
-            const comparer = ObjectUtils.localeComparator();
+            const comparer = localeComparator();
 
             _nodes.sort((node1, node2) => {
-                const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_sortField);
-                const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_sortField);
+                const value1 = resolveFieldData(node1.data, this.d_sortField);
+                const value2 = resolveFieldData(node2.data, this.d_sortField);
 
-                return ObjectUtils.sort(value1, value2, this.d_sortOrder, comparer);
+                return sort(value1, value2, this.d_sortOrder, comparer);
             });
 
             return _nodes;
@@ -468,15 +470,15 @@ export default {
             return _nodes;
         },
         multisortField(node1, node2, index) {
-            const value1 = ObjectUtils.resolveFieldData(node1.data, this.d_multiSortMeta[index].field);
-            const value2 = ObjectUtils.resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
-            const comparer = ObjectUtils.localeComparator();
+            const value1 = resolveFieldData(node1.data, this.d_multiSortMeta[index].field);
+            const value2 = resolveFieldData(node2.data, this.d_multiSortMeta[index].field);
+            const comparer = localeComparator();
 
             if (value1 === value2) {
                 return this.d_multiSortMeta.length - 1 > index ? this.multisortField(node1, node2, index + 1) : 0;
             }
 
-            return ObjectUtils.sort(value1, value2, this.d_multiSortMeta[index].order, comparer);
+            return sort(value1, value2, this.d_multiSortMeta[index].order, comparer);
         },
         filter(value) {
             let filteredNodes = [];
@@ -571,7 +573,7 @@ export default {
         },
         isFilterMatched(node, { filterField, filterValue, filterConstraint, strict }) {
             let matched = false;
-            let dataFieldValue = ObjectUtils.resolveFieldData(node.data, filterField);
+            let dataFieldValue = resolveFieldData(node.data, filterField);
 
             if (filterConstraint(dataFieldValue, filterValue, this.filterLocale)) {
                 matched = true;
@@ -613,7 +615,7 @@ export default {
             };
         },
         onColumnResizeStart(event) {
-            let containerLeft = DomHandler.getOffset(this.$el).left;
+            let containerLeft = getOffset(this.$el).left;
 
             this.resizeColumnElement = event.target.parentElement;
             this.columnResizing = true;
@@ -622,10 +624,10 @@ export default {
             this.bindColumnResizeEvents();
         },
         onColumnResize(event) {
-            let containerLeft = DomHandler.getOffset(this.$el).left;
+            let containerLeft = getOffset(this.$el).left;
 
             this.$el.setAttribute('data-p-unselectable-text', 'true');
-            !this.isUnstyled && DomHandler.addStyles(this.$el, { 'user-select': 'none' });
+            !this.isUnstyled && addStyle(this.$el, { 'user-select': 'none' });
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -672,11 +674,11 @@ export default {
             this.unbindColumnResizeEvents();
         },
         resizeTableCells(newColumnWidth, nextColumnWidth) {
-            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let colIndex = getIndex(this.resizeColumnElement);
             let widths = [];
-            let headers = DomHandler.find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
+            let headers = find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
 
-            headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
+            headers.forEach((header) => widths.push(getOuterWidth(header)));
 
             this.destroyStyleElement();
             this.createStyleElement();
@@ -729,7 +731,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && event.currentTarget.nodeName === 'TH' && getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },
@@ -756,7 +758,7 @@ export default {
         createStyleElement() {
             this.styleElement = document.createElement('style');
             this.styleElement.type = 'text/css';
-            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+            setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
         },
         destroyStyleElement() {

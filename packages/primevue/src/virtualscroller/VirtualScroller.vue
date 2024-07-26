@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { findSingle, getHeight, getWidth, isVisible } from '@primeuix/utils/dom';
 import SpinnerIcon from '@primevue/icons/spinner';
 import BaseVirtualScroller from './BaseVirtualScroller.vue';
 
@@ -129,16 +129,16 @@ export default {
     },
     methods: {
         viewInit() {
-            if (DomHandler.isVisible(this.element)) {
+            if (isVisible(this.element)) {
                 this.setContentEl(this.content);
                 this.init();
                 this.calculateAutoSize();
                 this.bindResizeListener();
 
-                this.defaultWidth = DomHandler.getWidth(this.element);
-                this.defaultHeight = DomHandler.getHeight(this.element);
-                this.defaultContentWidth = DomHandler.getWidth(this.content);
-                this.defaultContentHeight = DomHandler.getHeight(this.content);
+                this.defaultWidth = getWidth(this.element);
+                this.defaultHeight = getHeight(this.element);
+                this.defaultContentWidth = getWidth(this.content);
+                this.defaultContentHeight = getHeight(this.content);
                 this.initialized = true;
             }
         },
@@ -331,12 +331,12 @@ export default {
                         this.content.style.position = 'relative';
                         this.element.style.contain = 'none';
 
-                        /*const [contentWidth, contentHeight] = [DomHandler.getWidth(this.content), DomHandler.getHeight(this.content)];
+                        /*const [contentWidth, contentHeight] = [getWidth(this.content), getHeight(this.content)];
 
                         contentWidth !== this.defaultContentWidth && (this.element.style.width = '');
                         contentHeight !== this.defaultContentHeight && (this.element.style.height = '');*/
 
-                        const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
+                        const [width, height] = [getWidth(this.element), getHeight(this.element)];
 
                         (both || horizontal) && (this.element.style.width = width < this.defaultWidth ? width + 'px' : this.scrollWidth || this.defaultWidth + 'px');
                         (both || vertical) && (this.element.style.height = height < this.defaultHeight ? height + 'px' : this.scrollHeight || this.defaultHeight + 'px');
@@ -556,11 +556,11 @@ export default {
             }
 
             this.resizeTimeout = setTimeout(() => {
-                if (DomHandler.isVisible(this.element)) {
+                if (isVisible(this.element)) {
                     const both = this.isBoth();
                     const vertical = this.isVertical();
                     const horizontal = this.isHorizontal();
-                    const [width, height] = [DomHandler.getWidth(this.element), DomHandler.getHeight(this.element)];
+                    const [width, height] = [getWidth(this.element), getHeight(this.element)];
                     const [isDiffWidth, isDiffHeight] = [width !== this.defaultWidth, height !== this.defaultHeight];
                     const reinit = both ? isDiffWidth || isDiffHeight : horizontal ? isDiffWidth : vertical ? isDiffHeight : false;
 
@@ -568,8 +568,8 @@ export default {
                         this.d_numToleratedItems = this.numToleratedItems;
                         this.defaultWidth = width;
                         this.defaultHeight = height;
-                        this.defaultContentWidth = DomHandler.getWidth(this.content);
-                        this.defaultContentHeight = DomHandler.getHeight(this.content);
+                        this.defaultContentWidth = getWidth(this.content);
+                        this.defaultContentHeight = getHeight(this.content);
 
                         this.init();
                     }
@@ -624,7 +624,7 @@ export default {
             return this.step ? this.page !== this.getPageByFirst(first ?? this.first) : true;
         },
         setContentEl(el) {
-            this.content = el || this.content || DomHandler.findSingle(this.element, '[data-pc-section="content"]');
+            this.content = el || this.content || findSingle(this.element, '[data-pc-section="content"]');
         },
         elementRef(el) {
             this.element = el;
@@ -657,7 +657,7 @@ export default {
             return [
                 'p-virtualscroller-loader',
                 {
-                    'p-overlay-mask': !this.$slots.loader
+                    'p-virtualscroller-loader-mask': !this.$slots.loader
                 }
             ];
         },

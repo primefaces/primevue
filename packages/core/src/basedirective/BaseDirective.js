@@ -1,31 +1,23 @@
+import { Theme, ThemeService } from '@primeuix/styled';
+import { getKeyValue, isArray, isEmpty, isFunction, isObject, isString, resolve, toCapitalCase, toFlatCase } from '@primeuix/utils/object';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
-import { ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
-import { Theme, ThemeService } from '@primevue/themes';
+import { UniqueComponentId } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 
 const BaseDirective = {
-    _getMeta: (...args) => [ObjectUtils.isObject(args[0]) ? undefined : args[0], ObjectUtils.getItemValue(ObjectUtils.isObject(args[0]) ? args[0] : args[1])],
+    _getMeta: (...args) => [isObject(args[0]) ? undefined : args[0], resolve(isObject(args[0]) ? args[0] : args[1])],
     _getConfig: (binding, vnode) => (binding?.instance?.$primevue || vnode?.ctx?.appContext?.config?.globalProperties?.$primevue)?.config,
-    _getOptionValue: (options, key = '', params = {}) => {
-        const fKeys = ObjectUtils.toFlatCase(key).split('.');
-        const fKey = fKeys.shift();
-
-        return fKey
-            ? ObjectUtils.isObject(options)
-                ? BaseDirective._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
-                : undefined
-            : ObjectUtils.getItemValue(options, params);
-    },
+    _getOptionValue: getKeyValue,
     _getPTValue: (instance = {}, obj = {}, key = '', params = {}, searchInDefaultPT = true) => {
         const getValue = (...args) => {
             const value = BaseDirective._getOptionValue(...args);
 
-            return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
+            return isString(value) || isArray(value) ? { class: value } : value;
         };
 
-        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$config?.ptOptions || {};
+        const { mergeSections = true, mergeProps: useMergeProps = false } = instance.binding?.value?.ptOptions || instance.$primevueConfig?.ptOptions || {};
         const global = searchInDefaultPT ? BaseDirective._useDefaultPT(instance, instance.defaultPT(), getValue, key, params) : undefined;
         const self = BaseDirective._usePT(instance, BaseDirective._getPT(obj, instance.$name), getValue, key, { ...params, global: global || {} });
         const datasets = BaseDirective._getPTDatasets(instance, key);
@@ -36,14 +28,14 @@ const BaseDirective = {
         const datasetPrefix = 'data-pc-';
 
         return {
-            ...(key === 'root' && { [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(instance.$name) }),
-            [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+            ...(key === 'root' && { [`${datasetPrefix}name`]: toFlatCase(instance.$name) }),
+            [`${datasetPrefix}section`]: toFlatCase(key)
         };
     },
     _getPT: (pt, key = '', callback) => {
         const getValue = (value) => {
             const computedValue = callback ? callback(value) : value;
-            const _key = ObjectUtils.toFlatCase(key);
+            const _key = toFlatCase(key);
 
             return computedValue?.[_key] ?? computedValue;
         };
@@ -60,13 +52,13 @@ const BaseDirective = {
         const fn = (value) => callback(value, key, params);
 
         if (pt?.hasOwnProperty('_usept')) {
-            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$config?.ptOptions || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$primevueConfig?.ptOptions || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
 
             if (originalValue === undefined && value === undefined) return undefined;
-            else if (ObjectUtils.isString(value)) return value;
-            else if (ObjectUtils.isString(originalValue)) return originalValue;
+            else if (isString(value)) return value;
+            else if (isString(originalValue)) return originalValue;
 
             return mergeSections || (!mergeSections && value) ? (useMergeProps ? BaseDirective._mergeProps(instance, useMergeProps, originalValue, value) : { ...originalValue, ...value }) : value;
         }
@@ -142,7 +134,7 @@ const BaseDirective = {
         ThemeService.on('theme:change', callback);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
-        const name = `on${ObjectUtils.toCapitalCase(hookName)}`;
+        const name = `on${toCapitalCase(hookName)}`;
         const config = BaseDirective._getConfig(binding, vnode);
         const instance = el?.$instance;
         const selfHook = BaseDirective._usePT(instance, BaseDirective._getPT(binding?.value?.pt, directiveName), BaseDirective._getOptionValue, `hooks.${name}`);
@@ -153,7 +145,7 @@ const BaseDirective = {
         defaultHook?.(instance, options);
     },
     _mergeProps(instance = {}, fn, ...args) {
-        return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
+        return isFunction(fn) ? fn(...args) : mergeProps(...args);
     },
     _extend: (name, options = {}) => {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
@@ -161,7 +153,7 @@ const BaseDirective = {
 
             const config = BaseDirective._getConfig(binding, vnode);
             const $prevInstance = el._$instances[name] || {};
-            const $options = ObjectUtils.isEmpty($prevInstance) ? { ...options, ...options?.methods } : {};
+            const $options = isEmpty($prevInstance) ? { ...options, ...options?.methods } : {};
 
             el._$instances[name] = {
                 ...$prevInstance,
@@ -173,12 +165,12 @@ const BaseDirective = {
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
                 $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...options?.style },
-                $config: config,
+                $primevueConfig: config,
                 $attrSelector: el.$attrSelector,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
-                theme: () => el.$instance?.$config?.theme,
+                theme: () => el.$instance?.$primevueConfig?.theme,
                 preset: () => el.$instance?.$binding?.value?.dt,
                 /* instance's methods */
                 ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
@@ -201,11 +193,11 @@ const BaseDirective = {
             const watchers = el.$instance?.watch;
 
             // for 'config'
-            watchers?.['config']?.call(el.$instance, el.$instance?.$config);
+            watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
             PrimeVueService.on('config:change', ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue));
 
             // for 'config.ripple'
-            watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$config?.ripple);
+            watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$primevueConfig?.ripple);
             PrimeVueService.on('config:ripple:change', ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue));
         };
 

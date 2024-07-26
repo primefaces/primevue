@@ -14,6 +14,7 @@
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
+            :fluid="fluid"
             :disabled="disabled"
             :variant="variant"
             :invalid="invalid"
@@ -64,7 +65,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
 import EyeSlashIcon from '@primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
@@ -77,6 +81,9 @@ export default {
     extends: BasePassword,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -112,15 +119,15 @@ export default {
         }
 
         if (this.overlay) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
             this.overlay = null;
         }
     },
     methods: {
         onOverlayEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -131,14 +138,14 @@ export default {
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$refs.input.$el);
+                relativePosition(this.overlay, this.$refs.input.$el);
             } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$refs.input.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$refs.input.$el);
+                this.overlay.style.minWidth = getOuterWidth(this.$refs.input.$el) + 'px';
+                absolutePosition(this.overlay, this.$refs.input.$el);
             }
         },
         testStrength(str) {
@@ -268,7 +275,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.overlayVisible = false;
                     }
                 };
@@ -316,6 +323,9 @@ export default {
         },
         overlayUniqueId() {
             return this.id + '_overlay';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

@@ -11,6 +11,10 @@ export default {
             type: String,
             default: '_'
         },
+        class: {
+            type: [String, Object],
+            default: null
+        },
         mask: {
             type: String,
             default: null
@@ -42,6 +46,10 @@ export default {
         variant: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: false
         }
     },
     style: InputMaskStyle,

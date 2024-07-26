@@ -48,7 +48,7 @@
         >
             <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
         </span>
-        <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
         </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
@@ -76,7 +76,7 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
-                        <IconField :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
+                        <IconField :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                             <InputText
                                 ref="filterInput"
                                 type="text"
@@ -190,8 +190,11 @@
 </template>
 
 <script>
+import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
-import { ConnectedOverlayScrollHandler, DomHandler, ObjectUtils, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import BlankIcon from '@primevue/icons/blank';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
@@ -212,6 +215,9 @@ export default {
     extends: BaseSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -266,7 +272,7 @@ export default {
         }
 
         if (this.overlay) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
             this.overlay = null;
         }
     },
@@ -275,13 +281,13 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? resolveFieldData(option, this.optionValue) : option;
         },
         getOptionRenderKey(option, index) {
-            return (this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
+            return (this.dataKey ? resolveFieldData(option, this.dataKey) : this.getOptionLabel(option)) + '_' + index;
         },
         getPTItemOptions(option, itemOptions, index, key) {
             return this.ptm(key, {
@@ -295,16 +301,16 @@ export default {
             });
         },
         isOptionDisabled(option) {
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+            return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
         isOptionGroup(option) {
             return this.optionGroupLabel && option.optionGroup && option.group;
         },
         getOptionGroupLabel(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupLabel);
+            return resolveFieldData(optionGroup, this.optionGroupLabel);
         },
         getOptionGroupChildren(optionGroup) {
-            return ObjectUtils.resolveFieldData(optionGroup, this.optionGroupChildren);
+            return resolveFieldData(optionGroup, this.optionGroupChildren);
         },
         getAriaPosInset(index) {
             return (this.optionGroupLabel ? index - this.visibleOptions.slice(0, index).filter((option) => this.isOptionGroup(option)).length : index) + 1;
@@ -314,7 +320,7 @@ export default {
             this.overlayVisible = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
 
-            isFocus && DomHandler.focus(this.$refs.focusInput);
+            isFocus && focus(this.$refs.focusInput);
         },
         hide(isFocus) {
             const _hide = () => {
@@ -325,7 +331,7 @@ export default {
                 this.searchValue = '';
 
                 this.resetFilterOnHide && (this.filterValue = null);
-                isFocus && DomHandler.focus(this.$refs.focusInput);
+                isFocus && focus(this.$refs.focusInput);
             };
 
             setTimeout(() => {
@@ -354,7 +360,7 @@ export default {
             this.$emit('blur', event);
         },
         onKeyDown(event) {
-            if (this.disabled || DomHandler.isAndroid()) {
+            if (this.disabled || isAndroid()) {
                 event.preventDefault();
 
                 return;
@@ -419,7 +425,7 @@ export default {
                     break;
 
                 default:
-                    if (!metaKey && ObjectUtils.isPrintableCharacter(event.key)) {
+                    if (!metaKey && isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         !this.editable && this.searchOptions(event, event.key);
                     }
@@ -439,7 +445,7 @@ export default {
 
             this.updateModel(event, value);
 
-            !this.overlayVisible && ObjectUtils.isNotEmpty(value) && this.show();
+            !this.overlayVisible && isNotEmpty(value) && this.show();
         },
         onContainerClick(event) {
             if (this.disabled || this.loading) {
@@ -459,14 +465,14 @@ export default {
             this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onLastHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);
@@ -655,7 +661,7 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+                    focus(this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 } else {
@@ -673,13 +679,13 @@ export default {
             }
         },
         onOverlayEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && DomHandler.focus(this.$refs.filterInput.$el);
+            this.autoFilterFocus && focus(this.$refs.filterInput.$el);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -697,14 +703,14 @@ export default {
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$el);
+                relativePosition(this.overlay, this.$el);
             } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
+                absolutePosition(this.overlay, this.$el);
             }
         },
         bindOutsideClickListener() {
@@ -743,7 +749,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.hide();
                     }
                 };
@@ -761,9 +767,9 @@ export default {
             if (!this.editable && !this.labelClickListener) {
                 const label = document.querySelector(`label[for="${this.inputId}"]`);
 
-                if (label && DomHandler.isVisible(label)) {
+                if (label && isVisible(label)) {
                     this.labelClickListener = () => {
-                        DomHandler.focus(this.$refs.focusInput);
+                        focus(this.$refs.focusInput);
                     };
 
                     label.addEventListener('click', this.labelClickListener);
@@ -774,31 +780,31 @@ export default {
             if (this.labelClickListener) {
                 const label = document.querySelector(`label[for="${this.inputId}"]`);
 
-                if (label && DomHandler.isVisible(label)) {
+                if (label && isVisible(label)) {
                     label.removeEventListener('click', this.labelClickListener);
                 }
             }
         },
         hasFocusableElements() {
-            return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
+            return getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         isOptionMatched(option) {
             return this.isValidOption(option) && typeof this.getOptionLabel(option) === 'string' && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
-            return ObjectUtils.isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
+            return isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return this.isValidOption(option) && ObjectUtils.equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return this.isValidOption(option) && equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
         },
         findLastOptionIndex() {
-            return ObjectUtils.findLastIndex(this.visibleOptions, (option) => this.isValidOption(option));
+            return findLastIndex(this.visibleOptions, (option) => this.isValidOption(option));
         },
         findNextOptionIndex(index) {
             const matchedOptionIndex = index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidOption(option)) : -1;
@@ -806,7 +812,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : index;
         },
         findPrevOptionIndex(index) {
-            const matchedOptionIndex = index > 0 ? ObjectUtils.findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
+            const matchedOptionIndex = index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
@@ -829,7 +835,7 @@ export default {
             let optionIndex = -1;
             let matched = false;
 
-            if (ObjectUtils.isNotEmpty(this.searchValue)) {
+            if (isNotEmpty(this.searchValue)) {
                 if (this.focusedOptionIndex !== -1) {
                     optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
                     optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
@@ -874,7 +880,7 @@ export default {
         scrollInView(index = -1) {
             this.$nextTick(() => {
                 const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
-                const element = DomHandler.findSingle(this.list, `li[id="${id}"]`);
+                const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
                     element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
@@ -942,7 +948,7 @@ export default {
             return options;
         },
         hasSelectedOption() {
-            return ObjectUtils.isNotEmpty(this.modelValue);
+            return isNotEmpty(this.modelValue);
         },
         label() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
@@ -961,7 +967,7 @@ export default {
             return this.filterFields || [this.optionLabel];
         },
         filterResultMessageText() {
-            return ObjectUtils.isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
+            return isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
         },
         filterMessageText() {
             return this.filterMessage || this.$primevue.config.locale.searchMessage || '';
@@ -987,8 +993,14 @@ export default {
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
         },
+        isClearIconVisible() {
+            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
+        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     directives: {

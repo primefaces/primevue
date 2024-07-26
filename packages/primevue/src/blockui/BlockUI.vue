@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from '@primevue/core/utils';
+import { addClass, blockBodyScroll, createElement, hasCSSAnimation, unblockBodyScroll } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
@@ -37,7 +38,7 @@ export default {
             if (this.fullScreen) {
                 styleClass += ' p-blockui-mask-document';
 
-                this.mask = DomHandler.createElement('div', {
+                this.mask = createElement('div', {
                     style: {
                         position: 'fixed',
                         top: '0',
@@ -50,10 +51,10 @@ export default {
                 });
 
                 document.body.appendChild(this.mask);
-                DomHandler.blockBodyScroll();
+                blockBodyScroll();
                 document.activeElement.blur();
             } else {
-                this.mask = DomHandler.createElement('div', {
+                this.mask = createElement('div', {
                     style: {
                         position: 'absolute',
                         top: '0',
@@ -68,16 +69,16 @@ export default {
             }
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+                ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
 
             this.isBlocked = true;
             this.$emit('block');
         },
         unblock() {
-            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
+            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
 
-            if (DomHandler.hasCSSAnimation(this.mask) > 0) {
+            if (hasCSSAnimation(this.mask) > 0) {
                 this.mask.addEventListener('animationend', () => {
                     this.removeMask();
                 });
@@ -86,13 +87,13 @@ export default {
             }
         },
         removeMask() {
-            ZIndexUtils.clear(this.mask);
+            ZIndex.clear(this.mask);
 
             if (this.fullScreen) {
                 document.body.removeChild(this.mask);
-                DomHandler.unblockBodyScroll();
+                unblockBodyScroll();
             } else {
-                this.$refs.container.removeChild(this.mask);
+                this.$refs.container?.removeChild(this.mask);
             }
 
             this.isBlocked = false;

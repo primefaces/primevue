@@ -137,6 +137,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     hiddenInputContainer?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the hidden input's DOM element.
+     */
+    hiddenInput?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the hidden selected message's DOM element.
      */
     hiddenSelectedMessage?: CascadeSelectPassThroughOptionType;
@@ -415,6 +419,11 @@ export interface CascadeSelectProps {
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

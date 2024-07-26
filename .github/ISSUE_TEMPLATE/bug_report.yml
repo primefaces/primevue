@@ -20,11 +20,13 @@ body:
       id: reproducer
       attributes:
           label: Reproducer
-          placeholder: https://stackblitz.com/edit/primevue-create-vue-issue-template
+          placeholder: https://stackblitz.com/edit/primevue-4-vite-issue-template
           description: |
               Please fork one of the issue template
-              [PrimeVue 3 Issue Template](https://stackblitz.com/edit/primevue-create-vue-issue-template)
-              [PrimeVue TypeScript Issue Template](https://stackblitz.com/edit/primevue-create-vue-typescript-issue-template)
+              [PrimeVue 4 Issue Template](https://stackblitz.com/edit/primevue-4-vite-issue-template)
+              [PrimeVue 4 TypeScript Issue Template](https://stackblitz.com/edit/primevue-4-ts-vite-issue-template-csnodp)
+              [PrimeVue 3 Issue Template](https://stackblitz.com/edit/primevue-3-vite-issue-template)
+              [PrimeVue 3 TypeScript Issue Template](https://stackblitz.com/edit/primevue-3-vite-ts-issue-template)
               [PrimeVue Nuxt Issue Template](https://stackblitz.com/edit/primevue-nuxt-issue-template)
               [PrimeVue 2 Issue Template](https://codesandbox.io/s/primevue-2-issue-template-dw7jd7)
               and create a case demonstrating your bug report. Issues **without** a Stackblitz have much less possibility to be reviewed.
@@ -43,6 +45,7 @@ body:
           label: Vue version
           multiple: false
           options:
+              - 4.x
               - 3.x
               - 2.x
       validations:

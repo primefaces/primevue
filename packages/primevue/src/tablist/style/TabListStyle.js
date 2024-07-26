@@ -8,8 +8,8 @@ const classes = {
             'p-tablist-viewport': instance.$pcTabs.scrollable
         }
     ],
-    tabs: 'p-tablist-tab-list',
-    inkbar: 'p-tablist-active-bar',
+    tabList: 'p-tablist-tab-list',
+    activeBar: 'p-tablist-active-bar',
     prevButton: 'p-tablist-prev-button p-tablist-nav-button',
     nextButton: 'p-tablist-next-button p-tablist-nav-button'
 };

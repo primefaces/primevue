@@ -1,5 +1,5 @@
-import { components, directives } from '@primevue/metadata';
-import type { ComponentResolver } from 'unplugin-vue-components/types';
+import { components, directives, MetaType } from '@primevue/metadata';
+import type { ComponentResolver, ComponentResolveResult } from 'unplugin-vue-components/types';
 
 export interface PrimeVueResolverOptions {
     components?: {
@@ -8,6 +8,7 @@ export interface PrimeVueResolverOptions {
     directives?: {
         prefix?: string;
     };
+    resolve?: (meta: MetaType, type: string) => ComponentResolveResult;
 }
 
 export function PrimeVueResolver(options: PrimeVueResolverOptions = {}): ComponentResolver[] {
@@ -27,12 +28,14 @@ export function PrimeVueResolver(options: PrimeVueResolverOptions = {}): Compone
             resolve: (name: string) => {
                 const { prefix } = options.components || {};
                 const cName = getName(name, prefix);
-                const cMeta = components.find((c) => c.name === cName);
+                const cMeta = components.find((c) => c.name.toLocaleLowerCase() === cName?.toLocaleLowerCase());
 
                 if (cMeta) {
-                    return {
-                        from: cMeta.from
-                    };
+                    return (
+                        options?.resolve?.(cMeta, 'component') ?? {
+                            from: cMeta.from
+                        }
+                    );
                 }
             }
         },
@@ -41,13 +44,15 @@ export function PrimeVueResolver(options: PrimeVueResolverOptions = {}): Compone
             resolve: (name: string) => {
                 const { prefix } = options.directives || {};
                 const dName = getName(name, prefix);
-                const dMeta = directives.find((d) => d.name === dName);
+                const dMeta = directives.find((d) => d.name.toLocaleLowerCase() === dName?.toLocaleLowerCase());
 
                 if (dMeta) {
-                    return {
-                        as: dMeta.as,
-                        from: dMeta.from
-                    };
+                    return (
+                        options?.resolve?.(dMeta, 'directive') ?? {
+                            as: dMeta.as,
+                            from: dMeta.from
+                        }
+                    );
                 }
             }
         }

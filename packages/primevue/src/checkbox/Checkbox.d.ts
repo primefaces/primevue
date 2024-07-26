@@ -206,6 +206,11 @@ export interface CheckboxContext {
      */
     checked: boolean;
     /**
+     * Current indeterminate state of the item as a boolean.
+     * @defaultValue false
+     */
+    indeterminate: boolean;
+    /**
      * Current disabled state of the item as a boolean.
      * @defaultValue false
      */
@@ -225,6 +230,10 @@ export interface CheckboxSlots {
          * State of the checkbox.
          */
         checked: boolean;
+        /**
+         * Indeterminate state of the checkbox.
+         */
+        indeterminate?: boolean | undefined;
         /**
          * Style class of the icon.
          */

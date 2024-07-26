@@ -26,7 +26,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolve } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 
@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         getItemProp(processedItem, name) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+            return processedItem && processedItem.item ? resolve(processedItem.item[name]) : undefined;
         },
         getPTOptions(key) {
             return this.ptm(key, {

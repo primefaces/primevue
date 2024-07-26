@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { isNotEmpty } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import BaseToggleButton from './BaseToggleButton.vue';
 
@@ -44,7 +44,7 @@ export default {
             return this.modelValue === true;
         },
         hasLabel() {
-            return ObjectUtils.isNotEmpty(this.onLabel) && ObjectUtils.isNotEmpty(this.offLabel);
+            return isNotEmpty(this.onLabel) && isNotEmpty(this.offLabel);
         },
         label() {
             return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';

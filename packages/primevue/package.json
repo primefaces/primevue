@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "4.0.0-rc.1",
+    "version": "4.0.2",
     "author": "PrimeTek Informatics",
     "description": "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.",
     "homepage": "https://primevue.org/",
@@ -130,6 +130,8 @@
         "./fileupload/style": "./src/fileupload/style/FileUploadStyle.js",
         "./floatlabel": "./src/floatlabel/FloatLabel.vue",
         "./floatlabel/style": "./src/floatlabel/style/FloatLabelStyle.js",
+        "./fluid": "./src/fluid/Fluid.vue",
+        "./fluid/style": "./src/fluid/style/FluidStyle.js",
         "./focustrap": "./src/focustrap/FocusTrap.js",
         "./focustrap/style": "./src/focustrap/style/FocusTrapStyle.js",
         "./galleria": "./src/galleria/Galleria.vue",
@@ -318,9 +320,12 @@
         "build:package": "pnpm run build:prebuild && pnpm run build:api && rollup -c && pnpm run build:postbuild",
         "build:api": "node ./scripts/build-api.js",
         "build:prebuild": "node ./scripts/prebuild.mjs",
-        "build:postbuild": "node ./scripts/postbuild.mjs"
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
+        "@primeuix/styled": "^0.0.5",
+        "@primeuix/utils": "^0.0.5",
         "@primevue/core": "workspace:*",
         "@primevue/icons": "workspace:*"
     },

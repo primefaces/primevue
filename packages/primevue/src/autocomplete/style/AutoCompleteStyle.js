@@ -1,5 +1,5 @@
+import { isNotEmpty } from '@primeuix/utils/object';
 import BaseStyle from '@primevue/core/base/style';
-import { ObjectUtils } from '@primevue/core/utils';
 
 const theme = ({ dt }) => `
 .p-autocomplete {
@@ -45,8 +45,8 @@ const theme = ({ dt }) => `
     border-left: 0 none;
     color: ${dt('autocomplete.dropdown.color')};
     transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')}, outline-color ${dt('autocomplete.transition.duration')}, box-shadow ${dt(
-        'autocomplete.transition.duration'
-    )};
+    'autocomplete.transition.duration'
+)};
     outline-color: transparent;
 }
 
@@ -148,8 +148,8 @@ const theme = ({ dt }) => `
     border-radius: ${dt('autocomplete.border.radius')};
     width: 100%;
     transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')}, outline-color ${dt('autocomplete.transition.duration')}, box-shadow ${dt(
-        'autocomplete.transition.duration'
-    )};
+    'autocomplete.transition.duration'
+)};
     outline-color: transparent;
     box-shadow: ${dt('autocomplete.shadow')};
 }
@@ -229,11 +229,11 @@ const theme = ({ dt }) => `
     padding: ${dt('autocomplete.empty.message.padding')};
 }
 
-.p-fluid .p-autocomplete {
+.p-autocomplete-fluid {
     display: flex;
 }
 
-.p-fluid .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input {
+.p-autocomplete-fluid:has(.p-autocomplete-dropdown) .p-autocomplete-input {
     width: 1%;
 }
 `;
@@ -249,9 +249,10 @@ const classes = {
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue || ObjectUtils.isNotEmpty(instance.inputValue),
+            'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
-            'p-autocomplete-open': instance.overlayVisible
+            'p-autocomplete-open': instance.overlayVisible,
+            'p-autocomplete-fluid': instance.hasFluid
         }
     ],
     pcInput: 'p-autocomplete-input',

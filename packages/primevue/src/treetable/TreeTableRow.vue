@@ -66,7 +66,9 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
+import { isClickable, getAttribute, findSingle, focus, find } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -135,18 +137,13 @@ export default {
     nodeTouched: false,
     methods: {
         columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+            return getVNodeProp(col, prop);
         },
         toggle() {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (
-                DomHandler.isClickable(event.target) ||
-                DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtogglebutton' ||
-                DomHandler.getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' ||
-                event.target.tagName === 'path'
-            ) {
+            if (isClickable(event.target) || getAttribute(event.target, 'data-pc-section') === 'rowtogglebutton' || getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' || event.target.tagName === 'path') {
                 return;
             }
 
@@ -163,7 +160,7 @@ export default {
             this.nodeTouched = true;
         },
         nodeKey(node) {
-            return ObjectUtils.resolveFieldData(node, this.dataKey);
+            return resolveFieldData(node, this.dataKey);
         },
         onKeyDown(event, item) {
             switch (event.code) {
@@ -194,7 +191,7 @@ export default {
                 case 'Enter':
                 case 'NumpadEnter':
                 case 'Space':
-                    if (!DomHandler.isClickable(event.target)) {
+                    if (!isClickable(event.target)) {
                         this.onEnterKey(event, item);
                     }
 
@@ -223,8 +220,8 @@ export default {
             event.preventDefault();
         },
         onArrowRightKey(event) {
-            const ishiddenIcon = DomHandler.findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(this.$refs.node, '[data-pc-section="rowtogglebutton"]');
+            const ishiddenIcon = findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
+            const togglerElement = findSingle(this.$refs.node, '[data-pc-section="rowtogglebutton"]');
 
             if (ishiddenIcon) return;
 
@@ -242,8 +239,8 @@ export default {
             }
 
             const currentTarget = event.currentTarget;
-            const ishiddenIcon = DomHandler.findSingle(currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = DomHandler.findSingle(currentTarget, '[data-pc-section="rowtogglebutton"]');
+            const ishiddenIcon = findSingle(currentTarget, 'button').style.visibility === 'hidden';
+            const togglerElement = findSingle(currentTarget, '[data-pc-section="rowtogglebutton"]');
 
             if (this.expanded && !ishiddenIcon) {
                 togglerElement.click();
@@ -256,17 +253,17 @@ export default {
             target && this.focusRowChange(currentTarget, target);
         },
         onHomeKey(event) {
-            const findFirstElement = DomHandler.findSingle(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
+            const findFirstElement = findSingle(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
 
-            findFirstElement && DomHandler.focus(findFirstElement);
+            findFirstElement && focus(findFirstElement);
 
             event.preventDefault();
         },
         onEndKey(event) {
-            const nodes = DomHandler.find(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
+            const nodes = find(event.currentTarget.parentElement, `tr[aria-level="${this.level + 1}"]`);
             const findFirstElement = nodes[nodes.length - 1];
 
-            DomHandler.focus(findFirstElement);
+            focus(findFirstElement);
 
             event.preventDefault();
         },
@@ -289,15 +286,15 @@ export default {
             this.nodeTouched = false;
         },
         onTabKey() {
-            const rows = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
-            const hasSelectedRow = rows.some((row) => DomHandler.getAttribute(row, 'data-p-selected') || row.getAttribute('aria-checked') === 'true');
+            const rows = [...find(this.$refs.node.parentElement, 'tr')];
+            const hasSelectedRow = rows.some((row) => getAttribute(row, 'data-p-selected') || row.getAttribute('aria-checked') === 'true');
 
             rows.forEach((row) => {
                 row.tabIndex = -1;
             });
 
             if (hasSelectedRow) {
-                const selectedNodes = rows.filter((node) => DomHandler.getAttribute(node, 'data-p-selected') || node.getAttribute('aria-checked') === 'true');
+                const selectedNodes = rows.filter((node) => getAttribute(node, 'data-p-selected') || node.getAttribute('aria-checked') === 'true');
 
                 selectedNodes[0].tabIndex = 0;
 
@@ -309,7 +306,7 @@ export default {
         focusRowChange(firstFocusableRow, currentFocusedRow) {
             firstFocusableRow.tabIndex = '-1';
             currentFocusedRow.tabIndex = '0';
-            DomHandler.focus(currentFocusedRow);
+            focus(currentFocusedRow);
         },
         findBeforeClickableNode(node) {
             const prevNode = node.previousElementSibling;
@@ -406,7 +403,7 @@ export default {
         },
         setTabIndexForSelectionMode(event, nodeTouched) {
             if (this.selectionMode !== null) {
-                const elements = [...DomHandler.find(this.$refs.node.parentElement, 'tr')];
+                const elements = [...find(this.$refs.node.parentElement, 'tr')];
 
                 event.currentTarget.tabIndex = nodeTouched === false ? -1 : 0;
 

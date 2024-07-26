@@ -62,7 +62,9 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { addClass, focus, blockBodyScroll, unblockBodyScroll, setAttribute, addStyle, getOuterWidth, getOuterHeight, getViewport } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
@@ -122,7 +124,7 @@ export default {
         this.destroyStyle();
 
         if (this.mask && this.autoZIndex) {
-            ZIndexUtils.clear(this.mask);
+            ZIndex.clear(this.mask);
         }
 
         this.container = null;
@@ -149,12 +151,12 @@ export default {
             this.bindGlobalListeners();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+                ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
         },
         onBeforeLeave() {
             if (this.modal) {
-                !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
+                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
         },
         onLeave() {
@@ -164,7 +166,7 @@ export default {
         },
         onAfterLeave() {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(this.mask);
+                ZIndex.clear(this.mask);
             }
 
             this.containerVisible = false;
@@ -203,7 +205,7 @@ export default {
             }
 
             if (focusTarget) {
-                DomHandler.focus(focusTarget, { focusVisible: true });
+                focus(focusTarget, { focusVisible: true });
             }
         },
         maximize(event) {
@@ -216,17 +218,17 @@ export default {
             }
 
             if (!this.modal) {
-                this.maximized ? DomHandler.blockBodyScroll() : DomHandler.unblockBodyScroll();
+                this.maximized ? blockBodyScroll() : unblockBodyScroll();
             }
         },
         enableDocumentSettings() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                DomHandler.blockBodyScroll();
+                blockBodyScroll();
             }
         },
         unbindDocumentState() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                DomHandler.unblockBodyScroll();
+                unblockBodyScroll();
             }
         },
         onKeyDown(event) {
@@ -271,7 +273,7 @@ export default {
             if (!this.styleElement && !this.isUnstyled) {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
-                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = '';
@@ -307,7 +309,7 @@ export default {
 
                 this.container.style.margin = '0';
                 document.body.setAttribute('data-p-unselectable-text', 'true');
-                !this.isUnstyled && DomHandler.addStyles(document.body, { 'user-select': 'none' });
+                !this.isUnstyled && addStyle(document.body, { 'user-select': 'none' });
             }
         },
         bindGlobalListeners() {
@@ -328,14 +330,14 @@ export default {
         bindDocumentDragListener() {
             this.documentDragListener = (event) => {
                 if (this.dragging) {
-                    let width = DomHandler.getOuterWidth(this.container);
-                    let height = DomHandler.getOuterHeight(this.container);
+                    let width = getOuterWidth(this.container);
+                    let height = getOuterHeight(this.container);
                     let deltaX = event.pageX - this.lastPageX;
                     let deltaY = event.pageY - this.lastPageY;
                     let offset = this.container.getBoundingClientRect();
                     let leftPos = offset.left + deltaX;
                     let topPos = offset.top + deltaY;
-                    let viewport = DomHandler.getViewport();
+                    let viewport = getViewport();
                     let containerComputedStyle = getComputedStyle(this.container);
                     let marginLeft = parseFloat(containerComputedStyle.marginLeft);
                     let marginTop = parseFloat(containerComputedStyle.marginTop);

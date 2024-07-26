@@ -37,8 +37,8 @@ const theme = ({ dt }) => `
     width: ${dt('radiobutton.width')};
     height: ${dt('radiobutton.height')};
     transition: background ${dt('radiobutton.transition.duration')}, color ${dt('radiobutton.transition.duration')}, border-color ${dt('radiobutton.transition.duration')}, box-shadow ${dt('radiobutton.transition.duration')}, outline-color ${dt(
-        'radiobutton.transition.duration'
-    )};
+    'radiobutton.transition.duration'
+)};
     outline-color: transparent;
     box-shadow: ${dt('radiobutton.shadow')};
 }
@@ -111,10 +111,11 @@ const theme = ({ dt }) => `
 
 .p-radiobutton.p-disabled .p-radiobutton-box {
     background: ${dt('radiobutton.disabled.background')};
+    border-color: ${dt('radiobutton.checked.disabled.border.color')};
 }
 
-.p-radiobutton.p-disabled .p-radiobutton-box .p-radiobutton-icon {
-    color: ${dt('radiobutton.icon.disabled.color')};
+.p-radiobutton-checked.p-disabled .p-radiobutton-box .p-radiobutton-icon {
+    background: ${dt('radiobutton.icon.disabled.color')};
 }
 `;
 

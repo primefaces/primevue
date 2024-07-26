@@ -84,7 +84,7 @@ export interface SplitButtonPassThroughOptions {
      * Used to pass attributes to the TieredMenu component.
      * @see {@link TieredMenuPassThroughOptions}
      */
-    ptMenu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
+    pcMenu?: TieredMenuPassThroughOptions<SplitButtonSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -147,6 +147,11 @@ export interface SplitButtonProps {
      * @defaultValue false
      */
     disabled?: boolean | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
     /**
      * Style class of the component.
      */

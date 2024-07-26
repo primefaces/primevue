@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { getFirstFocusableElement, focus } from '@primeuix/utils/dom';
 import BanIcon from '@primevue/icons/ban';
 import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
@@ -68,9 +69,9 @@ export default {
             if (!this.readonly && !this.disabled) {
                 this.onOptionSelect(event, value);
                 this.isFocusVisibleItem = false;
-                const firstFocusableEl = DomHandler.getFirstFocusableElement(event.currentTarget);
+                const firstFocusableEl = getFirstFocusableElement(event.currentTarget);
 
-                firstFocusableEl && DomHandler.focus(firstFocusableEl);
+                firstFocusableEl && focus(firstFocusableEl);
             }
         },
         onFocus(event, value) {

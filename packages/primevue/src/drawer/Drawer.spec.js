@@ -1,7 +1,7 @@
+import { addClass, removeClass } from '@primeuix/utils/dom';
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { describe, expect, it } from 'vitest';
-import DomHandler from '../utils/DomHandler';
 import Drawer from './Drawer.vue';
 
 describe('Drawer.vue', () => {
@@ -89,7 +89,7 @@ describe('Drawer.vue', () => {
     });
 
     it('When hide is triggered , removeClass util should be called', async () => {
-        const removeClassSpy = vi.spyOn(DomHandler, 'removeClass');
+        const removeClassSpy = vi.spyOn(removeClass);
 
         await wrapper.setProps({ blockScroll: true });
         wrapper.vm.disableDocumentSettings();
@@ -98,7 +98,7 @@ describe('Drawer.vue', () => {
     });
 
     it('When onEnter is triggered , addClass util should be called', async () => {
-        const addClassSpy = vi.spyOn(DomHandler, 'addClass');
+        const addClassSpy = vi.spyOn(addClass);
 
         await wrapper.setProps({ blockScroll: true });
         wrapper.vm.enableDocumentSettings();
@@ -107,7 +107,7 @@ describe('Drawer.vue', () => {
     });
 
     it('When onBeforeLeave is triggered , addClass util should be called', async () => {
-        const addClassSpy = vi.spyOn(DomHandler, 'addClass');
+        const addClassSpy = vi.spyOn(addClass);
 
         await wrapper.setProps({ modal: true });
         wrapper.vm.onBeforeLeave();

@@ -17,7 +17,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { HelperSet, ObjectUtils } from '@primevue/core/utils';
+import { HelperSet, getVNodeProp } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 import FooterCell from './FooterCell.vue';
 
@@ -53,7 +53,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+            return getVNodeProp(col, prop);
         },
         getColumnGroupPT(key) {
             const columnGroupMetaData = {

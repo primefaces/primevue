@@ -58,8 +58,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, ZIndexUtils } from '@primevue/core/utils';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/styled';
+import { absolutePosition, addClass, focus, getOffset, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
@@ -126,7 +128,7 @@ export default {
         this.unbindResizeListener();
 
         if (this.container) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
             this.container = null;
         }
 
@@ -158,14 +160,14 @@ export default {
         onAcceptKeydown(event) {
             if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.accept();
-                DomHandler.focus(this.target);
+                focus(this.target);
                 event.preventDefault();
             }
         },
         onRejectKeydown(event) {
             if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
                 this.reject();
-                DomHandler.focus(this.target);
+                focus(this.target);
                 event.preventDefault();
             }
         },
@@ -177,7 +179,7 @@ export default {
             this.bindScrollListener();
             this.bindResizeListener();
 
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
         },
         onAfterEnter() {
             this.focus();
@@ -191,13 +193,13 @@ export default {
             this.unbindResizeListener();
         },
         onAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target, false);
+            absolutePosition(this.container, this.target, false);
 
-            const containerOffset = DomHandler.getOffset(this.container);
-            const targetOffset = DomHandler.getOffset(this.target);
+            const containerOffset = getOffset(this.container);
+            const targetOffset = getOffset(this.target);
             let arrowLeft = 0;
 
             if (containerOffset.left < targetOffset.left) {
@@ -208,7 +210,7 @@ export default {
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-confirmpopup-flipped', 'true');
-                !this.isUnstyled && DomHandler.addClass(this.container, 'p-confirmpopup-flipped');
+                !this.isUnstyled && addClass(this.container, 'p-confirmpopup-flipped');
             }
         },
         bindOutsideClickListener() {
@@ -253,7 +255,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.visible && !DomHandler.isTouchDevice()) {
+                    if (this.visible && !isTouchDevice()) {
                         this.visible = false;
                     }
                 };
@@ -289,11 +291,8 @@ export default {
         onOverlayKeydown(event) {
             if (event.code === 'Escape') {
                 ConfirmationEventBus.emit('close', this.closeListener);
-                DomHandler.focus(this.target);
+                focus(this.target);
             }
-        },
-        getCXOptions(icon, iconProps) {
-            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
@@ -304,19 +303,19 @@ export default {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.acceptLabel ? confirmation.acceptLabel : confirmation.acceptProps ? confirmation.acceptProps.label || this.$primevue.config.locale.accept : null;
+                return confirmation.acceptLabel || confirmation.acceptProps?.label || this.$primevue.config.locale.accept;
             }
 
-            return null;
+            return this.$primevue.config.locale.accept;
         },
         rejectLabel() {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.rejectLabel ? confirmation.rejectLabel : confirmation.rejectProps ? confirmation.rejectProps.label || this.$primevue.config.locale.reject : null;
+                return confirmation.rejectLabel || confirmation.rejectProps?.label || this.$primevue.config.locale.reject;
             }
 
-            return null;
+            return this.$primevue.config.locale.reject;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;

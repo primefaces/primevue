@@ -1,8 +1,10 @@
 <script>
+import { Theme, ThemeService } from '@primeuix/styled';
+import { findSingle } from '@primeuix/utils/dom';
+import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
-import { Theme, ThemeService } from '@primevue/themes';
+import { UniqueComponentId } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -62,7 +64,7 @@ export default {
 
         (value || originalValue)?.hooks?.['onBeforeCreate']?.();
 
-        const _useptInConfig = this.$config?.pt?.['_usept'];
+        const _useptInConfig = this.$primevueConfig?.pt?.['_usept'];
         const originalValueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.originalValue : undefined;
         const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
 
@@ -77,7 +79,7 @@ export default {
     },
     mounted() {
         // @todo - improve performance
-        this.rootEl = DomHandler.findSingle(this.$el, `[data-pc-name="${ObjectUtils.toFlatCase(this.$.type.name)}"]`);
+        this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
 
         if (this.rootEl) {
             this.rootEl.setAttribute(this.$attrSelector, '');
@@ -110,7 +112,7 @@ export default {
             }
         },
         _mergeProps(fn, ...args) {
-            return ObjectUtils.isFunction(fn) ? fn(...args) : mergeProps(...args);
+            return isFunction(fn) ? fn(...args) : mergeProps(...args);
         },
         _loadStyles() {
             const _load = () => {
@@ -144,12 +146,12 @@ export default {
              * const selfCSS = this._getPTClassValue(this.pt, 'css', this.$params);
              * const defaultCSS = this._getPTClassValue(this.defaultPT, 'css', this.$params);
              * const mergedCSS = mergeProps(selfCSS, defaultCSS);
-             * ObjectUtils.isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
+             * isNotEmpty(mergedCSS?.class) && this.$css.loadCustomStyle(mergedCSS?.class);
              */
 
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
-            ObjectUtils.isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
+            isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
             if (this.isUnstyled) return;
@@ -204,18 +206,11 @@ export default {
             return this[name] || this._getHostInstance(this)?.[name];
         },
         _getOptionValue(options, key = '', params = {}) {
-            const fKeys = ObjectUtils.toFlatCase(key).split('.');
-            const fKey = fKeys.shift();
-
-            return fKey
-                ? ObjectUtils.isObject(options)
-                    ? this._getOptionValue(ObjectUtils.getItemValue(options[Object.keys(options).find((k) => ObjectUtils.toFlatCase(k) === fKey) || ''], params), fKeys.join('.'), params)
-                    : undefined
-                : ObjectUtils.getItemValue(options, params);
+            return getKeyValue(options, key, params);
         },
         _getPTValue(obj = {}, key = '', params = {}, searchInDefaultPT = true) {
             const searchOut = /./g.test(key) && !!params[key.split('.')[0]];
-            const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || this.$config?.ptOptions || {};
+            const { mergeSections = true, mergeProps: useMergeProps = false } = this._getPropValue('ptOptions') || this.$primevueConfig?.ptOptions || {};
             const global = searchInDefaultPT ? (searchOut ? this._useGlobalPT(this._getPTClassValue, key, params) : this._useDefaultPT(this._getPTClassValue, key, params)) : undefined;
             const self = searchOut ? undefined : this._getPTSelf(obj, this._getPTClassValue, key, { ...params, global: global || {} });
             const datasets = this._getPTDatasets(key);
@@ -230,28 +225,28 @@ export default {
         },
         _getPTDatasets(key = '') {
             const datasetPrefix = 'data-pc-';
-            const isExtended = key === 'root' && ObjectUtils.isNotEmpty(this.pt?.['data-pc-section']);
+            const isExtended = key === 'root' && isNotEmpty(this.pt?.['data-pc-section']);
 
             return (
                 key !== 'transition' && {
                     ...(key === 'root' && {
-                        [`${datasetPrefix}name`]: ObjectUtils.toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
-                        ...(isExtended && { [`${datasetPrefix}extend`]: ObjectUtils.toFlatCase(this.$.type.name) })
+                        [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
+                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) })
                     }),
-                    [`${datasetPrefix}section`]: ObjectUtils.toFlatCase(key)
+                    [`${datasetPrefix}section`]: toFlatCase(key)
                 }
             );
         },
         _getPTClassValue(...args) {
             const value = this._getOptionValue(...args);
 
-            return ObjectUtils.isString(value) || ObjectUtils.isArray(value) ? { class: value } : value;
+            return isString(value) || isArray(value) ? { class: value } : value;
         },
         _getPT(pt, key = '', callback) {
             const getValue = (value, checkSameKey = false) => {
                 const computedValue = callback ? callback(value) : value;
-                const _key = ObjectUtils.toFlatCase(key);
-                const _cKey = ObjectUtils.toFlatCase(this.$name);
+                const _key = toFlatCase(key);
+                const _cKey = toFlatCase(this.$name);
 
                 return (checkSameKey ? (_key !== _cKey ? computedValue?.[_key] : undefined) : computedValue?.[_key]) ?? computedValue;
             };
@@ -268,13 +263,13 @@ export default {
             const fn = (value) => callback(value, key, params);
 
             if (pt?.hasOwnProperty('_usept')) {
-                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || this.$config?.ptOptions || {};
+                const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || this.$primevueConfig?.ptOptions || {};
                 const originalValue = fn(pt.originalValue);
                 const value = fn(pt.value);
 
                 if (originalValue === undefined && value === undefined) return undefined;
-                else if (ObjectUtils.isString(value)) return value;
-                else if (ObjectUtils.isString(originalValue)) return originalValue;
+                else if (isString(value)) return value;
+                else if (isString(originalValue)) return originalValue;
 
                 return mergeSections || (!mergeSections && value) ? (useMergeProps ? this._mergeProps(useMergeProps, originalValue, value) : { ...originalValue, ...value }) : value;
             }
@@ -313,24 +308,24 @@ export default {
     },
     computed: {
         globalPT() {
-            return this._getPT(this.$config?.pt, undefined, (value) => ObjectUtils.getItemValue(value, { instance: this }));
+            return this._getPT(this.$primevueConfig?.pt, undefined, (value) => resolve(value, { instance: this }));
         },
         defaultPT() {
-            return this._getPT(this.$config?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { ...this.$params }) || ObjectUtils.getItemValue(value, { ...this.$params }));
+            return this._getPT(this.$primevueConfig?.pt, undefined, (value) => this._getOptionValue(value, this.$name, { ...this.$params }) || resolve(value, { ...this.$params }));
         },
         isUnstyled() {
-            return this.unstyled !== undefined ? this.unstyled : this.$config?.unstyled;
+            return this.unstyled !== undefined ? this.unstyled : this.$primevueConfig?.unstyled;
         },
         $theme() {
-            return this.$config?.theme;
+            return this.$primevueConfig?.theme;
         },
         $style() {
             return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
-            return { nonce: this.$config?.csp?.nonce };
+            return { nonce: this.$primevueConfig?.csp?.nonce };
         },
-        $config() {
+        $primevueConfig() {
             return this.$primevue?.config;
         },
         $name() {

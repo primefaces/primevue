@@ -42,6 +42,14 @@ export default {
             type: String,
             default: undefined
         },
+        as: {
+            type: String,
+            default: 'BUTTON'
+        },
+        asChild: {
+            type: Boolean,
+            default: false
+        },
         link: {
             type: Boolean,
             default: false
@@ -73,6 +81,10 @@ export default {
         plain: {
             type: Boolean,
             default: false
+        },
+        fluid: {
+            type: Boolean,
+            default: null
         }
     },
     style: ButtonStyle,

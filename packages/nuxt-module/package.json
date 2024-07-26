@@ -1,6 +1,6 @@
 {
     "name": "@primevue/nuxt-module",
-    "version": "4.0.0-rc.1",
+    "version": "4.0.2",
     "author": "PrimeTek Informatics",
     "description": "Nuxt module for PrimeVue",
     "homepage": "https://primevue.org/",
@@ -31,6 +31,17 @@
     "files": [
         "dist"
     ],
+    "build": {
+        "externals": [
+            "primevue",
+            "@primevue/metadata",
+            "@primevue/auto-import-resolver",
+            "unplugin-vue-components",
+            "@primeuix/utils",
+            "@primeuix/utils/object",
+            "@primeuix/utils/dom"
+        ]
+    },
     "publishConfig": {
         "main": "./dist/module.cjs",
         "types": "./dist/types.d.ts",
@@ -51,14 +62,19 @@
         "dev": "nuxi dev playground",
         "dev:build": "nuxi build playground",
         "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
+        "dev:link": "pnpm link --global && npm link",
         "test": "vitest run",
         "test:watch": "vitest watch"
     },
     "dependencies": {
         "@nuxt/kit": "^3.7.3",
-        "pathe": "^1.1.2",
+        "@primeuix/styled": "^0.0.5",
+        "@primeuix/utils": "^0.0.5",
         "primevue": "workspace:*",
-        "@primevue/metadata": "workspace:*"
+        "@primevue/auto-import-resolver": "workspace:*",
+        "@primevue/metadata": "workspace:*",
+        "unplugin-vue-components": "0.27.0",
+        "pathe": "^1.1.2"
     },
     "devDependencies": {
         "@types/node": "^18.17.17",
@@ -70,7 +86,8 @@
         "changelogen": "^0.5.5",
         "nitropack": "^2.6.3",
         "nuxt": "3.3.2",
-        "vitest": "^1.6.0"
+        "vitest": "^1.6.0",
+        "@primevue/themes": "workspace:*"
     },
     "engines": {
         "node": ">=12.11.0"

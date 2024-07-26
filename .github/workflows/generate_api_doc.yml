@@ -4,8 +4,9 @@ on:
     push:
         branches: [master]
         paths:
-            - '**/**/**/*.d.ts'
-            - '/api-generator/build-apidoc.js'
+            - 'packages/primevue/src/**/*.d.ts'
+            - 'packages/primevue/src/**/style/*.js'
+            - 'packages/themes/src/presets/**/**/index.js'
 
 permissions:
     contents: write
@@ -17,25 +18,31 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [16.x]
+                node-version: [20]
 
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
 
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
+                  cache: 'pnpm'
 
             - name: Install node packages
-              run: npm run setup
+              run: pnpm run setup
 
             - name: Generate api doc
-              run: npm run apidoc
+              run: pnpm run build:apidoc
 
             - name: Code Format
-              run: npm run format
+              run: pnpm run format
 
             - name: Commit doc
               run: |

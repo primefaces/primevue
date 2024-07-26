@@ -82,6 +82,7 @@ import tooltip from '@primevue/themes/aura/tooltip';
 import tree from '@primevue/themes/aura/tree';
 import treeselect from '@primevue/themes/aura/treeselect';
 import treetable from '@primevue/themes/aura/treetable';
+import virtualscroller from '@primevue/themes/aura/virtualscroller';
 
 export default {
     primitive: {
@@ -158,7 +159,7 @@ export default {
             padding: '0.25rem 0.25rem',
             gap: '2px',
             header: {
-                padding: '0.5rem 0.75rem 0.25rem 0.75rem'
+                padding: '0.5rem 1rem 0.25rem 1rem'
             },
             option: {
                 padding: '0.5rem 0.75rem',
@@ -391,7 +392,7 @@ export default {
                     hoverMutedColor: '{surface.300}'
                 },
                 content: {
-                    background: 'transparent',
+                    background: '{surface.900}',
                     hoverBackground: '{surface.800}',
                     borderColor: '{surface.700}',
                     color: '{text.color}',
@@ -541,7 +542,8 @@ export default {
         treeselect,
         treetable,
         toast,
-        toolbar
+        toolbar,
+        virtualscroller
     },
     directives: {
         tooltip,

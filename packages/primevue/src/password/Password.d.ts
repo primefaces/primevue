@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type PasswordPassThroughOptionType = PasswordPassThroughAttributes | ((options: PasswordPassThroughMethodOptions) => PasswordPassThroughAttributes | string) | string | null | undefined;
 
@@ -247,6 +247,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      * @defaultValue false
      */
     required?: boolean | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
     /**
      * Identifier of the underlying input element.
      */

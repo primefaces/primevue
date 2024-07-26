@@ -31,6 +31,7 @@ const theme = ({ dt }) => `
     text-decoration: none;
     display: flex;
     align-items: center;
+    gap: ${dt('breadcrumb.item.gap')};
     transition: background ${dt('breadcrumb.transition.duration')}, color ${dt('breadcrumb.transition.duration')}, outline-color ${dt('breadcrumb.transition.duration')}, box-shadow ${dt('breadcrumb.transition.duration')};
     border-radius: ${dt('breadcrumb.item.border.radius')};
     outline-color: transparent;
@@ -43,13 +44,21 @@ const theme = ({ dt }) => `
     outline-offset: ${dt('breadcrumb.item.focus.ring.offset')};
 }
 
-.p-breadcrumb-item-label:hover {
+.p-breadcrumb-item-link:hover .p-breadcrumb-item-label {
     color: ${dt('breadcrumb.item.hover.color')};
-    line-height: 1;
+}
+
+.p-breadcrumb-item-label {
+    transition: inherit;
 }
 
 .p-breadcrumb-item-icon {
     color: ${dt('breadcrumb.item.icon.color')};
+    transition: inherit;
+}
+
+.p-breadcrumb-item-link:hover .p-breadcrumb-item-icon {
+    color: ${dt('breadcrumb.item.icon.hover.color')};
 }
 `;
 

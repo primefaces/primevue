@@ -174,6 +174,10 @@ export interface ColorPickerProps {
      */
     baseZIndex?: number | undefined;
     /**
+     * Identifier of the focus input to match a label defined for the dropdown.
+     */
+    inputId?: string | undefined;
+    /**
      * Style class of the overlay panel.
      */
     panelClass?: any;

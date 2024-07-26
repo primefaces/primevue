@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { equals } from '@primeuix/utils/object';
 import BaseRadioButton from './BaseRadioButton.vue';
 
 export default {
@@ -62,7 +62,7 @@ export default {
     },
     computed: {
         checked() {
-            return this.modelValue != null && (this.binary ? !!this.modelValue : ObjectUtils.equals(this.modelValue, this.value));
+            return this.modelValue != null && (this.binary ? !!this.modelValue : equals(this.modelValue, this.value));
         }
     }
 };

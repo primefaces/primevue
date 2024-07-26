@@ -6,7 +6,7 @@ export { default as BaseIcon } from '@primevue/icons/baseicon';
 export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 
 // Themes
-export * from '@primevue/themes';
+export * from '@primeuix/styled';
 
 // UseConfirm
 export * from './useconfirm/UseConfirm.js';
@@ -297,6 +297,12 @@ export * from './floatlabel/FloatLabel.vue';
 export { default as FloatLabel } from './floatlabel/FloatLabel.vue';
 export * from './floatlabel/style/FloatLabelStyle.js';
 export { default as FloatLabelStyle } from './floatlabel/style/FloatLabelStyle.js';
+
+// Fluid
+export * from './fluid/Fluid.vue';
+export { default as Fluid } from './fluid/Fluid.vue';
+export * from './fluid/style/FluidStyle.js';
+export { default as FluidStyle } from './fluid/style/FluidStyle.js';
 
 // FocusTrap
 export * from './focustrap/FocusTrap.js';

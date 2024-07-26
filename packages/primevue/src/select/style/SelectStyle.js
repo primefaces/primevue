@@ -188,12 +188,8 @@ input.p-select-label {
     padding: ${dt('select.empty.message.padding')};
 }
 
-.p-fluid .p-select {
+.p-select-fluid {
     display: flex;
-}
-
-.p-fluid .p-select-label {
-    width: 1%;
 }
 `;
 
@@ -207,7 +203,8 @@ const classes = {
             'p-focus': state.focused,
             'p-inputwrapper-filled': instance.hasSelectedOption,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
-            'p-select-open': state.overlayVisible
+            'p-select-open': state.overlayVisible,
+            'p-select-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [

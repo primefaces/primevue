@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { isExist } from '@primeuix/utils/dom';
 import BaseEditor from './BaseEditor.vue';
 
 const QuillJS = (function () {
@@ -101,7 +101,7 @@ export default {
         } else {
             import('quill')
                 .then((module) => {
-                    if (module && DomHandler.isExist(this.$refs.editorElement)) {
+                    if (module && isExist(this.$refs.editorElement)) {
                         if (module.default) {
                             // webpack
                             this.quill = new module.default(this.$refs.editorElement, configuration);

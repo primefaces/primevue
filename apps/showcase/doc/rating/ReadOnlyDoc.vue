@@ -3,7 +3,7 @@
         <p>When <i>readOnly</i> present, value cannot be edited.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Rating v-model="value" readonly :cancel="false" />
+        <Rating v-model="value" readonly />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: 3,
             code: {
                 basic: `
-<Rating v-model="value" readonly :cancel="false" />
+<Rating v-model="value" readonly />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Rating v-model="value" readonly :cancel="false" />
+        <Rating v-model="value" readonly />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Rating v-model="value" readonly :cancel="false" />
+        <Rating v-model="value" readonly />
     </div>
 </template>
 

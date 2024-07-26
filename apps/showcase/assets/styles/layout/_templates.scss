@@ -1,0 +1,48 @@
+// TEMPLATE FEATURES ANIMATION
+.template-features-animation-card {
+    &:hover &-order {
+        div {
+            &:nth-child(3) {
+                animation: p-features-order-animation 2.5s ease-in-out;
+                color: var(--p-primary-400);
+            }
+        }
+    }
+
+    &-active &-order {
+        div {
+            &:nth-child(3) {
+                animation: p-features-order-animation 2.5s ease-in-out;
+                color: var(--p-primary-400);
+            }
+        }
+    }
+}
+
+.template-features a {
+    @include doc-link();
+}
+
+@keyframes p-features-order-animation {
+    0% {
+        clip-path: polygon(0% 100%, 15% 100%, 32% 100%, 54% 100%, 70% 100%, 84% 100%, 100% 100%,
+                100% 100%, 0% 100%);
+    }
+
+    20% {
+        clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%,
+                100% 100%, 0% 100%);
+    }
+
+    40% {
+        clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+
+    60% {
+        clip-path: polygon(0 51%, 14% 31%, 33% 42%, 49% 53%, 68% 55%, 85% 50%, 100% 60%, 100% 100%, 0 100%);
+    }
+
+    100% {
+        clip-path: polygon(0 0, 18% 0, 39% 0, 53% 0, 62% 0, 87% 0, 100% 0, 100% 100%, 0 100%);
+    }
+}

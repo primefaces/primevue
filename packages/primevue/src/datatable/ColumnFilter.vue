@@ -166,7 +166,9 @@
 <script>
 import { FilterOperator } from '@primevue/core/api';
 import BaseComponent from '@primevue/core/basecomponent';
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { getAttribute, focus, addStyle, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import FilterIcon from '@primevue/icons/filter';
 import FilterSlashIcon from '@primevue/icons/filterslash';
 import PlusIcon from '@primevue/icons/plus';
@@ -317,7 +319,7 @@ export default {
         }
 
         if (this.overlay) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
             this.onOverlayHide();
         }
     },
@@ -515,19 +517,19 @@ export default {
         findNextItem(item) {
             let nextItem = item.nextElementSibling;
 
-            if (nextItem) return DomHandler.getAttribute(nextItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findNextItem(nextItem) : nextItem;
+            if (nextItem) return getAttribute(nextItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findNextItem(nextItem) : nextItem;
             else return item.parentElement.firstElementChild;
         },
         findPrevItem(item) {
             let prevItem = item.previousElementSibling;
 
-            if (prevItem) return DomHandler.getAttribute(prevItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findPrevItem(prevItem) : prevItem;
+            if (prevItem) return getAttribute(prevItem, 'data-pc-section') === 'filterconstraintseparator' ? this.findPrevItem(prevItem) : prevItem;
             else return item.parentElement.lastElementChild;
         },
         hide() {
             this.overlayVisible = false;
 
-            this.showMenuButton && DomHandler.focus(this.$refs.icon.$el);
+            this.showMenuButton && focus(this.$refs.icon.$el);
         },
         onContentClick(event) {
             this.selfClick = true;
@@ -542,12 +544,12 @@ export default {
         },
         onOverlayEnter(el) {
             if (this.filterMenuStyle) {
-                DomHandler.applyStyle(this.overlay, this.filterMenuStyle);
+                addStyle(this.overlay, this.filterMenuStyle);
             }
 
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
-            DomHandler.absolutePosition(this.overlay, this.$refs.icon.$el);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            absolutePosition(this.overlay, this.$refs.icon.$el);
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -567,7 +569,7 @@ export default {
             this.onOverlayHide();
         },
         onOverlayAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         onOverlayHide() {
             this.unbindOutsideClickListener();
@@ -625,7 +627,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.hide();
                     }
                 };

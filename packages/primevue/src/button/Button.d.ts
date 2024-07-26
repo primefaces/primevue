@@ -130,6 +130,16 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     loadingIcon?: string | undefined;
     /**
+     * Use to change the HTML tag of root element.
+     * @defaultValue BUTTON
+     */
+    as?: string | undefined;
+    /**
+     * When enabled, it changes the default rendered element for the one passed as a child element.
+     * @defaultValue false
+     */
+    asChild?: boolean | undefined;
+    /**
      *  Add a link style to the button.
      * @defaultValue false
      */
@@ -167,6 +177,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     plain?: boolean | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

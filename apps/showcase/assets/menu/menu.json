@@ -100,6 +100,10 @@
                             "to": "/floatlabel"
                         },
                         {
+                            "name": "Fluid",
+                            "to": "/fluid"
+                        },
+                        {
                             "name": "IconField",
                             "to": "/iconfield"
                         },

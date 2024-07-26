@@ -93,8 +93,9 @@
 </template>
 
 <script>
+import { equals, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import { mergeProps } from 'vue';
@@ -280,13 +281,13 @@ export default {
             deep: true,
             immediate: true,
             handler(newValue) {
-                this.d_rowExpanded = this.dataKey ? newValue?.[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
+                this.d_rowExpanded = this.dataKey ? newValue?.[resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
             }
         }
     },
     methods: {
         columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+            return getVNodeProp(col, prop);
         },
         //@todo - update this method
         getColumnPT(key) {
@@ -326,8 +327,8 @@ export default {
                         let prevRowData = this.value[this.rowIndex - 1];
 
                         if (prevRowData) {
-                            const currentRowFieldData = ObjectUtils.resolveFieldData(this.value[this.rowIndex], field);
-                            const previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, field);
+                            const currentRowFieldData = resolveFieldData(this.value[this.rowIndex], field);
+                            const previousRowFieldData = resolveFieldData(prevRowData, field);
 
                             return currentRowFieldData !== previousRowFieldData;
                         } else {
@@ -345,7 +346,7 @@ export default {
             if (this.isGrouped(column)) {
                 let index = this.rowIndex;
                 const field = this.columnProp(column, 'field');
-                const currentRowFieldData = ObjectUtils.resolveFieldData(this.value[index], field);
+                const currentRowFieldData = resolveFieldData(this.value[index], field);
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
@@ -354,7 +355,7 @@ export default {
                     let nextRowData = this.value[++index];
 
                     if (nextRowData) {
-                        nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, field);
+                        nextRowFieldData = resolveFieldData(nextRowData, field);
                     } else {
                         break;
                     }
@@ -393,7 +394,7 @@ export default {
             return index;
         },
         equals(data1, data2) {
-            return this.compareSelectionBy === 'equals' ? data1 === data2 : ObjectUtils.equals(data1, data2, this.dataKey);
+            return this.compareSelectionBy === 'equals' ? data1 === data2 : equals(data1, data2, this.dataKey);
         },
         onRowGroupToggle(event) {
             this.$emit('rowgroup-toggle', { originalEvent: event, data: this.rowData });
@@ -494,7 +495,7 @@ export default {
                 for (let col of this.columns) {
                     let _selectionMode = this.columnProp(col, 'selectionMode');
 
-                    if (ObjectUtils.isNotEmpty(_selectionMode) && _selectionMode === 'multiple') {
+                    if (isNotEmpty(_selectionMode)) {
                         columnSelectionMode = _selectionMode;
                         break;
                     }
@@ -512,7 +513,7 @@ export default {
         },
         isRowEditing() {
             if (this.rowData && this.editingRows) {
-                if (this.dataKey) return this.editingRowKeys ? this.editingRowKeys[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
+                if (this.dataKey) return this.editingRowKeys ? this.editingRowKeys[resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
                 else return this.findIndex(this.rowData, this.editingRows) > -1;
             }
 
@@ -520,7 +521,7 @@ export default {
         },
         isRowGroupExpanded() {
             if (this.expandableRowGroups && this.expandedRowGroups) {
-                const groupFieldValue = ObjectUtils.resolveFieldData(this.rowData, this.groupRowsBy);
+                const groupFieldValue = resolveFieldData(this.rowData, this.groupRowsBy);
 
                 return this.expandedRowGroups.indexOf(groupFieldValue) > -1;
             }
@@ -530,7 +531,7 @@ export default {
         isSelected() {
             if (this.rowData && this.selection) {
                 if (this.dataKey) {
-                    return this.selectionKeys ? this.selectionKeys[ObjectUtils.resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
+                    return this.selectionKeys ? this.selectionKeys[resolveFieldData(this.rowData, this.dataKey)] !== undefined : false;
                 } else {
                     if (this.selection instanceof Array) return this.findIndexInSelection(this.rowData) > -1;
                     else return this.equals(this.rowData, this.selection);
@@ -547,11 +548,11 @@ export default {
             return false;
         },
         shouldRenderRowGroupHeader() {
-            const currentRowFieldData = ObjectUtils.resolveFieldData(this.rowData, this.groupRowsBy);
+            const currentRowFieldData = resolveFieldData(this.rowData, this.groupRowsBy);
             const prevRowData = this.value[this.rowIndex - 1];
 
             if (prevRowData) {
-                const previousRowFieldData = ObjectUtils.resolveFieldData(prevRowData, this.groupRowsBy);
+                const previousRowFieldData = resolveFieldData(prevRowData, this.groupRowsBy);
 
                 return currentRowFieldData !== previousRowFieldData;
             } else {
@@ -562,11 +563,11 @@ export default {
             if (this.expandableRowGroups && !this.isRowGroupExpanded) {
                 return false;
             } else {
-                let currentRowFieldData = ObjectUtils.resolveFieldData(this.rowData, this.groupRowsBy);
+                let currentRowFieldData = resolveFieldData(this.rowData, this.groupRowsBy);
                 let nextRowData = this.value[this.rowIndex + 1];
 
                 if (nextRowData) {
-                    let nextRowFieldData = ObjectUtils.resolveFieldData(nextRowData, this.groupRowsBy);
+                    let nextRowFieldData = resolveFieldData(nextRowData, this.groupRowsBy);
 
                     return currentRowFieldData !== nextRowFieldData;
                 } else {

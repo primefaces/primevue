@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { resolveFieldData, equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import ToggleButton from 'primevue/togglebutton';
 import BaseSelectButton from './BaseSelectButton.vue';
@@ -33,13 +33,13 @@ export default {
     emits: ['update:modelValue', 'change'],
     methods: {
         getOptionLabel(option) {
-            return this.optionLabel ? ObjectUtils.resolveFieldData(option, this.optionLabel) : option;
+            return this.optionLabel ? resolveFieldData(option, this.optionLabel) : option;
         },
         getOptionValue(option) {
-            return this.optionValue ? ObjectUtils.resolveFieldData(option, this.optionValue) : option;
+            return this.optionValue ? resolveFieldData(option, this.optionValue) : option;
         },
         getOptionRenderKey(option) {
-            return this.dataKey ? ObjectUtils.resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
+            return this.dataKey ? resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
         getPTOptions(option, key) {
             return this.ptm(key, {
@@ -51,7 +51,7 @@ export default {
             });
         },
         isOptionDisabled(option) {
-            return this.optionDisabled ? ObjectUtils.resolveFieldData(option, this.optionDisabled) : false;
+            return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
         onOptionSelect(event, option, index) {
             if (this.disabled || this.isOptionDisabled(option)) {
@@ -68,7 +68,7 @@ export default {
             let newValue;
 
             if (this.multiple) {
-                if (selected) newValue = this.modelValue.filter((val) => !ObjectUtils.equals(val, optionValue, this.equalityKey));
+                if (selected) newValue = this.modelValue.filter((val) => !equals(val, optionValue, this.equalityKey));
                 else newValue = this.modelValue ? [...this.modelValue, optionValue] : [optionValue];
             } else {
                 newValue = selected ? null : optionValue;
@@ -85,14 +85,14 @@ export default {
             if (this.multiple) {
                 if (this.modelValue) {
                     for (let val of this.modelValue) {
-                        if (ObjectUtils.equals(val, optionValue, this.equalityKey)) {
+                        if (equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
                         }
                     }
                 }
             } else {
-                selected = ObjectUtils.equals(this.modelValue, optionValue, this.equalityKey);
+                selected = equals(this.modelValue, optionValue, this.equalityKey);
             }
 
             return selected;

@@ -13,31 +13,37 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [16.x, 18.x]
+                node-version: [18, 20]
 
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9
 
             - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
+                  cache: 'pnpm'
 
             - name: Build
               run: |
-                  npm run setup
+                  pnpm run setup
 
             - name: Lint Check
               if: ${{ success() }}
               run: |
-                  npm run lint
+                  pnpm run lint
 
             - name: Code Format Check
               id: codeFormatCheck
               if: ${{ success() }}
               run: |
-                  npm run format:check
+                  pnpm run format:check
 
             - name: Code Format
               if: always() && steps.codeFormatCheck.outcome == 'failure'
@@ -51,7 +57,7 @@ jobs:
             - name: Security Check
               if: ${{ success() }}
               run: |
-                  npm run security:check
+                  pnpm run security:check
 
             # - name: Unit Tests Check
             #   if: ${{ success() }}

@@ -9,6 +9,7 @@ export interface ConstructsType {
 
 export interface ModuleOptions {
     usePrimeVue?: boolean;
+    autoImport?: boolean;
     resolvePath?: any;
     /*cssLayerOrder?: string;*/
     importPT?: ImportOptions;

@@ -188,19 +188,19 @@ export interface PickListPassThroughOptions {
     /**
      * Used to pass attributes to the Button component.
      */
-    moveToTargetButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcMoveToTargetButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveAllToTargetButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcMoveAllToTargetButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcMoveToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the Button component.
      */
-    moveAllToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcMoveAllToSourceButton?: ButtonPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the target list container's DOM element.
      */

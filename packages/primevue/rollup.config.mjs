@@ -1,8 +1,8 @@
 import alias from '@rollup/plugin-alias';
 import { babel } from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
-import { terser } from 'rollup-plugin-terser';
 import vue from 'rollup-plugin-vue';
 
 import fs from 'fs-extra';
@@ -19,7 +19,7 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue', 'chart.js/auto', 'quill'];
-const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/];
+const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primevue\/icons\/.*/, '@primeuix/styled', /@primeuix\/utils\/.*/];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias
@@ -36,6 +36,7 @@ const ALIAS_ENTRIES = [
             const files = fs.readdirSync(folderPath);
             const targetFile = files.find((file) => {
                 const ext = path.extname(file);
+
                 return ['.vue', '.js'].includes(ext) && path.basename(file, ext).toLowerCase() === fName.toLowerCase();
             });
 
@@ -55,8 +56,7 @@ const ALIAS_ENTRIES = [
     { find: '@primevue/core/utils', replacement: path.resolve(__dirname, '../core/src/utils/Utils.js') },
     { find: '@primevue/core', replacement: path.resolve(__dirname, '../core/src/index.js') },
     { find: '@primevue/icons/baseicon/style', replacement: path.resolve(__dirname, '../icons/src/baseicon/style/BaseIconStyle.js') },
-    { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, '../icons/src/baseicon/BaseIcon.vue') },
-    { find: '@primevue/themes', replacement: path.resolve(__dirname, '../themes/src/index.js') }
+    { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, '../icons/src/baseicon/BaseIcon.vue') }
 ];
 
 // plugins

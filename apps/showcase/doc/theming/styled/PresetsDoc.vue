@@ -1,14 +1,22 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Currently Aura is the only available preset and more will follow in the upcoming updates.</p>
+        <p>Currently Aura, Lara and Nora are the available presets, a new preset based on Material Design is planned by the end of 2024.</p>
     </DocSectionText>
     <div class="card">
-        <TabView>
-            <TabPanel header="Aura"><DocSectionCode :code="aura" hideToggleCode importCode hideStackBlitz /></TabPanel>
-            <TabPanel header="Lara"><DocSectionCode :code="lara" hideToggleCode importCode hideStackBlitz /></TabPanel>
-            <TabPanel header="Nora"><DocSectionCode :code="nora" hideToggleCode importCode hideStackBlitz /></TabPanel>
-            <TabPanel header="Material">Coming soon with a future update.</TabPanel>
-        </TabView>
+        <Tabs value="aura">
+            <TabList>
+                <Tab value="aura">Aura</Tab>
+                <Tab value="lara">Lara</Tab>
+                <Tab value="nora">Nora</Tab>
+                <Tab value="material">Material</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="aura"><DocSectionCode :code="aura" hideToggleCode importCode hideStackBlitz /></TabPanel>
+                <TabPanel value="lara"><DocSectionCode :code="lara" hideToggleCode importCode hideStackBlitz /></TabPanel>
+                <TabPanel value="nora"><DocSectionCode :code="nora" hideToggleCode importCode hideStackBlitz /></TabPanel>
+                <TabPanel value="material">Coming soon with a future update.</TabPanel>
+            </TabPanels>
+        </Tabs>
     </div>
 </template>
 
@@ -406,7 +414,7 @@ export default {
             },
             lara: {
                 basic: `
-import accordion from '@primevue/themes/aura/accordion';
+import accordion from '@primevue/themes/lara/accordion';
 // ... imports of other component tokens
 
 export default {
@@ -799,7 +807,7 @@ export default {
             },
             nora: {
                 basic: `
-import accordion from '@primevue/themes/aura/accordion';
+import accordion from '@primevue/themes/nora/accordion';
 // ... imports of other component tokens
 
 export default {

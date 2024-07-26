@@ -1,7 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. If you prefer importing components manually, view the
+            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. If you prefer importing components automatically with
+            tree-shaking support , view the
             <NuxtLink to="/autoimport">autoimport</NuxtLink> guide.
         </p>
     </DocSectionText>

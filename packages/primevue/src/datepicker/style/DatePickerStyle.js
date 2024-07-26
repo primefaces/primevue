@@ -71,11 +71,11 @@ const theme = ({ dt }) => `
     color: ${dt('datepicker.input.icon.color')};
 }
 
-.p-fluid .p-datepicker {
+.p-datepicker-fluid {
     display: flex;
 }
 
-.p-fluid .p-datepicker-input {
+.p-datepicker-fluid .p-datepicker-input {
     width: 1%;
 }
 
@@ -126,30 +126,30 @@ const theme = ({ dt }) => `
     cursor: pointer;
     font-weight: inherit;
     transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, outline-color ${dt('datepicker.transition.duration')}, box-shadow ${dt(
-        'datepicker.transition.duration'
-    )};
+    'datepicker.transition.duration'
+)};
 }
 
 .p-datepicker-select-month {
-    padding: ${dt('datepicker.view.month.padding')};
-    color: ${dt('datepicker.view.month.color')};
-    border-radius: ${dt('datepicker.view.month.border.radius')};
+    padding: ${dt('datepicker.select.month.padding')};
+    color: ${dt('datepicker.select.month.color')};
+    border-radius: ${dt('datepicker.select.month.border.radius')};
 }
 
 .p-datepicker-select-year {
-    padding: ${dt('datepicker.view.year.padding')};
-    color: ${dt('datepicker.view.year.color')};
-    border-radius: ${dt('datepicker.view.year.border.radius')};
+    padding: ${dt('datepicker.select.year.padding')};
+    color: ${dt('datepicker.select.year.color')};
+    border-radius: ${dt('datepicker.select.year.border.radius')};
 }
 
 .p-datepicker-select-month:enabled:hover {
-    background: ${dt('datepicker.view.month.hover.background')};
-    color: ${dt('datepicker.view.month.hover.color')};
+    background: ${dt('datepicker.select.month.hover.background')};
+    color: ${dt('datepicker.select.month.hover.color')};
 }
 
 .p-datepicker-select-year:enabled:hover {
-    background: ${dt('datepicker.view.year.hover.background')};
-    color: ${dt('datepicker.view.year.hover.color')};
+    background: ${dt('datepicker.select.year.hover.background')};
+    color: ${dt('datepicker.select.year.hover.color')};
 }
 
 .p-datepicker-calendar-container {
@@ -264,8 +264,8 @@ const theme = ({ dt }) => `
     position: relative;
     padding: ${dt('datepicker.date.padding')};
     transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, box-shadow ${dt('datepicker.transition.duration')}, outline-color ${dt(
-        'datepicker.transition.duration'
-    )};
+    'datepicker.transition.duration'
+)};
     border-radius: ${dt('datepicker.month.border.radius')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
@@ -301,8 +301,8 @@ const theme = ({ dt }) => `
     position: relative;
     padding: ${dt('datepicker.date.padding')};
     transition: background ${dt('datepicker.transition.duration')}, color ${dt('datepicker.transition.duration')}, border-color ${dt('datepicker.transition.duration')}, box-shadow ${dt('datepicker.transition.duration')}, outline-color ${dt(
-        'datepicker.transition.duration'
-    )};
+    'datepicker.transition.duration'
+)};
     border-radius: ${dt('datepicker.year.border.radius')};
     outline-color: transparent;
     color: ${dt('datepicker.date.color')};
@@ -370,13 +370,14 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ props, state }) => [
+    root: ({ instance, props, state }) => [
         'p-datepicker p-component p-inputwrapper',
         {
             'p-invalid': props.invalid,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
-            'p-focus': state.focused || state.overlayVisible
+            'p-focus': state.focused || state.overlayVisible,
+            'p-datepicker-fluid': instance.hasFluid
         }
     ],
     pcInput: 'p-datepicker-input',

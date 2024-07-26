@@ -10,8 +10,8 @@ const theme = ({ dt }) => `
     padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
     transition: background ${dt('textarea.transition.duration')}, color ${dt('textarea.transition.duration')}, border-color ${dt('textarea.transition.duration')}, outline-color ${dt('textarea.transition.duration')}, box-shadow ${dt(
-        'textarea.transition.duration'
-    )};
+    'textarea.transition.duration'
+)};
     appearance: none;
     border-radius: ${dt('textarea.border.radius')};
     outline-color: transparent;
@@ -51,7 +51,7 @@ const theme = ({ dt }) => `
     color: ${dt('textarea.placeholder.color')};
 }
 
-.p-fluid .p-textarea {
+.p-textarea-fluid {
     width: 100%;
 }
 
@@ -68,7 +68,8 @@ const classes = {
             'p-filled': instance.filled,
             'p-textarea-resizable ': props.autoResize,
             'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-textarea-fluid': instance.hasFluid
         }
     ]
 };

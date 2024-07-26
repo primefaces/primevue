@@ -14,7 +14,7 @@
     </template>
     <template v-else>
         <template v-if="!asChild">
-            <component v-if="active" :is="as" :id="id" :class="cx('root')" role="tabpanel" :aria-controls="ariaControls" v-bind="getPTOptions('root')">
+            <component v-show="active" :is="as" :id="id" :class="cx('root')" role="tabpanel" :aria-controls="ariaControls" v-bind="getPTOptions('root')">
                 <slot :active="active" :activateCallback="(val) => updateValue(val)" />
             </component>
         </template>
@@ -23,7 +23,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { find, findSingle } from '@primeuix/utils/dom';
+import { findIndexInList } from '@primeuix/utils/object';
 import StepperSeparator from '../stepper/StepperSeparator.vue';
 import BaseStepPanel from './BaseStepPanel.vue';
 
@@ -43,9 +44,9 @@ export default {
     },
     mounted() {
         if (this.$el) {
-            let stepElements = DomHandler.find(this.$pcStepper.$el, '[data-pc-name="step"]');
-            let stepPanelEl = DomHandler.findSingle(this.isVertical ? this.$pcStepItem?.$el : this.$pcStepList?.$el, '[data-pc-name="step"]');
-            let stepPanelIndex = ObjectUtils.findIndexInList(stepPanelEl, stepElements);
+            let stepElements = find(this.$pcStepper.$el, '[data-pc-name="step"]');
+            let stepPanelEl = findSingle(this.isVertical ? this.$pcStepItem?.$el : this.$pcStepList?.$el, '[data-pc-name="step"]');
+            let stepPanelIndex = findIndexInList(stepPanelEl, stepElements);
 
             this.isSeparatorVisible = this.isVertical && stepPanelIndex !== stepElements.length - 1;
         }

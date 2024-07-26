@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { DomHandler, ZIndexUtils } from '@primevue/core/utils';
+import { unblockBodyScroll, blockBodyScroll, addClass } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import BaseGalleria from './BaseGalleria.vue';
@@ -35,32 +36,32 @@ export default {
     },
     beforeUnmount() {
         if (this.fullScreen) {
-            DomHandler.unblockBodyScroll();
+            unblockBodyScroll();
         }
 
         this.mask = null;
 
         if (this.container) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
             this.container = null;
         }
     },
     methods: {
         onBeforeEnter(el) {
-            ZIndexUtils.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
+            ZIndex.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
         },
         onEnter(el) {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
-            DomHandler.blockBodyScroll();
+            blockBodyScroll();
             this.focus();
         },
         onBeforeLeave() {
-            !this.isUnstyled && DomHandler.addClass(this.mask, 'p-overlay-mask-leave');
+            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
         },
         onAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
             this.containerVisible = false;
-            DomHandler.unblockBodyScroll();
+            unblockBodyScroll();
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {

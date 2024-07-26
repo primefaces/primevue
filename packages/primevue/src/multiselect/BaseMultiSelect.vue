@@ -26,7 +26,14 @@ export default {
             type: Boolean,
             default: false
         },
-        disabled: Boolean,
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        fluid: {
+            type: Boolean,
+            default: null
+        },
         inputId: {
             type: String,
             default: null

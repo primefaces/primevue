@@ -78,11 +78,11 @@ const theme = ({ dt }) => `
     font-weight: ${dt('button.label.font.weight')};
 }
 
-.p-fluid .p-button {
+.p-button-fluid {
     width: 100%;
 }
 
-.p-fluid .p-button-icon-only {
+.p-button-fluid.p-button-icon-only {
     width: ${dt('button.icon.only.width')};
 }
 
@@ -615,7 +615,8 @@ const classes = {
             'p-button-outlined': props.outlined,
             'p-button-sm': props.size === 'small',
             'p-button-lg': props.size === 'large',
-            'p-button-plain': props.plain
+            'p-button-plain': props.plain,
+            'p-button-fluid': instance.hasFluid
         }
     ],
     loadingIcon: 'p-button-loading-icon',

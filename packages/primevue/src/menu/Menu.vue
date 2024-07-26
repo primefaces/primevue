@@ -65,7 +65,9 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { focus, find, findSingle, addStyle, absolutePosition, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseMenu from './BaseMenu.vue';
@@ -116,7 +118,7 @@ export default {
         this.target = null;
 
         if (this.container && this.autoZIndex) {
-            ZIndexUtils.clear(this.container);
+            ZIndex.clear(this.container);
         }
 
         this.container = null;
@@ -184,7 +186,7 @@ export default {
 
                 case 'Escape':
                     if (this.popup) {
-                        DomHandler.focus(this.target);
+                        focus(this.target);
                         this.hide();
                     }
 
@@ -204,7 +206,7 @@ export default {
         },
         onArrowUpKey(event) {
             if (event.altKey && this.popup) {
-                DomHandler.focus(this.target);
+                focus(this.target);
                 this.hide();
                 event.preventDefault();
             } else {
@@ -219,14 +221,14 @@ export default {
             event.preventDefault();
         },
         onEndKey(event) {
-            this.changeFocusedOptionIndex(DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
+            this.changeFocusedOptionIndex(find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
             event.preventDefault();
         },
         onEnterKey(event) {
-            const element = DomHandler.findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, 'a[data-pc-section="itemlink"]');
+            const element = findSingle(this.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
+            const anchorElement = element && findSingle(element, 'a[data-pc-section="itemlink"]');
 
-            this.popup && DomHandler.focus(this.target);
+            this.popup && focus(this.target);
             anchorElement ? anchorElement.click() : element && element.click();
 
             event.preventDefault();
@@ -235,19 +237,19 @@ export default {
             this.onEnterKey(event);
         },
         findNextOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const links = find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const links = find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...links].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const links = DomHandler.find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const links = find(this.container, 'li[data-pc-section="item"][data-p-disabled="false"]');
             let order = index >= links.length ? links.length - 1 : index < 0 ? 0 : index;
 
             order > -1 && (this.focusedOptionIndex = links[order].getAttribute('id'));
@@ -265,18 +267,18 @@ export default {
             this.target = null;
         },
         onEnter(el) {
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
             this.bindScrollListener();
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
 
             if (this.popup) {
-                DomHandler.focus(this.list);
+                focus(this.list);
             }
 
             this.$emit('show');
@@ -289,15 +291,15 @@ export default {
         },
         onAfterLeave(el) {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
+                ZIndex.clear(el);
             }
         },
         alignOverlay() {
-            DomHandler.absolutePosition(this.container, this.target);
-            const targetWidth = DomHandler.getOuterWidth(this.target);
+            absolutePosition(this.container, this.target);
+            const targetWidth = getOuterWidth(this.target);
 
-            if (targetWidth > DomHandler.getOuterWidth(this.container)) {
-                this.container.style.minWidth = DomHandler.getOuterWidth(this.target) + 'px';
+            if (targetWidth > getOuterWidth(this.container)) {
+                this.container.style.minWidth = getOuterWidth(this.target) + 'px';
             }
         },
         bindOutsideClickListener() {
@@ -341,7 +343,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.hide();
                     }
                 };

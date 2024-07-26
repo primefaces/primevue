@@ -24,7 +24,7 @@
                     content: {
                         class: ['relative', { 'flex-1 justify-center': fullScreen }]
                     },
-                    thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+                    thumbnails: 'absolute w-full left-0 bottom-0'
                 }"
             >
                 <template #item="slotProps">
@@ -36,15 +36,19 @@
                     </div>
                 </template>
                 <template #footer>
-                    <div class="flex items-center bg-black/90 text-white">
-                        <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                        <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                        <span v-if="images" class="title-container">
-                            <span class="text-sm p-4">{{ activeIndex + 1 }}/{{ images.length }}</span>
-                            <span class="font-bold text-sm p-4">{{ images[activeIndex].title }}</span>
-                            <span class="text-sm p-4">{{ images[activeIndex].alt }}</span>
+                    <div class="flex items-stretch bg-surface-950 text-white h-10">
+                        <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                            <i class="pi pi-th-large"></i>
+                        </button>
+                        <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+                        <span v-if="images" class="flex items-center gap-4 ml-3">
+                            <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                            <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                            <span class="text-sm">{{ images[activeIndex].alt }}</span>
                         </span>
-                        <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none rounded-none ml-auto hover:bg-white/10 text-white', style: 'background: transparent' } }" />
+                        <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                            <i :class="fullScreenIcon"></i>
+                        </button>
                     </div>
                 </template>
             </Galleria>
@@ -97,8 +101,7 @@ export default {
         content: {
             class: ['relative', { 'flex-1 justify-center': fullScreen }]
         },
-
-        thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+        thumbnails: 'absolute w-full left-0 bottom-0'
     }"
 >
     <template #item="slotProps">
@@ -110,15 +113,19 @@ export default {
         </div>
     </template>
     <template #footer>
-        <div class="flex items-center bg-black/90 text-white">
-            <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-            <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-            <span v-if="images" class="title-container">
-                <span class="text-sm p-4">{{ activeIndex + 1 }}/{{ images.length }}</span>
-                <span class="font-bold text-sm p-4">{{ images[activeIndex].title }}</span>
-                <span class="text-sm p-4">{{ images[activeIndex].alt }}</span>
+        <div class="flex items-stretch bg-surface-950 text-white h-10">
+            <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                <i class="pi pi-th-large"></i>
+            </button>
+            <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+            <span v-if="images" class="flex items-center gap-4 ml-3">
+                <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                <span class="text-sm">{{ images[activeIndex].alt }}</span>
             </span>
-            <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none rounded-none ml-auto hover:bg-white/10 text-white', style: 'background: transparent' } }" />
+            <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                <i :class="fullScreenIcon"></i>
+            </button>
         </div>
     </template>
 </Galleria>
@@ -146,8 +153,7 @@ export default {
                 content: {
                     class: ['relative', { 'flex-1 justify-center': fullScreen }]
                 },
-
-                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+                thumbnails: 'absolute w-full left-0 bottom-0'
             }"
         >
             <template #item="slotProps">
@@ -159,15 +165,19 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="flex items-center bg-black/90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                    <span v-if="images" class="title-container">
-                        <span class="text-sm p-4">{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="font-bold text-sm p-4">{{ images[activeIndex].title }}</span>
-                        <span class="text-sm p-4">{{ images[activeIndex].alt }}</span>
+                <div class="flex items-stretch bg-surface-950 text-white h-10">
+                    <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                        <i class="pi pi-th-large"></i>
+                    </button>
+                    <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+                    <span v-if="images" class="flex items-center gap-4 ml-3">
+                        <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none rounded-none ml-auto hover:bg-white/10 text-white', style: 'background: transparent' } }" />
+                    <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                        <i :class="fullScreenIcon"></i>
+                    </button>
                 </div>
             </template>
         </Galleria>
@@ -292,8 +302,7 @@ export default {
                 content: {
                     class: ['relative', { 'flex-1 justify-center': fullScreen }]
                 },
-
-                thumbnailwrapper: 'absolute w-full left-0 bottom-0'
+                thumbnails: 'absolute w-full left-0 bottom-0'
             }"
         >
             <template #item="slotProps">
@@ -305,15 +314,19 @@ export default {
                 </div>
             </template>
             <template #footer>
-                <div class="flex items-center bg-black/90 text-white">
-                    <Button icon="pi pi-list" @click="onThumbnailButtonClick" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                    <Button :icon="slideButtonIcon" @click="toggleAutoSlide" :pt="{ root: { class: 'border-none rounded-none hover:bg-white/10 text-white', style: 'background: transparent' } }" />
-                    <span v-if="images" class="title-container">
-                        <span class="text-sm p-4">{{ activeIndex + 1 }}/{{ images.length }}</span>
-                        <span class="font-bold text-sm p-4">{{ images[activeIndex].title }}</span>
-                        <span class="text-sm p-4">{{ images[activeIndex].alt }}</span>
+                <div class="flex items-stretch bg-surface-950 text-white h-10">
+                    <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                        <i class="pi pi-th-large"></i>
+                    </button>
+                    <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+                    <span v-if="images" class="flex items-center gap-4 ml-3">
+                        <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm">{{ images[activeIndex].alt }}</span>
                     </span>
-                    <Button :icon="fullScreenIcon" @click="toggleFullScreen" :pt="{ root: { class: 'border-none rounded-none ml-auto hover:bg-white/10 text-white', style: 'background: transparent' } }" />
+                    <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                        <i :class="fullScreenIcon"></i>
+                    </button>
                 </div>
             </template>
         </Galleria>

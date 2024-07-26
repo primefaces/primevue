@@ -14,6 +14,7 @@ export default {
         size: '1rem'
     },
     removeIcon: {
+        size: '1rem',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -44,7 +45,7 @@ export default {
                 color: '{surface.0}'
             },
             removeIcon: {
-                color: '{surfaec.0}'
+                color: '{surface.0}'
             }
         }
     }

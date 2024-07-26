@@ -178,6 +178,10 @@ export default {
         ariaLabelledby: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: null
         }
     },
     style: AutoCompleteStyle,

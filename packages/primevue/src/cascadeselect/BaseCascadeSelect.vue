@@ -131,6 +131,10 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: null
         }
     },
     style: CascadeSelectStyle,

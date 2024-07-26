@@ -15,6 +15,10 @@ export default {
         variant: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: null
         }
     },
     style: TextareaStyle,

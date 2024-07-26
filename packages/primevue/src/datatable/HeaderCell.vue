@@ -29,7 +29,7 @@
             <span v-if="columnProp('sortable')" v-bind="getColumnPT('sort')">
                 <component :is="(column.children && column.children.sorticon) || sortableColumnIcon" :sorted="sortState.sorted" :sortOrder="sortState.sortOrder" :class="cx('sortIcon')" v-bind="getColumnPT('sorticon')" />
             </span>
-            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" v-bind="getColumnPT('pcSortBadge')" :value="getBadgeValue()" size="small" />
+            <Badge v-if="isMultiSorted()" :class="cx('pcSortBadge')" :pt="getColumnPT('pcSortBadge')" :value="getBadgeValue()" size="small" />
             <DTHeaderCheckbox
                 v-if="columnProp('selectionMode') === 'multiple' && filterDisplay !== 'row'"
                 :checked="allRowsSelected"
@@ -84,8 +84,9 @@
 </template>
 
 <script>
+import { getAttribute, getIndex, getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getVNodeProp } from '@primevue/core/utils';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from '@primevue/icons/sortamountupalt';
@@ -207,7 +208,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return ObjectUtils.getVNodeProp(this.column, prop);
+            return getVNodeProp(this.column, prop);
         },
         getColumnPT(key) {
             const columnMetaData = {
@@ -236,7 +237,7 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if ((event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
                 event.preventDefault();
             }
@@ -279,19 +280,19 @@ export default {
 
                 if (align === 'right') {
                     let right = 0;
-                    let next = DomHandler.getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
-                    let prev = DomHandler.getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';
@@ -300,7 +301,7 @@ export default {
                 let filterRow = this.$el.parentElement.nextElementSibling;
 
                 if (filterRow) {
-                    let index = DomHandler.index(this.$el);
+                    let index = getIndex(this.$el);
 
                     if (filterRow.children[index]) {
                         filterRow.children[index].style.left = this.styleObject.left;

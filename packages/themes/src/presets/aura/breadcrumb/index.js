@@ -8,8 +8,12 @@ export default {
     item: {
         color: '{text.muted.color}',
         hoverColor: '{text.color}',
-        iconColor: '{navigation.item.icon.color}',
         borderRadius: '{content.border.radius}',
+        gap: '{navigation.item.gap}',
+        icon: {
+            color: '{navigation.item.icon.color}',
+            hoverColor: '{navigation.item.icon.focus.color}'
+        },
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',

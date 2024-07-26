@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { getHeight, addClass, removeClass } from '@primeuix/utils/dom';
 import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
@@ -101,7 +102,7 @@ export default {
         calculateContainerHeight() {
             let containerStyles = getComputedStyle(this.$el),
                 xBarStyles = getComputedStyle(this.$refs.xBar),
-                pureContainerHeight = DomHandler.getHeight(this.$el) - parseInt(xBarStyles['height'], 10);
+                pureContainerHeight = getHeight(this.$el) - parseInt(xBarStyles['height'], 10);
 
             if (containerStyles['max-height'] !== 'none' && pureContainerHeight === 0) {
                 if (this.$refs.content.offsetHeight + parseInt(xBarStyles['height'], 10) > parseInt(containerStyles['max-height'], 10)) {
@@ -132,10 +133,10 @@ export default {
                     if (this.$refs.xBar) {
                         if (this.scrollXRatio >= 1) {
                             this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'true');
-                            !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
+                            !this.isUnstyled && addClass(this.$refs.xBar, 'p-scrollpanel-hidden');
                         } else {
                             this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
-                            !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
+                            !this.isUnstyled && removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
                             this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                         }
                     }
@@ -143,10 +144,10 @@ export default {
                     if (this.$refs.yBar) {
                         if (this.scrollYRatio >= 1) {
                             this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'true');
-                            !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
+                            !this.isUnstyled && addClass(this.$refs.yBar, 'p-scrollpanel-hidden');
                         } else {
                             this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
-                            !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
+                            !this.isUnstyled && removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
                             this.$refs.yBar.style.cssText =
                                 'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
                         }
@@ -159,9 +160,9 @@ export default {
             this.$refs.yBar.focus();
             this.lastPageY = e.pageY;
             this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'true');
-            !this.isUnstyled && DomHandler.addClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && addClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
             document.body.setAttribute('data-p-scrollpanel-grabbed', 'true');
-            !this.isUnstyled && DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && addClass(document.body, 'p-scrollpanel-grabbed');
 
             this.bindDocumentMouseListeners();
             e.preventDefault();
@@ -171,9 +172,9 @@ export default {
             this.$refs.xBar.focus();
             this.lastPageX = e.pageX;
             this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
-            !this.isUnstyled && DomHandler.addClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && addClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
             document.body.setAttribute('data-p-scrollpanel-grabbed', 'false');
-            !this.isUnstyled && DomHandler.addClass(document.body, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && addClass(document.body, 'p-scrollpanel-grabbed');
 
             this.bindDocumentMouseListeners();
             e.preventDefault();
@@ -302,11 +303,11 @@ export default {
         },
         onDocumentMouseUp() {
             this.$refs.yBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
-            !this.isUnstyled && DomHandler.removeClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && removeClass(this.$refs.yBar, 'p-scrollpanel-grabbed');
             this.$refs.xBar.setAttribute('data-p-scrollpanel-grabbed', 'false');
-            !this.isUnstyled && DomHandler.removeClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && removeClass(this.$refs.xBar, 'p-scrollpanel-grabbed');
             document.body.setAttribute('data-p-scrollpanel-grabbed', 'false');
-            !this.isUnstyled && DomHandler.removeClass(document.body, 'p-scrollpanel-grabbed');
+            !this.isUnstyled && removeClass(document.body, 'p-scrollpanel-grabbed');
 
             this.unbindDocumentMouseListeners();
             this.isXBarClicked = false;

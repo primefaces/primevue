@@ -111,7 +111,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Chip from 'primevue/chip';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -125,6 +128,9 @@ export default {
     extends: BaseTreeSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -167,7 +173,7 @@ export default {
         }
 
         if (this.overlay) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
             this.overlay = null;
         }
     },
@@ -202,7 +208,7 @@ export default {
                 if (this.overlayVisible) this.hide();
                 else this.show();
 
-                DomHandler.focus(this.$refs.focusInput);
+                focus(this.$refs.focusInput);
             }
         },
         onSelectionChange(keys) {
@@ -224,14 +230,14 @@ export default {
             this.expandedKeys = keys;
         },
         onFirstHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onLastHiddenFocus(event) {
-            const focusableEl = event.relatedTarget === this.$refs.focusInput ? DomHandler.getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
+            const focusableEl = event.relatedTarget === this.$refs.focusInput ? getLastFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
 
-            DomHandler.focus(focusableEl);
+            focus(focusableEl);
         },
         onKeyDown(event) {
             switch (event.code) {
@@ -263,10 +269,10 @@ export default {
             this.show();
 
             this.$nextTick(() => {
-                const treeNodeEl = DomHandler.find(this.$refs.tree.$el, '[data-pc-section="treeitem"]');
+                const treeNodeEl = find(this.$refs.tree.$el, '[data-pc-section="treeitem"]');
                 const focusedElement = [...treeNodeEl].find((item) => item.getAttribute('tabindex') === '0');
 
-                DomHandler.focus(focusedElement);
+                focus(focusedElement);
             });
 
             event.preventDefault();
@@ -289,19 +295,19 @@ export default {
         onTabKey(event, pressedInInputText = false) {
             if (!pressedInInputText) {
                 if (this.overlayVisible && this.hasFocusableElements()) {
-                    DomHandler.focus(this.$refs.firstHiddenFocusableElementOnOverlay);
+                    focus(this.$refs.firstHiddenFocusableElementOnOverlay);
 
                     event.preventDefault();
                 }
             }
         },
         hasFocusableElements() {
-            return DomHandler.getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
+            return getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
         onOverlayEnter(el) {
-            ZIndexUtils.set('overlay', el, this.$primevue.config.zIndex.overlay);
+            ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            DomHandler.addStyles(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
             this.focus();
         },
@@ -320,10 +326,10 @@ export default {
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
-            ZIndexUtils.clear(el);
+            ZIndex.clear(el);
         },
         focus() {
-            let focusableElements = DomHandler.getFocusableElements(this.overlay);
+            let focusableElements = getFocusableElements(this.overlay);
 
             if (focusableElements && focusableElements.length > 0) {
                 focusableElements[0].focus();
@@ -331,10 +337,10 @@ export default {
         },
         alignOverlay() {
             if (this.appendTo === 'self') {
-                DomHandler.relativePosition(this.overlay, this.$el);
+                relativePosition(this.overlay, this.$el);
             } else {
-                this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
-                DomHandler.absolutePosition(this.overlay, this.$el);
+                this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
+                absolutePosition(this.overlay, this.$el);
             }
         },
         bindOutsideClickListener() {
@@ -375,7 +381,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.hide();
                     }
                 };
@@ -464,7 +470,7 @@ export default {
         },
         scrollValueInView() {
             if (this.overlay) {
-                let selectedItem = DomHandler.findSingle(this.overlay, '[data-p-selected="true"]');
+                let selectedItem = findSingle(this.overlay, '[data-p-selected="true"]');
 
                 if (selectedItem) {
                     selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
@@ -500,6 +506,9 @@ export default {
         },
         listId() {
             return this.id + '_list';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

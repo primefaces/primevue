@@ -281,7 +281,28 @@
 
 <script>
 import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
-import { DomHandler, HelperSet, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { HelperSet, UniqueComponentId, getVNodeProp } from '@primevue/core/utils';
+import {
+    getAttribute,
+    clearSelection,
+    findSingle,
+    isClickable,
+    find,
+    focus,
+    exportCSV,
+    getOffset,
+    addStyle,
+    getIndex,
+    getOuterWidth,
+    getHiddenElementOuterWidth,
+    getHiddenElementOuterHeight,
+    getWindowScrollTop,
+    getOuterHeight,
+    removeClass,
+    addClass,
+    setAttribute
+} from '@primeuix/utils/dom';
+import { resolveFieldData, localeComparator, sort, findIndexInList, equals, reorderArray, isNotEmpty, isEmpty } from '@primeuix/utils/object';
 import ArrowDownIcon from '@primevue/icons/arrowdown';
 import ArrowUpIcon from '@primevue/icons/arrowup';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -451,7 +472,7 @@ export default {
     },
     methods: {
         columnProp(col, prop) {
-            return ObjectUtils.getVNodeProp(col, prop);
+            return getVNodeProp(col, prop);
         },
         onPage(event) {
             this.clearEditingMetaData();
@@ -480,15 +501,15 @@ export default {
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
 
                 if (
-                    DomHandler.getAttribute(targetNode, 'data-p-sortable-column') === true ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
-                    DomHandler.getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
-                    DomHandler.getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
-                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="columnfilterbutton"]') && !DomHandler.isClickable(event.target))
+                    getAttribute(targetNode, 'data-p-sortable-column') === true ||
+                    getAttribute(targetNode, 'data-pc-section') === 'columntitle' ||
+                    getAttribute(targetNode, 'data-pc-section') === 'columnheadercontent' ||
+                    getAttribute(targetNode, 'data-pc-section') === 'sorticon' ||
+                    getAttribute(targetNode.parentElement, 'data-pc-section') === 'sorticon' ||
+                    getAttribute(targetNode.parentElement.parentElement, 'data-pc-section') === 'sorticon' ||
+                    (targetNode.closest('[data-p-sortable-column="true"]') && !targetNode.closest('[data-pc-section="columnfilterbutton"]') && !isClickable(event.target))
                 ) {
-                    DomHandler.clearSelection();
+                    clearSelection();
 
                     if (this.sortMode === 'single') {
                         if (this.d_sortField === columnField) {
@@ -540,16 +561,16 @@ export default {
             let resolvedFieldData = new Map();
 
             for (let item of data) {
-                resolvedFieldData.set(item, ObjectUtils.resolveFieldData(item, this.d_sortField));
+                resolvedFieldData.set(item, resolveFieldData(item, this.d_sortField));
             }
 
-            const comparer = ObjectUtils.localeComparator();
+            const comparer = localeComparator();
 
             data.sort((data1, data2) => {
                 let value1 = resolvedFieldData.get(data1);
                 let value2 = resolvedFieldData.get(data2);
 
-                return ObjectUtils.sort(value1, value2, this.d_sortOrder, comparer, this.d_nullSortOrder);
+                return sort(value1, value2, this.d_sortOrder, comparer, this.d_nullSortOrder);
             });
 
             return data;
@@ -576,15 +597,15 @@ export default {
             return data;
         },
         multisortField(data1, data2, index) {
-            const value1 = ObjectUtils.resolveFieldData(data1, this.d_multiSortMeta[index].field);
-            const value2 = ObjectUtils.resolveFieldData(data2, this.d_multiSortMeta[index].field);
-            const comparer = ObjectUtils.localeComparator();
+            const value1 = resolveFieldData(data1, this.d_multiSortMeta[index].field);
+            const value2 = resolveFieldData(data2, this.d_multiSortMeta[index].field);
+            const comparer = localeComparator();
 
             if (value1 === value2) {
                 return this.d_multiSortMeta.length - 1 > index ? this.multisortField(data1, data2, index + 1) : 0;
             }
 
-            return ObjectUtils.sort(value1, value2, this.d_multiSortMeta[index].order, comparer, this.d_nullSortOrder);
+            return sort(value1, value2, this.d_multiSortMeta[index].order, comparer, this.d_nullSortOrder);
         },
         addMultiSortField(field) {
             let index = this.d_multiSortMeta.findIndex((meta) => meta.field === field);
@@ -667,7 +688,7 @@ export default {
                     for (let j = 0; j < globalFilterFieldsArray.length; j++) {
                         let globalFilterField = globalFilterFieldsArray[j];
 
-                        globalMatch = FilterService.filters[activeFilters['global'].matchMode || FilterMatchMode.CONTAINS](ObjectUtils.resolveFieldData(data[i], globalFilterField), activeFilters['global'].value, this.filterLocale);
+                        globalMatch = FilterService.filters[activeFilters['global'].matchMode || FilterMatchMode.CONTAINS](resolveFieldData(data[i], globalFilterField), activeFilters['global'].value, this.filterLocale);
 
                         if (globalMatch) {
                             break;
@@ -705,7 +726,7 @@ export default {
         executeLocalFilter(field, rowData, filterMeta) {
             let filterValue = filterMeta.value;
             let filterMatchMode = filterMeta.matchMode || FilterMatchMode.STARTS_WITH;
-            let dataFieldValue = ObjectUtils.resolveFieldData(rowData, field);
+            let dataFieldValue = resolveFieldData(rowData, field);
             let filterConstraint = FilterService.filters[filterMatchMode];
 
             return filterConstraint(dataFieldValue, filterValue, this.filterLocale);
@@ -713,9 +734,9 @@ export default {
         onRowClick(e) {
             const event = e.originalEvent;
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
-            const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
+            const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
-            if (DomHandler.isClickable(event.target)) {
+            if (isClickable(event.target)) {
                 return;
             }
 
@@ -726,7 +747,7 @@ export default {
                 const rowIndex = this.d_first + e.index;
 
                 if (this.isMultipleSelectionMode() && event.shiftKey && this.anchorRowIndex != null) {
-                    DomHandler.clearSelection();
+                    clearSelection();
                     this.rangeRowIndex = rowIndex;
                     this.selectRange(event);
                 } else {
@@ -803,7 +824,7 @@ export default {
         onRowDblClick(e) {
             const event = e.originalEvent;
 
-            if (DomHandler.isClickable(event.target)) {
+            if (isClickable(event.target)) {
                 return;
             }
 
@@ -811,7 +832,7 @@ export default {
         },
         onRowRightClick(event) {
             if (this.contextMenu) {
-                DomHandler.clearSelection();
+                clearSelection();
                 event.originalEvent.target.focus();
             }
 
@@ -941,12 +962,12 @@ export default {
                 if (this.selection.length > 0) {
                     let firstSelectedRowIndex, lastSelectedRowIndex;
 
-                    firstSelectedRowIndex = ObjectUtils.findIndexInList(this.selection[0], data);
-                    lastSelectedRowIndex = ObjectUtils.findIndexInList(this.selection[this.selection.length - 1], data);
+                    firstSelectedRowIndex = findIndexInList(this.selection[0], data);
+                    lastSelectedRowIndex = findIndexInList(this.selection[this.selection.length - 1], data);
 
                     index = rowIndex <= firstSelectedRowIndex ? lastSelectedRowIndex : firstSelectedRowIndex;
                 } else {
-                    index = ObjectUtils.findIndexInList(this.selection, data);
+                    index = findIndexInList(this.selection, data);
                 }
 
                 const _selection = index !== rowIndex ? data.slice(Math.min(index, rowIndex), Math.max(index, rowIndex) + 1) : rowData;
@@ -956,11 +977,11 @@ export default {
         },
         onTabKey(event, rowIndex) {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
-            const rows = DomHandler.find(body, 'tr[data-p-selectable-row="true"]');
+            const rows = find(body, 'tr[data-p-selectable-row="true"]');
 
             if (event.code === 'Tab' && rows && rows.length > 0) {
-                const firstSelectedRow = DomHandler.findSingle(body, 'tr[data-p-selected="true"]');
-                const focusedItem = DomHandler.findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
+                const firstSelectedRow = findSingle(body, 'tr[data-p-selected="true"]');
+                const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
                 if (firstSelectedRow) {
                     firstSelectedRow.tabIndex = '0';
@@ -975,7 +996,7 @@ export default {
             let nextRow = row.nextElementSibling;
 
             if (nextRow) {
-                if (DomHandler.getAttribute(nextRow, 'data-p-selectable-row') === true) return nextRow;
+                if (getAttribute(nextRow, 'data-p-selectable-row') === true) return nextRow;
                 else return this.findNextSelectableRow(nextRow);
             } else {
                 return null;
@@ -985,26 +1006,26 @@ export default {
             let prevRow = row.previousElementSibling;
 
             if (prevRow) {
-                if (DomHandler.getAttribute(prevRow, 'data-p-selectable-row') === true) return prevRow;
+                if (getAttribute(prevRow, 'data-p-selectable-row') === true) return prevRow;
                 else return this.findPrevSelectableRow(prevRow);
             } else {
                 return null;
             }
         },
         findFirstSelectableRow() {
-            const firstRow = DomHandler.findSingle(this.$refs.table, 'tr[data-p-selectable-row="true"]');
+            const firstRow = findSingle(this.$refs.table, 'tr[data-p-selectable-row="true"]');
 
             return firstRow;
         },
         findLastSelectableRow() {
-            const rows = DomHandler.find(this.$refs.table, 'tr[data-p-selectable-row="true"]');
+            const rows = find(this.$refs.table, 'tr[data-p-selectable-row="true"]');
 
             return rows ? rows[rows.length - 1] : null;
         },
         focusRowChange(firstFocusableRow, currentFocusedRow) {
             firstFocusableRow.tabIndex = '-1';
             currentFocusedRow.tabIndex = '0';
-            DomHandler.focus(currentFocusedRow);
+            focus(currentFocusedRow);
         },
         toggleRowWithRadio(event) {
             const rowData = event.data;
@@ -1060,7 +1081,7 @@ export default {
         isSelected(rowData) {
             if (rowData && this.selection) {
                 if (this.dataKey) {
-                    return this.d_selectionKeys ? this.d_selectionKeys[ObjectUtils.resolveFieldData(rowData, this.dataKey)] !== undefined : false;
+                    return this.d_selectionKeys ? this.d_selectionKeys[resolveFieldData(rowData, this.dataKey)] !== undefined : false;
                 } else {
                     if (this.selection instanceof Array) return this.findIndexInSelection(rowData) > -1;
                     else return this.equals(rowData, this.selection);
@@ -1091,10 +1112,10 @@ export default {
 
             if (Array.isArray(selection)) {
                 for (let data of selection) {
-                    this.d_selectionKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
+                    this.d_selectionKeys[String(resolveFieldData(data, this.dataKey))] = 1;
                 }
             } else {
-                this.d_selectionKeys[String(ObjectUtils.resolveFieldData(selection, this.dataKey))] = 1;
+                this.d_selectionKeys[String(resolveFieldData(selection, this.dataKey))] = 1;
             }
         },
         updateEditingRowKeys(editingRows) {
@@ -1102,14 +1123,14 @@ export default {
                 this.d_editingRowKeys = {};
 
                 for (let data of editingRows) {
-                    this.d_editingRowKeys[String(ObjectUtils.resolveFieldData(data, this.dataKey))] = 1;
+                    this.d_editingRowKeys[String(resolveFieldData(data, this.dataKey))] = 1;
                 }
             } else {
                 this.d_editingRowKeys = null;
             }
         },
         equals(data1, data2) {
-            return this.compareSelectionBy === 'equals' ? data1 === data2 : ObjectUtils.equals(data1, data2, this.dataKey);
+            return this.compareSelectionBy === 'equals' ? data1 === data2 : equals(data1, data2, this.dataKey);
         },
         selectRange(event) {
             let rangeStart, rangeEnd;
@@ -1179,7 +1200,7 @@ export default {
                             if (rowInitiated) csv += this.csvSeparator;
                             else rowInitiated = true;
 
-                            let cellData = ObjectUtils.resolveFieldData(record, this.columnProp(column, 'field'));
+                            let cellData = resolveFieldData(record, this.columnProp(column, 'field'));
 
                             if (cellData != null) {
                                 if (this.exportFunction) {
@@ -1212,14 +1233,14 @@ export default {
                 }
             }
 
-            DomHandler.exportCSV(csv, this.exportFilename);
+            exportCSV(csv, this.exportFilename);
         },
         resetPage() {
             this.d_first = 0;
             this.$emit('update:first', this.d_first);
         },
         onColumnResizeStart(event) {
-            let containerLeft = DomHandler.getOffset(this.$el).left;
+            let containerLeft = getOffset(this.$el).left;
 
             this.resizeColumnElement = event.target.parentElement;
             this.columnResizing = true;
@@ -1228,10 +1249,10 @@ export default {
             this.bindColumnResizeEvents();
         },
         onColumnResize(event) {
-            let containerLeft = DomHandler.getOffset(this.$el).left;
+            let containerLeft = getOffset(this.$el).left;
 
             this.$el.setAttribute('data-p-unselectable-text', 'true');
-            !this.isUnstyled && DomHandler.addStyles(this.$el, { 'user-select': 'none' });
+            !this.isUnstyled && addStyle(this.$el, { 'user-select': 'none' });
             this.$refs.resizeHelper.style.height = this.$el.offsetHeight + 'px';
             this.$refs.resizeHelper.style.top = 0 + 'px';
             this.$refs.resizeHelper.style.left = event.pageX - containerLeft + this.$el.scrollLeft + 'px';
@@ -1290,11 +1311,11 @@ export default {
             }
         },
         resizeTableCells(newColumnWidth, nextColumnWidth) {
-            let colIndex = DomHandler.index(this.resizeColumnElement);
+            let colIndex = getIndex(this.resizeColumnElement);
             let widths = [];
-            let headers = DomHandler.find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
+            let headers = find(this.$refs.table, 'thead[data-pc-section="thead"] > tr > th');
 
-            headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
+            headers.forEach((header) => widths.push(getOuterWidth(header)));
 
             this.destroyStyleElement();
             this.createStyleElement();
@@ -1351,7 +1372,7 @@ export default {
             const column = e.column;
 
             if (this.reorderableColumns && this.columnProp(column, 'reorderableColumn') !== false) {
-                if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || DomHandler.getAttribute(event.target, '[data-pc-section="columnresizer"]')) event.currentTarget.draggable = false;
+                if (event.target.nodeName === 'INPUT' || event.target.nodeName === 'TEXTAREA' || getAttribute(event.target, '[data-pc-section="columnresizer"]')) event.currentTarget.draggable = false;
                 else event.currentTarget.draggable = true;
             }
         },
@@ -1364,8 +1385,8 @@ export default {
                 return;
             }
 
-            this.colReorderIconWidth = DomHandler.getHiddenElementOuterWidth(this.$refs.reorderIndicatorUp);
-            this.colReorderIconHeight = DomHandler.getHiddenElementOuterHeight(this.$refs.reorderIndicatorUp);
+            this.colReorderIconWidth = getHiddenElementOuterWidth(this.$refs.reorderIndicatorUp);
+            this.colReorderIconHeight = getHiddenElementOuterHeight(this.$refs.reorderIndicatorUp);
 
             this.draggedColumn = column;
             this.draggedColumnElement = this.findParentHeader(event.target);
@@ -1377,8 +1398,8 @@ export default {
 
             if (this.reorderableColumns && this.draggedColumnElement && dropHeader && !this.columnProp(column, 'frozen')) {
                 event.preventDefault();
-                let containerOffset = DomHandler.getOffset(this.$el);
-                let dropHeaderOffset = DomHandler.getOffset(dropHeader);
+                let containerOffset = getOffset(this.$el);
+                let dropHeaderOffset = getOffset(dropHeader);
 
                 if (this.draggedColumnElement !== dropHeader) {
                     let targetLeft = dropHeaderOffset.left - containerOffset.left;
@@ -1417,8 +1438,8 @@ export default {
             event.preventDefault();
 
             if (this.draggedColumnElement) {
-                let dragIndex = DomHandler.index(this.draggedColumnElement);
-                let dropIndex = DomHandler.index(this.findParentHeader(event.target));
+                let dragIndex = getIndex(this.draggedColumnElement);
+                let dropIndex = getIndex(this.findParentHeader(event.target));
                 let allowDrop = dragIndex !== dropIndex;
 
                 if (allowDrop && ((dropIndex - dragIndex === 1 && this.dropPosition === -1) || (dropIndex - dragIndex === -1 && this.dropPosition === 1))) {
@@ -1431,9 +1452,9 @@ export default {
                     let dragColIndex = this.columns.findIndex((child) => isSameColumn(child, this.draggedColumn));
                     let dropColIndex = this.columns.findIndex((child) => isSameColumn(child, column));
                     let widths = [];
-                    let headers = DomHandler.find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
+                    let headers = find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
 
-                    headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
+                    headers.forEach((header) => widths.push(getOuterWidth(header)));
                     const movedItem = widths.find((_, index) => index === dragColIndex);
                     const remainingItems = widths.filter((_, index) => index !== dragColIndex);
                     const reorderedWidths = [...remainingItems.slice(0, dropColIndex), movedItem, ...remainingItems.slice(dropColIndex)];
@@ -1448,7 +1469,7 @@ export default {
                         dropColIndex--;
                     }
 
-                    ObjectUtils.reorderArray(this.columns, dragColIndex, dropColIndex);
+                    reorderArray(this.columns, dragColIndex, dropColIndex);
                     this.updateReorderableColumns();
 
                     this.$emit('column-reorder', {
@@ -1494,7 +1515,7 @@ export default {
             return null;
         },
         onRowMouseDown(event) {
-            if (DomHandler.getAttribute(event.target, 'data-pc-section') === 'reorderablerowhandle' || DomHandler.getAttribute(event.target.parentElement, 'data-pc-section') === 'reorderablerowhandle') event.currentTarget.draggable = true;
+            if (getAttribute(event.target, 'data-pc-section') === 'reorderablerowhandle' || getAttribute(event.target.parentElement, 'data-pc-section') === 'reorderablerowhandle') event.currentTarget.draggable = true;
             else event.currentTarget.draggable = false;
         },
         onRowDragStart(e) {
@@ -1511,36 +1532,36 @@ export default {
 
             if (this.rowDragging && this.draggedRowIndex !== index) {
                 let rowElement = event.currentTarget;
-                let rowY = DomHandler.getOffset(rowElement).top + DomHandler.getWindowScrollTop();
+                let rowY = getOffset(rowElement).top + getWindowScrollTop();
                 let pageY = event.pageY;
-                let rowMidY = rowY + DomHandler.getOuterHeight(rowElement) / 2;
+                let rowMidY = rowY + getOuterHeight(rowElement) / 2;
                 let prevRowElement = rowElement.previousElementSibling;
 
                 if (pageY < rowMidY) {
                     rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
-                    !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    !this.isUnstyled && removeClass(rowElement, 'p-datatable-dragpoint-bottom');
 
                     this.droppedRowIndex = index;
 
                     if (prevRowElement) {
                         prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
-                        !this.isUnstyled && DomHandler.addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                        !this.isUnstyled && addClass(prevRowElement, 'p-datatable-dragpoint-bottom');
                     } else {
                         rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
-                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                        !this.isUnstyled && addClass(rowElement, 'p-datatable-dragpoint-top');
                     }
                 } else {
                     if (prevRowElement) {
                         prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
-                        !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                        !this.isUnstyled && removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
                     } else {
                         rowElement.setAttribute('data-p-datatable-dragpoint-top', 'true');
-                        !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-top');
+                        !this.isUnstyled && addClass(rowElement, 'p-datatable-dragpoint-top');
                     }
 
                     this.droppedRowIndex = index + 1;
                     rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'true');
-                    !this.isUnstyled && DomHandler.addClass(rowElement, 'p-datatable-dragpoint-bottom');
+                    !this.isUnstyled && addClass(rowElement, 'p-datatable-dragpoint-bottom');
                 }
 
                 event.preventDefault();
@@ -1552,13 +1573,13 @@ export default {
 
             if (prevRowElement) {
                 prevRowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
-                !this.isUnstyled && DomHandler.removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
+                !this.isUnstyled && removeClass(prevRowElement, 'p-datatable-dragpoint-bottom');
             }
 
             rowElement.setAttribute('data-p-datatable-dragpoint-bottom', 'false');
-            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-bottom');
+            !this.isUnstyled && removeClass(rowElement, 'p-datatable-dragpoint-bottom');
             rowElement.setAttribute('data-p-datatable-dragpoint-top', 'false');
-            !this.isUnstyled && DomHandler.removeClass(rowElement, 'p-datatable-dragpoint-top');
+            !this.isUnstyled && removeClass(rowElement, 'p-datatable-dragpoint-top');
         },
         onRowDragEnd(event) {
             this.rowDragging = false;
@@ -1571,7 +1592,7 @@ export default {
                 let dropIndex = this.draggedRowIndex > this.droppedRowIndex ? this.droppedRowIndex : this.droppedRowIndex === 0 ? 0 : this.droppedRowIndex - 1;
                 let processedData = [...this.processedData];
 
-                ObjectUtils.reorderArray(processedData, this.draggedRowIndex + this.d_first, dropIndex + this.d_first);
+                reorderArray(processedData, this.draggedRowIndex + this.d_first, dropIndex + this.d_first);
 
                 this.$emit('row-reorder', {
                     originalEvent: event,
@@ -1592,7 +1613,7 @@ export default {
             let expandedRows;
 
             if (this.dataKey) {
-                const value = ObjectUtils.resolveFieldData(rowData, this.dataKey);
+                const value = resolveFieldData(rowData, this.dataKey);
 
                 expandedRows = this.expandedRows ? { ...this.expandedRows } : {};
                 expanded ? (expandedRows[value] = true) : delete expandedRows[value];
@@ -1607,7 +1628,7 @@ export default {
         toggleRowGroup(e) {
             const event = e.originalEvent;
             const data = e.data;
-            const groupFieldValue = ObjectUtils.resolveFieldData(data, this.groupRowsBy);
+            const groupFieldValue = resolveFieldData(data, this.groupRowsBy);
             let _expandedRowGroups = this.expandedRowGroups ? [...this.expandedRowGroups] : [];
 
             if (this.isRowGroupExpanded(data)) {
@@ -1622,7 +1643,7 @@ export default {
         },
         isRowGroupExpanded(rowData) {
             if (this.expandableRowGroups && this.expandedRowGroups) {
-                let groupFieldValue = ObjectUtils.resolveFieldData(rowData, this.groupRowsBy);
+                let groupFieldValue = resolveFieldData(rowData, this.groupRowsBy);
 
                 return this.expandedRowGroups.indexOf(groupFieldValue) > -1;
             }
@@ -1754,13 +1775,13 @@ export default {
         },
         saveColumnWidths(state) {
             let widths = [];
-            let headers = DomHandler.find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
+            let headers = find(this.$el, 'thead[data-pc-section="thead"] > tr > th');
 
-            headers.forEach((header) => widths.push(DomHandler.getOuterWidth(header)));
+            headers.forEach((header) => widths.push(getOuterWidth(header)));
             state.columnWidths = widths.join(',');
 
             if (this.columnResizeMode === 'expand') {
-                state.tableWidth = DomHandler.getOuterWidth(this.$refs.table) + 'px';
+                state.tableWidth = getOuterWidth(this.$refs.table) + 'px';
             }
         },
         addColumnWidthStyles(widths) {
@@ -1792,7 +1813,7 @@ export default {
                     this.$refs.table.style.minWidth = this.tableWidthState;
                 }
 
-                if (ObjectUtils.isNotEmpty(widths)) {
+                if (isNotEmpty(widths)) {
                     this.addColumnWidthStyles(widths);
                 }
             }
@@ -1901,7 +1922,7 @@ export default {
         createStyleElement() {
             this.styleElement = document.createElement('style');
             this.styleElement.type = 'text/css';
-            DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+            setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
             document.head.appendChild(this.styleElement);
         },
         destroyStyleElement() {
@@ -1925,7 +1946,7 @@ export default {
             return this.$refs.virtualScroller;
         },
         hasSpacerStyle(style) {
-            return ObjectUtils.isNotEmpty(style);
+            return isNotEmpty(style);
         }
     },
     computed: {
@@ -2007,7 +2028,7 @@ export default {
             } else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
 
-                return ObjectUtils.isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
+                return isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
             }
         },
         attributeSelector() {
@@ -2044,7 +2065,7 @@ export default {
             };
         },
         virtualScrollerDisabled() {
-            return ObjectUtils.isEmpty(this.virtualScrollerOptions) || !this.scrollable;
+            return isEmpty(this.virtualScrollerOptions) || !this.scrollable;
         }
     },
     components: {

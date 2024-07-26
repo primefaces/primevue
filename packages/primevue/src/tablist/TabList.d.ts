@@ -62,13 +62,17 @@ export interface TabListPassThroughOptions {
      */
     nextButton?: TabListPassThroughOptionType;
     /**
-     * Used to pass attributes to the list's DOM element.
+     * Used to pass attributes to the content's DOM element.
      */
     content?: TabListPassThroughOptionType;
     /**
+     * Used to pass attributes to the tablist's DOM element.
+     */
+    tabList?: TabListPassThroughOptionType;
+    /**
      * Used to pass attributes to the inkbar's DOM element.
      */
-    inkbar?: TabListPassThroughOptionType;
+    activeBar?: TabListPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

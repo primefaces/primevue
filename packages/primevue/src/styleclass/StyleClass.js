@@ -1,4 +1,4 @@
-import { DomHandler } from '@primevue/core/utils';
+import { addClass, hasClass, removeClass } from '@primeuix/utils/dom';
 import BaseStyleClass from './BaseStyleClass';
 
 const StyleClass = BaseStyleClass.extend('styleclass', {
@@ -18,8 +18,8 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
 
             el.$_pstyleclass_clicklistener = () => {
                 if (binding.value.toggleClass) {
-                    if (DomHandler.hasClass(target, binding.value.toggleClass)) DomHandler.removeClass(target, binding.value.toggleClass);
-                    else DomHandler.addClass(target, binding.value.toggleClass);
+                    if (hasClass(target, binding.value.toggleClass)) removeClass(target, binding.value.toggleClass);
+                    else addClass(target, binding.value.toggleClass);
                 } else {
                     if (target.offsetParent === null) this.enter(target, el, binding);
                     else this.leave(target, binding);
@@ -43,23 +43,23 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
 
                     if (binding.value.enterActiveClass.includes('slidedown')) {
                         target.style.height = '0px';
-                        DomHandler.removeClass(target, 'hidden');
+                        removeClass(target, 'hidden');
                         target.style.maxHeight = target.scrollHeight + 'px';
-                        DomHandler.addClass(target, 'hidden');
+                        addClass(target, 'hidden');
                         target.style.height = '';
                     }
 
-                    DomHandler.addClass(target, binding.value.enterActiveClass);
+                    addClass(target, binding.value.enterActiveClass);
 
                     if (binding.value.enterFromClass) {
-                        DomHandler.removeClass(target, binding.value.enterFromClass);
+                        removeClass(target, binding.value.enterFromClass);
                     }
 
                     target.$p_styleclass_enterlistener = () => {
-                        DomHandler.removeClass(target, binding.value.enterActiveClass);
+                        removeClass(target, binding.value.enterActiveClass);
 
                         if (binding.value.enterToClass) {
-                            DomHandler.addClass(target, binding.value.enterToClass);
+                            addClass(target, binding.value.enterToClass);
                         }
 
                         target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
@@ -75,11 +75,11 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                 }
             } else {
                 if (binding.value.enterFromClass) {
-                    DomHandler.removeClass(target, binding.value.enterFromClass);
+                    removeClass(target, binding.value.enterFromClass);
                 }
 
                 if (binding.value.enterToClass) {
-                    DomHandler.addClass(target, binding.value.enterToClass);
+                    addClass(target, binding.value.enterToClass);
                 }
             }
 
@@ -91,17 +91,17 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
             if (binding.value.leaveActiveClass) {
                 if (!target.$_pstyleclass_animating) {
                     target.$_pstyleclass_animating = true;
-                    DomHandler.addClass(target, binding.value.leaveActiveClass);
+                    addClass(target, binding.value.leaveActiveClass);
 
                     if (binding.value.leaveFromClass) {
-                        DomHandler.removeClass(target, binding.value.leaveFromClass);
+                        removeClass(target, binding.value.leaveFromClass);
                     }
 
                     target.$p_styleclass_leavelistener = () => {
-                        DomHandler.removeClass(target, binding.value.leaveActiveClass);
+                        removeClass(target, binding.value.leaveActiveClass);
 
                         if (binding.value.leaveToClass) {
-                            DomHandler.addClass(target, binding.value.leaveToClass);
+                            addClass(target, binding.value.leaveToClass);
                         }
 
                         target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
@@ -112,11 +112,11 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                 }
             } else {
                 if (binding.value.leaveFromClass) {
-                    DomHandler.removeClass(target, binding.value.leaveFromClass);
+                    removeClass(target, binding.value.leaveFromClass);
                 }
 
                 if (binding.value.leaveToClass) {
-                    DomHandler.addClass(target, binding.value.leaveToClass);
+                    addClass(target, binding.value.leaveToClass);
                 }
             }
 

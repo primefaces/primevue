@@ -57,7 +57,9 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { find, findSingle } from '@primeuix/utils/dom';
+import { resolve } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { mergeProps } from 'vue';
@@ -119,7 +121,7 @@ export default {
             return `${this.id}_${index}`;
         },
         getItemProp(processedItem, name) {
-            return processedItem && processedItem.item ? ObjectUtils.getItemValue(processedItem.item[name]) : undefined;
+            return processedItem && processedItem.item ? resolve(processedItem.item[name]) : undefined;
         },
         getPTOptions(key, item, index) {
             return this.ptm(key, {
@@ -224,28 +226,28 @@ export default {
             this.changeFocusedOptionIndex(0);
         },
         onEndKey() {
-            this.changeFocusedOptionIndex(DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
+            this.changeFocusedOptionIndex(find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]').length - 1);
         },
         onSpaceKey() {
-            const element = DomHandler.findSingle(this.$refs.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
-            const anchorElement = element && DomHandler.findSingle(element, '[data-pc-section="itemlink"]');
+            const element = findSingle(this.$refs.list, `li[id="${`${this.focusedOptionIndex}`}"]`);
+            const anchorElement = element && findSingle(element, '[data-pc-section="itemlink"]');
 
             anchorElement ? anchorElement.click() : element && element.click();
         },
         findNextOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const menuitems = find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + 1 : 0;
         },
         findPrevOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const menuitems = find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
             const matchedOptionIndex = [...menuitems].findIndex((link) => link.id === index);
 
             return matchedOptionIndex > -1 ? matchedOptionIndex - 1 : 0;
         },
         changeFocusedOptionIndex(index) {
-            const menuitems = DomHandler.find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
+            const menuitems = find(this.$refs.list, 'li[data-pc-section="item"][data-p-disabled="false"]');
 
             let order = index >= menuitems.length ? menuitems.length - 1 : index < 0 ? 0 : index;
 

@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": false,
+        "jsx": "preserve",
+        "incremental": true
+    },
+    "include": ["../../packages/primevue/src/**/*.d.ts", "../../packages/primevue/src/**/style/*.d.ts", "../../packages/themes/types", "../packages/themes/src/**/**/index.js"],
+    "exclude": ["node_modules", "**/node_modules", "**/dist"]
+}

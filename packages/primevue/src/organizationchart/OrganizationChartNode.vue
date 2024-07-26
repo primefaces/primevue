@@ -53,7 +53,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler } from '@primevue/core/utils';
+import { isAttributeEquals } from '@primeuix/utils/dom';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 
@@ -108,7 +108,7 @@ export default {
             });
         },
         onNodeClick(event) {
-            if (DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebutton') || DomHandler.isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebuttonicon')) {
+            if (isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebutton') || isAttributeEquals(event.target, 'data-pc-section', 'nodetogglebuttonicon')) {
                 return;
             }
 

@@ -48,9 +48,6 @@ export default {
     steppanel: {
         background: '{content.background}',
         color: '{content.color}',
-        padding: '0 0 0 1rem',
-        last: {
-            padding: '0 0 0 1.625rem'
-        }
+        padding: '0 0 0 1rem'
     }
 };

@@ -27,7 +27,8 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { getNextElementSibling, getPreviousElementSibling, getOuterWidth, getAttribute, getIndex } from '@primeuix/utils/dom';
+import { getVNodeProp } from '@primevue/core/utils';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from '@primevue/icons/sortamountupalt';
@@ -86,7 +87,7 @@ export default {
     },
     methods: {
         columnProp(prop) {
-            return ObjectUtils.getVNodeProp(this.column, prop);
+            return getVNodeProp(this.column, prop);
         },
         getColumnPT(key) {
             const columnMetaData = {
@@ -118,19 +119,19 @@ export default {
 
                 if (align === 'right') {
                     let right = 0;
-                    let next = DomHandler.getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = DomHandler.getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
                     this.styleObject.right = right + 'px';
                 } else {
                     let left = 0;
-                    let prev = DomHandler.getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = DomHandler.getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
                     this.styleObject.left = left + 'px';
@@ -139,7 +140,7 @@ export default {
                 let filterRow = this.$el.parentElement.nextElementSibling;
 
                 if (filterRow) {
-                    let index = DomHandler.index(this.$el);
+                    let index = getIndex(this.$el);
 
                     filterRow.children[index].style.left = this.styleObject.left;
                     filterRow.children[index].style.right = this.styleObject.right;
@@ -150,7 +151,7 @@ export default {
             this.$emit('column-click', { originalEvent: event, column: this.column });
         },
         onKeyDown(event) {
-            if ((event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && DomHandler.getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if ((event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && event.currentTarget.nodeName === 'TH' && getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.$emit('column-click', { originalEvent: event, column: this.column });
 
                 event.preventDefault();

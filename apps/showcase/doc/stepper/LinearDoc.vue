@@ -12,7 +12,7 @@
             <StepPanels>
                 <StepPanel v-slot="{ activateCallback }" value="1">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                     <div class="flex pt-6 justify-end">
                         <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
@@ -56,9 +56,9 @@ export default {
     <StepPanels>
         <StepPanel v-slot="{ activateCallback }" value="1">
             <div class="flex flex-col h-48">
-                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
             </div>
-           <div class="flex pt-6 justify-end">
+            <div class="flex pt-6 justify-end">
                 <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
             </div>
         </StepPanel>
@@ -94,7 +94,7 @@ export default {
             <StepPanels>
                 <StepPanel v-slot="{ activateCallback }" value="1">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                     <div class="flex pt-6 justify-end">
                         <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
@@ -134,7 +134,7 @@ export default {
             <StepPanels>
                 <StepPanel v-slot="{ activateCallback }" value="1">
                     <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
                     </div>
                     <div class="flex pt-6 justify-end">
                         <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />

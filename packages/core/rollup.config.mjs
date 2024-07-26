@@ -1,8 +1,8 @@
 import alias from '@rollup/plugin-alias';
 import { babel } from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
-import { terser } from 'rollup-plugin-terser';
 import vue from 'rollup-plugin-vue';
 
 import fs from 'fs-extra';
@@ -19,7 +19,7 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue'];
-const INLINE_EXTERNALS = [/@primevue\/themes\/.*/];
+const INLINE_EXTERNALS = ['@primeuix/styled'];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias
@@ -36,13 +36,13 @@ const ALIAS_ENTRIES = [
             const files = fs.readdirSync(folderPath);
             const targetFile = files.find((file) => {
                 const ext = path.extname(file);
+
                 return ['.vue', '.js'].includes(ext) && path.basename(file, ext).toLowerCase() === fName.toLowerCase();
             });
 
             return targetFile ? path.join(folderPath, targetFile) : null;
         }
-    },
-    { find: '@primevue/themes', replacement: path.resolve(__dirname, '../themes/src/index.js') }
+    }
 ];
 
 // plugins

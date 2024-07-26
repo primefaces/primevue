@@ -1,5 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
+        <p>When <i>autoImport</i> is disabled, use the <i>include</i> and <i>exclude</i> for manual registration.</p>
         <p>The components to import and register are defined with the <i>include</i> option using a string array. When the value is ignored or set using the <i>*</i> alias, all of the components are registered.</p>
         <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
         <p>In case all components are imported, particular components can still be excluded with the <i>exclude</i> option.</p>

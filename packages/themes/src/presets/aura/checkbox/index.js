@@ -14,6 +14,7 @@ export default {
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.hover.color}',
         checkedFocusBorderColor: '{primary.color}',
+        checkedDisabledBorderColor: '{form.field.border.color}',
         invalidBorderColor: '{form.field.invalid.border.color}',
         shadow: '{form.field.shadow}',
         focusRing: {

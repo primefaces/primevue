@@ -57,14 +57,14 @@
                 <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
-                        <div class="field p-fluid">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                        <div class="field">
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                        <div class="field">
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <Password v-model="password" placeholder="Password" />
+                        <div class="field">
+                            <Password v-model="password" placeholder="Password" fluid />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
@@ -180,14 +180,14 @@ export default {
         <StepPanel v-slot="{ activateCallback }" :value="1">
             <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                 <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
-                        <div class="field p-fluid">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
-                        </div>
-                        <div class="field p-fluid">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
-                        </div>
-                <div class="field p-fluid">
-                    <Password v-model="password" placeholder="Password" />
+                <div class="field">
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
+                </div>
+                <div class="field">
+                    <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+                </div>
+                <div class="field">
+                    <Password v-model="password" placeholder="Password" fluid />
                 </div>
             </div>
             <div class="flex pt-6 justify-end">
@@ -283,14 +283,14 @@ export default {
                 <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
-                        <div class="field p-fluid">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                        <div class="field">
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                        <div class="field">
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <Password v-model="password" placeholder="Password" />
+                        <div class="field">
+                            <Password v-model="password" placeholder="Password" fluid />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
@@ -411,14 +411,14 @@ export default {
                 <StepPanel v-slot="{ activateCallback }" :value="1">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
-                        <div class="field p-fluid">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" />
+                        <div class="field">
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" />
+                        <div class="field">
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
                         </div>
-                        <div class="field p-fluid">
-                            <Password v-model="password" placeholder="Password" />
+                        <div class="field">
+                            <Password v-model="password" placeholder="Password" fluid />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">

@@ -12,13 +12,13 @@ export default {
             code: {
                 basic: `
 # Using npm
-npm install primevue@4.0.0-rc.1
+npm install primevue
 
 # Using yarn
-yarn add primevue@4.0.0-rc.1
+yarn add primevue
 
 # Using pnpm
-pnpm add primevue@4.0.0-rc.1
+pnpm add primevue
 `
             }
         };

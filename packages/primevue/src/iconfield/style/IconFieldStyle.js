@@ -20,11 +20,11 @@ const theme = ({ dt }) => `
     right: ${dt('form.field.padding.x')};
 }
 
-.p-iconfield .p-inputtext:last-child {
+.p-iconfield .p-inputtext:not(:first-child) {
     padding-left: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 
-.p-iconfield .p-inputtext:first-child {
+.p-iconfield .p-inputtext:not(:last-child) {
     padding-right: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 `;

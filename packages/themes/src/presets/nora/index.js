@@ -1,3 +1,4 @@
+import virtualscroller from '@primevue/themes/aura/virtualscroller';
 import accordion from '@primevue/themes/nora/accordion';
 import autocomplete from '@primevue/themes/nora/autocomplete';
 import avatar from '@primevue/themes/nora/avatar';
@@ -391,7 +392,7 @@ export default {
                     hoverMutedColor: '{surface.300}'
                 },
                 content: {
-                    background: 'transparent',
+                    background: '{surface.900}',
                     hoverBackground: '{surface.700}',
                     borderColor: '{surface.500}',
                     color: '{text.color}',
@@ -541,7 +542,8 @@ export default {
         treeselect,
         treetable,
         toast,
-        toolbar
+        toolbar,
+        virtualscroller
     },
     directives: {
         tooltip,

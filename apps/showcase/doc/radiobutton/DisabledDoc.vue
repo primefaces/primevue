@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <RadioButton v-model="value" :value="1" disabled />
+        <RadioButton v-model="value" :value="2" disabled />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +13,17 @@
 export default {
     data() {
         return {
-            value: null,
+            value: 2,
             code: {
                 basic: `
-<RadioButton v-model="value" :value="1" disabled  />
+<RadioButton v-model="value" :value="1" disabled />
+<RadioButton v-model="value" :value="2" disabled />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <RadioButton v-model="value" :value="1" disabled  />
+    <div class="card flex justify-center gap-2">
+        <RadioButton v-model="value" :value="1" disabled />
+        <RadioButton v-model="value" :value="2" disabled />
     </div>
 </template>
 
@@ -28,7 +31,7 @@ export default {
 export default {
     data() {
         return {
-            value: null
+            value: 2
         }
     }
 }
@@ -36,15 +39,16 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <RadioButton v-model="value" :value="1" disabled  />
+    <div class="card flex justify-center gap-2">
+        <RadioButton v-model="value" :value="1" disabled />
+        <RadioButton v-model="value" :value="2" disabled />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const value = ref(null);
+const value = ref(2);
 <\/script>
 `
             }

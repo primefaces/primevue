@@ -91,7 +91,8 @@
 </template>
 
 <script>
-import { DomHandler, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { getWidth, getAttribute, findSingle, focus, getOffset } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
@@ -178,14 +179,14 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content);
+            const width = getWidth(content);
             const pos = content.scrollLeft - width;
 
             content.scrollLeft = pos <= 0 ? 0 : pos;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
-            const width = DomHandler.getWidth(content) - this.getVisibleButtonWidths();
+            const width = getWidth(content) - this.getVisibleButtonWidths();
             const pos = content.scrollLeft + width;
             const lastPos = content.scrollWidth - width;
 
@@ -272,18 +273,18 @@ export default {
             const headerElement = selfCheck ? tabElement : tabElement.nextElementSibling;
 
             return headerElement
-                ? DomHandler.getAttribute(headerElement, 'data-p-disabled') || DomHandler.getAttribute(headerElement, 'data-pc-section') === 'inkbar'
+                ? getAttribute(headerElement, 'data-p-disabled') || getAttribute(headerElement, 'data-pc-section') === 'inkbar'
                     ? this.findNextHeaderAction(headerElement)
-                    : DomHandler.findSingle(headerElement, '[data-pc-section="headeraction"]')
+                    : findSingle(headerElement, '[data-pc-section="headeraction"]')
                 : null;
         },
         findPrevHeaderAction(tabElement, selfCheck = false) {
             const headerElement = selfCheck ? tabElement : tabElement.previousElementSibling;
 
             return headerElement
-                ? DomHandler.getAttribute(headerElement, 'data-p-disabled') || DomHandler.getAttribute(headerElement, 'data-pc-section') === 'inkbar'
+                ? getAttribute(headerElement, 'data-p-disabled') || getAttribute(headerElement, 'data-pc-section') === 'inkbar'
                     ? this.findPrevHeaderAction(headerElement)
-                    : DomHandler.findSingle(headerElement, '[data-pc-section="headeraction"]')
+                    : findSingle(headerElement, '[data-pc-section="headeraction"]')
                 : null;
         },
         findFirstHeaderAction() {
@@ -304,7 +305,7 @@ export default {
         },
         changeFocusedTab(event, element) {
             if (element) {
-                DomHandler.focus(element);
+                focus(element);
                 this.scrollInView({ element });
 
                 if (this.selectOnFocus) {
@@ -325,13 +326,13 @@ export default {
         updateInkBar() {
             let tabHeader = this.$refs.nav.children[this.d_activeIndex];
 
-            this.$refs.inkbar.style.width = DomHandler.getWidth(tabHeader) + 'px';
-            this.$refs.inkbar.style.left = DomHandler.getOffset(tabHeader).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+            this.$refs.inkbar.style.width = getWidth(tabHeader) + 'px';
+            this.$refs.inkbar.style.left = getOffset(tabHeader).left - getOffset(this.$refs.nav).left + 'px';
         },
         updateButtonState() {
             const content = this.$refs.content;
             const { scrollLeft, scrollWidth } = content;
-            const width = DomHandler.getWidth(content);
+            const width = getWidth(content);
 
             this.isPrevButtonDisabled = scrollLeft === 0;
             this.isNextButtonDisabled = parseInt(scrollLeft) === scrollWidth - width;
@@ -339,7 +340,7 @@ export default {
         getVisibleButtonWidths() {
             const { prevBtn, nextBtn } = this.$refs;
 
-            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + DomHandler.getWidth(el) : acc), 0);
+            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
         }
     },
     computed: {

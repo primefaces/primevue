@@ -9,8 +9,8 @@ const theme = ({ dt }) => `
     background: ${dt('cascadeselect.background')};
     border: 1px solid ${dt('cascadeselect.border.color')};
     transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, outline-color ${dt(
-        'cascadeselect.transition.duration'
-    )}, box-shadow ${dt('cascadeselect.transition.duration')};
+    'cascadeselect.transition.duration'
+)}, box-shadow ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.border.radius')};
     outline-color: transparent;
     box-shadow: ${dt('cascadeselect.shadow')};
@@ -87,11 +87,11 @@ const theme = ({ dt }) => `
     visibility: hidden;
 }
 
-.p-fluid .p-cascadeselect {
+.p-cascadeselect-fluid {
     display: flex;
 }
 
-.p-fluid .p-cascadeselect .p-cascadeselect-label {
+.p-cascadeselect-fluid .p-cascadeselect-label {
     width: 1%;
 }
 
@@ -133,8 +133,8 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
     transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
-        'cascadeselect.transition.duration'
-    )}, outline-color ${dt('cascadeselect.transition.duration')};
+    'cascadeselect.transition.duration'
+)}, outline-color ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
@@ -200,7 +200,8 @@ const classes = {
             'p-focus': instance.focused,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
-            'p-cascadeselect-open': instance.overlayVisible
+            'p-cascadeselect-open': instance.overlayVisible,
+            'p-cascadeselect-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [

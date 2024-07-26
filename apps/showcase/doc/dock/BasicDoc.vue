@@ -12,7 +12,7 @@
         <div class="dock-window" style="backgroundimage: 'url(https://primefaces.org/cdn/primevue/images/dock/window.jpg)'">
             <Dock :model="items" :position="position">
                 <template #itemicon="{ item }">
-                    <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
                 </template>
             </Dock>
         </div>
@@ -65,7 +65,7 @@ export default {
                 basic: `
 <Dock :model="items" :position="position">
     <template #itemicon="{ item }">
-        <img :alt="item.label" :src="item.icon" style="width: 100%" />
+        <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
     </template>
 </Dock>
 `,
@@ -81,7 +81,7 @@ export default {
         <div class="dock-window">
             <Dock :model="items" :position="position">
                 <template #itemicon="{ item }">
-                    <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
                 </template>
             </Dock>
         </div>
@@ -162,7 +162,7 @@ export default {
         <div class="dock-window" style="backgroundimage: 'url(https://primefaces.org/cdn/primevue/images/dock/window.jpg))'">
             <Dock :model="items" :position="position">
                 <template #itemicon="{ item }">
-                    <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                    <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
                 </template>
             </Dock>
         </div>

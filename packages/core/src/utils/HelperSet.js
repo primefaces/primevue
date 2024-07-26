@@ -1,4 +1,4 @@
-import ObjectUtils from './ObjectUtils';
+import { isNotEmpty } from '@primeuix/utils/object';
 
 export default class {
     helpers;
@@ -23,7 +23,7 @@ export default class {
         const children = this._get(parentInstance, slots);
         const computed = children ? this._recursive([...this.helpers], children) : null;
 
-        return ObjectUtils.isNotEmpty(computed) ? computed : null;
+        return isNotEmpty(computed) ? computed : null;
     }
     _isMatched(instance, key) {
         const parent = instance?.parent;
@@ -41,7 +41,7 @@ export default class {
                 components = components.concat(this._recursive(components, child.children));
             } else if (child.type.name === this.type) {
                 components.push(child);
-            } else if (ObjectUtils.isNotEmpty(child.key)) {
+            } else if (isNotEmpty(child.key)) {
                 components = components.concat(helpers.filter((c) => this._isMatched(c, child.key)).map((c) => c.vnode));
             }
         });

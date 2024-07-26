@@ -1,0 +1,5 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["../../packages/primevue", "../../packages/themes"],
+    "sort": ["source-order"]
+}

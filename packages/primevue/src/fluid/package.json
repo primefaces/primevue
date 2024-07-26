@@ -1,0 +1,11 @@
+{
+    "main": "./Fluid.vue",
+    "module": "./Fluid.vue",
+    "types": "./Fluid.d.ts",
+    "browser": {
+        "./sfc": "./Fluid.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,4 +1,3 @@
-
 /**
  *
  * OrderList Design Tokens
@@ -12,29 +11,26 @@
 import { ColorSchemeDesignToken } from '..';
 
 export interface OrderListDesignTokens extends ColorSchemeDesignToken<OrderListDesignTokens> {
-
     /**
-    * Used to pass tokens of the root section
-    */
+     * Used to pass tokens of the root section
+     */
     root?: {
-        
+        /**
+         * Gap of root
+         *
+         * @designToken orderlist.gap
+         */
+        gap?: string;
+    };
     /**
-    * Gap of root
-    *
-    * @designToken orderlist.gap
-    */
-    gap?: string;
-    }
-    /**
-    * Used to pass tokens of the controls section
-    */
+     * Used to pass tokens of the controls section
+     */
     controls?: {
-        
-    /**
-    * Gap of controls
-    *
-    * @designToken orderlist.controls.gap
-    */
-    gap?: string;
-    }
+        /**
+         * Gap of controls
+         *
+         * @designToken orderlist.controls.gap
+         */
+        gap?: string;
+    };
 }

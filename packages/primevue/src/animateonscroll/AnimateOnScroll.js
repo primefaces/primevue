@@ -1,4 +1,4 @@
-import { DomHandler } from '@primevue/core/utils';
+import { addClass, removeClass } from '@primeuix/utils/dom';
 import BaseAnimateOnScroll from './BaseAnimateOnScroll';
 
 const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
@@ -24,7 +24,7 @@ const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
         bindAnimationEvents() {
             if (!this.animationEndListener) {
                 this.animationEndListener = () => {
-                    DomHandler.removeMultipleClasses(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
+                    removeClass(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
                     !this.$modifiers.once && this.resetObserver.observe(this.$el);
                     this.unbindAnimationEvents();
                 };
@@ -56,7 +56,7 @@ const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
                 ([entry]) => {
                     if (entry.boundingClientRect.top > 0 && !entry.isIntersecting) {
                         this.$el.style.opacity = this.$value.enterClass ? '0' : '';
-                        DomHandler.removeMultipleClasses(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
+                        removeClass(this.$el, [this.$value.enterClass, this.$value.leaveClass]);
 
                         this.resetObserver.unobserve(this.$el);
                     }
@@ -69,8 +69,8 @@ const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
         enter() {
             if (this.animationState !== 'enter' && this.$value.enterClass) {
                 this.$el.style.opacity = '';
-                DomHandler.removeMultipleClasses(this.$el, this.$value.leaveClass);
-                DomHandler.addMultipleClasses(this.$el, this.$value.enterClass);
+                removeClass(this.$el, this.$value.leaveClass);
+                addClass(this.$el, this.$value.enterClass);
 
                 this.$modifiers.once && this.unbindIntersectionObserver(this.$el);
 
@@ -81,8 +81,8 @@ const AnimateOnScroll = BaseAnimateOnScroll.extend('animateonscroll', {
         leave() {
             if (this.animationState !== 'leave' && this.$value.leaveClass) {
                 this.$el.style.opacity = this.$value.enterClass ? '0' : '';
-                DomHandler.removeMultipleClasses(this.$el, this.$value.enterClass);
-                DomHandler.addMultipleClasses(this.$el, this.$value.leaveClass);
+                removeClass(this.$el, this.$value.enterClass);
+                addClass(this.$el, this.$value.leaveClass);
 
                 this.bindAnimationEvents();
                 this.animationState = 'leave';

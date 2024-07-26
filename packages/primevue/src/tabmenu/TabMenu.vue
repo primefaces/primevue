@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { getAttribute, find, findSingle, getWidth, getOffset } from '@primeuix/utils/dom';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 import BaseTabMenu from './BaseTabMenu.vue';
@@ -165,25 +165,25 @@ export default {
         findNextItem(item) {
             const nextItem = item.parentElement.nextElementSibling;
 
-            return nextItem ? (DomHandler.getAttribute(nextItem, 'data-p-disabled') === true ? this.findNextItem(nextItem.children[0]) : nextItem.children[0]) : null;
+            return nextItem ? (getAttribute(nextItem, 'data-p-disabled') === true ? this.findNextItem(nextItem.children[0]) : nextItem.children[0]) : null;
         },
         findPrevItem(item) {
             const prevItem = item.parentElement.previousElementSibling;
 
-            return prevItem ? (DomHandler.getAttribute(prevItem, 'data-p-disabled') === true ? this.findPrevItem(prevItem.children[0]) : prevItem.children[0]) : null;
+            return prevItem ? (getAttribute(prevItem, 'data-p-disabled') === true ? this.findPrevItem(prevItem.children[0]) : prevItem.children[0]) : null;
         },
         findFirstItem() {
-            const firstSibling = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
+            const firstSibling = findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
 
             return firstSibling ? firstSibling.children[0] : null;
         },
         findLastItem() {
-            const siblings = DomHandler.find(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
+            const siblings = find(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"]');
 
             return siblings ? siblings[siblings.length - 1].children[0] : null;
         },
         findActiveItem() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
+            const activeItem = findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
 
             return activeItem ? activeItem.children[0] : null;
         },
@@ -193,8 +193,8 @@ export default {
             focusableItem.focus();
         },
         onTabKey() {
-            const activeItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
-            const focusedItem = DomHandler.findSingle(this.$refs.nav, '[data-pc-section="itemlink"][tabindex="0"]');
+            const activeItem = findSingle(this.$refs.nav, '[data-pc-section="item"][data-p-disabled="false"][data-p-active="true"]');
+            const focusedItem = findSingle(this.$refs.nav, '[data-pc-section="itemlink"][tabindex="0"]');
 
             if (focusedItem !== activeItem.children[0]) {
                 activeItem && (activeItem.children[0].tabIndex = '0');
@@ -217,9 +217,9 @@ export default {
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i];
 
-                if (DomHandler.getAttribute(tab, 'data-p-active')) {
-                    this.$refs.inkbar.style.width = DomHandler.getWidth(tab) + 'px';
-                    this.$refs.inkbar.style.left = DomHandler.getOffset(tab).left - DomHandler.getOffset(this.$refs.nav).left + 'px';
+                if (getAttribute(tab, 'data-p-active')) {
+                    this.$refs.inkbar.style.width = getWidth(tab) + 'px';
+                    this.$refs.inkbar.style.left = getOffset(tab).left - getOffset(this.$refs.nav).left + 'px';
                     inkHighlighted = true;
                 }
             }

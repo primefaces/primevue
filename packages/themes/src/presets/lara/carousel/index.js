@@ -1,22 +1,25 @@
 export default {
     root: {
-        indicatorList: {
-            padding: '1rem',
-            gap: '0.5rem'
-        },
-        indicator: {
-            width: '1rem',
-            height: '1rem',
-            borderRadius: '50',
-            focusRing: {
-                width: '{focus.ring.width}',
-                style: '{focus.ring.style}',
-                color: '{focus.ring.color}',
-                offset: '{focus.ring.offset}',
-                shadow: '{focus.ring.shadow}'
-            }
-        },
         transitionDuration: '{transition.duration}'
+    },
+    content: {
+        gap: '0.25rem'
+    },
+    indicatorList: {
+        padding: '1rem',
+        gap: '0.5rem'
+    },
+    indicator: {
+        width: '1rem',
+        height: '1rem',
+        borderRadius: '50',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     colorScheme: {
         light: {

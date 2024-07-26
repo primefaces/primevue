@@ -1,4 +1,4 @@
-import { ObjectUtils } from '@primevue/core/utils';
+import { equals, removeAccents, resolveFieldData } from '@primeuix/utils/object';
 
 const FilterService = {
     filter(value, fields, filterValue, filterMatchMode, filterLocale) {
@@ -16,7 +16,7 @@ const FilterService = {
                 }
             } else {
                 for (const field of fields) {
-                    const fieldValue = ObjectUtils.resolveFieldData(item, field);
+                    const fieldValue = resolveFieldData(item, field);
 
                     if (this.filters[filterMatchMode](fieldValue, filterValue, filterLocale)) {
                         filteredItems.push(item);
@@ -38,8 +38,8 @@ const FilterService = {
                 return false;
             }
 
-            let filterValue = ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
-            let stringValue = ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
+            let filterValue = removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            let stringValue = removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
 
             return stringValue.slice(0, filterValue.length) === filterValue;
         },
@@ -52,8 +52,8 @@ const FilterService = {
                 return false;
             }
 
-            let filterValue = ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
-            let stringValue = ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
+            let filterValue = removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            let stringValue = removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
 
             return stringValue.indexOf(filterValue) !== -1;
         },
@@ -66,8 +66,8 @@ const FilterService = {
                 return false;
             }
 
-            let filterValue = ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
-            let stringValue = ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
+            let filterValue = removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            let stringValue = removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
 
             return stringValue.indexOf(filterValue) === -1;
         },
@@ -80,8 +80,8 @@ const FilterService = {
                 return false;
             }
 
-            let filterValue = ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
-            let stringValue = ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
+            let filterValue = removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            let stringValue = removeAccents(value.toString()).toLocaleLowerCase(filterLocale);
 
             return stringValue.indexOf(filterValue, stringValue.length - filterValue.length) !== -1;
         },
@@ -95,7 +95,7 @@ const FilterService = {
             }
 
             if (value.getTime && filter.getTime) return value.getTime() === filter.getTime();
-            else return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            else return removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
         },
         notEquals(value, filter, filterLocale) {
             if (filter === undefined || filter === null || filter === '') {
@@ -107,7 +107,7 @@ const FilterService = {
             }
 
             if (value.getTime && filter.getTime) return value.getTime() !== filter.getTime();
-            else return ObjectUtils.removeAccents(value.toString()).toLocaleLowerCase(filterLocale) != ObjectUtils.removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
+            else return removeAccents(value.toString()).toLocaleLowerCase(filterLocale) != removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
         },
         in(value, filter) {
             if (filter === undefined || filter === null || filter.length === 0) {
@@ -115,7 +115,7 @@ const FilterService = {
             }
 
             for (let i = 0; i < filter.length; i++) {
-                if (ObjectUtils.equals(value, filter[i])) {
+                if (equals(value, filter[i])) {
                     return true;
                 }
             }

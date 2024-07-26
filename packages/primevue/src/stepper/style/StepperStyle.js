@@ -32,8 +32,8 @@ const theme = ({ dt }) => `
     text-decoration: none;
     cursor: pointer;
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, outline-color ${dt('stepper.transition.duration')}, box-shadow ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
     border-radius: ${dt('stepper.step.header.border.radius')};
     outline-color: transparent;
     background: transparent;
@@ -60,8 +60,8 @@ const theme = ({ dt }) => `
     color: ${dt('stepper.step.title.color')};
     font-weight: ${dt('stepper.step.title.font.weight')};
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
 }
 
 .p-step-number {
@@ -113,18 +113,14 @@ const theme = ({ dt }) => `
     background: ${dt('stepper.separator.active.background')};
 }
 
-.p-step:has(~ .p-step-active) .p-stepper-separator {
-    background: ${dt('stepper.separator.active.background')};
-}
-
 .p-stepper-separator {
     flex: 1 1 0;
     background: ${dt('stepper.separator.background')};
     width: 100%;
     height: ${dt('stepper.separator.size')};
     transition: background ${dt('stepper.transition.duration')}, color ${dt('stepper.transition.duration')}, border-color ${dt('stepper.transition.duration')}, box-shadow ${dt('stepper.transition.duration')}, outline-color ${dt(
-        'stepper.transition.duration'
-    )};
+    'stepper.transition.duration'
+)};
 }
 
 .p-steppanels {
@@ -132,8 +128,8 @@ const theme = ({ dt }) => `
 }
 
 .p-steppanel {
-    background: ${dt('stepper.steppanel.content.background')};
-    color: ${dt('stepper.steppanel.content.color')};
+    background: ${dt('stepper.steppanel.background')};
+    color: ${dt('stepper.steppanel.color')};
 }
 
 .p-stepper:has(.p-stepitem) {
@@ -179,7 +175,7 @@ const theme = ({ dt }) => `
 }
 
 .p-stepitem:last-of-type .p-steppanel {
-    padding: ${dt('stepper.steppanel.last.padding')};
+    padding-inline-start: ${dt('stepper.step.number.size')};
 }
 `;
 

@@ -4,8 +4,8 @@
     </DocSectionText>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0 absolute" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0 absolute" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -54,15 +54,15 @@ export default {
             ],
             code: {
                 basic: `
-<SpeedDial :model="items" direction="up" class="right-0 bottom-0 absolute" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
-<SpeedDial :model="items" direction="up" class="left-0 bottom-0 absolute" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+<SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+<SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
 `,
                 options: `
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0 absolute" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0 absolute" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
             <Toast />
         </div>
     </div>
@@ -118,8 +118,8 @@ export default {
 <template>
     <div class="card">
         <div :style="{ position: 'relative', height: '350px' }">
-            <SpeedDial :model="items" direction="up" class="right-0 bottom-0 absolute" buttonClass="p-button-help" :tooltipOptions="{ position: 'left' }" />
-            <SpeedDial :model="items" direction="up" class="left-0 bottom-0 absolute" buttonClass="p-button-danger" :tooltipOptions="{ position: 'right' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
             <Toast />
         </div>
     </div>

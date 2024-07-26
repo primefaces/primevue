@@ -24,7 +24,7 @@
             <li>The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>
         </ul>
 
-        <h4>Message and InlineMesasge</h4>
+        <h4>Message and InlineMessage</h4>
         <p>
             <i class="mark">InlineMessage</i> is deprecated due to overlap with the <i>Message</i>. The spacing, closable and life properties of the <i>Message</i> have breaking changes to provide <i>InlineMessage</i> functionality. Default margin is
             removed, closable is false by default and messages do not disappear automatically.
@@ -42,5 +42,27 @@
             <li>Rating <i class="mark">cancel</i> prop is removed as toggling the selected star value clears it.</li>
             <li>Inplace <i class="mark">closable</i> is removed in favor of templating and <i>closeCallback</i> prop.</li>
         </ul>
+
+        <h4>Removed Style Classes</h4>
+        <ul class="flex flex-col gap-2 leading-normal">
+            <li><i class="mark">.p-link</i>, use a button in link mode.</li>
+            <li><i class="mark">.p-highlight</i>, each component have its own class such as <i class="mark">.p-select-option-selected</i>.</li>
+            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> properties of components.</li>
+        </ul>
+
+        <h4>Tailwind CSS Presets</h4>
+        <p>
+            The <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind CSS</a> presets for the unstyled mode do not support v4 yet, an update is under development and scheduled for the end of July
+            2024.
+        </p>
+
+        <h4>Premium Templates</h4>
+        <p>Application templates like Apollo do not support v4 yet, all templates will be updated to v4 by the end of August 2024 with new enhancements based on new theming api.</p>
+
+        <h4>Nuxt Module</h4>
+        <p>
+            The <a href="https://www.npmjs.com/package/nuxt-primevue" target="_blank" rel="noopener noreferrer" class="doc-link">nuxt-primevue</a> module has been replaced with the new
+            <a href="https://www.npmjs.com/package/@primevue/nuxt-module" target="_blank" rel="noopener noreferrer" class="doc-link">@primevue/nuxt-module</a>. The old module is still maintained for v3 users.
+        </p>
     </DocSectionText>
 </template>

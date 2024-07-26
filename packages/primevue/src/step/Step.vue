@@ -1,6 +1,6 @@
 <template>
-    <component v-if="!asChild" :is="as" :class="cx('root')" :aria-current="active ? 'step' : undefined" role="presentation" :data-p-active="active" :data-p-disabled="disabled" v-bind="getPTOptions('root')">
-        <button :id="id" :class="cx('header')" role="tab" type="button" :tabindex="disabled ? -1 : undefined" :aria-controls="ariaControls" :disabled="disabled" @click="onStepClick" v-bind="getPTOptions('header')">
+    <component v-if="!asChild" :is="as" :class="cx('root')" :aria-current="active ? 'step' : undefined" role="presentation" :data-p-active="active" :data-p-disabled="isStepDisabled" v-bind="getPTOptions('root')">
+        <button :id="id" :class="cx('header')" role="tab" type="button" :tabindex="isStepDisabled ? -1 : undefined" :aria-controls="ariaControls" :disabled="isStepDisabled" @click="onStepClick" v-bind="getPTOptions('header')">
             <span :class="cx('number')" v-bind="getPTOptions('number')">{{ activeValue }}</span>
             <span :class="cx('title')" v-bind="getPTOptions('title')">
                 <slot />
@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { find } from '@primeuix/utils/dom';
+import { findIndexInList } from '@primeuix/utils/object';
 import StepperSeparator from '../stepper/StepperSeparator.vue';
 import BaseStep from './BaseStep.vue';
 
@@ -32,8 +33,8 @@ export default {
     },
     mounted() {
         if (this.$el && this.$pcStepList) {
-            let index = ObjectUtils.findIndexInList(this.$el, DomHandler.find(this.$pcStepper.$el, '[data-pc-name="step"]'));
-            let stepLen = DomHandler.find(this.$pcStepper.$el, '[data-pc-name="step"]').length;
+            let index = findIndexInList(this.$el, find(this.$pcStepper.$el, '[data-pc-name="step"]'));
+            let stepLen = find(this.$pcStepper.$el, '[data-pc-name="step"]').length;
 
             this.isSeparatorVisible = index !== stepLen - 1;
         }
@@ -45,12 +46,9 @@ export default {
             return _ptm(key, {
                 context: {
                     active: this.active,
-                    disabled: this.disabled
+                    disabled: this.isStepDisabled
                 }
             });
-        },
-        isStepDisabled() {
-            return this.$pcStepper.isStepDisabled();
         },
         onStepClick() {
             this.$pcStepper.updateValue(this.activeValue);
@@ -62,6 +60,9 @@ export default {
         },
         activeValue() {
             return !!this.$pcStepItem ? this.$pcStepItem?.value : this.value;
+        },
+        isStepDisabled() {
+            return !this.active && (this.$pcStepper.isStepDisabled() || this.disabled);
         },
         id() {
             return `${this.$pcStepper?.id}_step_${this.activeValue}`;

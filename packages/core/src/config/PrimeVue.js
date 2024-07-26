@@ -1,7 +1,7 @@
+import { Theme, ThemeService } from '@primeuix/styled';
 import { FilterMatchMode } from '@primevue/core/api';
 import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
-import { Theme, ThemeService } from '@primevue/themes';
 import { inject, reactive, ref, watch } from 'vue';
 
 export const defaultOptions = {
@@ -172,9 +172,19 @@ export function setup(app, options) {
     app.config.globalProperties.$primevue = PrimeVue;
     app.provide(PrimeVueSymbol, PrimeVue);
 
+    clearConfig();
     setupConfig(app, PrimeVue);
 
     return PrimeVue;
+}
+
+let stopWatchers = [];
+
+export function clearConfig() {
+    ThemeService.clear();
+
+    stopWatchers.forEach((fn) => fn?.());
+    stopWatchers = [];
 }
 
 export function setupConfig(app, PrimeVue) {
@@ -196,12 +206,14 @@ export function setupConfig(app, PrimeVue) {
     };
 
     ThemeService.on('theme:change', function (newTheme) {
-        isThemeChanged.value = true;
-        app.config.globalProperties.$primevue.config.theme = newTheme;
+        if (!isThemeChanged.value) {
+            app.config.globalProperties.$primevue.config.theme = newTheme;
+            isThemeChanged.value = true;
+        }
     });
 
     /*** Watchers ***/
-    watch(
+    const stopConfigWatcher = watch(
         PrimeVue.config,
         (newValue, oldValue) => {
             PrimeVueService.emit('config:change', { newValue, oldValue });
@@ -209,7 +221,7 @@ export function setupConfig(app, PrimeVue) {
         { immediate: true, deep: true }
     );
 
-    watch(
+    const stopRippleWatcher = watch(
         () => PrimeVue.config.ripple,
         (newValue, oldValue) => {
             PrimeVueService.emit('config:ripple:change', { newValue, oldValue });
@@ -217,7 +229,7 @@ export function setupConfig(app, PrimeVue) {
         { immediate: true, deep: true }
     );
 
-    watch(
+    const stopThemeWatcher = watch(
         () => PrimeVue.config.theme,
         (newValue, oldValue) => {
             if (!isThemeChanged.value) {
@@ -234,7 +246,7 @@ export function setupConfig(app, PrimeVue) {
         { immediate: true, deep: true }
     );
 
-    watch(
+    const stopUnstyledWatcher = watch(
         () => PrimeVue.config.unstyled,
         (newValue, oldValue) => {
             if (!newValue && PrimeVue.config.theme) {
@@ -245,6 +257,11 @@ export function setupConfig(app, PrimeVue) {
         },
         { immediate: true, deep: true }
     );
+
+    stopWatchers.push(stopConfigWatcher);
+    stopWatchers.push(stopRippleWatcher);
+    stopWatchers.push(stopThemeWatcher);
+    stopWatchers.push(stopUnstyledWatcher);
 }
 
 export default {

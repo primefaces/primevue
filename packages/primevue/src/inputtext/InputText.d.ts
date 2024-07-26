@@ -102,6 +102,11 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     variant?: 'outlined' | 'filled' | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

@@ -1,12 +1,13 @@
 <template>
     <InputText
         :value="modelValue"
-        :class="cx('root')"
+        :class="inputClass"
         :readonly="readonly"
         :disabled="disabled"
         :invalid="invalid"
         :variant="variant"
         :placeholder="placeholder"
+        :fluid="fluid"
         :unstyled="unstyled"
         @input="onInput"
         @focus="onFocus"
@@ -14,13 +15,14 @@
         @keydown="onKeyDown"
         @keypress="onKeyPress"
         @paste="onPaste"
-        :pt="ptmi('root', ptmParams)"
+        :pt="rootPTOptions"
     />
 </template>
 
 <script>
-import { DomHandler } from '@primevue/core/utils';
+import { getUserAgent } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
+import { mergeProps } from 'vue';
 import BaseInputMask from './BaseInputMask.vue';
 
 export default {
@@ -103,7 +105,7 @@ export default {
                 pos,
                 begin,
                 end;
-            let iPhone = /iphone/i.test(DomHandler.getUserAgent());
+            let iPhone = /iphone/i.test(getUserAgent());
 
             this.oldVal = this.$el.value;
 
@@ -170,7 +172,7 @@ export default {
                         this.writeBuffer();
                         next = this.seekNext(p);
 
-                        if (/android/i.test(DomHandler.getUserAgent())) {
+                        if (/android/i.test(getUserAgent())) {
                             //Path for CSP Violation on FireFox OS 1.1
                             let proxy = () => {
                                 this.caret(next);
@@ -468,7 +470,7 @@ export default {
                 '*': '[A-Za-z0-9]'
             };
 
-            let ua = DomHandler.getUserAgent();
+            let ua = getUserAgent();
 
             this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
 
@@ -516,6 +518,12 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        inputClass() {
+            return [this.cx('root'), this.class];
+        },
+        rootPTOptions() {
+            return mergeProps(this.ptmi('root', this.ptmParams), this.ptm('pcInputText', this.ptmParams));
         },
         ptmParams() {
             return {

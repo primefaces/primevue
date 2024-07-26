@@ -16,6 +16,7 @@ import HorizontalDoc from '@/doc/stepper/HorizontalDoc.vue';
 import ImportDoc from '@/doc/stepper/ImportDoc.vue';
 import LinearDoc from '@/doc/stepper/LinearDoc.vue';
 import TemplateDoc from '@/doc/stepper/TemplateDoc.vue';
+import StepsOnlyDoc from '@/doc/stepper/StepsOnlyDoc.vue';
 import VerticalDoc from '@/doc/stepper/VerticalDoc.vue';
 import PTComponent from '@/doc/stepper/pt/index.vue';
 import ThemingDoc from '@/doc/stepper/theming/index.vue';
@@ -43,6 +44,11 @@ export default {
                     id: 'linear',
                     label: 'Linear',
                     component: LinearDoc
+                },
+                {
+                    id: 'stepsonly',
+                    label: 'Steps Only',
+                    component: StepsOnlyDoc
                 },
                 {
                     id: 'template',

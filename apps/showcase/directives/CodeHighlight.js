@@ -1,4 +1,4 @@
-import { DomHandler } from '@primevue/core/utils';
+import { isClient } from '@primeuix/utils/dom';
 
 const CodeHighlight = {
     mounted(el, binding) {
@@ -9,7 +9,7 @@ const CodeHighlight = {
         else if (modifiers.css || value === 'css') el.className = 'language-css';
         else el.className = 'language-markup';
 
-        if (DomHandler.isClient()) {
+        if (isClient()) {
             window.Prism.highlightElement(el.children[0]);
             el.children[0].parentElement.setAttribute('tabindex', '-1');
         }

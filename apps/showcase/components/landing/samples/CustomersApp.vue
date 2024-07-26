@@ -35,6 +35,14 @@
                         class: 'sticky top-0 z-10'
                     }
                 }"
+                :dt="{
+                    headerCell: {
+                        background: 'transparent'
+                    },
+                    row: {
+                        background: 'transparent'
+                    }
+                }"
             >
                 <template #empty>There is no customer.</template>
                 <Column selectionMode="multiple" headerStyle="width: 1rem" style="width: 1rem"></Column>

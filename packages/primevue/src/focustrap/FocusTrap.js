@@ -1,4 +1,5 @@
-import { DomHandler, ObjectUtils } from '@primevue/core/utils';
+import { createElement, focus, getFirstFocusableElement, getLastFocusableElement, isFocusableElement } from '@primeuix/utils/dom';
+import { isNotEmpty } from '@primeuix/utils/object';
 import BaseFocusTrap from './BaseFocusTrap';
 
 const FocusTrap = BaseFocusTrap.extend('focustrap', {
@@ -34,16 +35,16 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
                 mutationList.forEach((mutation) => {
                     if (mutation.type === 'childList' && !el.contains(document.activeElement)) {
                         const findNextFocusableElement = (_el) => {
-                            const focusableElement = DomHandler.isFocusableElement(_el)
-                                ? DomHandler.isFocusableElement(_el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
+                            const focusableElement = isFocusableElement(_el)
+                                ? isFocusableElement(_el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
                                     ? _el
-                                    : DomHandler.getFirstFocusableElement(el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
-                                : DomHandler.getFirstFocusableElement(_el);
+                                    : getFirstFocusableElement(el, this.getComputedSelector(el.$_pfocustrap_focusableselector))
+                                : getFirstFocusableElement(_el);
 
-                            return ObjectUtils.isNotEmpty(focusableElement) ? focusableElement : _el.nextSibling && findNextFocusableElement(_el.nextSibling);
+                            return isNotEmpty(focusableElement) ? focusableElement : _el.nextSibling && findNextFocusableElement(_el.nextSibling);
                         };
 
-                        DomHandler.focus(findNextFocusableElement(mutation.nextSibling));
+                        focus(findNextFocusableElement(mutation.nextSibling));
                     }
                 });
             });
@@ -69,34 +70,34 @@ const FocusTrap = BaseFocusTrap.extend('focustrap', {
         },
         autoElementFocus(el, binding) {
             const { autoFocusSelector = '', firstFocusableSelector = '', autoFocus = false } = binding.value || {};
-            let focusableElement = DomHandler.getFirstFocusableElement(el, `[autofocus]${this.getComputedSelector(autoFocusSelector)}`);
+            let focusableElement = getFirstFocusableElement(el, `[autofocus]${this.getComputedSelector(autoFocusSelector)}`);
 
-            autoFocus && !focusableElement && (focusableElement = DomHandler.getFirstFocusableElement(el, this.getComputedSelector(firstFocusableSelector)));
-            DomHandler.focus(focusableElement);
+            autoFocus && !focusableElement && (focusableElement = getFirstFocusableElement(el, this.getComputedSelector(firstFocusableSelector)));
+            focus(focusableElement);
         },
         onFirstHiddenElementFocus(event) {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
                 relatedTarget === currentTarget.$_pfocustrap_lasthiddenfocusableelement || !this.$el?.contains(relatedTarget)
-                    ? DomHandler.getFirstFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
+                    ? getFirstFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_lasthiddenfocusableelement;
 
-            DomHandler.focus(focusableElement);
+            focus(focusableElement);
         },
         onLastHiddenElementFocus(event) {
             const { currentTarget, relatedTarget } = event;
             const focusableElement =
                 relatedTarget === currentTarget.$_pfocustrap_firsthiddenfocusableelement || !this.$el?.contains(relatedTarget)
-                    ? DomHandler.getLastFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
+                    ? getLastFocusableElement(currentTarget.parentElement, this.getComputedSelector(currentTarget.$_pfocustrap_focusableselector))
                     : currentTarget.$_pfocustrap_firsthiddenfocusableelement;
 
-            DomHandler.focus(focusableElement);
+            focus(focusableElement);
         },
         createHiddenFocusableElements(el, binding) {
             const { tabIndex = 0, firstFocusableSelector = '', lastFocusableSelector = '' } = binding.value || {};
 
             const createFocusableElement = (onFocus) => {
-                return DomHandler.createElement('span', {
+                return createElement('span', {
                     class: 'p-hidden-accessible p-hidden-focusable',
                     tabIndex,
                     role: 'presentation',

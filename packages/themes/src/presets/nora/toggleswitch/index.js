@@ -23,7 +23,8 @@ export default {
         checkedBackground: '{primary.color}',
         checkedHoverBackground: '{primary.color}',
         transitionDuration: '{form.field.transition.duration}',
-        slideDuration: '0.1s'
+        slideDuration: '0.1s',
+        disabledBackground: '{form.field.disabled.background}'
     },
     handle: {
         borderRadius: '50%',
@@ -31,6 +32,7 @@ export default {
         background: '{form.field.border.color}',
         hoverBackground: '{form.field.border.color}',
         checkedBackground: '{primary.contrast.color}',
-        checkedHoverBackground: '{primary.contrast.color}'
+        checkedHoverBackground: '{primary.contrast.color}',
+        disabledBackground: '{form.field.disabled.color}'
     }
 };

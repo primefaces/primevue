@@ -12,6 +12,7 @@
             :name="name"
             :invalid="invalid"
             :variant="variant"
+            :fluid="fluid"
             :unstyled="unstyled"
             autocomplete="off"
             aria-autocomplete="none"
@@ -530,7 +531,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, DomHandler, UniqueComponentId, ZIndexUtils } from '@primevue/core/utils';
+import { absolutePosition, addStyle, find, findSingle, getAttribute, getFocusableElements, getIndex, getOuterWidth, isTouchDevice, relativePosition, setAttribute } from '@primeuix/utils/dom';
+import { isEmpty, localeComparator } from '@primeuix/utils/object';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import CalendarIcon from '@primevue/icons/calendar';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
@@ -548,6 +552,9 @@ export default {
     extends: BaseDatePicker,
     inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     navigationState: null,
     timePickerChange: false,
     scrollHandler: null,
@@ -674,7 +681,7 @@ export default {
         }
 
         if (this.overlay && this.autoZIndex) {
-            ZIndexUtils.clear(this.overlay);
+            ZIndex.clear(this.overlay);
         }
 
         this.overlay = null;
@@ -714,30 +721,37 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            if (this.isComparable()) {
-                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+            if (!this.isComparable()) return false;
 
-                if (this.isMultipleSelection()) {
-                    return value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
+            if (this.isMultipleSelection()) {
+                return this.modelValue.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
+            } else if (this.isRangeSelection()) {
+                if (!this.modelValue[1]) {
+                    return this.modelValue[0].getFullYear() === this.currentYear && this.modelValue[0].getMonth() === month;
                 } else {
-                    return value.getMonth() === month && value.getFullYear() === this.currentYear;
-                }
-            }
+                    const currentDate = new Date(this.currentYear, month, 1);
+                    const startDate = new Date(this.modelValue[0].getFullYear(), this.modelValue[0].getMonth(), 1);
+                    const endDate = new Date(this.modelValue[1].getFullYear(), this.modelValue[1].getMonth(), 1);
 
-            return false;
+                    return currentDate >= startDate && currentDate <= endDate;
+                }
+            } else {
+                return this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear;
+            }
         },
         isYearSelected(year) {
-            if (this.isComparable()) {
-                let value = this.isRangeSelection() ? this.modelValue[0] : this.modelValue;
+            if (!this.isComparable()) return false;
 
-                if (this.isMultipleSelection()) {
-                    return value.some((currentValue) => currentValue.getFullYear() === year);
-                } else {
-                    return value.getFullYear() === year;
-                }
+            if (this.isMultipleSelection()) {
+                return this.modelValue.some((currentValue) => currentValue.getFullYear() === year);
+            } else if (this.isRangeSelection()) {
+                const start = this.modelValue[0] ? this.modelValue[0].getFullYear() : null;
+                const end = this.modelValue[1] ? this.modelValue[1].getFullYear() : null;
+
+                return start === year || end === year || (start < year && end > year);
+            } else {
+                return value.getFullYear() === year;
             }
-
-            return false;
         },
         isDateEquals(value, dateMeta) {
             if (value) return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
@@ -863,10 +877,10 @@ export default {
             el.setAttribute(this.attributeSelector, '');
             const styles = !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
 
-            DomHandler.addStyles(el, styles);
+            addStyle(el, styles);
 
             if (this.autoZIndex) {
-                ZIndexUtils.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
+                ZIndex.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
 
             this.alignOverlay();
@@ -879,7 +893,7 @@ export default {
         },
         onOverlayAfterLeave(el) {
             if (this.autoZIndex) {
-                ZIndexUtils.clear(el);
+                ZIndex.clear(el);
             }
         },
         onOverlayLeave() {
@@ -1032,7 +1046,7 @@ export default {
         bindResizeListener() {
             if (!this.resizeListener) {
                 this.resizeListener = () => {
-                    if (this.overlayVisible && !DomHandler.isTouchDevice()) {
+                    if (this.overlayVisible && !isTouchDevice()) {
                         this.overlayVisible = false;
                     }
                 };
@@ -1076,16 +1090,16 @@ export default {
         alignOverlay() {
             if (this.overlay) {
                 if (this.appendTo === 'self' || this.inline) {
-                    DomHandler.relativePosition(this.overlay, this.$el);
+                    relativePosition(this.overlay, this.$el);
                 } else {
                     if (this.view === 'date') {
-                        this.overlay.style.width = DomHandler.getOuterWidth(this.overlay) + 'px';
-                        this.overlay.style.minWidth = DomHandler.getOuterWidth(this.$el) + 'px';
+                        this.overlay.style.width = getOuterWidth(this.overlay) + 'px';
+                        this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
                     } else {
-                        this.overlay.style.width = DomHandler.getOuterWidth(this.$el) + 'px';
+                        this.overlay.style.width = getOuterWidth(this.$el) + 'px';
                     }
 
-                    DomHandler.absolutePosition(this.overlay, this.$el);
+                    absolutePosition(this.overlay, this.$el);
                 }
             }
         },
@@ -1133,7 +1147,7 @@ export default {
                 return;
             }
 
-            DomHandler.find(this.overlay, 'table td span:not([data-p-disabled="true"])').forEach((cell) => (cell.tabIndex = -1));
+            find(this.overlay, 'table td span:not([data-p-disabled="true"])').forEach((cell) => (cell.tabIndex = -1));
 
             if (event) {
                 event.currentTarget.focus();
@@ -2007,7 +2021,7 @@ export default {
             const cellContent = event.currentTarget;
             const cell = cellContent.parentElement;
 
-            const cellIndex = DomHandler.index(cell);
+            const cellIndex = getIndex(cell);
 
             switch (event.code) {
                 case 'ArrowDown': {
@@ -2016,14 +2030,14 @@ export default {
                     let nextRow = cell.parentElement.nextElementSibling;
 
                     if (nextRow) {
-                        let tableRowIndex = DomHandler.index(cell.parentElement);
+                        let tableRowIndex = getIndex(cell.parentElement);
                         const tableRows = Array.from(cell.parentElement.parentElement.children);
                         const nextTableRows = tableRows.slice(tableRowIndex + 1);
 
                         let hasNextFocusableDate = nextTableRows.find((el) => {
                             let focusCell = el.children[cellIndex].children[0];
 
-                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
+                            return !getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2054,14 +2068,14 @@ export default {
                         let prevRow = cell.parentElement.previousElementSibling;
 
                         if (prevRow) {
-                            let tableRowIndex = DomHandler.index(cell.parentElement);
+                            let tableRowIndex = getIndex(cell.parentElement);
                             const tableRows = Array.from(cell.parentElement.parentElement.children);
                             const prevTableRows = tableRows.slice(0, tableRowIndex).reverse();
 
                             let hasNextFocusableDate = prevTableRows.find((el) => {
                                 let focusCell = el.children[cellIndex].children[0];
 
-                                return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
+                                return !getAttribute(focusCell, 'data-p-disabled');
                             });
 
                             if (hasNextFocusableDate) {
@@ -2094,7 +2108,7 @@ export default {
                         let hasNextFocusableDate = prevCells.find((el) => {
                             let focusCell = el.children[0];
 
-                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
+                            return !getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2123,7 +2137,7 @@ export default {
                         let hasNextFocusableDate = nextCells.find((el) => {
                             let focusCell = el.children[0];
 
-                            return !DomHandler.getAttribute(focusCell, 'data-p-disabled');
+                            return !getAttribute(focusCell, 'data-p-disabled');
                         });
 
                         if (hasNextFocusableDate) {
@@ -2170,7 +2184,7 @@ export default {
                     let currentRow = cell.parentElement;
                     let focusCell = currentRow.children[0].children[0];
 
-                    if (DomHandler.getAttribute(focusCell, 'data-p-disabled')) {
+                    if (getAttribute(focusCell, 'data-p-disabled')) {
                         this.navigateToMonth(event, true, groupIndex);
                     } else {
                         focusCell.tabIndex = '0';
@@ -2186,7 +2200,7 @@ export default {
                     let currentRow = cell.parentElement;
                     let focusCell = currentRow.children[currentRow.children.length - 1].children[0];
 
-                    if (DomHandler.getAttribute(focusCell, 'data-p-disabled')) {
+                    if (getAttribute(focusCell, 'data-p-disabled')) {
                         this.navigateToMonth(event, false, groupIndex);
                     } else {
                         focusCell.tabIndex = '0';
@@ -2231,7 +2245,7 @@ export default {
                     this.navBackward(event);
                 } else {
                     let prevMonthContainer = this.overlay.children[groupIndex - 1];
-                    let cells = DomHandler.find(prevMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                    let cells = find(prevMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                     let focusCell = cells[cells.length - 1];
 
                     focusCell.tabIndex = '0';
@@ -2243,7 +2257,7 @@ export default {
                     this.navForward(event);
                 } else {
                     let nextMonthContainer = this.overlay.children[groupIndex + 1];
-                    let focusCell = DomHandler.findSingle(nextMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                    let focusCell = findSingle(nextMonthContainer, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
 
                     focusCell.tabIndex = '0';
                     focusCell.focus();
@@ -2259,7 +2273,7 @@ export default {
                 case 'ArrowDown': {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
-                    var cellIndex = DomHandler.index(cell);
+                    var cellIndex = getIndex(cell);
                     let nextCell = cells[event.code === 'ArrowDown' ? cellIndex + 3 : cellIndex - 3];
 
                     if (nextCell) {
@@ -2353,7 +2367,7 @@ export default {
                 case 'ArrowDown': {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
-                    var cellIndex = DomHandler.index(cell);
+                    var cellIndex = getIndex(cell);
                     let nextCell = cells[event.code === 'ArrowDown' ? cellIndex + 2 : cellIndex - 2];
 
                     if (nextCell) {
@@ -2452,11 +2466,11 @@ export default {
                         let cells;
 
                         if (this.currentView === 'month') {
-                            cells = DomHandler.find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
+                            cells = find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cells = DomHandler.find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
+                            cells = find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
-                            cells = DomHandler.find(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                            cells = find(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
 
                         if (cells && cells.length > 0) {
@@ -2464,11 +2478,11 @@ export default {
                         }
                     } else {
                         if (this.currentView === 'month') {
-                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
+                            cell = findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]:not([data-p-disabled="true"])');
                         } else if (this.currentView === 'year') {
-                            cell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
+                            cell = findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]:not([data-p-disabled="true"])');
                         } else {
-                            cell = DomHandler.findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                            cell = findSingle(this.overlay, 'table td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                         }
                     }
 
@@ -2487,25 +2501,25 @@ export default {
             let cell;
 
             if (this.currentView === 'month') {
-                let cells = DomHandler.find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"][data-p-selected="true"]');
+                let cells = find(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"]');
+                let selectedCell = findSingle(this.overlay, '[data-pc-section="monthview"] [data-pc-section="month"][data-p-selected="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else if (this.currentView === 'year') {
-                let cells = DomHandler.find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]');
-                let selectedCell = DomHandler.findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"][data-p-selected="true"]');
+                let cells = find(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"]');
+                let selectedCell = findSingle(this.overlay, '[data-pc-section="yearview"] [data-pc-section="year"][data-p-selected="true"]');
 
                 cells.forEach((cell) => (cell.tabIndex = -1));
                 cell = selectedCell || cells[0];
             } else {
-                cell = DomHandler.findSingle(this.overlay, 'span[data-p-selected="true"]');
+                cell = findSingle(this.overlay, 'span[data-p-selected="true"]');
 
                 if (!cell) {
-                    let todayCell = DomHandler.findSingle(this.overlay, 'td.p-datepicker-today span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                    let todayCell = findSingle(this.overlay, 'td.p-datepicker-today span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
 
                     if (todayCell) cell = todayCell;
-                    else cell = DomHandler.findSingle(this.overlay, '.p-datepicker-calendar td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                    else cell = findSingle(this.overlay, '.p-datepicker-calendar td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
                 }
             }
 
@@ -2517,7 +2531,7 @@ export default {
         },
         trapFocus(event) {
             event.preventDefault();
-            let focusableElements = DomHandler.getFocusableElements(this.overlay);
+            let focusableElements = getFocusableElements(this.overlay);
 
             if (focusableElements && focusableElements.length > 0) {
                 if (!document.activeElement) {
@@ -2613,7 +2627,7 @@ export default {
                 }
             } else if (event.code === 'Tab') {
                 if (this.overlay) {
-                    DomHandler.getFocusableElements(this.overlay).forEach((el) => (el.tabIndex = '-1'));
+                    getFocusableElements(this.overlay).forEach((el) => (el.tabIndex = '-1'));
                 }
 
                 if (this.overlayVisible) {
@@ -2681,14 +2695,14 @@ export default {
                 if (!this.responsiveStyleElement) {
                     this.responsiveStyleElement = document.createElement('style');
                     this.responsiveStyleElement.type = 'text/css';
-                    DomHandler.setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                    setAttribute(this.responsiveStyleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                     document.body.appendChild(this.responsiveStyleElement);
                 }
 
                 let innerHTML = '';
 
                 if (this.responsiveOptions) {
-                    const comparer = ObjectUtils.localeComparator();
+                    const comparer = localeComparator();
                     let responsiveOptions = [...this.responsiveOptions].filter((o) => !!(o.breakpoint && o.numMonths)).sort((o1, o2) => -1 * comparer(o1.breakpoint, o2.breakpoint));
 
                     for (let i = 0; i < responsiveOptions.length; i++) {
@@ -2933,6 +2947,9 @@ export default {
         },
         panelId() {
             return this.d_id + '_panel';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

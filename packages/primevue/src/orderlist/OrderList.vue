@@ -67,7 +67,9 @@
 </template>
 
 <script>
-import { DomHandler, ObjectUtils, UniqueComponentId } from '@primevue/core/utils';
+import { UniqueComponentId } from '@primevue/core/utils';
+import { find, findSingle, scrollInView, setAttribute } from '@primeuix/utils/dom';
+import { findIndexInList, isNotEmpty } from '@primeuix/utils/object';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleUpIcon from '@primevue/icons/angledoubleup';
 import AngleDownIcon from '@primevue/icons/angledown';
@@ -145,7 +147,7 @@ export default {
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
+                    let selectedItemIndex = findIndexInList(selectedItem, value);
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = value[selectedItemIndex];
@@ -168,7 +170,7 @@ export default {
 
                 for (let i = 0; i < this.d_selection.length; i++) {
                     let selectedItem = this.d_selection[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
+                    let selectedItemIndex = findIndexInList(selectedItem, value);
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
@@ -189,7 +191,7 @@ export default {
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
+                    let selectedItemIndex = findIndexInList(selectedItem, value);
 
                     if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value[selectedItemIndex];
@@ -212,7 +214,7 @@ export default {
 
                 for (let i = this.d_selection.length - 1; i >= 0; i--) {
                     let selectedItem = this.d_selection[i];
-                    let selectedItemIndex = ObjectUtils.findIndexInList(selectedItem, value);
+                    let selectedItemIndex = findIndexInList(selectedItem, value);
 
                     if (selectedItemIndex !== value.length - 1) {
                         let movedItem = value.splice(selectedItemIndex, 1)[0];
@@ -228,14 +230,14 @@ export default {
             }
         },
         updateListScroll() {
-            this.list = DomHandler.findSingle(this.$refs.listbox.$el, '[data-pc-section="list"]');
+            this.list = findSingle(this.$refs.listbox.$el, '[data-pc-section="list"]');
 
-            const listItems = DomHandler.find(this.list, '[data-pc-section="item"][data-p-selected="true"]');
+            const listItems = find(this.list, '[data-pc-section="item"][data-p-selected="true"]');
 
             if (listItems && listItems.length) {
                 switch (this.reorderDirection) {
                     case 'up':
-                        DomHandler.scrollInView(this.list, listItems[0]);
+                        scrollInView(this.list, listItems[0]);
                         break;
 
                     case 'top':
@@ -243,7 +245,7 @@ export default {
                         break;
 
                     case 'down':
-                        DomHandler.scrollInView(this.list, listItems[listItems.length - 1]);
+                        scrollInView(this.list, listItems[listItems.length - 1]);
                         break;
 
                     case 'bottom':
@@ -260,7 +262,7 @@ export default {
                 this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
-                DomHandler.setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
+                setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
                 document.head.appendChild(this.styleElement);
 
                 let innerHTML = `
@@ -305,7 +307,7 @@ export default {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveBottom : undefined;
         },
         hasSelectedOption() {
-            return ObjectUtils.isNotEmpty(this.d_selection);
+            return isNotEmpty(this.d_selection);
         }
     },
     components: {

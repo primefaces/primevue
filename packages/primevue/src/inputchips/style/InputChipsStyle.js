@@ -21,8 +21,8 @@ const theme = ({ dt }) => `
     border-radius: ${dt('inputchips.border.radius')};
     width: 100%;
     transition: background ${dt('inputchips.transition.duration')}, color ${dt('inputchips.transition.duration')}, border-color ${dt('inputchips.transition.duration')}, outline-color ${dt('inputchips.transition.duration')}, box-shadow ${dt(
-        'inputchips.transition.duration'
-    )};
+    'inputchips.transition.duration'
+)};
     outline-color: transparent;
     box-shadow: ${dt('inputchips.shadow')};
 }
@@ -97,10 +97,6 @@ const theme = ({ dt }) => `
 
 .p-inputchips-input-item input::placeholder {
     color: ${dt('inputchips.placeholder.color')};
-}
-
-.p-fluid .p-inputchips {
-    display: flex;
 }
 `;
 

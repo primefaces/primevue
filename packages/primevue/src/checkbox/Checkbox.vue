@@ -22,7 +22,7 @@
             v-bind="getPTOptions('input')"
         />
         <div :class="cx('box')" v-bind="getPTOptions('box')">
-            <slot name="icon" :checked="checked" :class="cx('icon')">
+            <slot name="icon" :checked="checked" :indeterminate="d_indeterminate" :class="cx('icon')">
                 <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
                 <MinusIcon v-else-if="d_indeterminate" :class="cx('icon')" v-bind="getPTOptions('icon')" />
             </slot>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { ObjectUtils } from '@primevue/core/utils';
+import { contains, equals } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import MinusIcon from '@primevue/icons/minus';
 import BaseCheckbox from './BaseCheckbox.vue';
@@ -58,6 +58,7 @@ export default {
             return _ptm(key, {
                 context: {
                     checked: this.checked,
+                    indeterminate: this.d_indeterminate,
                     disabled: this.disabled
                 }
             });
@@ -69,7 +70,7 @@ export default {
                 if (this.binary) {
                     newModelValue = this.d_indeterminate ? this.trueValue : this.checked ? this.falseValue : this.trueValue;
                 } else {
-                    if (this.checked || this.d_indeterminate) newModelValue = this.modelValue.filter((val) => !ObjectUtils.equals(val, this.value));
+                    if (this.checked || this.d_indeterminate) newModelValue = this.modelValue.filter((val) => !equals(val, this.value));
                     else newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value];
                 }
 
@@ -91,7 +92,7 @@ export default {
     },
     computed: {
         checked() {
-            return this.d_indeterminate ? false : this.binary ? this.modelValue === this.trueValue : ObjectUtils.contains(this.value, this.modelValue);
+            return this.d_indeterminate ? false : this.binary ? this.modelValue === this.trueValue : contains(this.value, this.modelValue);
         }
     },
     components: {
