@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/inputtext/FluidDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
@@ -48,6 +49,11 @@ export default {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
                 },
                 {
                     id: 'invalid',
