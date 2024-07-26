@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.0.2](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
+
+**Fixed bugs:**
+
+-   Toast: Unstyled prop does not affect ToastMessage [\#6098](https://github.com/primefaces/primevue/issues/6098)
+-   ConfirmDialog and ConfirmPopup: Missing accept/reject labels [\#6075](https://github.com/primefaces/primevue/issues/6075)
+
+**Implemented New Features and Enhancements:**
+
+-   Provide Fluid component [\#6122](https://github.com/primefaces/primevue/issues/6122)
+-   ColorPicker: click on label does not open the color picker[\#6044](https://github.com/primefaces/primevue/issues/6044)
+
 ## [4.0.1](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
