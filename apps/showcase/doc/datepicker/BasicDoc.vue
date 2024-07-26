@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DatePicker is used a controlled input component with <i>v-model</i> property.</p>
+        <p>DatePicker uses a controlled input component with <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <DatePicker v-model="date" />
