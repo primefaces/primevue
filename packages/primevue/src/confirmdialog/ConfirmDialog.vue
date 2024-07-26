@@ -122,9 +122,6 @@ export default {
             }
 
             this.visible = false;
-        },
-        getCXOptions(icon, iconProps) {
-            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
@@ -141,35 +138,19 @@ export default {
             return this.confirmation ? this.confirmation.position : null;
         },
         acceptLabel() {
-            if (!this.confirmation) {
-                return null;
-            }
+            if (this.confirmation) {
+                const confirmation = this.confirmation;
 
-            const confirmation = this.confirmation;
-
-            if (confirmation.acceptLabel) {
-                return confirmation.acceptLabel;
-            }
-
-            if (confirmation.acceptProps?.label) {
-                return confirmation.acceptProps.label;
+                return confirmation.acceptLabel || confirmation.acceptProps?.label || this.$primevue.config.locale.accept;
             }
 
             return this.$primevue.config.locale.accept;
         },
         rejectLabel() {
-            if (!this.confirmation) {
-                return null;
-            }
+            if (this.confirmation) {
+                const confirmation = this.confirmation;
 
-            const confirmation = this.confirmation;
-
-            if (confirmation.rejectLabel) {
-                return confirmation.rejectLabel;
-            }
-
-            if (confirmation.rejectProps?.label) {
-                return confirmation.rejectProps.label;
+                return confirmation.rejectLabel || confirmation.rejectProps?.label || this.$primevue.config.locale.reject;
             }
 
             return this.$primevue.config.locale.reject;
