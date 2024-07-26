@@ -204,7 +204,7 @@ const classes = {
             'p-inputwrapper-filled': instance.hasSelectedOption,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-select-open': state.overlayVisible,
-            'p-select-fluid': props.fluid
+            'p-select-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [

@@ -12,6 +12,7 @@
             :name="name"
             :invalid="invalid"
             :variant="variant"
+            :fluid="fluid"
             :unstyled="unstyled"
             autocomplete="off"
             aria-autocomplete="none"
@@ -531,7 +532,7 @@
 
 <script>
 import { absolutePosition, addStyle, find, findSingle, getAttribute, getFocusableElements, getIndex, getOuterWidth, isTouchDevice, relativePosition, setAttribute } from '@primeuix/utils/dom';
-import { localeComparator } from '@primeuix/utils/object';
+import { isEmpty, localeComparator } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import CalendarIcon from '@primevue/icons/calendar';
@@ -551,6 +552,9 @@ export default {
     extends: BaseDatePicker,
     inheritAttrs: false,
     emits: ['show', 'hide', 'input', 'month-change', 'year-change', 'date-select', 'update:modelValue', 'today-click', 'clear-click', 'focus', 'blur', 'keydown'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     navigationState: null,
     timePickerChange: false,
     scrollHandler: null,
@@ -2943,6 +2947,9 @@ export default {
         },
         panelId() {
             return this.d_id + '_panel';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

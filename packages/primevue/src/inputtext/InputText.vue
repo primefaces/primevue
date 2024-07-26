@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import BaseInputText from './BaseInputText.vue';
 
 export default {
@@ -10,6 +11,9 @@ export default {
     extends: BaseInputText,
     inheritAttrs: false,
     emits: ['update:modelValue'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -28,6 +32,9 @@ export default {
     computed: {
         filled() {
             return this.modelValue != null && this.modelValue.toString().length > 0;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     }
 };

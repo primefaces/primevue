@@ -10,6 +10,7 @@
             :value="inputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
+            :fluid="hasFluid"
             :disabled="disabled"
             :invalid="invalid"
             :variant="variant"
@@ -180,10 +181,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isEmpty, isNotEmpty, equals, findLastIndex } from '@primeuix/utils/object';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isEmpty, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Chip from 'primevue/chip';
@@ -199,6 +200,9 @@ export default {
     extends: BaseAutoComplete,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'option-select', 'option-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
@@ -973,6 +977,9 @@ export default {
         },
         panelId() {
             return this.id + '_panel';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

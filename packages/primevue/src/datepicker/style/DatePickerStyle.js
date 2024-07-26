@@ -370,14 +370,14 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ props, state }) => [
+    root: ({ instance, props, state }) => [
         'p-datepicker p-component p-inputwrapper',
         {
             'p-invalid': props.invalid,
-            'p-datepicker-fluid': props.fluid,
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused,
-            'p-focus': state.focused || state.overlayVisible
+            'p-focus': state.focused || state.overlayVisible,
+            'p-datepicker-fluid': instance.hasFluid
         }
     ],
     pcInput: 'p-datepicker-input',

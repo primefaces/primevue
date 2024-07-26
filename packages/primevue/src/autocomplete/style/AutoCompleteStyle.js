@@ -252,7 +252,7 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible,
-            'p-autocomplete-fluid': props.fluid
+            'p-autocomplete-fluid': instance.hasFluid
         }
     ],
     pcInput: 'p-autocomplete-input',

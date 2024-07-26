@@ -153,7 +153,7 @@ const classes = {
             'p-inputnumber-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
             'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical',
-            'p-inputnumber-fluid': instance.fluid
+            'p-inputnumber-fluid': instance.hasFluid
         }
     ],
     pcInput: 'p-inputnumber-input',

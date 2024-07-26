@@ -66,6 +66,7 @@
 
 <script>
 import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
@@ -80,6 +81,9 @@ export default {
     extends: BasePassword,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -319,6 +323,9 @@ export default {
         },
         overlayUniqueId() {
             return this.id + '_overlay';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

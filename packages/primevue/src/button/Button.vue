@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Badge from 'primevue/badge';
 import Ripple from 'primevue/ripple';
@@ -26,6 +27,9 @@ export default {
     name: 'Button',
     extends: BaseButton,
     inheritAttrs: false,
+    inject: {
+        $pcFluid: { default: null }
+    },
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -60,6 +64,9 @@ export default {
                 'data-p-disabled': this.disabled,
                 'data-p-severity': this.severity
             };
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

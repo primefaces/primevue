@@ -11,6 +11,7 @@ export const form: MetaType[] = toMeta([
     'Dropdown',
     'Editor',
     'FloatLabel',
+    'Fluid',
     'IconField',
     'InputChips',
     'InputGroup',

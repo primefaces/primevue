@@ -111,9 +111,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, getFirstFocusableElement, getLastFocusableElement, find, findSingle, getFocusableElements, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Chip from 'primevue/chip';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -127,6 +128,9 @@ export default {
     extends: BaseTreeSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -502,6 +506,9 @@ export default {
         },
         listId() {
             return this.id + '_list';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

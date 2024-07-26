@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Button from 'primevue/button';
@@ -74,6 +75,9 @@ export default {
     extends: BaseSplitButton,
     inheritAttrs: false,
     emits: ['click'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
@@ -118,6 +122,9 @@ export default {
     computed: {
         containerClass() {
             return [this.cx('root'), this.class];
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

@@ -421,9 +421,9 @@ export interface CascadeSelectProps {
     tabindex?: number | string | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

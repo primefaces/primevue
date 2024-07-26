@@ -212,7 +212,7 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-multiselect-open': instance.overlayVisible,
-            'p-multiselect-fluid': props.fluid
+            'p-multiselect-fluid': instance.hasFluid
         }
     ],
     labelContainer: 'p-multiselect-label-container',

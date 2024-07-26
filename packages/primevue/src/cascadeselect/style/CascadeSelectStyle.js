@@ -201,7 +201,7 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': props.fluid
+            'p-cascadeselect-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [
