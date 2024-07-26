@@ -102,10 +102,10 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance }) => [
         'p-inputgroup',
         {
-            'p-inputgroup-fluid': props.fluid
+            'p-inputgroup-fluid': instance.hasFluid
         }
     ]
 };

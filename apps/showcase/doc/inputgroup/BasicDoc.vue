@@ -7,18 +7,18 @@
             <InputGroupAddon>
                 <i class="pi pi-user"></i>
             </InputGroupAddon>
-            <InputText placeholder="Username" />
+            <InputText v-model="text1" placeholder="Username" />
         </InputGroup>
 
         <InputGroup>
             <InputGroupAddon>$</InputGroupAddon>
-            <InputNumber placeholder="Price" />
+            <InputNumber v-model="number" placeholder="Price" />
             <InputGroupAddon>.00</InputGroupAddon>
         </InputGroup>
 
         <InputGroup>
             <InputGroupAddon>www</InputGroupAddon>
-            <InputText placeholder="Website" />
+            <InputText v-model="text2" placeholder="Website" />
         </InputGroup>
     </div>
     <DocSectionCode :code="code" />
@@ -28,6 +28,9 @@
 export default {
     data() {
         return {
+            text1: null,
+            text2: null,
+            number: null,
             code: {
                 basic: `
 <InputGroup>

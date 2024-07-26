@@ -52,12 +52,12 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance, props }) => [
         'p-splitbutton p-component',
         {
             'p-splitbutton-raised': props.raised,
             'p-splitbutton-rounded': props.rounded,
-            'p-splitbutton-fluid': props.fluid
+            'p-splitbutton-fluid': instance.hasFluid
         }
     ],
     pcButton: 'p-splitbutton-button',

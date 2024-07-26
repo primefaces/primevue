@@ -75,7 +75,7 @@ const classes = {
             'p-inputtext-lg': props.size === 'large',
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputtext-fluid': props.fluid
+            'p-inputtext-fluid': instance.hasFluid
         }
     ]
 };

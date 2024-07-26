@@ -13,6 +13,7 @@
                     :errorIcon="errorIcon"
                     :successIcon="successIcon"
                     :closeButtonProps="closeButtonProps"
+                    :unstyled="unstyled"
                     @close="remove($event)"
                     :pt="pt"
                 />
@@ -22,10 +23,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { setAttribute } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import BaseToast from './BaseToast.vue';

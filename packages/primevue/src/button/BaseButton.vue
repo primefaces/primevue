@@ -84,7 +84,7 @@ export default {
         },
         fluid: {
             type: Boolean,
-            default: false
+            default: null
         }
     },
     style: ButtonStyle,

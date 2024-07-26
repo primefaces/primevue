@@ -72,8 +72,8 @@
 </template>
 
 <script>
-import { getSelection, clearSelection } from '@primeuix/utils/dom';
-import { isNotEmpty } from '@primeuix/utils/object';
+import { clearSelection, getSelection } from '@primeuix/utils/dom';
+import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
@@ -84,6 +84,9 @@ export default {
     extends: BaseInputNumber,
     inheritAttrs: false,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     numberFormat: null,
     _numeral: null,
     _decimal: null,
@@ -977,6 +980,9 @@ export default {
         },
         getFormatter() {
             return this.numberFormat;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

@@ -3,8 +3,8 @@
         <p>
             Color palette of a preset is defined by the <i>primitive</i> design token group. The default colors are derived from the Tailwind colors with some extensions to make it consistent with the Tailwind Presets projects of the unstyled mode.
         </p>
+        <p>Colors can be accessed at CSS as a variable and programmatically using the <i>$dt</i> utility.</p>
     </DocSectionText>
-    <p>Colors can be accessed at CSS as a variable and programmatically using the <i>$dt</i> utility.</p>
     <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
     <div class="card">
         <ul class="p-0 m-0 list-none flex sm:flex-col gap-4 flex-wrap sm:flex-nowrap">

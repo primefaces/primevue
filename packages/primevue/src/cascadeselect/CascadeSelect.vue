@@ -103,6 +103,9 @@ export default {
     extends: BaseCascadeSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -774,6 +777,9 @@ export default {
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

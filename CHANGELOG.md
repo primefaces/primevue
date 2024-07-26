@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.0.2](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
+
+**Fixed bugs:**
+
+-   Toast: Unstyled prop does not affect ToastMessage [\#6098](https://github.com/primefaces/primevue/issues/6098)
+-   ConfirmDialog and ConfirmPopup: Missing accept/reject labels [\#6075](https://github.com/primefaces/primevue/issues/6075)
+
+**Implemented New Features and Enhancements:**
+
+-   Provide Fluid component [\#6122](https://github.com/primefaces/primevue/issues/6122)
+-   ColorPicker: click on label does not open the color picker[\#6044](https://github.com/primefaces/primevue/issues/6044)
+
 ## [4.0.1](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
@@ -209,6 +223,35 @@
 -   Add dt props to all components and directives [\#5506](https://github.com/primefaces/primevue/issues/5506)
 -   Add PrimeVueStyled and PrimeVueUnstyled plugins [\#5502](https://github.com/primefaces/primevue/issues/5502)
 -   Checkbox: new indeterminate state [\#5479](https://github.com/primefaces/primevue/issues/5479)
+
+## [3.53.0](https://github.com/primefaces/primevue/tree/3.53.0) (2024-06-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.52.0...3.53.0)
+
+**Fixed bugs:**
+
+-   [nuxt] Could not access pt. The only available runtime config keys on the client side are public and app [\#5907](https://github.com/primefaces/primevue/issues/5907)
+-   DataTable: DataTableSortMeta field missing type definition [\#5862](https://github.com/primefaces/primevue/issues/5862)
+-   FloatLabel: ReferenceError: FloatLabelStyle is not defined [\#5840](https://github.com/primefaces/primevue/issues/5840)
+-   MultiSelect / Listbox / Dropdown: Unable to use some navigation keys when editable is true [\#5833](https://github.com/primefaces/primevue/issues/5833)
+-   TieredMenu: Popup overlay does not close on escape key press [\#5826](https://github.com/primefaces/primevue/issues/5826)
+-   SplitButton: Main Icon Not Showing Up [\#5822](https://github.com/primefaces/primevue/issues/5822)
+-   InputNumber: Incorrect default value for minFractionDigits when set to null [\#5818](https://github.com/primefaces/primevue/issues/5818)
+-   Invalid Prop Type For Strong and Medium Regex on Password Component [\#5816](https://github.com/primefaces/primevue/issues/5816)
+-   InputOTP: cannot paste with integer-only mode [\#5792](https://github.com/primefaces/primevue/issues/5792)
+-   Dialog/Confirm: Refocus original element on close [\#5777](https://github.com/primefaces/primevue/issues/5777)
+-   Inplace: Traps focus [\#5770](https://github.com/primefaces/primevue/issues/5770)
+-   InputOtp: Able to paste otp in readonly and disabled modes. [\#5740](https://github.com/primefaces/primevue/issues/5740)
+-   AutoComplete: chip slot only text, token passthrough has no context [\#5718](https://github.com/primefaces/primevue/issues/5718)
+-   Calendar: name should be passed to the input if provided [\#5711](https://github.com/primefaces/primevue/issues/5711)
+-   Calendar: not use month parameter on onMonthSelect [\#5687](https://github.com/primefaces/primevue/issues/5687)
+-   Dropdown: incorrectly renders when in a modal on top of horizontally scrollable content [\#4488](https://github.com/primefaces/primevue/issues/4488)
+
+**Implemented New Features and Enhancements:**
+
+-   ContextMenu:there are no emitters before-show and before-hid [\#5828](https://github.com/primefaces/primevue/issues/5828)
+-   DataTable: Can't copy text with control + c when Table has selectable rows [\#5757](https://github.com/primefaces/primevue/issues/5757)
+-   InputNumber : Request to Disable Ctrl+V Input in Component when readonly is set to true [\#5726](https://github.com/primefaces/primevue/issues/5726)
 
 ## [3.52.0](https://github.com/primefaces/primevue/tree/3.52.0) (2024-04-26)
 

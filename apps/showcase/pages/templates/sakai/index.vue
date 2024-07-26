@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import TemplateConfiguration from '../../../components/template/TemplateConfiguration.vue';
-import TemplateFeatures from '../../../components/template/TemplateFeatures.vue';
-import TemplateFeaturesAnimation from '../../../components/template/TemplateFeaturesAnimation.vue';
-import TemplateHero from '../../../components/template/TemplateHero.vue';
-import SakaiLogo from '../../../components/template/logo/SakaiLogo.vue';
+import TemplateConfiguration from '@/components/template/TemplateConfiguration.vue';
+import TemplateFeatures from '@/components/template/TemplateFeatures.vue';
+import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAnimation.vue';
+import TemplateHero from '@/components/template/TemplateHero.vue';
+import SakaiLogo from '@/components/template/logo/SakaiLogo.vue';
 
 export default {
     data() {

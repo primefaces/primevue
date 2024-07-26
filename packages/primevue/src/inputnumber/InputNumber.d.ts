@@ -336,9 +336,9 @@ export interface InputNumberProps {
     placeholder?: string | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * 	Identifier of the focus input to match a label defined for the chips.
      */

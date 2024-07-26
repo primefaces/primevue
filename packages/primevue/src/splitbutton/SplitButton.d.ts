@@ -149,9 +149,9 @@ export interface SplitButtonProps {
     disabled?: boolean | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * Style class of the component.
      */

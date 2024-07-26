@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Currently Aura is the only available preset and more will follow in the upcoming updates.</p>
+        <p>Currently Aura, Lara and Nora are the available presets, a new preset based on Material Design is planned by the end of 2024.</p>
     </DocSectionText>
     <div class="card">
         <Tabs value="aura">

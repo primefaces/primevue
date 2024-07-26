@@ -148,7 +148,7 @@ const classes = {
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible,
-            'p-treeselect-fluid': props.fluid
+            'p-treeselect-fluid': instance.hasFluid
         }
     ],
     labelContainer: 'p-treeselect-label-container',

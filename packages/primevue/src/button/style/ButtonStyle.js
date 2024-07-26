@@ -616,7 +616,7 @@ const classes = {
             'p-button-sm': props.size === 'small',
             'p-button-lg': props.size === 'large',
             'p-button-plain': props.plain,
-            'p-button-fluid': props.fluid
+            'p-button-fluid': instance.hasFluid
         }
     ],
     loadingIcon: 'p-button-loading-icon',
