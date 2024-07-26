@@ -303,22 +303,38 @@ export default {
             return this.confirmation ? this.confirmation.message : null;
         },
         acceptLabel() {
-            if (this.confirmation) {
-                const confirmation = this.confirmation;
-
-                return confirmation.acceptLabel ? confirmation.acceptLabel : confirmation.acceptProps ? confirmation.acceptProps.label || this.$primevue.config.locale.accept : null;
+            if (!this.confirmation) {
+                return null;
             }
 
-            return null;
+            const confirmation = this.confirmation;
+
+            if (confirmation.acceptLabel) {
+                return confirmation.acceptLabel;
+            }
+
+            if (confirmation.acceptProps?.label) {
+                return confirmation.acceptProps.label;
+            }
+
+            return this.$primevue.config.locale.accept;
         },
         rejectLabel() {
-            if (this.confirmation) {
-                const confirmation = this.confirmation;
-
-                return confirmation.rejectLabel ? confirmation.rejectLabel : confirmation.rejectProps ? confirmation.rejectProps.label || this.$primevue.config.locale.reject : null;
+            if (!this.confirmation) {
+                return null;
             }
 
-            return null;
+            const confirmation = this.confirmation;
+
+            if (confirmation.rejectLabel) {
+                return confirmation.rejectLabel;
+            }
+
+            if (confirmation.rejectProps?.label) {
+                return confirmation.rejectProps.label;
+            }
+
+            return this.$primevue.config.locale.reject;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;
