@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Fluid" header="Fluid" description="Fluid spans 100% width of the container." :componentDocs="docs" :ptTabComponent="ptComponent" :apiDocs="['Fluid']" :themingDocs="themingDoc" />
+    <DocComponent
+        title="Vue Fluid Component"
+        header="Fluid"
+        description="Fluid is a layout component to make descendant components span full width of their container."
+        :componentDocs="docs"
+        :ptTabComponent="ptComponent"
+        :apiDocs="['Fluid']"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>

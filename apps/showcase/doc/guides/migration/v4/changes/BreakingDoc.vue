@@ -47,7 +47,7 @@
         <ul class="flex flex-col gap-2 leading-normal">
             <li><i class="mark">.p-link</i>, use a button in link mode.</li>
             <li><i class="mark">.p-highlight</i>, each component have its own class such as <i class="mark">.p-select-option-selected</i>.</li>
-            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> properties of components.</li>
+            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> property of the supported components or the <i class="mark">Fluid</i> component.</li>
         </ul>
 
         <h4>Tailwind CSS Presets</h4>
