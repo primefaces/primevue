@@ -570,6 +570,12 @@
             ]
         },
         {
+            "name": "Contribution",
+            "to": "/contribution",
+            "icon": "pi pi-users",
+            "badge": "NEW"
+        },
+        {
             "name": "Discover",
             "icon": "pi pi-search",
             "children": [
