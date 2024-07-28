@@ -29,7 +29,8 @@
                 :data-p-partialchecked="partialChecked"
             >
                 <template #icon="slotProps">
-                    <component v-if="column.children.rowcheckboxicon" :is="column.children.rowcheckboxicon" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
+                    <!-- TODO: It should be decided which slot to use for controlling the checkbox: checkboxicon, rowcheckboxicon -->
+                    <component v-if="templates.checkboxicon || column.children.rowcheckboxicon" :is="templates.checkboxicon || column.children.rowcheckboxicon" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                 </template>
             </Checkbox>
             <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
