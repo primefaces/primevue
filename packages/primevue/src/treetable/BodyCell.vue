@@ -29,7 +29,7 @@
                 :data-p-partialchecked="partialChecked"
             >
                 <template #icon="slotProps">
-                    <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
+                    <component v-if="column.children.rowcheckboxicon" :is="column.children.rowcheckboxicon" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                 </template>
             </Checkbox>
             <component v-if="column.children && column.children.body" :is="column.children.body" :node="node" :column="column" />
@@ -39,10 +39,10 @@
 </template>
 
 <script>
+import { getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { getNextElementSibling, getPreviousElementSibling, getOuterWidth } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
