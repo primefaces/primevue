@@ -8,7 +8,7 @@
         <p>To begin with, clone the PrimeVue repository from GitHub:</p>
         <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
         <p>Then run the showcase in your local environment at <i>http://localhost:3000/</i>.</p>
-        <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
+        <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
         <h3>Project Structure</h3>
         <p>PrimeVue utilizes a monorepo architecture, the libraries are located at <i>packages</i> folder and the website is at <i>apps/showcase</i>.</p>
         <DocSectionCode :code="code3" hideToggleCode hideStackBlitz />
