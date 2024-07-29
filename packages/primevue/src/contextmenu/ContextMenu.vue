@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, findSingle, addStyle, getHiddenElementOuterWidth, getHiddenElementOuterHeight, getViewport, isTouchDevice } from '@primeuix/utils/dom';
-import { resolve, isNotEmpty, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { addStyle, findSingle, focus, getHiddenElementOuterHeight, getHiddenElementOuterWidth, getViewport, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
@@ -324,7 +324,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
-                const anchorElement = element && findSingle(element, 'a[data-pc-section="itemlink"]');
+                const anchorElement = element && findSingle(element, '[data-pc-section="itemlink"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
                 const processedItem = this.visibleItems[this.focusedItemInfo.index];
