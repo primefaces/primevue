@@ -42,6 +42,10 @@ export default {
             type: [String, Object],
             default: 'body'
         },
+        inputId: {
+            type: String,
+            default: null
+        },
         panelClass: null
     },
     style: ColorPickerStyle,
