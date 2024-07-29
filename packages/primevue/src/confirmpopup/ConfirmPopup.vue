@@ -78,7 +78,8 @@ export default {
             visible: false,
             confirmation: null,
             autoFocusAccept: null,
-            autoFocusReject: null
+            autoFocusReject: null,
+            target: null
         };
     },
     target: null,
@@ -175,6 +176,8 @@ export default {
             this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
             this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
 
+            this.target = document.activeElement;
+
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -187,6 +190,9 @@ export default {
         onLeave() {
             this.autoFocusAccept = null;
             this.autoFocusReject = null;
+
+            DomHandler.focus(this.target);
+            this.target = null;
 
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
