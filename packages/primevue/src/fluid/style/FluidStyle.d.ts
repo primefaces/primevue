@@ -1,6 +1,6 @@
 /**
  *
- * Fluid spans 100% width of the container.
+ * Fluid is a layout component to make descendant components span full width of their container.
  *
  * [Live Demo](https://www.primevue.org/fluid/)
  *

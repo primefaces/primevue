@@ -1,6 +1,6 @@
 /**
  *
- * Fluid spans 100% width of the container.
+ * Fluid is a layout component to make descendant components span full width of their container.
  *
  * [Live Demo](https://www.primevue.org/fluid/)
  *
@@ -110,7 +110,7 @@ export declare type FluidEmits = EmitFn<FluidEmitsOptions>;
 /**
  * **PrimeVue - Fluid**
  *
- * _Fluid spans 100% width of the container._
+ * _Fluid is a layout component to make descendant components span full width of their container._
  *
  * [Live Demo](https://www.primevue.org/fluid/)
  * --- ---
