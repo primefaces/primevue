@@ -18,6 +18,11 @@
             <li><i class="mark">switchTheme</i> function, use the new APIs like <i class="mark">usePreset</i> instead to dynamic theme switching.</li>
         </ul>
 
+        <h4>Relocated APIs</h4>
+        <ul class="flex flex-col gap-2 leading-normal">
+            <li>Imports from <i class="mark">primevue/api</i> have been relocated to <i class="mark">@primevue/core/api</i>.</li>
+        </ul>
+
         <h4>Removed Files</h4>
         <ul class="flex flex-col gap-2 leading-normal">
             <li>Themes under the <i class="mark">primevue/resources</i> path, migration to new styled mode is necessary.</li>
