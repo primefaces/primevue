@@ -7,7 +7,7 @@
         :invalid="invalid"
         :variant="variant"
         :placeholder="placeholder"
-        :fluid="fluid"
+        :fluid="hasFluid"
         :unstyled="unstyled"
         @input="onInput"
         @focus="onFocus"
@@ -21,6 +21,7 @@
 
 <script>
 import { getUserAgent } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
 import InputText from 'primevue/inputtext';
 import { mergeProps } from 'vue';
 import BaseInputMask from './BaseInputMask.vue';
@@ -30,6 +31,9 @@ export default {
     extends: BaseInputMask,
     inheritAttrs: false,
     emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     watch: {
         mask(newMask, oldMask) {
             if (oldMask !== newMask) {
@@ -531,6 +535,9 @@ export default {
                     filled: this.filled
                 }
             };
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {
