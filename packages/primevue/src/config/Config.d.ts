@@ -107,6 +107,7 @@ import type { TreePassThroughOptions } from 'primevue/tree';
 import type { TreeSelectPassThroughOptions } from 'primevue/treeselect';
 import type { TreeTablePassThroughOptions } from 'primevue/treetable';
 import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller';
+import {ButtonGroupPassThroughOptions} from "primevue/buttongroup";
 
 export * from '@primevue/core/config';
 export { default } from '@primevue/core/config';
@@ -144,6 +145,7 @@ export interface PrimeVuePTOptions {
     blockui?: DefaultPassThrough<BlockUIPassThroughOptions>;
     breadcrumb?: DefaultPassThrough<BreadcrumbPassThroughOptions>;
     button?: DefaultPassThrough<ButtonPassThroughOptions>;
+    buttongroup?: DefaultPassThrough<ButtonGroupPassThroughOptions>;
     /**
      * @deprecated since v4. Use the new structure of DatePicker instead.
      */
