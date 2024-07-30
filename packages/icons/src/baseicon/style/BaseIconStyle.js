@@ -3,6 +3,7 @@ import BaseStyle from '@primevue/core/base/style';
 const css = `
 .p-icon {
     display: inline-block;
+    vertical-align: baseline;
 }
 
 .p-icon-spin {

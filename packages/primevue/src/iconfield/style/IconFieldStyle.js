@@ -10,6 +10,7 @@ const theme = ({ dt }) => `
     top: 50%;
     margin-top: calc(-1 * (${dt('icon.size')} / 2));
     color: ${dt('iconfield.icon.color')};
+    line-height: 1;
 }
 
 .p-iconfield .p-inputicon:first-child {
