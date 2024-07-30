@@ -14,6 +14,7 @@ import type { BadgeDirectivePassThroughOptions } from 'primevue/badgedirective';
 import type { BlockUIPassThroughOptions } from 'primevue/blockui';
 import type { BreadcrumbPassThroughOptions } from 'primevue/breadcrumb';
 import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { ButtonGroupPassThroughOptions } from "primevue/buttongroup";
 import type { CalendarPassThroughOptions } from 'primevue/calendar';
 import type { CardPassThroughOptions } from 'primevue/card';
 import type { CarouselPassThroughOptions } from 'primevue/carousel';
@@ -107,7 +108,6 @@ import type { TreePassThroughOptions } from 'primevue/tree';
 import type { TreeSelectPassThroughOptions } from 'primevue/treeselect';
 import type { TreeTablePassThroughOptions } from 'primevue/treetable';
 import type { VirtualScrollerPassThroughOptions } from 'primevue/virtualscroller';
-import {ButtonGroupPassThroughOptions} from "primevue/buttongroup";
 
 export * from '@primevue/core/config';
 export { default } from '@primevue/core/config';
