@@ -1,8 +1,18 @@
 # Changelog
 
-## [4.0.2](https://github.com/primefaces/primevue/tree/4.0.1) (2024-07-26)
+## [4.0.3](https://github.com/primefaces/primevue/tree/4.0.3) (2024-07-30)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.0...4.0.1)
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.2...4.0.3)
+
+**Fixed bugs:**
+
+-   InputMask: Fluid injection defect [\#6150](https://github.com/primefaces/primevue/issues/6150)
+-   Misalignment of icons due to Tailwind Preflight [\#6148](https://github.com/primefaces/primevue/issues/6148)
+-   ColorPicker: [Vue warn]: Property "inputId" was accessed during render but is not defined on instance. [\#6135](https://github.com/primefaces/primevue/issues/6135)
+
+## [4.0.2](https://github.com/primefaces/primevue/tree/4.0.2) (2024-07-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.1...4.0.2)
 
 **Fixed bugs:**
 
