@@ -224,21 +224,21 @@ export default {
                     {
                         type: 'bar',
                         label: 'Personal Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-400') + ' 100%, #fff)',
+                        backgroundColor: documentStyle.getPropertyValue('--p-primary-400'),
                         data: [4000, 10000, 15000, 4000, 16000, 8000, 12000, 14000, 17000, 5000, 12000, 6000],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Corporate Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-300') + ' 100%, transparent)',
+                        backgroundColor: documentStyle.getPropertyValue('--p-primary-300'),
                         data: [2100, 8400, 2400, 7500, 3700, 6500, 7400, 8000, 4800, 9000, 7600, 4200],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Investment Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-200') + ' 100%, transparent)',
+                        backgroundColor: documentStyle.getPropertyValue('--p-primary-200'),
                         data: [4100, 5200, 2400, 7400, 2300, 4100, 7200, 8000, 4800, 9000, 7600, 4200],
                         borderRadius: {
                             topLeft: 8,
