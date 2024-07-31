@@ -14,6 +14,7 @@ import type { BadgeDirectivePassThroughOptions } from 'primevue/badgedirective';
 import type { BlockUIPassThroughOptions } from 'primevue/blockui';
 import type { BreadcrumbPassThroughOptions } from 'primevue/breadcrumb';
 import type { ButtonPassThroughOptions } from 'primevue/button';
+import type { ButtonGroupPassThroughOptions } from "primevue/buttongroup";
 import type { CalendarPassThroughOptions } from 'primevue/calendar';
 import type { CardPassThroughOptions } from 'primevue/card';
 import type { CarouselPassThroughOptions } from 'primevue/carousel';
@@ -144,6 +145,7 @@ export interface PrimeVuePTOptions {
     blockui?: DefaultPassThrough<BlockUIPassThroughOptions>;
     breadcrumb?: DefaultPassThrough<BreadcrumbPassThroughOptions>;
     button?: DefaultPassThrough<ButtonPassThroughOptions>;
+    buttongroup?: DefaultPassThrough<ButtonGroupPassThroughOptions>;
     /**
      * @deprecated since v4. Use the new structure of DatePicker instead.
      */
