@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The picker part of the DatePicker can be shown directly with <i>inline</i> property.</p>
+        <p>DatePicker is displayed as a popup by default, add <i>inline</i> property to customize this behavior.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <DatePicker v-model="date" inline showWeek />
