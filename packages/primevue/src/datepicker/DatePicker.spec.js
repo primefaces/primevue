@@ -14,23 +14,24 @@ describe('DatePicker.vue', () => {
                 }
             },
             props: {
-                modelValue: new Date()
+                modelValue: ''
             }
         });
     });
 
     it('should exist', async () => {
         expect(wrapper.find('.p-datepicker.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-inputtext').exists()).toBe(true);
+        expect(wrapper.find('.p-datepicker-input').exists()).toBe(true);
 
-        let input = wrapper.find('.p-inputtext');
+        let input = wrapper.find('.p-datepicker-input');
 
         await input.trigger('focus');
 
         expect(wrapper.find('.p-datepicker.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-datepicker-today').exists()).toBe(true);
-        expect(wrapper.find('.p-highlight').exists()).toBe(true);
-        expect(wrapper.find('.p-highlight').text()).toEqual(new Date().getDate().toString());
+        expect(wrapper.find('.p-datepicker-prev-button').exists()).toBe(true);
+        expect(wrapper.find('.p-datepicker-prev-next').exists()).toBe(false);
+        expect(wrapper.find('.p-datepicker-today').text()).toEqual(new Date().getDate().toString());
     });
 
     it('should select a date', async () => {
