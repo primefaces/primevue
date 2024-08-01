@@ -6,6 +6,7 @@
         :readonly="readonly"
         :disabled="disabled"
         :invalid="invalid"
+        :name="name"
         :variant="variant"
         :placeholder="placeholder"
         :fluid="hasFluid"
