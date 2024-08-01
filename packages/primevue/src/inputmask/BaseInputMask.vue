@@ -11,6 +11,10 @@ export default {
             type: String,
             default: '_'
         },
+        id: {
+            type: String,
+            default: null
+        },
         class: {
             type: [String, Object],
             default: null
@@ -42,6 +46,10 @@ export default {
         disabled: {
             type: Boolean,
             default: false
+        },
+        name: {
+            type: String,
+            default: null
         },
         variant: {
             type: String,

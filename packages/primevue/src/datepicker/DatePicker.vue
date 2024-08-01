@@ -32,7 +32,7 @@
             @keydown="onKeyDown"
             :pt="ptm('pcInput')"
         />
-        <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
+        <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
             <button
                 :class="cx('dropdown')"
                 :disabled="disabled"
@@ -49,7 +49,7 @@
                 </slot>
             </button>
         </slot>
-        <template v-else-if="showIcon && iconDisplay === 'input'">
+        <template v-else-if="showIcon && iconDisplay === 'input' && !inline">
             <span v-if="$slots.inputicon || showIcon" :class="cx('inputIconContainer')" v-bind="ptm('inputIconContainer')">
                 <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                     <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
@@ -1735,7 +1735,7 @@ export default {
                 }
             } else if (value.every((v) => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
                 if (this.isRangeSelection()) {
-                    isValid = value.length > 1 && value[1] > value[0] ? true : false;
+                    isValid = value.length > 1 && value[1] >= value[0];
                 }
             }
 
@@ -2516,7 +2516,7 @@ export default {
                 cell = findSingle(this.overlay, 'span[data-p-selected="true"]');
 
                 if (!cell) {
-                    let todayCell = findSingle(this.overlay, 'td.p-datepicker-today span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
+                    let todayCell = findSingle(this.overlay, 'td[data-p-today="true"] span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
 
                     if (todayCell) cell = todayCell;
                     else cell = findSingle(this.overlay, '.p-datepicker-calendar td span:not([data-p-disabled="true"]):not([data-p-ink="true"])');
@@ -2645,6 +2645,8 @@ export default {
                         /* NoOp */
                     }
                 }
+
+                this.$emit('keydown', event);
             }
         },
         overlayRef(el) {

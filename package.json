@@ -35,7 +35,8 @@
         "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" --cache",
         "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
         "lint": "eslint --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore . --cache",
-        "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore ."
+        "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore .",
+        "test:unit": "pnpm --filter primevue test:unit"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",
