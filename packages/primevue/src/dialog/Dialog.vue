@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @click="onMaskClick" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" v-bind="ptm('mask')">
             <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
@@ -113,6 +113,7 @@ export default {
     documentDragEndListener: null,
     lastPageX: null,
     lastPageY: null,
+    maskMouseDownTarget: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -174,8 +175,11 @@ export default {
             this.unbindGlobalListeners();
             this.$emit('after-hide');
         },
-        onMaskClick(event) {
-            if (this.dismissableMask && this.modal && this.mask === event.target) {
+        onMaskMouseDown(event) {
+            this.maskMouseDownTarget = event.target;
+        },
+        onMaskMouseUp() {
+            if (this.dismissableMask && this.modal && this.mask === this.maskMouseDownTarget) {
                 this.close();
             }
         },
