@@ -33,6 +33,6 @@ describe('Skeleton.vue', () => {
     it('should remove animation', async () => {
         await wrapper.setProps({ animation: 'none' });
 
-        expect(wrapper.find('.p-skeleton').classes()).toContain('p-skeleton-none');
+        expect(wrapper.find('.p-skeleton').classes()).toContain('p-skeleton-animation-none');
     });
 });
