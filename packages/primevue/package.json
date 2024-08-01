@@ -321,7 +321,14 @@
         "build:api": "node ./scripts/build-api.js",
         "build:prebuild": "node ./scripts/prebuild.mjs",
         "build:postbuild": "node ./scripts/postbuild.mjs",
-        "dev:link": "pnpm link --global && npm link"
+        "dev:link": "pnpm link --global && npm link",
+        "test:unit": "vitest run",
+        "test:unit:watch": "vitest watch",
+        "test:coverage": "vitest run --coverage"
+    },
+    "devDependencies": {
+        "@vue/test-utils": "^2.0.0",
+        "vitest": "^0.29.8"
     },
     "dependencies": {
         "@primeuix/styled": "^0.0.5",
