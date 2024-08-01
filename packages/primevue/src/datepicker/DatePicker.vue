@@ -2645,6 +2645,8 @@ export default {
                         /* NoOp */
                     }
                 }
+
+                this.$emit('keydown', event);
             }
         },
         overlayRef(el) {
