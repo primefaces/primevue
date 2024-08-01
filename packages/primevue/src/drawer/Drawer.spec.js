@@ -71,21 +71,19 @@ describe('Drawer.vue', () => {
         expect(enableDocumentSettingsSpy).toHaveBeenCalled();
     });
 
-    // it('When keydown is triggered , hide method should be triggered', async () => {
-    //     const hideSpy = vi.spyOn(wrapper.vm, 'hide');
-    //
-    //     await wrapper.vm.onKeydown({ code: 'Escape' });
-    //
-    //     expect(hideSpy).toHaveBeenCalled();
-    // });
-    //
-    // it('When keydown is triggered , hide method should be triggered', async () => {
-    //     const hideSpy = vi.spyOn(wrapper.vm, 'hide');
-    //
-    //     await wrapper.find('.p-drawer-close').trigger('click');
-    //
-    //     expect(hideSpy).toHaveBeenCalled();
-    // });
+    it('When keydown is triggered , hide method should be triggered', async () => {
+        await wrapper.vm.onKeydown({ code: 'Escape' });
+
+        expect(wrapper.emitted()['update:visible'].length).toBe(1);
+    });
+
+    it('When keydown is triggered , hide method should be triggered', async () => {
+        const closeBtn = wrapper.find('.p-drawer-close-button');
+
+        await closeBtn.trigger('click');
+
+        expect(wrapper.emitted()['update:visible'].length).toBe(1);
+    });
 
     it('When component is unmount , unbindOutsideClickListenerSpy method should be triggered', async () => {
         const unbindOutsideClickListenerSpy = vi.spyOn(wrapper.vm, 'unbindOutsideClickListener');
