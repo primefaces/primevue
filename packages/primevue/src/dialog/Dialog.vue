@@ -164,7 +164,7 @@ export default {
         },
         onLeave() {
             this.$emit('hide');
-            DomHandler.focus(this.target);
+            focus(this.target);
             this.target = null;
             this.focusableClose = null;
             this.focusableMax = null;

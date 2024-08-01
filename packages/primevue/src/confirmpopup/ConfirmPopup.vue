@@ -191,7 +191,7 @@ export default {
             this.autoFocusAccept = null;
             this.autoFocusReject = null;
 
-            DomHandler.focus(this.target);
+            focus(this.target);
             this.target = null;
 
             this.unbindOutsideClickListener();
