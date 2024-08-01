@@ -60,10 +60,10 @@ describe('Menubar.vue', () => {
     it('should exist', () => {
         expect(wrapper.find('.p-menubar.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-menubar-root-list').exists()).toBe(true);
-        expect(wrapper.findAll('ul.p-submenu-list').length).toBe(2);
-        expect(wrapper.findAll('ul.p-submenu-list')[0].findAll('li.p-menuitem')[0].find('.p-menuitem-text').text()).toBe('New');
-        expect(wrapper.findAll('li.p-menuitem').length).toBe(7);
-        expect(wrapper.findAll('li.p-menuitem-separator').length).toBe(1);
+        expect(wrapper.findAll('ul.p-menubar-submenu').length).toBe(2);
+        expect(wrapper.findAll('ul.p-menubar-submenu')[0].findAll('li.p-menubar-item')[0].find('.p-menubar-item-label').text()).toBe('New');
+        expect(wrapper.findAll('li.p-menubar-item').length).toBe(7);
+        expect(wrapper.findAll('li.p-menubar-separator').length).toBe(1);
     });
 
     it('should slot visible', () => {

@@ -29,7 +29,7 @@ describe('Message.vue', () => {
     });
 
     it('should have custom close icon if provided', async () => {
-        await wrapper.setProps({ closeIcon: 'pi pi-discord' });
+        await wrapper.setProps({ closeIcon: 'pi pi-discord', closable: true });
         const icon = wrapper.find('.p-message-close-icon');
 
         expect(icon.classes()).toContain('pi-discord');
