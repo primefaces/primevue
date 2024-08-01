@@ -324,7 +324,7 @@ export default {
         onEnterKey(event) {
             if (this.focusedItemInfo.index !== -1) {
                 const element = findSingle(this.list, `li[id="${`${this.focusedItemIdx}`}"]`);
-                const anchorElement = element && findSingle(element, 'a[data-pc-section="itemlink"]');
+                const anchorElement = element && findSingle(element, '[data-pc-section="itemlink"]');
 
                 anchorElement ? anchorElement.click() : element && element.click();
                 const processedItem = this.visibleItems[this.focusedItemInfo.index];
