@@ -44,7 +44,7 @@ export interface TreeNode {
     styleClass?: string;
     /**
      * Whether the node is selectable when selection mode is enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
     selectable?: boolean;
     /**

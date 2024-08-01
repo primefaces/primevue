@@ -143,7 +143,9 @@ export default {
             }
 
             if (this.isCheckboxSelectionMode()) {
-                this.toggleCheckbox();
+                if (this.node.selectable != false) {
+                    this.toggleCheckbox();
+                }
             } else {
                 this.$emit('node-click', {
                     originalEvent: event,
@@ -337,7 +339,7 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check) selectionKeys[node.key] = { checked: true, partialChecked: false };
+            if (check && node.selectable != false) selectionKeys[node.key] = { checked: true, partialChecked: false };
             else delete selectionKeys[node.key];
 
             if (node.children && node.children.length) {
