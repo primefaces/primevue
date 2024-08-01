@@ -31,7 +31,7 @@
                         <div :ref="contentRef" :class="cx('content')" v-bind="ptm('content')">
                             <slot></slot>
                         </div>
-                        <div :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
+                        <div v-if="$slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
                             <slot name="footer"> </slot>
                         </div>
                     </template>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { addClass, focus, blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
+import { addClass, blockBodyScroll, focus, unblockBodyScroll } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import TimesIcon from '@primevue/icons/times';
 import Button from 'primevue/button';

@@ -418,7 +418,7 @@ const classes = {
         let selectedDayClass = '';
 
         if (instance.isRangeSelection() && instance.isSelected(date) && date.selectable) {
-            selectedDayClass = date.day === props.modelValue[0].getDate() || date.day === props.modelValue[1].getDate() ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
+            selectedDayClass = instance.isDateEquals(props.modelValue[0], date) || instance.isDateEquals(props.modelValue[1], date) ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
         }
 
         return [
