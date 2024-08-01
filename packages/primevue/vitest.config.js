@@ -16,8 +16,7 @@ export default mergeConfig(
                 provider: 'istanbul',
                 reporter: ['text', 'json', 'html']
             },
-            setupFiles: [path.resolve(__dirname, './config.setup.js')],
-            include: [path.resolve(__dirname, '../../**/*.spec.js')]
+            setupFiles: [path.resolve(__dirname, './src/config/Config.spec.js')]
         }
     })
 );
