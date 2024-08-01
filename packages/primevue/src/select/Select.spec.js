@@ -21,7 +21,7 @@ describe('Select.vue', () => {
 
     it('should Select exist', () => {
         expect(wrapper.find('.p-select.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-select-panel').exists()).toBe(true);
+        expect(wrapper.find('.p-select-overlay').exists()).toBe(true);
         expect(wrapper.find('.p-select-empty-message').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
@@ -58,7 +58,7 @@ describe('option checks', () => {
 
     it('should show the options', () => {
         expect(wrapper.find('.p-select-label.p-placeholder').text()).toBe('Select a City');
-        expect(wrapper.find('.p-select-items-wrapper > .p-select-list').exists()).toBe(true);
+        expect(wrapper.find('.p-select-list-container > .p-select-list').exists()).toBe(true);
         expect(wrapper.find('.p-select-option').exists()).toBe(true);
         expect(wrapper.findAll('.p-select-option').length).toBe(5);
         expect(wrapper.findAll('.p-select-option')[0].text()).toBe('New York');
@@ -78,7 +78,7 @@ describe('clear checks', () => {
             },
             props: {
                 clearIcon: 'pi pi-discord',
-                modelValue: 'value',
+                modelValue: { name: 'New York', code: 'NY' },
                 showClear: true,
                 options: [
                     { name: 'New York', code: 'NY' },

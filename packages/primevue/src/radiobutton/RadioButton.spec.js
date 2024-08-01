@@ -43,7 +43,7 @@ describe('RadioButton.vue', () => {
         await wrapper.setProps({ modelValue: 'Tatooine' });
 
         expect(wrapper.vm.checked).toBe(true);
-        expect(wrapper.find('.p-radiobutton').classes()).toContain('p-highlight');
+        expect(wrapper.find('.p-radiobutton').classes()).toContain('p-radiobutton-checked');
     });
 
     it('When component focused onFocus method should be called', async () => {
