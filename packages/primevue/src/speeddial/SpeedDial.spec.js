@@ -51,7 +51,7 @@ describe('SpeedDial.vue', () => {
 
         expect(wrapper.emitted()['click'][0]).toEqual([{}]);
         expect(wrapper.emitted()['show'][0]).toEqual([]);
-        expect(wrapper.find('.p-speeddial').classes()).toContain('p-speeddial-opened');
+        expect(wrapper.find('.p-speeddial').classes()).toContain('p-speeddial-open');
         expect(wrapper.findAll('li.p-speeddial-item')[0].attributes().style).toBe('transition-delay: 0ms;');
     });
 
@@ -60,7 +60,7 @@ describe('SpeedDial.vue', () => {
 
         await wrapper.vm.onClick({});
 
-        expect(wrapper.find('.p-speeddial').classes()).not.toContain('p-speeddial-opened');
+        expect(wrapper.find('.p-speeddial').classes()).not.toContain('p-speeddial-open');
         expect(wrapper.findAll('li.p-speeddial-item')[wrapper.findAll('li.p-speeddial-item').length - 1].attributes().style).toBe('transition-delay: 0ms;');
     });
 
