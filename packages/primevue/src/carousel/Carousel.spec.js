@@ -81,7 +81,7 @@ describe('Carousel.vue', () => {
 
         expect(firstItem.classes()).toContain('p-carousel-item-active');
 
-        const nextBtn = wrapper.find('.p-carousel-next');
+        const nextBtn = wrapper.find('.p-carousel-next-button');
 
         await nextBtn.trigger('click');
 
