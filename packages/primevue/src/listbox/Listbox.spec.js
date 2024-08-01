@@ -22,8 +22,8 @@ describe('Listbox.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-listbox.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('li.p-listbox-item').length).toBe(5);
-        expect(wrapper.findAll('li.p-listbox-item')[0].attributes()['aria-label']).toBe('New York');
+        expect(wrapper.findAll('li.p-listbox-option').length).toBe(5);
+        expect(wrapper.findAll('li.p-listbox-option')[0].attributes()['aria-label']).toBe('New York');
     });
 
     it('should select a list item', async () => {
@@ -33,7 +33,7 @@ describe('Listbox.vue', () => {
 
         await wrapper.setProps({ modelValue: wrapper.vm.options[0] });
 
-        expect(wrapper.findAll('li.p-listbox-item')[0].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('li.p-listbox-option')[0].classes()).toContain('p-listbox-option-selected');
     });
 
     describe('filter', () => {
@@ -43,7 +43,7 @@ describe('Listbox.vue', () => {
                 filterIcon: 'pi pi-discord'
             });
 
-            const icon = wrapper.find('.p-listbox-filter-icon');
+            const icon = wrapper.find('.p-inputicon [data-pc-section="filtericon"]');
 
             expect(icon.classes()).toContain('pi-discord');
         });
