@@ -92,7 +92,7 @@ export default {
             maximized: false,
             focusableMax: null,
             focusableClose: null,
-            target: null,
+            target: null
         };
     },
     watch: {
