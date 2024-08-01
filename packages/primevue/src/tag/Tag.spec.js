@@ -47,16 +47,6 @@ describe('Tag.vue', () => {
 });
 
 describe('Tag.vue', () => {
-    it('should be rounded', () => {
-        const wrapper = mount(Tag, {
-            props: { rounded: true }
-        });
-
-        expect(wrapper.find('.p-tag-rounded').exists()).toBe(true);
-    });
-});
-
-describe('Tag.vue', () => {
     it('should render default slot', () => {
         const wrapper = mount(Tag, {
             slots: {
@@ -64,6 +54,16 @@ describe('Tag.vue', () => {
             }
         });
 
-        expect(wrapper.html()).toBe('<span class="p-tag p-component" data-pc-name="tag" data-pc-section="root"><!--v-if--><i class="pi pi-discord"></i></span>');
+        expect(wrapper.html()).toBe('<span class="p-tag p-component" data-pc-name="tag" data-pc-section="root" pc5=""><!--v-if--><i class="pi pi-discord"></i></span>');
+    });
+});
+
+describe('Tag.vue', () => {
+    it('should be rounded', () => {
+        const wrapper = mount(Tag, {
+            props: { rounded: true }
+        });
+
+        expect(wrapper.find('.p-tag-rounded').exists()).toBe(true);
     });
 });
