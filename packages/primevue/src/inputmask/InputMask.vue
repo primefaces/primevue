@@ -1,10 +1,12 @@
 <template>
     <InputText
+        :id="id"
         :value="modelValue"
         :class="inputClass"
         :readonly="readonly"
         :disabled="disabled"
         :invalid="invalid"
+        :name="name"
         :variant="variant"
         :placeholder="placeholder"
         :fluid="hasFluid"

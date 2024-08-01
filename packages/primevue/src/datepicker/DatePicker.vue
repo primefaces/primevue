@@ -32,7 +32,7 @@
             @keydown="onKeyDown"
             :pt="ptm('pcInput')"
         />
-        <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
+        <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
             <button
                 :class="cx('dropdown')"
                 :disabled="disabled"
@@ -49,7 +49,7 @@
                 </slot>
             </button>
         </slot>
-        <template v-else-if="showIcon && iconDisplay === 'input'">
+        <template v-else-if="showIcon && iconDisplay === 'input' && !inline">
             <span v-if="$slots.inputicon || showIcon" :class="cx('inputIconContainer')" v-bind="ptm('inputIconContainer')">
                 <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                     <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
