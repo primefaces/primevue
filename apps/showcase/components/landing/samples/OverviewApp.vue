@@ -240,32 +240,37 @@ export default {
             this.$refs.menu.toggle(event);
         },
         setChartData(timeUnit) {
-            const documentStyle = getComputedStyle(document.documentElement);
             const datasets = this.createDatasets(timeUnit)
+            const documentStyle = getComputedStyle(document.documentElement);
+            const primary200=documentStyle.getPropertyValue('--p-primary-200')
+            const primary300=documentStyle.getPropertyValue('--p-primary-300')
+            const primary400=documentStyle.getPropertyValue('--p-primary-400')
+            const primary500=documentStyle.getPropertyValue('--p-primary-500')
+            const primary600=documentStyle.getPropertyValue('--p-primary-600')
             return {
                 labels: datasets.labels,
                 datasets: [
                     {
                         type: 'bar',
                         label: 'Personal Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-400') + ' 100%, #fff)',
-                        hoverBackgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-600') + ' 100%, #fff)',
+                        backgroundColor: primary400,
+                        hoverBackgroundColor: primary600,
                         data: datasets.data[0],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Corporate Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-300') + ' 100%, transparent)',
-                        hoverBackgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-500') + ' 100%, #fff)',
+                        backgroundColor: primary300,
+                        hoverBackgroundColor: primary500,
                         data: datasets.data[1],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Investment Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-200') + ' 100%, transparent)',
-                        hoverBackgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-400') + ' 100%, #fff)',
+                        backgroundColor: primary200,
+                        hoverBackgroundColor: primary400,
                         data: datasets.data[2],
                         borderRadius: {
                             topLeft: 8,
