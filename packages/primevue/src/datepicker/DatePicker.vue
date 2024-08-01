@@ -1735,7 +1735,7 @@ export default {
                 }
             } else if (value.every((v) => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
                 if (this.isRangeSelection()) {
-                    isValid = value.length > 1 && value[1] > value[0] ? true : false;
+                    isValid = value.length > 1 && value[1] >= value[0];
                 }
             }
 
