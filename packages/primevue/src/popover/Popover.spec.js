@@ -13,9 +13,6 @@ describe('Popover.vue', () => {
                     teleport: true
                 }
             },
-            props: {
-                showCloseIcon: true
-            },
             slots: {
                 default: 'PrimeVue'
             }
@@ -28,6 +25,5 @@ describe('Popover.vue', () => {
         expect(wrapper.find('.p-popover.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-popover-content').exists()).toBe(true);
         expect(wrapper.find('.p-popover-content').text()).toBe('PrimeVue');
-        expect(wrapper.find('.p-popover-close').exists()).toBe(true);
     });
 });
