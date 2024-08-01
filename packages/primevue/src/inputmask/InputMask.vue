@@ -1,5 +1,6 @@
 <template>
     <InputText
+        :id="id"
         :value="modelValue"
         :class="inputClass"
         :readonly="readonly"

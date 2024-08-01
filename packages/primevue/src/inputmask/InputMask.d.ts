@@ -117,6 +117,10 @@ export interface InputMaskProps {
      */
     mask?: string | undefined;
     /**
+     * Identifier of the element.
+     */
+    id?: string | undefined;
+    /**
      * Style class of the input field.
      */
     class?: string | object | undefined;
@@ -144,6 +148,10 @@ export interface InputMaskProps {
      * @defaultValue false
      */
     invalid?: boolean | undefined;
+    /**
+     * Name of the input element.
+     */
+    name?: string | undefined;
     /**
      * Specifies the input variant of the component.
      * @defaultValue outlined
