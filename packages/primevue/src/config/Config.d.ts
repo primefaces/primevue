@@ -41,14 +41,20 @@ import type { DropdownPassThroughOptions } from 'primevue/dropdown';
 import type { EditorPassThroughOptions } from 'primevue/editor';
 import type { FieldsetPassThroughOptions } from 'primevue/fieldset';
 import type { FileUploadPassThroughOptions } from 'primevue/fileupload';
+import type { FloatLabelPassThroughOptions } from 'primevue/floatlabel';
+import type { FluidPassThroughOptions } from 'primevue/fluid';
 import type { FocusTrapDirectivePassThroughOptions } from 'primevue/focustrap';
 import type { GalleriaPassThroughOptions } from 'primevue/galleria';
 import type { ImagePassThroughOptions } from 'primevue/image';
 import type { InlineMessagePassThroughOptions } from 'primevue/inlinemessage';
 import type { InplacePassThroughOptions } from 'primevue/inplace';
 import type { InputChipsPassThroughOptions } from 'primevue/inputchips';
+import type { InputGroupPassThroughOptions } from 'primevue/inputgroup';
+import type { InputGroupAddonPassThroughOptions } from 'primevue/inputgroupaddon';
+import type { InputIconPassThroughOptions } from 'primevue/inputicon';
 import type { InputMaskPassThroughOptions } from 'primevue/inputmask';
 import type { InputNumberPassThroughOptions } from 'primevue/inputnumber';
+import type { InputOtpPassThroughOptions } from 'primevue/inputotp';
 import type { InputSwitchPassThroughOptions } from 'primevue/inputswitch';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { KnobPassThroughOptions } from 'primevue/knob';
@@ -57,9 +63,11 @@ import type { MegaMenuPassThroughOptions } from 'primevue/megamenu';
 import type { MenuPassThroughOptions } from 'primevue/menu';
 import type { MenubarPassThroughOptions } from 'primevue/menubar';
 import type { MessagePassThroughOptions } from 'primevue/message';
+import type { MeterGroupPassThroughOptions } from 'primevue/metergroup';
 import type { MultiSelectPassThroughOptions } from 'primevue/multiselect';
 import type { OrderListPassThroughOptions } from 'primevue/orderlist';
 import type { OrganizationChartPassThroughOptions } from 'primevue/organizationchart';
+import type { OverlayBadgePassThroughOptions } from 'primevue/overlaybadge';
 import type { OverlayPanelPassThroughOptions } from 'primevue/overlaypanel';
 import type { PaginatorPassThroughOptions } from 'primevue/paginator';
 import type { PanelPassThroughOptions } from 'primevue/panel';
@@ -85,6 +93,12 @@ import type { SpeedDialPassThroughOptions } from 'primevue/speeddial';
 import type { SplitButtonPassThroughOptions } from 'primevue/splitbutton';
 import type { SplitterPassThroughOptions } from 'primevue/splitter';
 import type { SplitterPanelPassThroughOptions } from 'primevue/splitterpanel';
+import type { StepPassThroughOptions } from 'primevue/step';
+import type { StepItemPassThroughOptions } from 'primevue/stepitem';
+import type { StepListPassThroughOptions } from 'primevue/steplist';
+import type { StepPanelPassThroughOptions } from 'primevue/steppanel';
+import type { StepPanelsPassThroughOptions } from 'primevue/steppanels';
+import type { StepperPassThroughOptions } from 'primevue/stepper';
 import type { StepsPassThroughOptions } from 'primevue/steps';
 import type { StyleClassDirectivePassThroughOptions } from 'primevue/styleclass';
 import type { TabPassThroughOptions } from 'primevue/tab';
@@ -182,16 +196,22 @@ export interface PrimeVuePTOptions {
     editor?: DefaultPassThrough<EditorPassThroughOptions>;
     fieldset?: DefaultPassThrough<FieldsetPassThroughOptions>;
     fileupload?: DefaultPassThrough<FileUploadPassThroughOptions>;
+    floatlabel?: DefaultPassThrough<FloatLabelPassThroughOptions>;
+    fluid?: DefaultPassThrough<FluidPassThroughOptions>;
     galleria?: DefaultPassThrough<GalleriaPassThroughOptions>;
     image?: DefaultPassThrough<ImagePassThroughOptions>;
     inlinemessage?: DefaultPassThrough<InlineMessagePassThroughOptions>;
     inplace?: DefaultPassThrough<InplacePassThroughOptions>;
     inputchips?: DefaultPassThrough<InputChipsPassThroughOptions>;
+    inputgroup?: DefaultPassThrough<InputGroupPassThroughOptions>;
+    inputgroupaddon?: DefaultPassThrough<InputGroupAddonPassThroughOptions>;
+    inputicon?: DefaultPassThrough<InputIconPassThroughOptions>;
     inputmask?: DefaultPassThrough<InputMaskPassThroughOptions>;
     inputnumber?: DefaultPassThrough<InputNumberPassThroughOptions>;
     /**
      * @deprecated since v4. Use the new structure of ToggleSwitch instead.
      */
+    inputotp?: DefaultPassThrough<InputOtpPassThroughOptions>;
     inputswitch?: DefaultPassThrough<InputSwitchPassThroughOptions>;
     inputtext?: DefaultPassThrough<InputTextPassThroughOptions>;
     knob?: DefaultPassThrough<KnobPassThroughOptions>;
@@ -200,9 +220,11 @@ export interface PrimeVuePTOptions {
     menu?: DefaultPassThrough<MenuPassThroughOptions>;
     menubar?: DefaultPassThrough<MenubarPassThroughOptions>;
     message?: DefaultPassThrough<MessagePassThroughOptions>;
+    metergroup?: DefaultPassThrough<MeterGroupPassThroughOptions>;
     multiselect?: DefaultPassThrough<MultiSelectPassThroughOptions>;
     orderlist?: DefaultPassThrough<OrderListPassThroughOptions>;
     organizationchart?: DefaultPassThrough<OrganizationChartPassThroughOptions>;
+    overlaybadge?: DefaultPassThrough<OverlayBadgePassThroughOptions>;
     /**
      * @deprecated since v4. Use the new structure of Popover instead.
      */
@@ -232,6 +254,12 @@ export interface PrimeVuePTOptions {
     splitbutton?: DefaultPassThrough<SplitButtonPassThroughOptions>;
     splitter?: DefaultPassThrough<SplitterPassThroughOptions>;
     splitterpanel?: DefaultPassThrough<SplitterPanelPassThroughOptions>;
+    step?: DefaultPassThrough<StepPassThroughOptions>;
+    stepitem?: DefaultPassThrough<StepItemPassThroughOptions>;
+    steplist?: DefaultPassThrough<StepListPassThroughOptions>;
+    steppanel?: DefaultPassThrough<StepPanelPassThroughOptions>;
+    steppanels?: DefaultPassThrough<StepPanelsPassThroughOptions>;
+    stepper?: DefaultPassThrough<StepperPassThroughOptions>;
     steps?: DefaultPassThrough<StepsPassThroughOptions>;
     tabmenu?: DefaultPassThrough<TabMenuPassThroughOptions>;
     tabs?: DefaultPassThrough<TabsPassThroughOptions>;
