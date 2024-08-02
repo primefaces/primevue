@@ -29,31 +29,31 @@ export default {
                     data: getPTOptions('Stepper')
                 },
                 {
-                    id: 'pt.doc.stepperpanel',
+                    id: 'pt.doc.steplist',
                     label: 'StepList PT Options',
                     component: DocApiTable,
                     data: getPTOptions('StepList')
                 },
                 {
-                    id: 'pt.doc.stepperpanel',
+                    id: 'pt.doc.steppanels',
                     label: 'StepPanels PT Options',
                     component: DocApiTable,
                     data: getPTOptions('StepPanels')
                 },
                 {
-                    id: 'pt.doc.stepperpanel',
+                    id: 'pt.doc.stepitem',
                     label: 'StepItem PT Options',
                     component: DocApiTable,
                     data: getPTOptions('StepItem')
                 },
                 {
-                    id: 'pt.doc.stepperpanel',
+                    id: 'pt.doc.step',
                     label: 'Step PT Options',
                     component: DocApiTable,
                     data: getPTOptions('Step')
                 },
                 {
-                    id: 'pt.doc.stepperpanel',
+                    id: 'pt.doc.steppanel',
                     label: 'StepPanel PT Options',
                     component: DocApiTable,
                     data: getPTOptions('StepPanel')
