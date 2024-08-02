@@ -7,7 +7,7 @@
  * @module inputicon
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -113,7 +113,7 @@ export declare type InputIconEmits = EmitFn<InputIconEmitsOptions>;
  * @group Component
  *
  */
-declare const InputIcon: DefineComponent<InputIconProps, InputIconSlots, InputIconEmits>;
+declare const InputIcon: GlobalComponentConstructor<InputIconProps, InputIconSlots, InputIconEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

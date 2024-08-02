@@ -7,7 +7,7 @@
  * @module cascadeselect
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { HTMLAttributes, InputHTMLAttributes, TransitionProps, VNode } from 'vue';
@@ -565,7 +565,7 @@ export declare type CascadeSelectEmits = EmitFn<CascadeSelectEmitsOptions>;
  * @group Component
  *
  */
-declare const CascadeSelect: DefineComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
+declare const CascadeSelect: GlobalComponentConstructor<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

@@ -7,7 +7,7 @@
  * @module inputchips
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -338,7 +338,7 @@ export declare type InputChipsEmits = EmitFn<InputChipsEmitsOptions>;
  * @group Component
  *
  */
-declare const InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
+declare const InputChips: GlobalComponentConstructor<InputChipsProps, InputChipsSlots, InputChipsEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

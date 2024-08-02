@@ -7,7 +7,7 @@
  * @module speeddial
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { MenuItem } from 'primevue/menuitem';
@@ -401,7 +401,7 @@ export declare type SpeedDialEmits = EmitFn<SpeedDialEmitsOptions>;
  * @group Component
  *
  */
-declare const SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
+declare const SpeedDial: GlobalComponentConstructor<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

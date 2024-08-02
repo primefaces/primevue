@@ -7,7 +7,7 @@
  * @module menu
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -370,7 +370,7 @@ export interface MenuMethods {
  * @group Component
  *
  */
-declare const Menu: DefineComponent<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
+declare const Menu: GlobalComponentConstructor<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {

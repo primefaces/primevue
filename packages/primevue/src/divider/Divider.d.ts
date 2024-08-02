@@ -7,7 +7,7 @@
  * @module divider
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -132,7 +132,7 @@ export declare type DividerEmits = EmitFn<DividerEmitsOptions>;
  * @group Component
  *
  */
-declare const Divider: DefineComponent<DividerProps, DividerSlots, DividerEmits>;
+declare const Divider: GlobalComponentConstructor<DividerProps, DividerSlots, DividerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

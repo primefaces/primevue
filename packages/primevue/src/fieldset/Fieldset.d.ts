@@ -7,7 +7,7 @@
  * @module fieldset
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { AnchorHTMLAttributes, TransitionProps, VNode } from 'vue';
@@ -242,7 +242,7 @@ export declare type FieldsetEmits = EmitFn<FieldsetEmitsOptions>;
  * @group Component
  *
  */
-declare const Fieldset: DefineComponent<FieldsetProps, FieldsetSlots, FieldsetEmits>;
+declare const Fieldset: GlobalComponentConstructor<FieldsetProps, FieldsetSlots, FieldsetEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

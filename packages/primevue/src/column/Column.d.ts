@@ -8,7 +8,7 @@
  * @module column
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { ButtonPassThroughOptions } from 'primevue/button';
@@ -993,7 +993,7 @@ export declare type ColumnEmits = EmitFn<ColumnEmitsOptions>;
  * @group Component
  *
  */
-declare const Column: DefineComponent<ColumnProps, ColumnSlots, ColumnEmits>;
+declare const Column: GlobalComponentConstructor<ColumnProps, ColumnSlots, ColumnEmits>;
 
 export type ColumnNode = { props: ColumnProps };
 

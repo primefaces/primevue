@@ -7,7 +7,7 @@
  * @module knob
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -248,7 +248,7 @@ export declare type KnobEmits = EmitFn<KnobEmitsOptions>;
  * @group Component
  *
  */
-declare const Knob: DefineComponent<KnobProps, KnobSlots, KnobEmits>;
+declare const Knob: GlobalComponentConstructor<KnobProps, KnobSlots, KnobEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

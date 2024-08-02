@@ -7,7 +7,7 @@
  * @module dialog
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -422,7 +422,7 @@ export declare type DialogEmits = EmitFn<DialogEmitsOptions>;
  * @group Component
  *
  */
-declare const Dialog: DefineComponent<DialogProps, DialogSlots, DialogEmits>;
+declare const Dialog: GlobalComponentConstructor<DialogProps, DialogSlots, DialogEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

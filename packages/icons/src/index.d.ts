@@ -1,4 +1,4 @@
-import type { DefineComponent, EmitFn } from '@primevue/core';
+import type { EmitFn } from '@primevue/core';
 
 export interface IconProps {
     label?: string | undefined;
@@ -11,4 +11,4 @@ export interface IconEmitsOptions {}
 
 export declare type IconEmits = EmitFn<IconEmitsOptions>;
 
-declare const Icon: DefineComponent<IconProps, IconSlots, IconEmits>;
+declare const Icon: GlobalComponentConstructor<IconProps, IconSlots, IconEmits>;

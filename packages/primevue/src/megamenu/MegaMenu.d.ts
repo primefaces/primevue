@@ -7,7 +7,7 @@
  * @module megamenu
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -399,7 +399,7 @@ export declare type MegaMenuEmits = EmitFn<MegaMenuEmitsOptions>;
  * @group Component
  *
  */
-declare const MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
+declare const MegaMenu: GlobalComponentConstructor<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {

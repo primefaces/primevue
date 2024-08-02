@@ -7,7 +7,7 @@
  * @module treeselect
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -476,7 +476,7 @@ export interface TreeSelectMethods {
  * @group Component
  *
  */
-declare const TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
+declare const TreeSelect: GlobalComponentConstructor<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {

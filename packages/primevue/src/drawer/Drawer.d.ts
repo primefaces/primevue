@@ -7,7 +7,7 @@
  * @module drawer
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -275,7 +275,7 @@ export declare type DrawerEmits = EmitFn<DrawerEmitsOptions>;
  * @group Component
  *
  */
-declare const Drawer: DefineComponent<DrawerProps, DrawerSlots, DrawerEmits>;
+declare const Drawer: GlobalComponentConstructor<DrawerProps, DrawerSlots, DrawerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
