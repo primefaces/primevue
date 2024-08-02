@@ -201,6 +201,10 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
 
             let tooltipElement = this.create(el, options);
+            const target = this.getTarget(el);
+            const prevAriaDescribedBy = target.getAttribute('aria-describedby');
+
+            target.setAttribute('aria-describedby', prevAriaDescribedBy ? prevAriaDescribedBy + ' ' + tooltipElement.id : tooltipElement.id);
 
             this.align(el);
             !this.isUnstyled() && fadeIn(tooltipElement, 250);
@@ -301,10 +305,23 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         remove(el) {
             if (el) {
                 let tooltipElement = this.getTooltipElement(el);
+                const target = this.getTarget(el);
 
                 if (tooltipElement && tooltipElement.parentElement) {
                     ZIndex.clear(tooltipElement);
                     document.body.removeChild(tooltipElement);
+                }
+
+                const prevAriaDescribedBy = target.getAttribute('aria-describedby');
+                const newAriaDescribedBy = prevAriaDescribedBy
+                    .split(' ')
+                    .filter((id) => id !== tooltipElement.id)
+                    .join(' ');
+
+                if (newAriaDescribedBy) {
+                    target.setAttribute('aria-describedby', newAriaDescribedBy);
+                } else {
+                    target.removeAttribute('aria-describedby');
                 }
 
                 el.$_ptooltipId = null;
