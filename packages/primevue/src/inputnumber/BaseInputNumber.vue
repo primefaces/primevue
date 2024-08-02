@@ -93,6 +93,10 @@ export default {
                 return ['ceil', 'floor', 'expand', 'trunc', 'halfCeil', 'halfFloor', 'halfExpand', 'halfTrunc', 'halfEven'].includes(value);
             }
         },
+        autoDecimalDigits: {
+            type: Boolean,
+            default: false
+        },
         min: {
             type: Number,
             default: null

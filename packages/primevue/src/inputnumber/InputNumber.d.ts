@@ -288,6 +288,11 @@ export interface InputNumberProps {
      */
     roundingMode?: RoundingMode;
     /**
+     * Whether the decimal symbol is inserted automatically, using the last inputted digits as decimal digits.
+     * @defaultValue false
+     */
+    autoDecimalDigits?: boolean | undefined;
+    /**
      * Minimum boundary value.
      */
     min?: number | undefined;

@@ -236,8 +236,14 @@ export default {
                 }
 
                 if (this.format) {
+                    let formatValue = value;
+
+                    if (this.autoDecimalDigits) {
+                        formatValue = Number(this.removeLeadingZeros(this.onlyDigits(value))) / Math.pow(10, this.maxFractionDigits);
+                    }
+
                     let formatter = new Intl.NumberFormat(this.locale, this.getOptions());
-                    let formattedValue = formatter.format(value);
+                    let formattedValue = formatter.format(formatValue);
 
                     if (this.prefix) {
                         formattedValue = this.prefix + formattedValue;
@@ -452,6 +458,10 @@ export default {
                             }
                         }
 
+                        if (this.autoDecimalDigits) {
+                            newValueStr = this.formatValue(this.removeLeadingZeros(this.onlyDigits(inputValue.slice(0, -1))));
+                        }
+
                         this.updateValue(event, newValueStr, null, 'delete-single');
                     } else {
                         newValueStr = this.deleteRange(inputValue, selectionStart, selectionEnd);
@@ -644,6 +654,11 @@ export default {
                 const maxFractionDigits = this.numberFormat.resolvedOptions().maximumFractionDigits;
                 const operation = selectionStart !== selectionEnd ? 'range-insert' : 'insert';
 
+                if (this.autoDecimalDigits) {
+                    newValueStr = this.formatValue(this.removeLeadingZeros(this.onlyDigits(inputValue + text)));
+                    this.updateValue(event, newValueStr, text, operation);
+                }
+
                 if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
                     if (selectionStart + text.length - (decimalCharIndex + 1) <= maxFractionDigits) {
                         const charIndex = currencyCharIndex >= selectionStart ? currencyCharIndex - 1 : suffixCharIndex >= selectionStart ? suffixCharIndex : inputValue.length;
@@ -825,7 +840,11 @@ export default {
                 const index = this.initCursor();
                 const selectionEnd = index + insertedValueStr.length;
 
-                this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
+                if (this.autoDecimalDigits) {
+                    this.$refs.input.$el.setSelectionRange(newValue.length, newValue.length);
+                } else {
+                    this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
+                }
             } else {
                 let selectionStart = this.$refs.input.$el.selectionStart;
                 let selectionEnd = this.$refs.input.$el.selectionEnd;
@@ -852,7 +871,11 @@ export default {
                     if (operation === 'insert' || operation === 'delete-back-single') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
                     } else if (operation === 'delete-single') {
-                        this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
+                        if (this.autoDecimalDigits) {
+                            this.$refs.input.$el.setSelectionRange(newValue.length, newValue.length);
+                        } else {
+                            this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
+                        }
                     } else if (operation === 'delete-range' || operation === 'spin') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                     }
@@ -949,6 +972,23 @@ export default {
         },
         minBoundry() {
             return this.d_modelValue <= this.min;
+        },
+        removeLeadingZeros(str) {
+            return String(str).replace(/^0+(0$|[^0])/, '$1');
+        },
+        normalizeDigits(str) {
+            const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => i.toLocaleString(this.locale));
+
+            if (digits[0] !== '0') {
+                digits.forEach((digit, index) => {
+                    str = str?.replace(new RegExp(digit, 'g'), String(index));
+                });
+            }
+
+            return str;
+        },
+        onlyDigits(str) {
+            return this.normalizeDigits(String(str)).replace(/\D+/g, '');
         }
     },
     computed: {
