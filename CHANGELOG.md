@@ -11,6 +11,7 @@
 -   DataTable: paginator passthrough is now pcPaginator [\#6154](https://github.com/primefaces/primevue/issues/6154)
 -   DatePicker: Icon is visible when calendar is on inline mode [\#6153](https://github.com/primefaces/primevue/issues/6153)
 -   Fieldset: toggle icon does not work if there is a legend slot [\#6144](https://github.com/primefaces/primevue/issues/6144)
+-   Button component disabled No transition effect[\#6140](https://github.com/primefaces/primevue/issues/6140)
 -   Dialog: Missing 're-focus original element on close' fix in v4 that was present in v3 [\#6139](https://github.com/primefaces/primevue/issues/6139)
 -   ButtonGroup: Missing buttongroup in PrimeVuePTOptions [\#6137](https://github.com/primefaces/primevue/issues/6137)
 -   lara and nora presets import virtualscroller from aura preset [\#6128](https://github.com/primefaces/primevue/issues/6128)
