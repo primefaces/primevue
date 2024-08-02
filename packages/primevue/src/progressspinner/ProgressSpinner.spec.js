@@ -15,10 +15,10 @@ describe('ProgressSpinner.vue', () => {
     });
 
     it('should exist', () => {
-        expect(wrapper.find('.p-progress-spinner').exists()).toBe(true);
-        expect(wrapper.find('svg.p-progress-spinner-svg').exists()).toBe(true);
-        expect(wrapper.find('svg.p-progress-spinner-svg').attributes().style).toBe('animation-duration: .5s;');
-        expect(wrapper.find('circle.p-progress-spinner-circle').attributes().fill).toBe('green');
-        expect(wrapper.find('circle.p-progress-spinner-circle').attributes().strokeMiterlimit).toBe('10');
+        expect(wrapper.find('.p-progressspinner').exists()).toBe(true);
+        expect(wrapper.find('svg.p-progressspinner-spin').exists()).toBe(true);
+        expect(wrapper.find('svg.p-progressspinner-spin').attributes().style).toBe('animation-duration: .5s;');
+        expect(wrapper.find('circle.p-progressspinner-circle').attributes().fill).toBe('green');
+        expect(wrapper.find('circle.p-progressspinner-circle').attributes().strokeMiterlimit).toBe('10');
     });
 });

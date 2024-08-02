@@ -51,8 +51,8 @@ describe('AutoComplete.vue', () => {
             suggestions: [{ name: 'Bahrain', code: 'BH' }]
         });
 
-        expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
-        expect(wrapper.findAll('.p-autocomplete-item').length).toBe(1);
+        expect(wrapper.find('.p-autocomplete-list').exists()).toBe(true);
+        expect(wrapper.findAll('.p-autocomplete-option').length).toBe(1);
     });
 
     it('should show overlay and empty-message if there are no suggestions', async () => {
@@ -65,8 +65,8 @@ describe('AutoComplete.vue', () => {
             suggestions: []
         });
 
-        expect(wrapper.find('.p-autocomplete-items').exists()).toBe(true);
-        expect(wrapper.findAll('.p-autocomplete-item').length).toBe(0);
+        expect(wrapper.find('.p-autocomplete-list').exists()).toBe(true);
+        expect(wrapper.findAll('.p-autocomplete-option').length).toBe(0);
         expect(wrapper.find('.p-autocomplete-empty-message').exists()).toBe(true);
     });
 

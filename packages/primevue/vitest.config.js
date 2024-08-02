@@ -17,11 +17,6 @@ export default mergeConfig(
                 reporter: ['text', 'json', 'html']
             },
             setupFiles: [path.resolve(__dirname, './src/config/Config.spec.js')]
-        },
-        resolve: {
-            alias: {
-                //'primevue/config': path.resolve(__dirname, './components/lib/config/PrimeVue.js')
-            }
         }
     })
 );

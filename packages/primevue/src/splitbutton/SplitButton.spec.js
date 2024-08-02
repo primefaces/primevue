@@ -43,8 +43,8 @@ describe('SplitButton.vue', () => {
     it('should exist', () => {
         expect(wrapper.find('.p-splitbutton.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-tieredmenu.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('li.p-menuitem').length).toBe(4);
-        expect(wrapper.find('.p-splitbutton-defaultbutton').exists()).toBe(true);
+        expect(wrapper.findAll('li.p-tieredmenu-item').length).toBe(4);
+        expect(wrapper.find('.p-splitbutton-button').exists()).toBe(true);
         expect(wrapper.find('.p-button-label').text()).toBe('Save');
     });
 

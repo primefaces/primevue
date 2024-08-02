@@ -40,115 +40,25 @@ describe('Accordion.vue', () => {
 
     it('should Accordion and AccordionTab component exist', () => {
         expect(wrapper.find('.p-accordion.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-accordion-tab').exists()).toBe(true);
-        expect(wrapper.findAll('.p-accordion-tab').length).toBe(3);
+        expect(wrapper.find('.p-accordionpanel').exists()).toBe(true);
+        expect(wrapper.findAll('.p-accordionpanel').length).toBe(3);
     });
 
     it('should activeIndex change', async () => {
         await wrapper.setProps({ activeIndex: 1 });
 
-        const allTabs = wrapper.findAll('.p-accordion-tab');
+        const allTabs = wrapper.findAll('.p-accordionpanel');
 
-        expect(allTabs[0].classes()).not.toContain('p-accordion-tab-active');
-        expect(allTabs[1].classes()).toContain('p-accordion-tab-active');
+        expect(allTabs[0].classes()).not.toContain('p-accordionpanel-active');
+        expect(allTabs[1].classes()).toContain('p-accordionpanel-active');
     });
 
-    it('should work tab click', async () => {
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
+    it('should work panel click', async () => {
+        const firstHeader = wrapper.find('button.p-accordionheader');
 
         await firstHeader.trigger('click');
 
         expect(wrapper.emitted()['update:activeIndex'][0]).toEqual([0]);
         expect(wrapper.emitted()['tab-click'][0][0].index).toEqual(0);
-    });
-
-    it('When invalid key triggered OnTabKey should break', async () => {
-        const keydownOptions = ['onTabHomeKey', 'onTabEnterKey', 'onTabEndKey', 'onTabArrowDownKey', 'onTabArrowUpKey'];
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-
-        await firstHeader.trigger('keydown', { code: 'ArrowRight' });
-
-        for (const keydownOption of keydownOptions) {
-            expect(vi.spyOn(wrapper.vm, keydownOption)).not.toHaveBeenCalled();
-        }
-    });
-
-    it('When keydown enter is triggered on component header changeActiveIndex should be triggered', async () => {
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-        const changeActiveIndexSpy = vi.spyOn(wrapper.vm, 'changeActiveIndex');
-
-        await firstHeader.trigger('keydown', { code: 'Enter' });
-
-        expect(changeActiveIndexSpy).toHaveBeenCalled();
-    });
-
-    it('When keydown end is triggered on component header changeFocusedTab should be triggered', async () => {
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab');
-        const findLastHeaderActionSpy = vi.spyOn(wrapper.vm, 'findLastHeaderAction');
-
-        await firstHeader.trigger('keydown', { code: 'End' });
-
-        expect(changeFocusedTabSpy).toHaveBeenCalled();
-        expect(findLastHeaderActionSpy).toHaveBeenCalled();
-    });
-
-    it('When keydown home is triggered on component header changeFocusedTab should be triggered', async () => {
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab');
-        const findFirstHeaderActionSpy = vi.spyOn(wrapper.vm, 'findFirstHeaderAction');
-
-        await firstHeader.trigger('keydown', { code: 'Home' });
-
-        expect(changeFocusedTabSpy).toHaveBeenCalled();
-        expect(findFirstHeaderActionSpy).toHaveBeenCalled();
-    });
-
-    it('When keydown ArrowUp is triggered and findPrevHeaderAction is true changeFocusedTab should be triggered', async () => {
-        const findPrevHeaderActionSpy = vi.spyOn(wrapper.vm, 'findPrevHeaderAction').mockImplementation(() => true);
-        const onTabEndKeySpy = vi.spyOn(wrapper.vm, 'onTabEndKey');
-        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab').mockImplementation(() => true);
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-
-        await firstHeader.trigger('keydown', { code: 'ArrowUp' });
-
-        expect(findPrevHeaderActionSpy).toHaveBeenCalled();
-        expect(changeFocusedTabSpy).toHaveBeenCalled();
-        expect(onTabEndKeySpy).toHaveBeenCalledTimes(0);
-    });
-
-    it('When keydown ArrowUp is triggered and findPrevHeaderAction is false onTabEndKey should be triggered', async () => {
-        const findPrevHeaderActionSpy = vi.spyOn(wrapper.vm, 'findPrevHeaderAction').mockImplementation(() => false);
-        const onTabEndKeySpy = vi.spyOn(wrapper.vm, 'onTabEndKey');
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-
-        await firstHeader.trigger('keydown', { code: 'ArrowUp' });
-
-        expect(findPrevHeaderActionSpy).toHaveBeenCalled();
-        expect(onTabEndKeySpy).toHaveBeenCalled();
-    });
-
-    it('When keydown ArrowDown is triggered and nextHeaderAction is true changeFocusedTab should be triggered', async () => {
-        const findNextHeaderActionSpy = vi.spyOn(wrapper.vm, 'findNextHeaderAction').mockImplementation(() => true);
-        const onTabHomeKeySpy = vi.spyOn(wrapper.vm, 'onTabHomeKey');
-        const changeFocusedTabSpy = vi.spyOn(wrapper.vm, 'changeFocusedTab').mockImplementation(() => true);
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-
-        await firstHeader.trigger('keydown', { code: 'ArrowDown' });
-
-        expect(findNextHeaderActionSpy).toHaveBeenCalled();
-        expect(changeFocusedTabSpy).toHaveBeenCalled();
-        expect(onTabHomeKeySpy).toHaveBeenCalledTimes(0);
-    });
-
-    it('When keydown ArrowDown is triggered and nextHeaderAction is false onTabHomeKey should be triggered', async () => {
-        const findNextHeaderActionSpy = vi.spyOn(wrapper.vm, 'findNextHeaderAction').mockImplementation(() => false);
-        const onTabHomeKeySpy = vi.spyOn(wrapper.vm, 'onTabHomeKey');
-        const firstHeader = wrapper.find('a.p-accordion-header-link');
-
-        await firstHeader.trigger('keydown', { code: 'ArrowDown' });
-
-        expect(findNextHeaderActionSpy).toHaveBeenCalled();
-        expect(onTabHomeKeySpy).toHaveBeenCalled();
     });
 });

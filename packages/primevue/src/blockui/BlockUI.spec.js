@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue/config';
 import { beforeEach, expect } from 'vitest';
 import BlockUI from './BlockUI.vue';
 
@@ -6,7 +7,15 @@ let wrapper = null;
 
 describe('BlockUI.vue', () => {
     beforeEach(() => {
-        wrapper = mount(BlockUI);
+        wrapper = mount(BlockUI, {
+            attachTo: document.body,
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            }
+        });
     });
 
     afterEach(() => {

@@ -15,7 +15,7 @@ describe('SelectButton.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-selectbutton.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-button.p-component').length).toBe(2);
+        expect(wrapper.findAll('.p-togglebutton.p-component').length).toBe(2);
     });
 
     it('should option select', async () => {
@@ -25,7 +25,7 @@ describe('SelectButton.vue', () => {
 
         await wrapper.setProps({ modelValue: wrapper.vm.options[0] });
 
-        expect(wrapper.findAll('.p-button.p-component')[0].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('.p-togglebutton.p-component')[0].classes()).toContain('p-togglebutton-checked');
     });
 });
 
@@ -50,6 +50,6 @@ describe('multiple select', () => {
     it('should select', async () => {
         await wrapper.setProps({ modelValue: wrapper.vm.options });
 
-        expect(wrapper.findAll('.p-highlight').length).toBe(3);
+        expect(wrapper.findAll('.p-togglebutton-checked').length).toBe(3);
     });
 });

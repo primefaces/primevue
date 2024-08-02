@@ -48,7 +48,7 @@ describe('Tree.vue', () => {
             }
         });
 
-        let searchField = wrapper.find('input.p-tree-filter');
+        let searchField = wrapper.find('input.p-inputtext');
 
         await searchField.trigger('keydown.space');
 
@@ -57,7 +57,7 @@ describe('Tree.vue', () => {
 
     it('should render icon', ({ expect }) => {
         expect(wrapper.find('span.pi-inbox').exists()).toBeTruthy();
-        expect(wrapper.find('span.pi-inbox').classes('p-treenode-icon')).toBeTruthy();
+        expect(wrapper.find('span.pi-inbox').classes('p-tree-node-icon')).toBeTruthy();
     });
 
     it('should render icon slot', ({ expect }) => {

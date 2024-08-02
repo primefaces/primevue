@@ -83,7 +83,7 @@ describe('Toast.vue', () => {
                 messages: [{ severity: 'info', summary: 'Message 1', detail: 'Message 1 Content', life: 3000 }]
             });
 
-            const icon = wrapper.find('.p-toast-icon-close-icon');
+            const icon = wrapper.find('.p-toast-close-icon');
 
             expect(icon.classes()).toContain('pi-discord');
         });

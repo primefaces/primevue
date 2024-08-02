@@ -61,9 +61,9 @@ describe('PanelMenu', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-panelmenu.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-menuitem').length).toBe(6);
-        expect(wrapper.findAll('.p-toggleable-content').length).toBe(7);
-        expect(wrapper.findAll('.p-submenu-list').length).toBe(3);
+        expect(wrapper.findAll('.p-panelmenu-item').length).toBe(6);
+        expect(wrapper.findAll('.p-panelmenu-item-content').length).toBe(6);
+        expect(wrapper.findAll('.p-panelmenu-submenu').length).toBe(3);
     });
 
     it('should update expandedKeys', async () => {

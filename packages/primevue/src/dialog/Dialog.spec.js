@@ -79,7 +79,7 @@ describe('closable', () => {
 
         await wrapper.setProps({ visible: true });
 
-        const icon = wrapper.find('.p-dialog-header-close-icon');
+        const icon = wrapper.find('.p-dialog-close-button .p-button-icon');
 
         expect(icon.classes()).toContain('pi-discord');
     });
@@ -111,7 +111,7 @@ describe('maximizable', () => {
         await wrapper.setProps({ visible: true });
         await wrapper.setData({ maximized: false });
 
-        const icon = wrapper.find('.p-dialog-header-maximize-icon');
+        const icon = wrapper.find('.p-dialog-maximize-button .p-button-icon');
 
         expect(icon.classes()).toContain('pi-discord');
 

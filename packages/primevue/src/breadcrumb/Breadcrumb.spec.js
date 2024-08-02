@@ -27,7 +27,7 @@ describe('Breadcrumb', () => {
         });
 
         expect(wrapper.find('.p-breadcrumb.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-menuitem-separator').length).toBe(5);
-        expect(wrapper.findAll('.p-menuitem-text').length).toBe(5);
+        expect(wrapper.findAll('.p-breadcrumb-separator').length).toBe(5);
+        expect(wrapper.findAll('.p-breadcrumb-item-label').length).toBe(5);
     });
 });
