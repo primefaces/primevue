@@ -20,10 +20,7 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "build:prebuild": "node ./scripts/prebuild.js",
-        "build:apidoc": "node ./scripts/build-apidoc.js",
-        "test:unit": "vitest run",
-        "test:unit:watch": "vitest watch",
-        "test:coverage": "vitest run --coverage"
+        "build:apidoc": "node ./scripts/build-apidoc.js"
     },
     "keywords": [
         "primevue",
@@ -42,9 +39,6 @@
     ],
     "devDependencies": {
         "@stackblitz/sdk": "^1.8.2",
-        "@vitejs/plugin-vue": "4.1.0",
-        "@vitest/coverage-istanbul": "^0.29.8",
-        "@vue/test-utils": "^2.0.0",
         "autoprefixer": "^10.4.16",
         "chart.js": "3.3.2",
         "jsdom": "^19.0.0",
@@ -58,7 +52,6 @@
         "tailwindcss": "^3.4.1",
         "tailwindcss-primeui": "^0.3.2",
         "typedoc": "0.23.23",
-        "vitest": "^0.29.8",
         "primevue": "workspace:*",
         "@primevue/core": "workspace:*",
         "@primevue/nuxt-module": "workspace:*",
@@ -66,8 +59,7 @@
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",
-        "nuxt-gtag": "^0.6.2",
-        "vee-validate": "^4.8.2"
+        "nuxt-gtag": "^0.6.2"
     },
     "engines": {
         "node": ">=12.11.0"
