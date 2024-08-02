@@ -650,12 +650,6 @@ export { default as Stepper } from './stepper/Stepper.vue';
 export * from './stepper/style/StepperStyle.js';
 export { default as StepperStyle } from './stepper/style/StepperStyle.js';
 
-// StepperPanel
-export * from './stepperpanel/StepperPanel.vue';
-export { default as StepperPanel } from './stepperpanel/StepperPanel.vue';
-export * from './stepperpanel/style/StepperPanelStyle.js';
-export { default as StepperPanelStyle } from './stepperpanel/style/StepperPanelStyle.js';
-
 // Steps
 export * from './steps/Steps.vue';
 export { default as Steps } from './steps/Steps.vue';

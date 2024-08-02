@@ -247,8 +247,6 @@
         "./steppanels/style": "./src/steppanels/style/StepPanelsStyle.js",
         "./stepper": "./src/stepper/Stepper.vue",
         "./stepper/style": "./src/stepper/style/StepperStyle.js",
-        "./stepperpanel": "./src/stepperpanel/StepperPanel.vue",
-        "./stepperpanel/style": "./src/stepperpanel/style/StepperPanelStyle.js",
         "./steps": "./src/steps/Steps.vue",
         "./steps/style": "./src/steps/style/StepsStyle.js",
         "./styleclass": "./src/styleclass/StyleClass.js",
