@@ -11,25 +11,26 @@
                     <InputText placeholder="Search" />
                 </IconField>
                 <Button severity="secondary" outlined>
-                    <OverlayBadge severity="danger" :pt="{
-                        pcbadge: {
-                            root: {
-                                class: '!min-w-0 !w-2.5 !h-2.5'
+                    <OverlayBadge
+                        severity="danger"
+                        :pt="{
+                            pcbadge: {
+                                root: {
+                                    class: '!min-w-0 !w-2.5 !h-2.5'
+                                }
                             }
-                        }
-                    }">
+                        }"
+                    >
                         <i class="pi pi-bell" />
                     </OverlayBadge>
                 </Button>
             </div>
         </div>
         <div class="mt-4 flex flex-wrap gap-6 items-center justify-between">
-            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false"
-                @change="changeSelect" />
+            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" @change="changeSelect" />
             <div class="flex items-center gap-2">
                 <Button label="Download" icon="pi pi-download" iconPos="right" />
-                <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon iconDisplay="input"
-                    placeholder="06/11/2024 - 06/22/2024" />
+                <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon iconDisplay="input" placeholder="06/11/2024 - 06/22/2024" />
             </div>
         </div>
         <div class="flex flex-col gap-6 mt-6">
@@ -49,15 +50,19 @@
                 <div class="flex-1 border border-surface rounded-2xl py-5 px-7">
                     <div class="flex items-center gap-6 mb-4">
                         <div class="flex-1 text-color font-semibold leading-6">Transactions</div>
-                        <Button type="button" icon="pi pi-ellipsis-h" severity="secondary" text @click="toggle"
-                            aria-haspopup="true" aria-controls="overlay_menu" />
+                        <Button type="button" icon="pi pi-ellipsis-h" severity="secondary" text @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
                         <Menu ref="menu" id="overlay_menu" :model="menuItems" :popup="true" />
                     </div>
-                    <DataTable :value="sampleAppsTableDatas" paginator :rows="5" dataKey="id"
+                    <DataTable
+                        :value="sampleAppsTableDatas"
+                        paginator
+                        :rows="5"
+                        dataKey="id"
                         tableClass="overflow-x-auto dark:bg-surface-950"
                         paginatorTemplate="PrevPageLink PageLinks NextPageLink  CurrentPageReport RowsPerPageDropdown"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-                        pt:pcpaginator:root="!bg-transparent" :dt="{
+                        pt:pcpaginator:root="!bg-transparent"
+                        :dt="{
                             header: {
                                 background: 'transparent'
                             },
@@ -67,7 +72,8 @@
                             row: {
                                 background: 'transparent'
                             }
-                        }">
+                        }"
+                    >
                         <Column header="Id" class="w-1/12">
                             <template #body="slotProps">
                                 <div class="text-muted-color">{{ slotProps.data.id }}</div>
@@ -76,8 +82,7 @@
                         <Column header="Name" class="w-1/4">
                             <template #body="slotProps">
                                 <div class="flex items-center">
-                                    <Avatar :label="slotProps.data.name.label" class="mr-2 text-xs font-medium"
-                                        style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                                    <Avatar :label="slotProps.data.name.label" class="mr-2 text-xs font-medium" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
                                     <div class="leading-6 text-muted-color flex-1">{{ slotProps.data.name.text }}</div>
                                 </div>
                             </template>
@@ -85,12 +90,14 @@
                         <Column header="Coin" class="w-1/6">
                             <template #body="slotProps">
                                 <div class="flex items-center">
-                                    <i :class="[
-                                        {
-                                            'pi pi-bitcoin text-yellow-500 !text-3xl': slotProps.data.coin !== 'btc',
-                                            'pi pi-ethereum bg-surface-950 text-surface-0 dark:bg-surface-0 dark:text-surface-950 w-7 h-7 rounded-full flex items-center justify-center': slotProps.data.coin !== 'eth'
-                                        }
-                                    ]"></i>
+                                    <i
+                                        :class="[
+                                            {
+                                                'pi pi-bitcoin text-yellow-500 !text-3xl': slotProps.data.coin !== 'btc',
+                                                'pi pi-ethereum bg-surface-950 text-surface-0 dark:bg-surface-0 dark:text-surface-950 w-7 h-7 rounded-full flex items-center justify-center': slotProps.data.coin !== 'eth'
+                                            }
+                                        ]"
+                                    ></i>
                                 </div>
                             </template>
                         </Column>
@@ -101,8 +108,7 @@
                         </Column>
                         <Column header="Process" class="w-1/6">
                             <template #body="slotProps">
-                                <Tag :severity="slotProps.data.process.type" :value="slotProps.data.process.value"
-                                    class="font-medium"></Tag>
+                                <Tag :severity="slotProps.data.process.type" :value="slotProps.data.process.value" class="font-medium"></Tag>
                             </template>
                         </Column>
                         <Column header="Amount" class="w-1/6">
@@ -116,8 +122,7 @@
                     <div>
                         <div class="flex items-center gap-6 mb-6">
                             <div class="flex-1 text-color font-semibold leading-6">My Wallet</div>
-                            <Button type="button" icon="pi pi-ellipsis-h" severity="secondary" text @click="toggle"
-                                aria-haspopup="true" aria-controls="overlay_menu" />
+                            <Button type="button" icon="pi pi-ellipsis-h" severity="secondary" text @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
                             <Menu ref="menu" id="overlay_menu" :model="menuItems" :popup="true" />
                         </div>
                         <MeterGroup :value="metersData" labelPosition="end">
@@ -125,8 +130,7 @@
                                 <div class="flex flex-col gap-6 mt-4">
                                     <template v-for="val of value" :key="val.label">
                                         <div class="flex items-center gap-2">
-                                            <div class="w-2 h-2 rounded-full" :style="{ backgroundColor: val.color }">
-                                            </div>
+                                            <div class="w-2 h-2 rounded-full" :style="{ backgroundColor: val.color }"></div>
                                             <div class="text-color uppercase font-medium leading-6 flex-1">
                                                 {{ val.label }}
                                                 <span class="text-muted-color">({{ val.value }}%)</span>
@@ -193,60 +197,65 @@ export default {
         EventBus.off('dark-mode-toggle-complete', this.redrawListener);
         EventBus.off('theme-palette-change', this.redrawListener);
     },
-    beforeMount() {
+    mounted() {
         this.chartData = this.setChartData(this.selectedTime);
         this.chartOptions = this.setChartOptions();
+
         this.redrawListener = () => {
             this.chartData = this.setChartData(this.selectedTime);
             this.chartOptions = this.setChartOptions();
         };
+
         EventBus.on('dark-mode-toggle-complete', this.redrawListener);
         EventBus.on('theme-palette-change', this.redrawListener);
     },
     methods: {
         changeSelect(e) {
-            this.redrawListener()
+            this.redrawListener();
         },
         createDatasets(val) {
             let data, labels;
+
             if (val === 'Weekly') {
                 labels = ['6 May', '13 May', '20 May', '27 May', '3 June', '10 June', '17 June', '24 June', '1 July', '8 July', '15 July', '22 July'];
                 data = [
                     [9000, 3000, 13000, 3000, 5000, 17000, 11000, 4000, 15000, 4000, 11000, 5000],
                     [1800, 7600, 11100, 6800, 3300, 5800, 3600, 7200, 4300, 8100, 6800, 3700],
                     [3800, 4800, 2100, 6600, 1000, 3800, 6500, 4200, 4300, 7000, 6800, 3700]
-                ]
+                ];
             } else if (val === 'Monthly') {
-                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 data = [
                     [4000, 10000, 15000, 4000, 16000, 8000, 12000, 14000, 17000, 5000, 12000, 6000],
                     [2100, 8400, 2400, 7500, 3700, 6500, 7400, 8000, 4800, 9000, 7600, 4200],
                     [4100, 5200, 2400, 7400, 2300, 4100, 7200, 8000, 4800, 9000, 7600, 4200]
-                ]
+                ];
             } else if (val === 'Yearly') {
-                labels = ['2019', '2020', '2021', '2022', '2023', '2024']
+                labels = ['2019', '2020', '2021', '2022', '2023', '2024'];
                 data = [
                     [4500, 10500, 15500, 4500, 16500, 8500, 12500, 14500, 17500, 5500, 12500, 6500],
                     [2250, 8700, 2550, 7650, 3850, 6650, 7650, 8250, 4950, 9250, 7850, 4450],
                     [4350, 5450, 2650, 7650, 2550, 4350, 7450, 8250, 4950, 9250, 7850, 4450]
-                ]
+                ];
             }
+
             return {
                 data,
                 labels
-            }
+            };
         },
         toggle(event) {
             this.$refs.menu.toggle(event);
         },
         setChartData(timeUnit) {
-            const datasets = this.createDatasets(timeUnit)
+            const datasets = this.createDatasets(timeUnit);
             const documentStyle = getComputedStyle(document.documentElement);
-            const primary200=documentStyle.getPropertyValue('--p-primary-200')
-            const primary300=documentStyle.getPropertyValue('--p-primary-300')
-            const primary400=documentStyle.getPropertyValue('--p-primary-400')
-            const primary500=documentStyle.getPropertyValue('--p-primary-500')
-            const primary600=documentStyle.getPropertyValue('--p-primary-600')
+            const primary200 = documentStyle.getPropertyValue('--p-primary-200');
+            const primary300 = documentStyle.getPropertyValue('--p-primary-300');
+            const primary400 = documentStyle.getPropertyValue('--p-primary-400');
+            const primary500 = documentStyle.getPropertyValue('--p-primary-500');
+            const primary600 = documentStyle.getPropertyValue('--p-primary-600');
+
             return {
                 labels: datasets.labels,
                 datasets: [
@@ -285,10 +294,10 @@ export default {
         setChartOptions() {
             const darkMode = this.$appState.darkTheme;
             const documentStyle = getComputedStyle(document.documentElement);
-            const surface100 = documentStyle.getPropertyValue('--p-surface-100')
-            const surface900 = documentStyle.getPropertyValue('--p-surface-900')
-            const surface400 = documentStyle.getPropertyValue('--p-surface-400')
-            const surface500 = documentStyle.getPropertyValue('--p-surface-500')
+            const surface100 = documentStyle.getPropertyValue('--p-surface-100');
+            const surface900 = documentStyle.getPropertyValue('--p-surface-900');
+            const surface400 = documentStyle.getPropertyValue('--p-surface-400');
+            const surface500 = documentStyle.getPropertyValue('--p-surface-500');
 
             return {
                 maintainAspectRatio: false,
@@ -300,42 +309,63 @@ export default {
                         external: function (context) {
                             const { chart, tooltip } = context;
                             let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
+
                             if (!tooltipEl) {
                                 tooltipEl = document.createElement('div');
-                                tooltipEl.classList.add('chartjs-tooltip', 'dark:bg-surface-950', 'bg-surface-0', 'p-3', 'rounded-[8px]', 'overflow-hidden', 'opacity-100', 'absolute', 'transition-all', 'duration-[0.1s]', 'pointer-events-none', 'shadow-[0px_25px_20px_-5px_rgba(0,0,0,0.10),0px_10px_8px_-6px_rgba(0,0,0,0.10)]');
+                                tooltipEl.classList.add(
+                                    'chartjs-tooltip',
+                                    'dark:bg-surface-950',
+                                    'bg-surface-0',
+                                    'p-3',
+                                    'rounded-[8px]',
+                                    'overflow-hidden',
+                                    'opacity-100',
+                                    'absolute',
+                                    'transition-all',
+                                    'duration-[0.1s]',
+                                    'pointer-events-none',
+                                    'shadow-[0px_25px_20px_-5px_rgba(0,0,0,0.10),0px_10px_8px_-6px_rgba(0,0,0,0.10)]'
+                                );
                                 chart.canvas.parentNode.appendChild(tooltipEl);
                             }
 
                             if (tooltip.opacity === 0) {
                                 tooltipEl.style.opacity = 0;
+
                                 return;
                             }
-                            const datasetPointsX = tooltip.dataPoints.map(dp => dp.element.x);
+
+                            const datasetPointsX = tooltip.dataPoints.map((dp) => dp.element.x);
                             const avgX = datasetPointsX.reduce((a, b) => a + b, 0) / datasetPointsX.length;
                             const avgY = tooltip.dataPoints[2].element.y;
 
                             if (tooltip.body) {
                                 tooltipEl.innerHTML = '';
-                                const tooltipBody = document.createElement('div')
-                                tooltipBody.classList.add('flex', 'flex-col', 'gap-4', 'px-3', 'py-3', 'min-w-[18rem]')
+                                const tooltipBody = document.createElement('div');
+
+                                tooltipBody.classList.add('flex', 'flex-col', 'gap-4', 'px-3', 'py-3', 'min-w-[18rem]');
                                 tooltip.dataPoints.reverse().forEach((body, i) => {
                                     const row = document.createElement('div');
-                                    row.classList.add('flex', 'items-center', 'gap-2', 'w-full')
-                                    const point = document.createElement('div')
-                                    point.classList.add('w-2.5', 'h-2.5', 'rounded-full')
-                                    point.style.backgroundColor = body.dataset.backgroundColor
-                                    row.appendChild(point)
-                                    const label = document.createElement('span')
-                                    label.appendChild(document.createTextNode(body.dataset.label))
-                                    label.classList.add('text-base', 'font-medium', 'text-color', 'flex-1', 'text-left', 'capitalize')
-                                    row.appendChild(label)
-                                    const value = document.createElement('span')
-                                    value.appendChild(document.createTextNode(body.formattedValue))
-                                    value.classList.add('text-base', 'font-medium', 'text-color', 'text-right')
-                                    row.appendChild(value)
-                                    tooltipBody.appendChild(row)
+
+                                    row.classList.add('flex', 'items-center', 'gap-2', 'w-full');
+                                    const point = document.createElement('div');
+
+                                    point.classList.add('w-2.5', 'h-2.5', 'rounded-full');
+                                    point.style.backgroundColor = body.dataset.backgroundColor;
+                                    row.appendChild(point);
+                                    const label = document.createElement('span');
+
+                                    label.appendChild(document.createTextNode(body.dataset.label));
+                                    label.classList.add('text-base', 'font-medium', 'text-color', 'flex-1', 'text-left', 'capitalize');
+                                    row.appendChild(label);
+                                    const value = document.createElement('span');
+
+                                    value.appendChild(document.createTextNode(body.formattedValue));
+                                    value.classList.add('text-base', 'font-medium', 'text-color', 'text-right');
+                                    row.appendChild(value);
+                                    tooltipBody.appendChild(row);
                                 });
-                                tooltipEl.appendChild(tooltipBody)
+                                tooltipEl.appendChild(tooltipBody);
                             }
 
                             const { offsetLeft: positionX, offsetTop: positionY } = chart.canvas;
@@ -400,7 +430,7 @@ export default {
                     }
                 }
             };
-        },
+        }
     },
     components: {}
 };
