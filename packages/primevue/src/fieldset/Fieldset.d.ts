@@ -199,6 +199,10 @@ export interface FieldsetSlots {
          * Collapsed state as a boolean
          */
         collapsed: boolean;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
     /**
      * Custom toggler icon template.
@@ -209,6 +213,10 @@ export interface FieldsetSlots {
          * Collapsed state as a boolean
          */
         collapsed: boolean;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
     }): VNode[];
 }
 
