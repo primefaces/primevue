@@ -12,7 +12,7 @@
                 :aria-expanded="isItemGroup(processedItem) ? isItemActive(processedItem) : undefined"
                 :aria-haspopup="isItemGroup(processedItem) && !getItemProp(processedItem, 'to') ? 'menu' : undefined"
                 :aria-level="level + 1"
-                :aria-setsize="getAriaSetSize()"
+                :aria-setsize="getAriaSetSize"
                 :aria-posinset="getAriaPosInset(index)"
                 v-bind="getPTOptions(processedItem, index, 'item')"
                 :data-p-active="isItemActive(processedItem)"
@@ -123,6 +123,7 @@ export default {
         }
     },
     list: null,
+
     methods: {
         getItemId(processedItem) {
             return `${this.menuId}_${processedItem.key}`;
@@ -176,11 +177,8 @@ export default {
         onItemMouseMove(event, processedItem) {
             this.$emit('item-mousemove', { originalEvent: event, processedItem });
         },
-        getAriaSetSize() {
-            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
-        },
         getAriaPosInset(index) {
-            return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+            return index - this.ariaPosInsetCompute.slice(0, index).length + 1;
         },
         getMenuItemProps(processedItem, index) {
             return {
@@ -211,6 +209,14 @@ export default {
                     this.getPTOptions(processedItem, index, 'submenuIcon')
                 )
             };
+        }
+    },
+    computed: {
+        ariaPosInsetCompute() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator'));
+        },
+        getAriaSetSize() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
         }
     },
     components: {
