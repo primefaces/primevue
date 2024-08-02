@@ -1,5 +1,32 @@
 # Changelog
 
+## [4.0.4](https://github.com/primefaces/primevue/tree/4.0.4) (2024-08-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.3...4.0.4)
+
+**Fixed bugs:**
+
+-   Button: undeclared color styles of outlined buttons [\#6169](https://github.com/primefaces/primevue/issues/6169)
+-   Tree: none selectable child defect in selection mode [\#6159](https://github.com/primefaces/primevue/issues/6159)
+-   DataTable: paginator passthrough is now pcPaginator [\#6154](https://github.com/primefaces/primevue/issues/6154)
+-   DatePicker: Icon is visible when calendar is on inline mode [\#6153](https://github.com/primefaces/primevue/issues/6153)
+-   Fieldset: toggle icon does not work if there is a legend slot [\#6144](https://github.com/primefaces/primevue/issues/6144)
+-   Dialog: Missing 're-focus original element on close' fix in v4 that was present in v3 [\#6139](https://github.com/primefaces/primevue/issues/6139)
+-   ButtonGroup: Missing buttongroup in PrimeVuePTOptions [\#6137](https://github.com/primefaces/primevue/issues/6137)
+-   lara and nora presets import virtualscroller from aura preset [\#6128](https://github.com/primefaces/primevue/issues/6128)
+-   DatePicker: Day name didn't show when i set locale manualy [\#6125](https://github.com/primefaces/primevue/issues/6125)
+-   Datepicker: Month selection highlighting problem in range mode [\#6120](https://github.com/primefaces/primevue/issues/6120)
+-   Dialog: Release mouse outside the dialog would close the dialog when dismissableMask is true. [\#6116](https://github.com/primefaces/primevue/issues/6116)
+-   DatePicker: cannot type an end date that is the same as the start date. [\#6106](https://github.com/primefaces/primevue/issues/6106)
+-   InputMask: Missing id property [\#6100](https://github.com/primefaces/primevue/issues/6100)
+-   DatePicker: can not typing same date using input [\#6081](https://github.com/primefaces/primevue/issues/6081)
+-   StepList and StepPanels: Different type than of Stepper, Step and StepPanel [\#6059](https://github.com/primefaces/primevue/issues/6059)
+-   Drawer: Footer Div/Slot added by default [\#6048](https://github.com/primefaces/primevue/issues/6048)
+-   ContextMenu: The item action is not executed on Enter key when the "item" template has been redefined [\#5983](https://github.com/primefaces/primevue/issues/5983)
+-   Popover - Misplaced arrow [\#5915](https://github.com/primefaces/primevue/issues/5915)
+-   Calendar: Keydown Event not firing [\#5870](https://github.com/primefaces/primevue/issues/5870)
+-   InputOtp: (integerOnly) No response when pressing Enter and Tab [\#5386](https://github.com/primefaces/primevue/issues/5386)
+
 ## [4.0.3](https://github.com/primefaces/primevue/tree/4.0.3) (2024-07-30)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.2...4.0.3)
