@@ -159,6 +159,7 @@
                                         <slot name="empty">{{ emptyMessageText }}</slot>
                                     </li>
                                 </ul>
+                                <slot name="contentFooter"></slot>
                             </template>
                             <template v-if="$slots.loader" v-slot:loader="{ options }">
                                 <slot name="loader" :options="options"></slot>
