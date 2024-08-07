@@ -161,7 +161,7 @@ export interface TabsEmitsOptions {
      * Emitted when the value changes.
      * @param {string} value - Current value.
      */
-    'update:value'(value: number): void;
+    'update:value'(value: string): void;
 }
 
 export declare type TabsEmits = EmitFn<TabsEmitsOptions>;
