@@ -29,7 +29,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
-            :pt="ptm('pcInput')"
+            v-bind="ptm('pcInput')"
         />
         <ul
             v-if="multiple"
