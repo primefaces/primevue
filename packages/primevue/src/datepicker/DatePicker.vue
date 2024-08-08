@@ -750,7 +750,7 @@ export default {
 
                 return start === year || end === year || (start < year && end > year);
             } else {
-                return value.getFullYear() === year;
+                return this.modelValue.getFullYear() === year;
             }
         },
         isDateEquals(value, dateMeta) {
