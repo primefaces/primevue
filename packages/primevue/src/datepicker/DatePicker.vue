@@ -750,7 +750,7 @@ export default {
 
                 return start === year || end === year || (start < year && end > year);
             } else {
-                return value.getFullYear() === year;
+                return this.modelValue.getFullYear() === year;
             }
         },
         isDateEquals(value, dateMeta) {
@@ -1705,6 +1705,7 @@ export default {
             if (this.view === 'year') {
                 this.onDateSelect(event, { year: year.value, month: 0, day: 1, selectable: true });
             } else {
+                debugger;
                 this.currentYear = year.value;
                 this.currentView = 'month';
                 this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
