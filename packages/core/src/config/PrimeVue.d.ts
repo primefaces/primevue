@@ -161,15 +161,7 @@ export declare function usePrimeVue(): {
 declare const plugin: Plugin;
 export default plugin;
 
-declare module 'vue/types/vue' {
-    interface Vue {
-        $primevue: {
-            config: PrimeVueConfiguration;
-        };
-    }
-}
-
-declare module '@vue/runtime-core' {
+declare module 'vue' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;

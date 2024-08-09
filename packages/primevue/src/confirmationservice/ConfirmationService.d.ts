@@ -27,13 +27,7 @@ export interface ConfirmationServiceMethods {
     close(): void;
 }
 
-declare module 'vue/types/vue' {
-    interface Vue {
-        $confirm: ConfirmationServiceMethods;
-    }
-}
-
-declare module '@vue/runtime-core' {
+declare module 'vue' {
     interface ComponentCustomProperties {
         $confirm: ConfirmationServiceMethods;
     }
