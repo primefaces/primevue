@@ -10,9 +10,17 @@ export default {
             type: null,
             default: null
         },
+        displayedNodes: {
+            type: null,
+            default: null
+        },
         expandedKeys: {
             type: null,
             default: null
+        },
+        autoExpandOnFilter: {
+            type: Boolean,
+            default: false
         },
         selectionKeys: {
             type: null,

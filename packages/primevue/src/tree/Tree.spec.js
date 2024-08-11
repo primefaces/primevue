@@ -55,6 +55,51 @@ describe('Tree.vue', () => {
         expect(wrapper.emitted('filter')).toBeTruthy();
     });
 
+    it('expands tree to filtered nodes on filter input', async () => {
+        wrapper = mount(Tree, {
+            props: {
+                filter: true,
+                value: [
+                    {
+                        key: '0',
+                        label: 'Documents',
+                        data: 'Documents Folder',
+                        icon: 'pi pi-fw pi-inbox',
+                        children: [
+                            {
+                                key: '0-0',
+                                label: 'Work',
+                                data: 'Work Folder',
+                                icon: 'pi pi-fw pi-cog'
+                            }
+                        ]
+                    },
+                    {
+                        key: '1',
+                        label: 'Events',
+                        data: 'Events Folder',
+                        icon: 'pi pi-fw pi-calendar',
+                        children: [
+                            {
+                                key: '1-0',
+                                label: 'Meeting',
+                                icon: 'pi pi-fw pi-calendar-plus',
+                                data: 'Meeting'
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
+        let searchField = wrapper.find('input.p-tree-filter');
+
+        await searchField.trigger('keydown.w');
+
+        expect(wrapper.find('span.pi-cog').exists()).toBeTruthy();
+        expect(wrapper.find('span.pi-calendar-plus').exists()).toBeFalsy();
+    });
+
     it('should render icon', ({ expect }) => {
         expect(wrapper.find('span.pi-inbox').exists()).toBeTruthy();
         expect(wrapper.find('span.pi-inbox').classes('p-tree-node-icon')).toBeTruthy();

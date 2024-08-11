@@ -20,7 +20,7 @@
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
             <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
-                    v-for="(node, index) of valueToRender"
+                    v-for="(node, index) of displayedNodes"
                     :key="node.key"
                     :node="node"
                     :templates="$slots"
@@ -65,6 +65,17 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        filterValue(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                this.displayedNodes = this.getValueToRender();
+                if (this.autoExpandOnFilter) {
+                    for (let node of this.displayedNodes) {
+                        this.expandNode(node);
+                    }
+                    this.d_expandedKeys = { ...this.d_expandedKeys };
+                }
+            }
         }
     },
     methods: {
@@ -217,6 +228,19 @@ export default {
             }
 
             return matched;
+        },
+        getValueToRender() {
+            if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
+            else return this.value;
+        },
+        expandNode(node) {
+            if (node.children && node.children.length) {
+                this.d_expandedKeys[node.key] = true;
+
+                for (let child of node.children) {
+                    this.expandNode(child);
+                }
+            }
         }
     },
     computed: {
@@ -239,11 +263,10 @@ export default {
             }
 
             return filteredNodes;
-        },
-        valueToRender() {
-            if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
-            else return this.value;
         }
+    },
+    created() {
+        this.displayedNodes = this.getValueToRender();
     },
     components: {
         TreeNode,
