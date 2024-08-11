@@ -125,7 +125,7 @@ export default {
                 if (this.horizontal) newPos = (event.pageX * 100) / this.size - (this.startPos * 100) / this.size;
                 else newPos = (event.pageY * 100) / this.size - (this.startPos * 100) / this.size;
 
-                if (window.getComputedStyle(this.$refs.root).direction === 'rtl') {
+                if (this.horizontal && window.getComputedStyle(this.$refs.root).direction === 'rtl') {
                     newPos = -newPos
                 }
 
