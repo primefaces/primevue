@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
+    <div ref="root" :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -124,6 +124,10 @@ export default {
             } else {
                 if (this.horizontal) newPos = (event.pageX * 100) / this.size - (this.startPos * 100) / this.size;
                 else newPos = (event.pageY * 100) / this.size - (this.startPos * 100) / this.size;
+
+                if (window.getComputedStyle(this.$refs.root).direction === 'rtl') {
+                    newPos = -newPos
+                }
 
                 newPrevPanelSize = this.prevPanelSize + newPos;
                 newNextPanelSize = this.nextPanelSize - newPos;
