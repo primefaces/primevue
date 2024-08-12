@@ -3,13 +3,14 @@
         <div v-if="!d_active" ref="display" :class="cx('display')" :tabindex="$attrs.tabindex || '0'" role="button" @click="open" @keydown.enter="open" v-bind="{ ...displayProps, ...ptm('display') }">
             <slot name="display"></slot>
         </div>
-        <div v-else :class="cx('content')" v-bind="ptm('content')">
+        <div v-else v-focustrap :class="cx('content')" v-bind="ptm('content')">
             <slot name="content" :closeCallback="close" />
         </div>
     </div>
 </template>
 
 <script>
+import FocusTrap from 'primevue/focustrap';
 import BaseInplace from './BaseInplace.vue';
 
 export default {
@@ -48,6 +49,9 @@ export default {
                 this.$refs.display.focus();
             }, 0);
         }
+    },
+    directives: {
+        focustrap: FocusTrap
     }
 };
 </script>
