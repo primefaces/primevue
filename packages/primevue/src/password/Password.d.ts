@@ -189,6 +189,12 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     strongRegex?: string | RegExp | undefined;
     /**
+     * Custom password strength function.
+     * It should take password value as a parameter and return a score between 0 and 3.
+     * @defaultValue null
+     */
+    strengthFn?: (value: string) => 0 | 1 | 2 | 3 | undefined;
+    /**
      * Text for a weak password. Defaults to PrimeVue Locale configuration.
      */
     weakLabel?: string | undefined;

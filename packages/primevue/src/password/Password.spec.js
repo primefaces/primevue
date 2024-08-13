@@ -52,4 +52,22 @@ describe('Password.vue', () => {
         expect(wrapper.find('.p-password-toggle-mask-icon.p-password-unmask-icon').exists()).toBe(false);
         expect(wrapper.find('.p-password-toggle-mask-icon.p-password-mask-icon').exists()).toBe(true);
     });
+
+    it('should use custom strengthFn', async () => {
+        const customStrengthFn = vi.fn((str) => {
+            return str === 'AAA' ? 3 : 1;
+        });
+
+        await wrapper.setProps({ strengthFn: customStrengthFn });
+
+        await wrapper.vm.onKeyUp({ target: { value: 'AAA' } });
+
+        expect(wrapper.find('.p-password-content [data-pc-section="info"]').text()).toBe('Strong');
+
+        await wrapper.vm.onKeyUp({ target: { value: 'AAAB' } });
+
+        expect(wrapper.find('.p-password-content [data-pc-section="info"]').text()).toBe('Weak');
+
+        expect(customStrengthFn).toHaveBeenCalledTimes(2);
+    });
 });

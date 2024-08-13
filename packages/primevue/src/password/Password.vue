@@ -149,6 +149,16 @@ export default {
             }
         },
         testStrength(str) {
+            if (this.strengthFn) {
+                const strength = this.strengthFn(str);
+
+                if (Array.from(Array(4).keys()).includes(strength)) {
+                    return strength;
+                } else {
+                    console.warn('Password strength function should return a value between 0 and 3. Defaulting to mediumRegex/strongRegex checks.');
+                }
+            }
+
             let level = 0;
 
             if (this.strongCheckRegExp.test(str)) level = 3;

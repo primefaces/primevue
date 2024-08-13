@@ -19,6 +19,10 @@ export default {
             type: [String, RegExp],
             default: '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})' // eslint-disable-line
         },
+        strengthFn: {
+            type: Function,
+            default: null
+        },
         weakLabel: {
             type: String,
             default: null

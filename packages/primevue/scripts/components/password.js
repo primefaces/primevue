@@ -30,6 +30,12 @@ const PasswordProps = [
         description: 'Regex for a strong level password.'
     },
     {
+        name: 'strengthFn',
+        type: 'function',
+        default: 'null',
+        description: 'Custom password strength validator function. It should take password value as a parameter and return a score between 0 and 3.'
+    },
+    {
         name: 'weakLabel',
         type: 'string',
         default: 'null',
