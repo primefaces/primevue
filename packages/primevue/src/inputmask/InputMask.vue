@@ -11,7 +11,7 @@
         :placeholder="placeholder"
         :fluid="hasFluid"
         :unstyled="unstyled"
-        @input="onInput"
+        @compositionend="onInput"
         @focus="onFocus"
         @blur="onBlur"
         @keydown="onKeyDown"
