@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-textarea {
     font-family: inherit;
     font-feature-settings: inherit;
-    font-size: 1rem;
+    font-size: ${dt('textarea.font.size')};
     color: ${dt('textarea.color')};
     background: ${dt('textarea.background')};
     padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};

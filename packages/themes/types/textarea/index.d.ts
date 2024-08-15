@@ -88,6 +88,12 @@ export interface TextareaDesignTokens extends ColorSchemeDesignToken<TextareaDes
          */
         shadow?: string;
         /**
+         * Font size of root
+         *
+         * @designToken textarea.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding x of root
          *
          * @designToken textarea.padding.x
