@@ -13,7 +13,7 @@ const theme = ({ dt }) => `
 }
 
 .p-knob-text {
-    font-size: 1.3rem;
+    font-size: ${dt('knob.text.font.size')};
     text-align: center;
 }
 

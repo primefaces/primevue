@@ -16,6 +16,7 @@ export default {
         background: '{content.border.color}'
     },
     text: {
+        fontSize: '1.3rem',
         color: '{text.muted.color}'
     }
 };

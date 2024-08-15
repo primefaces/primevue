@@ -84,6 +84,12 @@ export interface KnobDesignTokens extends ColorSchemeDesignToken<KnobDesignToken
      */
     text?: {
         /**
+         * Font size of text
+         *
+         * @designToken knob.text.font.size
+         */
+        fontSize?: string;
+        /**
          * Color of text
          *
          * @designToken knob.text.color

@@ -13,6 +13,7 @@ export default {
         background: '{primary.color}'
     },
     text: {
+        fontSize: '1.3rem',
         color: '{text.muted.color}'
     },
     colorScheme: {
