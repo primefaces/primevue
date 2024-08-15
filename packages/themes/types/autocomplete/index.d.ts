@@ -88,6 +88,12 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         shadow?: string;
         /**
+         * Font size of root
+         *
+         * @designToken autocomplete.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding x of root
          *
          * @designToken autocomplete.padding.x
