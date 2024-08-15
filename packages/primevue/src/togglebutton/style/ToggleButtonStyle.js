@@ -13,7 +13,7 @@ const theme = ({ dt }) => `
     background: ${dt('togglebutton.background')};
     border: 1px solid ${dt('togglebutton.border.color')};
     padding: ${dt('togglebutton.padding')};
-    font-size: 1rem;
+    font-size: ${dt('togglebutton.font.size')};
     font-family: inherit;
     font-feature-settings: inherit;
     transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')},

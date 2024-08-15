@@ -34,6 +34,12 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
          */
         gap?: string;
         /**
+         * Font size of root
+         *
+         * @designToken togglebutton.font.size
+         */
+        fontSize?: string;
+        /**
          * Font weight of root
          *
          * @designToken togglebutton.font.weight

@@ -3,6 +3,7 @@ export default {
         padding: '0.5rem 1rem',
         borderRadius: '{content.border.radius}',
         gap: '0.5rem',
+        fontSize: '1rem',
         fontWeight: '500',
         disabledBackground: '{form.field.disabled.background}',
         disabledBorderColor: '{form.field.disabled.background}',
