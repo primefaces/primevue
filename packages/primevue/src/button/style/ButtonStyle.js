@@ -52,6 +52,10 @@ const theme = ({ dt }) => `
     width: 0;
 }
 
+.p-button .p-button-icon {
+    font-size: ${dt('button.font.size')};
+}
+
 .p-button-sm {
     font-size: ${dt('button.sm.font.size')};
     padding: ${dt('button.sm.padding.y')} ${dt('button.sm.padding.x')};
