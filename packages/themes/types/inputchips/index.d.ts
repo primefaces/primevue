@@ -88,6 +88,12 @@ export interface InputChipsDesignTokens extends ColorSchemeDesignToken<InputChip
          */
         shadow?: string;
         /**
+         * Font size of root
+         *
+         * @designToken inputchips.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding x of root
          *
          * @designToken inputchips.padding.x

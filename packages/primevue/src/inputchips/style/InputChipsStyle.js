@@ -91,7 +91,7 @@ const theme = ({ dt }) => `
     width: 100%;
     font-family: inherit;
     font-feature-settings: inherit;
-    font-size: 1rem;
+    font-size: ${dt('inputchips.font.size')};
     color: inherit;
 }
 
