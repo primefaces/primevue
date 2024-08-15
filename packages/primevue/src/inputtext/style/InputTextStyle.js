@@ -4,7 +4,7 @@ const theme = ({ dt }) => `
 .p-inputtext {
     font-family: inherit;
     font-feature-settings: inherit;
-    font-size: 1rem;
+    font-size: ${dt('inputtext.font.size')};
     color: ${dt('inputtext.color')};
     background: ${dt('inputtext.background')};
     padding: ${dt('inputtext.padding.y')} ${dt('inputtext.padding.x')};

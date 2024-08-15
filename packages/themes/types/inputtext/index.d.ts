@@ -88,6 +88,12 @@ export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextD
          */
         shadow?: string;
         /**
+         * Font size of root
+         *
+         * @designToken inputtext.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding x of root
          *
          * @designToken inputtext.padding.x

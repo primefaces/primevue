@@ -12,6 +12,7 @@ export default {
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
         shadow: '{form.field.shadow}',
+        fontSize: '1rem',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
         borderRadius: '{form.field.border.radius}',
