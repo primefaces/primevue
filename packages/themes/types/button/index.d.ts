@@ -34,6 +34,12 @@ export interface ButtonDesignTokens extends ColorSchemeDesignToken<ButtonDesignT
          */
         gap?: string;
         /**
+         * Font size of root
+         *
+         * @designToken button.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding x of root
          *
          * @designToken button.padding.x
