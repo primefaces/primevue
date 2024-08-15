@@ -8,6 +8,7 @@ export default {
         color: '{content.color}',
         borderRadius: '{content.border.radius}',
         shadow: '{overlay.popover.shadow}',
+        fontSize: '1rem',
         padding: '{overlay.popover.padding}'
     },
     header: {

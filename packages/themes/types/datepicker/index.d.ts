@@ -57,6 +57,12 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          */
         shadow?: string;
         /**
+         * Font size of panel
+         *
+         * @designToken datepicker.panel.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding of panel
          *
          * @designToken datepicker.panel.padding
