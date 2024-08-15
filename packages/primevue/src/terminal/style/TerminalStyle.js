@@ -9,6 +9,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('terminal.border.color')};
     padding: ${dt('terminal.padding')};
     border-radius: ${dt('terminal.border.radius')};
+    font-size: ${dt('terminal.font.size')};
 }
 
 .p-terminal-prompt {
@@ -25,7 +26,7 @@ const theme = ({ dt }) => `
     outline: 0 none;
     font-family: inherit;
     font-feature-settings: inherit;
-    font-size: 1rem;
+    font-size: inherit;
 }
 
 .p-terminal-prompt-label {

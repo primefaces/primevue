@@ -40,6 +40,12 @@ export interface TerminalDesignTokens extends ColorSchemeDesignToken<TerminalDes
          */
         height?: string;
         /**
+         * Font size of root
+         *
+         * @designToken terminal.font.size
+         */
+        fontSize?: string;
+        /**
          * Padding of root
          *
          * @designToken terminal.padding

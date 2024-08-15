@@ -4,6 +4,7 @@ export default {
         borderColor: '{form.field.border.color}',
         color: '{form.field.color}',
         height: '18rem',
+        fontSize: '1rem',
         padding: '{form.field.padding.y} {form.field.padding.x}',
         borderRadius: '{form.field.border.radius}'
     },
