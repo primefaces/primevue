@@ -55,10 +55,11 @@ describe('Tree.vue', () => {
         expect(wrapper.emitted('filter')).toBeTruthy();
     });
 
-    it('expands tree to filtered nodes on filter input', async () => {
+    it('does not expand tree to filtered nodes on filter input less than 3 characters', async () => {
         wrapper = mount(Tree, {
             props: {
                 filter: true,
+                autoExpandOnFilter: true,
                 value: [
                     {
                         key: '0',
@@ -92,12 +93,107 @@ describe('Tree.vue', () => {
             }
         });
 
-        let searchField = wrapper.find('input.p-tree-filter');
+        let searchField = wrapper.find('input.p-inputtext');
 
         await searchField.trigger('keydown.w');
 
-        expect(wrapper.find('span.pi-cog').exists()).toBeTruthy();
+        expect(wrapper.find('span.pi-cog').exists()).toBeFalsy();
         expect(wrapper.find('span.pi-calendar-plus').exists()).toBeFalsy();
+    });
+
+    it('expands tree to filtered nodes on filter input of 3 characters or more', async () => {
+        wrapper = mount(Tree, {
+            props: {
+                filter: true,
+                autoExpandOnFilter: true,
+                value: [
+                    {
+                        key: '0',
+                        label: 'Documents',
+                        data: 'Documents Folder',
+                        icon: 'pi pi-fw pi-inbox',
+                        children: [
+                            {
+                                key: '0-0',
+                                label: 'Work',
+                                data: 'Work Folder',
+                                icon: 'pi pi-fw pi-cog'
+                            }
+                        ]
+                    },
+                    {
+                        key: '1',
+                        label: 'Events',
+                        data: 'Events Folder',
+                        icon: 'pi pi-fw pi-calendar',
+                        children: [
+                            {
+                                key: '1-0',
+                                label: 'Meeting',
+                                icon: 'pi pi-fw pi-calendar-plus',
+                                data: 'Meeting'
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
+        let searchField = wrapper.find('input.p-inputtext');
+        await searchField.setValue('work');
+
+        expect(wrapper.find('span.pi-cog').exists()).toBeTruthy();
+        expect(wrapper.vm.$data.d_expandedKeys).toEqual({ 0: true });
+        expect(wrapper.find('span.pi-calendar-plus').exists()).toBeFalsy();
+    });
+
+    it('expands tree to selected nodes on filter input of less than 3 characters', async () => {
+        wrapper = mount(Tree, {
+            props: {
+                filter: true,
+                autoExpandOnFilter: true,
+                selectionMode: 'checkbox',
+                selectionKeys: { 1: { checked: false, partialChecked: true }, '1-0': { checked: true, partialChecked: false } },
+                value: [
+                    {
+                        key: '0',
+                        label: 'Documents',
+                        data: 'Documents Folder',
+                        icon: 'pi pi-fw pi-inbox',
+                        children: [
+                            {
+                                key: '0-0',
+                                label: 'Work',
+                                data: 'Work Folder',
+                                icon: 'pi pi-fw pi-cog'
+                            }
+                        ]
+                    },
+                    {
+                        key: '1',
+                        label: 'Events',
+                        data: 'Events Folder',
+                        icon: 'pi pi-fw pi-calendar',
+                        children: [
+                            {
+                                key: '1-0',
+                                label: 'Meeting',
+                                icon: 'pi pi-fw pi-calendar-plus',
+                                data: 'Meeting'
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
+        let searchField = wrapper.find('input.p-inputtext');
+        await searchField.setValue('w');
+        await searchField.setValue('');
+
+        expect(wrapper.find('span.pi-cog').exists()).toBeFalsy();
+        expect(wrapper.vm.$data.d_expandedKeys).toEqual({ 1: true });
+        expect(wrapper.find('span.pi-calendar-plus').exists()).toBeTruthy();
     });
 
     it('should render icon', ({ expect }) => {
