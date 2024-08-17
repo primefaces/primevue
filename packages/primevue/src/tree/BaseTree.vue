@@ -10,10 +10,6 @@ export default {
             type: null,
             default: null
         },
-        displayedNodes: {
-            type: null,
-            default: null
-        },
         expandedKeys: {
             type: null,
             default: null
