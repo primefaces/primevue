@@ -70,9 +70,12 @@ export default {
             if (this.autoExpandOnFilter && newValue !== oldValue) {
                 if (newValue?.length > 3) {
                     for (let node of this.valueToRender) {
-                        this.expandNode(node);
+                        this.expandNode(node, false);
                     }
                     this.d_expandedKeys = { ...this.d_expandedKeys };
+                } else {
+                    this.d_expandedKeys = {}
+                    this.expandToSelections();
                 }
             }
         }
@@ -174,8 +177,11 @@ export default {
         isNodeSelected(node) {
             return this.selectionMode && this.selectionKeys ? this.selectionKeys[node.key] === true : false;
         },
+        isPartialChecked(node) {
+            return this.selectionKeys?.[node.key]?.partialChecked === true;
+        },
         isChecked(node) {
-            return this.selectionKeys ? this.selectionKeys[node.key] && this.selectionKeys[node.key].checked : false;
+            return this.selectionKeys?.[node.key]?.checked === true;
         },
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
@@ -228,13 +234,18 @@ export default {
 
             return matched;
         },
-        expandNode(node) {
-            if (node.children && node.children.length) {
+        expandNode(node, expandIfSelected) {
+            if (node.children && node.children.length && (expandIfSelected ? this.isChecked(node) || this.isPartialChecked(node) : true)) {
                 this.d_expandedKeys[node.key] = true;
 
                 for (let child of node.children) {
-                    this.expandNode(child);
+                    this.expandNode(child, expandIfSelected);
                 }
+            }
+        },
+        expandToSelections() {
+            for (let node of this.valueToRender) {
+                this.expandNode(node, true);
             }
         }
     },
