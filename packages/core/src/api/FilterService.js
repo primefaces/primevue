@@ -143,6 +143,28 @@ const FilterService = {
                 return false;
             }
 
+            // Function to check if a string is a valid version
+            const isVersionString = (v) => /^\d+(\.\d+)*$/.test(v);
+
+            // Custom logic for comparing version strings
+            if (isVersionString(value) && isVersionString(filter)) {
+                const parseVersion = (version) => version.split(".").map(Number);
+                const valueArray = parseVersion(value);
+                const filterArray = parseVersion(filter);
+
+                // Compare each part of the version
+                for (let i = 0; i < Math.max(valueArray.length, filterArray.length); i++) {
+                    const valPart = valueArray[i] || 0;
+                    const filterPart = filterArray[i] || 0;
+
+                    if (valPart < filterPart)
+                        return true;
+                    if (valPart > filterPart)
+                        return false;
+                }
+                return false;
+            }
+
             if (value.getTime && filter.getTime) return value.getTime() < filter.getTime();
             else return value < filter;
         },
@@ -153,6 +175,28 @@ const FilterService = {
 
             if (value === undefined || value === null) {
                 return false;
+            }
+
+            // Function to check if a string is a valid version
+            const isVersionString = (v) => /^\d+(\.\d+)*$/.test(v);
+
+            // Custom logic for comparing version strings
+            if (isVersionString(value) && isVersionString(filter)) {
+                const parseVersion = (version) => version.split('.').map(Number);
+                const valueArray = parseVersion(value);
+                const filterArray = parseVersion(filter);
+
+                // Compare each part of the version
+                for (let i = 0; i < Math.max(valueArray.length, filterArray.length); i++) {
+                    const valPart = valueArray[i] || 0;
+                    const filterPart = filterArray[i] || 0;
+
+                    if (valPart < filterPart) return true;
+                    if (valPart > filterPart) return false;
+                }
+
+                // If we reach here, it means the versions are equal
+                return true;
             }
 
             if (value.getTime && filter.getTime) return value.getTime() <= filter.getTime();
@@ -167,6 +211,28 @@ const FilterService = {
                 return false;
             }
 
+            // Function to check if a string is a valid version
+            const isVersionString = (v) => /^\d+(\.\d+)*$/.test(v);
+
+            // Custom logic for comparing version strings
+            if (isVersionString(value) && isVersionString(filter)) {
+                const parseVersion = (version) => version.split('.').map(Number);
+                const valueArray = parseVersion(value);
+                const filterArray = parseVersion(filter);
+
+                // Compare each part of the version
+                for (let i = 0; i < Math.max(valueArray.length, filterArray.length); i++) {
+                    const valPart = valueArray[i] || 0;
+                    const filterPart = filterArray[i] || 0;
+
+                    if (valPart > filterPart) return true;
+                    if (valPart < filterPart) return false;
+                }
+
+                // If we reach here, it means the versions are equal, so return false
+                return false;
+            }
+
             if (value.getTime && filter.getTime) return value.getTime() > filter.getTime();
             else return value > filter;
         },
@@ -177,6 +243,28 @@ const FilterService = {
 
             if (value === undefined || value === null) {
                 return false;
+            }
+
+            // Function to check if a string is a valid version
+            const isVersionString = (v) => /^\d+(\.\d+)*$/.test(v);
+
+            // Custom logic for comparing version strings
+            if (isVersionString(value) && isVersionString(filter)) {
+                const parseVersion = (version) => version.split('.').map(Number);
+                const valueArray = parseVersion(value);
+                const filterArray = parseVersion(filter);
+
+                // Compare each part of the version
+                for (let i = 0; i < Math.max(valueArray.length, filterArray.length); i++) {
+                    const valPart = valueArray[i] || 0;
+                    const filterPart = filterArray[i] || 0;
+
+                    if (valPart > filterPart) return true;
+                    if (valPart < filterPart) return false;
+                }
+
+                // If we reach here, it means the versions are equal, so return true
+                return true;
             }
 
             if (value.getTime && filter.getTime) return value.getTime() >= filter.getTime();
