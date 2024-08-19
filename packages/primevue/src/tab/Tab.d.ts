@@ -71,7 +71,7 @@ export interface TabProps {
     /**
      * Value of tab.
      */
-    value: string;
+    value: string | number;
     /**
      * Whether the tab is disabled.
      * @defaultValue false

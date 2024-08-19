@@ -71,7 +71,7 @@ export interface AccordionPanelProps {
     /**
      * Unique value of item.
      */
-    value: string;
+    value: string | number | undefined;
     /**
      * Whether the item is disabled.
      * @defaultValue false

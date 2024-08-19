@@ -91,7 +91,7 @@ export interface TabPanelProps {
     /**
      * Value of tabpanel.
      */
-    value: string;
+    value: string | number;
     /**
      * Use to change the HTML tag of root element.
      * @defaultValue DIV
