@@ -56,13 +56,45 @@
     </div>
     <div v-else-if="isBasic" :class="cx('root')" v-bind="ptmi('root')">
         <Message v-for="msg of messages" :key="msg" severity="error" @close="onMessageClose" :unstyled="unstyled" :pt="ptm('pcMessages')">{{ msg }}</Message>
-        <Button :label="chooseButtonLabel" :class="chooseButtonClass" :style="style" :disabled="disabled" :unstyled="unstyled" @mouseup="onBasicUploaderClick" @keydown.enter="choose" @focus="onFocus" @blur="onBlur" v-bind="ptm('pcButton')">
+        <Button
+            :label="hasFiles ? uploadButtonLabel : chooseButtonLabel"
+            :class="chooseButtonClass"
+            :style="style"
+            :disabled="disabled"
+            :unstyled="unstyled"
+            @mouseup="onBasicUploaderClick"
+            @keydown.enter="choose"
+            @focus="onFocus"
+            @blur="onBlur"
+            v-bind="chooseButtonProps"
+            :pt="ptm('pcChooseButton')"
+        >
             <template #icon="iconProps">
-                <slot v-if="!hasFiles || auto" name="uploadicon">
+                <slot v-if="hasFiles || auto" name="uploadicon">
                     <component :is="uploadIcon ? 'span' : 'UploadIcon'" :class="[iconProps.class, uploadIcon]" aria-hidden="true" v-bind="ptm('pcButton')['icon']" />
                 </slot>
                 <slot v-else name="chooseicon">
                     <component :is="chooseIcon ? 'span' : 'PlusIcon'" :class="[iconProps.class, chooseIcon]" aria-hidden="true" v-bind="ptm('pcButton')['icon']" />
+                </slot>
+            </template>
+        </Button>
+        <Button
+            v-if="hasFiles && !auto"
+            :label="cancelButtonLabel"
+            :class="chooseButtonClass"
+            :style="style"
+            :disabled="cancelDisabled"
+            :unstyled="unstyled"
+            @mouseup="clear"
+            @keydown.enter="clear"
+            @focus="onFocus"
+            @blur="onBlur"
+            v-bind="cancelButtonProps"
+            :pt="ptm('pcChooseButton')"
+        >
+            <template #icon="iconProps">
+                <slot name="cancelicon">
+                    <component :is="cancelIcon ? 'span' : 'TimesIcon'" :class="[iconProps.class, cancelIcon]" aria-hidden="true" v-bind="ptm('pcCancelButton')['icon']" data-pc-section="cancelbuttonicon" />
                 </slot>
             </template>
         </Button>
@@ -71,7 +103,7 @@
                 {{ basicFileChosenLabel }}
             </span>
         </slot>
-        <input v-if="!hasFiles" ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-bind="ptm('input')" />
+        <input ref="fileInput" type="file" :accept="accept" :disabled="disabled" :multiple="multiple" @change="onFileSelect" @focus="onFocus" @blur="onBlur" v-bind="ptm('input')" />
     </div>
 </template>
 
@@ -109,6 +141,7 @@ export default {
         },
         onBasicUploaderClick(event) {
             if (event.button === 0 && !this.hasFiles) this.$refs.fileInput.click();
+            else if (event.button === 0 && this.hasFiles) this.uploader();
         },
         onFileSelect(event) {
             if (event.type !== 'drop' && this.isIE11() && this.duplicateIEEvent) {
