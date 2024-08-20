@@ -15,7 +15,7 @@ export default {
             default: false
         },
         as: {
-            type: String,
+            type: [String, Object],
             default: 'DIV'
         }
     },
