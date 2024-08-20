@@ -117,7 +117,7 @@ export interface StepPanelSlots {
         /**
          * Click function.
          */
-        activateCallback: (value?: string | number) => void;
+        activateCallback: (value: string | number) => void;
     }): VNode[];
 }
 
