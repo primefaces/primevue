@@ -48,14 +48,14 @@ export default {
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
-                                        price: '$29',
-                                        discount: '',
+                                        price: '$49',
+                                        discount: '$29',
                                         included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', '1 Year Free Updates']
                                     },
                                     {
                                         title: 'Extended License',
-                                        price: '$290',
-                                        discount: '',
+                                        price: '$490',
+                                        discount: '$290',
                                         included: ['Commercial Usage', 'Multiple End Products', '1 Year Free Updates']
                                     }
                                 ]
