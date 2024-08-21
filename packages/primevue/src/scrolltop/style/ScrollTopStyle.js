@@ -2,13 +2,13 @@ import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
 .p-scrolltop.p-button {
-    position: fixed;
+    position: fixed !important;
     bottom: 20px;
     right: 20px;
 }
 
 .p-scrolltop-sticky.p-button {
-    position: sticky;
+    position: sticky !important;
     display: flex;
     margin-left: auto;
 }
