@@ -68,6 +68,15 @@ export default {
     closeButton: null,
     outsideClickListener: null,
     documentKeydownListener: null,
+    watch: {
+        dismissable(newValue) {
+            if (newValue) {
+                this.bindOutsideClickListener();
+            } else {
+                this.unbindOutsideClickListener();
+            }
+        }
+    },
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
