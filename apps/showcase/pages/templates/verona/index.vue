@@ -54,7 +54,7 @@ export default {
                                     {
                                         title: 'Extended License',
                                         price: '$490',
-                                        discount: '290',
+                                        discount: '$290',
                                         included: ['Commercial Usage', 'Multiple End Products', '1 Year Free Updates']
                                     }
                                 ]
