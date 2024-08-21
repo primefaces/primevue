@@ -6,7 +6,7 @@
                     <div class="flex-1 border border-surface rounded-xl lg:rounded-2xl p-6 min-w-80">
                         <span class="text-surface-600 dark:text-surface-400 font-semibold">{{ detail.title }}</span>
                         <div class="text-surface-900 dark:text-surface-0 text-4xl font-semibold mt-4 mb-5">
-                            <span :class="{ 'text-surface-600 dark:text-surface-400 line-through mr-4': license.showDiscount }">{{ detail.price }}</span>
+                            <span :class="{ 'text-muted-color line-through mr-4': license.showDiscount }">{{ detail.price }}</span>
                             <span v-if="license.showDiscount">{{ detail.discount }}</span>
                         </div>
                         <div class="flex flex-col gap-2 mb-5">
