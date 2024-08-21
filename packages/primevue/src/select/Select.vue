@@ -699,6 +699,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
 
+            this.autoFilterFocus && focus(this.$refs.focusInput);
             this.$emit('hide');
             this.overlay = null;
         },
