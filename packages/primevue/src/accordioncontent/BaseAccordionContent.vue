@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         as: {
-            type: String,
+            type: [String, Object],
             default: 'DIV'
         },
         asChild: {

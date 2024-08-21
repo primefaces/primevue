@@ -12,7 +12,7 @@ export default {
             default: undefined
         },
         as: {
-            type: String,
+            type: [String, Object],
             default: 'DIV'
         },
         asChild: {
