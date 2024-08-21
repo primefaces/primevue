@@ -162,7 +162,7 @@ export default {
 
                 case 'Enter':
                 case 'NumpadEnter':
-                case 'Tab':                
+                case 'Tab':
                     break;
 
                 default:
