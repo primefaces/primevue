@@ -123,7 +123,7 @@ describe('OrganizationChart.vue', () => {
     it('should exist', () => {
         expect(wrapper.find('.p-organizationchart.p-component').exists()).toBe(true);
         expect(wrapper.find('table.p-organizationchart-table').exists()).toBe(true);
-        expect(wrapper.findAll('.p-node-toggler-icon').length).toBe(5);
+        expect(wrapper.findAll('.p-organizationchart-node-toggle-button').length).toBe(5);
     });
 
     it('should collapsed and expand', async () => {
@@ -141,7 +141,7 @@ describe('OrganizationChart.vue', () => {
     });
 
     it('should item select and unselect', async () => {
-        const contents = wrapper.findAll('.p-organizationchart-node-content');
+        const contents = wrapper.findAll('.p-organizationchart-node.p-organizationchart-node-selectable');
 
         await wrapper.vm.onNodeClick(wrapper.vm.value);
 
@@ -150,7 +150,7 @@ describe('OrganizationChart.vue', () => {
 
         await wrapper.setProps({ selectionKeys: { 0: true } });
 
-        expect(contents[0].classes()).toContain('p-highlight');
+        expect(contents[0].classes()).toContain('p-organizationchart-node-selected');
 
         await wrapper.vm.onNodeClick(wrapper.vm.value);
 

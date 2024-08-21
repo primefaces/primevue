@@ -61,7 +61,6 @@ export const panel: MetaType[] = toMeta([
     'StepItem',
     'StepPanels',
     'StepPanel',
-    'StepperPanel',
     'TabView',
     'Tabs',
     'TabList',

@@ -15,7 +15,7 @@
         v-bind="level === 1 ? getPTOptions('node') : ptm('nodeChildren')"
     >
         <div :class="cx('nodeContent')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('nodeContent')" :data-p-selected="checkboxMode ? checked : selected" :data-p-selectable="selectable">
-            <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('nodeToggleButton')">
+            <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <!-- TODO: nodetogglericon deprecated since v4.0-->
                     <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :class="cx('nodeToggleIcon')" />

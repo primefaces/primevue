@@ -34,9 +34,9 @@ describe('Image.vue', () => {
             }
         });
 
-        expect(wrapper.find('.p-image-preview-container').exists()).toBe(true);
-        expect(wrapper.find('.p-image-preview-indicator').exists()).toBe(true);
-        expect(wrapper.find('.p-image-mask').exists()).toBe(false);
+        expect(wrapper.find('.p-image-preview').exists()).toBe(true);
+        expect(wrapper.find('.p-image-toolbar').exists()).toBe(false);
+        expect(wrapper.find('.p-image-preview-mask').exists()).toBe(true);
 
         await wrapper.setData({ maskVisible: true });
 

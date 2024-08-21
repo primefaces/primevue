@@ -673,7 +673,7 @@ export interface DataTablePassThroughOptions {
      * Used to pass attributes to the Paginator component.
      * @see {@link PaginatorPassThroughOptionType}
      */
-    paginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
+    pcPaginator?: PaginatorPassThroughOptionType<DataTableSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the table container's DOM element.
      */

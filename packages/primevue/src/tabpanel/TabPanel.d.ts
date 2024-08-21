@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { AnchorHTMLAttributes, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
+import type { AnchorHTMLAttributes, Component, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
 
 export declare type TabPanelPassThroughOptionType = TabPanelPassThroughAttributes | ((options: TabPanelPassThroughMethodOptions) => TabPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -91,12 +91,12 @@ export interface TabPanelProps {
     /**
      * Value of tabpanel.
      */
-    value: string;
+    value: string | number;
     /**
      * Use to change the HTML tag of root element.
      * @defaultValue DIV
      */
-    as?: string | undefined;
+    as?: string | Component | undefined;
     /**
      * When enabled, it changes the default rendered element for the one passed as a child element.
      * @defaultValue false

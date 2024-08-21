@@ -21,7 +21,7 @@ describe('Select.vue', () => {
 
     it('should Select exist', () => {
         expect(wrapper.find('.p-select.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-select-panel').exists()).toBe(true);
+        expect(wrapper.find('.p-select-overlay').exists()).toBe(true);
         expect(wrapper.find('.p-select-empty-message').exists()).toBe(true);
         expect(wrapper.find('.p-inputwrapper-filled').exists()).toBe(false);
         expect(wrapper.find('.p-inputwrapper-focus').exists()).toBe(true);
@@ -58,10 +58,10 @@ describe('option checks', () => {
 
     it('should show the options', () => {
         expect(wrapper.find('.p-select-label.p-placeholder').text()).toBe('Select a City');
-        expect(wrapper.find('.p-select-items-wrapper > .p-select-items').exists()).toBe(true);
-        expect(wrapper.find('.p-select-item').exists()).toBe(true);
-        expect(wrapper.findAll('.p-select-item').length).toBe(5);
-        expect(wrapper.findAll('.p-select-item')[0].text()).toBe('New York');
+        expect(wrapper.find('.p-select-list-container > .p-select-list').exists()).toBe(true);
+        expect(wrapper.find('.p-select-option').exists()).toBe(true);
+        expect(wrapper.findAll('.p-select-option').length).toBe(5);
+        expect(wrapper.findAll('.p-select-option')[0].text()).toBe('New York');
     });
 });
 
@@ -78,8 +78,15 @@ describe('clear checks', () => {
             },
             props: {
                 clearIcon: 'pi pi-discord',
-                modelValue: 'value',
-                showClear: true
+                modelValue: { name: 'New York', code: 'NY' },
+                showClear: true,
+                options: [
+                    { name: 'New York', code: 'NY' },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN' },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS' }
+                ]
             }
         });
 
@@ -122,7 +129,7 @@ describe('editable checks', () => {
 
     it('should show the options', () => {
         expect(wrapper.find('.p-select-label.p-placeholder').exists()).toBe(false);
-        expect(wrapper.find('.p-select-label.p-inputtext').exists()).toBe(true);
+        expect(wrapper.find('.p-select-label[type="text"]').exists()).toBe(true);
     });
 });
 
@@ -180,8 +187,8 @@ describe('option groups checks', () => {
     });
 
     it('should show the option groups', () => {
-        expect(wrapper.findAll('.p-select-item-group').length).toBe(3);
-        expect(wrapper.findAll('.p-select-item-group')[0].text()).toBe('Germany');
+        expect(wrapper.findAll('.p-select-option-group').length).toBe(3);
+        expect(wrapper.findAll('.p-select-option-group')[0].text()).toBe('Germany');
     });
 });
 
@@ -298,11 +305,11 @@ describe('loader checks', () => {
     });
 
     it('should show the loader', async () => {
-        expect(wrapper.find('.p-select-trigger-icon').classes()).toContain('pi-discord');
+        expect(wrapper.find('.p-select-loading-icon').classes()).toContain('pi-discord');
 
         await wrapper.setProps({ loading: false });
 
-        expect(wrapper.find('.p-select-trigger-icon').classes()).not.toContain('pi-discord');
+        expect(wrapper.find('.p-select-loading-icon').exists()).toBe(false);
     });
 });
 
@@ -341,7 +348,7 @@ describe('filter checks', () => {
 
     it('should make filtering', async () => {
         const filterInput = wrapper.find('.p-select-filter');
-        const filterIcon = wrapper.find('.p-select-filter-icon');
+        const filterIcon = wrapper.find('[data-pc-section="filtericon"]');
 
         expect(filterInput.exists()).toBe(true);
         expect(filterIcon.classes()).toContain('pi-discord');
@@ -356,6 +363,6 @@ describe('filter checks', () => {
 
         await wrapper.setData({ filterValue: 'c' });
 
-        expect(wrapper.findAll('.p-select-item').length).toBe(2);
+        expect(wrapper.findAll('.p-select-option').length).toBe(2);
     });
 });

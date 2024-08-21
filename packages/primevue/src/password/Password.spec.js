@@ -22,7 +22,7 @@ describe('Password.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-password.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-password-panel').exists()).toBe(true);
+        expect(wrapper.find('.p-password-overlay').exists()).toBe(true);
     });
 
     it('should update modelValue', async () => {
@@ -32,23 +32,24 @@ describe('Password.vue', () => {
     });
 
     it('should meter update', async () => {
-        expect(wrapper.find('.p-password-info').text()).toBe('Enter a password');
+        expect(wrapper.find('.p-password-content [data-pc-section="info"]').text()).toBe('Enter a password');
 
         await wrapper.vm.onKeyUp(event);
 
-        expect(wrapper.find('.p-password-info').text()).toBe('Weak');
+        expect(wrapper.find('.p-password-content [data-pc-section="info"]').text()).toBe('Weak');
 
-        expect(wrapper.find('.p-password-strength').classes()).toContain('weak');
+        expect(wrapper.find('.p-password-meter-label').classes()).toContain('p-password-meter-weak');
     });
 
     it('should toggle mask', async () => {
-        await wrapper.setProps({ toggleMask: true, showIcon: 'pi pi-eye', hideIcon: 'pi pi-eye-slash' });
+        await wrapper.setProps({ toggleMask: true });
 
-        expect(wrapper.find('.pi.pi-eye').exists()).toBe(true);
+        expect(wrapper.find('.p-password-toggle-mask-icon.p-password-unmask-icon').exists()).toBe(true);
+        expect(wrapper.find('.p-password-toggle-mask-icon.p-password-mask-icon').exists()).toBe(false);
 
         await wrapper.vm.onMaskToggle();
 
-        expect(wrapper.find('.pi.pi-eye').exists()).toBe(false);
-        expect(wrapper.find('.pi.pi-eye-slash').exists()).toBe(true);
+        expect(wrapper.find('.p-password-toggle-mask-icon.p-password-unmask-icon').exists()).toBe(false);
+        expect(wrapper.find('.p-password-toggle-mask-icon.p-password-mask-icon').exists()).toBe(true);
     });
 });

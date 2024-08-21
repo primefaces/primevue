@@ -57,11 +57,11 @@ describe('Menu.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-menu.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-submenu-header').length).toBe(2);
-        expect(wrapper.findAll('.p-submenu-header')[0].text()).toBe('Options');
-        expect(wrapper.findAll('.p-menuitem').length).toBe(4);
-        expect(wrapper.findAll('.p-menuitem')[0].find('span.p-menuitem-text').text()).toBe('Update');
-        expect(wrapper.findAll('.p-menuitem')[2].find('a').attributes().href).toBe('https://vuejs.org/');
+        expect(wrapper.findAll('.p-menu-submenu-label').length).toBe(2);
+        expect(wrapper.findAll('.p-menu-submenu-label')[0].text()).toBe('Options');
+        expect(wrapper.findAll('.p-menu-item').length).toBe(4);
+        expect(wrapper.findAll('.p-menu-item')[0].find('span.p-menu-item-label').text()).toBe('Update');
+        expect(wrapper.findAll('.p-menu-item')[2].find('a').attributes().href).toBe('https://vuejs.org/');
     });
 
     it('should popup work', async () => {

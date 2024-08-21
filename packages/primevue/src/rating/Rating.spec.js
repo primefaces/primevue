@@ -29,7 +29,7 @@ describe('Rating.vue', () => {
     });
 
     it('When star is clicked, onOptionClick method should triggered', async () => {
-        await wrapper.find('.p-rating-item').trigger('click');
+        await wrapper.find('.p-rating-option').trigger('click');
 
         expect(wrapper.find('[data-p-focused="true"]').exists()).toBe(true);
     });

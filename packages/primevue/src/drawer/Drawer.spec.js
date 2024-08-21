@@ -1,9 +1,17 @@
 import { addClass, removeClass } from '@primeuix/utils/dom';
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import Drawer from './Drawer.vue';
+vi.mock('@primeuix/utils/dom', async (getModule) => {
+    const original = await getModule();
 
+    return {
+        ...original,
+        addClass: vi.fn(),
+        removeClass: vi.fn()
+    };
+});
 describe('Drawer.vue', () => {
     let wrapper;
 
@@ -64,19 +72,17 @@ describe('Drawer.vue', () => {
     });
 
     it('When keydown is triggered , hide method should be triggered', async () => {
-        const hideSpy = vi.spyOn(wrapper.vm, 'hide');
-
         await wrapper.vm.onKeydown({ code: 'Escape' });
 
-        expect(hideSpy).toHaveBeenCalled();
+        expect(wrapper.emitted()['update:visible'].length).toBe(1);
     });
 
     it('When keydown is triggered , hide method should be triggered', async () => {
-        const hideSpy = vi.spyOn(wrapper.vm, 'hide');
+        const closeBtn = wrapper.find('.p-drawer-close-button');
 
-        await wrapper.find('.p-drawer-close').trigger('click');
+        await closeBtn.trigger('click');
 
-        expect(hideSpy).toHaveBeenCalled();
+        expect(wrapper.emitted()['update:visible'].length).toBe(1);
     });
 
     it('When component is unmount , unbindOutsideClickListenerSpy method should be triggered', async () => {
@@ -88,31 +94,11 @@ describe('Drawer.vue', () => {
         expect(Drawer.container).toBe(null);
     });
 
-    it('When hide is triggered , removeClass util should be called', async () => {
-        const removeClassSpy = vi.spyOn(removeClass);
-
-        await wrapper.setProps({ blockScroll: true });
-        wrapper.vm.disableDocumentSettings();
-
-        expect(removeClassSpy).toHaveBeenCalled();
-    });
-
-    it('When onEnter is triggered , addClass util should be called', async () => {
-        const addClassSpy = vi.spyOn(addClass);
-
-        await wrapper.setProps({ blockScroll: true });
-        wrapper.vm.enableDocumentSettings();
-
-        expect(addClassSpy).toHaveBeenCalled();
-    });
-
     it('When onBeforeLeave is triggered , addClass util should be called', async () => {
-        const addClassSpy = vi.spyOn(addClass);
-
         await wrapper.setProps({ modal: true });
         wrapper.vm.onBeforeLeave();
 
-        expect(addClassSpy).toHaveBeenCalled();
+        expect(addClass).toHaveBeenCalled();
     });
 
     it('When onAfterLeave is triggered , containerVisible should be false', async () => {

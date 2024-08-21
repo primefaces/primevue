@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         value: {
-            type: String,
+            type: [String, Number],
             default: undefined
         },
         disabled: {
@@ -15,7 +15,7 @@ export default {
             default: false
         },
         as: {
-            type: String,
+            type: [String, Object],
             default: 'BUTTON'
         },
         asChild: {

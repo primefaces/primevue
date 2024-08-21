@@ -60,28 +60,28 @@ describe('MegaMenu.vue', () => {
         expect(wrapper.find('.p-megamenu.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-megamenu-root-list').exists()).toBe(true);
         expect(wrapper.findAll('ul.p-megamenu-submenu').length).toBe(5);
-        expect(wrapper.findAll('li.p-menuitem').length).toBe(12);
-        expect(wrapper.findAll('li.p-menuitem')[0].findAll('span.p-menuitem-text')[0].text()).toBe('Videos');
-        expect(wrapper.findAll('li.p-megamenu-submenu-header')[0].text()).toBe('Video 1');
-        expect(wrapper.findAll('li.p-menuitem')[1].findAll('span.p-menuitem-text')[0].text()).toBe('Video 1.1');
+        expect(wrapper.findAll('li.p-megamenu-item').length).toBe(12);
+        expect(wrapper.findAll('li.p-megamenu-item')[0].findAll('span.p-megamenu-item-label')[0].text()).toBe('Videos');
+        expect(wrapper.findAll('li.p-megamenu-submenu-label')[0].text()).toBe('Video 1');
+        expect(wrapper.findAll('li.p-megamenu-item')[1].findAll('span.p-megamenu-item-label')[0].text()).toBe('Video 1.1');
     });
 
     it('should select item', async () => {
-        const firstItem = wrapper.findAll('li.p-menuitem')[0];
+        const firstItem = wrapper.findAll('li.p-megamenu-item')[0];
 
-        await firstItem.find('.p-menuitem-content').trigger('click');
+        await firstItem.find('.p-megamenu-item-content').trigger('click');
 
-        expect(firstItem.classes()).toContain('p-menuitem-active');
+        expect(firstItem.classes()).toContain('p-megamenu-item-active');
     });
 
     it('should deselect item', async () => {
-        const firstItem = wrapper.findAll('li.p-menuitem')[0];
-        const firstItemContent = firstItem.find('.p-menuitem-content');
+        const firstItem = wrapper.findAll('li.p-megamenu-item')[0];
+        const firstItemContent = firstItem.find('.p-megamenu-item-content');
 
         await firstItemContent.trigger('click');
         await firstItemContent.trigger('click');
 
-        expect(firstItem.classes()).not.toContain('p-menuitem-active');
+        expect(firstItem.classes()).not.toContain('p-megamenu-item-active');
     });
 
     it('should orientation work', async () => {

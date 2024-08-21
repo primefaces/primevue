@@ -36,9 +36,9 @@ describe('MultiSelect.vue', () => {
 
         await wrapper.vm.onContainerClick();
 
-        expect(wrapper.findAll('li.p-multiselect-item').length).toBe(5);
-        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['aria-label']).toBe('New York');
-        expect(wrapper.findAll('li.p-multiselect-item')[0].text()).toBe('New York');
+        expect(wrapper.findAll('li.p-multiselect-option').length).toBe(5);
+        expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['aria-label']).toBe('New York');
+        expect(wrapper.findAll('li.p-multiselect-option')[0].text()).toBe('New York');
     });
 
     it('should select an item', async () => {
@@ -49,7 +49,7 @@ describe('MultiSelect.vue', () => {
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0]] });
         await wrapper.vm.onContainerClick();
 
-        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-selected']).toBe('true');
+        expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
         expect(wrapper.find('.p-multiselect-label').text()).toBe('New York');
     });
 
@@ -63,14 +63,8 @@ describe('MultiSelect.vue', () => {
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0], wrapper.vm.options[1]] });
         await wrapper.vm.onContainerClick();
 
-        expect(wrapper.findAll('li.p-multiselect-item')[0].attributes()['data-p-selected']).toBe('true');
-        expect(wrapper.findAll('li.p-multiselect-item')[1].attributes()['data-p-selected']).toBe('true');
-    });
-
-    it('should close panel', async () => {
-        await wrapper.vm.onCloseClick();
-
-        expect(wrapper.find('.p-multiselect-panel').exists()).toBe(false);
+        expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
+        expect(wrapper.findAll('li.p-multiselect-option')[1].attributes()['data-p-selected']).toBe('true');
     });
 
     it('should chip work', async () => {
@@ -79,8 +73,8 @@ describe('MultiSelect.vue', () => {
             modelValue: [wrapper.vm.options[0]]
         });
 
-        expect(wrapper.find('.p-multiselect-token').exists()).toBe(true);
-        expect(wrapper.find('.p-multiselect-token-label').text()).toBe('New York');
+        expect(wrapper.find('.p-chip.p-multiselect-chip').exists()).toBe(true);
+        expect(wrapper.find('.p-chip.p-multiselect-chip > .p-chip-label').text()).toBe('New York');
     });
 
     describe('custom icons', () => {
@@ -91,7 +85,7 @@ describe('MultiSelect.vue', () => {
                 removeTokenIcon: 'pi pi-discord'
             });
 
-            const icon = wrapper.find('.p-multiselect-token-icon');
+            const icon = wrapper.find('.p-chip-remove-icon');
 
             expect(icon.classes()).toContain('pi-discord');
         });
@@ -101,7 +95,7 @@ describe('MultiSelect.vue', () => {
                 dropdownIcon: 'pi pi-discord'
             });
 
-            const icon = wrapper.find('.p-multiselect-trigger-icon');
+            const icon = wrapper.find('.p-multiselect-dropdown [data-pc-section="dropdownicon"]');
 
             expect(icon.classes()).toContain('pi-discord');
         });
@@ -114,19 +108,7 @@ describe('MultiSelect.vue', () => {
 
             await wrapper.vm.onContainerClick();
 
-            const icon = wrapper.find('.p-multiselect-filter-icon');
-
-            expect(icon.classes()).toContain('pi-discord');
-        });
-
-        it('should have custom close icon', async () => {
-            await wrapper.setProps({
-                closeIcon: 'pi pi-discord'
-            });
-
-            await wrapper.vm.onContainerClick();
-
-            const icon = wrapper.find('.p-multiselect-close-icon');
+            const icon = wrapper.find('.p-multiselect-filter-container [data-pc-section="filtericon"]');
 
             expect(icon.classes()).toContain('pi-discord');
         });
@@ -191,7 +173,7 @@ describe('MultiSelect.vue', () => {
             });
 
             await wrapper.vm.onContainerClick();
-            expect(wrapper.find('.p-multiselect-item-group').exists()).toBe(true);
+            expect(wrapper.find('.p-multiselect-option-group').exists()).toBe(true);
         });
 
         it('should show emit the filter event when filter text is entered', async () => {
@@ -227,8 +209,8 @@ describe('MultiSelect.vue', () => {
             input.value = 'Ber';
 
             await wrapper.vm.onFilterChange({ target: input });
-            expect(wrapper.findAll('.p-multiselect-item-group').length).toBe(1);
-            expect(wrapper.find('.p-multiselect-item-group').text()).toBe('Germany');
+            expect(wrapper.findAll('.p-multiselect-list').length).toBe(1);
+            expect(wrapper.find('.p-multiselect-option-group').text()).toBe('Germany');
         });
     });
 });

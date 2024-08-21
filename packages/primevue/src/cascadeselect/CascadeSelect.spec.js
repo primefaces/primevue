@@ -106,20 +106,20 @@ describe('CascadeSelect.vue', () => {
 
         await wrapper.trigger('click');
 
-        expect(wrapper.find('.p-cascadeselect-panel.p-cascadeselect-items').exists()).toBe(true);
-        expect(wrapper.findAll('.p-cascadeselect-item').length).toBe(3);
-        expect(wrapper.findAll('.p-cascadeselect-item-text')[0].text()).toBe('Australia');
+        expect(wrapper.find('.p-cascadeselect-list').exists()).toBe(true);
+        expect(wrapper.findAll('.p-cascadeselect-option').length).toBe(3);
+        expect(wrapper.findAll('.p-cascadeselect-option-text')[0].text()).toBe('Australia');
 
-        const firstGroup = wrapper.findAll('.p-cascadeselect-item-content')[0];
+        const firstGroup = wrapper.findAll('.p-cascadeselect-option-content')[0];
 
         await firstGroup.trigger('click');
 
-        expect(wrapper.find('.p-cascadeselect-panel.p-cascadeselect-sublist').exists()).toBe(true);
+        expect(wrapper.find('.p-cascadeselect-list .p-cascadeselect-option-list').exists()).toBe(true);
 
-        const sublist = wrapper.find('.p-cascadeselect-panel.p-cascadeselect-sublist');
+        const sublist = wrapper.find('.p-cascadeselect-list .p-cascadeselect-option-list');
 
-        expect(sublist.findAll('.p-cascadeselect-item.p-cascadeselect-item-group').length).toBe(2);
-        expect(sublist.findAll('.p-cascadeselect-item-text')[0].text()).toBe('New South Wales');
+        expect(sublist.findAll('.p-cascadeselect-option').length).toBe(2);
+        expect(sublist.findAll('.p-cascadeselect-option-text')[0].text()).toBe('New South Wales');
     });
 
     it('should accept custom icons', async () => {
@@ -130,7 +130,7 @@ describe('CascadeSelect.vue', () => {
 
         await nextTick();
 
-        expect(wrapper.find('.p-cascadeselect-trigger-icon').classes()).toContain('pi-discord');
+        expect(wrapper.find('.p-cascadeselect-dropdown-icon').classes()).toContain('pi-discord');
 
         await wrapper.trigger('click');
 

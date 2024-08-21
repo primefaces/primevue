@@ -1,4 +1,3 @@
-import virtualscroller from '@primevue/themes/aura/virtualscroller';
 import accordion from '@primevue/themes/lara/accordion';
 import autocomplete from '@primevue/themes/lara/autocomplete';
 import avatar from '@primevue/themes/lara/avatar';
@@ -83,6 +82,7 @@ import tooltip from '@primevue/themes/lara/tooltip';
 import tree from '@primevue/themes/lara/tree';
 import treeselect from '@primevue/themes/lara/treeselect';
 import treetable from '@primevue/themes/lara/treetable';
+import virtualscroller from '@primevue/themes/lara/virtualscroller';
 
 export default {
     primitive: {

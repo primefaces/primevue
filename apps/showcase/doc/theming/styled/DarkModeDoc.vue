@@ -39,12 +39,12 @@ app.use(PrimeVue, {
             },
             code2: {
                 basic: `
-<Button label="Toggle Color Scheme" @click="toggleColorScheme()" />
+<Button label="Toggle Dark Mode" @click="toggleDarkMode()" />
 `
             },
             code3: {
                 basic: `
-const toggleColorScheme() {
+function toggleDarkMode() {
     const element = document.querySelector('html');
     element.classList.toggle('my-app-dark');
 }

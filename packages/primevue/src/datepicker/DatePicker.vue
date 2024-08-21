@@ -32,7 +32,7 @@
             @keydown="onKeyDown"
             :pt="ptm('pcInput')"
         />
-        <slot v-if="showIcon && iconDisplay === 'button'" name="dropdownbutton">
+        <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
             <button
                 :class="cx('dropdown')"
                 :disabled="disabled"
@@ -49,7 +49,7 @@
                 </slot>
             </button>
         </slot>
-        <template v-else-if="showIcon && iconDisplay === 'input'">
+        <template v-else-if="showIcon && iconDisplay === 'input' && !inline">
             <span v-if="$slots.inputicon || showIcon" :class="cx('inputIconContainer')" v-bind="ptm('inputIconContainer')">
                 <slot name="inputicon" :class="cx('inputIcon')" :clickCallback="onButtonClick">
                     <component :is="icon ? 'i' : 'CalendarIcon'" :class="[icon, cx('inputIcon')]" @click="onButtonClick" v-bind="ptm('inputicon')" />
@@ -750,7 +750,7 @@ export default {
 
                 return start === year || end === year || (start < year && end > year);
             } else {
-                return value.getFullYear() === year;
+                return this.modelValue.getFullYear() === year;
             }
         },
         isDateEquals(value, dateMeta) {
@@ -2710,14 +2710,14 @@ export default {
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];
                         let styles = `
-                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
+                            .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
                                 display: inline-flex;
                             }
                         `;
 
                         for (let j = numMonths; j < this.numberOfMonths; j++) {
                             styles += `
-                                .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
+                                .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
                                     display: none;
                                 }
                             `;

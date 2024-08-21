@@ -18,7 +18,7 @@
             >
                 <div :class="cx('itemContent')" @click="onItemClick($event, processedItem)" @mousemove="onItemMouseMove($event, processedItem)" v-bind="getPTOptions('itemContent', processedItem, index)">
                     <template v-if="!templates.item">
-                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink', processedItem, index)">
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" v-bind="getPTOptions('itemLink', processedItem, index)">
                             <template v-if="isItemGroup(processedItem)">
                                 <component v-if="templates.submenuicon" :is="templates.submenuicon" :class="cx('submenuIcon')" :active="isItemActive(processedItem)" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
                                 <component v-else :is="isItemActive(processedItem) ? 'ChevronDownIcon' : 'ChevronRightIcon'" :class="cx('submenuIcon')" v-bind="getPTOptions('submenuIcon', processedItem, index)" />
@@ -72,8 +72,8 @@
 </template>
 
 <script>
+import { isNotEmpty, resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { resolve, isNotEmpty } from '@primeuix/utils/object';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';

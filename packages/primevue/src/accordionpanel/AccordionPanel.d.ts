@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import type { Component, VNode } from 'vue';
 
 export declare type AccordionPanelPassThroughOptionType = AccordionPanelPassThroughAttributes | ((options: AccordionPanelPassThroughMethodOptions) => AccordionPanelPassThroughAttributes | string) | string | null | undefined;
 
@@ -71,7 +71,7 @@ export interface AccordionPanelProps {
     /**
      * Unique value of item.
      */
-    value: string;
+    value: string | number | undefined;
     /**
      * Whether the item is disabled.
      * @defaultValue false
@@ -81,7 +81,7 @@ export interface AccordionPanelProps {
      * Use to change the HTML tag of root element.
      * @defaultValue DIV
      */
-    as?: string | undefined;
+    as?: string | Component | undefined;
     /**
      * When enabled, it changes the default rendered element for the one passed as a child element.
      * @defaultValue false

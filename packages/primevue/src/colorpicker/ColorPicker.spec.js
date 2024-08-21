@@ -21,11 +21,11 @@ describe('ColorPicker.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-colorpicker.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-colorpicker-preview.p-inputtext').exists()).toBe(true);
+        expect(wrapper.find('input.p-colorpicker-preview').exists()).toBe(true);
     });
 
     it('should input click triggered', async () => {
-        const input = wrapper.find('.p-colorpicker-preview.p-inputtext');
+        const input = wrapper.find('input.p-colorpicker-preview');
         const onInputClick = vi.spyOn(wrapper.vm, 'onInputClick');
 
         await input.trigger('click');
@@ -37,7 +37,7 @@ describe('ColorPicker.vue', () => {
     });
 
     it('should mouse events triggered', async () => {
-        const input = wrapper.find('.p-colorpicker-preview.p-inputtext');
+        const input = wrapper.find('input.p-colorpicker-preview');
 
         await input.trigger('click');
 
@@ -49,11 +49,11 @@ describe('ColorPicker.vue', () => {
         wrapper.vm.onColorMousedown(event);
 
         expect(onColorMousedown).toHaveBeenCalled();
-        expect(wrapper.find('.p-colorpicker-preview.p-inputtext').element.style.backgroundColor).not.toBe('rgb(255, 0, 0)');
+        expect(wrapper.find('input.p-colorpicker-preview').element.style.backgroundColor).not.toBe('rgb(255, 0, 0)');
 
         wrapper.vm.onHueMousedown(event2);
 
         expect(onHueMousedown).toHaveBeenCalled();
-        expect(wrapper.find('.p-colorpicker-preview.p-inputtext').element.style.backgroundColor).not.toBe('rgb(255, 0, 0)');
+        expect(wrapper.find('input.p-colorpicker-preview').element.style.backgroundColor).not.toBe('rgb(255, 0, 0)');
     });
 });

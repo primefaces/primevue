@@ -154,8 +154,8 @@ describe('ContextMenu.vue', () => {
 
         expect(show).toHaveBeenCalled();
         expect(wrapper.find('.p-contextmenu.p-component').exists()).toBe(true);
-        expect(wrapper.findAll('.p-menuitem').length).toBe(5);
-        expect(wrapper.findAll('.p-menuitem-text')[0].text()).toBe('File');
+        expect(wrapper.findAll('.p-contextmenu-item').length).toBe(5);
+        expect(wrapper.findAll('.p-contextmenu-item-label')[0].text()).toBe('File');
     });
 
     it('should hide menu', async () => {

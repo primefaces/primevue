@@ -47,13 +47,13 @@ describe('PickList.vue', () => {
 
     it('should exist', () => {
         expect(wrapper.find('.p-picklist.p-component').exists()).toBe(true);
-        expect(wrapper.find('.p-picklist-list-wrapper.p-picklist-source-wrapper').exists()).toBe(true);
-        expect(wrapper.find('.p-picklist-list-wrapper.p-picklist-target-wrapper').exists()).toBe(true);
+        expect(wrapper.find('.p-picklist-list-container.p-picklist-source-list-container').exists()).toBe(true);
+        expect(wrapper.find('.p-picklist-list-container.p-picklist-target-list-container').exists()).toBe(true);
     });
 
     it('should slots work', () => {
-        expect(wrapper.find('.p-picklist-source-wrapper > .p-picklist-header').text()).toBe('Available');
-        expect(wrapper.find('.p-picklist-target-wrapper > .p-picklist-header').text()).toBe('Selected');
+        expect(wrapper.find('.p-picklist-source-list-container .p-listbox-header').text()).toBe('Available');
+        expect(wrapper.find('.p-picklist-target-list-container .p-listbox-header').text()).toBe('Selected');
     });
 
     it('should update sourceList and targetList', async () => {
@@ -95,15 +95,20 @@ describe('PickList.vue', () => {
     });
 
     it('should select an item from source list', async () => {
-        await wrapper.vm.onItemClick({}, wrapper.vm.modelValue[0][0], 0, 0);
+        const sourceListItem = wrapper.find('.p-picklist-source-list-container .p-listbox-option');
 
+        expect(sourceListItem.classes()).not.toContain('p-listbox-option-selected');
+
+        await sourceListItem.trigger('click');
+
+        expect(sourceListItem.classes()).toContain('p-listbox-option-selected');
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([[wrapper.vm.modelValue[0][0]], []]);
     });
 
     it('should dblclick an item from source list', async () => {
         await wrapper.setProps({ selection: [[wrapper.vm.modelValue[0][0]], []] });
 
-        await wrapper.vm.onItemDblClick({}, wrapper.vm.modelValue[0][0], 0);
+        wrapper.vm.onItemDblClick({}, 0);
 
         expect(wrapper.emitted()['update:modelValue'][0][0][1]).toEqual([wrapper.vm.modelValue[0][0]]);
         expect(wrapper.emitted()['move-to-target'][0]).toEqual([{ originalEvent: {}, items: [wrapper.vm.modelValue[0][0]] }]);

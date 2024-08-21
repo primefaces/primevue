@@ -118,7 +118,7 @@ export interface AccordionProps {
      * Value of the active panel or an array of values in multiple mode.
      * @defaultValue null
      */
-    value?: string | string[] | null | undefined;
+    value?: string | string[] | number | number[] | null | undefined;
     /**
      * When enabled, multiple tabs can be activated at the same time.
      * @defaultValue false

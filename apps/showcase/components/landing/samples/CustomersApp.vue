@@ -598,7 +598,7 @@ export default {
                     {
                         type: 'bar',
                         label: 'Investment Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + borderColor + ' 100%, transparent)',
+                        backgroundColor: borderColor,
                         data: [100, 201, 404, 300, 140, 220, 314, 520, 145, 234, 325, 147],
                         borderRadius: {
                             topLeft: 4,
@@ -606,7 +606,7 @@ export default {
                         },
                         borderSkipped: true,
                         barThickness: 20,
-                        hoverBackgroundColor: 'color-mix(in srgb, ' + hoverBackgroundColor + ' 100%, transparent)',
+                        hoverBackgroundColor: hoverBackgroundColor,
                         hoverTransition: '1s ease all'
                     }
                 ]

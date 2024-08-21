@@ -20,8 +20,8 @@ describe('Avatar.vue', () => {
         expect(wrapper.find('.p-avatar.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-avatar-lg').exists()).toBe(true);
         expect(wrapper.find('.p-avatar-circle').exists()).toBe(true);
-        expect(wrapper.find('.p-avatar-text').exists()).toBe(true);
-        expect(wrapper.find('.p-avatar-text').text()).toBe('T');
+        expect(wrapper.find('.p-avatar-label').exists()).toBe(true);
+        expect(wrapper.find('.p-avatar-label').text()).toBe('T');
     });
 
     it('should exist', async () => {
