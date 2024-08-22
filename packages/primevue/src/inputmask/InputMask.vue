@@ -11,6 +11,7 @@
         :placeholder="placeholder"
         :fluid="hasFluid"
         :unstyled="unstyled"
+        @input="onInput"
         @compositionend="onInput"
         @focus="onFocus"
         @blur="onBlur"
@@ -53,10 +54,14 @@ export default {
     },
     methods: {
         onInput(event) {
-            if (this.androidChrome) this.handleAndroidInput(event);
-            else this.handleInputChange(event);
+            // Check if the event is part of a text composition process (e.g., for Asian languages).
+            // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
+            if (!event.isComposing) {
+                if (this.androidChrome) this.handleAndroidInput(event);
+                else this.handleInputChange(event);
 
-            this.$emit('update:modelValue', event.target.value);
+                this.$emit('update:modelValue', event.target.value);
+            }
         },
         onFocus(event) {
             if (this.readonly) {
