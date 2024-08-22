@@ -726,7 +726,27 @@ export default {
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
+            if (this.filterValue) {
+                const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+
+                if (this.optionGroupLabel) {
+                    const optionGroups = this.options || [];
+                    const filtered = [];
+
+                    optionGroups.forEach((group) => {
+                        const groupChildren = this.getOptionGroupChildren(group);
+                        const filteredItems = groupChildren.filter((item) => filteredOptions.includes(item));
+
+                        if (filteredItems.length > 0) filtered.push({ ...group, [typeof this.optionGroupChildren === 'string' ? this.optionGroupChildren : 'items']: [...filteredItems] });
+                    });
+
+                    return this.flatOptions(filtered);
+                }
+
+                return filteredOptions;
+            }
+
+            return options;
         },
         hasSelectedOption() {
             return isNotEmpty(this.modelValue);

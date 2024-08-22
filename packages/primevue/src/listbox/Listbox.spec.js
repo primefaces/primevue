@@ -47,5 +47,70 @@ describe('Listbox.vue', () => {
 
             expect(icon.classes()).toContain('pi-discord');
         });
+
+        it('should correctly filter', async () => {
+            await wrapper.setProps({
+                filter: true
+            });
+
+            const filterInput = wrapper.find('input.p-listbox-filter');
+
+            expect(filterInput.exists()).toBe(true);
+
+            await filterInput.setValue('is');
+
+            const options = wrapper.findAll('.p-listbox-option');
+
+            expect(options.length).toBe(2);
+            expect(options[0].text()).toBe('Istanbul');
+        });
+
+        it('should correctly filter groups', async () => {
+            await wrapper.setProps({
+                filter: true,
+                optionGroupLabel: 'label',
+                optionLabel: 'label',
+                optionGroupChildren: 'items',
+                options: [
+                    {
+                        label: 'Germany',
+                        code: 'DE',
+                        items: [
+                            { label: 'Berlin', value: 'Berlin' },
+                            { label: 'Frankfurt', value: 'Frankfurt' },
+                            { label: 'Hamburg', value: 'Hamburg' },
+                            { label: 'Munich', value: 'Munich' }
+                        ]
+                    },
+                    {
+                        label: 'USA',
+                        code: 'US',
+                        items: [
+                            { label: 'Chicago', value: 'Chicago' },
+                            { label: 'Los Angeles', value: 'Los Angeles' },
+                            { label: 'New York', value: 'New York' },
+                            { label: 'San Francisco', value: 'San Francisco' }
+                        ]
+                    }
+                ]
+            });
+
+            const filterInput = wrapper.find('input.p-listbox-filter');
+
+            expect(filterInput.exists()).toBe(true);
+
+            await filterInput.setValue('ch');
+
+            const optionGroups = wrapper.findAll('.p-listbox-option-group');
+            const options = wrapper.findAll('.p-listbox-option');
+
+            expect(optionGroups.length).toBe(2);
+            expect(optionGroups[0].text()).toBe('Germany');
+            expect(optionGroups[1].text()).toBe('USA');
+
+            expect(options.length).toBe(2);
+            expect(options[0].text()).toBe('Munich');
+            expect(options[1].text()).toBe('Chicago');
+        });
     });
 });
