@@ -178,7 +178,7 @@ export default {
             this.$emit('item-mousemove', { originalEvent: event, processedItem });
         },
         getAriaPosInset(index) {
-            return index - this.ariaPosInsetCompute.slice(0, index).length + 1;
+            return index - this.calculateAriaSetSize.slice(0, index).length + 1;
         },
         getMenuItemProps(processedItem, index) {
             return {
@@ -212,7 +212,7 @@ export default {
         }
     },
     computed: {
-        ariaPosInsetCompute() {
+        calculateAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator'));
         },
         getAriaSetSize() {
