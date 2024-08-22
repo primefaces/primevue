@@ -86,9 +86,9 @@ const theme = ({ dt }) => `
 }
 
 .p-image-action:focus-visible {
-    box-shadow: ${dt('toolbar.action.focus.ring.shadow')};
-    outline: ${dt('toolbar.action.focus.ring.width')} ${dt('toolbar.action.focus.ring.style')} ${dt('toolbar.action.focus.ring.color')};
-    outline-offset: ${dt('toolbar.action.focus.ring.offset')};
+    box-shadow: ${dt('image.action.focus.ring.shadow')};
+    outline: ${dt('image.action.focus.ring.width')} ${dt('image.action.focus.ring.style')} ${dt('image.action.focus.ring.color')};
+    outline-offset: ${dt('image.action.focus.ring.offset')};
 }
 
 .p-image-action .p-icon {
