@@ -40,6 +40,7 @@ const theme = ({ dt }) => `
     top: 1px;
     right: 1px;
     height: calc(100% - 2px);
+    z-index: 1;
 }
 
 .p-inputnumber-stacked .p-inputnumber-increment-button {
