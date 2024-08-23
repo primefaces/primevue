@@ -495,6 +495,12 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
+            const isComposing = event.isComposing;
+
+            // Avoid IME input issue in Chinese, Japanese and Korean languages
+            // If they are still typing, do not trigger onFilterKeyDown
+            if (isComposing) return;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
