@@ -76,7 +76,7 @@
                     ></span>
                     <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
-                        <IconField :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
+                        <IconField :unstyled="unstyled" v-bind="ptm('pcFilterContainer')">
                             <InputText
                                 ref="filterInput"
                                 type="text"
@@ -94,7 +94,7 @@
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
-                                :pt="ptm('pcFilter')"
+                                v-bind="ptm('pcFilter')"
                             />
                             <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
