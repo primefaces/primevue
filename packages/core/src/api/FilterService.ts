@@ -1,8 +1,8 @@
 import { equals, removeAccents, resolveFieldData } from '@primeuix/utils/object';
 
 const FilterService = {
-    filter(value, fields, filterValue, filterMatchMode, filterLocale) {
-        let filteredItems = [];
+    filter(value: any, fields: string[], filterValue: any, filterMatchMode: keyof typeof this.filters, filterLocale?: string) {
+        let filteredItems: string[] = [];
 
         if (!value) {
             return filteredItems;
@@ -29,7 +29,7 @@ const FilterService = {
         return filteredItems;
     },
     filters: {
-        startsWith(value, filter, filterLocale) {
+        startsWith(value: string, filter: string, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
@@ -43,7 +43,7 @@ const FilterService = {
 
             return stringValue.slice(0, filterValue.length) === filterValue;
         },
-        contains(value, filter, filterLocale) {
+        contains(value: string, filter: string, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
@@ -57,7 +57,7 @@ const FilterService = {
 
             return stringValue.indexOf(filterValue) !== -1;
         },
-        notContains(value, filter, filterLocale) {
+        notContains(value: string, filter: string, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
@@ -71,7 +71,7 @@ const FilterService = {
 
             return stringValue.indexOf(filterValue) === -1;
         },
-        endsWith(value, filter, filterLocale) {
+        endsWith(value: string, filter: string, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
@@ -85,7 +85,7 @@ const FilterService = {
 
             return stringValue.indexOf(filterValue, stringValue.length - filterValue.length) !== -1;
         },
-        equals(value, filter, filterLocale) {
+        equals(value: Date, filter: string | Date, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return true;
             }
@@ -94,10 +94,10 @@ const FilterService = {
                 return false;
             }
 
-            if (value.getTime && filter.getTime) return value.getTime() === filter.getTime();
+            if (value.getTime && filter instanceof Date && filter.getTime) return value.getTime() === filter.getTime();
             else return removeAccents(value.toString()).toLocaleLowerCase(filterLocale) == removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
         },
-        notEquals(value, filter, filterLocale) {
+        notEquals<T extends string | Date>(value: T, filter: T, filterLocale?: string) {
             if (filter === undefined || filter === null || filter === '') {
                 return false;
             }
@@ -106,23 +106,23 @@ const FilterService = {
                 return true;
             }
 
-            if (value.getTime && filter.getTime) return value.getTime() !== filter.getTime();
+            if (value instanceof Date && filter instanceof Date) return value.getTime() !== filter.getTime();
             else return removeAccents(value.toString()).toLocaleLowerCase(filterLocale) != removeAccents(filter.toString()).toLocaleLowerCase(filterLocale);
         },
-        in(value, filter) {
+        in(value: string, filter: string) {
             if (filter === undefined || filter === null || filter.length === 0) {
                 return true;
             }
 
             for (let i = 0; i < filter.length; i++) {
-                if (equals(value, filter[i])) {
+                if (equals(value, filter)) {
                     return true;
                 }
             }
 
             return false;
         },
-        between(value, filter) {
+        betweenM(value: Date, filter: Date[]) {
             if (filter == null || filter[0] == null || filter[1] == null) {
                 return true;
             }
@@ -134,7 +134,7 @@ const FilterService = {
             if (value.getTime) return filter[0].getTime() <= value.getTime() && value.getTime() <= filter[1].getTime();
             else return filter[0] <= value && value <= filter[1];
         },
-        lt(value, filter) {
+        lt(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -143,10 +143,10 @@ const FilterService = {
                 return false;
             }
 
-            if (value.getTime && filter.getTime) return value.getTime() < filter.getTime();
+            if (filter instanceof Date && value.getTime && filter.getTime) return value.getTime() < filter.getTime();
             else return value < filter;
         },
-        lte(value, filter) {
+        lte(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -158,7 +158,7 @@ const FilterService = {
             if (value.getTime && filter.getTime) return value.getTime() <= filter.getTime();
             else return value <= filter;
         },
-        gt(value, filter) {
+        gt(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -170,7 +170,7 @@ const FilterService = {
             if (value.getTime && filter.getTime) return value.getTime() > filter.getTime();
             else return value > filter;
         },
-        gte(value, filter) {
+        gte(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -182,7 +182,7 @@ const FilterService = {
             if (value.getTime && filter.getTime) return value.getTime() >= filter.getTime();
             else return value >= filter;
         },
-        dateIs(value, filter) {
+        dateIs(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -193,7 +193,7 @@ const FilterService = {
 
             return value.toDateString() === filter.toDateString();
         },
-        dateIsNot(value, filter) {
+        dateIsNot(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -204,7 +204,7 @@ const FilterService = {
 
             return value.toDateString() !== filter.toDateString();
         },
-        dateBefore(value, filter) {
+        dateBefore(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -215,7 +215,7 @@ const FilterService = {
 
             return value.getTime() < filter.getTime();
         },
-        dateAfter(value, filter) {
+        dateAfter(value: Date, filter: Date) {
             if (filter === undefined || filter === null) {
                 return true;
             }
@@ -227,7 +227,7 @@ const FilterService = {
             return value.getTime() > filter.getTime();
         }
     },
-    register(rule, fn) {
+    register(rule: keyof typeof this.filters, fn: (...args: any[]) => boolean) {
         this.filters[rule] = fn;
     }
 };
