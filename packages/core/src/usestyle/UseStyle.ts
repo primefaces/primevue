@@ -5,7 +5,32 @@
 import { isClient, isExist, setAttribute, setAttributes } from '@primeuix/utils/dom';
 import { getCurrentInstance, nextTick, onMounted, readonly, ref, watch } from 'vue';
 
-function tryOnMounted(fn, sync = true) {
+export interface StyleOptions {
+    document?: HTMLElement;
+    immediate?: boolean;
+    manual?: boolean;
+    name?: string;
+    id?: string;
+    media?: string;
+    nonce?: string;
+    props?: any;
+
+    first?: boolean;
+    onMounted?: (name: string) => void;
+    onUpdated?: (name: string) => void;
+    onLoad?: (event: Event, name: string) => void;
+}
+
+export interface Style {
+    id: string;
+    name: string;
+    css: any;
+    unload: () => void;
+    load: (css?: string, props?: any) => void;
+    isLoaded: boolean;
+}
+
+function tryOnMounted(fn: (...args: any[]) => any, sync = true) {
     if (getCurrentInstance()) onMounted(fn);
     else if (sync) fn();
     else nextTick(fn);
@@ -13,10 +38,10 @@ function tryOnMounted(fn, sync = true) {
 
 let _id = 0;
 
-export function useStyle(css, options = {}) {
+export const useStyle = (css: string, options: StyleOptions = {}) => {
     const isLoaded = ref(false);
     const cssRef = ref(css);
-    const styleRef = ref(null);
+    const styleRef = ref<Element | null>(null);
 
     const defaultDocument = isClient() ? window.document : undefined;
     const {
@@ -45,7 +70,9 @@ export function useStyle(css, options = {}) {
 
         styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
 
-        if (!styleRef.value.isConnected) {
+        if (!styleRef.value) return;
+
+        if (!styleRef.value?.isConnected) {
             cssRef.value = _css || css;
 
             setAttributes(styleRef.value, {
@@ -96,4 +123,4 @@ export function useStyle(css, options = {}) {
         load,
         isLoaded: readonly(isLoaded)
     };
-}
+};
