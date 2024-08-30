@@ -1,3 +1,5 @@
+import { ColorPickerDesignTokens } from 'types/colorpicker';
+
 export default {
     root: {
         transitionDuration: '{transition.duration}'
@@ -38,4 +40,4 @@ export default {
             }
         }
     }
-};
+} as ColorPickerDesignTokens;

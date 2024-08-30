@@ -1,3 +1,5 @@
+import { BadgeDesignTokens } from 'types/badge';
+
 export default {
     root: {
         borderRadius: '{border.radius.md}',
@@ -87,4 +89,4 @@ export default {
             }
         }
     }
-};
+} as BadgeDesignTokens;

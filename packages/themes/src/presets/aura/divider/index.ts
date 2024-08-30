@@ -1,3 +1,5 @@
+import { DividerDesignTokens } from 'types/divider';
+
 export default {
     root: {
         borderColor: '{content.border.color}'
@@ -20,4 +22,4 @@ export default {
             padding: '0.5rem 0'
         }
     }
-};
+} as DividerDesignTokens;

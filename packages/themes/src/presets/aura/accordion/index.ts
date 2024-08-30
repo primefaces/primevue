@@ -1,3 +1,5 @@
+import { AccordionDesignTokens } from 'types/accordion';
+
 export default {
     root: {
         transitionDuration: '{transition.duration}'
@@ -48,4 +50,4 @@ export default {
         color: '{text.color}',
         padding: '0 1.125rem 1.125rem 1.125rem'
     }
-};
+} as AccordionDesignTokens;

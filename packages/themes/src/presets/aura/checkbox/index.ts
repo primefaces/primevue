@@ -1,3 +1,5 @@
+import { CheckboxDesignTokens } from 'types/checkbox';
+
 export default {
     root: {
         borderRadius: '{border.radius.sm}',
@@ -33,4 +35,4 @@ export default {
         checkedHoverColor: '{primary.contrast.color}',
         disabledColor: '{form.field.disabled.color}'
     }
-};
+} as CheckboxDesignTokens;

@@ -1,3 +1,5 @@
+import { DataViewDesignTokens } from 'types/dataview';
+
 export default {
     root: {
         borderColor: 'transparent',
@@ -37,4 +39,4 @@ export default {
         borderColor: '{content.border.color}',
         borderWidth: '1px 0 0 0'
     }
-};
+} as DataViewDesignTokens;

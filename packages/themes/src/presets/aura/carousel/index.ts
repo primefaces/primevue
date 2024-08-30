@@ -1,3 +1,5 @@
+import { CarouselDesignTokens } from 'types/carousel';
+
 export default {
     root: {
         transitionDuration: '{transition.duration}'
@@ -37,4 +39,4 @@ export default {
             }
         }
     }
-};
+} as CarouselDesignTokens;

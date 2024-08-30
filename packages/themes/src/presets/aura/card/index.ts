@@ -1,3 +1,5 @@
+import { CardDesignTokens } from 'types/card';
+
 export default {
     root: {
         background: '{content.background}',
@@ -19,4 +21,4 @@ export default {
     subtitle: {
         color: '{text.muted.color}'
     }
-};
+} as CardDesignTokens;

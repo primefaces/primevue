@@ -1,3 +1,5 @@
+import { ConfirmDialogDesignTokens } from 'types/confirmdialog';
+
 export default {
     icon: {
         size: '2rem',
@@ -6,4 +8,4 @@ export default {
     content: {
         gap: '1rem'
     }
-};
+} as ConfirmDialogDesignTokens;

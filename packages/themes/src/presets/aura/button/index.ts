@@ -1,3 +1,5 @@
+import { ButtonDesignTokens } from 'types/button';
+
 export default {
     root: {
         borderRadius: '{form.field.border.radius}',
@@ -484,4 +486,4 @@ export default {
             }
         }
     }
-};
+} as ButtonDesignTokens;

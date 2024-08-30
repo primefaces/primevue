@@ -1,3 +1,5 @@
+import { DialogDesignTokens } from 'types/dialog';
+
 export default {
     root: {
         background: '{overlay.modal.background}',
@@ -21,4 +23,4 @@ export default {
         padding: '0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}',
         gap: '0.5rem'
     }
-};
+} as DialogDesignTokens;

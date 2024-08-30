@@ -1,3 +1,5 @@
+import { BreadcrumbDesignTokens } from 'types/breadcrumb';
+
 export default {
     root: {
         padding: '1rem',
@@ -25,4 +27,4 @@ export default {
     separator: {
         color: '{navigation.item.icon.color}'
     }
-};
+} as BreadcrumbDesignTokens;

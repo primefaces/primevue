@@ -1,3 +1,5 @@
+import { ChipDesignTokens } from 'types/chip';
+
 export default {
     root: {
         borderRadius: '16px',
@@ -49,4 +51,4 @@ export default {
             }
         }
     }
-};
+} as ChipDesignTokens;

@@ -1,3 +1,5 @@
+import { AutoCompleteDesignTokens } from 'types/autocomplete';
+
 export default {
     root: {
         background: '{form.field.background}',
@@ -24,10 +26,6 @@ export default {
         },
         transitionDuration: '{form.field.transition.duration}'
     },
-    dropdown: {
-        width: '2.5rem',
-        color: '{form.field.icon.color}'
-    },
     overlay: {
         background: '{overlay.select.background}',
         borderColor: '{overlay.select.border.color}',
@@ -48,11 +46,54 @@ export default {
         selectedColor: '{list.option.selected.color}',
         selectedFocusColor: '{list.option.selected.focus.color}',
         padding: '{list.option.padding}',
-        borderRadius: '{list.option.border.radius}',
-        icon: {
-            color: '{list.option.icon.color}',
-            focusColor: '{list.option.icon.focus.color}',
-            size: '0.875rem'
+        borderRadius: '{list.option.border.radius}'
+    },
+    optionGroup: {
+        background: '{list.option.group.background}',
+        color: '{list.option.group.color}',
+        fontWeight: '{list.option.group.font.weight}',
+        padding: '{list.option.group.padding}'
+    },
+    dropdown: {
+        width: '2.5rem',
+        borderColor: '{form.field.border.color}',
+        hoverBorderColor: '{form.field.border.color}',
+        activeBorderColor: '{form.field.border.color}',
+        borderRadius: '{form.field.border.radius}',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '{focus.ring.offset}',
+            shadow: '{focus.ring.shadow}'
+        }
+    },
+    chip: {
+        borderRadius: '{border.radius.sm}'
+    },
+    emptyMessage: {
+        padding: '{list.option.padding}'
+    },
+    colorScheme: {
+        light: {
+            dropdown: {
+                background: '{surface.100}',
+                hoverBackground: '{surface.200}',
+                activeBackground: '{surface.300}',
+                color: '{surface.600}',
+                hoverColor: '{surface.700}',
+                activeColor: '{surface.800}'
+            }
+        },
+        dark: {
+            dropdown: {
+                background: '{surface.800}',
+                hoverBackground: '{surface.700}',
+                activeBackground: '{surface.600}',
+                color: '{surface.300}',
+                hoverColor: '{surface.200}',
+                activeColor: '{surface.100}'
+            }
         }
     }
-};
+} as AutoCompleteDesignTokens;

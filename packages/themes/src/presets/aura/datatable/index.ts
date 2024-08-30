@@ -1,3 +1,5 @@
+import { DataTableDesignTokens } from 'types/datatable';
+
 export default {
     root: {
         transitionDuration: '{transition.duration}'
@@ -166,4 +168,4 @@ export default {
             }
         }
     }
-};
+} as DataTableDesignTokens;

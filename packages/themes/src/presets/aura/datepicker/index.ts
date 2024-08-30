@@ -1,3 +1,5 @@
+import { DatePickerDesignTokens } from 'types/datepicker';
+
 export default {
     root: {
         transitionDuration: '{transition.duration}'
@@ -137,4 +139,4 @@ export default {
             }
         }
     }
-};
+} as DatePickerDesignTokens;

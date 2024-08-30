@@ -1,3 +1,5 @@
+import { AvatarDesignTokens } from 'types/avatar';
+
 export default {
     root: {
         width: '2rem',
@@ -20,4 +22,4 @@ export default {
         height: '4rem',
         fontSize: '2rem'
     }
-};
+} as AvatarDesignTokens;
