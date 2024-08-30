@@ -152,7 +152,7 @@ const classes = {};
 
 const inlineStyles = {};
 
-export default {
+export const BaseStyle = {
     name: 'base',
     css,
     theme,
@@ -228,3 +228,5 @@ export default {
         return { ...this, css: undefined, theme: undefined, ...style };
     }
 };
+
+export default BaseStyle;

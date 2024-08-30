@@ -1,6 +1,5 @@
 {
     "main": "./BaseStyle.ts",
     "module": "./BaseStyle.ts",
-    "types": "./BaseStyle.d.ts",
     "sideEffects": false
 }
