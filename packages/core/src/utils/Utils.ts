@@ -1,9 +1,11 @@
+import { VNode, VNodeProps } from 'vue';
+
 export * from '@primeuix/utils';
 export { default as ConnectedOverlayScrollHandler } from './ConnectedOverlayScrollHandler';
 export { default as HelperSet } from './HelperSet';
 export { default as UniqueComponentId } from './UniqueComponentId';
 
-export function getVNodeProp(vnode, prop) {
+export function getVNodeProp(vnode: VNode, prop: keyof VNodeProps) {
     if (vnode) {
         let props = vnode.props;
 

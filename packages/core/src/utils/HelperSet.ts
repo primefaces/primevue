@@ -1,40 +1,40 @@
 import { isNotEmpty } from '@primeuix/utils/object';
 
 export default class {
-    helpers;
-    type;
-    constructor({ init, type }) {
+    helpers: Set<any>;
+    type: any;
+    constructor({ init, type }: { init?: any; type?: string }) {
         this.helpers = new Set(init);
         this.type = type;
     }
-    add(instance) {
+    add(instance: any) {
         this.helpers.add(instance);
     }
     update() {
         // @todo
     }
-    delete(instance) {
+    delete(instance: any) {
         this.helpers.delete(instance);
     }
     clear() {
         this.helpers.clear();
     }
-    get(parentInstance, slots) {
+    get(parentInstance?: any, slots?: any) {
         const children = this._get(parentInstance, slots);
         const computed = children ? this._recursive([...this.helpers], children) : null;
 
         return isNotEmpty(computed) ? computed : null;
     }
-    _isMatched(instance, key) {
+    _isMatched(instance: any, key: string): any {
         const parent = instance?.parent;
 
         return parent?.vnode?.key === key || (parent && this._isMatched(parent, key)) || false;
     }
-    _get(parentInstance, slots) {
+    _get(parentInstance: any, slots: any) {
         return (slots || parentInstance?.$slots)?.default?.() || null;
     }
-    _recursive(helpers = [], children = []) {
-        let components = [];
+    _recursive(helpers: any[] = [], children: any[] = []) {
+        let components: any[] = [];
 
         children.forEach((child) => {
             if (child.children instanceof Array) {
