@@ -3,13 +3,13 @@ export default {
     getLoadedStyleNames() {
         return this._loadedStyleNames;
     },
-    isStyleNameLoaded(name) {
+    isStyleNameLoaded(name: string) {
         return this._loadedStyleNames.has(name);
     },
-    setLoadedStyleName(name) {
+    setLoadedStyleName(name: string) {
         this._loadedStyleNames.add(name);
     },
-    deleteLoadedStyleName(name) {
+    deleteLoadedStyleName(name: string) {
         this._loadedStyleNames.delete(name);
     },
     clearLoadedStyleNames() {

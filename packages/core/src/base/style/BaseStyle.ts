@@ -1,8 +1,10 @@
 import { Theme, dt } from '@primeuix/styled';
 import { minifyCSS, resolve } from '@primeuix/utils/object';
-import { useStyle } from '@primevue/core/usestyle';
+import { StyleOptions, useStyle } from '@primevue/core/usestyle';
 
-const theme = ({ dt }) => `
+type DTFunc = (target: string) => string | number;
+
+const theme = ({ dt }: { dt: DTFunc }) => `
 * {
     box-sizing: border-box;
 }
@@ -123,7 +125,7 @@ const theme = ({ dt }) => `
 }
 `;
 
-const css = ({ dt }) => `
+const css = ({ dt }: { dt: DTFunc }) => `
 .p-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
@@ -156,27 +158,29 @@ export default {
     theme,
     classes,
     inlineStyles,
-    load(style, options = {}, transform = (cs) => cs) {
+    load(style: string | ((params?: any) => string | undefined), options: StyleOptions = {}, transform = (cs: string) => cs) {
+        // @ts-expect-error - TODO: Figure out why this could be undefined
         const computedStyle = transform(resolve(style, { dt }));
 
+        // @ts-expect-error - TODO: Figure out why this could be undefined
         return computedStyle ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
     },
-    loadCSS(options = {}) {
+    loadCSS(options: StyleOptions = {}) {
         return this.load(this.css, options);
     },
-    loadTheme(options = {}) {
+    loadTheme(options: StyleOptions = {}) {
         return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, computedStyle));
     },
-    getCommonTheme(params) {
+    getCommonTheme(params: any) {
         return Theme.getCommon(this.name, params);
     },
-    getComponentTheme(params) {
+    getComponentTheme(params: any) {
         return Theme.getComponent(this.name, params);
     },
-    getDirectiveTheme(params) {
+    getDirectiveTheme(params: any) {
         return Theme.getDirective(this.name, params);
     },
-    getPresetTheme(preset, selector, params) {
+    getPresetTheme(preset: any, selector: string, params: any) {
         return Theme.getCustomPreset(this.name, preset, selector, params);
     },
     getLayerOrderThemeCSS() {
@@ -187,18 +191,21 @@ export default {
             const _css = resolve(this.css, { dt });
             const _style = minifyCSS(`${_css}${extendedCSS}`);
             const _props = Object.entries(props)
-                .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+                //! This might work better as a reduce
+                .map(([k, v]) => `${k}="${v}"`)
                 .join(' ');
+            // .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+            // .join(' ');
 
             return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_style}</style>`;
         }
 
         return '';
     },
-    getCommonThemeStyleSheet(params, props = {}) {
+    getCommonThemeStyleSheet(params: any, props = {}) {
         return Theme.getCommonStyleSheet(this.name, params, props);
     },
-    getThemeStyleSheet(params, props = {}) {
+    getThemeStyleSheet(params: any, props = {}) {
         let css = [Theme.getStyleSheet(this.name, params, props)];
 
         if (this.theme) {
@@ -206,15 +213,18 @@ export default {
             const _css = resolve(this.theme, { dt });
             const _style = minifyCSS(Theme.transformCSS(name, _css));
             const _props = Object.entries(props)
-                .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+                //! This might work better as a reduce
+                .map(([k, v]) => `${k}="${v}"`)
                 .join(' ');
+            // .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
+            // .join(' ');
 
             css.push(`<style type="text/css" data-primevue-style-id="${name}" ${_props}>${_style}</style>`);
         }
 
         return css.join('');
     },
-    extend(style) {
+    extend(style: {}) {
         return { ...this, css: undefined, theme: undefined, ...style };
     }
 };

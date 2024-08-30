@@ -1,4 +1,4 @@
 {
-    "main": "./Base.js",
-    "module": "./Base.js"
+    "main": "./Base.ts",
+    "module": "./Base.ts"
 }
