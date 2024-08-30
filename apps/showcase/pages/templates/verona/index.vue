@@ -75,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Verona offers 10 built-in component themes with dark and light options. You are also free to create you own theme by defining couple SASS variables.',
+                                    description: 'Verona offers 10 built-in component themes with dark and light options. You are also free to create your own theme by defining couple SASS variables.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/verona/features-animation-component-themes.png'
                                 },
                                 {
