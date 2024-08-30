@@ -9,16 +9,16 @@ export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 export * from '@primeuix/styled';
 
 // UseConfirm
-export * from './useconfirm/UseConfirm.js';
+export * from './useconfirm/UseConfirm';
 
 // UseDialog
-export * from './usedialog/UseDialog.js';
+export * from './usedialog/UseDialog';
 
 // UseToast
-export * from './usetoast/UseToast.js';
+export * from './usetoast/UseToast';
 
 // UseStyle
-export * from './usestyle/UseStyle.js';
+export * from './usestyle/UseStyle';
 
 // Accordion
 export * from './accordion/Accordion.vue';
@@ -657,92 +657,92 @@ export * from './steps/style/StepsStyle.js';
 export { default as StepsStyle } from './steps/style/StepsStyle.js';
 
 // StyleClass
-export * from './styleclass/StyleClass.js';
-export { default as StyleClass } from './styleclass/StyleClass.js';
 export * from './styleclass/style/StyleClassStyle.js';
 export { default as StyleClassStyle } from './styleclass/style/StyleClassStyle.js';
+export * from './styleclass/StyleClass.js';
+export { default as StyleClass } from './styleclass/StyleClass.js';
 
 // Tab
-export * from './tab/Tab.vue';
-export { default as Tab } from './tab/Tab.vue';
 export * from './tab/style/TabStyle.js';
 export { default as TabStyle } from './tab/style/TabStyle.js';
+export * from './tab/Tab.vue';
+export { default as Tab } from './tab/Tab.vue';
 
 // TabList
-export * from './tablist/TabList.vue';
-export { default as TabList } from './tablist/TabList.vue';
 export * from './tablist/style/TabListStyle.js';
 export { default as TabListStyle } from './tablist/style/TabListStyle.js';
+export * from './tablist/TabList.vue';
+export { default as TabList } from './tablist/TabList.vue';
 
 // TabMenu
-export * from './tabmenu/TabMenu.vue';
-export { default as TabMenu } from './tabmenu/TabMenu.vue';
 export * from './tabmenu/style/TabMenuStyle.js';
 export { default as TabMenuStyle } from './tabmenu/style/TabMenuStyle.js';
+export * from './tabmenu/TabMenu.vue';
+export { default as TabMenu } from './tabmenu/TabMenu.vue';
 
 // TabPanel
-export * from './tabpanel/TabPanel.vue';
-export { default as TabPanel } from './tabpanel/TabPanel.vue';
 export * from './tabpanel/style/TabPanelStyle.js';
 export { default as TabPanelStyle } from './tabpanel/style/TabPanelStyle.js';
+export * from './tabpanel/TabPanel.vue';
+export { default as TabPanel } from './tabpanel/TabPanel.vue';
 
 // TabPanels
-export * from './tabpanels/TabPanels.vue';
-export { default as TabPanels } from './tabpanels/TabPanels.vue';
 export * from './tabpanels/style/TabPanelsStyle.js';
 export { default as TabPanelsStyle } from './tabpanels/style/TabPanelsStyle.js';
+export * from './tabpanels/TabPanels.vue';
+export { default as TabPanels } from './tabpanels/TabPanels.vue';
 
 // Tabs
-export * from './tabs/Tabs.vue';
-export { default as Tabs } from './tabs/Tabs.vue';
 export * from './tabs/style/TabsStyle.js';
 export { default as TabsStyle } from './tabs/style/TabsStyle.js';
+export * from './tabs/Tabs.vue';
+export { default as Tabs } from './tabs/Tabs.vue';
 
 // TabView
-export * from './tabview/TabView.vue';
-export { default as TabView } from './tabview/TabView.vue';
 export * from './tabview/style/TabViewStyle.js';
 export { default as TabViewStyle } from './tabview/style/TabViewStyle.js';
+export * from './tabview/TabView.vue';
+export { default as TabView } from './tabview/TabView.vue';
 
 // Tag
-export * from './tag/Tag.vue';
-export { default as Tag } from './tag/Tag.vue';
 export * from './tag/style/TagStyle.js';
 export { default as TagStyle } from './tag/style/TagStyle.js';
+export * from './tag/Tag.vue';
+export { default as Tag } from './tag/Tag.vue';
 
 // Terminal
-export * from './terminal/Terminal.vue';
-export { default as Terminal } from './terminal/Terminal.vue';
 export * from './terminal/style/TerminalStyle.js';
 export { default as TerminalStyle } from './terminal/style/TerminalStyle.js';
+export * from './terminal/Terminal.vue';
+export { default as Terminal } from './terminal/Terminal.vue';
 
 // TerminalService
 export * from './terminalservice/TerminalService.js';
 export { default as TerminalService } from './terminalservice/TerminalService.js';
 
 // Textarea
-export * from './textarea/Textarea.vue';
-export { default as Textarea } from './textarea/Textarea.vue';
 export * from './textarea/style/TextareaStyle.js';
 export { default as TextareaStyle } from './textarea/style/TextareaStyle.js';
+export * from './textarea/Textarea.vue';
+export { default as Textarea } from './textarea/Textarea.vue';
 
 // TieredMenu
-export * from './tieredmenu/TieredMenu.vue';
-export { default as TieredMenu } from './tieredmenu/TieredMenu.vue';
 export * from './tieredmenu/style/TieredMenuStyle.js';
 export { default as TieredMenuStyle } from './tieredmenu/style/TieredMenuStyle.js';
+export * from './tieredmenu/TieredMenu.vue';
+export { default as TieredMenu } from './tieredmenu/TieredMenu.vue';
 
 // Timeline
-export * from './timeline/Timeline.vue';
-export { default as Timeline } from './timeline/Timeline.vue';
 export * from './timeline/style/TimelineStyle.js';
 export { default as TimelineStyle } from './timeline/style/TimelineStyle.js';
+export * from './timeline/Timeline.vue';
+export { default as Timeline } from './timeline/Timeline.vue';
 
 // Toast
-export * from './toast/Toast.vue';
-export { default as Toast } from './toast/Toast.vue';
 export * from './toast/style/ToastStyle.js';
 export { default as ToastStyle } from './toast/style/ToastStyle.js';
+export * from './toast/Toast.vue';
+export { default as Toast } from './toast/Toast.vue';
 
 // ToastEventBus
 export * from './toasteventbus/ToastEventBus.js';
@@ -753,49 +753,49 @@ export * from './toastservice/ToastService.js';
 export { default as ToastService } from './toastservice/ToastService.js';
 
 // ToggleButton
-export * from './togglebutton/ToggleButton.vue';
-export { default as ToggleButton } from './togglebutton/ToggleButton.vue';
 export * from './togglebutton/style/ToggleButtonStyle.js';
 export { default as ToggleButtonStyle } from './togglebutton/style/ToggleButtonStyle.js';
+export * from './togglebutton/ToggleButton.vue';
+export { default as ToggleButton } from './togglebutton/ToggleButton.vue';
 
 // ToggleSwitch
-export * from './toggleswitch/ToggleSwitch.vue';
-export { default as ToggleSwitch } from './toggleswitch/ToggleSwitch.vue';
 export * from './toggleswitch/style/ToggleSwitchStyle.js';
 export { default as ToggleSwitchStyle } from './toggleswitch/style/ToggleSwitchStyle.js';
+export * from './toggleswitch/ToggleSwitch.vue';
+export { default as ToggleSwitch } from './toggleswitch/ToggleSwitch.vue';
 
 // Toolbar
-export * from './toolbar/Toolbar.vue';
-export { default as Toolbar } from './toolbar/Toolbar.vue';
 export * from './toolbar/style/ToolbarStyle.js';
 export { default as ToolbarStyle } from './toolbar/style/ToolbarStyle.js';
+export * from './toolbar/Toolbar.vue';
+export { default as Toolbar } from './toolbar/Toolbar.vue';
 
 // Tooltip
-export * from './tooltip/Tooltip.js';
-export { default as Tooltip } from './tooltip/Tooltip.js';
 export * from './tooltip/style/TooltipStyle.js';
 export { default as TooltipStyle } from './tooltip/style/TooltipStyle.js';
+export * from './tooltip/Tooltip.js';
+export { default as Tooltip } from './tooltip/Tooltip.js';
 
 // Tree
-export * from './tree/Tree.vue';
-export { default as Tree } from './tree/Tree.vue';
 export * from './tree/style/TreeStyle.js';
 export { default as TreeStyle } from './tree/style/TreeStyle.js';
+export * from './tree/Tree.vue';
+export { default as Tree } from './tree/Tree.vue';
 
 // TreeSelect
-export * from './treeselect/TreeSelect.vue';
-export { default as TreeSelect } from './treeselect/TreeSelect.vue';
 export * from './treeselect/style/TreeSelectStyle.js';
 export { default as TreeSelectStyle } from './treeselect/style/TreeSelectStyle.js';
+export * from './treeselect/TreeSelect.vue';
+export { default as TreeSelect } from './treeselect/TreeSelect.vue';
 
 // TreeTable
-export * from './treetable/TreeTable.vue';
-export { default as TreeTable } from './treetable/TreeTable.vue';
 export * from './treetable/style/TreeTableStyle.js';
 export { default as TreeTableStyle } from './treetable/style/TreeTableStyle.js';
+export * from './treetable/TreeTable.vue';
+export { default as TreeTable } from './treetable/TreeTable.vue';
 
 // VirtualScroller
-export * from './virtualscroller/VirtualScroller.vue';
-export { default as VirtualScroller } from './virtualscroller/VirtualScroller.vue';
 export * from './virtualscroller/style/VirtualScrollerStyle.js';
 export { default as VirtualScrollerStyle } from './virtualscroller/style/VirtualScrollerStyle.js';
+export * from './virtualscroller/VirtualScroller.vue';
+export { default as VirtualScroller } from './virtualscroller/VirtualScroller.vue';
