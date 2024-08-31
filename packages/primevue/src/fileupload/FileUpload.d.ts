@@ -304,7 +304,7 @@ export interface FileUploadState {
     /**
      * Current messages.
      */
-    messages: any[];
+    messages: string[] | null;
     /**
      * Current progress state as a number.
      */
