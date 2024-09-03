@@ -19,7 +19,7 @@
 
         <h4>Relocated APIs</h4>
         <ul class="flex flex-col gap-2 leading-normal">
-            <li>Imports from <i class="mark">primevue/api</i> have been relocated to <i class="mark">@primevue/core/api</i>.</li>
+            <li>Imports from <i class="mark">primevue/api</i> have been relocated to <i class="mark">@primevue/core/api</i>. If <i class="mark">@primevue/core</i> error during build, add <i class="mark">@primevue/core</i> to list of dependencies</li>
         </ul>
 
         <h4>Removed Files</h4>
