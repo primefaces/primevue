@@ -281,24 +281,24 @@
 
 <script>
 import {
-addClass,
-addStyle,
-clearSelection,
-exportCSV,
-find,
-findSingle,
-focus,
-getAttribute,
-getHiddenElementOuterHeight,
-getHiddenElementOuterWidth,
-getIndex,
-getOffset,
-getOuterHeight,
-getOuterWidth,
-getWindowScrollTop,
-isClickable,
-removeClass,
-setAttribute
+    addClass,
+    addStyle,
+    clearSelection,
+    exportCSV,
+    find,
+    findSingle,
+    focus,
+    getAttribute,
+    getHiddenElementOuterHeight,
+    getHiddenElementOuterWidth,
+    getIndex,
+    getOffset,
+    getOuterHeight,
+    getOuterWidth,
+    getWindowScrollTop,
+    isClickable,
+    removeClass,
+    setAttribute
 } from '@primeuix/utils/dom';
 import { equals, findIndexInList, isEmpty, isNotEmpty, localeComparator, reorderArray, resolveFieldData, sort } from '@primeuix/utils/object';
 import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
