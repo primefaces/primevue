@@ -19,7 +19,7 @@
             <template v-for="(processedItem, index) of model" :key="index">
                 <li
                     :id="getItemId(index)"
-                    :class="cx('item', { processedItem, id: getItemId(index) })"
+                    :class="cx('item', { processedItem, id: getItemId(index), index: index })"
                     role="menuitem"
                     :aria-label="processedItem.label"
                     :aria-disabled="disabled(processedItem)"

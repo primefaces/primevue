@@ -102,6 +102,50 @@ const theme = ({ dt }) => `
     flex-direction: column;
 }
 
+
+.p-dock-item-second-prev,
+.p-dock-item-second-next {
+    transform: scale(1.2);
+}
+
+.p-dock-item-prev,
+.p-dock-item-next {
+    transform: scale(1.4);
+}
+
+.p-dock-item-current {
+    transform: scale(1.6);
+    z-index: 1;
+}
+
+.p-dock.p-dock-top .p-dock-item-second-prev,
+.p-dock.p-dock-top .p-dock-item-second-next, .p-dock.p-dock-bottom .p-dock-item-second-prev,
+.p-dock.p-dock-bottom .p-dock-item-second-next {
+    margin: 0 0.9rem;
+  }
+
+.p-dock.p-dock-top .p-dock-item-prev,
+.p-dock.p-dock-top .p-dock-item-next, .p-dock.p-dock-bottom .p-dock-item-prev,
+.p-dock.p-dock-bottom .p-dock-item-next {
+    margin: 0 1.3rem;
+}
+.p-dock.p-dock-top .p-dock-item-current, .p-dock.p-dock-bottom .p-dock-item-current {
+    margin: 0 1.5rem;
+}
+.p-dock.p-dock-left .p-dock-item-second-prev,
+.p-dock.p-dock-left .p-dock-item-second-next, .p-dock.p-dock-right .p-dock-item-second-prev,
+.p-dock.p-dock-right .p-dock-item-second-next {
+    margin: 0.9rem 0;
+}
+.p-dock.p-dock-left .p-dock-item-prev,
+.p-dock.p-dock-left .p-dock-item-next, .p-dock.p-dock-right .p-dock-item-prev,
+.p-dock.p-dock-right .p-dock-item-next {
+    margin: 1.3rem 0;
+}
+.p-dock.p-dock-left .p-dock-item-current, .p-dock.p-dock-right .p-dock-item-current {
+    margin: 1.5rem 0;
+}
+
 .p-dock-mobile.p-dock-top .p-dock-list-container,
 .p-dock-mobile.p-dock-bottom .p-dock-list-container {
     overflow-x: auto;
@@ -136,9 +180,14 @@ const classes = {
     ],
     listContainer: 'p-dock-list-container',
     list: 'p-dock-list',
-    item: ({ instance, processedItem, id }) => [
+    item: ({ instance, processedItem, id, index }) => [
         'p-dock-item',
         {
+            'p-dock-item-second-prev': instance.currentIndex - 2 === index,
+            'p-dock-item-prev': instance.currentIndex - 1 === index,
+            'p-dock-item-current': instance.currentIndex === index,
+            'p-dock-item-next': instance.currentIndex + 1 === index,
+            'p-dock-item-second-next': instance.currentIndex + 2 === index,
             'p-focus': instance.isItemActive(id),
             'p-disabled': instance.disabled(processedItem)
         }
