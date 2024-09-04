@@ -472,13 +472,13 @@ describe('DataTable.vue', () => {
         await wrapper.setProps({ selection: null, selectionMode: 'multiple' });
 
         await wrapper.vm.onRowClick({
-            originalEvent: { shiftKey: true, target: wrapper.findAll('tr.p-datatable-selectable-row')[0].element },
+            originalEvent: { shiftKey: true, currentTarget: wrapper.findAll('tr.p-datatable-selectable-row')[0].element },
             data: smallData[0],
             index: 0
         });
 
         await wrapper.vm.onRowClick({
-            originalEvent: { shiftKey: true, target: wrapper.findAll('tr.p-datatable-selectable-row')[1].element },
+            originalEvent: { shiftKey: true, currentTarget: wrapper.findAll('tr.p-datatable-selectable-row')[1].element },
             data: smallData[1],
             index: 1
         });
