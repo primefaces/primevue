@@ -2044,15 +2044,10 @@ export default {
             return date;
         },
         getWeekNumber(date) {
-            let checkDate = new Date(date.getTime());
+            const startOfYear = new Date(date.getFullYear(), 0, 1);
+            const pastDaysOfYear = (date - startOfYear) / 86400000;
 
-            checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-            let time = checkDate.getTime();
-
-            checkDate.setMonth(0);
-            checkDate.setDate(1);
-
-            return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
+            return Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7);
         },
         onDateCellKeydown(event, date, groupIndex) {
             const cellContent = event.currentTarget;
