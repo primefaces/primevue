@@ -320,6 +320,10 @@ const theme = ({ dt }) => `
     padding: ${dt('datatable.body.cell.padding')};
 }
 
+.p-datatable-tbody > tr > td.p-datatable-cell-editing {
+    padding: 0;
+}
+
 .p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {
     background: ${dt('datatable.row.hover.background')};
     color: ${dt('datatable.row.hover.color')};
@@ -339,6 +343,8 @@ const theme = ({ dt }) => `
 }
 
 .p-datatable-tbody > tr:focus-visible,
+.p-datatable-tbody > tr > td.p-datatable-cell-focused,
+.p-datatable-tbody > tr > td:focus-visible,
 .p-datatable-tbody > tr.p-datatable-contextmenu-row-selected {
     box-shadow: ${dt('datatable.body.cell.focus.ring.shadow')};
     outline: ${dt('datatable.body.cell.focus.ring.width')} ${dt('datatable.body.cell.focus.ring.style')} ${dt('datatable.body.cell.focus.ring.color')};
@@ -692,8 +698,10 @@ const classes = {
     rowExpansion: 'p-datatable-row-expansion',
     rowGroupFooter: 'p-datatable-row-group-footer',
     emptyMessage: 'p-datatable-empty-message',
-    bodyCell: ({ instance }) => [
+    bodyCell: ({ instance, state }) => [
         {
+            'p-datatable-cell-editing': state.d_editing,
+            'p-datatable-cell-focused': state.focused,
             'p-datatable-frozen-column': instance.columnProp('frozen')
         }
     ],

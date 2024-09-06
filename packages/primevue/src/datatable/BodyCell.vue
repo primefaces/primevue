@@ -10,12 +10,16 @@
         :rowspan="columnProp('rowspan')"
         @click="onClick"
         @keydown="onKeyDown"
+        @focus="onFocus"
+        @blur="onBlur"
         role="cell"
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }"
         :data-p-selection-column="columnProp('selectionMode') != null"
         :data-p-editable-column="isEditable()"
         :data-p-cell-editing="d_editing"
+        :data-p-cell-focused="focused"
         :data-p-frozen-column="columnProp('frozen')"
+        :tabindex="editMode === 'cell' ? 0 : undefined"
     >
         <component
             v-if="column.children && column.children.body && !d_editing"
@@ -25,6 +29,7 @@
             :field="field"
             :index="rowIndex"
             :frozenRow="frozenRow"
+            class="bg-blue-600"
             :editorInitCallback="editorInitCallback"
             :rowTogglerCallback="toggleRow"
         />
@@ -223,6 +228,7 @@ export default {
     overlayEventListener: null,
     data() {
         return {
+            focused: false,
             d_editing: this.editing,
             styleObject: {}
         };
@@ -321,28 +327,33 @@ export default {
                 this.selfClick = false;
             }
         },
-        switchCellToViewMode() {
+        switchCellToViewMode(event) {
+            const stayFocused = event && !this.d_editing;
+
+            if(!this.d_editing)
+                this.focused = false;
+
             this.d_editing = false;
             this.unbindDocumentEditListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
+
+            if(stayFocused)
+                event.target.focus();
+        },
+        onFocus() {
+            this.focused = true;
+        },
+        onBlur() {
+            this.focused = false;
         },
         onClick(event) {
             if (this.editMode === 'cell' && this.isEditable()) {
-                this.selfClick = true;
-
-                if (!this.d_editing) {
-                    this.d_editing = true;
-                    this.bindDocumentEditListener();
-                    this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
-
-                    this.overlayEventListener = (e) => {
-                        if (this.$el && this.$el.contains(e.target)) {
-                            this.selfClick = true;
-                        }
-                    };
-
-                    OverlayEventBus.on('overlay-click', this.overlayEventListener);
+                if(event.target.getAttribute('data-p-focus-on-click') === '1') {
+                    this.startEditing(event);
+                    event.target.removeAttribute('data-p-focus-on-click');
+                }else{
+                    event.target.focus();
                 }
             }
         },
@@ -365,48 +376,140 @@ export default {
             this.$emit('cell-edit-complete', completeEvent);
 
             if (!completeEvent.defaultPrevented) {
-                this.switchCellToViewMode();
+                this.switchCellToViewMode(event);
+            }
+        },
+        startEditing (event){
+            if (this.editMode === 'cell' && this.isEditable()) {
+                this.selfClick = true;
+
+                this.d_editing = true;
+                this.bindDocumentEditListener();
+                this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
+
+                this.overlayEventListener = (e) => {
+                    if (this.$el && this.$el.contains(e.target)) {
+                        this.selfClick = true;
+                    }
+                };
+
+                OverlayEventBus.on('overlay-click', this.overlayEventListener);
+
+                setTimeout(() => {
+                    const focusableEl = getFirstFocusableElement(event.target);
+
+                    if(focusableEl){
+                        focusableEl.addEventListener('keydown', (e) => {
+                            if (e.code === 'Enter' || e.code === 'NumpadEnter') {
+                                setTimeout(() => {
+                                    event.target.focus();
+                                }, 1);
+                            }
+                        });
+
+                        focusableEl.focus();
+                    }
+                }, 1);
             }
         },
         onKeyDown(event) {
             if (this.editMode === 'cell') {
-                switch (event.code) {
-                    case 'Enter':
-                    case 'NumpadEnter':
+                const isEditing = this.d_editing;
+
+                if(event.code === 'Enter' || event.code === 'NumpadEnter'){
+                    if (this.d_editing) {
                         this.completeEdit(event, 'enter');
-                        break;
+                    } else {
+                        this.startEditing(event);
+                    }
+                }else if(event.code === 'Escape'){
+                    this.switchCellToViewMode();
+                    this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
+                }else if(event.code === 'Tab'){
+                    this.completeEdit(event, 'tab');
 
-                    case 'Escape':
-                        this.switchCellToViewMode();
-                        this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
-                        break;
+                    if (event.shiftKey) this.moveToPreviousCell(event, isEditing);
+                    else this.moveToNextCell(event, isEditing);
+                }else if(event.code.startsWith('Arrow')){
+                    // let user edit the value using arrow keys. e.g. increment/decrement a number
+                    if(isEditing)
+                        return;
 
-                    case 'Tab':
-                        this.completeEdit(event, 'tab');
+                    switch (event.code) {
+                        case 'ArrowLeft':
+                            this.moveToPreviousCell(event, isEditing);
+                            break;
 
-                        if (event.shiftKey) this.moveToPreviousCell(event);
-                        else this.moveToNextCell(event);
-                        break;
+                        case 'ArrowRight':
+                            this.moveToNextCell(event, isEditing);
+                            break;
 
-                    default:
-                        break;
+                        case 'ArrowUp':
+                            this.moveToCellAbove(event, isEditing);
+                            break;
+
+                        case 'ArrowDown':
+                            this.moveToCellBelow(event, isEditing);
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    this.switchCellToViewMode();
                 }
             }
         },
-        moveToPreviousCell(event) {
+        moveToPreviousCell(event, startEditing = false) {
             let currentCell = this.findCell(event.target);
             let targetCell = this.findPreviousEditableColumn(currentCell);
 
             if (targetCell) {
+                if(startEditing){
+                    // this will be removed later in onClick method
+                    targetCell.setAttribute('data-p-focus-on-click', '1');
+                }
+
                 invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
         },
-        moveToNextCell(event) {
+        moveToNextCell(event, startEditing = false) {
             let currentCell = this.findCell(event.target);
             let targetCell = this.findNextEditableColumn(currentCell);
 
             if (targetCell) {
+                if(startEditing){
+                    targetCell.setAttribute('data-p-focus-on-click', '1'); // this will be removed later in onClick method
+                }
+
+                invokeElementMethod(targetCell, 'click');
+
+                event.preventDefault();
+            }
+        },
+        moveToCellBelow(event, startEditing = false) {
+            let currentCell = this.findCell(event.target);
+            let targetCell = this.findBelowEditableColumn(currentCell);
+
+            if (targetCell) {
+                if(startEditing){
+                    targetCell.setAttribute('data-p-focus-on-click', '1'); // this will be removed later in onClick method
+                }
+
+                invokeElementMethod(targetCell, 'click');
+                event.preventDefault();
+            }
+        },
+        moveToCellAbove(event, startEditing = false) {
+            let currentCell = this.findCell(event.target);
+            let targetCell = this.findAboveEditableColumn(currentCell);
+
+            if (targetCell) {
+                if(startEditing){
+                    targetCell.setAttribute('data-p-focus-on-click', '1'); // this will be removed later in onClick method
+                }
+
                 invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
@@ -415,7 +518,7 @@ export default {
             if (element) {
                 let cell = element;
 
-                while (cell && !getAttribute(cell, 'data-p-cell-editing')) {
+                while (cell && !getAttribute(cell, 'data-p-cell-focused') && !getAttribute(cell, 'data-p-cell-editing')) {
                     cell = cell.parentElement;
                 }
 
@@ -428,7 +531,7 @@ export default {
             let prevCell = cell.previousElementSibling;
 
             if (!prevCell) {
-                let previousRow = cell.parentElement.previousElementSibling;
+                let previousRow = cell.parentElement.previousElementSibling || cell.parentElement.parentElement?.lastElementChild;
 
                 if (previousRow) {
                     prevCell = previousRow.lastElementChild;
@@ -446,7 +549,7 @@ export default {
             let nextCell = cell.nextElementSibling;
 
             if (!nextCell) {
-                let nextRow = cell.parentElement.nextElementSibling;
+                let nextRow = cell.parentElement.nextElementSibling || cell.parentElement.parentElement?.firstElementChild;
 
                 if (nextRow) {
                     nextCell = nextRow.firstElementChild;
@@ -456,6 +559,36 @@ export default {
             if (nextCell) {
                 if (getAttribute(nextCell, 'data-p-editable-column')) return nextCell;
                 else return this.findNextEditableColumn(nextCell);
+            } else {
+                return null;
+            }
+        },
+        findBelowEditableColumn(cell) {
+            let parent = cell.parentElement;
+
+            while (parent.tagName !== 'TR') parent = parent.parentElement;
+
+            let nextTr = parent.nextElementSibling || parent.parentElement.firstElementChild;
+            let nextCell = nextTr.children[this.index] || nextTr.firstElementChild;
+
+            if (nextCell) {
+                if (getAttribute(nextCell, 'data-p-editable-column')) return nextCell;
+                else return this.findBelowEditableColumn(nextCell);
+            } else {
+                return null;
+            }
+        },
+        findAboveEditableColumn(cell) {
+            let parent = cell.parentElement;
+
+            while (parent.tagName !== 'TR') parent = parent.parentElement;
+
+            let previousTr = parent.previousElementSibling || parent.parentElement.lastElementChild;
+            let previousCell = previousTr.children[this.index] || previousTr.firstElementChild;
+
+            if (previousCell) {
+                if (getAttribute(previousCell, 'data-p-editable-column')) return previousCell;
+                else return this.findAboveEditableColumn(previousCell);
             } else {
                 return null;
             }
