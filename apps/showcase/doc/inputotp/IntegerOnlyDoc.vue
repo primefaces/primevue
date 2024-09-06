@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>When <i>integerOnly</i> is present, only integers can be accepted as input.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <DocSectionCardWithValue :value="value" value-class="w-28">
         <InputOtp v-model="value" integerOnly />
-    </div>
+    </DocSectionCardWithValue>
     <DocSectionCode :code="code" />
 </template>
 

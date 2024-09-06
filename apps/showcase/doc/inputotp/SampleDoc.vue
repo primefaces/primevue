@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A sample UI implementation with templating and additional elements.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <DocSectionCardWithValue :value="value" value-class="w-28 mt-5">
         <div class="flex flex-col items-center">
             <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
             <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
@@ -19,7 +19,7 @@
                 <Button label="Submit Code"></Button>
             </div>
         </div>
-    </div>
+    </DocSectionCardWithValue>
     <DocSectionCode :code="code" />
 </template>
 

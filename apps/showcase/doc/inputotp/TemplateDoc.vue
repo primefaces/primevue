@@ -2,13 +2,13 @@
     <DocSectionText v-bind="$attrs">
         <p>Define a template with your own UI elements with bindings to the provided events and attributes to replace the default design.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <DocSectionCardWithValue :value="value" value-class="w-28 mt-5">
         <InputOtp v-model="value">
             <template #default="{ attrs, events }">
                 <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
             </template>
         </InputOtp>
-    </div>
+    </DocSectionCardWithValue>
     <DocSectionCode :code="code" />
 </template>
 

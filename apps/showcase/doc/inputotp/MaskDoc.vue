@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Enable the <i>mask</i> option to hide the values in the input fields.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <DocSectionCardWithValue :value="value" value-class="w-28">
         <InputOtp v-model="value" mask />
-    </div>
+    </DocSectionCardWithValue>
     <DocSectionCode :code="code" />
 </template>
 
