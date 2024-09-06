@@ -1,6 +1,7 @@
 <template>
     <div v-for="(file, index) of files" :key="file.name + file.type + file.size" :class="cx('file')" v-bind="ptm('file')">
-        <img role="presentation" :class="cx('fileThumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('fileThumbnail')" />
+        <img v-if="file.objectURL" role="presentation" :class="cx('fileThumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('fileThumbnail')" />
+        <i v-else role="presentation" class="pi" :class="[iconType(file.type), cx('fileThumbnail')]" :width="previewWidth" v-bind="ptm('fileThumbnail')"></i>
         <div :class="cx('fileInfo')" v-bind="ptm('fileInfo')">
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
@@ -64,6 +65,25 @@ export default {
             const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
 
             return `${formattedSize} ${sizes[i]}`;
+        },
+        iconType(filetype) {
+            const availableTypes = {
+                'application/pdf': 'pi-file-pdf',
+                'text/plain': 'pi-file-edit',
+                'application/vnd.ms-excel': 'pi-file-excel',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'pi-file-excel',
+                'application/msword': 'pi-file-word',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'pi-file-word',
+                'video/x-msvideo': 'pi-video',
+                'video/mp4': 'pi-video',
+                'video/mpeg': 'pi-video',
+                'video/webm': 'pi-video',
+                'application/json': 'pi-code',
+                'application/ld+json': 'pi-code',
+                default: 'pi-file'
+            };
+
+            return availableTypes[filetype] || availableTypes['default'];
         }
     },
     components: {
