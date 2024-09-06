@@ -18,6 +18,7 @@
                     @blur="onBlur($event)"
                     @paste="onPaste($event)"
                     @keydown="onKeyDown($event)"
+                    @click="onClick($event)"
                     :pt="ptm('pcInput')"
                 />
             </slot>
@@ -127,6 +128,9 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+        },
+        onClick(event) {
+            setTimeout(() => event.target.select(), 1);
         },
         onKeyDown(event) {
             if (event.ctrlKey || event.metaKey) {
