@@ -47,7 +47,14 @@ export default {
     },
     bodyCell: {
         borderColor: '{datatable.border.color}',
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        focusRing: {
+            width: '{focus.ring.width}',
+            style: '{focus.ring.style}',
+            color: '{focus.ring.color}',
+            offset: '-1px',
+            shadow: '{focus.ring.shadow}'
+        }
     },
     footerCell: {
         background: '{content.background}',
