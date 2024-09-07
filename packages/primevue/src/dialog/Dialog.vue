@@ -163,6 +163,10 @@ export default {
             if (this.modal) {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
+
+            if (this.dragging && this.documentDragEndListener) {
+                this.documentDragEndListener();
+            }
         },
         onLeave() {
             this.$emit('hide');
