@@ -79,7 +79,7 @@ export default {
     name: 'Dialog',
     extends: BaseDialog,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
+    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragstart', 'dragend'],
     provide() {
         return {
             dialogRef: computed(() => this._instance)
@@ -324,6 +324,8 @@ export default {
                 this.container.style.margin = '0';
                 document.body.setAttribute('data-p-unselectable-text', 'true');
                 !this.isUnstyled && addStyle(document.body, { 'user-select': 'none' });
+
+                this.$emit('dragstart', event);
             }
         },
         bindGlobalListeners() {
