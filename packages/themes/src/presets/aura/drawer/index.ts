@@ -1,3 +1,5 @@
+import { DrawerDesignTokens } from 'types/drawer';
+
 export default {
     root: {
         background: '{overlay.modal.background}',
@@ -16,4 +18,4 @@ export default {
     content: {
         padding: '0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}'
     }
-};
+} as DrawerDesignTokens;

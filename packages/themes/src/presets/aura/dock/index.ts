@@ -1,3 +1,5 @@
+import { DockDesignTokens } from 'types/dock';
+
 export default {
     root: {
         background: 'rgba(255, 255, 255, 0.1)',
@@ -17,4 +19,4 @@ export default {
             shadow: '{focus.ring.shadow}'
         }
     }
-};
+} as DockDesignTokens;

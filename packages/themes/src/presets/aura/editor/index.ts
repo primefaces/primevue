@@ -1,3 +1,5 @@
+import { EditorDesignTokens } from 'types/editor';
+
 export default {
     toolbar: {
         background: '{content.background}',
@@ -30,4 +32,4 @@ export default {
         color: '{content.color}',
         borderRadius: '{content.border.radius}'
     }
-};
+} as EditorDesignTokens;
