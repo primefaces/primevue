@@ -15,6 +15,7 @@ export interface PrimeVueConfiguration {
     pt?: any;
     ptOptions?: any;
     csp?: PrimeVueCSPOptions;
+    document?: Document
 }
 
 export declare const defaultOptions: PrimeVueConfiguration;
