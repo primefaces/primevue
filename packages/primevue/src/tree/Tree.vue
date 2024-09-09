@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { resolveFieldData } from '@primeuix/utils/object';
+import { isFunction, resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import IconField from 'primevue/iconfield';
@@ -222,7 +222,7 @@ export default {
     computed: {
         filteredValue() {
             let filteredNodes = [];
-            const searchFields = this.filterBy.split(',');
+            const searchFields = isFunction(this.filterBy) ? [this.filterBy] : this.filterBy.split(',');
             const filterText = this.filterValue.trim().toLocaleLowerCase(this.filterLocale);
             const strict = this.filterMode === 'strict';
 
