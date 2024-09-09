@@ -43,9 +43,9 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
 
                     if (binding.value.enterActiveClass.includes('slidedown')) {
                         target.style.height = '0px';
-                        removeClass(target, 'hidden');
+                        removeClass(target, binding.value.hiddenClass || binding.value.enterFromClass);
                         target.style.maxHeight = target.scrollHeight + 'px';
-                        addClass(target, 'hidden');
+                        addClass(target, binding.value.hiddenClass || binding.value.enterActiveClass);
                         target.style.height = '';
                     }
 
