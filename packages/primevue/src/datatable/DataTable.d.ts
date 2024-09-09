@@ -621,7 +621,7 @@ export interface DataTableStateEvent {
     /**
      * Comma separated list of column widths
      */
-    columWidths: string[];
+    columnWidths: string[];
     /**
      * Order of the columns
      */
