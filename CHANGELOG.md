@@ -1,6 +1,18 @@
 # Changelog
 
-## [4.0.5](https://github.com/primefaces/primevue/tree/4.0.4) (2024-08-23)
+## [4.0.6](https://github.com/primefaces/primevue/tree/4.0.6) (2024-09-19)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.5...4.0.6)
+
+**Fixed bugs:**
+
+-   animate-slidedown fails when a Tailwind prefix is used [\#6365](https://github.com/primefaces/primevue/issues/6365)
+-   Tree: wrong pt and classname for InputText [\#6301](https://github.com/primefaces/primevue/issues/6301)
+-   pt pcFilterIconContainer defects on form components [\#6286](https://github.com/primefaces/primevue/issues/6286)
+-   File Upload: Basic Mode does not apply buttonProps [\#6255](https://github.com/primefaces/primevue/issues/6255)
+-   Multiple Components: Augment vue using declare module 'vue' instead of declare module '@vue/runtime-core' (and declare module 'vue/types/vue') to avoid compilebreaks [\#6199](https://github.com/primefaces/primevue/issues/6199)
+
+## [4.0.5](https://github.com/primefaces/primevue/tree/4.0.5) (2024-08-23)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.4...4.0.5)
 
