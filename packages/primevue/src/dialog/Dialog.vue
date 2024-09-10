@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
         <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" v-bind="ptm('mask')">
-            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
+            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
                     <template v-else>
@@ -79,7 +79,7 @@ export default {
     name: 'Dialog',
     extends: BaseDialog,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
+    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragstart', 'dragend'],
     provide() {
         return {
             dialogRef: computed(() => this._instance)
@@ -149,7 +149,6 @@ export default {
         onEnter() {
             this.$emit('show');
             this.target = document.activeElement;
-            this.focus();
             this.enableDocumentSettings();
             this.bindGlobalListeners();
 
@@ -157,9 +156,16 @@ export default {
                 ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
         },
+        onAfterEnter() {
+            this.focus();
+        },
         onBeforeLeave() {
             if (this.modal) {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+            }
+
+            if (this.dragging && this.documentDragEndListener) {
+                this.documentDragEndListener();
             }
         },
         onLeave() {
@@ -318,6 +324,8 @@ export default {
                 this.container.style.margin = '0';
                 document.body.setAttribute('data-p-unselectable-text', 'true');
                 !this.isUnstyled && addStyle(document.body, { 'user-select': 'none' });
+
+                this.$emit('dragstart', event);
             }
         },
         bindGlobalListeners() {

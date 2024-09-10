@@ -28,7 +28,7 @@
                         v-bind="getPTOptions('itemContent', processedItem, index)"
                     >
                         <template v-if="!templates.item">
-                            <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink', processedItem, index)">
+                            <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" v-bind="getPTOptions('itemLink', processedItem, index)">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions('itemIcon', processedItem, index)" />
                                 <span :id="getItemLabelId(processedItem)" :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel', processedItem, index)">{{ getItemLabel(processedItem) }}</span>
@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
 import { nestedPosition } from '@primeuix/utils/dom';
-import { resolve, isNotEmpty } from '@primeuix/utils/object';
+import { isNotEmpty, resolve } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
@@ -144,7 +144,7 @@ export default {
         getPTOptions(key, processedItem, index) {
             return this.ptm(key, {
                 context: {
-                    item: processedItem,
+                    item: processedItem.item,
                     active: this.isItemActive(processedItem),
                     focused: this.isItemFocused(processedItem),
                     disabled: this.isItemDisabled(processedItem),

@@ -65,10 +65,10 @@
 </template>
 
 <script>
+import { find, findSingle, focus, getAttribute, isClickable } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { isClickable, getAttribute, findSingle, focus, find } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
 import BodyCell from './BodyCell.vue';
 
 export default {
@@ -143,7 +143,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (isClickable(event.target) || getAttribute(event.target, 'data-pc-section') === 'rowtogglebutton' || getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' || event.target.tagName === 'path') {
+            if (isClickable(event.target) || getAttribute(event.target, 'data-pc-section') === 'nodetogglebutton' || getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' || event.target.tagName === 'path') {
                 return;
             }
 
@@ -221,7 +221,7 @@ export default {
         },
         onArrowRightKey(event) {
             const ishiddenIcon = findSingle(event.currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = findSingle(this.$refs.node, '[data-pc-section="rowtogglebutton"]');
+            const togglerElement = findSingle(this.$refs.node, '[data-pc-section="nodetogglebutton"]');
 
             if (ishiddenIcon) return;
 
@@ -240,7 +240,7 @@ export default {
 
             const currentTarget = event.currentTarget;
             const ishiddenIcon = findSingle(currentTarget, 'button').style.visibility === 'hidden';
-            const togglerElement = findSingle(currentTarget, '[data-pc-section="rowtogglebutton"]');
+            const togglerElement = findSingle(currentTarget, '[data-pc-section="nodetogglebutton"]');
 
             if (this.expanded && !ishiddenIcon) {
                 togglerElement.click();

@@ -45,6 +45,10 @@ export interface StyleClassOptions {
      */
     leaveToClass?: string | undefined;
     /**
+     * Special class name to hide an element, only used in slide animation.
+     */
+    hiddenClass?: string | undefined;
+    /**
      * Whether to trigger leave animation when outside of the element is clicked.
      * @defaultValue false
      */

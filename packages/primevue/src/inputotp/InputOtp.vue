@@ -161,11 +161,12 @@ export default {
                     break;
 
                 case 'Enter':
+                case 'NumpadEnter':
                 case 'Tab':
                     break;
 
                 default:
-                    if ((this.integerOnly && !(Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
+                    if ((this.integerOnly && !(event.code !== 'Space' && Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
                         event.preventDefault();
                     }
 

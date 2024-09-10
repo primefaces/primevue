@@ -13,7 +13,7 @@
     >
         <div :class="cx('itemContent')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" v-bind="getPTOptions('itemContent')">
             <template v-if="!templates.item">
-                <a v-ripple :href="item.url" :class="cx('itemLink')" :target="item.target" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('itemLink')">
+                <a v-ripple :href="item.url" :class="cx('itemLink')" :target="item.target" tabindex="-1" v-bind="getPTOptions('itemLink')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('itemIcon')" />
                     <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" v-bind="getPTOptions('itemIcon')" />
                     <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel')">{{ label() }}</span>
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
 import { resolve } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 

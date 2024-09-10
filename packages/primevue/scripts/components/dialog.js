@@ -181,6 +181,17 @@ const DialogEvents = [
         ]
     },
     {
+        name: 'dragstart',
+        description: 'Fired when a dialog drag begins.',
+        arguments: [
+            {
+                name: 'event',
+                type: 'object',
+                description: 'Event Object'
+            }
+        ]
+    },
+    {
         name: 'dragend',
         description: 'Fired when a dialog drag completes.',
         arguments: [

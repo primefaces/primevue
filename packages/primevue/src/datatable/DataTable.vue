@@ -280,29 +280,29 @@
 </template>
 
 <script>
-import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
-import { HelperSet, UniqueComponentId, getVNodeProp } from '@primevue/core/utils';
 import {
-    getAttribute,
-    clearSelection,
-    findSingle,
-    isClickable,
-    find,
-    focus,
-    exportCSV,
-    getOffset,
-    addStyle,
-    getIndex,
-    getOuterWidth,
-    getHiddenElementOuterWidth,
-    getHiddenElementOuterHeight,
-    getWindowScrollTop,
-    getOuterHeight,
-    removeClass,
     addClass,
+    addStyle,
+    clearSelection,
+    exportCSV,
+    find,
+    findSingle,
+    focus,
+    getAttribute,
+    getHiddenElementOuterHeight,
+    getHiddenElementOuterWidth,
+    getIndex,
+    getOffset,
+    getOuterHeight,
+    getOuterWidth,
+    getWindowScrollTop,
+    isClickable,
+    removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
-import { resolveFieldData, localeComparator, sort, findIndexInList, equals, reorderArray, isNotEmpty, isEmpty } from '@primeuix/utils/object';
+import { equals, findIndexInList, isEmpty, isNotEmpty, localeComparator, reorderArray, resolveFieldData, sort } from '@primeuix/utils/object';
+import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
+import { HelperSet, UniqueComponentId, getVNodeProp } from '@primevue/core/utils';
 import ArrowDownIcon from '@primevue/icons/arrowdown';
 import ArrowUpIcon from '@primevue/icons/arrowup';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -736,7 +736,7 @@ export default {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
             const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
-            if (isClickable(event.target)) {
+            if (isClickable(event.currentTarget)) {
                 return;
             }
 
@@ -813,9 +813,9 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
-                if (event.target?.getAttribute('data-pc-section') === 'rowtoggleicon' || event.target?.parentElement?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
+                if (event.currentTarget?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
 
-                const targetRow = event.target?.closest('tr[data-p-selectable-row="true"]');
+                const targetRow = event.currentTarget?.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';
                 targetRow.tabIndex = '0';

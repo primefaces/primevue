@@ -59,15 +59,6 @@ export default {
             $pcDrawer: this,
             $parentInstance: this
         };
-    },
-    watch: {
-        dismissable(newValue) {
-            if (newValue) {
-                this.bindOutsideClickListener();
-            } else {
-                this.unbindOutsideClickListener();
-            }
-        }
     }
 };
 </script>

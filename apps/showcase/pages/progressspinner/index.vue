@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue ProgressSpinner Component" header="ProgressSpinner" description="ProgressBar is a process status indicator." :componentDocs="docs" :apiDocs="['ProgressSpinner']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent
+        title="Vue ProgressSpinner Component"
+        header="ProgressSpinner"
+        description="ProgressSpinner is a process status indicator."
+        :componentDocs="docs"
+        :apiDocs="['ProgressSpinner']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>

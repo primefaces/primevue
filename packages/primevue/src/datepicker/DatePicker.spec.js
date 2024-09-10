@@ -54,4 +54,48 @@ describe('DatePicker.vue', () => {
 
         expect(wrapper.vm.viewDate).toEqual(dateTwo);
     });
+
+    it('should open a year view when there is selected date (fix: #6203)', async () => {
+        const dateOne = new Date();
+
+        dateOne.setFullYear(1988, 9, 10);
+
+        await wrapper.setProps({ modelValue: dateOne });
+
+        const input = wrapper.find('.p-datepicker-input');
+
+        await input.trigger('focus');
+
+        const yearSelectButton = wrapper.find('.p-datepicker .p-datepicker-select-year');
+
+        expect(yearSelectButton.exists()).toBe(true);
+        expect(yearSelectButton.text()).toBe('1988');
+
+        await yearSelectButton.trigger('click');
+
+        expect(wrapper.find('.p-datepicker-decade').exists()).toBe(true);
+        expect(wrapper.find('.p-datepicker-decade').text()).toBe('1980 - 1989');
+    });
+
+    it('should not show other months when showOtherMonths is false', async () => {
+        const dateOne = new Date();
+
+        dateOne.setFullYear(1988, 5, 15);
+
+        await wrapper.setProps({ modelValue: dateOne, showOtherMonths: false });
+
+        const input = wrapper.find('.p-datepicker-input');
+
+        await input.trigger('focus');
+
+        expect(wrapper.find('.p-datepicker-other-month span').exists()).toBe(false);
+
+        await input.trigger('blur');
+
+        await wrapper.setProps({ showOtherMonths: true });
+
+        await input.trigger('focus');
+
+        expect(wrapper.find('.p-datepicker-other-month span').exists()).toBe(true);
+    });
 });

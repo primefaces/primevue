@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import type { Component, VNode } from 'vue';
 
 export declare type AccordionHeaderPassThroughOptionType = AccordionHeaderPassThroughAttributes | ((options: AccordionHeaderPassThroughMethodOptions) => AccordionHeaderPassThroughAttributes | string) | string | null | undefined;
 
@@ -76,7 +76,7 @@ export interface AccordionHeaderProps {
      * Use to change the HTML tag of root element.
      * @defaultValue BUTTON
      */
-    as?: string | undefined;
+    as?: string | Component | undefined;
     /**
      * When enabled, it changes the default rendered element for the one passed as a child element.
      * @defaultValue false

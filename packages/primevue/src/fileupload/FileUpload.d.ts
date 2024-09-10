@@ -275,16 +275,6 @@ export interface FileUploadPassThroughOptions {
      */
     empty?: FileUploadPassThroughOptionType;
     /**
-     * Used to pass attributes to the messages' DOM element.
-     * @see {@link MessagePassThroughOptions}
-     */
-    pcMessages?: MessagePassThroughOptions<FileUploadPassThroughMethodOptions>;
-    /**
-     * Used to pass attributes to the basic mode's button's DOM element.
-     * @see {@link ButtonPassThroughOptions}
-     */
-    pcButton?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -314,7 +304,7 @@ export interface FileUploadState {
     /**
      * Current messages.
      */
-    messages: any[];
+    messages: string[] | null;
     /**
      * Current progress state as a number.
      */

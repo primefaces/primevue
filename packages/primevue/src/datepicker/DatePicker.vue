@@ -78,7 +78,7 @@
                                 <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <Button
-                                        v-show="showOtherMonths ? groupIndex === 0 : false"
+                                        v-show="groupIndex === 0"
                                         :ref="previousButtonRef"
                                         :class="cx('pcPrevButton')"
                                         :disabled="disabled"
@@ -158,7 +158,7 @@
                                         </span>
                                     </div>
                                     <Button
-                                        v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
+                                        v-show="numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1"
                                         :ref="nextButtonRef"
                                         :class="cx('pcNextButton')"
                                         :disabled="disabled"
@@ -223,6 +223,7 @@
                                                 data-pc-group-section="tablebodycell"
                                             >
                                                 <span
+                                                    v-if="showOtherMonths || !date.otherMonth"
                                                     v-ripple
                                                     :class="cx('day', { date })"
                                                     @click="onDateSelect($event, date)"
@@ -750,7 +751,7 @@ export default {
 
                 return start === year || end === year || (start < year && end > year);
             } else {
-                return value.getFullYear() === year;
+                return this.modelValue.getFullYear() === year;
             }
         },
         isDateEquals(value, dateMeta) {
@@ -906,16 +907,12 @@ export default {
             this.overlay = null;
         },
         onPrevButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: true, button: true };
-                this.navBackward(event);
-            }
+            this.navigationState = { backward: true, button: true };
+            this.navBackward(event);
         },
         onNextButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: false, button: true };
-                this.navForward(event);
-            }
+            this.navigationState = { backward: false, button: true };
+            this.navForward(event);
         },
         navBackward(event) {
             event.preventDefault();
@@ -2710,14 +2707,14 @@ export default {
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];
                         let styles = `
-                            .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${numMonths}) .p-datepicker-next {
+                            .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
                                 display: inline-flex;
                             }
                         `;
 
                         for (let j = numMonths; j < this.numberOfMonths; j++) {
                             styles += `
-                                .p-datepicker[${this.attributeSelector}] .p-datepicker-group:nth-child(${j + 1}) {
+                                .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
                                     display: none;
                                 }
                             `;

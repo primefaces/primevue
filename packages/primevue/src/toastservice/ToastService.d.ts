@@ -39,13 +39,7 @@ export interface ToastServiceMethods {
     removeAllGroups(): void;
 }
 
-declare module 'vue/types/vue' {
-    interface Vue {
-        $toast: ToastServiceMethods;
-    }
-}
-
-declare module '@vue/runtime-core' {
+declare module 'vue' {
     interface ComponentCustomProperties {
         $toast: ToastServiceMethods;
     }

@@ -115,7 +115,7 @@ export interface TreePassThroughOptions<T = any> {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcFilter?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
+    pcFilterInput?: InputTextPassThroughOptions<TreeSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the InputIcon component.
      * @see {@link InputIconPassThroughOptions}

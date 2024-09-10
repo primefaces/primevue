@@ -28,7 +28,6 @@
                 <li
                     v-if="isItemVisible(item)"
                     :id="`${id}_${index}`"
-                    :aria-controls="`${id}_item`"
                     :class="cx('item', { id: `${id}_${index}` })"
                     :style="getItemStyle(index)"
                     role="none"
