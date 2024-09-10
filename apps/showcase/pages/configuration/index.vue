@@ -7,7 +7,7 @@
         <div class="doc-main">
             <div class="doc-intro">
                 <h1>Configuration</h1>
-                <p>Application widge configuration for PrimeVue.</p>
+                <p>Application widget configuration for PrimeVue.</p>
             </div>
             <DocSections :docs="docs" />
         </div>
