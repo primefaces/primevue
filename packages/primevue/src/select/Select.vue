@@ -495,11 +495,9 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
-            const isComposing = event.isComposing;
-
-            // Avoid IME input issue in Chinese, Japanese and Korean languages
-            // If they are still typing, do not trigger onFilterKeyDown
-            if (isComposing) return;
+            // Check if the event is part of a text composition process (e.g., for Asian languages).
+            // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
+            if (event.isComposing) return;
 
             switch (event.code) {
                 case 'ArrowDown':
