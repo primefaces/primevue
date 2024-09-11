@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Select provides built-in filtering that is enabled by adding the <i>filter</i> property.</p> You can also add the <i>auto-filter-focus</i> property if you would like to have the filter field to be in focus on open.
+        <p>Select provides built-in filtering that is enabled by adding the <i>filter</i> property.</p> You can also add the <i>auto-filter-focus</i> property if you would like the filter field to be focused when the dropdown is opened.
     </DocSectionText>
     <div class="card flex justify-center">
         <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
