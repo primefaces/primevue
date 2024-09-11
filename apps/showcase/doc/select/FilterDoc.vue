@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Select provides built-in filtering that is enabled by adding the <i>filter</i> property.</p>
+        <p>Select provides built-in filtering that is enabled by adding the <i>filter</i> property.</p> You can also add the <i>auto-filter-focus</i> property if you would like to have the filter field to be in focus on open.
     </DocSectionText>
     <div class="card flex justify-center">
         <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
@@ -43,7 +43,7 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+<Select v-model="selectedCountry" :options="countries" filter auto-filter-focus optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
     <template #value="slotProps">
         <div v-if="slotProps.value" class="flex items-center">
             <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
