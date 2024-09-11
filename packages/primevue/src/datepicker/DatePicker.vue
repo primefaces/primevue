@@ -728,7 +728,7 @@ export default {
                 return this.modelValue.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
             } else if (this.isRangeSelection()) {
                 if (!this.modelValue[1]) {
-                    return this.modelValue[0].getFullYear() === this.currentYear && this.modelValue[0].getMonth() === month;
+                    return this.modelValue[0]?.getFullYear() === this.currentYear && this.modelValue[0]?.getMonth() === month;
                 } else {
                     const currentDate = new Date(this.currentYear, month, 1);
                     const startDate = new Date(this.modelValue[0].getFullYear(), this.modelValue[0].getMonth(), 1);
