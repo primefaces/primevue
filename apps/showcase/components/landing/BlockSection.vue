@@ -3,7 +3,7 @@
         <div class="section-header relative z-30">Blocks</div>
         <p class="section-detail relative z-30">400+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
         <div class="flex justify-center mt-6 relative z-30">
-            <a href="https://blocks.primevue.org" class="linkbox linkbox-primary">
+            <a href="https://primeblocks.org" class="linkbox linkbox-primary">
                 <span>Explore All</span>
                 <i class="pi pi-arrow-right ml-2"></i>
             </a>

@@ -165,7 +165,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://blocks.primevue.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://blocks.primevue.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
                 template and requires a separate purchase.`,
                             description4: `
                     Atlantis uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
