@@ -38,7 +38,8 @@ import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
-            nodes: null
+            nodes: null,
+            selectedKey: null,
         };
     },
     mounted() {
