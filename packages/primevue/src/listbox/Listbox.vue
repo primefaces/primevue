@@ -703,17 +703,6 @@ export default {
             this.$emit('update:modelValue', value);
             this.$emit('change', { originalEvent: event, value });
         },
-        flatOptions(options) {
-            return (options || []).reduce((result, option, index) => {
-                result.push({ optionGroup: option, group: true, index });
-
-                const optionGroupChildren = this.getOptionGroupChildren(option);
-
-                optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
-
-                return result;
-            }, []);
-        },
         listRef(el, contentRef) {
             this.list = el;
             contentRef && contentRef(el); // For VirtualScroller
@@ -723,30 +712,26 @@ export default {
         }
     },
     computed: {
-        visibleOptions() {
-            const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
+        optionsListFlat() {
+            return this.filterValue ? FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : this.options;
+        },
+        optionsListGroup() {
+            const filteredOptions = [];
 
-            if (this.filterValue) {
-                const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+            (this.options || []).forEach((optionGroup) => {
+                const optionGroupChildren = this.getOptionGroupChildren(optionGroup) || [];
+                const filteredChildren = this.filterValue ? FilterService.filter(optionGroupChildren, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : optionGroupChildren;
 
-                if (this.optionGroupLabel) {
-                    const optionGroups = this.options || [];
-                    const filtered = [];
-
-                    optionGroups.forEach((group) => {
-                        const groupChildren = this.getOptionGroupChildren(group);
-                        const filteredItems = groupChildren.filter((item) => filteredOptions.includes(item));
-
-                        if (filteredItems.length > 0) filtered.push({ ...group, [typeof this.optionGroupChildren === 'string' ? this.optionGroupChildren : 'items']: [...filteredItems] });
-                    });
-
-                    return this.flatOptions(filtered);
+                if (filteredChildren && filteredChildren.length) {
+                    filteredOptions.push({ optionGroup, group: true });
+                    filteredOptions.push(...filteredChildren);
                 }
+            });
 
-                return filteredOptions;
-            }
-
-            return options;
+            return filteredOptions;
+        },
+        visibleOptions() {
+            return this.optionGroupLabel ? this.optionsListGroup : this.optionsListFlat;
         },
         hasSelectedOption() {
             return isNotEmpty(this.modelValue);
