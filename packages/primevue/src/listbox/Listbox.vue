@@ -722,9 +722,8 @@ export default {
                 const optionGroupChildren = this.getOptionGroupChildren(optionGroup) || [];
                 const filteredChildren = this.filterValue ? FilterService.filter(optionGroupChildren, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : optionGroupChildren;
 
-                if (filteredChildren && filteredChildren.length) {
-                    filteredOptions.push({ optionGroup, group: true });
-                    filteredOptions.push(...filteredChildren);
+                if (filteredChildren?.length) {
+                    filteredOptions.push({ optionGroup, group: true }, ...filteredChildren);
                 }
             });
 
