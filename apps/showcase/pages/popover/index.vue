@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/popover/BasicDoc.vue';
 import DataTableDoc from '@/doc/popover/DataTableDoc.vue';
 import ImportDoc from '@/doc/popover/ImportDoc.vue';
 import PTComponent from '@/doc/popover/pt/index.vue';
+import SelectDataDoc from '@/doc/popover/SelectDataDoc.vue';
 import ThemingDoc from '@/doc/popover/theming/index.vue';
 
 export default {
@@ -31,6 +32,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'selectdata',
+                    label: 'Select Data',
+                    component: SelectDataDoc
                 },
                 {
                     id: 'datatable',

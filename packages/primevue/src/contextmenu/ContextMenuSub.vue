@@ -144,7 +144,7 @@ export default {
         getPTOptions(key, processedItem, index) {
             return this.ptm(key, {
                 context: {
-                    item: processedItem,
+                    item: processedItem.item,
                     active: this.isItemActive(processedItem),
                     focused: this.isItemFocused(processedItem),
                     disabled: this.isItemDisabled(processedItem),

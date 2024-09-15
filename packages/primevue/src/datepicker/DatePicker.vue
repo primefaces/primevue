@@ -78,7 +78,7 @@
                                 <div :class="cx('header')" v-bind="ptm('header')">
                                     <slot name="header"></slot>
                                     <Button
-                                        v-show="showOtherMonths ? groupIndex === 0 : false"
+                                        v-show="groupIndex === 0"
                                         :ref="previousButtonRef"
                                         :class="cx('pcPrevButton')"
                                         :disabled="disabled"
@@ -158,7 +158,7 @@
                                         </span>
                                     </div>
                                     <Button
-                                        v-show="showOtherMonths ? (numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1) : false"
+                                        v-show="numberOfMonths === 1 ? true : groupIndex === numberOfMonths - 1"
                                         :ref="nextButtonRef"
                                         :class="cx('pcNextButton')"
                                         :disabled="disabled"
@@ -223,6 +223,7 @@
                                                 data-pc-group-section="tablebodycell"
                                             >
                                                 <span
+                                                    v-if="showOtherMonths || !date.otherMonth"
                                                     v-ripple
                                                     :class="cx('day', { date })"
                                                     @click="onDateSelect($event, date)"
@@ -727,7 +728,7 @@ export default {
                 return this.modelValue.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
             } else if (this.isRangeSelection()) {
                 if (!this.modelValue[1]) {
-                    return this.modelValue[0].getFullYear() === this.currentYear && this.modelValue[0].getMonth() === month;
+                    return this.modelValue[0]?.getFullYear() === this.currentYear && this.modelValue[0]?.getMonth() === month;
                 } else {
                     const currentDate = new Date(this.currentYear, month, 1);
                     const startDate = new Date(this.modelValue[0].getFullYear(), this.modelValue[0].getMonth(), 1);
@@ -906,16 +907,12 @@ export default {
             this.overlay = null;
         },
         onPrevButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: true, button: true };
-                this.navBackward(event);
-            }
+            this.navigationState = { backward: true, button: true };
+            this.navBackward(event);
         },
         onNextButtonClick(event) {
-            if (this.showOtherMonths) {
-                this.navigationState = { backward: false, button: true };
-                this.navForward(event);
-            }
+            this.navigationState = { backward: false, button: true };
+            this.navForward(event);
         },
         navBackward(event) {
             event.preventDefault();

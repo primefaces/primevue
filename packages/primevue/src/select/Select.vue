@@ -96,7 +96,7 @@
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
                             />
-                            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                            <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
                                     <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
                                     <SearchIcon v-else v-bind="ptm('filterIcon')" />
@@ -495,6 +495,10 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
+            // Check if the event is part of a text composition process (e.g., for Asian languages).
+            // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
+            if (event.isComposing) return;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);

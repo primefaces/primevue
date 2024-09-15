@@ -1,5 +1,63 @@
 # Changelog
 
+## [4.0.7](https://github.com/primefaces/primevue/tree/4.0.7) (2024-09-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.6...4.0.7)
+
+**Fixed bugs:**
+
+-   SelectButton pt name correction [\#6382](https://github.com/primefaces/primevue/issues/6382)
+-   ToggleButton: aria-label and aria-labelledby not observed [\#6377](https://github.com/primefaces/primevue/issues/6377)
+-   FileUpload: Fix type of FileUploadState.messages [\#6370](https://github.com/primefaces/primevue/issues/6370)
+-   TreeTable: click and arrow key defect [\#6368](https://github.com/primefaces/primevue/issues/6368)
+-   Dialog: no dragstart event to accompany dragend [\#6357](https://github.com/primefaces/primevue/issues/6357)
+-   Dialog: dragging state is not reset when closed while dragging [\#6356](https://github.com/primefaces/primevue/issues/6356)
+-   InputOtp: IntegerOnly mode accepts "space" [\#6353](https://github.com/primefaces/primevue/issues/6353)
+-   InputOtp: Pasting adds an extra character [\#6351](https://github.com/primefaces/primevue/issues/6351)
+-   DatePicker: Pick month does not work [\#6342](https://github.com/primefaces/primevue/issues/6342)
+-   DataTable: Cannot set properties of null (setting 'tabIndex') [\#6323](https://github.com/primefaces/primevue/issues/6323)
+-   DatePicker showOtherMonths wrong behaviour [\#6307](https://github.com/primefaces/primevue/issues/6307)
+-   Click outside only when not modal [\#6284](https://github.com/primefaces/primevue/pull/6284)
+-   Select: Chinese IME input will be stopped in filter input element [\#6279](https://github.com/primefaces/primevue/issues/6279)
+
+## [4.0.6](https://github.com/primefaces/primevue/tree/4.0.6) (2024-09-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.5...4.0.6)
+
+**Fixed bugs:**
+
+-   animate-slidedown fails when a Tailwind prefix is used [\#6365](https://github.com/primefaces/primevue/issues/6365)
+-   Tree: wrong pt and classname for InputText [\#6301](https://github.com/primefaces/primevue/issues/6301)
+-   pt pcFilterIconContainer defects on form components [\#6286](https://github.com/primefaces/primevue/issues/6286)
+-   File Upload: Basic Mode does not apply buttonProps [\#6255](https://github.com/primefaces/primevue/issues/6255)
+-   Multiple Components: Augment vue using declare module 'vue' instead of declare module '@vue/runtime-core' (and declare module 'vue/types/vue') to avoid compilebreaks [\#6199](https://github.com/primefaces/primevue/issues/6199)
+
+## [4.0.5](https://github.com/primefaces/primevue/tree/4.0.5) (2024-08-23)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.4...4.0.5)
+
+**Fixed bugs:**
+
+-   aria-hidden errors on browsers [\#6269](https://github.com/primefaces/primevue/issues/6269)
+-   Accordion, Button, Step, Tab: Invalid prop warnings when component object passed to as prop [\#6266](https://github.com/primefaces/primevue/issues/6266)
+-   Carousel: Index is undefined in PassThroughOptions [\#6264](https://github.com/primefaces/primevue/issues/6264)
+-   Drawer: Nested drawer dissmis [\#6262](https://github.com/primefaces/primevue/issues/6262)
+-   Accordion and Tabs value prop type definion extensions [\#6252](https://github.com/primefaces/primevue/issues/6252)
+-   DatePicker: responsiveOptions doesn't work [\#6250](https://github.com/primefaces/primevue/issues/6250)
+-   ScrollTop: ScrollTop button not displayed correctly when ripple effect is enabled [\#6249](https://github.com/primefaces/primevue/issues/6249)
+-   Stepper: activateCallback has incorrect signature [\#6225](https://github.com/primefaces/primevue/issues/6225)
+-   SpeedDial: Invalid aria-controls value being set in list items [\#6221](https://github.com/primefaces/primevue/issues/6221)
+-   InputNumber: Buttons disappear when clicked if inside of an InputGroup [\#6212](https://github.com/primefaces/primevue/issues/6212)
+-   IconField: 'iconfield' does not exist in type 'PrimeVuePTOptions' [\#6206](https://github.com/primefaces/primevue/issues/6206)
+-   DatePicker: switching to year view when modelValue is populated [\#6203](https://github.com/primefaces/primevue/issues/6203)
+-   Select: In case of Filter and AutoFocusFilter enabled focus is lost [\#6194](https://github.com/primefaces/primevue/issues/6194)
+-   InputOtp - allow NumpadEnter event [\#6182](https://github.com/primefaces/primevue/issues/6182)
+-   [MenuBar]: Slow performance [\#6164](https://github.com/primefaces/primevue/issues/6164)
+-   Dialog: [V4] When it non-fixed, it will cause the appendTo target shrink or joggled. [\#6160](https://github.com/primefaces/primevue/issues/6160)
+-   Menu section: PassThrough context.item has not right MenuItem entry [\#6055](https://github.com/primefaces/primevue/issues/6055)
+-   FileUpload v4.0.0-beta.3: Subsequent file selections no longer possible in basic mode (regression from v4.0.0-beta.2) [\#5748](https://github.com/primefaces/primevue/issues/5748)
+-   InputMask number repeat [\#3623](https://github.com/primefaces/primevue/issues/3623)
+
 ## [4.0.4](https://github.com/primefaces/primevue/tree/4.0.4) (2024-08-02)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.3...4.0.4)

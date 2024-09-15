@@ -106,7 +106,7 @@
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
                             />
-                            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                            <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
                                     <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
                                     <SearchIcon v-else v-bind="ptm('filterIcon')" />

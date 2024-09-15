@@ -527,7 +527,8 @@
         {
             "name": "PrimeBlocks",
             "icon": "pi pi-server",
-            "href": "https://blocks.primevue.org"
+            "href": "https://primeblocks.org",
+            "badge": "NEW"
         },
         {
             "name": "Guides",
@@ -572,8 +573,7 @@
         {
             "name": "Contribution",
             "to": "/contribution",
-            "icon": "pi pi-users",
-            "badge": "NEW"
+            "icon": "pi pi-users"
         },
         {
             "name": "Discover",

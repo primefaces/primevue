@@ -8,11 +8,11 @@
                 :disabled="disabled || isOptionDisabled(option)"
                 :unstyled="unstyled"
                 @change="onOptionSelect($event, option, index)"
-                :pt="ptm('pcButton')"
+                :pt="ptm('pcToggleButton')"
             >
                 <template v-if="$slots.option" #default>
                     <slot name="option" :option="option" :index="index">
-                        <span v-bind="ptm('pcButton')['label']">{{ getOptionLabel(option) }}</span>
+                        <span v-bind="ptm('pcToggleButton')['label']">{{ getOptionLabel(option) }}</span>
                     </slot>
                 </template>
             </ToggleButton>
@@ -41,15 +41,6 @@ export default {
         getOptionRenderKey(option) {
             return this.dataKey ? resolveFieldData(option, this.dataKey) : this.getOptionLabel(option);
         },
-        getPTOptions(option, key) {
-            return this.ptm(key, {
-                context: {
-                    active: this.isSelected(option),
-                    disabled: this.isOptionDisabled(option),
-                    option
-                }
-            });
-        },
         isOptionDisabled(option) {
             return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
@@ -74,7 +65,6 @@ export default {
                 newValue = selected ? null : optionValue;
             }
 
-            this.focusedIndex = index;
             this.$emit('update:modelValue', newValue);
             this.$emit('change', { event: event, value: newValue });
         },
