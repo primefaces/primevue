@@ -1,11 +1,11 @@
 <template>
     <div class="flex-1 h-full overflow-y-auto pb-0.5">
-        <div class="flex flex-wrap gap-4 items-start justify-between">
+        <div class="flex flex-wrap gap-4 items-start justify-between p-1">
             <div class="flex-1">
                 <div class="text-muted-color font-medium leading-normal">Overview</div>
                 <div class="text-color text-3xl font-semibold leading-normal">Welcome to PrimeVue</div>
             </div>
-            <div class="flex gap-2 whitespace-nowrap flex-nowrap pt-1">
+            <div class="flex gap-2 whitespace-nowrap flex-nowrap">
                 <IconField iconPosition="left">
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText placeholder="Search" />
@@ -26,7 +26,7 @@
                 </Button>
             </div>
         </div>
-        <div class="mt-4 flex flex-wrap gap-6 items-center justify-between">
+        <div class="mt-4 flex flex-wrap gap-6 items-center justify-between p-1">
             <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" @change="changeSelect" />
             <div class="flex items-center gap-2">
                 <Button label="Download" icon="pi pi-download" iconPos="right" />
