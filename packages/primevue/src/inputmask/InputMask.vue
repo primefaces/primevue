@@ -446,7 +446,7 @@ export default {
         },
 
         updateModelValue(value) {
-            let val = this.unmask ? this.getUnmaskedValue() : value;
+            const val = this.unmask ? this.getUnmaskedValue() : value;
 
             this.currentVal = value;
 
