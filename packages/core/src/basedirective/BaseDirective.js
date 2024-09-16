@@ -1,9 +1,9 @@
 import { Theme, ThemeService } from '@primeuix/styled';
 import { getKeyValue, isArray, isEmpty, isFunction, isObject, isString, resolve, toCapitalCase, toFlatCase } from '@primeuix/utils/object';
+import { uuid } from '@primeuix/utils/uuid';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
-import { UniqueComponentId } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 
 const BaseDirective = {
@@ -166,7 +166,7 @@ const BaseDirective = {
                 $el: $prevInstance['$el'] || el || undefined,
                 $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...options?.style },
                 $primevueConfig: config,
-                $attrSelector: el.$attrSelector,
+                $attrSelector: el.$pd?.[name]?.attrSelector,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
                 isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
@@ -203,10 +203,11 @@ const BaseDirective = {
 
         return {
             created: (el, binding, vnode, prevVnode) => {
+                el.$pd ||= {};
+                el.$pd[name] = { name, attrSelector: uuid('pd') };
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                el.$attrSelector = UniqueComponentId('pd');
                 BaseDirective._loadStyles(el, binding, vnode);
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
                 handleWatch(el);
