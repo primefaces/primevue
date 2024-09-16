@@ -1,6 +1,6 @@
 <template>
     <div ref="container" class="doc-ptviewerwrapper card">
-        <div class="doc-ptviewer">
+        <div id="doc-ptviewer" class="doc-ptviewer">
             <slot />
         </div>
         <div class="doc-ptoptions">
@@ -28,15 +28,18 @@ export default {
     },
     methods: {
         enterSection(item, componentName) {
-            let selector;
+            let selector,
+                cmpName = componentName;
 
-            if (item.label === 'root') selector = `[data-pc-name="${componentName.toLowerCase()}"]`;
+            if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
+
+            if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
             else selector = `[data-pc-section="${item.label.toLowerCase()}"]`;
 
             this.hoveredElements = find(this.$refs.container, selector);
 
-            if (this.hoveredElements.length === 0) this.hoveredElements = find(document.querySelector('body'), selector);
+            if (this.hoveredElements.length === 0) this.hoveredElements = find(document.querySelector('body'), selector); //TODO:
 
             this.hoveredElements?.forEach((el) => {
                 addClass(el, '!ring !ring-red-500');
