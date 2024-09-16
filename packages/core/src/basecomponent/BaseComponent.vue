@@ -84,7 +84,6 @@ export default {
         this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
 
         if (this.rootEl) {
-            this.rootEl.setAttribute(this.$attrSelector, '');
             this.rootEl.$pc = { name: this.$.type.name, attrSelector: this.$attrSelector, ...this.$params };
         }
 
@@ -233,7 +232,8 @@ export default {
                 key !== 'transition' && {
                     ...(key === 'root' && {
                         [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
-                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) })
+                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) }),
+                        [`${this.$attrSelector}`]: ''
                     }),
                     [`${datasetPrefix}section`]: toFlatCase(key)
                 }
