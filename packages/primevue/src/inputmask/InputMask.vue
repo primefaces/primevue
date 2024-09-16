@@ -1,7 +1,7 @@
 <template>
     <InputText
         :id="id"
-        :value="modelValue"
+        :value="currentVal"
         :class="inputClass"
         :readonly="readonly"
         :disabled="disabled"
@@ -37,6 +37,11 @@ export default {
     inject: {
         $pcFluid: { default: null }
     },
+    data() {
+        return {
+            currentVal: ''
+        };
+    },
     watch: {
         mask(newMask, oldMask) {
             if (oldMask !== newMask) {
@@ -60,7 +65,7 @@ export default {
                 if (this.androidChrome) this.handleAndroidInput(event);
                 else this.handleInputChange(event);
 
-                this.$emit('update:modelValue', event.target.value);
+                this.updateModelValue(event.target.value);
             }
         },
         onFocus(event) {
@@ -96,7 +101,7 @@ export default {
         onBlur(event) {
             this.focus = false;
             this.checkVal();
-            this.updateModel(event);
+            this.updateModelValue(event.target.value);
 
             if (this.$el.value !== this.focusText) {
                 let e = document.createEvent('HTMLEvents');
@@ -133,18 +138,18 @@ export default {
 
                 this.clearBuffer(begin, end);
                 this.shiftL(begin, end - 1);
-                this.updateModel(event);
+                this.updateModelValue(event.target.value);
 
                 event.preventDefault();
             } else if (k === 'Enter') {
                 // enter
                 this.$el.blur();
-                this.updateModel(event);
+                this.updateModelValue(event.target.value);
             } else if (k === 'Escape') {
                 // escape
                 this.$el.value = this.focusText;
                 this.caret(0, this.checkVal());
-                this.updateModel(event);
+                this.updateModelValue(event.target.value);
                 event.preventDefault();
             }
 
@@ -203,7 +208,7 @@ export default {
                 event.preventDefault();
             }
 
-            this.updateModel(event);
+            this.updateModelValue(event.target.value);
 
             if (completed) {
                 this.$emit('complete', event);
@@ -420,7 +425,7 @@ export default {
             var pos = this.checkVal(true);
 
             this.caret(pos);
-            this.updateModel(event);
+            this.updateModelValue(event.target.value);
 
             if (this.isCompleted()) {
                 this.$emit('complete', event);
@@ -439,8 +444,11 @@ export default {
 
             return unmaskedBuffer.join('');
         },
-        updateModel(e) {
-            let val = this.unmask ? this.getUnmaskedValue() : e.target.value;
+
+        updateModelValue(value) {
+            let val = this.unmask ? this.getUnmaskedValue() : value;
+
+            this.currentVal = value;
 
             this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
         },
@@ -448,7 +456,7 @@ export default {
             if (this.$el) {
                 if (this.modelValue == null) {
                     this.$el.value = '';
-                    updateModel && this.$emit('update:modelValue', '');
+                    updateModel && this.updateModelValue('');
                 } else {
                     this.$el.value = this.modelValue;
                     this.checkVal();
@@ -458,11 +466,7 @@ export default {
                             this.writeBuffer();
                             this.checkVal();
 
-                            if (updateModel) {
-                                let val = this.unmask ? this.getUnmaskedValue() : this.$el.value;
-
-                                this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
-                            }
+                            if (updateModel) this.updateModelValue(this.$el.value);
                         }
                     }, 10);
                 }
