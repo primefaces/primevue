@@ -73,7 +73,7 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.0.5"
+        "@primeuix/styled": "^0.1.1"
     },
     "engines": {
         "node": ">=12.11.0"

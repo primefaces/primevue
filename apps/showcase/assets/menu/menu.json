@@ -434,12 +434,12 @@
                             "to": "/focustrap"
                         },
                         {
-                            "name": "Inplace",
-                            "to": "/inplace"
-                        },
-                        {
                             "name": "Fluid",
                             "to": "/fluid"
+                        },
+                        {
+                            "name": "Inplace",
+                            "to": "/inplace"
                         },
                         {
                             "name": "MeterGroup",

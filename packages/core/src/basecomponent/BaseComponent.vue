@@ -2,9 +2,9 @@
 import { Theme, ThemeService } from '@primeuix/styled';
 import { findSingle } from '@primeuix/utils/dom';
 import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
+import { uuid } from '@primeuix/utils/uuid';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
-import { UniqueComponentId } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -57,7 +57,9 @@ export default {
     },
     scopedStyleEl: undefined,
     rootEl: undefined,
+    $attrSelector: undefined,
     beforeCreate() {
+        this.$attrSelector = uuid('pc');
         const _usept = this.pt?.['_usept'];
         const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
         const value = _usept ? this.pt?.value?.[this.$.type.name] : this.pt;
@@ -82,8 +84,7 @@ export default {
         this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
 
         if (this.rootEl) {
-            this.rootEl.setAttribute(this.$attrSelector, '');
-            this.rootEl.$pc = { name: this.$.type.name, ...this.$params };
+            this.rootEl.$pc = { name: this.$.type.name, attrSelector: this.$attrSelector, ...this.$params };
         }
 
         this._hook('onMounted');
@@ -231,7 +232,8 @@ export default {
                 key !== 'transition' && {
                     ...(key === 'root' && {
                         [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
-                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) })
+                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) }),
+                        [`${this.$attrSelector}`]: ''
                     }),
                     [`${datasetPrefix}section`]: toFlatCase(key)
                 }
@@ -370,9 +372,6 @@ export default {
 
                     return acc;
                 }, {});
-        },
-        $attrSelector() {
-            return UniqueComponentId('pc');
         }
     }
 };

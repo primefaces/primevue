@@ -67,15 +67,10 @@ export interface ScrollTopSharedPassThroughMethodOptions {
  */
 export interface ScrollTopPassThroughOptions {
     /**
-     * Used to pass attributes to the previous button's DOM element.
+     * Used to pass attributes to the root's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     root?: ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>;
-    /**
-     * Used to pass attributes to the previous button's DOM element.
-     * @see {@link ButtonPassThroughOptions}
-     */
-    button?: ButtonPassThroughOptions<ScrollTopSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
