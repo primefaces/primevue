@@ -43,7 +43,7 @@ export default {
                             license: {
                                 documentLink: 'https://poseidon.primevue.org/documentation/',
                                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
-                                showDiscount: true,
+                                showDiscount: false,
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
@@ -140,7 +140,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://blocks.primevue.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://blocks.primevue.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
                 template and requires a separate purchase.`
                         }
                     },

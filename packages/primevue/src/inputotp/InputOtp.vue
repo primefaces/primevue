@@ -177,7 +177,7 @@ export default {
             let paste = event.clipboardData.getData('text');
 
             if (paste.length) {
-                let pastedCode = paste.substring(0, this.length + 1);
+                let pastedCode = paste.substring(0, this.length);
 
                 if (!this.integerOnly || !isNaN(pastedCode)) {
                     this.tokens = pastedCode.split('');

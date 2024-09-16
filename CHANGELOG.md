@@ -1,6 +1,26 @@
 # Changelog
 
-## [4.0.6](https://github.com/primefaces/primevue/tree/4.0.6) (2024-09-19)
+## [4.0.7](https://github.com/primefaces/primevue/tree/4.0.7) (2024-09-11)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.0.6...4.0.7)
+
+**Fixed bugs:**
+
+-   SelectButton pt name correction [\#6382](https://github.com/primefaces/primevue/issues/6382)
+-   ToggleButton: aria-label and aria-labelledby not observed [\#6377](https://github.com/primefaces/primevue/issues/6377)
+-   FileUpload: Fix type of FileUploadState.messages [\#6370](https://github.com/primefaces/primevue/issues/6370)
+-   TreeTable: click and arrow key defect [\#6368](https://github.com/primefaces/primevue/issues/6368)
+-   Dialog: no dragstart event to accompany dragend [\#6357](https://github.com/primefaces/primevue/issues/6357)
+-   Dialog: dragging state is not reset when closed while dragging [\#6356](https://github.com/primefaces/primevue/issues/6356)
+-   InputOtp: IntegerOnly mode accepts "space" [\#6353](https://github.com/primefaces/primevue/issues/6353)
+-   InputOtp: Pasting adds an extra character [\#6351](https://github.com/primefaces/primevue/issues/6351)
+-   DatePicker: Pick month does not work [\#6342](https://github.com/primefaces/primevue/issues/6342)
+-   DataTable: Cannot set properties of null (setting 'tabIndex') [\#6323](https://github.com/primefaces/primevue/issues/6323)
+-   DatePicker showOtherMonths wrong behaviour [\#6307](https://github.com/primefaces/primevue/issues/6307)
+-   Click outside only when not modal [\#6284](https://github.com/primefaces/primevue/pull/6284)
+-   Select: Chinese IME input will be stopped in filter input element [\#6279](https://github.com/primefaces/primevue/issues/6279)
+
+## [4.0.6](https://github.com/primefaces/primevue/tree/4.0.6) (2024-09-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.5...4.0.6)
 

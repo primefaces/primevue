@@ -1,10 +1,7 @@
 <template>
     <DocSectionText id="accessibility" label="Accessibility" v-bind="$attrs">
         <h3>Screen Reader</h3>
-        <p>
-            SelectButton component uses hidden native checkbox role for multiple selection and hidden radio role for single selection that is only visible to screen readers. Value to describe the component can be provided via
-            <i>aria-labelledby</i> property.
-        </p>
+        <p>SelectButton component uses ToggleButton internally and has <i>group</i> role. Value to describe the component can be provided via <i>aria-labelledby</i> property.</p>
 
         <h3>Keyboard Support</h3>
         <p>Keyboard interaction is derived from the native browser handling of checkboxs in a group.</p>
@@ -19,25 +16,11 @@
                 <tbody>
                     <tr>
                         <td><i>tab</i></td>
-                        <td>Moves focus to the first selected option, if there is none then first option receives the focus.</td>
+                        <td>Moves focus to the next the focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
-                        <td>
-                            <span class="inline-flex flex-col">
-                                <i class="mb-1">right arrow</i>
-                                <i>up arrow</i>
-                            </span>
-                        </td>
-                        <td>Moves focus to the previous option.</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="inline-flex flex-col">
-                                <i class="mb-1">left arrow</i>
-                                <i>down arrow</i>
-                            </span>
-                        </td>
-                        <td>Moves focus to the next option.</td>
+                        <td><i>shift</i> + <i>tab</i></td>
+                        <td>Moves focus to the previous the focusable element in the page tab sequence.</td>
                     </tr>
                     <tr>
                         <td><i>space</i></td>

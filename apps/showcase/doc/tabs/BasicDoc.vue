@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Tabs is defined using <i>TabList</i>, <i>Tab</i>, <i>TabPanels</i> and <i>Tab</i> components. Tab and TabPanel components are associated with their <i>value</i> properties</p>
+        <p>Tabs is defined using <i>TabList</i>, <i>Tab</i>, <i>TabPanels</i> and <i>TabPanel</i> components. Tab and TabPanel components are associated with their <i>value</i> properties</p>
     </DocSectionText>
     <div class="card">
         <Tabs value="0">
