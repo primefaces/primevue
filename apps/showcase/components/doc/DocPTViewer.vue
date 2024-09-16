@@ -42,12 +42,12 @@ export default {
             if (this.hoveredElements.length === 0) this.hoveredElements = find(document.querySelector('body'), selector); //TODO:
 
             this.hoveredElements?.forEach((el) => {
-                addClass(el, '!ring !ring-red-500');
+                addClass(el, '!ring !ring-red-500 !z-10');
             });
         },
         leaveSection() {
             this.hoveredElements.forEach((el) => {
-                removeClass(el, '!ring !ring-red-500');
+                removeClass(el, '!ring !ring-red-500 !z-10');
             });
 
             this.hoveredElements = [];
