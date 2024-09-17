@@ -442,7 +442,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border-color: var(--p-content-border-color);
+        border-color: var(--border-color);
         border-width: 0 1px 0 0;
         padding: 1rem;
         width: 75%;
@@ -461,16 +461,13 @@
             display: flex;
             flex-direction: column;
             padding: .5rem;
-            cursor: pointer;
 
             &:hover {
-                background-color: var(--p-content-hover-background);
+                background-color: var(--hover-background);
             }
 
-            .doc-ptoption-text {
-                color: var(--p-text-muted-color);
-                font-size: 0.875rem;
-                line-height: 1.25rem;
+            .doc-ptoption-text:hover {
+                cursor: default;
             }
         }
     }
