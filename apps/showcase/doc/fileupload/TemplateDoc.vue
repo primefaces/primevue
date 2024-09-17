@@ -18,7 +18,7 @@
             </template>
             <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
                 <div class="flex flex-col gap-8 pt-4">
-                    <Message v-for="message of messages" :key="message" :class="{'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+                    <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length }" severity="error">
                         {{ message }}
                     </Message>
 
@@ -88,7 +88,7 @@ export default {
     </template>
     <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
         <div class="flex flex-col gap-8 pt-4">
-            <Message v-for="message of messages" :key="message" :class="{'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+            <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length}" severity="error">
                 {{ message }}
             </Message>
 
@@ -150,7 +150,7 @@ export default {
             </template>
             <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
                 <div class="flex flex-col gap-8 pt-4">
-                    <Message v-for="message of messages" :key="message" :class="{'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+                    <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length}" severity="error">
                         {{ message }}
                     </Message>
 
