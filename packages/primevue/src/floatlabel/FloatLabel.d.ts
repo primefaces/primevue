@@ -88,6 +88,11 @@ export interface FloatLabelProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Defines the positioning of the label relative to the input.
+     * @defaultValue false
+     */
+    variant?: 'over' | 'in' | 'on' | undefined;
 }
 
 /**
