@@ -96,6 +96,11 @@
                             "to": "/editor"
                         },
                         {
+                            "name": "IftaLabel",
+                            "to": "/iftalabel",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "FloatLabel",
                             "to": "/floatlabel",
                             "badge": "NEW"

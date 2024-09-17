@@ -27,6 +27,7 @@ import fileupload from '@primevue/themes/aura/fileupload';
 import floatlabel from '@primevue/themes/aura/floatlabel';
 import galleria from '@primevue/themes/aura/galleria';
 import iconfield from '@primevue/themes/aura/iconfield';
+import iftalabel from '@primevue/themes/aura/iftalabel';
 import image from '@primevue/themes/aura/image';
 import inlinemessage from '@primevue/themes/aura/inlinemessage';
 import inplace from '@primevue/themes/aura/inplace';
@@ -489,6 +490,7 @@ export default {
         editor,
         fieldset,
         fileupload,
+        iftalabel,
         floatlabel,
         galleria,
         iconfield,

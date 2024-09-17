@@ -1,6 +1,6 @@
 /**
  *
- * FloatLabel appears on top of the input field when focused.
+ * IftaLabel visually integrates a label within its form element.
  *
  * [Live Demo](https://www.primevue.org/floatlabel/)
  *

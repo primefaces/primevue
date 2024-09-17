@@ -27,6 +27,7 @@ import fileupload from '@primevue/themes/lara/fileupload';
 import floatlabel from '@primevue/themes/lara/floatlabel';
 import galleria from '@primevue/themes/lara/galleria';
 import iconfield from '@primevue/themes/lara/iconfield';
+import iftalabel from '@primevue/themes/lara/iftalabel';
 import image from '@primevue/themes/lara/image';
 import inlinemessage from '@primevue/themes/lara/inlinemessage';
 import inplace from '@primevue/themes/lara/inplace';
@@ -494,6 +495,7 @@ export default {
         editor,
         fieldset,
         fileupload,
+        iftalabel,
         floatlabel,
         galleria,
         iconfield,

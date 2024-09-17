@@ -1,6 +1,6 @@
 /**
  *
- * FloatLabel appears on top of the input field when focused.
+ * FloatLabel visually integrates a label with its form element.
  *
  * [Live Demo](https://www.primevue.org/floatlabel/)
  *
@@ -115,7 +115,7 @@ export declare type FloatLabelEmits = EmitFn<FloatLabelEmitsOptions>;
 /**
  * **PrimeVue - FloatLabel**
  *
- * _FloatLabel appears on top of the input field when focused._
+ * _FloatLabel visually integrates a label with its form element._
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  * --- ---

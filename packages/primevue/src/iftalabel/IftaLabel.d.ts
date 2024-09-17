@@ -1,6 +1,6 @@
 /**
  *
- * FloatLabel appears on top of the input field when focused.
+ * IftaLabel visually integrates a label within its form element.
  *
  * [Live Demo](https://www.primevue.org/iftalabel/)
  *
@@ -110,7 +110,7 @@ export declare type IftaLabelEmits = EmitFn<IftaLabelEmitsOptions>;
 /**
  * **PrimeVue - IftaLabel**
  *
- * _FloatLabel appears on top of the input field when focused._
+ * _IftaLabel visually integrates a label within its form element._
  *
  * [Live Demo](https://www.primevue.org/inputtext/)
  * --- ---

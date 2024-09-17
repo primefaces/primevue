@@ -27,6 +27,7 @@ import fileupload from '@primevue/themes/nora/fileupload';
 import floatlabel from '@primevue/themes/nora/floatlabel';
 import galleria from '@primevue/themes/nora/galleria';
 import iconfield from '@primevue/themes/nora/iconfield';
+import iftalabel from '@primevue/themes/nora/iftalabel';
 import image from '@primevue/themes/nora/image';
 import inlinemessage from '@primevue/themes/nora/inlinemessage';
 import inplace from '@primevue/themes/nora/inplace';
@@ -489,6 +490,7 @@ export default {
         editor,
         fieldset,
         fileupload,
+        iftalabel,
         floatlabel,
         galleria,
         iconfield,
