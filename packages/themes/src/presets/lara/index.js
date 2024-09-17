@@ -260,7 +260,8 @@ export default {
                     disabledColor: '{surface.500}',
                     placeholderColor: '{surface.500}',
                     floatLabelColor: '{surface.500}',
-                    floatLabelFocusColor: '{surface.500}',
+                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelActiveColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.500}',
                     shadow: 'none'
@@ -385,7 +386,8 @@ export default {
                     disabledColor: '{surface.400}',
                     placeholderColor: '{surface.400}',
                     floatLabelColor: '{surface.400}',
-                    floatLabelFocusColor: '{surface.400}',
+                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelActiveColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
                     shadow: 'none'

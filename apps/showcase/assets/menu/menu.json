@@ -97,7 +97,8 @@
                         },
                         {
                             "name": "FloatLabel",
-                            "to": "/floatlabel"
+                            "to": "/floatlabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "IconField",
