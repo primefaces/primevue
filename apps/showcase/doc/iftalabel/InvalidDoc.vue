@@ -26,7 +26,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-       <IftaLabel>
+        <IftaLabel>
             <InputText id="username" v-model="value" :invalid="!value" />
             <label for="username">Username</label>
         </IftaLabel>
@@ -47,7 +47,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-       <IftaLabel>
+        <IftaLabel>
             <InputText id="username" v-model="value" :invalid="!value" />
             <label for="username">Username</label>
         </IftaLabel>
