@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>FloatLabel Pass Through</h1>
+            <h1>IftaLabel Pass Through</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -23,10 +23,10 @@ export default {
                     component: PTImage
                 },
                 {
-                    id: 'pt.doc.floatlabel',
-                    label: 'FloatLabel PT Options',
+                    id: 'pt.doc.iftalabel',
+                    label: 'IftaLabel PT Options',
                     component: DocApiTable,
-                    data: getPTOptions('FloatLabel')
+                    data: getPTOptions('IftaLabel')
                 }
             ]
         };
