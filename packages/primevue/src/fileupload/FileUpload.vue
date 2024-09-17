@@ -130,6 +130,10 @@ export default {
                 this.files = [];
             }
 
+            if (!this.multiple && this.hasFiles) {
+                this.files = [];
+            }
+
             this.messages = [];
             this.files = this.files || [];
             let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
