@@ -204,10 +204,14 @@ export default {
             this.totalSizePercent = 0;
         },
         onSelectedFiles(event) {
+            this.totalSize = 0;
+
             this.files = event.files;
             this.files.forEach((file) => {
                 this.totalSize += parseInt(this.formatSize(file.size));
             });
+
+            this.totalSizePercent = this.totalSize / 10;
         },
         uploadEvent(callback) {
             this.totalSizePercent = this.totalSize / 10;
@@ -319,10 +323,14 @@ const onClearTemplatingUpload = (clear) => {
 };
 
 const onSelectedFiles = (event) => {
+    totalSize.value = 0;
     files.value = event.files;
+
     files.value.forEach((file) => {
         totalSize.value += parseInt(formatSize(file.size));
     });
+
+    totalSizePercent.value = totalSize.value / 10;
 };
 
 const uploadEvent = (callback) => {
@@ -366,9 +374,12 @@ const formatSize = (bytes) => {
         },
         onSelectedFiles(event) {
             this.files = event.files;
+            this.totalSize = 0;
+
             this.files.forEach((file) => {
                 this.totalSize += parseInt(this.formatSize(file.size));
             });
+
             this.totalSizePercent = this.totalSize / 10;
         },
         uploadEvent(callback) {
