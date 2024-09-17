@@ -6,6 +6,10 @@ export default {
     name: 'BaseDrawer',
     extends: BaseComponent,
     props: {
+        appendTo: {
+            type: [String, Object],
+            default: 'body'
+        },
         visible: {
             type: Boolean,
             default: false

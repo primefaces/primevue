@@ -125,6 +125,11 @@ export interface DrawerState {
  */
 export interface DrawerProps {
     /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached.
+     * @defaultValue body
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
+    /**
      * Specifies the visibility of the dialog.
      * @defaultValue false
      */
