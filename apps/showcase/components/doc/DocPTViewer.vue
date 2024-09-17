@@ -32,6 +32,7 @@ export default {
                 cmpName = componentName;
 
             if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
+            else if (componentName === 'ScrollTop') cmpName = 'Button';
 
             if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
