@@ -138,6 +138,8 @@
         "./galleria/style": "./src/galleria/style/GalleriaStyle.js",
         "./iconfield": "./src/iconfield/IconField.vue",
         "./iconfield/style": "./src/iconfield/style/IconFieldStyle.js",
+        "./iftalabel": "./src/iftalabel/IftaLabel.vue",
+        "./iftalabel/style": "./src/iftalabel/style/IftaLabelStyle.js",
         "./image": "./src/image/Image.vue",
         "./image/style": "./src/image/style/ImageStyle.js",
         "./inlinemessage": "./src/inlinemessage/InlineMessage.vue",
