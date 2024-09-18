@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputMask is used as a controlled input with <i>v-model</i> properties.</p>
+        <p>InputMask is used with the <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
