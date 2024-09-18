@@ -56,7 +56,7 @@ export default {
             this.hoveredElements = [];
         },
         handleData(doc) {
-            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition');
+            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition' && !item.label.includes('hidden'));
         }
     }
 };

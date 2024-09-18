@@ -8,9 +8,13 @@ export default {
         positionX: '{form.field.padding.x}',
         fontWeight: '500',
         focus: {
-            top: '-1.25rem',
             fontSize: '0.875rem',
             fontWeight: '400'
+        }
+    },
+    over: {
+        focus: {
+            top: '-1.25rem'
         }
     },
     in: {

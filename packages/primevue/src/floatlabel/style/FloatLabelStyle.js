@@ -35,7 +35,7 @@ const theme = ({ dt }) => `
 .p-floatlabel:has(textarea.p-filled) label,
 .p-floatlabel:has(.p-inputwrapper-focus) label,
 .p-floatlabel:has(.p-inputwrapper-filled) label {
-    top: ${dt('floatlabel.focus.top')};
+    top: ${dt('floatlabel.over.focus.top')};
     margin-top: 0;
     font-size: ${dt('floatlabel.focus.font.size')};
     font-weight: ${dt('floatlabel.label.focus.font.weight')};

@@ -14,6 +14,7 @@ export interface ModuleOptions {
     /*cssLayerOrder?: string;*/
     importPT?: ImportOptions;
     importTheme?: ImportOptions;
+    loadStyles?: boolean;
     options?: PrimeVueOptions;
     components?: ConstructsType;
     directives?: ConstructsType;

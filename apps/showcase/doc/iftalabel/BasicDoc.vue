@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <InputText id="username" v-model="value" autocomplete="off" />
+    <InputText id="username" v-model="value" />
     <label for="username">Username</label>
 </IftaLabel>
 `,
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputText id="username" v-model="value" autocomplete="off" />
+            <InputText id="username" v-model="value" />
             <label for="username">Username</label>
         </IftaLabel>
     </div>
@@ -48,7 +48,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputText id="username" v-model="value" autocomplete="off" />
+            <InputText id="username" v-model="value" />
             <label for="username">Username</label>
         </IftaLabel>
     </div>
