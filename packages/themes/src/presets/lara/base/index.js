@@ -174,7 +174,7 @@ export default {
                     disabledColor: '{surface.500}',
                     placeholderColor: '{surface.500}',
                     floatLabelColor: '{surface.500}',
-                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelFocusColor: '{primary.600}',
                     floatLabelActiveColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.500}',
