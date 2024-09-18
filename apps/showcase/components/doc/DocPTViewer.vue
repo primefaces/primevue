@@ -1,14 +1,16 @@
 <template>
-    <div ref="container" class="card flex flex-col md:flex-row !p-0">
-        <div class="flex items-center justify-center md:border-r border-b md:border-b-0 border-surface md:w-3/4 w-full p-4">
+    <div ref="container" class="doc-ptviewerwrapper card">
+        <div id="doc-ptviewer" class="doc-ptviewer">
             <slot />
         </div>
-        <div class="flex flex-col gap-2 p-8 md:p-2 md:w-1/4 w-full max-h-[720px] overflow-y-auto">
+        <div class="doc-ptoptions">
             <template v-if="docs[0].data">
                 <template v-for="doc of docs" :key="doc.key">
-                    <div v-for="item of handleData(doc.data)" :key="item.value" class="flex flex-col p-2 cursor-pointer hover:bg-emphasis" @mouseenter="enterSection(item, doc.key)" @mouseleave="leaveSection">
-                        <span>{{ item.label }}</span>
-                        <span class="text-muted-color text-sm">{{ item.label }} element of {{ doc.key }} component</span>
+                    <div v-for="item of handleData(doc.data)" :key="item.value" class="doc-ptoption" @mouseenter="enterSection(item, doc.key)" @mouseleave="leaveSection">
+                        <span class="doc-ptoption-text">
+                            {{ item.label }}
+                            <template v-if="docs.length > 1">| {{ doc.key }}</template>
+                        </span>
                     </div>
                 </template>
             </template>
@@ -28,27 +30,33 @@ export default {
     },
     methods: {
         enterSection(item, componentName) {
-            let selector;
+            let selector,
+                cmpName = componentName;
 
-            if (item.label === 'root') selector = `[data-pc-name="${componentName.toLowerCase()}"]`;
+            if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
+            else if (componentName === 'ScrollTop') cmpName = 'Button';
+
+            if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
             else selector = `[data-pc-section="${item.label.toLowerCase()}"]`;
 
             this.hoveredElements = find(this.$refs.container, selector);
 
-            this.hoveredElements.forEach((el) => {
-                addClass(el, '!ring !ring-red-500');
+            if (this.hoveredElements.length === 0) this.hoveredElements = find(document.querySelector('body'), selector); //TODO:
+
+            this.hoveredElements?.forEach((el) => {
+                addClass(el, '!ring !ring-blue-500 !z-10');
             });
         },
         leaveSection() {
             this.hoveredElements.forEach((el) => {
-                removeClass(el, '!ring !ring-red-500');
+                removeClass(el, '!ring !ring-blue-500 !z-10');
             });
 
             this.hoveredElements = [];
         },
         handleData(doc) {
-            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition');
+            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition' && !item.label.includes('hidden'));
         }
     }
 };

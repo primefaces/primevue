@@ -12,6 +12,14 @@ const alias = {
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
 };
 
+let PROCESS_ENV = {};
+
+try {
+    PROCESS_ENV = process?.env || {};
+} catch {
+    // NOOP
+}
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
@@ -35,10 +43,17 @@ export default defineNuxtConfig({
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
-    primevue: {
-        autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
-        importTheme: { from: '@/themes/app-theme.js' }
-    },
+    primevue:
+        PROCESS_ENV.DEV_ENV === 'hot'
+            ? {
+                  usePrimeVue: false,
+                  autoImport: true,
+                  loadStyles: false
+              }
+            : {
+                  autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
+                  importTheme: { from: '@/themes/app-theme.js' }
+              },
     app: {
         baseURL: baseUrl,
         head: {
@@ -79,7 +94,8 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            contextPath: baseUrl
+            contextPath: baseUrl,
+            DEV_ENV: PROCESS_ENV.DEV_ENV
         }
     },
     gtag: {

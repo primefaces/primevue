@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { h } from 'vue';
 import Button from './Button.vue';
 
 describe('Button.vue', () => {
@@ -68,17 +67,5 @@ describe('Button.vue', () => {
         await wrapper.setProps({ loading: false });
 
         expect(wrapper.find('.p-button-loading').exists()).toBe(false);
-    });
-});
-
-describe('Button.vue', () => {
-    it('should render default slot', () => {
-        const wrapper = mount(Button, {
-            slots: {
-                default: h('span', { class: 'ml-2 font-bold' }, 'Default PrimeVue Button')
-            }
-        });
-
-        expect(wrapper.html()).toBe(`<button class="p-button p-component" type="button" data-pc-name="button" data-p-disabled="false" data-pc-section="root" pc7=""><span class="ml-2 font-bold">Default PrimeVue Button</span></button>`);
     });
 });

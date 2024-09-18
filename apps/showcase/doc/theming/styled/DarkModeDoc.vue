@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             PrimeVue uses the <i>system</i> as the default <i>darkModeSelector</i> in theme configuration. If you have a dark mode switch in your application, set the <i>darkModeSelector</i> to the selector you utilize such as <i>.my-app-dark</i> so
-            that PrimeVue can fit in seamlessly with your light-dark toggle.
+            that PrimeVue can fit in seamlessly with your color scheme.
         </p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
         <p>
@@ -12,6 +12,9 @@
         <DocSectionCode :code="code2" hideToggleCode hideStackBlitz />
         <DocSectionCode :code="code3" hideToggleCode importCode hideStackBlitz />
         <p>In case you prefer to use dark mode all the time, apply the <i>darkModeSelector</i> initially and never change it.</p>
+        <DocSectionCode :code="code4" hideToggleCode hideStackBlitz />
+        <p>It is also possible to disable dark mode completely using <i>false</i> or <i>none</i> as the value of the selector.</p>
+        <DocSectionCode :code="code5" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>
 
@@ -45,8 +48,22 @@ app.use(PrimeVue, {
             code3: {
                 basic: `
 function toggleDarkMode() {
-    const element = document.querySelector('html');
-    element.classList.toggle('my-app-dark');
+    document.documentElement.classList.toggle('my-app-dark');
+}
+`
+            },
+            code4: {
+                basic: `
+<html class="my-app-dark">
+`
+            },
+            code5: {
+                basic: `
+theme: {
+    preset: Aura,
+    options: {
+        darkModeSelector: false || 'none',
+    }
 }
 `
             }

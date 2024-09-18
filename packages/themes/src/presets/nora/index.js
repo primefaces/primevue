@@ -27,6 +27,7 @@ import fileupload from '@primevue/themes/nora/fileupload';
 import floatlabel from '@primevue/themes/nora/floatlabel';
 import galleria from '@primevue/themes/nora/galleria';
 import iconfield from '@primevue/themes/nora/iconfield';
+import iftalabel from '@primevue/themes/nora/iftalabel';
 import image from '@primevue/themes/nora/image';
 import inlinemessage from '@primevue/themes/nora/inlinemessage';
 import inplace from '@primevue/themes/nora/inplace';
@@ -258,7 +259,8 @@ export default {
                     disabledColor: '{surface.600}',
                     placeholderColor: '{surface.600}',
                     floatLabelColor: '{surface.600}',
-                    floatLabelFocusColor: '{surface.600}',
+                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelActiveColor: '{surface.600}',
                     floatLabelInvalidColor: '{red.500}',
                     iconColor: '{surface.900}',
                     shadow: 'none'
@@ -380,7 +382,8 @@ export default {
                     disabledColor: '{surface.400}',
                     placeholderColor: '{surface.400}',
                     floatLabelColor: '{surface.400}',
-                    floatLabelFocusColor: '{surface.400}',
+                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelActiveColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.0}',
                     shadow: 'none'
@@ -487,6 +490,7 @@ export default {
         editor,
         fieldset,
         fileupload,
+        iftalabel,
         floatlabel,
         galleria,
         iconfield,

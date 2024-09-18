@@ -1,0 +1,11 @@
+{
+    "main": "./IftaLabel.vue",
+    "module": "./IftaLabel.vue",
+    "types": "./IftaLabel.d.ts",
+    "browser": {
+        "./sfc": "./IftaLabel.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}
