@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>When the form element is invalid, the label is also highlighted.</p>
     </DocSectionText>
-    <div class="card flex justify-center items-center gap-4">
+    <div class="card flex justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="value1" v-model="value1" autocomplete="off" :invalid="!value1" />
             <label for="value1">Username</label>
@@ -47,7 +47,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center items-center gap-4">
+    <div class="card flex justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="value1" v-model="value1" :invalid="!value1" />
             <label for="value1">Username</label>
@@ -80,7 +80,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center items-center gap-4">
+    <div class="card flex justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="value1" v-model="value1" :invalid="!value1" />
             <label for="value1">Username</label>
@@ -101,9 +101,9 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value1 = ref(null);
-const value2 = ref(null);
-const value3 = ref(null);
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
 <\/script>
 `
             }
