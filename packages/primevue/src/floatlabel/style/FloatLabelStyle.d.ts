@@ -1,8 +1,8 @@
 /**
  *
- * FloatLabel appears on top of the input field when focused.
+ * FloatLabel visually integrates a label with its form element.
  *
- * [Live Demo](https://www.primevue.org/inputtext/)
+ * [Live Demo](https://www.primevue.org/floatlabel/)
  *
  * @module floatlabelstyle
  *
