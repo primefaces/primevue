@@ -7,8 +7,10 @@
             <template v-if="docs[0].data">
                 <template v-for="doc of docs" :key="doc.key">
                     <div v-for="item of handleData(doc.data)" :key="item.value" class="doc-ptoption" @mouseenter="enterSection(item, doc.key)" @mouseleave="leaveSection">
-                        <span>{{ item.label }}</span>
-                        <span class="doc-ptoption-text">{{ item.label }} element of {{ doc.key }} component</span>
+                        <span class="doc-ptoption-text">
+                            {{ item.label }}
+                            <template v-if="docs.length > 1">| {{ doc.key }}</template>
+                        </span>
                     </div>
                 </template>
             </template>
@@ -32,6 +34,7 @@ export default {
                 cmpName = componentName;
 
             if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
+            else if (componentName === 'ScrollTop') cmpName = 'Button';
 
             if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
@@ -42,18 +45,18 @@ export default {
             if (this.hoveredElements.length === 0) this.hoveredElements = find(document.querySelector('body'), selector); //TODO:
 
             this.hoveredElements?.forEach((el) => {
-                addClass(el, '!ring !ring-red-500 !z-10');
+                addClass(el, '!ring !ring-blue-500 !z-10');
             });
         },
         leaveSection() {
             this.hoveredElements.forEach((el) => {
-                removeClass(el, '!ring !ring-red-500 !z-10');
+                removeClass(el, '!ring !ring-blue-500 !z-10');
             });
 
             this.hoveredElements = [];
         },
         handleData(doc) {
-            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition');
+            return doc.filter((item) => item.label !== 'hooks' && item.label !== 'transition' && !item.label.includes('hidden'));
         }
     }
 };

@@ -96,8 +96,14 @@
                             "to": "/editor"
                         },
                         {
+                            "name": "IftaLabel",
+                            "to": "/iftalabel",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "FloatLabel",
-                            "to": "/floatlabel"
+                            "to": "/floatlabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "IconField",

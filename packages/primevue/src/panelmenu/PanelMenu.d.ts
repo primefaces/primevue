@@ -103,7 +103,7 @@ export interface PanelMenuPassThroughOptions {
     /**
      * Used to pass attributes to the list item's DOM element.
      */
-    menuitem?: PanelMenuPassThroughOptionType;
+    item?: PanelMenuPassThroughOptionType;
     /**
      * Used to pass attributes to the item content's DOM element.
      */

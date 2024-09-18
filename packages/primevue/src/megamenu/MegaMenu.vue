@@ -21,7 +21,7 @@
             >
                 <!--TODO: menubuttonicon deprecated since v4.0. Use buttonicon-->
                 <slot :name="$slots.buttonicon ? 'buttonicon' : 'menubuttonicon'">
-                    <BarsIcon v-bind="ptm('buttonicon')" />
+                    <BarsIcon v-bind="ptm('buttonIcon')" />
                 </slot>
             </a>
         </slot>
@@ -58,10 +58,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, findSingle, isTouchDevice } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import BarsIcon from '@primevue/icons/bars';
 import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
