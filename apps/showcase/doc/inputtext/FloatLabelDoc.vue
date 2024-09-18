@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>FloatLabel visually integrates a label with its form element. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="over_label" v-model="value1" autocomplete="off" />
             <label for="over_label">Over Label</label>
@@ -47,7 +47,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="over_label" v-model="value1" />
             <label for="over_label">Over Label</label>
@@ -79,7 +79,7 @@ export default {
 `,
                 composition: `
 <template>
-   <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputText id="over_label" v-model="value1" />
             <label for="over_label">Over Label</label>

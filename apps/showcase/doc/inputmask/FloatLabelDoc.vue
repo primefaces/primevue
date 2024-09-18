@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputMask id="over_label" v-model="value1" mask="999-99-9999" />
             <label for="over_label">Over Label</label>
@@ -47,7 +47,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputMask id="over_label" v-model="value1" mask="999-99-9999" />
             <label for="over_label">Over Label</label>
@@ -80,7 +80,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
             <InputMask id="over_label" v-model="value1" mask="999-99-9999" />
             <label for="over_label">Over Label</label>
