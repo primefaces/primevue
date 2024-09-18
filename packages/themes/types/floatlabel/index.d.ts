@@ -62,12 +62,6 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
          */
         focus?: {
             /**
-             * Focus top of root
-             *
-             * @designToken floatlabel.focus.top
-             */
-            top?: string;
-            /**
              * Focus font size of root
              *
              * @designToken floatlabel.focus.font.size
@@ -79,6 +73,22 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
              * @designToken floatlabel.focus.font.weight
              */
             fontWeight?: string;
+        };
+    };
+    /**
+     * Used to pass tokens of the over section
+     */
+    over?: {
+        /**
+         * Focus of over
+         */
+        focus?: {
+            /**
+             * Focus top of over
+             *
+             * @designToken floatlabel.over.focus.top
+             */
+            top?: string;
         };
     };
     /**
