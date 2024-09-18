@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 1199px) {
-    .layout-topbar-inner {   
+    .layout-topbar-inner {
         padding-left: 2rem;
         padding-right: 2rem;
 
@@ -127,6 +127,20 @@
 @media (max-width: 768px) {
     .DocSearch-Container {
         position: fixed !important;
+    }
+
+    .doc-ptviewerwrapper {
+        flex-direction: column;
+
+        .doc-ptviewer {
+            width: 100%;
+            border-width: 0 0 1px 0;
+        }
+
+        .doc-ptoptions {
+            width: 100%;
+            padding: 1rem;
+        }
     }
 }
 

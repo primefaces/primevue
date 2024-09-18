@@ -13,6 +13,7 @@ export const form: MetaType[] = toMeta([
     'FloatLabel',
     'Fluid',
     'IconField',
+    'IftaLabel',
     'InputChips',
     'InputGroup',
     'InputGroupAddon',

@@ -96,8 +96,14 @@
                             "to": "/editor"
                         },
                         {
+                            "name": "IftaLabel",
+                            "to": "/iftalabel",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "FloatLabel",
-                            "to": "/floatlabel"
+                            "to": "/floatlabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "IconField",
@@ -434,12 +440,12 @@
                             "to": "/focustrap"
                         },
                         {
-                            "name": "Inplace",
-                            "to": "/inplace"
-                        },
-                        {
                             "name": "Fluid",
                             "to": "/fluid"
+                        },
+                        {
+                            "name": "Inplace",
+                            "to": "/inplace"
                         },
                         {
                             "name": "MeterGroup",

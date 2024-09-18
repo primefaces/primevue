@@ -19,9 +19,8 @@
                 </svg>
             </template>
             <template #item="{ item }">
-                <a v-if="item.root" v-ripple class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
+                <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span>{{ item.label }}</span>
                 </a>
                 <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
@@ -108,9 +107,8 @@ export default {
         </svg>
     </template>
     <template #item="{ item }">
-        <a v-if="item.root" v-ripple class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
-            <span :class="item.icon" />
-            <span class="ml-2">{{ item.label }}</span>
+        <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+            <span>{{ item.label }}</span>
         </a>
         <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
             <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
@@ -149,9 +147,8 @@ export default {
                 </svg>
             </template>
             <template #item="{ item }">
-                <a v-if="item.root" v-ripple class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
+                <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span>{{ item.label }}</span>
                 </a>
                 <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
@@ -249,9 +246,8 @@ export default {
                 </svg>
             </template>
             <template #item="{ item }">
-                <a v-if="item.root" v-ripple class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
+                <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span>{{ item.label }}</span>
                 </a>
                 <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
                     <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">

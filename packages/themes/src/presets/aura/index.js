@@ -27,6 +27,7 @@ import fileupload from '@primevue/themes/aura/fileupload';
 import floatlabel from '@primevue/themes/aura/floatlabel';
 import galleria from '@primevue/themes/aura/galleria';
 import iconfield from '@primevue/themes/aura/iconfield';
+import iftalabel from '@primevue/themes/aura/iftalabel';
 import image from '@primevue/themes/aura/image';
 import inlinemessage from '@primevue/themes/aura/inlinemessage';
 import inplace from '@primevue/themes/aura/inplace';
@@ -258,7 +259,8 @@ export default {
                     disabledColor: '{surface.500}',
                     placeholderColor: '{surface.500}',
                     floatLabelColor: '{surface.500}',
-                    floatLabelFocusColor: '{surface.500}',
+                    floatLabelFocusColor: '{primary.600}',
+                    floatLabelActiveColor: '{surface.500}',
                     floatLabelInvalidColor: '{red.400}',
                     iconColor: '{surface.400}',
                     shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
@@ -380,7 +382,8 @@ export default {
                     disabledColor: '{surface.400}',
                     placeholderColor: '{surface.400}',
                     floatLabelColor: '{surface.400}',
-                    floatLabelFocusColor: '{surface.400}',
+                    floatLabelFocusColor: '{primary.color}',
+                    floatLabelActiveColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
                     shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
@@ -487,6 +490,7 @@ export default {
         editor,
         fieldset,
         fileupload,
+        iftalabel,
         floatlabel,
         galleria,
         iconfield,

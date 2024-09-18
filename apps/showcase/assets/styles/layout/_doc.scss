@@ -432,3 +432,43 @@
         }
     }
 }
+
+.doc-ptviewerwrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0 !important;
+
+    .doc-ptviewer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-color: var(--border-color);
+        border-width: 0 1px 0 0;
+        padding: 1rem;
+        width: 75%;
+    }
+
+    .doc-ptoptions {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        padding: .5rem;
+        width: 25%;
+        max-height: 720px;
+        overflow-y: auto;
+
+        .doc-ptoption {
+            display: flex;
+            flex-direction: column;
+            padding: .5rem;
+
+            &:hover {
+                background-color: var(--hover-background);
+            }
+
+            .doc-ptoption-text:hover {
+                cursor: default;
+            }
+        }
+    }
+}
