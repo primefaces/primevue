@@ -107,7 +107,7 @@
                             {{ filterResultMessageText }}
                         </span>
                     </div>
-                    <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
+                    <div ref="scrollWrapper" @scrollend="onScrollDropDown($event)" :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                                 <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
@@ -214,7 +214,7 @@ export default {
     name: 'Select',
     extends: BaseSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
+    emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter','page'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -235,7 +235,9 @@ export default {
             focused: false,
             focusedOptionIndex: -1,
             filterValue: null,
-            overlayVisible: false
+            overlayVisible: false,
+            page: 0,
+            lastScrollTop: 0,
         };
     },
     watch: {
@@ -702,6 +704,22 @@ export default {
             this.autoFilterFocus && focus(this.$refs.focusInput);
             this.$emit('hide');
             this.overlay = null;
+        },
+        onScrollDropDown() {
+            const element = this.$refs.scrollWrapper;
+
+            if (element.scrollTop < this.lastScrollTop) {
+                // upscroll
+                return;
+            }
+            this.lastScrollTop = element.scrollTop <= 0 ? 0 : element.scrollTop;
+            if (
+                element.scrollTop + element.offsetHeight >=
+                element.scrollHeight - 10
+            ) {
+                this.page += 1;
+                this.$emit("page", this.page);
+            }
         },
         onOverlayAfterLeave(el) {
             ZIndex.clear(el);
