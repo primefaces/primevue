@@ -52,6 +52,12 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
          */
         positionX?: string;
         /**
+         * Position y of root
+         *
+         * @designToken floatlabel.position.y
+         */
+        positionY?: string;
+        /**
          * Font weight of root
          *
          * @designToken floatlabel.font.weight
