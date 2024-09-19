@@ -452,20 +452,20 @@
                             "to": "/metergroup"
                         },
                         {
-                            "name": "ScrollTop",
-                            "to": "/scrolltop"
-                        },
-                        {
-                            "name": "Skeleton",
-                            "to": "/skeleton"
-                        },
-                        {
                             "name": "ProgressBar",
                             "to": "/progressbar"
                         },
                         {
                             "name": "ProgressSpinner",
                             "to": "/progressspinner"
+                        },
+                        {
+                            "name": "ScrollTop",
+                            "to": "/scrolltop"
+                        },
+                        {
+                            "name": "Skeleton",
+                            "to": "/skeleton"
                         },
                         {
                             "name": "Ripple",
