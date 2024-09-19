@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
-        <Password v-model="value" />
+        <Password v-model="value" toggleMask />
     </DocPTViewer>
 </template>
 

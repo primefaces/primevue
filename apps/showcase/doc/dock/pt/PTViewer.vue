@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="ptViewerDoc">
-        <div class="relative w-full h-[400px]">
+        <div class="relative w-full">
             <Dock :model="items">
                 <template #itemicon="{ item }">
                     <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
