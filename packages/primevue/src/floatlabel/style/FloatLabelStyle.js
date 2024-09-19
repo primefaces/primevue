@@ -10,7 +10,7 @@ const theme = ({ dt }) => `
     position: absolute;
     pointer-events: none;
     top: 50%;
-    margin-top: -.5rem;
+    transform: translateY(-50%);
     transition-property: all;
     transition-timing-function: ease;
     line-height: 1;
@@ -20,8 +20,9 @@ const theme = ({ dt }) => `
     transition-duration: ${dt('floatlabel.transition.duration')};
 }
 
-.p-floatlabel:has(textarea) label {
-    top: 1rem;
+.p-floatlabel:has(.p-textarea) label {
+    top: ${dt('floatlabel.position.y')};
+    transform: translateY(0);
 }
 
 .p-floatlabel:has(.p-invalid) label {
@@ -36,7 +37,7 @@ const theme = ({ dt }) => `
 .p-floatlabel:has(.p-inputwrapper-focus) label,
 .p-floatlabel:has(.p-inputwrapper-filled) label {
     top: ${dt('floatlabel.over.focus.top')};
-    margin-top: 0;
+    transform: translateY(0);
     font-size: ${dt('floatlabel.focus.font.size')};
     font-weight: ${dt('floatlabel.label.focus.font.weight')};
 }
@@ -47,7 +48,7 @@ const theme = ({ dt }) => `
     color: ${dt('floatlabel.active.color')};
 }
 
-.p-floatlabel:has(input:focus) label ,
+.p-floatlabel:has(input:focus) label,
 .p-floatlabel:has(input:-webkit-autofill) label,
 .p-floatlabel:has(textarea:focus) label ,
 .p-floatlabel:has(.p-inputwrapper-focus) label  {
@@ -70,7 +71,8 @@ const theme = ({ dt }) => `
     transition-timing-function: ease;
 }
 
-.p-floatlabel-in .p-inputtext {
+.p-floatlabel-in .p-inputtext,
+.p-floatlabel-in .p-textarea {
     padding-top: ${dt('floatlabel.in.input.padding.top')};
 }
 
