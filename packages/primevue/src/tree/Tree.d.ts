@@ -152,7 +152,7 @@ export interface TreePassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    nodeCheckbox?: TreePassThroughOptionType<T>;
+    pcNodeCheckbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */
