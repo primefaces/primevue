@@ -21,6 +21,7 @@ export default {
                     id: 'pt.image',
                     label: 'Wireframe',
                     component: PTImage
+                    label: 'Viewer',
                 },
                 {
                     id: 'pt.doc.confirmdialog',
