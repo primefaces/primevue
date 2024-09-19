@@ -1,6 +1,6 @@
 <template>
     <transition name="p-tieredmenu" @enter="onEnter" v-bind="ptm('menu.transition')">
-        <ul v-if="level === 0 ? true : visible" :ref="containerRef" :class="level === 0 ? cx('rootList') : cx('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('rootList') : ptm('submenu')">
+        <ul v-if="level === 0 ? true : visible" :ref="containerRef" :tabindex="tabindex">
             <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
                 <li
                     v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -43,6 +43,7 @@
                     <TieredMenuSub
                         v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
                         :id="getItemId(processedItem) + '_list'"
+                        :class="cx('submenu')"
                         :style="sx('submenu', true, { processedItem })"
                         :aria-labelledby="getItemLabelId(processedItem)"
                         role="menu"
@@ -58,6 +59,7 @@
                         @item-click="$emit('item-click', $event)"
                         @item-mouseenter="$emit('item-mouseenter', $event)"
                         @item-mousemove="$emit('item-mousemove', $event)"
+                        v-bind="ptm('submenu')"
                     />
                 </li>
                 <li
