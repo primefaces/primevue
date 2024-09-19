@@ -340,7 +340,7 @@ import { useToast } from 'primevue/usetoast';
 import { ProductService } from '@/service/ProductService';
 
 const products = ref();
-const expandedRows = ref({});
+const expandedRows = ref([]);
 const toast = useToast();
 
 onMounted(() => {
