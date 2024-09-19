@@ -118,7 +118,8 @@ export default {
                 props: {
                     ...this.$attrs,
                     pt: this.pt,
-                    unstyled: this.unstyled
+                    unstyled: this.unstyled,
+                    'data-pc-name': 'galleria'
                 }
             });
         },
