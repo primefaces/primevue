@@ -11,16 +11,16 @@
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
 import { getPTOptions } from '@/components/doc/helpers';
-import PTViewer from './PTViewer.vue';
+import PTImage from './PTImage.vue';
 
 export default {
     data() {
         return {
             docs: [
                 {
-                    id: 'pt.viewer',
-                    label: 'Viewer',
-                    component: PTViewer
+                    id: 'pt.image',
+                    label: 'Wireframe',
+                    component: PTImage
                 },
                 {
                     id: 'pt.doc.toast',
