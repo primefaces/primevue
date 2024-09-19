@@ -54,7 +54,7 @@
                             <div :class="cx('meter')" v-bind="ptm('meter')">
                                 <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
                             </div>
-                            <div :class="cx('info')" v-bind="ptm('info')">{{ infoText }}</div>
+                            <div :class="cx('meterText')" v-bind="ptm('meterText')">{{ infoText }}</div>
                         </div>
                     </slot>
                     <slot name="footer"></slot>
