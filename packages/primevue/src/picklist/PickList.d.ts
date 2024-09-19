@@ -172,15 +172,11 @@ export interface PickListPassThroughOptions {
     /**
      * Used to pass attributes to the Listbox component.
      */
-    pcList?: ListboxPassThroughOptions<PickListSharedPassThroughMethodOptions>;
+    pcListbox?: ListboxPassThroughOptions<PickListSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the source list containerr's DOM element.
      */
     sourceListContainer?: PickListPassThroughOptionType;
-    /**
-     * Used to pass attributes to the source list's DOM element.
-     */
-    sourceList?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the transfer controls' DOM element.
      */
@@ -205,14 +201,6 @@ export interface PickListPassThroughOptions {
      * Used to pass attributes to the target list container's DOM element.
      */
     targetListContainer?: PickListPassThroughOptionType;
-    /**
-     * Used to pass attributes to the target list's DOM element.
-     */
-    targetList?: PickListPassThroughOptionType;
-    /**
-     * Used to pass attributes to the target item's DOM element.
-     */
-    item?: PickListPassThroughOptionType;
     /**
      * Used to pass attributes to the target controls' DOM element.
      */
