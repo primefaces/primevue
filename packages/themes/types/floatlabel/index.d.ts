@@ -64,19 +64,19 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
          */
         fontWeight?: string;
         /**
-         * Focus of root
+         * Active of root
          */
-        focus?: {
+        active?: {
             /**
-             * Focus font size of root
+             * Active font size of root
              *
-             * @designToken floatlabel.focus.font.size
+             * @designToken floatlabel.active.font.size
              */
             fontSize?: string;
             /**
-             * Focus font weight of root
+             * Active font weight of root
              *
-             * @designToken floatlabel.focus.font.weight
+             * @designToken floatlabel.active.font.weight
              */
             fontWeight?: string;
         };
@@ -86,13 +86,13 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
      */
     over?: {
         /**
-         * Focus of over
+         * Active of over
          */
-        focus?: {
+        active?: {
             /**
-             * Focus top of over
+             * Active top of over
              *
-             * @designToken floatlabel.over.focus.top
+             * @designToken floatlabel.over.active.top
              */
             top?: string;
         };
@@ -113,13 +113,13 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
             paddingTop?: string;
         };
         /**
-         * Focus of in
+         * Active of in
          */
-        focus?: {
+        active?: {
             /**
-             * Focus top of in
+             * Active top of in
              *
-             * @designToken floatlabel.in.focus.top
+             * @designToken floatlabel.in.active.top
              */
             top?: string;
         };
@@ -146,19 +146,19 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
             paddingBottom?: string;
         };
         /**
-         * Focus of on
+         * Active of on
          */
-        focus?: {
+        active?: {
             /**
-             * Focus background of on
+             * Active background of on
              *
-             * @designToken floatlabel.on.focus.background
+             * @designToken floatlabel.on.active.background
              */
             background?: string;
             /**
-             * Focus padding of on
+             * Active padding of on
              *
-             * @designToken floatlabel.on.focus.padding
+             * @designToken floatlabel.on.active.padding
              */
             padding?: string;
         };
