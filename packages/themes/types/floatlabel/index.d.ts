@@ -129,22 +129,11 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
      */
     on?: {
         /**
-         * Input of on
+         * Border radius of on
+         *
+         * @designToken floatlabel.on.border.radius
          */
-        input?: {
-            /**
-             * Input padding top of on
-             *
-             * @designToken floatlabel.on.input.padding.top
-             */
-            paddingTop?: string;
-            /**
-             * Input padding bottom of on
-             *
-             * @designToken floatlabel.on.input.padding.bottom
-             */
-            paddingBottom?: string;
-        };
+        borderRadius?: string;
         /**
          * Active of on
          */
