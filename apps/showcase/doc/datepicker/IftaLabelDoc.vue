@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <DatePicker v-model="value" inputId="date"showIcon iconDisplay="input" />
+            <DatePicker v-model="value" inputId="date" showIcon iconDisplay="input" />
             <label for="date">Date</label>
         </IftaLabel>
     </div>
