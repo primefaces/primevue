@@ -230,7 +230,7 @@ export interface FileUploadPassThroughOptions {
      * Used to pass attributes to the ProgressBar component.
      * @see {@link ProgressbarPassThroughOptions}
      */
-    pcProgressbar?: ProgressBarPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    pcProgressBar?: ProgressBarPassThroughOptions<FileUploadPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the message's DOM element.
      * @see {@link MessagePassThroughOptions}
