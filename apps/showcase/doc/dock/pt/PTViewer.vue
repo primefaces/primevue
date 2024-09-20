@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <div class="relative w-full">
             <Dock :model="items">
                 <template #itemicon="{ item }">
@@ -35,7 +34,7 @@ export default {
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png'
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Dock'),
                     key: 'Dock'

@@ -255,7 +255,7 @@ const classes = {
             'p-autocomplete-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-autocomplete-input',
+    pcInputText: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {

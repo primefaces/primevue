@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Button ref="btn" type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
         <Popover ref="op" appendTo="self">
             <div class="flex flex-col gap-4 w-[25rem]">
@@ -52,7 +51,7 @@ export default {
                 { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
                 { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Popover'),
                     key: 'Popover'

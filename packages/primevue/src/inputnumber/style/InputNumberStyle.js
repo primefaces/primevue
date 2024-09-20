@@ -157,7 +157,7 @@ const classes = {
             'p-inputnumber-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-inputnumber-input',
+    pcInputText: 'p-inputnumber-input',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',

@@ -1,4 +1,10 @@
 <template>
+    <DocSectionText v-bind="$attrs">
+        <p>
+            Some sections may not be visible due to the availability of the particular feature. Section names that start with the <i>pc</i> prefix indicate that the element is a PrimeVue component not a DOM element. Visit the
+            <PrimeVueNuxtLink to="/passthrough/#pcprefix">pass-through</PrimeVueNuxtLink> documentation for more information.
+        </p>
+    </DocSectionText>
     <div ref="container" class="doc-ptviewerwrapper card">
         <div id="doc-ptviewer" class="doc-ptviewer">
             <slot />

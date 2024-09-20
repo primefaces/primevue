@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <TieredMenu :model="items" />
     </DocPTViewer>
 </template>
@@ -80,7 +79,7 @@ export default {
                     ]
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('TieredMenu'),
                     key: 'TieredMenu'

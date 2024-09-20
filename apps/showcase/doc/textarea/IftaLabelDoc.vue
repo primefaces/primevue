@@ -15,7 +15,7 @@
 export default {
     data() {
         return {
-            description: null,
+            value: null,
             code: {
                 basic: `
 <IftaLabel>

@@ -5,7 +5,7 @@
             ref="focusInput"
             :id="inputId"
             type="text"
-            :class="[cx('pcInput'), inputClass]"
+            :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="inputValue"
             :placeholder="placeholder"
@@ -29,7 +29,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
         />
         <ul
             v-if="multiple"

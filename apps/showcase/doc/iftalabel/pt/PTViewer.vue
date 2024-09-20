@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <IftaLabel>
             <InputText id="username" v-model="value" autocomplete="off" />

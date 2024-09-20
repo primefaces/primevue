@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Stepper value="1" class="basis-[50rem]" linear>
             <StepList :style="{ overflowX: 'unset' }">

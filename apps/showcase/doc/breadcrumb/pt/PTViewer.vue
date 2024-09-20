@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Breadcrumb :home="home" :model="items" />
     </DocPTViewer>
 </template>
@@ -15,7 +14,7 @@ export default {
                 icon: 'pi pi-home'
             },
             items: [{ label: 'Electronics' }, { label: 'Computer', icon: 'pi pi-desktop' }, { label: 'Accessories' }, { label: 'Keyboard' }, { label: 'Wireless' }],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Breadcrumb'),
                     key: 'Breadcrumb'

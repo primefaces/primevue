@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <div class="w-full">
             <Skeleton class="mb-2"></Skeleton>
             <Skeleton width="10rem" class="mb-2"></Skeleton>
@@ -17,7 +16,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Skeleton'),
                     key: 'Skeleton'

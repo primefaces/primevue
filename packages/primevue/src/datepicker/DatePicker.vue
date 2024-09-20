@@ -5,7 +5,7 @@
             :ref="inputRef"
             :id="inputId"
             role="combobox"
-            :class="[inputClass, cx('pcInput')]"
+            :class="[inputClass, cx('pcInputText')]"
             :style="inputStyle"
             :value="inputFieldValue"
             :placeholder="placeholder"
@@ -30,7 +30,7 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
         />
         <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
             <button

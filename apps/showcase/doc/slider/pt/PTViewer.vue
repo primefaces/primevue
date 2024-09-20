@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Slider v-model="value" class="w-56" />
     </DocPTViewer>

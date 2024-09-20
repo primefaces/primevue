@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <SelectButton v-model="value" :options="options" />
     </DocPTViewer>

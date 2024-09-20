@@ -138,7 +138,7 @@ export interface DatePickerPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
+    pcInputText?: InputTextPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the dropdown's DOM element.
      */

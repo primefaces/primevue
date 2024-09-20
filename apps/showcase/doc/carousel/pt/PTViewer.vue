@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Carousel :value="products" :numVisible="1" :numScroll="1" :responsiveOptions="responsiveOptions" class="!w-3/4 !p-2">
             <template #item="slotProps">

@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <DeferredContent>
             <img src="https://primefaces.org/cdn/primevue/images/nature/nature4.jpg" alt="Nature" />

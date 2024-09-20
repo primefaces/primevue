@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <InputNumber v-model="value" inputId="stacked-buttons" showButtons mode="currency" currency="USD" />
     </DocPTViewer>

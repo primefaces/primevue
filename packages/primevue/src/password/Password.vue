@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             :type="inputType"
-            :class="[cx('pcInput'), inputClass]"
+            :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
@@ -24,7 +24,7 @@
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="inputProps"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
             :unstyled="unstyled"
         />
         <!-- TODO: hideicon and showicon slots are deprecated since v4.0-->

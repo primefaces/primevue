@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Button label="Profile" icon="pi pi-user" severity="secondary" badge="2" badgeSeverity="contrast" />
     </DocPTViewer>

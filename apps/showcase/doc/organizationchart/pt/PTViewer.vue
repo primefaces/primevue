@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <OrganizationChart :value="data" collapsible>
             <template #default="slotProps">

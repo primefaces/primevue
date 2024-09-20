@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <DataTable :value="products" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>

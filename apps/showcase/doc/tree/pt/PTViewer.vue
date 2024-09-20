@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Tree v-model:selectionKeys="selectedKey" filter :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </DocPTViewer>
 </template>
@@ -14,7 +13,7 @@ export default {
         return {
             nodes: null,
             selectedKey: null,
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Tree'),
                     key: 'Tree'
