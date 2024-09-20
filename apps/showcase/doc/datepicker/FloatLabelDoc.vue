@@ -4,17 +4,17 @@
     </DocSectionText>
     <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
-            <DatePicker v-model="value1" inputId="over_label" />
+            <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
             <label for="over_label">Over Label</label>
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <DatePicker v-model="value2" inputId="in_label" />
+            <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
         <FloatLabel variant="on">
-            <DatePicker v-model="value3" inputId="on_label" />
+            <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
             <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
@@ -31,16 +31,36 @@ export default {
             code: {
                 basic: `
 <FloatLabel>
-    <DatePicker v-model="date" inputId="birth_date" />
-    <label for="birth_date">Birth Date</label>
+    <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+    <label for="on_label">On Label</label>
 </FloatLabel>
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
-            <DatePicker v-model="date" inputId="birth_date" />
-            <label for="birth_date">Birth Date</label>
+            <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+            <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
 </template>
@@ -51,7 +71,7 @@ export default {
         return {
             value1: null,
             value2: null,
-            value3: null,
+            value3: null
         }
     }
 };
@@ -59,10 +79,20 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel>
-            <DatePicker v-model="date" inputId="birth_date" />
-            <label for="birth_date">Birth Date</label>
+            <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+            <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
 </template>
