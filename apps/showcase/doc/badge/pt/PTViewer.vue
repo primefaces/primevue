@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <div class="flex flex-wrap gap-8">
             <Badge value="2"></Badge>
             <OverlayBadge value="3">
@@ -16,7 +15,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Badge'),
                     key: 'Badge'

@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <div class="w-full">
             <FileUpload name="demo[]" url="/api/upload" :multiple="true" accept="image/*" :maxFileSize="1000000">

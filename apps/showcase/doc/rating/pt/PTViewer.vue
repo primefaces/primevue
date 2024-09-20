@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Rating v-model="value" />
     </DocPTViewer>

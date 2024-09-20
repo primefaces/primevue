@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <RadioButton v-model="value" value="1" />
     </DocPTViewer>

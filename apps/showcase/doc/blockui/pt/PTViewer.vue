@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <BlockUI blocked>
             <Panel header="Basic">
                 <p class="m-0">
@@ -18,7 +17,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('BlockUI'),
                     key: 'BlockUI'

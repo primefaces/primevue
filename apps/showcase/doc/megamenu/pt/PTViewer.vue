@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <MegaMenu :model="items" />
     </DocPTViewer>
 </template>
@@ -71,7 +70,7 @@ export default {
                     ]
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('MegaMenu'),
                     key: 'MegaMenu'

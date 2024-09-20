@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <InputText v-model="value" placeholder="Username" />
     </DocPTViewer>

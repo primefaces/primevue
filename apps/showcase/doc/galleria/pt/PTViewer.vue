@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Galleria :value="images" :responsiveOptions="responsiveOptions" showItemNavigators :numVisible="5" containerStyle="max-width: 640px">
             <template #item="slotProps">

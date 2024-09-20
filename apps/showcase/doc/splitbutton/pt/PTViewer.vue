@@ -1,7 +1,6 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
-        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
+        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" :model="items" />
     </DocPTViewer>
 </template>
 

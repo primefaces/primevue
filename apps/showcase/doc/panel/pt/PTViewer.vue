@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Panel header="Header" toggleable>
             <p class="m-0">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -16,7 +15,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Panel'),
                     key: 'Panel'

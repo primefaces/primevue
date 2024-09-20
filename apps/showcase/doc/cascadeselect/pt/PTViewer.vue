@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
     </DocPTViewer>
 </template>
@@ -86,7 +85,7 @@ export default {
                     ]
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('CascadeSelect'),
                     key: 'CascadeSelect'

@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <div class="p-toast p-component" data-pc-name="toast">
             <div>

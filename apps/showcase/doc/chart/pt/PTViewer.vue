@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Chart type="bar" :data="chartData" :options="chartOptions" />
     </DocPTViewer>
 </template>
@@ -14,7 +13,7 @@ export default {
         return {
             chartData: null,
             chartOptions: null,
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Chart'),
                     key: 'Chart'

@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <FloatLabel>
             <InputText id="username" v-model="value" autocomplete="off" />

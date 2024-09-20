@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Checkbox v-model="checked" :binary="true" />
     </DocPTViewer>

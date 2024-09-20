@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <div class="flex flex-wrap gap-8">
             <Chip label="Microsoft" icon="pi pi-microsoft" removable />
             <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
@@ -14,7 +13,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Chip'),
                     key: 'Chip'

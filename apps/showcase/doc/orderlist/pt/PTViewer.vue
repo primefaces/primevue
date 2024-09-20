@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
             <template #option="{ option }">

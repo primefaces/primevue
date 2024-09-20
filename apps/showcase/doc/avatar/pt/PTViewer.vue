@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <div class="flex flex-wrap gap-8">
             <AvatarGroup>
                 <Avatar label="P" size="xlarge" shape="circle" />
@@ -17,7 +16,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Avatar'),
                     key: 'Avatar'

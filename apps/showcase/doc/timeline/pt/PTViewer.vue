@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Timeline :value="events">
             <template #opposite="slotProps">
                 <small class="text-surface-500 dark:text-surface-400">{{ slotProps.item.date }}</small>
@@ -24,7 +23,7 @@ export default {
                 { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
                 { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Timeline'),
                     key: 'Timeline'

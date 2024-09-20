@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <MeterGroup :value="value" />
     </DocPTViewer>
 </template>
@@ -17,7 +16,7 @@ export default {
                 { label: 'Media', color: '#60a5fa', value: 24, icon: 'pi pi-image' },
                 { label: 'System', color: '#c084fc', value: 10, icon: 'pi pi-cog' }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('MeterGroup'),
                     key: 'MeterGroup'

@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <div>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores debitis praesentium aliquam.</p>

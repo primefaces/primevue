@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <PickList v-model="products" dataKey="id" breakpoint="1400px" class="w-full">
             <template #option="{ option }">
                 {{ option.name }}
@@ -17,7 +16,7 @@ export default {
     data() {
         return {
             products: null,
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('PickList'),
                     key: 'PickList'

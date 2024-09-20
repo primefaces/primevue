@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <ConfirmPopup group="ptviewer"></ConfirmPopup>
         <Button ref="btn" @click="confirm1($event)" label="Open Popup" outlined></Button>
     </DocPTViewer>
@@ -12,7 +11,7 @@ import { getPTOptions } from '@/components/doc/helpers';
 export default {
     data() {
         return {
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('ConfirmPopup'),
                     key: 'ConfirmPopup'

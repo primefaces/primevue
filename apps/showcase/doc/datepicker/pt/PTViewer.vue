@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <DatePicker v-model="date" showIcon fluid iconDisplay="input" />
     </DocPTViewer>

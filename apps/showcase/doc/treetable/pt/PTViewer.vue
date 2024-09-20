@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <TreeTable :value="nodes" tableStyle="min-width: 50rem">
             <Column field="name" header="Name" expander style="width: 34%"></Column>
             <Column field="size" header="Size" style="width: 33%"></Column>
@@ -17,7 +16,7 @@ export default {
     data() {
         return {
             nodes: null,
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('TreeTable'),
                     key: 'TreeTable'

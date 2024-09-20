@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Editor v-model="value" editorStyle="height: 320px" />
     </DocPTViewer>
