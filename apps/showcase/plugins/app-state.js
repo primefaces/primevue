@@ -1,5 +1,3 @@
-import Material from '@primevue/themes/material';
-import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
@@ -18,16 +16,21 @@ const $appState = {
     }
 };
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(async (nuxtApp) => {
     const runtimeConfig = useRuntimeConfig();
 
     nuxtApp.vueApp.use($appState);
 
     if (runtimeConfig.public.DEV_ENV === 'hot') {
+        const { default: PrimeVue } = await import('primevue/config');
+        const { default: Material } = await import('@primevue/themes/material');
+
         nuxtApp.vueApp.use(PrimeVue, {
-            theme: Material,
-            options: {
-                darkModeSelector: '.p-dark'
+            theme: {
+                preset: Material,
+                options: {
+                    darkModeSelector: '.p-dark'
+                }
             }
         });
     }
