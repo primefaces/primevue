@@ -90,15 +90,6 @@ const theme = ({ dt }) => `
     top: ${dt('floatlabel.in.active.top')};
 }
 
-.p-floatlabel-on .p-inputtext,
-.p-floatlabel-on .p-select-label,
-.p-floatlabel-on .p-multiselect-label-container,
-.p-floatlabel-on .p-cascadeselect-label,
-.p-floatlabel-on .p-treeselect-label {
-    padding-top: ${dt('floatlabel.on.input.padding.top')};
-    padding-bottom: ${dt('floatlabel.on.input.padding.bottom')};
-}
-
 .p-floatlabel-on:has(input:focus) label,
 .p-floatlabel-on:has(input.p-filled) label,
 .p-floatlabel-on:has(input:-webkit-autofill) label,
@@ -108,6 +99,7 @@ const theme = ({ dt }) => `
 .p-floatlabel-on:has(.p-inputwrapper-filled) label {
     top: 0;
     transform: translateY(-50%);
+    border-radius: ${dt('floatlabel.on.border.radius')};
     background: ${dt('floatlabel.on.active.background')};
     padding: ${dt('floatlabel.on.active.padding')};
 }

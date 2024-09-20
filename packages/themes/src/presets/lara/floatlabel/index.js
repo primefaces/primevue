@@ -27,10 +27,7 @@ export default {
         }
     },
     on: {
-        input: {
-            paddingTop: '1.25rem',
-            paddingBottom: '1.25rem'
-        },
+        borderRadius: '{border.radius.xs}',
         active: {
             background: '{form.field.background}',
             padding: '0 0.125rem'
