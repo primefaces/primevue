@@ -139,7 +139,7 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: ^0.1.1
-        version: 0.1.1
+        version: 0.1.2
       '@primeuix/utils':
         specifier: ^0.1.1
         version: 0.1.2
@@ -172,7 +172,7 @@ importers:
         version: 3.13.2(magicast@0.3.5)(rollup@4.22.2)(webpack-sources@3.2.3)
       '@primeuix/styled':
         specifier: ^0.1.1
-        version: 0.1.1
+        version: 0.1.2
       '@primeuix/utils':
         specifier: ^0.1.1
         version: 0.1.2
@@ -230,7 +230,7 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: ^0.1.1
-        version: 0.1.1
+        version: 0.1.2
       '@primeuix/utils':
         specifier: ^0.1.1
         version: 0.1.2
@@ -253,7 +253,7 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: ^0.1.1
-        version: 0.1.1
+        version: 0.1.2
     publishDirectory: dist
 
 packages:
@@ -2141,8 +2141,8 @@ packages:
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
-  '@primeuix/styled@0.1.1':
-    resolution: {integrity: sha512-BC4f3PmkTRKVoJxYdX0uL5zGnTjH87qUoeDZrJRB9G1MwIXnwjP7J3nbYlx0J7c9Bbtewdx2UuXqpjWPq4R6nQ==}
+  '@primeuix/styled@0.1.2':
+    resolution: {integrity: sha512-ThPmQh/XyJxAhmtd1YNmSzNTWAE+ZiHMrtHyKpyAUNh/fuzJA5J0S5oqyOMMLm8zPKWeVzMtNquz/rg7w4DauA==}
     engines: {node: '>=12.11.0'}
 
   '@primeuix/utils@0.1.2':
@@ -8949,7 +8949,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@primeuix/styled@0.1.1':
+  '@primeuix/styled@0.1.2':
     dependencies:
       '@primeuix/utils': 0.1.2
 
