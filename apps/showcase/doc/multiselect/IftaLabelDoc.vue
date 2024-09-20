@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
             <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
-            <label for="ms_cities">MultiSelect</label>
+            <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>
     <DocSectionCode :code="code" />
@@ -27,7 +27,7 @@ export default {
                 basic: `
  <IftaLabel>
     <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
-    <label for="ms_cities">MultiSelect</label>
+    <label for="ms_cities">Cities</label>
 </IftaLabel>
 `,
                 options: `
@@ -35,7 +35,7 @@ export default {
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
             <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
-            <label for="ms_cities">MultiSelect</label>
+            <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>
 </template>
@@ -62,7 +62,7 @@ export default {
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
             <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
-            <label for="ms_cities">MultiSelect</label>
+            <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>
 </template>

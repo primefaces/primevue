@@ -74,7 +74,7 @@ const theme = ({ dt }) => `
 .p-floatlabel-in .p-inputtext,
 .p-floatlabel-in .p-textarea,
 .p-floatlabel-in .p-select-label,
-.p-floatlabel-in .p-multiselect-label,
+.p-floatlabel-in .p-multiselect-label-container,
 .p-floatlabel-in .p-cascadeselect-label,
 .p-floatlabel-in .p-treeselect-label {
     padding-top: ${dt('floatlabel.in.input.padding.top')};
@@ -92,7 +92,7 @@ const theme = ({ dt }) => `
 
 .p-floatlabel-on .p-inputtext,
 .p-floatlabel-on .p-select-label,
-.p-floatlabel-on .p-multiselect-label,
+.p-floatlabel-on .p-multiselect-label-container,
 .p-floatlabel-on .p-cascadeselect-label,
 .p-floatlabel-on .p-treeselect-label {
     padding-top: ${dt('floatlabel.on.input.padding.top')};

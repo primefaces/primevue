@@ -23,7 +23,7 @@ const theme = ({ dt }) => `
 .p-iftalabel .p-inputtext,
 .p-iftalabel .p-textarea,
 .p-iftalabel .p-select-label,
-.p-iftalabel .p-multiselect-label,
+.p-iftalabel .p-multiselect-label-container,
 .p-iftalabel .p-cascadeselect-label,
 .p-iftalabel .p-treeselect-label {
     padding-top: ${dt('iftalabel.input.padding.top')};
