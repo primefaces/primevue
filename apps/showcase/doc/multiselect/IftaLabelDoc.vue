@@ -3,9 +3,9 @@
         <p>IftaLabel is used to create infield top aligned labels. Visit <PrimeVueNuxtLink to="/iftalabel">IftaLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <IftaLabel class="w-full md:w-56">
-            <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
-            <label for="dd-city">City</label>
+        <IftaLabel class="w-full md:w-80">
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <label for="ms_cities">MultiSelect</label>
         </IftaLabel>
     </div>
     <DocSectionCode :code="code" />
@@ -15,7 +15,7 @@
 export default {
     data() {
         return {
-            selectedCity: null,
+            selectedCities: null,
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -25,17 +25,17 @@ export default {
             ],
             code: {
                 basic: `
-<IftaLabel>
-    <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
-    <label for="dd-city">City</label>
+ <IftaLabel>
+    <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+    <label for="ms_cities">MultiSelect</label>
 </IftaLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <IftaLabel class="w-full md:w-56">
-            <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
-            <label for="dd-city">City</label>
+        <IftaLabel class="w-full md:w-80">
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <label for="ms_cities">MultiSelect</label>
         </IftaLabel>
     </div>
 </template>
@@ -44,7 +44,7 @@ export default {
 export default {
     data() {
         return {
-            selectedCity: null,
+            selectedCities: null,
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -60,9 +60,9 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <IftaLabel class="w-full md:w-56">
-            <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" />
-            <label for="dd-city">City</label>
+        <IftaLabel class="w-full md:w-80">
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <label for="ms_cities">MultiSelect</label>
         </IftaLabel>
     </div>
 </template>
@@ -70,7 +70,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const selectedCity = ref();
+const selectedCities = ref(null);
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },

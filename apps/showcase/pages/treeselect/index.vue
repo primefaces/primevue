@@ -17,6 +17,7 @@ import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
+import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc.vue';
@@ -51,6 +52,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'filled',
