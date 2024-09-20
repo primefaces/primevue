@@ -31,7 +31,7 @@
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Presets</span>
-                <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presets" :allowEmpty="false" />
+                <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Ripple</span>
@@ -59,7 +59,12 @@ const presets = {
 export default {
     data() {
         return {
-            presets: Object.keys(presets),
+            presetOptions: [
+                { label: 'Aura', value: 'Aura' },
+                { label: 'Lara', value: 'Lara' },
+                { label: 'Nora', value: 'Nora' },
+                { label: 'MD', value: 'Material' }
+            ],
             primaryColors: [
                 { name: 'noir', palette: {} },
                 { name: 'emerald', palette: { 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b', 950: '#022c22' } },
