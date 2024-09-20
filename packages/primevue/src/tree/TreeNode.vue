@@ -28,7 +28,17 @@
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
             </button>
-            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :indeterminate="partialChecked" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-partialchecked="partialChecked">
+            <Checkbox
+                v-if="checkboxMode"
+                :modelValue="checked"
+                :binary="true"
+                :indeterminate="partialChecked"
+                :class="cx('nodeCheckbox')"
+                :tabindex="-1"
+                :unstyled="unstyled"
+                :pt="getPTOptions('pcNodeCheckbox')"
+                :data-p-partialchecked="partialChecked"
+            >
                 <template #icon="slotProps">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                 </template>

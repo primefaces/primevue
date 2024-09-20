@@ -35,8 +35,10 @@ export default {
 
             if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
             else if (componentName === 'ScrollTop') cmpName = 'Button';
+            else if (componentName === 'Galleria') cmpName = 'GalleriaContent';
 
-            if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
+            if (componentName === 'InputMask') selector = `[data-pc-extend="inputtext"][data-pc-section="root"]`;
+            else if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
             else selector = `[data-pc-section="${item.label.toLowerCase()}"]`;
 

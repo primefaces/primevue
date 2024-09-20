@@ -20,12 +20,9 @@ const theme = ({ dt }) => `
     transition-duration: ${dt('iftalabel.transition.duration')};
 }
 
-.p-iftalabel .p-inputtext {
+.p-iftalabel .p-inputtext,
+.p-iftalabel .p-textarea {
     padding-top: ${dt('iftalabel.input.padding.top')};
-}
-
-.p-iftalabel:has(textarea) label {
-    top: 1rem;
 }
 
 .p-iftalabel:has(.p-invalid) label {

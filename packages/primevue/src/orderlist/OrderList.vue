@@ -49,7 +49,7 @@
             :disabled="disabled"
             :ariaLabel="ariaLabel"
             :ariaLabelledby="ariaLabelledby"
-            :pt="ptm('pcList')"
+            :pt="ptm('pcListbox')"
             :unstyled="unstyled"
             @focus="onListFocus"
             @blur="onListBlur"
@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { find, findSingle, scrollInView, setAttribute } from '@primeuix/utils/dom';
 import { findIndexInList, isNotEmpty } from '@primeuix/utils/object';
+import { UniqueComponentId } from '@primevue/core/utils';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleUpIcon from '@primevue/icons/angledoubleup';
 import AngleDownIcon from '@primevue/icons/angledown';

@@ -6,6 +6,7 @@ export default {
         invalidColor: '{form.field.float.label.invalid.color}',
         transitionDuration: '0.2s',
         positionX: '{form.field.padding.x}',
+        positionY: '{form.field.padding.y}',
         fontWeight: '500',
         focus: {
             fontSize: '0.875rem',
@@ -14,7 +15,7 @@ export default {
     },
     over: {
         focus: {
-            top: '-1.25rem'
+            top: '-1.375rem'
         }
     },
     in: {

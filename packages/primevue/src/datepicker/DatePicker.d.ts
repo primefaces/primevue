@@ -193,22 +193,14 @@ export interface DatePickerPassThroughOptions {
      */
     decade?: DatePickerPassThroughOptionType;
     /**
-     * Used to pass attributes to the view day's DOM element.
-     */
-    dayView?: DatePickerPassThroughOptionType;
-    /**
      * Used to pass attributes to the next button's DOM element.
      * @see {@link ButtonPassThroughOptions}
      */
     pcNextButton?: ButtonPassThroughOptions<DatePickerSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the container's DOM element.
-     */
-    container?: DatePickerPassThroughOptionType;
-    /**
      * Used to pass attributes to the table's DOM element.
      */
-    table?: DatePickerPassThroughOptionType;
+    dayView?: DatePickerPassThroughOptionType;
     /**
      * Used to pass attributes to the table header's DOM element.
      */
