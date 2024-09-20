@@ -21,7 +21,8 @@ const theme = ({ dt }) => `
     min-width: 2.5rem;
 }
 
-.p-inputgroup .p-floatlabel {
+.p-inputgroup .p-floatlabel,
+.p-inputgroup .p-iftalabel {
     display: flex;
     align-items: stretch;
     width: 100%;
@@ -41,26 +42,30 @@ const theme = ({ dt }) => `
 
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-inputwrapper > .p-inputtext,
-.p-inputgroup > .p-floatlabel > .p-component {
+.p-inputgroup > .p-floatlabel > .p-component,
+.p-inputgroup > .p-iftalabel > .p-component {
     border-radius: 0;
     margin: 0;
 }
 
 .p-inputgroup > .p-component + .p-inputgroupaddon,
 .p-inputgroup > .p-inputwrapper > .p-inputtext + .p-inputgroupaddon,
-.p-inputgroup > .p-floatlabel > .p-component + .p-inputgroupaddon {
+.p-inputgroup > .p-floatlabel > .p-component + .p-inputgroupaddon,
+.p-inputgroup > .p-iftalabel > .p-component + .p-inputgroupaddon {
     border-left: 0 none;
 }
 
 .p-inputgroup > .p-component:focus,
 .p-inputgroup > .p-inputwrapper > .p-inputtext:focus,
-.p-inputgroup > .p-floatlabel > .p-component:focus {
+.p-inputgroup > .p-floatlabel > .p-component:focus,
+.p-inputgroup > .p-iftalabel > .p-component:focus {
     z-index: 1;
 }
 
 .p-inputgroup > .p-component:focus ~ label,
 .p-inputgroup > .p-inputwrapper > .p-inputtext:focus~label,
-.p-inputgroup > .p-floatlabel > .p-component:focus~label {
+.p-inputgroup > .p-floatlabel > .p-component:focus~label,
+.p-inputgroup > .p-iftalabel > .p-component:focus~label {
     z-index: 1;
 }
 
@@ -73,7 +78,8 @@ const theme = ({ dt }) => `
     border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-inputgroup .p-floatlabel:first-child input {
+.p-inputgroup .p-floatlabel:first-child input,
+.p-inputgroup .p-iftalabel:first-child input {
     border-top-left-radius: ${dt('inputgroup.addon.border.radius')};
     border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
 }
@@ -87,7 +93,8 @@ const theme = ({ dt }) => `
     border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
-.p-inputgroup .p-floatlabel:last-child input {
+.p-inputgroup .p-floatlabel:last-child input,
+.p-inputgroup .p-iftalabel:last-child input {
     border-top-right-radius: ${dt('inputgroup.addon.border.radius')};
     border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
 }
