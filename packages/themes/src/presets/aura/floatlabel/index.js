@@ -8,13 +8,13 @@ export default {
         positionX: '{form.field.padding.x}',
         positionY: '{form.field.padding.y}',
         fontWeight: '500',
-        focus: {
+        active: {
             fontSize: '0.75rem',
             fontWeight: '400'
         }
     },
     over: {
-        focus: {
+        active: {
             top: '-1.25rem'
         }
     },
@@ -22,7 +22,7 @@ export default {
         input: {
             paddingTop: '1.5rem'
         },
-        focus: {
+        active: {
             top: '{form.field.padding.y}'
         }
     },
@@ -31,7 +31,7 @@ export default {
             paddingTop: '1rem',
             paddingBottom: '1rem'
         },
-        focus: {
+        active: {
             background: '{form.field.background}',
             padding: '0 0.125rem'
         }

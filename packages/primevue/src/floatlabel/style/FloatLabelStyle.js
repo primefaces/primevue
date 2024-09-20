@@ -36,10 +36,10 @@ const theme = ({ dt }) => `
 .p-floatlabel:has(textarea.p-filled) label,
 .p-floatlabel:has(.p-inputwrapper-focus) label,
 .p-floatlabel:has(.p-inputwrapper-filled) label {
-    top: ${dt('floatlabel.over.focus.top')};
+    top: ${dt('floatlabel.over.active.top')};
     transform: translateY(0);
-    font-size: ${dt('floatlabel.focus.font.size')};
-    font-weight: ${dt('floatlabel.label.focus.font.weight')};
+    font-size: ${dt('floatlabel.active.font.size')};
+    font-weight: ${dt('floatlabel.label.active.font.weight')};
 }
 
 .p-floatlabel:has(input.p-filled) label,
@@ -55,7 +55,7 @@ const theme = ({ dt }) => `
     color: ${dt('floatlabel.focus.color')};
 }
 
-.p-floatlabel .p-placeholder,
+/*.p-floatlabel .p-placeholder,
 .p-floatlabel input::placeholder,
 .p-floatlabel .p-inputtext::placeholder {
     opacity: 0;
@@ -69,10 +69,11 @@ const theme = ({ dt }) => `
     opacity: 1;
     transition-property: all;
     transition-timing-function: ease;
-}
+}*/
 
 .p-floatlabel-in .p-inputtext,
-.p-floatlabel-in .p-textarea {
+.p-floatlabel-in .p-textarea,
+.p-floatlabel-in .p-select-label {
     padding-top: ${dt('floatlabel.in.input.padding.top')};
 }
 
@@ -83,10 +84,11 @@ const theme = ({ dt }) => `
 .p-floatlabel-in:has(textarea.p-filled) label,
 .p-floatlabel-in:has(.p-inputwrapper-focus) label,
 .p-floatlabel-in:has(.p-inputwrapper-filled) label {
-    top: ${dt('floatlabel.in.focus.top')};
+    top: ${dt('floatlabel.in.active.top')};
 }
 
-.p-floatlabel-on .p-inputtext {
+.p-floatlabel-on .p-inputtext,
+.p-floatlabel-on .p-select-label {
     padding-top: ${dt('floatlabel.on.input.padding.top')};
     padding-bottom: ${dt('floatlabel.on.input.padding.bottom')};
 }
@@ -100,8 +102,8 @@ const theme = ({ dt }) => `
 .p-floatlabel-on:has(.p-inputwrapper-filled) label {
     top: 0;
     transform: translateY(-50%);
-    background: ${dt('floatlabel.on.focus.background')};
-    padding: ${dt('floatlabel.on.focus.padding')};
+    background: ${dt('floatlabel.on.active.background')};
+    padding: ${dt('floatlabel.on.active.padding')};
 }
 `;
 

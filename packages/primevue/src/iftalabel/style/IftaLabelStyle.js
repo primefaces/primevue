@@ -21,7 +21,8 @@ const theme = ({ dt }) => `
 }
 
 .p-iftalabel .p-inputtext,
-.p-iftalabel .p-textarea {
+.p-iftalabel .p-textarea,
+.p-iftalabel .p-select-label {
     padding-top: ${dt('iftalabel.input.padding.top')};
 }
 
@@ -36,7 +37,7 @@ const theme = ({ dt }) => `
     color: ${dt('iftalabel.focus.color')};
 }
 
-.p-iftalabel .p-placeholder,
+/*.p-iftalabel .p-placeholder,
 .p-iftalabel input::placeholder,
 .p-iftalabel .p-inputtext::placeholder {
     opacity: 0;
@@ -50,7 +51,7 @@ const theme = ({ dt }) => `
     opacity: 1;
     transition-property: all;
     transition-timing-function: ease;
-}
+}*/
 `;
 
 const classes = {
