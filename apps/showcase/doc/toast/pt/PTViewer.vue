@@ -1,6 +1,6 @@
 <template>
     <DocPTViewer :docs="docs">
-        <div class="p-toast p-component" data-pc-name="toast">
+        <div class="p-toast p-component" data-pc-name="toast" data-pc-section="root">
             <div>
                 <div class="p-toast-message p-toast-message-info" data-pc-section="message">
                     <div class="p-toast-message-content" data-pc-section="messagecontent">
