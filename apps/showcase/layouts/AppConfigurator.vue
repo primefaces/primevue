@@ -46,12 +46,14 @@ import EventBus from '@/layouts/AppEventBus';
 import { $t, updatePreset, updateSurfacePalette } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara';
+import Material from '@primevue/themes/material';
 import Nora from '@primevue/themes/nora';
 
 const presets = {
     Aura,
     Lara,
-    Nora
+    Nora,
+    Material
 };
 
 export default {

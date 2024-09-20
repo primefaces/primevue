@@ -8,6 +8,7 @@ const alias = {
     '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
     '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
     '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
+    '@primevue/themes/material': path.resolve(__dirname, '../../packages/themes/src/presets/material'),
     '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
 };

@@ -20,6 +20,7 @@
         ".": "./src/index.js",
         "./aura": "./src/presets/aura/index.js",
         "./lara": "./src/presets/lara/index.js",
+        "./material": "./src/presets/material/index.js",
         "./nora": "./src/presets/nora/index.js",
         "./aura/*": {
             "types": "./types/*/index.d.ts",
@@ -28,6 +29,10 @@
         "./lara/*": {
             "types": "./types/*/index.d.ts",
             "import": "./src/presets/lara/*/index.js"
+        },
+        "./material/*": {
+            "types": "./types/*/index.d.ts",
+            "import": "./src/presets/material/*/index.js"
         },
         "./nora/*": {
             "types": "./types/*/index.d.ts",
@@ -50,6 +55,10 @@
             "./lara/*": {
                 "types": "./types/*/index.d.ts",
                 "import": "./lara/*/index.mjs"
+            },
+            "./material/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./material/*/index.mjs"
             },
             "./nora/*": {
                 "types": "./types/*/index.d.ts",

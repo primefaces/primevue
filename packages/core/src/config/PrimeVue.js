@@ -1,9 +1,9 @@
 import { Theme, ThemeService } from '@primeuix/styled';
+import { mergeKeys } from '@primeuix/utils';
 import { FilterMatchMode } from '@primevue/core/api';
 import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
 import { inject, reactive, ref, watch } from 'vue';
-import { mergeKeys } from '@primeuix/utils';
 
 export const defaultOptions = {
     ripple: false,
