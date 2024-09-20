@@ -4,12 +4,13 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <InputGroup class="md:w-80">
-            <InputGroupAddon>USD</InputGroupAddon>
+            <InputGroupAddon>
+                <i class="pi pi-shopping-cart"></i>
+            </InputGroupAddon>
             <IftaLabel>
-                <InputText id="price" v-model="value" />
+                <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
                 <label for="price">Price</label>
             </IftaLabel>
-            <InputGroupAddon>.00</InputGroupAddon>
         </InputGroup>
     </div>
     <DocSectionCode :code="code" />
@@ -19,28 +20,30 @@
 export default {
     data() {
         return {
-            value: null,
+            value: 10,
             code: {
                 basic: `
-<InputGroup>
-    <InputGroupAddon>USD</InputGroupAddon>
+ <InputGroup class="md:w-80">
+    <InputGroupAddon>
+        <i class="pi pi-shopping-cart"></i>
+    </InputGroupAddon>
     <IftaLabel>
-        <InputText id="price" v-model="value" />
+        <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
         <label for="price">Price</label>
     </IftaLabel>
-    <InputGroupAddon>.00</InputGroupAddon>
 </InputGroup>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
         <InputGroup class="md:w-80">
-            <InputGroupAddon>USD</InputGroupAddon>
+            <InputGroupAddon>
+                <i class="pi pi-shopping-cart"></i>
+            </InputGroupAddon>
             <IftaLabel>
-                <InputText id="price" v-model="value" />
+                <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
                 <label for="price">Price</label>
             </IftaLabel>
-            <InputGroupAddon>.00</InputGroupAddon>
         </InputGroup>
     </div>
 </template>
@@ -49,7 +52,7 @@ export default {
 export default {
     data() {
         return {
-            value: null
+            value: 10
         }
     }
 }
@@ -59,12 +62,13 @@ export default {
 <template>
     <div class="card flex justify-center">
         <InputGroup class="md:w-80">
-            <InputGroupAddon>USD</InputGroupAddon>
+            <InputGroupAddon>
+                <i class="pi pi-shopping-cart"></i>
+            </InputGroupAddon>
             <IftaLabel>
-                <InputText id="price" v-model="value" />
+                <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
                 <label for="price">Price</label>
             </IftaLabel>
-            <InputGroupAddon>.00</InputGroupAddon>
         </InputGroup>
     </div>
 </template>
@@ -72,7 +76,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const value = ref(null);
+const value = ref(10);
 <\/script>
 `
             }
