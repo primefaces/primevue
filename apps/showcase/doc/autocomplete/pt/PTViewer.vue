@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" appendTo="self" />
     </DocPTViewer>
