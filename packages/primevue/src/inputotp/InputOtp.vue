@@ -5,7 +5,7 @@
                 <OtpInputText
                     :value="tokens[i - 1]"
                     :type="inputType"
-                    :class="cx('pcInput')"
+                    :class="cx('pcInputText')"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
@@ -18,7 +18,7 @@
                     @blur="onBlur($event)"
                     @paste="onPaste($event)"
                     @keydown="onKeyDown($event)"
-                    :pt="ptm('pcInput')"
+                    :pt="ptm('pcInputText')"
                 />
             </slot>
         </template>
