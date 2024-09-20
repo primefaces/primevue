@@ -32,7 +32,7 @@ export default {
         light: {
             root: {
                 primary: {
-                    background: 'red',
+                    background: '{primary.color}',
                     hoverBackground: '{primary.hover.color}',
                     activeBackground: '{primary.active.color}',
                     borderColor: '{primary.color}',
