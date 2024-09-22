@@ -159,21 +159,21 @@ export default {
 
             // common
             if (!Theme.isStyleNameLoaded('common')) {
-                const { primitive, semantic } = this.$style?.getCommonTheme?.() || {};
+                const { primitive, semantic, style } = this.$style?.getCommonTheme?.() || {};
 
                 BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions });
+                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName('common');
             }
 
             // component
             if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                const { css } = this.$style?.getComponentTheme?.() || {};
+                const { css, style } = this.$style?.getComponentTheme?.() || {};
 
                 this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
+                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName(this.$style.name);
             }

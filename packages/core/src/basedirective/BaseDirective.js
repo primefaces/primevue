@@ -91,21 +91,21 @@ const BaseDirective = {
 
         // common
         if (!Theme.isStyleNameLoaded('common')) {
-            const { primitive, semantic } = instance.$style?.getCommonTheme?.() || {};
+            const { primitive, semantic, style } = instance.$style?.getCommonTheme?.() || {};
 
             BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...useStyleOptions });
             BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...useStyleOptions });
-            BaseStyle.loadTheme({ name: 'global-style', ...useStyleOptions });
+            BaseStyle.loadTheme({ name: 'global-style', ...useStyleOptions }, style);
 
             Theme.setLoadedStyleName('common');
         }
 
         // directive
         if (!Theme.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
-            const { css } = instance.$style?.getDirectiveTheme?.() || {};
+            const { css, style } = instance.$style?.getDirectiveTheme?.() || {};
 
             instance.$style?.load(css, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
-            instance.$style?.loadTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions });
+            instance.$style?.loadTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions }, style);
 
             Theme.setLoadedStyleName(instance.$style.name);
         }

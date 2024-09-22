@@ -164,8 +164,8 @@ export default {
     loadCSS(options = {}) {
         return this.load(this.css, options);
     },
-    loadTheme(options = {}) {
-        return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, computedStyle));
+    loadTheme(options = {}, style = '') {
+        return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, `${computedStyle}${style}`));
     },
     getCommonTheme(params) {
         return Theme.getCommon(this.name, params);

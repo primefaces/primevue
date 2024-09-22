@@ -177,5 +177,12 @@ export default {
     directives: {
         tooltip,
         ripple
-    }
+    },
+    // @todo: REMOVE THIS BLOCK
+    style: ({ dt }) => `
+.p-button {
+    background: blue !important;
+    padding: ${dt('inputtext.test')} ${dt('inputtext.test')} !important;
+}
+    `
 };

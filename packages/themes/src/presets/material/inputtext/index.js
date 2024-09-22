@@ -14,6 +14,7 @@ export default {
         shadow: '{form.field.shadow}',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
+        test: '2rem', // @todo: REMOVE THIS LINE
         borderRadius: '{form.field.border.radius}',
         focusRing: {
             width: '{form.field.focus.ring.width}',
@@ -33,5 +34,13 @@ export default {
             paddingX: '0.875rem',
             paddingY: '0.625rem'
         }
-    }
+    },
+    // @todo: REMOVE THIS BLOCK
+    style: ({ dt }) => `
+.p-inputtext {
+    background: yellow;
+    padding: ${dt('inputtext.test')} ${dt('inputtext.test')};
+    border: 5px solid red;
+}
+    `
 };
