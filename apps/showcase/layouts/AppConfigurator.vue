@@ -1,4 +1,4 @@
-a<template>
+<template>
     <div class="config-panel hidden">
         <div class="config-panel-content">
             <div class="config-panel-colors">
