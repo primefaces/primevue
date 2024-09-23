@@ -25,8 +25,8 @@ const theme = ({ dt }) => `
     transform: translateY(0);
 }
 
-.p-floatlabel:has(.p-inputnumber-horizontal) label {
-    margin-inline-start: ${dt('inputnumber.button.width')};
+.p-floatlabel:has(.p-inputicon:first-child) label {
+     left: calc((${dt('form.field.padding.x')} * 2) + ${dt('icon.size')});
 }
 
 .p-floatlabel:has(.p-invalid) label {

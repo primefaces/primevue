@@ -41,6 +41,12 @@ const theme = ({ dt }) => `
     color: ${dt('iftalabel.focus.color')};
 }
 
+.p-iftalabel .p-inputicon {
+    top: ${dt('iftalabel.input.padding.top')};
+    transform: translateY(25%);
+    margin-top: 0;
+}
+
 /*.p-iftalabel .p-placeholder,
 .p-iftalabel input::placeholder,
 .p-iftalabel .p-inputtext::placeholder {

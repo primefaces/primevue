@@ -89,6 +89,10 @@ const theme = ({ dt }) => `
     border-right: 0 none;
 }
 
+.p-floatlabel:has(.p-inputnumber-horizontal) label {
+    margin-inline-start: ${dt('inputnumber.button.width')};
+}
+
 .p-inputnumber-vertical {
     flex-direction: column;
 }
