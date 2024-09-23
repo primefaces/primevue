@@ -30,7 +30,7 @@
                 {{ label }}
             </slot>
         </span>
-        <div :class="cx('dropdown')" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdown')">
+        <div :class="cx('dropdown')" role="button" tabindex="-1" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />

@@ -15,7 +15,7 @@
                     <div v-for="item of handleData(doc.data)" :key="item.value" class="doc-ptoption" @mouseenter="enterSection(item, doc.key)" @mouseleave="leaveSection">
                         <span class="doc-ptoption-text">
                             {{ item.label }}
-                            <template v-if="docs.length > 1">| {{ doc.key }}</template>
+                            {{ findComponentName(item.label, doc) }}
                         </span>
                     </div>
                 </template>
@@ -26,6 +26,7 @@
 
 <script>
 import { addClass, find, removeClass } from '@primeuix/utils/dom';
+import { defaultOptions } from '@primevue/core/config';
 
 export default {
     props: ['docs'],
@@ -35,6 +36,38 @@ export default {
         };
     },
     methods: {
+        findComponentName(label, doc) {
+            let text = '';
+
+            if (this.docs.length > 1) {
+                text += `| ${doc.key}`;
+            }
+
+            if (label.includes('pc')) {
+                let reservedNames = ['Decrement', 'File', 'Increment', 'JumpToPage', 'Maximize', 'Node', 'Option', 'Prev', 'Remove', 'RowPerPage', 'Source', 'Target', 'MoveAllTo', 'MoveAll', 'MoveTop', 'MoveTo']; // the order of this list is important!
+                let whiteList = [...reservedNames, ...Object.keys(defaultOptions.locale), ...Object.keys(defaultOptions.locale.aria)];
+                let elemName = label.replace('pc', '');
+
+                if (elemName.includes('FilterContainer')) elemName = elemName.replace('FilterContainer', 'IconField');
+                else if (elemName.includes('FilterIconContainer')) elemName = elemName.replace('FilterIconContainer', 'InputIcon');
+                else if (elemName.includes('Filter')) elemName = elemName.replace('Filter', 'InputText');
+
+                if (elemName.includes('Action')) elemName = elemName.replace('Action', 'Button');
+                if (elemName.includes('Dropdown')) elemName = elemName.replace('Dropdown', 'Select');
+
+                for (const word of whiteList) {
+                    if (elemName.toLowerCase().includes(word.toLowerCase())) {
+                        const regex = new RegExp(word, 'gi');
+
+                        elemName = elemName.replace(regex, '');
+                    }
+                }
+
+                text += ` | ${elemName}`;
+            }
+
+            return text;
+        },
         enterSection(item, componentName) {
             let selector,
                 cmpName = componentName;
