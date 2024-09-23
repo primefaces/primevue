@@ -23,7 +23,7 @@ export default {
             value: 10,
             code: {
                 basic: `
- <InputGroup class="md:w-80">
+<InputGroup class="md:w-80">
     <InputGroupAddon>
         <i class="pi pi-shopping-cart"></i>
     </InputGroupAddon>

@@ -25,7 +25,7 @@ export default {
             ],
             code: {
                 basic: `
- <IftaLabel>
+<IftaLabel>
     <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
     <label for="ms_cities">Cities</label>
 </IftaLabel>
@@ -40,7 +40,7 @@ export default {
     </div>
 </template>
 
-<script setup>
+<script>
 export default {
     data() {
         return {
