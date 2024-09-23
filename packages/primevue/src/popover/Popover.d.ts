@@ -237,7 +237,7 @@ export interface PopoverMethods {
 /**
  * **PrimeVue - Popover**
  *
- * _Popover, also known as Popover, is a container component that can overlay other components on page._
+ * _Popover is a container component that can overlay other components on page._
  *
  * [Live Demo](https://www.primevue.org/popover/)
  * --- ---
