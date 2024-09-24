@@ -50,9 +50,9 @@ const TreeProps = [
     },
     {
         name: 'filterBy',
-        type: 'string',
+        type: 'string | ((node: TreeNode) => string)',
         default: 'label',
-        description: 'When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.'
+        description: 'When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.'
     },
     {
         name: 'filterMode',
