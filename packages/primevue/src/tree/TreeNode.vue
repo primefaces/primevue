@@ -18,7 +18,7 @@
             <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <!-- TODO: nodetogglericon deprecated since v4.0-->
-                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :class="cx('nodeToggleIcon')" />
+                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
                     <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodeToggleIcon')" />
                 </template>
                 <template v-else>
