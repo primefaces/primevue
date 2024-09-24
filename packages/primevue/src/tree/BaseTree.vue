@@ -43,7 +43,7 @@ export default {
             default: false
         },
         filterBy: {
-            type: String | ((node) => String),
+            type: [String, Function],
             default: 'label'
         },
         filterMode: {
