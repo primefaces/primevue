@@ -3,7 +3,7 @@
         <div class="section-header relative z-30">Blocks</div>
         <p class="section-detail relative z-30">400+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
         <div class="flex justify-center mt-6 relative z-30">
-            <a href="https://blocks.primevue.org" class="linkbox linkbox-primary">
+            <a href="https://primeblocks.org" class="linkbox linkbox-primary">
                 <span>Explore All</span>
                 <i class="pi pi-arrow-right ml-2"></i>
             </a>
@@ -355,7 +355,7 @@
                     <div class="block-content flex-1 p-6 flex flex-col">
                         <div class="block-main h-full flex justify-center items-center flex-col">
                             <div class="block-item block-item-active animation-2 mx-4 w-32 text-center flex flex-col items-center overflow-visible">
-                                <div class="-mt-6">
+                                <div>
                                     <img src="https://primefaces.org/cdn/primevue/images/landing/blocks/question.svg" alt="question mark" />
                                 </div>
                                 <div class="bar w-8 mt-2"></div>

@@ -348,7 +348,6 @@ export default {
             return !findMainInterface || findMainInterface.values.props.length > 0;
         }
     },
-
     computed: {
         description() {
             return this.doc && this.doc.length > 0 ? `API defines helper props, events and others for the PrimeVue ${this.header} module.` : `${this.header} is a CSS feature so does not provide a Javascript API`;

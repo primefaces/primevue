@@ -115,6 +115,10 @@ export interface MegaMenuPassThroughOptions {
      */
     button?: MegaMenuPassThroughOptionType;
     /**
+     * Used to pass attributes to the mobile popup menu button icon's DOM element.
+     */
+    buttonIcon?: MegaMenuPassThroughOptionType;
+    /**
      * Used to pass attributes to the start of the component.
      */
     start?: MegaMenuPassThroughOptionType;

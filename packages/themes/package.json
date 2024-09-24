@@ -1,6 +1,6 @@
 {
     "name": "@primevue/themes",
-    "version": "4.0.5",
+    "version": "4.0.7",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -20,6 +20,7 @@
         ".": "./src/index.js",
         "./aura": "./src/presets/aura/index.js",
         "./lara": "./src/presets/lara/index.js",
+        "./material": "./src/presets/material/index.js",
         "./nora": "./src/presets/nora/index.js",
         "./aura/*": {
             "types": "./types/*/index.d.ts",
@@ -28,6 +29,10 @@
         "./lara/*": {
             "types": "./types/*/index.d.ts",
             "import": "./src/presets/lara/*/index.js"
+        },
+        "./material/*": {
+            "types": "./types/*/index.d.ts",
+            "import": "./src/presets/material/*/index.js"
         },
         "./nora/*": {
             "types": "./types/*/index.d.ts",
@@ -51,6 +56,10 @@
                 "types": "./types/*/index.d.ts",
                 "import": "./lara/*/index.mjs"
             },
+            "./material/*": {
+                "types": "./types/*/index.d.ts",
+                "import": "./material/*/index.mjs"
+            },
             "./nora/*": {
                 "types": "./types/*/index.d.ts",
                 "import": "./nora/*/index.mjs"
@@ -73,7 +82,7 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.0.5"
+        "@primeuix/styled": "^0.1.3"
     },
     "engines": {
         "node": ">=12.11.0"

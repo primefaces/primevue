@@ -484,7 +484,7 @@ const classes = {
     ],
     thumbnail: 'p-galleria-thumbnail',
     thumbnailNextButton: ({ instance }) => [
-        'p-galleria-thumbnail-next-button  p-galleria-thumbnail-nav-button',
+        'p-galleria-thumbnail-next-button p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }

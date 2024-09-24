@@ -165,7 +165,7 @@ const MultiSelectProps = [
         name: 'selectedItemsLabel',
         type: 'string',
         default: '{0} items selected',
-        description: 'Label to display after exceeding max selected labels.'
+        description: 'Label to display after exceeding max selected labels. Defaults to value from PrimeVue locale configuration.'
     },
     {
         name: 'maxSelectedLabels',

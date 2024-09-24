@@ -375,12 +375,12 @@ const classes = {
         {
             'p-invalid': props.invalid,
             'p-inputwrapper-filled': props.modelValue,
-            'p-inputwrapper-focus': state.focused,
+            'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-focus': state.focused || state.overlayVisible,
             'p-datepicker-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-datepicker-input',
+    pcInputText: 'p-datepicker-input',
     dropdown: 'p-datepicker-dropdown',
     inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',

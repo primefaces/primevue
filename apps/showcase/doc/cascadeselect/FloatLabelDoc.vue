@@ -2,10 +2,20 @@
     <DocSectionText v-bind="$attrs">
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <FloatLabel>
-            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
-            <label for="cs-city">City</label>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="in">
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="on">
+            <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
     <DocSectionCode :code="code" />
@@ -15,7 +25,9 @@
 export default {
     data() {
         return {
-            selectedCity: null,
+            value1: null,
+            value2: null,
+            value3: null,
             countries: [
                 {
                     name: 'Australia',
@@ -92,19 +104,37 @@ export default {
             ],
             code: {
                 basic: `
-<FloatLabel>
-    <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-        :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
-    <label for="cs-city">City</label>
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <label for="on_label">On Label</label>
 </FloatLabel>
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <FloatLabel>
-            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
-            <label for="cs-city">City</label>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
 </template>
@@ -113,7 +143,9 @@ export default {
 export default {
     data() {
         return {
-            selectedCity: null,
+            value1: null,
+            value2: null,
+            value3: null,
             countries: [
                 {
                     name: 'Australia',
@@ -195,11 +227,20 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <FloatLabel>
-            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
-            <label for="cs-city">City</label>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
 </template>
@@ -207,7 +248,9 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-const selectedCity = ref();
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
 const countries = ref([
     {
         name: 'Australia',

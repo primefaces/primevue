@@ -21,6 +21,7 @@ import ExamplesDoc from '@/doc/vite/ExamplesDoc.vue';
 import StyledModeDoc from '@/doc/vite/StyledModeDoc.vue';
 import UnstyledModeDoc from '@/doc/vite/UnstyledModeDoc.vue';
 import UsageDoc from '@/doc/vite/UsageDoc.vue';
+import VideoDoc from '@/doc/vite/VideoDoc.vue';
 
 export default {
     data() {
@@ -58,6 +59,11 @@ export default {
                     id: 'examples',
                     label: 'Examples',
                     component: ExamplesDoc
+                },
+                {
+                    id: 'video',
+                    label: 'Video',
+                    component: VideoDoc
                 }
             ]
         };

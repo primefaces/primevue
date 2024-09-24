@@ -48,7 +48,9 @@
                             :pt="getPTOptions(`${id}_${index}`, 'pcAction')"
                         >
                             <template v-if="item.icon" #icon="slotProps">
-                                <span :class="[item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                                <slot name="itemicon" :item="item" :class="slotProps.class">
+                                    <span :class="[item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                                </slot>
                             </template>
                         </Button>
                     </template>

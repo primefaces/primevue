@@ -8,6 +8,7 @@
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
+                    :class="cx('rootList')"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"
                     :aria-label="ariaLabel"
@@ -30,6 +31,7 @@
                     @item-click="onItemClick"
                     @item-mouseenter="onItemMouseEnter"
                     @item-mousemove="onItemMouseMove"
+                    v-bind="ptm('rootList')"
                 />
                 <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                     <slot name="end"></slot>
@@ -40,10 +42,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, findSingle, addStyle, absolutePosition, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseTieredMenu from './BaseTieredMenu.vue';

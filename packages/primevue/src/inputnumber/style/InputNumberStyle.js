@@ -89,6 +89,10 @@ const theme = ({ dt }) => `
     border-right: 0 none;
 }
 
+.p-floatlabel:has(.p-inputnumber-horizontal) label {
+    margin-inline-start: ${dt('inputnumber.button.width')};
+}
+
 .p-inputnumber-vertical {
     flex-direction: column;
 }
@@ -157,7 +161,7 @@ const classes = {
             'p-inputnumber-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-inputnumber-input',
+    pcInputText: 'p-inputnumber-input',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',

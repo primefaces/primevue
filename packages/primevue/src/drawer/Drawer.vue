@@ -71,9 +71,9 @@ export default {
     watch: {
         dismissable(newValue) {
             if (newValue) {
-                this.bindOutsideClickListener();
+                this.enableDocumentSettings();
             } else {
-                this.unbindOutsideClickListener();
+                this.disableDocumentSettings();
             }
         }
     },

@@ -1,3 +1,5 @@
+import AppTheme from '@/themes/app-theme';
+import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
@@ -16,6 +18,14 @@ const $appState = {
     }
 };
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(async (nuxtApp) => {
+    const runtimeConfig = useRuntimeConfig();
+
     nuxtApp.vueApp.use($appState);
+
+    if (runtimeConfig.public.DEV_ENV === 'hot') {
+        nuxtApp.vueApp.use(PrimeVue, {
+            theme: AppTheme
+        });
+    }
 });

@@ -13,6 +13,7 @@ import FilledDoc from '@/doc/select/FilledDoc.vue';
 import FilterDoc from '@/doc/select/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/select/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/select/GroupDoc.vue';
+import IftaLabelDoc from '@/doc/select/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/select/ImportDoc.vue';
 import InvalidDoc from '@/doc/select/InvalidDoc.vue';
 import LazyVirtualScrollDoc from '@/doc/select/LazyVirtualScrollDoc.vue';
@@ -85,6 +86,11 @@ export default {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'filled',

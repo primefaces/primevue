@@ -42,7 +42,7 @@ export default {
                             license: {
                                 documentLink: 'https://atlantis.primevue.org/documentation',
                                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
-                                showDiscount: true,
+                                showDiscount: false,
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
@@ -74,7 +74,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Atlantis offers 16 built-in component themes with dark and light options. You are also free to create you own theme by defining couple SASS variables.',
+                                    description: 'Atlantis offers 16 built-in component themes with dark and light options. You are also free to create your own theme by defining couple SASS variables.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/features-animation-component-themes.png'
                                 },
                                 {
@@ -165,7 +165,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://blocks.primevue.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://blocks.primevue.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
                 template and requires a separate purchase.`,
                             description4: `
                     Atlantis uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can

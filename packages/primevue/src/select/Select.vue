@@ -495,6 +495,10 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
+            // Check if the event is part of a text composition process (e.g., for Asian languages).
+            // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
+            if (event.isComposing) return;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -799,7 +803,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return this.isValidOption(option) && equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));

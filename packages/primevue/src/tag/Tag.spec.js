@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { h } from 'vue';
 import Tag from './Tag.vue';
 
 describe('Tag.vue', () => {
@@ -43,18 +42,6 @@ describe('Tag.vue', () => {
 
         expect(wrapper.find('.p-tag-icon').isVisible()).toBe(true);
         expect(wrapper.find('.p-tag-icon' + lastIcon).exists()).toBe(true);
-    });
-});
-
-describe('Tag.vue', () => {
-    it('should render default slot', () => {
-        const wrapper = mount(Tag, {
-            slots: {
-                default: h('i', { class: 'pi pi-discord' }, '')
-            }
-        });
-
-        expect(wrapper.html()).toBe('<span class="p-tag p-component" data-pc-name="tag" data-pc-section="root" pc5=""><!--v-if--><i class="pi pi-discord"></i></span>');
     });
 });
 

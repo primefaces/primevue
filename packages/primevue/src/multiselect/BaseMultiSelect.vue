@@ -76,7 +76,7 @@ export default {
         },
         selectedItemsLabel: {
             type: String,
-            default: '{0} items selected'
+            default: null
         },
         maxSelectedLabels: {
             type: Number,

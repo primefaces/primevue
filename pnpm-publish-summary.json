@@ -2,31 +2,31 @@
 	"publishedPackages": [
 		{
 			"name": "@primevue/core",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "@primevue/metadata",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "@primevue/themes",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "@primevue/auto-import-resolver",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "@primevue/icons",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "primevue",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		},
 		{
 			"name": "@primevue/nuxt-module",
-			"version": "4.0.5"
+			"version": "4.0.7"
 		}
 	]
 }

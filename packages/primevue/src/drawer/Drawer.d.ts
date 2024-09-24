@@ -88,6 +88,10 @@ export interface DrawerPassThroughOptions {
      */
     content?: DrawerPassThroughOptionType;
     /**
+     * Used to pass attributes to the footer's DOM element.
+     */
+    footer?: DrawerPassThroughOptionType;
+    /**
      * Used to pass attributes to the mask's DOM element.
      */
     mask?: DrawerPassThroughOptionType;

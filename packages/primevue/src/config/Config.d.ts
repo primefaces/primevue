@@ -46,6 +46,7 @@ import type { FluidPassThroughOptions } from 'primevue/fluid';
 import type { FocusTrapDirectivePassThroughOptions } from 'primevue/focustrap';
 import type { GalleriaPassThroughOptions } from 'primevue/galleria';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
+import type { IftaLabelPassThroughOptions } from 'primevue/iftalabel';
 import type { ImagePassThroughOptions } from 'primevue/image';
 import type { InlineMessagePassThroughOptions } from 'primevue/inlinemessage';
 import type { InplacePassThroughOptions } from 'primevue/inplace';
@@ -201,6 +202,7 @@ export interface PrimeVuePTOptions {
     fluid?: DefaultPassThrough<FluidPassThroughOptions>;
     galleria?: DefaultPassThrough<GalleriaPassThroughOptions>;
     iconfield?: DefaultPassThrough<IconFieldPassThroughOptions>;
+    iftalabel?: DefaultPassThrough<IftaLabelPassThroughOptions>;
     image?: DefaultPassThrough<ImagePassThroughOptions>;
     inlinemessage?: DefaultPassThrough<InlineMessagePassThroughOptions>;
     inplace?: DefaultPassThrough<InplacePassThroughOptions>;

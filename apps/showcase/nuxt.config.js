@@ -8,9 +8,18 @@ const alias = {
     '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
     '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
     '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
+    '@primevue/themes/material': path.resolve(__dirname, '../../packages/themes/src/presets/material'),
     '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
 };
+
+let PROCESS_ENV = {};
+
+try {
+    PROCESS_ENV = process?.env || {};
+} catch {
+    // NOOP
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -35,10 +44,17 @@ export default defineNuxtConfig({
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
-    primevue: {
-        autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
-        importTheme: { from: '@/themes/app-theme.js' }
-    },
+    primevue:
+        PROCESS_ENV.DEV_ENV === 'hot'
+            ? {
+                  usePrimeVue: false,
+                  autoImport: true,
+                  loadStyles: false
+              }
+            : {
+                  autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
+                  importTheme: { from: '@/themes/app-theme.js' }
+              },
     app: {
         baseURL: baseUrl,
         head: {
@@ -79,7 +95,8 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            contextPath: baseUrl
+            contextPath: baseUrl,
+            DEV_ENV: PROCESS_ENV.DEV_ENV
         }
     },
     gtag: {

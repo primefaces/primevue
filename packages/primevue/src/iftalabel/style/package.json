@@ -1,0 +1,6 @@
+{
+    "main": "./IftaLabelStyle.js",
+    "module": "./IftaLabelStyle.js",
+    "types": "./IftaLabelStyle.d.ts",
+    "sideEffects": false
+}

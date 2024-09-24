@@ -141,10 +141,6 @@ export interface MultiSelectPassThroughOptions {
      */
     pcChip?: ChipPassThroughOptions<MultiSelectSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the chip icon's DOM element.
-     */
-    chipIcon?: MultiSelectPassThroughOptionType;
-    /**
      * Used to pass attributes to the dropdown's DOM element.
      */
     dropdown?: MultiSelectPassThroughOptionType;
@@ -433,7 +429,7 @@ export interface MultiSelectProps {
     display?: 'comma' | 'chip' | undefined;
     /**
      * Label to display after exceeding max selected labels.
-     * @defaultValue '{0} items selected'
+     * @defaultValue null
      */
     selectedItemsLabel?: string | undefined;
     /**
@@ -524,7 +520,7 @@ export interface MultiSelectProps {
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue '{0} items selected'
+     * @defaultValue null
      */
     selectionMessage?: string | undefined;
     /**

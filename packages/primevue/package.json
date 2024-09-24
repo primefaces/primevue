@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "4.0.5",
+    "version": "4.0.7",
     "author": "PrimeTek Informatics",
     "description": "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.",
     "homepage": "https://primevue.org/",
@@ -138,6 +138,8 @@
         "./galleria/style": "./src/galleria/style/GalleriaStyle.js",
         "./iconfield": "./src/iconfield/IconField.vue",
         "./iconfield/style": "./src/iconfield/style/IconFieldStyle.js",
+        "./iftalabel": "./src/iftalabel/IftaLabel.vue",
+        "./iftalabel/style": "./src/iftalabel/style/IftaLabelStyle.js",
         "./image": "./src/image/Image.vue",
         "./image/style": "./src/image/style/ImageStyle.js",
         "./inlinemessage": "./src/inlinemessage/InlineMessage.vue",
@@ -329,8 +331,8 @@
         "vitest": "^0.29.8"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.0.5",
-        "@primeuix/utils": "^0.0.5",
+        "@primeuix/styled": "^0.1.3",
+        "@primeuix/utils": "^0.1.3",
         "@primevue/core": "workspace:*",
         "@primevue/icons": "workspace:*"
     },

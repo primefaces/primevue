@@ -1,5 +1,5 @@
 <template>
-    <JTPInput ref="jtpInput" :modelValue="d_page" :class="cx('pcJumpToPageInput')" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange" :unstyled="unstyled" :pt="ptm('pcJumpToPageInput')"></JTPInput>
+    <JTPInput ref="jtpInput" :modelValue="d_page" :class="cx('pcJumpToPageInputText')" :aria-label="inputArialabel" :disabled="disabled" @update:modelValue="onChange" :unstyled="unstyled" :pt="ptm('pcJumpToPageInputText')"></JTPInput>
 </template>
 
 <script>

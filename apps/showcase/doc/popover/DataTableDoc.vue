@@ -180,17 +180,16 @@ export default {
     },
     methods: {
         displayProduct(event, product) {
+            this.$refs.op.hide();
+
             if (this.selectedProduct?.id === product.id) {
-                this.$refs.op.hide();
                 this.selectedProduct = null;
             } else {
                 this.selectedProduct = product;
-                this.$refs.op.show(event);
 
-                // will not be needed with v4.0.6 as Popover will auto align
-                if (this.$refs.op.container) {
-                    this.$refs.op.alignOverlay();
-                }
+                this.$nextTick(() => {
+                    this.$refs.op.show(event);
+                });
             }
         },
         hidePopover() {
@@ -269,7 +268,7 @@ export default {
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { useToast } from "primevue/usetoast";
 import { ProductService } from '@/service/ProductService';
 
@@ -282,17 +281,16 @@ const products = ref();
 const selectedProduct = ref();
 
 const displayProduct = (event, product) => {
+    op.value.hide();
+
     if (selectedProduct.value?.id === product.id) {
-        op.value.hide();
         selectedProduct.value = null;
     } else {
         selectedProduct.value = product;
-        op.value.show(event);
 
-        // will not be needed with v4.0.6 as Popover will auto align
-        if (op.value.container) {
-            op.value.alignOverlay();
-        }
+        nextTick(() => {
+            op.value.show(event);
+        });
     }
 }
 
@@ -341,16 +339,16 @@ const getSeverity = (product) => {
     },
     methods: {
         displayProduct(event, product) {
+            this.$refs.op.hide();
+
             if (this.selectedProduct?.id === product.id) {
-                this.$refs.op.hide();
                 this.selectedProduct = null;
             } else {
                 this.selectedProduct = product;
-                this.$refs.op.show(event);
 
-                if (this.$refs.op.container) {
-                    this.$refs.op.alignOverlay();
-                }
+                this.$nextTick(() => {
+                    this.$refs.op.show(event);
+                });
             }
         },
         hidePopover() {
