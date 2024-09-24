@@ -9,10 +9,10 @@ import EventBus from '@/layouts/AppEventBus';
 
 export default {
     setup() {
-        const colorMode = useColorMode()
+        const colorMode = useColorMode();
         return {
             colorMode
-        }
+        };
     },
     mounted() {
         EventBus.on('dark-mode-toggle', this.darkModeToggleListener);
