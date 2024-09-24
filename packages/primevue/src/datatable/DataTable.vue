@@ -70,6 +70,7 @@
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">
                         <DTTableHeader
+                            v-if="showHeaders"
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
                             :rowGroupMode="rowGroupMode"
