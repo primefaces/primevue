@@ -1911,6 +1911,11 @@ export default {
                 day = 1;
             }
 
+            if (this.currentView === 'year') {
+                day = 1;
+                month = 1;
+            }
+
             for (iFormat = 0; iFormat < format.length; iFormat++) {
                 if (literal) {
                     if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
