@@ -803,7 +803,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return this.isValidOption(option) && equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
