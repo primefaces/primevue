@@ -226,6 +226,13 @@ export interface SplitterEmitsOptions {
 
 export declare type SplitterEmits = EmitFn<SplitterEmitsOptions>;
 
+export interface SplitterMethods {
+    /**
+     * This method resizes all panels by either using the stored state in the case of a stateful Splitter, the size property of each SplitterPanel, or by resetting them to their default values.
+     */
+    resetState(): void;
+}
+
 /**
  * **PrimeVue - Splitter**
  *
@@ -238,7 +245,7 @@ export declare type SplitterEmits = EmitFn<SplitterEmitsOptions>;
  * @group Component
  *
  */
-declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits>;
+declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits, SplitterMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
