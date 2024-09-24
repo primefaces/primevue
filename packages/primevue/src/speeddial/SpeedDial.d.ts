@@ -356,6 +356,21 @@ export interface SpeedDialSlots {
          */
         visible: boolean;
     }): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         * @type {MenuItem}
+         */
+        item: MenuItem;
+        /**
+         * Style class of the icon template
+         */
+        class: any;
+    }): VNode[];
 }
 
 /**
