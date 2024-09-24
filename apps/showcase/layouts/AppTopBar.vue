@@ -195,7 +195,7 @@ export default {
             this.$emit('menubutton-click', event);
         },
         toggleDarkMode() {
-            EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
+            EventBus.emit('dark-mode-toggle');
         },
         bindScrollListener() {
             if (!this.scrollListener) {

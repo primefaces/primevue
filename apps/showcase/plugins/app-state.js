@@ -4,11 +4,13 @@ import { reactive } from 'vue';
 
 const $appState = {
     install: (Vue, options) => {
+        const colorMode = useColorMode();
+
         Vue.config.globalProperties.$appState = reactive({
             preset: 'Aura',
             primary: 'noir',
             surface: null,
-            darkTheme: false,
+            darkTheme: colorMode.preference === 'dark',
             codeSandbox: false,
             sourceType: 'options-api',
             newsActive: false,

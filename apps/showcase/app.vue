@@ -8,6 +8,12 @@
 import EventBus from '@/layouts/AppEventBus';
 
 export default {
+    setup() {
+        const colorMode = useColorMode()
+        return {
+            colorMode
+        }
+    },
     mounted() {
         EventBus.on('dark-mode-toggle', this.darkModeToggleListener);
     },
@@ -24,12 +30,10 @@ export default {
 
             document.startViewTransition(() => this.toggleDarkMode(event));
         },
-        toggleDarkMode(event) {
-            const isDark = event.dark;
+        toggleDarkMode() {
+            const isDark = this.colorMode.preference !== 'dark';
 
-            if (isDark) document.documentElement.classList.add('p-dark');
-            else document.documentElement.classList.remove('p-dark');
-
+            this.colorMode.preference = isDark ? 'dark' : 'light';
             this.$appState.darkTheme = isDark;
 
             EventBus.emit('dark-mode-toggle-complete');

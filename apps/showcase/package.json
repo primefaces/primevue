@@ -59,6 +59,7 @@
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",
+        "@nuxtjs/color-mode": "^3.5.1",
         "nuxt-gtag": "^0.6.2"
     },
     "engines": {

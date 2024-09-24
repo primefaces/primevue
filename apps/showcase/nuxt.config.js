@@ -24,7 +24,7 @@ try {
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
-    modules: ['nuxt-gtag', '@primevue/nuxt-module'],
+    modules: ['nuxt-gtag', '@primevue/nuxt-module', '@nuxtjs/color-mode'],
     components: {
         path: '~/components',
         pathPrefix: false
@@ -101,6 +101,13 @@ export default defineNuxtConfig({
     },
     gtag: {
         id: 'G-48TTQ6G6KV'
+    },
+    colorMode: {
+        preference: 'light',
+        classPrefix: 'p-',
+        classSuffix: '',
+        storage: 'cookie',
+        storageKey: 'primevue-color-mode'
     },
     css: ['primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/tailwind/main.css', '@/assets/styles/layout/layout.scss']
 });
