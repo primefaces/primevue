@@ -429,7 +429,7 @@ export interface MultiSelectProps {
     display?: 'comma' | 'chip' | undefined;
     /**
      * Label to display after exceeding max selected labels.
-     * @defaultValue 'null'
+     * @defaultValue null
      */
     selectedItemsLabel?: string | undefined;
     /**
@@ -520,7 +520,7 @@ export interface MultiSelectProps {
     filterMessage?: string | undefined;
     /**
      * Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue 'null'
+     * @defaultValue null
      */
     selectionMessage?: string | undefined;
     /**
