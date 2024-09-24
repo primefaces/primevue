@@ -10,6 +10,7 @@ import EventBus from '@/layouts/AppEventBus';
 export default {
     setup() {
         const colorMode = useColorMode();
+
         return {
             colorMode
         };
