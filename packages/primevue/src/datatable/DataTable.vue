@@ -296,7 +296,6 @@ import {
     getOffset,
     getOuterHeight,
     getOuterWidth,
-    getWindowScrollTop,
     isClickable,
     removeClass,
     setAttribute
@@ -1533,7 +1532,7 @@ export default {
 
             if (this.rowDragging && this.draggedRowIndex !== index) {
                 let rowElement = event.currentTarget;
-                let rowY = getOffset(rowElement).top + getWindowScrollTop();
+                let rowY = getOffset(rowElement).top;
                 let pageY = event.pageY;
                 let rowMidY = rowY + getOuterHeight(rowElement) / 2;
                 let prevRowElement = rowElement.previousElementSibling;
