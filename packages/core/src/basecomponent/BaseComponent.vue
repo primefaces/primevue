@@ -1,6 +1,6 @@
 <script>
 import { Theme, ThemeService } from '@primeuix/styled';
-import { findSingle } from '@primeuix/utils/dom';
+import { findSingle, isClient } from '@primeuix/utils/dom';
 import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
 import { uuid } from '@primeuix/utils/uuid';
 import Base from '@primevue/core/base';
@@ -59,7 +59,6 @@ export default {
     rootEl: undefined,
     $attrSelector: undefined,
     beforeCreate() {
-        this.$attrSelector = uuid('pc');
         const _usept = this.pt?.['_usept'];
         const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
         const value = _usept ? this.pt?.value?.[this.$.type.name] : this.pt;
@@ -71,22 +70,24 @@ export default {
         const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
 
         (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
+        this.$attrSelector = uuid('pc');
     },
     created() {
         this._hook('onCreated');
     },
     beforeMount() {
-        this._loadStyles();
-        this._hook('onBeforeMount');
-    },
-    mounted() {
         // @todo - improve performance
         this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
 
         if (this.rootEl) {
+            this.$attrSelector && !this.rootEl.hasAttribute(this.$attrSelector) && this.rootEl.setAttribute(this.$attrSelector, '');
             this.rootEl.$pc = { name: this.$.type.name, attrSelector: this.$attrSelector, ...this.$params };
         }
 
+        this._loadStyles();
+        this._hook('onBeforeMount');
+    },
+    mounted() {
         this._hook('onMounted');
     },
     beforeUpdate() {
@@ -233,7 +234,7 @@ export default {
                     ...(key === 'root' && {
                         [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
                         ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) }),
-                        [`${this.$attrSelector}`]: ''
+                        ...(isClient() && { [`${this.$attrSelector}`]: '' })
                     }),
                     [`${datasetPrefix}section`]: toFlatCase(key)
                 }
