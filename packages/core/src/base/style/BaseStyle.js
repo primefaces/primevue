@@ -1,5 +1,5 @@
 import { Theme, dt } from '@primeuix/styled';
-import { minifyCSS, resolve } from '@primeuix/utils/object';
+import { isNotEmpty, minifyCSS, resolve } from '@primeuix/utils/object';
 import { useStyle } from '@primevue/core/usestyle';
 
 const theme = ({ dt }) => `
@@ -159,13 +159,13 @@ export default {
     load(style, options = {}, transform = (cs) => cs) {
         const computedStyle = transform(resolve(style, { dt }));
 
-        return computedStyle ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
+        return isNotEmpty(computedStyle) ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
     },
     loadCSS(options = {}) {
         return this.load(this.css, options);
     },
     loadTheme(options = {}, style = '') {
-        return this.load(this.theme, options, (computedStyle) => Theme.transformCSS(options.name || this.name, `${computedStyle}${style}`));
+        return this.load(this.theme, options, (computedStyle = '') => Theme.transformCSS(options.name || this.name, `${computedStyle}${style}`));
     },
     getCommonTheme(params) {
         return Theme.getCommon(this.name, params);
@@ -184,13 +184,13 @@ export default {
     },
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
-            const _css = resolve(this.css, { dt });
+            const _css = resolve(this.css, { dt }) || '';
             const _style = minifyCSS(`${_css}${extendedCSS}`);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
 
-            return `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_style}</style>`;
+            return isNotEmpty(_style) ? `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_style}</style>` : '';
         }
 
         return '';
@@ -209,7 +209,7 @@ export default {
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
 
-            css.push(`<style type="text/css" data-primevue-style-id="${name}" ${_props}>${_style}</style>`);
+            isNotEmpty(_style) && css.push(`<style type="text/css" data-primevue-style-id="${name}" ${_props}>${_style}</style>`);
         }
 
         return css.join('');
