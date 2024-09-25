@@ -7,7 +7,7 @@
  * @module drawer
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -181,6 +181,11 @@ export interface DrawerProps {
      * @defaultValue false
      */
     blockScroll?: boolean | undefined;
+    /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
+     * @defaultValue 'body'
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
