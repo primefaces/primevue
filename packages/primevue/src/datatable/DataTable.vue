@@ -297,6 +297,7 @@ import {
     getOuterHeight,
     getOuterWidth,
     isClickable,
+    isClient,
     removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
@@ -442,7 +443,10 @@ export default {
         }
     },
     mounted() {
-        this.$el.setAttribute(this.attributeSelector, '');
+        if (isClient()) {
+            this.attributeSelector = UniqueComponentId();
+            this.$el.setAttribute(this.attributeSelector, '');
+        }
 
         if (this.isStateful()) {
             this.restoreState();
@@ -2030,9 +2034,6 @@ export default {
 
                 return isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
             }
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         groupRowSortField() {
             return this.sortMode === 'single' ? this.sortField : this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null;
