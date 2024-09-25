@@ -297,13 +297,12 @@ import {
     getOuterHeight,
     getOuterWidth,
     isClickable,
-    isClient,
     removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
 import { equals, findIndexInList, isEmpty, isNotEmpty, localeComparator, reorderArray, resolveFieldData, sort } from '@primeuix/utils/object';
 import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
-import { HelperSet, UniqueComponentId, getVNodeProp } from '@primevue/core/utils';
+import { HelperSet, getVNodeProp } from '@primevue/core/utils';
 import ArrowDownIcon from '@primevue/icons/arrowdown';
 import ArrowUpIcon from '@primevue/icons/arrowup';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -443,11 +442,6 @@ export default {
         }
     },
     mounted() {
-        if (isClient()) {
-            this.attributeSelector = UniqueComponentId();
-            this.$el.setAttribute(this.attributeSelector, '');
-        }
-
         if (this.isStateful()) {
             this.restoreState();
 
@@ -1325,7 +1319,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.$attrSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -1792,7 +1786,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.$attrSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let style = `width: ${width}px !important; max-width: ${width}px !important`;
