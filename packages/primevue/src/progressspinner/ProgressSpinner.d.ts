@@ -7,7 +7,7 @@
  * @module progressspinner
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -133,11 +133,11 @@ export declare type ProgressSpinnerEmits = EmitFn<ProgressSpinnerEmitsOptions>;
  * @group Component
  *
  */
-declare const ProgressSpinner: GlobalComponentConstructor<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
+declare const ProgressSpinner: DefineComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ProgressSpinner: GlobalComponentConstructor<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
+        ProgressSpinner: DefineComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
     }
 }
 

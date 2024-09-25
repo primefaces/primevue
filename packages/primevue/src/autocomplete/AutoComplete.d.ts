@@ -7,7 +7,7 @@
  * @module autocomplete
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
@@ -827,11 +827,11 @@ export declare type AutoCompleteEmits = EmitFn<AutoCompleteEmitsOptions>;
  * @group Component
  *
  */
-declare const AutoComplete: GlobalComponentConstructor<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
+declare const AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AutoComplete: GlobalComponentConstructor<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
+        AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
     }
 }
 

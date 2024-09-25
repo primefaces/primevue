@@ -7,7 +7,7 @@
  * @module steplist
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -110,11 +110,11 @@ export declare type StepListEmits = EmitFn<StepListEmitsOptions>;
  * @group Component
  *
  */
-declare const StepList: GlobalComponentConstructor<StepListProps, StepListSlots, StepListEmits>;
+declare const StepList: DefineComponent<StepListProps, StepListSlots, StepListEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        StepList: GlobalComponentConstructor<StepListProps, StepListSlots, StepListEmits>;
+        StepList: DefineComponent<StepListProps, StepListSlots, StepListEmits>;
     }
 }
 

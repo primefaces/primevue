@@ -7,7 +7,7 @@
  * @module toggleswitch
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -211,11 +211,11 @@ export declare type ToggleSwitchEmits = EmitFn<ToggleSwitchEmitsOptions>;
  * @group Component
  *
  */
-declare const ToggleSwitch: GlobalComponentConstructor<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
+declare const ToggleSwitch: DefineComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ToggleSwitch: GlobalComponentConstructor<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
+        ToggleSwitch: DefineComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
     }
 }
 

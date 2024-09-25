@@ -7,7 +7,7 @@
  * @module accordionheader
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -138,11 +138,11 @@ export declare type AccordionHeaderEmits = EmitFn<AccordionHeaderEmitsOptions>;
  * @group Component
  *
  */
-declare const AccordionHeader: GlobalComponentConstructor<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
+declare const AccordionHeader: DefineComponent<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionHeader: GlobalComponentConstructor<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
+        AccordionHeader: DefineComponent<AccordionHeaderProps, AccordionHeaderSlots, AccordionHeaderEmits>;
     }
 }
 

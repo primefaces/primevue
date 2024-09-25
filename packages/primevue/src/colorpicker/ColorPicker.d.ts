@@ -7,7 +7,7 @@
  * @module colorpicker
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps } from 'vue';
@@ -243,11 +243,11 @@ export declare type ColorPickerEmits = EmitFn<ColorPickerEmitsOptions>;
  * @group Component
  *
  */
-declare const ColorPicker: GlobalComponentConstructor<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
+declare const ColorPicker: DefineComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ColorPicker: GlobalComponentConstructor<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
+        ColorPicker: DefineComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
     }
 }
 

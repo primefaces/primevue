@@ -7,7 +7,7 @@
  * @module buttongroup
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -109,11 +109,11 @@ export declare type ButtonGroupEmits = EmitFn<ButtonGroupEmitsOptions>;
  * @group Component
  *
  */
-declare const ButtonGroup: GlobalComponentConstructor<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
+declare const ButtonGroup: DefineComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ButtonGroup: GlobalComponentConstructor<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
+        ButtonGroup: DefineComponent<ButtonGroupProps, ButtonGroupSlots, ButtonGroupEmits>;
     }
 }
 

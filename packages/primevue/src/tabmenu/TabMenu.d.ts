@@ -7,7 +7,7 @@
  * @module tabmenu
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -267,11 +267,11 @@ export declare type TabMenuEmits = EmitFn<TabMenuEmitsOptions>;
  * @group Component
  *
  */
-declare const TabMenu: GlobalComponentConstructor<TabMenuProps, TabMenuSlots, TabMenuEmits>;
+declare const TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabMenu: GlobalComponentConstructor<TabMenuProps, TabMenuSlots, TabMenuEmits>;
+        TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
     }
 }
 

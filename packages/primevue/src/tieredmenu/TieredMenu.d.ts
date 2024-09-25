@@ -7,7 +7,7 @@
  * @module tieredmenu
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -408,11 +408,11 @@ export interface TieredMenuMethods {
  * @group Component
  *
  */
-declare const TieredMenu: GlobalComponentConstructor<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
+declare const TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TieredMenu: GlobalComponentConstructor<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
+        TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
     }
 }
 

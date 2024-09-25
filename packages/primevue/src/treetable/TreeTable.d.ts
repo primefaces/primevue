@@ -7,7 +7,7 @@
  * @module treetable
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ColumnPassThroughOptionType } from 'primevue/column';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
@@ -811,11 +811,11 @@ export declare type TreeTableEmits = EmitFn<TreeTableEmitsOptions>;
  * @group Component
  *
  */
-declare const TreeTable: GlobalComponentConstructor<TreeTableProps, TreeTableSlots, TreeTableEmits>;
+declare const TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TreeTable: GlobalComponentConstructor<TreeTableProps, TreeTableSlots, TreeTableEmits>;
+        TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
     }
 }
 

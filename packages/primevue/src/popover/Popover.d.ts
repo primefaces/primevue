@@ -7,7 +7,7 @@
  * @module popover
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -246,11 +246,11 @@ export interface PopoverMethods {
  * @group Component
  *
  */
-declare const Popover: GlobalComponentConstructor<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
+declare const Popover: DefineComponent<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Popover: GlobalComponentConstructor<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
+        Popover: DefineComponent<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
     }
 }
 

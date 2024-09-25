@@ -8,7 +8,7 @@
  * @module contextmenu
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -402,11 +402,11 @@ export interface ContextMenuMethods {
  * @group Component
  *
  */
-declare const ContextMenu: GlobalComponentConstructor<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
+declare const ContextMenu: DefineComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ContextMenu: GlobalComponentConstructor<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
+        ContextMenu: DefineComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
     }
 }
 

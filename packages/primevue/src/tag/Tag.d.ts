@@ -7,7 +7,7 @@
  * @module tag
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -146,11 +146,11 @@ export declare type TagEmits = EmitFn<TagEmitsOptions>;
  * @group Component
  *
  */
-declare const Tag: GlobalComponentConstructor<TagProps, TagSlots, TagEmits>;
+declare const Tag: DefineComponent<TagProps, TagSlots, TagEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tag: GlobalComponentConstructor<TagProps, TagSlots, TagEmits>;
+        Tag: DefineComponent<TagProps, TagSlots, TagEmits>;
     }
 }
 

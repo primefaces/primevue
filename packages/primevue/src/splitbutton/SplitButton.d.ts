@@ -7,7 +7,7 @@
  * @module splitbutton
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { MenuItem } from 'primevue/menuitem';
@@ -336,11 +336,11 @@ export declare type SplitButtonEmits = EmitFn<SplitButtonEmitsOptions>;
  * @group Component
  *
  */
-declare const SplitButton: GlobalComponentConstructor<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
+declare const SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SplitButton: GlobalComponentConstructor<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
+        SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
     }
 }
 

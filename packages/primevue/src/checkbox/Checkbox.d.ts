@@ -7,7 +7,7 @@
  * @module checkbox
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -281,11 +281,11 @@ export declare type CheckboxEmits = EmitFn<CheckboxEmitsOptions>;
  * @group Component
  *
  */
-declare const Checkbox: GlobalComponentConstructor<CheckboxProps, CheckboxSlots, CheckboxEmits>;
+declare const Checkbox: DefineComponent<CheckboxProps, CheckboxSlots, CheckboxEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Checkbox: GlobalComponentConstructor<CheckboxProps, CheckboxSlots, CheckboxEmits>;
+        Checkbox: DefineComponent<CheckboxProps, CheckboxSlots, CheckboxEmits>;
     }
 }
 

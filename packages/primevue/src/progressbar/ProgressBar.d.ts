@@ -7,7 +7,7 @@
  * @module progressbar
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -135,11 +135,11 @@ export declare type ProgressBarEmits = EmitFn<ProgressBarEmitsOptions>;
  * @group Component
  *
  */
-declare const ProgressBar: GlobalComponentConstructor<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
+declare const ProgressBar: DefineComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ProgressBar: GlobalComponentConstructor<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
+        ProgressBar: DefineComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
     }
 }
 

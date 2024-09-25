@@ -7,7 +7,7 @@
  * @module avatargroup
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -117,11 +117,11 @@ export declare type AvatarGroupEmits = EmitFn<AvatarGroupEmitsOptions>;
  * @group Component
  *
  */
-declare const AvatarGroup: GlobalComponentConstructor<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
+declare const AvatarGroup: DefineComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AvatarGroup: GlobalComponentConstructor<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
+        AvatarGroup: DefineComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
     }
 }
 

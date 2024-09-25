@@ -7,7 +7,7 @@
  * @module orderlist
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { ListboxPassThroughOptions } from 'primevue/listbox';
@@ -393,11 +393,11 @@ export declare type OrderListEmits = EmitFn<OrderListEmitsOptions>;
  * @group Component
  *
  */
-declare const OrderList: GlobalComponentConstructor<OrderListProps, OrderListSlots, OrderListEmits>;
+declare const OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OrderList: GlobalComponentConstructor<OrderListProps, OrderListSlots, OrderListEmits>;
+        OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
     }
 }
 

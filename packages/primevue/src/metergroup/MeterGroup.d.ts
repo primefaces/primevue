@@ -7,7 +7,7 @@
  * @module metergroup
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
 
@@ -301,11 +301,11 @@ export declare type MeterGroupEmits = EmitFn<MeterGroupEmitsOptions>;
  * @group Component
  *
  */
-declare const MeterGroup: GlobalComponentConstructor<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
+declare const MeterGroup: DefineComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MeterGroup: GlobalComponentConstructor<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
+        MeterGroup: DefineComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
     }
 }
 

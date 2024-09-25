@@ -7,7 +7,7 @@
  * @module dropdown
  *
  */
-import type { EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 import * as Select from 'primevue/select';
 import 'vue';
 
@@ -97,11 +97,11 @@ export interface DropdownMethods {
  * @group Component
  *
  */
-declare const Dropdown: GlobalComponentConstructor<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
+declare const Dropdown: DefineComponent<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Dropdown: GlobalComponentConstructor<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
+        Dropdown: DefineComponent<DropdownProps, DropdownSlots, DropdownEmits, DropdownMethods>;
     }
 }
 

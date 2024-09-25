@@ -7,7 +7,7 @@
  * @module dock
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -320,11 +320,11 @@ export declare type DockEmits = EmitFn<DockEmitsOptions>;
  * @group Component
  *
  */
-declare const Dock: GlobalComponentConstructor<DockProps, DockSlots, DockEmits>;
+declare const Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Dock: GlobalComponentConstructor<DockProps, DockSlots, DockEmits>;
+        Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
     }
 }
 

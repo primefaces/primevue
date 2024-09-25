@@ -7,7 +7,7 @@
  * @module image
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -351,11 +351,11 @@ export interface ImageMethods {
  * @group Component
  *
  */
-declare const Image: GlobalComponentConstructor<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
+declare const Image: DefineComponent<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Image: GlobalComponentConstructor<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
+        Image: DefineComponent<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
     }
 }
 

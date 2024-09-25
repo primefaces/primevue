@@ -7,7 +7,7 @@
  * @module tablist
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -137,11 +137,11 @@ export declare type TabListEmits = EmitFn<TabListEmitsOptions>;
  * @group Component
  *
  */
-declare const TabList: GlobalComponentConstructor<TabListProps, TabListSlots, TabListEmits>;
+declare const TabList: DefineComponent<TabListProps, TabListSlots, TabListEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabList: GlobalComponentConstructor<TabListProps, TabListSlots, TabListEmits>;
+        TabList: DefineComponent<TabListProps, TabListSlots, TabListEmits>;
     }
 }
 

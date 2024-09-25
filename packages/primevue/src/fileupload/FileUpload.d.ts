@@ -7,7 +7,7 @@
  * @module fileupload
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { ButtonPassThroughOptions } from 'primevue/button';
@@ -659,11 +659,11 @@ export interface FileUploadMethods {
  * @group Component
  *
  */
-declare const FileUpload: GlobalComponentConstructor<FileUploadProps, FileUploadSlots, FileUploadEmits>;
+declare const FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FileUpload: GlobalComponentConstructor<FileUploadProps, FileUploadSlots, FileUploadEmits>;
+        FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits>;
     }
 }
 

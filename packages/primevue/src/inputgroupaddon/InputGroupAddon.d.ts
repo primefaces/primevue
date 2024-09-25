@@ -7,7 +7,7 @@
  * @module inputgroupaddon
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -118,11 +118,11 @@ export declare type InputGroupAddonEmits = EmitFn<InputGroupAddonEmitsOptions>;
  * @group Component
  *
  */
-declare const InputGroupAddon: GlobalComponentConstructor<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
+declare const InputGroupAddon: DefineComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputGroupAddon: GlobalComponentConstructor<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
+        InputGroupAddon: DefineComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
     }
 }
 

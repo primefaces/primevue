@@ -7,7 +7,7 @@
  * @module paginator
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { DropdownPassThroughOptions } from 'primevue/dropdown';
 import type { InputNumberPassThroughOptions } from 'primevue/inputnumber';
@@ -453,11 +453,11 @@ export declare type PaginatorEmits = EmitFn<PaginatorEmitsOptions>;
  * @group Component
  *
  */
-declare const Paginator: GlobalComponentConstructor<PaginatorProps, PaginatorSlots, PaginatorEmits>;
+declare const Paginator: DefineComponent<PaginatorProps, PaginatorSlots, PaginatorEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Paginator: GlobalComponentConstructor<PaginatorProps, PaginatorSlots, PaginatorEmits>;
+        Paginator: DefineComponent<PaginatorProps, PaginatorSlots, PaginatorEmits>;
     }
 }
 

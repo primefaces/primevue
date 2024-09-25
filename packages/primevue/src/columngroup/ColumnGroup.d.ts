@@ -7,7 +7,7 @@
  * @module columngroup
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -134,11 +134,11 @@ export declare type ColumnGroupEmits = EmitFn<ColumnGroupEmitsOptions>;
  * @group Component
  *
  */
-declare const ColumnGroup: GlobalComponentConstructor<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
+declare const ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ColumnGroup: GlobalComponentConstructor<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
+        ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module datepicker
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
@@ -1041,11 +1041,11 @@ export declare type DatePickerEmits = EmitFn<DatePickerEmitsOptions>;
  * @group Component
  *
  */
-declare const DatePicker: GlobalComponentConstructor<DatePickerProps, DatePickerSlots, DatePickerEmits>;
+declare const DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DatePicker: GlobalComponentConstructor<DatePickerProps, DatePickerSlots, DatePickerEmits>;
+        DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
     }
 }
 

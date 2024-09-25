@@ -7,7 +7,7 @@
  * @module stepper
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -159,11 +159,11 @@ export declare type StepperEmits = EmitFn<StepperEmitsOptions>;
  * @group Component
  *
  */
-declare const Stepper: GlobalComponentConstructor<StepperProps, StepperSlots, StepperEmits>;
+declare const Stepper: DefineComponent<StepperProps, StepperSlots, StepperEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Stepper: GlobalComponentConstructor<StepperProps, StepperSlots, StepperEmits>;
+        Stepper: DefineComponent<StepperProps, StepperSlots, StepperEmits>;
     }
 }
 

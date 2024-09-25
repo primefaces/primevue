@@ -7,7 +7,7 @@
  * @module dataview
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -345,11 +345,11 @@ export declare type DataViewEmits = EmitFn<DataViewEmitsOptions>;
  * @group Component
  *
  */
-declare const DataView: GlobalComponentConstructor<DataViewProps, DataViewSlots, DataViewEmits>;
+declare const DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataView: GlobalComponentConstructor<DataViewProps, DataViewSlots, DataViewEmits>;
+        DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
     }
 }
 

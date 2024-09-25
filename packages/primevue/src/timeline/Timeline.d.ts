@@ -7,7 +7,7 @@
  * @module timeline
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -224,11 +224,11 @@ export declare type TimelineEmits = EmitFn<TimelineEmitsOptions>;
  * @group Component
  *
  */
-declare const Timeline: GlobalComponentConstructor<TimelineProps, TimelineSlots, TimelineEmits>;
+declare const Timeline: DefineComponent<TimelineProps, TimelineSlots, TimelineEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Timeline: GlobalComponentConstructor<TimelineProps, TimelineSlots, TimelineEmits>;
+        Timeline: DefineComponent<TimelineProps, TimelineSlots, TimelineEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module toolbar
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -142,11 +142,11 @@ export declare type ToolbarEmits = EmitFn<ToolbarEmitsOptions>;
  * @group Component
  *
  */
-declare const Toolbar: GlobalComponentConstructor<ToolbarProps, ToolbarSlots, ToolbarEmits>;
+declare const Toolbar: DefineComponent<ToolbarProps, ToolbarSlots, ToolbarEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Toolbar: GlobalComponentConstructor<ToolbarProps, ToolbarSlots, ToolbarEmits>;
+        Toolbar: DefineComponent<ToolbarProps, ToolbarSlots, ToolbarEmits>;
     }
 }
 

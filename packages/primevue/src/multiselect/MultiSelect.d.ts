@@ -7,7 +7,7 @@
  * @module multiselect
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
@@ -900,11 +900,11 @@ export interface MultiSelectMethods {
  * @group Component
  *
  */
-declare const MultiSelect: GlobalComponentConstructor<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
+declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MultiSelect: GlobalComponentConstructor<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
+        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
     }
 }
 

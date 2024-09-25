@@ -7,7 +7,7 @@
  * @module inputmask
  *
  */
-import type { DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -229,11 +229,11 @@ export declare type InputMaskEmits = EmitFn<InputMaskEmitsOptions>;
  * @group Component
  *
  */
-declare const InputMask: GlobalComponentConstructor<InputMaskProps, InputMaskSlots, InputMaskEmits>;
+declare const InputMask: DefineComponent<InputMaskProps, InputMaskSlots, InputMaskEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputMask: GlobalComponentConstructor<InputMaskProps, InputMaskSlots, InputMaskEmits>;
+        InputMask: DefineComponent<InputMaskProps, InputMaskSlots, InputMaskEmits>;
     }
 }
 
