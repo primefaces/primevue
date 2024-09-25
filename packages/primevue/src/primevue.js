@@ -322,6 +322,12 @@ export { default as IconField } from './iconfield/IconField.vue';
 export * from './iconfield/style/IconFieldStyle.js';
 export { default as IconFieldStyle } from './iconfield/style/IconFieldStyle.js';
 
+// IftaLabel
+export * from './iftalabel/IftaLabel.vue';
+export { default as IftaLabel } from './iftalabel/IftaLabel.vue';
+export * from './iftalabel/style/IftaLabelStyle.js';
+export { default as IftaLabelStyle } from './iftalabel/style/IftaLabelStyle.js';
+
 // Image
 export * from './image/Image.vue';
 export { default as Image } from './image/Image.vue';

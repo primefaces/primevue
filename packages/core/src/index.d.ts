@@ -1,4 +1,18 @@
-import { AllowedComponentProps, ComponentCustomProps, MethodOptions, ObjectEmitsOptions, SlotsType, VNode, VNodeProps, DefineComponent as _DefineComponent } from 'vue';
+import {
+    AllowedComponentProps,
+    ComponentCustomProps,
+    ComponentPropsOptions,
+    EmitsOptions,
+    EmitsToProps,
+    ExtractDefaultPropTypes,
+    ExtractPropTypes,
+    MethodOptions,
+    ObjectEmitsOptions,
+    SlotsType,
+    VNode,
+    VNodeProps,
+    DefineComponent as _DefineComponent
+} from 'vue';
 
 declare type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps;
 
@@ -14,7 +28,9 @@ export declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Opt
           }[Event]
       >;
 
-export type DefineComponent<P = {}, S = {}, E = {}, M = {}> = _DefineComponent<P, {}, {}, {}, M & MethodOptions, {}, {}, E & ObjectEmitsOptions, string, {}, {}, {}, S & SlotsType>;
+type ResolveProps<PropsOrPropOptions, E extends EmitsOptions> = Readonly<PropsOrPropOptions extends ComponentPropsOptions ? ExtractPropTypes<PropsOrPropOptions> : PropsOrPropOptions> & ({} extends E ? {} : EmitsToProps<E>);
+
+export type DefineComponent<P = {}, S = {}, E = {}, M = {}> = _DefineComponent<P, {}, {}, {}, M & MethodOptions, {}, {}, E & ObjectEmitsOptions, string, PublicProps, ResolveProps<P, E & ObjectEmitsOptions>, ExtractDefaultPropTypes<P>, S & SlotsType>;
 
 export type GlobalComponentConstructor<P = {}, S = {}, E = {}, M = {}> = {
     new (): {
