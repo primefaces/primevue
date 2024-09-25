@@ -103,7 +103,6 @@
 <script>
 import { addClass, find, findSingle, getAttribute, removeClass, setAttribute } from '@primeuix/utils/dom';
 import { localeComparator, sort } from '@primeuix/utils/object';
-import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -161,7 +160,6 @@ export default {
     mounted() {
         let stateChanged = false;
 
-        this.$el.setAttribute(this.attributeSelector, '');
         this.createStyle();
         this.calculatePosition();
 
@@ -569,7 +567,7 @@ export default {
             }
 
             let innerHTML = `
-                .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                .p-carousel[${this.$attrSelector}] .p-carousel-item {
                     flex: 1 0 ${100 / this.d_numVisible}%
                 }
             `;
@@ -590,7 +588,7 @@ export default {
 
                     innerHTML += `
                         @media screen and (max-width: ${res.breakpoint}) {
-                            .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                            .p-carousel[${this.$attrSelector}] .p-carousel-item {
                                 flex: 1 0 ${100 / res.numVisible}%
                             }
                         }
@@ -640,9 +638,6 @@ export default {
         },
         ariaNextButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         empty() {
             return !this.value || this.value.length === 0;

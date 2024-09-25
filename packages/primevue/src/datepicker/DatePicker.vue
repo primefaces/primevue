@@ -642,8 +642,6 @@ export default {
         this.bindMatchMediaListener();
 
         if (this.inline) {
-            this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
-
             if (!this.disabled) {
                 this.preventFocus = true;
                 this.initFocusableCell();
@@ -875,7 +873,6 @@ export default {
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter(el) {
-            el.setAttribute(this.attributeSelector, '');
             const styles = !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
 
             addStyle(el, styles);
@@ -2712,14 +2709,14 @@ export default {
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];
                         let styles = `
-                            .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
+                            .p-datepicker-panel[${this.$attrSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
                                 display: inline-flex;
                             }
                         `;
 
                         for (let j = numMonths; j < this.numberOfMonths; j++) {
                             styles += `
-                                .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
+                                .p-datepicker-panel[${this.$attrSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
                                     display: none;
                                 }
                             `;
@@ -2942,9 +2939,6 @@ export default {
         },
         monthNames() {
             return this.$primevue.config.locale.monthNames;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         switchViewButtonDisabled() {
             return this.numberOfMonths > 1 || this.disabled;

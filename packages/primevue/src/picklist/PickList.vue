@@ -562,7 +562,6 @@ export default {
         },
         createStyle() {
             if (!this.styleElement && !this.isUnstyled) {
-                this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
@@ -570,11 +569,11 @@ export default {
 
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
-    .p-picklist[${this.attributeSelector}] {
+    .p-picklist[${this.$attrSelector}] {
         flex-direction: column;
     }
 
-    .p-picklist[${this.attributeSelector}] .p-picklist-controls {
+    .p-picklist[${this.$attrSelector}] .p-picklist-controls {
         flex-direction: row;
     }
 }
@@ -608,9 +607,6 @@ export default {
         },
         targetList() {
             return this.modelValue && this.modelValue[1] ? this.modelValue[1] : null;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         moveUpAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveUp : undefined;

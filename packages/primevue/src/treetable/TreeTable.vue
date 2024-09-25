@@ -168,10 +168,10 @@
 </template>
 
 <script>
+import { addStyle, clearSelection, find, getAttribute, getIndex, getOffset, getOuterWidth, setAttribute } from '@primeuix/utils/dom';
+import { localeComparator, resolveFieldData, sort } from '@primeuix/utils/object';
 import { FilterService } from '@primevue/core/api';
-import { HelperSet, getVNodeProp, UniqueComponentId } from '@primevue/core/utils';
-import { getOffset, addStyle, getIndex, find, getOuterWidth, getAttribute, setAttribute, clearSelection } from '@primeuix/utils/dom';
-import { resolveFieldData, localeComparator, sort } from '@primeuix/utils/object';
+import { getVNodeProp, HelperSet } from '@primevue/core/utils';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
 import BaseTreeTable from './BaseTreeTable.vue';
@@ -240,9 +240,6 @@ export default {
         multiSortMeta(newValue) {
             this.d_multiSortMeta = newValue;
         }
-    },
-    mounted() {
-        this.$el.setAttribute(this.attributeSelector, '');
     },
     beforeUnmount() {
         this.destroyStyleElement();
@@ -684,7 +681,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="treetable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="treetable"][${this.$attrSelector}] > [data-pc-section="tablecontainer"] > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -863,9 +860,6 @@ export default {
 
                 return data ? data.length : 0;
             }
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     components: {
