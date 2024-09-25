@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { addClass, focus, blockBodyScroll, unblockBodyScroll, setAttribute, addStyle, getOuterWidth, getOuterHeight, getViewport } from '@primeuix/utils/dom';
+import { addClass, addStyle, blockBodyScroll, focus, getOuterHeight, getOuterWidth, getViewport, isClient, setAttribute, unblockBodyScroll } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
@@ -134,6 +134,7 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
+        isClient() && (this.attributeSelector = UniqueComponentId());
 
         if (this.breakpoints) {
             this.createStyle();
@@ -416,9 +417,6 @@ export default {
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     directives: {
