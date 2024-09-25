@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, findSingle, addStyle, getHiddenElementOuterWidth, getHiddenElementOuterHeight, getViewport, isTouchDevice } from '@primeuix/utils/dom';
-import { resolve, isNotEmpty, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { addStyle, findSingle, focus, getHiddenElementOuterHeight, getHiddenElementOuterWidth, getViewport, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
@@ -387,25 +387,27 @@ export default {
             let width = this.container.offsetParent ? this.container.offsetWidth : getHiddenElementOuterWidth(this.container);
             let height = this.container.offsetParent ? this.container.offsetHeight : getHiddenElementOuterHeight(this.container);
             let viewport = getViewport();
+            let scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            let scrollLeft = window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
 
             //flip
-            if (left + width - document.body.scrollLeft > viewport.width) {
+            if (left + width - scrollLeft > viewport.width) {
                 left -= width;
             }
 
             //flip
-            if (top + height - document.body.scrollTop > viewport.height) {
+            if (top + height - scrollTop > viewport.height) {
                 top -= height;
             }
 
             //fit
-            if (left < document.body.scrollLeft) {
-                left = document.body.scrollLeft;
+            if (left < scrollLeft) {
+                left = scrollLeft;
             }
 
             //fit
-            if (top < document.body.scrollTop) {
-                top = document.body.scrollTop;
+            if (top < scrollTop) {
+                top = scrollTop;
             }
 
             this.container.style.left = left + 'px';
