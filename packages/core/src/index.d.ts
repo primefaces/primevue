@@ -30,7 +30,21 @@ export declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Opt
 
 type ResolveProps<PropsOrPropOptions, E extends EmitsOptions> = Readonly<PropsOrPropOptions extends ComponentPropsOptions ? ExtractPropTypes<PropsOrPropOptions> : PropsOrPropOptions> & ({} extends E ? {} : EmitsToProps<E>);
 
-export type DefineComponent<P = {}, S = {}, E = {}, M = {}> = _DefineComponent<P, {}, {}, {}, M & MethodOptions, {}, {}, E & ObjectEmitsOptions, string, PublicProps, ResolveProps<P, E & ObjectEmitsOptions>, ExtractDefaultPropTypes<P>, S & SlotsType>;
+export type DefineComponent<P = {}, S extends Record<string, any> = {}, E = {}, M = {}> = _DefineComponent<
+    P,
+    {},
+    {},
+    {},
+    M & MethodOptions,
+    {},
+    {},
+    E & ObjectEmitsOptions,
+    string,
+    PublicProps,
+    ResolveProps<P, E & ObjectEmitsOptions>,
+    ExtractDefaultPropTypes<P>,
+    SlotsType<S>
+>;
 
 export type GlobalComponentConstructor<P = {}, S = {}, E = {}, M = {}> = {
     new (): {
