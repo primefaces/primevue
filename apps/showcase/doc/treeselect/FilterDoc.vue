@@ -23,12 +23,14 @@ export default {
             selectedValue: null,
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" filter :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" filter :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 
@@ -50,8 +52,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" filter :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 

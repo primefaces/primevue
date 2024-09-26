@@ -5,17 +5,11 @@
             <i>icon</i> is available.
         </p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" v-bind="$attrs" />
 </template>
 
 <script>
@@ -25,22 +19,18 @@ export default {
             nodes: null,
             nodes2: null,
             loading: false,
+            selectedValue: null,
+            selectedValue2: null,
             code: {
                 basic: `
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+<TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 
@@ -50,8 +40,10 @@ export default {
         return {
             nodes: null,
             nodes2: null,
-            loading: false
-        };
+            loading: false,
+            selectedValue: null,
+            selectedValue2: null,
+        }
     },
     mounted() {
         this.loading = true;
@@ -80,10 +72,7 @@ export default {
                         });
                     }
 
-                    let _nodes = { ...this.nodes };
-                    _nodes[parseInt(node.key, 10)] = _node;
-
-                    this.nodes = _nodes;
+                    this.nodes[parseInt(node.key, 10)] = _node;
                     this.loading = false;
                 }, 500);
             }
@@ -104,11 +93,7 @@ export default {
                         });
                     }
 
-                    let _nodes = { ...this.nodes2 };
-
-                    _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
-
-                    this.nodes2 = _nodes;
+                    this.nodes2[parseInt(node.key, 10)] = { ..._node, loading: false };
                 }, 500);
             }
         },
@@ -159,15 +144,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 
@@ -176,6 +155,8 @@ import { ref, onMounted } from 'vue';
 
 const nodes = ref(null);
 const nodes2 = ref(null);
+const selectedValue = ref(null);
+const selectedValue2 = ref(null);
 const loading = ref(false);
 
 onMounted(() => {
@@ -205,10 +186,7 @@ const onNodeExpand = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes.value };
-            _nodes[parseInt(node.key, 10)] = _node;
-
-            nodes.value = _nodes;
+            nodes.value[parseInt(node.key, 10)] = _node;
             loading.value = false;
         }, 500);
     }
@@ -230,11 +208,7 @@ const onNodeExpand2 = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes2.value };
-
-            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
-
-            nodes2.value = _nodes;
+            nodes2.value[parseInt(node.key, 10)] = { ..._node, loading: false };
         }, 500);
     }
 };
@@ -313,11 +287,7 @@ const initiateNodes2 = () => {
                         });
                     }
 
-                    let _nodes = { ...this.nodes };
-
-                    _nodes[parseInt(node.key, 10)] = _node;
-
-                    this.nodes = _nodes;
+                    this.nodes[parseInt(node.key, 10)] = _node;
                     this.loading = false;
                 }, 500);
             }
@@ -338,11 +308,7 @@ const initiateNodes2 = () => {
                         });
                     }
 
-                    let _nodes = { ...this.nodes2 };
-
-                    _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
-
-                    this.nodes2 = _nodes;
+                    this.nodes2[parseInt(node.key, 10)] = { ..._node, loading: false };
                 }, 500);
             }
         },

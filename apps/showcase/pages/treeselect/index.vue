@@ -18,6 +18,7 @@ import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
+import LazyDoc from '@/doc/treeselect/LazyDoc.vue';
 import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
@@ -48,6 +49,11 @@ export default {
                     id: 'checkbox',
                     label: 'Checkbox',
                     component: CheckboxDoc
+                },
+                {
+                    id: 'lazy',
+                    label: 'Lazy',
+                    component: LazyDoc
                 },
                 {
                     id: 'filter',
