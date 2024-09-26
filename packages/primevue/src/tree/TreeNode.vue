@@ -137,10 +137,12 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
+                    node: this.node,
                     index: this.index,
                     expanded: this.expanded,
                     selected: this.selected,
                     checked: this.checked,
+                    partialChecked: this.partialChecked,
                     leaf: this.leaf
                 }
             });
