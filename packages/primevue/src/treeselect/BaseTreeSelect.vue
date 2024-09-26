@@ -56,6 +56,18 @@ export default {
             type: Boolean,
             default: null
         },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: undefined
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         filter: {
             type: Boolean,
             default: false

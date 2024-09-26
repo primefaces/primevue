@@ -231,6 +231,20 @@ export interface TreeSelectProps {
      */
     metaKeySelection?: boolean | undefined;
     /**
+     * Whether to display loading indicator.
+     * @defaultValue false
+     */
+    loading?: boolean | undefined;
+    /**
+     * Icon to display when tree is loading.
+     */
+    loadingIcon?: string | undefined;
+    /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
+    /**
      * When specified, displays an input field to filter the items.
      * @defaultValue false
      */

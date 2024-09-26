@@ -121,6 +121,10 @@ const theme = ({ dt }) => `
     padding: ${dt('treeselect.tree.padding')};
 }
 
+.p-treeselect-overlay .p-tree-loading {
+    min-height: 3rem;
+}
+
 .p-treeselect-label .p-chip {
     padding-top: calc(${dt('treeselect.padding.y')} / 2);
     padding-bottom: calc(${dt('treeselect.padding.y')} / 2);
