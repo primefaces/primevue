@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
+import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
@@ -47,6 +48,11 @@ export default {
                     id: 'checkbox',
                     label: 'Checkbox',
                     component: CheckboxDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
                 },
                 {
                     id: 'floatlabel',
