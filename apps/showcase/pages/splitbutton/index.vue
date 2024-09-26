@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/splitbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/splitbutton/DisabledDoc.vue';
 import IconsDoc from '@/doc/splitbutton/IconsDoc.vue';
 import ImportDoc from '@/doc/splitbutton/ImportDoc.vue';
+import NestedDoc from '@/doc/splitbutton/NestedDoc.vue';
 import OutlinedDoc from '@/doc/splitbutton/OutlinedDoc.vue';
 import RaisedDoc from '@/doc/splitbutton/RaisedDoc.vue';
 import RaisedTextDoc from '@/doc/splitbutton/RaisedTextDoc.vue';
@@ -39,6 +40,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'nested',
+                    label: 'Nested',
+                    component: NestedDoc
                 },
                 {
                     id: 'icons',
