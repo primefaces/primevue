@@ -166,6 +166,11 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+        save() {
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+        }
     }
 };
 <\/script>
@@ -247,10 +252,19 @@ const items = [
         ]
     }
 ];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
 <\/script>
 `
             }
         };
+    },
+    methods: {
+        save() {
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+        }
     }
 };
 </script>

@@ -43,14 +43,14 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'nested',
-                    label: 'Nested',
-                    component: NestedDoc
-                },
-                {
                     id: 'icons',
                     label: 'Icons',
                     component: IconsDoc
+                },
+                {
+                    id: 'nested',
+                    label: 'Nested',
+                    component: NestedDoc
                 },
                 {
                     id: 'severity',
