@@ -22,6 +22,7 @@ import RaisedDoc from '@/doc/splitbutton/RaisedDoc.vue';
 import RaisedTextDoc from '@/doc/splitbutton/RaisedTextDoc.vue';
 import RoundedDoc from '@/doc/splitbutton/RoundedDoc.vue';
 import SeverityDoc from '@/doc/splitbutton/SeverityDoc.vue';
+import SizesDoc from '@/doc/splitbutton/SizesDoc.vue';
 import TemplateDoc from '@/doc/splitbutton/TemplateDoc.vue';
 import TextDoc from '@/doc/splitbutton/TextDoc.vue';
 import PTComponent from '@/doc/splitbutton/pt/index.vue';
@@ -86,11 +87,11 @@ export default {
                     label: 'Outlined',
                     component: OutlinedDoc
                 },
-                /*{
+                {
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
-                },*/
+                },
                 {
                     id: 'template',
                     label: 'Template',

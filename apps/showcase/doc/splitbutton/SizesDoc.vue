@@ -36,7 +36,7 @@ export default {
                         window.location.href = 'https://vuejs.org/';
                     }
                 },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                { label: 'Upload', icon: 'pi pi-upload', to: '/upload' }
             ],
             code: {
                 basic: `
