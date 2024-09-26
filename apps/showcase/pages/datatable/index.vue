@@ -41,6 +41,7 @@ import ExpandableRowGroupDoc from '@/doc/datatable/rowgroup/ExpandableRowGroupDo
 import RowSpanRowGroupDoc from '@/doc/datatable/rowgroup/RowSpanRowGroupDoc.vue';
 import SubHeaderRowGroupDoc from '@/doc/datatable/rowgroup/SubHeaderRowGroupDoc.vue';
 import CheckboxRowSelectionDoc from '@/doc/datatable/rowselection/CheckboxRowSelectionDoc.vue';
+import ColumnRowSelectionDoc from '@/doc/datatable/rowselection/ColumnRowSelectionDoc.vue';
 import MultipleRowsSelectionDoc from '@/doc/datatable/rowselection/MultipleRowsSelectionDoc.vue';
 import RadioButtonRowSelectionDoc from '@/doc/datatable/rowselection/RadioButtonRowSelectionDoc.vue';
 import RowSelectEventsDoc from '@/doc/datatable/rowselection/RowSelectEventsDoc.vue';
@@ -180,6 +181,11 @@ export default {
                             id: 'checkbox_row_selection',
                             label: 'Checkbox',
                             component: CheckboxRowSelectionDoc
+                        },
+                        {
+                            id: 'column_row_selection',
+                            label: 'Column',
+                            component: ColumnRowSelectionDoc
                         },
                         {
                             id: 'row_selection_events',
