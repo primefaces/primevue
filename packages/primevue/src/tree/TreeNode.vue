@@ -19,7 +19,7 @@
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <!-- TODO: nodetogglericon deprecated since v4.0-->
                     <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
-                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodeToggleIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
                 <template v-else>
                     <!-- TODO: togglericon deprecated since v4.0-->
