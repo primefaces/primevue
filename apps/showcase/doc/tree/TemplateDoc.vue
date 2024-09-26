@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Each node can have a distinct template by matching the <i>type</i> property to the slot name.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>
@@ -54,7 +54,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>
@@ -99,7 +99,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]">
             <template #default="slotProps">
                 <b>{{ slotProps.node.label }}</b>

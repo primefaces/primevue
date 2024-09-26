@@ -6,12 +6,12 @@
         </p>
         <p>In multiple selection mode, value binding should be a key-value pair where key is the node key and value is a boolean to indicate selection.</p>
     </DocSectionText>
-    <div class="card flex flex-col items-center justify-center">
+    <div class="card">
         <div class="flex items-center mb-6 gap-2">
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-[30rem]" :metaKeySelection="checked"></Tree>
+        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
 </template>
@@ -27,17 +27,17 @@ export default {
             selectedKey: null,
             code: {
                 basic: `
-<Tree v-model:selectionKeys="selectedKey" :value="nodes" class="w-full md:w-[30rem]"
+<Tree v-model:selectionKeys="selectedKey" :value="nodes"
     selectionMode="multiple" :metaKeySelection="checked"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex flex-col items-center justify-center">
+    <div class="card">
         <div class="flex items-center mb-6 gap-2">
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-[30rem]" :metaKeySelection="checked"></Tree>
+        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -60,12 +60,12 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-col items-center justify-center">
+    <div class="card">
         <div class="flex items-center mb-6 gap-2">
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" class="w-full md:w-[30rem]" :metaKeySelection="checked"></Tree>
+        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
