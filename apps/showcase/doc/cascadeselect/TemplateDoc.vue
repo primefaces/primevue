@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
@@ -105,7 +105,7 @@ export default {
             code: {
                 basic: `
 <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-    :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City">
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
     <template #option="slotProps">
         <div class="flex items-center">
             <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
@@ -123,7 +123,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City">
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
@@ -227,7 +227,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City">
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />

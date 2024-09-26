@@ -3,8 +3,8 @@
         <p>A floating label appears on top of the input field when focused. Visit <PrimeVueNuxtLink to="/floatlabel">FloatLabel</PrimeVueNuxtLink> documentation for more information.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <FloatLabel class="w-full sm:w-56">
-            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" fluid placeholder="Select a City" />
+        <FloatLabel>
+            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
@@ -92,18 +92,18 @@ export default {
             ],
             code: {
                 basic: `
-<FloatLabel class="w-full sm:w-56">
+<FloatLabel>
     <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-        :optionGroupChildren="['states', 'cities']" fluid placeholder="Select a City" />
+        :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
     <label for="cs-city">City</label>
 </FloatLabel>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <FloatLabel class="w-full sm:w-56">
+        <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" fluid placeholder="Select a City" />
+                :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
@@ -196,9 +196,9 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <FloatLabel class="w-full sm:w-56">
+        <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" fluid placeholder="Select a City" />
+                :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
