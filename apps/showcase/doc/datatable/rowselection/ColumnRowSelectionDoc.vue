@@ -1,19 +1,19 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DataTable can export its data to CSV format.</p>
+        <p>Row selection with an element inside a column is implemented with templating.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
-                <template #header>
-                    <div class="text-end pb-4">
-                        <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
-                    </div>
-                </template>
-                <Column field="code" header="Code" exportHeader="Product Code"></Column>
+            <DataTable :value="products" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
                 <Column field="category" header="Category"></Column>
                 <Column field="quantity" header="Quantity"></Column>
+                <Column class="w-24 !text-end">
+                    <template #body="{ data }">
+                        <Button icon="pi pi-search" @click="selectRow(data)" severity="secondary" rounded></Button>
+                    </template>
+                </Column>
             </DataTable>
         </div>
     </DeferredDemo>
@@ -29,32 +29,33 @@ export default {
             products: null,
             code: {
                 basic: `
-<DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
-    <template #header>
-        <div class="text-end pb-4">
-            <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
-        </div>
-    </template>
-    <Column field="code" header="Code" exportHeader="Product Code"></Column>
+<DataTable :value="products" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
+    <Column class="w-24 !text-end">
+        <template #body="{ data }">
+            <Button icon="pi pi-search" @click="selectRow(data)" severity="secondary" rounded></Button>
+        </template>
+    </Column>
 </DataTable>
 `,
                 options: `
 <template>
-    <div>
-        <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
-            <template #header>
-                <div class="text-end pb-4">
-                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
-                </div>
-            </template>
-            <Column field="code" header="Code" exportHeader="Product Code"></Column>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity"></Column>
+            <Column class="w-24 !text-end">
+                <template #body="{ data }">
+                    <Button icon="pi pi-search" @click="selectRow(data)" severity="secondary" rounded></Button>
+                </template>
+            </Column>
         </DataTable>
+        <Toast/>
     </div>
 </template>
 
@@ -65,54 +66,54 @@ export default {
     data() {
         return {
             products: null
-        }
+        };
     },
     mounted() {
         ProductService.getProductsMini().then((data) => (this.products = data));
     },
     methods: {
-        exportCSV() {
-            this.$refs.dt.exportCSV();
+        selectRow(data) {
+            this.$toast.add({ severity: 'info', summary: data.name, detail: data.inventoryStatus + ' | $' + data.price, life: 3000 });
         }
     }
-}
+};
 <\/script>
-
 `,
                 composition: `
 <template>
-    <div>
-        <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
-            <template #header>
-                <div class="text-end pb-4">
-                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
-                </div>
-            </template>
-            <Column field="code" header="Code" exportHeader="Product Code"></Column>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
             <Column field="quantity" header="Quantity"></Column>
+            <Column class="w-24 !text-end">
+                <template #body="{ data }">
+                    <Button icon="pi pi-search" @click="selectRow(data)" severity="secondary" rounded></Button>
+                </template>
+            </Column>
         </DataTable>
+        <Toast />
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
 import { ProductService } from '@/service/ProductService';
 
 onMounted(() => {
     ProductService.getProductsMini().then((data) => (products.value = data));
 });
 
-const dt = ref();
 const products = ref();
-const exportCSV = () => {
-    dt.value.exportCSV();
+const toast = useToast();
+const selectRow = (data) => {
+    toast.add({ severity: 'info', summary: data.name, detail: data.inventoryStatus + ' | $' + data.price, life: 3000 });
 };
 <\/script>
 `,
                 data: `
-/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',
@@ -125,7 +126,8 @@ const exportCSV = () => {
     inventoryStatus: 'INSTOCK',
     rating: 5
 },
-...`
+...
+        `
             }
         };
     },
@@ -133,8 +135,8 @@ const exportCSV = () => {
         loadDemoData() {
             ProductService.getProductsMini().then((data) => (this.products = data));
         },
-        exportCSV() {
-            this.$refs.dt.exportCSV();
+        selectRow(data) {
+            this.$toast.add({ severity: 'info', summary: data.name, detail: data.inventoryStatus + ' | $' + data.price, life: 3000 });
         }
     }
 };

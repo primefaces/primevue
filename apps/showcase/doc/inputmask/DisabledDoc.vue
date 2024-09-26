@@ -3,7 +3,7 @@
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <InputMask mask="99-999999" placeholder="99-999999" disabled />
+        <InputMask mask="99-999999" placeholder="Disabled" disabled />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: '',
             code: {
                 basic: `
-<InputMask mask="99-999999" placeholder="99-999999" disabled />
+<InputMask mask="99-999999" placeholder="Disabled" disabled />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <InputMask mask="99-999999" placeholder="99-999999" disabled />
+        <InputMask mask="99-999999" placeholder="Disabled" disabled />
     </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <InputMask mask="99-999999" placeholder="99-999999" disabled />
+        <InputMask mask="99-999999" placeholder="Disabled" disabled />
     </div>
 </template>
 
