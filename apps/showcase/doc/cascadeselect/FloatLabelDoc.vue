@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <FloatLabel>
-            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+            <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
@@ -94,7 +94,7 @@ export default {
                 basic: `
 <FloatLabel>
     <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-        :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+        :optionGroupChildren="['states', 'cities']" class="w-56" />
     <label for="cs-city">City</label>
 </FloatLabel>
 `,
@@ -103,7 +103,7 @@ export default {
     <div class="card flex justify-center">
         <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+                :optionGroupChildren="['states', 'cities']" class="w-56" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
@@ -198,7 +198,7 @@ export default {
     <div class="card flex justify-center">
         <FloatLabel>
             <CascadeSelect v-model="selectedCity" inputId="cs-city" :options="countries" optionLabel="cname" optionGroupLabel="name"
-                :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+                :optionGroupChildren="['states', 'cities']" class="w-56" />
             <label for="cs-city">City</label>
         </FloatLabel>
     </div>
