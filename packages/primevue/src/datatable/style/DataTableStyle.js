@@ -340,9 +340,9 @@ const theme = ({ dt }) => `
 
 .p-datatable-tbody > tr:focus-visible,
 .p-datatable-tbody > tr.p-datatable-contextmenu-row-selected {
-    box-shadow: ${dt('datatable.body.cell.focus.ring.shadow')};
-    outline: ${dt('datatable.body.cell.focus.ring.width')} ${dt('datatable.body.cell.focus.ring.style')} ${dt('datatable.body.cell.focus.ring.color')};
-    outline-offset: ${dt('datatable.body.cell.focus.ring.offset')};
+    box-shadow: ${dt('datatable.row.focus.ring.shadow')};
+    outline: ${dt('datatable.row.focus.ring.width')} ${dt('datatable.row.focus.ring.style')} ${dt('datatable.row.focus.ring.color')};
+    outline-offset: ${dt('datatable.row.focus.ring.offset')};
 }
 
 .p-datatable-tfoot > tr > td {
