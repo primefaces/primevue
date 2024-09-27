@@ -30,6 +30,14 @@ export default {
             type: Boolean,
             default: false
         },
+        contextMenu: {
+            type: Boolean,
+            default: false
+        },
+        contextMenuSelection: {
+            type: Object,
+            default: null
+        },
         rows: {
             type: Number,
             default: 0

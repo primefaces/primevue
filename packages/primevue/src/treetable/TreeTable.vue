@@ -97,10 +97,13 @@
                             :ariaPosInset="index + 1"
                             :tabindex="setTabindex(node, index)"
                             :loadingMode="loadingMode"
+                            :contextMenu="contextMenu"
+                            :contextMenuSelection="contextMenuSelection"
                             :templates="$slots"
                             @node-toggle="onNodeToggle"
                             @node-click="onNodeClick"
                             @checkbox-change="onCheckboxChange"
+                            @row-rightclick="onRowRightClick($event)"
                             :unstyled="unstyled"
                             :pt="pt"
                         ></TTRow>
@@ -198,7 +201,9 @@ export default {
         'update:multiSortMeta',
         'sort',
         'filter',
-        'column-resize-end'
+        'column-resize-end',
+        'update:contextMenuSelection',
+        'row-contextmenu'
     ],
     provide() {
         return {
@@ -347,6 +352,15 @@ export default {
 
             if (event.check) this.$emit('node-select', event.node);
             else this.$emit('node-unselect', event.node);
+        },
+        onRowRightClick(event) {
+            if (this.contextMenu) {
+                clearSelection();
+                event.originalEvent.target.focus();
+            }
+
+            this.$emit('update:contextMenuSelection', event.node);
+            this.$emit('row-contextmenu', event);
         },
         isSingleSelectionMode() {
             return this.selectionMode === 'single';
