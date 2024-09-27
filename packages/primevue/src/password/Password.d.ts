@@ -253,6 +253,11 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     fluid?: boolean | undefined;
     /**
+     * When present, it specifies that an input element should automatically get focus when the page loads.
+     * @defaultValue null
+     */
+    autofocus?: boolean | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
