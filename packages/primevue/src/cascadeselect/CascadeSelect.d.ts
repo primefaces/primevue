@@ -496,7 +496,12 @@ export interface CascadeSelectSlots {
     /**
      * Custom option group icon template.
      */
-    optiongroupicon(): VNode[];
+    optiongroupicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
 }
 
 /**
