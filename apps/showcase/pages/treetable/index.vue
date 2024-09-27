@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/treetable/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treetable/BasicDoc.vue';
 import ColumnToggleDoc from '@/doc/treetable/ColumnToggleDoc.vue';
+import ContextMenuDoc from '@/doc/treetable/ContextMenuDoc.vue';
 import ControlledDoc from '@/doc/treetable/ControlledDoc.vue';
 import DynamicColumnsDoc from '@/doc/treetable/DynamicColumnsDoc.vue';
 import FilterDoc from '@/doc/treetable/FilterDoc.vue';
@@ -192,6 +193,11 @@ export default {
                     id: 'column_toggle',
                     label: 'Column Toggle',
                     component: ColumnToggleDoc
+                },
+                {
+                    id: 'contextmenu',
+                    label: 'ContextMenu',
+                    component: ContextMenuDoc
                 },
                 {
                     id: 'accessibility',
