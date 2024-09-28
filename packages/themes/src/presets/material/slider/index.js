@@ -4,24 +4,25 @@ export default {
     },
     track: {
         background: '{content.border.color}',
-        borderRadius: '{content.border.radius}',
-        size: '3px'
+        borderRadius: '{border.radius.xs}',
+        size: '2px'
     },
     range: {
         background: '{primary.color}'
     },
     handle: {
-        width: '20px',
-        height: '20px',
+        width: '18px',
+        height: '18px',
         borderRadius: '50%',
-        background: '{content.border.color}',
-        hoverBackground: '{content.border.color}',
+        background: '{primary.color}',
+        hoverBackground: '{primary.color}',
         content: {
             borderRadius: '50%',
-            hoverBackground: '{content.background}',
-            width: '16px',
-            height: '16px',
-            shadow: '0px 0.5px 0px 0px rgba(0, 0, 0, 0.08), 0px 1px 1px 0px rgba(0, 0, 0, 0.14)'
+            contentBackground: '{primary.color}',
+            hoverBackground: '{primary.color}',
+            width: '18px',
+            height: '18px',
+            shadow: '0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12)'
         },
         focusRing: {
             width: '{focus.ring.width}',
@@ -31,16 +32,18 @@ export default {
             shadow: '{focus.ring.shadow}'
         }
     },
-    colorScheme: {
-        light: {
-            handle: {
-                contentBackground: '{surface.0}'
-            }
-        },
-        dark: {
-            handle: {
-                contentBackground: '{surface.950}'
-            }
-        }
-    }
+    style: ({ dt }) => `
+.p-slider-handle {
+    transition: box-shadow ${dt('slider.transition.duration')};
+}
+
+.p-slider:not(.p-disabled) .p-slider-handle:hover {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('slider.handle.background')}, transparent 92%);
+}
+
+.p-slider-handle:focus-visible,
+.p-slider:not(.p-disabled) .p-slider-handle:focus:hover {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('slider.handle.background')}, transparent 84%);
+}
+`
 };
