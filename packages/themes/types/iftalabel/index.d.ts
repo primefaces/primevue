@@ -74,5 +74,11 @@ export interface IftaLabelDesignTokens extends ColorSchemeDesignToken<IftaLabelD
          * @designToken iftalabel.input.padding.top
          */
         paddingTop?: string;
+        /**
+         * Padding bottom of input
+         *
+         * @designToken iftalabel.input.padding.bottom
+         */
+        paddingBottom?: string;
     };
 }
