@@ -8,30 +8,28 @@ export default {
         positionX: '{form.field.padding.x}',
         positionY: '{form.field.padding.y}',
         fontWeight: '500',
-        focus: {
+        active: {
             fontSize: '0.75rem',
             fontWeight: '400'
         }
     },
     over: {
-        focus: {
+        active: {
             top: '-1.25rem'
         }
     },
     in: {
         input: {
-            paddingTop: '1.5rem'
+            paddingTop: '1.5rem',
+            paddingBottom: '0.5rem'
         },
-        focus: {
-            top: '{form.field.padding.y}'
+        active: {
+            top: '0.5rem'
         }
     },
     on: {
-        input: {
-            paddingTop: '1rem',
-            paddingBottom: '1rem'
-        },
-        focus: {
+        borderRadius: '{border.radius.xs}',
+        active: {
             background: '{form.field.background}',
             padding: '0 0.125rem'
         }

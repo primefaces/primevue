@@ -83,6 +83,7 @@ const theme = ({ dt }) => `
 .p-floatlabel-in .p-cascadeselect-label,
 .p-floatlabel-in .p-treeselect-label {
     padding-top: ${dt('floatlabel.in.input.padding.top')};
+    padding-bottom: ${dt('floatlabel.in.input.padding.bottom')};
 }
 
 .p-floatlabel-in:has(input:focus) label,

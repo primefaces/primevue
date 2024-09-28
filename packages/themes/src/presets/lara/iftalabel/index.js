@@ -10,6 +10,7 @@ export default {
         fontWeight: '400'
     },
     input: {
-        paddingTop: '1.875rem'
+        paddingTop: '1.875rem',
+        paddingBottom: '{form.field.padding.y}'
     }
 };

@@ -34,15 +34,15 @@ export default {
     semantic: {
         transitionDuration: '0.2s',
         focusRing: {
-            width: '1px',
-            style: 'solid',
-            color: '{primary.color}',
-            offset: '2px',
+            width: '0',
+            style: 'none',
+            color: 'transparent',
+            offset: '0',
             shadow: 'none'
         },
-        disabledOpacity: '0.6',
+        disabledOpacity: '0.38',
         iconSize: '1rem',
-        anchorGutter: '2px',
+        anchorGutter: '0',
         primary: {
             50: '{emerald.50}',
             100: '{emerald.100}',
@@ -58,51 +58,51 @@ export default {
         },
         formField: {
             paddingX: '0.75rem',
-            paddingY: '0.5rem',
-            borderRadius: '{border.radius.md}',
+            paddingY: '0.75rem',
+            borderRadius: '{border.radius.sm}',
             focusRing: {
-                width: '0',
-                style: 'none',
-                color: 'transparent',
-                offset: '0',
+                width: '2px',
+                style: 'solid',
+                color: '{primary.color}',
+                offset: '-2px',
                 shadow: 'none'
             },
             transitionDuration: '{transition.duration}'
         },
         list: {
-            padding: '0.25rem 0.25rem',
-            gap: '2px',
+            padding: '0.5rem 0',
+            gap: '0',
             header: {
-                padding: '0.5rem 1rem 0.25rem 1rem'
+                padding: '0.75rem 0.75rem'
             },
             option: {
-                padding: '0.5rem 0.75rem',
-                borderRadius: '{border.radius.sm}'
+                padding: '0.75rem 0.75rem',
+                borderRadius: '{border.radius.none}'
             },
             optionGroup: {
-                padding: '0.5rem 0.75rem',
-                fontWeight: '600'
+                padding: '0.75rem 0.75rem',
+                fontWeight: '700'
             }
         },
         content: {
-            borderRadius: '{border.radius.md}'
+            borderRadius: '{border.radius.sm}'
         },
         mask: {
             transitionDuration: '0.15s'
         },
         navigation: {
             list: {
-                padding: '0.25rem 0.25rem',
-                gap: '2px'
+                padding: '0.5rem 0',
+                gap: '0'
             },
             item: {
-                padding: '0.5rem 0.75rem',
-                borderRadius: '{border.radius.sm}',
+                padding: '0.75rem 0.75rem',
+                borderRadius: '{border.radius.none}',
                 gap: '0.5rem'
             },
             submenuLabel: {
-                padding: '0.5rem 0.75rem',
-                fontWeight: '600'
+                padding: '0.75rem 0.75rem',
+                fontWeight: '700'
             },
             submenuIcon: {
                 size: '0.875rem'
@@ -110,21 +110,21 @@ export default {
         },
         overlay: {
             select: {
-                borderRadius: '{border.radius.md}',
-                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+                borderRadius: '{border.radius.sm}',
+                shadow: '0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12)'
             },
             popover: {
-                borderRadius: '{border.radius.md}',
-                padding: '0.75rem',
-                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+                borderRadius: '{border.radius.sm}',
+                padding: '1rem',
+                shadow: '0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)'
             },
             modal: {
-                borderRadius: '{border.radius.xl}',
-                padding: '1.25rem',
-                shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
+                borderRadius: '{border.radius.sm}',
+                padding: '1.5rem',
+                shadow: '0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12)'
             },
             navigation: {
-                shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)'
+                shadow: '0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)'
             }
         },
         colorScheme: {
@@ -146,65 +146,66 @@ export default {
                 primary: {
                     color: '{primary.500}',
                     contrastColor: '#ffffff',
-                    hoverColor: '{primary.600}',
-                    activeColor: '{primary.700}'
+                    hoverColor: 'color-mix(in srgb, {primary.color}, transparent 8%)',
+                    activeColor: 'color-mix(in srgb, {primary.color}, transparent 32%)'
                 },
                 highlight: {
-                    background: '{primary.50}',
-                    focusBackground: '{primary.100}',
+                    background: 'color-mix(in srgb, {primary.color}, transparent 88%)',
+                    focusBackground: 'color-mix(in srgb, {primary.color}, transparent 76%)',
                     color: '{primary.700}',
                     focusColor: '{primary.800}'
                 },
                 mask: {
-                    background: 'rgba(0,0,0,0.4)',
+                    background: 'rgba(0,0,0,0.32)',
                     color: '{surface.200}'
                 },
                 formField: {
                     background: '{surface.0}',
-                    disabledBackground: '{surface.200}',
-                    filledBackground: '{surface.50}',
-                    filledFocusBackground: '{surface.50}',
-                    borderColor: '{surface.300}',
-                    hoverBorderColor: '{surface.400}',
+                    disabledBackground: '{surface.300}',
+                    filledBackground: '{surface.100}',
+                    filledHoverBackground: '{surface.200}',
+                    filledFocusBackground: '{surface.100}',
+                    borderColor: '{surface.400}',
+                    hoverBorderColor: '{surface.900}',
                     focusBorderColor: '{primary.color}',
-                    invalidBorderColor: '{red.400}',
-                    color: '{surface.700}',
-                    disabledColor: '{surface.500}',
-                    placeholderColor: '{surface.500}',
-                    floatLabelColor: '{surface.500}',
+                    invalidBorderColor: '{red.800}',
+                    color: '{surface.900}',
+                    disabledColor: '{surface.600}',
+                    placeholderColor: '{surface.600}',
+                    floatLabelColor: '{surface.600}',
                     floatLabelFocusColor: '{primary.600}',
-                    floatLabelActiveColor: '{surface.500}',
-                    floatLabelInvalidColor: '{red.400}',
-                    iconColor: '{surface.400}',
-                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    floatLabelActiveColor: '{surface.600}',
+                    floatLabelInvalidColor: '{red.800}',
+                    iconColor: '{surface.600}',
+                    shadow: 'none'
                 },
                 text: {
-                    color: '{surface.700}',
-                    hoverColor: '{surface.800}',
-                    mutedColor: '{surface.500}',
+                    color: '{surface.900}',
+                    hoverColor: '{surface.900}',
+                    mutedColor: '{surface.600}',
                     hoverMutedColor: '{surface.600}'
                 },
                 content: {
                     background: '{surface.0}',
                     hoverBackground: '{surface.100}',
-                    borderColor: '{surface.200}',
+                    borderColor: '{surface.300}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
                 },
                 overlay: {
                     select: {
                         background: '{surface.0}',
-                        borderColor: '{surface.200}',
+                        borderColor: '{surface.0}',
                         color: '{text.color}'
                     },
                     popover: {
                         background: '{surface.0}',
-                        borderColor: '{surface.200}',
+                        borderColor: '{surface.0}',
                         color: '{text.color}'
                     },
                     modal: {
                         background: '{surface.0}',
-                        borderColor: '{surface.200}',
+                        borderColor: '{surface.0}',
                         color: '{text.color}'
                     }
                 },
@@ -218,36 +219,36 @@ export default {
                         selectedColor: '{highlight.color}',
                         selectedFocusColor: '{highlight.focus.color}',
                         icon: {
-                            color: '{surface.400}',
-                            focusColor: '{surface.500}'
+                            color: '{surface.600}',
+                            focusColor: '{surface.600}'
                         }
                     },
                     optionGroup: {
                         background: 'transparent',
-                        color: '{text.muted.color}'
+                        color: '{text.color}'
                     }
                 },
                 navigation: {
                     item: {
                         focusBackground: '{surface.100}',
-                        activeBackground: '{surface.100}',
+                        activeBackground: '{surface.200}',
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
                         activeColor: '{text.hover.color}',
                         icon: {
-                            color: '{surface.400}',
-                            focusColor: '{surface.500}',
-                            activeColor: '{surface.500}'
+                            color: '{surface.600}',
+                            focusColor: '{surface.600}',
+                            activeColor: '{surface.600}'
                         }
                     },
                     submenuLabel: {
                         background: 'transparent',
-                        color: '{text.muted.color}'
+                        color: '{text.color}'
                     },
                     submenuIcon: {
-                        color: '{surface.400}',
-                        focusColor: '{surface.500}',
-                        activeColor: '{surface.500}'
+                        color: '{surface.600}',
+                        focusColor: '{surface.600}',
+                        activeColor: '{surface.600}'
                     }
                 }
             },

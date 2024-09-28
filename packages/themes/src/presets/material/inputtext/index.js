@@ -3,6 +3,7 @@ export default {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
@@ -14,7 +15,6 @@ export default {
         shadow: '{form.field.shadow}',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
-        test: '2rem', // @todo: REMOVE THIS LINE
         borderRadius: '{form.field.border.radius}',
         focusRing: {
             width: '{form.field.focus.ring.width}',
@@ -27,20 +27,56 @@ export default {
         sm: {
             fontSize: '0.875rem',
             paddingX: '0.625rem',
-            paddingY: '0.375rem'
+            paddingY: '0.625rem'
         },
         lg: {
             fontSize: '1.125rem',
-            paddingX: '0.875rem',
-            paddingY: '0.625rem'
+            paddingX: '1rem',
+            paddingY: '1rem'
         }
     },
-    // @todo: REMOVE THIS BLOCK
     style: ({ dt }) => `
-.p-inputtext {
-    background: yellow;
-    padding: ${dt('inputtext.test')} ${dt('inputtext.test')};
-    border: 5px solid red;
+.p-inputtext.p-variant-filled {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid transparent;
+    background: ${dt('inputtext.filled.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('inputtext.focus.border.color')}, ${dt('inputtext.focus.border.color')}), linear-gradient(to bottom, ${dt('inputtext.border.color')}, ${dt('inputtext.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.p-inputtext.p-variant-filled:enabled:hover {
+    background: ${dt('inputtext.filled.hover.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('inputtext.focus.border.color')}, ${dt('inputtext.focus.border.color')}), linear-gradient(to bottom, ${dt('inputtext.hover.border.color')}, ${dt('inputtext.hover.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-inputtext.p-variant-filled:enabled:focus {
+    outline: 0 none;
+    background: ${dt('inputtext.filled.focus.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('inputtext.focus.border.color')}, ${dt('inputtext.focus.border.color')}), linear-gradient(to bottom, ${dt('inputtext.border.color')}, ${dt('inputtext.border.color')});
+    background-size: 100% 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-inputtext.p-variant-filled:enabled:hover:focus {
+    background-image: linear-gradient(to bottom, ${dt('inputtext.focus.border.color')}, ${dt('inputtext.focus.border.color')}), linear-gradient(to bottom, ${dt('inputtext.hover.border.color')}, ${dt('inputtext.hover.border.color')});
+}
+
+.p-inputtext.p-variant-filled.p-invalid {
+    background-image: linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')}), linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')});
+}
+
+.p-inputtext.p-variant-filled.p-invalid:enabled:focus {
+    background-image: linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')}), linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')});
 }
     `
 };

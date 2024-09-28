@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputText id="username" v-model="value" autocomplete="off" />
+            <InputText id="username" v-model="value" autocomplete="off" variant="filled" />
             <label for="username">Username</label>
         </IftaLabel>
     </div>
@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <InputText id="username" v-model="value" />
+    <InputText id="username" v-model="value" variant="filled" />
     <label for="username">Username</label>
 </IftaLabel>
 `,
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputText id="username" v-model="value" />
+            <InputText id="username" v-model="value" variant="filled" />
             <label for="username">Username</label>
         </IftaLabel>
     </div>
@@ -47,7 +47,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputText id="username" v-model="value" />
+            <InputText id="username" v-model="value" variant="filled" />
             <label for="username">Username</label>
         </IftaLabel>
     </div>

@@ -28,6 +28,7 @@ const theme = ({ dt }) => `
 .p-iftalabel .p-cascadeselect-label,
 .p-iftalabel .p-treeselect-label {
     padding-top: ${dt('iftalabel.input.padding.top')};
+    padding-bottom: ${dt('iftalabel.input.padding.bottom')};
 }
 
 .p-iftalabel:has(.p-invalid) label {
