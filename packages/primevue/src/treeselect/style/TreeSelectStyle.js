@@ -31,6 +31,10 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.filled.background')};
 }
 
+.p-treeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('treeselect.filled.hover.background')};
+}
+
 .p-treeselect.p-variant-filled.p-focus {
     background: ${dt('treeselect.filled.focus.background')};
 }

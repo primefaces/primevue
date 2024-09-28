@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" />
+            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -39,7 +39,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel class="w-full md:w-80" variant="in">
-    <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" />
+    <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -57,7 +57,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" />
+            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -81,7 +81,7 @@ export default {
         }
     },
     mounted() {
-        NodeService.getTreeNodes().then((data) => (this.nodes     = data));
+        NodeService.getTreeNodes().then((data) => (this.nodes = data));
     }
 }
 <\/script>
@@ -95,7 +95,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" />
+            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 

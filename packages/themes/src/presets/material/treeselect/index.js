@@ -3,6 +3,7 @@ export default {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
@@ -43,5 +44,49 @@ export default {
     },
     chip: {
         borderRadius: '{border.radius.sm}'
-    }
+    },
+    style: ({ dt }) => `
+.p-treeselect.p-variant-filled {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid transparent;
+    background: ${dt('treeselect.filled.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('treeselect.focus.border.color')}, ${dt('treeselect.focus.border.color')}), linear-gradient(to bottom, ${dt('treeselect.border.color')}, ${dt('treeselect.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.p-treeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('treeselect.filled.hover.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('treeselect.focus.border.color')}, ${dt('treeselect.focus.border.color')}), linear-gradient(to bottom, ${dt('treeselect.hover.border.color')}, ${dt('treeselect.hover.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-treeselect.p-variant-filled:not(.p-disabled).p-focus {
+    outline: 0 none;
+    background: ${dt('treeselect.filled.focus.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('treeselect.focus.border.color')}, ${dt('treeselect.focus.border.color')}), linear-gradient(to bottom, ${dt('treeselect.border.color')}, ${dt('treeselect.border.color')});
+    background-size: 100% 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-treeselect.p-variant-filled:not(.p-disabled).p-focus:hover {
+    background-image: linear-gradient(to bottom, ${dt('treeselect.focus.border.color')}, ${dt('treeselect.focus.border.color')}), linear-gradient(to bottom, ${dt('treeselect.hover.border.color')}, ${dt('treeselect.hover.border.color')});
+}
+
+.p-treeselect.p-variant-filled.p-invalid {
+    background-image: linear-gradient(to bottom, ${dt('treeselect.invalid.border.color')}, ${dt('treeselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('treeselect.invalid.border.color')}, ${dt('treeselect.invalid.border.color')});
+}
+
+.p-treeselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
+    background-image: linear-gradient(to bottom, ${dt('treeselect.invalid.border.color')}, ${dt('treeselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('treeselect.invalid.border.color')}, ${dt('treeselect.invalid.border.color')});
+}
+`
 };
