@@ -7,6 +7,9 @@ export default {
         checkedHoverBackground: '{primary.contrast.color}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        borderColor: '{form.field.border.color}',
+        hoverBorderColor: '{form.field.hover.border.color}',
+        focusBorderColor: '{form.field.focus.border.color}',
         checkedBorderColor: '{primary.color}',
         checkedHoverBorderColor: '{primary.color}',
         checkedFocusBorderColor: '{primary.color}',
@@ -27,14 +30,6 @@ export default {
         checkedColor: '{primary.color}',
         checkedHoverColor: '{primary.color}',
         disabledColor: '{form.field.disabled.color}'
-    },
-    colorScheme: {
-        light: {
-            borderColor: '{surface.600}',
-            hoverBorderColor: '{surface.900}',
-            focusBorderColor: '{surface.900}'
-        },
-        dark: {}
     },
     style: ({ dt }) => `
 .p-radiobutton {
