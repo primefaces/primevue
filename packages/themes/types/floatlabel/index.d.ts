@@ -111,6 +111,12 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
              * @designToken floatlabel.in.input.padding.top
              */
             paddingTop?: string;
+            /**
+             * Input padding bottom of in
+             *
+             * @designToken floatlabel.in.input.padding.bottom
+             */
+            paddingBottom?: string;
         };
         /**
          * Active of in
