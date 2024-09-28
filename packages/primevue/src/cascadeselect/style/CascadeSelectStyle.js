@@ -24,11 +24,15 @@ const theme = ({ dt }) => `
     border-color: ${dt('cascadeselect.focus.border.color')};
     box-shadow: ${dt('cascadeselect.focus.ring.shadow')};
     outline: ${dt('cascadeselect.focus.ring.width')} ${dt('cascadeselect.focus.ring.style')} ${dt('cascadeselect.focus.ring.color')};
-    outline-offset: ${dt('multiscascadeselectelect.focus.ring.offset')};
+    outline-offset: ${dt('cascadeselect.focus.ring.offset')};
 }
 
 .p-cascadeselect.p-variant-filled {
     background: ${dt('cascadeselect.filled.background')};
+}
+
+.p-cascadeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('cascadeselect.filled.hover.background')};
 }
 
 .p-cascadeselect.p-variant-filled.p-focus {

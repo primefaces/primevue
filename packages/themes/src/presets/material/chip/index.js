@@ -1,14 +1,14 @@
 export default {
     root: {
-        borderRadius: '16px',
+        borderRadius: '2rem',
         paddingX: '0.75rem',
-        paddingY: '0.5rem',
+        paddingY: '0.75rem',
         gap: '0.5rem',
         transitionDuration: '{transition.duration}'
     },
     image: {
-        width: '2rem',
-        height: '2rem'
+        width: '2.25rem',
+        height: '2.25rem'
     },
     icon: {
         size: '1rem'
@@ -26,14 +26,14 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.100}',
-                color: '{surface.800}'
+                background: '{surface.200}',
+                color: '{surface.900}'
             },
             icon: {
-                color: '{surface.800}'
+                color: '{surface.600}'
             },
             removeIcon: {
-                color: '{surface.800}'
+                color: '{surface.600}'
             }
         },
         dark: {

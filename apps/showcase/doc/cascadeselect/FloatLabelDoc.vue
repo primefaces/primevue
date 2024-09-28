@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56" variant="in">
-            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -110,7 +110,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel class="w-full md:w-56">
-    <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -128,7 +128,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56">
-            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -234,7 +234,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56">
-            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
