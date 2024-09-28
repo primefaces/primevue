@@ -4,12 +4,12 @@ export default {
         color: '{content.color}',
         padding: '1rem',
         gap: '2px',
-        indent: '1rem',
+        indent: '2rem',
         transitionDuration: '{transition.duration}'
     },
     node: {
-        padding: '0.25rem 0.5rem',
-        borderRadius: '{content.border.radius}',
+        padding: '0.5rem 0.75rem',
+        borderRadius: '{border.radius.xs}',
         hoverBackground: '{content.hover.background}',
         selectedBackground: '{highlight.background}',
         color: '{text.color}',
@@ -22,7 +22,7 @@ export default {
             offset: '-1px',
             shadow: '{focus.ring.shadow}'
         },
-        gap: '0.25rem'
+        gap: '0.5rem'
     },
     nodeIcon: {
         color: '{text.muted.color}',
@@ -31,7 +31,7 @@ export default {
     },
     nodeToggleButton: {
         borderRadius: '50%',
-        size: '1.75rem',
+        size: '2rem',
         hoverBackground: '{content.hover.background}',
         selectedHoverBackground: '{content.background}',
         color: '{text.muted.color}',
