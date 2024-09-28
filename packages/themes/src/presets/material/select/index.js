@@ -3,6 +3,7 @@ export default {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
@@ -69,5 +70,49 @@ export default {
     },
     emptyMessage: {
         padding: '{list.option.padding}'
-    }
+    },
+    style: ({ dt }) => `
+.p-select.p-variant-filled {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid transparent;
+    background: ${dt('select.filled.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('select.focus.border.color')}, ${dt('select.focus.border.color')}), linear-gradient(to bottom, ${dt('select.border.color')}, ${dt('select.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.p-select.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('select.filled.hover.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('select.focus.border.color')}, ${dt('select.focus.border.color')}), linear-gradient(to bottom, ${dt('select.hover.border.color')}, ${dt('select.hover.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-select.p-variant-filled:not(.p-disabled).p-focus {
+    outline: 0 none;
+    background: ${dt('select.filled.focus.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('select.focus.border.color')}, ${dt('select.focus.border.color')}), linear-gradient(to bottom, ${dt('select.border.color')}, ${dt('select.border.color')});
+    background-size: 100% 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-select.p-variant-filled:not(.p-disabled).p-focus:hover {
+    background-image: linear-gradient(to bottom, ${dt('select.focus.border.color')}, ${dt('select.focus.border.color')}), linear-gradient(to bottom, ${dt('select.hover.border.color')}, ${dt('select.hover.border.color')});
+}
+
+.p-select.p-variant-filled.p-invalid {
+    background-image: linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')}), linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')});
+}
+
+.p-select.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
+    background-image: linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')}), linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')});
+}
+`
 };

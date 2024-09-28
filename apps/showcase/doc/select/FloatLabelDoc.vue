@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56" variant="in">
-            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" />
+            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -43,7 +43,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel class="w-full md:w-56" variant="in">
-    <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" />
+    <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -61,7 +61,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56" variant="in">
-            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" />
+            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -100,7 +100,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-56" variant="in">
-            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" />
+            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 

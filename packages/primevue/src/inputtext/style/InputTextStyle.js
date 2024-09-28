@@ -37,6 +37,10 @@ const theme = ({ dt }) => `
     background: ${dt('inputtext.filled.background')};
 }
 
+.p-inputtext.p-variant-filled:enabled:hover {
+    border-color: ${dt('inputtext.filled.hover.background')};
+}
+
 .p-inputtext.p-variant-filled:enabled:focus {
     background: ${dt('inputtext.filled.focus.background')};
 }
