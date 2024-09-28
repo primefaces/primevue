@@ -55,6 +55,11 @@ export default {
                     component: SlotCharDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -63,11 +68,6 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
-                },
-                {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
                 },
                 {
                     id: 'invalid',

@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputMask id="in_label" v-model="value2" mask="999-99-9999" />
+            <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -36,7 +36,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel variant="in">
-    <InputMask id="in_label" v-model="value2" mask="999-99-9999" />
+    <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -54,7 +54,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputMask id="in_label" v-model="value2" mask="999-99-9999" />
+            <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -87,7 +87,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputMask id="in_label" v-model="value2" mask="999-99-9999" />
+            <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 

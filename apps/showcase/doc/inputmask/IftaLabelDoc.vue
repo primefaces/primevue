@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputMask id="ssn" v-model="value" mask="999-99-9999" autocomplete="off" />
+            <InputMask id="ssn" v-model="value" mask="999-99-9999" autocomplete="off" variant="filled" />
             <label for="ssn">SSN</label>
         </IftaLabel>
     </div>
@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <InputMask id="ssn" v-model="value" mask="999-99-9999" />
+    <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
     <label for="ssn">SSN</label>
 </IftaLabel>
 `,
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputMask id="ssn" v-model="value" mask="999-99-9999" />
+            <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
             <label for="ssn">SSN</label>
         </IftaLabel>
     </div>
@@ -47,7 +47,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputMask id="ssn" v-model="value" mask="999-99-9999" />
+            <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
             <label for="ssn">SSN</label>
         </IftaLabel>
     </div>
