@@ -6,7 +6,7 @@
         <IftaLabel>
             <IconField>
                 <InputIcon class="pi pi-user" />
-                <InputText id="username" v-model="value" autocomplete="off" />
+                <InputText id="username" v-model="value" autocomplete="off" variant="filled" />
             </IconField>
             <label for="username">Username</label>
         </IftaLabel>
@@ -24,7 +24,7 @@ export default {
 <IftaLabel>
     <IconField>
         <InputIcon class="pi pi-user" />
-        <InputText id="username" v-model="value" />
+        <InputText id="username" v-model="value" variant="filled" />
     </IconField>
     <label for="username">Username</label>
 </IftaLabel>
@@ -35,7 +35,7 @@ export default {
         <IftaLabel>
             <IconField>
                 <InputIcon class="pi pi-user" />
-                <InputText id="username" v-model="value" />
+                <InputText id="username" v-model="value" variant="filled" />
             </IconField>
             <label for="username">Username</label>
         </IftaLabel>
@@ -58,7 +58,7 @@ export default {
         <IftaLabel>
             <IconField>
                 <InputIcon class="pi pi-user" />
-                <InputText id="username" v-model="value" />
+                <InputText id="username" v-model="value" variant="filled" />
             </IconField>
             <label for="username">Username</label>
         </IftaLabel>

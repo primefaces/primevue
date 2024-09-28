@@ -14,7 +14,7 @@
         <FloatLabel variant="in">
             <IconField>
                 <InputIcon class="pi pi-search" />
-                <InputText id="in_label" v-model="value2" autocomplete="off" />
+                <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
             </IconField>
             <label for="in_label">In Label</label>
         </FloatLabel>
@@ -50,7 +50,7 @@ export default {
 <FloatLabel variant="in">
     <IconField>
         <InputIcon class="pi pi-search" />
-        <InputText id="in_label" v-model="value2" autocomplete="off" />
+        <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
     </IconField>
     <label for="in_label">In Label</label>
 </FloatLabel>
@@ -77,7 +77,7 @@ export default {
         <FloatLabel variant="in">
             <IconField>
                 <InputIcon class="pi pi-search" />
-                <InputText id="in_label" v-model="value2" autocomplete="off" />
+                <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
             </IconField>
             <label for="in_label">In Label</label>
         </FloatLabel>
@@ -118,7 +118,7 @@ export default {
         <FloatLabel variant="in">
             <IconField>
                 <InputIcon class="pi pi-search" />
-                <InputText id="in_label" v-model="value2" autocomplete="off" />
+                <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
             </IconField>
             <label for="in_label">In Label</label>
         </FloatLabel>
