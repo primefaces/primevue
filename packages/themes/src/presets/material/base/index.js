@@ -146,8 +146,8 @@ export default {
                 primary: {
                     color: '{primary.500}',
                     contrastColor: '#ffffff',
-                    hoverColor: 'color-mix(in srgb, {primary.color}, transparent 8%)',
-                    activeColor: 'color-mix(in srgb, {primary.color}, transparent 32%)'
+                    hoverColor: '{primary.400}',
+                    activeColor: '{primary.300}'
                 },
                 highlight: {
                     background: 'color-mix(in srgb, {primary.color}, transparent 88%)',

@@ -3,23 +3,23 @@ export default {
         borderRadius: '{form.field.border.radius}',
         roundedBorderRadius: '2rem',
         gap: '0.5rem',
-        paddingX: '{form.field.padding.x}',
+        paddingX: '1rem',
         paddingY: '{form.field.padding.y}',
-        iconOnlyWidth: '2.5rem',
+        iconOnlyWidth: '3rem',
         sm: {
             fontSize: '0.875rem',
-            paddingX: '0.625rem',
-            paddingY: '0.375rem'
+            paddingX: '0.875rem',
+            paddingY: '0.625rem'
         },
         lg: {
             fontSize: '1.125rem',
-            paddingX: '0.875rem',
-            paddingY: '0.625rem'
+            paddingX: '1.25rem',
+            paddingY: '1rem'
         },
         label: {
             fontWeight: '500'
         },
-        raisedShadow: '0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+        raisedShadow: '0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12)',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -63,11 +63,11 @@ export default {
                 },
                 info: {
                     background: '{sky.500}',
-                    hoverBackground: '{sky.600}',
-                    activeBackground: '{sky.700}',
+                    hoverBackground: '{sky.400}',
+                    activeBackground: '{sky.300}',
                     borderColor: '{sky.500}',
-                    hoverBorderColor: '{sky.600}',
-                    activeBorderColor: '{sky.700}',
+                    hoverBorderColor: '{sky.400}',
+                    activeBorderColor: '{sky.300}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
                     activeColor: '#ffffff',
@@ -78,11 +78,11 @@ export default {
                 },
                 success: {
                     background: '{green.500}',
-                    hoverBackground: '{green.600}',
-                    activeBackground: '{green.700}',
+                    hoverBackground: '{green.400}',
+                    activeBackground: '{green.300}',
                     borderColor: '{green.500}',
-                    hoverBorderColor: '{green.600}',
-                    activeBorderColor: '{green.700}',
+                    hoverBorderColor: '{green.400}',
+                    activeBorderColor: '{green.300}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
                     activeColor: '#ffffff',
@@ -93,11 +93,11 @@ export default {
                 },
                 warn: {
                     background: '{orange.500}',
-                    hoverBackground: '{orange.600}',
-                    activeBackground: '{orange.700}',
+                    hoverBackground: '{orange.400}',
+                    activeBackground: '{orange.300}',
                     borderColor: '{orange.500}',
-                    hoverBorderColor: '{orange.600}',
-                    activeBorderColor: '{orange.700}',
+                    hoverBorderColor: '{orange.400}',
+                    activeBorderColor: '{orange.300}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
                     activeColor: '#ffffff',
@@ -108,11 +108,11 @@ export default {
                 },
                 help: {
                     background: '{purple.500}',
-                    hoverBackground: '{purple.600}',
-                    activeBackground: '{purple.700}',
+                    hoverBackground: '{purple.400}',
+                    activeBackground: '{purple.300}',
                     borderColor: '{purple.500}',
-                    hoverBorderColor: '{purple.600}',
-                    activeBorderColor: '{purple.700}',
+                    hoverBorderColor: '{purple.400}',
+                    activeBorderColor: '{purple.300}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
                     activeColor: '#ffffff',
@@ -123,11 +123,11 @@ export default {
                 },
                 danger: {
                     background: '{red.500}',
-                    hoverBackground: '{red.600}',
-                    activeBackground: '{red.700}',
+                    hoverBackground: '{red.400}',
+                    activeBackground: '{red.300}',
                     borderColor: '{red.500}',
-                    hoverBorderColor: '{red.600}',
-                    activeBorderColor: '{red.700}',
+                    hoverBorderColor: '{red.400}',
+                    activeBorderColor: '{red.300}',
                     color: '#ffffff',
                     hoverColor: '#ffffff',
                     activeColor: '#ffffff',
@@ -138,11 +138,11 @@ export default {
                 },
                 contrast: {
                     background: '{surface.950}',
-                    hoverBackground: '{surface.900}',
-                    activeBackground: '{surface.800}',
+                    hoverBackground: '{surface.800}',
+                    activeBackground: '{surface.700}',
                     borderColor: '{surface.950}',
-                    hoverBorderColor: '{surface.900}',
-                    activeBorderColor: '{surface.800}',
+                    hoverBorderColor: '{surface.800}',
+                    activeBorderColor: '{surface.700}',
                     color: '{surface.0}',
                     hoverColor: '{surface.0}',
                     activeColor: '{surface.0}',
@@ -156,56 +156,56 @@ export default {
                 primary: {
                     hoverBackground: '{primary.50}',
                     activeBackground: '{primary.100}',
-                    borderColor: '{primary.200}',
+                    borderColor: '{primary.color}',
                     color: '{primary.color}'
                 },
                 secondary: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
-                    borderColor: '{surface.200}',
-                    color: '{surface.500}'
+                    borderColor: '{surface.600}',
+                    color: '{surface.600}'
                 },
                 success: {
                     hoverBackground: '{green.50}',
                     activeBackground: '{green.100}',
-                    borderColor: '{green.200}',
+                    borderColor: '{green.500}',
                     color: '{green.500}'
                 },
                 info: {
                     hoverBackground: '{sky.50}',
                     activeBackground: '{sky.100}',
-                    borderColor: '{sky.200}',
+                    borderColor: '{sky.500}',
                     color: '{sky.500}'
                 },
                 warn: {
                     hoverBackground: '{orange.50}',
                     activeBackground: '{orange.100}',
-                    borderColor: '{orange.200}',
+                    borderColor: '{orange.500}',
                     color: '{orange.500}'
                 },
                 help: {
                     hoverBackground: '{purple.50}',
                     activeBackground: '{purple.100}',
-                    borderColor: '{purple.200}',
+                    borderColor: '{purple.500}',
                     color: '{purple.500}'
                 },
                 danger: {
                     hoverBackground: '{red.50}',
                     activeBackground: '{red.100}',
-                    borderColor: '{red.200}',
+                    borderColor: '{red.500}',
                     color: '{red.500}'
                 },
                 contrast: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
-                    borderColor: '{surface.700}',
+                    borderColor: '{surface.950}',
                     color: '{surface.950}'
                 },
                 plain: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
-                    borderColor: '{surface.200}',
-                    color: '{surface.700}'
+                    borderColor: '{surface.900}',
+                    color: '{surface.900}'
                 }
             },
             text: {
@@ -217,7 +217,7 @@ export default {
                 secondary: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
-                    color: '{surface.500}'
+                    color: '{surface.600}'
                 },
                 success: {
                     hoverBackground: '{green.50}',
@@ -247,7 +247,7 @@ export default {
                 plain: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
-                    color: '{surface.700}'
+                    color: '{surface.900}'
                 }
             },
             link: {
@@ -483,5 +483,34 @@ export default {
                 activeColor: '{primary.color}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-button:focus-visible {
+    background: ${dt('button.primary.hover.background')};
+}
+
+.p-button-secondary:focus-visible {
+    background: ${dt('button.secondary.hover.background')};
+}
+
+.p-button-success:focus-visible {
+    background: ${dt('button.success.hover.background')};
+}
+
+.p-button-warn:focus-visible {
+    background: ${dt('button.warn.hover.background')};
+}
+
+.p-button-help:focus-visible {
+    background: ${dt('button.help.hover.background')};
+}
+
+.p-button-danger:focus-visible {
+    background: ${dt('button.danger.hover.background')};
+}
+
+.p-button-contrast:focus-visible {
+    background: ${dt('button.contrast.hover.background')};
+}
+`
 };
