@@ -78,7 +78,7 @@ const theme = ({ dt }) => `
 .p-floatlabel-in .p-inputtext,
 .p-floatlabel-in .p-textarea,
 .p-floatlabel-in .p-select-label,
-.p-floatlabel-in .p-multiselect-label-container,
+.p-floatlabel-in .p-multiselect-label,
 .p-floatlabel-in .p-autocomplete-input-multiple,
 .p-floatlabel-in .p-cascadeselect-label,
 .p-floatlabel-in .p-treeselect-label {

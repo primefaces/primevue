@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
-            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
             <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>
@@ -26,7 +26,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+    <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
     <label for="ms_cities">Cities</label>
 </IftaLabel>
 `,
@@ -34,7 +34,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
-            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
             <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>
@@ -61,7 +61,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel class="w-full md:w-80">
-            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full"variant="filled" />
             <label for="ms_cities">Cities</label>
         </IftaLabel>
     </div>

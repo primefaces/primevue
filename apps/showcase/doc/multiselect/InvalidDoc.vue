@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" :invalid="selectedCities?.length === 0" class="w-full md:w-80" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,7 +13,8 @@
 export default {
     data() {
         return {
-            selectedCities: [],
+            selectedCities1: [],
+            selectedCities2: [],
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -22,14 +24,18 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-    :maxSelectedLabels="3" :invalid="selectedCities === null"  class="w-full md:w-80" />
+<MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+        :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+<MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+        :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" :invalid="selectedCities === null"  class="w-full md:w-80" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
     </div>
 </template>
 
@@ -37,7 +43,8 @@ export default {
 export default {
     data() {
         return {
-            selectedCities: [],
+            selectedCities1: [],
+            selectedCities2: [],
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -52,16 +59,19 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" :invalid="selectedCities === null"  class="w-full md:w-80" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const selectedCities = ref([]);
+const selectedCities1 = ref([]);
+const selectedCities2 = ref([]);
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },

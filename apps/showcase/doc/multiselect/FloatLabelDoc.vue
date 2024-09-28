@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -43,7 +43,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel class="w-full md:w-80" variant="in">
-    <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+    <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -61,7 +61,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -100,7 +100,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel class="w-full md:w-80" variant="in">
-            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 

@@ -3,6 +3,7 @@ export default {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
@@ -52,7 +53,7 @@ export default {
         selectedFocusColor: '{list.option.selected.focus.color}',
         padding: '{list.option.padding}',
         borderRadius: '{list.option.border.radius}',
-        gap: '0.5rem'
+        gap: '0.75rem'
     },
     optionGroup: {
         background: '{list.option.group.background}',
@@ -65,5 +66,49 @@ export default {
     },
     emptyMessage: {
         padding: '{list.option.padding}'
-    }
+    },
+    style: ({ dt }) => `
+.p-multiselect.p-variant-filled {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid transparent;
+    background: ${dt('multiselect.filled.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('multiselect.focus.border.color')}, ${dt('multiselect.focus.border.color')}), linear-gradient(to bottom, ${dt('multiselect.border.color')}, ${dt('multiselect.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.p-multiselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('multiselect.filled.hover.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('multiselect.focus.border.color')}, ${dt('multiselect.focus.border.color')}), linear-gradient(to bottom, ${dt('multiselect.hover.border.color')}, ${dt('multiselect.hover.border.color')});
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-multiselect.p-variant-filled:not(.p-disabled).p-focus {
+    outline: 0 none;
+    background: ${dt('multiselect.filled.focus.background')} no-repeat;
+    background-image: linear-gradient(to bottom, ${dt('multiselect.focus.border.color')}, ${dt('multiselect.focus.border.color')}), linear-gradient(to bottom, ${dt('multiselect.border.color')}, ${dt('multiselect.border.color')});
+    background-size: 100% 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    background-origin: border-box;
+    border-color: transparent;
+}
+
+.p-multiselect.p-variant-filled:not(.p-disabled).p-focus:hover {
+    background-image: linear-gradient(to bottom, ${dt('multiselect.focus.border.color')}, ${dt('multiselect.focus.border.color')}), linear-gradient(to bottom, ${dt('multiselect.hover.border.color')}, ${dt('multiselect.hover.border.color')});
+}
+
+.p-multiselect.p-variant-filled.p-invalid {
+    background-image: linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')});
+}
+
+.p-multiselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
+    background-image: linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')});
+}
+`
 };
