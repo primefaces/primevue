@@ -25,11 +25,11 @@ export default {
             shadow: '0px 2px 1px -1px rgba(0, 0, 0, .2), 0px 1px 1px 0px rgba(0, 0, 0, .14), 0px 1px 3px 0px rgba(0, 0, 0, .12)'
         },
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     style: ({ dt }) => `

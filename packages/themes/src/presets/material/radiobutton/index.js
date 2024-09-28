@@ -14,11 +14,11 @@ export default {
         invalidBorderColor: '{form.field.invalid.border.color}',
         shadow: '{form.field.shadow}',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         },
         transitionDuration: '{form.field.transition.duration}'
     },

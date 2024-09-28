@@ -1,7 +1,14 @@
 export default {
     root: {
         gap: '0.5rem',
-        transitionDuration: '{transition.duration}'
+        transitionDuration: '{transition.duration}',
+        focusRing: {
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
+        }
     },
     icon: {
         size: '1.125rem',

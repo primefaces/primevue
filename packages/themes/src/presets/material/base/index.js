@@ -34,9 +34,9 @@ export default {
     semantic: {
         transitionDuration: '0.2s',
         focusRing: {
-            width: '0',
-            style: 'none',
-            color: 'transparent',
+            width: '2px',
+            style: 'solid',
+            color: '{primary.color}',
             offset: '0',
             shadow: 'none'
         },
