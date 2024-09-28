@@ -50,12 +50,12 @@ export default {
     box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 96%);
 }
 
-.p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover) {
-    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('radiobutton.checked.border.color')}, transparent 92%);
-}
-
 .p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) {
     box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 88%);
+}
+
+.p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover) {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('radiobutton.checked.border.color')}, transparent 92%);
 }
 
 .p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:focus-visible) {

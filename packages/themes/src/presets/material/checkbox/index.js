@@ -52,12 +52,12 @@ export default {
     box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 96%);
 }
 
-.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) {
-    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('checkbox.checked.background')}, transparent 92%);
-}
-
 .p-checkbox:not(.p-disabled):has(.p-checkbox-input:focus-visible) {
     box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 88%);
+}
+
+.p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:hover) {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('checkbox.checked.background')}, transparent 92%);
 }
 
 .p-checkbox-checked:not(.p-disabled):has(.p-checkbox-input:focus-visible) {
