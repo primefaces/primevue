@@ -6,6 +6,5 @@ public
 styles
 node_modules
 .vscode
-dist
 .nuxt
 .output
