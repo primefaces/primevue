@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="price_input">Price</label>
         </IftaLabel>
     </div>
@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" />
+    <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
     <label for="price_input">Price</label>
 </IftaLabel>
 `,
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="price_input">Price</label>
         </IftaLabel>
     </div>
@@ -47,7 +47,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="price_input">Price</label>
         </IftaLabel>
     </div>

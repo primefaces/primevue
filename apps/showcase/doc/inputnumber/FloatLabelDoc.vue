@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -36,7 +36,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel variant="in">
-    <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" />
+    <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -54,7 +54,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -86,7 +86,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" />
+            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
