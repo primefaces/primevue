@@ -14,26 +14,26 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '0 0 0.5rem 0',
+        padding: '0 0 0.75rem 0',
         fontWeight: '500',
         gap: '0.5rem'
     },
     title: {
         gap: '0.5rem',
-        fontWeight: '500'
+        fontWeight: '700'
     },
     dropdown: {
-        width: '2.5rem',
+        width: '3rem',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',
         borderRadius: '{form.field.border.radius}',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'nıne'
         }
     },
     inputIcon: {
@@ -43,14 +43,14 @@ export default {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.25rem 0.5rem',
+        padding: '0.5rem 0.75rem',
         borderRadius: '{content.border.radius}'
     },
     selectYear: {
         hoverBackground: '{content.hover.background}',
         color: '{content.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.25rem 0.5rem',
+        padding: '0.5rem 0.75rem',
         borderRadius: '{content.border.radius}'
     },
     group: {
@@ -58,11 +58,11 @@ export default {
         gap: '{overlay.popover.padding}'
     },
     dayView: {
-        margin: '0.5rem 0 0 0'
+        margin: '0.75rem 0 0 0'
     },
     weekDay: {
-        padding: '0.25rem',
-        fontWeight: '500',
+        padding: '0.5rem',
+        fontWeight: '700',
         color: '{content.color}'
     },
     date: {
@@ -73,10 +73,10 @@ export default {
         hoverColor: '{content.hover.color}',
         selectedColor: '{primary.contrast.color}',
         rangeSelectedColor: '{highlight.color}',
-        width: '2rem',
-        height: '2rem',
+        width: '2.5rem',
+        height: '2.5rem',
         borderRadius: '50%',
-        padding: '0.25rem',
+        padding: '0.5rem',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -86,23 +86,23 @@ export default {
         }
     },
     monthView: {
-        margin: '0.5rem 0 0 0'
+        margin: '0.75rem 0 0 0'
     },
     month: {
         borderRadius: '{content.border.radius}'
     },
     yearView: {
-        margin: '0.5rem 0 0 0'
+        margin: '0.75rem 0 0 0'
     },
     year: {
         borderRadius: '{content.border.radius}'
     },
     buttonbar: {
-        padding: '0.5rem 0 0 0',
+        padding: '0.75rem 0 0 0',
         borderColor: '{content.border.color}'
     },
     timePicker: {
-        padding: '0.5rem 0 0 0',
+        padding: '0.75rem 0 0 0',
         borderColor: '{content.border.color}',
         gap: '0.5rem',
         buttonGap: '0.25rem'
@@ -136,5 +136,43 @@ export default {
                 color: '{surface.0}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-datepicker-header {
+    justify-content: start;
+}
+
+.p-datepicker-title {
+    order: 1;
+}
+
+.p-datepicker-prev-button {
+    order: 2;
+    margin-inline-start: auto; 
+}
+
+.p-datepicker-next-button {
+    order: 2;
+    margin-inline-start: 0.5rem; 
+}
+
+.p-datepicker-select-month:focus-visible {
+    background: ${dt('datepicker.select.month.hover.background')};
+    color: ${dt('datepicker.select.month.hover.color')};
+    outline: 0 none;
+}
+
+.p-datepicker-select-year:focus-visible {
+    background: ${dt('datepicker.select.year.hover.background')};
+    color: ${dt('datepicker.select.year.hover.color')};
+    outline: 0 none;
+}
+
+.p-datepicker-dropdown:focus-visible {
+    outline: 0 none;
+    background: ${dt('datepicker.dropdown.hover.background')};
+    border-color: ${dt('datepicker.dropdown.hover.border.color')};
+    color: ${dt('datepicker.dropdown.hover.color')};
+}
+`
 };
