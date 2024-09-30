@@ -29,5 +29,10 @@ export default {
         borderColor: '{content.border.color}',
         color: '{content.color}',
         borderRadius: '{content.border.radius}'
-    }
+    },
+    style: ({ dt }) => `
+.p-editor .p-editor-toolbar {
+    padding: 0.75rem
+}
+`
 };
