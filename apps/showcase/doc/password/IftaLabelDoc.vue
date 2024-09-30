@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel>
-            <Password v-model="value" inputId="password" />
+            <Password v-model="value" inputId="password" variant="filled" />
             <label for="password">Password</label>
         </IftaLabel>
     </div>
@@ -19,7 +19,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <Password v-model="value" inputId="password" />
+    <Password v-model="value" inputId="password" variant="filled" />
     <label for="password">Password</label>
 </IftaLabel>
 `,
@@ -27,7 +27,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <Password v-model="value" inputId="password" />
+            <Password v-model="value" inputId="password" variant="filled" />
             <label for="password">Password</label>
         </IftaLabel>
     </div>
@@ -47,7 +47,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <Password v-model="value" inputId="password" />
+            <Password v-model="value" inputId="password" variant="filled" />
             <label for="password">Password</label>
         </IftaLabel>
     </div>
