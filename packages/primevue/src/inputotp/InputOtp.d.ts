@@ -140,7 +140,7 @@ export interface InputOtpTemplateEvents {
 export interface InputOtpProps {
     /**
      * Specifies whether a inputotp should be checked or not.
-     * @defaultValue false
+     * @defaultValue null
      */
     modelValue?: boolean | string | undefined;
     /**
