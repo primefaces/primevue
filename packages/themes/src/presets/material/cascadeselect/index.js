@@ -98,10 +98,14 @@ export default {
     )});
 }
 
-.p-select.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
+.p-cascadeselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
     background-image: linear-gradient(to bottom, ${dt('cascadeselect.invalid.border.color')}, ${dt('cascadeselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('cascadeselect.invalid.border.color')}, ${dt(
         'cascadeselect.invalid.border.color'
     )});
+}
+
+.p-cascadeselect-option {
+    transition: none;
 }
 `
 };

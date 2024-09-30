@@ -110,5 +110,9 @@ export default {
 .p-multiselect.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
     background-image: linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')}), linear-gradient(to bottom, ${dt('multiselect.invalid.border.color')}, ${dt('multiselect.invalid.border.color')});
 }
+
+.p-multiselect-option {
+    transition: none;
+}
 `
 };

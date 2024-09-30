@@ -114,5 +114,9 @@ export default {
 .p-select.p-variant-filled.p-invalid:not(.p-disabled).p-focus  {
     background-image: linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')}), linear-gradient(to bottom, ${dt('select.invalid.border.color')}, ${dt('select.invalid.border.color')});
 }
+
+.p-select-option {
+    transition: none;
+}
 `
 };

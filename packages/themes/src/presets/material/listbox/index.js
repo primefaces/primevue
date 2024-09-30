@@ -62,5 +62,10 @@ export default {
                 stripedBackground: '{surface.900}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-listbox-option {
+    transition: none;
+}
+`
 };

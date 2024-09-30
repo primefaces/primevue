@@ -146,5 +146,9 @@ export default {
         'autocomplete.invalid.border.color'
     )});
 }
+
+.p-autocomplete-option {
+    transition: none;
+}
 `
 };
