@@ -3,7 +3,7 @@ export default {
         transitionDuration: '{transition.duration}'
     },
     button: {
-        width: '2.5rem',
+        width: '3rem',
         borderRadius: '{form.field.border.radius}',
         verticalPadding: '{form.field.padding.y}'
     },
@@ -34,5 +34,12 @@ export default {
                 activeColor: '{surface.200}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-inputnumber-stacked .p-inputnumber-button-group {
+    top: 2px;
+    right: 2px;
+    height: calc(100% - 4px);
+}
+`
 };

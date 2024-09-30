@@ -78,5 +78,5 @@ export default {
 .p-inputtext.p-variant-filled.p-invalid:enabled:focus {
     background-image: linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')}), linear-gradient(to bottom, ${dt('inputtext.invalid.border.color')}, ${dt('inputtext.invalid.border.color')});
 }
-    `
+`
 };
