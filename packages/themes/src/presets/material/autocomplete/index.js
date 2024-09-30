@@ -98,6 +98,8 @@ export default {
     style: ({ dt }) => `
 .p-autocomplete-dropdown:focus-visible {
     background: ${dt('autocomplete.dropdown.hover.background')};
+    border-color: ${dt('autocomplete.dropdown.hover.border.color')};
+    color: ${dt('autocomplete.dropdown.hover.color')};
 }
 
 .p-variant-filled.p-autocomplete-input-multiple {
