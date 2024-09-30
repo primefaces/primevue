@@ -51,9 +51,9 @@ import Nora from '@primevue/themes/nora';
 
 const presets = {
     Aura,
+    Material,
     Lara,
-    Nora,
-    Material
+    Nora
 };
 
 export default {
@@ -61,9 +61,9 @@ export default {
         return {
             presetOptions: [
                 { label: 'Aura', value: 'Aura' },
+                { label: 'Material', value: 'Material' },
                 { label: 'Lara', value: 'Lara' },
-                { label: 'Nora', value: 'Nora' },
-                { label: 'MD', value: 'Material' }
+                { label: 'Nora', value: 'Nora' }
             ],
             primaryColors: [
                 { name: 'noir', palette: {} },
