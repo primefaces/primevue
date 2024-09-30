@@ -9,7 +9,7 @@
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -37,7 +37,7 @@ export default {
 </FloatLabel>
 
 <FloatLabel variant="in">
-    <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" />
+    <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
@@ -55,7 +55,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
@@ -93,7 +93,7 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 

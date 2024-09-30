@@ -34,11 +34,11 @@ export default {
     semantic: {
         transitionDuration: '0.2s',
         focusRing: {
-            width: '2px',
-            style: 'solid',
-            color: '{primary.color}',
+            width: '0',
+            style: 'none',
+            color: 'unset',
             offset: '0',
-            shadow: 'none'
+            shadow: '0 0 1px 8px color-mix(in srgb, {surface.900}, transparent 88%)'
         },
         disabledOpacity: '0.38',
         iconSize: '1rem',

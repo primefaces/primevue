@@ -3,8 +3,8 @@ export default {
         transitionDuration: '{transition.duration}'
     },
     preview: {
-        width: '1.5rem',
-        height: '1.5rem',
+        width: '2rem',
+        height: '2rem',
         borderRadius: '{form.field.border.radius}',
         focusRing: {
             width: '{focus.ring.width}',

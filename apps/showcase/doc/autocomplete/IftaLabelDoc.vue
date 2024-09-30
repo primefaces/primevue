@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <IftaLabel>
-            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
             <label for="ac">Identifier</label>
         </IftaLabel>
     </div>
@@ -20,7 +20,7 @@ export default {
             code: {
                 basic: `
 <IftaLabel>
-    <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
+    <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
     <label for="ac">Identifier</label>
 </IftaLabel>
 `,
@@ -28,7 +28,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
             <label for="ac">Identifier</label>
         </IftaLabel>
     </div>
@@ -54,7 +54,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <IftaLabel>
-            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" />
+            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
             <label for="ac">Identifier</label>
         </IftaLabel>
     </div>

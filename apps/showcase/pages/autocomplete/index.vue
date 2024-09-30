@@ -74,9 +74,9 @@ export default {
                     component: VirtualScrollDoc
                 },
                 {
-                    id: 'multiple',
-                    label: 'Multiple',
-                    component: MultipleDoc
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'floatlabel',
@@ -89,9 +89,9 @@ export default {
                     component: IftaLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
                 },
                 {
                     id: 'invalid',
