@@ -55,7 +55,13 @@ export default {
                 color: '{surface.0}'
             }
         },
-        dark: {}
+        dark: {
+            stepNumber: {
+                background: '{surface.200}',
+                borderColor: '{surface.200}',
+                color: '{surface.900}'
+            }
+        }
     },
     style: ({ dt }) => `
 .p-step-header:focus-visible {

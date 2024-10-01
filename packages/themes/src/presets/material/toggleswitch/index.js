@@ -45,15 +45,15 @@ export default {
         dark: {
             root: {
                 background: '{surface.700}',
-                hoverBackground: '{surface.600}',
+                hoverBackground: '{surface.700}',
                 checkedBackground: '{primary.color}',
-                checkedHoverBackground: '{primary.hover.color}'
+                checkedHoverBackground: '{primary.color}'
             },
             handle: {
                 background: '{surface.400}',
                 hoverBackground: '{surface.300}',
-                checkedBackground: '{surface.900}',
-                checkedHoverBackground: '{surface.900}'
+                checkedBackground: '{primary.200}',
+                checkedHoverBackground: '{primary.200}'
             }
         }
     },
