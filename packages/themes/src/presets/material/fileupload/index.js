@@ -9,14 +9,14 @@ export default {
     header: {
         background: 'transparent',
         color: '{text.color}',
-        padding: '1.125rem',
+        padding: '1.25rem',
         borderWidth: '0',
         borderRadius: '0',
         gap: '0.5rem'
     },
     content: {
         highlightBorderColor: '{primary.color}',
-        padding: '0 1.125rem 1.125rem 1.125rem'
+        padding: '0 1.25rem 1.25rem 1.25rem'
     },
     file: {
         padding: '1rem',

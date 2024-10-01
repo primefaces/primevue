@@ -8,13 +8,13 @@ export default {
         color: '{content.color}',
         borderRadius: '{content.border.radius}',
         shadow: '{overlay.popover.shadow}',
-        padding: '{overlay.popover.padding}'
+        padding: '0.5rem'
     },
     header: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '0 0 0.75rem 0',
+        padding: '0 0 0.5rem 0',
         fontWeight: '500',
         gap: '0.5rem'
     },
@@ -58,7 +58,7 @@ export default {
         gap: '{overlay.popover.padding}'
     },
     dayView: {
-        margin: '0.75rem 0 0 0'
+        margin: '0.5rem 0 0 0'
     },
     weekDay: {
         padding: '0.5rem',
@@ -76,7 +76,7 @@ export default {
         width: '2.5rem',
         height: '2.5rem',
         borderRadius: '50%',
-        padding: '0.5rem',
+        padding: '0.125rem',
         focusRing: {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
@@ -86,23 +86,23 @@ export default {
         }
     },
     monthView: {
-        margin: '0.75rem 0 0 0'
+        margin: '0.5rem 0 0 0'
     },
     month: {
         borderRadius: '{content.border.radius}'
     },
     yearView: {
-        margin: '0.75rem 0 0 0'
+        margin: '0.5rem 0 0 0'
     },
     year: {
         borderRadius: '{content.border.radius}'
     },
     buttonbar: {
-        padding: '0.75rem 0 0 0',
+        padding: '0.5rem 0 0 0',
         borderColor: '{content.border.color}'
     },
     timePicker: {
-        padding: '0.75rem 0 0 0',
+        padding: '0.5rem 0 0 0',
         borderColor: '{content.border.color}',
         gap: '0.5rem',
         buttonGap: '0.25rem'
