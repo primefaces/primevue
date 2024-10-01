@@ -13,34 +13,31 @@ export default {
         gap: '1rem'
     },
     stepHeader: {
-        padding: '0',
+        padding: '0.75rem 1rem',
         borderRadius: '{content.border.radius}',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         },
         gap: '0.5rem'
     },
     stepTitle: {
         color: '{text.muted.color}',
-        activeColor: '{primary.color}',
+        activeColor: '{text.color}',
         fontWeight: '500'
     },
     stepNumber: {
-        background: '{content.background}',
-        activeBackground: '{content.background}',
-        borderColor: '{content.border.color}',
-        activeBorderColor: '{content.border.color}',
-        color: '{text.muted.color}',
-        activeColor: '{primary.color}',
+        activeBackground: '{primary.color}',
+        activeBorderColor: '{primary.color}',
+        activeColor: '{primary.contrast.color}',
         size: '2rem',
         fontSize: '1.143rem',
         fontWeight: '500',
         borderRadius: '50%',
-        shadow: '0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12)'
+        shadow: 'none'
     },
     steppanels: {
         padding: '0.875rem 0.5rem 1.125rem 0.5rem'
@@ -49,5 +46,21 @@ export default {
         background: '{content.background}',
         color: '{content.color}',
         padding: '0 0 0 1rem'
-    }
+    },
+    colorScheme: {
+        light: {
+            stepNumber: {
+                background: '{surface.400}',
+                borderColor: '{surface.400}',
+                color: '{surface.0}'
+            }
+        },
+        dark: {}
+    },
+    style: ({ dt }) => `
+.p-step-header:focus-visible {
+    background: ${dt('content.focus.background')};
+}
+}
+`
 };

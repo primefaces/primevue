@@ -4,7 +4,7 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
-        padding: '0 1.125rem 1.125rem 1.125rem',
+        padding: '0 1.25rem 1.25rem 1.25rem',
         transitionDuration: '{transition.duration}'
     },
     legend: {
@@ -15,15 +15,15 @@ export default {
         borderRadius: '{content.border.radius}',
         borderWidth: '1px',
         borderColor: 'transparent',
-        padding: '0.5rem 0.75rem',
+        padding: '0.75rem 1rem',
         gap: '0.5rem',
         fontWeight: '600',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     toggleIcon: {
@@ -32,5 +32,11 @@ export default {
     },
     content: {
         padding: '0'
-    }
+    },
+    style: ({ dt }) => `
+.p-fieldset-toggle-button:focus-visible {
+    background: ${dt('content.focus.background')};
+
+}
+`
 };

@@ -9,67 +9,73 @@ export default {
     },
     tab: {
         background: 'transparent',
-        hoverBackground: 'transparent',
+        hoverBackground: '{content.hover.background}',
         activeBackground: 'transparent',
         borderWidth: '0 0 1px 0',
         borderColor: '{content.border.color}',
         hoverBorderColor: '{content.border.color}',
         activeBorderColor: '{primary.color}',
-        color: '{text.muted.color}',
+        color: '{text.color}',
         hoverColor: '{text.color}',
         activeColor: '{primary.color}',
-        padding: '1rem 1.125rem',
+        padding: '1rem 1.25rem',
         fontWeight: '600',
         margin: '0 0 -1px 0',
         gap: '0.5rem',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '-1px',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     tabpanel: {
         background: '{content.background}',
         color: '{content.color}',
-        padding: '0.875rem 1.125rem 1.125rem 1.125rem',
+        padding: '1.25rem 1.25rem 1.25rem 1.25rem',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: 'inset {focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     navButton: {
         background: '{content.background}',
         color: '{text.muted.color}',
         hoverColor: '{text.color}',
-        width: '2.5rem',
+        width: '3rem',
+        shadow: 'none',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '-1px',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     activeBar: {
-        height: '1px',
+        height: '2px',
         bottom: '-1px',
         background: '{primary.color}'
     },
-    colorScheme: {
-        light: {
-            navButton: {
-                shadow: '0px 0px 10px 50px rgba(255, 255, 255, 0.6)'
-            }
-        },
-        dark: {
-            navButton: {
-                shadow: '0px 0px 10px 50px color-mix(in srgb, {content.background}, transparent 50%)'
-            }
-        }
-    }
+    style: ({ dt }) => `
+.p-tab {
+    flex-grow: 1
+}
+
+.p-tabs-scrollable .p-tab {
+    flex-grow: 0
+}
+
+.p-tab:not(.p-disabled):focus-visible {
+    background: ${dt('content.focus.background')};
+}
+
+.p-tablist-nav-button:focus-visible {
+    background: ${dt('content.focus.background')};
+}
+`
 };

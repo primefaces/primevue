@@ -188,6 +188,7 @@ export default {
                 content: {
                     background: '{surface.0}',
                     hoverBackground: '{surface.100}',
+                    focusBackground: '{surface.200}',
                     borderColor: '{surface.300}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'

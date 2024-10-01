@@ -7,7 +7,7 @@ export default {
         borderColor: '{content.border.color}'
     },
     header: {
-        color: '{text.muted.color}',
+        color: '{text.color}',
         hoverColor: '{text.color}',
         activeColor: '{text.color}',
         padding: '1.25rem',
@@ -54,26 +54,24 @@ export default {
     transition: margin ${dt('accordion.transition.duration')};
 }
 
+.p-accordionpanel-active {
+    margin: 1rem 0;
+}
+
 .p-accordionpanel:first-child {
     border-top-left-radius: ${dt('content.border.radius')};
     border-top-right-radius: ${dt('content.border.radius')};
+    margin-top: 0;
 }
 
 .p-accordionpanel:last-child {
     border-bottom-left-radius: ${dt('content.border.radius')};
     border-bottom-right-radius: ${dt('content.border.radius')};
-}
-
-.p-accordionpanel-active {
-    margin: 1rem 0;
+    margin-bottom: 0;
 }
 
 .p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
-    background: ${dt('accordion.header.hover.background')};
-    color: ${dt('accordion.header.hover.color')};
+    background: ${dt('content.focus.background')};
 }
-
-
-
 `
 };

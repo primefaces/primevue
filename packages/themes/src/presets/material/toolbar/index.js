@@ -1,10 +1,24 @@
 export default {
     root: {
-        background: '{content.background}',
-        borderColor: '{content.border.color}',
-        borderRadius: '{content.border.radius}',
         color: '{content.color}',
+        borderRadius: '{content.border.radius}',
         gap: '0.5rem',
-        padding: '0.75rem'
+        padding: '1rem'
+    },
+    colorScheme: {
+        light: {
+            root: {
+                background: '{surface.100}',
+                borderColor: '{surface.100}'
+            }
+        },
+        dark: {
+            root: {
+                root: {
+                    background: '{surface.800}',
+                    borderColor: '{surface.800}'
+                }
+            }
+        }
     }
 };
