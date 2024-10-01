@@ -19,8 +19,7 @@ export default {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
             color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            offset: '{focus.ring.offset}'
         }
     },
     colorScheme: {
@@ -33,7 +32,10 @@ export default {
                 color: '{surface.600}'
             },
             removeIcon: {
-                color: '{surface.600}'
+                color: '{surface.600}',
+                focusRing: {
+                    shadow: '0 0 1px 4px {surface.300}'
+                }
             }
         },
         dark: {
@@ -45,7 +47,10 @@ export default {
                 color: '{surface.0}'
             },
             removeIcon: {
-                color: '{surface.0}'
+                color: '{surface.0}',
+                focusRing: {
+                    shadow: '0 0 1px 4px {surface.600}'
+                }
             }
         }
     }

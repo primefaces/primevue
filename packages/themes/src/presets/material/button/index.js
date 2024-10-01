@@ -486,31 +486,130 @@ export default {
     },
     style: ({ dt }) => `
 .p-button:focus-visible {
-    background: ${dt('button.primary.hover.background')};
+    background: ${dt('button.primary.active.background')};
+    border-color: ${dt('button.primary.active.background')};
 }
 
 .p-button-secondary:focus-visible {
-    background: ${dt('button.secondary.hover.background')};
+    background: ${dt('button.secondary.active.background')};
+    border-color: ${dt('button.secondary.active.background')};
 }
 
 .p-button-success:focus-visible {
-    background: ${dt('button.success.hover.background')};
+    background: ${dt('button.success.active.background')};
+    border-color: ${dt('button.success.active.background')};
+}
+
+.p-button-info:focus-visible {
+    background: ${dt('button.info.active.background')};
+    border-color: ${dt('button.info.active.background')};
 }
 
 .p-button-warn:focus-visible {
-    background: ${dt('button.warn.hover.background')};
+    background: ${dt('button.warn.active.background')};
+    border-color: ${dt('button.warn.active.background')};
 }
 
 .p-button-help:focus-visible {
-    background: ${dt('button.help.hover.background')};
+    background: ${dt('button.help.active.background')};
+    border-color: ${dt('button.help.active.background')};
 }
 
 .p-button-danger:focus-visible {
-    background: ${dt('button.danger.hover.background')};
+    background: ${dt('button.danger.active.background')};
+    border-color: ${dt('button.danger.active.background')};
 }
 
 .p-button-contrast:focus-visible {
-    background: ${dt('button.contrast.hover.background')};
+    background: ${dt('button.contrast.active.background')};
+    border-color: ${dt('button.contrast.active.background')};
+}
+
+.p-button-link:focus-visible {
+    background: color-mix(in srgb, ${dt('primary.color')}, transparent 84%);
+    border-color: transparent;
+}
+
+.p-button-text:focus-visible {
+    background: ${dt('button.text.primary.active.background')};
+    border-color: transparent;
+}
+
+.p-button-secondary.p-button-text:focus-visible {
+    background: ${dt('button.text.secondary.active.background')};
+    border-color: transparent;
+}
+
+.p-button-success.p-button-text:focus-visible {
+    background: ${dt('button.text.success.active.background')};
+    border-color: transparent;
+}
+
+.p-button-info.p-button-text:focus-visible {
+    background: ${dt('button.text.info.active.background')};
+    border-color: transparent;
+}
+
+.p-button-warn.p-button-text:focus-visible {
+    background: ${dt('button.text.warn.active.background')};
+    border-color: transparent;
+}
+
+.p-button-help.p-button-text:focus-visible {
+    background: ${dt('button.text.help.active.background')};
+    border-color: transparent;
+}
+
+.p-button-danger.p-button-text:focus-visible {
+    background: ${dt('button.text.danger.active.background')};
+    border-color: transparent;
+}
+
+.p-button-contrast.p-button-text:focus-visible {
+    background: ${dt('button.text.contrast.active.background')};
+    border-color: transparent;
+}
+
+.p-button-plain.p-button-text:focus-visible {
+    background: ${dt('button.text.plain.active.background')};
+    border-color: transparent;
+}
+
+.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.primary.active.background')};
+}
+
+.p-button-secondary.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.secondary.active.background')};
+    border-color: ${dt('button.outlined.secondary.border.color')};
+}
+
+.p-button-success.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.success.active.background')};
+}
+    
+.p-button-info.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.info.active.background')};
+}
+
+.p-button-warn.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.warn.active.background')};
+}
+
+.p-button-help.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.help.active.background')};
+}
+
+.p-button-danger.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.danger.active.background')};
+}
+
+.p-button-contrast.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.contrast.active.background')};
+}
+
+.p-button-plain.p-button-outlined:focus-visible {
+    background: ${dt('button.outlined.plain.active.background')};
 }
 `
 };
