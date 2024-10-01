@@ -107,7 +107,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Style class of the icon.
      */
-    iconClass?: string | undefined;
+    iconClass?: string | object | undefined;
     /**
      * Value of the badge.
      */
@@ -115,7 +115,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Style class of the badge.
      */
-    badgeClass?: string | undefined;
+    badgeClass?: string | object | undefined;
     /**
      * Severity type of the badge.
      */
