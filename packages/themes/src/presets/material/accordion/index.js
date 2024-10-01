@@ -71,7 +71,7 @@ export default {
 }
 
 .p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
-    background: ${dt('content.focus.background')};
+    background: ${dt('navigation.item.active.background')};
 }
 `
 };

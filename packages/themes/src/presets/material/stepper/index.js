@@ -59,7 +59,7 @@ export default {
     },
     style: ({ dt }) => `
 .p-step-header:focus-visible {
-    background: ${dt('content.focus.background')};
+    background: ${dt('navigation.item.active.background')};
 }
 }
 `

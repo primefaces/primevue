@@ -71,11 +71,11 @@ export default {
 }
 
 .p-tab:not(.p-disabled):focus-visible {
-    background: ${dt('content.focus.background')};
+    background: ${dt('navigation.item.active.background')};
 }
 
 .p-tablist-nav-button:focus-visible {
-    background: ${dt('content.focus.background')};
+    background: ${dt('navigation.item.active.background')};
 }
 `
 };

@@ -188,7 +188,6 @@ export default {
                 content: {
                     background: '{surface.0}',
                     hoverBackground: '{surface.100}',
-                    focusBackground: '{surface.200}',
                     borderColor: '{surface.300}',
                     color: '{text.color}',
                     hoverColor: '{text.hover.color}'
@@ -290,8 +289,8 @@ export default {
                     filledBackground: '{surface.800}',
                     filledHoverBackground: '{surface.700}',
                     filledFocusBackground: '{surface.800}',
-                    borderColor: '{surface.700}',
-                    hoverBorderColor: '{surface.600}',
+                    borderColor: '{surface.600}',
+                    hoverBorderColor: '{surface.400}',
                     focusBorderColor: '{primary.color}',
                     invalidBorderColor: '{red.300}',
                     color: '{surface.0}',
@@ -302,13 +301,13 @@ export default {
                     floatLabelActiveColor: '{surface.400}',
                     floatLabelInvalidColor: '{red.300}',
                     iconColor: '{surface.400}',
-                    shadow: '0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(18, 18, 23, 0.05)'
+                    shadow: 'none'
                 },
                 text: {
                     color: '{surface.0}',
                     hoverColor: '{surface.0}',
                     mutedColor: '{surface.400}',
-                    hoverMutedColor: '{surface.300}'
+                    hoverMutedColor: '{surface.400}'
                 },
                 content: {
                     background: '{surface.900}',
@@ -320,17 +319,17 @@ export default {
                 overlay: {
                     select: {
                         background: '{surface.900}',
-                        borderColor: '{surface.700}',
+                        borderColor: '{surface.900}',
                         color: '{text.color}'
                     },
                     popover: {
                         background: '{surface.900}',
-                        borderColor: '{surface.700}',
+                        borderColor: '{surface.900}',
                         color: '{text.color}'
                     },
                     modal: {
                         background: '{surface.900}',
-                        borderColor: '{surface.700}',
+                        borderColor: '{surface.900}',
                         color: '{text.color}'
                     }
                 },
@@ -344,7 +343,7 @@ export default {
                         selectedColor: '{highlight.color}',
                         selectedFocusColor: '{highlight.focus.color}',
                         icon: {
-                            color: '{surface.500}',
+                            color: '{surface.400}',
                             focusColor: '{surface.400}'
                         }
                     },
@@ -356,12 +355,12 @@ export default {
                 navigation: {
                     item: {
                         focusBackground: '{surface.800}',
-                        activeBackground: '{surface.800}',
+                        activeBackground: '{surface.700}',
                         color: '{text.color}',
                         focusColor: '{text.hover.color}',
                         activeColor: '{text.hover.color}',
                         icon: {
-                            color: '{surface.500}',
+                            color: '{surface.400}',
                             focusColor: '{surface.400}',
                             activeColor: '{surface.400}'
                         }
@@ -371,7 +370,7 @@ export default {
                         color: '{text.muted.color}'
                     },
                     submenuIcon: {
-                        color: '{surface.500}',
+                        color: '{surface.400}',
                         focusColor: '{surface.400}',
                         activeColor: '{surface.400}'
                     }

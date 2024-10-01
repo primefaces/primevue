@@ -77,7 +77,7 @@ export default {
     },
     style: ({ dt }) => `
 .p-megamenu-button:focus-visible {
-    background: ${dt('content.focus.background')};
+    background: ${dt('navigation.item.active.background')};
 }
 `
 };
