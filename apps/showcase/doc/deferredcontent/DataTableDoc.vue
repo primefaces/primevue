@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A practical example that loads only when table becomes visible in viewport.</p>
+        <p>A practical example that triggers a fetch when the table becomes visible in viewport.</p>
     </DocSectionText>
     <div class="card">
         <div style="height: 800px">Scroll down to lazy load a DataTable.</div>
