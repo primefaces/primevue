@@ -219,6 +219,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 $this.hide(el);
 
                 tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
+                el.removeEventListener('mouseenter', el.$_mouseenterevent);
+                setTimeout(() => el.addEventListener('mouseenter', el.$_mouseenterevent), 50);
             });
 
             this.bindScrollListener(el);
