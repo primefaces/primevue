@@ -176,13 +176,13 @@ const theme = ({ dt }) => `
 .p-cascadeselect-option-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     overflow: hidden;
     position: relative;
     padding: ${dt('cascadeselect.option.padding')};
 }
 
 .p-cascadeselect-group-icon {
-    margin-left: auto;
     font-size: ${dt('cascadeselect.option.icon.size')};
     width: ${dt('cascadeselect.option.icon.size')};
     height: ${dt('cascadeselect.option.icon.size')};
@@ -232,6 +232,7 @@ const classes = {
     ],
     optionContent: 'p-cascadeselect-option-content',
     optionText: 'p-cascadeselect-option-text',
+    groupIconContainer: 'p-cascadeselect-group-icon-container',
     groupIcon: 'p-cascadeselect-group-icon',
     optionList: 'p-cascadeselect-overlay p-cascadeselect-option-list'
 };

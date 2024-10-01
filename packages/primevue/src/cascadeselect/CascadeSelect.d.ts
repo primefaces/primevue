@@ -129,6 +129,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     optionList?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the group icon container's DOM element.
+     */
+    groupIconContainer?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the group icon's DOM element.
      */
     groupIcon?: CascadeSelectPassThroughOptionType;
