@@ -18,8 +18,8 @@
                 </div>
             </div>
             <div class="w-full md:w-2/12">
-                <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
-                <Divider layout="horizontal" class="flex md:hidden" align="center"><b>OR</b></Divider>
+                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
             </div>
             <div class="w-full md:w-5/12 flex items-center justify-center py-5">
                 <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
@@ -50,8 +50,8 @@ export default {
         </div>
     </div>
     <div class="w-full md:w-2/12">
-        <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
-        <Divider layout="horizontal" class="flex md:hidden" align="center"><b>OR</b></Divider>
+        <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+        <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
     </div>
     <div class="w-full md:w-5/12 flex items-center justify-center py-5">
         <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
@@ -76,8 +76,8 @@ export default {
                 </div>
             </div>
             <div class="w-full md:w-2/12">
-                <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
-                <Divider layout="horizontal" class="flex md:hidden" align="center"><b>OR</b></Divider>
+                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
             </div>
             <div class="w-full md:w-5/12 flex items-center justify-center py-5">
                 <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
@@ -107,8 +107,8 @@ export default {
                 </div>
             </div>
             <div class="w-full md:w-2/12">
-                <Divider layout="vertical" class="hidden md:flex"><b>OR</b></Divider>
-                <Divider layout="horizontal" class="flex md:hidden" align="center"><b>OR</b></Divider>
+                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
             </div>
             <div class="w-full md:w-5/12 flex items-center justify-center py-5">
                 <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
