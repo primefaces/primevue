@@ -540,6 +540,11 @@ export default {
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
 
+            if (this.locale === 'fr-FR' && (event.code === 'Comma' || event.code === 'NumpadDecimal') && !isDecimalSign) {
+                isDecimalSign = true
+                char = decimalSign
+            }
+
             if (event.code !== 'Enter') {
                 event.preventDefault();
             }
