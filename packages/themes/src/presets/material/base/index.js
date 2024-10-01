@@ -288,6 +288,7 @@ export default {
                     background: '{surface.950}',
                     disabledBackground: '{surface.700}',
                     filledBackground: '{surface.800}',
+                    filledHoverBackground: '{surface.700}',
                     filledFocusBackground: '{surface.800}',
                     borderColor: '{surface.700}',
                     hoverBorderColor: '{surface.600}',
