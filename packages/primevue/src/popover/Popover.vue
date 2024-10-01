@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { addStyle, absolutePosition, getOffset, addClass, focus, isClient, isTouchDevice, setAttribute } from '@primeuix/utils/dom';
-import { ZIndex } from '@primeuix/utils/zindex';
 import { $dt } from '@primeuix/styled';
+import { absolutePosition, addClass, addStyle, focus, getOffset, isClient, isTouchDevice, setAttribute } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import FocusTrap from 'primevue/focustrap';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -103,7 +103,6 @@ export default {
             this.selfClick = true;
         },
         onEnter(el) {
-            this.container.setAttribute(this.attributeSelector, '');
             addStyle(el, { position: 'absolute', top: '0', left: '0' });
             this.alignOverlay();
 
@@ -277,7 +276,7 @@ export default {
                 for (let breakpoint in this.breakpoints) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
-                            .p-popover[${this.attributeSelector}] {
+                            .p-popover[${this.$attrSelector}] {
                                 width: ${this.breakpoints[breakpoint]} !important;
                             }
                         }
@@ -298,11 +297,6 @@ export default {
                 originalEvent: event,
                 target: this.target
             });
-        }
-    },
-    computed: {
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     directives: {

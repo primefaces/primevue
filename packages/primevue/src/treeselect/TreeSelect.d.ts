@@ -210,10 +210,6 @@ export interface TreeSelectProps {
      */
     fluid?: boolean | undefined;
     /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
@@ -235,6 +231,43 @@ export interface TreeSelectProps {
      */
     metaKeySelection?: boolean | undefined;
     /**
+     * Whether to display loading indicator.
+     * @defaultValue false
+     */
+    loading?: boolean | undefined;
+    /**
+     * Icon to display when tree is loading.
+     */
+    loadingIcon?: string | undefined;
+    /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
+    /**
+     * When specified, displays an input field to filter the items.
+     * @defaultValue false
+     */
+    filter?: boolean | undefined;
+    /**
+     * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.
+     * @defaultValue label
+     */
+    filterBy?: string | ((node: TreeNode) => string) | undefined;
+    /**
+     * Mode for filtering.
+     * @defaultValue lenient
+     */
+    filterMode?: 'lenient' | 'strict' | undefined;
+    /**
+     * Placeholder text to show when filter input is empty.
+     */
+    filterPlaceholder?: string | undefined;
+    /**
+     * Locale to use in filtering. The default locale is the host environment's current locale.
+     */
+    filterLocale?: string | undefined;
+    /**
      * 	Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -250,6 +283,10 @@ export interface TreeSelectProps {
      * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */

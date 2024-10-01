@@ -31,6 +31,7 @@ const theme = ({ dt }) => `
 .p-carousel-prev-button,
 .p-carousel-next-button {
     align-self: center;
+    flex-shrink: 0;
 }
 
 .p-carousel-indicator-list {

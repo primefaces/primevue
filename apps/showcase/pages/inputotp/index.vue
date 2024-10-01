@@ -9,6 +9,7 @@ import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
 import SampleDoc from '@/doc/inputotp/SampleDoc.vue';
+import FilledDoc from '@/doc/inputotp/FilledDoc.vue';
 import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
 import PTComponent from '@/doc/inputotp/pt/index.vue';
 import ThemingDoc from '@/doc/inputotp/theming/index.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'integeronly',
                     label: 'Integer Only',
                     component: IntegerOnlyDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'template',

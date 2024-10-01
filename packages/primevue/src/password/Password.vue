@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             :type="inputType"
-            :class="[cx('pcInput'), inputClass]"
+            :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="modelValue"
             :aria-labelledby="ariaLabelledby"
@@ -18,13 +18,14 @@
             :disabled="disabled"
             :variant="variant"
             :invalid="invalid"
+            :autofocus="autofocus"
             @input="onInput"
             @focus="onFocus"
             @blur="onBlur"
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="inputProps"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
             :unstyled="unstyled"
         />
         <!-- TODO: hideicon and showicon slots are deprecated since v4.0-->
@@ -54,7 +55,7 @@
                             <div :class="cx('meter')" v-bind="ptm('meter')">
                                 <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
                             </div>
-                            <div :class="cx('info')" v-bind="ptm('info')">{{ infoText }}</div>
+                            <div :class="cx('meterText')" v-bind="ptm('meterText')">{{ infoText }}</div>
                         </div>
                     </slot>
                     <slot name="footer"></slot>

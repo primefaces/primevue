@@ -26,7 +26,6 @@
 import { setAttribute } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import ToastEventBus from 'primevue/toasteventbus';
 import BaseToast from './BaseToast.vue';
@@ -100,8 +99,6 @@ export default {
             this.messages = [];
         },
         onEnter() {
-            this.$refs.container.setAttribute(this.attributeSelector, '');
-
             if (this.autoZIndex) {
                 ZIndex.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
@@ -131,7 +128,7 @@ export default {
 
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
-                            .p-toast[${this.attributeSelector}] {
+                            .p-toast[${this.$attrSelector}] {
                                 ${breakpointStyle}
                             }
                         }
@@ -148,11 +145,7 @@ export default {
             }
         }
     },
-    computed: {
-        attributeSelector() {
-            return UniqueComponentId();
-        }
-    },
+
     components: {
         ToastMessage: ToastMessage,
         Portal: Portal

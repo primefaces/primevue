@@ -5,7 +5,7 @@
             :ref="inputRef"
             :id="inputId"
             role="combobox"
-            :class="[inputClass, cx('pcInput')]"
+            :class="[inputClass, cx('pcInputText')]"
             :style="inputStyle"
             :value="inputFieldValue"
             :placeholder="placeholder"
@@ -30,7 +30,7 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
         />
         <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
             <button
@@ -642,8 +642,6 @@ export default {
         this.bindMatchMediaListener();
 
         if (this.inline) {
-            this.overlay && this.overlay.setAttribute(this.attributeSelector, '');
-
             if (!this.disabled) {
                 this.preventFocus = true;
                 this.initFocusableCell();
@@ -875,7 +873,6 @@ export default {
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter(el) {
-            el.setAttribute(this.attributeSelector, '');
             const styles = !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
 
             addStyle(el, styles);
@@ -1911,6 +1908,11 @@ export default {
                 day = 1;
             }
 
+            if (this.currentView === 'year') {
+                day = 1;
+                month = 1;
+            }
+
             for (iFormat = 0; iFormat < format.length; iFormat++) {
                 if (literal) {
                     if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
@@ -2547,7 +2549,10 @@ export default {
                                 let spanIndex = null;
 
                                 for (let i = 0; i < focusableElements.length; i++) {
-                                    if (focusableElements[i].tagName === 'SPAN') spanIndex = i;
+                                    if (focusableElements[i].tagName === 'SPAN') {
+                                        spanIndex = i;
+                                        break;
+                                    }
                                 }
 
                                 focusableElements[spanIndex].focus();
@@ -2707,14 +2712,14 @@ export default {
                     for (let i = 0; i < responsiveOptions.length; i++) {
                         let { breakpoint, numMonths } = responsiveOptions[i];
                         let styles = `
-                            .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
+                            .p-datepicker-panel[${this.$attrSelector}] .p-datepicker-calendar:nth-child(${numMonths}) .p-datepicker-next-button {
                                 display: inline-flex;
                             }
                         `;
 
                         for (let j = numMonths; j < this.numberOfMonths; j++) {
                             styles += `
-                                .p-datepicker-panel[${this.attributeSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
+                                .p-datepicker-panel[${this.$attrSelector}] .p-datepicker-calendar:nth-child(${j + 1}) {
                                     display: none;
                                 }
                             `;
@@ -2937,9 +2942,6 @@ export default {
         },
         monthNames() {
             return this.$primevue.config.locale.monthNames;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         switchViewButtonDisabled() {
             return this.numberOfMonths > 1 || this.disabled;

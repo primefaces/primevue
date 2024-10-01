@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/cascadeselect/BasicDoc.vue';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/cascadeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
+import IftaLabelDoc from '@/doc/cascadeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc.vue';
@@ -48,14 +49,19 @@ export default {
                     component: LoadingStateDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'invalid',

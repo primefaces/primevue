@@ -34,6 +34,12 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken cascadeselect.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken cascadeselect.filled.focus.background

@@ -5,6 +5,8 @@
 <script>
 import AccessibilityDoc from '@/doc/iconfield/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/iconfield/BasicDoc.vue';
+import FloatLabelDoc from '@/doc/iconfield/FloatLabelDoc.vue';
+import IftaLabelDoc from '@/doc/iconfield/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/iconfield/ImportDoc.vue';
 import TemplateDoc from '@/doc/iconfield/TemplateDoc.vue';
 import PTComponent from '@/doc/iconfield/pt/index.vue';
@@ -28,6 +30,16 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'accessibility',

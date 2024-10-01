@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -93,13 +93,13 @@ export default {
             code: {
                 basic: `
 <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-    :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
     </div>
 </template>
 
@@ -191,7 +191,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
     </div>
 </template>
 

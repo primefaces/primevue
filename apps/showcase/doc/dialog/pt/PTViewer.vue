@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Dialog v-model:visible="visible" appendTo="#doc-ptviewer" header="Edit Profile" maximizable pt:mask="!relative" :draggable="false" class="!my-auto" :style="{ width: '25rem' }">
             <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
             <div class="flex items-center gap-4 mb-4">
@@ -28,7 +27,7 @@ export default {
     data() {
         return {
             visible: true,
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Dialog'),
                     key: 'Dialog'

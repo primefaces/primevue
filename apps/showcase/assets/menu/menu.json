@@ -96,11 +96,6 @@
                             "to": "/editor"
                         },
                         {
-                            "name": "IftaLabel",
-                            "to": "/iftalabel",
-                            "badge": "NEW"
-                        },
-                        {
                             "name": "FloatLabel",
                             "to": "/floatlabel",
                             "badge": "NEW"
@@ -108,6 +103,11 @@
                         {
                             "name": "IconField",
                             "to": "/iconfield"
+                        },
+                        {
+                            "name": "IftaLabel",
+                            "to": "/iftalabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "InputGroup",
@@ -128,6 +128,11 @@
                         {
                             "name": "InputText",
                             "to": "/inputtext"
+                        },
+                        {
+                            "name": "KeyFilter",
+                            "to": "/keyfilter",
+                            "badge": "NEW"
                         },
                         {
                             "name": "Knob",
@@ -452,20 +457,20 @@
                             "to": "/metergroup"
                         },
                         {
-                            "name": "ScrollTop",
-                            "to": "/scrolltop"
-                        },
-                        {
-                            "name": "Skeleton",
-                            "to": "/skeleton"
-                        },
-                        {
                             "name": "ProgressBar",
                             "to": "/progressbar"
                         },
                         {
                             "name": "ProgressSpinner",
                             "to": "/progressspinner"
+                        },
+                        {
+                            "name": "ScrollTop",
+                            "to": "/scrolltop"
+                        },
+                        {
+                            "name": "Skeleton",
+                            "to": "/skeleton"
                         },
                         {
                             "name": "Ripple",

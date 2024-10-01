@@ -3,9 +3,10 @@
         v-model:visible="visible"
         role="alertdialog"
         :class="cx('root')"
-        :modal="true"
+        :modal="modal"
         :header="header"
         :blockScroll="blockScroll"
+        :appendTo="appendTo"
         :position="position"
         :breakpoints="breakpoints"
         :closeOnEscape="closeOnEscape"
@@ -125,6 +126,15 @@ export default {
         }
     },
     computed: {
+        appendTo() {
+            return this.confirmation ? this.confirmation.appendTo : 'body';
+        },
+        target() {
+            return this.confirmation ? this.confirmation.target : null;
+        },
+        modal() {
+            return this.confirmation ? (this.confirmation.modal == null ? true : this.confirmation.modal) : true;
+        },
         header() {
             return this.confirmation ? this.confirmation.header : null;
         },

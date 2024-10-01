@@ -14,9 +14,12 @@
 import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
+import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
+import LazyDoc from '@/doc/treeselect/LazyDoc.vue';
+import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc.vue';
@@ -48,14 +51,29 @@ export default {
                     component: CheckboxDoc
                 },
                 {
-                    id: 'floatlabel',
-                    label: 'Float Label',
-                    component: FloatLabelDoc
+                    id: 'lazy',
+                    label: 'Lazy',
+                    component: LazyDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
                 },
                 {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'invalid',

@@ -49,7 +49,7 @@
             :disabled="disabled"
             :ariaLabel="ariaLabel"
             :ariaLabelledby="ariaLabelledby"
-            :pt="ptm('pcList')"
+            :pt="ptm('pcListbox')"
             :unstyled="unstyled"
             @focus="onListFocus"
             @blur="onListBlur"
@@ -67,9 +67,9 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { find, findSingle, scrollInView, setAttribute } from '@primeuix/utils/dom';
 import { findIndexInList, isNotEmpty } from '@primeuix/utils/object';
+import { UniqueComponentId } from '@primevue/core/utils';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleUpIcon from '@primevue/icons/angledoubleup';
 import AngleDownIcon from '@primevue/icons/angledown';
@@ -259,7 +259,6 @@ export default {
         },
         createStyle() {
             if (!this.styleElement && !this.isUnstyled) {
-                this.$el.setAttribute(this.attributeSelector, '');
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
@@ -267,11 +266,11 @@ export default {
 
                 let innerHTML = `
 @media screen and (max-width: ${this.breakpoint}) {
-    .p-orderlist[${this.attributeSelector}] {
+    .p-orderlist[${this.$attrSelector}] {
         flex-direction: column;
     }
 
-    .p-orderlist[${this.attributeSelector}] .p-orderlist-controls {
+    .p-orderlist[${this.$attrSelector}] .p-orderlist-controls {
         flex-direction: row;
     }
 }
@@ -291,9 +290,6 @@ export default {
         }
     },
     computed: {
-        attributeSelector() {
-            return UniqueComponentId();
-        },
         moveUpAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.moveUp : undefined;
         },

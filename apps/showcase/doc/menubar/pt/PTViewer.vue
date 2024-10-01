@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Menubar :model="items" />
     </DocPTViewer>
 </template>
@@ -57,7 +56,7 @@ export default {
                     icon: 'pi pi-envelope'
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Menubar'),
                     key: 'Menubar'

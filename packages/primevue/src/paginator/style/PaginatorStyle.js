@@ -141,7 +141,7 @@ const classes = {
     current: 'p-paginator-current',
     pcRowPerPageDropdown: 'p-paginator-rpp-dropdown',
     pcJumpToPageDropdown: 'p-paginator-jtp-dropdown',
-    pcJumpToPageInput: 'p-paginator-jtp-input'
+    pcJumpToPageInputText: 'p-paginator-jtp-input'
 };
 
 export default BaseStyle.extend({

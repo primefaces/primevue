@@ -1,3 +1,5 @@
+import AppTheme from '@/themes/app-theme';
+import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
@@ -22,9 +24,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     nuxtApp.vueApp.use($appState);
 
     if (runtimeConfig.public.DEV_ENV === 'hot') {
-        const { default: PrimeVue } = await import('primevue/config');
-        const { default: Noir } = await import('@/themes/app-theme');
-
-        nuxtApp.vueApp.use(PrimeVue, { theme: Noir });
+        nuxtApp.vueApp.use(PrimeVue, {
+            theme: AppTheme
+        });
     }
 });

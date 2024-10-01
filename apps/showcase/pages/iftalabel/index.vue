@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Ifta Label" header="IftaLabel" description="IftaLabel visually integrates a label within its form element." :componentDocs="docs" :ptTabComponent="ptComponent" :apiDocs="['IftaLabel']" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Ifta Label" header="IftaLabel" description="IftaLabel is used to create infield top aligned labels" :componentDocs="docs" :ptTabComponent="ptComponent" :apiDocs="['IftaLabel']" :themingDocs="themingDoc" />
 </template>
 
 <script>

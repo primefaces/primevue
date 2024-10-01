@@ -6,7 +6,7 @@
             selection.
         </p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
@@ -26,7 +26,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>
@@ -38,7 +38,8 @@ import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
-            nodes: null
+            nodes: null,
+            selectedKey: null,
         };
     },
     mounted() {
@@ -57,7 +58,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>

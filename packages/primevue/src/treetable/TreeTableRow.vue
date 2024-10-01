@@ -14,8 +14,10 @@
         @click="onClick"
         @keydown="onKeyDown"
         @touchend="onTouchEnd"
+        @contextmenu="onRowRightClick"
         v-bind="ptm('row', ptmOptions)"
         :data-p-selected="selected"
+        :data-p-selected-contextmenu="contextMenuSelection && isSelectedWithContextMenu"
     >
         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
             <TTBodyCell
@@ -51,12 +53,15 @@
             :expandedKeys="expandedKeys"
             :selectionMode="selectionMode"
             :selectionKeys="selectionKeys"
+            :contextMenu="contextMenu"
+            :contextMenuSelection="contextMenuSelection"
             :indentation="indentation"
             :ariaPosInset="node.children.indexOf(childNode) + 1"
             :ariaSetSize="node.children.length"
             :templates="templates"
             @node-toggle="$emit('node-toggle', $event)"
             @node-click="$emit('node-click', $event)"
+            @row-rightclick="$emit('row-rightclick', $event)"
             @checkbox-change="onCheckboxChange"
             :unstyled="unstyled"
             :pt="pt"
@@ -66,7 +71,7 @@
 
 <script>
 import { find, findSingle, focus, getAttribute, isClickable } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
+import { equals, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
 import BodyCell from './BodyCell.vue';
@@ -75,7 +80,7 @@ export default {
     name: 'TreeTableRow',
     hostName: 'TreeTable',
     extends: BaseComponent,
-    emits: ['node-click', 'node-toggle', 'checkbox-change', 'nodeClick', 'nodeToggle', 'checkboxChange'],
+    emits: ['node-click', 'node-toggle', 'checkbox-change', 'nodeClick', 'nodeToggle', 'checkboxChange', 'row-rightclick', 'rowRightclick'],
     props: {
         node: {
             type: null,
@@ -132,6 +137,14 @@ export default {
         templates: {
             type: Object,
             default: null
+        },
+        contextMenu: {
+            type: Boolean,
+            default: false
+        },
+        contextMenuSelection: {
+            type: Object,
+            default: null
         }
     },
     nodeTouched: false,
@@ -155,6 +168,12 @@ export default {
                 node: this.node
             });
             this.nodeTouched = false;
+        },
+        onRowRightClick(event) {
+            this.$emit('row-rightclick', {
+                originalEvent: event,
+                node: this.node
+            });
         },
         onTouchEnd() {
             this.nodeTouched = true;
@@ -425,6 +444,13 @@ export default {
         },
         selected() {
             return this.selectionMode && this.selectionKeys ? this.selectionKeys[this.nodeKey(this.node)] === true : false;
+        },
+        isSelectedWithContextMenu() {
+            if (this.node && this.contextMenuSelection) {
+                return equals(this.node, this.contextMenuSelection, this.dataKey);
+            }
+
+            return false;
         },
         checked() {
             return this.selectionKeys ? this.selectionKeys[this.nodeKey(this.node)] && this.selectionKeys[this.nodeKey(this.node)].checked : false;

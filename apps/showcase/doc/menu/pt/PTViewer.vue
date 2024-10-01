@@ -1,6 +1,5 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
-    <DocPTViewer :docs="ptViewerDoc">
+    <DocPTViewer :docs="docs">
         <Menu :model="items" />
     </DocPTViewer>
 </template>
@@ -42,7 +41,7 @@ export default {
                     ]
                 }
             ],
-            ptViewerDoc: [
+            docs: [
                 {
                     data: getPTOptions('Menu'),
                     key: 'Menu'

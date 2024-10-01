@@ -6,10 +6,11 @@ export default {
         transitionDuration: '0.2s',
         positionX: '{form.field.padding.x}',
         top: '{form.field.padding.y}',
-        fontSize: '0.875rem',
+        fontSize: '0.75rem',
         fontWeight: '400'
     },
     input: {
-        paddingTop: '1.875rem'
+        paddingTop: '1.875rem',
+        paddingBottom: '{form.field.padding.y}'
     }
 };

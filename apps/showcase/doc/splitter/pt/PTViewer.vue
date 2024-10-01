@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Splitter style="height: 300px" class="w-full">
             <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>

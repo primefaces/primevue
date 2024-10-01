@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" :invalid="value === ''" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,16 +13,19 @@
 export default {
     data() {
         return {
-            value: '',
+            value1: '',
+            value2: '',
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" :suggestions="items" @complete="search" :invalid="value === ''"/>
+<AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" />
+<AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" :invalid="value === ''"/>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" />
     </div>
 </template>
 
@@ -29,7 +33,8 @@ export default {
 export default {
     data() {
         return {
-            value: '',
+            value1: '',
+                value2: '',
             items: []
         };
     },
@@ -43,15 +48,17 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <AutoComplete v-model="value" :suggestions="items" @complete="search" :invalid="value === ''"/>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const value = ref("");
+const value1 = ref('');
+const value2 = ref('');
 const items = ref([]);
 
 const search = (event) => {

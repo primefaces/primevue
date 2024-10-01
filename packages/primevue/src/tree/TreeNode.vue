@@ -18,8 +18,8 @@
             <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <!-- TODO: nodetogglericon deprecated since v4.0-->
-                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :class="cx('nodeToggleIcon')" />
-                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodeToggleIcon')" />
+                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
                 <template v-else>
                     <!-- TODO: togglericon deprecated since v4.0-->
@@ -28,7 +28,17 @@
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
             </button>
-            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :indeterminate="partialChecked" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-partialchecked="partialChecked">
+            <Checkbox
+                v-if="checkboxMode"
+                :modelValue="checked"
+                :binary="true"
+                :indeterminate="partialChecked"
+                :class="cx('nodeCheckbox')"
+                :tabindex="-1"
+                :unstyled="unstyled"
+                :pt="getPTOptions('pcNodeCheckbox')"
+                :data-p-partialchecked="partialChecked"
+            >
                 <template #icon="slotProps">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                 </template>
@@ -127,10 +137,12 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
+                    node: this.node,
                     index: this.index,
                     expanded: this.expanded,
                     selected: this.selected,
                     checked: this.checked,
+                    partialChecked: this.partialChecked,
                     leaf: this.leaf
                 }
             });

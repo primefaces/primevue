@@ -20,12 +20,15 @@ const theme = ({ dt }) => `
     transition-duration: ${dt('iftalabel.transition.duration')};
 }
 
-.p-iftalabel .p-inputtext {
+.p-iftalabel .p-inputtext,
+.p-iftalabel .p-textarea,
+.p-iftalabel .p-select-label,
+.p-iftalabel .p-multiselect-label,
+.p-iftalabel .p-autocomplete-input-multiple,
+.p-iftalabel .p-cascadeselect-label,
+.p-iftalabel .p-treeselect-label {
     padding-top: ${dt('iftalabel.input.padding.top')};
-}
-
-.p-iftalabel:has(textarea) label {
-    top: 1rem;
+    padding-bottom: ${dt('iftalabel.input.padding.bottom')};
 }
 
 .p-iftalabel:has(.p-invalid) label {
@@ -39,7 +42,13 @@ const theme = ({ dt }) => `
     color: ${dt('iftalabel.focus.color')};
 }
 
-.p-iftalabel .p-placeholder,
+.p-iftalabel .p-inputicon {
+    top: ${dt('iftalabel.input.padding.top')};
+    transform: translateY(25%);
+    margin-top: 0;
+}
+
+/*.p-iftalabel .p-placeholder,
 .p-iftalabel input::placeholder,
 .p-iftalabel .p-inputtext::placeholder {
     opacity: 0;
@@ -53,7 +62,7 @@ const theme = ({ dt }) => `
     opacity: 1;
     transition-property: all;
     transition-timing-function: ease;
-}
+}*/
 `;
 
 const classes = {

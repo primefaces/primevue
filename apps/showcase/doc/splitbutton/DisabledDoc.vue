@@ -26,12 +26,14 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
-                { label: 'Upload', to: '/fileupload' }
+                }
             ],
             code: {
                 basic: `
@@ -63,12 +65,14 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
-                { label: 'Upload', to: '/fileupload' }
+                }
             ]
         };
     },
@@ -105,12 +109,14 @@ const items = [
         }
     },
     {
-        label: 'Vue Website',
+        separator: true
+    },
+    {
+        label: 'Quit',
         command: () => {
             window.location.href = 'https://vuejs.org/';
         }
-    },
-    { label: 'Upload', to: '/fileupload' }
+    }
 ];
 
 const save = () => {

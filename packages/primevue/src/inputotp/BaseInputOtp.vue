@@ -8,7 +8,7 @@ export default {
     props: {
         modelValue: {
             type: null,
-            default: false
+            default: null
         },
         invalid: {
             type: Boolean,

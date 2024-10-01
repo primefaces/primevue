@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>Tree component requires an array of TreeNode objects as its <i>value</i>.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
@@ -10,6 +10,7 @@
 
 <script>
 import { NodeService } from '@/service/NodeService';
+
 export default {
     data() {
         return {
@@ -20,7 +21,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
@@ -36,13 +37,13 @@ export default {
     },
     mounted() {
         NodeService.getTreeNodes().then((data) => (this.nodes = data));
-    } 
+    }
 }
 <\/script>
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>

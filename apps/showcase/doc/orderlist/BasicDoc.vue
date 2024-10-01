@@ -3,7 +3,7 @@
         <p>OrderList requires an array as its value bound with the <i>v-model</i> directive and <i>option</i> template for its content.</p>
     </DocSectionText>
     <div class="card sm:flex sm:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcListbox:root="w-full sm:w-56">
             <template #option="{ option }">
                 {{ option.name }}
             </template>
@@ -21,7 +21,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
+<OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcListbox:root="w-full sm:w-56">
     <template #option="{ option }">
         {{ option.name }}
     </template>
@@ -30,7 +30,7 @@ export default {
                 options: `
 <template>
     <div class="card sm:flex sm:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcListbox:root="w-full sm:w-56">
             <template #option="{ option }">
                 {{ option.name }}
             </template>
@@ -55,7 +55,7 @@ export default {
                 composition: `
 <template>
     <div class="card sm:flex sm:justify-center">
-        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcList:root="w-full sm:w-56">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcListbox:root="w-full sm:w-56">
             <template #option="{ option }">
                 {{ option.name }}
             </template>

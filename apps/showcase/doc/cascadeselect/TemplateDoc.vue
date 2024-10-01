@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            CascadeSelect is used as a controlled component with <i>v-model</i> property along with an <i>options</i> collection. To define the label of a group <i>optionGroupLabel</i> property is needed and also <i>optionGroupChildren</i> is
-            required to define the property that refers to the children of a group. Note that order of the <i>optionGroupChildren</i> matters as it should correspond to the data hierarchy.
+            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>value</i>, <i>dropdownicon</i>,
+            <i>loadingicon</i>, and <i>optiongroupicon</i> slots are provided for further customization.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${slotProps.option.code.toLowerCase()} mr-2`" style="width: 18px" />
@@ -14,6 +14,9 @@
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
                     <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
                 </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map-marker"></i>
             </template>
         </CascadeSelect>
     </div>
@@ -102,7 +105,7 @@ export default {
             code: {
                 basic: `
 <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-    :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
     <template #option="slotProps">
         <div class="flex items-center">
             <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
@@ -111,13 +114,16 @@ export default {
             <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
         </div>
     </template>
+    <template #dropdownicon>
+        <i class="pi pi-map-marker"></i>
+    </template>
 </CascadeSelect>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
@@ -125,6 +131,9 @@ export default {
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
                     <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
                 </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map-marker"></i>
             </template>
         </CascadeSelect>
     </div>
@@ -218,7 +227,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
-            :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City">
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
             <template #option="slotProps">
                 <div class="flex items-center">
                     <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
@@ -226,6 +235,9 @@ export default {
                     <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
                     <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
                 </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map-marker"></i>
             </template>
         </CascadeSelect>
     </div>

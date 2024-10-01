@@ -98,4 +98,24 @@ describe('DatePicker.vue', () => {
 
         expect(wrapper.find('.p-datepicker-other-month span').exists()).toBe(true);
     });
+
+    it('should correctly set the year when view="year" and value is set via the input', async () => {
+        const dateOne = new Date();
+        const dateTwo = new Date();
+
+        dateTwo.setFullYear(1988, 5, 15);
+
+        await wrapper.setProps({ view: 'year', dateFormat: 'yy', modelValue: dateOne });
+
+        const input = wrapper.find('.p-datepicker-input');
+
+        await input.trigger('focus');
+
+        expect(wrapper.find('.p-datepicker-decade').exists()).toBe(true);
+        expect(wrapper.find('.p-datepicker-decade').text()).toBe('2020 - 2029');
+
+        await wrapper.setProps({ modelValue: dateTwo });
+
+        expect(wrapper.find('.p-datepicker-decade').text()).toBe('1980 - 1989');
+    });
 });

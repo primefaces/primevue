@@ -52,33 +52,49 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
          */
         positionX?: string;
         /**
+         * Position y of root
+         *
+         * @designToken floatlabel.position.y
+         */
+        positionY?: string;
+        /**
          * Font weight of root
          *
          * @designToken floatlabel.font.weight
          */
         fontWeight?: string;
         /**
-         * Focus of root
+         * Active of root
          */
-        focus?: {
+        active?: {
             /**
-             * Focus top of root
+             * Active font size of root
              *
-             * @designToken floatlabel.focus.top
-             */
-            top?: string;
-            /**
-             * Focus font size of root
-             *
-             * @designToken floatlabel.focus.font.size
+             * @designToken floatlabel.active.font.size
              */
             fontSize?: string;
             /**
-             * Focus font weight of root
+             * Active font weight of root
              *
-             * @designToken floatlabel.focus.font.weight
+             * @designToken floatlabel.active.font.weight
              */
             fontWeight?: string;
+        };
+    };
+    /**
+     * Used to pass tokens of the over section
+     */
+    over?: {
+        /**
+         * Active of over
+         */
+        active?: {
+            /**
+             * Active top of over
+             *
+             * @designToken floatlabel.over.active.top
+             */
+            top?: string;
         };
     };
     /**
@@ -95,15 +111,21 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
              * @designToken floatlabel.in.input.padding.top
              */
             paddingTop?: string;
+            /**
+             * Input padding bottom of in
+             *
+             * @designToken floatlabel.in.input.padding.bottom
+             */
+            paddingBottom?: string;
         };
         /**
-         * Focus of in
+         * Active of in
          */
-        focus?: {
+        active?: {
             /**
-             * Focus top of in
+             * Active top of in
              *
-             * @designToken floatlabel.in.focus.top
+             * @designToken floatlabel.in.active.top
              */
             top?: string;
         };
@@ -113,36 +135,25 @@ export interface FloatLabelDesignTokens extends ColorSchemeDesignToken<FloatLabe
      */
     on?: {
         /**
-         * Input of on
+         * Border radius of on
+         *
+         * @designToken floatlabel.on.border.radius
          */
-        input?: {
-            /**
-             * Input padding top of on
-             *
-             * @designToken floatlabel.on.input.padding.top
-             */
-            paddingTop?: string;
-            /**
-             * Input padding bottom of on
-             *
-             * @designToken floatlabel.on.input.padding.bottom
-             */
-            paddingBottom?: string;
-        };
+        borderRadius?: string;
         /**
-         * Focus of on
+         * Active of on
          */
-        focus?: {
+        active?: {
             /**
-             * Focus background of on
+             * Active background of on
              *
-             * @designToken floatlabel.on.focus.background
+             * @designToken floatlabel.on.active.background
              */
             background?: string;
             /**
-             * Focus padding of on
+             * Active padding of on
              *
-             * @designToken floatlabel.on.focus.padding
+             * @designToken floatlabel.on.active.padding
              */
             padding?: string;
         };

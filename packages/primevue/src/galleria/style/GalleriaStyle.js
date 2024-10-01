@@ -27,7 +27,7 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-nav-button {
-    position: absolute;
+    position: absolute !important;
     top: 50%;
     display: inline-flex;
     justify-content: center;
@@ -344,7 +344,7 @@ const theme = ({ dt }) => `
 }
 
 .p-galleria-close-button {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     display: flex;
@@ -484,7 +484,7 @@ const classes = {
     ],
     thumbnail: 'p-galleria-thumbnail',
     thumbnailNextButton: ({ instance }) => [
-        'p-galleria-thumbnail-next-button  p-galleria-thumbnail-nav-button',
+        'p-galleria-thumbnail-next-button p-galleria-thumbnail-nav-button',
         {
             'p-disabled': instance.isNavForwardDisabled()
         }

@@ -19,6 +19,7 @@ import FilledDoc from '@/doc/multiselect/FilledDoc.vue';
 import FilterDoc from '@/doc/multiselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
+import IftaLabelDoc from '@/doc/multiselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/multiselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc.vue';
@@ -72,14 +73,19 @@ export default {
                     component: VirtualScrollDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'invalid',

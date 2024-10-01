@@ -65,7 +65,7 @@
                 />
             </template>
         </template>
-        <DTBodyRow v-else :empty="empty" :columns="columns" :templates="templates" />
+        <DTBodyRow v-else :empty="empty" :columns="columns" :templates="templates" :unstyled="unstyled" :pt="pt" />
     </tbody>
 </template>
 

@@ -68,7 +68,7 @@ export interface InputOtpPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>;
+    pcInputText?: InputTextPassThroughOptions<InputOtpSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -140,7 +140,7 @@ export interface InputOtpTemplateEvents {
 export interface InputOtpProps {
     /**
      * Specifies whether a inputotp should be checked or not.
-     * @defaultValue false
+     * @defaultValue null
      */
     modelValue?: boolean | string | undefined;
     /**

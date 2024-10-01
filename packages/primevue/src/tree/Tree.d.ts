@@ -152,7 +152,7 @@ export interface TreePassThroughOptions<T = any> {
     /**
      * Used to pass attributes to the checkbox's DOM element.
      */
-    nodeCheckbox?: TreePassThroughOptionType<T>;
+    pcNodeCheckbox?: TreePassThroughOptionType<T>;
     /**
      * Used to pass attributes to the node icon's DOM element.
      */
@@ -206,6 +206,10 @@ export interface TreeState {
  */
 export interface TreeContext {
     /**
+     * Current tree node instance
+     */
+    node: TreeNode;
+    /**
      * Index of the node.
      */
     index: number;
@@ -224,6 +228,11 @@ export interface TreeContext {
      * @defaultValue false
      */
     checked: boolean;
+    /**
+     * Current partial checked state of the node as a boolean.
+     * @defaultValue false
+     */
+    partialChecked: boolean;
     /**
      * Current leaf state of the node as a boolean.
      * @defaultValue false
@@ -277,10 +286,10 @@ export interface TreeProps {
      */
     filter?: boolean | undefined;
     /**
-     * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against.
+     * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.
      * @defaultValue label
      */
-    filterBy?: string | undefined;
+    filterBy?: string | ((node: TreeNode) => string) | undefined;
     /**
      * Mode for filtering.
      * @defaultValue lenient

@@ -46,6 +46,7 @@ import type { FluidPassThroughOptions } from 'primevue/fluid';
 import type { FocusTrapDirectivePassThroughOptions } from 'primevue/focustrap';
 import type { GalleriaPassThroughOptions } from 'primevue/galleria';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
+import type { IftaLabelPassThroughOptions } from 'primevue/iftalabel';
 import type { ImagePassThroughOptions } from 'primevue/image';
 import type { InlineMessagePassThroughOptions } from 'primevue/inlinemessage';
 import type { InplacePassThroughOptions } from 'primevue/inplace';
@@ -58,6 +59,7 @@ import type { InputNumberPassThroughOptions } from 'primevue/inputnumber';
 import type { InputOtpPassThroughOptions } from 'primevue/inputotp';
 import type { InputSwitchPassThroughOptions } from 'primevue/inputswitch';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
+import type { KeyFilterDirectivePassThroughOptions } from 'primevue/keyfilter';
 import type { KnobPassThroughOptions } from 'primevue/knob';
 import type { ListboxPassThroughOptions } from 'primevue/listbox';
 import type { MegaMenuPassThroughOptions } from 'primevue/megamenu';
@@ -201,6 +203,7 @@ export interface PrimeVuePTOptions {
     fluid?: DefaultPassThrough<FluidPassThroughOptions>;
     galleria?: DefaultPassThrough<GalleriaPassThroughOptions>;
     iconfield?: DefaultPassThrough<IconFieldPassThroughOptions>;
+    iftalabel?: DefaultPassThrough<IftaLabelPassThroughOptions>;
     image?: DefaultPassThrough<ImagePassThroughOptions>;
     inlinemessage?: DefaultPassThrough<InlineMessagePassThroughOptions>;
     inplace?: DefaultPassThrough<InplacePassThroughOptions>;
@@ -287,12 +290,13 @@ export interface PrimeVuePTOptions {
     treetable?: DefaultPassThrough<TreeTablePassThroughOptions>;
     virtualscroller?: DefaultPassThrough<VirtualScrollerPassThroughOptions>;
     directives?: {
-        badge?: BadgeDirectivePassThroughOptions;
-        tooltip?: TooltipDirectivePassThroughOptions;
-        styleclass?: StyleClassDirectivePassThroughOptions;
-        focustrap?: FocusTrapDirectivePassThroughOptions;
-        ripple?: RippleDirectivePassThroughOptions;
         animate?: AnimateOnScrollDirectivePassThroughOptions;
+        badge?: BadgeDirectivePassThroughOptions;
+        focustrap?: FocusTrapDirectivePassThroughOptions;
+        keyfilter?: KeyFilterDirectivePassThroughOptions;
+        ripple?: RippleDirectivePassThroughOptions;
+        styleclass?: StyleClassDirectivePassThroughOptions;
+        tooltip?: TooltipDirectivePassThroughOptions;
     };
     global?: {
         css?: ((options: any) => string | undefined) | string | undefined;

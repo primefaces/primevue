@@ -6,7 +6,7 @@
         <div class="card">
             <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
                 <template #header>
-                    <div style="text-align: left">
+                    <div class="text-end pb-4">
                         <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                     </div>
                 </template>
@@ -31,7 +31,7 @@ export default {
                 basic: `
 <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
     <template #header>
-        <div style="text-align: left">
+        <div class="text-end pb-4">
             <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
         </div>
     </template>
@@ -46,7 +46,7 @@ export default {
     <div>
         <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
             <template #header>
-                <div style="text-align: left">
+                <div class="text-end pb-4">
                     <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>
@@ -84,7 +84,7 @@ export default {
     <div>
         <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
             <template #header>
-                <div style="text-align: left">
+                <div class="text-end pb-4">
                     <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
                 </div>
             </template>

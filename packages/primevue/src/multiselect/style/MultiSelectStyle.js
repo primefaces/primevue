@@ -31,6 +31,10 @@ const theme = ({ dt }) => `
     background: ${dt('multiselect.filled.background')};
 }
 
+.p-multiselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('multiselect.filled.hover.background')};
+}
+
 .p-multiselect.p-variant-filled.p-focus {
     background: ${dt('multiselect.filled.focus.background')};
 }

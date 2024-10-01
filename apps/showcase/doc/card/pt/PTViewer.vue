@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <Card style="width: 25rem">
             <template #title>Advanced Card</template>

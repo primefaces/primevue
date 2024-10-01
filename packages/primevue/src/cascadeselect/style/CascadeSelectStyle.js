@@ -24,11 +24,15 @@ const theme = ({ dt }) => `
     border-color: ${dt('cascadeselect.focus.border.color')};
     box-shadow: ${dt('cascadeselect.focus.ring.shadow')};
     outline: ${dt('cascadeselect.focus.ring.width')} ${dt('cascadeselect.focus.ring.style')} ${dt('cascadeselect.focus.ring.color')};
-    outline-offset: ${dt('multiscascadeselectelect.focus.ring.offset')};
+    outline-offset: ${dt('cascadeselect.focus.ring.offset')};
 }
 
 .p-cascadeselect.p-variant-filled {
     background: ${dt('cascadeselect.filled.background')};
+}
+
+.p-cascadeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('cascadeselect.filled.hover.background')};
 }
 
 .p-cascadeselect.p-variant-filled.p-focus {
@@ -172,13 +176,13 @@ const theme = ({ dt }) => `
 .p-cascadeselect-option-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     overflow: hidden;
     position: relative;
     padding: ${dt('cascadeselect.option.padding')};
 }
 
 .p-cascadeselect-group-icon {
-    margin-left: auto;
     font-size: ${dt('cascadeselect.option.icon.size')};
     width: ${dt('cascadeselect.option.icon.size')};
     height: ${dt('cascadeselect.option.icon.size')};
@@ -228,6 +232,7 @@ const classes = {
     ],
     optionContent: 'p-cascadeselect-option-content',
     optionText: 'p-cascadeselect-option-text',
+    groupIconContainer: 'p-cascadeselect-group-icon-container',
     groupIcon: 'p-cascadeselect-group-icon',
     optionList: 'p-cascadeselect-overlay p-cascadeselect-option-list'
 };

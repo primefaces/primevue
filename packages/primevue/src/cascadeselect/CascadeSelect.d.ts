@@ -129,6 +129,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     optionList?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the group icon container's DOM element.
+     */
+    groupIconContainer?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the group icon's DOM element.
      */
     groupIcon?: CascadeSelectPassThroughOptionType;
@@ -496,7 +500,20 @@ export interface CascadeSelectSlots {
     /**
      * Custom option group icon template.
      */
-    optiongroupicon(): VNode[];
+    optiongroupicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom header template.
+     */
+    header(): VNode[];
+    /**
+     * Custom footer template.
+     */
+    footer(): VNode[];
 }
 
 /**

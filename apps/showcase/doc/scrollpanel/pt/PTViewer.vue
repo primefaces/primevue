@@ -1,5 +1,4 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
     <DocPTViewer :docs="docs">
         <ScrollPanel style="width: 100%; height: 200px" pt:bary="!visible !opacity-100">
             <p>

@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <DatePicker v-model="date" :invalid="date === null" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <DatePicker v-model="date1" :invalid="!date1" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +13,18 @@
 export default {
     data() {
         return {
-            date: null,
+            date1: null,
+            date2: null,
             code: {
                 basic: `
-<DatePicker v-model="date" :invalid="date === null"  />
+<DatePicker v-model="date1" :invalid="!date1" />
+<DatePicker v-model="date2" :invalid="!date2" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <DatePicker v-model="date" :invalid="date === null"  />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <DatePicker v-model="date1" :invalid="!date1" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
     </div>
 </template>
 
@@ -28,7 +32,8 @@ export default {
 export default {
     data() {
         return {
-            date: null
+            date1: null,
+            date2: null
         };
     }
 };
@@ -36,15 +41,17 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <DatePicker v-model="date" :invalid="date === null"  />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <DatePicker v-model="date1" :invalid="!date1" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const date = ref();
+const date1 = ref(null);
+const date2 = ref(null);
 <\/script>
 `
             }

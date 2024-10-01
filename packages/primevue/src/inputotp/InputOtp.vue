@@ -5,7 +5,7 @@
                 <OtpInputText
                     :value="tokens[i - 1]"
                     :type="inputType"
-                    :class="cx('pcInput')"
+                    :class="cx('pcInputText')"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
@@ -18,7 +18,8 @@
                     @blur="onBlur($event)"
                     @paste="onPaste($event)"
                     @keydown="onKeyDown($event)"
-                    :pt="ptm('pcInput')"
+                    @click="onClick($event)"
+                    :pt="ptm('pcInputText')"
                 />
             </slot>
         </template>
@@ -61,16 +62,6 @@ export default {
                 blur: (event) => this.onBlur(event),
                 paste: (event) => this.onPaste(event)
             };
-        },
-        getPTOptions(key) {
-            const _ptm = key === 'root' ? this.ptmi : this.ptm;
-
-            return _ptm(key, {
-                context: {
-                    checked: this.checked,
-                    disabled: this.disabled
-                }
-            });
         },
         onInput(event, index) {
             this.tokens[index] = event.target.value;
@@ -127,6 +118,9 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+        },
+        onClick(event) {
+            setTimeout(() => event.target.select(), 1);
         },
         onKeyDown(event) {
             if (event.ctrlKey || event.metaKey) {

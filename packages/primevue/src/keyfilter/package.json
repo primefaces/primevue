@@ -1,0 +1,5 @@
+{
+    "main": "./KeyFilter.js",
+    "module": "./KeyFilter.js",
+    "types": "./KeyFilter.d.ts"
+}

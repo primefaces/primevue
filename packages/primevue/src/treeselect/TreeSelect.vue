@@ -49,7 +49,6 @@
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
-                        aria-hidden="true"
                         class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onFirstHiddenFocus"
@@ -64,6 +63,14 @@
                             :id="listId"
                             :value="options"
                             :selectionMode="selectionMode"
+                            :loading="loading"
+                            :loadingIcon="loadingIcon"
+                            :loadingMode="loadingMode"
+                            :filter="filter"
+                            :filterBy="filterBy"
+                            :filterMode="filterMode"
+                            :filterPlaceholder="filterPlaceholder"
+                            :filterLocale="filterLocale"
                             @update:selectionKeys="onSelectionChange"
                             :selectionKeys="modelValue"
                             :expandedKeys="expandedKeys"
@@ -88,7 +95,7 @@
                                 <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
                             </template>
                         </TSTree>
-                        <div v-if="emptyOptions" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
+                        <div v-if="emptyOptions && !loading" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
@@ -96,7 +103,6 @@
                     <span
                         ref="lastHiddenFocusableElementOnOverlay"
                         role="presentation"
-                        aria-hidden="true"
                         class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onLastHiddenFocus"

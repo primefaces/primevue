@@ -331,8 +331,8 @@
         "vitest": "^0.29.8"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.1.1",
-        "@primeuix/utils": "^0.1.1",
+        "@primeuix/styled": "^0.1.3",
+        "@primeuix/utils": "^0.1.3",
         "@primevue/core": "workspace:*",
         "@primevue/icons": "workspace:*"
     },

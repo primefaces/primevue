@@ -17,6 +17,7 @@ import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc.vue';
+import IftaLabelDoc from '@/doc/inputnumber/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
 import LocaleDoc from '@/doc/inputnumber/LocaleDoc.vue';
@@ -66,14 +67,19 @@ export default {
                     component: VerticalDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'invalid',

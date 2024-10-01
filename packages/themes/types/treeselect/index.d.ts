@@ -34,6 +34,12 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken treeselect.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken treeselect.filled.focus.background

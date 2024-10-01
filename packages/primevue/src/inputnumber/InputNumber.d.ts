@@ -104,7 +104,7 @@ export interface InputNumberPassThroughOptions<T = any> {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
+    pcInputText?: InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the button group's DOM element.
      */

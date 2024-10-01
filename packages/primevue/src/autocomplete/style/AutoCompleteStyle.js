@@ -172,6 +172,10 @@ const theme = ({ dt }) => `
 .p-variant-filled.p-autocomplete-input-multiple {
     background: ${dt('autocomplete.filled.background')};
 }
+    
+.p-autocomplete:not(.p-disabled):hover .p-variant-filled.p-autocomplete-input-multiple {
+    background: ${dt('autocomplete.filled.hover.background')};
+}
 
 .p-autocomplete:not(.p-disabled).p-focus .p-variant-filled.p-autocomplete-input-multiple  {
     background: ${dt('autocomplete.filled.focus.background')};
@@ -255,7 +259,7 @@ const classes = {
             'p-autocomplete-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-autocomplete-input',
+    pcInputText: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {

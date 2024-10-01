@@ -138,6 +138,10 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        autofocus: {
+            type: Boolean,
+            default: null
         }
     },
     style: PasswordStyle,

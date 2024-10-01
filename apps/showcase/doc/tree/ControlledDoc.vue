@@ -5,7 +5,7 @@
             <i>expandedKeys</i> also supports two-way binding with the v-model directive.
         </p>
     </DocSectionText>
-    <div class="card flex flex-col items-center">
+    <div class="card">
         <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
@@ -33,7 +33,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-col align-items-cente">
+    <div class="card">
         <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
@@ -81,7 +81,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-col align-items-cente">
+    <div class="card">
         <div class="flex flex-wrap gap-2 mb-6">
             <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
             <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
