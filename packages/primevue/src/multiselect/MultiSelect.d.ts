@@ -455,10 +455,6 @@ export interface MultiSelectProps {
      */
     checkboxIcon?: string | undefined;
     /**
-     * Icon to display in the dropdown close button.
-     */
-    closeIcon?: string | undefined;
-    /**
      * Icon to display in the dropdown.
      */
     dropdownIcon?: string | undefined;
@@ -762,16 +758,6 @@ export interface MultiSelectSlots {
      * @param {Object} scope - filtericon slot's params.
      */
     filtericon(scope: {
-        /**
-         * Style class of the loading icon.
-         */
-        class: string;
-    }): VNode[];
-    /**
-     * Custom close icon template.
-     * @param {Object} scope - closeicon slot's params.
-     */
-    closeicon(scope: {
         /**
          * Style class of the loading icon.
          */

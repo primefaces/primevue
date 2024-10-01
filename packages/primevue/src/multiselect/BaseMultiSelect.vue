@@ -98,10 +98,6 @@ export default {
             type: String,
             default: undefined
         },
-        closeIcon: {
-            type: String,
-            default: undefined
-        },
         dropdownIcon: {
             type: String,
             default: undefined

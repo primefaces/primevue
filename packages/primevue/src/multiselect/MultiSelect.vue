@@ -1111,9 +1111,6 @@ export default {
         toggleAllAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria[this.allSelected ? 'selectAll' : 'unselectAll'] : undefined;
         },
-        closeAriaLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
         listAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listLabel : undefined;
         },
