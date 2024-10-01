@@ -11,8 +11,8 @@ export default {
         color: '{content.color}',
         selectedColor: '{highlight.color}',
         hoverColor: '{content.hover.color}',
-        padding: '0.75rem 1rem',
-        toggleablePadding: '0.75rem 1rem 1.25rem 1rem',
+        padding: '1rem 1.25rem',
+        toggleablePadding: '1rem 1.25rem 1.5rem 1.25rem',
         borderRadius: '{content.border.radius}'
     },
     nodeToggleButton: {
@@ -21,7 +21,7 @@ export default {
         borderColor: '{content.border.color}',
         color: '{text.muted.color}',
         hoverColor: '{text.color}',
-        size: '1.5rem',
+        size: '1.75rem',
         borderRadius: '50%',
         focusRing: {
             width: '{focus.ring.width}',

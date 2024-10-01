@@ -520,23 +520,23 @@ p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
 }
 
 .p-datatable.p-datatable-lg .p-datatable-header {
-    padding: 0.9375rem 1.25rem;
+    padding: 1rem 1.25rem;
 }
 
 .p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
-    padding: 0.9375rem 1.25rem;
+    padding: 1rem 1.25rem;
 }
 
 .p-datatable.p-datatable-lg .p-datatable-tbody>tr>td {
-    padding: 0.9375rem 1.25rem;
+    padding: 1rem 1.25rem;
 }
 
 .p-datatable.p-datatable-lg .p-datatable-tfoot>tr>td {
-    padding: 0.9375rem 1.25rem;
+    padding: 1rem 1.25rem;
 }
 
 .p-datatable.p-datatable-lg .p-datatable-footer {
-    padding: 0.9375rem 1.25rem;
+    padding: 1rem 1.25rem;
 }
 
 .p-datatable-row-toggle-button {
