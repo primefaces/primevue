@@ -63,16 +63,6 @@ export default {
                 paste: (event) => this.onPaste(event)
             };
         },
-        getPTOptions(key) {
-            const _ptm = key === 'root' ? this.ptmi : this.ptm;
-
-            return _ptm(key, {
-                context: {
-                    checked: this.checked,
-                    disabled: this.disabled
-                }
-            });
-        },
         onInput(event, index) {
             this.tokens[index] = event.target.value;
             this.updateModel(event);
