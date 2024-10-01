@@ -34,6 +34,12 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken autocomplete.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken autocomplete.filled.focus.background
