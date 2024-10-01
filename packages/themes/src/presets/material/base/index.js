@@ -38,7 +38,7 @@ export default {
             style: 'none',
             color: 'unset',
             offset: '0',
-            shadow: '0 0 1px 8px color-mix(in srgb, {surface.900}, transparent 88%)'
+            shadow: '0 0 1px 4px color-mix(in srgb, {surface.900}, transparent 88%)'
         },
         disabledOpacity: '0.38',
         iconSize: '1rem',

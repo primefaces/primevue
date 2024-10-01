@@ -35,7 +35,7 @@ export default {
     },
     thumbnailNavButton: {
         size: '2rem',
-        borderRadius: '{content.border.radius}',
+        borderRadius: '50%',
         gutter: '0.5rem',
         focusRing: {
             width: '{focus.ring.width}',

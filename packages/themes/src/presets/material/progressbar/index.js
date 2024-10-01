@@ -2,7 +2,7 @@ export default {
     root: {
         background: '{content.border.color}',
         borderRadius: '{content.border.radius}',
-        height: '1.25rem'
+        height: '1rem'
     },
     value: {
         background: '{primary.color}'

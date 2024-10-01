@@ -7,18 +7,18 @@ export default {
     },
     indicatorList: {
         padding: '1rem',
-        gap: '0.5rem'
+        gap: '1rem'
     },
     indicator: {
-        width: '2rem',
-        height: '0.5rem',
-        borderRadius: '{content.border.radius}',
+        width: '1.25rem',
+        height: '1.25rem',
+        borderRadius: '50%',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
     },
     colorScheme: {
@@ -36,5 +36,22 @@ export default {
                 activeBackground: '{primary.color}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-carousel-indicator-button:hover {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 96%);
+}
+
+.p-carousel-indicator-button:focus-visible {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 96%);
+}
+
+.p-carousel-indicator-active .p-carousel-indicator-button:hover {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('carousel.indicator.active.background')}, transparent 92%);
+}
+
+.p-carousel-indicator-active .p-carousel-indicator-button:focus-visible {
+    box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('carousel.indicator.active.background')}, transparent 84%);
+}
+`
 };
