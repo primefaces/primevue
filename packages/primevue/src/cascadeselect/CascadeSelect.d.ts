@@ -502,6 +502,14 @@ export interface CascadeSelectSlots {
          */
         class: string;
     }): VNode[];
+    /**
+     * Custom header template.
+     */
+    header(): VNode[];
+    /**
+     * Custom footer template.
+     */
+    footer(): VNode[];
 }
 
 /**
