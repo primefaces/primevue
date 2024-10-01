@@ -77,7 +77,7 @@ export interface ColorPickerPassThroughOptions {
     /**
      * Used to pass attributes to the panel's DOM element.
      */
-    panel?: ColorPickerPassThroughOptionType;
+    overlay?: ColorPickerPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */
@@ -179,8 +179,13 @@ export interface ColorPickerProps {
     inputId?: string | undefined;
     /**
      * Style class of the overlay panel.
+     * @deprecated since v4.0. Use 'overlayClass' prop instead.
      */
     panelClass?: any;
+    /**
+     * Style class of the overlay panel.
+     */
+    overlayClass?: any;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself.
      * @defaultValue body

@@ -46,7 +46,8 @@ export default {
             type: String,
             default: null
         },
-        panelClass: null
+        panelClass: null,
+        overlayClass: null
     },
     style: ColorPickerStyle,
     provide() {
