@@ -130,6 +130,11 @@
                             "to": "/inputtext"
                         },
                         {
+                            "name": "KeyFilter",
+                            "to": "/keyfilter",
+                            "badge": "NEW"
+                        },
+                        {
                             "name": "Knob",
                             "to": "/knob"
                         },
