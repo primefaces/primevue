@@ -34,6 +34,12 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken select.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken select.filled.focus.background
