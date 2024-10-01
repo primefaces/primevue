@@ -194,6 +194,42 @@ export default {
                             }
                         }
                     };
+                } else if (this.$appState.preset === 'Material') {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.400}',
+                                        activeColor: '{primary.300}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.color}, transparent 88%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.color}, transparent 76%)',
+                                        color: '{primary.700}',
+                                        focusColor: '{primary.800}'
+                                    }
+                                },
+                                dark: {
+                                    primary: {
+                                        color: '{primary.400}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.300}',
+                                        activeColor: '{primary.200}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                                        color: 'rgba(255,255,255,.87)',
+                                        focusColor: 'rgba(255,255,255,.87)'
+                                    }
+                                }
+                            }
+                        }
+                    };
                 } else {
                     return {
                         semantic: {

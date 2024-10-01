@@ -62,12 +62,14 @@ export default {
         background: '{primary.color}'
     },
     style: ({ dt }) => `
-.p-tab {
-    flex-grow: 1
-}
+
 
 .p-tabs-scrollable .p-tab {
     flex-grow: 0
+}
+
+.p-tab-active {
+    --p-ripple-background: color-mix(in srgb, ${dt('primary.color')}, transparent 90%);
 }
 
 .p-tab:not(.p-disabled):focus-visible {
