@@ -47,16 +47,21 @@ export default {
     },
     mobileButton: {
         borderRadius: '50%',
-        size: '1.75rem',
+        size: '2.5rem',
         color: '{text.muted.color}',
         hoverColor: '{text.muted.hover.color}',
         hoverBackground: '{content.hover.background}',
         focusRing: {
-            width: '{focus.ring.width}',
-            style: '{focus.ring.style}',
-            color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            width: '0',
+            style: 'none',
+            color: 'unset',
+            offset: '0',
+            shadow: 'none'
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-menubar-button:focus-visible {
+    background: ${dt('content.focus.background')};
+}
+`
 };

@@ -1,21 +1,21 @@
 export default {
     root: {
-        gap: '0.5rem',
+        gap: '0',
         transitionDuration: '{transition.duration}'
     },
     panel: {
         background: '{content.background}',
         borderColor: '{content.border.color}',
-        borderWidth: '1px',
+        borderWidth: '0',
         color: '{content.color}',
-        padding: '0.25rem 0.25rem',
-        borderRadius: '{content.border.radius}',
+        padding: '0',
+        borderRadius: '0',
         first: {
-            borderWidth: '1px',
+            borderWidth: '0',
             topBorderRadius: '{content.border.radius}'
         },
         last: {
-            borderWidth: '1px',
+            borderWidth: '0',
             bottomBorderRadius: '{content.border.radius}'
         }
     },
@@ -37,5 +37,31 @@ export default {
     submenuIcon: {
         color: '{navigation.submenu.icon.color}',
         focusColor: '{navigation.submenu.icon.focus.color}'
-    }
+    },
+    style: ({ dt }) => `
+.p-panelmenu-panel {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: margin ${dt('panelmenu.transition.duration')};
+}
+
+.p-panelmenu-panel:has(.p-panelmenu-header-active) {
+    margin: 1rem 0;
+}
+
+.p-panelmenu-panel:first-child {
+    border-top-left-radius: ${dt('content.border.radius')};
+    border-top-right-radius: ${dt('content.border.radius')};
+    margin-top: 0;
+}
+
+.p-panelmenu-panel:last-child {
+    border-bottom-left-radius: ${dt('content.border.radius')};
+    border-bottom-right-radius: ${dt('content.border.radius')};
+    margin-bottom: 0;
+}
+
+.p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
+    background: ${dt('content.focus.background')};
+}
+`
 };

@@ -73,14 +73,14 @@ export default {
             padding: '0.5rem 0',
             gap: '0',
             header: {
-                padding: '0.75rem 0.75rem'
+                padding: '0.75rem 1rem'
             },
             option: {
-                padding: '0.75rem 0.75rem',
+                padding: '0.75rem 1rem',
                 borderRadius: '{border.radius.none}'
             },
             optionGroup: {
-                padding: '0.75rem 0.75rem',
+                padding: '0.75rem 1rem',
                 fontWeight: '700'
             }
         },
@@ -96,12 +96,12 @@ export default {
                 gap: '0'
             },
             item: {
-                padding: '0.75rem 0.75rem',
+                padding: '0.75rem 1rem',
                 borderRadius: '{border.radius.none}',
                 gap: '0.5rem'
             },
             submenuLabel: {
-                padding: '0.75rem 0.75rem',
+                padding: '0.75rem 1rem',
                 fontWeight: '700'
             },
             submenuIcon: {
