@@ -509,11 +509,29 @@ export interface CascadeSelectSlots {
     /**
      * Custom header template.
      */
-    header(): VNode[];
+    header(scope: {
+        /**
+         * Current value
+         */
+        value: any;
+        /**
+         * Options of the component
+         */
+        options: any[];
+    }): VNode[];
     /**
      * Custom footer template.
      */
-    footer(): VNode[];
+    footer(scope: {
+        /**
+         * Current value
+         */
+        value: any;
+        /**
+         * Options of the component
+         */
+        options: any[];
+    }): VNode[];
 }
 
 /**

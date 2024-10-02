@@ -53,7 +53,7 @@
                     @keydown="onOverlayKeyDown"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
-                    <slot name="header" />
+                    <slot name="header" :value="modelValue" :options="options" />
                     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
@@ -80,7 +80,7 @@
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
-                    <slot name="footer" />
+                    <slot name="footer" :value="modelValue" :options="options" />
                 </div>
             </transition>
         </Portal>
