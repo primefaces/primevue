@@ -18,6 +18,7 @@
             </InputIcon>
         </IconField>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+            <slot name="header" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
             <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
@@ -37,6 +38,7 @@
                     :pt="pt"
                 ></TreeNode>
             </ul>
+            <slot name="footer" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
         </div>
     </div>
 </template>

@@ -462,6 +462,42 @@ export interface TreeSlots {
         partialChecked: boolean;
     }): VNode[];
     /**
+     * Custom header
+     * @param {Object} scope - header slot's params.
+     */
+    header(scope: {
+        /**
+         * Current value
+         */
+        value: TreeNode[];
+        /**
+         * Current expanded key
+         */
+        expandedKeys: TreeExpandedKeys;
+        /**
+         * Current selected keys
+         */
+        selectionKeys: TreeSelectionKeys;
+    }): VNode[];
+    /**
+     * Custom footer
+     * @param {Object} scope - footer slot's params.
+     */
+    footer(scope: {
+        /**
+         * Current value
+         */
+        value: TreeNode[];
+        /**
+         * Current expanded key
+         */
+        expandedKeys: TreeExpandedKeys;
+        /**
+         * Current selected keys
+         */
+        selectionKeys: TreeSelectionKeys;
+    }): VNode[];
+    /**
      * Optional slots.
      * @todo
      */
