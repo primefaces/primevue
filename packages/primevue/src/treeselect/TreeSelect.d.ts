@@ -145,6 +145,11 @@ export interface TreeSelectPassThroughAttributes {
  */
 export interface TreeSelectState {
     /**
+     * Current id state as a string.
+     * @defaultValue null
+     */
+    id: string;
+    /**
      * Current focused state as a boolean.
      * @defaultValue false
      */
@@ -172,6 +177,10 @@ export interface TreeSelectProps {
      * An array of treenodes.
      */
     options?: TreeNode[] | undefined;
+    /**
+     * A map of keys to represent the expansion state in controlled mode.
+     */
+    expandedKeys?: TreeExpandedKeys;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 20rem
@@ -441,6 +450,11 @@ export interface TreeSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the expanded keys change.
+     * @param {TreeNode} value - New expanded keys.
+     */
+    'update:expandedKeys'(value: TreeExpandedKeys): void;
     /**
      * Callback to invoke on value change.
      * @param {*} value - Selected node keys
