@@ -121,8 +121,7 @@ const classes = {
     ],
     input: 'p-toggleswitch-input',
     slider: 'p-toggleswitch-slider',
-    handle: 'p-toggleswitch-handle',
-    icon: 'p-toggleswitch-icon'
+    handle: 'p-toggleswitch-handle'
 };
 
 export default BaseStyle.extend({

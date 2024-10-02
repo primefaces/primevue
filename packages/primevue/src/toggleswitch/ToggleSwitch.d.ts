@@ -66,10 +66,6 @@ export interface ToggleSwitchPassThroughOptions {
      */
     handle?: ToggleSwitchPassThroughOptionType;
     /**
-     * Used to pass attributes to the icon's DOM element.
-     */
-    icon?: ToggleSwitchPassThroughOptionType;
-    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -180,10 +176,10 @@ export interface ToggleSwitchContext {
 
 export interface ToggleSwitchSlots {
     /**
-     * Custom icon template.
-     * @param {Object} scope - icon slot's params.
+     * Custom handle template.
+     * @param {Object} scope - handle slot's params.
      */
-    icon(scope: {
+    handle(scope: {
         /**
          * Current checked state of the item as a boolean.
          */

@@ -19,21 +19,16 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <span :class="cx('slider')" v-bind="getPTOptions('slider')">
-            <span :class="cx('handle')" v-bind="getPTOptions('handle')">
-                <slot name="icon" :checked="checked">
-                    <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
-                    <TimesIcon v-else :class="cx('icon')" v-bind="getPTOptions('icon')" />
-                </slot>
-            </span>
-        </span>
+        <div :class="cx('slider')" v-bind="getPTOptions('slider')">
+            <div :class="cx('handle')" v-bind="getPTOptions('handle')">
+                <slot name="handle" :checked="checked" />
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import BaseToggleSwitch from './BaseToggleSwitch.vue';
-import TimesIcon from '@primevue/icons/times';
-import CheckIcon from '@primevue/icons/check';
 
 export default {
     name: 'ToggleSwitch',
@@ -70,10 +65,6 @@ export default {
         checked() {
             return this.modelValue === this.trueValue;
         }
-    },
-    components: {
-        CheckIcon,
-        TimesIcon
     }
 };
 </script>
