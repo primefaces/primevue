@@ -12,7 +12,7 @@
             Another advantage of this approach is that it does not force you to figure out the built-in class names of the components.
         </p>
         <div class="card flex justify-center">
-            <ToggleSwitch v-model="checked" :pt="{ slider: 'my-switch-slider' }" />
+            <ToggleSwitch v-model="checked" :pt="{ slider: 'my-switch-slider', handle: 'my-switch-handle', icon: 'my-switch-icon' }" />
         </div>
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
         <p>Layers also make it easier to use CSS Modules, view the CSS Modules guide for examples.</p>
@@ -27,7 +27,7 @@ export default {
             code: {
                 basic: `
 <template>
-    <ToggleSwitch v-model="checked" :pt="{ slider: 'my-switch-slider' }" />
+    <ToggleSwitch v-model="checked" :pt="{ slider: 'my-switch-slider', handle: 'my-switch-handle', icon: 'my-switch-icon' }" />
 </template>
 
 <script>
@@ -41,8 +41,12 @@ const checked = ref(false);
     border-radius: 0;
 }
 
-.my-switch-slider:before {
+.my-switch-handle {
     border-radius: 0;
+}
+
+.my-switch-icon {
+    display: none !important;
 }
 </style>
 `
@@ -57,7 +61,11 @@ const checked = ref(false);
     border-radius: 0;
 }
 
-.my-switch-slider:before {
+.my-switch-handle {
     border-radius: 0;
+}
+
+.my-switch-icon {
+    display: none !important;
 }
 </style>
