@@ -21,7 +21,15 @@ export enum ToggleSwitchClasses {
     /**
      * Class name of the slider element
      */
-    slider = 'p-toggleswitch-slider'
+    slider = 'p-toggleswitch-slider',
+    /**
+     * Class name of the handle element
+     */
+    handle = 'p-toggleswitch-handle',
+    /**
+     * Class name of the icon element
+     */
+    icon = 'p-toggleswitch-handle'
 }
 
 export interface ToggleSwitchStyle extends BaseStyle {}
