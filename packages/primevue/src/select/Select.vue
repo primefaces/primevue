@@ -689,7 +689,9 @@ export default {
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            setTimeout(() => {
+                this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            }, 1);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -705,6 +707,7 @@ export default {
 
             this.autoFilterFocus && focus(this.$refs.focusInput);
             this.$emit('hide');
+
             this.overlay = null;
         },
         onOverlayAfterLeave(el) {
