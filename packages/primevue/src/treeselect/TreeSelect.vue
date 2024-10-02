@@ -73,7 +73,7 @@
                             :filterLocale="filterLocale"
                             @update:selectionKeys="onSelectionChange"
                             :selectionKeys="modelValue"
-                            :expandedKeys="expandedKeys"
+                            :expandedKeys="d_expandedKeys"
                             @update:expandedKeys="onNodeToggle"
                             :metaKeySelection="metaKeySelection"
                             @node-expand="$emit('node-expand', $event)"
@@ -133,7 +133,7 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -142,7 +142,7 @@ export default {
             id: this.$attrs.id,
             focused: false,
             overlayVisible: false,
-            expandedKeys: {}
+            d_expandedKeys: this.expandedKeys || {}
         };
     },
     watch: {
@@ -161,6 +161,9 @@ export default {
         },
         options() {
             this.updateTreeState();
+        },
+        expandedKeys(value) {
+            this.d_expandedKeys = value;
         }
     },
     outsideClickListener: null,
@@ -233,7 +236,9 @@ export default {
             this.$emit('node-unselect', node);
         },
         onNodeToggle(keys) {
-            this.expandedKeys = keys;
+            this.d_expandedKeys = keys;
+
+            this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -442,8 +447,6 @@ export default {
         updateTreeState() {
             let keys = { ...this.modelValue };
 
-            this.expandedKeys = {};
-
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
             }
@@ -470,8 +473,11 @@ export default {
         expandPath(path) {
             if (path.length > 0) {
                 for (let key of path) {
-                    this.expandedKeys[key] = true;
+                    this.d_expandedKeys[key] = true;
                 }
+
+                this.d_expandedKeys = { ...this.d_expandedKeys };
+                this.$emit('update:expandedKeys', this.d_expandedKeys);
             }
         },
         scrollValueInView() {

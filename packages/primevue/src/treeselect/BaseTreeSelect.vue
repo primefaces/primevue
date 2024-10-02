@@ -119,6 +119,10 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        expandedKeys: {
+            type: null,
+            default: null
         }
     },
     style: TreeSelectStyle,
