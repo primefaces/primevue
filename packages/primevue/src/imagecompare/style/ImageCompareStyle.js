@@ -21,32 +21,39 @@ const theme = ({ dt }) => `
 .p-imagecompare-slider {
     position: relative;
     -webkit-appearance: none;
-    width: calc(100% + 40px);
+    width: calc(100% + ${dt('imagecompare.handle.size')});
     height: 100%;
-    margin-left: -20px;
+    margin-left: calc(-1 * calc(${dt('imagecompare.handle.size')} / 2));
     background-color: transparent;
     outline: none;
 }
 
 .p-imagecompare-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 45px;
-    width: 45px;
-    background: #ffffff33;
-    border: 3px solid #ffffff99;
-    border-radius: 50%;
+    height: ${dt('imagecompare.handle.size')};
+    width: ${dt('imagecompare.handle.size')};
+    background: ${dt('imagecompare.handle.background')};
+    border: ${dt('imagecompare.handle.border.width')} ${dt('imagecompare.handle.border.style')} ${dt('imagecompare.handle.border.color')};
+    border-radius: ${dt('imagecompare.handle.border.radius')};
+    background-size: contain;
+    cursor: ew-resize;
+    transition: all ${dt('transition.duration')};
+}
+
+.p-imagecompare-slider::-moz-range-thumb {
+    height: ${dt('imagecompare.handle.size')};
+    width: ${dt('imagecompare.handle.size')};
+    background: ${dt('imagecompare.handle.background')};
+    border: ${dt('imagecompare.handle.border.width')} ${dt('imagecompare.handle.border.style')} ${dt('imagecompare.handle.border.color')};
+    border-radius: ${dt('imagecompare.handle.border.radius')};
     background-size: contain;
     cursor: ew-resize;
 }
 
-.p-imagecompare-slider::-moz-range-thumb {
-    height: 45px;
-    width: 45px;
-    background: #ffffff33;
-    border: 3px solid #ffffff99;
-    border-radius: 50%;
-    background-size: contain;
-    cursor: ew-resize;
+.p-imagecompare-slider:focus-visible::-webkit-slider-thumb {
+    box-shadow: ${dt('imagecompare.handle.focus.ring.shadow')};
+    outline: ${dt('imagecompare.handle.focus.ring.width')} ${dt('imagecompare.handle.focus.ring.style')} ${dt('imagecompare.handle.focus.ring.color')};
+    outline-offset: ${dt('imagecompare.handle.focus.ring.offset')};
 }
 `;
 

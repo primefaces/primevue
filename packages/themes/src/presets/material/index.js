@@ -1,3 +1,4 @@
+import imagecompare from '@primevue/themes/aura/imagecompare';
 import accordion from '@primevue/themes/material/accordion';
 import autocomplete from '@primevue/themes/material/autocomplete';
 import avatar from '@primevue/themes/material/avatar';
@@ -120,6 +121,7 @@ export default {
         galleria,
         iconfield,
         image,
+        imagecompare,
         inlinemessage,
         inplace,
         inputchips,
