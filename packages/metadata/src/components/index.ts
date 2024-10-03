@@ -90,7 +90,7 @@ export const chart: MetaType[] = toMeta(['Chart']);
 
 export const messages: MetaType[] = toMeta(['Message', 'InlineMessage', { name: 'Toast', use: { as: 'ToastService' } }]);
 
-export const media: MetaType[] = toMeta(['Carousel', 'Galleria', 'Image']);
+export const media: MetaType[] = toMeta(['Carousel', 'Galleria', 'Image', 'ImageDiff']);
 
 export const misc: MetaType[] = toMeta(['Avatar', 'AvatarGroup', 'Badge', 'BlockUI', 'Chip', 'Inplace', 'MeterGroup', 'OverlayBadge', 'ScrollTop', 'Skeleton', 'ProgressBar', 'ProgressSpinner', 'Tag', 'Terminal']);
 

@@ -1,0 +1,6 @@
+{
+    "main": "./ImageDiffStyle.js",
+    "module": "./ImageDiffStyle.js",
+    "types": "./ImageDiffStyle.d.ts",
+    "sideEffects": false
+}
