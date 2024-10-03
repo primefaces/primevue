@@ -538,7 +538,9 @@ export default {
             return [this.cx('root'), this.class];
         },
         rootPTOptions() {
-            return mergeProps(this.ptm('pcInputText', this.ptmParams), this.ptmi('root', this.ptmParams));
+            return {
+                root: mergeProps(this.ptm('pcInputText', this.ptmParams), this.ptmi('root', this.ptmParams))
+            };
         },
         ptmParams() {
             return {
