@@ -48,7 +48,7 @@ import type { GalleriaPassThroughOptions } from 'primevue/galleria';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
 import type { IftaLabelPassThroughOptions } from 'primevue/iftalabel';
 import type { ImagePassThroughOptions } from 'primevue/image';
-import type { ImageDiffPassThroughOptions } from 'primevue/imagediff';
+import type { ImageComparePassThroughOptions } from 'primevue/imagecompare';
 import type { InlineMessagePassThroughOptions } from 'primevue/inlinemessage';
 import type { InplacePassThroughOptions } from 'primevue/inplace';
 import type { InputChipsPassThroughOptions } from 'primevue/inputchips';
@@ -206,7 +206,7 @@ export interface PrimeVuePTOptions {
     iconfield?: DefaultPassThrough<IconFieldPassThroughOptions>;
     iftalabel?: DefaultPassThrough<IftaLabelPassThroughOptions>;
     image?: DefaultPassThrough<ImagePassThroughOptions>;
-    imagediff?: DefaultPassThrough<ImageDiffPassThroughOptions>;
+    imagecompare?: DefaultPassThrough<ImageComparePassThroughOptions>;
     inlinemessage?: DefaultPassThrough<InlineMessagePassThroughOptions>;
     inplace?: DefaultPassThrough<InplacePassThroughOptions>;
     inputchips?: DefaultPassThrough<InputChipsPassThroughOptions>;

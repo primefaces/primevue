@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>ImageDiff Pass Through</h1>
+            <h1>ImageCompare Pass Through</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -23,10 +23,10 @@ export default {
                     component: PTViewer
                 },
                 {
-                    id: 'pt.doc.image',
-                    label: 'ImageDiff PT Options',
+                    id: 'pt.doc.imagecompare',
+                    label: 'ImageCompare PT Options',
                     component: DocApiTable,
-                    data: getPTOptions('ImageDiff')
+                    data: getPTOptions('ImageCompare')
                 }
             ]
         };

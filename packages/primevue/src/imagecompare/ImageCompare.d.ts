@@ -1,24 +1,24 @@
 /**
  *
- * ImageDiff
+ * ImageCompare
  *
- * [Live Demo](https://www.primevue.org/imagediff/)
+ * [Live Demo](https://www.primevue.org/ImageCompare/)
  *
- * @module imagediff
+ * @module ImageCompare
  *
  */
 import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps } from 'vue';
 
-export declare type ImageDiffPassThroughOptionType = ImageDiffPassThroughAttributes | ((options: ImageDiffPassThroughMethodOptions) => ImageDiffPassThroughAttributes | string) | string | null | undefined;
+export declare type ImageComparePassThroughOptionType = ImageComparePassThroughAttributes | ((options: ImageComparePassThroughMethodOptions) => ImageComparePassThroughAttributes | string) | string | null | undefined;
 
-export declare type ImageDiffPassThroughTransitionType = TransitionProps | ((options: ImageDiffPassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type ImageComparePassThroughTransitionType = TransitionProps | ((options: ImageComparePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface ImageDiffPassThroughMethodOptions {
+export interface ImageComparePassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -26,7 +26,7 @@ export interface ImageDiffPassThroughMethodOptions {
     /**
      * Defines valid properties.
      */
-    props: ImageDiffProps;
+    props: ImageCompareProps;
     /**
      * Defines valid attributes.
      */
@@ -43,35 +43,35 @@ export interface ImageDiffPassThroughMethodOptions {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link ImageDiffProps.pt}
+ * @see {@link ImageCompareProps.pt}
  */
-export interface ImageDiffPassThroughOptions {
+export interface ImageComparePassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: ImageDiffPassThroughOptionType;
+    root?: ImageComparePassThroughOptionType;
 }
 
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface ImageDiffPassThroughAttributes {
+export interface ImageComparePassThroughAttributes {
     [key: string]: any;
 }
 
 /**
- * Defines valid properties in ImageDiff component.
+ * Defines valid properties in ImageCompare component.
  */
-export interface ImageDiffProps {
+export interface ImageCompareProps {
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {ImageDiffPassThroughOptions}
+     * @type {ImageComparePassThroughOptions}
      */
-    pt?: PassThrough<ImageDiffPassThroughOptions>;
+    pt?: PassThrough<ImageComparePassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -85,32 +85,32 @@ export interface ImageDiffProps {
 }
 
 /**
- * Defines valid slots in ImageDiff slots.
+ * Defines valid slots in ImageCompare slots.
  */
-export interface ImageDiffSlots {}
+export interface ImageCompareSlots {}
 
-export interface ImageDiffEmitsOptions {}
+export interface ImageCompareEmitsOptions {}
 
-export declare type ImageDiffEmits = EmitFn<ImageDiffEmitsOptions>;
+export declare type ImageCompareEmits = EmitFn<ImageCompareEmitsOptions>;
 
 /**
- * **PrimeVue - ImageDiff**
+ * **PrimeVue - ImageCompare**
  *
- * _ImageDiff_
+ * _ImageCompare_
  *
- * [Live Demo](https://www.primevue.org/imagediff/)
+ * [Live Demo](https://www.primevue.org/ImageCompare/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *
  */
-declare const ImageDiff: DefineComponent<ImageDiffProps, ImageDiffSlots, ImageDiffEmits>;
+declare const ImageCompare: DefineComponent<ImageCompareProps, ImageCompareSlots, ImageCompareEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ImageDiff: GlobalComponentConstructor<ImageDiffProps, ImageDiffSlots, ImageDiffEmits>;
+        ImageCompare: GlobalComponentConstructor<ImageCompareProps, ImageCompareSlots, ImageCompareEmits>;
     }
 }
 
-export default ImageDiff;
+export default ImageCompare;

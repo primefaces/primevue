@@ -1,7 +1,7 @@
 <template>
     <div class="doc-main">
         <div class="doc-intro">
-            <h1>ImageDiff Theming</h1>
+            <h1>ImageCompare Theming</h1>
         </div>
         <DocSections :docs="docs" />
     </div>
@@ -26,14 +26,14 @@ export default {
                             label: 'CSS Classes',
                             description: 'List of class names used in the styled mode.',
                             component: DocApiTable,
-                            data: getStyleOptions('ImageDiff')
+                            data: getStyleOptions('ImageCompare')
                         },
                         {
                             id: 'theming.tokens',
                             label: 'Design Tokens',
                             description: 'List of design tokens used in a preset.',
                             component: DocApiTable,
-                            data: getTokenOptions('ImageDiff')
+                            data: getTokenOptions('ImageCompare')
                         }
                     ]
                 },

@@ -30,6 +30,7 @@ import galleria from '@primevue/themes/aura/galleria';
 import iconfield from '@primevue/themes/aura/iconfield';
 import iftalabel from '@primevue/themes/aura/iftalabel';
 import image from '@primevue/themes/aura/image';
+import imagecompare from '@primevue/themes/aura/imagecompare';
 import inlinemessage from '@primevue/themes/aura/inlinemessage';
 import inplace from '@primevue/themes/aura/inplace';
 import inputchips from '@primevue/themes/aura/inputchips';
@@ -120,6 +121,7 @@ export default {
         galleria,
         iconfield,
         image,
+        imagecompare,
         inlinemessage,
         inplace,
         inputchips,

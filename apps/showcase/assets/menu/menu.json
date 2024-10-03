@@ -416,8 +416,8 @@
                             "to": "/image"
                         },
                         {
-                            "name": "ImageDiff",
-                            "to": "/imagediff",
+                            "name": "ImageCompare",
+                            "to": "/imagecompare",
                             "badge": "NEW"
                         }
                     ]

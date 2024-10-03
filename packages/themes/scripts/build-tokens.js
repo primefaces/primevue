@@ -34,7 +34,7 @@ const THEME_COMPONENTS = [
     'IconField',
     'IftaLabel',
     'Image',
-    'ImageDiff',
+    'ImageCompare',
     'InlineMessage',
     'Inplace',
     'InputChips',

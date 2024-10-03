@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ImageDiff from 'primevue/imagediff';
+import ImageCompare from 'primevue/imagecompare';
 `
             }
         };

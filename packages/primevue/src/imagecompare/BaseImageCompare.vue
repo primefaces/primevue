@@ -1,15 +1,15 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import ImageDiffStyle from 'primevue/imagediff/style';
+import ImageCompareStyle from 'primevue/imagecompare/style';
 
 export default {
-    name: 'BaseImageDiff',
+    name: 'BaseImageCompare',
     extends: BaseComponent,
     props: {},
-    style: ImageDiffStyle,
+    style: ImageCompareStyle,
     provide() {
         return {
-            $pcImageDiff: this,
+            $pcImageCompare: this,
             $parentInstance: this
         };
     }
