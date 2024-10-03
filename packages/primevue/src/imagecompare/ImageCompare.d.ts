@@ -1,19 +1,18 @@
 /**
  *
- * ImageCompare
+ * ImageCompare compares two images side by side with a slider.
  *
- * [Live Demo](https://www.primevue.org/ImageCompare/)
+ * [Live Demo](https://www.primevue.org/imagecompare)
  *
- * @module ImageCompare
+ * @module imagecompare
  *
  */
 import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps } from 'vue';
+import { VNode } from 'vue';
 
 export declare type ImageComparePassThroughOptionType = ImageComparePassThroughAttributes | ((options: ImageComparePassThroughMethodOptions) => ImageComparePassThroughAttributes | string) | string | null | undefined;
-
-export declare type ImageComparePassThroughTransitionType = TransitionProps | ((options: ImageComparePassThroughMethodOptions) => TransitionProps) | undefined;
 
 /**
  * Custom passthrough(pt) option method.
@@ -50,6 +49,15 @@ export interface ImageComparePassThroughOptions {
      * Used to pass attributes to the root's DOM element.
      */
     root?: ImageComparePassThroughOptionType;
+    /**
+     * Used to pass attributes to the slider's DOM element.
+     */
+    slider?: ImageComparePassThroughOptionType;
+    /**
+     * Used to manage all lifecycle hooks.
+     * @see {@link BaseComponent.ComponentHooks}
+     */
+    hooks?: ComponentHooks;
 }
 
 /**
@@ -63,6 +71,19 @@ export interface ImageComparePassThroughAttributes {
  * Defines valid properties in ImageCompare component.
  */
 export interface ImageCompareProps {
+    /**
+     * Index of the element in tabbing order.
+     * @defaultValue 0
+     */
+    tabindex?: number | undefined;
+    /**
+     * Defines a string value that labels an interactive element.
+     */
+    ariaLabel?: string | undefined;
+    /**
+     * Identifier of the underlying input element.
+     */
+    ariaLabelledby?: string | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -85,10 +106,22 @@ export interface ImageCompareProps {
 }
 
 /**
- * Defines valid slots in ImageCompare slots.
+ * Defines valid slots in ImageCompare component.
  */
-export interface ImageCompareSlots {}
+export interface ImageCompareSlots {
+    /**
+     * Custom left template.
+     */
+    left(): VNode[];
+    /**
+     * Custom right template.
+     */
+    right(): VNode[];
+}
 
+/**
+ * Defines valid emits in ImageCompare component.
+ */
 export interface ImageCompareEmitsOptions {}
 
 export declare type ImageCompareEmits = EmitFn<ImageCompareEmitsOptions>;
@@ -96,9 +129,9 @@ export declare type ImageCompareEmits = EmitFn<ImageCompareEmitsOptions>;
 /**
  * **PrimeVue - ImageCompare**
  *
- * _ImageCompare_
+ * _ImageCompare compares two images side by side with a slider._
  *
- * [Live Demo](https://www.primevue.org/ImageCompare/)
+ * [Live Demo](https://www.primevue.org/imagecompare/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *

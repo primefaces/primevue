@@ -1,19 +1,23 @@
 /**
  *
- * ImageDiff
+ * ImageCompare compares two images side by side with a slider.
  *
- * [Live Demo](https://www.primevue.org/imagediff/)
+ * [Live Demo](https://www.primevue.org/imagecompare/)
  *
- * @module imagediffstyle
+ * @module imagecomparestyle
  *
  */
 import type { BaseStyle } from '@primevue/core/base/style';
 
-export enum ImageDiffClasses {
+export enum ImageCompareClasses {
     /**
      * Class name of the root element
      */
-    root = 'p-imagediff'
+    root = 'p-imagecompare',
+    /**
+     * Class name of the slider element
+     */
+    slider = 'p-imagecompare-slider'
 }
 
-export interface ImageDiffStyle extends BaseStyle {}
+export interface ImageCompareStyle extends BaseStyle {}
