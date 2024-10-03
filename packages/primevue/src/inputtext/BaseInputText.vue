@@ -7,10 +7,6 @@ export default {
     extends: BaseComponent,
     props: {
         modelValue: null,
-        type: {
-            type: String,
-            default: 'text'
-        },
         size: {
             type: String,
             default: null

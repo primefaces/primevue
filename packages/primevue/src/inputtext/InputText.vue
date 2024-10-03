@@ -1,5 +1,5 @@
 <template>
-    <input :type="type" :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="getPTOptions('root')" />
+    <input type="text" :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="getPTOptions('root')" />
 </template>
 
 <script>

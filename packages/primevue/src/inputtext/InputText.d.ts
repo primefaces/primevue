@@ -88,11 +88,6 @@ export interface InputTextProps extends InputHTMLAttributes {
      */
     modelValue?: Nullable<string>;
     /**
-     * Type of the input field.
-     * @defaultValue text
-     */
-    type?: string | undefined;
-    /**
      * Defines the size of the component.
      */
     size?: 'small' | 'large' | undefined;

@@ -19,10 +19,6 @@ export default {
             type: [String, Object],
             default: null
         },
-        type: {
-            type: String,
-            default: null
-        },
         mask: {
             type: String,
             default: null
