@@ -414,6 +414,11 @@
                         {
                             "name": "Image",
                             "to": "/image"
+                        },
+                        {
+                            "name": "ImageDiff",
+                            "to": "/imagediff",
+                            "badge": "NEW"
                         }
                     ]
                 },
