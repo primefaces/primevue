@@ -125,6 +125,11 @@ export interface InputMaskProps {
      */
     class?: string | object | undefined;
     /**
+     * Type of the input field.
+     * @defaultValue null
+     */
+    type?: string | undefined;
+    /**
      * Placeholder text for the input.
      */
     placeholder?: string | undefined;

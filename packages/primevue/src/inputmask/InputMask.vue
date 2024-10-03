@@ -2,6 +2,7 @@
     <InputText
         :id="id"
         :value="currentVal"
+        :type="type"
         :class="inputClass"
         :readonly="readonly"
         :disabled="disabled"
