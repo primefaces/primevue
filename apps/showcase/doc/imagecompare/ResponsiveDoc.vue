@@ -3,7 +3,7 @@
         <p>Apply responsive styles to the container element to optimize display per screen size.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <ImageCompare class="w-full sm:w-96 shadow-lg rounded-2xl">
+        <ImageCompare class="sm:!w-96 shadow-lg rounded-2xl">
             <template #left>
                 <img src="~/assets/images/island1.jpg" />
             </template>
@@ -21,7 +21,7 @@ export default {
         return {
             code: {
                 basic: `
-<ImageCompare class="w-full sm:w-96 shadow-lg rounded-2xl">
+<ImageCompare class="sm:!w-96 shadow-lg rounded-2xl">
     <template #left>
         <img src="~/assets/images/island1.jpg" />
     </template>
@@ -33,7 +33,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <ImageCompare class="w-full sm:w-96 shadow-lg rounde-2xl">
+        <ImageCompare class="sm:!w-96 shadow-lg rounde-2xl">
             <template #left>
                 <img src="~/assets/images/island1.jpg" />
             </template>
@@ -47,7 +47,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <ImageCompare class="w-full sm:w-96 shadow-lg">
+        <ImageCompare class="sm:!w-96 shadow-lg">
             <template #left>
                 <img src="~/assets/images/island1.jpg" />
             </template>
