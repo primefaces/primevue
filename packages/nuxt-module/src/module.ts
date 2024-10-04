@@ -64,7 +64,7 @@ export default defineNuxtModule<ModuleOptions>({
         if (autoImport) {
             Components(
                 {
-                    dts: false,
+                    dts: true,
                     resolvers: [
                         PrimeVueResolver({
                             components: moduleOptions.components,
