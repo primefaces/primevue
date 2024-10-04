@@ -53,7 +53,7 @@ const theme = ({ dt }) => `
     left: ${dt('toggleswitch.gap')};
     margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
-    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')}, box-shadow ${dt('toggleswitch.slide.duration')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {

@@ -119,5 +119,11 @@ export default {
                 selectedBorderColor: '{primary.900}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-treetable-header-cell,
+.p-treetable-tbody > tr {
+    transition: none;
+}
+`
 };

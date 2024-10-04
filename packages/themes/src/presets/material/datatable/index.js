@@ -165,5 +165,11 @@ export default {
                 selectedBorderColor: '{primary.900}'
             }
         }
-    }
+    },
+    style: ({ dt }) => `
+.p-datatable-header-cell,
+.p-datatable-tbody > tr {
+    transition: none;
+}
+`
 };
