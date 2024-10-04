@@ -32,7 +32,7 @@ export default {
             shadow: 'none'
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-slider-handle {
     transition: box-shadow ${dt('slider.transition.duration')};
 }

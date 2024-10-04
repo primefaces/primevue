@@ -484,7 +484,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-button:focus-visible {
     background: ${dt('button.primary.active.background')};
     border-color: ${dt('button.primary.active.background')};
@@ -587,7 +587,7 @@ export default {
 .p-button-success.p-button-outlined:focus-visible {
     background: ${dt('button.outlined.success.active.background')};
 }
-    
+
 .p-button-info.p-button-outlined:focus-visible {
     background: ${dt('button.outlined.info.active.background')};
 }

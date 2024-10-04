@@ -45,7 +45,7 @@ export default {
     chip: {
         borderRadius: '{border.radius.sm}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-treeselect.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

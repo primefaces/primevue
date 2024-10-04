@@ -35,7 +35,7 @@ export default {
             paddingY: '1rem'
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-inputtext.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

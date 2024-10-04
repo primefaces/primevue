@@ -59,7 +59,7 @@ export default {
             shadow: 'none'
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-menubar-button:focus-visible {
     background: ${dt('navigation.item.active.background')};
 }

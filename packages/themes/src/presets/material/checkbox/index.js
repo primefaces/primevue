@@ -33,7 +33,7 @@ export default {
         checkedHoverColor: '{primary.contrast.color}',
         disabledColor: '{form.field.disabled.color}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-checkbox {
     border-radius: 50%;
     transition: box-shadow ${dt('checkbox.transition.duration')};
@@ -87,9 +87,9 @@ export default {
       height: 0;
       transform: translate3d(0,0,0) rotate(45deg);
     }
-    100%{    
+    100%{
       width: 4px;
-      height: 10px;    
+      height: 10px;
       border-color: ${dt('checkbox.icon.checked.color')};
       transform: translate3d(0,-10px,0) rotate(45deg);
     }

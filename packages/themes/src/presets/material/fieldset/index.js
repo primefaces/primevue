@@ -33,7 +33,7 @@ export default {
     content: {
         padding: '0'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-fieldset-toggle-button:focus-visible {
     background: ${dt('navigation.item.active.background')};
 

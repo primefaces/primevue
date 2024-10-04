@@ -120,7 +120,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-treetable-header-cell,
 .p-treetable-tbody > tr {
     transition: none;

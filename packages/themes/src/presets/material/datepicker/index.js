@@ -137,7 +137,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-datepicker-header {
     justify-content: start;
 }
@@ -148,12 +148,12 @@ export default {
 
 .p-datepicker-prev-button {
     order: 2;
-    margin-inline-start: auto; 
+    margin-inline-start: auto;
 }
 
 .p-datepicker-next-button {
     order: 2;
-    margin-inline-start: 0.5rem; 
+    margin-inline-start: 0.5rem;
 }
 
 .p-datepicker-select-month:focus-visible {

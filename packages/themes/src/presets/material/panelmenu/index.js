@@ -38,7 +38,7 @@ export default {
         color: '{navigation.submenu.icon.color}',
         focusColor: '{navigation.submenu.icon.focus.color}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-panelmenu-panel {
     box-shadow: 0 0 0 1px ${dt('panelmenu.panel.border.color')};
     transition: margin ${dt('panelmenu.transition.duration')};

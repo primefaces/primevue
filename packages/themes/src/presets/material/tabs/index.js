@@ -61,7 +61,7 @@ export default {
         bottom: '-1px',
         background: '{primary.color}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 
 
 .p-tabs-scrollable .p-tab {

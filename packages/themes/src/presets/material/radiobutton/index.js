@@ -31,7 +31,7 @@ export default {
         checkedHoverColor: '{primary.color}',
         disabledColor: '{form.field.disabled.color}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-radiobutton {
     border-radius: 50%;
     transition: box-shadow ${dt('radiobutton.transition.duration')};

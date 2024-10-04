@@ -37,7 +37,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-carousel-indicator-button:hover {
     box-shadow: 0 0 1px 10px color-mix(in srgb, ${dt('text.color')}, transparent 96%);
 }

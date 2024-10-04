@@ -30,7 +30,7 @@ export default {
         color: '{content.color}',
         borderRadius: '{content.border.radius}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-editor .p-editor-toolbar {
     padding: 0.75rem
 }

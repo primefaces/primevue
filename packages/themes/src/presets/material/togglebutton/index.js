@@ -49,7 +49,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-togglebutton:focus-visible {
     background: ${dt('togglebutton.hover.background')};
 }

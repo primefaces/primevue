@@ -63,10 +63,9 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-step-header:focus-visible {
     background: ${dt('navigation.item.active.background')};
-}
 }
 `
 };

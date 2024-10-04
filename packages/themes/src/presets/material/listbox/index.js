@@ -63,7 +63,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-listbox-option {
     transition: none;
 }

@@ -56,7 +56,7 @@ export default {
             size: '0.875rem'
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-cascadeselect.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

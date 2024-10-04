@@ -35,7 +35,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-inputnumber-stacked .p-inputnumber-button-group {
     top: 2px;
     right: 2px;

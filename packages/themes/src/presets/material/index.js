@@ -180,7 +180,7 @@ export default {
         tooltip,
         ripple
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 
     `
 };

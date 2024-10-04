@@ -71,7 +71,7 @@ export default {
     emptyMessage: {
         padding: '{list.option.padding}'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-select.p-variant-filled {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

@@ -48,7 +48,7 @@ export default {
     loadingIcon: {
         size: '2rem'
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-tree-node-content {
     transition: none;
 }

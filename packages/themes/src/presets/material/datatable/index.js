@@ -166,7 +166,7 @@ export default {
             }
         }
     },
-    style: ({ dt }) => `
+    css: ({ dt }) => `
 .p-datatable-header-cell,
 .p-datatable-tbody > tr {
     transition: none;
