@@ -1,7 +1,7 @@
 export default {
     root: {
         background: '{content.background}',
-        borderColor: '{content.border.color}',
+        borderColor: 'transparent',
         color: '{content.color}',
         borderRadius: '{content.border.radius}',
         shadow: '{overlay.navigation.shadow}',

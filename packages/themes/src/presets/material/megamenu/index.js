@@ -36,7 +36,7 @@ export default {
     overlay: {
         padding: '0',
         background: '{content.background}',
-        borderColor: '{content.border.color}',
+        borderColor: 'transparent',
         borderRadius: '{content.border.radius}',
         color: '{content.color}',
         shadow: '{overlay.navigation.shadow}',

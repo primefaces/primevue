@@ -31,5 +31,10 @@ export default {
     },
     separator: {
         borderColor: '{content.border.color}'
-    }
+    },
+    css: ({ dt }) => `
+.p-menu-overlay {
+    border-color: transparent;
+}
+`
 };

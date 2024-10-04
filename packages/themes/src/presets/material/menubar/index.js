@@ -31,7 +31,7 @@ export default {
         padding: '{navigation.list.padding}',
         gap: '{navigation.list.gap}',
         background: '{content.background}',
-        borderColor: '{content.border.color}',
+        borderColor: 'transparent',
         borderRadius: '{content.border.radius}',
         shadow: '{overlay.navigation.shadow}',
         mobileIndent: '1rem'
