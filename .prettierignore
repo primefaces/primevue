@@ -8,3 +8,4 @@ node_modules
 .vscode
 .nuxt
 .output
+apps/showcase/components.d.ts
