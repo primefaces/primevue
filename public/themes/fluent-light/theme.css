@@ -1825,12 +1825,12 @@
     width: 100%;
   }
 
-  .p-icon-field-left > .p-input-icon:first-of-type {
+  .p-icon-field-left > .p-input-icon {
     left: 0.5rem;
     color: #605e5c;
   }
 
-  .p-icon-field-right > .p-input-icon:last-of-type {
+  .p-icon-field-right > .p-input-icon {
     right: 0.5rem;
     color: #605e5c;
   }
@@ -2085,7 +2085,7 @@
     color: #a4252c;
   }
 
-  .p-icon-field-left > .p-inputtext {
+  .p-icon-field-left .p-inputtext {
     padding-left: 2rem;
   }
 
@@ -2093,7 +2093,7 @@
     left: 2rem;
   }
 
-  .p-icon-field-right > .p-inputtext {
+  .p-icon-field-right .p-inputtext {
     padding-right: 2rem;
   }
 

@@ -1853,12 +1853,12 @@
     width: 100%;
   }
 
-  .p-icon-field-left > .p-input-icon:first-of-type {
+  .p-icon-field-left > .p-input-icon {
     left: 0.5rem;
     color: #81A1C1;
   }
 
-  .p-icon-field-right > .p-input-icon:last-of-type {
+  .p-icon-field-right > .p-input-icon {
     right: 0.5rem;
     color: #81A1C1;
   }
@@ -2113,7 +2113,7 @@
     color: #BF616A;
   }
 
-  .p-icon-field-left > .p-inputtext {
+  .p-icon-field-left .p-inputtext {
     padding-left: 2rem;
   }
 
@@ -2121,7 +2121,7 @@
     left: 2rem;
   }
 
-  .p-icon-field-right > .p-inputtext {
+  .p-icon-field-right .p-inputtext {
     padding-right: 2rem;
   }
 
