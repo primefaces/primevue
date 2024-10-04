@@ -49,7 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
         const { autoImport, importPT, importTheme, options, loadStyles } = moduleOptions;
-        const hasTheme = (importTheme || options?.theme) && !options?.unstyled;
+        const hasTheme = options?.theme !== 'none' && (importTheme || options?.theme) && !options?.unstyled;
 
         nuxt.options.runtimeConfig.public.primevue = {
             ...moduleOptions,
@@ -114,10 +114,15 @@ const styles = [
 
 ${hasTheme ? `Theme.setTheme(${importTheme?.as} || options?.theme)` : ''}
 
-const themes = [
+const themes = ${
+                options?.theme === 'none'
+                    ? `[]`
+                    : `
+[
     ${`${uniqueRegisteredStyles?.[0].as} && ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet ? ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''`},
     ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',')}
-].join('');
+].join('');`
+            }
 
 export { styles, stylesToTop, themes };
 `;

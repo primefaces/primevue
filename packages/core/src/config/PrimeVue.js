@@ -193,13 +193,16 @@ export function setupConfig(app, PrimeVue) {
 
     /*** Methods and Services ***/
     const loadCommonTheme = () => {
+        if (PrimeVue.config?.theme === 'none') return;
+
         // common
         if (!Theme.isStyleNameLoaded('common')) {
-            const { primitive, semantic, style } = BaseStyle.getCommonTheme?.() || {};
+            const { primitive, semantic, global, style } = BaseStyle.getCommonTheme?.() || {};
             const styleOptions = { nonce: PrimeVue.config?.csp?.nonce };
 
             BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...styleOptions });
             BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...styleOptions });
+            BaseStyle.load(global?.css, { name: 'global-variables', ...styleOptions });
             BaseStyle.loadTheme({ name: 'global-style', ...styleOptions }, style);
 
             Theme.setLoadedStyleName('common');

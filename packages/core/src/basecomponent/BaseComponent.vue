@@ -156,14 +156,15 @@ export default {
             isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
-            if (this.isUnstyled) return;
+            if (this.isUnstyled || this.$theme === 'none') return;
 
             // common
             if (!Theme.isStyleNameLoaded('common')) {
-                const { primitive, semantic, style } = this.$style?.getCommonTheme?.() || {};
+                const { primitive, semantic, global, style } = this.$style?.getCommonTheme?.() || {};
 
                 BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
+                BaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
                 BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName('common');
