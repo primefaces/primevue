@@ -18,6 +18,10 @@ export default {
             type: [String, Object],
             default: 'body'
         },
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         autoZIndex: {
             type: Boolean,
             default: true

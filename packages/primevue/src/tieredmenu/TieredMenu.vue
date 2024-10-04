@@ -57,6 +57,7 @@ export default {
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,
+    matchMediaListener: null,
     scrollHandler: null,
     resizeListener: null,
     target: null,
@@ -72,7 +73,9 @@ export default {
             activeItemPath: [],
             visible: !this.popup,
             submenuVisible: false,
-            dirty: false
+            dirty: false,
+            query: null,
+            queryMatches: false
         };
     },
     watch: {
@@ -93,10 +96,12 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
+        this.bindMatchMediaListener();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -496,6 +501,26 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
             }
         },
         isItemMatched(processedItem) {
