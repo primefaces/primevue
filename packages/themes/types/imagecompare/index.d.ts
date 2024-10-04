@@ -22,40 +22,47 @@ export interface ImageCompareDesignTokens extends ColorSchemeDesignToken<ImageCo
          */
         size?: string;
         /**
+         * Hover size of handle
+         *
+         * @designToken imagecompare.handle.hover.size
+         */
+        hoverSize?: string;
+        /**
          * Background of handle
          *
          * @designToken imagecompare.handle.background
          */
         background?: string;
         /**
-         * Border of handle
+         * Hover background of handle
+         *
+         * @designToken imagecompare.handle.hover.background
          */
-        border?: {
-            /**
-             * Border width of handle
-             *
-             * @designToken imagecompare.handle.border.width
-             */
-            width?: string;
-            /**
-             * Border style of handle
-             *
-             * @designToken imagecompare.handle.border.style
-             */
-            style?: string;
-            /**
-             * Border color of handle
-             *
-             * @designToken imagecompare.handle.border.color
-             */
-            color?: string;
-            /**
-             * Border radius of handle
-             *
-             * @designToken imagecompare.handle.border.radius
-             */
-            radius?: string;
-        };
+        hoverBackground?: string;
+        /**
+         * Border color of handle
+         *
+         * @designToken imagecompare.handle.border.color
+         */
+        borderColor?: string;
+        /**
+         * Hover border color of handle
+         *
+         * @designToken imagecompare.handle.hover.border.color
+         */
+        hoverBorderColor?: string;
+        /**
+         * Border width of handle
+         *
+         * @designToken imagecompare.handle.border.width
+         */
+        borderWidth?: string;
+        /**
+         * Border radius of handle
+         *
+         * @designToken imagecompare.handle.border.radius
+         */
+        borderRadius?: string;
         /**
          * Transition duration of handle
          *
