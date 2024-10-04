@@ -178,8 +178,7 @@ const classes = {
         'p-tieredmenu p-component',
         {
             'p-tieredmenu-overlay': props.popup,
-            'p-tieredmenu-mobile': instance.queryMatches,
-            'p-tieredmenu-mobile-active': instance.mobileActive
+            'p-tieredmenu-mobile': instance.queryMatches
         }
     ],
     start: 'p-tieredmenu-start',
