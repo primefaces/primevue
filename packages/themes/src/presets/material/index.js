@@ -1,4 +1,3 @@
-import imagecompare from '@primevue/themes/aura/imagecompare';
 import accordion from '@primevue/themes/material/accordion';
 import autocomplete from '@primevue/themes/material/autocomplete';
 import avatar from '@primevue/themes/material/avatar';
@@ -31,6 +30,7 @@ import galleria from '@primevue/themes/material/galleria';
 import iconfield from '@primevue/themes/material/iconfield';
 import iftalabel from '@primevue/themes/material/iftalabel';
 import image from '@primevue/themes/material/image';
+import imagecompare from '@primevue/themes/material/imagecompare';
 import inlinemessage from '@primevue/themes/material/inlinemessage';
 import inplace from '@primevue/themes/material/inplace';
 import inputchips from '@primevue/themes/material/inputchips';

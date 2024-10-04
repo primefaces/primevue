@@ -1,13 +1,13 @@
 export default {
     handle: {
-        size: '30px',
+        size: '15px',
+        hoverSize: '30px',
         background: 'rgba(255,255,255,0.3)',
-        border: {
-            width: '3px',
-            style: 'solid',
-            color: 'rgba(255,255,255,0.3)',
-            radius: '50%'
-        },
+        hoverBackground: 'rgba(255,255,255,0.3)',
+        borderColor: 'unset',
+        hoverBorderColor: 'unset',
+        borderWidth: '0',
+        borderRadius: '50%',
         transitionDuration: '{transition.duration}',
         focusRing: {
             width: '{focus.ring.width}',

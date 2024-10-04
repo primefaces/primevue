@@ -1,4 +1,3 @@
-import imagecompare from '@primevue/themes/aura/imagecompare';
 import accordion from '@primevue/themes/nora/accordion';
 import autocomplete from '@primevue/themes/nora/autocomplete';
 import avatar from '@primevue/themes/nora/avatar';
@@ -31,6 +30,7 @@ import galleria from '@primevue/themes/nora/galleria';
 import iconfield from '@primevue/themes/nora/iconfield';
 import iftalabel from '@primevue/themes/nora/iftalabel';
 import image from '@primevue/themes/nora/image';
+import imagecompare from '@primevue/themes/nora/imagecompare';
 import inlinemessage from '@primevue/themes/nora/inlinemessage';
 import inplace from '@primevue/themes/nora/inplace';
 import inputchips from '@primevue/themes/nora/inputchips';
