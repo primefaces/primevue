@@ -777,7 +777,7 @@ export default {
         },
         bindLabelClickListener() {
             if (!this.editable && !this.labelClickListener) {
-                const label = document.querySelector(`label[for="${this.inputId}"]`);
+                const label = document.querySelector(`label[for="${this.labelId}"]`);
 
                 if (label && isVisible(label)) {
                     this.labelClickListener = () => {
@@ -790,7 +790,7 @@ export default {
         },
         unbindLabelClickListener() {
             if (this.labelClickListener) {
-                const label = document.querySelector(`label[for="${this.inputId}"]`);
+                const label = document.querySelector(`label[for="${this.labelId}"]`);
 
                 if (label && isVisible(label)) {
                     label.removeEventListener('click', this.labelClickListener);
