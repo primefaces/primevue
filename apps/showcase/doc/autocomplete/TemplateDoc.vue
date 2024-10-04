@@ -11,7 +11,7 @@
                 </div>
             </template>
             <template #header>
-                <div class="font-medium px-3 py-2">Available Items</div>
+                <div class="font-medium px-3 py-2">Available Countries</div>
             </template>
             <template #footer>
                 <div class="px-3 py-2">
@@ -41,7 +41,7 @@ export default {
         </div>
     </template>
     <template #header>
-        <div class="font-medium px-3 py-2">Available Items</div>
+        <div class="font-medium px-3 py-2">Available Countries</div>
     </template>
     <template #footer>
         <div class="px-3 py-3">
@@ -61,7 +61,7 @@ export default {
                 </div>
             </template>
             <template #header>
-                <div class="font-medium px-3 py-2">Available Items</div>
+                <div class="font-medium px-3 py-2">Available Countries</div>
             </template>
             <template #footer>
                 <div class="px-3 py-3">
@@ -113,7 +113,7 @@ export default {
                 </div>
             </template>
             <template #header>
-                <div class="font-medium px-3 py-2">Available Items</div>
+                <div class="font-medium px-3 py-2">Available Countries</div>
             </template>
             <template #footer>
                 <div class="px-3 py-3">
