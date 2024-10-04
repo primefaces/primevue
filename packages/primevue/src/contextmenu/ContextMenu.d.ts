@@ -228,6 +228,16 @@ export interface ContextMenuProps {
      */
     model?: MenuItem[] | undefined;
     /**
+     * The breakpoint to define the maximum width boundary.
+     * @defaultValue 960px
+     */
+    breakpoint?: string | undefined;
+    /**
+     * Attaches the menu to document instead of a particular item.
+     * @defaultValue false
+     */
+    global?: boolean | undefined;
+    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
@@ -242,11 +252,6 @@ export interface ContextMenuProps {
      * @defaultValue 0
      */
     baseZIndex?: number | undefined;
-    /**
-     * Attaches the menu to document instead of a particular item.
-     * @defaultValue false
-     */
-    global?: boolean | undefined;
     /**
      * Index of the element in tabbing order.
      */

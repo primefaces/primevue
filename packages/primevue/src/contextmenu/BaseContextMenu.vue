@@ -26,6 +26,10 @@ export default {
             type: Boolean,
             default: false
         },
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         tabindex: {
             type: Number,
             default: 0
