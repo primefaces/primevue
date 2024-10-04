@@ -1,11 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Custom content for icon is displayed with the handle slot that takes an check state as a parameter.</p>
+        <p>The <i>handle</i> slot is available to display custom content.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-4">
         <ToggleSwitch v-model="checked">
             <template #handle="{ checked }">
-                <i :class="checked ? 'pi pi-check' : 'pi pi-times'" />
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
             </template>
         </ToggleSwitch>
     </div>
@@ -21,7 +21,7 @@ export default {
                 basic: `
 <ToggleSwitch v-model="checked">
     <template #handle="{ checked }">
-        <i :class="checked ? 'pi pi-check' : 'pi pi-times'" />
+        <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
     </template>
 </ToggleSwitch>
 `,
@@ -30,7 +30,7 @@ export default {
     <div class="card flex justify-center">
         <ToggleSwitch v-model="checked">
             <template #handle="{ checked }">
-                <i :class="checked ? 'pi pi-check' : 'pi pi-times'" />
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
             </template>
         </ToggleSwitch>
     </div>
@@ -51,7 +51,7 @@ export default {
     <div class="card flex justify-center">
         <ToggleSwitch v-model="checked">
             <template #handle="{ checked }">
-                <i :class="checked ? 'pi pi-check' : 'pi pi-times'" />
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
             </template>
         </ToggleSwitch>
     </div>
