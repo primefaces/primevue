@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>value</i>, <i>dropdownicon</i>,
-            <i>loadingicon</i>, and <i>optiongroupicon</i> slots are provided for further customization.
-        </p>
+        <p>CascadeSelect offers multiple slots for customization through templating.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
@@ -16,7 +13,15 @@
                 </div>
             </template>
             <template #dropdownicon>
-                <i class="pi pi-map-marker"></i>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-1">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                </div>
             </template>
         </CascadeSelect>
     </div>
@@ -115,7 +120,15 @@ export default {
         </div>
     </template>
     <template #dropdownicon>
-        <i class="pi pi-map-marker"></i>
+        <i class="pi pi-map" />
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="px-3 py-1">
+            <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+        </div>
     </template>
 </CascadeSelect>
 `,
@@ -133,7 +146,15 @@ export default {
                 </div>
             </template>
             <template #dropdownicon>
-                <i class="pi pi-map-marker"></i>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-1">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                </div>
             </template>
         </CascadeSelect>
     </div>
@@ -237,7 +258,15 @@ export default {
                 </div>
             </template>
             <template #dropdownicon>
-                <i class="pi pi-map-marker"></i>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-1">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                </div>
             </template>
         </CascadeSelect>
     </div>
