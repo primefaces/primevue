@@ -221,6 +221,12 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
          * @designToken cascadeselect.list.gap
          */
         gap?: string;
+        /**
+         * Mobile indent of list
+         *
+         * @designToken cascadeselect.list.mobile.indent
+         */
+        mobileIndent?: string;
     };
     /**
      * Used to pass tokens of the option section

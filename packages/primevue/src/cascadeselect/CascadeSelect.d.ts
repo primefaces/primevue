@@ -292,6 +292,11 @@ export interface CascadeSelectProps {
      */
     placeholder?: string | undefined;
     /**
+     * The breakpoint to define the maximum width boundary.
+     * @defaultValue 960px
+     */
+    breakpoint?: string | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
