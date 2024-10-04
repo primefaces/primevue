@@ -205,5 +205,29 @@ export interface ToggleSwitchDesignTokens extends ColorSchemeDesignToken<ToggleS
          * @designToken toggleswitch.handle.checked.hover.background
          */
         checkedHoverBackground?: string;
+        /**
+         * Color of handle
+         *
+         * @designToken toggleswitch.handle.color
+         */
+        color?: string;
+        /**
+         * Hover color of handle
+         *
+         * @designToken toggleswitch.handle.hover.color
+         */
+        hoverColor?: string;
+        /**
+         * Checked color of handle
+         *
+         * @designToken toggleswitch.handle.checked.color
+         */
+        checkedColor?: string;
+        /**
+         * Checked hover color of handle
+         *
+         * @designToken toggleswitch.handle.checked.hover.color
+         */
+        checkedHoverColor?: string;
     };
 }
