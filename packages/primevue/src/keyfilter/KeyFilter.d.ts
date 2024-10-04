@@ -1,6 +1,6 @@
 /**
  *
- * KeyFilter is a built-in feature of InputText to restrict user input based on a regular expression.
+ * A keyfilter is a directive used to block individual keystrokes based on a pattern.
  *
  * [Live Demo](https://primevue.org/keyfilter)
  *
@@ -141,7 +141,7 @@ export interface KeyFilterDirectiveBinding extends Omit<DirectiveBinding, 'modif
 /**
  * **PrimeVue - KeyFilter**
  *
- * _KeyFilter is a built-in feature of InputText to restrict user input based on a regular expression._
+ * _A keyfilter is a directive used to block individual keystrokes based on a pattern._
  *
  * [Live Demo](https://www.primevue.org/keyfilter/)
  * --- ---

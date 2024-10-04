@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue KeyFilter Component" header="KeyFilter" description="KeyFilter is a built-in feature of InputText to restrict user input based on a regular expression." :componentDocs="docs" :apiDocs="['KeyFilter']" />
+    <DocComponent title="Vue KeyFilter Component" header="KeyFilter" description="A keyfilter is a directive used to block individual keystrokes based on a pattern." :componentDocs="docs" :apiDocs="['KeyFilter']" />
 </template>
 
 <script>
