@@ -152,6 +152,13 @@ const theme = ({ dt }) => `
     color: ${dt('datepicker.select.year.hover.color')};
 }
 
+.p-datepicker-select-month:focus-visible,
+.p-datepicker-select-year:focus-visible {
+    box-shadow: ${dt('datepicker.date.focus.ring.shadow')};
+    outline: ${dt('datepicker.date.focus.ring.width')} ${dt('datepicker.date.focus.ring.style')} ${dt('datepicker.date.focus.ring.color')};
+    outline-offset: ${dt('datepicker.date.focus.ring.offset')};
+}
+
 .p-datepicker-calendar-container {
     display: flex;
 }
