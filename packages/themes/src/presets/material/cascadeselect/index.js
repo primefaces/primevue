@@ -38,7 +38,8 @@ export default {
     },
     list: {
         padding: '{list.padding}',
-        gap: '{list.gap}'
+        gap: '{list.gap}',
+        mobileIndent: '1rem'
     },
     option: {
         focusBackground: '{list.option.focus.background}',

@@ -109,6 +109,7 @@ export default {
         $pcFluid: { default: null }
     },
     outsideClickListener: null,
+    matchMediaListener: null,
     scrollHandler: null,
     resizeListener: null,
     overlay: null,
@@ -122,7 +123,10 @@ export default {
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
             activeOptionPath: [],
             overlayVisible: false,
-            dirty: false
+            dirty: false,
+            mobileActive: false,
+            query: null,
+            queryMatches: false
         };
     },
     watch: {
@@ -136,10 +140,12 @@ export default {
     mounted() {
         this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
+        this.bindMatchMediaListener();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -149,6 +155,10 @@ export default {
         if (this.overlay) {
             ZIndex.clear(this.overlay);
             this.overlay = null;
+        }
+
+        if (this.mobileActive) {
+            this.mobileActive = false;
         }
     },
     methods: {
@@ -569,6 +579,27 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                    this.mobileActive = false;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
             }
         },
         isOptionMatched(processedOption) {

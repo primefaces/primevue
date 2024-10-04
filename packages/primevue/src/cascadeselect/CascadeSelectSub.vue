@@ -48,7 +48,6 @@
                     @option-focus-change="onOptionFocusChange"
                     :pt="pt"
                     :unstyled="unstyled"
-                    :isParentMount="mounted"
                 />
             </li>
         </template>
@@ -86,23 +85,7 @@ export default {
         templates: null,
         isParentMount: Boolean
     },
-    data() {
-        return {
-            mounted: false
-        };
-    },
-    watch: {
-        isParentMount: {
-            handler(newValue) {
-                newValue && nestedPosition(this.container, this.level);
-            }
-        }
-    },
-    mounted() {
-        // entering order correction when an option is selected
-        (this.isParentMount || this.level === 0) && nestedPosition(this.container, this.level);
-        this.mounted = true;
-    },
+
     methods: {
         getOptionId(processedOption) {
             return `${this.selectId}_${processedOption.key}`;
