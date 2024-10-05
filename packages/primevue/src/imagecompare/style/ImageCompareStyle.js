@@ -26,6 +26,7 @@ const theme = ({ dt }) => `
     margin-left: calc(-1 * calc(${dt('imagecompare.handle.size')} / 2));
     background-color: transparent;
     outline: none;
+    transition: all ${dt('imagecompare.handle.transition.duration')};
 }
 
 .p-imagecompare-slider::-webkit-slider-thumb {
@@ -60,6 +61,11 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('imagecompare.handle.focus.ring.shadow')};
     outline: ${dt('imagecompare.handle.focus.ring.width')} ${dt('imagecompare.handle.focus.ring.style')} ${dt('imagecompare.handle.focus.ring.color')};
     outline-offset: ${dt('imagecompare.handle.focus.ring.offset')};
+}
+    
+.p-imagecompare-slider:hover {
+    width: calc(100% + ${dt('imagecompare.handle.hover.size')});
+    margin-left: calc(-1 * calc(${dt('imagecompare.handle.hover.size')} / 2));
 }
 
 .p-imagecompare-slider:hover::-webkit-slider-thumb {
