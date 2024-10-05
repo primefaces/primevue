@@ -3,7 +3,7 @@
         <p>
             PrimeVue is a design agnostic library so unlike some other UI libraries it does not enforce a certain styling such as material design. Styling is decoupled from the components using the themes instead. A theme consists of two parts;
             <i>base</i> and <i>preset</i>. The base is the style rules with CSS variables as placeholders whereas the preset is a set of design tokens to feed a base by mapping the tokens to CSS variables. A base may be configured with different
-            presets, currently Aura, Lara and Nora are the available presets and in upcoming version more presets will be available such as Material Design.
+            presets, currently Aura, Material, Lara and Nora are the available built-in options.
         </p>
         <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/primevue-v4-styled-architecture.png" class="w-full mb-4" />
         <p>The core of the styled mode architecture is based on a concept named <i>design token</i>, a preset defines the token configuration in 3 tiers; <i>primitive</i>, <i>semantic</i> and <i>component</i>.</p>
@@ -33,9 +33,9 @@
         </p>
 
         <h3>Video Tutorial</h3>
-        <p>Watch the <b>PrimeVue Theming Demystified</b> video to learn more about the architecture with examples.</p>
+        <p>Watch the <b>PrimeVue Theming Demystified</b> series to learn more about the architecture with examples.</p>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/J3KFw5sih98" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=nlVVyxrwgiJCL9U7&amp;list=PLC9bp-OHi-Wm2LqlXk1i-haW-1kESMIqh" frameborder="0" allowfullscreen></iframe>
         </div>
     </DocSectionText>
 </template>
