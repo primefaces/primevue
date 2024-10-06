@@ -1,4 +1,5 @@
 import { addPlugin, addPluginTemplate, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit';
+import { isNotEmpty } from '@primeuix/utils';
 import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 import type { MetaType } from '@primevue/metadata';
 import { normalize } from 'pathe';
@@ -62,9 +63,11 @@ export default defineNuxtModule<ModuleOptions>({
         let registeredStyles: MetaType[] = registered.styles;
 
         if (autoImport) {
+            const dts = isNotEmpty(moduleOptions.components?.prefix) || isNotEmpty(moduleOptions.directives?.prefix);
+
             Components(
                 {
-                    dts: true,
+                    dts,
                     resolvers: [
                         PrimeVueResolver({
                             components: moduleOptions.components,
