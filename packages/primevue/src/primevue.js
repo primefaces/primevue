@@ -322,11 +322,23 @@ export { default as IconField } from './iconfield/IconField.vue';
 export * from './iconfield/style/IconFieldStyle.js';
 export { default as IconFieldStyle } from './iconfield/style/IconFieldStyle.js';
 
+// IftaLabel
+export * from './iftalabel/IftaLabel.vue';
+export { default as IftaLabel } from './iftalabel/IftaLabel.vue';
+export * from './iftalabel/style/IftaLabelStyle.js';
+export { default as IftaLabelStyle } from './iftalabel/style/IftaLabelStyle.js';
+
 // Image
 export * from './image/Image.vue';
 export { default as Image } from './image/Image.vue';
 export * from './image/style/ImageStyle.js';
 export { default as ImageStyle } from './image/style/ImageStyle.js';
+
+// ImageCompare
+export * from './imagecompare/ImageCompare.vue';
+export { default as ImageCompare } from './imagecompare/ImageCompare.vue';
+export * from './imagecompare/style/ImageCompareStyle.js';
+export { default as ImageCompareStyle } from './imagecompare/style/ImageCompareStyle.js';
 
 // InlineMessage
 export * from './inlinemessage/InlineMessage.vue';
@@ -393,6 +405,12 @@ export * from './inputtext/InputText.vue';
 export { default as InputText } from './inputtext/InputText.vue';
 export * from './inputtext/style/InputTextStyle.js';
 export { default as InputTextStyle } from './inputtext/style/InputTextStyle.js';
+
+// KeyFilter
+export * from './keyfilter/KeyFilter.js';
+export { default as KeyFilter } from './keyfilter/KeyFilter.js';
+export * from './keyfilter/style/KeyFilterStyle.js';
+export { default as KeyFilterStyle } from './keyfilter/style/KeyFilterStyle.js';
 
 // Knob
 export * from './knob/Knob.vue';
