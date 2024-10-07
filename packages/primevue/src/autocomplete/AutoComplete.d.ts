@@ -191,6 +191,10 @@ export interface AutoCompletePassThroughOptions {
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
     /**
+     * Used to pass attributes to the list container's DOM element.
+     */
+    listContainer?: AutoCompletePassThroughOptionType;
+    /**
      * Used to pass attributes to the list's DOM element.
      */
     list?: AutoCompletePassThroughOptionType;
