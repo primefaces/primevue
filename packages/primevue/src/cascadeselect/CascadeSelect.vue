@@ -72,7 +72,8 @@
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
                             @option-change="onOptionChange"
-                            @option-focus-change="onOptionFocusChange"
+                            @option-focus-move-change="onOptionFocusMoveChange"
+                            @option-focus-enter-change="onOptionFocusChangeEnter"
                             :pt="pt"
                             :unstyled="unstyled"
                         />
@@ -303,25 +304,23 @@ export default {
 
             this.clicked = false;
         },
-        onOptionChange(event) {
+        onOptionChange(event, isSelectable = true) {
             const { originalEvent, processedOption, isFocus, isHide } = event;
 
             if (isEmpty(processedOption)) return;
 
-            const { index, level, parentKey, children } = processedOption;
+            const { index, key, level, parentKey, children } = processedOption;
             const grouped = isNotEmpty(children);
             const root = isEmpty(processedOption.parent);
             const selected = this.isSelected(processedOption);
 
             if (selected) {
-                const { index, key, level, parentKey } = processedOption;
-
                 this.focusedOptionInfo = { index, level, parentKey };
                 this.activeOptionPath = this.activeOptionPath.filter((p) => key !== p.key && key.startsWith(p.key));
 
                 this.dirty = !root;
             } else {
-                const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+                const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
                 activeOptionPath.push(processedOption);
 
@@ -329,16 +328,27 @@ export default {
                 this.activeOptionPath = activeOptionPath;
             }
 
-            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
+            if (grouped) {
+                this.dirty = true;
+                this.onOptionGroupSelect(originalEvent, processedOption);
+            } else {
+                isSelectable && this.onOptionSelect(originalEvent, processedOption, isHide);
+            }
+
             isFocus && focus(this.$refs.focusInput);
         },
-        onOptionFocusChange(event) {
+        onOptionFocusMoveChange(event) {
             if (this.focusOnHover) {
                 const { originalEvent, processedOption } = event;
                 const { index, level, parentKey } = processedOption;
 
                 this.focusedOptionInfo = { index, level, parentKey };
                 this.changeFocusedOptionIndex(originalEvent, index);
+            }
+        },
+        onOptionFocusChangeEnter(event) {
+            if (this.dirty) {
+                this.onOptionChange(event, false);
             }
         },
         onOptionSelect(event, processedOption, isHide = true) {

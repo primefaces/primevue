@@ -17,7 +17,14 @@
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('optionContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'optionContent')">
+                <div
+                    v-ripple
+                    :class="cx('optionContent')"
+                    @click="onOptionClick($event, processedOption)"
+                    @mouseenter="onOptionMouseEnter($event, processedOption)"
+                    @mousemove="onOptionMouseMove($event, processedOption)"
+                    v-bind="getPTOptions(processedOption, index, 'optionContent')"
+                >
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" :selected="isOptionGroup(processedOption) ? false : isOptionSelected(processedOption)" />
                     <span v-else :class="cx('optionText')" v-bind="getPTOptions(processedOption, index, 'optionText')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
@@ -46,6 +53,7 @@
                     :optionGroupChildren="optionGroupChildren"
                     @option-change="onOptionChange"
                     @option-focus-change="onOptionFocusChange"
+                    @option-focus-enter-change="onOptionFocusEnterChange"
                     :pt="pt"
                     :unstyled="unstyled"
                 />
@@ -55,7 +63,6 @@
 </template>
 
 <script>
-import { nestedPosition } from '@primeuix/utils/dom';
 import { isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import AngleRightIcon from '@primevue/icons/angleright';
@@ -65,7 +72,7 @@ export default {
     name: 'CascadeSelectSub',
     hostName: 'CascadeSelect',
     extends: BaseComponent,
-    emits: ['option-change', 'option-focus-change'],
+    emits: ['option-change', 'option-focus-change', 'option-focus-enter-change'],
     container: null,
     props: {
         selectId: String,
@@ -82,8 +89,7 @@ export default {
         },
         activeOptionPath: Array,
         level: Number,
-        templates: null,
-        isParentMount: Boolean
+        templates: null
     },
 
     methods: {
@@ -136,6 +142,9 @@ export default {
         onOptionClick(event, processedOption) {
             this.$emit('option-change', { originalEvent: event, processedOption, isFocus: true });
         },
+        onOptionMouseEnter(event, processedOption) {
+            this.$emit('option-focus-enter-change', { originalEvent: event, processedOption });
+        },
         onOptionMouseMove(event, processedOption) {
             this.$emit('option-focus-change', { originalEvent: event, processedOption });
         },
@@ -144,6 +153,9 @@ export default {
         },
         onOptionFocusChange(event) {
             this.$emit('option-focus-change', event);
+        },
+        onOptionFocusEnterChange(event) {
+            this.$emit('option-focus-enter-change', event);
         },
         containerRef(el) {
             this.container = el;
