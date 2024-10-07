@@ -83,12 +83,7 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ instance }) => [
-        'p-inputgroup',
-        {
-            'p-inputgroup-fluid': instance.hasFluid
-        }
-    ]
+    root: 'p-inputgroup'
 };
 
 export default BaseStyle.extend({
