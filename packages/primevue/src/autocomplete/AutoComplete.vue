@@ -335,6 +335,7 @@ export default {
                 this.scrollInView(this.focusedOptionIndex);
             }
 
+            this.multiple && focus(this.$refs.focusInput);
             this.$emit('focus', event);
         },
         onBlur(event) {
