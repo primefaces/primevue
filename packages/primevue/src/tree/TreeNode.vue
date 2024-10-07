@@ -46,7 +46,7 @@
             <component v-if="templates['nodeicon']" :is="templates['nodeicon']" :node="node" :class="[cx('nodeIcon')]" v-bind="getPTOptions('nodeIcon')"></component>
             <span v-else :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('nodeLabel')" v-bind="getPTOptions('nodeLabel')" @keydown.stop>
-                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" :selected="checkboxMode ? checked : selected" />
+                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" :expanded="expanded" :selected="checkboxMode ? checked : selected" />
                 <template v-else>{{ label(node) }}</template>
             </span>
         </div>

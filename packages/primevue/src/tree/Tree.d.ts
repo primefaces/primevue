@@ -357,6 +357,10 @@ export interface TreeSlots {
          * Selection state
          */
         selected: boolean;
+        /**
+         * Expanded state
+         */
+        expanded: boolean;
     }): VNode[];
     /**
      * Custom loading icon template.

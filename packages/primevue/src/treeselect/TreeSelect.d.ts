@@ -344,6 +344,24 @@ export interface TreeSelectSlots {
         placeholder: string;
     }): VNode[];
     /**
+     * Custom option template.
+     * @param {Object} scope - option slot's params.
+     */
+    option(scope: {
+        /**
+         * Current node
+         */
+        node: TreeNode | any;
+        /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
+         * Expanded state
+         */
+        expanded: boolean;
+    }): VNode[];
+    /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
      */

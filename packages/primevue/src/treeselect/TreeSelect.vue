@@ -84,15 +84,18 @@
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
                         >
-                            <template v-if="$slots.itemtoggleicon" #toggleicon="iconProps">
-                                <slot name="itemtoggleicon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            <template v-if="$slots.option" #default="optionSlotProps">
+                                <slot name="option" :node="optionSlotProps.node" :expanded="optionSlotProps.expanded" :selected="optionSlotProps.selected" />
+                            </template>
+                            <template v-if="$slots.itemtoggleicon" #toggleicon="iconSlotProps">
+                                <slot name="itemtoggleicon" :node="iconSlotProps.node" :expanded="iconSlotProps.expanded" :class="iconSlotProps.class" />
                             </template>
                             <!--TODO: itemtogglericon deprecated since v4.0-->
-                            <template v-else-if="$slots.itemtogglericon" #togglericon="iconProps">
-                                <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            <template v-else-if="$slots.itemtogglericon" #togglericon="iconSlotProps">
+                                <slot name="itemtogglericon" :node="iconSlotProps.node" :expanded="iconSlotProps.expanded" :class="iconSlotProps.class" />
                             </template>
-                            <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconProps">
-                                <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
+                            <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconSlotProps">
+                                <slot name="itemcheckboxicon" :checked="iconSlotProps.checked" :partialChecked="iconSlotProps.partialChecked" :class="iconSlotProps.class" />
                             </template>
                         </TSTree>
                         <div v-if="emptyOptions && !loading" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
