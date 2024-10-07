@@ -335,7 +335,6 @@ export default {
                 this.scrollInView(this.focusedOptionIndex);
             }
 
-            this.multiple && focus(this.$refs.focusInput);
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -502,7 +501,7 @@ export default {
         onContainerClick(event) {
             this.clicked = true;
 
-            if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
+            if (this.disabled || this.searching || this.loading || this.isDropdownClicked(event)) {
                 return;
             }
 
