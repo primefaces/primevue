@@ -424,7 +424,7 @@ export default {
 
                     if (selectionStart === selectionEnd) {
                         const deleteChar = inputValue.charAt(selectionStart - 1);
-                        const { decimalCharIndex, decimalCharIndexWithoutPrefix } = this.getDecimalCharIndexes(inputValue);
+                        const { decimalCharIndexWithoutPrefix } = this.getDecimalCharIndexes(inputValue);
 
                         if (this.isNumeralChar(deleteChar)) {
                             const decimalLength = this.getDecimalLength(inputValue);
@@ -440,10 +440,6 @@ export default {
                                 } else {
                                     newValueStr = inputValue.slice(0, selectionStart - 1) + inputValue.slice(selectionStart);
                                 }
-                            } else if (decimalCharIndex > 0 && selectionStart > decimalCharIndex) {
-                                const insertedText = this.isDecimalMode() && (this.minFractionDigits || 0) < decimalLength ? '' : '0';
-
-                                newValueStr = inputValue.slice(0, selectionStart - 1) + insertedText + inputValue.slice(selectionStart);
                             } else if (decimalCharIndexWithoutPrefix === 1) {
                                 newValueStr = inputValue.slice(0, selectionStart - 1) + '0' + inputValue.slice(selectionStart);
                                 newValueStr = this.parseValue(newValueStr) > 0 ? newValueStr : '';
@@ -771,7 +767,6 @@ export default {
                 newValue = this.parseValue(valueStr);
                 newValue = !newValue && !this.allowEmpty ? 0 : newValue;
                 this.updateInput(newValue, insertedValueStr, operation, valueStr);
-
                 this.handleOnInput(event, currentValue, newValue);
             }
         },
@@ -891,9 +886,9 @@ export default {
                 this._decimal.lastIndex = 0;
 
                 if (this.suffixChar) {
-                    return decimalCharIndex !== -1 ? val1.replace(this.suffixChar, '').split(this._decimal)[0] + val2.replace(this.suffixChar, '').slice(decimalCharIndex) + this.suffixChar : val1;
+                    return decimalCharIndex !== -1 ? val1.replace(this.suffixChar, '').split(this._decimal)[0] + val2.replace(this.suffixChar, '').slice(decimalCharIndex) + this.suffixChar : val2;
                 } else {
-                    return decimalCharIndex !== -1 ? val1.split(this._decimal)[0] + val2.slice(decimalCharIndex) : val1;
+                    return decimalCharIndex !== -1 ? val1.split(this._decimal)[0] + val2.slice(decimalCharIndex) : val2;
                 }
             }
 
