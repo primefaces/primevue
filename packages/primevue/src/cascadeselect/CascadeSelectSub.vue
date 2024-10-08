@@ -51,9 +51,9 @@
                     :optionGroupIcon="optionGroupIcon"
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
-                    @option-change="onOptionChange"
-                    @option-focus-change="onOptionFocusChange"
-                    @option-focus-enter-change="onOptionFocusEnterChange"
+                    @option-change="$emit('option-change', $event)"
+                    @option-focus-change="$emit('option-focus-change', $event)"
+                    @option-focus-enter-change="$emit('option-focus-enter-change', $event)"
                     :pt="pt"
                     :unstyled="unstyled"
                 />
@@ -147,15 +147,6 @@ export default {
         },
         onOptionMouseMove(event, processedOption) {
             this.$emit('option-focus-change', { originalEvent: event, processedOption });
-        },
-        onOptionChange(event) {
-            this.$emit('option-change', event);
-        },
-        onOptionFocusChange(event) {
-            this.$emit('option-focus-change', event);
-        },
-        onOptionFocusEnterChange(event) {
-            this.$emit('option-focus-enter-change', event);
         },
         containerRef(el) {
             this.container = el;

@@ -71,9 +71,9 @@
                             :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
-                            @option-change="onOptionChange"
-                            @option-focus-move-change="onOptionFocusMoveChange"
-                            @option-focus-enter-change="onOptionFocusChangeEnter"
+                            @option-change="onOptionClick"
+                            @option-focus-change="onOptionMouseMove"
+                            @option-focus-enter-change="onOptionMouseEnter"
                             :pt="pt"
                             :unstyled="unstyled"
                         />
@@ -304,53 +304,55 @@ export default {
 
             this.clicked = false;
         },
-        onOptionChange(event, isSelectable = true) {
-            const { originalEvent, processedOption, isFocus, isHide } = event;
+        onOptionChange(event) {
+            const { processedOption } = event;
 
             if (isEmpty(processedOption)) return;
 
             const { index, key, level, parentKey, children } = processedOption;
             const grouped = isNotEmpty(children);
-            const root = isEmpty(processedOption.parent);
+            const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
+
+            if (grouped) {
+                activeOptionPath.push(processedOption);
+            }
+
+            this.focusedOptionInfo = { index, level, parentKey };
+            this.activeOptionPath = activeOptionPath;
+        },
+        onOptionClick(event) {
+            const { originalEvent, processedOption, isFocus, isHide } = event;
+            const { index, key, level, parentKey } = processedOption;
+            const grouped = this.isProccessedOptionGroup(processedOption);
             const selected = this.isSelected(processedOption);
 
             if (selected) {
-                this.focusedOptionInfo = { index, level, parentKey };
                 this.activeOptionPath = this.activeOptionPath.filter((p) => key !== p.key && key.startsWith(p.key));
-
-                this.dirty = !root;
-            } else {
-                const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
-
-                activeOptionPath.push(processedOption);
-
                 this.focusedOptionInfo = { index, level, parentKey };
-                this.activeOptionPath = activeOptionPath;
-            }
-
-            if (grouped) {
-                this.dirty = true;
-                this.onOptionGroupSelect(originalEvent, processedOption);
             } else {
-                isSelectable && this.onOptionSelect(originalEvent, processedOption, isHide);
+                if (grouped) {
+                    this.onOptionChange(event);
+                } else {
+                    const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+
+                    activeOptionPath.push(processedOption);
+
+                    this.focusedOptionInfo = { index, level, parentKey };
+                    this.activeOptionPath = activeOptionPath;
+                }
             }
 
+            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && focus(this.$refs.focusInput);
         },
-        onOptionFocusMoveChange(event) {
-            if (this.focusOnHover) {
-                const { originalEvent, processedOption } = event;
-                const { index, level, parentKey } = processedOption;
-
-                this.focusedOptionInfo = { index, level, parentKey };
-                this.changeFocusedOptionIndex(originalEvent, index);
+        onOptionMouseEnter(event) {
+            if (this.dirty) {
+                this.onOptionChange(event);
             }
         },
-        onOptionFocusChangeEnter(event) {
-            if (this.dirty) {
-                this.onOptionChange(event, false);
-            } else {
-                this.onOptionFocusMoveChange(event);
+        onOptionMouseMove(event) {
+            if (this.focused) {
+                this.changeFocusedOptionIndex(event, event.processedOption.index);
             }
         },
         onOptionSelect(event, processedOption, isHide = true) {
