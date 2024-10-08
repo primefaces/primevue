@@ -155,12 +155,10 @@ export default {
             }
 
             event.currentTarget.focus();
-            event.preventDefault();
         },
         onDrag(event) {
             if (this.dragging) {
                 this.setValue(event);
-                event.preventDefault();
             }
         },
         onDragEnd(event) {
