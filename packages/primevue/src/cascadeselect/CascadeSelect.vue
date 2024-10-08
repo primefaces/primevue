@@ -349,6 +349,8 @@ export default {
         onOptionFocusChangeEnter(event) {
             if (this.dirty) {
                 this.onOptionChange(event, false);
+            } else {
+                this.onOptionFocusMoveChange(event);
             }
         },
         onOptionSelect(event, processedOption, isHide = true) {
