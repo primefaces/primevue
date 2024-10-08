@@ -72,7 +72,7 @@ export default {
         },
         currencyDisplay: {
             type: String,
-            default: 'code'
+            default: undefined
         },
         useGrouping: {
             type: Boolean,

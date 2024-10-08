@@ -264,7 +264,7 @@ export interface InputNumberProps {
     currency?: string | undefined;
     /**
      * How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'.
-     * @defaultValue code
+     * @defaultValue symbol
      */
     currencyDisplay?: string | undefined;
     /**
