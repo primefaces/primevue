@@ -7,7 +7,7 @@
  * @module badge
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -129,7 +129,7 @@ declare const Badge: DefineComponent<BadgeProps, BadgeSlots, BadgeEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Badge: GlobalComponentConstructor<BadgeProps, BadgeSlots, BadgeEmits>;
+        Badge: DefineComponent<BadgeProps, BadgeSlots, BadgeEmits>;
     }
 }
 

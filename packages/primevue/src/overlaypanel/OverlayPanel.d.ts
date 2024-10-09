@@ -7,7 +7,7 @@
  * @module overlaypanel
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 import * as Popover from 'primevue/popover';
 import 'vue';
 
@@ -103,7 +103,7 @@ declare const OverlayPanel: DefineComponent<OverlayPanelProps, OverlayPanelSlots
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OverlayPanel: GlobalComponentConstructor<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits, OverlayPanelMethods>;
+        OverlayPanel: DefineComponent<OverlayPanelProps, OverlayPanelSlots, OverlayPanelEmits, OverlayPanelMethods>;
     }
 }
 

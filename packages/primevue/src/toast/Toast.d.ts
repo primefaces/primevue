@@ -7,7 +7,7 @@
  * @module toast
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
@@ -347,7 +347,7 @@ declare const Toast: DefineComponent<ToastProps, ToastSlots, ToastEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Toast: GlobalComponentConstructor<ToastProps, ToastSlots, ToastEmits>;
+        Toast: DefineComponent<ToastProps, ToastSlots, ToastEmits>;
     }
 }
 

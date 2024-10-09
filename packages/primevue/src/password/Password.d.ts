@@ -7,7 +7,7 @@
  * @module password
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -428,7 +428,7 @@ declare const Password: DefineComponent<PasswordProps, PasswordSlots, PasswordEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Password: GlobalComponentConstructor<PasswordProps, PasswordSlots, PasswordEmits>;
+        Password: DefineComponent<PasswordProps, PasswordSlots, PasswordEmits>;
     }
 }
 

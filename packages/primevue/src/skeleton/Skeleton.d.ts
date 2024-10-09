@@ -7,7 +7,7 @@
  * @module skeleton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -143,7 +143,7 @@ declare const Skeleton: DefineComponent<SkeletonProps, SkeletonSlots, SkeletonEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Skeleton: GlobalComponentConstructor<SkeletonProps, SkeletonSlots, SkeletonEmits>;
+        Skeleton: DefineComponent<SkeletonProps, SkeletonSlots, SkeletonEmits>;
     }
 }
 

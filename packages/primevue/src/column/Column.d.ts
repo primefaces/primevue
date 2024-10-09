@@ -8,7 +8,7 @@
  * @module column
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { ButtonPassThroughOptions } from 'primevue/button';
@@ -1039,7 +1039,7 @@ export type ColumnNode = { props: ColumnProps };
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Column: GlobalComponentConstructor<ColumnProps, ColumnSlots, ColumnEmits>;
+        Column: DefineComponent<ColumnProps, ColumnSlots, ColumnEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module floatlabel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -128,7 +128,7 @@ declare const FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, Floa
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FloatLabel: GlobalComponentConstructor<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
+        FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
     }
 }
 

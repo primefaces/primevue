@@ -7,7 +7,7 @@
  * @module accordion
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -245,7 +245,7 @@ declare const Accordion: DefineComponent<AccordionProps, AccordionSlots, Accordi
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Accordion: GlobalComponentConstructor<AccordionProps, AccordionSlots, AccordionEmits>;
+        Accordion: DefineComponent<AccordionProps, AccordionSlots, AccordionEmits>;
     }
 }
 

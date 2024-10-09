@@ -7,7 +7,7 @@
  * @module radiobutton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -237,7 +237,7 @@ declare const RadioButton: DefineComponent<RadioButtonProps, RadioButtonSlots, R
 
 declare module 'vue' {
     export interface GlobalComponents {
-        RadioButton: GlobalComponentConstructor<RadioButtonProps, RadioButtonSlots, RadioButtonEmits>;
+        RadioButton: DefineComponent<RadioButtonProps, RadioButtonSlots, RadioButtonEmits>;
     }
 }
 

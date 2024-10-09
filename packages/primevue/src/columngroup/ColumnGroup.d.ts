@@ -7,7 +7,7 @@
  * @module columngroup
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -138,7 +138,7 @@ declare const ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, C
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ColumnGroup: GlobalComponentConstructor<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
+        ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
     }
 }
 

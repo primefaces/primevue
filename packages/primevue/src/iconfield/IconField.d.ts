@@ -7,7 +7,7 @@
  * @module iconfield
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -121,7 +121,7 @@ declare const IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFie
 
 declare module 'vue' {
     export interface GlobalComponents {
-        IconField: GlobalComponentConstructor<IconFieldProps, IconFieldSlots, IconFieldEmits>;
+        IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFieldEmits>;
     }
 }
 

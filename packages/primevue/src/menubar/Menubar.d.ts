@@ -7,7 +7,7 @@
  * @module menubar
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -416,7 +416,7 @@ declare const Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Menubar: GlobalComponentConstructor<MenubarProps, MenubarSlots, MenubarEmits>;
+        Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module blockui
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -169,7 +169,7 @@ declare const BlockUI: DefineComponent<BlockUIProps, BlockUISlots, BlockUIEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        BlockUI: GlobalComponentConstructor<BlockUIProps, BlockUISlots, BlockUIEmits>;
+        BlockUI: DefineComponent<BlockUIProps, BlockUISlots, BlockUIEmits>;
     }
 }
 

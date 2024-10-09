@@ -7,7 +7,7 @@
  * @module confirmdialog
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { ConfirmationOptions } from 'primevue/confirmationoptions';
@@ -280,7 +280,7 @@ declare const ConfirmDialog: DefineComponent<ConfirmDialogProps, ConfirmDialogSl
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ConfirmDialog: GlobalComponentConstructor<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits>;
+        ConfirmDialog: DefineComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits>;
     }
 }
 

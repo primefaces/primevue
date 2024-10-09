@@ -7,7 +7,7 @@
  * @module togglebutton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -239,7 +239,7 @@ declare const ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots
 
 declare module 'vue' {
     export interface GlobalComponents {
-        ToggleButton: GlobalComponentConstructor<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
+        ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
     }
 }
 

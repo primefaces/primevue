@@ -7,7 +7,7 @@
  * @module listbox
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
 import type { InputIconPassThroughOptions } from 'primevue/inputicon';
@@ -614,7 +614,7 @@ declare const Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Listbox: GlobalComponentConstructor<ListboxProps, ListboxSlots, ListboxEmits>;
+        Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module button
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { ButtonHTMLAttributes, Component, VNode } from 'vue';
@@ -267,7 +267,7 @@ declare const Button: DefineComponent<ButtonProps, ButtonSlots, ButtonEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Button: GlobalComponentConstructor<ButtonProps, ButtonSlots, ButtonEmits>;
+        Button: DefineComponent<ButtonProps, ButtonSlots, ButtonEmits>;
     }
 }
 

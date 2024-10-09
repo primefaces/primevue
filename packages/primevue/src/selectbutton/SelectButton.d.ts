@@ -11,7 +11,7 @@ import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
 // import { ToggleButtonPassThroughOptions } from 'primevue/togglebutton';
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -257,7 +257,7 @@ declare const SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SelectButton: GlobalComponentConstructor<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
+        SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
     }
 }
 

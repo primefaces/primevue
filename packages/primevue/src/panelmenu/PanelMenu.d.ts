@@ -7,7 +7,7 @@
  * @module panelmenu
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -407,7 +407,7 @@ declare const PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMe
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PanelMenu: GlobalComponentConstructor<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
+        PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module dataview
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -349,7 +349,7 @@ declare const DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataView: GlobalComponentConstructor<DataViewProps, DataViewSlots, DataViewEmits>;
+        DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
     }
 }
 

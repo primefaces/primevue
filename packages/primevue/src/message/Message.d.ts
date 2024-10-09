@@ -7,7 +7,7 @@
  * @module message
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
@@ -231,7 +231,7 @@ declare const Message: DefineComponent<MessageProps, MessageSlots, MessageEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Message: GlobalComponentConstructor<MessageProps, MessageSlots, MessageEmits>;
+        Message: DefineComponent<MessageProps, MessageSlots, MessageEmits>;
     }
 }
 

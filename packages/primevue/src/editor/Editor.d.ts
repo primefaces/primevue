@@ -7,7 +7,7 @@
  * @module editor
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -313,7 +313,7 @@ declare const Editor: DefineComponent<EditorProps, EditorSlots, EditorEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Editor: GlobalComponentConstructor<EditorProps, EditorSlots, EditorEmits>;
+        Editor: DefineComponent<EditorProps, EditorSlots, EditorEmits>;
     }
 }
 

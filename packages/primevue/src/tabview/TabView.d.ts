@@ -8,7 +8,7 @@
  * @module tabview
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { TabPanelPassThroughOptionType } from 'primevue/tabpanel';
@@ -280,7 +280,7 @@ declare const TabView: DefineComponent<TabViewProps, TabViewSlots, TabViewEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabView: GlobalComponentConstructor<TabViewProps, TabViewSlots, TabViewEmits>;
+        TabView: DefineComponent<TabViewProps, TabViewSlots, TabViewEmits>;
     }
 }
 

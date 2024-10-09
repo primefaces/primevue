@@ -7,7 +7,7 @@
  * @module overlaybadge
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -145,7 +145,7 @@ declare const OverlayBadge: DefineComponent<OverlayBadgeProps, OverlayBadgeSlots
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OverlayBadge: GlobalComponentConstructor<OverlayBadgeProps, OverlayBadgeSlots, OverlayBadgeEmits>;
+        OverlayBadge: DefineComponent<OverlayBadgeProps, OverlayBadgeSlots, OverlayBadgeEmits>;
     }
 }
 

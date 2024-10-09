@@ -7,7 +7,7 @@
  * @module calendar
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 import * as DatePicker from 'primevue/datepicker';
 import 'vue';
 
@@ -120,7 +120,7 @@ declare const Calendar: DefineComponent<CalendarProps, CalendarSlots, CalendarEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Calendar: GlobalComponentConstructor<CalendarProps, CalendarSlots, CalendarEmits>;
+        Calendar: DefineComponent<CalendarProps, CalendarSlots, CalendarEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module iftalabel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -123,7 +123,7 @@ declare const IftaLabel: DefineComponent<IftaLabelProps, IftaLabelSlots, IftaLab
 
 declare module 'vue' {
     export interface GlobalComponents {
-        IftaLabel: GlobalComponentConstructor<IftaLabelProps, IftaLabelSlots, IftaLabelEmits>;
+        IftaLabel: DefineComponent<IftaLabelProps, IftaLabelSlots, IftaLabelEmits>;
     }
 }
 

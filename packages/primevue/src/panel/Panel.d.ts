@@ -7,7 +7,7 @@
  * @module panel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -274,7 +274,7 @@ declare const Panel: DefineComponent<PanelProps, PanelSlots, PanelEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Panel: GlobalComponentConstructor<PanelProps, PanelSlots, PanelEmits>;
+        Panel: DefineComponent<PanelProps, PanelSlots, PanelEmits>;
     }
 }
 

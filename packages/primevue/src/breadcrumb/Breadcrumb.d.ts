@@ -7,7 +7,7 @@
  * @module breadcrumb
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -234,7 +234,7 @@ declare const Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, Brea
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Breadcrumb: GlobalComponentConstructor<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
+        Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
     }
 }
 

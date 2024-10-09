@@ -7,7 +7,7 @@
  * @module steppanel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { Component, VNode } from 'vue';
@@ -141,7 +141,7 @@ declare const StepPanel: DefineComponent<StepPanelProps, StepPanelSlots, StepPan
 
 declare module 'vue' {
     export interface GlobalComponents {
-        StepPanel: GlobalComponentConstructor<StepPanelProps, StepPanelSlots, StepPanelEmits>;
+        StepPanel: DefineComponent<StepPanelProps, StepPanelSlots, StepPanelEmits>;
     }
 }
 

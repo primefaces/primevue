@@ -7,7 +7,7 @@
  * @module inputswitch
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 import * as ToggleSwitch from 'primevue/toggleswitch';
 /**
  * Custom passthrough(pt) option method.
@@ -62,7 +62,7 @@ declare const InputSwitch: DefineComponent<InputSwitchProps, InputSwitchSlots, I
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputSwitch: GlobalComponentConstructor<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
+        InputSwitch: DefineComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
     }
 }
 

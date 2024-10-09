@@ -7,7 +7,7 @@
  * @module tabpanel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { AnchorHTMLAttributes, Component, HTMLAttributes, LiHTMLAttributes, VNode } from 'vue';
@@ -229,7 +229,7 @@ declare const TabPanel: DefineComponent<TabPanelProps, TabPanelSlots, TabPanelEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabPanel: GlobalComponentConstructor<TabPanelProps, TabPanelSlots, TabPanelEmits>;
+        TabPanel: DefineComponent<TabPanelProps, TabPanelSlots, TabPanelEmits>;
     }
 }
 

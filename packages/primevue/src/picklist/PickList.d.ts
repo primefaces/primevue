@@ -7,7 +7,7 @@
  * @module picklist
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { ListboxPassThroughOptions } from 'primevue/listbox';
@@ -616,7 +616,7 @@ declare const PickList: DefineComponent<PickListProps, PickListSlots, PickListEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PickList: GlobalComponentConstructor<PickListProps, PickListSlots, PickListEmits>;
+        PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
     }
 }
 

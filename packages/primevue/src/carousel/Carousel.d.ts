@@ -7,7 +7,7 @@
  * @module carousel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -415,7 +415,7 @@ declare const Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Carousel: GlobalComponentConstructor<CarouselProps, CarouselSlots, CarouselEmits>;
+        Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
     }
 }
 

@@ -7,7 +7,7 @@
  * @module virtualscroller
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -530,7 +530,7 @@ declare const VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScro
 
 declare module 'vue' {
     export interface GlobalComponents {
-        VirtualScroller: GlobalComponentConstructor<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
+        VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
     }
 }
 

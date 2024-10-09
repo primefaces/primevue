@@ -7,7 +7,7 @@
  * @module textarea
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TextareaHTMLAttributes } from 'vue';
@@ -167,7 +167,7 @@ declare const Textarea: DefineComponent<TextareaProps, TextareaSlots, TextareaEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Textarea: GlobalComponentConstructor<TextareaProps, TextareaSlots, TextareaEmits>;
+        Textarea: DefineComponent<TextareaProps, TextareaSlots, TextareaEmits>;
     }
 }
 

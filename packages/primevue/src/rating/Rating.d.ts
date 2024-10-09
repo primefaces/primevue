@@ -7,7 +7,7 @@
  * @module rating
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -270,7 +270,7 @@ declare const Rating: DefineComponent<RatingProps, RatingSlots, RatingEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Rating: GlobalComponentConstructor<RatingProps, RatingSlots, RatingEmits>;
+        Rating: DefineComponent<RatingProps, RatingSlots, RatingEmits>;
     }
 }
 

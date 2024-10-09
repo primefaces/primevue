@@ -7,7 +7,7 @@
  * @module sidebar
  *
  */
-import type { DefineComponent, EmitFn, GlobalComponentConstructor } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 import * as Drawer from 'primevue/drawer';
 import 'vue';
 
@@ -72,7 +72,7 @@ declare const Sidebar: DefineComponent<SidebarProps, SidebarSlots, SidebarEmits>
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Sidebar: GlobalComponentConstructor<SidebarProps, SidebarSlots, SidebarEmits>;
+        Sidebar: DefineComponent<SidebarProps, SidebarSlots, SidebarEmits>;
     }
 }
 

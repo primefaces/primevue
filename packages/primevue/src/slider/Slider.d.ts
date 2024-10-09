@@ -7,7 +7,7 @@
  * @module slider
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -208,7 +208,7 @@ declare const Slider: DefineComponent<SliderProps, SliderSlots, SliderEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Slider: GlobalComponentConstructor<SliderProps, SliderSlots, SliderEmits>;
+        Slider: DefineComponent<SliderProps, SliderSlots, SliderEmits>;
     }
 }
 

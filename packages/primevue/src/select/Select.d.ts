@@ -7,7 +7,7 @@
  * @module select
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
 import type { InputIconPassThroughOptions } from 'primevue/inputicon';
@@ -801,7 +801,7 @@ declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Select: GlobalComponentConstructor<SelectProps, SelectSlots, SelectEmits>;
+        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
     }
 }
 

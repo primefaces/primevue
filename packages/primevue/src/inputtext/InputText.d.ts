@@ -7,7 +7,7 @@
  * @module inputtext
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { InputHTMLAttributes } from 'vue';
@@ -161,7 +161,7 @@ declare const InputText: DefineComponent<InputTextProps, InputTextSlots, InputTe
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputText: GlobalComponentConstructor<InputTextProps, InputTextSlots, InputTextEmits>;
+        InputText: DefineComponent<InputTextProps, InputTextSlots, InputTextEmits>;
     }
 }
 

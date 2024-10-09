@@ -7,7 +7,7 @@
  * @module treetable
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, HintedString, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ColumnPassThroughOptionType } from 'primevue/column';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
@@ -849,7 +849,7 @@ declare const TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTab
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TreeTable: GlobalComponentConstructor<TreeTableProps, TreeTableSlots, TreeTableEmits>;
+        TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
     }
 }
 

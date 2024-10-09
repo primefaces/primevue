@@ -1,4 +1,4 @@
-import type { DefineComponent, EmitFn, GlobalComponentConstructor, HintedString } from '@primevue/core';
+import type { DefineComponent, EmitFn, HintedString } from '@primevue/core';
 import { VNode } from 'vue';
 
 type PortalAppendToType = HintedString<'body' | 'self'> | undefined | HTMLElement;
@@ -32,7 +32,7 @@ declare const Portal: DefineComponent<PortalProps, PortalSlots, PortalEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Portal: GlobalComponentConstructor<PortalProps, PortalSlots, PortalEmits>;
+        Portal: DefineComponent<PortalProps, PortalSlots, PortalEmits>;
     }
 }
 

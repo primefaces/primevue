@@ -7,7 +7,7 @@
  * @module splitter
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -249,7 +249,7 @@ declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Splitter: GlobalComponentConstructor<SplitterProps, SplitterSlots, SplitterEmits>;
+        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits>;
     }
 }
 

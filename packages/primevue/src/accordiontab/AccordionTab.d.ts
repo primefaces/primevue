@@ -8,7 +8,7 @@
  * @module accordiontab
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { AnchorHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
 
@@ -229,7 +229,7 @@ declare const AccordionTab: DefineComponent<AccordionTabProps, AccordionTabSlots
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AccordionTab: GlobalComponentConstructor<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
+        AccordionTab: DefineComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
     }
 }
 
