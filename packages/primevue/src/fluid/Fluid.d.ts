@@ -7,7 +7,7 @@
  * @module fluid
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, GlobalComponentConstructor, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -123,7 +123,7 @@ declare const Fluid: DefineComponent<FluidProps, FluidSlots, FluidEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Fluid: GlobalComponentConstructor<FluidProps, FluidSlots, FluidEmits>;
+        Fluid: DefineComponent<FluidProps, FluidSlots, FluidEmits>;
     }
 }
 
