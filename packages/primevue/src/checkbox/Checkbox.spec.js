@@ -21,6 +21,6 @@ describe('Checkbox.vue', () => {
     it('should exist', async () => {
         await wrapper.setProps({ modelValue: true });
 
-        expect(wrapper.find('.p-checkbox.p-highlight').exists()).toBe(true);
+        expect(wrapper.find('.p-checkbox.p-checkbox-checked').exists()).toBe(true);
     });
 });

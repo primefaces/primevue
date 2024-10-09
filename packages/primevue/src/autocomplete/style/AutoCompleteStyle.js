@@ -84,6 +84,10 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('autocomplete.overlay.shadow')};
 }
 
+.p-autocomplete-list-container {
+    overflow: auto;
+}
+
 .p-autocomplete-list {
     margin: 0;
     padding: 0;
@@ -173,6 +177,10 @@ const theme = ({ dt }) => `
     background: ${dt('autocomplete.filled.background')};
 }
 
+.p-autocomplete:not(.p-disabled):hover .p-variant-filled.p-autocomplete-input-multiple {
+    background: ${dt('autocomplete.filled.hover.background')};
+}
+
 .p-autocomplete:not(.p-disabled).p-focus .p-variant-filled.p-autocomplete-input-multiple  {
     background: ${dt('autocomplete.filled.focus.background')};
 }
@@ -252,10 +260,10 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible,
-            'p-autocomplete-fluid': props.fluid
+            'p-autocomplete-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-autocomplete-input',
+    pcInputText: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
@@ -274,6 +282,7 @@ const classes = {
     loader: 'p-autocomplete-loader',
     dropdown: 'p-autocomplete-dropdown',
     overlay: 'p-autocomplete-overlay p-component',
+    listContainer: 'p-autocomplete-list-container',
     list: 'p-autocomplete-list',
     optionGroup: 'p-autocomplete-option-group',
     option: ({ instance, option, i, getItemOptions }) => [

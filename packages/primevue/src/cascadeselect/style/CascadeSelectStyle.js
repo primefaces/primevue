@@ -24,11 +24,15 @@ const theme = ({ dt }) => `
     border-color: ${dt('cascadeselect.focus.border.color')};
     box-shadow: ${dt('cascadeselect.focus.ring.shadow')};
     outline: ${dt('cascadeselect.focus.ring.width')} ${dt('cascadeselect.focus.ring.style')} ${dt('cascadeselect.focus.ring.color')};
-    outline-offset: ${dt('multiscascadeselectelect.focus.ring.offset')};
+    outline-offset: ${dt('cascadeselect.focus.ring.offset')};
 }
 
 .p-cascadeselect.p-variant-filled {
     background: ${dt('cascadeselect.filled.background')};
+}
+
+.p-cascadeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('cascadeselect.filled.hover.background')};
 }
 
 .p-cascadeselect.p-variant-filled.p-focus {
@@ -140,11 +144,15 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect-option-active {
     overflow: visible;
-    background: ${dt('cascadeselect.option.focus.background')};
-    color: ${dt('cascadeselect.option.focus.color')};
 }
 
-.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus {
+.p-cascadeselect-option-active > .p-cascadeselect-option-content {
+    background: ${dt('cascadeselect.option.focus.background')};
+    color: ${dt('cascadeselect.option.focus.color')};
+    border-radius: ${dt('cascadeselect.option.border.radius')};
+}
+
+.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus > .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.focus.background')};
     color: ${dt('cascadeselect.option.focus.color')};
 }
@@ -153,7 +161,7 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.icon.focus.color')};
 }
 
-.p-cascadeselect-option-selected {
+.p-cascadeselect-option-selected .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.selected.background')};
     color: ${dt('cascadeselect.option.selected.color')};
 }
@@ -172,17 +180,50 @@ const theme = ({ dt }) => `
 .p-cascadeselect-option-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     overflow: hidden;
     position: relative;
     padding: ${dt('cascadeselect.option.padding')};
 }
 
 .p-cascadeselect-group-icon {
-    margin-left: auto;
     font-size: ${dt('cascadeselect.option.icon.size')};
     width: ${dt('cascadeselect.option.icon.size')};
     height: ${dt('cascadeselect.option.icon.size')};
     color: ${dt('cascadeselect.option.icon.color')};
+}
+
+.p-cascadeselect-mobile-active .p-cascadeselect-option-content {
+    border-radius: ${dt('cascadeselect.option.border.radius')};
+}
+
+.p-cascadeselect-mobile-active-active .p-cascadeselect-list {
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+}
+
+.p-cascadeselect-mobile-active .p-cascadeselect-list > .p-cascadeselect-option > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
+    margin-left: auto;
+    transition: transform 0.2s;
+}
+
+.p-cascadeselect-mobile-active .p-cascadeselect-list .p-cascadeselect-group-icon {
+    transition: transform 0.2s;
+    transform: rotate(90deg);
+}
+
+.p-cascadeselect-mobile-active .p-cascadeselect-option-active > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
+    transform: rotate(-90deg);
+}
+
+.p-cascadeselect-mobile-active .p-cascadeselect-option-list {
+    position: static;
+    box-shadow: none;
+    border: 0 none;
+    padding-left: ${dt('cascadeselect.list.mobile.indent')};
 }
 `;
 
@@ -194,6 +235,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-cascadeselect p-component p-inputwrapper',
         {
+            'p-cascadeselect-mobile': instance.queryMatches,
             'p-disabled': props.disabled,
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
@@ -201,7 +243,7 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': props.fluid
+            'p-cascadeselect-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [
@@ -214,8 +256,13 @@ const classes = {
     dropdown: 'p-cascadeselect-dropdown',
     loadingIcon: 'p-cascadeselect-loading-icon',
     dropdownIcon: 'p-cascadeselect-dropdown-icon',
-    overlay: 'p-cascadeselect-overlay p-component',
-    listContainer: 'p-cascadeselect-list-container',
+    overlay: ({ instance }) => [
+        'p-cascadeselect-overlay p-component',
+        {
+            'p-cascadeselect-mobile-active': instance.queryMatches
+        }
+    ],
+    listContainer: 'p-cascadeselect-list',
     list: 'p-cascadeselect-list',
     option: ({ instance, processedOption }) => [
         'p-cascadeselect-option',
@@ -228,6 +275,7 @@ const classes = {
     ],
     optionContent: 'p-cascadeselect-option-content',
     optionText: 'p-cascadeselect-option-text',
+    groupIconContainer: 'p-cascadeselect-group-icon-container',
     groupIcon: 'p-cascadeselect-group-icon',
     optionList: 'p-cascadeselect-overlay p-cascadeselect-option-list'
 };

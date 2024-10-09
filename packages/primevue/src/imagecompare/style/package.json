@@ -1,0 +1,6 @@
+{
+    "main": "./ImageCompareStyle.js",
+    "module": "./ImageCompareStyle.js",
+    "types": "./ImageCompareStyle.d.ts",
+    "sideEffects": false
+}

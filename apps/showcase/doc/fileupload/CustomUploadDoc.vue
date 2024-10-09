@@ -1,9 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Uploading implementation can be overridden by enabling <i>customUpload</i> property and defining a custom <i>uploader</i> handler event.</p>
+        <p>Uploading implementation can be overridden by enabling <i>customUpload</i> property. This sample, displays the image on the client side with a grayscale filter.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload @uploader="customBase64Uploader" />
+    <div class="card flex flex-col items-center gap-6">
+        <FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+        <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,30 +13,37 @@
 export default {
     data() {
         return {
+            src: null,
             code: {
                 basic: `
-<FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload @uploader="customBase64Uploader" />
+<FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+<img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload @uploader="customBase64Uploader" />
+    <div class="card flex flex-col items-center gap-6">
+        <FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+        <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            src: null
+        }
+    },
     methods: {
-        async customBase64Uploader(event) {
+        onFileSelect(event) {
             const file = event.files[0];
             const reader = new FileReader();
-            let blob = await fetch(file.objectURL).then((r) => r.blob()); //blob:url
 
-            reader.readAsDataURL(blob);
-
-            reader.onloadend = function () {
-                const base64data = reader.result;
+            reader.onload = async (e) => {
+                this.src = e.target.result;
             };
+
+            reader.readAsDataURL(file);
         }
     }
 };
@@ -43,39 +51,42 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload @uploader="customBase64Uploader" />
+    <div class="card flex flex-col items-center gap-6">
+        <FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+        <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
     </div>
 </template>
 
 <script setup>
-const customBase64Uploader = async (event) => {
+import { ref } from "vue";
+
+const src = ref(null);
+
+function onFileSelect(event) {
     const file = event.files[0];
     const reader = new FileReader();
-    let blob = await fetch(file.objectURL).then((r) => r.blob()); //blob:url
 
-    reader.readAsDataURL(blob);
-
-    reader.onloadend = function () {
-        const base64data = reader.result;
+    reader.onload = async (e) => {
+        src.value = e.target.result;
     };
-};
+
+    reader.readAsDataURL(file);
+}
 <\/script>
 `
             }
         };
     },
     methods: {
-        async customBase64Uploader(event) {
+        onFileSelect(event) {
             const file = event.files[0];
             const reader = new FileReader();
-            let blob = await fetch(file.objectURL).then((r) => r.blob()); //blob:url
 
-            reader.readAsDataURL(blob);
-
-            reader.onloadend = function () {
-                const base64data = reader.result;
+            reader.onload = async (e) => {
+                this.src = e.target.result;
             };
+
+            reader.readAsDataURL(file);
         }
     }
 };

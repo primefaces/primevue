@@ -3,6 +3,7 @@ export default {
         background: '{form.field.background}',
         disabledBackground: '{form.field.disabled.background}',
         filledBackground: '{form.field.filled.background}',
+        filledHoverBackground: '{form.field.filled.hover.background}',
         filledFocusBackground: '{form.field.filled.focus.background}',
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.hover.border.color}',
@@ -37,7 +38,8 @@ export default {
     },
     list: {
         padding: '{list.padding}',
-        gap: '{list.gap}'
+        gap: '{list.gap}',
+        mobileIndent: '1rem'
     },
     option: {
         focusBackground: '{list.option.focus.background}',

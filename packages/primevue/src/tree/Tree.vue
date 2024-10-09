@@ -9,7 +9,7 @@
             </div>
         </template>
         <IconField v-if="filter" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilter')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilter')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilterInput')" />
             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                 <!--TODO: searchicon deprecated since v4.0-->
                 <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
@@ -18,6 +18,7 @@
             </InputIcon>
         </IconField>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+            <slot name="header" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
             <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
@@ -37,12 +38,13 @@
                     :pt="pt"
                 ></TreeNode>
             </ul>
+            <slot name="footer" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
         </div>
     </div>
 </template>
 
 <script>
-import { resolveFieldData } from '@primeuix/utils/object';
+import { isFunction, resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import IconField from 'primevue/iconfield';
@@ -222,7 +224,7 @@ export default {
     computed: {
         filteredValue() {
             let filteredNodes = [];
-            const searchFields = this.filterBy.split(',');
+            const searchFields = isFunction(this.filterBy) ? [this.filterBy] : this.filterBy.split(',');
             const filterText = this.filterValue.trim().toLocaleLowerCase(this.filterLocale);
             const strict = this.filterMode === 'strict';
 

@@ -31,6 +31,10 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.filled.background')};
 }
 
+.p-treeselect.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('treeselect.filled.hover.background')};
+}
+
 .p-treeselect.p-variant-filled.p-focus {
     background: ${dt('treeselect.filled.focus.background')};
 }
@@ -121,6 +125,10 @@ const theme = ({ dt }) => `
     padding: ${dt('treeselect.tree.padding')};
 }
 
+.p-treeselect-overlay .p-tree-loading {
+    min-height: 3rem;
+}
+
 .p-treeselect-label .p-chip {
     padding-top: calc(${dt('treeselect.padding.y')} / 2);
     padding-bottom: calc(${dt('treeselect.padding.y')} / 2);
@@ -148,7 +156,7 @@ const classes = {
             'p-inputwrapper-filled': !instance.emptyValue,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible,
-            'p-treeselect-fluid': props.fluid
+            'p-treeselect-fluid': instance.hasFluid
         }
     ],
     labelContainer: 'p-treeselect-label-container',

@@ -16,11 +16,15 @@ import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
+import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
+import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
+import LazyDoc from '@/doc/treeselect/LazyDoc.vue';
 import MultipleDoc from '@/doc/treeselect/MultipleDoc.vue';
 import PTComponent from '@/doc/treeselect/pt/index.vue';
+import TemplateDoc from '@/doc/treeselect/TemplateDoc.vue';
 import ThemingDoc from '@/doc/treeselect/theming/index.vue';
 
 export default {
@@ -48,14 +52,34 @@ export default {
                     component: CheckboxDoc
                 },
                 {
-                    id: 'floatlabel',
-                    label: 'Float Label',
-                    component: FloatLabelDoc
+                    id: 'lazy',
+                    label: 'Lazy',
+                    component: LazyDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
                 },
                 {
                     id: 'invalid',

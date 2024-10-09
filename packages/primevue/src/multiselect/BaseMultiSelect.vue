@@ -32,7 +32,7 @@ export default {
         },
         fluid: {
             type: Boolean,
-            default: false
+            default: null
         },
         inputId: {
             type: String,
@@ -76,7 +76,7 @@ export default {
         },
         selectedItemsLabel: {
             type: String,
-            default: '{0} items selected'
+            default: null
         },
         maxSelectedLabels: {
             type: Number,
@@ -95,10 +95,6 @@ export default {
             default: false
         },
         checkboxIcon: {
-            type: String,
-            default: undefined
-        },
-        closeIcon: {
             type: String,
             default: undefined
         },

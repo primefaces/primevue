@@ -58,10 +58,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
-import { focus, absolutePosition, getOffset, addClass, isTouchDevice } from '@primeuix/utils/dom';
-import { ZIndex } from '@primeuix/utils/zindex';
 import { $dt } from '@primeuix/styled';
+import { absolutePosition, addClass, focus, getOffset, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
 import FocusTrap from 'primevue/focustrap';
@@ -78,7 +78,8 @@ export default {
             visible: false,
             confirmation: null,
             autoFocusAccept: null,
-            autoFocusReject: null
+            autoFocusReject: null,
+            target: null
         };
     },
     target: null,
@@ -175,6 +176,8 @@ export default {
             this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
             this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
 
+            this.target = document.activeElement;
+
             this.bindOutsideClickListener();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -187,6 +190,9 @@ export default {
         onLeave() {
             this.autoFocusAccept = null;
             this.autoFocusReject = null;
+
+            focus(this.target);
+            this.target = null;
 
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
@@ -206,7 +212,7 @@ export default {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
 
-            this.container.style.setProperty($dt('overlay.arrow.left').name, `${arrowLeft}px`);
+            this.container.style.setProperty($dt('confirmpopup.arrow.left').name, `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-confirmpopup-flipped', 'true');
@@ -293,9 +299,6 @@ export default {
                 ConfirmationEventBus.emit('close', this.closeListener);
                 focus(this.target);
             }
-        },
-        getCXOptions(icon, iconProps) {
-            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
@@ -306,19 +309,19 @@ export default {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.acceptLabel ? confirmation.acceptLabel : confirmation.acceptProps ? confirmation.acceptProps.label || this.$primevue.config.locale.accept : null;
+                return confirmation.acceptLabel || confirmation.acceptProps?.label || this.$primevue.config.locale.accept;
             }
 
-            return null;
+            return this.$primevue.config.locale.accept;
         },
         rejectLabel() {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.rejectLabel ? confirmation.rejectLabel : confirmation.rejectProps ? confirmation.rejectProps.label || this.$primevue.config.locale.reject : null;
+                return confirmation.rejectLabel || confirmation.rejectProps?.label || this.$primevue.config.locale.reject;
             }
 
-            return null;
+            return this.$primevue.config.locale.reject;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;

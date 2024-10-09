@@ -1,7 +1,7 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @click="onMaskClick" v-bind="ptm('mask')">
-            <transition name="p-dialog" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
+        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" v-bind="ptm('mask')">
+            <transition name="p-dialog" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
                     <template v-else>
@@ -62,9 +62,9 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { addClass, focus, blockBodyScroll, unblockBodyScroll, setAttribute, addStyle, getOuterWidth, getOuterHeight, getViewport } from '@primeuix/utils/dom';
+import { addClass, addStyle, blockBodyScroll, focus, getOuterHeight, getOuterWidth, getViewport, setAttribute, unblockBodyScroll } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
@@ -79,7 +79,7 @@ export default {
     name: 'Dialog',
     extends: BaseDialog,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragend'],
+    emits: ['update:visible', 'show', 'hide', 'after-hide', 'maximize', 'unmaximize', 'dragstart', 'dragend'],
     provide() {
         return {
             dialogRef: computed(() => this._instance)
@@ -91,7 +91,8 @@ export default {
             containerVisible: this.visible,
             maximized: false,
             focusableMax: null,
-            focusableClose: null
+            focusableClose: null,
+            target: null
         };
     },
     watch: {
@@ -113,6 +114,7 @@ export default {
     documentDragEndListener: null,
     lastPageX: null,
     lastPageY: null,
+    maskMouseDownTarget: null,
     updated() {
         if (this.visible) {
             this.containerVisible = this.visible;
@@ -141,12 +143,9 @@ export default {
         close() {
             this.$emit('update:visible', false);
         },
-        onBeforeEnter(el) {
-            el.setAttribute(this.attributeSelector, '');
-        },
         onEnter() {
             this.$emit('show');
-            this.focus();
+            this.target = document.activeElement;
             this.enableDocumentSettings();
             this.bindGlobalListeners();
 
@@ -154,13 +153,22 @@ export default {
                 ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
             }
         },
+        onAfterEnter() {
+            this.focus();
+        },
         onBeforeLeave() {
             if (this.modal) {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
+
+            if (this.dragging && this.documentDragEndListener) {
+                this.documentDragEndListener();
+            }
         },
         onLeave() {
             this.$emit('hide');
+            focus(this.target);
+            this.target = null;
             this.focusableClose = null;
             this.focusableMax = null;
         },
@@ -174,8 +182,11 @@ export default {
             this.unbindGlobalListeners();
             this.$emit('after-hide');
         },
-        onMaskClick(event) {
-            if (this.dismissableMask && this.modal && this.mask === event.target) {
+        onMaskMouseDown(event) {
+            this.maskMouseDownTarget = event.target;
+        },
+        onMaskMouseUp() {
+            if (this.dismissableMask && this.modal && this.mask === this.maskMouseDownTarget) {
                 this.close();
             }
         },
@@ -281,7 +292,7 @@ export default {
                 for (let breakpoint in this.breakpoints) {
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
-                            .p-dialog[${this.attributeSelector}] {
+                            .p-dialog[${this.$attrSelector}] {
                                 width: ${this.breakpoints[breakpoint]} !important;
                             }
                         }
@@ -310,6 +321,8 @@ export default {
                 this.container.style.margin = '0';
                 document.body.setAttribute('data-p-unselectable-text', 'true');
                 !this.isUnstyled && addStyle(document.body, { 'user-select': 'none' });
+
+                this.$emit('dragstart', event);
             }
         },
         bindGlobalListeners() {
@@ -400,9 +413,6 @@ export default {
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     directives: {

@@ -15,11 +15,11 @@
         v-bind="level === 1 ? getPTOptions('node') : ptm('nodeChildren')"
     >
         <div :class="cx('nodeContent')" @click="onClick" @touchend="onTouchEnd" :style="node.style" v-bind="getPTOptions('nodeContent')" :data-p-selected="checkboxMode ? checked : selected" :data-p-selectable="selectable">
-            <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" aria-hidden="true" v-bind="getPTOptions('nodeToggleButton')">
+            <button v-ripple type="button" :class="cx('nodeToggleButton')" @click="toggle" tabindex="-1" v-bind="getPTOptions('nodeToggleButton')">
                 <template v-if="node.loading && loadingMode === 'icon'">
                     <!-- TODO: nodetogglericon deprecated since v4.0-->
-                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :class="cx('nodeToggleIcon')" />
-                    <SpinnerIcon v-else spin :class="cx('nodetogglericon')" v-bind="ptm('nodeToggleIcon')" />
+                    <component v-if="templates['nodetoggleicon'] || templates['nodetogglericon']" :is="templates['nodetoggleicon'] || templates['nodetogglericon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <SpinnerIcon v-else spin :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
                 <template v-else>
                     <!-- TODO: togglericon deprecated since v4.0-->
@@ -28,7 +28,17 @@
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getPTOptions('nodeToggleIcon')" />
                 </template>
             </button>
-            <Checkbox v-if="checkboxMode" :modelValue="checked" :binary="true" :indeterminate="partialChecked" :class="cx('nodeCheckbox')" :tabindex="-1" :unstyled="unstyled" :pt="getPTOptions('nodeCheckbox')" :data-p-partialchecked="partialChecked">
+            <Checkbox
+                v-if="checkboxMode"
+                :modelValue="checked"
+                :binary="true"
+                :indeterminate="partialChecked"
+                :class="cx('nodeCheckbox')"
+                :tabindex="-1"
+                :unstyled="unstyled"
+                :pt="getPTOptions('pcNodeCheckbox')"
+                :data-p-partialchecked="partialChecked"
+            >
                 <template #icon="slotProps">
                     <component v-if="templates['checkboxicon']" :is="templates['checkboxicon']" :checked="slotProps.checked" :partialChecked="partialChecked" :class="slotProps.class" />
                 </template>
@@ -36,7 +46,7 @@
             <component v-if="templates['nodeicon']" :is="templates['nodeicon']" :node="node" :class="[cx('nodeIcon')]" v-bind="getPTOptions('nodeIcon')"></component>
             <span v-else :class="[cx('nodeIcon'), node.icon]" v-bind="getPTOptions('nodeIcon')"></span>
             <span :class="cx('nodeLabel')" v-bind="getPTOptions('nodeLabel')" @keydown.stop>
-                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" :selected="checkboxMode ? checked : selected" />
+                <component v-if="templates[node.type] || templates['default']" :is="templates[node.type] || templates['default']" :node="node" :expanded="expanded" :selected="checkboxMode ? checked : selected" />
                 <template v-else>{{ label(node) }}</template>
             </span>
         </div>
@@ -127,10 +137,12 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
+                    node: this.node,
                     index: this.index,
                     expanded: this.expanded,
                     selected: this.selected,
                     checked: this.checked,
+                    partialChecked: this.partialChecked,
                     leaf: this.leaf
                 }
             });
@@ -143,7 +155,9 @@ export default {
             }
 
             if (this.isCheckboxSelectionMode()) {
-                this.toggleCheckbox();
+                if (this.node.selectable != false) {
+                    this.toggleCheckbox();
+                }
             } else {
                 this.$emit('node-click', {
                     originalEvent: event,
@@ -337,7 +351,7 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check) selectionKeys[node.key] = { checked: true, partialChecked: false };
+            if (check && node.selectable != false) selectionKeys[node.key] = { checked: true, partialChecked: false };
             else delete selectionKeys[node.key];
 
             if (node.children && node.children.length) {

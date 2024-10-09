@@ -1,5 +1,17 @@
 <template>
-    <button v-ripple type="button" :class="cx('root')" :tabindex="tabindex" :disabled="disabled" :aria-pressed="modelValue" @click="onChange" v-bind="getPTOptions('root')" :data-p-checked="active" :data-p-disabled="disabled">
+    <button
+        v-ripple
+        type="button"
+        :class="cx('root')"
+        :tabindex="tabindex"
+        :disabled="disabled"
+        :aria-pressed="modelValue"
+        @click="onChange"
+        v-bind="getPTOptions('root')"
+        :aria-labelledby="ariaLabelledby"
+        :data-p-checked="active"
+        :data-p-disabled="disabled"
+    >
         <span :class="cx('content')" v-bind="getPTOptions('content')">
             <slot>
                 <slot name="icon" :value="modelValue" :class="cx('icon')">

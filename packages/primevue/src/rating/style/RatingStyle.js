@@ -21,9 +21,9 @@ const theme = ({ dt }) => `
 }
 
 .p-rating-option.p-focus-visible {
-    box-shadow: ${dt('focus.ring.shadow')};
-    outline: ${dt('focus.ring.width')} ${dt('focus.ring.style')} ${dt('focus.ring.color')};
-    outline-offset: ${dt('focus.ring.offset')};
+    box-shadow: ${dt('rating.focus.ring.shadow')};
+    outline: ${dt('rating.focus.ring.width')} ${dt('rating.focus.ring.style')} ${dt('rating.focus.ring.color')};
+    outline-offset: ${dt('rating.focus.ring.offset')};
 }
 
 .p-rating-icon {

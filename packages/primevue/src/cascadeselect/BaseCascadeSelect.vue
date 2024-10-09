@@ -14,6 +14,10 @@ export default {
         optionGroupLabel: null,
         optionGroupChildren: null,
         placeholder: String,
+        breakpoint: {
+            type: String,
+            default: '960px'
+        },
         variant: {
             type: String,
             default: null
@@ -134,7 +138,7 @@ export default {
         },
         fluid: {
             type: Boolean,
-            default: false
+            default: null
         }
     },
     style: CascadeSelectStyle,

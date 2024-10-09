@@ -19,6 +19,7 @@ import FilledDoc from '@/doc/autocomplete/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc.vue';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
+import IftaLabelDoc from '@/doc/autocomplete/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/autocomplete/ImportDoc.vue';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc.vue';
 import MultipleDoc from '@/doc/autocomplete/MultipleDoc.vue';
@@ -73,9 +74,9 @@ export default {
                     component: VirtualScrollDoc
                 },
                 {
-                    id: 'multiple',
-                    label: 'Multiple',
-                    component: MultipleDoc
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'floatlabel',
@@ -83,9 +84,14 @@ export default {
                     component: FloatLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
+                },
+                {
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
                 },
                 {
                     id: 'invalid',

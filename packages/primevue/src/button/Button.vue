@@ -9,13 +9,14 @@
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
             </slot>
             <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
-            <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" v-bind="ptm('pcBadge')"></Badge>
+            <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('pcBadge')"></Badge>
         </slot>
     </component>
     <slot v-else :class="cx('root')" :a11yAttrs="a11yAttrs"></slot>
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Badge from 'primevue/badge';
 import Ripple from 'primevue/ripple';
@@ -26,6 +27,9 @@ export default {
     name: 'Button',
     extends: BaseButton,
     inheritAttrs: false,
+    inject: {
+        $pcFluid: { default: null }
+    },
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -60,6 +64,9 @@ export default {
                 'data-p-disabled': this.disabled,
                 'data-p-severity': this.severity
             };
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

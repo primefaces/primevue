@@ -91,12 +91,14 @@ export default {
         margin: '0.5rem 0 0 0'
     },
     month: {
+        padding: '0.375rem',
         borderRadius: '{content.border.radius}'
     },
     yearView: {
         margin: '0.5rem 0 0 0'
     },
     year: {
+        padding: '0.375rem',
         borderRadius: '{content.border.radius}'
     },
     buttonbar: {

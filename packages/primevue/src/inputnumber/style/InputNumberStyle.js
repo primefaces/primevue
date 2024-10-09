@@ -40,6 +40,7 @@ const theme = ({ dt }) => `
     top: 1px;
     right: 1px;
     height: calc(100% - 2px);
+    z-index: 1;
 }
 
 .p-inputnumber-stacked .p-inputnumber-increment-button {
@@ -86,6 +87,10 @@ const theme = ({ dt }) => `
     border-top-left-radius: ${dt('inputnumber.button.border.radius')};
     border-bottom-left-radius: ${dt('inputnumber.button.border.radius')};
     border-right: 0 none;
+}
+
+.p-floatlabel:has(.p-inputnumber-horizontal) label {
+    margin-inline-start: ${dt('inputnumber.button.width')};
 }
 
 .p-inputnumber-vertical {
@@ -153,10 +158,10 @@ const classes = {
             'p-inputnumber-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
             'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical',
-            'p-inputnumber-fluid': instance.fluid
+            'p-inputnumber-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-inputnumber-input',
+    pcInputText: 'p-inputnumber-input',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',

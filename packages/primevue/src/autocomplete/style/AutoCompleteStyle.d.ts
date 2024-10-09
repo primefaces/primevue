@@ -55,6 +55,10 @@ export enum AutoCompleteClasses {
      */
     list = 'p-autocomplete-list',
     /**
+     * Class name of the list container element
+     */
+    listContainer = 'p-autocomplete-list-container',
+    /**
      * Class name of the option group element
      */
     optionGroup = 'p-autocomplete-option-group',

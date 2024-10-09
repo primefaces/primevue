@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Options and the selected option display support templating with <i>option</i> and <i>value</i> respectively.</p>
+        <p>Select offers multiple slots for customization through templating.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
@@ -17,6 +17,17 @@
                 <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium p-3">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>
@@ -59,6 +70,17 @@ export default {
             <div>{{ slotProps.option.name }}</div>
         </div>
     </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #header>
+        <div class="font-medium p-3">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="p-3">
+            <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+        </div>
+    </template>
 </Select>
 `,
                 options: `
@@ -78,6 +100,17 @@ export default {
                 <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium p-3">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>
@@ -123,6 +156,17 @@ export default {
                 <div class="flex items-center">
                     <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
                     <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium p-3">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>

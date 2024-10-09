@@ -74,7 +74,7 @@ export interface PasswordPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
+    pcInputText?: InputTextPassThroughOptions<PasswordSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the mask icon's DOM element.
      */
@@ -249,9 +249,14 @@ export interface PasswordProps extends InputHTMLAttributes {
     required?: boolean | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
+    /**
+     * When present, it specifies that an input element should automatically get focus when the page loads.
+     * @defaultValue null
+     */
+    autofocus?: boolean | undefined;
     /**
      * Identifier of the underlying input element.
      */

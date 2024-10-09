@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         value: {
-            type: String,
+            type: [String, Number],
             default: undefined
         },
         lazy: {

@@ -1,34 +1,55 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>An example that displays a DataTable inside a popup to select an item.</p>
+        <p>Place the Popover outside of the data iteration components to avoid rendering it multiple times.</p>
     </DocSectionText>
 
-    <div class="card flex flex-col items-center gap-4">
-        <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
+    <div class="card">
+        <DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+            <Column field="id" header="Id" class="w-1/6"></Column>
+            <Column field="code" header="Code" class="w-1/6"></Column>
+            <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+            <Column field="price" header="Price" sortable class="w-1/6">
+                <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+            </Column>
+            <Column header="Image" class="w-1/6">
+                <template #body="slotProps">
+                    <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+                </template>
+            </Column>
+            <Column header="Details" class="w-1/6">
+                <template #body="slotProps">
+                    <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+                </template>
+            </Column>
+        </DataTable>
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
-            <div class="relative">
-                <img :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" class="w-full sm:w-80" />
+        <Popover ref="op">
+            <div v-if="selectedProduct" class="rounded flex flex-col">
+                <div class="flex justify-center rounded">
+                    <div class="relative mx-auto">
+                        <img class="rounded w-44 sm:w-64" :src="`https://primefaces.org/cdn/primevue/images/product/${selectedProduct.image}`" :alt="selectedProduct.name" />
+                        <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                        <div>
+                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                            <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                        </div>
+                        <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                            <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                                <i class="pi pi-star-fill text-yellow-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <Button icon="pi pi-shopping-cart" :label="`Buy Now | \$${selectedProduct.price}`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
-            </div>
-            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
-        </div>
-
-        <Popover ref="op" appendTo="body">
-            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
-                <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
-                <Column header="Image">
-                    <template #body="slotProps">
-                        <img :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
-                    </template>
-                </Column>
-                <Column field="price" header="Price" sortable style="min-width: 8rem">
-                    <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
-                </Column>
-            </DataTable>
         </Popover>
     </div>
     <DocSectionCode :code="code" :service="['ProductService']" />
@@ -43,67 +64,103 @@ export default {
             selectedProduct: null,
             code: {
                 basic: `
-<Toast />
-<Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
+<DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+    <Column field="id" header="Id" class="w-1/6"></Column>
+    <Column field="code" header="Code" class="w-1/6"></Column>
+    <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+    <Column field="price" header="Price" sortable class="w-1/6">
+        <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+    </Column>
+    <Column header="Image" class="w-1/6">
+        <template #body="slotProps">
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+        </template>
+    </Column>
+    <Column header="Details" class="w-1/6">
+        <template #body="slotProps">
+            <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+        </template>
+    </Column>
+</DataTable>
 
-<div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
-    <div class="relative">
-        <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-16 shadow-sm" class="w-full sm:w-80" />
+<Popover ref="op">
+    <div v-if="selectedProduct" class="rounded flex flex-col">
+        <div class="flex justify-center rounded">
+            <div class="relative mx-auto">
+                <img class="rounded w-44 sm:w-64" :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" />
+                <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+            </div>
+        </div>
+        <div class="pt-4">
+            <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                <div>
+                    <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                    <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                </div>
+                <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                    <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                        <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                        <i class="pi pi-star-fill text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+            </div>
+        </div>
     </div>
-    <div class="flex items-center justify-between mt-4 mb-2">
-        <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
-        <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
-    </div>
-    <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
-</div>
-
-<Popover ref="op" appendTo="body">
-    <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
-        <Column field="name" header="Name" sortable style="width: 50%"></Column>
-        <Column header="Image" style="width: 20%">
-            <template #body="slotProps">
-                <img :src="\`/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
-            </template>
-        </Column>
-        <Column field="price" header="Price" sortable style="width: 30%">
-            <template #body="slotProps">
-                $ {{ slotProps.data.price }}
-            </template>
-        </Column>
-    </DataTable>
 </Popover>
 `,
                 options: `
 <template>
-    <div class="card flex flex-col items-center gap-4">
-        <Toast />
-        <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
+    <div class="card">
+        <DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+            <Column field="id" header="Id" class="w-1/6"></Column>
+            <Column field="code" header="Code" class="w-1/6"></Column>
+            <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+            <Column field="price" header="Price" sortable class="w-1/6">
+                <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+            </Column>
+            <Column header="Image" class="w-1/6">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+                </template>
+            </Column>
+            <Column header="Details" class="w-1/6">
+                <template #body="slotProps">
+                    <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+                </template>
+            </Column>
+        </DataTable>
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
-            <div class="relative">
-                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
+        <Popover ref="op">
+            <div v-if="selectedProduct" class="rounded flex flex-col">
+                <div class="flex justify-center rounded">
+                    <div class="relative mx-auto">
+                        <img class="rounded w-44 sm:w-64" :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" />
+                        <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                        <div>
+                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                            <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                        </div>
+                        <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                            <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                                <i class="pi pi-star-fill text-yellow-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
-            </div>
-            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
-        </div>
-
-        <Popover ref="op" appendTo="body">
-            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
-                <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
-                <Column header="Image">
-                    <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
-                    </template>
-                </Column>
-                <Column field="price" header="Price" sortable style="min-width: 8rem">
-                    <template #body="slotProps">
-                        $ {{ slotProps.data.price }}
-                    </template>
-                </Column>
-            </DataTable>
         </Popover>
     </div>
 </template>
@@ -119,17 +176,39 @@ export default {
         };
     },
     mounted() {
-        ProductService.getProductsSmall()
-            .then((data) => (this.products = data))
-            .then(() => (this.selectedProduct = this.products[0]));
+        ProductService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
-        toggle(event) {
-            this.$refs.op.toggle(event);
-        },
-        onProductSelect(event) {
+        displayProduct(event, product) {
             this.$refs.op.hide();
-            this.$toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 });
+
+            if (this.selectedProduct?.id === product.id) {
+                this.selectedProduct = null;
+            } else {
+                this.selectedProduct = product;
+
+                this.$nextTick(() => {
+                    this.$refs.op.show(event);
+                });
+            }
+        },
+        hidePopover() {
+            this.$refs.op.hide();
+        },
+        getSeverity(product) {
+            switch (product.inventoryStatus) {
+                case 'INSTOCK':
+                    return 'success';
+
+                case 'LOWSTOCK':
+                    return 'warn';
+
+                case 'OUTOFSTOCK':
+                    return 'danger';
+
+                default:
+                    return null;
+            }
         }
     }
 };
@@ -137,62 +216,102 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-col items-center gap-4">
-        <Toast />
-        <Button type="button" icon="pi pi-search" :label="selectedProduct ? selectedProduct.name : 'Select a Product'" @click="toggle" aria-haspopup="true" aria-controls="overlay_panel" />
+    <div class="card">
+        <DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+            <Column field="id" header="Id" class="w-1/6"></Column>
+            <Column field="code" header="Code" class="w-1/6"></Column>
+            <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+            <Column field="price" header="Price" sortable class="w-1/6">
+                <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+            </Column>
+            <Column header="Image" class="w-1/6">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+                </template>
+            </Column>
+            <Column header="Details" class="w-1/6">
+                <template #body="slotProps">
+                    <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+                </template>
+            </Column>
+        </DataTable>
 
-        <div v-if="selectedProduct" class="p-8 bg-surface-0 dark:bg-surface-900 rounded border border-surface-200 dark:border-surface-700">
-            <div class="relative">
-                <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" class="w-full sm:w-80" />
+        <Popover ref="op">
+            <div v-if="selectedProduct" class="rounded flex flex-col">
+                <div class="flex justify-center rounded">
+                    <div class="relative mx-auto">
+                        <img class="rounded w-44 sm:w-64" :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" />
+                        <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                        <div>
+                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                            <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                        </div>
+                        <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                            <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                                <i class="pi pi-star-fill text-yellow-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center justify-between mt-4 mb-2">
-                <span class="font-semibold text-xl">{{ selectedProduct.name }}</span>
-                <span class="text-xl ml-4">{{ '$' + selectedProduct.price }}</span>
-            </div>
-            <span class="text-surface-500 dark:text-surface-400">{{ selectedProduct.category }}</span>
-        </div>
-
-        <Popover ref="op" appendTo="body">
-            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="single" :paginator="true" :rows="5" @row-select="onProductSelect">
-                <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
-                <Column header="Image">
-                    <template #body="slotProps">
-                        <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
-                    </template>
-                </Column>
-                <Column field="price" header="Price" sortable style="min-width: 8rem">
-                    <template #body="slotProps">
-                        $ {{ slotProps.data.price }}
-                    </template>
-                </Column>
-            </DataTable>
         </Popover>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { useToast } from "primevue/usetoast";
 import { ProductService } from '@/service/ProductService';
 
 onMounted(() => {
-    ProductService.getProductsSmall()
-        .then((data) => (products.value = data))
-        .then(() => (selectedProduct.value = products.value[0]));
+    ProductService.getProductsSmall().then((data) => (products.value = data));
 });
 
-const toast = useToast();
 const op = ref();
 const products = ref();
 const selectedProduct = ref();
 
-const toggle = (event) => {
-    op.value.toggle(event);
-};
-
-const onProductSelect = (event) => {
+const displayProduct = (event, product) => {
     op.value.hide();
-    toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 });
+
+    if (selectedProduct.value?.id === product.id) {
+        selectedProduct.value = null;
+    } else {
+        selectedProduct.value = product;
+
+        nextTick(() => {
+            op.value.show(event);
+        });
+    }
+}
+
+const hidePopover = () => {
+    op.value.hide();
+}
+
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
 }
 <\/script>
 `,
@@ -216,17 +335,39 @@ const onProductSelect = (event) => {
         };
     },
     mounted() {
-        ProductService.getProductsSmall()
-            .then((data) => (this.products = data))
-            .then(() => (this.selectedProduct = this.products[0]));
+        ProductService.getProductsSmall().then((data) => (this.products = data));
     },
     methods: {
-        toggle(event) {
-            this.$refs.op.toggle(event);
-        },
-        onProductSelect(event) {
+        displayProduct(event, product) {
             this.$refs.op.hide();
-            this.$toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 });
+
+            if (this.selectedProduct?.id === product.id) {
+                this.selectedProduct = null;
+            } else {
+                this.selectedProduct = product;
+
+                this.$nextTick(() => {
+                    this.$refs.op.show(event);
+                });
+            }
+        },
+        hidePopover() {
+            this.$refs.op.hide();
+        },
+        getSeverity(product) {
+            switch (product.inventoryStatus) {
+                case 'INSTOCK':
+                    return 'success';
+
+                case 'LOWSTOCK':
+                    return 'warn';
+
+                case 'OUTOFSTOCK':
+                    return 'danger';
+
+                default:
+                    return null;
+            }
         }
     }
 };

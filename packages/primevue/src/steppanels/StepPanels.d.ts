@@ -65,10 +65,6 @@ export interface StepPanelsPassThroughAttributes {
  */
 export interface StepPanelsProps {
     /**
-     * Value of step.
-     */
-    value: string;
-    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

@@ -2,9 +2,8 @@
     <DocSectionText v-bind="$attrs">
         <h4>SASS Themes</h4>
         <p>
-            The styled mode theming has been reimplemented from scratch based on an all-new architecture. The <i>theme.css</i> and the <i>primevue/resources</i> do not exist anymore, so any imports of these assets needs to be removed. Currently, Aura
-            is the only available built-in preset; however, by v4 final, two more presets named Lara and Nora would be included, as well as the Material Design theme. If you had a custom theme for v3, the theme needs to be recreated using the new
-            APIs. See the customization section at <NuxtLink to="/theming/styled">styled mode</NuxtLink> for details.
+            The styled mode theming has been reimplemented from scratch based on an all-new architecture. The <i>theme.css</i> and the <i>primevue/resources</i> do not exist anymore, so any imports of these assets needs to be removed. If you had a
+            custom theme for v3, the theme needs to be recreated using the new APIs. See the customization section at <NuxtLink to="/theming/styled">styled mode</NuxtLink> for details.
         </p>
 
         <h4>Removed Components</h4>
@@ -18,13 +17,18 @@
             <li><i class="mark">switchTheme</i> function, use the new APIs like <i class="mark">usePreset</i> instead to dynamic theme switching.</li>
         </ul>
 
+        <h4>Relocated APIs</h4>
+        <ul class="flex flex-col gap-2 leading-normal">
+            <li>Imports from <i class="mark">primevue/api</i> have been relocated to <i class="mark">@primevue/core/api</i>.</li>
+        </ul>
+
         <h4>Removed Files</h4>
         <ul class="flex flex-col gap-2 leading-normal">
             <li>Themes under the <i class="mark">primevue/resources</i> path, migration to new styled mode is necessary.</li>
             <li>The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>
         </ul>
 
-        <h4>Message and InlineMesasge</h4>
+        <h4>Message and InlineMessage</h4>
         <p>
             <i class="mark">InlineMessage</i> is deprecated due to overlap with the <i>Message</i>. The spacing, closable and life properties of the <i>Message</i> have breaking changes to provide <i>InlineMessage</i> functionality. Default margin is
             removed, closable is false by default and messages do not disappear automatically.
@@ -47,7 +51,7 @@
         <ul class="flex flex-col gap-2 leading-normal">
             <li><i class="mark">.p-link</i>, use a button in link mode.</li>
             <li><i class="mark">.p-highlight</i>, each component have its own class such as <i class="mark">.p-select-option-selected</i>.</li>
-            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> properties of components.</li>
+            <li><i class="mark">.p-fluid</i>, use the new built-in <i class="mark">fluid</i> property of the supported components or the <i class="mark">Fluid</i> component.</li>
         </ul>
 
         <h4>Tailwind CSS Presets</h4>

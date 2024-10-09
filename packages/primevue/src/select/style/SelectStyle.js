@@ -30,7 +30,11 @@ const theme = ({ dt }) => `
     background: ${dt('select.filled.background')};
 }
 
-.p-select.p-variant-filled.p-focus {
+.p-select.p-variant-filled:not(.p-disabled):hover {
+    background: ${dt('select.filled.hover.background')};
+}
+
+.p-select.p-variant-filled:not(.p-disabled).p-focus {
     background: ${dt('select.filled.focus.background')};
 }
 
@@ -204,7 +208,7 @@ const classes = {
             'p-inputwrapper-filled': instance.hasSelectedOption,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-select-open': state.overlayVisible,
-            'p-select-fluid': props.fluid
+            'p-select-fluid': instance.hasFluid
         }
     ],
     label: ({ instance, props }) => [

@@ -198,9 +198,9 @@ const theme = ({ dt }) => `
 
 .p-treetable-tbody > tr:focus-visible,
 .p-treetable-tbody > tr.p-treetable-contextmenu-row-selected {
-    box-shadow: ${dt('treetable.body.cell.focus.ring.shadow')};
-    outline: ${dt('treetable.body.cell.focus.ring.width')} ${dt('treetable.body.cell.focus.ring.style')} ${dt('treetable.body.cell.focus.ring.color')};
-    outline-offset: ${dt('treetable.body.cell.focus.ring.offset')};
+    box-shadow: ${dt('treetable.row.focus.ring.shadow')};
+    outline: ${dt('treetable.row.focus.ring.width')} ${dt('treetable.row.focus.ring.style')} ${dt('treetable.row.focus.ring.color')};
+    outline-offset: ${dt('treetable.row.focus.ring.offset')};
 }
 
 .p-treetable-tfoot > tr > td {
@@ -470,9 +470,10 @@ const classes = {
     sortIcon: 'p-treetable-sort-icon',
     pcSortBadge: 'p-treetable-sort-badge',
     tbody: 'p-treetable-tbody',
-    row: ({ instance }) => [
+    row: ({ props, instance }) => [
         {
-            'p-treetable-row-selected': instance.selected
+            'p-treetable-row-selected': instance.selected,
+            'p-treetable-contextmenu-row-selected': props.contextMenuSelection && instance.isSelectedWithContextMenu
         }
     ],
     bodyCell: ({ instance }) => [

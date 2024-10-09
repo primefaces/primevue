@@ -39,7 +39,11 @@ export default {
                 background: '{surface.0}',
                 hoverBackground: '{surface.0}',
                 checkedBackground: '{surface.0}',
-                checkedHoverBackground: '{surface.0}'
+                checkedHoverBackground: '{surface.0}',
+                color: '{text.muted.color}',
+                hoverColor: '{text.color}',
+                checkedColor: '{primary.color}',
+                checkedHoverColor: '{primary.hover.color}'
             }
         },
         dark: {
@@ -53,7 +57,11 @@ export default {
                 background: '{surface.400}',
                 hoverBackground: '{surface.300}',
                 checkedBackground: '{surface.900}',
-                checkedHoverBackground: '{surface.900}'
+                checkedHoverBackground: '{surface.900}',
+                color: '{surface.900}',
+                hoverColor: '{surface.800}',
+                checkedColor: '{primary.color}',
+                checkedHoverColor: '{primary.hover.color}'
             }
         }
     }

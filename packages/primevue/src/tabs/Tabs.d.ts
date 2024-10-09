@@ -88,7 +88,7 @@ export interface TabsProps {
     /**
      * Value of the active tab.
      */
-    value: string;
+    value: string | number;
     /**
      * When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css.
      * @defaultValue false

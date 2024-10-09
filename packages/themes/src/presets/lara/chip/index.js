@@ -45,7 +45,7 @@ export default {
                 color: '{surface.0}'
             },
             removeIcon: {
-                color: '{surfaec.0}'
+                color: '{surface.0}'
             }
         }
     }

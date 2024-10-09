@@ -26,12 +26,14 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
-                { label: 'Upload', to: '/fileupload' }
+                }
             ],
             code: {
                 basic: `
@@ -63,11 +65,14 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
+                }
                 { label: 'Upload', to: '/fileupload' }
             ]
         };
@@ -96,22 +101,24 @@ const items = [
     {
         label: 'Update',
         command: () => {
-            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+            this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
         }
     },
     {
         label: 'Delete',
         command: () => {
-            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+            this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
         }
     },
     {
-        label: 'Vue Website',
+        separator: true
+    },
+    {
+        label: 'Quit',
         command: () => {
             window.location.href = 'https://vuejs.org/';
         }
-    },
-    { label: 'Upload', to: '/fileupload' }
+    }
 ];
 
 const save = () => {

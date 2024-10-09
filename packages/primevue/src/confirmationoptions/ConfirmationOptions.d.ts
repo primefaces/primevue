@@ -5,6 +5,7 @@
  * @module confirmationoptions
  *
  */
+import type { HintedString } from '@primevue/core';
 import type { ButtonProps } from 'primevue/button';
 
 /**
@@ -41,6 +42,17 @@ export interface ConfirmationOptions {
      * @defaultValue false
      */
     blockScroll?: boolean | undefined;
+    /**
+     * A valid query selector or an HTMLElement to specify where the confirm dialog gets attached.
+     * Special keywords are 'body' for document body and 'self' for the element itself.
+     * @defaultValue body
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
+    /**
+     * Defines if background should be blocked when confirm dialog is displayed.
+     * @defaultValue false
+     */
+    modal?: boolean | undefined;
     /**
      * Callback to execute when action is confirmed.
      * @todo Next release should be able to change

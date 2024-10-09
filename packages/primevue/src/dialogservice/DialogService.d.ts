@@ -26,13 +26,7 @@ export interface DialogServiceMethods {
     open(content: any, options?: DynamicDialogOptions): DynamicDialogInstance;
 }
 
-declare module 'vue/types/vue' {
-    interface Vue {
-        $dialog: DialogServiceMethods;
-    }
-}
-
-declare module '@vue/runtime-core' {
+declare module 'vue' {
     interface ComponentCustomProperties {
         $dialog: DialogServiceMethods;
     }

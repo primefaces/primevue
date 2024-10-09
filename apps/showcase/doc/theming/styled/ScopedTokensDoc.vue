@@ -6,7 +6,7 @@
         <ToggleSwitch v-model="checked1" />
         <ToggleSwitch v-model="checked2" :dt="amberSwitch" />
     </div>
-    <DocSectionCode :code="code1" importCode hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
 </template>
 
 <script>

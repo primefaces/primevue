@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null" class="w-full md:w-56" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+        <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,7 +13,8 @@
 export default {
     data() {
         return {
-            selectedCity: null,
+            selectedCity1: null,
+            selectedCity2: null,
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -22,12 +24,14 @@ export default {
             ],
             code: {
                 basic: `
-<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
+<Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+<Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+        <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
     </div>
 </template>
 
@@ -35,7 +39,8 @@ export default {
 export default {
     data() {
         return {
-            selectedCity: null,
+            selectedCity1: null,
+            selectedCity2: null,
             cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
@@ -50,15 +55,17 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="selectedCity === null"  class="w-full md:w-56" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+        <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
-const selectedCity = ref();
+const selectedCity1 = ref(null);
+const selectedCity2 = ref(null);
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },

@@ -33,6 +33,10 @@ export default {
         hoverBackground: '{form.field.border.color}',
         checkedBackground: '{primary.contrast.color}',
         checkedHoverBackground: '{primary.contrast.color}',
-        disabledBackground: '{form.field.disabled.color}'
+        disabledBackground: '{form.field.disabled.color}',
+        color: '{surface.0}',
+        hoverColor: '{surface.0}',
+        checkedColor: '{primary.color}',
+        checkedHoverColor: '{primary.color}'
     }
 };

@@ -49,7 +49,6 @@
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
-                        aria-hidden="true"
                         class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onFirstHiddenFocus"
@@ -64,9 +63,17 @@
                             :id="listId"
                             :value="options"
                             :selectionMode="selectionMode"
+                            :loading="loading"
+                            :loadingIcon="loadingIcon"
+                            :loadingMode="loadingMode"
+                            :filter="filter"
+                            :filterBy="filterBy"
+                            :filterMode="filterMode"
+                            :filterPlaceholder="filterPlaceholder"
+                            :filterLocale="filterLocale"
                             @update:selectionKeys="onSelectionChange"
                             :selectionKeys="modelValue"
-                            :expandedKeys="expandedKeys"
+                            :expandedKeys="d_expandedKeys"
                             @update:expandedKeys="onNodeToggle"
                             :metaKeySelection="metaKeySelection"
                             @node-expand="$emit('node-expand', $event)"
@@ -77,18 +84,21 @@
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
                         >
-                            <template v-if="$slots.itemtoggleicon" #toggleicon="iconProps">
-                                <slot name="itemtoggleicon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            <template v-if="$slots.option" #default="optionSlotProps">
+                                <slot name="option" :node="optionSlotProps.node" :expanded="optionSlotProps.expanded" :selected="optionSlotProps.selected" />
+                            </template>
+                            <template v-if="$slots.itemtoggleicon" #toggleicon="iconSlotProps">
+                                <slot name="itemtoggleicon" :node="iconSlotProps.node" :expanded="iconSlotProps.expanded" :class="iconSlotProps.class" />
                             </template>
                             <!--TODO: itemtogglericon deprecated since v4.0-->
-                            <template v-else-if="$slots.itemtogglericon" #togglericon="iconProps">
-                                <slot name="itemtogglericon" :node="iconProps.node" :expanded="iconProps.expanded" :class="iconProps.class" />
+                            <template v-else-if="$slots.itemtogglericon" #togglericon="iconSlotProps">
+                                <slot name="itemtogglericon" :node="iconSlotProps.node" :expanded="iconSlotProps.expanded" :class="iconSlotProps.class" />
                             </template>
-                            <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconProps">
-                                <slot name="itemcheckboxicon" :checked="iconProps.checked" :partialChecked="iconProps.partialChecked" :class="iconProps.class" />
+                            <template v-if="$slots.itemcheckboxicon" #checkboxicon="iconSlotProps">
+                                <slot name="itemcheckboxicon" :checked="iconSlotProps.checked" :partialChecked="iconSlotProps.partialChecked" :class="iconSlotProps.class" />
                             </template>
                         </TSTree>
-                        <div v-if="emptyOptions" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
+                        <div v-if="emptyOptions && !loading" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
@@ -96,7 +106,6 @@
                     <span
                         ref="lastHiddenFocusableElementOnOverlay"
                         role="presentation"
-                        aria-hidden="true"
                         class="p-hidden-accessible p-hidden-focusable"
                         :tabindex="0"
                         @focus="onLastHiddenFocus"
@@ -111,9 +120,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, getFirstFocusableElement, getLastFocusableElement, find, findSingle, getFocusableElements, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Chip from 'primevue/chip';
 import OverlayEventBus from 'primevue/overlayeventbus';
@@ -126,13 +136,16 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur'],
+    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     data() {
         return {
             id: this.$attrs.id,
             focused: false,
             overlayVisible: false,
-            expandedKeys: {}
+            d_expandedKeys: this.expandedKeys || {}
         };
     },
     watch: {
@@ -151,6 +164,9 @@ export default {
         },
         options() {
             this.updateTreeState();
+        },
+        expandedKeys(value) {
+            this.d_expandedKeys = value;
         }
     },
     outsideClickListener: null,
@@ -223,7 +239,9 @@ export default {
             this.$emit('node-unselect', node);
         },
         onNodeToggle(keys) {
-            this.expandedKeys = keys;
+            this.d_expandedKeys = keys;
+
+            this.$emit('update:expandedKeys', this.d_expandedKeys);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -432,8 +450,6 @@ export default {
         updateTreeState() {
             let keys = { ...this.modelValue };
 
-            this.expandedKeys = {};
-
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
             }
@@ -460,8 +476,11 @@ export default {
         expandPath(path) {
             if (path.length > 0) {
                 for (let key of path) {
-                    this.expandedKeys[key] = true;
+                    this.d_expandedKeys[key] = true;
                 }
+
+                this.d_expandedKeys = { ...this.d_expandedKeys };
+                this.$emit('update:expandedKeys', this.d_expandedKeys);
             }
         },
         scrollValueInView() {
@@ -502,6 +521,9 @@ export default {
         },
         listId() {
             return this.id + '_list';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { isEmpty } from '@primeuix/utils/object';
 import BaseTextarea from './BaseTextarea.vue';
 
 export default {
@@ -10,6 +11,9 @@ export default {
     extends: BaseTextarea,
     inheritAttrs: false,
     emits: ['update:modelValue'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {
             this.resize();
@@ -50,6 +54,9 @@ export default {
                     disabled: this.$attrs.disabled || this.$attrs.disabled === ''
                 }
             };
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     }
 };

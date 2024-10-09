@@ -24,7 +24,7 @@ export interface FocusTrapOptions {
      */
     disabled?: boolean | undefined;
     /**
-     * When When disabled, focustrap will not focus by default.
+     * When disabled, focustrap will not focus by default.
      * @defaultValue true
      */
     autoFocus?: boolean | undefined;

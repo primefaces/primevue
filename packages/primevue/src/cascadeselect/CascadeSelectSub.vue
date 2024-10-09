@@ -17,13 +17,22 @@
                 :data-p-focus="isOptionFocused(processedOption)"
                 :data-p-disabled="isOptionDisabled(processedOption)"
             >
-                <div v-ripple :class="cx('optionContent')" @click="onOptionClick($event, processedOption)" @mousemove="onOptionMouseMove($event, processedOption)" v-bind="getPTOptions(processedOption, index, 'optionContent')">
+                <div
+                    v-ripple
+                    :class="cx('optionContent')"
+                    @click="onOptionClick($event, processedOption)"
+                    @mouseenter="onOptionMouseEnter($event, processedOption)"
+                    @mousemove="onOptionMouseMove($event, processedOption)"
+                    v-bind="getPTOptions(processedOption, index, 'optionContent')"
+                >
                     <component v-if="templates['option']" :is="templates['option']" :option="processedOption.option" :selected="isOptionGroup(processedOption) ? false : isOptionSelected(processedOption)" />
                     <span v-else :class="cx('optionText')" v-bind="getPTOptions(processedOption, index, 'optionText')">{{ getOptionLabelToRender(processedOption) }}</span>
                     <template v-if="isOptionGroup(processedOption)">
-                        <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" aria-hidden="true" />
-                        <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
-                        <AngleRightIcon v-else :class="cx('groupIcon')" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
+                        <span :class="cx('groupIconContainer')">
+                            <component v-if="templates['optiongroupicon']" :is="templates['optiongroupicon']" :class="cx('groupIcon')" />
+                            <span v-else-if="optionGroupIcon" :class="[cx('groupIcon'), optionGroupIcon]" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
+                            <AngleRightIcon v-else :class="cx('groupIcon')" aria-hidden="true" v-bind="getPTOptions(processedOption, index, 'groupIcon')" />
+                        </span>
                     </template>
                 </div>
                 <CascadeSelectSub
@@ -42,11 +51,11 @@
                     :optionGroupIcon="optionGroupIcon"
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
-                    @option-change="onOptionChange"
-                    @option-focus-change="onOptionFocusChange"
+                    @option-change="$emit('option-change', $event)"
+                    @option-focus-change="$emit('option-focus-change', $event)"
+                    @option-focus-enter-change="$emit('option-focus-enter-change', $event)"
                     :pt="pt"
                     :unstyled="unstyled"
-                    :isParentMount="mounted"
                 />
             </li>
         </template>
@@ -54,9 +63,8 @@
 </template>
 
 <script>
+import { isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { nestedPosition } from '@primeuix/utils/dom';
-import { resolveFieldData, isNotEmpty } from '@primeuix/utils/object';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 
@@ -64,7 +72,7 @@ export default {
     name: 'CascadeSelectSub',
     hostName: 'CascadeSelect',
     extends: BaseComponent,
-    emits: ['option-change', 'option-focus-change'],
+    emits: ['option-change', 'option-focus-change', 'option-focus-enter-change'],
     container: null,
     props: {
         selectId: String,
@@ -81,26 +89,9 @@ export default {
         },
         activeOptionPath: Array,
         level: Number,
-        templates: null,
-        isParentMount: Boolean
+        templates: null
     },
-    data() {
-        return {
-            mounted: false
-        };
-    },
-    watch: {
-        isParentMount: {
-            handler(newValue) {
-                newValue && nestedPosition(this.container, this.level);
-            }
-        }
-    },
-    mounted() {
-        // entering order correction when an option is selected
-        (this.isParentMount || this.level === 0) && nestedPosition(this.container, this.level);
-        this.mounted = true;
-    },
+
     methods: {
         getOptionId(processedOption) {
             return `${this.selectId}_${processedOption.key}`;
@@ -151,14 +142,11 @@ export default {
         onOptionClick(event, processedOption) {
             this.$emit('option-change', { originalEvent: event, processedOption, isFocus: true });
         },
+        onOptionMouseEnter(event, processedOption) {
+            this.$emit('option-focus-enter-change', { originalEvent: event, processedOption });
+        },
         onOptionMouseMove(event, processedOption) {
             this.$emit('option-focus-change', { originalEvent: event, processedOption });
-        },
-        onOptionChange(event) {
-            this.$emit('option-change', event);
-        },
-        onOptionFocusChange(event) {
-            this.$emit('option-focus-change', event);
         },
         containerRef(el) {
             this.container = el;

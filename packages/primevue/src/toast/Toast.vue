@@ -13,6 +13,7 @@
                     :errorIcon="errorIcon"
                     :successIcon="successIcon"
                     :closeButtonProps="closeButtonProps"
+                    :unstyled="unstyled"
                     @close="remove($event)"
                     :pt="pt"
                 />
@@ -22,7 +23,6 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { setAttribute } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
@@ -99,8 +99,6 @@ export default {
             this.messages = [];
         },
         onEnter() {
-            this.$refs.container.setAttribute(this.attributeSelector, '');
-
             if (this.autoZIndex) {
                 ZIndex.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
@@ -130,7 +128,7 @@ export default {
 
                     innerHTML += `
                         @media screen and (max-width: ${breakpoint}) {
-                            .p-toast[${this.attributeSelector}] {
+                            .p-toast[${this.$attrSelector}] {
                                 ${breakpointStyle}
                             }
                         }
@@ -147,11 +145,7 @@ export default {
             }
         }
     },
-    computed: {
-        attributeSelector() {
-            return UniqueComponentId();
-        }
-    },
+
     components: {
         ToastMessage: ToastMessage,
         Portal: Portal

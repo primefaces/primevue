@@ -14,7 +14,7 @@
     </template>
     <template v-else>
         <template v-if="!asChild">
-            <component v-if="active" :is="as" :id="id" :class="cx('root')" role="tabpanel" :aria-controls="ariaControls" v-bind="getPTOptions('root')">
+            <component v-show="active" :is="as" :id="id" :class="cx('root')" role="tabpanel" :aria-controls="ariaControls" v-bind="getPTOptions('root')">
                 <slot :active="active" :activateCallback="(val) => updateValue(val)" />
             </component>
         </template>

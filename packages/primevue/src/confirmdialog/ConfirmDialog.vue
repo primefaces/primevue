@@ -3,9 +3,10 @@
         v-model:visible="visible"
         role="alertdialog"
         :class="cx('root')"
-        :modal="true"
+        :modal="modal"
         :header="header"
         :blockScroll="blockScroll"
+        :appendTo="appendTo"
         :position="position"
         :breakpoints="breakpoints"
         :closeOnEscape="closeOnEscape"
@@ -122,12 +123,18 @@ export default {
             }
 
             this.visible = false;
-        },
-        getCXOptions(icon, iconProps) {
-            return { contenxt: { icon, iconClass: iconProps.class } };
         }
     },
     computed: {
+        appendTo() {
+            return this.confirmation ? this.confirmation.appendTo : 'body';
+        },
+        target() {
+            return this.confirmation ? this.confirmation.target : null;
+        },
+        modal() {
+            return this.confirmation ? (this.confirmation.modal == null ? true : this.confirmation.modal) : true;
+        },
         header() {
             return this.confirmation ? this.confirmation.header : null;
         },
@@ -144,19 +151,19 @@ export default {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.acceptLabel ? confirmation.acceptLabel : confirmation.acceptProps ? confirmation.acceptProps.label || this.$primevue.config.locale.accept : null;
+                return confirmation.acceptLabel || confirmation.acceptProps?.label || this.$primevue.config.locale.accept;
             }
 
-            return null;
+            return this.$primevue.config.locale.accept;
         },
         rejectLabel() {
             if (this.confirmation) {
                 const confirmation = this.confirmation;
 
-                return confirmation.rejectLabel ? confirmation.rejectLabel : confirmation.rejectProps ? confirmation.rejectProps.label || this.$primevue.config.locale.reject : null;
+                return confirmation.rejectLabel || confirmation.rejectProps?.label || this.$primevue.config.locale.reject;
             }
 
-            return null;
+            return this.$primevue.config.locale.reject;
         },
         acceptIcon() {
             return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;

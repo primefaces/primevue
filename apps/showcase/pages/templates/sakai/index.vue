@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import TemplateConfiguration from '../../../components/template/TemplateConfiguration.vue';
-import TemplateFeatures from '../../../components/template/TemplateFeatures.vue';
-import TemplateFeaturesAnimation from '../../../components/template/TemplateFeaturesAnimation.vue';
-import TemplateHero from '../../../components/template/TemplateHero.vue';
-import SakaiLogo from '../../../components/template/logo/SakaiLogo.vue';
+import TemplateConfiguration from '@/components/template/TemplateConfiguration.vue';
+import TemplateFeatures from '@/components/template/TemplateFeatures.vue';
+import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAnimation.vue';
+import TemplateHero from '@/components/template/TemplateHero.vue';
+import SakaiLogo from '@/components/template/logo/SakaiLogo.vue';
 
 export default {
     data() {
@@ -125,7 +125,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://blocks.primevue.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://blocks.primevue.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
                 template and requires a separate purchase.`
                         }
                     },

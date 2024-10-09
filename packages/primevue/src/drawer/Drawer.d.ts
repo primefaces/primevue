@@ -88,6 +88,10 @@ export interface DrawerPassThroughOptions {
      */
     content?: DrawerPassThroughOptionType;
     /**
+     * Used to pass attributes to the footer's DOM element.
+     */
+    footer?: DrawerPassThroughOptionType;
+    /**
      * Used to pass attributes to the mask's DOM element.
      */
     mask?: DrawerPassThroughOptionType;
@@ -250,7 +254,7 @@ export interface DrawerEmitsOptions {
      * Emitted when the value changes.
      * @param {boolean} value - New value.
      */
-    'update:modelValue'(value: boolean): void;
+    'update:visible'(value: boolean): void;
     /**
      * Callback to invoke when drawer gets shown.
      */

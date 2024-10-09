@@ -3,10 +3,10 @@
         <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
             <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
             <div v-else :class="cx('content')" v-bind="ptm('content')">
-                <slot name="icon" class="p-message-icon">
+                <slot name="icon" :class="cx('icon')">
                     <component :is="icon ? 'span' : null" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></component>
                 </slot>
-                <div v-if="$slots.default" class="p-message-text" :class="cx('text')" v-bind="ptm('text')">
+                <div v-if="$slots.default" :class="cx('text')" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
                 <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
@@ -21,11 +21,7 @@
 </template>
 
 <script>
-import CheckIcon from '@primevue/icons/check';
-import ExclamationTriangleIcon from '@primevue/icons/exclamationtriangle';
-import InfoCircleIcon from '@primevue/icons/infocircle';
 import TimesIcon from '@primevue/icons/times';
-import TimesCircleIcon from '@primevue/icons/timescircle';
 import Ripple from 'primevue/ripple';
 import BaseMessage from './BaseMessage.vue';
 
@@ -55,14 +51,6 @@ export default {
         }
     },
     computed: {
-        iconComponent() {
-            return {
-                info: InfoCircleIcon,
-                success: CheckIcon,
-                warn: ExclamationTriangleIcon,
-                error: TimesCircleIcon
-            }[this.severity];
-        },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
         }
@@ -71,11 +59,7 @@ export default {
         ripple: Ripple
     },
     components: {
-        TimesIcon,
-        InfoCircleIcon,
-        CheckIcon,
-        ExclamationTriangleIcon,
-        TimesCircleIcon
+        TimesIcon
     }
 };
 </script>

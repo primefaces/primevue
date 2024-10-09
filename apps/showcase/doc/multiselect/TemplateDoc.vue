@@ -1,9 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Label of an option is used as the display text of an item by default, for custom content support define an <i>option</i> template that gets the option instance as a parameter. In addition <i>value</i>, <i>optiongroup</i>, <i>chip</i>,
-            <i>header</i>, <i>footer</i>, <i>emptyfilter</i> and <i>empty</i> slots are provided for further customization.
-        </p>
+        <p>MultiSelect offers multiple slots for customization through templating.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
@@ -13,9 +10,19 @@
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #filtericon>
+                <i class="pi pi-map-marker" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
             <template #footer>
-                <div class="py-2 px-4">
-                    <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
+                <div class="p-3 flex justify-between">
+                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>
@@ -49,9 +56,19 @@ export default {
             <div>{{ slotProps.option.name }}</div>
         </div>
     </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #filtericon>
+        <i class="pi pi-map-marker" />
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Countries</div>
+    </template>
     <template #footer>
-        <div class="py-2 px-4">
-            <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
+        <div class="p-3 flex justify-between">
+            <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+            <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
         </div>
     </template>
 </MultiSelect>
@@ -66,9 +83,19 @@ export default {
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #filtericon>
+                <i class="pi pi-map-marker" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
             <template #footer>
-                <div class="py-2 px-4">
-                    <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
+                <div class="p-3 flex justify-between">
+                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>
@@ -107,9 +134,19 @@ export default {
                     <div>{{ slotProps.option.name }}</div>
                 </div>
             </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #filtericon>
+                <i class="pi pi-map-marker" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
             <template #footer>
-                <div class="py-2 px-4">
-                    <b>{{ selectedCountries ? selectedCountries.length : 0 }}</b> item{{ (selectedCountries ? selectedCountries.length : 0) > 1 ? 's' : '' }} selected.
+                <div class="p-3 flex justify-between">
+                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>

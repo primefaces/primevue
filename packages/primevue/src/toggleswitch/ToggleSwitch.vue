@@ -19,7 +19,11 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <span :class="cx('slider')" v-bind="getPTOptions('slider')"></span>
+        <div :class="cx('slider')" v-bind="getPTOptions('slider')">
+            <div :class="cx('handle')" v-bind="getPTOptions('handle')">
+                <slot name="handle" :checked="checked" />
+            </div>
+        </div>
     </div>
 </template>
 

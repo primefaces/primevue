@@ -90,7 +90,7 @@ export interface SpeedDialPassThroughOptions {
      * Used to pass attributes to the action's Button component.
      * @see {@link ButtonPassThroughOptions}
      */
-    action?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
+    pcAction?: ButtonPassThroughOptions<SpeedDialSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the action icon's DOM element.
      */
@@ -355,6 +355,21 @@ export interface SpeedDialSlots {
          * Visible state of the item
          */
         visible: boolean;
+    }): VNode[];
+    /**
+     * Custom icon template.
+     * @param {Object} scope - icon slot's params.
+     */
+    itemicon(scope: {
+        /**
+         * Menuitem instance
+         * @type {MenuItem}
+         */
+        item: MenuItem;
+        /**
+         * Style class of the icon template
+         */
+        class: any;
     }): VNode[];
 }
 

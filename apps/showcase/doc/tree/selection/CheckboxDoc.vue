@@ -2,11 +2,11 @@
     <DocSectionText v-bind="$attrs">
         <p>Selection of multiple nodes via checkboxes is enabled by configuring <i>selectionMode</i> as <i>checkbox</i>.</p>
         <p>
-            In checkbox selection mode, value binding should be a key-value pair where key is the node key and value is an object that has <i>checked</i> and <i>partialChecked</i> properties to represent the checked state of a node obje to indicate
+            In checkbox selection mode, value binding should be a key-value pair where key is the node key and value is an object that has <i>checked</i> and <i>partialChecked</i> properties to represent the checked state of a node object to indicate
             selection.
         </p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
@@ -26,7 +26,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>
@@ -38,7 +38,8 @@ import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
-            nodes: null
+            nodes: null,
+            selectedKey: null,
         };
     },
     mounted() {
@@ -57,7 +58,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="checkbox" class="w-full md:w-[30rem]"></Tree>
     </div>

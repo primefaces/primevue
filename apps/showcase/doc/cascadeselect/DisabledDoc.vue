@@ -3,7 +3,7 @@
         <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <CascadeSelect disabled placeholder="Disabled" style="min-width: 14rem" />
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,12 +14,12 @@ export default {
         return {
             code: {
                 basic: `
-<CascadeSelect disabled placeholder="Disabled" style="min-width: 14rem" />
+<CascadeSelect disabled placeholder="Disabled" class="w-56" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <CascadeSelect disabled placeholder="Disabled" style="min-width: 14rem" />
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
     </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <CascadeSelect disabled placeholder="Disabled" style="min-width: 14rem" />
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
     </div>
 </template>
 

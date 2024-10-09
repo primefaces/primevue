@@ -27,6 +27,41 @@ export interface RatingDesignTokens extends ColorSchemeDesignToken<RatingDesignT
          * @designToken rating.transition.duration
          */
         transitionDuration?: string;
+        /**
+         * Focus ring of root
+         */
+        focusRing?: {
+            /**
+             * Focus ring width of root
+             *
+             * @designToken rating.focus.ring.width
+             */
+            width?: string;
+            /**
+             * Focus ring style of root
+             *
+             * @designToken rating.focus.ring.style
+             */
+            style?: string;
+            /**
+             * Focus ring color of root
+             *
+             * @designToken rating.focus.ring.color
+             */
+            color?: string;
+            /**
+             * Focus ring offset of root
+             *
+             * @designToken rating.focus.ring.offset
+             */
+            offset?: string;
+            /**
+             * Focus ring shadow of root
+             *
+             * @designToken rating.focus.ring.shadow
+             */
+            shadow?: string;
+        };
     };
     /**
      * Used to pass tokens of the icon section

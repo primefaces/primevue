@@ -30,7 +30,7 @@
 
         > li {
             margin-bottom: .25rem;
-            
+
             > button,
             > a {
                 display: flex;
@@ -46,9 +46,10 @@
                 font-size: 1rem;
                 border: 0 none;
                 margin: 0;
-                text-align: left;  
+                text-align: left;
                 cursor: pointer;
                 user-select: none;
+                --p-focus-ring-offset: -1px;
                 @include focus-visible();
 
                 .menu-icon {
@@ -63,13 +64,13 @@
                     transition: all .2s;
                     position: relative;
                     background-color: transparent;
-    
+
                     i {
                         color: var(--text-color);
                         transition: all .2s;
                     }
                 }
-    
+
                 .menu-toggle-icon {
                     color: var(--text-secondary-color);
                     margin-left: auto;
@@ -91,21 +92,18 @@
 
                 &.router-link-active {
                     color: var(--primary-text-color);
-        
+
                     > .menu-icon {
                         i {
                             color: var(--primary-text-color);
                         }
                     }
                 }
-
-                @include focus-visible();
-                --p-focus-ring-offset: -1px;
             }
-            
+
             > div {
                 overflow: hidden;
-                
+
                 ol {
                     margin: 0 0 0 1rem;
                     padding: .25rem 0;
@@ -123,10 +121,9 @@
                             transition: outline-color 0.2s, border-color .2s;
                             outline-color: transparent;
                             position: relative;
-
-                            @include focus-visible();
                             --p-focus-ring-offset: -1px;
-            
+                            @include focus-visible();
+
                             &:hover {
                                 border-left-color: var(--hover-border-color);
                             }
@@ -159,9 +156,10 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            
-            .p-tag-value {
+
+            .p-tag-label {
                 line-height: 1;
+                font-size: 0.75rem;
             }
         }
 

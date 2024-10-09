@@ -146,6 +146,17 @@ export interface TieredMenuDesignTokens extends ColorSchemeDesignToken<TieredMen
         };
     };
     /**
+     * Used to pass tokens of the submenu section
+     */
+    submenu?: {
+        /**
+         * Mobile indent of submenu
+         *
+         * @designToken tieredmenu.submenu.mobile.indent
+         */
+        mobileIndent?: string;
+    };
+    /**
      * Used to pass tokens of the submenu label section
      */
     submenuLabel?: {

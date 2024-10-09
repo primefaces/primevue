@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import TemplateConfiguration from '../../../components/template/TemplateConfiguration.vue';
-import TemplateFeatures from '../../../components/template/TemplateFeatures.vue';
-import TemplateFeaturesAnimation from '../../../components/template/TemplateFeaturesAnimation.vue';
-import TemplateHero from '../../../components/template/TemplateHero.vue';
-import TemplateLicense from '../../../components/template/TemplateLicense.vue';
-import AtlantisLogo from '../../../components/template/logo/AtlantisLogo.vue';
+import TemplateConfiguration from '@/components/template/TemplateConfiguration.vue';
+import TemplateFeatures from '@/components/template/TemplateFeatures.vue';
+import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAnimation.vue';
+import TemplateHero from '@/components/template/TemplateHero.vue';
+import TemplateLicense from '@/components/template/TemplateLicense.vue';
+import AtlantisLogo from '@/components/template/logo/AtlantisLogo.vue';
 export default {
     data() {
         return {
@@ -47,14 +47,14 @@ export default {
                                     {
                                         title: 'Basic License',
                                         price: '$59',
-                                        discount: '',
-                                        included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', 'Lifetime Support', 'Unlimited Updates']
+                                        discount: '$39',
+                                        included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', '1 Year Free Updates']
                                     },
                                     {
                                         title: 'Extended License',
                                         price: '$590',
-                                        discount: '',
-                                        included: ['Commercial Usage', 'Multiple End Products', 'Lifetime Support', 'Unlimited Updates']
+                                        discount: '$390',
+                                        included: ['Commercial Usage', 'Multiple End Products', '1 Year Free Updates']
                                     }
                                 ]
                             }
@@ -74,7 +74,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Atlantis offers 16 built-in component themes with dark and light options. You are also free to create you own theme by defining couple SASS variables.',
+                                    description: 'Atlantis offers 16 built-in component themes with dark and light options. You are also free to create your own theme by defining couple SASS variables.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/features-animation-component-themes.png'
                                 },
                                 {
@@ -165,7 +165,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://blocks.primevue.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://blocks.primevue.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
                 template and requires a separate purchase.`,
                             description4: `
                     Atlantis uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
@@ -189,8 +189,10 @@ export default {
                                     darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-compatible-dark.png'
                                 },
                                 {
-                                    title: 'Lifetime Support',
-                                    description: 'Atlantis has a dedicated forum where lifetime support is delivered by engineers at PrimeTek in a timely manner.',
+                                    title: 'Support',
+                                    description: `PrimeTek offers assistance with account management and licensing issues, with the expectation that users have the necessary technical knowledge to use our products, as we do not offer technical support or consulting. Users
+                                        can seek assistance in our community via our public <a href="https://discord.com/invite/gzKFYnpmCY">Discord</a> and
+                                        <a href="https://github.com/orgs/primefaces/discussions/categories/primevue-templates" class="doc-link">Forum</a>.`,
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-lifetime.png'
                                 },
                                 {

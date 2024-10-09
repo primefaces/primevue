@@ -13,8 +13,8 @@ describe('ToggleSwitch.vue', () => {
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([true]);
 
         await wrapper.setProps({ modelValue: true });
-
+        //
         expect(wrapper.vm.checked).toBe(true);
-        expect(wrapper.find('.p-toggleswitch').classes()).toContain('p-highlight');
+        expect(wrapper.find('.p-toggleswitch').classes()).toContain('p-toggleswitch-checked');
     });
 });

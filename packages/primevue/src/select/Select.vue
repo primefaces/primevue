@@ -46,9 +46,9 @@
             @keydown="onKeyDown"
             v-bind="ptm('label')"
         >
-            <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label || 'empty' }}</slot>
+            <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label ?? 'empty' }}</slot>
         </span>
-        <slot v-if="showClear && modelValue != null" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
         </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
@@ -96,7 +96,7 @@
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
                             />
-                            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                            <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
                                     <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
                                     <SearchIcon v-else v-bind="ptm('filterIcon')" />
@@ -191,7 +191,7 @@
 
 <script>
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
-import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
@@ -215,6 +215,9 @@ export default {
     extends: BaseSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -492,6 +495,10 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
+            // Check if the event is part of a text composition process (e.g., for Asian languages).
+            // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
+            if (event.isComposing) return;
+
             switch (event.code) {
                 case 'ArrowDown':
                     this.onArrowDownKey(event);
@@ -682,7 +689,9 @@ export default {
             this.alignOverlay();
             this.scrollInView();
 
-            this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            setTimeout(() => {
+                this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            }, 1);
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -695,6 +704,12 @@ export default {
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
+
+            if (this.autoFilterFocus && this.filter) {
+                this.$nextTick(() => {
+                    focus(this.$refs.filterInput.$el);
+                });
+            }
 
             this.$emit('hide');
             this.overlay = null;
@@ -762,7 +777,7 @@ export default {
         },
         bindLabelClickListener() {
             if (!this.editable && !this.labelClickListener) {
-                const label = document.querySelector(`label[for="${this.inputId}"]`);
+                const label = document.querySelector(`label[for="${this.labelId}"]`);
 
                 if (label && isVisible(label)) {
                     this.labelClickListener = () => {
@@ -775,7 +790,7 @@ export default {
         },
         unbindLabelClickListener() {
             if (this.labelClickListener) {
-                const label = document.querySelector(`label[for="${this.inputId}"]`);
+                const label = document.querySelector(`label[for="${this.labelId}"]`);
 
                 if (label && isVisible(label)) {
                     label.removeEventListener('click', this.labelClickListener);
@@ -795,7 +810,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return this.isValidOption(option) && equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -990,8 +1005,14 @@ export default {
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
         },
+        isClearIconVisible() {
+            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
+        },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     directives: {

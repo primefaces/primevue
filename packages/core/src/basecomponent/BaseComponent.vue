@@ -1,10 +1,10 @@
 <script>
 import { Theme, ThemeService } from '@primeuix/styled';
-import { findSingle } from '@primeuix/utils/dom';
+import { findSingle, isClient } from '@primeuix/utils/dom';
 import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
+import { uuid } from '@primeuix/utils/uuid';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
-import { UniqueComponentId } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -57,6 +57,7 @@ export default {
     },
     scopedStyleEl: undefined,
     rootEl: undefined,
+    $attrSelector: undefined,
     beforeCreate() {
         const _usept = this.pt?.['_usept'];
         const originalValue = _usept ? this.pt?.originalValue?.[this.$.type.name] : undefined;
@@ -69,23 +70,24 @@ export default {
         const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
 
         (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
+        this.$attrSelector = uuid('pc');
     },
     created() {
         this._hook('onCreated');
     },
     beforeMount() {
-        this._loadStyles();
-        this._hook('onBeforeMount');
-    },
-    mounted() {
         // @todo - improve performance
         this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
 
         if (this.rootEl) {
-            this.rootEl.setAttribute(this.$attrSelector, '');
-            this.rootEl.$pc = { name: this.$.type.name, ...this.$params };
+            this.$attrSelector && !this.rootEl.hasAttribute(this.$attrSelector) && this.rootEl.setAttribute(this.$attrSelector, '');
+            this.rootEl.$pc = { name: this.$.type.name, attrSelector: this.$attrSelector, ...this.$params };
         }
 
+        this._loadStyles();
+        this._hook('onBeforeMount');
+    },
+    mounted() {
         this._hook('onMounted');
     },
     beforeUpdate() {
@@ -154,25 +156,26 @@ export default {
             isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
-            if (this.isUnstyled) return;
+            if (this.isUnstyled || this.$theme === 'none') return;
 
             // common
             if (!Theme.isStyleNameLoaded('common')) {
-                const { primitive, semantic } = this.$style?.getCommonTheme?.() || {};
+                const { primitive, semantic, global, style } = this.$style?.getCommonTheme?.() || {};
 
                 BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions });
+                BaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
+                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName('common');
             }
 
             // component
             if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                const { css } = this.$style?.getComponentTheme?.() || {};
+                const { css, style } = this.$style?.getComponentTheme?.() || {};
 
                 this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions });
+                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName(this.$style.name);
             }
@@ -231,7 +234,8 @@ export default {
                 key !== 'transition' && {
                     ...(key === 'root' && {
                         [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
-                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) })
+                        ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) }),
+                        ...(isClient() && { [`${this.$attrSelector}`]: '' })
                     }),
                     [`${datasetPrefix}section`]: toFlatCase(key)
                 }
@@ -370,9 +374,6 @@ export default {
 
                     return acc;
                 }, {});
-        },
-        $attrSelector() {
-            return UniqueComponentId('pc');
         }
     }
 };

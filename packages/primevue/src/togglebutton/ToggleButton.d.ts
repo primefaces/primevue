@@ -151,10 +151,6 @@ export interface ToggleButtonProps {
      */
     ariaLabelledby?: string | undefined;
     /**
-     * Establishes a string value that labels the component.
-     */
-    ariaLabel?: string | undefined;
-    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;

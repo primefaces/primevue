@@ -411,14 +411,14 @@ export default {
                     color: '{orange.400}'
                 },
                 help: {
-                    hoverBackground: 'color-mix(in srgb, {help.400}, transparent 96%)',
-                    activeBackground: 'color-mix(in srgb, {help.400}, transparent 84%)',
+                    hoverBackground: 'color-mix(in srgb, {purple.400}, transparent 96%)',
+                    activeBackground: 'color-mix(in srgb, {purple.400}, transparent 84%)',
                     borderColor: '{purple.700}',
                     color: '{purple.400}'
                 },
                 danger: {
-                    hoverBackground: 'color-mix(in srgb, {danger.400}, transparent 96%)',
-                    activeBackground: 'color-mix(in srgb, {danger.400}, transparent 84%)',
+                    hoverBackground: 'color-mix(in srgb, {red.400}, transparent 96%)',
+                    activeBackground: 'color-mix(in srgb, {red.400}, transparent 84%)',
                     borderColor: '{red.700}',
                     color: '{red.400}'
                 },

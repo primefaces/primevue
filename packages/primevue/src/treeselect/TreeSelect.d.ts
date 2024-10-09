@@ -145,6 +145,11 @@ export interface TreeSelectPassThroughAttributes {
  */
 export interface TreeSelectState {
     /**
+     * Current id state as a string.
+     * @defaultValue null
+     */
+    id: string;
+    /**
      * Current focused state as a boolean.
      * @defaultValue false
      */
@@ -172,6 +177,10 @@ export interface TreeSelectProps {
      * An array of treenodes.
      */
     options?: TreeNode[] | undefined;
+    /**
+     * A map of keys to represent the expansion state in controlled mode.
+     */
+    expandedKeys?: TreeExpandedKeys;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 20rem
@@ -206,13 +215,9 @@ export interface TreeSelectProps {
     selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
-    /**
-     * Style class of the overlay panel.
-     */
-    panelClass?: any;
+    fluid?: boolean | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
@@ -235,6 +240,43 @@ export interface TreeSelectProps {
      */
     metaKeySelection?: boolean | undefined;
     /**
+     * Whether to display loading indicator.
+     * @defaultValue false
+     */
+    loading?: boolean | undefined;
+    /**
+     * Icon to display when tree is loading.
+     */
+    loadingIcon?: string | undefined;
+    /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: 'mask' | 'icon' | undefined;
+    /**
+     * When specified, displays an input field to filter the items.
+     * @defaultValue false
+     */
+    filter?: boolean | undefined;
+    /**
+     * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.
+     * @defaultValue label
+     */
+    filterBy?: string | ((node: TreeNode) => string) | undefined;
+    /**
+     * Mode for filtering.
+     * @defaultValue lenient
+     */
+    filterMode?: 'lenient' | 'strict' | undefined;
+    /**
+     * Placeholder text to show when filter input is empty.
+     */
+    filterPlaceholder?: string | undefined;
+    /**
+     * Locale to use in filtering. The default locale is the host environment's current locale.
+     */
+    filterLocale?: string | undefined;
+    /**
      * 	Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -250,6 +292,10 @@ export interface TreeSelectProps {
      * Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.
      */
     inputProps?: InputHTMLAttributes | undefined;
+    /**
+     * Style class of the overlay panel.
+     */
+    panelClass?: any;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -296,6 +342,24 @@ export interface TreeSelectSlots {
          * Placeholder
          */
         placeholder: string;
+    }): VNode[];
+    /**
+     * Custom option template.
+     * @param {Object} scope - option slot's params.
+     */
+    option(scope: {
+        /**
+         * Current node
+         */
+        node: TreeNode | any;
+        /**
+         * Selection state
+         */
+        selected: boolean;
+        /**
+         * Expanded state
+         */
+        expanded: boolean;
     }): VNode[];
     /**
      * Custom header template.
@@ -404,6 +468,11 @@ export interface TreeSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the expanded keys change.
+     * @param {TreeNode} value - New expanded keys.
+     */
+    'update:expandedKeys'(value: TreeExpandedKeys): void;
     /**
      * Callback to invoke on value change.
      * @param {*} value - Selected node keys

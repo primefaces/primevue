@@ -642,10 +642,50 @@ export interface ColumnContext {
  */
 export interface ColumnSlots {
     /**
-     * Custom body template.
+     * Custom body template for DataTable.
      * @param {Object} scope - body slot's params.
      */
     body(scope: {
+        /**
+         * Row data.
+         */
+        data: any;
+        /**
+         * Row node data.
+         */
+        node: any;
+        /**
+         * Column node.
+         */
+        column: ColumnNode;
+        /**
+         * Column field.
+         */
+        field: string;
+        /**
+         * Row index.
+         */
+        index: number;
+        /**
+         * Whether the row is frozen.
+         */
+        frozenRow: boolean;
+        /**
+         * Editor init callback function
+         * @param {Event} event - Browser event
+         */
+        editorInitCallback: (event: Event) => void;
+        /**
+         * Row toggler callback unction
+         * @param {Event} event - Browser event
+         */
+        rowTogglerCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom body template for TreeTable.
+     * @param {Object} scope - body slot's params.
+     */
+    node(scope: {
         /**
          * Row data.
          */

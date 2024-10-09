@@ -83,15 +83,15 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ instance, props }) => [
+    root: ({ instance }) => [
         'p-password p-component p-inputwrapper',
         {
             'p-inputwrapper-filled': instance.filled,
             'p-inputwrapper-focus': instance.focused,
-            'p-password-fluid': props.fluid
+            'p-password-fluid': instance.hasFluid
         }
     ],
-    pcInput: 'p-password-input',
+    pcInputText: 'p-password-input',
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
     overlay: 'p-password-overlay p-component',

@@ -9,6 +9,7 @@ import DisabledDoc from '@/doc/toggleswitch/DisabledDoc.vue';
 import ImportDoc from '@/doc/toggleswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/toggleswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/toggleswitch/PreselectionDoc.vue';
+import TemplateDoc from '@/doc/toggleswitch/TemplateDoc.vue';
 import PTComponent from '@/doc/toggleswitch/pt/index.vue';
 import ThemingDoc from '@/doc/toggleswitch/theming/index.vue';
 
@@ -35,6 +36,11 @@ export default {
                     id: 'invalid',
                     label: 'Invalid',
                     component: InvalidDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'disabled',

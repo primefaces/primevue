@@ -146,6 +146,17 @@ export interface ContextMenuDesignTokens extends ColorSchemeDesignToken<ContextM
         };
     };
     /**
+     * Used to pass tokens of the submenu section
+     */
+    submenu?: {
+        /**
+         * Mobile indent of submenu
+         *
+         * @designToken contextmenu.submenu.mobile.indent
+         */
+        mobileIndent?: string;
+    };
+    /**
      * Used to pass tokens of the submenu icon section
      */
     submenuIcon?: {

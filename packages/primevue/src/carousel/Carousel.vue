@@ -45,7 +45,7 @@
                             :aria-hidden="firstIndex() > index || lastIndex() < index ? true : undefined"
                             :aria-label="ariaSlideNumber(index)"
                             :aria-roledescription="ariaSlideLabel"
-                            v-bind="ptm('item')"
+                            v-bind="getItemPTOptions('item', index)"
                             :data-p-carousel-item-active="firstIndex() <= index && lastIndex() >= index"
                             :data-p-carousel-item-start="firstIndex() === index"
                             :data-p-carousel-item-end="lastIndex() === index"
@@ -78,7 +78,7 @@
                 </Button>
             </div>
             <ul v-if="totalIndicators >= 0 && showIndicators" ref="indicatorContent" :class="[cx('indicatorList'), indicatorsContentClass]" @keydown="onIndicatorKeydown" v-bind="ptm('indicatorList')">
-                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="ptm('indicator', getIndicatorPTOptions(i))" :data-p-active="d_page === i">
+                <li v-for="(indicator, i) of totalIndicators" :key="'p-carousel-indicator-' + i.toString()" :class="cx('indicator', { index: i })" v-bind="getIndicatorPTOptions('indicator', i)" :data-p-active="d_page === i">
                     <button
                         :class="cx('indicatorButton')"
                         type="button"
@@ -86,7 +86,7 @@
                         :aria-label="ariaPageLabel(i + 1)"
                         :aria-current="d_page === i ? 'page' : undefined"
                         @click="onIndicatorClick($event, i)"
-                        v-bind="ptm('indicatorButton', getIndicatorPTOptions(i))"
+                        v-bind="getIndicatorPTOptions('indicatorButton', i)"
                     />
                 </li>
             </ul>
@@ -101,8 +101,7 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { removeClass, addClass, find, findSingle, getAttribute, setAttribute } from '@primeuix/utils/dom';
+import { addClass, find, findSingle, getAttribute, removeClass, setAttribute } from '@primeuix/utils/dom';
 import { localeComparator, sort } from '@primeuix/utils/object';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
@@ -161,7 +160,6 @@ export default {
     mounted() {
         let stateChanged = false;
 
-        this.$el.setAttribute(this.attributeSelector, '');
         this.createStyle();
         this.calculatePosition();
 
@@ -272,12 +270,22 @@ export default {
         }
     },
     methods: {
-        getIndicatorPTOptions(index) {
-            return {
+        getIndicatorPTOptions(key, index) {
+            return this.ptm(key, {
                 context: {
                     highlighted: index === this.d_page
                 }
-            };
+            });
+        },
+        getItemPTOptions(key, index) {
+            return this.ptm(key, {
+                context: {
+                    index,
+                    active: this.firstIndex() <= index && this.lastIndex() >= index,
+                    start: this.firstIndex() === index,
+                    end: this.lastIndex() === index
+                }
+            });
         },
         step(dir, page) {
             let totalShiftedItems = this.totalShiftedItems;
@@ -559,7 +567,7 @@ export default {
             }
 
             let innerHTML = `
-                .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                .p-carousel[${this.$attrSelector}] .p-carousel-item {
                     flex: 1 0 ${100 / this.d_numVisible}%
                 }
             `;
@@ -580,7 +588,7 @@ export default {
 
                     innerHTML += `
                         @media screen and (max-width: ${res.breakpoint}) {
-                            .p-carousel[${this.attributeSelector}] .p-carousel-item {
+                            .p-carousel[${this.$attrSelector}] .p-carousel-item {
                                 flex: 1 0 ${100 / res.numVisible}%
                             }
                         }
@@ -630,9 +638,6 @@ export default {
         },
         ariaNextButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         empty() {
             return !this.value || this.value.length === 0;

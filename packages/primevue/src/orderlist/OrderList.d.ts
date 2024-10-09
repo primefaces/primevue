@@ -130,14 +130,10 @@ export interface OrderListPassThroughOptions {
      */
     pcMoveBottomButton?: ButtonPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
-     * Used to pass attributes to the container's DOM element.
-     */
-    container?: OrderListPassThroughOptionType;
-    /**
      * Used to pass attributes to the Listbox component.
      * @see {@link ListboxPassThroughOptions}
      */
-    pcList?: ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
+    pcListbox?: ListboxPassThroughOptions<OrderListSharedPassThroughMethodOptions>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}

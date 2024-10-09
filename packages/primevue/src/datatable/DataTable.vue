@@ -70,6 +70,7 @@
                 <template #content="slotProps">
                     <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="[tableStyle, slotProps.spacerStyle]" v-bind="{ ...tableProps, ...ptm('table') }">
                         <DTTableHeader
+                            v-if="showHeaders"
                             :columnGroup="headerColumnGroup"
                             :columns="slotProps.columns"
                             :rowGroupMode="rowGroupMode"
@@ -280,29 +281,28 @@
 </template>
 
 <script>
-import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
-import { HelperSet, UniqueComponentId, getVNodeProp } from '@primevue/core/utils';
 import {
-    getAttribute,
-    clearSelection,
-    findSingle,
-    isClickable,
-    find,
-    focus,
-    exportCSV,
-    getOffset,
-    addStyle,
-    getIndex,
-    getOuterWidth,
-    getHiddenElementOuterWidth,
-    getHiddenElementOuterHeight,
-    getWindowScrollTop,
-    getOuterHeight,
-    removeClass,
     addClass,
+    addStyle,
+    clearSelection,
+    exportCSV,
+    find,
+    findSingle,
+    focus,
+    getAttribute,
+    getHiddenElementOuterHeight,
+    getHiddenElementOuterWidth,
+    getIndex,
+    getOffset,
+    getOuterHeight,
+    getOuterWidth,
+    isClickable,
+    removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
-import { resolveFieldData, localeComparator, sort, findIndexInList, equals, reorderArray, isNotEmpty, isEmpty } from '@primeuix/utils/object';
+import { equals, findIndexInList, isEmpty, isNotEmpty, localeComparator, reorderArray, resolveFieldData, sort } from '@primeuix/utils/object';
+import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
+import { HelperSet, getVNodeProp } from '@primevue/core/utils';
 import ArrowDownIcon from '@primevue/icons/arrowdown';
 import ArrowUpIcon from '@primevue/icons/arrowup';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -442,8 +442,6 @@ export default {
         }
     },
     mounted() {
-        this.$el.setAttribute(this.attributeSelector, '');
-
         if (this.isStateful()) {
             this.restoreState();
 
@@ -736,7 +734,7 @@ export default {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
             const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
-            if (isClickable(event.target)) {
+            if (isClickable(event.currentTarget)) {
                 return;
             }
 
@@ -813,9 +811,9 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
-                if (event.target?.getAttribute('data-pc-section') === 'rowtoggleicon' || event.target?.parentElement?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
+                if (event.currentTarget?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
 
-                const targetRow = event.target?.closest('tr[data-p-selectable-row="true"]');
+                const targetRow = event.currentTarget?.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';
                 targetRow.tabIndex = '0';
@@ -1321,7 +1319,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.$attrSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let colWidth = index === colIndex ? newColumnWidth : nextColumnWidth && index === colIndex + 1 ? nextColumnWidth : width;
@@ -1532,7 +1530,7 @@ export default {
 
             if (this.rowDragging && this.draggedRowIndex !== index) {
                 let rowElement = event.currentTarget;
-                let rowY = getOffset(rowElement).top + getWindowScrollTop();
+                let rowY = getOffset(rowElement).top;
                 let pageY = event.pageY;
                 let rowMidY = rowY + getOuterHeight(rowElement) / 2;
                 let prevRowElement = rowElement.previousElementSibling;
@@ -1788,7 +1786,7 @@ export default {
             this.createStyleElement();
 
             let innerHTML = '';
-            let selector = `[data-pc-name="datatable"][${this.attributeSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
+            let selector = `[data-pc-name="datatable"][${this.$attrSelector}] > [data-pc-section="tablecontainer"] ${this.virtualScrollerDisabled ? '' : '> [data-pc-name="virtualscroller"]'} > table[data-pc-section="table"]`;
 
             widths.forEach((width, index) => {
                 let style = `width: ${width}px !important; max-width: ${width}px !important`;
@@ -2030,9 +2028,6 @@ export default {
 
                 return isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
             }
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         },
         groupRowSortField() {
             return this.sortMode === 'single' ? this.sortField : this.d_groupRowsSortMeta ? this.d_groupRowsSortMeta.field : null;

@@ -1,6 +1,6 @@
 <template>
     <transition name="p-tieredmenu" @enter="onEnter" v-bind="ptm('menu.transition')">
-        <ul v-if="level === 0 ? true : visible" :ref="containerRef" :class="level === 0 ? cx('rootList') : cx('submenu')" :tabindex="tabindex" v-bind="level === 0 ? ptm('rootList') : ptm('submenu')">
+        <ul v-if="level === 0 ? true : visible" :ref="containerRef" :tabindex="tabindex">
             <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
                 <li
                     v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -28,7 +28,7 @@
                         v-bind="getPTOptions(processedItem, index, 'itemContent')"
                     >
                         <template v-if="!templates.item">
-                            <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'itemLink')">
+                            <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" v-bind="getPTOptions(processedItem, index, 'itemLink')">
                                 <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                                 <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'itemIcon')" />
                                 <span :id="getItemLabelId(processedItem)" :class="cx('itemLabel')" v-bind="getPTOptions(processedItem, index, 'itemLabel')">{{ getItemLabel(processedItem) }}</span>
@@ -43,6 +43,7 @@
                     <TieredMenuSub
                         v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
                         :id="getItemId(processedItem) + '_list'"
+                        :class="cx('submenu')"
                         :style="sx('submenu', true, { processedItem })"
                         :aria-labelledby="getItemLabelId(processedItem)"
                         role="menu"
@@ -58,6 +59,7 @@
                         @item-click="$emit('item-click', $event)"
                         @item-mouseenter="$emit('item-mouseenter', $event)"
                         @item-mousemove="$emit('item-mousemove', $event)"
+                        v-bind="ptm('submenu')"
                     />
                 </li>
                 <li
@@ -74,9 +76,9 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
 import { nestedPosition } from '@primeuix/utils/dom';
-import { resolve, isNotEmpty } from '@primeuix/utils/object';
+import { isNotEmpty, resolve } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
@@ -140,7 +142,7 @@ export default {
         getPTOptions(processedItem, index, key) {
             return this.ptm(key, {
                 context: {
-                    item: processedItem,
+                    item: processedItem.item,
                     index,
                     active: this.isItemActive(processedItem),
                     focused: this.isItemFocused(processedItem),

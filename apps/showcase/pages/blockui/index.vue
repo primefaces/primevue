@@ -41,14 +41,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.p-panel p {
-    line-height: 1.5;
-    margin: 0;
-}
-
-button {
-    margin-right: 0.5rem;
-}
-</style>

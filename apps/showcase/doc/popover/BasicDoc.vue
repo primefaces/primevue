@@ -56,7 +56,7 @@ export default {
             ],
             code: {
                 basic: `
-<Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
+<Button type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
 
 <Popover ref="op">
     <div class="flex flex-col gap-4 w-[25rem]">
@@ -98,7 +98,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
+        <Button type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
 
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
@@ -161,7 +161,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Button type="button" icon="pi pi-image" label="Image" @click="toggle" />
+        <Button type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
 
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">

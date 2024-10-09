@@ -9,7 +9,7 @@
         </IconField>
 
         <IconField>
-            <InputText v-model="value2" />
+            <InputText v-model="value2" variant="filled" />
             <InputIcon class="pi pi-spin pi-spinner" />
         </IconField>
     </div>
@@ -30,7 +30,7 @@ export default {
 </IconField>
 
 <IconField>
-    <InputText v-model="value2" />
+    <InputText v-model="value2" variant="filled" />
     <InputIcon class="pi pi-spin pi-spinner" />
 </IconField>
 `,
@@ -43,7 +43,7 @@ export default {
         </IconField>
 
         <IconField>
-            <InputText v-model="value2" />
+            <InputText v-model="value2" variant="filled" />
             <InputIcon class="pi pi-spin pi-spinner" />
         </IconField>
     </div>
@@ -69,7 +69,7 @@ export default {
         </IconField>
 
         <IconField>
-            <InputText v-model="value2" />
+            <InputText v-model="value2" variant="filled" />
             <InputIcon class="pi pi-spin pi-spinner" />
         </IconField>
     </div>

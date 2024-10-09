@@ -6,5 +6,6 @@ export const directives: MetaType[] = toMeta([
     { name: 'ripple', as: 'Ripple', from: 'primevue/ripple' },
     { name: 'styleclass', as: 'StyleClass', from: 'primevue/styleclass' },
     { name: 'focustrap', as: 'FocusTrap', from: 'primevue/focustrap' },
-    { name: 'animateonscroll', as: 'AnimateOnScroll', from: 'primevue/animateonscroll' }
+    { name: 'animateonscroll', as: 'AnimateOnScroll', from: 'primevue/animateonscroll' },
+    { name: 'keyfilter', as: 'KeyFilter', from: 'primevue/keyfilter' }
 ]);

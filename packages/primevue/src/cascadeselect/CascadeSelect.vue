@@ -30,7 +30,7 @@
                 {{ label }}
             </slot>
         </span>
-        <div :class="cx('dropdown')" role="button" tabindex="-1" aria-hidden="true" v-bind="ptm('dropdown')">
+        <div :class="cx('dropdown')" role="button" tabindex="-1" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -53,6 +53,7 @@
                     @keydown="onOverlayKeyDown"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
+                    <slot name="header" :value="modelValue" :options="options" />
                     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
@@ -70,8 +71,9 @@
                             :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
-                            @option-change="onOptionChange"
-                            @option-focus-change="onOptionFocusChange"
+                            @option-change="onOptionClick"
+                            @option-focus-change="onOptionMouseMove"
+                            @option-focus-enter-change="onOptionMouseEnter"
                             :pt="pt"
                             :unstyled="unstyled"
                         />
@@ -79,6 +81,7 @@
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
+                    <slot name="footer" :value="modelValue" :options="options" />
                 </div>
             </transition>
         </Portal>
@@ -103,7 +106,11 @@ export default {
     extends: BaseCascadeSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
+    matchMediaListener: null,
     scrollHandler: null,
     resizeListener: null,
     overlay: null,
@@ -117,7 +124,10 @@ export default {
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
             activeOptionPath: [],
             overlayVisible: false,
-            dirty: false
+            dirty: false,
+            mobileActive: false,
+            query: null,
+            queryMatches: false
         };
     },
     watch: {
@@ -131,10 +141,12 @@ export default {
     mounted() {
         this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
+        this.bindMatchMediaListener();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -144,6 +156,10 @@ export default {
         if (this.overlay) {
             ZIndex.clear(this.overlay);
             this.overlay = null;
+        }
+
+        if (this.mobileActive) {
+            this.mobileActive = false;
         }
     },
     methods: {
@@ -289,41 +305,54 @@ export default {
             this.clicked = false;
         },
         onOptionChange(event) {
-            const { originalEvent, processedOption, isFocus, isHide } = event;
+            const { processedOption } = event;
 
             if (isEmpty(processedOption)) return;
 
-            const { index, level, parentKey, children } = processedOption;
+            const { index, key, level, parentKey, children } = processedOption;
             const grouped = isNotEmpty(children);
-            const root = isEmpty(processedOption.parent);
+            const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
+
+            if (grouped) {
+                activeOptionPath.push(processedOption);
+            }
+
+            this.focusedOptionInfo = { index, level, parentKey };
+            this.activeOptionPath = activeOptionPath;
+        },
+        onOptionClick(event) {
+            const { originalEvent, processedOption, isFocus, isHide } = event;
+            const { index, key, level, parentKey } = processedOption;
+            const grouped = this.isProccessedOptionGroup(processedOption);
             const selected = this.isSelected(processedOption);
 
             if (selected) {
-                const { index, key, level, parentKey } = processedOption;
-
-                this.focusedOptionInfo = { index, level, parentKey };
                 this.activeOptionPath = this.activeOptionPath.filter((p) => key !== p.key && key.startsWith(p.key));
-
-                this.dirty = !root;
-            } else {
-                const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
-
-                activeOptionPath.push(processedOption);
-
                 this.focusedOptionInfo = { index, level, parentKey };
-                this.activeOptionPath = activeOptionPath;
+            } else {
+                if (grouped) {
+                    this.onOptionChange(event);
+                } else {
+                    const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
+
+                    activeOptionPath.push(processedOption);
+
+                    this.focusedOptionInfo = { index, level, parentKey };
+                    this.activeOptionPath = activeOptionPath;
+                }
             }
 
             grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && focus(this.$refs.focusInput);
         },
-        onOptionFocusChange(event) {
-            if (this.focusOnHover) {
-                const { originalEvent, processedOption } = event;
-                const { index, level, parentKey } = processedOption;
-
-                this.focusedOptionInfo = { index, level, parentKey };
-                this.changeFocusedOptionIndex(originalEvent, index);
+        onOptionMouseEnter(event) {
+            if (this.dirty) {
+                this.onOptionChange(event);
+            }
+        },
+        onOptionMouseMove(event) {
+            if (this.focused) {
+                this.changeFocusedOptionIndex(event, event.processedOption.index);
             }
         },
         onOptionSelect(event, processedOption, isHide = true) {
@@ -566,6 +595,27 @@ export default {
                 this.resizeListener = null;
             }
         },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                    this.mobileActive = false;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
+            }
+        },
         isOptionMatched(processedOption) {
             return this.isValidOption(processedOption) && this.getProccessedOptionLabel(processedOption)?.toLocaleLowerCase(this.searchLocale).startsWith(this.searchValue.toLocaleLowerCase(this.searchLocale));
         },
@@ -774,6 +824,9 @@ export default {
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

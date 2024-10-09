@@ -1,6 +1,6 @@
 {
     "name": "@primevue/monorepo",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "author": "PrimeTek Informatics",
     "homepage": "https://primevue.org/",
     "repository": {
@@ -27,15 +27,17 @@
         "build:lib": "pnpm --filter primevue build",
         "build:themes": "pnpm --filter themes build",
         "build:icons": "pnpm --filter icons build",
-        "build:showcase": "pnpm --filter showcase build:prebuild",
+        "build:showcase": "pnpm --filter showcase build",
         "build:apidoc": "pnpm --filter themes build:tokens && pnpm --filter showcase build:apidoc",
         "dev": "pnpm --filter showcase dev",
+        "hot:dev": "DEV_ENV=hot pnpm --filter showcase dev",
         "module:dev": "pnpm --filter @primevue/nuxt-module dev",
         "security:check": "pnpm audit --prod --audit-level high",
         "format": "prettier --write \"**/*.{vue,js,mjs,ts,d.ts}\" --cache",
         "format:check": "prettier --check \"**/*.{vue,js,mjs,ts,d.ts}\"",
         "lint": "eslint --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore . --cache",
-        "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore ."
+        "lint:fix": "eslint --fix --ext \".vue,.js,.mjs,.ts\" --ignore-path .gitignore .",
+        "test:unit": "pnpm --filter primevue test:unit"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.18.9",

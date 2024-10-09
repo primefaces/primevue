@@ -52,6 +52,7 @@
             border-top-left-radius: 6px;
             white-space: nowrap;
             --p-focus-ring-offset: -1px;
+            @include focus-visible();
 
             &:hover {
                 border-bottom-color: var(--hover-border-color);
@@ -61,7 +62,6 @@
                 outline: 0 none;
             }
 
-            @include focus-visible();
         }
 
         &.doc-tabmenu-active {
@@ -215,8 +215,8 @@
                 outline-color: transparent;
                 cursor: pointer;
                 user-select: none;
-                @include focus-visible();
                 --p-focus-ring-offset: -1px;
+                @include focus-visible();
             }
 
             &:hover {
@@ -365,8 +365,7 @@
                 }
             }
 
-            .doc-option-name,
-            > i:not(.pi) {
+            .doc-option-name, i:not(.pi) {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
@@ -428,6 +427,46 @@
 
             .doc-option-params {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            }
+        }
+    }
+}
+
+.doc-ptviewerwrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0 !important;
+
+    .doc-ptviewer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-color: var(--border-color);
+        border-width: 0 1px 0 0;
+        padding: 1rem;
+        width: 75%;
+    }
+
+    .doc-ptoptions {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        padding: .5rem;
+        width: 25%;
+        max-height: 720px;
+        overflow-y: auto;
+
+        .doc-ptoption {
+            display: flex;
+            flex-direction: column;
+            padding: .5rem;
+
+            &:hover {
+                background-color: var(--hover-background);
+            }
+
+            .doc-ptoption-text:hover {
+                cursor: default;
             }
         }
     }

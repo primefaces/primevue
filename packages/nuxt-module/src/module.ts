@@ -1,4 +1,5 @@
 import { addPlugin, addPluginTemplate, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit';
+import { isNotEmpty } from '@primeuix/utils';
 import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 import type { MetaType } from '@primevue/metadata';
 import { normalize } from 'pathe';
@@ -21,6 +22,7 @@ export default defineNuxtModule<ModuleOptions>({
         //cssLayerOrder: undefined,
         importPT: undefined,
         importTheme: undefined,
+        loadStyles: true,
         options: {},
         components: {
             prefix: '',
@@ -47,8 +49,8 @@ export default defineNuxtModule<ModuleOptions>({
 
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
-        const { autoImport, importPT, importTheme, options } = moduleOptions;
-        const hasTheme = (importTheme || options?.theme) && !options?.unstyled;
+        const { autoImport, importPT, importTheme, options, loadStyles } = moduleOptions;
+        const hasTheme = options?.theme !== 'none' && (importTheme || options?.theme) && !options?.unstyled;
 
         nuxt.options.runtimeConfig.public.primevue = {
             ...moduleOptions,
@@ -61,9 +63,11 @@ export default defineNuxtModule<ModuleOptions>({
         let registeredStyles: MetaType[] = registered.styles;
 
         if (autoImport) {
+            const dts = isNotEmpty(moduleOptions.components?.prefix) || isNotEmpty(moduleOptions.directives?.prefix);
+
             Components(
                 {
-                    dts: false,
+                    dts,
                     resolvers: [
                         PrimeVueResolver({
                             components: moduleOptions.components,
@@ -84,6 +88,8 @@ export default defineNuxtModule<ModuleOptions>({
         }
 
         const styleContent = () => {
+            if (!loadStyles) return `export const styles = [], stylesToTop = [], themes = [];`;
+
             const uniqueRegisteredStyles = Array.from(new Map(registeredStyles?.map((m: MetaType) => [m.name, m])).values());
 
             return `
@@ -102,19 +108,24 @@ const { options = {} } = config;
 
 const stylesToTop = [${registered.injectStylesAsStringToTop.join('')}].join('');
 const styleProps = {
-  ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
+    ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
 }
 const styles = [
-  ${registered.injectStylesAsString.join('')},
-  ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
+    ${registered.injectStylesAsString.join('')},
+    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
 ].join('');
 
 ${hasTheme ? `Theme.setTheme(${importTheme?.as} || options?.theme)` : ''}
 
-const themes = [
+const themes = ${
+                options?.theme === 'none'
+                    ? `[]`
+                    : `
+[
     ${`${uniqueRegisteredStyles?.[0].as} && ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet ? ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''`},
     ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',')}
-].join('');
+].join('');`
+            }
 
 export { styles, stylesToTop, themes };
 `;

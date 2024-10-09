@@ -34,6 +34,12 @@ export interface MultiSelectDesignTokens extends ColorSchemeDesignToken<MultiSel
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken multiselect.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken multiselect.filled.focus.background

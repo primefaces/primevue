@@ -37,6 +37,10 @@ const theme = ({ dt }) => `
     background: ${dt('inputtext.filled.background')};
 }
 
+.p-inputtext.p-variant-filled:enabled:hover {
+    border-color: ${dt('inputtext.filled.hover.background')};
+}
+
 .p-inputtext.p-variant-filled:enabled:focus {
     background: ${dt('inputtext.filled.focus.background')};
 }
@@ -75,7 +79,7 @@ const classes = {
             'p-inputtext-lg': props.size === 'large',
             'p-invalid': props.invalid,
             'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputtext-fluid': props.fluid
+            'p-inputtext-fluid': instance.hasFluid
         }
     ]
 };

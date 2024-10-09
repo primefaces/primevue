@@ -219,6 +219,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 $this.hide(el);
 
                 tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
+                el.removeEventListener('mouseenter', el.$_mouseenterevent);
+                setTimeout(() => el.addEventListener('mouseenter', el.$_mouseenterevent), 50);
             });
 
             this.bindScrollListener(el);
@@ -447,7 +449,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
         },
         getTarget(el) {
-            return hasClass(el, 'p-inputwrapper') ? findSingle(el, 'input') : el;
+            return hasClass(el, 'p-inputwrapper') ? findSingle(el, 'input') ?? el : el;
         },
         getModifiers(options) {
             // modifiers

@@ -8,11 +8,11 @@ export default {
     props: {
         // in Tabs
         value: {
-            type: String,
+            type: [String, Number],
             default: undefined
         },
         as: {
-            type: String,
+            type: [String, Object],
             default: 'DIV'
         },
         asChild: {

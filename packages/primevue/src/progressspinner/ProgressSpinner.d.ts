@@ -51,7 +51,7 @@ export interface ProgressSpinnerPassThroughOptions {
     /**
      * Used to pass attributes to the spinner's DOM element.
      */
-    spinner?: ProgressSpinnerPassThroughOptionType;
+    spin?: ProgressSpinnerPassThroughOptionType;
     /**
      * Used to pass attributes to the circle's DOM element.
      */

@@ -21,6 +21,7 @@ import CustomCSSDoc from '@/doc/passthrough/CustomCSSDoc.vue';
 import DeclarativeDoc from '@/doc/passthrough/DeclarativeDoc.vue';
 import GlobalDoc from '@/doc/passthrough/GlobalDoc.vue';
 import LifecycleDoc from '@/doc/passthrough/LifecycleDoc.vue';
+import PCPrefixDoc from '@/doc/passthrough/PCPrefixDoc.vue';
 import UsePassThroughDoc from '@/doc/passthrough/UsePassThroughDoc.vue';
 
 export default {
@@ -36,6 +37,11 @@ export default {
                     id: 'declarative',
                     label: 'Declarative',
                     component: DeclarativeDoc
+                },
+                {
+                    id: 'pcprefix',
+                    label: 'PC Prefix',
+                    component: PCPrefixDoc
                 },
                 {
                     id: 'lifecycle',

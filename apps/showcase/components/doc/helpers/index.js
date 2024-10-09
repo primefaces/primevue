@@ -19,12 +19,14 @@ export const getPTOptions = (name) => {
                 objToReplace.type = prop.type;
             }
 
-            data.push({
-                value: i + 1,
-                label: prop.name,
-                options: hasSubComp ? subOptions?.props : options?.props,
-                description: prop.description
-            });
+            if (!prop.deprecated) {
+                data.push({
+                    value: i + 1,
+                    label: prop.name,
+                    options: hasSubComp ? subOptions?.props : options?.props,
+                    description: prop.description
+                });
+            }
         } else {
             data.push({
                 value: i + 1,

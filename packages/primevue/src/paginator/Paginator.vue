@@ -42,7 +42,7 @@
                         :unstyled="unstyled"
                         :pt="pt"
                     />
-                    <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :pt="pt" />
+                    <PageLinks v-else-if="item === 'PageLinks'" :aria-label="getAriaLabel('pageLabel')" :value="pageLinks" :page="page" @click="changePageLink($event)" :unstyled="unstyled" :pt="pt" />
                     <CurrentPageReport
                         v-else-if="item === 'CurrentPageReport'"
                         aria-live="polite"
@@ -89,7 +89,6 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import { setAttribute } from '@primeuix/utils/dom';
 import BasePaginator from './BasePaginator.vue';
 import CurrrentPageReport from './CurrentPageReport.vue';
@@ -127,7 +126,6 @@ export default {
         }
     },
     mounted() {
-        this.setPaginatorAttribute();
         this.createStyle();
     },
     methods: {
@@ -209,21 +207,21 @@ export default {
                     if (key === 'default') {
                         innerHTML += `
                             @media screen ${minValue} {
-                                .paginator[${this.attributeSelector}],
+                                .p-paginator[${this.$attrSelector}],
                                     display: flex;
                                 }
                             }
                         `;
                     } else {
                         innerHTML += `
-.paginator[${this.attributeSelector}], .p-paginator-${key} {
+.p-paginator-${key} {
     display: none;
 }
 @media screen ${minValue} and (max-width: ${key}) {
-    .paginator[${this.attributeSelector}], .p-paginator-${key} {
+    .p-paginator-${key} {
         display: flex;
     }
-    .paginator[${this.attributeSelector}],
+
     .p-paginator-default{
         display: none;
     }
@@ -237,13 +235,6 @@ export default {
         },
         hasBreakpoints() {
             return typeof this.template === 'object';
-        },
-        setPaginatorAttribute() {
-            if (this.$refs.paginator && this.$refs.paginator.length >= 0) {
-                [...this.$refs.paginator].forEach((el) => {
-                    el.setAttribute(this.attributeSelector, '');
-                });
-            }
         },
         getAriaLabel(labelType) {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria[labelType] : undefined;
@@ -326,9 +317,6 @@ export default {
         },
         currentPage() {
             return this.pageCount > 0 ? this.page + 1 : 0;
-        },
-        attributeSelector() {
-            return UniqueComponentId();
         }
     },
     components: {

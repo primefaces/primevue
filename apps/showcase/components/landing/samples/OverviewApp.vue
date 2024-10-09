@@ -1,6 +1,6 @@
 <template>
     <div class="flex-1 h-full overflow-y-auto pb-0.5">
-        <div class="flex flex-wrap gap-4 items-start justify-between">
+        <div class="flex flex-wrap gap-4 items-start justify-between p-1">
             <div class="flex-1">
                 <div class="text-muted-color font-medium leading-normal">Overview</div>
                 <div class="text-color text-3xl font-semibold leading-normal">Welcome to PrimeVue</div>
@@ -26,8 +26,8 @@
                 </Button>
             </div>
         </div>
-        <div class="mt-4 flex flex-wrap gap-6 items-center justify-between">
-            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" />
+        <div class="mt-4 flex flex-wrap gap-6 items-center justify-between p-1">
+            <SelectButton v-model="selectedTime" :options="timeOptions" aria-labelledby="basic" :allowEmpty="false" @change="changeSelect" />
             <div class="flex items-center gap-2">
                 <Button label="Download" icon="pi pi-download" iconPos="right" />
                 <DatePicker v-model="dates" selectionMode="range" :manualInput="false" showIcon iconDisplay="input" placeholder="06/11/2024 - 06/22/2024" />
@@ -158,10 +158,9 @@ export default {
         return {
             chartData: {},
             chartOptions: {},
-            chartPlugins: [],
             dates: [],
             selectedTime: 'Monthly',
-            timeOptions: ['Monthly', 'Weekly', 'Yearly'],
+            timeOptions: ['Weekly', 'Monthly', 'Yearly'],
             menuItems: [
                 {
                     label: 'Refresh',
@@ -199,12 +198,11 @@ export default {
         EventBus.off('theme-palette-change', this.redrawListener);
     },
     mounted() {
-        this.chartData = this.setChartData();
+        this.chartData = this.setChartData(this.selectedTime);
         this.chartOptions = this.setChartOptions();
-        this.chartPlugings = this.setChartPlugins();
 
         this.redrawListener = () => {
-            this.chartData = this.setChartData();
+            this.chartData = this.setChartData(this.selectedTime);
             this.chartOptions = this.setChartOptions();
         };
 
@@ -212,34 +210,77 @@ export default {
         EventBus.on('theme-palette-change', this.redrawListener);
     },
     methods: {
+        changeSelect(e) {
+            this.redrawListener();
+        },
+        createDatasets(val) {
+            let data, labels;
+
+            if (val === 'Weekly') {
+                labels = ['6 May', '13 May', '20 May', '27 May', '3 June', '10 June', '17 June', '24 June', '1 July', '8 July', '15 July', '22 July'];
+                data = [
+                    [9000, 3000, 13000, 3000, 5000, 17000, 11000, 4000, 15000, 4000, 11000, 5000],
+                    [1800, 7600, 11100, 6800, 3300, 5800, 3600, 7200, 4300, 8100, 6800, 3700],
+                    [3800, 4800, 2100, 6600, 1000, 3800, 6500, 4200, 4300, 7000, 6800, 3700]
+                ];
+            } else if (val === 'Monthly') {
+                labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                data = [
+                    [4000, 10000, 15000, 4000, 16000, 8000, 12000, 14000, 17000, 5000, 12000, 6000],
+                    [2100, 8400, 2400, 7500, 3700, 6500, 7400, 8000, 4800, 9000, 7600, 4200],
+                    [4100, 5200, 2400, 7400, 2300, 4100, 7200, 8000, 4800, 9000, 7600, 4200]
+                ];
+            } else if (val === 'Yearly') {
+                labels = ['2019', '2020', '2021', '2022', '2023', '2024'];
+                data = [
+                    [4500, 10500, 15500, 4500, 16500, 8500, 12500, 14500, 17500, 5500, 12500, 6500],
+                    [2250, 8700, 2550, 7650, 3850, 6650, 7650, 8250, 4950, 9250, 7850, 4450],
+                    [4350, 5450, 2650, 7650, 2550, 4350, 7450, 8250, 4950, 9250, 7850, 4450]
+                ];
+            }
+
+            return {
+                data,
+                labels
+            };
+        },
         toggle(event) {
             this.$refs.menu.toggle(event);
         },
-        setChartData() {
+        setChartData(timeUnit) {
+            const datasets = this.createDatasets(timeUnit);
             const documentStyle = getComputedStyle(document.documentElement);
+            const primary200 = documentStyle.getPropertyValue('--p-primary-200');
+            const primary300 = documentStyle.getPropertyValue('--p-primary-300');
+            const primary400 = documentStyle.getPropertyValue('--p-primary-400');
+            const primary500 = documentStyle.getPropertyValue('--p-primary-500');
+            const primary600 = documentStyle.getPropertyValue('--p-primary-600');
 
             return {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: datasets.labels,
                 datasets: [
                     {
                         type: 'bar',
                         label: 'Personal Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-400') + ' 100%, #fff)',
-                        data: [4000, 10000, 15000, 4000, 16000, 8000, 12000, 14000, 17000, 5000, 12000, 6000],
+                        backgroundColor: primary400,
+                        hoverBackgroundColor: primary600,
+                        data: datasets.data[0],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Corporate Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-300') + ' 100%, transparent)',
-                        data: [2100, 8400, 2400, 7500, 3700, 6500, 7400, 8000, 4800, 9000, 7600, 4200],
+                        backgroundColor: primary300,
+                        hoverBackgroundColor: primary500,
+                        data: datasets.data[1],
                         barThickness: 32
                     },
                     {
                         type: 'bar',
                         label: 'Investment Wallet',
-                        backgroundColor: 'color-mix(in srgb, ' + documentStyle.getPropertyValue('--p-primary-200') + ' 100%, transparent)',
-                        data: [4100, 5200, 2400, 7400, 2300, 4100, 7200, 8000, 4800, 9000, 7600, 4200],
+                        backgroundColor: primary200,
+                        hoverBackgroundColor: primary400,
+                        data: datasets.data[2],
                         borderRadius: {
                             topLeft: 8,
                             topRight: 8
@@ -251,141 +292,107 @@ export default {
             };
         },
         setChartOptions() {
+            const darkMode = this.$appState.darkTheme;
             const documentStyle = getComputedStyle(document.documentElement);
-            const backgroundColor = documentStyle.getPropertyValue('--p-content-background');
-            const textColor = documentStyle.getPropertyValue('--p-text-color');
-            const borderColor = documentStyle.getPropertyValue('--p-content-border-color');
-            const textMutedColor = documentStyle.getPropertyValue('--p-text-muted-color');
-
-            const getOrCreateTooltip = (chart) => {
-                let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
-
-                if (!tooltipEl) {
-                    tooltipEl = document.createElement('div');
-                    tooltipEl.classList.add('chartjs-tooltip');
-                    tooltipEl.style.backgroundColor = backgroundColor;
-                    tooltipEl.style.boxShadow = '0px 25px 20px -5px rgba(0, 0, 0, 0.10), 0px 10px 8px -6px rgba(0, 0, 0, 0.10)';
-                    tooltipEl.style.borderRadius = '7px';
-                    tooltipEl.style.color = textColor;
-                    tooltipEl.style.opacity = 1;
-                    tooltipEl.style.width = '232px';
-                    tooltipEl.style.padding = '14.5px';
-                    tooltipEl.style.pointerEvents = 'none';
-                    tooltipEl.style.position = 'absolute';
-                    tooltipEl.style.transform = 'translate(-50%, 0)';
-                    tooltipEl.style.transition = 'all .2s ease';
-                    tooltipEl.style.display = 'flex';
-                    tooltipEl.style.flexDirection = 'column';
-                    tooltipEl.style.gap = '14px';
-                    chart.canvas.parentNode.appendChild(tooltipEl);
-                }
-
-                return tooltipEl;
-            };
+            const surface100 = documentStyle.getPropertyValue('--p-surface-100');
+            const surface900 = documentStyle.getPropertyValue('--p-surface-900');
+            const surface400 = documentStyle.getPropertyValue('--p-surface-400');
+            const surface500 = documentStyle.getPropertyValue('--p-surface-500');
 
             return {
                 maintainAspectRatio: false,
                 aspectRatio: 0.8,
                 plugins: {
-                    chartAreaBorder: {
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        borderDashOffset: 2
-                    },
                     tooltip: {
                         enabled: false,
-                        padding: 10,
                         position: 'nearest',
                         external: function (context) {
-                            // Tooltip Element
                             const { chart, tooltip } = context;
-                            const tooltipEl = getOrCreateTooltip(chart);
+                            let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
 
-                            // Hide if no tooltip
+                            if (!tooltipEl) {
+                                tooltipEl = document.createElement('div');
+                                tooltipEl.classList.add(
+                                    'chartjs-tooltip',
+                                    'dark:bg-surface-950',
+                                    'bg-surface-0',
+                                    'p-3',
+                                    'rounded-[8px]',
+                                    'overflow-hidden',
+                                    'opacity-100',
+                                    'absolute',
+                                    'transition-all',
+                                    'duration-[0.1s]',
+                                    'pointer-events-none',
+                                    'shadow-[0px_25px_20px_-5px_rgba(0,0,0,0.10),0px_10px_8px_-6px_rgba(0,0,0,0.10)]'
+                                );
+                                chart.canvas.parentNode.appendChild(tooltipEl);
+                            }
+
                             if (tooltip.opacity === 0) {
                                 tooltipEl.style.opacity = 0;
 
                                 return;
                             }
 
+                            const datasetPointsX = tooltip.dataPoints.map((dp) => dp.element.x);
+                            const avgX = datasetPointsX.reduce((a, b) => a + b, 0) / datasetPointsX.length;
+                            const avgY = tooltip.dataPoints[2].element.y;
+
                             if (tooltip.body) {
-                                const bodyLines = tooltip.body.map((b) => {
-                                    const strArr = b.lines[0].split(':');
-                                    const data = {
-                                        text: strArr[0].trim(),
-                                        value: strArr[1].trim()
-                                    };
-
-                                    return data;
-                                });
-
-                                // Clear old content
                                 tooltipEl.innerHTML = '';
-                                bodyLines.forEach((body, i) => {
-                                    const colors = tooltip.labelColors[i];
+                                const tooltipBody = document.createElement('div');
 
-                                    const bodyDiv = document.createElement('div');
+                                tooltipBody.classList.add('flex', 'flex-col', 'gap-4', 'px-3', 'py-3', 'min-w-[18rem]');
+                                tooltip.dataPoints.reverse().forEach((body, i) => {
+                                    const row = document.createElement('div');
 
-                                    bodyDiv.style.display = 'flex';
-                                    bodyDiv.style.alignItems = 'center';
-                                    bodyDiv.style.justifyContent = 'space-between';
+                                    row.classList.add('flex', 'items-center', 'gap-2', 'w-full');
+                                    const point = document.createElement('div');
 
-                                    const bodyDivLeft = document.createElement('div');
+                                    point.classList.add('w-2.5', 'h-2.5', 'rounded-full');
+                                    point.style.backgroundColor = body.dataset.backgroundColor;
+                                    row.appendChild(point);
+                                    const label = document.createElement('span');
 
-                                    bodyDivLeft.style.display = 'flex';
-                                    bodyDivLeft.style.alignItems = 'center';
-                                    bodyDivLeft.style.gap = '4px';
+                                    label.appendChild(document.createTextNode(body.dataset.label));
+                                    label.classList.add('text-base', 'font-medium', 'text-color', 'flex-1', 'text-left', 'capitalize');
+                                    row.appendChild(label);
+                                    const value = document.createElement('span');
 
-                                    const innerSpan = document.createElement('span');
-
-                                    innerSpan.style.background = colors.backgroundColor;
-                                    innerSpan.style.borderColor = colors.borderColor;
-                                    innerSpan.style.height = '7px';
-                                    innerSpan.style.width = '7px';
-                                    innerSpan.style.borderRadius = '99px';
-                                    innerSpan.style.display = 'inline-block';
-
-                                    const span = document.createElement('span');
-
-                                    span.style.display = 'inline-flex';
-                                    span.style.alignItems = 'center';
-                                    span.style.justifyContent = 'center';
-                                    span.style.marginRight = '3px';
-                                    span.style.padding = '3px';
-                                    span.style.border = '1px solid ' + borderColor + '';
-                                    span.style.borderRadius = '99px';
-                                    span.appendChild(innerSpan);
-
-                                    const text = document.createElement('span');
-
-                                    text.appendChild(document.createTextNode(body.text));
-                                    text.style.fontWeight = '500';
-                                    text.style.lineHeight = '21px';
-
-                                    bodyDivLeft.appendChild(span);
-                                    bodyDivLeft.appendChild(text);
-
-                                    const bodyDivRight = document.createElement('div');
-
-                                    bodyDivRight.appendChild(document.createTextNode(body.value));
-                                    bodyDivRight.style.fontWeight = '500';
-                                    bodyDivRight.style.lineHeight = '21px';
-
-                                    bodyDiv.appendChild(bodyDivLeft);
-                                    bodyDiv.appendChild(bodyDivRight);
-                                    tooltipEl.appendChild(bodyDiv);
+                                    value.appendChild(document.createTextNode(body.formattedValue));
+                                    value.classList.add('text-base', 'font-medium', 'text-color', 'text-right');
+                                    row.appendChild(value);
+                                    tooltipBody.appendChild(row);
                                 });
+                                tooltipEl.appendChild(tooltipBody);
                             }
 
                             const { offsetLeft: positionX, offsetTop: positionY } = chart.canvas;
 
-                            // Display, position, and set styles for font
                             tooltipEl.style.opacity = 1;
-                            tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-                            tooltipEl.style.top = positionY + tooltip.caretY + 'px';
                             tooltipEl.style.font = tooltip.options.bodyFont.string;
-                            tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
+                            tooltipEl.style.padding = 0;
+                            const chartWidth = chart.width;
+                            const tooltipWidth = tooltipEl.offsetWidth;
+                            const chartHeight = chart.height;
+                            const tooltipHeight = tooltipEl.offsetHeight;
+
+                            let tooltipX = positionX + avgX + 24;
+                            let tooltipY = avgY;
+
+                            if (tooltipX + tooltipWidth > chartWidth) {
+                                tooltipX = positionX + avgX - tooltipWidth - 20;
+                            }
+
+                            if (tooltipY < 0) {
+                                tooltipY = 0;
+                            } else if (tooltipY + tooltipHeight > chartHeight) {
+                                tooltipY = chartHeight - tooltipHeight;
+                            }
+
+                            tooltipEl.style.left = tooltipX + 'px';
+                            tooltipEl.style.top = tooltipY + 'px';
                         }
                     },
                     legend: {
@@ -396,29 +403,33 @@ export default {
                     x: {
                         stacked: true,
                         ticks: {
-                            color: textMutedColor
+                            color: darkMode ? surface500 : surface400
                         },
                         grid: {
-                            color: 'transparent',
+                            display: false,
                             borderColor: 'transparent'
+                        },
+                        border: {
+                            display: false
                         }
                     },
                     y: {
+                        beginAtZero: true,
                         stacked: true,
                         ticks: {
-                            color: textMutedColor
+                            color: darkMode ? surface500 : surface400
                         },
                         grid: {
-                            color: borderColor,
-                            borderColor: 'transparent',
-                            drawTicks: false
+                            display: true,
+                            color: darkMode ? surface900 : surface100,
+                            borderColor: 'transparent'
+                        },
+                        border: {
+                            display: false
                         }
                     }
                 }
             };
-        },
-        setChartPlugins() {
-            return ['chartAreaBorder'];
         }
     },
     components: {}

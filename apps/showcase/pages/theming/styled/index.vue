@@ -23,7 +23,7 @@ import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import CaseStyleDoc from '@/doc/theming/styled/CaseStyleDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
-import DarkModeToggleDoc from '@/doc/theming/styled/DarkModeToggleDoc.vue';
+import DarkModeDoc from '@/doc/theming/styled/DarkModeDoc.vue';
 import PresetsDoc from '@/doc/theming/styled/PresetsDoc.vue';
 import ReservedKeysDoc from '@/doc/theming/styled/ReservedKeysDoc.vue';
 import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
@@ -35,6 +35,7 @@ import ResetDoc from '@/doc/theming/styled/csslayer/ResetDoc.vue';
 import SpecificityDoc from '@/doc/theming/styled/csslayer/SpecificityDoc.vue';
 import ComponentDoc from '@/doc/theming/styled/customization/ComponentDoc.vue';
 import DefinePresetDoc from '@/doc/theming/styled/customization/DefinePresetDoc.vue';
+import ExtendDoc from '@/doc/theming/styled/customization/ExtendDoc.vue';
 import FocusRingDoc from '@/doc/theming/styled/customization/FocusRingDoc.vue';
 import FontDoc from '@/doc/theming/styled/customization/FontDoc.vue';
 import FormsDoc from '@/doc/theming/styled/customization/FormsDoc.vue';
@@ -89,6 +90,16 @@ export default {
                     component: ReservedKeysDoc
                 },
                 {
+                    id: 'colors',
+                    label: 'Colors',
+                    component: ColorsDoc
+                },
+                {
+                    id: 'darkmode',
+                    label: 'Dark Mode',
+                    component: DarkModeDoc
+                },
+                {
                     id: 'customization',
                     label: 'Customization',
                     children: [
@@ -131,6 +142,11 @@ export default {
                             id: 'component',
                             label: 'Component',
                             component: ComponentDoc
+                        },
+                        {
+                            id: 'extend',
+                            label: 'Extend',
+                            component: ExtendDoc
                         }
                     ]
                 },
@@ -174,16 +190,6 @@ export default {
                             component: PaletteDoc
                         }
                     ]
-                },
-                {
-                    id: 'colors',
-                    label: 'Colors',
-                    component: ColorsDoc
-                },
-                {
-                    id: 'darkmodetoggle',
-                    label: 'Dark Mode Toggle',
-                    component: DarkModeToggleDoc
                 },
                 {
                     id: 'csslayer',

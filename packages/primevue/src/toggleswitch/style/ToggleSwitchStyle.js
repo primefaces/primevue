@@ -40,17 +40,20 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('toggleswitch.shadow')};
 }
 
-.p-toggleswitch-slider:before {
+.p-toggleswitch-handle {
     position: absolute;
-    content: "";
     top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: ${dt('toggleswitch.handle.background')};
+    color: ${dt('toggleswitch.handle.color')};
     width: ${dt('toggleswitch.handle.size')};
     height: ${dt('toggleswitch.handle.size')};
     left: ${dt('toggleswitch.gap')};
     margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
-    transition: background ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')}, box-shadow ${dt('toggleswitch.slide.duration')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
@@ -58,8 +61,9 @@ const theme = ({ dt }) => `
     border-color: ${dt('toggleswitch.checked.border.color')};
 }
 
-.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider:before {
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-handle {
     background: ${dt('toggleswitch.handle.checked.background')};
+    color: ${dt('toggleswitch.handle.checked.color')};
     left: calc(${dt('toggleswitch.width')} - calc(${dt('toggleswitch.handle.size')} + ${dt('toggleswitch.gap')}));
 }
 
@@ -68,8 +72,9 @@ const theme = ({ dt }) => `
     border-color: ${dt('toggleswitch.hover.border.color')};
 }
 
-.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider:before {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-handle {
     background: ${dt('toggleswitch.handle.hover.background')};
+    color: ${dt('toggleswitch.handle.hover.color')};
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider {
@@ -77,8 +82,9 @@ const theme = ({ dt }) => `
     border-color: ${dt('toggleswitch.checked.hover.border.color')};
 }
 
-.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider:before {
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-handle {
     background: ${dt('toggleswitch.handle.checked.hover.background')};
+    color: ${dt('toggleswitch.handle.checked.hover.color')};
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {
@@ -99,7 +105,7 @@ const theme = ({ dt }) => `
     background: ${dt('toggleswitch.disabled.background')};
 }
 
-.p-toggleswitch.p-disabled .p-toggleswitch-slider:before {
+.p-toggleswitch.p-disabled .p-toggleswitch-handle {
     background: ${dt('toggleswitch.handle.disabled.background')};
 }
 `;
@@ -118,7 +124,8 @@ const classes = {
         }
     ],
     input: 'p-toggleswitch-input',
-    slider: 'p-toggleswitch-slider'
+    slider: 'p-toggleswitch-slider',
+    handle: 'p-toggleswitch-handle'
 };
 
 export default BaseStyle.extend({

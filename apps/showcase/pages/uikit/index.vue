@@ -147,7 +147,9 @@
             <div class="card mb-8" style="border-radius: 50px">
                 <div class="font-bold text-5xl mb-6 text-center">Pricing</div>
                 <div class="mb-2 text-center leading-normal text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
-                <a href="https://www.primefaces.org/uikit/licenses" class="mb-12 doc-link text-center block">View License Details</a>
+                <div class="text-center mb-8">
+                    <a href="https://www.primefaces.org/uikit/licenses" class="doc-link">View License Details</a>
+                </div>
 
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-12 lg:col-span-4">
@@ -157,6 +159,7 @@
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For individual designers</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
+                                    <span v-if="false" class="text-2xl text-muted-color line-through">$99</span>
                                     <span class="text-2xl font-bold">$99</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
@@ -179,7 +182,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Lifetime Support</span>
+                                        <span>1 Year Free Updates</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -199,6 +202,7 @@
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
+                                    <span v-if="false" class="text-2xl text-muted-color line-through">$249</span>
                                     <span class="text-2xl font-bold">$249</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
@@ -221,7 +225,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Lifetime Support</span>
+                                        <span>1 Year Free Updates</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -247,7 +251,7 @@
                                 <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span class="font-bold">Unlimited Designers</span>
+                                        <span class="font-bold">Custom Team Size</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -263,7 +267,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Lifetime Support</span>
+                                        <span>1 Year Free Updates</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -282,43 +286,47 @@
                 <span class="block font-bold text-5xl mb-8 text-center">Frequently Asked Questions</span>
                 <div class="grid grid-cols-12 gap-4 text-lg">
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="leading-normal mb-2 font-medium">What do I get when I purchase a license?</div>
+                        <div class="leading-normal mb-2 font-bold">What do I get when I purchase a license?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download two Figma files for light and dark themes.</p>
 
-                        <div class="leading-normal mb-2 font-medium">Is there a recurring fee or is the license perpetual?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment, not subscription based.</p>
+                        <div class="leading-normal mb-2 font-bold">Is there a recurring fee or is the license perpetual?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment with 1 year free updates, not subscription based.</p>
 
-                        <div class="leading-normal mb-2 font-medium">Can I use UI Kit license for commercial projects?</div>
+                        <div class="leading-normal mb-2 font-bold">Can I use UI Kit license for commercial projects?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
 
-                        <div class="leading-normal mb-2 font-medium">Can I create multiple projects for multiple clients?</div>
+                        <div class="leading-normal mb-2 font-bold">Can I create multiple projects for multiple clients?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
                     </div>
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="leading-normal mb-2">We're a reseller, are we able to purchase a license on behalf of our client?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> so we can transfer the license to your client.</p>
-
-                        <div class="leading-normal mb-2 font-medium">Does the enterprise license include contractors within the organization?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, contractors are also able to use the UI Kit within your company.</p>
-
-                        <div class="leading-normal mb-2 font-medium">Can subsidiary company of a larger organization share the enterprise license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
-
-                        <div class="leading-normal mb-2 font-medium">What does "free updates" mean?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">All updates will be totally free of charge for existing customers for an unlimited period.</p>
-                    </div>
-                    <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="leading-normal mb-2 font-medium">How can I get support?</div>
+                        <div class="leading-normal mb-2 font-bold">What Does "Free Updates" Mean?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">
-                            Support is provided by PrimeTek via
-                            <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="doc-link">a dedicated forum channel monitored</a> by PrimeTek support staff.
+                            All updates are completely free for the first year after your purchase. After this one-year period, you will no longer have access to newer versions. However, all versions released within the first year from your purchase
+                            date will remain accessible to you indefinitely.
                         </p>
 
-                        <div class="leading-normal mb-2 font-medium">What does lifetime support mean?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Support service at the forum does not have a time limit.</p>
+                        <div class="leading-normal mb-2 font-bold">How Can I Extend My Access to Updates After One Year?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">At PrimeStore, you have the option to purchase an additional update term. This will grant you access to all existing versions and updates for another year.</p>
 
-                        <div class="leading-normal mb-2 font-medium">Can I include UI Kit in an open source project?</div>
+                        <div class="leading-normal mb-2 font-bold">How can I get support?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">
+                            PrimeTek offers assistance with account management and licensing issues, with the expectation that users have the necessary technical knowledge to use our products, as we do not offer technical support or consulting. Users
+                            can seek assistance in our community via our public <a href="https://discord.com/invite/gzKFYnpmCY" class="doc-link">Discord</a> and
+                            <a href="https://github.com/orgs/primefaces/discussions/categories/figma-ui-kit" class="doc-link">Forum</a>.
+                        </p>
+                    </div>
+                    <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
+                        <div class="leading-normal mb-2 font-bold">Does the enterprise license include contractors within the organization?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, contractors are also able to use the UI Kit within your company within the custom team limit.</p>
+
+                        <div class="leading-normal mb-2 font-bold">Can subsidiary company of a larger organization share the enterprise license?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
+
+                        <div class="leading-normal mb-2 font-bold">Can I include UI Kit in an open source project?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
+
+                        <div class="leading-normal mb-2 font-bold">We're a reseller, are we able to purchase a license on behalf of our client?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> so we can transfer the license to your client.</p>
                     </div>
                 </div>
             </div>

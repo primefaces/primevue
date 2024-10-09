@@ -6,6 +6,6 @@ public
 styles
 node_modules
 .vscode
-dist
 .nuxt
 .output
+apps/showcase/components.d.ts

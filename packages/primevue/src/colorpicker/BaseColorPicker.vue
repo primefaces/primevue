@@ -42,7 +42,12 @@ export default {
             type: [String, Object],
             default: 'body'
         },
-        panelClass: null
+        inputId: {
+            type: String,
+            default: null
+        },
+        panelClass: null,
+        overlayClass: null
     },
     style: ColorPickerStyle,
     provide() {

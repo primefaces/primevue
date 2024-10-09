@@ -5,11 +5,12 @@
             ref="focusInput"
             :id="inputId"
             type="text"
-            :class="[cx('pcInput'), inputClass]"
+            :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="inputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
+            :fluid="hasFluid"
             :disabled="disabled"
             :invalid="invalid"
             :variant="variant"
@@ -28,7 +29,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
         />
         <ul
             v-if="multiple"
@@ -120,55 +121,55 @@
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div
-                    v-if="overlayVisible"
-                    :ref="overlayRef"
-                    :id="panelId"
-                    :class="[cx('overlay'), panelClass, overlayClass]"
-                    :style="{ ...panelStyle, ...overlayStyle, 'max-height': virtualScrollerDisabled ? scrollHeight : '' }"
-                    @click="onOverlayClick"
-                    @keydown="onOverlayKeyDown"
-                    v-bind="ptm('overlay')"
-                >
+                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId" :class="[cx('overlay'), panelClass, overlayClass]" :style="{ ...panelStyle, ...overlayStyle }" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
                     <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
-                    <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
-                        <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                            <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" :aria-label="listAriaLabel" v-bind="ptm('list')">
-                                <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                                    <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
-                                        <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
+                    <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
+                        <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
+                            <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" :aria-label="listAriaLabel" v-bind="ptm('list')">
+                                    <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
+                                        <li
+                                            v-if="isOptionGroup(option)"
+                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                            :class="cx('optionGroup')"
+                                            role="option"
+                                            v-bind="ptm('optionGroup')"
+                                        >
+                                            <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
+                                        </li>
+                                        <li
+                                            v-else
+                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            v-ripple
+                                            :style="{ height: itemSize ? itemSize + 'px' : undefined }"
+                                            :class="cx('option', { option, i, getItemOptions })"
+                                            role="option"
+                                            :aria-label="getOptionLabel(option)"
+                                            :aria-selected="isSelected(option)"
+                                            :aria-disabled="isOptionDisabled(option)"
+                                            :aria-setsize="ariaSetSize"
+                                            :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
+                                            @click="onOptionSelect($event, option)"
+                                            @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                            :data-p-selected="isSelected(option)"
+                                            :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                            :data-p-disabled="isOptionDisabled(option)"
+                                            v-bind="getPTOptions(option, getItemOptions, i, 'option')"
+                                        >
+                                            <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
+                                        </li>
+                                    </template>
+                                    <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
+                                        <slot name="empty">{{ searchResultMessageText }}</slot>
                                     </li>
-                                    <li
-                                        v-else
-                                        :id="id + '_' + getOptionIndex(i, getItemOptions)"
-                                        v-ripple
-                                        :style="{ height: itemSize ? itemSize + 'px' : undefined }"
-                                        :class="cx('option', { option, i, getItemOptions })"
-                                        role="option"
-                                        :aria-label="getOptionLabel(option)"
-                                        :aria-selected="isSelected(option)"
-                                        :aria-disabled="isOptionDisabled(option)"
-                                        :aria-setsize="ariaSetSize"
-                                        :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
-                                        @click="onOptionSelect($event, option)"
-                                        @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                        :data-p-selected="isSelected(option)"
-                                        :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
-                                        :data-p-disabled="isOptionDisabled(option)"
-                                        v-bind="getPTOptions(option, getItemOptions, i, 'option')"
-                                    >
-                                        <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
-                                    </li>
-                                </template>
-                                <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
-                                    <slot name="empty">{{ searchResultMessageText }}</slot>
-                                </li>
-                            </ul>
-                        </template>
-                        <template v-if="$slots.loader" v-slot:loader="{ options }">
-                            <slot name="loader" :options="options"></slot>
-                        </template>
-                    </VirtualScroller>
+                                </ul>
+                            </template>
+                            <template v-if="$slots.loader" v-slot:loader="{ options }">
+                                <slot name="loader" :options="options"></slot>
+                            </template>
+                        </VirtualScroller>
+                    </div>
                     <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
@@ -180,10 +181,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, addStyle, relativePosition, getOuterWidth, absolutePosition, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { resolveFieldData, isEmpty, isNotEmpty, equals, findLastIndex } from '@primeuix/utils/object';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { equals, findLastIndex, isEmpty, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Chip from 'primevue/chip';
@@ -199,6 +200,9 @@ export default {
     extends: BaseAutoComplete,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'option-select', 'option-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     resizeListener: null,
     scrollHandler: null,
@@ -497,7 +501,7 @@ export default {
         onContainerClick(event) {
             this.clicked = true;
 
-            if (this.disabled || this.searching || this.loading || this.isInputClicked(event) || this.isDropdownClicked(event)) {
+            if (this.disabled || this.searching || this.loading || this.isDropdownClicked(event)) {
                 return;
             }
 
@@ -511,8 +515,10 @@ export default {
             if (this.overlayVisible) {
                 this.hide(true);
             } else {
-                focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
-                query = this.$refs.focusInput.$el.value;
+                let target = this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el;
+
+                focus(target);
+                query = target.value;
 
                 if (this.dropdownMode === 'blank') this.search(event, '', 'dropdown');
                 else if (this.dropdownMode === 'current') this.search(event, query, 'dropdown');
@@ -971,6 +977,9 @@ export default {
         },
         panelId() {
             return this.id + '_panel';
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

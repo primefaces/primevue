@@ -12,7 +12,7 @@
                 :aria-expanded="isItemGroup(processedItem) ? isItemActive(processedItem) : undefined"
                 :aria-haspopup="isItemGroup(processedItem) && !getItemProp(processedItem, 'to') ? 'menu' : undefined"
                 :aria-level="level + 1"
-                :aria-setsize="getAriaSetSize()"
+                :aria-setsize="getAriaSetSize"
                 :aria-posinset="getAriaPosInset(index)"
                 v-bind="getPTOptions(processedItem, index, 'item')"
                 :data-p-active="isItemActive(processedItem)"
@@ -27,7 +27,7 @@
                     v-bind="getPTOptions(processedItem, index, 'itemContent')"
                 >
                     <template v-if="!templates.item">
-                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" aria-hidden="true" v-bind="getPTOptions(processedItem, index, 'itemLink')">
+                        <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" v-bind="getPTOptions(processedItem, index, 'itemLink')">
                             <component v-if="templates.itemicon" :is="templates.itemicon" :item="processedItem.item" :class="cx('itemIcon')" />
                             <span v-else-if="getItemProp(processedItem, 'icon')" :class="[cx('itemIcon'), getItemProp(processedItem, 'icon')]" v-bind="getPTOptions(processedItem, index, 'itemIcon')" />
                             <span :id="getItemLabelId(processedItem)" :class="cx('itemLabel')" v-bind="getPTOptions(processedItem, index, 'itemLabel')">{{ getItemLabel(processedItem) }}</span>
@@ -72,8 +72,8 @@
 </template>
 
 <script>
+import { isNotEmpty, resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { resolve, isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
@@ -123,6 +123,7 @@ export default {
         }
     },
     list: null,
+
     methods: {
         getItemId(processedItem) {
             return `${this.menuId}_${processedItem.key}`;
@@ -142,7 +143,7 @@ export default {
         getPTOptions(processedItem, index, key) {
             return this.ptm(key, {
                 context: {
-                    item: processedItem,
+                    item: processedItem.item,
                     index,
                     active: this.isItemActive(processedItem),
                     focused: this.isItemFocused(processedItem),
@@ -176,11 +177,8 @@ export default {
         onItemMouseMove(event, processedItem) {
             this.$emit('item-mousemove', { originalEvent: event, processedItem });
         },
-        getAriaSetSize() {
-            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
-        },
         getAriaPosInset(index) {
-            return index - this.items.slice(0, index).filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator')).length + 1;
+            return index - this.calculateAriaSetSize.slice(0, index).length + 1;
         },
         getMenuItemProps(processedItem, index) {
             return {
@@ -211,6 +209,14 @@ export default {
                     this.getPTOptions(processedItem, index, 'submenuIcon')
                 )
             };
+        }
+    },
+    computed: {
+        calculateAriaSetSize() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && this.getItemProp(processedItem, 'separator'));
+        },
+        getAriaSetSize() {
+            return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
         }
     },
     components: {

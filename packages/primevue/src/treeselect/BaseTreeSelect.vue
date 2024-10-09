@@ -54,7 +54,39 @@ export default {
         },
         fluid: {
             type: Boolean,
+            default: null
+        },
+        loading: {
+            type: Boolean,
             default: false
+        },
+        loadingIcon: {
+            type: String,
+            default: undefined
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
+        filter: {
+            type: Boolean,
+            default: false
+        },
+        filterBy: {
+            type: [String, Function],
+            default: 'label'
+        },
+        filterMode: {
+            type: String,
+            default: 'lenient'
+        },
+        filterPlaceholder: {
+            type: String,
+            default: null
+        },
+        filterLocale: {
+            type: String,
+            default: undefined
         },
         inputId: {
             type: String,
@@ -86,6 +118,10 @@ export default {
         },
         ariaLabel: {
             type: String,
+            default: null
+        },
+        expandedKeys: {
+            type: null,
             default: null
         }
     },

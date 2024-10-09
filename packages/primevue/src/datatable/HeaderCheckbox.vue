@@ -1,8 +1,8 @@
 <template>
-    <Checkbox :modelValue="checked" :binary="true" :disabled="disabled" :aria-label="headerCheckboxAriaLabel" @change="onChange" :pt="getColumnPT('pcHeaderCheckbox')">
+    <Checkbox :modelValue="checked" :binary="true" :disabled="disabled" :aria-label="headerCheckboxAriaLabel" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcHeaderCheckbox')">
         <template #icon="slotProps">
             <component v-if="headerCheckboxIconTemplate" :is="headerCheckboxIconTemplate" :checked="slotProps.checked" :class="slotProps.class" />
-            <CheckIcon v-else-if="!headerCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcHeaderCheckbox.icon')" />
+            <CheckIcon v-else-if="!headerCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcHeaderCheckbox')['icon']" />
         </template>
     </Checkbox>
 </template>

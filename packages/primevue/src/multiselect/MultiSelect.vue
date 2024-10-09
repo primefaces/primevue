@@ -30,16 +30,21 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <span v-for="item of chipSelectedItems" :key="getLabelByValue(item)" :class="cx('chipItem')" v-bind="ptm('chipItem')">
-                            <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
-                                <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                                <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
-                                    <template #removeicon>
-                                        <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
-                                    </template>
-                                </Chip>
-                            </slot>
-                        </span>
+                        <template v-if="chipSelectedItems">
+                            <span>{{ label }}</span>
+                        </template>
+                        <template v-else>
+                            <span v-for="item of modelValue" :key="getLabelByValue(item)" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                                <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
+                                    <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
+                                    <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
+                                        <template #removeicon>
+                                            <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :item="item" :removeCallback="(event) => removeOption(event, item)" />
+                                        </template>
+                                    </Chip>
+                                </slot>
+                            </span>
+                        </template>
                         <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
@@ -106,7 +111,7 @@
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
                             />
-                            <InputIcon :unstyled="unstyled" v-bind="ptm('pcFilterIconContainer')">
+                            <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
                                     <span v-if="filterIcon" :class="filterIcon" v-bind="ptm('filterIcon')" />
                                     <SearchIcon v-else v-bind="ptm('filterIcon')" />
@@ -206,7 +211,7 @@
 
 <script>
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
-import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
@@ -231,6 +236,9 @@ export default {
     extends: BaseMultiSelect,
     inheritAttrs: false,
     emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -1056,7 +1064,7 @@ export default {
             return label;
         },
         chipSelectedItems() {
-            return isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels ? this.modelValue.slice(0, this.maxSelectedLabels) : this.modelValue;
+            return isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels;
         },
         allSelected() {
             return this.selectAll !== null ? this.selectAll : isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
@@ -1103,14 +1111,14 @@ export default {
         toggleAllAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria[this.allSelected ? 'selectAll' : 'unselectAll'] : undefined;
         },
-        closeAriaLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
-        },
         listAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listLabel : undefined;
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     directives: {

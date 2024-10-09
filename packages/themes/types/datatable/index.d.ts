@@ -349,99 +349,15 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
         padding?: string;
     };
     /**
-     * Used to pass tokens of the drop point color section
+     * Used to pass tokens of the drop point section
      */
-    dropPointColor?: {
+    dropPoint?: {
         /**
-         * 0 of drop point color
+         * Color of drop point
          *
-         * @designToken datatable.drop.point.color.0
+         * @designToken datatable.drop.point.color
          */
-        0?: string;
-        /**
-         * 1 of drop point color
-         *
-         * @designToken datatable.drop.point.color.1
-         */
-        1?: string;
-        /**
-         * 2 of drop point color
-         *
-         * @designToken datatable.drop.point.color.2
-         */
-        2?: string;
-        /**
-         * 3 of drop point color
-         *
-         * @designToken datatable.drop.point.color.3
-         */
-        3?: string;
-        /**
-         * 4 of drop point color
-         *
-         * @designToken datatable.drop.point.color.4
-         */
-        4?: string;
-        /**
-         * 5 of drop point color
-         *
-         * @designToken datatable.drop.point.color.5
-         */
-        5?: string;
-        /**
-         * 6 of drop point color
-         *
-         * @designToken datatable.drop.point.color.6
-         */
-        6?: string;
-        /**
-         * 7 of drop point color
-         *
-         * @designToken datatable.drop.point.color.7
-         */
-        7?: string;
-        /**
-         * 8 of drop point color
-         *
-         * @designToken datatable.drop.point.color.8
-         */
-        8?: string;
-        /**
-         * 9 of drop point color
-         *
-         * @designToken datatable.drop.point.color.9
-         */
-        9?: string;
-        /**
-         * 10 of drop point color
-         *
-         * @designToken datatable.drop.point.color.10
-         */
-        10?: string;
-        /**
-         * 11 of drop point color
-         *
-         * @designToken datatable.drop.point.color.11
-         */
-        11?: string;
-        /**
-         * 12 of drop point color
-         *
-         * @designToken datatable.drop.point.color.12
-         */
-        12?: string;
-        /**
-         * 13 of drop point color
-         *
-         * @designToken datatable.drop.point.color.13
-         */
-        13?: string;
-        /**
-         * 14 of drop point color
-         *
-         * @designToken datatable.drop.point.color.14
-         */
-        14?: string;
+        color?: string;
     };
     /**
      * Used to pass tokens of the column resizer width section

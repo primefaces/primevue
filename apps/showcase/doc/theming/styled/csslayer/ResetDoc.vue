@@ -32,13 +32,3 @@ export default {
     }
 };
 </script>
-
-<style>
-.my-switch-slider {
-    border-radius: 0;
-}
-
-.my-switch-slider:before {
-    border-radius: 0;
-}
-</style>

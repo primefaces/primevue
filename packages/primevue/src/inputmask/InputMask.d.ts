@@ -65,6 +65,11 @@ export interface InputMaskPassThroughOptions {
      */
     root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the InputText component.
+     * @see {@link InputTextPassThroughOptions}
+     */
+    pcInputText?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -112,6 +117,10 @@ export interface InputMaskProps {
      */
     mask?: string | undefined;
     /**
+     * Identifier of the element.
+     */
+    id?: string | undefined;
+    /**
      * Style class of the input field.
      */
     class?: string | object | undefined;
@@ -140,15 +149,19 @@ export interface InputMaskProps {
      */
     invalid?: boolean | undefined;
     /**
+     * Name of the input element.
+     */
+    name?: string | undefined;
+    /**
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */
     variant?: 'outlined' | 'filled' | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false

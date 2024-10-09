@@ -4,7 +4,7 @@
             ref="input"
             :id="inputId"
             role="spinbutton"
-            :class="[cx('pcInput'), inputClass]"
+            :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="formattedValue"
             :aria-valuemin="min"
@@ -25,7 +25,7 @@
             @click="onInputClick"
             @focus="onInputFocus"
             @blur="onInputBlur"
-            :pt="ptm('pcInput')"
+            :pt="ptm('pcInputText')"
             :unstyled="unstyled"
         />
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
@@ -72,8 +72,8 @@
 </template>
 
 <script>
-import { getSelection, clearSelection } from '@primeuix/utils/dom';
-import { isNotEmpty } from '@primeuix/utils/object';
+import { clearSelection, getSelection } from '@primeuix/utils/dom';
+import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
@@ -84,6 +84,9 @@ export default {
     extends: BaseInputNumber,
     inheritAttrs: false,
     emits: ['update:modelValue', 'input', 'focus', 'blur'],
+    inject: {
+        $pcFluid: { default: null }
+    },
     numberFormat: null,
     _numeral: null,
     _decimal: null,
@@ -977,6 +980,9 @@ export default {
         },
         getFormatter() {
             return this.numberFormat;
+        },
+        hasFluid() {
+            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

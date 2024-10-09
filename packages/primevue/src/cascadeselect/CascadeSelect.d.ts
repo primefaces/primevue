@@ -129,6 +129,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     optionList?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the group icon container's DOM element.
+     */
+    groupIconContainer?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the group icon's DOM element.
      */
     groupIcon?: CascadeSelectPassThroughOptionType;
@@ -288,6 +292,11 @@ export interface CascadeSelectProps {
      */
     placeholder?: string | undefined;
     /**
+     * The breakpoint to define the maximum width boundary.
+     * @defaultValue 960px
+     */
+    breakpoint?: string | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
@@ -421,9 +430,9 @@ export interface CascadeSelectProps {
     tabindex?: number | string | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
@@ -496,7 +505,38 @@ export interface CascadeSelectSlots {
     /**
      * Custom option group icon template.
      */
-    optiongroupicon(): VNode[];
+    optiongroupicon(scope: {
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom header template.
+     */
+    header(scope: {
+        /**
+         * Current value
+         */
+        value: any;
+        /**
+         * Options of the component
+         */
+        options: any[];
+    }): VNode[];
+    /**
+     * Custom footer template.
+     */
+    footer(scope: {
+        /**
+         * Current value
+         */
+        value: any;
+        /**
+         * Options of the component
+         */
+        options: any[];
+    }): VNode[];
 }
 
 /**

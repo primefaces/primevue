@@ -16,8 +16,12 @@
                     </ProgressBar>
                 </div>
             </template>
-            <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback }">
+            <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
                 <div class="flex flex-col gap-8 pt-4">
+                    <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length }" severity="error">
+                        {{ message }}
+                    </Message>
+
                     <div v-if="files.length > 0">
                         <h5>Pending</h5>
                         <div class="flex flex-wrap gap-4">
@@ -82,8 +86,12 @@ export default {
             </ProgressBar>
         </div>
     </template>
-    <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback }">
+    <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
         <div class="flex flex-col gap-8 pt-4">
+            <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+                {{ message }}
+            </Message>
+
             <div v-if="files.length > 0">
                 <h5>Pending</h5>
                 <div class="flex flex-wrap gap-4">
@@ -140,8 +148,12 @@ export default {
                     </ProgressBar>
                 </div>
             </template>
-            <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback }">
+            <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
                 <div class="flex flex-col gap-8 pt-4">
+                    <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+                        {{ message }}
+                    </Message>
+
                     <div v-if="files.length > 0">
                         <h5>Pending</h5>
                         <div class="flex flex-wrap gap-4">

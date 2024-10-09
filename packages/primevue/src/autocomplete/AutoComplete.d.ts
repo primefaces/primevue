@@ -147,7 +147,7 @@ export interface AutoCompletePassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    pcInput?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
+    pcInputText?: InputTextPassThroughOptions<AutoCompleteSharedPassThroughMethodOptions>;
     /**
      * Used to pass attributes to the input multiple's DOM element.
      */
@@ -190,6 +190,10 @@ export interface AutoCompletePassThroughOptions {
      * @see {@link VirtualScrollerPassThroughOptionType}
      */
     virtualScroller?: VirtualScrollerPassThroughOptionType;
+    /**
+     * Used to pass attributes to the list container's DOM element.
+     */
+    listContainer?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the list's DOM element.
      */
@@ -503,9 +507,9 @@ export interface AutoCompleteProps {
     tabindex?: number | string | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */

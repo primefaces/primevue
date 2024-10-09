@@ -77,7 +77,7 @@ export enum PaginatorClasses {
     /**
      * Class name of the jump to page input element
      */
-    pcJumpToPageInput = 'p-paginator-jtp-input'
+    pcJumpToPageInputText = 'p-paginator-jtp-input'
 }
 
 export interface PaginatorStyle extends BaseStyle {}

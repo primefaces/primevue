@@ -105,7 +105,7 @@ export interface ChartProps {
     /**
      * Used to custom plugins of the chart.
      */
-    plugins?: any;
+    plugins?: any[];
     /**
      * Width of the chart in non-responsive mode.
      * @defaultValue 300

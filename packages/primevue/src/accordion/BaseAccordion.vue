@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         value: {
-            type: [String, Array],
+            type: [String, Number, Array],
             default: undefined
         },
         multiple: {

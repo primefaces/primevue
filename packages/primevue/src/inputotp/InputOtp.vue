@@ -5,7 +5,7 @@
                 <OtpInputText
                     :value="tokens[i - 1]"
                     :type="inputType"
-                    :class="cx('pcInput')"
+                    :class="cx('pcInputText')"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
@@ -18,7 +18,8 @@
                     @blur="onBlur($event)"
                     @paste="onPaste($event)"
                     @keydown="onKeyDown($event)"
-                    :pt="ptm('pcInput')"
+                    @click="onClick($event)"
+                    :pt="ptm('pcInputText')"
                 />
             </slot>
         </template>
@@ -61,16 +62,6 @@ export default {
                 blur: (event) => this.onBlur(event),
                 paste: (event) => this.onPaste(event)
             };
-        },
-        getPTOptions(key) {
-            const _ptm = key === 'root' ? this.ptmi : this.ptm;
-
-            return _ptm(key, {
-                context: {
-                    checked: this.checked,
-                    disabled: this.disabled
-                }
-            });
         },
         onInput(event, index) {
             this.tokens[index] = event.target.value;
@@ -128,6 +119,9 @@ export default {
         onBlur(event) {
             this.$emit('blur', event);
         },
+        onClick(event) {
+            setTimeout(() => event.target.select(), 1);
+        },
         onKeyDown(event) {
             if (event.ctrlKey || event.metaKey) {
                 return;
@@ -160,8 +154,13 @@ export default {
 
                     break;
 
+                case 'Enter':
+                case 'NumpadEnter':
+                case 'Tab':
+                    break;
+
                 default:
-                    if ((this.integerOnly && !(Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
+                    if ((this.integerOnly && !(event.code !== 'Space' && Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
                         event.preventDefault();
                     }
 
@@ -172,7 +171,7 @@ export default {
             let paste = event.clipboardData.getData('text');
 
             if (paste.length) {
-                let pastedCode = paste.substring(0, this.length + 1);
+                let pastedCode = paste.substring(0, this.length);
 
                 if (!this.integerOnly || !isNaN(pastedCode)) {
                     this.tokens = pastedCode.split('');

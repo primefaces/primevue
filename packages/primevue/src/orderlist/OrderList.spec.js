@@ -113,21 +113,21 @@ describe('OrderList.vue', () => {
     it('should exist', () => {
         expect(wrapper.find('.p-orderlist.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-orderlist-controls').exists()).toBe(true);
-        expect(wrapper.findAll('li.p-orderlist-item').length).toBe(6);
+        expect(wrapper.findAll('li.p-listbox-option').length).toBe(6);
     });
 
     it('should select item', async () => {
-        await wrapper.vm.onItemClick({}, wrapper.vm.modelValue[0], 0);
+        const listBoxOption = wrapper.find('li.p-listbox-option');
 
-        expect(wrapper.emitted()['update:selection'][0]).toEqual([[wrapper.vm.modelValue[0]]]);
+        expect(listBoxOption.classes()).not.toContain('p-listbox-option-selected');
 
-        await wrapper.setProps({ selection: [wrapper.vm.modelValue[0]] });
+        await listBoxOption.trigger('click');
 
-        expect(wrapper.findAll('li.p-orderlist-item')[0].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('li.p-listbox-option')[0].classes()).toContain('p-listbox-option-selected');
     });
 
     it('should slot works', () => {
-        expect(wrapper.find('.p-orderlist-header').text()).toBe('List of Products');
+        expect(wrapper.find('.p-listbox-header').text()).toBe('List of Products');
         expect(wrapper.findAll('.product-item').length).toBe(6);
     });
 
@@ -135,7 +135,7 @@ describe('OrderList.vue', () => {
         await wrapper.setProps({ selection: [wrapper.vm.modelValue[2]] });
         await wrapper.setData({ d_selection: [wrapper.vm.modelValue[2]] });
 
-        expect(wrapper.findAll('li.p-orderlist-item')[2].classes()).toContain('p-highlight');
+        expect(wrapper.findAll('li.p-listbox-option')[2].classes()).toContain('p-listbox-option-selected');
 
         await wrapper.vm.moveUp({});
 

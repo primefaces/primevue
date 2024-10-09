@@ -1,6 +1,6 @@
 {
     "name": "@primevue/nuxt-module",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "author": "PrimeTek Informatics",
     "description": "Nuxt module for PrimeVue",
     "homepage": "https://primevue.org/",
@@ -68,8 +68,8 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.7.3",
-        "@primeuix/styled": "^0.0.5",
-        "@primeuix/utils": "^0.0.5",
+        "@primeuix/styled": "^0.2.0",
+        "@primeuix/utils": "^0.2.0",
         "primevue": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
         "@primevue/metadata": "workspace:*",
@@ -80,7 +80,7 @@
         "@types/node": "^18.17.17",
         "@nuxt/devtools": "^0.8.5",
         "@nuxt/eslint-config": "^0.2.0",
-        "@nuxt/module-builder": "^0.5.1",
+        "@nuxt/module-builder": "^0.8.3",
         "@nuxt/schema": "^3.7.3",
         "@nuxt/test-utils": "^3.7.3",
         "changelogen": "^0.5.5",

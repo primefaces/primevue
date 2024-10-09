@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>An event is provided for each type of user interaction such as expand, collapse and selection.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card">
         <Tree
             v-model:selectionKeys="selectedKey"
             :value="nodes"
@@ -27,12 +27,12 @@ export default {
             selectedKey: null,
             code: {
                 basic: `
-<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false" class="w-full md:w-[30rem]"
+<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
     @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
             @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
@@ -62,7 +62,7 @@ export default {
             this.$toast.add({ severity: 'info', summary: 'Node Expanded', detail: node.label, life: 3000 });
         },
         onNodeCollapse(node) {
-            this.$toast.add({ severity: 'error', summary: 'Node Collapsed', detail: node.label, life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
         }
     }
 }
@@ -70,7 +70,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card">
         <Toast />
         <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
             @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
@@ -103,7 +103,7 @@ const onNodeExpand = (node) => {
 };
 
 const onNodeCollapse (node) => {
-    toast.add({ severity: 'error', summary: 'Node Collapsed', detail: node.label, life: 3000 });
+    toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
 };
 <\/script>
 `,
@@ -151,7 +151,7 @@ const onNodeCollapse (node) => {
             this.$toast.add({ severity: 'info', summary: 'Node Expanded', detail: node.label, life: 3000 });
         },
         onNodeCollapse(node) {
-            this.$toast.add({ severity: 'error', summary: 'Node Collapsed', detail: node.label, life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
         }
     }
 };

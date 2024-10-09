@@ -34,6 +34,12 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
          */
         filledBackground?: string;
         /**
+         * Filled hover background of root
+         *
+         * @designToken cascadeselect.filled.hover.background
+         */
+        filledHoverBackground?: string;
+        /**
          * Filled focus background of root
          *
          * @designToken cascadeselect.filled.focus.background
@@ -215,6 +221,12 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
          * @designToken cascadeselect.list.gap
          */
         gap?: string;
+        /**
+         * Mobile indent of list
+         *
+         * @designToken cascadeselect.list.mobile.indent
+         */
+        mobileIndent?: string;
     };
     /**
      * Used to pass tokens of the option section

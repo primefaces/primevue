@@ -7,6 +7,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tablist {
+    display: flex;
     position: relative;
 }
 
@@ -35,9 +36,14 @@ const theme = ({ dt }) => `
     border-width: ${dt('tabs.tablist.border.width')};
 }
 
+.p-tablist-content {
+    flex-grow: 1;
+}
+
 .p-tablist-nav-button {
     all: unset;
-    position: absolute;
+    position: absolute !important;
+    flex-shrink: 0;
     top: 0;
     z-index: 2;
     height: 100%;
@@ -73,6 +79,7 @@ const theme = ({ dt }) => `
 }
 
 .p-tab {
+    flex-shrink: 0;
     cursor: pointer;
     user-select: none;
     position: relative;

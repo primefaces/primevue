@@ -101,11 +101,11 @@ export interface GalleriaPassThroughOptions {
     /**
      * Used to pass attributes to the previous item button's DOM element.
      */
-    previousItemButton?: GalleriaPassThroughOptionType;
+    prevButton?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the previous item icon's DOM element.
      */
-    previousItemIcon?: GalleriaPassThroughOptionType;
+    prevIcon?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the item's DOM element.
      */
@@ -113,11 +113,11 @@ export interface GalleriaPassThroughOptions {
     /**
      * Used to pass attributes to the next item button's DOM element.
      */
-    nextItemButton?: GalleriaPassThroughOptionType;
+    nextButton?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the next item icon's DOM element.
      */
-    nextItemIcon?: GalleriaPassThroughOptionType;
+    nextIcon?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the caption's DOM element.
      */
@@ -145,11 +145,11 @@ export interface GalleriaPassThroughOptions {
     /**
      * Used to pass attributes to the previous thumbnail button's DOM element.
      */
-    previousThumbnailButton?: GalleriaPassThroughOptionType;
+    thumbnailPrevButton?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the previous thumbnail icon's DOM element.
      */
-    previousThumbnailIcon?: GalleriaPassThroughOptionType;
+    thumbnailPrevIcon?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the thumbnails viewport's DOM element.
      */
@@ -169,11 +169,11 @@ export interface GalleriaPassThroughOptions {
     /**
      * Used to pass attributes to the next thumbnail button's DOM element.
      */
-    nextThumbnailButton?: GalleriaPassThroughOptionType;
+    thumbnailNextButton?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the next thumbnail icon's DOM element.
      */
-    nextThumbnailIcon?: GalleriaPassThroughOptionType;
+    thumbnailNextIcon?: GalleriaPassThroughOptionType;
     /**
      * Used to pass attributes to the mask's DOM element.
      */

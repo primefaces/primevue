@@ -174,6 +174,21 @@ export interface TreeTableFilterEvent extends TreeTableSortEvent {
 }
 
 /**
+ * Custom row context menu event.
+ * @see {@link TreeTableEmitsOptions['row-contextmenu']}
+ */
+export interface TreeTableRowContextMenuEvent {
+    /**
+     * Browser event.
+     */
+    originalEvent: Event;
+    /**
+     * Selected row data.
+     */
+    node: TreeNode;
+}
+
+/**
  * Custom sort metadata.
  */
 export interface TreeTableSortMeta {
@@ -420,6 +435,15 @@ export interface TreeTableProps {
      * @defaultValue false
      */
     metaKeySelection?: boolean | undefined;
+    /**
+     * Enables context menu integration.
+     * @defaultValue false
+     */
+    contextMenu?: boolean | undefined;
+    /**
+     * Selected row instance with the ContextMenu.
+     */
+    contextMenuSelection?: any | any[] | undefined;
     /**
      * Number of rows to display per page.
      */
@@ -731,6 +755,11 @@ export interface TreeTableEmitsOptions {
      */
     'update:selectionKeys'(event: TreeTableSelectionKeys): void;
     /**
+     * Emitted when the contextMenuSelection changes.
+     * @param {*} value - New value.
+     */
+    'update:contextMenuSelection'(value: any[] | any | undefined): void;
+    /**
      * Emitted when the first changes.
      * @param {number} value - New value.
      */
@@ -795,6 +824,11 @@ export interface TreeTableEmitsOptions {
      * @param {Event} event - Browser event.
      */
     'column-resize-end'(event: Event): void;
+    /**
+     * Callback to invoke when a row is selected with a ContextMenu.
+     * @param {TreeTableRowContextMenuEvent} event - Custom row context menu event.
+     */
+    'row-contextmenu'(event: TreeTableRowContextMenuEvent): void;
 }
 
 export declare type TreeTableEmits = EmitFn<TreeTableEmitsOptions>;

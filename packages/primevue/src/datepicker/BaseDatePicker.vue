@@ -234,7 +234,7 @@ export default {
         },
         fluid: {
             type: Boolean,
-            default: false
+            default: null
         },
         ariaLabelledby: {
             type: String,

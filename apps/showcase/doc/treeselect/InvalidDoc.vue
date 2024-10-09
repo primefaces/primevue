@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -15,15 +16,18 @@ export default {
     data() {
         return {
             nodes: null,
-            selectedValue: {},
+            selectedValue1: {},
+            selectedValue2: {},
             code: {
                 basic: `
-<TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
     </div>
 </template>
 
@@ -34,7 +38,8 @@ export default {
     data() {
         return {
             nodes: null,
-            selectedValue: {},
+            selectedValue1: {},
+            selectedValue2: {},
         }
     },
     mounted() {
@@ -45,8 +50,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <TreeSelect v-model="selectedValue" :invalid="Object.keys(selectedValue).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
     </div>
 </template>
 
@@ -55,7 +61,8 @@ import { ref, onMounted } from 'vue';
 import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
-const selectedValue = ref({});
+const selectedValue1 = ref({});
+const selectedValue2 = ref({});
 
 onMounted(() => {
     NodeService.getTreeNodes().then((data) => (nodes.value = data));

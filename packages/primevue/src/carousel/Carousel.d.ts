@@ -209,6 +209,25 @@ export interface CarouselContext {
      * @defaultValue false
      */
     highlighted: boolean;
+    /**
+     * Index of the item as a number.
+     */
+    index: number;
+    /**
+     * Current active state of the item as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current start state of the item as a boolean.
+     * @defaultValue false
+     */
+    start: boolean;
+    /**
+     * Current end state of the item as a boolean.
+     * @defaultValue false
+     */
+    end: boolean;
 }
 
 export interface CarouselResponsiveOptions {

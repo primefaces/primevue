@@ -8,6 +8,7 @@
                 <TieredMenuSub
                     :ref="menubarRef"
                     :id="id + '_list'"
+                    :class="cx('rootList')"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"
                     :aria-label="ariaLabel"
@@ -30,6 +31,7 @@
                     @item-click="onItemClick"
                     @item-mouseenter="onItemMouseEnter"
                     @item-mousemove="onItemMouseMove"
+                    v-bind="ptm('rootList')"
                 />
                 <div v-if="$slots.end" :class="cx('end')" v-bind="ptm('end')">
                     <slot name="end"></slot>
@@ -40,10 +42,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, findSingle, addStyle, absolutePosition, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseTieredMenu from './BaseTieredMenu.vue';
@@ -55,6 +57,7 @@ export default {
     inheritAttrs: false,
     emits: ['focus', 'blur', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,
+    matchMediaListener: null,
     scrollHandler: null,
     resizeListener: null,
     target: null,
@@ -70,7 +73,9 @@ export default {
             activeItemPath: [],
             visible: !this.popup,
             submenuVisible: false,
-            dirty: false
+            dirty: false,
+            query: null,
+            queryMatches: false
         };
     },
     watch: {
@@ -91,10 +96,12 @@ export default {
     },
     mounted() {
         this.id = this.id || UniqueComponentId();
+        this.bindMatchMediaListener();
     },
     beforeUnmount() {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
+        this.unbindMatchMediaListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -494,6 +501,26 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindMatchMediaListener() {
+            if (!this.matchMediaListener) {
+                const query = matchMedia(`(max-width: ${this.breakpoint})`);
+
+                this.query = query;
+                this.queryMatches = query.matches;
+
+                this.matchMediaListener = () => {
+                    this.queryMatches = query.matches;
+                };
+
+                this.query.addEventListener('change', this.matchMediaListener);
+            }
+        },
+        unbindMatchMediaListener() {
+            if (this.matchMediaListener) {
+                this.query.removeEventListener('change', this.matchMediaListener);
+                this.matchMediaListener = null;
             }
         },
         isItemMatched(processedItem) {

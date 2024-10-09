@@ -1,0 +1,11 @@
+{
+    "main": "./ImageCompare.vue",
+    "module": "./ImageCompare.vue",
+    "types": "./ImageCompare.d.ts",
+    "browser": {
+        "./sfc": "./ImageCompare.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

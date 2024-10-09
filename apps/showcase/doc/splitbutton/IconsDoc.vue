@@ -28,13 +28,15 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
+                    icon: 'pi pi-power-off',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                }
             ],
             code: {
                 basic: `
@@ -68,13 +70,15 @@ export default {
                     }
                 },
                 {
-                    label: 'Vue Website',
-                    icon: 'pi pi-external-link',
+                    separator: true
+                },
+                {
+                    label: 'Quit',
+                    icon: 'pi pi-power-off',
                     command: () => {
                         window.location.href = 'https://vuejs.org/';
                     }
-                },
-                { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+                }
             ]
         };
     },
@@ -103,24 +107,26 @@ const items = [
         label: 'Update',
         icon: 'pi pi-refresh',
         command: () => {
-            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+            this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
         }
     },
     {
         label: 'Delete',
         icon: 'pi pi-times',
         command: () => {
-            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+            this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
         }
     },
     {
-        label: 'Vue Website',
-        icon: 'pi pi-external-link',
+        separator: true
+    },
+    {
+        label: 'Quit',
+        icon: 'pi pi-power-off',
         command: () => {
             window.location.href = 'https://vuejs.org/';
         }
-    },
-    { label: 'Upload', icon: 'pi pi-upload', to: '/fileupload' }
+    }
 ];
 
 const save = () => {

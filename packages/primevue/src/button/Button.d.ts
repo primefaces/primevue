@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import type { ButtonHTMLAttributes, Component, VNode } from 'vue';
 
 export declare type ButtonPassThroughOptionType<T = any> = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions<T>) => ButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -107,7 +107,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Style class of the icon.
      */
-    iconClass?: string | undefined;
+    iconClass?: string | object | undefined;
     /**
      * Value of the badge.
      */
@@ -115,7 +115,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Style class of the badge.
      */
-    badgeClass?: string | undefined;
+    badgeClass?: string | object | undefined;
     /**
      * Severity type of the badge.
      */
@@ -133,7 +133,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * Use to change the HTML tag of root element.
      * @defaultValue BUTTON
      */
-    as?: string | undefined;
+    as?: string | Component | undefined;
     /**
      * When enabled, it changes the default rendered element for the one passed as a child element.
      * @defaultValue false
@@ -179,9 +179,9 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     plain?: boolean | undefined;
     /**
      * Spans 100% width of the container when enabled.
-     * @defaultValue false
+     * @defaultValue null
      */
-    fluid?: boolean;
+    fluid?: boolean | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

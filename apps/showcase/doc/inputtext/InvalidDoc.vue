@@ -2,8 +2,9 @@
     <DocSectionText v-bind="$attrs">
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <InputText v-model="value" :invalid="value === ''" />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputText v-model="value1" :invalid="!value1" />
+        <InputText v-model="value2" :invalid="!value2" variant="filled" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +13,18 @@
 export default {
     data() {
         return {
-            value: '',
+            value1: '',
+            value2: '',
             code: {
                 basic: `
-<InputText v-model="value" :invalid="value === null"  />
+<InputText v-model="value1" :invalid="!value1" />
+<InputText v-model="value2" :invalid="!value2" variant="filled" />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <InputText v-model="value" :invalid="value === null"  />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputText v-model="value1" :invalid="!value1" />
+        <InputText v-model="value2" :invalid="!value2" variant="filled" />
     </div>
 </template>
 
@@ -28,7 +32,8 @@ export default {
 export default {
     data() {
         return {
-            value: ''
+            value1: '',
+            value2: ''
         }
     }
 }
@@ -36,15 +41,17 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <InputText v-model="value" :invalid="value === null"  />
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputText v-model="value1" :invalid="!value1" />
+        <InputText v-model="value2" :invalid="!value2" variant="filled" />
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('');
+const value1 = ref('');
+const value2 = ref('');
 <\/script>
 `
             }

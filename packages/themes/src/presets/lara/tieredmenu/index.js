@@ -26,6 +26,9 @@ export default {
             activeColor: '{navigation.item.icon.active.color}'
         }
     },
+    submenu: {
+        mobileIndent: '1.25rem'
+    },
     submenuIcon: {
         size: '{navigation.submenu.icon.size}',
         color: '{navigation.submenu.icon.color}',

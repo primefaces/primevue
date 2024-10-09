@@ -78,17 +78,13 @@ export interface ConfirmDialogPassThroughOptions {
      */
     title?: ConfirmDialogPassThroughOptionType;
     /**
-     * Used to pass attributes to the header icons' DOM element.
+     * Used to pass attributes to the header actions' DOM element.
      */
-    icons?: ConfirmDialogPassThroughOptionType;
+    headerActions?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the close button's component.
      */
-    closeButton?: ConfirmDialogPassThroughOptionType;
-    /**
-     * Used to pass attributes to the close button icon's component.
-     */
-    closeButtonIcon?: ConfirmDialogPassThroughOptionType;
+    pcCloseButton?: ConfirmDialogPassThroughOptionType;
     /**
      * Used to pass attributes to the content's DOM element.
      */

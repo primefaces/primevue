@@ -298,6 +298,12 @@ export { default as FloatLabel } from './floatlabel/FloatLabel.vue';
 export * from './floatlabel/style/FloatLabelStyle.js';
 export { default as FloatLabelStyle } from './floatlabel/style/FloatLabelStyle.js';
 
+// Fluid
+export * from './fluid/Fluid.vue';
+export { default as Fluid } from './fluid/Fluid.vue';
+export * from './fluid/style/FluidStyle.js';
+export { default as FluidStyle } from './fluid/style/FluidStyle.js';
+
 // FocusTrap
 export * from './focustrap/FocusTrap.js';
 export { default as FocusTrap } from './focustrap/FocusTrap.js';
@@ -316,11 +322,23 @@ export { default as IconField } from './iconfield/IconField.vue';
 export * from './iconfield/style/IconFieldStyle.js';
 export { default as IconFieldStyle } from './iconfield/style/IconFieldStyle.js';
 
+// IftaLabel
+export * from './iftalabel/IftaLabel.vue';
+export { default as IftaLabel } from './iftalabel/IftaLabel.vue';
+export * from './iftalabel/style/IftaLabelStyle.js';
+export { default as IftaLabelStyle } from './iftalabel/style/IftaLabelStyle.js';
+
 // Image
 export * from './image/Image.vue';
 export { default as Image } from './image/Image.vue';
 export * from './image/style/ImageStyle.js';
 export { default as ImageStyle } from './image/style/ImageStyle.js';
+
+// ImageCompare
+export * from './imagecompare/ImageCompare.vue';
+export { default as ImageCompare } from './imagecompare/ImageCompare.vue';
+export * from './imagecompare/style/ImageCompareStyle.js';
+export { default as ImageCompareStyle } from './imagecompare/style/ImageCompareStyle.js';
 
 // InlineMessage
 export * from './inlinemessage/InlineMessage.vue';
@@ -387,6 +405,12 @@ export * from './inputtext/InputText.vue';
 export { default as InputText } from './inputtext/InputText.vue';
 export * from './inputtext/style/InputTextStyle.js';
 export { default as InputTextStyle } from './inputtext/style/InputTextStyle.js';
+
+// KeyFilter
+export * from './keyfilter/KeyFilter.js';
+export { default as KeyFilter } from './keyfilter/KeyFilter.js';
+export * from './keyfilter/style/KeyFilterStyle.js';
+export { default as KeyFilterStyle } from './keyfilter/style/KeyFilterStyle.js';
 
 // Knob
 export * from './knob/Knob.vue';
@@ -643,12 +667,6 @@ export * from './stepper/Stepper.vue';
 export { default as Stepper } from './stepper/Stepper.vue';
 export * from './stepper/style/StepperStyle.js';
 export { default as StepperStyle } from './stepper/style/StepperStyle.js';
-
-// StepperPanel
-export * from './stepperpanel/StepperPanel.vue';
-export { default as StepperPanel } from './stepperpanel/StepperPanel.vue';
-export * from './stepperpanel/style/StepperPanelStyle.js';
-export { default as StepperPanelStyle } from './stepperpanel/style/StepperPanelStyle.js';
 
 // Steps
 export * from './steps/Steps.vue';

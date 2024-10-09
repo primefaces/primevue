@@ -19,7 +19,7 @@ export default {
             default: 'left'
         },
         iconClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         badge: {
@@ -27,7 +27,7 @@ export default {
             default: null
         },
         badgeClass: {
-            type: String,
+            type: [String, Object],
             default: null
         },
         badgeSeverity: {
@@ -43,7 +43,7 @@ export default {
             default: undefined
         },
         as: {
-            type: String,
+            type: [String, Object],
             default: 'BUTTON'
         },
         asChild: {
@@ -84,7 +84,7 @@ export default {
         },
         fluid: {
             type: Boolean,
-            default: false
+            default: null
         }
     },
     style: ButtonStyle,

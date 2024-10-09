@@ -10,6 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
+import { VNode } from 'vue';
 
 export declare type ToggleSwitchPassThroughOptionType = ToggleSwitchPassThroughAttributes | ((options: ToggleSwitchPassThroughMethodOptions) => ToggleSwitchPassThroughAttributes | string) | string | null | undefined;
 
@@ -60,6 +61,10 @@ export interface ToggleSwitchPassThroughOptions {
      * Used to pass attributes to the slider's DOM element.
      */
     slider?: ToggleSwitchPassThroughOptionType;
+    /**
+     * Used to pass attributes to the handle's DOM element.
+     */
+    handle?: ToggleSwitchPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -169,7 +174,18 @@ export interface ToggleSwitchContext {
     disabled: boolean;
 }
 
-export interface ToggleSwitchSlots {}
+export interface ToggleSwitchSlots {
+    /**
+     * Custom handle template.
+     * @param {Object} scope - handle slot's params.
+     */
+    handle(scope: {
+        /**
+         * Current checked state of the item as a boolean.
+         */
+        checked: boolean;
+    }): VNode[];
+}
 
 /**
  * Defines valid emits in ToggleSwitch component.

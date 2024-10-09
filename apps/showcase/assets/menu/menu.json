@@ -97,11 +97,17 @@
                         },
                         {
                             "name": "FloatLabel",
-                            "to": "/floatlabel"
+                            "to": "/floatlabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "IconField",
                             "to": "/iconfield"
+                        },
+                        {
+                            "name": "IftaLabel",
+                            "to": "/iftalabel",
+                            "badge": "NEW"
                         },
                         {
                             "name": "InputGroup",
@@ -122,6 +128,11 @@
                         {
                             "name": "InputText",
                             "to": "/inputtext"
+                        },
+                        {
+                            "name": "KeyFilter",
+                            "to": "/keyfilter",
+                            "badge": "NEW"
                         },
                         {
                             "name": "Knob",
@@ -403,6 +414,11 @@
                         {
                             "name": "Image",
                             "to": "/image"
+                        },
+                        {
+                            "name": "ImageCompare",
+                            "to": "/imagecompare",
+                            "badge": "NEW"
                         }
                     ]
                 },
@@ -434,6 +450,10 @@
                             "to": "/focustrap"
                         },
                         {
+                            "name": "Fluid",
+                            "to": "/fluid"
+                        },
+                        {
                             "name": "Inplace",
                             "to": "/inplace"
                         },
@@ -442,20 +462,20 @@
                             "to": "/metergroup"
                         },
                         {
-                            "name": "ScrollTop",
-                            "to": "/scrolltop"
-                        },
-                        {
-                            "name": "Skeleton",
-                            "to": "/skeleton"
-                        },
-                        {
                             "name": "ProgressBar",
                             "to": "/progressbar"
                         },
                         {
                             "name": "ProgressSpinner",
                             "to": "/progressspinner"
+                        },
+                        {
+                            "name": "ScrollTop",
+                            "to": "/scrolltop"
+                        },
+                        {
+                            "name": "Skeleton",
+                            "to": "/skeleton"
                         },
                         {
                             "name": "Ripple",
@@ -523,7 +543,8 @@
         {
             "name": "PrimeBlocks",
             "icon": "pi pi-server",
-            "href": "https://blocks.primevue.org"
+            "href": "https://primeblocks.org",
+            "badge": "NEW"
         },
         {
             "name": "Guides",
@@ -564,6 +585,11 @@
                     "to": "/support"
                 }
             ]
+        },
+        {
+            "name": "Contribution",
+            "to": "/contribution",
+            "icon": "pi pi-users"
         },
         {
             "name": "Discover",

@@ -402,6 +402,11 @@ export interface DialogEmitsOptions {
      */
     unmaximize(event: Event): void;
     /**
+     * Fired when a dialog drag begins.
+     * @param {event} event - Browser event.
+     */
+    dragstart(event: Event): void;
+    /**
      * Fired when a dialog drag completes.
      * @param {event} event - Browser event.
      */
