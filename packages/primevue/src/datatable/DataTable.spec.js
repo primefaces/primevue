@@ -617,6 +617,7 @@ describe('DataTable.vue', () => {
         });
 
         const button = wrapper.find('button');
+
         expect(button.exists()).toBe(true);
 
         await button.trigger('click');
