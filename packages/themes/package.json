@@ -82,7 +82,7 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.2.0"
+        "@primeuix/styled": "catalog:"
     },
     "engines": {
         "node": ">=12.11.0"

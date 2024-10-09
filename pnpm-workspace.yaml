@@ -1,3 +1,7 @@
 packages:
     - 'packages/*'
     - 'apps/*'
+
+catalog:
+  '@primeuix/styled': ^0.2.0
+  '@primeuix/utils': ^0.2.0

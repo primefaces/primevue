@@ -68,8 +68,8 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.7.3",
-        "@primeuix/styled": "^0.2.0",
-        "@primeuix/utils": "^0.2.0",
+        "@primeuix/styled": "catalog:",
+        "@primeuix/utils": "catalog:",
         "primevue": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
         "@primevue/metadata": "workspace:*",
