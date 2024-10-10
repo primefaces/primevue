@@ -22,7 +22,7 @@ jobs:
             - name: Install pnpm
               uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: 9.6.0
 
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v4
@@ -59,7 +59,7 @@ jobs:
               run: |
                   pnpm run security:check
 
-            # - name: Unit Tests Check
-            #   if: ${{ success() }}
-            #   run: |
-            #       npm run test:unit
+            - name: Unit Tests Check
+              if: ${{ success() }}
+              run: |
+                  npm run test:unit
