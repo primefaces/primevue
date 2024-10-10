@@ -582,6 +582,49 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['row-select'][1][0].index).toBe(1);
     });
 
+    it('should not select row when inner button is clicked', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column,
+                    Button
+                }
+            },
+            props: {
+                value: smallData,
+                expandedRows: [],
+                paginatorTemplate: 'CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown',
+                rowsPerPageOptions: [5, 6, 7],
+                currentPageReportTemplate: 'Showing {first} to {last} of {totalRecords}'
+            },
+            slots: {
+                default: `
+                <Column :expander="true" />
+                <Column field="code" header="Code" sortable>
+                    <template #body="slotProps">
+                        <button @click="buttonClicked">button</button>
+                    </template>
+                </Column>
+                <Column field="name" header="Name" sortable></Column>
+            `
+            },
+            methods: {
+                buttonClicked() {
+                    console.log('button clicked');
+                }
+            }
+        });
+
+        const button = wrapper.find('button');
+
+        expect(button.exists()).toBe(true);
+
+        await button.trigger('click');
+
+        expect(wrapper.emitted()['row-click']).toBeUndefined();
+    });
+
     it('should select all rows', async () => {
         wrapper = mount(DataTable, {
             global: {

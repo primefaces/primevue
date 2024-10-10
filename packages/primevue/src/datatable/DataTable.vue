@@ -734,7 +734,7 @@ export default {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
             const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 
-            if (isClickable(event.currentTarget)) {
+            if (isClickable(event.target)) {
                 return;
             }
 
@@ -811,7 +811,7 @@ export default {
             this.rowTouched = false;
 
             if (focusedItem) {
-                if (event.currentTarget?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
+                if (event.target?.getAttribute('data-pc-section') === 'rowtoggleicon') return;
 
                 const targetRow = event.currentTarget?.closest('tr[data-p-selectable-row="true"]');
 
