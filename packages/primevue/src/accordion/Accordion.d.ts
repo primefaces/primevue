@@ -19,10 +19,6 @@ export declare type AccordionPassThroughOptionType = AccordionPassThroughAttribu
  */
 export interface AccordionPassThroughMethodOptions {
     /**
-     * test
-     */
-    test: any;
-    /**
      * Defines instance.
      */
     instance: any;
