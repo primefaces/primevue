@@ -320,7 +320,7 @@ export default {
             this.focusedOptionInfo = { index, level, parentKey };
             this.activeOptionPath = activeOptionPath;
         },
-        onOptionClick(event) {
+        onOptionClick(event, preventSelection) {
             const { originalEvent, processedOption, isFocus, isHide } = event;
             const { index, key, level, parentKey } = processedOption;
             const grouped = this.isProccessedOptionGroup(processedOption);
@@ -332,17 +332,21 @@ export default {
             } else {
                 if (grouped) {
                     this.onOptionChange(event);
+                    this.onOptionGroupSelect(originalEvent, processedOption);
                 } else {
                     const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey);
 
                     activeOptionPath.push(processedOption);
 
                     this.focusedOptionInfo = { index, level, parentKey };
-                    this.activeOptionPath = activeOptionPath;
+
+                    if (!preventSelection || processedOption?.children.length !== 0) {
+                        this.activeOptionPath = activeOptionPath;
+                        this.onOptionSelect(originalEvent, processedOption, isHide);
+                    }
                 }
             }
 
-            grouped ? this.onOptionGroupSelect(originalEvent, processedOption) : this.onOptionSelect(originalEvent, processedOption, isHide);
             isFocus && focus(this.$refs.focusInput);
         },
         onOptionMouseEnter(event) {
@@ -405,7 +409,7 @@ export default {
             } else {
                 const optionIndex = this.focusedOptionInfo.index !== -1 ? this.findNextOptionIndex(this.focusedOptionInfo.index) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
-                this.changeFocusedOptionIndex(event, optionIndex);
+                this.changeFocusedOptionIndex(event, optionIndex, true);
             }
 
             event.preventDefault();
@@ -424,7 +428,7 @@ export default {
             } else {
                 const optionIndex = this.focusedOptionInfo.index !== -1 ? this.findPrevOptionIndex(this.focusedOptionInfo.index) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
-                this.changeFocusedOptionIndex(event, optionIndex);
+                this.changeFocusedOptionIndex(event, optionIndex, true);
 
                 !this.overlayVisible && this.show();
                 event.preventDefault();
@@ -491,7 +495,7 @@ export default {
                     const processedOption = this.visibleOptions[this.focusedOptionInfo.index];
                     const grouped = this.isProccessedOptionGroup(processedOption);
 
-                    this.onOptionChange({ originalEvent: event, processedOption });
+                    this.onOptionClick({ originalEvent: event, processedOption }, false);
                     !grouped && this.hide();
                 }
             }
@@ -721,10 +725,14 @@ export default {
 
             return matched;
         },
-        changeFocusedOptionIndex(event, index) {
+        changeFocusedOptionIndex(event, index, preventSelection) {
             if (this.focusedOptionInfo.index !== index) {
                 this.focusedOptionInfo.index = index;
                 this.scrollInView();
+
+                if (this.focusOnHover) {
+                    this.onOptionClick({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false }, preventSelection);
+                }
 
                 if (this.selectOnFocus) {
                     this.onOptionChange({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false });

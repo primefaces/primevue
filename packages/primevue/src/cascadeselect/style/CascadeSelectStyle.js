@@ -136,9 +136,6 @@ const theme = ({ dt }) => `
     border: 0 none;
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
-    transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
-    'cascadeselect.transition.duration'
-)}, outline-color ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
@@ -183,6 +180,9 @@ const theme = ({ dt }) => `
     position: relative;
     padding: ${dt('cascadeselect.option.padding')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
+    transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
+    'cascadeselect.transition.duration'
+)}, outline-color ${dt('cascadeselect.transition.duration')};
 }
 
 .p-cascadeselect-group-icon {
