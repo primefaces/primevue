@@ -156,7 +156,7 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.focus.color')};
 }
 
-.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
+.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus > .p-cascadeselect-option-content > .p-cascadeselect-group-icon-container > .p-cascadeselect-group-icon {
     color: ${dt('cascadeselect.option.icon.focus.color')};
 }
 
@@ -171,7 +171,6 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-option-active > .p-cascadeselect-option-list {
-    display: block;
     left: 100%;
     top: 0;
 }
