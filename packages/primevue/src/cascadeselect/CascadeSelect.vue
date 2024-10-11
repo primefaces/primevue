@@ -346,14 +346,28 @@ export default {
             isFocus && focus(this.$refs.focusInput);
         },
         onOptionMouseEnter(event) {
-            if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
-                this.onOptionChange(event);
-            } else if (!this.dirty && event.processedOption.level === 0) {
-                this.onOptionClick(event);
+            if (this.focusOnHover) {
+                if (isNotEmpty(this.modelValue)) {
+                    const { originalEvent, processedOption } = event;
+                    const { index, level, parentKey } = processedOption;
+
+                    this.focusedOptionInfo = { index, level, parentKey };
+                    this.changeFocusedOptionIndex(originalEvent, index);
+                } else if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
+                    this.onOptionChange(event);
+                } else if (!this.dirty && event.processedOption.level === 0) {
+                    this.onOptionClick(event);
+                }
+            } else {
+                // if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
+                //     this.onOptionChange(event);
+                // } else if (!this.dirty && event.processedOption.level === 0) {
+                //     this.onOptionClick(event);
+                // }
             }
         },
         onOptionMouseMove(event) {
-            if (this.focused) {
+            if (this.focused && this.focusOnHover) {
                 this.changeFocusedOptionIndex(event, event.processedOption.index);
             }
         },

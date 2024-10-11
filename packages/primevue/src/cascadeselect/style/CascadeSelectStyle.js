@@ -165,7 +165,7 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.selected.color')};
 }
 
-.p-cascadeselect-option-selected.p-focus {
+.p-cascadeselect-option-selected.p-focus > .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.selected.focus.background')};
     color: ${dt('cascadeselect.option.selected.focus.color')};
 }
