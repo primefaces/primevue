@@ -71,6 +71,7 @@
                             :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
+                            :value="modelValue"
                             @option-change="onOptionClick"
                             @option-focus-change="onOptionMouseMove"
                             @option-focus-enter-change="onOptionMouseEnter"
