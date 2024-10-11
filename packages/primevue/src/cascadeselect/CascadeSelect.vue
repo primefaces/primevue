@@ -358,12 +358,6 @@ export default {
                 } else if (!this.dirty && event.processedOption.level === 0) {
                     this.onOptionClick(event);
                 }
-            } else {
-                // if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
-                //     this.onOptionChange(event);
-                // } else if (!this.dirty && event.processedOption.level === 0) {
-                //     this.onOptionClick(event);
-                // }
             }
         },
         onOptionMouseMove(event) {
