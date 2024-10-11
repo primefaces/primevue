@@ -13,6 +13,7 @@ import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAni
 import TemplateHero from '@/components/template/TemplateHero.vue';
 import TemplateLicense from '@/components/template/TemplateLicense.vue';
 import DiamondLogo from '@/components/template/logo/DiamondLogo.vue';
+import { markRaw } from 'vue';
 
 export default {
     data() {
@@ -20,10 +21,10 @@ export default {
             diamondData: {
                 components: [
                     {
-                        name: TemplateHero,
+                        name: markRaw(TemplateHero),
                         props: {
                             templateHeroData: {
-                                logo: DiamondLogo,
+                                logo: markRaw(DiamondLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-2.png',
@@ -38,7 +39,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateLicense,
+                        name: markRaw(TemplateLicense),
                         props: {
                             license: {
                                 documentLink: 'https://diamond.primevue.org/documentation/',
@@ -62,7 +63,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             title: 'Features',
                             featuresData: [
@@ -132,7 +133,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateConfiguration,
+                        name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
                                 title: 'Vue App with No Configuration',
@@ -141,7 +142,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             featuresData: [
                                 {
@@ -181,7 +182,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {

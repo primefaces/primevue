@@ -55,7 +55,7 @@ export default {
     props: {
         templateHeroData: {
             type: null,
-            templateHeroData: null
+            default: null
         }
     }
 };

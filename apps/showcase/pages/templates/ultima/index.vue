@@ -13,6 +13,7 @@ import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAni
 import TemplateHero from '@/components/template/TemplateHero.vue';
 import TemplateLicense from '@/components/template/TemplateLicense.vue';
 import UltimaLogo from '@/components/template/logo/UltimaLogo.vue';
+import { markRaw } from 'vue';
 
 export default {
     data() {
@@ -20,10 +21,10 @@ export default {
             ultimaData: {
                 components: [
                     {
-                        name: TemplateHero,
+                        name: markRaw(TemplateHero),
                         props: {
                             templateHeroData: {
-                                logo: UltimaLogo,
+                                logo: markRaw(UltimaLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png',
                                 description:
                                     'A highly customizable premium application template featuring 4 menu modes, 13 themes, light and dark modes. Based on material design language, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
@@ -39,7 +40,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateLicense,
+                        name: markRaw(TemplateLicense),
                         props: {
                             license: {
                                 documentLink: 'https://ultima.primevue.org/documentation/',
@@ -63,7 +64,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             title: 'Features',
                             featuresData: [
@@ -127,7 +128,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateConfiguration,
+                        name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
                                 title: 'Vue based on Vite',
@@ -136,7 +137,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             featuresData: [
                                 {
@@ -176,7 +177,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {
