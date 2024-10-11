@@ -457,7 +457,7 @@ export default {
                 {
                     title: 'Diamond',
                     link: 'https://primevue.org/templates/diamond/',
-                    image: 'https://primefaces.org/cdn/primevue/images/layouts/diamond-vue.jpg',
+                    image: 'https://primefaces.org/cdn/primevue/images/layouts/diamond-remastered-vue.jpg',
                     text: "Handle complex operations with elegance with Diamond's robust and powerful premium design."
                 },
                 {

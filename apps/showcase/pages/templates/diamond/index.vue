@@ -25,9 +25,9 @@ export default {
                             templateHeroData: {
                                 logo: DiamondLogo,
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png',
-                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-dashboard1.png',
-                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-dashboard2.png',
-                                description: 'An amazing application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 30 PrimeVue themes.',
+                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-1.png',
+                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-2.png',
+                                description: 'An amazing application template for Vue based on Vite with light-dark modes with 8 surface colors, seven menu layouts, various menu themes, sample apps, ready to use template pages and 3 presets.',
                                 liveHref: 'https://diamond.primevue.org',
                                 docHref: 'https://diamond.primevue.org/documentation',
                                 pattern: {
@@ -68,65 +68,65 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'Light / Dark / Dim Modes',
-                                    description: 'Diamond has 3 display modes to choose from; Light, Dim and Dark.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-darkmode.png'
+                                    title: 'Light / Dark Modes',
+                                    description: 'Diamond has 2 display modes to choose from Light / Dark with 8 surface colors.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-remastered-animation-darkmode.png'
                                 },
                                 {
                                     id: 2,
-                                    title: 'Component Themes',
-                                    description: 'Diamond offers 30 built-in component themes and creating your own theme is a matter of defining couple of sass variables.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-component-themes.png'
+                                    title: 'Themes and Presets',
+                                    description: 'Diamond offers 17 built-in theme colors with the power of 3 presets: Aura, Lara and Nora.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-remastered-animation-component-themes.png'
                                 },
                                 {
                                     id: 3,
                                     title: '7 Menu Orientations',
                                     description: 'Static, Overlay, Slim, Compact, Horizontal, Reveal and Drawer are the available menu layouts depending on your preference.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-orientations.png',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-remastered-animation-orientations.png',
                                     type: 'inline-animation',
                                     inlineFeaturesData: [
                                         {
                                             id: 1,
                                             title: 'Static',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Static.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/static-remastered.png'
                                         },
                                         {
                                             id: 2,
                                             title: 'Slim',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Slim.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/slim-remastered.png'
                                         },
                                         {
                                             id: 3,
                                             title: 'Horizontal',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Horizontal.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/horizontal-remastered.png'
                                         },
                                         {
                                             id: 4,
                                             title: 'Drawer',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Drawer.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/drawer-remastered.png'
                                         },
                                         {
                                             id: 5,
                                             title: 'Overlay',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Overlay.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/overlay-remastered.png'
                                         },
                                         {
                                             id: 6,
                                             title: 'Compact',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Compact.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/compact-remastered.png'
                                         },
                                         {
                                             id: 7,
                                             title: 'Reveal',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/Reveal.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/reveal-remastered.png'
                                         }
                                     ]
                                 },
                                 {
                                     id: 4,
                                     title: 'Menu Themes',
-                                    description: 'Stunning theming options for the main menu in light color scheme.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-orientations.png'
+                                    description: 'Stunning theming options for the main menu.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-remastered-animation-orientations.png'
                                 }
                             ]
                         }
@@ -166,7 +166,7 @@ export default {
                                     id: 4,
                                     title: 'Figma File',
                                     slotType: 'description4',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-figma.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-remastered-animation-figma.png'
                                 }
                             ]
                         },
@@ -176,7 +176,7 @@ export default {
                 template and requires a separate purchase.`,
                             description4: `
                     Diamond uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
-                <a href="https://www.figma.com/file/lKooXEoqqWz7PBYwJ7B8QS/Preview-%7C-Diamond-2022?node-id=271%3A12531">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the Diamond Figma file as they
+                <a href="https://www.figma.com/design/3BgdXCQjva5nUEO8OidU1B/Preview-%7C-Diamond?node-id=0-1&t=KdfljgRtYLzFPfKL-1">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the Diamond Figma file as they
                 are available in <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.`
                         }
                     },
@@ -187,7 +187,7 @@ export default {
                                 {
                                     title: 'Fully Responsive',
                                     description: 'Diamond is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-features2-responsive.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-features-responsive.png'
                                 },
                                 {
                                     title: 'Cross Browser Compatible',
@@ -204,19 +204,19 @@ export default {
                                 },
                                 {
                                     title: 'Customizable Design',
-                                    description: 'Fully customizable with a mixture of Sass and CSS variables.',
+                                    description: 'Fully customizable with CSS variables.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-customizable.png',
                                     darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-customizable-dark.png'
                                 },
                                 {
                                     title: 'Ready to Use Pages',
                                     description: 'Landing, login, invoice, help, user management and error pages are provided as template pages to get started with building your app.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-features2-ready.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-features-ready.png'
                                 },
                                 {
                                     title: 'Mobile Experience',
                                     description: 'Touch optimized enhanced mobile experience with responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-features2-mobile.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-features-mobile.png'
                                 }
                             ],
                             displayType: 'vertical'
