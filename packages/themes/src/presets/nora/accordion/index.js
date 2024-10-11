@@ -23,7 +23,7 @@ export default {
             width: '{focus.ring.width}',
             style: '{focus.ring.style}',
             color: '{focus.ring.color}',
-            offset: '{focus.ring.offset}',
+            offset: '-2px',
             shadow: '{focus.ring.shadow}'
         },
         toggleIcon: {
