@@ -24,7 +24,6 @@
         <div class="flex-1 last:[&>td]:border-0 rounded-lg border border-surface w-full overflow-auto">
             <DataTable
                 v-model:selection="selectedRows"
-                selectionMode="multiple"
                 :value="tableData"
                 :rows="10"
                 :pt="{

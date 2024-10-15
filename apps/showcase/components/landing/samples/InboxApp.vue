@@ -43,7 +43,6 @@
             <DataTable
                 v-model:selection="selectedRows"
                 scrollable
-                selectionMode="multiple"
                 :value="tableData"
                 :rows="10"
                 :pt="{
@@ -74,7 +73,7 @@
                 <template #header>
                     <div class="flex xl:items-center justify-between gap-2 flex-col xl:flex-row">
                         <div class="flex items-center gap-2">
-                            <Checkbox :binary="true" class="mr-1" />
+                            <Checkbox v-model="checked" :binary="true" class="mr-1" @update:modelValue="onSelectionChange" />
                             <Button icon="pi pi-envelope" outlined severity="secondary" />
                             <Button icon="pi pi-exclamation-circle" outlined severity="secondary" />
                             <Button icon="pi pi-tag" outlined severity="secondary" />
@@ -97,14 +96,14 @@
                 </template>
                 <template #empty>Inbox is empty.</template>
                 <Column selectionMode="multiple" headerStyle="width: 1rem" style="width: 1rem"></Column>
-                <Column field="bookmarked" header="" headerStyle="width: 1rem" style="width: 1rem; padding: 0.5rem">
+                <Column field="bookmarked" headerStyle="width: 1rem" style="width: 1rem; padding: 0.5rem">
                     <template #body="{ data }">
                         <div @click="data.bookmarked = !data.bookmarked" @click.stop>
                             <i :class="data.bookmarked ? 'pi pi-bookmark-fill' : 'pi pi-bookmark'"></i>
                         </div>
                     </template>
                 </Column>
-                <Column field="name" header="">
+                <Column field="name">
                     <template #body="{ data }">
                         <div class="flex items-center">
                             <OverlayBadge severity="danger" class="w-fit">
@@ -120,7 +119,7 @@
                         </div>
                     </template>
                 </Column>
-                <Column field="title" header="" style="min-width: 14rem; max-width: 20rem">
+                <Column field="title" style="min-width: 14rem; max-width: 20rem">
                     <template #body="{ data }">
                         <div class="truncate">
                             <span class="text-color leading-6 mr-2">{{ data.title }}</span>
@@ -128,12 +127,12 @@
                         </div>
                     </template>
                 </Column>
-                <Column field="type" header="" style="width: 4rem">
+                <Column field="type" style="width: 4rem">
                     <template #body="{ data }">
                         <Tag v-if="data.type" severity="secondary" :value="data.type" class="font-medium"></Tag>
                     </template>
                 </Column>
-                <Column field="time" header="" style="width: 4rem">
+                <Column field="time" style="width: 4rem">
                     <template #body="{ data }">
                         <div class="text-right text-sm leading-5 text-muted-color">{{ data.time }}</div>
                     </template>
@@ -149,6 +148,7 @@ export default {
     redrawListener: null,
     data() {
         return {
+            checked: false,
             search: '',
             activeInboxNav: 'Inbox',
             inboxNavs: [
@@ -351,7 +351,14 @@ export default {
             selectedRows: []
         };
     },
-    methods: {},
-    components: {}
+    methods: {
+        onSelectionChange(checked) {
+            if (checked) {
+                this.selectedRows = this.tableData;
+            } else {
+                this.selectedRows = [];
+            }
+        }
+    }
 };
 </script>
