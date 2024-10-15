@@ -291,7 +291,7 @@ export default {
 
                 if (!this.mobileActive) {
                     focus(this.menubar);
-                    this.menubar.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+                    this.menubar.scrollIntoView && this.menubar.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
                 }
             } else {
                 if (grouped) {
