@@ -73,7 +73,7 @@ const theme = ({ dt }) => `
     white-space: nowrap;
 }
 
-.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column:not(.p-datatable-frozen-column) {
+.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column {
     background-clip: padding-box;
     position: relative;
 }
