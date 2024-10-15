@@ -384,7 +384,9 @@ const classes = {
             'p-inputwrapper-filled': props.modelValue,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-focus': state.focused || state.overlayVisible,
-            'p-datepicker-fluid': instance.hasFluid
+            'p-datepicker-fluid': instance.hasFluid,
+            'p-disabled': props.disabled
+
         }
     ],
     pcInputText: 'p-datepicker-input',
