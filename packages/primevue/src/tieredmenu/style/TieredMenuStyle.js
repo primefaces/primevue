@@ -137,7 +137,6 @@ const theme = ({ dt }) => `
 
 .p-tieredmenu-mobile .p-tieredmenu-root-list > .p-tieredmenu-item > .p-tieredmenu-item-content > .p-tieredmenu-item-link {
     padding: ${dt('tieredmenu.item.padding')};
-
 }
 
 .p-tieredmenu-mobile .p-tieredmenu-root-list .p-tieredmenu-separator {
