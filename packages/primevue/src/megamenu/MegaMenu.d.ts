@@ -262,6 +262,11 @@ export interface MegaMenuProps {
      */
     tabindex?: number | string | undefined;
     /**
+     * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
+     * @defaultValue 20rem
+     */
+    scrollHeight?: string | undefined;
+    /**
      * Defines a string value that labels an interactive element.
      */
     ariaLabel?: string | undefined;

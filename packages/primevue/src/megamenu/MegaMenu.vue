@@ -43,6 +43,7 @@
             :activeItem="activeItem"
             :mobileActive="mobileActive"
             :level="0"
+            :style="sx('rootList')"
             :pt="pt"
             :unstyled="unstyled"
             @focus="onFocus"
@@ -164,9 +165,8 @@ export default {
             if (this.mobileActive) {
                 this.mobileActive = false;
                 setTimeout(() => {
-                    focus(this.$refs.menubutton);
-                    this.scrollInView();
-                }, 100);
+                    focus(this.$refs.menubutton, { preventScroll: true });
+                }, 1);
             }
 
             this.activeItem = null;
@@ -290,8 +290,7 @@ export default {
                 this.dirty = !root;
 
                 if (!this.mobileActive) {
-                    focus(this.menubar);
-                    this.menubar.scrollIntoView && this.menubar.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+                    focus(this.menubar, { preventScroll: true });
                 }
             } else {
                 if (grouped) {
