@@ -45,7 +45,7 @@ const SplitterProps = [
 
 const SplitterEvents = [
     {
-        name: 'resizened',
+        name: 'resizeend',
         description: 'Callback to invoke when resize ends.',
         arguments: [
             {
