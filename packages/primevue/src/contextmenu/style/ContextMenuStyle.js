@@ -144,6 +144,7 @@ const theme = ({ dt }) => `
 .p-contextmenu-mobile .p-contextmenu-root-list > .p-contextmenu-item > .p-contextmenu-item-content .p-contextmenu-submenu-icon {
     margin-left: auto;
     transition: transform 0.2s;
+    transform: rotate(90deg);
 }
 
 .p-contextmenu-mobile .p-contextmenu-root-list > .p-contextmenu-item-active > .p-contextmenu-item-content .p-contextmenu-submenu-icon {

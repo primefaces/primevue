@@ -137,6 +137,7 @@ const theme = ({ dt }) => `
 
 .p-tieredmenu-mobile .p-tieredmenu-root-list > .p-tieredmenu-item > .p-tieredmenu-item-content > .p-tieredmenu-item-link {
     padding: ${dt('tieredmenu.item.padding')};
+
 }
 
 .p-tieredmenu-mobile .p-tieredmenu-root-list .p-tieredmenu-separator {
@@ -146,6 +147,7 @@ const theme = ({ dt }) => `
 .p-tieredmenu-mobile .p-tieredmenu-root-list > .p-tieredmenu-item > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
     margin-left: auto;
     transition: transform 0.2s;
+    transform: rotate(90deg);
 }
 
 .p-tieredmenu-mobile .p-tieredmenu-root-list > .p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
