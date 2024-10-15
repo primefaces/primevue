@@ -306,7 +306,7 @@ export default {
             this.clicked = false;
         },
         onOptionChange(event) {
-            const { processedOption } = event;
+            const { processedOption, type } = event;
 
             if (isEmpty(processedOption)) return;
 
@@ -314,15 +314,20 @@ export default {
             const grouped = isNotEmpty(children);
             const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
 
+            this.focusedOptionInfo = { index, level, parentKey };
+
+            if (type == 'hover' && this.queryMatches) {
+                return;
+            }
+
             if (grouped) {
                 activeOptionPath.push(processedOption);
             }
 
-            this.focusedOptionInfo = { index, level, parentKey };
             this.activeOptionPath = activeOptionPath;
         },
-        onOptionClick(event, preventSelection) {
-            const { originalEvent, processedOption, isFocus, isHide } = event;
+        onOptionClick(event) {
+            const { originalEvent, processedOption, isFocus, isHide, preventSelection } = event;
             const { index, key, level, parentKey } = processedOption;
             const grouped = this.isProccessedOptionGroup(processedOption);
             const selected = this.isSelected(processedOption);
@@ -353,9 +358,9 @@ export default {
         onOptionMouseEnter(event) {
             if (this.focusOnHover) {
                 if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
-                    this.onOptionChange(event);
+                    this.onOptionChange({ ...event, type: 'hover' });
                 } else if (!this.dirty && event.processedOption.level === 0) {
-                    this.onOptionClick(event);
+                    this.onOptionClick({ ...event, type: 'hover' });
                 }
             }
         },
@@ -496,7 +501,7 @@ export default {
                     const processedOption = this.visibleOptions[this.focusedOptionInfo.index];
                     const grouped = this.isProccessedOptionGroup(processedOption);
 
-                    this.onOptionClick({ originalEvent: event, processedOption }, false);
+                    this.onOptionClick({ originalEvent: event, processedOption, preventSelection: false });
                     !grouped && this.hide();
                 }
             }
@@ -732,7 +737,7 @@ export default {
                 this.scrollInView();
 
                 if (this.focusOnHover) {
-                    this.onOptionClick({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false }, preventSelection);
+                    this.onOptionClick({ originalEvent: event, processedOption: this.visibleOptions[index], isHide: false, preventSelection });
                 }
 
                 if (this.selectOnFocus) {

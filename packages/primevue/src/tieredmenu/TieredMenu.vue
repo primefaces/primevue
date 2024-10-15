@@ -248,7 +248,7 @@ export default {
                     break;
             }
         },
-        onItemChange(event) {
+        onItemChange(event, type) {
             const { processedItem, isFocus } = event;
 
             if (isEmpty(processedItem)) return;
@@ -264,10 +264,15 @@ export default {
             }
 
             this.focusedItemInfo = { index, level, parentKey };
-            this.activeItemPath = activeItemPath;
 
             grouped && (this.dirty = true);
             isFocus && focus(this.menubar);
+
+            if (type === 'hover' && this.queryMatches) {
+                return;
+            }
+
+            this.activeItemPath = activeItemPath;
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
@@ -304,7 +309,7 @@ export default {
         },
         onItemMouseEnter(event) {
             if (this.dirty) {
-                this.onItemChange(event);
+                this.onItemChange(event, 'hover');
             }
         },
         onItemMouseMove(event) {
