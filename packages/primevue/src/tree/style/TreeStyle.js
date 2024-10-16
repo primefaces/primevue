@@ -116,6 +116,10 @@ const theme = ({ dt }) => `
     color: ${dt('tree.node.icon.selected.color')};
 }
 
+.p-tree-filter {
+    margin: ${dt('tree.filter.margin')};
+}
+
 .p-tree-filter-input {
     width: 100%;
 }
@@ -162,6 +166,7 @@ const classes = {
     ],
     mask: 'p-tree-mask p-overlay-mask',
     loadingIcon: 'p-tree-loading-icon',
+    pcFilter: 'p-tree-filter',
     pcFilterInput: 'p-tree-filter-input',
     wrapper: 'p-tree-root', //TODO: discuss
     rootChildren: 'p-tree-root-children',

@@ -8,7 +8,7 @@
                 </slot>
             </div>
         </template>
-        <IconField v-if="filter" :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
+        <IconField v-if="filter" :unstyled="unstyled" :pt="ptm('pcFilter')" :class="cx('pcFilter')">
             <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilterInput')" />
             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                 <!--TODO: searchicon deprecated since v4.0-->

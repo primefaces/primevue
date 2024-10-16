@@ -107,7 +107,6 @@ const theme = ({ dt }) => `
     overflow: hidden;
 }
 
-
 .p-treeselect-tree-container {
     overflow: auto;
 }

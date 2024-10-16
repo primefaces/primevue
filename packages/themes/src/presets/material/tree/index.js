@@ -48,6 +48,9 @@ export default {
     loadingIcon: {
         size: '2rem'
     },
+    filter: {
+        margin: '0 0 0.75rem 0'
+    },
     css: ({ dt }) => `
 .p-tree-node-content {
     transition: none;
