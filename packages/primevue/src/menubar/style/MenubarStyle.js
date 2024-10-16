@@ -123,7 +123,7 @@ const theme = ({ dt }) => `
     z-index: 1;
     background: ${dt('menubar.submenu.background')};
     border: 1px solid ${dt('menubar.submenu.border.color')};
-    border-radius: ${dt('menubar.border.radius')};
+    border-radius: ${dt('menubar.submenu.border.radius')};
     box-shadow: ${dt('menubar.submenu.shadow')};
     color: ${dt('menubar.submenu.color')};
     flex-direction: column;
@@ -189,14 +189,16 @@ const theme = ({ dt }) => `
     position: absolute;
     display: none;
     width: 100%;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    z-index: 1;
     padding: ${dt('menubar.submenu.padding')};
     background: ${dt('menubar.submenu.background')};
     border: 1px solid ${dt('menubar.submenu.border.color')};
     box-shadow: ${dt('menubar.submenu.shadow')};
-}
-
-.p-menubar-mobile .p-menubar-root-list > .p-menubar-item > .p-menubar-item-content {
-    border-radius: ${dt('menubar.item.border.radius')};
+    border-radius: ${dt('menubar.submenu.border.radius')};
+    gap: ${dt('menubar.submenu.gap')};
 }
 
 .p-menubar-mobile .p-menubar-root-list > .p-menubar-item > .p-menubar-item-content > .p-menubar-item-link {
@@ -205,10 +207,6 @@ const theme = ({ dt }) => `
 
 .p-menubar-mobile-active .p-menubar-root-list {
     display: flex;
-    flex-direction: column;
-    top: 100%;
-    left: 0;
-    z-index: 1;
 }
 
 .p-menubar-mobile .p-menubar-root-list .p-menubar-item {
@@ -244,6 +242,7 @@ const theme = ({ dt }) => `
     box-shadow: none;
     border: 0 none;
     padding-left: ${dt('menubar.submenu.mobile.indent')};
+    padding-right: 0;
 }
 `;
 
