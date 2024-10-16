@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.1.1](https://github.com/primefaces/primevue/tree/4.1.1) (2024-10-16)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.1.0...4.1.1)
+
+**Fixed bugs:**
+
+-   Wrong token binding on inputtext [\#6590](https://github.com/primefaces/primevue/issues/6590)
+-   Table sort icon not aligned properly [\#6588](https://github.com/primefaces/primevue/issues/6588)
+-   Improve nested overlays in mobile [\#6587](https://github.com/primefaces/primevue/issues/6587)
+-   MegaMenu ignores token [\#6585](https://github.com/primefaces/primevue/issues/6585)
+-   AutoComplete is using token from the deprecated InputChips [\#6584](https://github.com/primefaces/primevue/issues/6584)
+-   Disabled ToggleSwitch in dark mode is same as non-disabled [\#6583](https://github.com/primefaces/primevue/issues/6583)
+-   Slider track border radius token not applied [\#6582](https://github.com/primefaces/primevue/issues/6582)
+-   Tree filter too close, visual bug[\#6581](https://github.com/primefaces/primevue/issues/6581)
+-   Invalid CSS in DataTable and TreeTable [\#6580](https://github.com/primefaces/primevue/issues/6580)
+-   MegaMenu: mobile visual defects [\#6578](https://github.com/primefaces/primevue/issues/6578)
+-   Typo in splitter.js (autocomplete err) [\#6570](https://github.com/primefaces/primevue/issues/6570)
+-   CascadeSelect: focus defect on mouse enter [\#6538](https://github.com/primefaces/primevue/issues/6538)
+-   Typescript support is non-existent in All components [\#6152](https://github.com/primefaces/primevue/issues/6152)
+-   DataTable - button click in a cell propagates to row-click [\#6472](https://github.com/primefaces/primevue/issues/6472)
+-   No intellisense for props, slots etc. with v4 [\#5903](https://github.com/primefaces/primevue/issues/5903)
+
 ## [4.1.0](https://github.com/primefaces/primevue/tree/4.1.0) (2024-10-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.0.7...4.1.0)
