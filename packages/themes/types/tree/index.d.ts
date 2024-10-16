@@ -256,4 +256,15 @@ export interface TreeDesignTokens extends ColorSchemeDesignToken<TreeDesignToken
          */
         size?: string;
     };
+    /**
+     * Used to pass tokens of the filter section
+     */
+    filter?: {
+        /**
+         * Margin of filter
+         *
+         * @designToken tree.filter.margin
+         */
+        margin?: string;
+    };
 }
