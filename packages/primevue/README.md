@@ -7,4 +7,4 @@
 
 # PrimeVue Website
 
-PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homepage](https://primevue.org/) for interactive demos, comprehensive documentation and additional resources.
+PrimeVue is a rich set of open source UI Components for Vue. Visit the [PrimeVue website](https://primevue.org/) for interactive demos, comprehensive documentation and additional resources.
