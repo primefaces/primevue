@@ -300,7 +300,7 @@ const theme = ({ dt }) => `
     border-width: 1px 1px 0 1px;
 }
 
-p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
+.p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
     border-width: 1px 0 1px 1px;
 }
 
