@@ -71,7 +71,7 @@ const theme = ({ dt }) => `
     white-space: nowrap;
 }
 
-.p-treetable-resizable-table > .p-treetable-thead > tr > th.p-treetable-resizable-column:not(.p-treetable-frozen-column) {
+.p-treetable-resizable-table > .p-treetable-thead > tr > th.p-treetable-resizable-column {
     background-clip: padding-box;
     position: relative;
 }

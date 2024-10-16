@@ -30,6 +30,10 @@ export default {
             type: Boolean,
             default: false
         },
+        resizable: {
+            type: Boolean,
+            default: false
+        },
         header: {
             type: null,
             default: null
