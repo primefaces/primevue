@@ -73,7 +73,7 @@ const theme = ({ dt }) => `
     white-space: nowrap;
 }
 
-.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column {
+.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column:not(.p-datatable-frozen-column) {
     background-clip: padding-box;
     position: relative;
 }
@@ -616,7 +616,7 @@ const classes = {
                   'p-datatable-header-cell',
                   {
                       'p-datatable-sortable-column': instance.columnProp('sortable'),
-                      'p-datatable-resizable-column': instance.resizableColumns,
+                      'p-datatable-resizable-column': instance.isResizable, // instance.resizableColumns,
                       'p-datatable-column-sorted': instance.isColumnSorted(),
                       'p-datatable-frozen-column': instance.columnProp('frozen'),
                       'p-datatable-reorderable-column': props.reorderableColumns
