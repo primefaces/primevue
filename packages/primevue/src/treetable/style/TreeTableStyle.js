@@ -231,6 +231,9 @@ const theme = ({ dt }) => `
 
 .p-treetable-sort-icon {
     color: ${dt('treetable.sort.icon.color')};
+    font-size: ${dt('treetable.sort.icon.size')};
+    width: ${dt('treetable.sort.icon.size')};
+    height: ${dt('treetable.sort.icon.size')};
     transition: color ${dt('treetable.transition.duration')};
 }
 

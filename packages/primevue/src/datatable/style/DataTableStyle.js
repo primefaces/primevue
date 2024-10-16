@@ -373,6 +373,9 @@ const theme = ({ dt }) => `
 
 .p-datatable-sort-icon {
     color: ${dt('datatable.sort.icon.color')};
+    font-size: ${dt('datatable.sort.icon.size')};
+    width: ${dt('datatable.sort.icon.size')};
+    height: ${dt('datatable.sort.icon.size')};
     transition: color ${dt('datatable.transition.duration')};
 }
 
