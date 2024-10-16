@@ -4,14 +4,14 @@
         <slot name="toggleicon" :active="$pcAccordionPanel.active" :class="cx('toggleicon')">
             <component
                 v-if="$pcAccordionPanel.active"
-                :is="$pcAccordion.$slots.collapseicon ? $pcAccordion.$slots.collapseicon : $pcAccordion.collapseIcon ? 'span' : 'ChevronDownIcon'"
+                :is="$pcAccordion.$slots.collapseicon ? $pcAccordion.$slots.collapseicon : $pcAccordion.collapseIcon ? 'span' : 'ChevronUpIcon'"
                 :class="[$pcAccordion.collapseIcon, cx('toggleicon')]"
                 aria-hidden="true"
                 v-bind="ptm('toggleicon', ptParams)"
             ></component>
             <component
                 v-else
-                :is="$pcAccordion.$slots.expandicon ? $pcAccordion.$slots.expandicon : $pcAccordion.expandIcon ? 'span' : 'ChevronUpIcon'"
+                :is="$pcAccordion.$slots.expandicon ? $pcAccordion.$slots.expandicon : $pcAccordion.expandIcon ? 'span' : 'ChevronDownIcon'"
                 :class="[$pcAccordion.expandIcon, cx('toggleicon')]"
                 aria-hidden="true"
                 v-bind="ptm('toggleicon', ptParams)"
