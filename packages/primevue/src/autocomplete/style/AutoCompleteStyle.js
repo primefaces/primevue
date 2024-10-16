@@ -201,8 +201,8 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-chip-item.p-focus .p-autocomplete-chip {
-    background: ${dt('inputchips.chip.focus.background')};
-    color: ${dt('inputchips.chip.focus.color')};
+    background: ${dt('autocomplete.chip.focus.background')};
+    color: ${dt('autocomplete.chip.focus.color')};
 }
 
 .p-autocomplete-input-chip {

@@ -79,12 +79,20 @@ export default {
     },
     colorScheme: {
         light: {
+            chip: {
+                focusBackground: '{surface.300}',
+                color: '{surface.900}'
+            },
             dropdown: {
                 hoverBackground: '{surface.200}',
                 activeBackground: '{surface.300}'
             }
         },
         dark: {
+            chip: {
+                focusBackground: '{surface.600}',
+                color: '{surface.0}'
+            },
             dropdown: {
                 hoverBackground: '{surface.700}',
                 activeBackground: '{surface.600}'
