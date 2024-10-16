@@ -6,10 +6,11 @@ export default {
         gap: '0.5rem',
         verticalOrientation: {
             padding: '{navigation.list.padding}',
-            gap: '0'
+            gap: '{navigation.list.gap}'
         },
         horizontalOrientation: {
-            padding: '0.75rem 1rem'
+            padding: '0.75rem 1rem',
+            gap: '0.5rem'
         },
         transitionDuration: '{transition.duration}'
     },
