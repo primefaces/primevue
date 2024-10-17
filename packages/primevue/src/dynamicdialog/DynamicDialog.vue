@@ -61,6 +61,7 @@ export default {
     methods: {
         onDialogHide(instance) {
             !this.currentInstance && instance.options.onClose && instance.options.onClose({ type: 'dialog-close' });
+            delete this.instanceMap[instance.key];
         },
         onDialogAfterHide() {
             this.currentInstance && delete this.currentInstance;
