@@ -32,7 +32,7 @@
             @keydown="onKeyDown"
             :pt="ptm('pcInputText')"
         />
-        <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton">
+        <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton" :toggleCallback="onButtonClick">
             <button
                 :class="cx('dropdown')"
                 :disabled="disabled"
