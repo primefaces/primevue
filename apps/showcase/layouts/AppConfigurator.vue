@@ -33,9 +33,19 @@
                 <span class="config-panel-label">Presets</span>
                 <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
             </div>
-            <div class="config-panel-settings">
-                <span class="config-panel-label">Ripple</span>
-                <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
+            <div class="flex">
+                <div class="flex-1">
+                    <div class="config-panel-settings">
+                        <span class="config-panel-label">Ripple</span>
+                        <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <div class="config-panel-settings">
+                        <span class="config-panel-label">RTL</span>
+                        <ToggleSwitch v-model="isRTL" @update:modelValue="onRTLChange" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -98,7 +108,8 @@ export default {
                     name: 'ocean',
                     palette: { 0: '#ffffff', 50: '#fbfcfc', 100: '#F7F9F8', 200: '#EFF3F2', 300: '#DADEDD', 400: '#B1B7B6', 500: '#828787', 600: '#5F7274', 700: '#415B61', 800: '#29444E', 900: '#183240', 950: '#0c1920' }
                 }
-            ]
+            ],
+            isRTL: false
         };
     },
     methods: {
@@ -303,6 +314,15 @@ export default {
             }
 
             $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use({ useDefaultOptions: true });
+        },
+        onRTLChange(value) {
+            const htmlElement = document.documentElement;
+
+            if (value) {
+                htmlElement.setAttribute('dir', 'rtl');
+            } else {
+                htmlElement.removeAttribute('dir');
+            }
         }
     },
     computed: {
