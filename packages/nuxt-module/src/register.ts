@@ -45,7 +45,7 @@ function registerComponents(resolvePath: any, moduleOptions: ModuleOptions) {
             global: true
         };
 
-        !moduleOptions.autoImport && addComponent(opt);
+        moduleOptions.autoImport && addComponent(opt);
 
         return {
             ..._item,
