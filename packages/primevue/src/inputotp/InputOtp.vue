@@ -71,6 +71,10 @@ export default {
                 this.moveToPrev(event);
             } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward') {
                 this.moveToNext(event);
+            } else if (event instanceof CustomEvent) {
+                // iOS/macOS one-time-code autocomplete uses CustomEvent vs. InputEvent for each character in the code
+                // If moveToNext is not called, it will continue to append the next value after the first character
+                this.moveToNext(event);
             }
         },
         updateModel(event) {
