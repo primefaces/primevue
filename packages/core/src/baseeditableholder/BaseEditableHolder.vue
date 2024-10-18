@@ -21,7 +21,7 @@ export default {
         },
         invalid: {
             type: Boolean,
-            default: false
+            default: undefined
         },
         disabled: {
             type: Boolean,
@@ -80,7 +80,7 @@ export default {
             return isNotEmpty(this.d_value);
         },
         $invalid() {
-            return this.invalid || this.$pcForm?.states?.[this.$formName]?.invalid;
+            return this.invalid ?? this.$pcForm?.states?.[this.$formName]?.invalid;
         },
         $formName() {
             return this.formControl?.name || this.name || this.$attrs.name;

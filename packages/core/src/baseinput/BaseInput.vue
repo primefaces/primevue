@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         $variant() {
-            return this.variant || this.$primevue.config.inputStyle || this.$primevue.config.inputVariant;
+            return this.variant ?? (this.$primevue.config.inputStyle || this.$primevue.config.inputVariant);
         },
         $fluid() {
             return this.fluid ?? !!this.$pcFluid;
