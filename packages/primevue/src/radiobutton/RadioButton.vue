@@ -33,7 +33,7 @@ export default {
     name: 'RadioButton',
     extends: BaseRadioButton,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -49,7 +49,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 const newModelValue = this.binary ? !this.checked : this.value;
 
-                this.$emit('update:modelValue', newModelValue);
+                this.updateValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },
@@ -58,11 +58,12 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         }
     },
     computed: {
         checked() {
-            return this.modelValue != null && (this.binary ? !!this.modelValue : equals(this.modelValue, this.value));
+            return this.d_value != null && (this.binary ? !!this.d_value : equals(this.d_value, this.value));
         }
     }
 };
