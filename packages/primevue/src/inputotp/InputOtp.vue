@@ -6,6 +6,7 @@
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('pcInputText')"
+                    :name="$formName"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
@@ -34,7 +35,7 @@ export default {
     name: 'InputOtp',
     extends: BaseInputOtp,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
     data() {
         return {
             tokens: []
@@ -76,7 +77,7 @@ export default {
         updateModel(event) {
             const newValue = this.tokens.join('');
 
-            this.$emit('update:modelValue', newValue);
+            this.updateValue(newValue, event);
             this.$emit('change', {
                 originalEvent: event,
                 value: newValue
