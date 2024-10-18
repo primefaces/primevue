@@ -56,7 +56,7 @@
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
                     ></span>
-                    <slot name="header" :value="modelValue" :options="options"></slot>
+                    <slot name="header" :value="d_value" :options="options"></slot>
                     <div :class="cx('treeContainer')" :style="{ 'max-height': scrollHeight }" v-bind="ptm('treeContainer')">
                         <TSTree
                             ref="tree"
@@ -72,7 +72,7 @@
                             :filterPlaceholder="filterPlaceholder"
                             :filterLocale="filterLocale"
                             @update:selectionKeys="onSelectionChange"
-                            :selectionKeys="modelValue"
+                            :selectionKeys="d_value"
                             :expandedKeys="d_expandedKeys"
                             @update:expandedKeys="onNodeToggle"
                             :metaKeySelection="metaKeySelection"
@@ -102,7 +102,7 @@
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
-                    <slot name="footer" :value="modelValue" :options="options"></slot>
+                    <slot name="footer" :value="d_value" :options="options"></slot>
                     <span
                         ref="lastHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -136,7 +136,7 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
+    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -210,6 +210,7 @@ export default {
         onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onClick(event) {
             if (this.disabled) {
@@ -225,7 +226,7 @@ export default {
         },
         onSelectionChange(keys) {
             this.selfChange = true;
-            this.$emit('update:modelValue', keys);
+            this.updateValue(keys);
             this.$emit('change', keys);
         },
         onNodeSelect(node) {
@@ -448,7 +449,7 @@ export default {
             return this.selectionMode === 'checkbox' ? keys[node.key] && keys[node.key].checked : keys[node.key];
         },
         updateTreeState() {
-            let keys = { ...this.modelValue };
+            let keys = { ...this.d_value };
 
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
@@ -497,8 +498,8 @@ export default {
         selectedNodes() {
             let selectedNodes = [];
 
-            if (this.modelValue && this.options) {
-                let keys = { ...this.modelValue };
+            if (this.d_value && this.options) {
+                let keys = { ...this.d_value };
 
                 this.findSelectedNodes(null, keys, selectedNodes);
             }
@@ -514,7 +515,7 @@ export default {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
         },
         emptyValue() {
-            return !this.modelValue || Object.keys(this.modelValue).length === 0;
+            return !this.$filled;
         },
         emptyOptions() {
             return !this.options || this.options.length === 0;
