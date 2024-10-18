@@ -1,0 +1,11 @@
+{
+    "main": "./BaseInput.vue",
+    "module": "./BaseInput.vue",
+    "types": "./BaseInput.d.ts",
+    "browser": {
+        "./sfc": "./BaseInput.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

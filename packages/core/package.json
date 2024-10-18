@@ -22,6 +22,8 @@
         "./basecomponent/style": "./src/basecomponent/style/BaseComponentStyle.js",
         "./basecomponent": "./src/basecomponent/BaseComponent.vue",
         "./basedirective": "./src/basedirective/BaseDirective.js",
+        "./baseeditableholder": "./src/baseeditableholder/BaseEditableHolder.vue",
+        "./baseinput": "./src/baseinput/BaseInput.vue",
         "./config": "./src/config/PrimeVue.js",
         "./service": "./src/service/PrimeVueService.js",
         "./usestyle": "./src/usestyle/UseStyle.js",
