@@ -37,10 +37,10 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance }) => [
         'p-selectbutton p-component',
         {
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid // @todo: check
         }
     ]
 };

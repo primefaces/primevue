@@ -2,6 +2,7 @@
     <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
             <ToggleButton
+                :name="$formName"
                 :modelValue="isSelected(option)"
                 :onLabel="getOptionLabel(option)"
                 :offLabel="getOptionLabel(option)"
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import { resolveFieldData, equals } from '@primeuix/utils/object';
+import { equals, resolveFieldData } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import ToggleButton from 'primevue/togglebutton';
 import BaseSelectButton from './BaseSelectButton.vue';
@@ -30,7 +31,7 @@ export default {
     name: 'SelectButton',
     extends: BaseSelectButton,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change'],
+    emits: ['change'],
     methods: {
         getOptionLabel(option) {
             return this.optionLabel ? resolveFieldData(option, this.optionLabel) : option;
@@ -59,13 +60,13 @@ export default {
             let newValue;
 
             if (this.multiple) {
-                if (selected) newValue = this.modelValue.filter((val) => !equals(val, optionValue, this.equalityKey));
-                else newValue = this.modelValue ? [...this.modelValue, optionValue] : [optionValue];
+                if (selected) newValue = this.d_value.filter((val) => !equals(val, optionValue, this.equalityKey));
+                else newValue = this.d_value ? [...this.d_value, optionValue] : [optionValue];
             } else {
                 newValue = selected ? null : optionValue;
             }
 
-            this.$emit('update:modelValue', newValue);
+            this.updateValue(newValue, event);
             this.$emit('change', { event: event, value: newValue });
         },
         isSelected(option) {
@@ -73,8 +74,8 @@ export default {
             let optionValue = this.getOptionValue(option);
 
             if (this.multiple) {
-                if (this.modelValue) {
-                    for (let val of this.modelValue) {
+                if (this.d_value) {
+                    for (let val of this.d_value) {
                         if (equals(val, optionValue, this.equalityKey)) {
                             selected = true;
                             break;
@@ -82,7 +83,7 @@ export default {
                     }
                 }
             } else {
-                selected = equals(this.modelValue, optionValue, this.equalityKey);
+                selected = equals(this.d_value, optionValue, this.equalityKey);
             }
 
             return selected;
