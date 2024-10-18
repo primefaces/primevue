@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import DatePickerStyle from 'primevue/datepicker/style';
 
 export default {
     name: 'BaseDatePicker',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         selectionMode: {
             type: String,
             default: 'single'
@@ -160,27 +159,11 @@ export default {
             type: [String, Object],
             default: 'body'
         },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         readonly: {
             type: Boolean,
             default: false
         },
         placeholder: {
-            type: String,
-            default: null
-        },
-        name: {
             type: String,
             default: null
         },
@@ -231,10 +214,6 @@ export default {
             default() {
                 return { severity: 'secondary', text: true, rounded: true };
             }
-        },
-        fluid: {
-            type: Boolean,
-            default: null
         },
         ariaLabelledby: {
             type: String,
