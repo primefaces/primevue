@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import CascadeSelectStyle from 'primevue/cascadeselect/style';
 
 export default {
     name: 'BaseCascadeSelect',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -18,15 +17,6 @@ export default {
             type: String,
             default: '960px'
         },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: Boolean,
         dataKey: null,
         inputId: {
             type: String,
@@ -134,10 +124,6 @@ export default {
         },
         ariaLabel: {
             type: String,
-            default: null
-        },
-        fluid: {
-            type: Boolean,
             default: null
         }
     },

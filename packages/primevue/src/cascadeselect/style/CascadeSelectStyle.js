@@ -220,13 +220,13 @@ const classes = {
         {
             'p-cascadeselect-mobile': instance.queryMatches,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': instance.hasFluid
+            'p-cascadeselect-fluid': instance.$fluid
         }
     ],
     label: ({ instance, props }) => [

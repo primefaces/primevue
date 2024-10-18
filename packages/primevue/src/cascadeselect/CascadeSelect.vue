@@ -26,7 +26,7 @@
             />
         </div>
         <span :class="cx('label')" v-bind="ptm('label')">
-            <slot name="value" :value="modelValue" :placeholder="placeholder">
+            <slot name="value" :value="d_value" :placeholder="placeholder">
                 {{ label }}
             </slot>
         </span>
@@ -53,7 +53,7 @@
                     @keydown="onOverlayKeyDown"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
-                    <slot name="header" :value="modelValue" :options="options" />
+                    <slot name="header" :value="d_value" :options="options" />
                     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
                             :id="id + '_tree'"
@@ -71,7 +71,7 @@
                             :optionGroupIcon="optionGroupIcon"
                             :optionGroupLabel="optionGroupLabel"
                             :optionGroupChildren="optionGroupChildren"
-                            :value="modelValue"
+                            :value="d_value"
                             @option-change="onOptionClick"
                             @option-focus-change="onOptionMouseMove"
                             @option-focus-enter-change="onOptionMouseEnter"
@@ -82,7 +82,7 @@
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
-                    <slot name="footer" :value="modelValue" :options="options" />
+                    <slot name="footer" :value="d_value" :options="options" />
                 </div>
             </transition>
         </Portal>
@@ -106,10 +106,7 @@ export default {
     name: 'CascadeSelect',
     extends: BaseCascadeSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
-    inject: {
-        $pcFluid: { default: null }
-    },
+    emits: ['change', 'focus', 'blur', 'click', 'group-change', 'before-show', 'before-hide', 'hide', 'show'],
     outsideClickListener: null,
     matchMediaListener: null,
     scrollHandler: null,
@@ -193,9 +190,9 @@ export default {
         show(isFocus) {
             this.$emit('before-show');
             this.overlayVisible = true;
-            this.activeOptionPath = this.hasSelectedOption ? this.findOptionPathByValue(this.modelValue) : this.activeOptionPath;
+            this.activeOptionPath = this.$filled ? this.findOptionPathByValue(this.d_value) : this.activeOptionPath;
 
-            if (this.hasSelectedOption && isNotEmpty(this.activeOptionPath)) {
+            if (this.$filled && isNotEmpty(this.activeOptionPath)) {
                 const processedOption = this.activeOptionPath[this.activeOptionPath.length - 1];
 
                 this.focusedOptionInfo = { index: processedOption.index, level: processedOption.level, parentKey: processedOption.parentKey };
@@ -234,6 +231,7 @@ export default {
             this.focusedOptionInfo = { index: -1, level: 0, parentKey: '' };
             this.searchValue = '';
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onKeyDown(event) {
             if (this.disabled || this.loading) {
@@ -357,7 +355,7 @@ export default {
         },
         onOptionMouseEnter(event) {
             if (this.focusOnHover) {
-                if (this.dirty || (!this.dirty && isNotEmpty(this.modelValue))) {
+                if (this.dirty || (!this.dirty && isNotEmpty(this.d_value))) {
                     this.onOptionChange({ ...event, type: 'hover' });
                 } else if (!this.dirty && event.processedOption.level === 0) {
                     this.onOptionClick({ ...event, type: 'hover' });
@@ -756,7 +754,7 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.focusedOptionInfo.index = this.findFirstFocusedOptionIndex();
                 this.onOptionChange({ processedOption: this.visibleOptions[this.focusedOptionInfo.index], isHide: false });
 
@@ -764,7 +762,7 @@ export default {
             }
         },
         updateModel(event, value) {
-            this.$emit('update:modelValue', value);
+            this.updateValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         createProcessedOptions(options, level = 0, parent = {}, parentKey = '') {
@@ -793,14 +791,15 @@ export default {
         }
     },
     computed: {
+        // @deprecated use $filled instead.
         hasSelectedOption() {
-            return isNotEmpty(this.modelValue);
+            return this.$filled;
         },
         label() {
             const label = this.placeholder || 'p-emptylabel';
 
-            if (this.hasSelectedOption) {
-                const activeOptionPath = this.findOptionPathByValue(this.modelValue);
+            if (this.$filled) {
+                const activeOptionPath = this.findOptionPathByValue(this.d_value);
                 const processedOption = isNotEmpty(activeOptionPath) ? activeOptionPath[activeOptionPath.length - 1] : null;
 
                 return processedOption ? this.getOptionLabel(processedOption.option) : label;
@@ -838,13 +837,10 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
-            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
+            return this.$filled ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {
