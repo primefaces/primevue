@@ -120,7 +120,7 @@ const classes = {
         {
             'p-toggleswitch-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid
         }
     ],
     input: 'p-toggleswitch-input',
