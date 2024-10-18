@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import AutoCompleteStyle from 'primevue/autocomplete/style';
 
 export default {
     name: 'BaseAutoComplete',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         suggestions: {
             type: Array,
             default: null
@@ -32,18 +31,6 @@ export default {
             default: false
         },
         loading: {
-            type: Boolean,
-            default: false
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
             type: Boolean,
             default: false
         },
@@ -177,10 +164,6 @@ export default {
         },
         ariaLabelledby: {
             type: String,
-            default: null
-        },
-        fluid: {
-            type: Boolean,
             default: null
         }
     },
