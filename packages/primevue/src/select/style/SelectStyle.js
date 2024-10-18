@@ -202,13 +202,13 @@ const classes = {
         'p-select p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': state.focused,
-            'p-inputwrapper-filled': instance.hasSelectedOption,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-select-open': state.overlayVisible,
-            'p-select-fluid': instance.hasFluid
+            'p-select-fluid': instance.$fluid
         }
     ],
     label: ({ instance, props }) => [
