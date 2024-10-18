@@ -1,0 +1,11 @@
+{
+    "main": "./Form.vue",
+    "module": "./Form.vue",
+    "types": "./Form.d.ts",
+    "browser": {
+        "./sfc": "./Form.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}
