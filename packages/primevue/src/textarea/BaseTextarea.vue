@@ -1,25 +1,12 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import TextareaStyle from 'primevue/textarea/style';
 
 export default {
     name: 'BaseTextarea',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
-        autoResize: Boolean,
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        fluid: {
-            type: Boolean,
-            default: null
-        }
+        autoResize: Boolean
     },
     style: TextareaStyle,
     provide() {

@@ -65,11 +65,11 @@ const classes = {
     root: ({ instance, props }) => [
         'p-textarea p-component',
         {
-            'p-filled': instance.filled,
+            'p-filled': instance.$filled,
             'p-textarea-resizable ': props.autoResize,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-textarea-fluid': instance.hasFluid
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-textarea-fluid': instance.$fluid
         }
     ]
 };
