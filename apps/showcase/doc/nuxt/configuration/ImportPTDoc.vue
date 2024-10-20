@@ -14,7 +14,7 @@ export default {
             code1: {
                 basic: `
 primevue: {
-    importPT: { from: '@/passthrough/mycustompt.js')}
+    importPT: { from: '@/passthrough/mycustompt.js' }
 }
 `
             },
