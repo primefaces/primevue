@@ -1,8 +1,8 @@
 /**
  *
- * FloatLabel visually integrates a label with its form element.
+ * CheckboxGroup is a component that groups multiple checkboxes, allowing users to select one or more options.
  *
- * [Live Demo](https://www.primevue.org/floatlabel/)
+ * [Live Demo](https://www.primevue.org/checkbox/)
  *
  * @module checkboxgroupstyle
  *

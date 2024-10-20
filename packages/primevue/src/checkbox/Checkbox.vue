@@ -99,7 +99,7 @@ export default {
     },
     computed: {
         groupName() {
-            return this.$pcCheckboxGroup ? this.$pcCheckboxGroup.groupName : this.name;
+            return this.$pcCheckboxGroup ? this.$pcCheckboxGroup.groupName : this.$formName;
         },
         checked() {
             const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;

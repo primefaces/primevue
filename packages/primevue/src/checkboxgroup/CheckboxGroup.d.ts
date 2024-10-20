@@ -1,25 +1,23 @@
 /**
  *
- * FloatLabel visually integrates a label with its form element.
+ * CheckboxGroup is a component that groups multiple checkboxes, allowing users to select one or more options.
  *
- * [Live Demo](https://www.primevue.org/floatlabel/)
+ * [Live Demo](https://www.primevue.org/checkbox/)
  *
- * @module floatlabel
+ * @module checkboxgroup
  *
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { VNode } from 'vue';
 
-export declare type FloatLabelPassThroughOptionType = FloatLabelPassThroughAttributes | ((options: FloatLabelPassThroughMethodOptions) => FloatLabelPassThroughAttributes | string) | string | null | undefined;
-
-export declare type FloatLabelPassThroughTransitionType = TransitionProps | ((options: FloatLabelPassThroughMethodOptions) => TransitionProps) | undefined;
+export declare type CheckboxGroupPassThroughOptionType = CheckboxGroupPassThroughAttributes | ((options: CheckboxGroupPassThroughMethodOptions) => CheckboxGroupPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface FloatLabelPassThroughMethodOptions {
+export interface CheckboxGroupPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -27,7 +25,7 @@ export interface FloatLabelPassThroughMethodOptions {
     /**
      * Defines valid properties.
      */
-    props: FloatLabelProps;
+    props: CheckboxGroupProps;
     /**
      * Defines valid attributes.
      */
@@ -46,11 +44,11 @@ export interface FloatLabelPassThroughMethodOptions {
  * Custom passthrough(pt) options.
  * @see {@link FloatLabelProps.pt}
  */
-export interface FloatLabelPassThroughOptions {
+export interface CheckboxGroupPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: FloatLabelPassThroughOptionType;
+    root?: CheckboxGroupPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -61,23 +59,44 @@ export interface FloatLabelPassThroughOptions {
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface FloatLabelPassThroughAttributes {
+export interface CheckboxGroupPassThroughAttributes {
     [key: string]: any;
 }
 
 /**
- * Defines valid properties in FloatLabel component.
+ * Defines valid properties in CheckboxGroup component.
  */
-export interface FloatLabelProps {
+export interface CheckboxGroupProps {
+    /**
+     * Value binding of the checkboxes.
+     */
+    modelValue?: any;
+    /**
+     * Default values of the checkboxes in uncontrolled mode.
+     */
+    defaultValue?: any;
+    /**
+     * Name of the input elements.
+     */
+    name?: string | undefined;
+    /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * Used to set form control options.
+     */
+    formControl?: any;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {FloatLabelPassThroughOptions}
+     * @type {CheckboxGroupPassThroughOptions}
      */
-    pt?: PassThrough<FloatLabelPassThroughOptions>;
+    pt?: PassThrough<CheckboxGroupPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -88,17 +107,12 @@ export interface FloatLabelProps {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Defines the positioning of the label relative to the input.
-     * @defaultValue false
-     */
-    variant?: 'over' | 'in' | 'on' | undefined;
 }
 
 /**
- * Defines valid slots in FloatLabel component.
+ * Defines valid slots in CheckboxGroup component.
  */
-export interface FloatLabelSlots {
+export interface CheckboxGroupSlots {
     /**
      * Default content slot.
      */
@@ -106,30 +120,41 @@ export interface FloatLabelSlots {
 }
 
 /**
- * Defines valid emits in FloatLabel component.
+ * Defines valid emits in CheckboxGroup component.
  */
-export interface FloatLabelEmitsOptions {}
+export interface CheckboxGroupEmitsOptions {
+    /**
+     * Emitted when the value changes.
+     * @param {*} value - New value.
+     */
+    'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
+}
 
-export declare type FloatLabelEmits = EmitFn<FloatLabelEmitsOptions>;
+export declare type CheckboxGroupEmits = EmitFn<CheckboxGroupEmitsOptions>;
 
 /**
- * **PrimeVue - FloatLabel**
+ * **PrimeVue - CheckboxGroup**
  *
- * _FloatLabel visually integrates a label with its form element._
+ * _CheckboxGroup is a component that groups multiple checkboxes, allowing users to select one or more options._
  *
- * [Live Demo](https://www.primevue.org/inputtext/)
+ * [Live Demo](https://www.primevue.org/checkbox/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *
  */
-declare const FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
+declare const CheckboxGroup: DefineComponent<CheckboxGroupProps, CheckboxGroupSlots, CheckboxGroupEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
+        CheckboxGroup: DefineComponent<CheckboxGroupProps, CheckboxGroupSlots, CheckboxGroupEmits>;
     }
 }
 
-export default FloatLabel;
+export default CheckboxGroup;
