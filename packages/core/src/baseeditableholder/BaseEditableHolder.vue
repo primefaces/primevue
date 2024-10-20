@@ -83,7 +83,7 @@ export default {
             return this.invalid ?? this.$pcForm?.states?.[this.$formName]?.invalid;
         },
         $formName() {
-            return this.formControl?.name || this.name || this.$attrs.name;
+            return this.formControl?.name || this.name;
         },
         // @deprecated use $filled instead
         filled() {

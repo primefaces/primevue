@@ -68,7 +68,7 @@ export default {
     },
     computed: {
         groupName() {
-            return this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.groupName : this.name;
+            return this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.groupName : this.$formName;
         },
         checked() {
             const value = this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.d_value : this.d_value;

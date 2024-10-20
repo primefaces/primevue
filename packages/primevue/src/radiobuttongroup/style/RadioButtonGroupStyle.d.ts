@@ -1,8 +1,8 @@
 /**
  *
- * FloatLabel visually integrates a label with its form element.
+ * RadioButtonGroup is a component that groups multiple radio buttons, allowing users to select only one option from the group.
  *
- * [Live Demo](https://www.primevue.org/floatlabel/)
+ * [Live Demo](https://www.primevue.org/radiobuttongroup/)
  *
  * @module radiobuttongroupstyle
  *
