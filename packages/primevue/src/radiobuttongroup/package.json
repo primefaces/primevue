@@ -1,0 +1,11 @@
+{
+    "main": "./RadioButtonGroup.vue",
+    "module": "./RadioButtonGroup.vue",
+    "types": "./RadioButtonGroup.d.ts",
+    "browser": {
+        "./sfc": "./RadioButtonGroup.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

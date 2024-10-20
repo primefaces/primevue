@@ -125,7 +125,7 @@ const classes = {
         {
             'p-radiobutton-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': instance.$invalid,
+            'p-invalid': instance.$pcRadioButtonGroup ? instance.$pcRadioButtonGroup.$invalid : instance.$invalid,
             'p-variant-filled': instance.$variant === 'filled'
         }
     ],
