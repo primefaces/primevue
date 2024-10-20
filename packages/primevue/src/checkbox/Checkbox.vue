@@ -6,7 +6,7 @@
             :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="value"
-            :name="name"
+            :name="groupName"
             :checked="checked"
             :tabindex="tabindex"
             :disabled="disabled"
@@ -41,6 +41,11 @@ export default {
     extends: BaseCheckbox,
     inheritAttrs: false,
     emits: ['change', 'focus', 'blur', 'update:indeterminate'],
+    inject: {
+        $pcCheckboxGroup: {
+            default: undefined
+        }
+    },
     data() {
         return {
             d_indeterminate: this.indeterminate
@@ -65,13 +70,14 @@ export default {
         },
         onChange(event) {
             if (!this.disabled && !this.readonly) {
+                const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;
                 let newModelValue;
 
                 if (this.binary) {
                     newModelValue = this.d_indeterminate ? this.trueValue : this.checked ? this.falseValue : this.trueValue;
                 } else {
-                    if (this.checked || this.d_indeterminate) newModelValue = this.d_value.filter((val) => !equals(val, this.value));
-                    else newModelValue = this.d_value ? [...this.d_value, this.value] : [this.value];
+                    if (this.checked || this.d_indeterminate) newModelValue = value.filter((val) => !equals(val, this.value));
+                    else newModelValue = value ? [...value, this.value] : [this.value];
                 }
 
                 if (this.d_indeterminate) {
@@ -79,7 +85,7 @@ export default {
                     this.$emit('update:indeterminate', this.d_indeterminate);
                 }
 
-                this.updateValue(newModelValue, event);
+                this.$pcCheckboxGroup ? this.$pcCheckboxGroup.updateValue(newModelValue, event) : this.updateValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },
@@ -92,8 +98,13 @@ export default {
         }
     },
     computed: {
+        groupName() {
+            return this.$pcCheckboxGroup ? this.$pcCheckboxGroup.groupName : this.name;
+        },
         checked() {
-            return this.d_indeterminate ? false : this.binary ? this.d_value === this.trueValue : contains(this.value, this.d_value);
+            const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;
+
+            return this.d_indeterminate ? false : this.binary ? value === this.trueValue : contains(this.value, value);
         }
     },
     components: {

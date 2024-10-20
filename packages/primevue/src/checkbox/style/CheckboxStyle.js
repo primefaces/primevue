@@ -120,7 +120,7 @@ const classes = {
         {
             'p-checkbox-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': instance.$invalid,
+            'p-invalid': instance.$pcCheckboxGroup ? instance.$pcCheckboxGroup.$invalid : instance.$invalid,
             'p-variant-filled': instance.$variant === 'filled'
         }
     ],
