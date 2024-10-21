@@ -97,7 +97,7 @@ export const useForm = (options = {}) => {
                 states[sField].invalid = errors.length > 0;
                 states[sField].valid = !states[sField].invalid;
                 states[sField].errors = errors;
-                states[sField].value = value;
+                //states[sField].value = value;
             }
         }
 
