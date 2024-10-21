@@ -55,7 +55,13 @@
         "primevue": "workspace:*",
         "@primevue/core": "workspace:*",
         "@primevue/nuxt-module": "workspace:*",
-        "@primevue/themes": "workspace:*"
+        "@primevue/themes": "workspace:*",
+        "@primevue/form": "workspace:*",
+        "yup": "1.4.0",
+        "zod": "3.23.8",
+        "joi": "^17.13.3",
+        "valibot": "^0.42.1",
+        "superstruct": "^2.0.2"
     },
     "dependencies": {
         "@docsearch/js": "^3.3.3",
