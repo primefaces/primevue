@@ -14,8 +14,8 @@ const theme = ({ dt }) => `
     cursor: pointer;
     appearance: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100%;
     padding: 0;
