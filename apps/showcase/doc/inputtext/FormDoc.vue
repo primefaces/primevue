@@ -86,9 +86,7 @@ const value = ref(null);
         this.resolver = zodResolver(this.schema);
     },
     methods: {
-        onFormSubmit({ valid, values, states }) {
-            console.log(values, states);
-
+        onFormSubmit({ valid }) {
             if (valid) {
                 this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
             }
