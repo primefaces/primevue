@@ -27,7 +27,7 @@ export default {
             filteredCountries: null,
             resolver: null,
             schema: z.object({
-                city: z.string().refine((val) => val.name !== '', {
+                country: z.string().refine((val) => val.name !== '', {
                     message: 'Please select a country.'
                 })
             }),
