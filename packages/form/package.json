@@ -13,23 +13,21 @@
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
-    "main": "./src/index.js",
-    "module": "./src/index.js",
-    "types": "./src/index.d.ts",
+    "main": "./src/form/Form.vue",
+    "types": "./src/form/Form.d.ts",
     "exports": {
-        ".": "./src/index.js",
-        "./form/style": "./src/form/style/FormStyle.js",
-        "./form": "./src/form/Form.vue",
+        ".": "./src/form/Form.vue",
+        "./style": "./src/form/style/FormStyle.js",
         "./*": "./src/*/index.js"
     },
     "publishConfig": {
-        "main": "./index.mjs",
-        "module": "./index.mjs",
-        "types": "./index.d.ts",
+        "main": "./form/index.mjs",
+        "module": "./form/index.mjs",
+        "types": "./form/index.d.ts",
         "exports": {
             ".": {
-                "types": "./index.d.ts",
-                "import": "./index.mjs"
+                "types": "./form/index.d.ts",
+                "import": "./form/index.mjs"
             },
             "./*": {
                 "types": "./*/index.d.ts",
