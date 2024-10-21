@@ -102,6 +102,14 @@ export interface SliderProps {
      */
     modelValue?: number | number[] | undefined;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: number | number[] | undefined;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Mininum boundary value.
      * @defaultValue 0
      */
@@ -127,6 +135,11 @@ export interface SliderProps {
      */
     range?: boolean | undefined;
     /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
      */
@@ -143,6 +156,10 @@ export interface SliderProps {
      * Used to define a string that labels the element.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -178,6 +195,11 @@ export interface SliderEmitsOptions {
      * @param {number | number[]} value - New value.
      */
     'update:modelValue'(value: number | number[]): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {number | number[]} value - New value.
+     */
+    'value-change'(value: number | number[]): void;
     /**
      * Callback to invoke on value change.
      * @param {number} value - New value

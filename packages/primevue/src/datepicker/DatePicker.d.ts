@@ -518,6 +518,14 @@ export interface DatePickerProps {
      */
     modelValue?: Date | Array<Date> | Array<Date | null> | undefined | null;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: Date | Array<Date> | Array<Date | null> | undefined | null;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Defines the quantity of the selection.
      * @defaultValue single
      */
@@ -720,10 +728,6 @@ export interface DatePickerProps {
      */
     placeholder?: string | undefined;
     /**
-     * Name of the element.
-     */
-    name?: string | undefined;
-    /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body
      */
@@ -789,6 +793,10 @@ export interface DatePickerProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -965,6 +973,11 @@ export interface DatePickerEmitsOptions {
      * @param {string | Date | string[] | Date[] | undefined} value - New value.
      */
     'update:modelValue'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     */
+    'value-change'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
     /**
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event

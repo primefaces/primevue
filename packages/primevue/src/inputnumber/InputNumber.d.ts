@@ -194,6 +194,14 @@ export interface InputNumberProps {
      */
     modelValue?: Nullable<number>;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: Nullable<number>;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Whether to format the value.
      * @defaultValue true
      */
@@ -360,6 +368,10 @@ export interface InputNumberProps {
      */
     ariaLabel?: string | undefined;
     /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -431,6 +443,11 @@ export interface InputNumberEmitsOptions {
      * @param {number} value - New value.
      */
     'update:modelValue'(value: number): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {number} value - New value.
+     */
+    'value-change'(value: number): void;
     /**
      * Callback to invoke when the value is entered.
      * @param {InputNumberInputEvent} event - Custom input event.

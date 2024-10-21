@@ -2,29 +2,25 @@
  *
  * [Live Demo](https://primevue.org/)
  *
- * @module basecomponent
+ * @module baseinput
  *
  */
-export interface ComponentHooks {
-    onBeforeCreate?(): void;
-    onCreated?(): void;
-    onBeforeMount?(): void;
-    onMounted?(): void;
-    onBeforeUpdate?(): void;
-    onUpdated?(): void;
-    onBeforeUnmount?(): void;
-    onUnmounted?(): void;
+import { BaseEditableHolderEmitsOptions, BaseEditableHolderProps } from '@primevue/core/baseeditableholder';
+
+export interface BaseInputProps extends BaseEditableHolderProps {
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * Spans 100% width of the container when enabled.
+     */
+    fluid?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
 }
 
-export interface BaseComponentPassThroughOptions {
-    hooks?: ComponentHooks;
-}
-
-/**
- * @todo Update all d.ts with it.
- */
-export interface BaseComponentPassThroughMethodOptions<I = any, P = any, S = any> {
-    instance?: I | undefined | null;
-    props?: P | undefined | null;
-    state?: S | undefined | null;
-}
+export interface BaseInputEmitsOptions extends BaseEditableHolderEmitsOptions {}
