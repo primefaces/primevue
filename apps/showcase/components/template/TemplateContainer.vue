@@ -21,12 +21,10 @@ export default {
     },
     computed: {
         components() {
-            return this.templateData.components.map((component) => {
-                return {
-                    ...component,
-                    name: markRaw(component.name)
-                };
-            });
+            return this.templateData?.components?.map(({ name, ...rest }) => ({
+                ...rest,
+                name
+            }));
         }
     }
 };

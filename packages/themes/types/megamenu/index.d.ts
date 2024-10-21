@@ -72,6 +72,12 @@ export interface MegaMenuDesignTokens extends ColorSchemeDesignToken<MegaMenuDes
              * @designToken megamenu.horizontal.orientation.padding
              */
             padding?: string;
+            /**
+             * Horizontal orientation gap of root
+             *
+             * @designToken megamenu.horizontal.orientation.gap
+             */
+            gap?: string;
         };
         /**
          * Transition duration of root

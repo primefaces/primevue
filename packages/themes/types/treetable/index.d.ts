@@ -422,6 +422,12 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
          * @designToken treetable.sort.icon.hover.color
          */
         hoverColor?: string;
+        /**
+         * Size of sort icon
+         *
+         * @designToken treetable.sort.icon.size
+         */
+        size?: string;
     };
     /**
      * Used to pass tokens of the loading icon section

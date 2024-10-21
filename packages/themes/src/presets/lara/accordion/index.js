@@ -20,7 +20,7 @@ export default {
             style: '{focus.ring.style}',
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
-            shadow: '{focus.ring.shadow}'
+            shadow: 'inset {focus.ring.shadow}'
         },
         toggleIcon: {
             color: '{text.muted.color}',

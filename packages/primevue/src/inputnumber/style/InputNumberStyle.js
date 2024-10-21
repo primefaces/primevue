@@ -99,7 +99,7 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-button {
     border: 1px solid ${dt('inputnumber.button.border.color')};
-    padding: ${dt('inputnumber.button.vertical.padding')}; 0;
+    padding: ${dt('inputnumber.button.vertical.padding')};
 }
 
 .p-inputnumber-vertical .p-inputnumber-button:hover {

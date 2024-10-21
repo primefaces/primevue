@@ -136,9 +136,6 @@ const theme = ({ dt }) => `
     border: 0 none;
     color: ${dt('cascadeselect.option.color')};
     background: transparent;
-    transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
-    'cascadeselect.transition.duration'
-)}, outline-color ${dt('cascadeselect.transition.duration')};
     border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
@@ -149,7 +146,6 @@ const theme = ({ dt }) => `
 .p-cascadeselect-option-active > .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.focus.background')};
     color: ${dt('cascadeselect.option.focus.color')};
-    border-radius: ${dt('cascadeselect.option.border.radius')};
 }
 
 .p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus > .p-cascadeselect-option-content {
@@ -157,22 +153,21 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.focus.color')};
 }
 
-.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus .p-cascadeselect-group-icon {
+.p-cascadeselect-option:not(.p-cascadeselect-option-selected):not(.p-disabled).p-focus > .p-cascadeselect-option-content > .p-cascadeselect-group-icon-container > .p-cascadeselect-group-icon {
     color: ${dt('cascadeselect.option.icon.focus.color')};
 }
 
-.p-cascadeselect-option-selected .p-cascadeselect-option-content {
+.p-cascadeselect-option-selected > .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.selected.background')};
     color: ${dt('cascadeselect.option.selected.color')};
 }
 
-.p-cascadeselect-option-selected.p-focus {
+.p-cascadeselect-option-selected.p-focus > .p-cascadeselect-option-content {
     background: ${dt('cascadeselect.option.selected.focus.background')};
     color: ${dt('cascadeselect.option.selected.focus.color')};
 }
 
 .p-cascadeselect-option-active > .p-cascadeselect-option-list {
-    display: block;
     left: 100%;
     top: 0;
 }
@@ -184,6 +179,10 @@ const theme = ({ dt }) => `
     overflow: hidden;
     position: relative;
     padding: ${dt('cascadeselect.option.padding')};
+    border-radius: ${dt('cascadeselect.option.border.radius')};
+    transition: background ${dt('cascadeselect.transition.duration')}, color ${dt('cascadeselect.transition.duration')}, border-color ${dt('cascadeselect.transition.duration')}, box-shadow ${dt(
+    'cascadeselect.transition.duration'
+)}, outline-color ${dt('cascadeselect.transition.duration')};
 }
 
 .p-cascadeselect-group-icon {
@@ -193,37 +192,21 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.icon.color')};
 }
 
-.p-cascadeselect-mobile-active .p-cascadeselect-option-content {
-    border-radius: ${dt('cascadeselect.option.border.radius')};
+.p-cascadeselect-mobile-active .p-cascadeselect-option-list {
+    position: static;
+    box-shadow: none;
+    border: 0 none;
+    padding-left: ${dt('tieredmenu.submenu.mobile.indent')};
+    padding-right: 0;
 }
 
-.p-cascadeselect-mobile-active-active .p-cascadeselect-list {
-    display: flex;
-    flex-direction: column;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-}
-
-.p-cascadeselect-mobile-active .p-cascadeselect-list > .p-cascadeselect-option > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
-    margin-left: auto;
-    transition: transform 0.2s;
-}
-
-.p-cascadeselect-mobile-active .p-cascadeselect-list .p-cascadeselect-group-icon {
+.p-cascadeselect-mobile-active .p-cascadeselect-group-icon {
     transition: transform 0.2s;
     transform: rotate(90deg);
 }
 
 .p-cascadeselect-mobile-active .p-cascadeselect-option-active > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
     transform: rotate(-90deg);
-}
-
-.p-cascadeselect-mobile-active .p-cascadeselect-option-list {
-    position: static;
-    box-shadow: none;
-    border: 0 none;
-    padding-left: ${dt('cascadeselect.list.mobile.indent')};
 }
 `;
 
@@ -262,7 +245,7 @@ const classes = {
             'p-cascadeselect-mobile-active': instance.queryMatches
         }
     ],
-    listContainer: 'p-cascadeselect-list',
+    listContainer: 'p-cascadeselect-list-container',
     list: 'p-cascadeselect-list',
     option: ({ instance, processedOption }) => [
         'p-cascadeselect-option',

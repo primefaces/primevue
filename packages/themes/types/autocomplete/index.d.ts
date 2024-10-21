@@ -409,6 +409,18 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          * @designToken autocomplete.chip.border.radius
          */
         borderRadius?: string;
+        /**
+         * Focus background of chip
+         *
+         * @designToken autocomplete.chip.focus.background
+         */
+        focusBackground?: string;
+        /**
+         * Color of chip
+         *
+         * @designToken autocomplete.chip.color
+         */
+        color?: string;
     };
     /**
      * Used to pass tokens of the empty message section

@@ -223,7 +223,7 @@ export default {
                     break;
             }
         },
-        onItemChange(event) {
+        onItemChange(event, type) {
             const { processedItem, isFocus } = event;
 
             if (isEmpty(processedItem)) return;
@@ -238,9 +238,14 @@ export default {
             }
 
             this.focusedItemInfo = { index, level, parentKey };
-            this.activeItemPath = activeItemPath;
 
             isFocus && focus(this.list);
+
+            if (type === 'hover' && this.queryMatches) {
+                return;
+            }
+
+            this.activeItemPath = activeItemPath;
         },
         onItemClick(event) {
             const { processedItem } = event;
@@ -259,7 +264,7 @@ export default {
             }
         },
         onItemMouseEnter(event) {
-            this.onItemChange(event);
+            this.onItemChange(event, 'hover');
         },
         onItemMouseMove(event) {
             if (this.focused) {

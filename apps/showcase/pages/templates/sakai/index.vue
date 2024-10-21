@@ -12,6 +12,7 @@ import TemplateFeatures from '@/components/template/TemplateFeatures.vue';
 import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAnimation.vue';
 import TemplateHero from '@/components/template/TemplateHero.vue';
 import SakaiLogo from '@/components/template/logo/SakaiLogo.vue';
+import { markRaw } from 'vue';
 
 export default {
     data() {
@@ -19,10 +20,10 @@ export default {
             sakaiData: {
                 components: [
                     {
-                        name: TemplateHero,
+                        name: markRaw(TemplateHero),
                         props: {
                             templateHeroData: {
-                                logo: SakaiLogo,
+                                logo: markRaw(SakaiLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard2.png',
@@ -40,7 +41,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {
@@ -58,7 +59,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             title: 'Features',
                             featuresData: [
@@ -91,7 +92,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateConfiguration,
+                        name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
                                 title: 'Vue based on Vite and Nuxt',
@@ -100,7 +101,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             featuresData: [
                                 {
@@ -130,7 +131,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {

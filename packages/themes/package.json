@@ -1,6 +1,6 @@
 {
     "name": "@primevue/themes",
-    "version": "4.1.0",
+    "version": "4.1.1",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -82,7 +82,7 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "^0.2.0"
+        "@primeuix/styled": "catalog:"
     },
     "engines": {
         "node": ">=12.11.0"

@@ -84,7 +84,7 @@
             <div class="col-span-12 lg:col-span-6 xl:col-span-4">
                 <div class="card mb-0">
                     <a href="https://diamond.primevue.org" rel="noopener noreferrer" target="_blank">
-                        <img alt="Diamond" src="https://primefaces.org/cdn/primevue/images/layouts/diamond-vue.jpg" class="w-full" />
+                        <img alt="Diamond" src="https://primefaces.org/cdn/primevue/images/layouts/diamond-remastered-vue.jpg" class="w-full" />
                     </a>
                     <div class="flex gap-4 mt-4">
                         <a href="https://diamond.primevue.org" class="p-button flex-1" rel="noopener noreferrer" target="_blank">

@@ -51,6 +51,7 @@
                     :optionGroupIcon="optionGroupIcon"
                     :optionGroupLabel="optionGroupLabel"
                     :optionGroupChildren="optionGroupChildren"
+                    :value="value"
                     @option-change="$emit('option-change', $event)"
                     @option-focus-change="$emit('option-focus-change', $event)"
                     @option-focus-enter-change="$emit('option-focus-enter-change', $event)"
@@ -63,11 +64,10 @@
 </template>
 
 <script>
-import { isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
+import { equals, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Ripple from 'primevue/ripple';
-
 export default {
     name: 'CascadeSelectSub',
     hostName: 'CascadeSelect',
@@ -89,9 +89,9 @@ export default {
         },
         activeOptionPath: Array,
         level: Number,
-        templates: null
+        templates: null,
+        value: null
     },
-
     methods: {
         getOptionId(processedOption) {
             return `${this.selectId}_${processedOption.key}`;
@@ -128,7 +128,7 @@ export default {
             return isNotEmpty(processedOption.children);
         },
         isOptionSelected(processedOption) {
-            return !this.isOptionGroup(processedOption) && this.isOptionActive(processedOption);
+            return equals(this.value, processedOption?.option);
         },
         isOptionActive(processedOption) {
             return this.activeOptionPath.some((path) => path.key === processedOption.key);

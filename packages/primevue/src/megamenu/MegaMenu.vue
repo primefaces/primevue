@@ -43,6 +43,7 @@
             :activeItem="activeItem"
             :mobileActive="mobileActive"
             :level="0"
+            :style="sx('rootList')"
             :pt="pt"
             :unstyled="unstyled"
             @focus="onFocus"
@@ -164,8 +165,8 @@ export default {
             if (this.mobileActive) {
                 this.mobileActive = false;
                 setTimeout(() => {
-                    focus(this.$refs.menubutton);
-                }, 0);
+                    focus(this.$refs.menubutton, { preventScroll: true });
+                }, 1);
             }
 
             this.activeItem = null;
@@ -287,7 +288,10 @@ export default {
                 this.focusedItemInfo = { index, key, parentKey };
 
                 this.dirty = !root;
-                focus(this.menubar);
+
+                if (!this.mobileActive) {
+                    focus(this.menubar, { preventScroll: true });
+                }
             } else {
                 if (grouped) {
                     this.onItemChange(event);
@@ -603,10 +607,16 @@ export default {
         },
         scrollInView(index = -1) {
             const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
-            const element = findSingle(this.menubar, `li[id="${id}"]`);
+            let element;
+
+            if (id === null && this.queryMatches) {
+                element = this.$refs.menubutton;
+            } else {
+                element = findSingle(this.menubar, `li[id="${id}"]`);
+            }
 
             if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
             }
         },
         createProcessedItems(items, level = 0, parent = {}, parentKey = '', columnIndex) {

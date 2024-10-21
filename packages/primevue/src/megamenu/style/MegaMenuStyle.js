@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
     gap: ${dt('megamenu.gap')};
 }
 
-.p-megamenu-root-list > .p-megamenu-item > .p-menumegamenubar-item-content {
+.p-megamenu-root-list > .p-megamenu-item > .p-menumega-item-content {
     border-radius: ${dt('megamenu.base.item.border.radius')};
 }
 
@@ -271,11 +271,11 @@ const theme = ({ dt }) => `
     gap: ${dt('megamenu.submenu.gap')};
     background: ${dt('megamenu.overlay.background')};
     border: 1px solid ${dt('megamenu.overlay.border.color')};
-    box-shadow: ${dt('menubar.overlay.shadow')};
+    box-shadow: ${dt('megamenu.overlay.shadow')};
 }
 
 .p-megamenu-mobile-active .p-megamenu-root-list {
-    display: flex;
+    display: block;
 }
 
 .p-megamenu-mobile .p-megamenu-root-list .p-megamenu-item {
@@ -307,7 +307,7 @@ const theme = ({ dt }) => `
 `;
 
 const inlineStyles = {
-    submenu: ({ instance, processedItem }) => ({ display: instance.isItemActive(processedItem) ? 'block' : 'none' })
+    rootList: ({ props }) => ({ 'max-height': props.scrollHeight, overflow: 'auto' })
 };
 
 const classes = {

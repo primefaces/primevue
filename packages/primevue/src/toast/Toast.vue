@@ -145,7 +145,6 @@ export default {
             }
         }
     },
-
     components: {
         ToastMessage: ToastMessage,
         Portal: Portal

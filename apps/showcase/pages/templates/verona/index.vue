@@ -13,6 +13,7 @@ import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAni
 import TemplateHero from '@/components/template/TemplateHero.vue';
 import TemplateLicense from '@/components/template/TemplateLicense.vue';
 import VeronaLogo from '@/components/template/logo/VeronaLogo.vue';
+import { markRaw } from 'vue';
 
 export default {
     data() {
@@ -20,10 +21,10 @@ export default {
             veronaData: {
                 components: [
                     {
-                        name: TemplateHero,
+                        name: markRaw(TemplateHero),
                         props: {
                             templateHeroData: {
-                                logo: VeronaLogo,
+                                logo: markRaw(VeronaLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png',
                                 description: 'Prepare to be amazed by the remastered Verona for PrimeVue featuring a new gorgeous dark mode for the entire layout, 2 menu modes, reusable css widgets, utilities, modern icons and many more.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard1.png',
@@ -38,7 +39,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateLicense,
+                        name: markRaw(TemplateLicense),
                         props: {
                             license: {
                                 documentLink: 'https://verona.primevue.org/documentation',
@@ -62,7 +63,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             title: 'Features',
                             featuresData: [
@@ -117,7 +118,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateConfiguration,
+                        name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
                                 title: 'Vue based on Vite',
@@ -126,7 +127,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             featuresData: [
                                 {
@@ -165,7 +166,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {

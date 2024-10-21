@@ -433,6 +433,12 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.sort.icon.hover.color
          */
         hoverColor?: string;
+        /**
+         * Size of sort icon
+         *
+         * @designToken datatable.sort.icon.size
+         */
+        size?: string;
     };
     /**
      * Used to pass tokens of the loading icon section

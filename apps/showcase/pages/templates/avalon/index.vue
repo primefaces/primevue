@@ -13,6 +13,7 @@ import TemplateFeaturesAnimation from '@/components/template/TemplateFeaturesAni
 import TemplateHero from '@/components/template/TemplateHero.vue';
 import TemplateLicense from '@/components/template/TemplateLicense.vue';
 import AvalonLogo from '@/components/template/logo/AvalonLogo.vue';
+import { markRaw } from 'vue';
 
 export default {
     data() {
@@ -20,10 +21,10 @@ export default {
             avalonData: {
                 components: [
                     {
-                        name: TemplateHero,
+                        name: markRaw(TemplateHero),
                         props: {
                             templateHeroData: {
-                                logo: AvalonLogo,
+                                logo: markRaw(AvalonLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png',
                                 rectangle: false,
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard1.png',
@@ -39,7 +40,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateLicense,
+                        name: markRaw(TemplateLicense),
                         props: {
                             license: {
                                 documentLink: 'https://avalon.primevue.org/documentation',
@@ -63,7 +64,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             title: 'Features',
                             featuresData: [
@@ -133,7 +134,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateConfiguration,
+                        name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
                                 title: 'Vue App with No Configuration',
@@ -142,7 +143,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {
@@ -165,7 +166,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeaturesAnimation,
+                        name: markRaw(TemplateFeaturesAnimation),
                         props: {
                             featuresData: [
                                 {
@@ -205,7 +206,7 @@ export default {
                         }
                     },
                     {
-                        name: TemplateFeatures,
+                        name: markRaw(TemplateFeatures),
                         props: {
                             featuresData: [
                                 {

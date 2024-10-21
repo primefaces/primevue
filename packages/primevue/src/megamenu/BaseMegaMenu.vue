@@ -26,6 +26,10 @@ export default {
             type: Number,
             default: 0
         },
+        scrollHeight: {
+            type: String,
+            default: '20rem'
+        },
         ariaLabelledby: {
             type: String,
             default: null

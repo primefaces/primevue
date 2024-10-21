@@ -5,10 +5,10 @@
     <div class="card flex justify-center">
         <ImageCompare class="sm:!w-96 shadow-lg rounded-2xl">
             <template #left>
-                <img src="~/assets/images/island1.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
             </template>
             <template #right>
-                <img src="~/assets/images/island2.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
             </template>
         </ImageCompare>
     </div>
@@ -35,10 +35,10 @@ export default {
     <div class="card flex justify-center">
         <ImageCompare class="sm:!w-96 shadow-lg rounde-2xl">
             <template #left>
-                <img src="~/assets/images/island1.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
             </template>
             <template #right>
-                <img src="~/assets/images/island2.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
             </template>
         </ImageCompare>
     </div>
@@ -49,10 +49,10 @@ export default {
     <div class="card flex justify-center">
         <ImageCompare class="sm:!w-96 shadow-lg">
             <template #left>
-                <img src="~/assets/images/island1.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
             </template>
             <template #right>
-                <img src="~/assets/images/island2.jpg" />
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
             </template>
         </ImageCompare>
     </div>

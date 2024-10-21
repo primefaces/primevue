@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Two-way value binding is defined using v-model.</p>
+        <p>Two-way value binding is defined using <i>v-model</i>.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Rating v-model="value" />

@@ -74,7 +74,6 @@ const theme = ({ dt }) => `
 
 .p-autocomplete-overlay {
     position: absolute;
-    overflow: auto;
     top: 0;
     left: 0;
     background: ${dt('autocomplete.overlay.background')};
@@ -90,7 +89,6 @@ const theme = ({ dt }) => `
 
 .p-autocomplete-list {
     margin: 0;
-    padding: 0;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -203,8 +201,8 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-chip-item.p-focus .p-autocomplete-chip {
-    background: ${dt('inputchips.chip.focus.background')};
-    color: ${dt('inputchips.chip.focus.color')};
+    background: ${dt('autocomplete.chip.focus.background')};
+    color: ${dt('autocomplete.chip.focus.color')};
 }
 
 .p-autocomplete-input-chip {

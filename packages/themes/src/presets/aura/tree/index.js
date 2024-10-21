@@ -47,5 +47,8 @@ export default {
     },
     loadingIcon: {
         size: '2rem'
+    },
+    filter: {
+        margin: '0 0 0.5rem 0'
     }
 };

@@ -373,6 +373,9 @@ const theme = ({ dt }) => `
 
 .p-datatable-sort-icon {
     color: ${dt('datatable.sort.icon.color')};
+    font-size: ${dt('datatable.sort.icon.size')};
+    width: ${dt('datatable.sort.icon.size')};
+    height: ${dt('datatable.sort.icon.size')};
     transition: color ${dt('datatable.transition.duration')};
 }
 
@@ -450,7 +453,7 @@ const theme = ({ dt }) => `
     border-width: 1px 1px 0 1px;
 }
 
-p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
+.p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
     border-width: 1px 0 1px 1px;
 }
 
