@@ -120,10 +120,23 @@ export interface KnobProps {
      */
     modelValue?: number | undefined;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Size of the component in pixels.
      * @defaultValue 100
      */
     size?: number | undefined;
+    /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
     /**
      * When present, it specifies that the component should be disabled.
      * @defaultValue false
@@ -193,6 +206,10 @@ export interface KnobProps {
      */
     ariaLabel?: string | undefined;
     /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -224,12 +241,17 @@ export interface KnobSlots {}
 export interface KnobEmitsOptions {
     /**
      * Emitted when the value changes.
-     * @param {number} event - New value.
+     * @param {number} value - New value.
      */
     'update:modelValue'(value: number): void;
     /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {number} value - New value.
+     */
+    'value-change'(value: number): void;
+    /**
      * Callback to invoke when the value changes.
-     * @param {number} event - New value
+     * @param {number} value - New value
      */
     change(value: number): void;
 }
