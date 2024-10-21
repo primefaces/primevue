@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/checkbox/BasicDoc.vue';
 import DisabledDoc from '@/doc/checkbox/DisabledDoc.vue';
 import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
 import FilledDoc from '@/doc/checkbox/FilledDoc.vue';
+import FormDoc from '@/doc/checkbox/FormDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
 import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
 import IndeterminateDoc from '@/doc/checkbox/IndeterminateDoc.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'indeterminate',
