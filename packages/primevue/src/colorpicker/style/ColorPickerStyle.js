@@ -120,7 +120,8 @@ const classes = {
         'p-colorpicker-panel',
         {
             'p-colorpicker-panel-inline': props.inline,
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-invalid': instance.$invalid
         }
     ],
     colorSelector: 'p-colorpicker-color-selector',
