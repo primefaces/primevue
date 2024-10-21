@@ -1,25 +1,32 @@
 /**
  *
- * Fluid is a layout component to make descendant components span full width of their container.
+ * Form provides validation functionality and manages form state.
  *
- * [Live Demo](https://www.primevue.org/fluid/)
+ * [Live Demo](https://www.primevue.org/form/)
  *
- * @module fluid
+ * @module form
  *
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { VNode } from 'vue';
 
-export declare type FluidPassThroughOptionType = FluidPassThroughAttributes | ((options: FluidPassThroughMethodOptions) => FluidPassThroughAttributes | string) | string | null | undefined;
+/**
+ * From primevue/passthrough/index.d.ts
+ */
+export declare type PassThroughMergePropsType = ((...args: any) => object | undefined) | boolean | undefined;
 
-export declare type FluidPassThroughTransitionType = TransitionProps | ((options: FluidPassThroughMethodOptions) => TransitionProps) | undefined;
+export interface PassThroughOptions {
+    mergeSections?: boolean | undefined;
+    mergeProps?: PassThroughMergePropsType;
+}
+
+export declare type FormPassThroughOptionType = FormPassThroughAttributes | ((options: FormPassThroughMethodOptions) => FormPassThroughAttributes | string) | string | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface FluidPassThroughMethodOptions {
+export interface FormPassThroughMethodOptions {
     /**
      * Defines instance.
      */
@@ -27,7 +34,7 @@ export interface FluidPassThroughMethodOptions {
     /**
      * Defines valid properties.
      */
-    props: FluidProps;
+    props: FormProps;
     /**
      * Defines valid attributes.
      */
@@ -44,13 +51,13 @@ export interface FluidPassThroughMethodOptions {
 
 /**
  * Custom passthrough(pt) options.
- * @see {@link FluidProps.pt}
+ * @see {@link FormProps.pt}
  */
-export interface FluidPassThroughOptions {
+export interface FormPassThroughOptions {
     /**
      * Used to pass attributes to the root's DOM element.
      */
-    root?: FluidPassThroughOptionType;
+    root?: FormPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -61,23 +68,51 @@ export interface FluidPassThroughOptions {
 /**
  * Custom passthrough attributes for each DOM elements
  */
-export interface FluidPassThroughAttributes {
+export interface FormPassThroughAttributes {
     [key: string]: any;
 }
 
 /**
- * Defines valid properties in Fluid component.
+ * Defines valid properties in Form component.
  */
-export interface FluidProps {
+export interface FormProps {
+    /**
+     * A function that resolves validation logic.
+     */
+    resolver?: (values: Record<string, any>) => Promise<Record<string, any>> | Record<string, any> | undefined;
+    /**
+     * The default values for the form fields in uncontrolled mode.
+     */
+    defaultValues?: Record<string, any> | undefined;
+    /**
+     * Whether to validate the form fields when the values change.
+     * @defaultValue true
+     */
+    validateOnValueUpdate?: boolean | string[] | undefined;
+    /**
+     * Whether to validate the form fields when they lose focus (on blur).
+     * @defaultValue false
+     */
+    validateOnBlur?: boolean | string[] | undefined;
+    /**
+     * Whether to validate the form fields immediately after the form is mounted.
+     * @defaultValue false
+     */
+    validateOnMount?: boolean | string[] | undefined;
+    /**
+     * Whether to validate the form fields when the form is submitted.
+     * @defaultValue true
+     */
+    validateOnSubmit?: boolean | string[] | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
     /**
      * Used to pass attributes to DOM elements inside the component.
-     * @type {FluidPassThroughOptions}
+     * @type {FormPassThroughOptions}
      */
-    pt?: PassThrough<FluidPassThroughOptions>;
+    pt?: PassThrough<FormPassThroughOptions>;
     /**
      * Used to configure passthrough(pt) options of the component.
      * @type {PassThroughOptions}
@@ -91,9 +126,9 @@ export interface FluidProps {
 }
 
 /**
- * Defines valid slots in Fluid component.
+ * Defines valid slots in Form component.
  */
-export interface FluidSlots {
+export interface FormSlots {
     /**
      * Default content slot.
      */
@@ -101,30 +136,36 @@ export interface FluidSlots {
 }
 
 /**
- * Defines valid emits in Fluid component.
+ * Defines valid emits in Form component.
  */
-export interface FluidEmitsOptions {}
+export interface FormEmitsOptions {
+    /**
+     * Emitted when the form is submitted.
+     * @param {Event} event - Original DOM event.
+     */
+    submit: (event: Event) => void;
+}
 
-export declare type FluidEmits = EmitFn<FluidEmitsOptions>;
+export declare type FormEmits = EmitFn<FormEmitsOptions>;
 
 /**
- * **PrimeVue - Fluid**
+ * **PrimeVue - Form**
  *
- * _Fluid is a layout component to make descendant components span full width of their container._
+ * _Form provides validation functionality and manages form state._
  *
- * [Live Demo](https://www.primevue.org/fluid/)
+ * [Live Demo](https://www.primevue.org/form/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
  * @group Component
  *
  */
-declare const Fluid: DefineComponent<FluidProps, FluidSlots, FluidEmits>;
+declare const Form: DefineComponent<FormProps, FormSlots, FormEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Fluid: DefineComponent<FluidProps, FluidSlots, FluidEmits>;
+        Form: DefineComponent<FormProps, FormSlots, FormEmits>;
     }
 }
 
-export default Fluid;
+export default Form;
