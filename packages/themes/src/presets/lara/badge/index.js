@@ -36,23 +36,23 @@ export default {
                 color: '{surface.600}'
             },
             success: {
-                background: '{green.500}',
+                background: '{colorsuccess.500}',
                 color: '{surface.0}'
             },
             info: {
-                background: '{sky.500}',
+                background: '{colorinfo.500}',
                 color: '{surface.0}'
             },
             warn: {
-                background: '{orange.500}',
+                background: '{colorwarning.500}',
                 color: '{surface.0}'
             },
             danger: {
-                background: '{red.500}',
+                background: '{colordanger.500}',
                 color: '{surface.0}'
             },
             contrast: {
-                background: '{surface.950}',
+                background: '{surface.900}',
                 color: '{surface.0}'
             }
         },
@@ -66,24 +66,24 @@ export default {
                 color: '{surface.300}'
             },
             success: {
-                background: '{green.400}',
-                color: '{green.950}'
+                background: '{colorsuccess.400}',
+                color: '{colorsuccess.800}'
             },
             info: {
-                background: '{sky.400}',
-                color: '{sky.950}'
+                background: '{colorinfo.400}',
+                color: '{colorinfo.900}'
             },
             warn: {
-                background: '{orange.400}',
-                color: '{orange.950}'
+                background: '{colorwarning.400}',
+                color: '{colorwarning.800}'
             },
             danger: {
-                background: '{red.400}',
-                color: '{red.950}'
+                background: '{colordanger.400}',
+                color: '{colordanger.800}'
             },
             contrast: {
                 background: '{surface.0}',
-                color: '{surface.950}'
+                color: '{surface.900}'
             }
         }
     }

@@ -32,7 +32,7 @@ export default {
     colorScheme: {
         light: {
             legend: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
                 color: '{text.color}',
                 hoverColor: '{text.hover.color}'

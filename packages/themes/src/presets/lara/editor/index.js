@@ -32,7 +32,7 @@ export default {
     colorScheme: {
         light: {
             toolbar: {
-                background: '{surface.50}'
+                background: '{surface.100}'
             }
         },
         dark: {

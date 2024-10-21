@@ -39,7 +39,7 @@ export default {
         },
         dark: {
             handle: {
-                contentBackground: '{surface.950}'
+                contentBackground: '{surface.900}'
             }
         }
     }

@@ -1,13 +1,13 @@
 export default {
     addon: {
         borderRadius: '{form.field.border.radius}',
-        padding: '0.625rem 0.5rem',
-        minWidth: '2.75rem'
+        padding: '0 .5rem',
+        minWidth: '2.75rem',
     },
     colorScheme: {
         light: {
             addon: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 borderColor: '{form.field.border.color}',
                 color: '{text.muted.color}'
             }

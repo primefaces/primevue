@@ -56,9 +56,7 @@ export default {
         borderWidth: '0 0 1px 0',
         padding: '0.75rem 1rem'
     },
-    dropPoint: {
-        color: '{primary.color}'
-    },
+    dropPointColor: '{primary.color}',
     columnResizerWidth: '0.5rem',
     resizeIndicator: {
         width: '1px',
@@ -66,8 +64,7 @@ export default {
     },
     sortIcon: {
         color: '{text.muted.color}',
-        hoverColor: '{text.hover.muted.color}',
-        size: '0.875rem'
+        hoverColor: '{text.hover.muted.color}'
     },
     loadingIcon: {
         size: '2rem'
@@ -142,24 +139,24 @@ export default {
                 borderColor: '{content.border.color}'
             },
             header: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             headerCell: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
                 color: '{text.color}'
             },
             footer: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             footerCell: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             row: {
-                stripedBackground: '{surface.50}'
+                stripedBackground: '{surface.100}'
             },
             bodyCell: {
                 selectedBorderColor: '{primary.100}'
@@ -187,7 +184,7 @@ export default {
                 color: '{text.color}'
             },
             row: {
-                stripedBackground: '{surface.950}'
+                stripedBackground: '{surface.900}'
             },
             bodyCell: {
                 selectedBorderColor: '{primary.900}'

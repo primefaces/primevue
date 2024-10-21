@@ -110,7 +110,7 @@ export default {
     colorScheme: {
         light: {
             dropdown: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
                 activeBackground: '{surface.200}',
                 color: '{surface.600}',

@@ -19,24 +19,24 @@ export default {
         checkedHoverBorderColor: 'transparent',
         invalidBorderColor: '{form.field.invalid.border.color}',
         transitionDuration: '{form.field.transition.duration}',
-        slideDuration: '0.2s'
+        slideDuration: '0.2s',
+        disabledBackground: '{form.field.disabled.background}'
     },
     handle: {
         borderRadius: '50%',
-        size: '1.25rem'
+        size: '1.25rem',
+        disabledBackground: '{form.field.disabled.color}'
     },
     colorScheme: {
         light: {
             root: {
                 background: '{surface.300}',
-                disabledBackground: '{form.field.disabled.background}',
                 hoverBackground: '{surface.400}',
                 checkedBackground: '{primary.color}',
                 checkedHoverBackground: '{primary.hover.color}'
             },
             handle: {
                 background: '{surface.0}',
-                disabledBackground: '{form.field.disabled.color}',
                 hoverBackground: '{surface.0}',
                 checkedBackground: '{surface.0}',
                 checkedHoverBackground: '{surface.0}',
@@ -49,14 +49,12 @@ export default {
         dark: {
             root: {
                 background: '{surface.700}',
-                disabledBackground: '{surface.600}',
                 hoverBackground: '{surface.600}',
                 checkedBackground: '{primary.color}',
                 checkedHoverBackground: '{primary.hover.color}'
             },
             handle: {
                 background: '{surface.400}',
-                disabledBackground: '{surface.900}',
                 hoverBackground: '{surface.300}',
                 checkedBackground: '{surface.900}',
                 checkedHoverBackground: '{surface.900}',

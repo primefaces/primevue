@@ -13,27 +13,27 @@ export default {
     colorScheme: {
         light: {
             info: {
-                background: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                borderColor: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                color: '{blue.600}',
+                background: 'color-mix(in srgb, {colorinfo.50}, transparent 5%)',
+                borderColor: 'color-mix(in srgb, {colorinfo.50}, transparent 5%)',
+                color: '{colorinfo.600}',
                 shadow: 'none'
             },
             success: {
-                background: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                borderColor: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                color: '{green.600}',
+                background: 'color-mix(in srgb, {colorsuccess.100}, transparent 5%)',
+                borderColor: 'color-mix(in srgb, {colorsuccess.100}, transparent 5%)',
+                color: '{colorsuccess.600}',
                 shadow: 'none'
             },
             warn: {
-                background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                borderColor: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                color: '{yellow.600}',
+                background: 'color-mix(in srgb,{colorwarning.100}, transparent 5%)',
+                borderColor: 'color-mix(in srgb,{colorwarning.100}, transparent 5%)',
+                color: '{colorwarning.600}',
                 shadow: 'none'
             },
             error: {
-                background: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                borderColor: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                color: '{red.600}',
+                background: 'color-mix(in srgb, {colordanger.100}, transparent 5%)',
+                borderColor: 'color-mix(in srgb, {colordanger.100}, transparent 5%)',
+                color: '{colordanger.600}',
                 shadow: 'none'
             },
             secondary: {
@@ -45,33 +45,33 @@ export default {
             contrast: {
                 background: '{surface.900}',
                 borderColor: '{surface.900}',
-                color: '{surface.50}',
+                color: '{surface.100}',
                 shadow: 'none'
             }
         },
         dark: {
             info: {
-                background: 'color-mix(in srgb, {blue.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {blue.500}, transparent 84%)',
-                color: '{blue.500}',
+                background: 'color-mix(in srgb, {colorinfo.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorinfo.500}, transparent 84%)',
+                color: '{colorinfo.500}',
                 shadow: 'none'
             },
             success: {
-                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                color: '{green.500}',
+                background: 'color-mix(in srgb, {colorsuccess.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorsuccess.500}, transparent 84%)',
+                color: '{colorsuccess.500}',
                 shadow: 'none'
             },
             warn: {
-                background: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
-                color: '{yellow.500}',
+                background: 'color-mix(in srgb, {colorwarning.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorwarning.500}, transparent 84%)',
+                color: '{colorwarning.500}',
                 shadow: 'none'
             },
             error: {
-                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                color: '{red.500}',
+                background: 'color-mix(in srgb, {colordanger.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colordanger.500}, transparent 84%)',
+                color: '{colordanger.500}',
                 shadow: 'none'
             },
             secondary: {
@@ -83,7 +83,7 @@ export default {
             contrast: {
                 background: '{surface.0}',
                 borderColor: '{surface.0}',
-                color: '{surface.950}',
+                color: '{surface.900}',
                 shadow: 'none'
             }
         }

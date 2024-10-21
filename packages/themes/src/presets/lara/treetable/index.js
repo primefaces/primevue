@@ -64,8 +64,7 @@ export default {
     },
     sortIcon: {
         color: '{text.muted.color}',
-        hoverColor: '{text.hover.muted.color}',
-        size: '0.875rem'
+        hoverColor: '{text.hover.muted.color}'
     },
     loadingIcon: {
         size: '2rem'
@@ -100,20 +99,20 @@ export default {
                 borderColor: '{content.border.color}'
             },
             header: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             headerCell: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
                 color: '{text.color}'
             },
             footer: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             footerCell: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 color: '{text.color}'
             },
             bodyCell: {

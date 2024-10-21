@@ -28,7 +28,7 @@ export default {
     },
     action: {
         hoverBackground: 'rgba(255,255,255,0.1)',
-        color: '{surface.50}',
+        color: '{surface.100}',
         hoverColor: '{surface.0}',
         size: '3rem',
         iconSize: '1.5rem',

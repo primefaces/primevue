@@ -6,11 +6,10 @@ export default {
         gap: '0.5rem',
         verticalOrientation: {
             padding: '{navigation.list.padding}',
-            gap: '{navigation.list.gap}'
+            gap: '0'
         },
         horizontalOrientation: {
-            padding: '0.75rem 1rem',
-            gap: '0.5rem'
+            padding: '0.75rem 1rem'
         },
         transitionDuration: '{transition.duration}'
     },
@@ -78,7 +77,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.50}'
+                background: '{surface.100}'
             }
         },
         dark: {

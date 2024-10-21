@@ -86,7 +86,7 @@ export default {
         gutter: '0.5rem',
         background: 'rgba(255, 255, 255, 0.1)',
         hoverBackground: 'rgba(255, 255, 255, 0.2)',
-        color: '{surface.50}',
+        color: '{surface.100}',
         hoverColor: '{surface.0}',
         borderRadius: '50%',
         focusRing: {
@@ -103,7 +103,7 @@ export default {
     colorScheme: {
         light: {
             thumbnailsContent: {
-                background: '{surface.50}'
+                background: '{surface.100}'
             },
             thumbnailNavButton: {
                 hoverBackground: '{surface.100}',

@@ -61,7 +61,7 @@ export default {
     colorScheme: {
         light: {
             root: {
-                background: '{surface.50}'
+                background: '{surface.100}'
             }
         },
         dark: {

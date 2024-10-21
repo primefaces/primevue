@@ -20,7 +20,7 @@ export default {
             style: '{focus.ring.style}',
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
-            shadow: 'inset {focus.ring.shadow}'
+            shadow: '{focus.ring.shadow}'
         },
         toggleIcon: {
             color: '{text.muted.color}',
@@ -47,9 +47,9 @@ export default {
     colorScheme: {
         light: {
             header: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
-                activeBackground: '{surface.50}',
+                activeBackground: '{surface.100}',
                 activeHoverBackground: '{surface.100}'
             }
         },

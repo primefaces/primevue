@@ -62,7 +62,7 @@ export default {
                 shadow: '0px 0px 10px 50px rgba(255, 255, 255, 0.6)'
             },
             tab: {
-                background: '{surface.50}',
+                background: '{surface.100}',
                 hoverBackground: '{surface.100}',
                 activeBackground: '{surface.0}'
             }

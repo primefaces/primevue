@@ -21,16 +21,16 @@ export default {
     colorScheme: {
         light: {
             strength: {
-                weakBackground: '{red.500}',
-                mediumBackground: '{amber.500}',
-                strongBackground: '{green.500}'
+                weakBackground: '{colordanger.500}',
+                mediumBackground: '{colorwarning.500}',
+                strongBackground: '{colorsuccess.500}'
             }
         },
         dark: {
             strength: {
-                weakBackground: '{red.400}',
-                mediumBackground: '{amber.400}',
-                strongBackground: '{green.400}'
+                weakBackground: '{colordanger.400}',
+                mediumBackground: '{colorwarning.400}',
+                strongBackground: '{colorsuccess.400}'
             }
         }
     }

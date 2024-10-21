@@ -54,7 +54,7 @@ export default {
     colorScheme: {
         light: {
             option: {
-                stripedBackground: '{surface.50}'
+                stripedBackground: '{surface.100}'
             }
         },
         dark: {

@@ -7,7 +7,7 @@ export default {
     },
     body: {
         padding: '1.5rem',
-        gap: '0.75rem'
+        gap: '1.5rem'
     },
     caption: {
         gap: '0.5rem'

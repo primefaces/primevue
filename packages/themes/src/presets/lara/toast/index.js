@@ -40,58 +40,58 @@ export default {
         light: {
             blur: '1.5px',
             info: {
-                background: 'color-mix(in srgb, {blue.50}, transparent 5%)',
-                borderColor: '{blue.500}',
-                color: '{blue.600}',
+                background: 'color-mix(in srgb, {colorinfo.100}, transparent 5%)',
+                borderColor: '{colorinfo.500}',
+                color: '{colorinfo.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
-                    hoverBackground: '{blue.100}',
+                    hoverBackground: '{colorinfo.100}',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem {blue.200}'
+                        shadow: '0 0 0 0.2rem {colorinfo.200}'
                     }
                 }
             },
             success: {
-                background: 'color-mix(in srgb, {green.50}, transparent 5%)',
-                borderColor: '{green.500}',
-                color: '{green.600}',
+                background: 'color-mix(in srgb, {colorsuccess.100}, transparent 5%)',
+                borderColor: '{colorsuccess.500}',
+                color: '{colorsuccess.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
-                    hoverBackground: '{green.100}',
+                    hoverBackground: '{colorsuccess.100}',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem {green.200}'
+                        shadow: '0 0 0 0.2rem {colorsuccess.200}'
                     }
                 }
             },
             warn: {
-                background: 'color-mix(in srgb,{yellow.50}, transparent 5%)',
-                borderColor: '{yellow.500}',
-                color: '{yellow.600}',
+                background: 'color-mix(in srgb,{colorwarning.100}, transparent 5%)',
+                borderColor: '{colorwarning.500}',
+                color: '{colorwarning.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
-                    hoverBackground: '{yellow.100}',
+                    hoverBackground: '{colorwarning.100}',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem {yellow.200}'
+                        shadow: '0 0 0 0.2rem {colorwarning.200}'
                     }
                 }
             },
             error: {
-                background: 'color-mix(in srgb, {red.50}, transparent 5%)',
-                borderColor: '{red.500}',
-                color: '{red.600}',
+                background: 'color-mix(in srgb, {colordanger.100}, transparent 5%)',
+                borderColor: '{colordanger.500}',
+                color: '{colordanger.600}',
                 detailColor: '{surface.700}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
-                    hoverBackground: '{red.100}',
+                    hoverBackground: '{colordanger.100}',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem {red.200}'
+                        shadow: '0 0 0 0.2rem {colordanger.200}'
                     }
                 }
             },
@@ -112,7 +112,7 @@ export default {
             contrast: {
                 background: '{surface.900}',
                 borderColor: '{primary.color}',
-                color: '{surface.50}',
+                color: '{surface.100}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
@@ -127,58 +127,58 @@ export default {
         dark: {
             blur: '10px',
             info: {
-                background: 'color-mix(in srgb, {blue.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {blue.700}, transparent 64%)',
-                color: '{blue.500}',
+                background: 'color-mix(in srgb, {colorinfo.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorinfo.700}, transparent 64%)',
+                color: '{colorinfo.500}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
                     hoverBackground: 'rgba(255, 255, 255, 0.05)',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem color-mix(in srgb, {blue.500}, transparent 80%)'
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {colorinfo.500}, transparent 80%)'
                     }
                 }
             },
             success: {
-                background: 'color-mix(in srgb, {green.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {green.700}, transparent 64%)',
-                color: '{green.500}',
+                background: 'color-mix(in srgb, {colorsuccess.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorsuccess.700}, transparent 64%)',
+                color: '{colorsuccess.500}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
                     hoverBackground: 'rgba(255, 255, 255, 0.05)',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem color-mix(in srgb, {green.500}, transparent 80%)'
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {colorsuccess.500}, transparent 80%)'
                     }
                 }
             },
             warn: {
-                background: 'color-mix(in srgb, {yellow.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {yellow.700}, transparent 64%)',
-                color: '{yellow.500}',
+                background: 'color-mix(in srgb, {colorwarning.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colorwarning.700}, transparent 64%)',
+                color: '{colorwarning.500}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
                     hoverBackground: 'rgba(255, 255, 255, 0.05)',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem color-mix(in srgb, {yellow.500}, transparent 80%)'
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {colorwarning.500}, transparent 80%)'
                     }
                 }
             },
             error: {
-                background: 'color-mix(in srgb, {red.500}, transparent 84%)',
-                borderColor: 'color-mix(in srgb, {red.700}, transparent 64%)',
-                color: '{red.500}',
+                background: 'color-mix(in srgb, {colordanger.500}, transparent 84%)',
+                borderColor: 'color-mix(in srgb, {colordanger.700}, transparent 64%)',
+                color: '{colordanger.500}',
                 detailColor: '{surface.0}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
                     hoverBackground: 'rgba(255, 255, 255, 0.05)',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem color-mix(in srgb, {red.500}, transparent 80%)'
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {colordanger.500}, transparent 80%)'
                     }
                 }
             },
@@ -199,14 +199,14 @@ export default {
             contrast: {
                 background: '{surface.0}',
                 borderColor: '{surface.100}',
-                color: '{surface.950}',
-                detailColor: '{surface.950}',
+                color: '{surface.900}',
+                detailColor: '{surface.900}',
                 shadow: '{overlay.popover.shadow}',
                 closeButton: {
                     hoverBackground: '{surface.100}',
                     focusRing: {
                         color: '{focus.ring.color}',
-                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.950}, transparent 80%)'
+                        shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.900}, transparent 80%)'
                     }
                 }
             }
