@@ -2,7 +2,6 @@
     <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
             <ToggleButton
-                :name="$formName"
                 :modelValue="isSelected(option)"
                 :onLabel="getOptionLabel(option)"
                 :offLabel="getOptionLabel(option)"
