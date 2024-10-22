@@ -38,6 +38,9 @@ export const useForm = (options = {}) => {
                 states[field].touched = true;
                 (fieldOptions?.validateOnBlur ?? isFieldValidate(field, options.validateOnBlur)) && validate(field);
             },
+            onInput: (event) => {
+                states[field].value = event.hasOwnProperty('value') ? event.value : event.target.value;
+            },
             onChange: (event) => {
                 states[field].value = event.hasOwnProperty('value') ? event.value : event.target.type === 'checkbox' || event.target.type === 'radio' ? event.target.checked : event.target.value;
             },
