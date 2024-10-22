@@ -49,6 +49,9 @@ export default {
         modelValue(newValue) {
             this.d_value = newValue;
         },
+        defaultValue(newValue) {
+            this.d_value = newValue;
+        },
         formControl: {
             immediate: true,
             handler(newValue) {
@@ -66,11 +69,13 @@ export default {
     methods: {
         updateValue(value, event) {
             // uncontrolled
-            this.d_value = value;
-            this.$emit('value-change', value);
-
-            // controlled
-            this.$emit('update:modelValue', value);
+            if (this.uncontolled) {
+                this.$emit('value-change', value);
+            } else {
+                // controlled
+                this.d_value = value;
+                this.$emit('update:modelValue', value);
+            }
 
             this.formField.onChange?.({ originalEvent: event, value });
         }
@@ -84,6 +89,9 @@ export default {
         },
         $formName() {
             return this.formControl?.name || this.name;
+        },
+        uncontolled() {
+            return this.defaultValue !== undefined && this.modelValue === undefined;
         },
         // @deprecated use $filled instead
         filled() {
