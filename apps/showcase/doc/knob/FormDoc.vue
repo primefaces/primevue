@@ -4,14 +4,14 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col items-center gap-2">
                 <Knob name="knob" />
                 <Message v-if="$form.knob?.invalid" severity="error">{{ $form.knob.errors[0]?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
 </template>
 
 <script>
@@ -26,19 +26,15 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    knob: z.number().gt(0, { message: 'Must be greater than 25.' }).lt(10, { message: 'Must be less than 75.' })
+                    knob: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
                 })
             ),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
-    <div class="flex flex-col gap-2">
-        <InputText name="username" type="text" placeholder="Username" />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
-    </div>
-    <div class="flex flex-col gap-2">
-        <InputText name="email" type="text" placeholder="Email" />
-        <Message v-if="$form.email?.invalid" severity="error">{{ $form.email.errors[0]?.message }}</Message>
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-2">
+        <Knob name="knob" />
+        <Message v-if="$form.knob?.invalid" severity="error">{{ $form.knob.errors[0]?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -46,15 +42,39 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <InputText type="text" v-model="value" />
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-2">
+                <Knob name="knob" />
+                <Message v-if="$form.knob?.invalid" severity="error">{{ $form.knob.errors[0]?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
     </div>
+    <Toast />
 </template>
 
 <script>
+import { zodResolver } from '@primevue/form/resolvers';
+import { z } from 'zod';
+
 export default {
     data() {
         return {
-            value: null
+            initialValues: {
+                knob: 15
+            },
+            resolver: zodResolver(
+                z.object({
+                    knob: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
+                })
+            )
+        }
+    },
+    methods: {
+        onFormSubmit({ valid }) {
+            if (valid) {
+                this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+            }
         }
     }
 }
@@ -64,20 +84,44 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <InputText type="text" v-model="value" />
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-2">
+                <Knob name="knob" />
+                <Message v-if="$form.knob?.invalid" severity="error">{{ $form.knob.errors[0]?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
     </div>
+    <Toast />
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { zodResolver } from '@primevue/form/resolvers';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
 
-const value = ref(null);
+
+const toast = useToast();
+const initialValues = ref({
+    knob: 15
+});
+const resolver = ref(zodResolver(
+    z.object({
+        knob: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
 <\/script>
         `
             }
         };
     },
-
     methods: {
         onFormSubmit({ valid }) {
             if (valid) {
