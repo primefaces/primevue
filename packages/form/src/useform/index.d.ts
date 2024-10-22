@@ -9,7 +9,7 @@ export interface useFormReturn {
 
 export interface useFormOptions {
     resolver?: (values: Record<string, any>) => Promise<Record<string, any>> | Record<string, any> | undefined;
-    defaultValues?: Record<string, any> | undefined;
+    initialValues?: Record<string, any> | undefined;
     validateOnValueUpdate?: boolean | string[];
     validateOnBlur?: boolean | string[];
     validateOnMount?: boolean | string[];

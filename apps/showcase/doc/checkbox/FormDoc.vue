@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
                     <div class="flex items-center">
@@ -37,7 +37,7 @@ import { z } from 'zod';
 export default {
     data() {
         return {
-            defaultValues: {
+            initialValues: {
                 checkbox: []
             },
             resolver: null,
@@ -46,7 +46,7 @@ export default {
             }),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <InputText name="username" type="text" placeholder="Username" />
         <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>

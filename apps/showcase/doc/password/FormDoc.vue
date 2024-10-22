@@ -3,7 +3,7 @@
         <p>InputText is used with the <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <Password name="password" placeholder="Password" :feedback="false" />
                 <template v-if="$form.password?.invalid">
@@ -23,7 +23,7 @@ import { z } from 'zod';
 export default {
     data() {
         return {
-            defaultValues: {
+            initialValues: {
                 password: ''
             },
             resolver: null,
@@ -44,7 +44,7 @@ export default {
             }),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <Password name="password" placeholder="Password" :feedback="false" />
         <template v-if="$form.password?.invalid">

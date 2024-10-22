@@ -11,7 +11,7 @@ export default {
             type: Function,
             default: null
         },
-        defaultValues: {
+        initialValues: {
             type: Object,
             default: null
         },

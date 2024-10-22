@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
                 <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
@@ -20,7 +20,7 @@ import { z } from 'zod';
 export default {
     data() {
         return {
-            defaultValues: {
+            initialValues: {
                 city: { name: '' }
             },
             cities: [
@@ -38,7 +38,7 @@ export default {
             }),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
         <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>

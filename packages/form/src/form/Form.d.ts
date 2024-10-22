@@ -81,9 +81,9 @@ export interface FormProps {
      */
     resolver?: (values: Record<string, any>) => Promise<Record<string, any>> | Record<string, any> | undefined;
     /**
-     * The default values for the form fields in uncontrolled mode.
+     * The initial values for the form fields.
      */
-    defaultValues?: Record<string, any> | undefined;
+    initialValues?: Record<string, any> | undefined;
     /**
      * Whether to validate the form fields when the values change.
      * @defaultValue true

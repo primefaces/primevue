@@ -13,7 +13,7 @@ export const useForm = (options = {}) => {
 
     const getInitialState = (field) => {
         return {
-            value: options.defaultValues?.[field],
+            value: options.initialValues?.[field],
             touched: false,
             dirty: false,
             pristine: true,

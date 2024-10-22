@@ -3,7 +3,7 @@
         <p>InputText can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
@@ -25,7 +25,7 @@ import { z } from 'zod';
 export default {
     data() {
         return {
-            defaultValues: {
+            initialValues: {
                 username: '',
                 email: ''
             },
@@ -36,7 +36,7 @@ export default {
             }),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <InputText name="username" type="text" placeholder="Username" />
         <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
