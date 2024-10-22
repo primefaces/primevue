@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import PasswordStyle from 'primevue/password/style';
 
 export default {
     name: 'BasePassword',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: String,
         promptLabel: {
             type: String,
             default: null
@@ -59,14 +58,6 @@ export default {
             type: String,
             default: undefined
         },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
         disabled: {
             type: Boolean,
             default: false
@@ -78,10 +69,6 @@ export default {
         required: {
             type: Boolean,
             default: false
-        },
-        fluid: {
-            type: Boolean,
-            default: null
         },
         inputId: {
             type: String,

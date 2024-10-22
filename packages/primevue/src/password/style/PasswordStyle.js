@@ -86,9 +86,9 @@ const classes = {
     root: ({ instance }) => [
         'p-password p-component p-inputwrapper',
         {
-            'p-inputwrapper-filled': instance.filled,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused,
-            'p-password-fluid': instance.hasFluid
+            'p-password-fluid': instance.$fluid
         }
     ],
     pcInputText: 'p-password-input',
