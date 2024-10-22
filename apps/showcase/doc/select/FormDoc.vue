@@ -33,24 +33,15 @@ export default {
             resolver: null,
             schema: z.object({
                 city: z.object({
-                    name: z
-                        .string()
-                        .min(1, 'City option cannot be empty.')
-                        .refine((val) => val !== '', {
-                            message: 'City should be selected.'
-                        })
+                    name: z.string().min(1, 'City should be selected.')
                 })
             }),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
-        <InputText name="username" type="text" placeholder="Username" />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
-    </div>
-    <div class="flex flex-col gap-2">
-        <InputText name="email" type="text" placeholder="Email" />
-        <Message v-if="$form.email?.invalid" severity="error">{{ $form.email.errors[0]?.message }}</Message>
+        <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" class="self-center p-2">Submit</Button>
 </Form>
