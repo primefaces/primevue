@@ -116,7 +116,7 @@ const theme = ({ dt }) => `
 const classes = {
     root: 'p-colorpicker p-component',
     preview: ({ props }) => ['p-colorpicker-preview', { 'p-disabled': props.disabled }],
-    panel: ({ props }) => [
+    panel: ({ instance, props }) => [
         'p-colorpicker-panel',
         {
             'p-colorpicker-panel-inline': props.inline,
