@@ -31,7 +31,13 @@ export default {
             ],
             resolver: null,
             schema: z.object({
-                city: z.array(z.object()).min(1, { message: 'At least one city should be selected.' })
+                city: z
+                    .array(
+                        z.object({
+                            name: z.string().min(1, 'Option cannot be empty')
+                        })
+                    )
+                    .min(1, 'At least one city should be selected.')
             }),
             code: {
                 basic: `
