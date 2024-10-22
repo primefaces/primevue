@@ -21,26 +21,22 @@ export default {
     data() {
         return {
             defaultValues: {
-                country: ''
+                country: { name: '' }
             },
             countries: null,
             filteredCountries: null,
             resolver: null,
             schema: z.object({
-                country: z.string().refine((val) => val.name !== '', {
-                    message: 'Please select a country.'
+                country: z.object({
+                    name: z.string().min(1, 'Country cannot be empty.')
                 })
             }),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :defaultValues="defaultValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
-        <InputText name="username" type="text" placeholder="Username" />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
-    </div>
-    <div class="flex flex-col gap-2">
-        <InputText name="email" type="text" placeholder="Email" />
-        <Message v-if="$form.email?.invalid" severity="error">{{ $form.email.errors[0]?.message }}</Message>
+        <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+        <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.errors[0]?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" class="self-center p-2">Submit</Button>
 </Form>
@@ -95,10 +91,8 @@ const value = ref(null);
                 }
             }, 250);
         },
-        onFormSubmit(x) {
-            console.log(x);
-
-            if (x.valid) {
+        onFormSubmit({ valid }) {
+            if (valid) {
                 this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
             }
         }
