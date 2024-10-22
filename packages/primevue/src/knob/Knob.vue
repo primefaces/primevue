@@ -48,7 +48,7 @@ export default {
         };
     },
     methods: {
-        updateValue(offsetX, offsetY) {
+        updateValueByOffset(offsetX, offsetY) {
             let dx = offsetX - this.size / 2;
             let dy = this.size / 2 - offsetY;
             let angle = Math.atan2(dy, dx);
@@ -78,7 +78,7 @@ export default {
         },
         onClick(event) {
             if (!this.disabled && !this.readonly) {
-                this.updateValue(event.offsetX, event.offsetY);
+                this.updateValueByOffset(event.offsetX, event.offsetY);
             }
         },
         onBlur(event) {
@@ -114,7 +114,7 @@ export default {
         },
         onMouseMove(event) {
             if (!this.disabled && !this.readonly) {
-                this.updateValue(event.offsetX, event.offsetY);
+                this.updateValueByOffset(event.offsetX, event.offsetY);
                 event.preventDefault();
             }
         },
@@ -125,7 +125,7 @@ export default {
                 const offsetX = touch.clientX - rect.left;
                 const offsetY = touch.clientY - rect.top;
 
-                this.updateValue(offsetX, offsetY);
+                this.updateValueByOffset(offsetX, offsetY);
             }
         },
         onKeyDown(event) {
