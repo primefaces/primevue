@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/password/BasicDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
 import FilledDoc from '@/doc/password/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
+import FormDoc from '@/doc/password/FormDoc.vue';
 import IftaLabelDoc from '@/doc/password/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
@@ -31,6 +32,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'meter',
