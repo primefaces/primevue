@@ -16,6 +16,7 @@ import BasicDoc from '@/doc/cascadeselect/BasicDoc.vue';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/cascadeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
+import FormDoc from '@/doc/cascadeselect/FormDoc.vue';
 import IftaLabelDoc from '@/doc/cascadeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
@@ -37,6 +38,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'template',

@@ -21,6 +21,7 @@ import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/multiselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/multiselect/ImportDoc.vue';
+import FormDoc from '@/doc/multiselect/FormDoc.vue';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc.vue';
 import TemplateDoc from '@/doc/multiselect/TemplateDoc.vue';
@@ -41,6 +42,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'chips',
