@@ -63,6 +63,12 @@ export default {
             handler(newValue) {
                 this.formField = this.$pcForm?.register?.(newValue, this.formControl) || {};
             }
+        },
+        $formDefaultValue: {
+            immediate: true,
+            handler(newValue) {
+                this.d_value !== newValue && (this.d_value = newValue);
+            }
         }
     },
     formField: {},
@@ -89,6 +95,9 @@ export default {
         },
         $formName() {
             return this.formControl?.name || this.name;
+        },
+        $formDefaultValue() {
+            return this.d_value ?? this.$pcForm?.initialValues?.[this.$formName];
         },
         uncontolled() {
             return this.defaultValue !== undefined && this.modelValue === undefined;
