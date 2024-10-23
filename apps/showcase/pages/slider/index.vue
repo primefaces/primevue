@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/slider/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/slider/BasicDoc.vue';
 import FilterDoc from '@/doc/slider/FilterDoc.vue';
+import FormDoc from '@/doc/slider/FormDoc.vue';
 import ImportDoc from '@/doc/slider/ImportDoc.vue';
 import InputDoc from '@/doc/slider/InputDoc.vue';
 import RangeDoc from '@/doc/slider/RangeDoc.vue';
@@ -27,6 +28,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'input',
