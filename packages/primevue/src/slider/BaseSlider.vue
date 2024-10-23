@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import SliderStyle from 'primevue/slider/style';
 
 export default {
     name: 'BaseSlider',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: [Number, Array],
         min: {
             type: Number,
             default: 0
@@ -24,10 +23,6 @@ export default {
             default: null
         },
         range: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
             type: Boolean,
             default: false
         },
