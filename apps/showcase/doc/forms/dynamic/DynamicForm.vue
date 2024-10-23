@@ -13,7 +13,7 @@
     </Form>
 </template>
 
-<script>
+<script setup>
 import { isNotEmpty } from '@primeuix/utils';
 import { zodResolver } from '@primevue/form/resolvers';
 import { z } from 'zod';
@@ -23,43 +23,24 @@ import DynamicFormLabel from './DynamicFormLabel.vue';
 import DynamicFormMessage from './DynamicFormMessage.vue';
 import DynamicFormSubmit from './DynamicFormSubmit.vue';
 
-export default {
-    name: 'DynamicForm',
-    emits: ['submit'],
-    props: {
-        fields: Object
-    },
-    provide() {
-        return {
-            $fcDynamicForm: this
-        };
-    },
-    data() {
-        return {
-            defaultValues: {},
-            schemas: {}
-        };
-    },
-    methods: {
-        addField(name, schema, defaultValue) {
-            schema && (this.schemas[name] = schema);
-            this.defaultValues[name] = defaultValue;
-        }
-    },
-    computed: {
-        resolver() {
-            return isNotEmpty(this.schemas) ? zodResolver(z.object(this.schemas)) : undefined;
-        },
-        initialValues() {
-            return this.defaultValues;
-        }
-    },
-    components: {
-        DynamicFormControl,
-        DynamicFormField,
-        DynamicFormLabel,
-        DynamicFormMessage,
-        DynamicFormSubmit
-    }
+const props = defineProps({
+    fields: Object
+});
+
+const emit = defineEmits(['submit']);
+
+const defaultValues = ref({});
+const schemas = ref({});
+
+const resolver = computed(() => (isNotEmpty(schemas.value) ? zodResolver(z.object(schemas.value)) : undefined));
+const initialValues = computed(() => defaultValues.value);
+
+const addField = (name, schema, defaultValue) => {
+    schema && (schemas.value[name] = schema);
+    defaultValues.value[name] = defaultValue;
 };
+
+provide('$fcDynamicForm', {
+    addField
+});
 </script>

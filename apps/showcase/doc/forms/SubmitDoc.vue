@@ -3,13 +3,13 @@
         <p>The <i>submit</i> callback provides an object containing the form's validity, all errors, and current states. This offers access to the form values as well as validation status and any existing errors during submission.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
                 <Message v-if="$form.password?.invalid" severity="error">
                     <ul class="mx-1 px-3">
                         <li v-for="(error, index) of $form.password.errors" :key="index" class="py-1">{{ error.message }}</li>
@@ -53,13 +53,13 @@ export default {
             ),
             code: {
                 basic: `
-<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
     <div class="flex flex-col gap-2">
         <InputText name="username" type="text" placeholder="Username" fluid />
         <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
-        <Password name="password" placeholder="Password" :feedback="false" fluid />
+        <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
         <Message v-if="$form.password?.invalid" severity="error">
             <ul class="mx-1 px-3">
                 <li v-for="(error, index) of $form.password.errors" :key="index" class="py-1">{{ error.message }}</li>
@@ -74,13 +74,13 @@ export default {
     <div class="card flex justify-center">
         <Toast />
 
-        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
                 <Message v-if="$form.password?.invalid" severity="error">
                     <ul class="mx-1 px-3">
                         <li v-for="(error, index) of $form.password.errors" :key="index" class="py-1">{{ error.message }}</li>
@@ -145,13 +145,13 @@ export default {
     <div class="card flex justify-center">
         <Toast />
 
-        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
                 <Message v-if="$form.password?.invalid" severity="error">
                     <ul class="mx-1 px-3">
                         <li v-for="(error, index) of $form.password.errors" :key="index" class="py-1">{{ error.message }}</li>

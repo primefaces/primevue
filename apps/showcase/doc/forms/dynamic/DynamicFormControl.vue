@@ -2,42 +2,27 @@
     <component :is="component" :id :name class="w-full" />
 </template>
 
-<script>
+<script setup>
 import * as PrimeVue from 'primevue/primevue';
+import { computed, inject } from 'vue';
 
-export default {
-    name: 'DynamicFormControl',
-    props: {
-        as: {
-            type: String,
-            default: 'InputText'
-        },
-        schema: null,
-        defaultValue: {
-            default: ''
-        }
+const props = defineProps({
+    as: {
+        type: String,
+        default: 'InputText'
     },
-    inject: {
-        $fcDynamicForm: {
-            default: undefined
-        },
-        $fcDynamicFormField: {
-            default: undefined
-        }
-    },
-    created() {
-        this.$fcDynamicForm?.addField(this.name, this.schema, this.defaultValue);
-    },
-    computed: {
-        id() {
-            return this.$fcDynamicFormField?.$props.groupId;
-        },
-        name() {
-            return this.$fcDynamicFormField?.$props.name;
-        },
-        component() {
-            return PrimeVue[this.as] ?? this.as;
-        }
+    schema: null,
+    defaultValue: {
+        default: ''
     }
-};
+});
+
+const $fcDynamicForm = inject('$fcDynamicForm', undefined);
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const id = computed(() => $fcDynamicFormField?.groupId);
+const name = computed(() => $fcDynamicFormField?.name);
+const component = computed(() => PrimeVue[props.as] ?? props.as);
+
+$fcDynamicForm?.addField(name.value, props.schema, props.defaultValue);
 </script>

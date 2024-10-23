@@ -4,23 +4,22 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'DynamicFormField',
-    props: {
-        groupId: {
-            type: String,
-            default: undefined
-        },
-        name: {
-            type: String,
-            default: undefined
-        }
+<script setup>
+import { provide } from 'vue';
+
+const props = defineProps({
+    groupId: {
+        type: String,
+        default: undefined
     },
-    provide() {
-        return {
-            $fcDynamicFormField: this
-        };
+    name: {
+        type: String,
+        default: undefined
     }
-};
+});
+
+provide('$fcDynamicFormField', {
+    groupId: props.groupId,
+    name: props.name
+});
 </script>

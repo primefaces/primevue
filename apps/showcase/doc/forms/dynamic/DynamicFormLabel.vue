@@ -4,18 +4,10 @@
     </label>
 </template>
 
-<script>
-export default {
-    name: 'DynamicFormLabel',
-    inject: {
-        $fcDynamicFormField: {
-            default: undefined
-        }
-    },
-    computed: {
-        htmlFor() {
-            return this.$fcDynamicFormField?.$props.groupId;
-        }
-    }
-};
+<script setup>
+import { computed, inject } from 'vue';
+
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const htmlFor = computed(() => $fcDynamicFormField?.groupId);
 </script>

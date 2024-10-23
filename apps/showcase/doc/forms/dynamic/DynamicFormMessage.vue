@@ -4,51 +4,29 @@
     </Message>
 </template>
 
-<script>
+<script setup>
 import { isNotEmpty } from '@primeuix/utils';
+import { computed, inject } from 'vue';
 
-export default {
-    name: 'DynamicFormLabel',
-    props: {
-        errorType: {
-            type: String,
-            default: undefined
-        },
-        severity: {
-            type: String,
-            default: 'error'
-        }
+const props = defineProps({
+    errorType: {
+        type: String,
+        default: undefined
     },
-    inject: {
-        $pcForm: {
-            default: undefined
-        },
-        $fcDynamicFormField: {
-            default: undefined
-        }
-    },
-    computed: {
-        visible() {
-            return this.invalid && (this.error || this.errorType === undefined);
-        },
-        message() {
-            return this.errorType ? this.error?.message : this.errors?.[0]?.message;
-        },
-        error() {
-            return this.errors?.find((error) => error.errorType === this.errorType || isNotEmpty(error[this.errorType]));
-        },
-        fieldName() {
-            return this.$fcDynamicFormField?.$props.name;
-        },
-        state() {
-            return this.$pcForm?.states?.[this.fieldName];
-        },
-        errors() {
-            return this.state?.errors;
-        },
-        invalid() {
-            return this.state?.invalid;
-        }
+    severity: {
+        type: String,
+        default: 'error'
     }
-};
+});
+
+const $pcForm = inject('$pcForm', undefined); // Inject PrimeVue Form component
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const fieldName = computed(() => $fcDynamicFormField?.name);
+const state = computed(() => $pcForm?.states?.[fieldName.value]);
+const errors = computed(() => state.value?.errors);
+const invalid = computed(() => state.value?.invalid);
+const error = computed(() => errors.value?.find((error) => props.errorType === error.errorType || isNotEmpty(error[props.errorType])));
+const message = computed(() => (props.errorType ? error.value?.message : errors.value?.[0]?.message));
+const visible = computed(() => invalid.value && (error.value || props.errorType === undefined));
 </script>

@@ -12,7 +12,7 @@
                 </DynamicFormField>
                 <DynamicFormField groupId="passId_1" name="password">
                     <DynamicFormLabel>Password</DynamicFormLabel>
-                    <DynamicFormControl as="Password" :feedback="false" fluid :schema="passwordSchema" />
+                    <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
                     <DynamicFormMessage errorType="minimum" />
                     <DynamicFormMessage errorType="maximum" />
                     <DynamicFormMessage errorType="uppercase" severity="warn" />
@@ -73,6 +73,7 @@ export default {
                     label: 'Password',
                     as: 'Password',
                     feedback: false,
+                    toggleMask: true,
                     fluid: true,
                     messages: [{ errorType: 'minimum' }, { errorType: 'maximum' }, { errorType: 'uppercase', severity: 'warn' }, { errorType: 'lowercase', severity: 'warn' }, { errorType: 'number', severity: 'secondary' }],
                     schema: z
@@ -104,7 +105,7 @@ export default {
         </DynamicFormField>
         <DynamicFormField groupId="passId_1" name="password">
             <DynamicFormLabel>Password</DynamicFormLabel>
-            <DynamicFormControl as="Password" :feedback="false" fluid :schema="passwordSchema" />
+            <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
             <DynamicFormMessage errorType="minimum" />
             <DynamicFormMessage errorType="maximum" />
             <DynamicFormMessage errorType="uppercase" severity="warn" />
@@ -133,7 +134,7 @@ export default {
                 </DynamicFormField>
                 <DynamicFormField groupId="passId_1" name="password">
                     <DynamicFormLabel>Password</DynamicFormLabel>
-                    <DynamicFormControl as="Password" :feedback="false" fluid :schema="passwordSchema" />
+                    <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
                     <DynamicFormMessage errorType="minimum" />
                     <DynamicFormMessage errorType="maximum" />
                     <DynamicFormMessage errorType="uppercase" severity="warn" />
@@ -193,6 +194,7 @@ export default {
                     label: 'Password',
                     as: 'Password',
                     feedback: false,
+                    toggleMask: true,
                     fluid: true,
                     messages: [{ errorType: 'minimum' }, { errorType: 'maximum' }, { errorType: 'uppercase', severity: 'warn' }, { errorType: 'lowercase', severity: 'warn' }, { errorType: 'number', severity: 'secondary' }],
                     schema: z
@@ -247,7 +249,7 @@ export default {
                 </DynamicFormField>
                 <DynamicFormField groupId="passId_1" name="password">
                     <DynamicFormLabel>Password</DynamicFormLabel>
-                    <DynamicFormControl as="Password" :feedback="false" fluid :schema="passwordSchema" />
+                    <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
                     <DynamicFormMessage errorType="minimum" />
                     <DynamicFormMessage errorType="maximum" />
                     <DynamicFormMessage errorType="uppercase" severity="warn" />
@@ -309,6 +311,7 @@ const fields = reactive({
         label: 'Password',
         as: 'Password',
         feedback: false,
+        toggleMask: true,
         fluid: true,
         messages: [
             { errorType: 'minimum' },
