@@ -38,16 +38,16 @@ export default {
                     username: z.string().min(1, { message: 'Username is required.' }),
                     password: z
                         .string()
-                        .min(3, { message: 'Password must be at least 3 characters long.' })
-                        .max(8, { message: 'Password must not exceed 8 characters.' })
+                        .min(3, { message: 'Minimum 3 characters.' })
+                        .max(8, { message: 'Maximum 8 characters.' })
                         .refine((value) => /[a-z]/.test(value), {
-                            message: 'Password must contain at least one lowercase letter.'
+                            message: 'Must have a lowercase letter.'
                         })
                         .refine((value) => /[A-Z]/.test(value), {
-                            message: 'Password must contain at least one uppercase letter.'
+                            message: 'Must have a uppercase letter.'
                         })
                         .refine((value) => /\d/.test(value), {
-                            message: 'Password must contain at least one number.'
+                            message: 'Must have a number.'
                         })
                 })
             ),
@@ -104,16 +104,16 @@ export default {
                     username: z.string().min(1, { message: 'Username is required.' }),
                     password: z
                         .string()
-                        .min(3, { message: 'Password must be at least 3 characters long.' })
-                        .max(8, { message: 'Password must not exceed 8 characters.' })
+                        .min(3, { message: 'Minimum 3 characters.' })
+                        .max(8, { message: 'Maximum 8 characters.' })
                         .refine((value) => /[a-z]/.test(value), {
-                            message: 'Password must contain at least one lowercase letter.'
+                            message: 'Must have a lowercase letter.'
                         })
                         .refine((value) => /[A-Z]/.test(value), {
-                            message: 'Password must contain at least one uppercase letter.'
+                            message: 'Must have a uppercase letter.'
                         })
                         .refine((value) => /\d/.test(value), {
-                            message: 'Password must contain at least one number.'
+                            message: 'Must have a number.'
                         })
                 })
             )
