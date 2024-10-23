@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             initialValues: {
-                city: { cname: '' }
+                city: null
             },
             resolver: zodResolver(
                 z.object({
