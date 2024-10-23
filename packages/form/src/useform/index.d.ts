@@ -1,10 +1,21 @@
+export interface useFormFieldState {
+    value: any;
+    touched: boolean;
+    dirty: boolean;
+    pristine: boolean;
+    valid: boolean;
+    invalid: boolean;
+    error: any;
+    errors: any[];
+}
+
 export interface useFormReturn {
     defineField: (field: string, options?: any) => any;
     handleSubmit: (event: any) => any;
     validate: (field: string) => any;
     reset: () => void;
     valid: boolean;
-    states: any;
+    states: Record<string, useFormFieldState>;
 }
 
 export interface useFormResolverOptions {

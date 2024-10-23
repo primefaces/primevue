@@ -1,4 +1,4 @@
-import { resolve } from '@primeuix/utils';
+import { isArray, resolve } from '@primeuix/utils';
 import { computed, mergeProps, nextTick, onMounted, reactive, toValue, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
@@ -19,6 +19,7 @@ export const useForm = (options = {}) => {
             pristine: true,
             valid: true,
             invalid: false,
+            error: null,
             errors: []
         };
     };
@@ -26,7 +27,7 @@ export const useForm = (options = {}) => {
     const isFieldValidate = (field, validateOn) => {
         const value = resolve(validateOn, field);
 
-        return value === true || (Array.isArray(value) && value.includes(field));
+        return value === true || (isArray(value) && value.includes(field));
     };
 
     const defineField = (field, fieldOptions) => {
@@ -47,6 +48,7 @@ export const useForm = (options = {}) => {
             onInvalid: (errors) => {
                 states[field].invalid = true;
                 states[field].errors = errors;
+                states[field].error = errors?.[0] ?? null;
             }
         });
 
@@ -78,6 +80,7 @@ export const useForm = (options = {}) => {
                 originalEvent: event,
                 valid: toValue(valid),
                 states: toValue(states),
+                reset,
                 ...results
             });
         };
@@ -96,11 +99,12 @@ export const useForm = (options = {}) => {
         for (const sField of Object.keys(states)) {
             if (sField === field || !field) {
                 const errors = result.errors?.[sField] ?? [];
-                const value = result.values?.[sField] ?? states[sField].value;
+                //const value = result.values?.[sField] ?? states[sField].value;
 
                 states[sField].invalid = errors.length > 0;
                 states[sField].valid = !states[sField].invalid;
                 states[sField].errors = errors;
+                states[sField].error = errors?.[0] ?? null;
                 //states[sField].value = value;
             }
         }
@@ -112,7 +116,11 @@ export const useForm = (options = {}) => {
         Object.keys(states).forEach((field) => (states[field] = getInitialState(field)));
     };
 
-    options.validateOnMount && tryOnMounted(validate);
+    const validateOnMounted = () => {
+        isArray(options.validateOnMount) ? options.validateOnMount.forEach(validate) : validate();
+    };
+
+    options.validateOnMount && tryOnMounted(validateOnMounted);
 
     return {
         defineField,

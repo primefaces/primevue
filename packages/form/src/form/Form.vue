@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="onSubmit" v-bind="ptmi('root')">
-        <slot :register :valid v-bind="states" />
+        <slot :register :valid :reset v-bind="states" />
     </form>
 </template>
 

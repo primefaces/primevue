@@ -87,6 +87,74 @@ export interface FormResolverOptions {
 }
 
 /**
+ * Submit events
+ */
+export interface FormSubmitEvent {
+    /**
+     * The original DOM event.
+     */
+    originalEvent: Event;
+    /**
+     * The form values.
+     */
+    values: Record<string, any>;
+    /**
+     * The form state.
+     */
+    states: Record<string, FormFieldState>;
+    /**
+     * Whether the form is valid.
+     */
+    valid: boolean;
+    /**
+     * The form errors.
+     */
+    errors: any[];
+    /**
+     * Resets the form.
+     */
+    reset: () => void;
+}
+
+/**
+ * The state of a form field.
+ */
+export interface FormFieldState {
+    /**
+     * The value of the form field.
+     */
+    value: any;
+    /**
+     * Whether the form field has been touched.
+     */
+    touched: boolean;
+    /**
+     * Whether the form field has been modified.
+     */
+    dirty: boolean;
+    /**
+     * Whether the form field has not been modified.
+     */
+    pristine: boolean;
+    /**
+     * Whether the form field is valid.
+     */
+    valid: boolean;
+    /**
+     * Whether the form field is invalid.
+     */
+    invalid: boolean;
+    /**
+     * The first error message of the form field.
+     */
+    error: any;
+    /**
+     * All error messages of the form field.
+     */
+    errors: any[];
+}
+
+/**
  * Defines valid properties in Form component.
  */
 export interface FormProps {
@@ -146,8 +214,29 @@ export interface FormProps {
 export interface FormSlots {
     /**
      * Default content slot.
+     * @param {Object} scope - default slot's params.
      */
-    default: () => VNode[];
+    default: (scope: {
+        /**
+         * Registers a form field for validation and tracking.
+         * @param field - The name of the form field to register.
+         * @param options - Configuration options for the field, such as validation rules.
+         * @returns - Returns an object or value representing the registered field.
+         */
+        register: (field: string, options: any) => any;
+        /**
+         * Resets the entire form state, clearing values and validation statuses.
+         */
+        reset: () => void;
+        /**
+         * Indicates whether the form is valid, returning `true` if all fields pass validation.
+         */
+        valid: boolean;
+        /**
+         * Stores the state of each form field, with the field name as the key and its state as the value.
+         */
+        states: Record<string, FormFieldState>;
+    }) => VNode[];
 }
 
 /**

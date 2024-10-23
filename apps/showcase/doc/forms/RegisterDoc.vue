@@ -7,7 +7,7 @@
     <div class="card flex justify-center">
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
-                <input name="username" type="text" placeholder="Username" v-bind="$form.register('username')" />
+                <input type="text" placeholder="Username" v-bind="$form.register('username')" />
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
