@@ -43,7 +43,7 @@ import DynamicFormSubmit from './dynamic/DynamicFormSubmit.vue';
 export default {
     data() {
         return {
-            userNameSchema: z.string().min(1, { message: 'Username is required' }),
+            userNameSchema: z.string().min(1, { message: 'Username is required.' }),
             passwordSchema: z
                 .string()
                 .min(3, { message: 'Password must be at least 3 characters long.' })
@@ -66,7 +66,7 @@ export default {
                     label: 'Username',
                     defaultValue: 'PrimeVue',
                     fluid: true,
-                    schema: z.string().min(1, { message: 'Username is required' })
+                    schema: z.string().min(1, { message: 'Username is required.' })
                 },
                 password: {
                     groupId: 'passId_2',
@@ -159,7 +159,7 @@ import DynamicFormSubmit from './dynamic/DynamicFormSubmit.vue';
 export default {
     data() {
         return {
-            userNameSchema: z.string().min(1, { message: 'Username is required' }),
+            userNameSchema: z.string().min(1, { message: 'Username is required.' }),
             passwordSchema: z
                 .string()
                 .min(3, { message: 'Password must be at least 3 characters long.' })
@@ -182,7 +182,7 @@ export default {
                     label: 'Username',
                     defaultValue: 'PrimeVue',
                     fluid: true,
-                    schema: z.string().min(1, { message: 'Username is required' })
+                    schema: z.string().min(1, { message: 'Username is required.' })
                 },
                 password: {
                     groupId: 'passId_2',
