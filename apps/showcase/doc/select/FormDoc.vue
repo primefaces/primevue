@@ -4,7 +4,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -44,7 +44,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
     <div class="flex flex-col gap-2">
         <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
-        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -55,7 +55,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -107,7 +107,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <Select name="city" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

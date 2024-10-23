@@ -6,7 +6,7 @@
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
                 <Password name="password" placeholder="Password" :feedback="false" fluid />
@@ -56,7 +56,7 @@ export default {
 <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-2">
         <InputText name="username" type="text" placeholder="Username" fluid />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
         <Password name="password" placeholder="Password" :feedback="false" fluid />
@@ -74,7 +74,7 @@ export default {
     <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
         <div class="flex flex-col gap-2">
             <InputText name="username" type="text" placeholder="Username" fluid />
-            <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+            <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
         </div>
         <div class="flex flex-col gap-2">
             <Password name="password" placeholder="Password" :feedback="false" fluid />
