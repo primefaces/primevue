@@ -39,7 +39,7 @@
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
 </template>
 
 <script>
