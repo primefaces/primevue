@@ -762,7 +762,7 @@ export default {
             }
         },
         updateModel(event, value) {
-            this.updateValue(value, event);
+            this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         createProcessedOptions(options, level = 0, parent = {}, parentKey = '') {

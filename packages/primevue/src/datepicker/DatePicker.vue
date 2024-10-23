@@ -1234,7 +1234,7 @@ export default {
             this.$emit('date-select', date);
         },
         updateModel(value) {
-            this.updateValue(value);
+            this.writeValue(value);
         },
         shouldSelectDate() {
             if (this.isMultipleSelection()) return this.maxDateCount != null ? this.maxDateCount > (this.d_value ? this.d_value.length : 0) : true;

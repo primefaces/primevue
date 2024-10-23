@@ -77,7 +77,7 @@ export default {
         updateModel(event) {
             const newValue = this.tokens.join('');
 
-            this.updateValue(newValue, event);
+            this.writeValue(newValue, event);
             this.$emit('change', {
                 originalEvent: event,
                 value: newValue

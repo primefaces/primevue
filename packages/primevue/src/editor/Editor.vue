@@ -140,7 +140,7 @@ export default {
                         html = '';
                     }
 
-                    this.updateValue(html);
+                    this.writeValue(html);
                     this.$emit('text-change', {
                         htmlValue: html,
                         textValue: text,

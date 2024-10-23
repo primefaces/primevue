@@ -47,7 +47,7 @@ export default {
         },
         onChange(event) {
             if (!this.disabled && !this.readonly) {
-                this.updateValue(!this.d_value, event);
+                this.writeValue(!this.d_value, event);
                 this.$emit('change', event);
             }
         },

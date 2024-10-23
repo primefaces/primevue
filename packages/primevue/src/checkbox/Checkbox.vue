@@ -85,7 +85,7 @@ export default {
                     this.$emit('update:indeterminate', this.d_indeterminate);
                 }
 
-                this.$pcCheckboxGroup ? this.$pcCheckboxGroup.updateValue(newModelValue, event) : this.updateValue(newModelValue, event);
+                this.$pcCheckboxGroup ? this.$pcCheckboxGroup.writeValue(newModelValue, event) : this.writeValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },

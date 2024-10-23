@@ -226,7 +226,7 @@ export default {
         },
         onSelectionChange(keys) {
             this.selfChange = true;
-            this.updateValue(keys);
+            this.writeValue(keys);
             this.$emit('change', keys);
         },
         onNodeSelect(node) {

@@ -139,7 +139,7 @@ export default {
                 modelValue = newValue;
             }
 
-            this.updateValue(modelValue, event);
+            this.writeValue(modelValue, event);
             this.$emit('change', modelValue);
         },
         onDragStart(event, index) {

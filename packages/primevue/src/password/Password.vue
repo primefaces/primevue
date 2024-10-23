@@ -159,7 +159,7 @@ export default {
             return level;
         },
         onInput(event) {
-            this.updateValue(event.target.value, event);
+            this.writeValue(event.target.value, event);
             this.$emit('change', event);
         },
         onFocus(event) {

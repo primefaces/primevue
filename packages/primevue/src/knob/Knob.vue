@@ -65,13 +65,13 @@ export default {
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
 
-            this.updateValue(newValue);
+            this.writeValue(newValue);
             this.$emit('change', newValue);
         },
         updateModelValue(newValue) {
-            if (newValue > this.max) this.updateValue(this.max);
-            else if (newValue < this.min) this.updateValue(this.min);
-            else this.updateValue(newValue);
+            if (newValue > this.max) this.writeValue(this.max);
+            else if (newValue < this.min) this.writeValue(this.min);
+            else this.writeValue(newValue);
         },
         mapRange(x, inMin, inMax, outMin, outMax) {
             return ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
@@ -149,13 +149,13 @@ export default {
 
                     case 'Home': {
                         event.preventDefault();
-                        this.updateValue(this.min);
+                        this.writeValue(this.min);
                         break;
                     }
 
                     case 'End': {
                         event.preventDefault();
-                        this.updateValue(this.max);
+                        this.writeValue(this.max);
                         break;
                     }
 

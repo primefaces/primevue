@@ -50,7 +50,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 const newValue = this.checked ? this.falseValue : this.trueValue;
 
-                this.updateValue(newValue, event);
+                this.writeValue(newValue, event);
                 this.$emit('change', event);
             }
         },

@@ -65,7 +65,7 @@ export default {
                 newValue = selected ? null : optionValue;
             }
 
-            this.updateValue(newValue, event);
+            this.writeValue(newValue, event);
             this.$emit('change', { event: event, value: newValue });
         },
         isSelected(option) {

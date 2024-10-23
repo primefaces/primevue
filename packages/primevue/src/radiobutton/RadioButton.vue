@@ -54,7 +54,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 const newModelValue = this.binary ? !this.checked : this.value;
 
-                this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.updateValue(newModelValue, event) : this.updateValue(newModelValue, event);
+                this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.writeValue(newModelValue, event) : this.writeValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },

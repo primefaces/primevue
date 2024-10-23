@@ -73,7 +73,7 @@ export default {
     },
     formField: {},
     methods: {
-        updateValue(value, event) {
+        writeValue(value, event) {
             if (this.controlled) {
                 this.d_value = value;
                 this.$emit('update:modelValue', value);

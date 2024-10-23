@@ -137,7 +137,7 @@ export default {
                     break;
             }
 
-            this.updateValue(value, event);
+            this.writeValue(value, event);
             this.$emit('change', { event, value });
         },
         updateColorSelector() {

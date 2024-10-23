@@ -53,7 +53,7 @@ export default {
     },
     updated() {
         if (this.isValueUpdated()) {
-            this.updateValueByModel();
+            this.updateValue();
         }
     },
     methods: {
@@ -450,9 +450,9 @@ export default {
 
             this.currentVal = value;
 
-            this.updateValue(this.defaultBuffer !== val ? val : '');
+            this.writeValue(this.defaultBuffer !== val ? val : '');
         },
-        updateValueByModel(updateModel = true) {
+        updateValue(updateModel = true) {
             if (this.$el) {
                 if (this.d_value == null) {
                     this.$el.value = '';
@@ -524,7 +524,7 @@ export default {
             }
 
             this.defaultBuffer = this.buffer.join('');
-            this.updateValueByModel(false);
+            this.updateValue(false);
         },
         isValueUpdated() {
             return this.unmask ? this.d_value != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.d_value;

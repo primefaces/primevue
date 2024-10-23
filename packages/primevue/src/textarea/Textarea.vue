@@ -37,7 +37,7 @@ export default {
                 this.resize();
             }
 
-            this.updateValue(event.target.value, event);
+            this.writeValue(event.target.value, event);
         }
     },
     computed: {

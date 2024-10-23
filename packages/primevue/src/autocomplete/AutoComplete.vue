@@ -679,7 +679,7 @@ export default {
                     const removedValue = this.d_value[this.d_value.length - 1];
                     const newValue = this.d_value.slice(0, -1);
 
-                    this.updateValue(newValue, event);
+                    this.writeValue(newValue, event);
                     this.$emit('item-unselect', { originalEvent: event, value: removedValue });
                     this.$emit('option-unselect', { originalEvent: event, value: removedValue });
                 }
