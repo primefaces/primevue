@@ -6,7 +6,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
             <div class="flex flex-col gap-2">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.errors[0]?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -36,7 +36,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
     <div class="flex flex-col gap-2">
         <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-        <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.errors[0]?.message }}</Message>
+        <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -47,7 +47,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
             <div class="flex flex-col gap-2">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.errors[0]?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -90,7 +90,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
             <div class="flex flex-col gap-2">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.errors[0]?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

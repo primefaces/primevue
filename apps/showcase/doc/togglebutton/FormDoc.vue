@@ -6,7 +6,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
                 <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.errors[0]?.message }}</Message>
+                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -34,7 +34,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
     <div class="flex flex-col items-center gap-2">
         <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-        <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.errors[0]?.message }}</Message>
+        <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -45,7 +45,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
                 <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.errors[0]?.message }}</Message>
+                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -86,7 +86,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
                 <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.errors[0]?.message }}</Message>
+                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

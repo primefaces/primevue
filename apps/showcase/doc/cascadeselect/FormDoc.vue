@@ -6,7 +6,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -26,9 +26,12 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    city: z.object({
-                        cname: z.string().min(1, 'City cannot be empty.')
-                    })
+                    city: z.union([
+                        z.object({
+                            cname: z.string().min(1, 'City required.')
+                        }),
+                        z.any().refine((val) => false, { message: 'City required.' })
+                    ])
                 })
             ),
             countries: [
@@ -110,7 +113,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
-        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -121,7 +124,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -139,7 +142,7 @@ export default {
             resolver: zodResolver(
                 z.object({
                     city: z.object({
-                        cname: z.string().min(1, 'City cannot be empty.')
+                        cname: z.string().min(1, 'City is required.')
                     })
                 })
             ),
@@ -235,7 +238,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.errors[0]?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -256,14 +259,14 @@ const initialValues = ref({
 const resolver = ref(zodResolver(
     z.object({
         city: z.object({
-            cname: z.string().min(1, 'City cannot be empty.')
+            cname: z.string().min(1, 'City is required.')
         })
     })
 ));
 const resolver = ref(zodResolver(
     z.object({
         city: z.object({
-            cname: z.string().min(1, 'City cannot be empty.')
+            cname: z.string().min(1, 'City is required.')
         })
     })
 ));

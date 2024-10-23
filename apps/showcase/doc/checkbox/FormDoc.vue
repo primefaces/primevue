@@ -24,7 +24,7 @@
                     </div>
                 </CheckboxGroup>
 
-                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.errors[0]?.message }}</Message>
+                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -70,7 +70,7 @@ export default {
             </div>
         </CheckboxGroup>
 
-        <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.errors[0]?.message }}</Message>
+        <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -99,7 +99,7 @@ export default {
                     </div>
                 </CheckboxGroup>
 
-                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.errors[0]?.message }}</Message>
+                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -159,7 +159,7 @@ export default {
                     </div>
                 </CheckboxGroup>
 
-                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.errors[0]?.message }}</Message>
+                <Message v-if="$form.checkbox?.invalid" severity="error">{{ $form.checkbox.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

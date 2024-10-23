@@ -22,7 +22,7 @@
                     <label for="ingredient4" class="ml-2">Onion</label>
                 </div>
             </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.errors[0]?.message }}</Message>
+            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -65,7 +65,7 @@ export default {
             <label for="ingredient4" class="ml-2">Onion</label>
         </div>
     </RadioButtonGroup>
-    <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.errors[0]?.message }}</Message>
+    <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 `,
@@ -91,7 +91,7 @@ export default {
                     <label for="ingredient4" class="ml-2">Onion</label>
                 </div>
             </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.errors[0]?.message }}</Message>
+            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -147,7 +147,7 @@ export default {
                     <label for="ingredient4" class="ml-2">Onion</label>
                 </div>
             </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.errors[0]?.message }}</Message>
+            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
