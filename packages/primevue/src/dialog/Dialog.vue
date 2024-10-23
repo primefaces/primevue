@@ -18,8 +18,7 @@
                                     @click="maximize"
                                     :tabindex="maximizable ? '0' : '-1'"
                                     :unstyled="unstyled"
-                                    v-bind="maximizeButtonProps"
-                                    :pt="ptm('pcMaximizeButton')"
+                                    v-bind="{ ...maximizeButtonProps, ...ptm('pcMaximizeButton') }"
                                     data-pc-group-section="headericon"
                                 >
                                     <template #icon="slotProps">
@@ -36,8 +35,7 @@
                                     @click="close"
                                     :aria-label="closeAriaLabel"
                                     :unstyled="unstyled"
-                                    v-bind="closeButtonProps"
-                                    :pt="ptm('pcCloseButton')"
+                                    v-bind="{ ...closeButtonProps, ...ptm('pcCloseButton') }"
                                     data-pc-group-section="headericon"
                                 >
                                     <template #icon="slotProps">
