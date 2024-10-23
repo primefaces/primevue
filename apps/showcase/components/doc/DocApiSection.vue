@@ -69,7 +69,7 @@ export default {
                     interfaces = this.findOtherInterfaces(values, docName);
                 }
 
-                const types = APIDocs[moduleName]['types'];
+                const types = APIDocs[moduleName]?.['types'];
 
                 const services = modelValues; // (TerminalService && ConfirmationService && ToastService)
 

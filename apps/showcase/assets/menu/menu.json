@@ -498,6 +498,12 @@
             ]
         },
         {
+            "name": "Forms",
+            "icon": "pi pi-check-circle",
+            "to": "/forms",
+            "badge": "NEW"
+        },
+        {
             "name": "Pass Through",
             "icon": "pi pi-directions",
             "to": "/passthrough"
