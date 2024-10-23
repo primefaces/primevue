@@ -247,7 +247,7 @@ watch(selectedSchema, (newSchema) => {
     changeResolver(newSchema);
 });
 
-function changeResolver(schema) {
+const changeResolver = (schema) => {
     if (schema === 'Zod') {
         resolver.value = zodResolver(
             z.object({
@@ -287,12 +287,10 @@ function changeResolver(schema) {
     }
 }
 
-function handleSubmit() {
-    resolver.value({ values: initialValues.value }).then(({ valid }) => {
-        if (valid) {
-            toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
-        }
-    });
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
 }
 <\/script>
 `
