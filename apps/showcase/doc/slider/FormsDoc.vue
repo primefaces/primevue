@@ -26,7 +26,7 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    slider: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 50.' })
+                    slider: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
                 })
             ),
             code: {
@@ -64,7 +64,7 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    slider: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 50.' })
+                    slider: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
                 })
             ),
         }
@@ -105,7 +105,7 @@ const initialValues = ref({
 });
 const resolver = ref(zodResolver(
     z.object({
-        slider: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 50.' })
+        slider: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
     })
 ));
 
