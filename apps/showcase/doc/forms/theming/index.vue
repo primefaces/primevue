@@ -9,9 +9,7 @@
 </template>
 
 <script>
-import DocApiTable from '@/components/doc/DocApiTable.vue';
-import { getStyleOptions } from '@/components/doc/helpers';
-import TailwindDoc from './TailwindDoc.vue';
+import StyledDoc from './StyledDoc.vue';
 
 export default {
     data() {
@@ -20,27 +18,7 @@ export default {
                 {
                     id: 'theming.styled',
                     label: 'Styled',
-                    children: [
-                        {
-                            id: 'theming.classes',
-                            label: 'CSS Classes',
-                            description: 'List of class names used in the styled mode.',
-                            component: DocApiTable,
-                            data: getStyleOptions('Form')
-                        }
-                    ]
-                },
-                {
-                    id: 'theming.unstyled',
-                    label: 'Unstyled',
-                    description: 'Theming is implemented with the pass through properties in unstyled mode.',
-                    children: [
-                        {
-                            id: 'theming.tailwind',
-                            label: 'Tailwind',
-                            component: TailwindDoc
-                        }
-                    ]
+                    component: StyledDoc
                 }
             ]
         };

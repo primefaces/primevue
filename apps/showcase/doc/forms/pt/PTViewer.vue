@@ -1,37 +1,45 @@
 <template>
     <DocPTViewer :docs="docs">
-        <Card style="width: 25rem">
-            <template #title>Advanced Card</template>
-            <template #subtitle>Card subtitle</template>
-            <template #content>
-                <p class="m-0">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                    quas!
-                </p>
-            </template>
-            <template #footer>
-                <div class="flex gap-4 mt-1">
-                    <Button label="Cancel" severity="secondary" outlined class="w-full" />
-                    <Button label="Save" class="w-full" />
-                </div>
-            </template>
-        </Card>
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-2">
+                <InputText name="username" type="text" placeholder="Username" fluid />
+                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
     </DocPTViewer>
 </template>
 
 <script>
 import { getPTOptions } from '@/components/doc/helpers';
+import { zodResolver } from '@primevue/form/resolvers';
+import { z } from 'zod';
 
 export default {
     data() {
         return {
             docs: [
                 {
-                    data: getPTOptions('Card'),
-                    key: 'Card'
+                    data: getPTOptions('Form'),
+                    key: 'Form'
                 }
-            ]
+            ],
+            initialValues: {
+                username: ''
+            },
+            resolver: zodResolver(
+                z.object({
+                    username: z.string().min(1, { message: 'Username is required.' })
+                })
+            )
         };
+    },
+    methods: {
+        onFormSubmit({ valid }) {
+            if (valid) {
+                this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+            }
+        }
     }
 };
 </script>
