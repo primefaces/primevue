@@ -9,6 +9,7 @@ function tryOnMounted(fn, sync = true) {
 
 export const useForm = (options = {}) => {
     const states = reactive({});
+    const fieldOptionMap = reactive({});
     const valid = computed(() => Object.values(states).every((field) => !field.invalid));
 
     const getInitialState = (field) => {
@@ -32,6 +33,7 @@ export const useForm = (options = {}) => {
 
     const defineField = (field, fieldOptions) => {
         states[field] ||= getInitialState(field);
+        fieldOptionMap[field] = fieldOptions;
 
         const props = mergeProps(resolve(fieldOptions, states[field])?.props, resolve(fieldOptions?.props, states[field]), {
             name: field,
@@ -63,7 +65,7 @@ export const useForm = (options = {}) => {
                     states[field].dirty = true;
                 }
 
-                (fieldOptions?.validateOnBlur ?? isFieldValidate(field, options.validateOnValueUpdate ?? true)) && validate(field);
+                (fieldOptions?.validateOnValueUpdate ?? isFieldValidate(field, options.validateOnValueUpdate ?? true)) && validate(field);
             }
         );
 
@@ -117,6 +119,9 @@ export const useForm = (options = {}) => {
     };
 
     const validateOnMounted = () => {
+        const field = Object.keys(fieldOptionMap).find((field) => fieldOptionMap[field]?.validateOnMount);
+
+        field && validate(field);
         isArray(options.validateOnMount) ? options.validateOnMount.forEach(validate) : validate();
     };
 

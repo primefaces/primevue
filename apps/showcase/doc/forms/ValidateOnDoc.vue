@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission, with options to apply this behavior globally or to specific fields via <i>validateOnValueUpdate</i>,
-            <i>validateOnBlur</i>, <i>validateOnMount</i>, and <i>validateOnSubmit</i>.
+            <i>validateOnBlur</i>, <i>validateOnMount</i>, and <i>validateOnSubmit</i>, which can also be set in PrimeVue components using <i>formControl</i> property.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
@@ -12,7 +12,7 @@
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid />
+                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
                 <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
@@ -42,7 +42,7 @@ export default {
         <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
-        <InputText name="name" type="text" placeholder="Name" fluid />
+        <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
         <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
@@ -63,7 +63,7 @@ export default {
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid />
+                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }"/>
                 <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
@@ -126,7 +126,7 @@ export default {
                 <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid />
+                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
                 <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
