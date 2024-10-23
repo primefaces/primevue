@@ -5,8 +5,8 @@
     <div class="card flex justify-center">
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
             <div class="flex flex-col justify-center items-center gap-4">
-                <InputText name="username" type="text" placeholder="Username" fluid class="sm:w-56" />
-                <Button type="submit" severity="secondary" label="Submit" fluid class="sm:w-56" />
+                <InputText name="username" type="text" placeholder="Username" fluid class="!sm:w-56" />
+                <Button type="submit" severity="secondary" label="Submit" fluid class="!sm:w-56" />
             </div>
             <Fieldset legend="Form States">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
@@ -27,8 +27,8 @@ export default {
                 basic: `
 <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
     <div class="flex flex-col justify-center items-center gap-4">
-        <InputText name="username" type="text" placeholder="Username" fluid class="sm:w-56" />
-        <Button type="submit" severity="secondary" label="Submit" fluid class="sm:w-56" />
+        <InputText name="username" type="text" placeholder="Username" fluid class="!sm:w-56" />
+        <Button type="submit" severity="secondary" label="Submit" fluid class="!sm:w-56" />
     </div>
     <Fieldset legend="Form States">
         <pre class="whitespace-pre-wrap">{{ $form }}</pre>
@@ -42,8 +42,8 @@ export default {
 
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
             <div class="flex flex-col justify-center items-center gap-4">
-                <InputText name="username" type="text" placeholder="Username" fluid class="sm:w-56" />
-                <Button type="submit" severity="secondary" label="Submit" fluid class="sm:w-56" />
+                <InputText name="username" type="text" placeholder="Username" fluid class="!sm:w-56" />
+                <Button type="submit" severity="secondary" label="Submit" fluid class="!sm:w-56" />
             </div>
             <Fieldset legend="Form States">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
@@ -93,8 +93,8 @@ export default {
 
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
             <div class="flex flex-col justify-center items-center gap-4">
-                <InputText name="username" type="text" placeholder="Username" fluid class="sm:w-56" />
-                <Button type="submit" severity="secondary" label="Submit" fluid class="sm:w-56" />
+                <InputText name="username" type="text" placeholder="Username" fluid class="!sm:w-56" />
+                <Button type="submit" severity="secondary" label="Submit" fluid class="!sm:w-56" />
             </div>
             <Fieldset legend="Form States">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
