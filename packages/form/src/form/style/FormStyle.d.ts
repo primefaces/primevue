@@ -1,7 +1,5 @@
 /**
  *
- *
- *
  * [Live Demo](https://www.primevue.org/form/)
  *
  * @module formstyle
