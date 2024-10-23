@@ -17,7 +17,7 @@ import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc.vue';
-import FormDoc from '@/doc/inputnumber/FormDoc.vue';
+import FormsDoc from '@/doc/inputnumber/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/inputnumber/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
@@ -43,9 +43,9 @@ export default {
                     component: NumeralsDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'locale',

@@ -8,7 +8,7 @@ import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
-import FormDoc from '@/doc/inputtext/FormDoc.vue';
+import FormsDoc from '@/doc/inputtext/FormsDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import IftaLabelDoc from '@/doc/inputtext/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
@@ -32,9 +32,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'filled',

@@ -6,7 +6,7 @@
 import AccessibilityDoc from '@/doc/rating/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/rating/BasicDoc.vue';
 import DisabledDoc from '@/doc/rating/DisabledDoc.vue';
-import FormDoc from '@/doc/rating/FormDoc.vue';
+import FormsDoc from '@/doc/rating/FormsDoc.vue';
 import ImportDoc from '@/doc/rating/ImportDoc.vue';
 import NumberOfStarsDoc from '@/doc/rating/NumberOfStarsDoc.vue';
 import ReadOnlyDoc from '@/doc/rating/ReadOnlyDoc.vue';
@@ -29,9 +29,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'numberofstars',

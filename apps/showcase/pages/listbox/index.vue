@@ -8,7 +8,7 @@ import BasicDoc from '@/doc/listbox/BasicDoc.vue';
 import CheckmarkDoc from '@/doc/listbox/CheckmarkDoc.vue';
 import DisabledDoc from '@/doc/listbox/DisabledDoc.vue';
 import FilterDoc from '@/doc/listbox/FilterDoc.vue';
-import FormDoc from '@/doc/listbox/FormDoc.vue';
+import FormsDoc from '@/doc/listbox/FormsDoc.vue';
 import GroupDoc from '@/doc/listbox/GroupDoc.vue';
 import ImportDoc from '@/doc/listbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/listbox/InvalidDoc.vue';
@@ -33,9 +33,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'checkmark',

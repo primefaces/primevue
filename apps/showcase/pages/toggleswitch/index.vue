@@ -6,7 +6,7 @@
 import AccessibilityDoc from '@/doc/toggleswitch/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/toggleswitch/BasicDoc.vue';
 import DisabledDoc from '@/doc/toggleswitch/DisabledDoc.vue';
-import FormDoc from '@/doc/toggleswitch/FormDoc.vue';
+import FormsDoc from '@/doc/toggleswitch/FormsDoc.vue';
 import ImportDoc from '@/doc/toggleswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/toggleswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/toggleswitch/PreselectionDoc.vue';
@@ -29,9 +29,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'preselection',

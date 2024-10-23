@@ -5,8 +5,8 @@
 <script>
 import AccessibilityDoc from '@/doc/editor/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/editor/BasicDoc.vue';
+import FormsDoc from '@/doc/editor/FormsDoc.vue';
 import ImportDoc from '@/doc/editor/ImportDoc.vue';
-import FormDoc from '@/doc/editor/FormDoc.vue';
 import QuillDoc from '@/doc/editor/QuillDoc.vue';
 import ReadOnlyDoc from '@/doc/editor/ReadOnlyDoc.vue';
 import TemplateDoc from '@/doc/editor/TemplateDoc.vue';
@@ -33,9 +33,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'readonly',

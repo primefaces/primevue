@@ -7,7 +7,7 @@ import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
 import DynamicDoc from '@/doc/message/DynamicDoc.vue';
-import FormDoc from '@/doc/message/FormDoc.vue';
+import FormsDoc from '@/doc/message/FormsDoc.vue';
 import IconDoc from '@/doc/message/IconDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import LifeDoc from '@/doc/message/LifeDoc.vue';
@@ -40,9 +40,9 @@ export default {
                     component: IconDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'dynamic',

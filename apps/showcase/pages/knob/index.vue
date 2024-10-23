@@ -7,7 +7,7 @@ import AccessibilityDoc from '@/doc/knob/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/knob/BasicDoc.vue';
 import ColorDoc from '@/doc/knob/ColorDoc.vue';
 import DisabledDoc from '@/doc/knob/DisabledDoc.vue';
-import FormDoc from '@/doc/knob/FormDoc.vue';
+import FormsDoc from '@/doc/knob/FormsDoc.vue';
 import ImportDoc from '@/doc/knob/ImportDoc.vue';
 import MinMaxDoc from '@/doc/knob/MinMaxDoc.vue';
 import ReactiveDoc from '@/doc/knob/ReactiveDoc.vue';
@@ -34,9 +34,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'minmax',

@@ -14,7 +14,7 @@
 import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/selectbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/selectbutton/DisabledDoc.vue';
-import FormDoc from '@/doc/selectbutton/FormDoc.vue';
+import FormsDoc from '@/doc/selectbutton/FormsDoc.vue';
 import ImportDoc from '@/doc/selectbutton/ImportDoc.vue';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc.vue';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc.vue';
@@ -37,9 +37,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'multiple',

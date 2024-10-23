@@ -6,8 +6,8 @@
 import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/colorpicker/BasicDoc.vue';
 import DisabledDoc from '@/doc/colorpicker/DisabledDoc.vue';
-import FormDoc from '@/doc/colorpicker/FormDoc.vue';
 import FormatDoc from '@/doc/colorpicker/FormatDoc.vue';
+import FormsDoc from '@/doc/colorpicker/FormsDoc.vue';
 import ImportDoc from '@/doc/colorpicker/ImportDoc.vue';
 import InlineDoc from '@/doc/colorpicker/InlineDoc.vue';
 import PTComponent from '@/doc/colorpicker/pt/index.vue';
@@ -28,9 +28,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'inline',

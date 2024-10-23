@@ -16,7 +16,7 @@ import BasicDoc from '@/doc/inputmask/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputmask/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputmask/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputmask/FloatLabelDoc.vue';
-import FormDoc from '@/doc/inputmask/FormDoc.vue';
+import FormsDoc from '@/doc/inputmask/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/inputmask/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
@@ -41,9 +41,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'mask',

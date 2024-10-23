@@ -18,7 +18,7 @@ import DropdownDoc from '@/doc/autocomplete/DropdownDoc.vue';
 import FilledDoc from '@/doc/autocomplete/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc.vue';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
-import FormDoc from '@/doc/autocomplete/FormDoc.vue';
+import FormsDoc from '@/doc/autocomplete/FormsDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/autocomplete/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/autocomplete/ImportDoc.vue';
@@ -45,9 +45,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'dropdown',

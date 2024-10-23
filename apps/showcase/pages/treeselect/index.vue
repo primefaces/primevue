@@ -18,7 +18,7 @@ import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
-import FormDoc from '@/doc/treeselect/FormDoc.vue';
+import FormsDoc from '@/doc/treeselect/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
@@ -43,9 +43,9 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'multiple',
