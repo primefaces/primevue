@@ -126,22 +126,27 @@ export interface FormFieldState {
     value: any;
     /**
      * Whether the form field has been touched.
+     * @defaultValue false
      */
     touched: boolean;
     /**
      * Whether the form field has been modified.
+     * @defaultValue false
      */
     dirty: boolean;
     /**
      * Whether the form field has not been modified.
+     * @defaultValue true
      */
     pristine: boolean;
     /**
      * Whether the form field is valid.
+     * @defaultValue true
      */
     valid: boolean;
     /**
      * Whether the form field is invalid.
+     * @defaultValue false
      */
     invalid: boolean;
     /**
@@ -150,6 +155,7 @@ export interface FormFieldState {
     error: any;
     /**
      * All error messages of the form field.
+     * @defaultValue []
      */
     errors: any[];
 }
