@@ -3,17 +3,17 @@
         <p>InputText is used with the <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
             <div class="flex flex-col gap-2">
-                <Password name="password" placeholder="Password" :feedback="false" />
+                <Password name="password" placeholder="Password" :feedback="false" fluid />
                 <template v-if="$form.password?.invalid">
                     <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
                 </template>
             </div>
-            <Button type="submit" severity="secondary" class="self-center p-2">Submit</Button>
+            <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
 </template>
 
 <script>
@@ -26,46 +26,84 @@ export default {
             initialValues: {
                 password: ''
             },
-            resolver: null,
-            schema: z.object({
-                password: z
-                    .string()
-                    .min(3, { message: 'Password must be at least 3 characters long.' })
-                    .max(8, { message: 'Password must not exceed 8 characters.' })
-                    .refine((value) => /[a-z]/.test(value), {
-                        message: 'Password must contain at least one lowercase letter.'
-                    })
-                    .refine((value) => /[A-Z]/.test(value), {
-                        message: 'Password must contain at least one uppercase letter.'
-                    })
-                    .refine((value) => /\d/.test(value), {
-                        message: 'Password must contain at least one number.'
-                    })
-            }),
+            resolver: zodResolver(
+                z.object({
+                    password: z
+                        .string()
+                        .min(3, { message: 'Minimum 3 characters.' })
+                        .max(8, { message: 'Maximum 8 characters.' })
+                        .refine((value) => /[a-z]/.test(value), {
+                            message: 'Must have a lowercase letter.'
+                        })
+                        .refine((value) => /[A-Z]/.test(value), {
+                            message: 'Must have a uppercase letter.'
+                        })
+                        .refine((value) => /\d/.test(value), {
+                            message: 'Must have a number.'
+                        })
+                })
+            ),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
     <div class="flex flex-col gap-2">
-        <Password name="password" placeholder="Password" :feedback="false" />
+        <Password name="password" placeholder="Password" :feedback="false" fluid />
         <template v-if="$form.password?.invalid">
             <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
         </template>
     </div>
-    <Button type="submit" severity="secondary" class="self-center p-2">Submit</Button>
+    <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <InputText type="text" v-model="value" />
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
+            <div class="flex flex-col gap-2">
+                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <template v-if="$form.password?.invalid">
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+                </template>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
     </div>
 </template>
 
 <script>
+import { zodResolver } from '@primevue/form/resolvers';
+import { z } from 'zod';
+
 export default {
     data() {
         return {
-            value: null
+            initialValues: {
+                password: ''
+            },
+            resolver: zodResolver(
+                z.object({
+                    password: z
+                        .string()
+                        .min(3, { message: 'Minimum 3 characters.' })
+                        .max(8, { message: 'Maximum 8 characters.' })
+                        .refine((value) => /[a-z]/.test(value), {
+                            message: 'Must have a lowercase letter.'
+                        })
+                        .refine((value) => /[A-Z]/.test(value), {
+                            message: 'Must have a uppercase letter.'
+                        })
+                        .refine((value) => /\d/.test(value), {
+                            message: 'Must have a number.'
+                        })
+                })
+            )
+        }
+    },
+    methods: {
+        onFormSubmit({ valid }) {
+            if (valid) {
+                this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+            }
         }
     }
 }
@@ -75,21 +113,55 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <InputText type="text" v-model="value" />
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
+            <div class="flex flex-col gap-2">
+                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <template v-if="$form.password?.invalid">
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+                </template>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { zodResolver } from '@primevue/form/resolvers';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
 
-const value = ref(null);
+const toast = useToast();
+const initialValues = ref({
+    password: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        password: z
+            .string()
+            .min(3, { message: 'Minimum 3 characters.' })
+            .max(8, { message: 'Maximum 8 characters.' })
+            .refine((value) => /[a-z]/.test(value), {
+                message: 'Must have a lowercase letter.'
+            })
+            .refine((value) => /[A-Z]/.test(value), {
+                message: 'Must have a uppercase letter.'
+            })
+            .refine((value) => /\d/.test(value), {
+                message: 'Must have a number.'
+            })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
 <\/script>
         `
             }
         };
-    },
-    mounted() {
-        this.resolver = zodResolver(this.schema);
     },
     methods: {
         onFormSubmit({ valid }) {
