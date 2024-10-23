@@ -10,6 +10,7 @@ import DateTemplateDoc from '@/doc/datepicker/DateTemplateDoc.vue';
 import DisabledDoc from '@/doc/datepicker/DisabledDoc.vue';
 import FilledDoc from '@/doc/datepicker/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/datepicker/FloatLabelDoc.vue';
+import FormDoc from '@/doc/datepicker/FormDoc.vue';
 import FormatDoc from '@/doc/datepicker/FormatDoc.vue';
 import IconDoc from '@/doc/datepicker/IconDoc.vue';
 import IftaLabelDoc from '@/doc/datepicker/IftaLabelDoc.vue';
@@ -40,6 +41,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'format',
