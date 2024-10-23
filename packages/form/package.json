@@ -29,6 +29,10 @@
                 "types": "./form/index.d.ts",
                 "import": "./form/index.mjs"
             },
+            "./style": {
+                "types": "./form/style/index.d.ts",
+                "import": "./form/style/index.mjs"
+            },
             "./*": {
                 "types": "./*/index.d.ts",
                 "import": "./*/index.mjs"

@@ -47,6 +47,8 @@ export * from '@primevue/core/base/style';
 export * from '@primevue/core/basecomponent';
 export * from '@primevue/core/basecomponent/style';
 export * from '@primevue/core/basedirective';
+export * from '@primevue/core/baseeditableholder';
+export * from '@primevue/core/baseinput';
 export * from '@primevue/core/config';
 export { default as PrimeVue } from '@primevue/core/config';
 export * from '@primevue/core/service';
