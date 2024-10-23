@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <InputOtp name="otp" />
-            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.errors[0]?.message }}</Message>
+            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -31,7 +31,7 @@ export default {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
     <InputOtp name="otp" />
-    <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.errors[0]?.message }}</Message>
+    <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.error?.message }}</Message>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 `,
@@ -40,7 +40,7 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <InputOtp name="otp" />
-            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.errors[0]?.message }}</Message>
+            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -79,7 +79,7 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <InputOtp name="otp" />
-            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.errors[0]?.message }}</Message>
+            <Message v-if="$form.otp?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.otp.error?.message }}</Message>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>

@@ -3,10 +3,10 @@
         <p>AutoComplete can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-80">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" fluid />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.errors[0]?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -39,10 +39,10 @@ export default {
             ),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
     <div class="flex flex-col gap-2">
         <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-        <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.errors[0]?.message }}</Message>
+        <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -50,10 +50,10 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.errors[0]?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -114,10 +114,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
             <div class="flex flex-col gap-2">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.errors[0]?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

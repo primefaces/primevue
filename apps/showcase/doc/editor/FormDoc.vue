@@ -6,7 +6,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.errors[0]?.message }}</Message>
+                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -34,7 +34,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
     <div class="flex flex-col gap-2">
         <Editor name="editor" editorStyle="height: 320px" />
-        <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.errors[0]?.message }}</Message>
+        <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -45,7 +45,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.errors[0]?.message }}</Message>
+                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -86,7 +86,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.errors[0]?.message }}</Message>
+                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>

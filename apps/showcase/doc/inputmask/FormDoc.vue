@@ -6,7 +6,7 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.errors[0]?.message }}</Message>
+                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -34,7 +34,7 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-2">
         <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-        <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.errors[0]?.message }}</Message>
+        <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -45,7 +45,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.errors[0]?.message }}</Message>
+                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -86,7 +86,7 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.errors[0]?.message }}</Message>
+                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
