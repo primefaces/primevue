@@ -19,17 +19,32 @@ const GLOBALS = {
 
 // externals
 const GLOBAL_EXTERNALS = ['vue'];
-const INLINE_EXTERNALS = [/@primevue\/core\/.*/];
+const INLINE_EXTERNALS = [/@primevue\/core\/.*/, /@primeuix\/.*/];
 const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 
 // alias
 const ALIAS_ENTRIES = [
     {
-        find: /^@primevue\/icons\/(.*)$/,
-        replacement: path.resolve(__dirname, './src/$1/index.vue')
+        find: /^@primevue\/form\/(.*)$/,
+        replacement: path.resolve(__dirname, './src/$1'),
+        customResolver(source, importer) {
+            const basedir = path.dirname(importer);
+            const folderPath = path.resolve(basedir, source);
+            const folderName = path.basename(folderPath);
+
+            const fName = folderName === 'style' ? `${path.basename(path.dirname(folderPath))}Style` : folderName;
+            const files = fs.readdirSync(folderPath);
+            const targetFile = files.find((file) => {
+                const ext = path.extname(file);
+
+                return ['.vue', '.js'].includes(ext) && path.basename(file, ext).toLowerCase() === fName.toLowerCase();
+            });
+
+            return targetFile ? path.join(folderPath, targetFile) : null;
+        }
     },
-    { find: '@primevue/icons/baseicon/style', replacement: path.resolve(__dirname, './src/baseicon/style/BaseIconStyle.js') },
-    { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, './src/baseicon/BaseIcon.vue') }
+    { find: '@primevue/form/resolvers', replacement: path.resolve(__dirname, './src/resolvers/index.js') },
+    { find: '@primevue/form/useform', replacement: path.resolve(__dirname, './src/useform/index.js') }
 ];
 
 // plugins
@@ -160,14 +175,14 @@ const ENTRY = {
     }
 };
 
-function addIcons() {
-    const iconDir = path.resolve(__dirname, process.env.INPUT_DIR);
-
-    fs.readdirSync(path.resolve(__dirname, iconDir), { withFileTypes: true })
+function addFile() {
+    fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR), { withFileTypes: true })
         .filter((dir) => dir.isDirectory())
         .forEach(({ name: folderName }) => {
-            fs.readdirSync(path.resolve(__dirname, iconDir + '/' + folderName)).forEach((file) => {
-                if (/\.vue$/.test(file)) {
+            fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR + folderName)).forEach((file) => {
+                let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+
+                if (name === folderName) {
                     const input = process.env.INPUT_DIR + folderName + '/' + file;
                     const output = process.env.OUTPUT_DIR + folderName + '/index';
 
@@ -195,7 +210,17 @@ function addStyle() {
         });
 }
 
-addIcons();
+function addResolvers() {
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'resolvers/index.js', output: process.env.OUTPUT_DIR + 'resolvers/index' });
+}
+
+function addUseForm() {
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'useform/index.js', output: process.env.OUTPUT_DIR + 'useform/index' });
+}
+
+addFile();
 addStyle();
+addResolvers();
+addUseForm();
 
 export default ENTRY.entries;
