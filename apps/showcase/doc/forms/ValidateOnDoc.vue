@@ -9,15 +9,15 @@
         <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-2">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
                 <InputText name="name" type="text" placeholder="Name" fluid />
-                <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.errors[0]?.message }}</Message>
+                <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
             </div>
             <div class="flex flex-col gap-2">
                 <InputText name="surname" type="text" placeholder="Surname" fluid />
-                <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.errors[0]?.message }}</Message>
+                <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -39,15 +39,15 @@ export default {
 <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-2">
         <InputText name="username" type="text" placeholder="Username" fluid />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
         <InputText name="name" type="text" placeholder="Name" fluid />
-        <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.errors[0]?.message }}</Message>
+        <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
     </div>
     <div class="flex flex-col gap-2">
         <InputText name="surname" type="text" placeholder="Surname" fluid />
-        <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.errors[0]?.message }}</Message>
+        <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -57,7 +57,7 @@ export default {
     <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
         <div class="flex flex-col gap-2">
             <InputText name="username" type="text" placeholder="Username" fluid />
-            <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.errors[0]?.message }}</Message>
+            <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
         </div>
         <Button type="submit" severity="secondary" label="Submit" />
     </Form>
