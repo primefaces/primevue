@@ -74,14 +74,12 @@ export default {
     formField: {},
     methods: {
         updateValue(value, event) {
-            // uncontrolled
-            if (this.uncontolled) {
-                this.$emit('value-change', value);
-            } else {
-                // controlled
+            if (this.controlled) {
                 this.d_value = value;
                 this.$emit('update:modelValue', value);
             }
+
+            this.$emit('value-change', value);
 
             this.formField.onChange?.({ originalEvent: event, value });
         }
@@ -99,8 +97,8 @@ export default {
         $formDefaultValue() {
             return this.d_value ?? this.$pcForm?.initialValues?.[this.$formName];
         },
-        uncontolled() {
-            return this.defaultValue !== undefined && this.modelValue === undefined;
+        controlled() {
+            return this.defaultValue === undefined;
         },
         // @deprecated use $filled instead
         filled() {
