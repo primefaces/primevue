@@ -27,7 +27,7 @@ export default {
             this.resize();
         }
     },
-    onBeforeUnmount() {
+    beforeUnmount() {
         if (this.observer) {
             this.observer.disconnect();
         }
