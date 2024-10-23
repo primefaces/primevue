@@ -145,8 +145,13 @@ export interface InputNumberPassThroughAttributes {
 export interface InputNumberState {
     /**
      * Current value state as a number.
+     * @deprecated since 4.2.0. Use 'd_value' instead.
      */
     d_modelValue: number;
+    /**
+     * Current value state as a number.
+     */
+    d_value: number;
     /**
      * Current focused state as a boolean.
      * @defaultValue false
