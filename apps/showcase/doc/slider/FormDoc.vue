@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             initialValues: {
-                slider: null
+                slider: 0
             },
             resolver: zodResolver(
                 z.object({
@@ -60,7 +60,7 @@ export default {
     data() {
         return {
             initialValues: {
-                slider: null
+                slider: 0
             },
             resolver: zodResolver(
                 z.object({
@@ -101,7 +101,7 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    slider: null
+    slider: 0
 });
 const resolver = ref(zodResolver(
     z.object({
