@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/colorpicker/BasicDoc.vue';
 import DisabledDoc from '@/doc/colorpicker/DisabledDoc.vue';
+import FormDoc from '@/doc/colorpicker/FormDoc.vue';
 import FormatDoc from '@/doc/colorpicker/FormatDoc.vue';
 import ImportDoc from '@/doc/colorpicker/ImportDoc.vue';
 import InlineDoc from '@/doc/colorpicker/InlineDoc.vue';
@@ -25,6 +26,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'inline',
