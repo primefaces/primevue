@@ -10,10 +10,11 @@
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event)"
             @keydown="onKeyDown($event)"
+            @blur="onBlur($event)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue"
+            :aria-valuenow="d_value"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -29,10 +30,11 @@
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 0)"
             @keydown="onKeyDown($event, 0)"
+            @blur="onBlur($event, 0)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue ? modelValue[0] : null"
+            :aria-valuenow="d_value ? d_value[0] : null"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -48,10 +50,11 @@
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 1)"
             @keydown="onKeyDown($event, 1)"
+            @blur="onBlur($event, 1)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue ? modelValue[1] : null"
+            :aria-valuenow="d_value ? d_value[1] : null"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -62,14 +65,14 @@
 </template>
 
 <script>
-import { getWindowScrollLeft, getWindowScrollTop, getAttribute } from '@primeuix/utils/dom';
+import { getAttribute, getWindowScrollLeft, getWindowScrollTop } from '@primeuix/utils/dom';
 import BaseSlider from './BaseSlider.vue';
 
 export default {
     name: 'Slider',
     extends: BaseSlider,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'slideend'],
+    emits: ['change', 'slideend'],
     dragging: false,
     handleIndex: null,
     initX: null,
@@ -136,7 +139,7 @@ export default {
                 modelValue = newValue;
             }
 
-            this.$emit('update:modelValue', modelValue);
+            this.updateValue(modelValue, event);
             this.$emit('change', modelValue);
         },
         onDragStart(event, index) {
@@ -224,6 +227,9 @@ export default {
                     break;
             }
         },
+        onBlur(event, index) {
+            this.formField.onBlur?.(event);
+        },
         decrementValue(event, index, pageKey = false) {
             let newValue;
 
@@ -280,10 +286,10 @@ export default {
     computed: {
         value() {
             if (this.range) {
-                return [this.modelValue?.[0] ?? this.min, this.modelValue?.[1] ?? this.max];
+                return [this.d_value?.[0] ?? this.min, this.d_value?.[1] ?? this.max];
             }
 
-            return this.modelValue ?? this.min;
+            return this.d_value ?? this.min;
         },
         horizontal() {
             return this.orientation === 'horizontal';
