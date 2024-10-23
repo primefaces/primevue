@@ -248,7 +248,6 @@ export default {
             selectedRows: []
         };
     },
-
     methods: {
         displayPopover(event) {
             this.hidePopover();
