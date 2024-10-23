@@ -134,7 +134,7 @@ export default {
     data() {
         return {
             initialValues: {
-                city: { cname: '' }
+                city: null
             },
             resolver: zodResolver(
                 z.object({
@@ -251,7 +251,7 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    city: { name: '' }
+    city: null
 });
 const resolver = ref(zodResolver(
     z.object({
