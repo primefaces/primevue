@@ -27,10 +27,10 @@ export default {
                     city: z
                         .array(
                             z.object({
-                                name: z.string().min(1, 'Option cannot be empty')
+                                name: z.string().min(1, 'City required.')
                             })
                         )
-                        .min(1, 'At least one city should be selected.')
+                        .min(1, 'City required.')
                 })
             ),
             cities: [
@@ -78,10 +78,10 @@ export default {
                     city: z
                     .array(
                         z.object({
-                            name: z.string().min(1, 'Option cannot be empty')
+                            name: z.string().min(1, 'City required.')
                         })
                     )
-                    .min(1, 'At least one city should be selected.')
+                    .min(1, 'City required.')
                 })
             ),
             cities: [
@@ -132,10 +132,10 @@ const resolver = ref(zodResolver(
         city: z
             .array(
                 z.object({
-                    name: z.string().min(1, 'Option cannot be empty')
+                    name: z.string().min(1, 'City required.')
                 })
             )
-            .min(1, 'At least one city should be selected.')
+            .min(1, 'City required.')
     })
 ));
 const cities = ref([
