@@ -7,8 +7,13 @@ export interface useFormReturn {
     states: any;
 }
 
+export interface useFormResolverOptions {
+    values: Record<string, any>;
+    names: string[] | undefined;
+}
+
 export interface useFormOptions {
-    resolver?: (values: Record<string, any>) => Promise<Record<string, any>> | Record<string, any> | undefined;
+    resolver?: (e: useFormResolverOptions) => Promise<Record<string, any>> | Record<string, any> | undefined;
     initialValues?: Record<string, any> | undefined;
     validateOnValueUpdate?: boolean | string[];
     validateOnBlur?: boolean | string[];

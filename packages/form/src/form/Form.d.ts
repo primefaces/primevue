@@ -73,13 +73,28 @@ export interface FormPassThroughAttributes {
 }
 
 /**
+ * Resolver options for Form component.
+ */
+export interface FormResolverOptions {
+    /**
+     * The values of the form fields.
+     */
+    values: Record<string, any>;
+    /**
+     * The names of the form fields.
+     */
+    names: string[] | undefined;
+}
+
+/**
  * Defines valid properties in Form component.
  */
 export interface FormProps {
     /**
      * A function that resolves validation logic.
+     * @param {FormResolverOptions} e - Resolver options
      */
-    resolver?: (values: Record<string, any>) => Promise<Record<string, any>> | Record<string, any> | undefined;
+    resolver?: (e: FormResolverOptions) => Promise<Record<string, any>> | Record<string, any> | undefined;
     /**
      * The initial values for the form fields.
      */

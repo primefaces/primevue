@@ -84,13 +84,14 @@ export const useForm = (options = {}) => {
     };
 
     const validate = async (field) => {
+        const names = Object.keys(states) ?? [];
         const values = Object.entries(states).reduce((acc, [key, val]) => {
             acc[key] = val.value;
 
             return acc;
         }, {});
 
-        const result = (await options.resolver?.({ values })) ?? {};
+        const result = (await options.resolver?.({ values, names })) ?? {};
 
         for (const sField of Object.keys(states)) {
             if (sField === field || !field) {
@@ -118,7 +119,7 @@ export const useForm = (options = {}) => {
         handleSubmit,
         validate,
         reset,
-        valid: toValue(valid),
-        states: toValue(states)
+        valid,
+        states
     };
 };

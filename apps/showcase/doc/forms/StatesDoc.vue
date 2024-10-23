@@ -3,13 +3,13 @@
         <p>Form uses the <i>name</i> property to create a state object for tracking values, errors, and actions.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" class="grid md:grid-cols-2 gap-4 w-full">
+        <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
             <div class="flex flex-col justify-center items-center gap-4">
                 <InputText name="username" type="text" placeholder="Username" />
                 <Button type="submit" severity="secondary" label="Submit" />
             </div>
             <Fieldset legend="Form States">
-                <pre>{{ $form }}</pre>
+                <pre class="whitespace-pre-wrap">{{ $form }}</pre>
             </Fieldset>
         </Form>
     </div>
@@ -25,13 +25,13 @@ export default {
             },
             code: {
                 basic: `
-<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid md:grid-cols-2 gap-4 w-full">
+<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
     <div class="flex flex-col justify-center items-center gap-4">
         <InputText name="username" type="text" placeholder="Username" />
         <Button type="submit" severity="secondary" label="Submit" />
     </div>
     <Fieldset legend="Form States">
-        <pre>{{ $form }}</pre>
+        <pre class="whitespace-pre-wrap">{{ $form }}</pre>
     </Fieldset>
 </Form>
 `,
@@ -99,10 +99,14 @@ export default {
     },
     methods: {
         resolver: ({ values }) => {
-            const errors = {};
+            const errors = { username: [] };
 
             if (!values.username) {
-                errors.username = [{ message: 'Username is required.' }];
+                errors.username.push({ type: 'required', message: 'Username is required.' });
+            }
+
+            if (values.username?.length < 3) {
+                errors.username.push({ type: 'minimum', message: 'Username must be at least 3 characters long.' });
             }
 
             return {
