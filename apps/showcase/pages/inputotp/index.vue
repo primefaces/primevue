@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
+import FormDoc from '@/doc/inputotp/FormDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
@@ -27,6 +28,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'form',
+                    label: 'Form',
+                    component: FormDoc
                 },
                 {
                     id: 'mask',
