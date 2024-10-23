@@ -160,6 +160,7 @@ export default {
             // e.states: Contains the current state of each form field, including validity status.
             // e.errors: An object that holds any validation errors for the invalid fields in the form.
             // e.values: An object containing the current values of all form fields.
+            // e.reset: A function that resets the form to its initial state.
             if (e.valid) {
                 this.$toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
             }
