@@ -70,6 +70,10 @@ export interface RatingPassThroughOptions {
      */
     offIcon?: RatingPassThroughOptionType;
     /**
+     * Used to pass attributes to the half icon's DOM element.
+     */
+    halfIcon?: RatingPassThroughOptionType;
+    /**
      * Used to pass attributes to the hidden option input container's DOM element.
      */
     hiddenOptionInputContainer?: RatingPassThroughOptionType;
@@ -230,6 +234,20 @@ export interface RatingSlots {
     officon(scope: {
         /**
          * Option value
+         */
+        value: number;
+        /**
+         * Style class of the icon.
+         */
+        class: string;
+    }): VNode[];
+    /**
+     * Custom half icon template.
+     * @param {Object} scope - half icon slot's params.
+     */
+    halficon(scope: {
+        /**
+         * Item value
          */
         value: number;
         /**

@@ -36,6 +36,12 @@ const RatingProps = [
         description: 'Icon for the off state.'
     },
     {
+        name: 'halfIcon',
+        type: 'string',
+        default: 'null',
+        description: 'Icon for the half state.'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',
@@ -53,6 +59,10 @@ const RatingSlots = [
     {
         name: 'onicon',
         description: 'Custom on icon template.'
+    },
+    {
+        name: 'halficon',
+        description: 'Custom half icon template.'
     },
     {
         name: 'officon',

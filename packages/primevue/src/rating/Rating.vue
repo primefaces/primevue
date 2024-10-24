@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="value in stars" :key="value">
-            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= d_value" :data-p-focused="value === focusedOptionIndex">
+            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="isStarActive(value)" :data-p-focused="value === focusedOptionIndex">
                 <span class="p-hidden-accessible" v-bind="ptm('hiddenOptionInputContainer')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
@@ -20,6 +20,9 @@
                 <slot v-if="value <= d_value" name="onicon" :value="value" :class="cx('onIcon')">
                     <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="[cx('onIcon'), onIcon]" v-bind="ptm('onIcon')" />
                 </slot>
+                <slot v-else-if="isStarActive(value)" name="halficon" :value="value" :class="cx('halfIcon')">
+                    <component :is="halfIcon ? 'span' : 'StarHalfFillIcon'" :class="[cx('halfIcon'), halfIcon]" v-bind="ptm('halfIcon')" />
+                </slot>
                 <slot v-else name="officon" :value="value" :class="cx('offIcon')">
                     <component :is="offIcon ? 'span' : 'StarIcon'" :class="[cx('offIcon'), offIcon]" v-bind="ptm('offIcon')" />
                 </slot>
@@ -34,6 +37,7 @@ import { UniqueComponentId } from '@primevue/core/utils';
 import BanIcon from '@primevue/icons/ban';
 import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
+import StarHalfFillIcon from '@primevue/icons/starhalffill';
 import BaseRating from './BaseRating.vue';
 
 export default {
@@ -57,16 +61,19 @@ export default {
         this.d_name = this.d_name || UniqueComponentId();
     },
     methods: {
+        isStarActive(starIndex) {
+            return (starIndex <= this.d_value || (this.d_value - starIndex < 0 && this.d_value - starIndex > -1))
+        },
         getPTOptions(key, value) {
             return this.ptm(key, {
                 context: {
-                    active: value <= this.d_value,
+                    active: value <= this.isStarActive(value),
                     focused: value === this.focusedOptionIndex
                 }
             });
         },
         onOptionClick(event, value) {
-            if (!this.readonly && !this.disabled) {
+            if (!this.readonly && !this.disabled && !this.halfStars) {
                 this.onOptionSelect(event, value);
                 this.isFocusVisibleItem = false;
                 const firstFocusableEl = getFirstFocusableElement(event.currentTarget);
@@ -106,6 +113,7 @@ export default {
     },
     components: {
         StarFillIcon,
+        StarHalfFillIcon,
         StarIcon,
         BanIcon
     }

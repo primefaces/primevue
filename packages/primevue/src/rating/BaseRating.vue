@@ -14,6 +14,10 @@ export default {
             type: Number,
             default: 5
         },
+        halfStars: {
+            type: Boolean,
+            default: false
+        },
         onIcon: {
             type: String,
             default: undefined
@@ -21,7 +25,11 @@ export default {
         offIcon: {
             type: String,
             default: undefined
-        }
+        },
+        halfIcon: {
+            type: String,
+            default: undefined
+        },
     },
     style: RatingStyle,
     provide() {
