@@ -9,11 +9,11 @@
         role="columnheader"
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
         :data-p-sortable-column="columnProp('sortable')"
-        :data-p-resizable-column="resizableColumns"
+        :data-p-resizable-column="isResizable"
         :data-p-sorted="isColumnSorted()"
         :data-p-frozen-column="columnProp('frozen')"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
+        <span v-if="isResizable" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
         <div :class="cx('columnHeaderContent')" v-bind="getColumnPT('columnHeaderContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" :class="cx('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
@@ -26,8 +26,8 @@
 </template>
 
 <script>
+import { getAttribute, getIndex, getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
-import { getNextElementSibling, getPreviousElementSibling, getOuterWidth, getAttribute, getIndex } from '@primeuix/utils/dom';
 import { getVNodeProp } from '@primevue/core/utils';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
@@ -101,7 +101,7 @@ export default {
                     index: this.index,
                     sorted: this.isColumnSorted(),
                     frozen: this.$parentInstance.scrollable && this.columnProp('frozen'),
-                    resizable: this.resizableColumns,
+                    resizable: this.isResizable,
                     scrollable: this.$parentInstance.scrollable,
                     showGridlines: this.$parentInstance.showGridlines,
                     size: this.$parentInstance?.size
@@ -231,6 +231,11 @@ export default {
             } else {
                 return null;
             }
+        },
+        isResizable() {
+            const rsz = this.columnProp('resizable');
+
+            return rsz || (this.resizableColumns && !(rsz === false || this.columnProp('frozen')));
         }
     },
     components: {

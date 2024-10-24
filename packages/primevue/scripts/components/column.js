@@ -30,6 +30,12 @@ const ColumnProps = [
         description: 'Defines if a column is sortable.'
     },
     {
+        name: 'resizable',
+        type: 'boolean',
+        default: 'false',
+        description: 'Defines if a column is resizable despite being frozen or other table columns not so.'
+    },
+    {
         name: 'header',
         type: 'any',
         default: 'null',

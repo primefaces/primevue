@@ -16,13 +16,13 @@
         @drop="onDrop"
         v-bind="{ ...getColumnPT('root'), ...getColumnPT('headerCell') }"
         :data-p-sortable-column="columnProp('sortable')"
-        :data-p-resizable-column="resizableColumns"
+        :data-p-resizable-column="isResizable"
         :data-p-sorted="isColumnSorted()"
         :data-p-filter-column="filterColumn"
         :data-p-frozen-column="columnProp('frozen')"
         :data-p-reorderable-column="reorderableColumns"
     >
-        <span v-if="resizableColumns && !columnProp('frozen')" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
+        <span v-if="isResizable" :class="cx('columnResizer')" @mousedown="onResizeStart" v-bind="getColumnPT('columnResizer')"></span>
         <div :class="cx('columnHeaderContent')" v-bind="getColumnPT('columnHeaderContent')">
             <component v-if="column.children && column.children.header" :is="column.children.header" :column="column" />
             <span v-if="columnProp('header')" :class="cx('columnTitle')" v-bind="getColumnPT('columnTitle')">{{ columnProp('header') }}</span>
@@ -222,7 +222,7 @@ export default {
                     index: this.index,
                     sortable: this.columnProp('sortable') === '' || this.columnProp('sortable'),
                     sorted: this.isColumnSorted(),
-                    resizable: this.resizableColumns,
+                    resizable: this.isResizable,
                     size: this.$parentInstance?.$parentInstance?.size,
                     showGridlines: this.$parentInstance?.$parentInstance?.showGridlines || false
                 }
@@ -364,6 +364,11 @@ export default {
             } else {
                 return null;
             }
+        },
+        isResizable() {
+            const rsz = this.columnProp('resizable');
+
+            return rsz || (this.resizableColumns && !(rsz === false || this.columnProp('frozen')));
         }
     },
     components: {
