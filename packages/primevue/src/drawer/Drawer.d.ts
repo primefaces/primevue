@@ -263,6 +263,10 @@ export interface DrawerEmitsOptions {
      * Callback to invoke when drawer gets hidden.
      */
     hide(): void;
+    /**
+     * Callback to invoke after drawer is hidden.
+     */
+    'after-hide'(): void;
 }
 
 export declare type DrawerEmits = EmitFn<DrawerEmitsOptions>;
