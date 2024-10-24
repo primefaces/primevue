@@ -41,8 +41,8 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <div class="config-panel-settings">
-                        <span class="config-panel-label">RTL</span>
+                    <div class="config-panel-settings items-end">
+                        <span class="config-panel-label">RTL (Beta)</span>
                         <ToggleSwitch v-model="isRTL" @update:modelValue="onRTLChange" />
                     </div>
                 </div>
