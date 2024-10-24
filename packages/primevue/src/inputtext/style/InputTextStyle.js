@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('inputtext.color')};
     background: ${dt('inputtext.background')};
-    padding: ${dt('inputtext.padding.y')} ${dt('inputtext.padding.x')};
+    padding-block: ${dt('inputtext.padding.y')};
+    padding-inline: ${dt('inputtext.padding.x')};
     border: 1px solid ${dt('inputtext.border.color')};
     transition: background ${dt('inputtext.transition.duration')}, color ${dt('inputtext.transition.duration')}, border-color ${dt('inputtext.transition.duration')}, outline-color ${dt('inputtext.transition.duration')}, box-shadow ${dt(
     'inputtext.transition.duration'
@@ -57,12 +58,14 @@ const theme = ({ dt }) => `
 
 .p-inputtext-sm {
     font-size: ${dt('inputtext.sm.font.size')};
-    padding: ${dt('inputtext.sm.padding.y')} ${dt('inputtext.sm.padding.x')};
+    padding-block: ${dt('inputtext.sm.padding.y')};
+    padding-inline: ${dt('inputtext.sm.padding.x')};
 }
 
 .p-inputtext-lg {
     font-size: ${dt('inputtext.lg.font.size')};
-    padding: ${dt('inputtext.lg.padding.y')} ${dt('inputtext.lg.padding.x')};
+    padding-block: ${dt('inputtext.lg.padding.y')};
+    padding-inline: ${dt('inputtext.lg.padding.x')};
 }
 
 .p-inputtext-fluid {
