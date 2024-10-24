@@ -133,7 +133,7 @@
 
                             &.router-link-active {
                                 color: var(--primary-text-color);
-                                border-left-color: var(--primary-text-color);
+                                border-inline-start-color: var(--primary-text-color);
                             }
                         }
 
