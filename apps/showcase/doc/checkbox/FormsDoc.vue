@@ -7,20 +7,20 @@
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient1" value="Cheese" />
-                        <label for="ingredient1" class="ml-2"> Cheese </label>
+                        <Checkbox inputId="cheese" value="Cheese" />
+                        <label for="cheese" class="ml-2"> Cheese </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient2" value="Mushroom" />
-                        <label for="ingredient2" class="ml-2"> Mushroom </label>
+                        <Checkbox inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom" class="ml-2"> Mushroom </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient3" value="Pepper" />
-                        <label for="ingredient3" class="ml-2"> Pepper </label>
+                        <Checkbox inputId="pepper" value="Pepper" />
+                        <label for="pepper" class="ml-2"> Pepper </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient4" value="Onion" />
-                        <label for="ingredient4" class="ml-2"> Onion </label>
+                        <Checkbox inputId="onion" value="Onion" />
+                        <label for="onion" class="ml-2"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
@@ -53,20 +53,20 @@ export default {
     <div class="flex flex-col gap-2">
         <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
             <div class="flex items-center">
-                <Checkbox inputId="ingredient1" value="Cheese" />
-                <label for="ingredient1" class="ml-2"> Cheese </label>
+                <Checkbox inputId="cheese" value="Cheese" />
+                <label for="cheese" class="ml-2"> Cheese </label>
             </div>
             <div class="flex items-center">
-                <Checkbox inputId="ingredient2" value="Mushroom" />
-                <label for="ingredient2" class="ml-2"> Mushroom </label>
+                <Checkbox inputId="mushroom" value="Mushroom" />
+                <label for="mushroom" class="ml-2"> Mushroom </label>
             </div>
             <div class="flex items-center">
-                <Checkbox inputId="ingredient3" value="Pepper" />
-                <label for="ingredient3" class="ml-2"> Pepper </label>
+                <Checkbox inputId="pepper" value="Pepper" />
+                <label for="pepper" class="ml-2"> Pepper </label>
             </div>
             <div class="flex items-center">
-                <Checkbox inputId="ingredient4" value="Onion" />
-                <label for="ingredient4" class="ml-2"> Onion </label>
+                <Checkbox inputId="onion" value="Onion" />
+                <label for="onion" class="ml-2"> Onion </label>
             </div>
         </CheckboxGroup>
 
@@ -82,20 +82,20 @@ export default {
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient1" value="Cheese" />
-                        <label for="ingredient1" class="ml-2"> Cheese </label>
+                        <Checkbox inputId="cheese" value="Cheese" />
+                        <label for="cheese" class="ml-2"> Cheese </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient2" value="Mushroom" />
-                        <label for="ingredient2" class="ml-2"> Mushroom </label>
+                        <Checkbox inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom" class="ml-2"> Mushroom </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient3" value="Pepper" />
-                        <label for="ingredient3" class="ml-2"> Pepper </label>
+                        <Checkbox inputId="pepper" value="Pepper" />
+                        <label for="pepper" class="ml-2"> Pepper </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient4" value="Onion" />
-                        <label for="ingredient4" class="ml-2"> Onion </label>
+                        <Checkbox inputId="onion" value="Onion" />
+                        <label for="onion" class="ml-2"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
@@ -142,20 +142,20 @@ export default {
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient1" value="Cheese" />
-                        <label for="ingredient1" class="ml-2"> Cheese </label>
+                        <Checkbox inputId="cheese" value="Cheese" />
+                        <label for="cheese" class="ml-2"> Cheese </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient2" value="Mushroom" />
-                        <label for="ingredient2" class="ml-2"> Mushroom </label>
+                        <Checkbox inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom" class="ml-2"> Mushroom </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient3" value="Pepper" />
-                        <label for="ingredient3" class="ml-2"> Pepper </label>
+                        <Checkbox inputId="pepper" value="Pepper" />
+                        <label for="pepper" class="ml-2"> Pepper </label>
                     </div>
                     <div class="flex items-center">
-                        <Checkbox inputId="ingredient4" value="Onion" />
-                        <label for="ingredient4" class="ml-2"> Onion </label>
+                        <Checkbox inputId="onion" value="Onion" />
+                        <label for="onion" class="ml-2"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
