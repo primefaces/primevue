@@ -14,7 +14,6 @@ const theme = ({ dt }) => `
     cursor: pointer;
     outline-color: transparent;
     border-radius: 50%;
-    cursor: pointer;
     transition: background ${dt('rating.transition.duration')}, color ${dt('rating.transition.duration')}, border-color ${dt('rating.transition.duration')}, outline-color ${dt('rating.transition.duration')}, box-shadow ${dt(
     'rating.transition.duration'
 )};
