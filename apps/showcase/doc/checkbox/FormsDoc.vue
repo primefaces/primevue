@@ -6,21 +6,21 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="cheese" value="Cheese" />
-                        <label for="cheese" class="ml-2"> Cheese </label>
+                        <label for="cheese"> Cheese </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="mushroom" value="Mushroom" />
-                        <label for="mushroom" class="ml-2"> Mushroom </label>
+                        <label for="mushroom"> Mushroom </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="pepper" value="Pepper" />
-                        <label for="pepper" class="ml-2"> Pepper </label>
+                        <label for="pepper"> Pepper </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="onion" value="Onion" />
-                        <label for="onion" class="ml-2"> Onion </label>
+                        <label for="onion"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
@@ -52,21 +52,21 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
     <div class="flex flex-col gap-2">
         <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <Checkbox inputId="cheese" value="Cheese" />
-                <label for="cheese" class="ml-2"> Cheese </label>
+                <label for="cheese"> Cheese </label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <Checkbox inputId="mushroom" value="Mushroom" />
-                <label for="mushroom" class="ml-2"> Mushroom </label>
+                <label for="mushroom"> Mushroom </label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <Checkbox inputId="pepper" value="Pepper" />
-                <label for="pepper" class="ml-2"> Pepper </label>
+                <label for="pepper"> Pepper </label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <Checkbox inputId="onion" value="Onion" />
-                <label for="onion" class="ml-2"> Onion </label>
+                <label for="onion"> Onion </label>
             </div>
         </CheckboxGroup>
 
@@ -81,21 +81,21 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="cheese" value="Cheese" />
-                        <label for="cheese" class="ml-2"> Cheese </label>
+                        <label for="cheese"> Cheese </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="mushroom" value="Mushroom" />
-                        <label for="mushroom" class="ml-2"> Mushroom </label>
+                        <label for="mushroom"> Mushroom </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="pepper" value="Pepper" />
-                        <label for="pepper" class="ml-2"> Pepper </label>
+                        <label for="pepper"> Pepper </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="onion" value="Onion" />
-                        <label for="onion" class="ml-2"> Onion </label>
+                        <label for="onion"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
@@ -141,21 +141,21 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
             <div class="flex flex-col gap-2">
                 <CheckboxGroup name="checkbox" class="flex flex-wrap gap-4">
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="cheese" value="Cheese" />
-                        <label for="cheese" class="ml-2"> Cheese </label>
+                        <label for="cheese"> Cheese </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="mushroom" value="Mushroom" />
-                        <label for="mushroom" class="ml-2"> Mushroom </label>
+                        <label for="mushroom"> Mushroom </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="pepper" value="Pepper" />
-                        <label for="pepper" class="ml-2"> Pepper </label>
+                        <label for="pepper"> Pepper </label>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-2">
                         <Checkbox inputId="onion" value="Onion" />
-                        <label for="onion" class="ml-2"> Onion </label>
+                        <label for="onion"> Onion </label>
                     </div>
                 </CheckboxGroup>
 
