@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('textarea.color')};
     background: ${dt('textarea.background')};
-    padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
+    padding-block: ${dt('textarea.padding.y')};
+    padding-inline: ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
     transition: background ${dt('textarea.transition.duration')}, color ${dt('textarea.transition.duration')}, border-color ${dt('textarea.transition.duration')}, outline-color ${dt('textarea.transition.duration')}, box-shadow ${dt(
     'textarea.transition.duration'
