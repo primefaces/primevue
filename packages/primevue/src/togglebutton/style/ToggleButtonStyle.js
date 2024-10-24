@@ -43,10 +43,10 @@ const theme = ({ dt }) => `
     transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')},
             outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt('togglebutton.transition.duration')};
     position: absolute;
-    left: ${dt('togglebutton.content.left')};
-    top: ${dt('togglebutton.content.top')};
-    width: calc(100% - calc(2 *  ${dt('togglebutton.content.left')}));
-    height: calc(100% - calc(2 *  ${dt('togglebutton.content.top')}));
+    inset-inline-start: ${dt('togglebutton.content.left')};
+    inset-block-start: ${dt('togglebutton.content.top')};
+    width: calc(100% - calc(2 * ${dt('togglebutton.content.left')}));
+    height: calc(100% - calc(2 * ${dt('togglebutton.content.top')}));
     border-radius: ${dt('togglebutton.border.radius')};
 }
 
