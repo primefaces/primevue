@@ -108,6 +108,10 @@ export interface InputMaskProps {
      */
     modelValue?: string | undefined;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: string | undefined;
+    /**
      * Placeholder character in mask, default is underscore.
      * @defaultValue _
      */
@@ -202,6 +206,11 @@ export interface InputMaskEmitsOptions {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {string} value - New value.
+     */
+    'value-change'(value: string): void;
     /**
      * Callback to invoke when the component receives focus.
      */

@@ -74,12 +74,12 @@ const classes = {
     root: ({ instance, props }) => [
         'p-inputtext p-component',
         {
-            'p-filled': instance.filled,
+            'p-filled': instance.$filled,
             'p-inputtext-sm': props.size === 'small',
             'p-inputtext-lg': props.size === 'large',
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputtext-fluid': instance.hasFluid
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-inputtext-fluid': instance.$fluid
         }
     ]
 };

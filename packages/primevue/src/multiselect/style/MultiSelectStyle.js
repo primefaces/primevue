@@ -210,13 +210,13 @@ const classes = {
         {
             'p-multiselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-multiselect-open': instance.overlayVisible,
-            'p-multiselect-fluid': instance.hasFluid
+            'p-multiselect-fluid': instance.$fluid
         }
     ],
     labelContainer: 'p-multiselect-label-container',

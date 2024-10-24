@@ -1,30 +1,14 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import InputOtpStyle from 'primevue/inputotp/style';
 
 export default {
     name: 'BaseInputOtp',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         readonly: {
             type: Boolean,
             default: false
-        },
-        variant: {
-            type: String,
-            default: null
         },
         tabindex: {
             type: Number,

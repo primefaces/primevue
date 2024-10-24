@@ -34,7 +34,7 @@ export default {
     name: 'ToggleSwitch',
     extends: BaseToggleSwitch,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -50,7 +50,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 const newValue = this.checked ? this.falseValue : this.trueValue;
 
-                this.$emit('update:modelValue', newValue);
+                this.writeValue(newValue, event);
                 this.$emit('change', event);
             }
         },
@@ -59,11 +59,12 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         }
     },
     computed: {
         checked() {
-            return this.modelValue === this.trueValue;
+            return this.d_value === this.trueValue;
         }
     }
 };

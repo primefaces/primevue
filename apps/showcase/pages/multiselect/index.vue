@@ -18,6 +18,7 @@ import DisabledDoc from '@/doc/multiselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/multiselect/FilledDoc.vue';
 import FilterDoc from '@/doc/multiselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
+import FormsDoc from '@/doc/multiselect/FormsDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/multiselect/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/multiselect/ImportDoc.vue';
@@ -41,6 +42,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'chips',

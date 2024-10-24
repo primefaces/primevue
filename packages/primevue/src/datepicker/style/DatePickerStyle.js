@@ -380,11 +380,11 @@ const classes = {
     root: ({ instance, props, state }) => [
         'p-datepicker p-component p-inputwrapper',
         {
-            'p-invalid': props.invalid,
-            'p-inputwrapper-filled': props.modelValue,
+            'p-invalid': instance.$invalid,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-focus': state.focused || state.overlayVisible,
-            'p-datepicker-fluid': instance.hasFluid
+            'p-datepicker-fluid': instance.$fluid
         }
     ],
     pcInputText: 'p-datepicker-input',

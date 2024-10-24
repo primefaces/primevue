@@ -1,0 +1,11 @@
+{
+    "main": "./CheckboxGroup.vue",
+    "module": "./CheckboxGroup.vue",
+    "types": "./CheckboxGroup.d.ts",
+    "browser": {
+        "./sfc": "./CheckboxGroup.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

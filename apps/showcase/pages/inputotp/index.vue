@@ -5,11 +5,12 @@
 <script>
 import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
+import FilledDoc from '@/doc/inputotp/FilledDoc.vue';
+import FormsDoc from '@/doc/inputotp/FormsDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
 import MaskDoc from '@/doc/inputotp/MaskDoc.vue';
 import SampleDoc from '@/doc/inputotp/SampleDoc.vue';
-import FilledDoc from '@/doc/inputotp/FilledDoc.vue';
 import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
 import PTComponent from '@/doc/inputotp/pt/index.vue';
 import ThemingDoc from '@/doc/inputotp/theming/index.vue';
@@ -27,6 +28,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'mask',

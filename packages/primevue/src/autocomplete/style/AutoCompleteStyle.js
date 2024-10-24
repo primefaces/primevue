@@ -253,19 +253,19 @@ const classes = {
         'p-autocomplete p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
+            'p-invalid': instance.$invalid,
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
+            'p-inputwrapper-filled': instance.$filled || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible,
-            'p-autocomplete-fluid': instance.hasFluid
+            'p-autocomplete-fluid': instance.$fluid
         }
     ],
     pcInputText: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-variant-filled': instance.$variant === 'filled'
         }
     ],
     chipItem: ({ instance, i }) => [

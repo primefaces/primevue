@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/togglebutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
+import FormsDoc from '@/doc/togglebutton/FormsDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
 import InvalidDoc from '@/doc/togglebutton/InvalidDoc.vue';
 import PTComponent from '@/doc/togglebutton/pt/index.vue';
@@ -33,6 +34,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'customized',

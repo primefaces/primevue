@@ -1,15 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import ColorPickerStyle from 'primevue/colorpicker/style';
 
 export default {
     name: 'BaseColorPicker',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: {
-            type: null,
-            default: null
-        },
         defaultColor: {
             type: null,
             default: 'ff0000'
@@ -21,10 +17,6 @@ export default {
         format: {
             type: String,
             default: 'hex'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
         },
         tabindex: {
             type: String,

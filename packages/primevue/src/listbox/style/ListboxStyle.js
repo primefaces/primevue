@@ -114,12 +114,12 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance, props }) => [
         'p-listbox p-component',
         {
             'p-listbox-striped': props.striped,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid
         }
     ],
     header: 'p-listbox-header',

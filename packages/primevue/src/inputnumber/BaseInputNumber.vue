@@ -1,15 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import InputNumberStyle from 'primevue/inputnumber/style';
 
 export default {
     name: 'BaseInputNumber',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
         format: {
             type: Boolean,
             default: true
@@ -117,24 +113,8 @@ export default {
             type: Boolean,
             default: false
         },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         placeholder: {
             type: String,
-            default: null
-        },
-        fluid: {
-            type: Boolean,
             default: null
         },
         inputId: {

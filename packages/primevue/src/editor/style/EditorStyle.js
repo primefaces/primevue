@@ -1073,7 +1073,12 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: 'p-editor',
+    root: ({ instance }) => [
+        'p-editor',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ],
     toolbar: 'p-editor-toolbar',
     content: 'p-editor-content'
 };

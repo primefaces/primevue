@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import SelectButtonStyle from 'primevue/selectbutton/style';
 
 export default {
     name: 'BaseSelectButton',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -16,11 +15,6 @@ export default {
             type: Boolean,
             default: true
         },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: Boolean,
         dataKey: null,
         ariaLabelledby: {
             type: String,

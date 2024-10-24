@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import ListboxStyle from 'primevue/listbox/style';
 
 export default {
     name: 'BaseListbox',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -17,14 +16,6 @@ export default {
         scrollHeight: {
             type: String,
             default: '14rem'
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
         },
         dataKey: null,
         multiple: {

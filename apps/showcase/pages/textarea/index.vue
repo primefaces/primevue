@@ -17,6 +17,7 @@ import BasicDoc from '@/doc/textarea/BasicDoc.vue';
 import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
 import FilledDoc from '@/doc/textarea/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
+import FormsDoc from '@/doc/textarea/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/textarea/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'auto-resize',

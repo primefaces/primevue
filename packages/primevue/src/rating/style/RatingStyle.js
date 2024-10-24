@@ -43,6 +43,10 @@ const theme = ({ dt }) => `
 .p-rating-option-active .p-rating-icon {
     color: ${dt('rating.icon.active.color')};
 }
+
+.p-rating-icon.p-invalid { /* @todo */
+    stroke: ${dt('rating.invalid.icon.color')};
+}
 `;
 
 const classes = {
@@ -53,15 +57,25 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
-    option: ({ instance, props, value }) => [
+    option: ({ instance, value }) => [
         'p-rating-option',
         {
-            'p-rating-option-active': value <= props.modelValue,
+            'p-rating-option-active': value <= instance.d_value,
             'p-focus-visible': value === instance.focusedOptionIndex && instance.isFocusVisibleItem
         }
     ],
-    onIcon: 'p-rating-icon p-rating-on-icon',
-    offIcon: 'p-rating-icon p-rating-off-icon'
+    onIcon: ({ instance }) => [
+        'p-rating-icon p-rating-on-icon',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ],
+    offIcon: ({ instance }) => [
+        'p-rating-icon p-rating-off-icon',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ]
 };
 
 export default BaseStyle.extend({

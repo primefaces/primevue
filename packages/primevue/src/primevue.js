@@ -146,6 +146,12 @@ export { default as Checkbox } from './checkbox/Checkbox.vue';
 export * from './checkbox/style/CheckboxStyle.js';
 export { default as CheckboxStyle } from './checkbox/style/CheckboxStyle.js';
 
+// CheckboxGroup
+export * from './checkboxgroup/CheckboxGroup.vue';
+export { default as CheckboxGroup } from './checkboxgroup/CheckboxGroup.vue';
+export * from './checkboxgroup/style/CheckboxGroupStyle.js';
+export { default as CheckboxGroupStyle } from './checkboxgroup/style/CheckboxGroupStyle.js';
+
 // Chip
 export * from './chip/Chip.vue';
 export { default as Chip } from './chip/Chip.vue';
@@ -547,6 +553,12 @@ export * from './radiobutton/RadioButton.vue';
 export { default as RadioButton } from './radiobutton/RadioButton.vue';
 export * from './radiobutton/style/RadioButtonStyle.js';
 export { default as RadioButtonStyle } from './radiobutton/style/RadioButtonStyle.js';
+
+// RadioButtonGroup
+export * from './radiobuttongroup/RadioButtonGroup.vue';
+export { default as RadioButtonGroup } from './radiobuttongroup/RadioButtonGroup.vue';
+export * from './radiobuttongroup/style/RadioButtonGroupStyle.js';
+export { default as RadioButtonGroupStyle } from './radiobuttongroup/style/RadioButtonGroupStyle.js';
 
 // Rating
 export * from './rating/Rating.vue';

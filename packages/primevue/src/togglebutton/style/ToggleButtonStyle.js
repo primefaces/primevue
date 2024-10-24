@@ -106,7 +106,7 @@ const classes = {
         'p-togglebutton p-component',
         {
             'p-togglebutton-checked': instance.active,
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid
         }
     ],
     content: 'p-togglebutton-content',

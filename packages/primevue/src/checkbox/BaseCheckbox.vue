@@ -1,18 +1,13 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import CheckboxStyle from 'primevue/checkbox/style';
 
 export default {
     name: 'BaseCheckbox',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
         value: null,
-        modelValue: null,
         binary: Boolean,
-        name: {
-            type: String,
-            default: null
-        },
         indeterminate: {
             type: Boolean,
             default: false
@@ -23,18 +18,6 @@ export default {
         },
         falseValue: {
             type: null,
-            default: false
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
             default: false
         },
         readonly: {
