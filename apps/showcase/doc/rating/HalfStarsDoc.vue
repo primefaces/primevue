@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>halfStars</i> is present, values between a.b and x.y will be represented as a half star.</p>
+        <p>When <i>halfStars</i> is present, values between x.5 and x+1 will be represented as a half star.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Rating v-model="value" halfStars />
