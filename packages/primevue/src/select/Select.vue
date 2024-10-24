@@ -688,7 +688,7 @@ export default {
             this.scrollInView();
 
             setTimeout(() => {
-                this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
             }, 1);
         },
         onOverlayAfterEnter() {
