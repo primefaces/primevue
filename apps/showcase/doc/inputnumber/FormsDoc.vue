@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             initialValues: {
-                number: 20
+                number: 5
             },
             resolver: zodResolver(
                 z.object({
@@ -60,7 +60,7 @@ export default {
     data() {
         return {
             initialValues: {
-                number: 20
+                number: 5
             },
             resolver: zodResolver(
                 z.object({
@@ -101,7 +101,7 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    number: 20
+    number: 5
 });
 const resolver = ref(zodResolver(
     z.object({
