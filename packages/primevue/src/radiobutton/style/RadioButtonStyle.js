@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
     appearance: none;
     position: absolute;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100%;
     padding: 0;
@@ -125,8 +125,8 @@ const classes = {
         {
             'p-radiobutton-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-invalid': instance.$pcRadioButtonGroup ? instance.$pcRadioButtonGroup.$invalid : instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled'
         }
     ],
     box: 'p-radiobutton-box',

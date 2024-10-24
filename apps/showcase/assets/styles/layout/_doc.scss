@@ -185,12 +185,12 @@
 
     > .navbar-item {
         .navbar-item-content {
-            border-left: 1px solid var(--border-color);
-            padding-left: .25rem;
+            border-inline-start: 1px solid var(--border-color);
+            padding-inline-start: .25rem;
             transition: all .2s;
 
             &:hover {
-                border-left-color: var(--hover-border-color);
+                border-inline-start-color: var(--hover-border-color);
             }
         }
     }
@@ -201,11 +201,12 @@
 
             button {
                 font-size: 1rem;
-                text-align: left;
+                text-align: start;
                 background: transparent;
                 margin: 0;
                 border: 0 none;
-                padding: 0.25rem 1rem 0.25rem 1rem;
+                padding-block: 0.25rem;
+                padding-inline: 1rem;
                 color: var(--text-secondary-color);
                 white-space: nowrap;
                 min-width: 0;
@@ -243,7 +244,7 @@
 
             .navbar-item {
                 .navbar-item-content {
-                    padding-left: 1rem;
+                    padding-inline-start: 1rem;
                 }
             }
         }

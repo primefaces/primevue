@@ -264,6 +264,14 @@ export interface CascadeSelectProps {
      */
     modelValue?: any | undefined;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any | undefined;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * An array of selectitems to display as the available options.
      */
     options?: any[] | undefined;
@@ -442,6 +450,10 @@ export interface CascadeSelectProps {
      */
     ariaLabel?: string | undefined;
     /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -548,6 +560,11 @@ export interface CascadeSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param { CascadeSelectChangeEvent } event - Custom change event.

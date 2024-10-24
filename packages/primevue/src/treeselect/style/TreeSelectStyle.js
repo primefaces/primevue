@@ -56,8 +56,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('treeselect.dropdown.color')};
     width: ${dt('treeselect.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-start-end-radius: ${dt('border.radius.md')};
+    border-end-end-radius: ${dt('border.radius.md')};
 }
 
 .p-treeselect-label-container {
@@ -68,7 +68,7 @@ const theme = ({ dt }) => `
 
 .p-treeselect-label {
     display: flex;
-    align-items-center;
+    align-items: center;
     gap: calc(${dt('treeselect.padding.y')} / 2);
     white-space: nowrap;
     cursor: pointer;
@@ -129,8 +129,8 @@ const theme = ({ dt }) => `
 }
 
 .p-treeselect-label .p-chip {
-    padding-top: calc(${dt('treeselect.padding.y')} / 2);
-    padding-bottom: calc(${dt('treeselect.padding.y')} / 2);
+    padding-block-start: calc(${dt('treeselect.padding.y')} / 2);
+    padding-block-end: calc(${dt('treeselect.padding.y')} / 2);
     border-radius: ${dt('treeselect.chip.border.radius')};
 }
 
@@ -149,13 +149,13 @@ const classes = {
         {
             'p-treeselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
+            'p-invalid': instance.$invalid,
             'p-focus': instance.focused,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputwrapper-filled': !instance.emptyValue,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible,
-            'p-treeselect-fluid': instance.hasFluid
+            'p-treeselect-fluid': instance.$fluid
         }
     ],
     labelContainer: 'p-treeselect-label-container',

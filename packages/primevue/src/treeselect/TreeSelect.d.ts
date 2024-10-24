@@ -174,6 +174,14 @@ export interface TreeSelectProps {
      */
     modelValue?: TreeNode | any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: TreeNode | any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * An array of treenodes.
      */
     options?: TreeNode[] | undefined;
@@ -304,6 +312,10 @@ export interface TreeSelectProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -468,6 +480,11 @@ export interface TreeSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.

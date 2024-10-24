@@ -56,8 +56,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('multiselect.dropdown.color')};
     width: ${dt('multiselect.dropdown.width')};
-    border-top-right-radius: ${dt('multiselect.border.radius')};
-    border-bottom-right-radius: ${dt('multiselect.border.radius')};
+    border-start-end-radius: ${dt('multiselect.border.radius')};
+    border-end-end-radius: ${dt('multiselect.border.radius')};
 }
 
 .p-multiselect-label-container {
@@ -68,7 +68,7 @@ const theme = ({ dt }) => `
 
 .p-multiselect-label {
     display: flex;
-    align-items-center;
+    align-items: center;
     gap: calc(${dt('multiselect.padding.y')} / 2);
     white-space: nowrap;
     cursor: pointer;
@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-header .p-checkbox {
-    margin-right: ${dt('multiselect.option.gap')};
+    margin-inline-end: ${dt('multiselect.option.gap')};
 }
 
 .p-multiselect-filter-container {
@@ -135,7 +135,7 @@ const theme = ({ dt }) => `
     padding: ${dt('multiselect.list.padding')};
     display: flex;
     flex-direction: column;
-    gap: ${dt('multiselect.list.gap')}
+    gap: ${dt('multiselect.list.gap')};
 }
 
 .p-multiselect-option {
@@ -154,7 +154,7 @@ const theme = ({ dt }) => `
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, box-shadow ${dt('multiselect.transition.duration')}, outline-color ${dt(
     'multiselect.transition.duration'
 )};
-    border-radius: ${dt('multiselect.option.border.radius')}
+    border-radius: ${dt('multiselect.option.border.radius')};
 }
 
 .p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus {
@@ -186,8 +186,8 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-label .p-chip {
-    padding-top: calc(${dt('multiselect.padding.y')} / 2);
-    padding-bottom: calc(${dt('multiselect.padding.y')} / 2);
+    padding-block-start: calc(${dt('multiselect.padding.y')} / 2);
+    padding-block-end: calc(${dt('multiselect.padding.y')} / 2);
     border-radius: ${dt('multiselect.chip.border.radius')};
 }
 
@@ -210,13 +210,13 @@ const classes = {
         {
             'p-multiselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-multiselect-open': instance.overlayVisible,
-            'p-multiselect-fluid': instance.hasFluid
+            'p-multiselect-fluid': instance.$fluid
         }
     ],
     labelContainer: 'p-multiselect-label-container',

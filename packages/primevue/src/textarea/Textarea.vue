@@ -1,19 +1,15 @@
 <template>
-    <textarea :class="cx('root')" :value="modelValue" :aria-invalid="invalid || undefined" @input="onInput" v-bind="ptmi('root', ptmParams)"></textarea>
+    <textarea :class="cx('root')" :value="d_value" :disabled="disabled" :aria-invalid="invalid || undefined" @input="onInput" v-bind="attrs"></textarea>
 </template>
 
 <script>
-import { isEmpty } from '@primeuix/utils/object';
+import { mergeProps } from 'vue';
 import BaseTextarea from './BaseTextarea.vue';
 
 export default {
     name: 'Textarea',
     extends: BaseTextarea,
     inheritAttrs: false,
-    emits: ['update:modelValue'],
-    inject: {
-        $pcFluid: { default: null }
-    },
     mounted() {
         if (this.$el.offsetParent && this.autoResize) {
             this.resize();
@@ -41,22 +37,20 @@ export default {
                 this.resize();
             }
 
-            this.$emit('update:modelValue', event.target.value);
+            this.writeValue(event.target.value, event);
         }
     },
     computed: {
-        filled() {
-            return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
-        ptmParams() {
-            return {
-                context: {
-                    disabled: this.$attrs.disabled || this.$attrs.disabled === ''
-                }
-            };
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
+        attrs() {
+            return mergeProps(
+                this.ptmi('root', {
+                    context: {
+                        filled: this.$filled,
+                        disabled: this.disabled
+                    }
+                }),
+                this.formField
+            );
         }
     }
 };

@@ -182,7 +182,7 @@ export default {
                 this.styleElement = document.createElement('style');
                 this.styleElement.type = 'text/css';
                 setAttribute(this.styleElement, 'nonce', this.$primevue?.config?.csp?.nonce);
-                document.head.appendChild(this.styleElement);
+                document.body.appendChild(this.styleElement);
 
                 let innerHTML = '';
 

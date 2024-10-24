@@ -63,7 +63,7 @@ export default {
     name: 'Editor',
     extends: BaseEditor,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'text-change', 'selection-change', 'load'],
+    emits: ['text-change', 'selection-change', 'load'],
     data() {
         return {
             reRenderColorKey: 0
@@ -129,7 +129,7 @@ export default {
             }
         },
         initQuill() {
-            this.renderValue(this.modelValue);
+            this.renderValue(this.d_value);
 
             this.quill.on('text-change', (delta, oldContents, source) => {
                 if (source === 'user') {
@@ -140,7 +140,7 @@ export default {
                         html = '';
                     }
 
-                    this.$emit('update:modelValue', html);
+                    this.writeValue(html);
                     this.$emit('text-change', {
                         htmlValue: html,
                         textValue: text,

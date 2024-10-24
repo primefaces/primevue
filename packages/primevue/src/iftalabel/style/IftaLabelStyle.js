@@ -15,7 +15,7 @@ const theme = ({ dt }) => `
     line-height: 1;
     font-size: ${dt('iftalabel.font.size')};
     font-weight: ${dt('iftalabel.font.weight')};
-    left: ${dt('iftalabel.position.x')};
+    inset-inline-start: ${dt('iftalabel.position.x')};
     color: ${dt('iftalabel.color')};
     transition-duration: ${dt('iftalabel.transition.duration')};
 }
@@ -27,18 +27,18 @@ const theme = ({ dt }) => `
 .p-iftalabel .p-autocomplete-input-multiple,
 .p-iftalabel .p-cascadeselect-label,
 .p-iftalabel .p-treeselect-label {
-    padding-top: ${dt('iftalabel.input.padding.top')};
-    padding-bottom: ${dt('iftalabel.input.padding.bottom')};
+    padding-block-start: ${dt('iftalabel.input.padding.top')};
+    padding-block-end: ${dt('iftalabel.input.padding.bottom')};
 }
 
 .p-iftalabel:has(.p-invalid) label {
     color: ${dt('iftalabel.invalid.color')};
 }
 
-.p-iftalabel:has(input:focus) label ,
+.p-iftalabel:has(input:focus) label,
 .p-iftalabel:has(input:-webkit-autofill) label,
-.p-iftalabel:has(textarea:focus) label ,
-.p-iftalabel:has(.p-inputwrapper-focus) label  {
+.p-iftalabel:has(textarea:focus) label,
+.p-iftalabel:has(.p-inputwrapper-focus) label {
     color: ${dt('iftalabel.focus.color')};
 }
 
@@ -47,22 +47,6 @@ const theme = ({ dt }) => `
     transform: translateY(25%);
     margin-top: 0;
 }
-
-/*.p-iftalabel .p-placeholder,
-.p-iftalabel input::placeholder,
-.p-iftalabel .p-inputtext::placeholder {
-    opacity: 0;
-    transition-property: all;
-    transition-timing-function: ease;
-}
-
-.p-iftalabel .p-focus .p-placeholder,
-.p-iftalabel input:focus::placeholder,
-.p-iftalabel .p-inputtext:focus::placeholder {
-    opacity: 1;
-    transition-property: all;
-    transition-timing-function: ease;
-}*/
 `;
 
 const classes = {

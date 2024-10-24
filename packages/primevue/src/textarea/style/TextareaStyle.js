@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('textarea.color')};
     background: ${dt('textarea.background')};
-    padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
+    padding-block: ${dt('textarea.padding.y')};
+    padding-inline: ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
     transition: background ${dt('textarea.transition.duration')}, color ${dt('textarea.transition.duration')}, border-color ${dt('textarea.transition.duration')}, outline-color ${dt('textarea.transition.duration')}, box-shadow ${dt(
     'textarea.transition.duration'
@@ -65,11 +66,11 @@ const classes = {
     root: ({ instance, props }) => [
         'p-textarea p-component',
         {
-            'p-filled': instance.filled,
+            'p-filled': instance.$filled,
             'p-textarea-resizable ': props.autoResize,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-textarea-fluid': instance.hasFluid
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-textarea-fluid': instance.$fluid
         }
     ]
 };

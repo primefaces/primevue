@@ -123,7 +123,6 @@ nodes.value = files;
             }
         };
     },
-    mounted() {},
     methods: {
         loadDemoData() {
             let files = [];

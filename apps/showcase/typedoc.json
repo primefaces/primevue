@@ -1,5 +1,5 @@
 {
     "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": ["../../packages/primevue", "../../packages/themes"],
+    "entryPoints": ["../../packages/primevue", "../../packages/themes", "../../packages/form"],
     "sort": ["source-order"]
 }

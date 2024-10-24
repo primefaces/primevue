@@ -14,8 +14,8 @@ const theme = ({ dt }) => `
     cursor: pointer;
     appearance: none;
     position: absolute;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100%;
     padding: 0;
@@ -120,8 +120,8 @@ const classes = {
         {
             'p-checkbox-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-invalid': instance.$pcCheckboxGroup ? instance.$pcCheckboxGroup.$invalid : instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled'
         }
     ],
     box: 'p-checkbox-box',

@@ -12,6 +12,7 @@ import EditableDoc from '@/doc/select/EditableDoc.vue';
 import FilledDoc from '@/doc/select/FilledDoc.vue';
 import FilterDoc from '@/doc/select/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/select/FloatLabelDoc.vue';
+import FormsDoc from '@/doc/select/FormsDoc.vue';
 import GroupDoc from '@/doc/select/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/select/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/select/ImportDoc.vue';
@@ -36,6 +37,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'checkmark',

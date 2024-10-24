@@ -56,8 +56,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('cascadeselect.dropdown.color')};
     width: ${dt('cascadeselect.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-start-end-radius: ${dt('border.radius.md')};
+    border-end-end-radius: ${dt('border.radius.md')};
 }
 
 .p-cascadeselect-label {
@@ -76,10 +76,6 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect-label.p-placeholder {
     color: ${dt('cascadeselect.placeholder.color')};
-}
-
-.p-cascadeselect-clearable .p-cascadeselect-label {
-    padding-right: 1.75rem;
 }
 
 .p-cascadeselect.p-disabled .p-cascadeselect-label {
@@ -126,7 +122,7 @@ const theme = ({ dt }) => `
     padding: ${dt('cascadeselect.list.padding')};
     display: flex;
     flex-direction: column;
-    gap: ${dt('cascadeselect.list.gap')}
+    gap: ${dt('cascadeselect.list.gap')};
 }
 
 .p-cascadeselect-option {
@@ -168,8 +164,8 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-option-active > .p-cascadeselect-option-list {
-    left: 100%;
-    top: 0;
+    inset-inline-start: 100%;
+    inset-block-start: 0;
 }
 
 .p-cascadeselect-option-content {
@@ -192,12 +188,16 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.icon.color')};
 }
 
+.p-cascadeselect-group-icon:dir(rtl) {
+    transform: rotate(180deg);
+}
+
 .p-cascadeselect-mobile-active .p-cascadeselect-option-list {
     position: static;
     box-shadow: none;
     border: 0 none;
-    padding-left: ${dt('tieredmenu.submenu.mobile.indent')};
-    padding-right: 0;
+    padding-inline-start: ${dt('tieredmenu.submenu.mobile.indent')};
+    padding-inline-end: 0;
 }
 
 .p-cascadeselect-mobile-active .p-cascadeselect-group-icon {
@@ -220,13 +220,13 @@ const classes = {
         {
             'p-cascadeselect-mobile': instance.queryMatches,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': instance.hasFluid
+            'p-cascadeselect-fluid': instance.$fluid
         }
     ],
     label: ({ instance, props }) => [

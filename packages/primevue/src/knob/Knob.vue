@@ -8,10 +8,11 @@
             :tabindex="readonly || disabled ? -1 : tabindex"
             :aria-valuemin="min"
             :aria-valuemax="max"
-            :aria-valuenow="modelValue"
+            :aria-valuenow="d_value"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             @click="onClick"
+            @blur="onBlur"
             @keydown="onKeyDown"
             @mousedown="onMouseDown"
             @mouseup="onMouseUp"
@@ -36,7 +37,7 @@ export default {
     name: 'Knob',
     extends: BaseKnob,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change'],
+    emits: ['change'],
     data() {
         return {
             radius: 40,
@@ -47,7 +48,7 @@ export default {
         };
     },
     methods: {
-        updateValue(offsetX, offsetY) {
+        updateValueByOffset(offsetX, offsetY) {
             let dx = offsetX - this.size / 2;
             let dy = this.size / 2 - offsetY;
             let angle = Math.atan2(dy, dx);
@@ -64,21 +65,24 @@ export default {
 
             let newValue = Math.round((mappedValue - this.min) / this.step) * this.step + this.min;
 
-            this.$emit('update:modelValue', newValue);
+            this.writeValue(newValue);
             this.$emit('change', newValue);
         },
         updateModelValue(newValue) {
-            if (newValue > this.max) this.$emit('update:modelValue', this.max);
-            else if (newValue < this.min) this.$emit('update:modelValue', this.min);
-            else this.$emit('update:modelValue', newValue);
+            if (newValue > this.max) this.writeValue(this.max);
+            else if (newValue < this.min) this.writeValue(this.min);
+            else this.writeValue(newValue);
         },
         mapRange(x, inMin, inMax, outMin, outMax) {
             return ((x - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
         },
         onClick(event) {
             if (!this.disabled && !this.readonly) {
-                this.updateValue(event.offsetX, event.offsetY);
+                this.updateValueByOffset(event.offsetX, event.offsetY);
             }
+        },
+        onBlur(event) {
+            this.formField.onBlur?.(event);
         },
         onMouseDown(event) {
             if (!this.disabled && !this.readonly) {
@@ -110,7 +114,7 @@ export default {
         },
         onMouseMove(event) {
             if (!this.disabled && !this.readonly) {
-                this.updateValue(event.offsetX, event.offsetY);
+                this.updateValueByOffset(event.offsetX, event.offsetY);
                 event.preventDefault();
             }
         },
@@ -121,7 +125,7 @@ export default {
                 const offsetX = touch.clientX - rect.left;
                 const offsetY = touch.clientY - rect.top;
 
-                this.updateValue(offsetX, offsetY);
+                this.updateValueByOffset(offsetX, offsetY);
             }
         },
         onKeyDown(event) {
@@ -131,7 +135,7 @@ export default {
 
                     case 'ArrowUp': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue + this.step);
+                        this.updateModelValue(this.d_value + this.step);
                         break;
                     }
 
@@ -139,31 +143,31 @@ export default {
 
                     case 'ArrowDown': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue - this.step);
+                        this.updateModelValue(this.d_value - this.step);
                         break;
                     }
 
                     case 'Home': {
                         event.preventDefault();
-                        this.$emit('update:modelValue', this.min);
+                        this.writeValue(this.min);
                         break;
                     }
 
                     case 'End': {
                         event.preventDefault();
-                        this.$emit('update:modelValue', this.max);
+                        this.writeValue(this.max);
                         break;
                     }
 
                     case 'PageUp': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue + 10);
+                        this.updateModelValue(this.d_value + 10);
                         break;
                     }
 
                     case 'PageDown': {
                         event.preventDefault();
-                        this.updateModelValue(this.modelValue - 10);
+                        this.updateModelValue(this.d_value - 10);
                         break;
                     }
                 }
@@ -182,7 +186,7 @@ export default {
             else return this.mapRange(0, this.min, this.max, this.minRadians, this.maxRadians);
         },
         valueRadians() {
-            return this.mapRange(this.modelValue, this.min, this.max, this.minRadians, this.maxRadians);
+            return this.mapRange(this.d_value, this.min, this.max, this.minRadians, this.maxRadians);
         },
         minX() {
             return this.midX + Math.cos(this.minRadians) * this.radius;
@@ -216,9 +220,9 @@ export default {
         },
         valueToDisplay() {
             if (typeof this.valueTemplate === 'string') {
-                return this.valueTemplate.replace(/{value}/g, this.modelValue);
+                return this.valueTemplate.replace(/{value}/g, this.d_value);
             } else {
-                return this.valueTemplate(this.modelValue);
+                return this.valueTemplate(this.d_value);
             }
         }
     }

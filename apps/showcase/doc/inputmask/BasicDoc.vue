@@ -33,7 +33,6 @@ export default {
     }
 }
 <\/script>
-        
 `,
                 composition: `
 <template>

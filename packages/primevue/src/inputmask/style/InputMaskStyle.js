@@ -4,7 +4,7 @@ const classes = {
     root: ({ instance }) => [
         'p-inputmask',
         {
-            'p-filled': instance.filled
+            'p-filled': instance.$filled
         }
     ]
 };

@@ -20,14 +20,14 @@ const theme = ({ dt }) => `
 }
 
 .p-selectbutton .p-togglebutton:first-child {
-    border-left-width: 1px;
-    border-top-left-radius: ${dt('selectbutton.border.radius')};
-    border-bottom-left-radius: ${dt('selectbutton.border.radius')};
+    border-inline-start-width: 1px;
+    border-start-start-radius: ${dt('selectbutton.border.radius')};
+    border-end-start-radius: ${dt('selectbutton.border.radius')};
 }
 
 .p-selectbutton .p-togglebutton:last-child {
-    border-top-right-radius: ${dt('selectbutton.border.radius')};
-    border-bottom-right-radius: ${dt('selectbutton.border.radius')};
+    border-start-end-radius: ${dt('selectbutton.border.radius')};
+    border-end-end-radius: ${dt('selectbutton.border.radius')};
 }
 
 .p-selectbutton.p-invalid {
@@ -37,10 +37,10 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance }) => [
         'p-selectbutton p-component',
         {
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid // @todo: check
         }
     ]
 };
