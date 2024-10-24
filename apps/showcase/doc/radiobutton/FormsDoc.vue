@@ -6,20 +6,20 @@
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient1" value="Cheese" />
-                    <label for="ingredient1">Cheese</label>
+                    <RadioButton inputId="cheese" value="Cheese" />
+                    <label for="cheese">Cheese</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient2" value="Mushroom" />
-                    <label for="ingredient2">Mushroom</label>
+                    <RadioButton inputId="mushroom" value="Mushroom" />
+                    <label for="mushroom">Mushroom</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient3" value="Pepper" />
-                    <label for="ingredient3">Pepper</label>
+                    <RadioButton inputId="pepper" value="Pepper" />
+                    <label for="pepper">Pepper</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient4" value="Onion" />
-                    <label for="ingredient4">Onion</label>
+                    <RadioButton inputId="onion" value="Onion" />
+                    <label for="onion">Onion</label>
                 </div>
             </RadioButtonGroup>
             <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
@@ -49,20 +49,20 @@ export default {
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
     <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
         <div class="flex items-center gap-2">
-            <RadioButton inputId="ingredient1" value="Cheese" />
-            <label for="ingredient1">Cheese</label>
+            <RadioButton inputId="cheese" value="Cheese" />
+            <label for="cheese">Cheese</label>
         </div>
         <div class="flex items-center gap-2">
-            <RadioButton inputId="ingredient2" value="Mushroom" />
-            <label for="ingredient2">Mushroom</label>
+            <RadioButton inputId="mushroom" value="Mushroom" />
+            <label for="mushroom">Mushroom</label>
         </div>
         <div class="flex items-center gap-2">
-            <RadioButton inputId="ingredient3" value="Pepper" />
-            <label for="ingredient3">Pepper</label>
+            <RadioButton inputId="pepper" value="Pepper" />
+            <label for="pepper">Pepper</label>
         </div>
         <div class="flex items-center gap-2">
-            <RadioButton inputId="ingredient4" value="Onion" />
-            <label for="ingredient4">Onion</label>
+            <RadioButton inputId="onion" value="Onion" />
+            <label for="onion">Onion</label>
         </div>
     </RadioButtonGroup>
     <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
@@ -75,20 +75,20 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient1" value="Cheese" />
-                    <label for="ingredient1">Cheese</label>
+                    <RadioButton inputId="cheese" value="Cheese" />
+                    <label for="cheese">Cheese</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient2" value="Mushroom" />
-                    <label for="ingredient2">Mushroom</label>
+                    <RadioButton inputId="mushroom" value="Mushroom" />
+                    <label for="mushroom">Mushroom</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient3" value="Pepper" />
-                    <label for="ingredient3">Pepper</label>
+                    <RadioButton inputId="pepper" value="Pepper" />
+                    <label for="pepper">Pepper</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient4" value="Onion" />
-                    <label for="ingredient4">Onion</label>
+                    <RadioButton inputId="onion" value="Onion" />
+                    <label for="onion">Onion</label>
                 </div>
             </RadioButtonGroup>
             <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
@@ -131,20 +131,20 @@ export default {
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient1" value="Cheese" />
-                    <label for="ingredient1">Cheese</label>
+                    <RadioButton inputId="cheese" value="Cheese" />
+                    <label for="cheese">Cheese</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient2" value="Mushroom" />
-                    <label for="ingredient2">Mushroom</label>
+                    <RadioButton inputId="mushroom" value="Mushroom" />
+                    <label for="mushroom">Mushroom</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient3" value="Pepper" />
-                    <label for="ingredient3">Pepper</label>
+                    <RadioButton inputId="pepper" value="Pepper" />
+                    <label for="pepper">Pepper</label>
                 </div>
                 <div class="flex items-center gap-2">
-                    <RadioButton inputId="ingredient4" value="Onion" />
-                    <label for="ingredient4">Onion</label>
+                    <RadioButton inputId="onion" value="Onion" />
+                    <label for="onion">Onion</label>
                 </div>
             </RadioButtonGroup>
             <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
