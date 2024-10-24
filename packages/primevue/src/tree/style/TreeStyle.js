@@ -17,11 +17,14 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-root-children {
-    padding: ${dt('tree.gap')} 0 0 0;
+    padding: 0;
+    padding-block-start: ${dt('tree.gap')};
 }
 
 .p-tree-node-children {
-    padding: ${dt('tree.gap')} 0 0 ${dt('tree.indent')};
+    padding: 0;
+    padding-block-start: ${dt('tree.gap')};
+    padding-inline-start: ${dt('tree.indent')};
 }
 
 .p-tree-node {
