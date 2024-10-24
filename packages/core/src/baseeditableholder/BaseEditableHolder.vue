@@ -98,7 +98,7 @@ export default {
             return this.d_value ?? this.$pcForm?.initialValues?.[this.$formName];
         },
         controlled() {
-            return this.defaultValue === undefined;
+            return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
         },
         // @deprecated use $filled instead
         filled() {
