@@ -9,6 +9,7 @@ import DisabledDoc from '@/doc/rating/DisabledDoc.vue';
 import FormsDoc from '@/doc/rating/FormsDoc.vue';
 import ImportDoc from '@/doc/rating/ImportDoc.vue';
 import NumberOfStarsDoc from '@/doc/rating/NumberOfStarsDoc.vue';
+import HalfStarsDoc from '@/doc/rating/HalfStarsDoc.vue';
 import ReadOnlyDoc from '@/doc/rating/ReadOnlyDoc.vue';
 import TemplateDoc from '@/doc/rating/TemplateDoc.vue';
 import PTComponent from '@/doc/rating/pt/index.vue';
@@ -47,6 +48,11 @@ export default {
                     id: 'readonly',
                     label: 'ReadOnly',
                     component: ReadOnlyDoc
+                },
+                {
+                    id: 'halfstars',
+                    label: 'HalfStars',
+                    component: HalfStarsDoc
                 },
                 {
                     id: 'disabled',

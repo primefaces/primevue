@@ -53,14 +53,14 @@ const classes = {
     root: ({ props }) => [
         'p-rating',
         {
-            'p-readonly': props.readonly,
+            'p-readonly': props.readonly || props.halfStars,
             'p-disabled': props.disabled
         }
     ],
     option: ({ instance, value }) => [
         'p-rating-option',
         {
-            'p-rating-option-active': value <= instance.d_value,
+            'p-rating-option-active': instance.isStarActive(value),
             'p-focus-visible': value === instance.focusedOptionIndex && instance.isFocusVisibleItem
         }
     ],
@@ -72,6 +72,12 @@ const classes = {
     ],
     offIcon: ({ instance }) => [
         'p-rating-icon p-rating-off-icon',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ],
+    halfIcon: ({ instance }) => [
+        'p-rating-icon p-rating-half-icon',
         {
             'p-invalid': instance.$invalid
         }
