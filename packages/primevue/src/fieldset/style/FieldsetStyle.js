@@ -6,7 +6,7 @@ const theme = ({ dt }) => `
     border: 1px solid ${dt('fieldset.border.color')};
     border-radius: ${dt('fieldset.border.radius')};
     color: ${dt('fieldset.color')};
-    padding:  ${dt('fieldset.padding')};
+    padding: ${dt('fieldset.padding')};
     margin: 0;
 }
 
