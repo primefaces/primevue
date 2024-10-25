@@ -104,7 +104,6 @@ export default {
     duplicateIEEvent: false,
     data() {
         return {
-            uploadedFileCount: 0,
             files: [],
             messages: [],
             focused: false,
@@ -152,7 +151,7 @@ export default {
                 this.checkFileLimit();
             }
 
-            if (this.auto && this.hasFiles && !this.isFileLimitExceeded()) {
+            if (this.auto && this.hasFiles) {
                 this.uploader();
             }
 
@@ -166,11 +165,9 @@ export default {
             this.$refs.fileInput.click();
         },
         uploader() {
-            if (this.customUpload) {
-                if (this.fileLimit) {
-                    this.uploadedFileCount += this.files.length;
-                }
+            if (this.isFileLimitExceeded()) return;
 
+            if (this.customUpload) {
                 this.$emit('uploader', { files: this.files });
                 this.clear();
             } else {
@@ -202,10 +199,7 @@ export default {
                         this.progress = 0;
 
                         if (xhr.status >= 200 && xhr.status < 300) {
-                            if (this.fileLimit) {
-                                this.uploadedFileCount += this.files.length;
-                            }
-
+                            this.uploadedFiles.push(...this.files);
                             this.$emit('upload', {
                                 xhr: xhr,
                                 files: this.files
@@ -217,7 +211,6 @@ export default {
                             });
                         }
 
-                        this.uploadedFiles.push(...this.files);
                         this.clear();
                     }
                 };
@@ -379,11 +372,11 @@ export default {
             return `${formattedSize} ${sizes[i]}`;
         },
         isFileLimitExceeded() {
-            if (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount && this.focused) {
+            if (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFiles.length && this.focused) {
                 this.focused = false;
             }
 
-            return this.fileLimit && this.fileLimit < this.files.length + this.uploadedFileCount;
+            return this.fileLimit && this.fileLimit < this.files.length + this.uploadedFiles.length;
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
@@ -421,7 +414,7 @@ export default {
             return this.uploadedFiles && this.uploadedFiles.length > 0;
         },
         chooseDisabled() {
-            return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount);
+            return this.disabled || (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFiles.length);
         },
         uploadDisabled() {
             return this.disabled || !this.hasFiles || (this.fileLimit && this.fileLimit < this.files.length);
