@@ -13,11 +13,11 @@ const theme = ({ dt }) => `
 .p-divider-horizontal:before {
     position: absolute;
     display: block;
-    top: 50%;
-    left: 0;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
     width: 100%;
     content: "";
-    border-top: 1px solid ${dt('divider.border.color')};
+    border-block-start: 1px solid ${dt('divider.border.color')};
 }
 
 .p-divider-horizontal .p-divider-content {
@@ -26,7 +26,6 @@ const theme = ({ dt }) => `
 
 .p-divider-vertical {
     min-height: 100%;
-    margin: 0 1rem;
     display: flex;
     position: relative;
     justify-content: center;
@@ -37,11 +36,11 @@ const theme = ({ dt }) => `
 .p-divider-vertical:before {
     position: absolute;
     display: block;
-    top: 0;
-    left: 50%;
+    inset-block-start: 0;
+    inset-inline-start: 50%;
     height: 100%;
     content: "";
-    border-left: 1px solid ${dt('divider.border.color')};
+    border-inline-start: 1px solid ${dt('divider.border.color')};
 }
 
 .p-divider.p-divider-vertical .p-divider-content {
@@ -55,27 +54,32 @@ const theme = ({ dt }) => `
 }
 
 .p-divider-solid.p-divider-horizontal:before {
-    border-top-style: solid;
+    border-block-start-style: solid;
 }
 
 .p-divider-solid.p-divider-vertical:before {
-    border-left-style: solid;
+    border-inline-start-style: solid;
 }
 
 .p-divider-dashed.p-divider-horizontal:before {
-    border-top-style: dashed;
+    border-block-start-style: dashed;
 }
 
 .p-divider-dashed.p-divider-vertical:before {
-    border-left-style: dashed;
+    border-inline-start-style: dashed;
 }
 
 .p-divider-dotted.p-divider-horizontal:before {
-    border-top-style: dotted;
+    border-block-start-style: dotted;
 }
 
 .p-divider-dotted.p-divider-vertical:before {
-    border-left-style: dotted;
+    border-inline-start-style: dotted;
+}
+
+.p-divider-left:dir(rtl),
+.p-divider-right:dir(rtl) {
+    flex-direction: row-reverse;
 }
 `;
 
