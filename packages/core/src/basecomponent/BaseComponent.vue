@@ -321,7 +321,7 @@ export default {
             return this.unstyled !== undefined ? this.unstyled : this.$primevueConfig?.unstyled;
         },
         $inProps() {
-            const nodePropKeys = Object.keys(this.$.vnode?.props);
+            const nodePropKeys = Object.keys(this.$.vnode?.props || {});
 
             return Object.fromEntries(Object.entries(this.$props).filter(([k]) => nodePropKeys?.includes(k)));
         },
