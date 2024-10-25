@@ -21,6 +21,7 @@ import FloatLabelDoc from '@/doc/multiselect/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/multiselect/FormsDoc.vue';
 import GroupDoc from '@/doc/multiselect/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/multiselect/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/multiselect/SizesDoc.vue';
 import ImportDoc from '@/doc/multiselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/multiselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/multiselect/LoadingStateDoc.vue';
@@ -92,6 +93,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

@@ -10,6 +10,7 @@
             :value="inputFieldValue"
             :placeholder="placeholder"
             :name="name"
+            :size="size"
             :invalid="invalid"
             :variant="variant"
             :fluid="fluid"

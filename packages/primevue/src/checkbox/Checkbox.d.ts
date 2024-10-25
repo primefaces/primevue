@@ -121,6 +121,10 @@ export interface CheckboxProps {
      */
     indeterminate?: boolean | undefined;
     /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */

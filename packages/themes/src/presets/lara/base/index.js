@@ -58,6 +58,16 @@ export default {
         formField: {
             paddingX: '0.75rem',
             paddingY: '0.625rem',
+            sm: {
+                fontSize: '0.875rem',
+                paddingX: '0.625rem',
+                paddingY: '0.5rem'
+            },
+            lg: {
+                fontSize: '1.125rem',
+                paddingX: '0.875rem',
+                paddingY: '0.75rem'
+            },
             borderRadius: '{border.radius.md}',
             focusRing: {
                 width: '{focus.ring.width}',

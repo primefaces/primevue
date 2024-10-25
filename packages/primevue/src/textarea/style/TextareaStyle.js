@@ -60,6 +60,18 @@ const theme = ({ dt }) => `
     overflow: hidden;
     resize: none;
 }
+
+.p-textarea-sm {
+    font-size: ${dt('textarea.sm.font.size')};
+    padding-block: ${dt('textarea.sm.padding.y')};
+    padding-inline: ${dt('textarea.sm.padding.x')};
+}
+
+.p-textarea-lg {
+    font-size: ${dt('textarea.lg.font.size')};
+    padding-block: ${dt('textarea.lg.padding.y')};
+    padding-inline: ${dt('textarea.lg.padding.x')};
+}
 `;
 
 const classes = {
@@ -68,6 +80,8 @@ const classes = {
         {
             'p-filled': instance.$filled,
             'p-textarea-resizable ': props.autoResize,
+            'p-textarea-sm p-inputfield-sm': props.size === 'small',
+            'p-textarea-lg p-inputfield-lg': props.size === 'large',
             'p-invalid': instance.$invalid,
             'p-variant-filled': instance.$variant === 'filled',
             'p-textarea-fluid': instance.$fluid

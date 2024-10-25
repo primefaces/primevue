@@ -14,6 +14,7 @@ import FormatDoc from '@/doc/datepicker/FormatDoc.vue';
 import FormsDoc from '@/doc/datepicker/FormsDoc.vue';
 import IconDoc from '@/doc/datepicker/IconDoc.vue';
 import IftaLabelDoc from '@/doc/datepicker/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import ImportDoc from '@/doc/datepicker/ImportDoc.vue';
 import InlineDoc from '@/doc/datepicker/InlineDoc.vue';
 import InvalidDoc from '@/doc/datepicker/InvalidDoc.vue';
@@ -126,6 +127,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizez',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

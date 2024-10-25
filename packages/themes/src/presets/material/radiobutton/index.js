@@ -23,13 +23,27 @@ export default {
             offset: '0',
             shadow: 'none'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            width: '16px',
+            height: '16px'
+        },
+        lg: {
+            width: '24px',
+            height: '24px'
+        }
     },
     icon: {
         size: '10px',
         checkedColor: '{primary.color}',
         checkedHoverColor: '{primary.color}',
-        disabledColor: '{form.field.disabled.color}'
+        disabledColor: '{form.field.disabled.color}',
+        sm: {
+            size: '8px'
+        },
+        lg: {
+            size: '12px'
+        }
     },
     css: ({ dt }) => `
 .p-radiobutton {

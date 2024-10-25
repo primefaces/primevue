@@ -18,6 +18,7 @@ import FilledDoc from '@/doc/inputmask/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputmask/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/inputmask/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/inputmask/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/inputmask/SizesDoc.vue';
 import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
 import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
@@ -74,6 +75,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

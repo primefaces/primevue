@@ -20,6 +20,7 @@ import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/textarea/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/textarea/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
+import SizesDoc from '@/doc/textarea/SizesDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
 import ThemingDoc from '@/doc/textarea/theming/index.vue';
@@ -49,6 +50,11 @@ export default {
                     component: AutoResizeDoc
                 },
                 {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -59,9 +65,14 @@ export default {
                     component: IftaLabelDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

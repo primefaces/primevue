@@ -11,6 +11,7 @@
                     :variant="variant"
                     :readonly="readonly"
                     :disabled="disabled"
+                    :size="size"
                     :invalid="invalid"
                     :tabindex="tabindex"
                     :unstyled="unstyled"

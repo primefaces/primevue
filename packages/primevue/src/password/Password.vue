@@ -19,6 +19,7 @@
             :disabled="disabled"
             :variant="variant"
             :invalid="invalid"
+            :size="size"
             :autofocus="autofocus"
             @input="onInput"
             @focus="onFocus"

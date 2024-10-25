@@ -15,6 +15,7 @@ import FloatLabelDoc from '@/doc/select/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/select/FormsDoc.vue';
 import GroupDoc from '@/doc/select/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/select/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/select/SizesDoc.vue';
 import ImportDoc from '@/doc/select/ImportDoc.vue';
 import InvalidDoc from '@/doc/select/InvalidDoc.vue';
 import LazyVirtualScrollDoc from '@/doc/select/LazyVirtualScrollDoc.vue';
@@ -102,6 +103,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

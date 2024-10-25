@@ -24,14 +24,28 @@ export default {
             offset: '0',
             shadow: 'none'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            width: '14px',
+            height: '14px'
+        },
+        lg: {
+            width: '22px',
+            height: '22px'
+        }
     },
     icon: {
         size: '0.875rem',
         color: '{form.field.color}',
         checkedColor: '{primary.contrast.color}',
         checkedHoverColor: '{primary.contrast.color}',
-        disabledColor: '{form.field.disabled.color}'
+        disabledColor: '{form.field.disabled.color}',
+        sm: {
+            size: '0.75rem'
+        },
+        lg: {
+            size: '1rem'
+        }
     },
     css: ({ dt }) => `
 .p-checkbox {
@@ -62,7 +76,7 @@ export default {
 .p-checkbox-checked .p-checkbox-box:before  {
     content: "";
     position: absolute;
-    top: 8px;
+    top: var(--p-md-check-icon-t);
     left: 2px;
     border-right: 2px solid transparent;
     border-bottom: 2px solid transparent;
@@ -75,6 +89,24 @@ export default {
     display: none;
 }
 
+.p-checkbox {
+    --p-md-check-icon-t: 8px;
+    --p-md-check-icon-w: 4px;
+    --p-md-check-icon-h: 10px;
+}
+
+.p-checkbox-sm {
+    --p-md-check-icon-t: 6px;
+    --p-md-check-icon-w: 2px;
+    --p-md-check-icon-h: 8px;
+}
+
+.p-checkbox-lg {
+    --p-md-check-icon-t: 10px;
+    --p-md-check-icon-w: 6px;
+    --p-md-check-icon-h: 14px;
+}
+
 @keyframes p-md-check {
     0%{
       width: 0;
@@ -83,15 +115,15 @@ export default {
       transform: translate3d(0,0,0) rotate(45deg);
     }
     33%{
-      width: 4px;
+      width: var(--p-md-check-icon-w);
       height: 0;
       transform: translate3d(0,0,0) rotate(45deg);
     }
     100%{
-      width: 4px;
-      height: 10px;
+      width: var(--p-md-check-icon-w);
+      height: var(--p-md-check-icon-h);
       border-color: ${dt('checkbox.icon.checked.color')};
-      transform: translate3d(0,-10px,0) rotate(45deg);
+      transform: translate3d(0,calc(-1 * var(--p-md-check-icon-h)),0) rotate(45deg);
     }
 }
 `

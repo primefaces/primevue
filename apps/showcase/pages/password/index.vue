@@ -14,6 +14,7 @@ import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
 import LocaleDoc from '@/doc/password/LocaleDoc.vue';
 import MeterDoc from '@/doc/password/MeterDoc.vue';
+import SizesDoc from '@/doc/password/SizesDoc.vue';
 import TemplateDoc from '@/doc/password/TemplateDoc.vue';
 import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
 import PTComponent from '@/doc/password/pt/index.vue';
@@ -72,6 +73,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

@@ -18,6 +18,7 @@ import FilledDoc from '@/doc/cascadeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/cascadeselect/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/cascadeselect/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/cascadeselect/SizesDoc.vue';
 import ImportDoc from '@/doc/cascadeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/cascadeselect/InvalidDoc.vue';
 import LoadingStateDoc from '@/doc/cascadeselect/LoadingStateDoc.vue';
@@ -68,6 +69,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

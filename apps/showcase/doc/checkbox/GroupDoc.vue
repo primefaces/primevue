@@ -76,7 +76,7 @@ export default {
     data() {
         return {
             pizza: null
-        };
+        }
     }
 };
 <\/script>

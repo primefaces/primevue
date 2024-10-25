@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/inputotp/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
 import FilledDoc from '@/doc/inputotp/FilledDoc.vue';
+import SizesDoc from '@/doc/inputotp/SizesDoc.vue';
 import FormsDoc from '@/doc/inputotp/FormsDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
@@ -48,6 +49,11 @@ export default {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'template',

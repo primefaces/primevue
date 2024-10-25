@@ -21,6 +21,7 @@ import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
 import FormsDoc from '@/doc/autocomplete/FormsDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/autocomplete/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/autocomplete/SizesDoc.vue';
 import ImportDoc from '@/doc/autocomplete/ImportDoc.vue';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc.vue';
 import MultipleDoc from '@/doc/autocomplete/MultipleDoc.vue';
@@ -93,6 +94,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'multiple',

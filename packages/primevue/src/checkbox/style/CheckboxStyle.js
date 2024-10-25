@@ -112,6 +112,30 @@ const theme = ({ dt }) => `
 .p-checkbox.p-disabled .p-checkbox-box .p-checkbox-icon {
     color: ${dt('checkbox.icon.disabled.color')};
 }
+
+.p-checkbox-sm,
+.p-checkbox-sm .p-checkbox-box {
+    width: ${dt('checkbox.sm.width')};
+    height: ${dt('checkbox.sm.height')};
+}
+
+.p-checkbox-sm .p-checkbox-icon {
+    font-size: ${dt('checkbox.icon.sm.size')};
+    width: ${dt('checkbox.icon.sm.size')};
+    height: ${dt('checkbox.icon.sm.size')};
+}
+
+.p-checkbox-lg,
+.p-checkbox-lg .p-checkbox-box {
+    width: ${dt('checkbox.lg.width')};
+    height: ${dt('checkbox.lg.height')};
+}
+
+.p-checkbox-lg .p-checkbox-icon {
+    font-size: ${dt('checkbox.icon.lg.size')};
+    width: ${dt('checkbox.icon.lg.size')};
+    height: ${dt('checkbox.icon.lg.size')};
+}
 `;
 
 const classes = {
@@ -121,7 +145,9 @@ const classes = {
             'p-checkbox-checked': instance.checked,
             'p-disabled': props.disabled,
             'p-invalid': instance.$pcCheckboxGroup ? instance.$pcCheckboxGroup.$invalid : instance.$invalid,
-            'p-variant-filled': instance.$variant === 'filled'
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-checkbox-sm p-inputfield-sm': props.size === 'small',
+            'p-checkbox-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     box: 'p-checkbox-box',

@@ -137,6 +137,30 @@ const theme = ({ dt }) => `
 .p-treeselect-label:has(.p-chip) {
     padding: calc(${dt('treeselect.padding.y')} / 2) calc(${dt('treeselect.padding.x')} / 2);
 }
+
+.p-treeselect-sm .p-treeselect-label {
+    font-size: ${dt('treeselect.sm.font.size')};
+    padding-block: ${dt('treeselect.sm.padding.y')};
+    padding-inline: ${dt('treeselect.sm.padding.x')};
+}
+
+.p-treeselect-sm .p-treeselect-dropdown .p-icon {
+    font-size: ${dt('treeselect.sm.font.size')};
+    width: ${dt('treeselect.sm.font.size')};
+    height: ${dt('treeselect.sm.font.size')};
+}
+
+.p-treeselect-lg .p-treeselect-label {
+    font-size: ${dt('treeselect.lg.font.size')};
+    padding-block: ${dt('treeselect.lg.padding.y')};
+    padding-inline: ${dt('treeselect.lg.padding.x')};
+}
+
+.p-treeselect-lg .p-treeselect-dropdown .p-icon {
+    font-size: ${dt('treeselect.lg.font.size')};
+    width: ${dt('treeselect.lg.font.size')};
+    height: ${dt('treeselect.lg.font.size')};
+}
 `;
 
 const inlineStyles = {
@@ -155,7 +179,9 @@ const classes = {
             'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible,
-            'p-treeselect-fluid': instance.$fluid
+            'p-treeselect-fluid': instance.$fluid,
+            'p-treeselect-sm p-inputfield-sm': props.size === 'small',
+            'p-treeselect-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     labelContainer: 'p-treeselect-label-container',

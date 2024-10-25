@@ -208,6 +208,30 @@ const theme = ({ dt }) => `
 .p-cascadeselect-mobile-active .p-cascadeselect-option-active > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
     transform: rotate(-90deg);
 }
+
+.p-cascadeselect-sm .p-cascadeselect-label {
+    font-size: ${dt('cascadeselect.sm.font.size')};
+    padding-block: ${dt('cascadeselect.sm.padding.y')};
+    padding-inline: ${dt('cascadeselect.sm.padding.x')};
+}
+
+.p-cascadeselect-sm .p-cascadeselect-dropdown .p-icon {
+    font-size: ${dt('cascadeselect.sm.font.size')};
+    width: ${dt('cascadeselect.sm.font.size')};
+    height: ${dt('cascadeselect.sm.font.size')};
+}
+
+.p-cascadeselect-lg .p-cascadeselect-label {
+    font-size: ${dt('cascadeselect.lg.font.size')};
+    padding-block: ${dt('cascadeselect.lg.padding.y')};
+    padding-inline: ${dt('cascadeselect.lg.padding.x')};
+}
+
+.p-cascadeselect-lg .p-cascadeselect-dropdown .p-icon {
+    font-size: ${dt('cascadeselect.lg.font.size')};
+    width: ${dt('cascadeselect.lg.font.size')};
+    height: ${dt('cascadeselect.lg.font.size')};
+}
 `;
 
 const inlineStyles = {
@@ -226,7 +250,9 @@ const classes = {
             'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': instance.$fluid
+            'p-cascadeselect-fluid': instance.$fluid,
+            'p-cascadeselect-sm p-inputfield-sm': props.size === 'small',
+            'p-cascadeselect-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     label: ({ instance, props }) => [

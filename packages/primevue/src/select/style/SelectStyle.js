@@ -195,6 +195,30 @@ input.p-select-label {
 .p-select-fluid {
     display: flex;
 }
+
+.p-select-sm .p-select-label {
+    font-size: ${dt('select.sm.font.size')};
+    padding-block: ${dt('select.sm.padding.y')};
+    padding-inline: ${dt('select.sm.padding.x')};
+}
+
+.p-select-sm .p-select-dropdown .p-icon {
+    font-size: ${dt('select.sm.font.size')};
+    width: ${dt('select.sm.font.size')};
+    height: ${dt('select.sm.font.size')};
+}
+
+.p-select-lg .p-select-label {
+    font-size: ${dt('select.lg.font.size')};
+    padding-block: ${dt('select.lg.padding.y')};
+    padding-inline: ${dt('select.lg.padding.x')};
+}
+
+.p-select-lg .p-select-dropdown .p-icon {
+    font-size: ${dt('select.lg.font.size')};
+    width: ${dt('select.lg.font.size')};
+    height: ${dt('select.lg.font.size')};
+}
 `;
 
 const classes = {
@@ -208,7 +232,9 @@ const classes = {
             'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-select-open': state.overlayVisible,
-            'p-select-fluid': instance.$fluid
+            'p-select-fluid': instance.$fluid,
+            'p-select-sm p-inputfield-sm': props.size === 'small',
+            'p-select-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     label: ({ instance, props }) => [

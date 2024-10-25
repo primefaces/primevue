@@ -157,6 +157,10 @@ export interface InputMaskProps {
      */
     name?: string | undefined;
     /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */

@@ -16,6 +16,7 @@
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :size="size"
             :invalid="invalid"
             :variant="variant"
             @input="onUserInput"

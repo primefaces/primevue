@@ -7,14 +7,14 @@ export default {
         paddingY: '0.625rem',
         iconOnlyWidth: '3rem',
         sm: {
-            fontSize: '0.875rem',
-            paddingX: '0.875rem',
-            paddingY: '0.5rem'
+            fontSize: '{form.field.sm.font.size}',
+            paddingX: '{form.field.sm.padding.x}',
+            paddingY: '{form.field.sm.padding.y}'
         },
         lg: {
-            fontSize: '1.125rem',
-            paddingX: '1.125rem',
-            paddingY: '0.75rem'
+            fontSize: '{form.field.lg.font.size}',
+            paddingX: '{form.field.lg.padding.x}',
+            paddingY: '{form.field.lg.padding.y}'
         },
         label: {
             fontWeight: '500'

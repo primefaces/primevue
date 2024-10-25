@@ -13,6 +13,7 @@
             :tabindex="!disabled ? tabindex : -1"
             :fluid="$fluid"
             :disabled="disabled"
+            :size="size"
             :invalid="invalid"
             :variant="variant"
             autocomplete="off"

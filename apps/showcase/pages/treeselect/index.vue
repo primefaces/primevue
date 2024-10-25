@@ -20,6 +20,7 @@ import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/treeselect/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/treeselect/SizesDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
 import LazyDoc from '@/doc/treeselect/LazyDoc.vue';
@@ -86,6 +87,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',
