@@ -60,7 +60,7 @@
 <script>
 import { $dt } from '@primeuix/styled';
 import { absolutePosition, addClass, focus, getOffset, isTouchDevice } from '@primeuix/utils/dom';
-import { ZIndex } from '@primeuix/utils/zindex';
+import { ZIndex } from '@primeuix/utils';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import Button from 'primevue/button';
 import ConfirmationEventBus from 'primevue/confirmationeventbus';
@@ -159,22 +159,24 @@ export default {
             this.visible = false;
         },
         onAcceptKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (['Space', 'Enter', 'NumpadEnter'].includes(event.code)) {
                 this.accept();
                 focus(this.target);
                 event.preventDefault();
             }
         },
         onRejectKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (['Space', 'Enter', 'NumpadEnter'].includes(event.code)) {
                 this.reject();
                 focus(this.target);
                 event.preventDefault();
             }
         },
         onEnter(el) {
-            this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
-            this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
+            const defaultFocus = this.confirmation.defaultFocus;
+
+            this.autoFocusAccept = defaultFocus === undefined || defaultFocus === 'accept';
+            this.autoFocusReject = defaultFocus === 'reject';
 
             this.target = document.activeElement;
 
@@ -303,31 +305,23 @@ export default {
     },
     computed: {
         message() {
-            return this.confirmation ? this.confirmation.message : null;
+            return this.confirmation?.message ?? null;
         },
         acceptLabel() {
-            if (this.confirmation) {
-                const confirmation = this.confirmation;
+            const confirmation = this.confirmation;
 
-                return confirmation.acceptLabel || confirmation.acceptProps?.label || this.$primevue.config.locale.accept;
-            }
-
-            return this.$primevue.config.locale.accept;
+            return confirmation?.acceptLabel ?? confirmation?.acceptProps?.label ?? this.$primevue.config.locale.accept;
         },
         rejectLabel() {
-            if (this.confirmation) {
-                const confirmation = this.confirmation;
+            const confirmation = this.confirmation;
 
-                return confirmation.rejectLabel || confirmation.rejectProps?.label || this.$primevue.config.locale.reject;
-            }
-
-            return this.$primevue.config.locale.reject;
+            return confirmation?.rejectLabel ?? confirmation?.rejectProps?.label ?? this.$primevue.config.locale.reject;
         },
         acceptIcon() {
-            return this.confirmation ? this.confirmation.acceptIcon : this.confirmation?.acceptProps ? this.confirmation.acceptProps.icon : null;
+            return this.confirmation?.acceptIcon ?? this.confirmation?.acceptProps?.icon ?? null;
         },
         rejectIcon() {
-            return this.confirmation ? this.confirmation.rejectIcon : this.confirmation?.rejectProps ? this.confirmation.rejectProps.icon : null;
+            return this.confirmation?.rejectIcon ?? this.confirmation?.rejectProps?.icon ?? null;
         }
     },
     components: {
