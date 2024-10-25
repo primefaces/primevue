@@ -44,7 +44,7 @@ const theme = ({ dt }) => `
     all: unset;
     position: absolute !important;
     flex-shrink: 0;
-    top: 0;
+    inset-block-start: 0;
     z-index: 2;
     height: 100%;
     display: flex;
@@ -71,12 +71,18 @@ const theme = ({ dt }) => `
 }
 
 .p-tablist-prev-button {
-    left: 0;
+    inset-inline-start: 0;
 }
 
 .p-tablist-next-button {
-    right: 0;
+    inset-inline-end: 0;
 }
+
+.p-tablist-prev-button:dir(rtl),
+.p-tablist-next-button:dir(rtl) {
+    transform: rotate(180deg);
+}
+
 
 .p-tab {
     flex-shrink: 0;
@@ -132,7 +138,7 @@ const theme = ({ dt }) => `
     z-index: 1;
     display: block;
     position: absolute;
-    bottom: ${dt('tabs.active.bar.bottom')};
+    inset-block-end: ${dt('tabs.active.bar.bottom')};
     height: ${dt('tabs.active.bar.height')};
     background: ${dt('tabs.active.bar.background')};
     transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);

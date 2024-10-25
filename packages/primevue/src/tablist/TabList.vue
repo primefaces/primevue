@@ -39,18 +39,20 @@
 import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
-import BaseTabList from './BaseTabList.vue';
 import Ripple from 'primevue/ripple';
+import BaseTabList from './BaseTabList.vue';
 
 export default {
     name: 'TabList',
     extends: BaseTabList,
     inheritAttrs: false,
     inject: ['$pcTabs'],
+    mutationObserver: null,
     data() {
         return {
             isPrevButtonEnabled: false,
-            isNextButtonEnabled: true
+            isNextButtonEnabled: true,
+            isRTL: false
         };
     },
     resizeObserver: undefined,
@@ -74,14 +76,39 @@ export default {
             this.updateButtonState();
             this.bindResizeObserver();
         }
+
+        this.updateDirection();
+        this.observeDirectionChanges();
     },
     updated() {
         this.showNavigators && this.updateButtonState();
     },
     beforeUnmount() {
         this.unbindResizeObserver();
+
+        if (this.mutationObserver) {
+            this.mutationObserver.disconnect();
+        }
     },
     methods: {
+        updateDirection() {
+            if (document) {
+                const isHtmlRtl = document.documentElement.getAttribute('dir') === 'rtl';
+                const isBodyRtl = document.body.getAttribute('dir') === 'rtl';
+
+                this.isRTL = isHtmlRtl || isBodyRtl || this.$el.closest('[dir="rtl"]');
+            }
+        },
+        observeDirectionChanges() {
+            const targetNode = document.documentElement;
+            const config = { attributes: true, attributeFilter: ['dir'] };
+
+            this.mutationObserver = new MutationObserver(() => {
+                this.updateDirection();
+            });
+
+            this.mutationObserver.observe(targetNode, config);
+        },
         onScroll(event) {
             this.showNavigators && this.updateButtonState();
 
@@ -90,15 +117,28 @@ export default {
         onPrevButtonClick() {
             const content = this.$refs.content;
             const width = getWidth(content);
-            const pos = content.scrollLeft - width;
+            let pos;
+
+            if (this.isRTL) {
+                pos = content.scrollLeft + width;
+            } else {
+                pos = content.scrollLeft - width;
+            }
 
             content.scrollLeft = pos <= 0 ? 0 : pos;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
             const width = getWidth(content) - this.getVisibleButtonWidths();
-            const pos = content.scrollLeft + width;
-            const lastPos = content.scrollWidth - width;
+            let pos, lastPos;
+
+            if (this.isRTL) {
+                pos = content.scrollLeft - width;
+                lastPos = content.scrollWidth + width;
+            } else {
+                pos = content.scrollLeft + width;
+                lastPos = content.scrollWidth - width;
+            }
 
             content.scrollLeft = pos >= lastPos ? lastPos : pos;
         },
