@@ -4,13 +4,14 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
+            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
+            <div class="flex flex-col">
                 <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error">Username is required</Message>
+                <Message severity="error" variant="plain" size="small">Username is required</Message>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-col">
                 <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" icon="pi pi-times-circle" />
+                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
             </div>
         </div>
     </div>
@@ -23,26 +24,30 @@ export default {
         return {
             code: {
                 basic: `
-<div class="flex flex-wrap gap-2">
-    <InputText placeholder="Username" aria-label="username" invalid />
-    <Message severity="error">Username is required</Message>
-</div>
-<div class="flex flex-wrap gap-2">
-    <InputText placeholder="Email" aria-label="email" invalid />
-    <Message severity="error" icon="pi pi-times-circle" />
+<div class="flex flex-col gap-4">
+    <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
+    <div class="flex flex-col">
+        <InputText placeholder="Username" aria-label="username" invalid />
+        <Message severity="error" variant="plain" size="small">Username is required</Message>
+    </div>
+    <div class="flex flex-col">
+        <InputText placeholder="Email" aria-label="email" invalid />
+        <Message severity="error" variant="plain" size="small">Email is not valid</Message>
+    </div>
 </div>
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
+            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
+            <div class="flex flex-col">
                 <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error">Username is required</Message>
+                <Message severity="error" variant="plain" size="small">Username is required</Message>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-col">
                 <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" icon="pi pi-times-circle" />
+                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
             </div>
         </div>
     </div>
@@ -55,13 +60,14 @@ export default {
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
+            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
+            <div class="flex flex-col">
                 <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error">Username is required</Message>
+                <Message severity="error" variant="plain" size="small">Username is required</Message>
             </div>
-            <div class="flex flex-wrap gap-2">
+            <div class="flex flex-col">
                 <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" icon="pi pi-times-circle" />
+                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
             </div>
         </div>
     </div>
