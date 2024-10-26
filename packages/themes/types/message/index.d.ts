@@ -225,6 +225,22 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
         };
     };
     /**
+     * Used to pass tokens of the outlined section
+     */
+    outlined?: {
+        /**
+         * Root of outlined
+         */
+        root?: {
+            /**
+             * Root border width of outlined
+             *
+             * @designToken message.outlined.border.width
+             */
+            borderWidth?: string;
+        };
+    };
+    /**
      * Used to pass tokens of the info section
      */
     info?: {
@@ -279,6 +295,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                  */
                 shadow?: string;
             };
+        };
+        /**
+         * Outlined of info
+         */
+        outlined?: {
+            /**
+             * Outlined color of info
+             *
+             * @designToken message.info.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of info
+             *
+             * @designToken message.info.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of info
+         */
+        plain?: {
+            /**
+             * Plain color of info
+             *
+             * @designToken message.info.plain.color
+             */
+            color?: string;
         };
     };
     /**
@@ -337,6 +381,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                 shadow?: string;
             };
         };
+        /**
+         * Outlined of success
+         */
+        outlined?: {
+            /**
+             * Outlined color of success
+             *
+             * @designToken message.success.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of success
+             *
+             * @designToken message.success.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of success
+         */
+        plain?: {
+            /**
+             * Plain color of success
+             *
+             * @designToken message.success.plain.color
+             */
+            color?: string;
+        };
     };
     /**
      * Used to pass tokens of the warn section
@@ -393,6 +465,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                  */
                 shadow?: string;
             };
+        };
+        /**
+         * Outlined of warn
+         */
+        outlined?: {
+            /**
+             * Outlined color of warn
+             *
+             * @designToken message.warn.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of warn
+             *
+             * @designToken message.warn.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of warn
+         */
+        plain?: {
+            /**
+             * Plain color of warn
+             *
+             * @designToken message.warn.plain.color
+             */
+            color?: string;
         };
     };
     /**
@@ -451,6 +551,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                 shadow?: string;
             };
         };
+        /**
+         * Outlined of error
+         */
+        outlined?: {
+            /**
+             * Outlined color of error
+             *
+             * @designToken message.error.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of error
+             *
+             * @designToken message.error.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of error
+         */
+        plain?: {
+            /**
+             * Plain color of error
+             *
+             * @designToken message.error.plain.color
+             */
+            color?: string;
+        };
     };
     /**
      * Used to pass tokens of the secondary section
@@ -508,6 +636,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                 shadow?: string;
             };
         };
+        /**
+         * Outlined of secondary
+         */
+        outlined?: {
+            /**
+             * Outlined color of secondary
+             *
+             * @designToken message.secondary.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of secondary
+             *
+             * @designToken message.secondary.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of secondary
+         */
+        plain?: {
+            /**
+             * Plain color of secondary
+             *
+             * @designToken message.secondary.plain.color
+             */
+            color?: string;
+        };
     };
     /**
      * Used to pass tokens of the contrast section
@@ -564,6 +720,34 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
                  */
                 shadow?: string;
             };
+        };
+        /**
+         * Outlined of contrast
+         */
+        outlined?: {
+            /**
+             * Outlined color of contrast
+             *
+             * @designToken message.contrast.outlined.color
+             */
+            color?: string;
+            /**
+             * Outlined border color of contrast
+             *
+             * @designToken message.contrast.outlined.border.color
+             */
+            borderColor?: string;
+        };
+        /**
+         * Plain of contrast
+         */
+        plain?: {
+            /**
+             * Plain color of contrast
+             *
+             * @designToken message.contrast.plain.color
+             */
+            color?: string;
         };
     };
 }
