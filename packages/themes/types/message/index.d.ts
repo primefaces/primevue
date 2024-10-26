@@ -50,6 +50,28 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
          * @designToken message.content.gap
          */
         gap?: string;
+        /**
+         * Sm of content
+         */
+        sm?: {
+            /**
+             * Sm padding of content
+             *
+             * @designToken message.content.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of content
+         */
+        lg?: {
+            /**
+             * Lg padding of content
+             *
+             * @designToken message.content.lg.padding
+             */
+            padding?: string;
+        };
     };
     /**
      * Used to pass tokens of the text section
@@ -67,6 +89,28 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
          * @designToken message.text.font.weight
          */
         fontWeight?: string;
+        /**
+         * Sm of text
+         */
+        sm?: {
+            /**
+             * Sm font size of text
+             *
+             * @designToken message.text.sm.font.size
+             */
+            fontSize?: string;
+        };
+        /**
+         * Lg of text
+         */
+        lg?: {
+            /**
+             * Lg font size of text
+             *
+             * @designToken message.text.lg.font.size
+             */
+            fontSize?: string;
+        };
     };
     /**
      * Used to pass tokens of the icon section
@@ -78,6 +122,28 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
          * @designToken message.icon.size
          */
         size?: string;
+        /**
+         * Sm of icon
+         */
+        sm?: {
+            /**
+             * Sm size of icon
+             *
+             * @designToken message.icon.sm.size
+             */
+            size?: string;
+        };
+        /**
+         * Lg of icon
+         */
+        lg?: {
+            /**
+             * Lg size of icon
+             *
+             * @designToken message.icon.lg.size
+             */
+            size?: string;
+        };
     };
     /**
      * Used to pass tokens of the close button section
@@ -135,6 +201,28 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
          * @designToken message.close.icon.size
          */
         size?: string;
+        /**
+         * Sm of close icon
+         */
+        sm?: {
+            /**
+             * Sm size of close icon
+             *
+             * @designToken message.close.icon.sm.size
+             */
+            size?: string;
+        };
+        /**
+         * Lg of close icon
+         */
+        lg?: {
+            /**
+             * Lg size of close icon
+             *
+             * @designToken message.close.icon.lg.size
+             */
+            size?: string;
+        };
     };
     /**
      * Used to pass tokens of the info section
