@@ -1,8 +1,8 @@
 {
-    "id": 58,
-    "content": "🎉 v4.0.0-rc.1 is out with the new Styled Mode",
-    "linkText": "Learn More",
-    "linkHref": "http://primevue.org",
+    "id": 60,
+    "content": "Diamond Template Remastered ⭐️",
+    "linkText": "Live Demo",
+    "linkHref": "http://diamond.primevue.org",
     "backgroundStyle": "background-color:var(--primary-color)",
     "textStyle": "color:var(--primary-color-text);font-weight:500",
     "linkStyle": "color:var(--primary-color-text);font-weight:700;text-decoration: underline;"

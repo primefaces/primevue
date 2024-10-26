@@ -174,8 +174,9 @@ export default {
         docsearch({
             container: '#docsearch',
             appId: 'MM3U70ASEF',
-            indexName: 'primevue',
+            indexName: 'v3-primevue',
             apiKey: 'ce80245d8fee32d846625372698914cf',
+            debug: false,
             transformItems: (items) => {
                 const isLocalhost = process.env.NODE_ENV !== 'production';
 
