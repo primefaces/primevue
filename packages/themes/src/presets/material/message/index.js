@@ -52,6 +52,11 @@ export default {
             fontSize: '1.125rem'
         }
     },
+    outlined: {
+        root: {
+            borderWidth: '1px'
+        }
+    },
     colorScheme: {
         light: {
             info: {
@@ -65,6 +70,13 @@ export default {
                         color: '{blue.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{blue.600}',
+                    borderColor: '{blue.600}'
+                },
+                plain: {
+                    color: '{blue.600}'
                 }
             },
             success: {
@@ -78,6 +90,13 @@ export default {
                         color: '{green.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{green.600}',
+                    borderColor: '{green.600}'
+                },
+                plain: {
+                    color: '{green.600}'
                 }
             },
             warn: {
@@ -91,6 +110,13 @@ export default {
                         color: '{yellow.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{yellow.900}',
+                    borderColor: '{yellow.900}'
+                },
+                plain: {
+                    color: '{yellow.900}'
                 }
             },
             error: {
@@ -104,6 +130,13 @@ export default {
                         color: '{red.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{red.600}',
+                    borderColor: '{red.600}'
+                },
+                plain: {
+                    color: '{red.600}'
                 }
             },
             secondary: {
@@ -117,6 +150,13 @@ export default {
                         color: '{surface.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.600}',
+                    borderColor: '{surface.600}'
+                },
+                plain: {
+                    color: '{surface.600}'
                 }
             },
             contrast: {
@@ -130,6 +170,13 @@ export default {
                         color: '{surface.50}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.950}',
+                    borderColor: '{surface.950}'
+                },
+                plain: {
+                    color: '{surface.950}'
                 }
             }
         },
@@ -145,6 +192,13 @@ export default {
                         color: '{blue.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{blue.500}',
+                    borderColor: '{blue.500}'
+                },
+                plain: {
+                    color: '{blue.500}'
                 }
             },
             success: {
@@ -158,6 +212,13 @@ export default {
                         color: '{green.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{green.500}',
+                    borderColor: '{green.500}'
+                },
+                plain: {
+                    color: '{green.500}'
                 }
             },
             warn: {
@@ -171,6 +232,13 @@ export default {
                         color: '{yellow.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{yellow.500}',
+                    borderColor: '{yellow.500}'
+                },
+                plain: {
+                    color: '{yellow.500}'
                 }
             },
             error: {
@@ -184,6 +252,13 @@ export default {
                         color: '{red.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{red.500}',
+                    borderColor: '{red.500}'
+                },
+                plain: {
+                    color: '{red.500}'
                 }
             },
             secondary: {
@@ -197,6 +272,13 @@ export default {
                         color: '{surface.300}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.400}',
+                    borderColor: '{surface.400}'
+                },
+                plain: {
+                    color: '{surface.400}'
                 }
             },
             contrast: {
@@ -210,6 +292,13 @@ export default {
                         color: '{surface.950}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.0}',
+                    borderColor: '{surface.0}'
+                },
+                plain: {
+                    color: '{surface.0}'
                 }
             }
         }

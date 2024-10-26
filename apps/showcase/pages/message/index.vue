@@ -12,10 +12,10 @@ import IconDoc from '@/doc/message/IconDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import LifeDoc from '@/doc/message/LifeDoc.vue';
 import OutlinedDoc from '@/doc/message/OutlinedDoc.vue';
+import PlainDoc from '@/doc/message/PlainDoc.vue';
+import PTComponent from '@/doc/message/pt/index.vue';
 import SeverityDoc from '@/doc/message/SeverityDoc.vue';
 import SizesDoc from '@/doc/message/SizesDoc.vue';
-import TextDoc from '@/doc/message/TextDoc.vue';
-import PTComponent from '@/doc/message/pt/index.vue';
 import ThemingDoc from '@/doc/message/theming/index.vue';
 
 export default {
@@ -48,9 +48,9 @@ export default {
                     component: OutlinedDoc
                 },
                 {
-                    id: 'text',
-                    label: 'Text',
-                    component: TextDoc
+                    id: 'plain',
+                    label: 'Plain',
+                    component: PlainDoc
                 },
                 {
                     id: 'sizes',

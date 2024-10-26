@@ -52,6 +52,11 @@ export default {
             fontSize: '1.125rem'
         }
     },
+    outlined: {
+        root: {
+            borderWidth: '1px'
+        }
+    },
     colorScheme: {
         light: {
             info: {
@@ -65,6 +70,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {blue.200}'
                     }
+                },
+                outlined: {
+                    color: '{blue.600}',
+                    borderColor: '{blue.600}'
+                },
+                plain: {
+                    color: '{blue.600}'
                 }
             },
             success: {
@@ -78,6 +90,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {green.200}'
                     }
+                },
+                outlined: {
+                    color: '{green.600}',
+                    borderColor: '{green.600}'
+                },
+                plain: {
+                    color: '{green.600}'
                 }
             },
             warn: {
@@ -91,6 +110,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {yellow.200}'
                     }
+                },
+                outlined: {
+                    color: '{yellow.600}',
+                    borderColor: '{yellow.600}'
+                },
+                plain: {
+                    color: '{yellow.600}'
                 }
             },
             error: {
@@ -104,6 +130,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {red.200}'
                     }
+                },
+                outlined: {
+                    color: '{red.600}',
+                    borderColor: '{red.600}'
+                },
+                plain: {
+                    color: '{red.600}'
                 }
             },
             secondary: {
@@ -117,6 +150,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {surface.200}'
                     }
+                },
+                outlined: {
+                    color: '{surface.500}',
+                    borderColor: '{surface.500}'
+                },
+                plain: {
+                    color: '{surface.500}'
                 }
             },
             contrast: {
@@ -130,6 +170,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem {surface.400}'
                     }
+                },
+                outlined: {
+                    color: '{surface.900}',
+                    borderColor: '{surface.900}'
+                },
+                plain: {
+                    color: '{surface.900}'
                 }
             }
         },
@@ -145,6 +192,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {blue.500}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{blue.500}',
+                    borderColor: '{blue.500}'
+                },
+                plain: {
+                    color: '{blue.500}'
                 }
             },
             success: {
@@ -158,6 +212,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {green.500}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{green.500}',
+                    borderColor: '{green.500}'
+                },
+                plain: {
+                    color: '{green.500}'
                 }
             },
             warn: {
@@ -171,6 +232,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {yellow.500}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{yellow.500}',
+                    borderColor: '{yellow.500}'
+                },
+                plain: {
+                    color: '{yellow.500}'
                 }
             },
             error: {
@@ -184,6 +252,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {red.500}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{red.500}',
+                    borderColor: '{red.500}'
+                },
+                plain: {
+                    color: '{red.500}'
                 }
             },
             secondary: {
@@ -197,6 +272,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.300}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{surface.400}',
+                    borderColor: '{surface.400}'
+                },
+                plain: {
+                    color: '{surface.400}'
                 }
             },
             contrast: {
@@ -210,6 +292,13 @@ export default {
                         color: '{focus.ring.color}',
                         shadow: '0 0 0 0.2rem color-mix(in srgb, {surface.950}, transparent 80%)'
                     }
+                },
+                outlined: {
+                    color: '{surface.0}',
+                    borderColor: '{surface.0}'
+                },
+                plain: {
+                    color: '{surface.0}'
                 }
             }
         }
