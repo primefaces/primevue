@@ -304,6 +304,28 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         width?: string;
         /**
+         * Sm of dropdown
+         */
+        sm?: {
+            /**
+             * Sm width of dropdown
+             *
+             * @designToken autocomplete.dropdown.sm.width
+             */
+            width?: string;
+        };
+        /**
+         * Lg of dropdown
+         */
+        lg?: {
+            /**
+             * Lg width of dropdown
+             *
+             * @designToken autocomplete.dropdown.lg.width
+             */
+            width?: string;
+        };
+        /**
          * Border color of dropdown
          *
          * @designToken autocomplete.dropdown.border.color

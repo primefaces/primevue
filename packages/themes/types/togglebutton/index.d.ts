@@ -105,6 +105,40 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
          */
         transitionDuration?: string;
         /**
+         * Sm of root
+         */
+        sm?: {
+            /**
+             * Sm font size of root
+             *
+             * @designToken togglebutton.sm.font.size
+             */
+            fontSize?: string;
+            /**
+             * Sm padding of root
+             *
+             * @designToken togglebutton.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of root
+         */
+        lg?: {
+            /**
+             * Lg font size of root
+             *
+             * @designToken togglebutton.lg.font.size
+             */
+            fontSize?: string;
+            /**
+             * Lg padding of root
+             *
+             * @designToken togglebutton.lg.padding
+             */
+            padding?: string;
+        };
+        /**
          * Background of root
          *
          * @designToken togglebutton.background

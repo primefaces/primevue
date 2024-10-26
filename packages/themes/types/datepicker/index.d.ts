@@ -132,6 +132,28 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          */
         width?: string;
         /**
+         * Sm of dropdown
+         */
+        sm?: {
+            /**
+             * Sm width of dropdown
+             *
+             * @designToken datepicker.dropdown.sm.width
+             */
+            width?: string;
+        };
+        /**
+         * Lg of dropdown
+         */
+        lg?: {
+            /**
+             * Lg width of dropdown
+             *
+             * @designToken datepicker.dropdown.lg.width
+             */
+            width?: string;
+        };
+        /**
          * Border color of dropdown
          *
          * @designToken datepicker.dropdown.border.color
