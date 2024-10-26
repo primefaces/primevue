@@ -6,14 +6,32 @@ export default {
     },
     content: {
         padding: '0.75rem 1rem',
-        gap: '0.5rem'
+        gap: '0.5rem',
+        sm: {
+            padding: '0.5rem 0.625rem'
+        },
+        lg: {
+            padding: '0.75rem 0.875rem'
+        }
     },
     text: {
         fontSize: '1rem',
-        fontWeight: '500'
+        fontWeight: '500',
+        sm: {
+            fontSize: '0.875rem'
+        },
+        lg: {
+            fontSize: '1.125rem'
+        }
     },
     icon: {
-        size: '1.25rem'
+        size: '1.25rem',
+        sm: {
+            size: '1rem'
+        },
+        lg: {
+            size: '1.5rem'
+        }
     },
     closeButton: {
         width: '2rem',
@@ -26,7 +44,13 @@ export default {
         }
     },
     closeIcon: {
-        size: '1rem'
+        size: '1rem',
+        sm: {
+            fontSize: '0.875rem'
+        },
+        lg: {
+            fontSize: '1.125rem'
+        }
     },
     colorScheme: {
         light: {

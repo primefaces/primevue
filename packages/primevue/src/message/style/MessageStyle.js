@@ -185,10 +185,58 @@ const theme = ({ dt }) => `
 .p-message-leave-active .p-message-close-button {
     opacity: 0;
 }
+
+.p-message-sm .p-message-content {
+    padding: ${dt('message.content.sm.padding')};
+}
+
+.p-message-sm .p-message-text {
+    font-size: ${dt('message.text.sm.font.size')};
+}
+
+.p-message-sm .p-message-icon {
+    font-size: ${dt('message.icon.sm.size')};
+    width: ${dt('message.icon.sm.size')};
+    height: ${dt('message.icon.sm.size')};
+}
+
+.p-message-sm .p-message-close-icon {
+    font-size: ${dt('message.close.icon.sm.size')};
+    width: ${dt('message.close.icon.sm.size')};
+    height: ${dt('message.close.icon.sm.size')};
+}
+
+.p-message-lg .p-message-content {
+    padding: ${dt('message.content.lg.padding')};
+}
+
+.p-message-lg .p-message-text {
+    font-size: ${dt('message.text.lg.font.size')};
+}
+
+.p-message-lg .p-message-icon {
+    font-size: ${dt('message.icon.lg.size')};
+    width: ${dt('message.icon.lg.size')};
+    height: ${dt('message.icon.lg.size')};
+}
+
+.p-message-lg .p-message-close-icon {
+    font-size: ${dt('message.close.icon.lg.size')};
+    width: ${dt('message.close.icon.lg.size')};
+    height: ${dt('message.close.icon.lg.size')};
+}
 `;
 
 const classes = {
-    root: ({ props }) => 'p-message p-component p-message-' + props.severity,
+    root: ({ props }) => [
+        'p-message p-component p-message-' + props.severity,
+        {
+            'p-message-variant-outlined': props.variant === 'outlined',
+            'p-message-variant-text': props.variant === 'text',
+            'p-message-sm': props.size === 'small',
+            'p-message-lg': props.size === 'large'
+        }
+    ],
     content: 'p-message-content',
     icon: 'p-message-icon',
     text: 'p-message-text',

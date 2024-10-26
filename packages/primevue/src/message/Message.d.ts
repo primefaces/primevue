@@ -156,6 +156,15 @@ export interface MessageProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'text' | undefined;
 }
 
 /**

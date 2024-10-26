@@ -29,6 +29,14 @@ export default {
         closeButtonProps: {
             type: null,
             default: null
+        },
+        size: {
+            type: String,
+            default: null
+        },
+        variant: {
+            type: String,
+            default: null
         }
     },
     style: MessageStyle,
