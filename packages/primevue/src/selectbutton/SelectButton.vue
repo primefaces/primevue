@@ -7,6 +7,7 @@
                 :offLabel="getOptionLabel(option)"
                 :disabled="disabled || isOptionDisabled(option)"
                 :unstyled="unstyled"
+                :size="size"
                 @change="onOptionSelect($event, option, index)"
                 :pt="ptm('pcToggleButton')"
             >

@@ -36,6 +36,7 @@ import inplace from '@primevue/themes/aura/inplace';
 import inputchips from '@primevue/themes/aura/inputchips';
 import inputgroup from '@primevue/themes/aura/inputgroup';
 import inputnumber from '@primevue/themes/aura/inputnumber';
+import inputotp from '@primevue/themes/aura/inputotp';
 import inputtext from '@primevue/themes/aura/inputtext';
 import knob from '@primevue/themes/aura/knob';
 import listbox from '@primevue/themes/aura/listbox';
@@ -127,6 +128,7 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
+        inputotp,
         inputtext,
         knob,
         listbox,

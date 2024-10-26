@@ -241,6 +241,26 @@ const theme = ({ dt }) => `
 .p-autocomplete-fluid:has(.p-autocomplete-dropdown) .p-autocomplete-input {
     width: 1%;
 }
+
+.p-autocomplete:has(.p-inputtext-sm) .p-autocomplete-dropdown {
+    width: ${dt('autocomplete.dropdown.sm.width')};
+}
+
+.p-autocomplete:has(.p-inputtext-sm) .p-autocomplete-dropdown .p-icon {
+    font-size: ${dt('form.field.sm.font.size')};
+    width: ${dt('form.field.sm.font.size')};
+    height: ${dt('form.field.sm.font.size')};
+}
+
+.p-autocomplete:has(.p-inputtext-lg) .p-autocomplete-dropdown {
+    width: ${dt('autocomplete.dropdown.lg.width')};
+}
+
+.p-autocomplete:has(.p-inputtext-lg) .p-autocomplete-dropdown .p-icon {
+    font-size: ${dt('form.field.lg.font.size')};
+    width: ${dt('form.field.lg.font.size')};
+    height: ${dt('form.field.lg.font.size')};
+}
 `;
 
 const inlineStyles = {

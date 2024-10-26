@@ -129,7 +129,7 @@ export default {
                     component: IftaLabelDoc
                 },
                 {
-                    id: 'sizez',
+                    id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
                 },

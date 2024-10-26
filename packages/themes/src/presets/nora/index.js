@@ -36,6 +36,7 @@ import inplace from '@primevue/themes/nora/inplace';
 import inputchips from '@primevue/themes/nora/inputchips';
 import inputgroup from '@primevue/themes/nora/inputgroup';
 import inputnumber from '@primevue/themes/nora/inputnumber';
+import inputotp from '@primevue/themes/nora/inputotp';
 import inputtext from '@primevue/themes/nora/inputtext';
 import knob from '@primevue/themes/nora/knob';
 import listbox from '@primevue/themes/nora/listbox';
@@ -127,6 +128,7 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
+        inputotp,
         inputtext,
         knob,
         listbox,

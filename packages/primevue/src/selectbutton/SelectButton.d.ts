@@ -182,6 +182,10 @@ export interface SelectButtonProps {
      */
     ariaLabelledby?: string | undefined;
     /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
      * Form control object, typically used for handling validation and form state.
      */
     formControl?: Record<string, any> | undefined;

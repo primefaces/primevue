@@ -55,6 +55,12 @@ export default {
     },
     dropdown: {
         width: '2.5rem',
+        sm: {
+            width: '2rem'
+        },
+        lg: {
+            width: '3rem'
+        },
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',

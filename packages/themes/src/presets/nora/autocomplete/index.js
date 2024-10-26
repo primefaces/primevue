@@ -55,6 +55,12 @@ export default {
     },
     dropdown: {
         width: '2.5rem',
+        sm: {
+            width: '2rem'
+        },
+        lg: {
+            width: '3rem'
+        },
         background: '{form.field.background}',
         color: '{form.field.icon.color}',
         hoverColor: '{form.field.icon.color}',

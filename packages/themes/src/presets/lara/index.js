@@ -36,6 +36,7 @@ import inplace from '@primevue/themes/lara/inplace';
 import inputchips from '@primevue/themes/lara/inputchips';
 import inputgroup from '@primevue/themes/lara/inputgroup';
 import inputnumber from '@primevue/themes/lara/inputnumber';
+import inputotp from '@primevue/themes/lara/inputotp';
 import inputtext from '@primevue/themes/lara/inputtext';
 import knob from '@primevue/themes/lara/knob';
 import listbox from '@primevue/themes/lara/listbox';
@@ -127,6 +128,7 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
+        inputotp,
         inputtext,
         knob,
         listbox,

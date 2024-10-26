@@ -378,6 +378,28 @@ const theme = ({ dt }) => `
 .p-datepicker-timeonly .p-datepicker-time-picker {
     border-block-start: 0 none;
 }
+
+.p-datepicker:has(.p-inputtext-sm) .p-datepicker-dropdown {
+    width: ${dt('datepicker.dropdown.sm.width')};
+}
+
+.p-datepicker:has(.p-inputtext-sm) .p-datepicker-dropdown .p-icon,
+.p-datepicker:has(.p-inputtext-sm) .p-datepicker-input-icon {
+    font-size: ${dt('form.field.sm.font.size')};
+    width: ${dt('form.field.sm.font.size')};
+    height: ${dt('form.field.sm.font.size')};
+}
+
+.p-datepicker:has(.p-inputtext-lg) .p-datepicker-dropdown {
+    width: ${dt('datepicker.dropdown.lg.width')};
+}
+
+.p-datepicker:has(.p-inputtext-lg) .p-datepicker-dropdown .p-icon,
+.p-datepicker:has(.p-inputtext-lg) .p-datepicker-input-icon {
+    font-size: ${dt('form.field.lg.font.size')};
+    width: ${dt('form.field.lg.font.size')};
+    height: ${dt('form.field.lg.font.size')};
+}
 `;
 
 const inlineStyles = {

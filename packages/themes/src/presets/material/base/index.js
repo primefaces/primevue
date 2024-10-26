@@ -65,8 +65,8 @@ export default {
             },
             lg: {
                 fontSize: '1.125rem',
-                paddingX: '1rem',
-                paddingY: '1rem'
+                paddingX: '0.825rem',
+                paddingY: '0.825rem'
             },
             borderRadius: '{border.radius.sm}',
             focusRing: {

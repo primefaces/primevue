@@ -99,6 +99,16 @@ const theme = ({ dt }) => `
 .p-togglebutton:disabled .p-togglebutton-icon {
     color: ${dt('togglebutton.icon.disabled.color')};
 }
+
+.p-togglebutton-sm {
+    padding: ${dt('togglebutton.sm.padding')};
+    font-size: ${dt('togglebutton.sm.font.size')};
+}
+
+.p-togglebutton-lg {
+    padding: ${dt('togglebutton.lg.padding')};
+    font-size: ${dt('togglebutton.lg.font.size')};
+}
 `;
 
 const classes = {
@@ -106,7 +116,9 @@ const classes = {
         'p-togglebutton p-component',
         {
             'p-togglebutton-checked': instance.active,
-            'p-invalid': instance.$invalid
+            'p-invalid': instance.$invalid,
+            'p-togglebutton-sm p-inputfield-sm': props.size === 'small',
+            'p-togglebutton-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     content: 'p-togglebutton-content',

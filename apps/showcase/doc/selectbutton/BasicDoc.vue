@@ -6,7 +6,7 @@
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+        <SelectButton v-model="value" :options="options" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,12 +19,12 @@ export default {
             options: ['One-Way', 'Return'],
             code: {
                 basic: `
-<SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+<SelectButton v-model="value" :options="options" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+        <SelectButton v-model="value" :options="options" />
     </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+        <SelectButton v-model="value" :options="options" />
     </div>
 </template>
 

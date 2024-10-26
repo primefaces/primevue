@@ -3,9 +3,9 @@
         <p>DatePicker provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-4">
-        <DatePicker v-model="value1" size="small" placeholder="Small" />
-        <DatePicker v-model="value2" placeholder="Normal" />
-        <DatePicker v-model="value3" size="large" placeholder="Large" />
+        <DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+        <DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+        <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -19,16 +19,16 @@ export default {
             value3: null,
             code: {
                 basic: `
-<DatePicker v-model="value1" size="small" placeholder="Small" />
-<DatePicker v-model="value2" placeholder="Normal" />
-<DatePicker v-model="value3" size="large" placeholder="Large" />
+<DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+<DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+<DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
 `,
                 options: `
 <template>
     <div class="card flex flex-col items-center gap-4">
-        <DatePicker v-model="value1" size="small" placeholder="Small" />
-        <DatePicker v-model="value2" placeholder="Normal" />
-        <DatePicker v-model="value3" size="large" placeholder="Large" />
+        <DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+        <DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+        <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
     </div>
 </template>
 
@@ -47,9 +47,9 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-col items-center gap-4">
-        <DatePicker v-model="value1" size="small" placeholder="Small" />
-        <DatePicker v-model="value2" placeholder="Normal" />
-        <DatePicker v-model="value3" size="large" placeholder="Large" />
+        <DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+        <DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+        <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
     </div>
 </template>
 
