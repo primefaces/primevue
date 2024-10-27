@@ -6,8 +6,8 @@
         </p>
         <p>
             Vision of PrimeTek is <i>Your components, not ours</i>. The pass through feature is a key element to implement this vision by exposing the component internals in order to apply arbitrary attributes and listeners to the DOM elements. The
-            main advantage of this approach is that it prevents you from being locked into the component author. We recommend considering the pass-through feature whenever you need to tailor a component that lacks a built-in feature for your specific
-            requirement.
+            primary advantage of this approach is that it frees you from being restricted by the main component API. We recommend considering the pass-through feature whenever you need to tailor a component that lacks a built-in feature for your
+            specific requirement.
         </p>
         <p>Two videos are available at PrimeTV youtube channel, first one is an introduction and second one covers a unique case that is solved by the pass-through.</p>
     </DocSectionText>

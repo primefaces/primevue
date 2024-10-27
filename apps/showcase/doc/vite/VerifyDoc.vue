@@ -1,13 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Each component can be imported and registered individually so that you only bundle what you use. Import path is available in the documentation of the corresponding component. If you prefer importing components automatically with
-            tree-shaking support , view the
-            <NuxtLink to="/autoimport">autoimport</NuxtLink> guide.
+            Verify your setup by adding a component such as <NuxtLink to="/button">Button</NuxtLink>. Each component can be imported and registered individually so that you only include what you use for bundle optimizization. Import path is available
+            in the documentation of the corresponding component.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Button label="Check" icon="pi pi-check" />
+        <Button label="Verify" />
     </div>
     <DocSectionCode :code="code" importCode />
 </template>
@@ -26,7 +25,7 @@ app.component('Button', Button);
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Button label="Check" icon="pi pi-check" />
+        <Button label="Verify" />
     </div>
 </template>
 
@@ -36,7 +35,7 @@ app.component('Button', Button);
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Button label="Check" icon="pi pi-check" />
+        <Button label="Verify" />
     </div>
 </template>
 

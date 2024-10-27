@@ -18,9 +18,10 @@
 <script>
 import DownloadDoc from '@/doc/vite/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/vite/ExamplesDoc.vue';
-import StyledModeDoc from '@/doc/vite/StyledModeDoc.vue';
-import UnstyledModeDoc from '@/doc/vite/UnstyledModeDoc.vue';
-import UsageDoc from '@/doc/vite/UsageDoc.vue';
+import NextStepsDoc from '@/doc/vite/NextStepsDoc.vue';
+import PluginDoc from '@/doc/vite/PluginDoc.vue';
+import ThemeDoc from '@/doc/vite/ThemeDoc.vue';
+import VerifyDoc from '@/doc/vite/VerifyDoc.vue';
 import VideoDoc from '@/doc/vite/VideoDoc.vue';
 
 export default {
@@ -33,27 +34,19 @@ export default {
                     component: DownloadDoc
                 },
                 {
-                    id: 'plugin',
+                    id: 'theme',
                     label: 'Plugin',
-                    description:
-                        'PrimeVue plugin is required to be installed as an application plugin to set up the default configuration. The plugin is lightweight, only sets up the configuration object without affecting your application. PrimeVue has two styling modes; Styled and Unstyled. If you are just getting started, begin with the styled mode.',
-                    children: [
-                        {
-                            id: 'styled',
-                            label: 'Styled Mode',
-                            component: StyledModeDoc
-                        },
-                        {
-                            id: 'unstyled',
-                            label: 'Unstyled Mode',
-                            component: UnstyledModeDoc
-                        }
-                    ]
+                    component: PluginDoc
                 },
                 {
-                    id: 'usage',
-                    label: 'Usage',
-                    component: UsageDoc
+                    id: 'theme',
+                    label: 'Theme',
+                    component: ThemeDoc
+                },
+                {
+                    id: 'verify',
+                    label: 'Verify',
+                    component: VerifyDoc
                 },
                 {
                     id: 'examples',
@@ -64,6 +57,11 @@ export default {
                     id: 'video',
                     label: 'Video',
                     component: VideoDoc
+                },
+                {
+                    id: 'nextsteps',
+                    label: 'Next Steps',
+                    component: NextStepsDoc
                 }
             ]
         };
