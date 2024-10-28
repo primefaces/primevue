@@ -68,13 +68,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.info.close.button.hover.background')};
 }
 
-.p-message-info.p-message-variant-outlined {
+.p-message-info.p-message-outlined {
     color: ${dt('message.info.outlined.color')};
     outline-color: ${dt('message.info.outlined.border.color')};
 }
 
-.p-message-info.p-message-variant-plain {
-    color: ${dt('message.info.plain.color')};
+.p-message-info.p-message-simple {
+    color: ${dt('message.info.simple.color')};
 }
 
 .p-message-success {
@@ -93,13 +93,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.success.close.button.hover.background')};
 }
 
-.p-message-success.p-message-variant-outlined {
+.p-message-success.p-message-outlined {
     color: ${dt('message.success.outlined.color')};
     outline-color: ${dt('message.success.outlined.border.color')};
 }
 
-.p-message-success.p-message-variant-plain {
-    color: ${dt('message.success.plain.color')};
+.p-message-success.p-message-simple {
+    color: ${dt('message.success.simple.color')};
 }
 
 .p-message-warn {
@@ -118,13 +118,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.warn.close.button.hover.background')};
 }
 
-.p-message-warn.p-message-variant-outlined {
+.p-message-warn.p-message-outlined {
     color: ${dt('message.warn.outlined.color')};
     outline-color: ${dt('message.warn.outlined.border.color')};
 }
 
-.p-message-warn.p-message-variant-plain {
-    color: ${dt('message.warn.plain.color')};
+.p-message-warn.p-message-simple {
+    color: ${dt('message.warn.simple.color')};
 }
 
 .p-message-error {
@@ -143,13 +143,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.error.close.button.hover.background')};
 }
 
-.p-message-error.p-message-variant-outlined {
+.p-message-error.p-message-outlined {
     color: ${dt('message.error.outlined.color')};
     outline-color: ${dt('message.error.outlined.border.color')};
 }
 
-.p-message-error.p-message-variant-plain {
-    color: ${dt('message.error.plain.color')};
+.p-message-error.p-message-simple {
+    color: ${dt('message.error.simple.color')};
 }
 
 .p-message-secondary {
@@ -168,13 +168,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.secondary.close.button.hover.background')};
 }
 
-.p-message-secondary.p-message-variant-outlined {
+.p-message-secondary.p-message-outlined {
     color: ${dt('message.secondary.outlined.color')};
     outline-color: ${dt('message.secondary.outlined.border.color')};
 }
 
-.p-message-secondary.p-message-variant-plain {
-    color: ${dt('message.secondary.plain.color')};
+.p-message-secondary.p-message-simple {
+    color: ${dt('message.secondary.simple.color')};
 }
 
 .p-message-contrast {
@@ -193,13 +193,13 @@ const theme = ({ dt }) => `
     background: ${dt('message.contrast.close.button.hover.background')};
 }
 
-.p-message-contrast.p-message-variant-outlined {
+.p-message-contrast.p-message-outlined {
     color: ${dt('message.contrast.outlined.color')};
     outline-color: ${dt('message.contrast.outlined.border.color')};
 }
 
-.p-message-contrast.p-message-variant-plain {
-    color: ${dt('message.contrast.plain.color')};
+.p-message-contrast.p-message-simple {
+    color: ${dt('message.contrast.simple.color')};
 }
 
 .p-message-text {
@@ -280,19 +280,23 @@ const theme = ({ dt }) => `
     height: ${dt('message.close.icon.lg.size')};
 }
 
-.p-message-variant-outlined {
+.p-message-outlined {
     background: transparent;
     outline-width: ${dt('message.outlined.border.width')};
 }
 
-.p-message-variant-plain {
+.p-message-simple {
     background: transparent;
     outline-color: transparent;
     box-shadow: none;
 }
+    
+.p-message-simple .p-message-content {
+    padding: ${dt('message.simple.content.padding')};
+}
 
-.p-message-variant-outlined .p-message-close-button:hover,
-.p-message-variant-plain .p-message-close-button:hover {
+.p-message-outlined .p-message-close-button:hover,
+.p-message-simple .p-message-close-button:hover {
     background: transparent;
 }
 `;
@@ -301,8 +305,8 @@ const classes = {
     root: ({ props }) => [
         'p-message p-component p-message-' + props.severity,
         {
-            'p-message-variant-outlined': props.variant === 'outlined',
-            'p-message-variant-plain': props.variant === 'plain',
+            'p-message-outlined': props.variant === 'outlined',
+            'p-message-simple': props.variant === 'simple',
             'p-message-sm': props.size === 'small',
             'p-message-lg': props.size === 'large'
         }

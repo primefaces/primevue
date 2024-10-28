@@ -57,6 +57,11 @@ export default {
             borderWidth: '1px'
         }
     },
+    simple: {
+        content: {
+            padding: '0'
+        }
+    },
     colorScheme: {
         light: {
             info: {
@@ -75,7 +80,7 @@ export default {
                     color: '{blue.600}',
                     borderColor: '{blue.600}'
                 },
-                plain: {
+                simple: {
                     color: '{blue.600}'
                 }
             },
@@ -95,7 +100,7 @@ export default {
                     color: '{green.600}',
                     borderColor: '{green.600}'
                 },
-                plain: {
+                simple: {
                     color: '{green.600}'
                 }
             },
@@ -115,7 +120,7 @@ export default {
                     color: '{yellow.900}',
                     borderColor: '{yellow.900}'
                 },
-                plain: {
+                simple: {
                     color: '{yellow.900}'
                 }
             },
@@ -135,7 +140,7 @@ export default {
                     color: '{red.600}',
                     borderColor: '{red.600}'
                 },
-                plain: {
+                simple: {
                     color: '{red.600}'
                 }
             },
@@ -155,7 +160,7 @@ export default {
                     color: '{surface.600}',
                     borderColor: '{surface.600}'
                 },
-                plain: {
+                simple: {
                     color: '{surface.600}'
                 }
             },
@@ -175,7 +180,7 @@ export default {
                     color: '{surface.950}',
                     borderColor: '{surface.950}'
                 },
-                plain: {
+                simple: {
                     color: '{surface.950}'
                 }
             }
@@ -197,7 +202,7 @@ export default {
                     color: '{blue.500}',
                     borderColor: '{blue.500}'
                 },
-                plain: {
+                simple: {
                     color: '{blue.500}'
                 }
             },
@@ -217,7 +222,7 @@ export default {
                     color: '{green.500}',
                     borderColor: '{green.500}'
                 },
-                plain: {
+                simple: {
                     color: '{green.500}'
                 }
             },
@@ -237,7 +242,7 @@ export default {
                     color: '{yellow.500}',
                     borderColor: '{yellow.500}'
                 },
-                plain: {
+                simple: {
                     color: '{yellow.500}'
                 }
             },
@@ -257,7 +262,7 @@ export default {
                     color: '{red.500}',
                     borderColor: '{red.500}'
                 },
-                plain: {
+                simple: {
                     color: '{red.500}'
                 }
             },
@@ -277,7 +282,7 @@ export default {
                     color: '{surface.400}',
                     borderColor: '{surface.400}'
                 },
-                plain: {
+                simple: {
                     color: '{surface.400}'
                 }
             },
@@ -297,7 +302,7 @@ export default {
                     color: '{surface.0}',
                     borderColor: '{surface.0}'
                 },
-                plain: {
+                simple: {
                     color: '{surface.0}'
                 }
             }

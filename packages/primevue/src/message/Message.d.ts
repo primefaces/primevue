@@ -164,7 +164,7 @@ export interface MessageProps {
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */
-    variant?: 'outlined' | 'text' | undefined;
+    variant?: 'outlined' | 'simple' | undefined;
 }
 
 /**
