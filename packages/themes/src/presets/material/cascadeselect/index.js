@@ -67,6 +67,9 @@ export default {
             size: '0.875rem'
         }
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     css: ({ dt }) => `
 .p-cascadeselect.p-variant-filled {
     border-bottom-left-radius: 0;
