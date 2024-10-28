@@ -89,6 +89,10 @@ export interface CascadeSelectPassThroughOptions {
      */
     label?: CascadeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    clearIcon?: CascadeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the dropdown button's DOM element.
      */
     dropdown?: CascadeSelectPassThroughOptionType;
