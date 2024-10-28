@@ -79,4 +79,15 @@ export interface DrawerDesignTokens extends ColorSchemeDesignToken<DrawerDesignT
          */
         padding?: string;
     };
+    /**
+     * Used to pass tokens of the footer section
+     */
+    footer?: {
+        /**
+         * Padding of footer
+         *
+         * @designToken drawer.footer.padding
+         */
+        padding?: string;
+    };
 }
