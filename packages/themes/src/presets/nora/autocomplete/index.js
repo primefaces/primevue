@@ -87,7 +87,7 @@ export default {
         light: {
             chip: {
                 focusBackground: '{surface.300}',
-                color: '{surface.900}'
+                focusColor: '{surface.900}'
             },
             dropdown: {
                 hoverBackground: '{surface.200}',
@@ -97,7 +97,7 @@ export default {
         dark: {
             chip: {
                 focusBackground: '{surface.600}',
-                color: '{surface.0}'
+                focusColor: '{surface.0}'
             },
             dropdown: {
                 hoverBackground: '{surface.700}',
