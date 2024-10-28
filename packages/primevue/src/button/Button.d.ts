@@ -173,6 +173,11 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      */
     size?: 'small' | 'large' | undefined;
     /**
+     * Specifies the variant of the component.
+     * @defaultValue undefined
+     */
+    variant?: 'outlined' | 'text' | undefined;
+    /**
      * Add a plain textual class to the button without a background initially.
      * @defaultValue false
      */

@@ -161,8 +161,8 @@ export interface MessageProps {
      */
     size?: 'small' | 'large' | undefined;
     /**
-     * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * Specifies the variant of the component.
+     * @defaultValue undefined
      */
     variant?: 'outlined' | 'simple' | undefined;
 }
