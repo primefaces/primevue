@@ -10,7 +10,7 @@
         <Button label="Warn" severity="warn" text />
         <Button label="Help" severity="help" text />
         <Button label="Danger" severity="danger" text />
-        <Button label="Plain" plain text />
+        <Button label="Contrast" severity="contrast" text />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -28,7 +28,7 @@ export default {
 <Button label="Warn" severity="warn" text />
 <Button label="Help" severity="help" text />
 <Button label="Danger" severity="danger" text />
-<Button label="Plain" plain text />
+<Button label="Contrast" severity="contrast" text />
 `,
                 options: `
 <template>
@@ -40,7 +40,7 @@ export default {
         <Button label="Warn" severity="warn" text />
         <Button label="Help" severity="help" text />
         <Button label="Danger" severity="danger" text />
-        <Button label="Plain" plain text />
+        <Button label="Contrast" severity="contrast" text />
     </div>
 </template>
 
@@ -57,7 +57,7 @@ export default {
         <Button label="Warn" severity="warn" text />
         <Button label="Help" severity="help" text />
         <Button label="Danger" severity="danger" text />
-        <Button label="Plain" plain text />
+        <Button label="Contrast" severity="contrast" text />
     </div>
 </template>
 
