@@ -34,12 +34,6 @@ export interface DrawerDesignTokens extends ColorSchemeDesignToken<DrawerDesignT
          */
         color?: string;
         /**
-         * Border radius of root
-         *
-         * @designToken drawer.border.radius
-         */
-        borderRadius?: string;
-        /**
          * Shadow of root
          *
          * @designToken drawer.shadow
