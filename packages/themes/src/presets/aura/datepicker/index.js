@@ -14,9 +14,7 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '0 0 0.5rem 0',
-        fontWeight: '500',
-        gap: '0.5rem'
+        padding: '0 0 0.5rem 0'
     },
     title: {
         gap: '0.5rem',
