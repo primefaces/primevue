@@ -38,6 +38,18 @@ export default {
             default: null
         },
         dataKey: null,
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        clearIcon: {
+            type: String,
+            default: undefined
+        },
+        resetFilterOnClear: {
+            type: Boolean,
+            default: false
+        },
         filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,

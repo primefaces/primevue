@@ -60,6 +60,14 @@ const theme = ({ dt }) => `
     border-end-end-radius: ${dt('multiselect.border.radius')};
 }
 
+.p-multiselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('multiselect.clear.icon.color')};
+    inset-inline-end: ${dt('multiselect.dropdown.width')};
+}
+
 .p-multiselect-label-container {
     overflow: hidden;
     flex: 1 1 auto;
@@ -253,6 +261,7 @@ const classes = {
             'p-multiselect-label-empty': !props.placeholder && (!props.modelValue || props.modelValue.length === 0)
         }
     ],
+    clearIcon: 'p-multiselect-clear-icon',
     chipItem: 'p-multiselect-chip-item',
     pcChip: 'p-multiselect-chip',
     chipIcon: 'p-multiselect-chip-icon',

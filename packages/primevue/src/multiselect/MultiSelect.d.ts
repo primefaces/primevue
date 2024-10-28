@@ -132,6 +132,10 @@ export interface MultiSelectPassThroughOptions {
      */
     label?: MultiSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    clearIcon?: MultiSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the chip's DOM element.
      */
     chipItem?: MultiSelectPassThroughOptionType;
@@ -407,6 +411,20 @@ export interface MultiSelectProps {
      * A property to uniquely identify an option.
      */
     dataKey?: string | undefined;
+    /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
+     * Icon to display in clear button.
+     */
+    clearIcon?: string | undefined;
+    /**
+     * Clears the filter value when clicking on the clear icon.
+     * @defaultValue false
+     */
+    resetFilterOnClear?: boolean;
     /**
      * When specified, displays a filter input at header.
      * @defaultValue false
@@ -802,6 +820,17 @@ export interface MultiSelectSlots {
          * Style class of the loading icon.
          */
         class: string;
+    }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom dropdown icon template.
