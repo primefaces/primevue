@@ -4,9 +4,6 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <Rating v-model="value">
-            <template #cancelicon>
-                <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
-            </template>
             <template #onicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
             </template>
@@ -26,9 +23,6 @@ export default {
             code: {
                 basic: `
 <Rating v-model="value">
-    <template #cancelicon>
-        <img src="/images/rating/cancel.png" height="24" width="24" />
-    </template>
     <template #onicon>
         <img src="/images/rating/custom-onicon.png" height="24" width="24" />
     </template>
@@ -41,9 +35,6 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Rating v-model="value">
-            <template #cancelicon>
-                <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
-            </template>
             <template #onicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
             </template>
@@ -68,9 +59,6 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Rating v-model="value">
-            <template #cancelicon>
-                <img src="https://primefaces.org/cdn/primevue/images/rating/cancel.png" height="24" width="24" />
-            </template>
             <template #onicon>
                 <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
             </template>
