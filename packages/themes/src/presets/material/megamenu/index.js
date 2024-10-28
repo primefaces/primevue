@@ -66,7 +66,7 @@ export default {
         borderRadius: '50%',
         size: '2.5rem',
         color: '{text.muted.color}',
-        hoverColor: '{text.muted.hover.color}',
+        hoverColor: '{text.hover.muted.color}',
         hoverBackground: '{content.hover.background}',
         focusRing: {
             width: '0',
