@@ -4,14 +4,15 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
-            <div class="flex flex-col">
-                <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error" variant="plain" size="small">Username is required</Message>
+            <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+            <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+            <div class="flex flex-col gap-1">
+                <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+                <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
             </div>
-            <div class="flex flex-col">
-                <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
+            <div class="flex flex-col gap-1">
+                <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+                <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
             </div>
         </div>
     </div>
@@ -22,33 +23,33 @@
 export default {
     data() {
         return {
+            username: null,
+            email: null,
             code: {
                 basic: `
-<div class="flex flex-col gap-4">
-    <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
-    <div class="flex flex-col">
-        <InputText placeholder="Username" aria-label="username" invalid />
-        <Message severity="error" variant="plain" size="small">Username is required</Message>
-    </div>
-    <div class="flex flex-col">
-        <InputText placeholder="Email" aria-label="email" invalid />
-        <Message severity="error" variant="plain" size="small">Email is not valid</Message>
-    </div>
+<Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+<Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+<div class="flex flex-col gap-1">
+    <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+    <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+</div>
+<div class="flex flex-col gap-1">
+    <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+    <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
 </div>
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <div class="flex flex-col gap-4">
-            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
-            <div class="flex flex-col">
-                <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error" variant="plain" size="small">Username is required</Message>
-            </div>
-            <div class="flex flex-col">
-                <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
-            </div>
+    <div class="flex flex-col gap-4">
+        <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+        <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+            <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+            <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
         </div>
     </div>
 </template>
@@ -58,17 +59,16 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <div class="flex flex-col gap-4">
-            <Message severity="error" icon="pi pi-times-circle" class="mb-2">Validation Failed</Message>
-            <div class="flex flex-col">
-                <InputText placeholder="Username" aria-label="username" invalid />
-                <Message severity="error" variant="plain" size="small">Username is required</Message>
-            </div>
-            <div class="flex flex-col">
-                <InputText placeholder="Email" aria-label="email" invalid />
-                <Message severity="error" variant="plain" size="small">Email is not valid</Message>
-            </div>
+    <div class="flex flex-col gap-4">
+        <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+        <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+            <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+            <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
         </div>
     </div>
 </template>
