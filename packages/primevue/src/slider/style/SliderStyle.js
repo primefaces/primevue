@@ -60,15 +60,15 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-horizontal .p-slider-range {
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     height: 100%;
 }
 
 .p-slider-horizontal .p-slider-handle {
-    top: 50%;
-    margin-top: calc(-1 * calc(${dt('slider.handle.height')} / 2));
-    margin-left: calc(-1 * calc(${dt('slider.handle.width')} / 2));
+    inset-block-start: 50%;
+    margin-block-start: calc(-1 * calc(${dt('slider.handle.height')} / 2));
+    margin-inline-start: calc(-1 * calc(${dt('slider.handle.width')} / 2));
 }
 
 .p-slider-vertical {
@@ -77,14 +77,14 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-vertical .p-slider-handle {
-    left: 50%;
-    margin-left: calc(-1 * calc(${dt('slider.handle.width')} / 2));
-    margin-bottom: calc(-1 * calc(${dt('slider.handle.height')} / 2));
+    inset-inline-start: 50%;
+    margin-inline-start: calc(-1 * calc(${dt('slider.handle.width')} / 2));
+    margin-block-end: calc(-1 * calc(${dt('slider.handle.height')} / 2));
 }
 
 .p-slider-vertical .p-slider-range {
-    bottom: 0;
-    left: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     width: 100%;
 }
 `;

@@ -91,24 +91,6 @@ export default {
         }
     },
     methods: {
-        updateDirection() {
-            if (document) {
-                const isHtmlRtl = document.documentElement.getAttribute('dir') === 'rtl';
-                const isBodyRtl = document.body.getAttribute('dir') === 'rtl';
-
-                this.isRTL = isHtmlRtl || isBodyRtl || this.$el.closest('[dir="rtl"]');
-            }
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
-        },
         onScroll(event) {
             this.showNavigators && this.updateButtonState();
 
@@ -179,6 +161,19 @@ export default {
             const { prevBtn, nextBtn } = this.$refs;
 
             return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
+        },
+        updateDirection() {
+            this.isRTL = !!this.$el.closest('[dir="rtl"]');
+        },
+        observeDirectionChanges() {
+            const targetNode = document.documentElement;
+            const config = { attributes: true, attributeFilter: ['dir'] };
+
+            this.mutationObserver = new MutationObserver(() => {
+                this.updateDirection();
+            });
+
+            this.mutationObserver.observe(targetNode, config);
         }
     },
     computed: {

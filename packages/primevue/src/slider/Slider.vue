@@ -1,10 +1,10 @@
 <template>
     <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false">
-        <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
+        <span :class="cx('range')" :style="[sx('range'), rangeStyle()]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
             :class="cx('handle')"
-            :style="[sx('handle'), handleStyle]"
+            :style="[sx('handle'), handleStyle()]"
             @touchstart.passive="onDragStart($event)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -24,7 +24,7 @@
         <span
             v-if="range"
             :class="cx('handle')"
-            :style="[sx('handle'), rangeStartHandleStyle]"
+            :style="[sx('handle'), rangeStartHandleStyle()]"
             @touchstart.passive="onDragStart($event, 0)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -44,7 +44,7 @@
         <span
             v-if="range"
             :class="cx('handle')"
-            :style="[sx('handle'), rangeEndHandleStyle]"
+            :style="[sx('handle'), rangeEndHandleStyle()]"
             @touchstart.passive="onDragStart($event, 1)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
@@ -81,8 +81,22 @@ export default {
     barHeight: null,
     dragListener: null,
     dragEndListener: null,
+    mutationObserver: null,
+    data() {
+        return {
+            isRTL: false
+        };
+    },
     beforeUnmount() {
         this.unbindDragListeners();
+
+        if (this.mutationObserver) {
+            this.mutationObserver.disconnect();
+        }
+    },
+    mounted() {
+        this.updateDirection();
+        this.observeDirectionChanges();
     },
     methods: {
         updateDomData() {
@@ -98,8 +112,16 @@ export default {
             let pageX = event.touches ? event.touches[0].pageX : event.pageX;
             let pageY = event.touches ? event.touches[0].pageY : event.pageY;
 
-            if (this.orientation === 'horizontal') handleValue = ((pageX - this.initX) * 100) / this.barWidth;
-            else handleValue = ((this.initY + this.barHeight - pageY) * 100) / this.barHeight;
+            if (this.orientation === 'horizontal') {
+                if (this.isRTL) {
+                    handleValue = ((this.initX + this.barWidth - pageX) * 100) / this.barWidth;
+                } else {
+                    handleValue = ((pageX - this.initX) * 100) / this.barWidth;
+                }
+            } else {
+                handleValue = ((this.initY + this.barHeight - pageY) * 100) / this.barHeight;
+            }
+
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
 
             if (this.step) {
@@ -281,6 +303,58 @@ export default {
                 document.removeEventListener('mouseup', this.dragEndListener);
                 this.dragEndListener = null;
             }
+        },
+        rangeStyle() {
+            if (this.range) {
+                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
+                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
+
+                if (this.horizontal) {
+                    return this.isRTL ? { right: rangeSliderPosition + '%', width: rangeSliderWidth + '%' } : { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
+                } else {
+                    return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
+                }
+            } else {
+                if (this.horizontal) {
+                    return { width: this.handlePosition + '%' };
+                } else {
+                    return { height: this.handlePosition + '%' };
+                }
+            }
+        },
+        handleStyle() {
+            if (this.horizontal) {
+                return this.isRTL ? { right: this.handlePosition + '%' } : { left: this.handlePosition + '%' };
+            } else {
+                return { bottom: this.handlePosition + '%' };
+            }
+        },
+        rangeStartHandleStyle() {
+            if (this.horizontal) {
+                return this.isRTL ? { right: this.rangeStartPosition + '%' } : { left: this.rangeStartPosition + '%' };
+            } else {
+                return { bottom: this.rangeStartPosition + '%' };
+            }
+        },
+        rangeEndHandleStyle() {
+            if (this.horizontal) {
+                return this.isRTL ? { right: this.rangeEndPosition + '%' } : { left: this.rangeEndPosition + '%' };
+            } else {
+                return { bottom: this.rangeEndPosition + '%' };
+            }
+        },
+        updateDirection() {
+            this.isRTL = !!this.$el.closest('[dir="rtl"]');
+        },
+        observeDirectionChanges() {
+            const targetNode = document.documentElement;
+            const config = { attributes: true, attributeFilter: ['dir'] };
+
+            this.mutationObserver = new MutationObserver(() => {
+                this.updateDirection();
+            });
+
+            this.mutationObserver.observe(targetNode, config);
         }
     },
     computed: {
@@ -297,22 +371,6 @@ export default {
         vertical() {
             return this.orientation === 'vertical';
         },
-        rangeStyle() {
-            if (this.range) {
-                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
-                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
-
-                if (this.horizontal) return { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
-                else return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
-            } else {
-                if (this.horizontal) return { width: this.handlePosition + '%' };
-                else return { height: this.handlePosition + '%' };
-            }
-        },
-        handleStyle() {
-            if (this.horizontal) return { left: this.handlePosition + '%' };
-            else return { bottom: this.handlePosition + '%' };
-        },
         handlePosition() {
             if (this.value < this.min) return 0;
             else if (this.value > this.max) return 100;
@@ -325,14 +383,6 @@ export default {
         rangeEndPosition() {
             if (this.value && this.value.length === 2) return ((this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100) / (this.max - this.min);
             else return 100;
-        },
-        rangeStartHandleStyle() {
-            if (this.horizontal) return { left: this.rangeStartPosition + '%' };
-            else return { bottom: this.rangeStartPosition + '%' };
-        },
-        rangeEndHandleStyle() {
-            if (this.horizontal) return { left: this.rangeEndPosition + '%' };
-            else return { bottom: this.rangeEndPosition + '%' };
         }
     }
 };
