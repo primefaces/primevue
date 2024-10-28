@@ -31,7 +31,6 @@ const theme = ({ dt }) => `
     cursor: pointer;
     opacity: 0;
     outline-color: transparent;
-    transition: outline-color ${dt('scrollpanel.transition.duration')};
     background: ${dt('scrollpanel.bar.background')};
     border: 0 none;
     transition: outline-color ${dt('scrollpanel.transition.duration')}, opacity ${dt('scrollpanel.transition.duration')};
@@ -45,12 +44,12 @@ const theme = ({ dt }) => `
 
 .p-scrollpanel-bar-y {
     width: ${dt('scrollpanel.bar.size')};
-    top: 0;
+    inset-block-start: 0;
 }
 
 .p-scrollpanel-bar-x {
     height: ${dt('scrollpanel.bar.size')};
-    bottom: 0;
+    inset-block-end: 0;
 }
 
 .p-scrollpanel-hidden {
