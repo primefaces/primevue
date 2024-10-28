@@ -374,6 +374,17 @@ export interface MultiSelectDesignTokens extends ColorSchemeDesignToken<MultiSel
         padding?: string;
     };
     /**
+     * Used to pass tokens of the clear icon section
+     */
+    clearIcon?: {
+        /**
+         * Color of clear icon
+         *
+         * @designToken multiselect.clear.icon.color
+         */
+        color?: string;
+    };
+    /**
      * Used to pass tokens of the chip section
      */
     chip?: {
