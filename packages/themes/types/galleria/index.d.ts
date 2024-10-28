@@ -404,23 +404,6 @@ export interface GalleriaDesignTokens extends ColorSchemeDesignToken<GalleriaDes
         activeBackground?: string;
     };
     /**
-     * Used to pass tokens of the mask section
-     */
-    mask?: {
-        /**
-         * Background of mask
-         *
-         * @designToken galleria.mask.background
-         */
-        background?: string;
-        /**
-         * Color of mask
-         *
-         * @designToken galleria.mask.color
-         */
-        color?: string;
-    };
-    /**
      * Used to pass tokens of the close button section
      */
     closeButton?: {
