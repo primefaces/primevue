@@ -70,6 +70,9 @@ export default {
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     checkmark: {
         color: '{list.option.color}',
         gutterStart: '-0.5rem',
