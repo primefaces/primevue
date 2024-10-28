@@ -241,6 +241,22 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
         };
     };
     /**
+     * Used to pass tokens of the simple section
+     */
+    simple?: {
+        /**
+         * Content of simple
+         */
+        content?: {
+            /**
+             * Content padding of simple
+             *
+             * @designToken message.simple.content.padding
+             */
+            padding?: string;
+        };
+    };
+    /**
      * Used to pass tokens of the info section
      */
     info?: {
@@ -314,13 +330,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of info
+         * Simple of info
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of info
+             * Simple color of info
              *
-             * @designToken message.info.plain.color
+             * @designToken message.info.simple.color
              */
             color?: string;
         };
@@ -399,13 +415,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of success
+         * Simple of success
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of success
+             * Simple color of success
              *
-             * @designToken message.success.plain.color
+             * @designToken message.success.simple.color
              */
             color?: string;
         };
@@ -484,13 +500,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of warn
+         * Simple of warn
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of warn
+             * Simple color of warn
              *
-             * @designToken message.warn.plain.color
+             * @designToken message.warn.simple.color
              */
             color?: string;
         };
@@ -569,13 +585,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of error
+         * Simple of error
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of error
+             * Simple color of error
              *
-             * @designToken message.error.plain.color
+             * @designToken message.error.simple.color
              */
             color?: string;
         };
@@ -654,13 +670,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of secondary
+         * Simple of secondary
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of secondary
+             * Simple color of secondary
              *
-             * @designToken message.secondary.plain.color
+             * @designToken message.secondary.simple.color
              */
             color?: string;
         };
@@ -739,13 +755,13 @@ export interface MessageDesignTokens extends ColorSchemeDesignToken<MessageDesig
             borderColor?: string;
         };
         /**
-         * Plain of contrast
+         * Simple of contrast
          */
-        plain?: {
+        simple?: {
             /**
-             * Plain color of contrast
+             * Simple color of contrast
              *
-             * @designToken message.contrast.plain.color
+             * @designToken message.contrast.simple.color
              */
             color?: string;
         };

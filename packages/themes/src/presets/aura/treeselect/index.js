@@ -49,6 +49,9 @@ export default {
     tree: {
         padding: '{list.padding}'
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     emptyMessage: {
         padding: '{list.option.padding}'
     },

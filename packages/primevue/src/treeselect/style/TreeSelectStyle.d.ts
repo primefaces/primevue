@@ -23,6 +23,10 @@ export enum TreeSelectClasses {
      */
     label = 'p-treeselect-label',
     /**
+     * Class name of the clear icon element
+     */
+    clearIcon = 'p-select-clear-icon',
+    /**
      * Class name of the chip item element
      */
     chipItem = 'p-treeselect-chip-item',

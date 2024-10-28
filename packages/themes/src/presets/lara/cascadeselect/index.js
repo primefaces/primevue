@@ -66,5 +66,8 @@ export default {
             focusColor: '{list.option.icon.focus.color}',
             size: '0.875rem'
         }
+    },
+    clearIcon: {
+        color: '{form.field.icon.color}'
     }
 };
