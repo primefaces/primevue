@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
     gap: ${dt('megamenu.gap')};
 }
 
-.p-megamenu-root-list > .p-megamenu-item > .p-menumega-item-content {
+.p-megamenu-root-list > .p-megamenu-item > .p-megamenu-item-content {
     border-radius: ${dt('megamenu.base.item.border.radius')};
 }
 
