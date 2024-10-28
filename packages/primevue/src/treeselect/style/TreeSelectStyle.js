@@ -90,6 +90,10 @@ const theme = ({ dt }) => `
     color: ${dt('treeselect.placeholder.color')};
 }
 
+.p-treeselect.p-invalid .p-treeselect-label.p-placeholder {
+    color: ${dt('treeselect.invalid.placeholder.color')};
+}
+
 .p-treeselect.p-disabled .p-treeselect-label {
     color: ${dt('treeselect.disabled.color')};
 }

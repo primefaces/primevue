@@ -86,6 +86,10 @@ const theme = ({ dt }) => `
     color: ${dt('select.placeholder.color')};
 }
 
+.p-select.p-invalid .p-select-label.p-placeholder {
+    color: ${dt('select.invalid.placeholder.color')};
+}
+
 .p-select:has(.p-select-clear-icon) .p-select-label {
     padding-inline-end: calc(1rem + ${dt('select.padding.x')});
 }

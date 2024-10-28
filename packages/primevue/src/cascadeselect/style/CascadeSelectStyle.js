@@ -86,6 +86,10 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.placeholder.color')};
 }
 
+.p-cascadeselect.p-invalid .p-cascadeselect-label.p-placeholder {
+    color: ${dt('cascadeselect.invalid.placeholder.color')};
+}
+
 .p-cascadeselect.p-disabled .p-cascadeselect-label {
     color: ${dt('cascadeselect.disabled.color')};
 }
