@@ -438,11 +438,11 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         focusBackground?: string;
         /**
-         * Color of chip
+         * Focus color of chip
          *
-         * @designToken autocomplete.chip.color
+         * @designToken autocomplete.chip.focus.color
          */
-        color?: string;
+        focusColor?: string;
     };
     /**
      * Used to pass tokens of the empty message section
