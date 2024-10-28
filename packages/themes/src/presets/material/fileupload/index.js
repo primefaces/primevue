@@ -10,6 +10,7 @@ export default {
         background: 'transparent',
         color: '{text.color}',
         padding: '1.25rem',
+        borderColor: 'unset',
         borderWidth: '0',
         borderRadius: '0',
         gap: '0.5rem'
