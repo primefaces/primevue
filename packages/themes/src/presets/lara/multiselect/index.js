@@ -68,8 +68,6 @@ export default {
     optionGroup: {
         background: '{list.option.group.background}',
         color: '{list.option.group.color}',
-        background: '{list.option.group.background}',
-        color: '{list.option.group.color}',
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
     },
