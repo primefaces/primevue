@@ -51,6 +51,14 @@ export default {
             type: String,
             default: 'mask'
         },
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        clearIcon: {
+            type: String,
+            default: undefined
+        },
         filter: {
             type: Boolean,
             default: false

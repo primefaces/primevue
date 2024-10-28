@@ -48,6 +48,14 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.disabled.background')};
 }
 
+.p-treeselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('treeselect.clear.icon.color')};
+    inset-inline-end: ${dt('treeselect.dropdown.width')};
+}
+
 .p-treeselect-dropdown {
     display: flex;
     align-items: center;
@@ -192,6 +200,7 @@ const classes = {
             'p-treeselect-label-empty': !props.placeholder && instance.emptyValue
         }
     ],
+    clearIcon: 'p-treeselect-clear-icon',
     chip: 'p-treeselect-chip-item',
     pcChip: 'p-treeselect-chip',
     dropdown: 'p-treeselect-dropdown',

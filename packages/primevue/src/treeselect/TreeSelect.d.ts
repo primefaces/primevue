@@ -81,6 +81,10 @@ export interface TreeSelectPassThroughOptions {
      */
     label?: TreeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the clear icon's DOM element.
+     */
+    clearIcon?: TreeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the chip's DOM element.
      */
     chipItem?: TreeSelectPassThroughOptionType;
@@ -189,6 +193,15 @@ export interface TreeSelectProps {
      * A map of keys to represent the expansion state in controlled mode.
      */
     expandedKeys?: TreeExpandedKeys;
+    /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
+     * Icon to display in clear button.
+     */
+    clearIcon?: string | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 20rem
@@ -472,6 +485,17 @@ export interface TreeSelectSlots {
          * Partial check state of the node
          */
         partialChecked: boolean;
+    }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
 }
 

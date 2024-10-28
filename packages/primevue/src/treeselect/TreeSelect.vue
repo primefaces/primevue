@@ -37,6 +37,9 @@
                 </slot>
             </div>
         </div>
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+        </slot>
         <div :class="cx('dropdown')" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('dropdown')">
             <!-- TODO: triggericon is deprecated since v4.0 -->
             <slot :name="$slots.dropdownicon ? 'dropdownicon' : 'triggericon'" :class="cx('dropdownIcon')">
@@ -121,7 +124,7 @@
 
 <script>
 import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
-import { isEmpty } from '@primeuix/utils/object';
+import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
@@ -131,6 +134,7 @@ import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import Tree from 'primevue/tree';
 import BaseTreeSelect from './BaseTreeSelect.vue';
+import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'TreeSelect',
@@ -217,12 +221,17 @@ export default {
                 return;
             }
 
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
+                return;
+            } else if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
                 if (this.overlayVisible) this.hide();
                 else this.show();
 
                 focus(this.$refs.focusInput);
             }
+        },
+        onClearClick(event) {
+            this.onSelectionChange(null);
         },
         onSelectionChange(keys) {
             this.selfChange = true;
@@ -525,13 +534,17 @@ export default {
         },
         hasFluid() {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
+        },
+        isClearIconVisible() {
+            return this.showClear && this.d_value != null && isNotEmpty(this.options);
         }
     },
     components: {
         TSTree: Tree,
         Chip,
-        Portal: Portal,
-        ChevronDownIcon: ChevronDownIcon
+        Portal,
+        ChevronDownIcon,
+        TimesIcon
     },
     directives: {
         ripple: Ripple
