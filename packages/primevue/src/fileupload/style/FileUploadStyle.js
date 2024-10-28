@@ -27,24 +27,22 @@ const theme = ({ dt }) => `
 
 .p-fileupload-content {
     border: 1px solid transparent;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('fileupload.content.gap')};
     transition: border-color ${dt('fileupload.transition.duration')};
     padding: ${dt('fileupload.content.padding')};
 }
 
 .p-fileupload-content .p-progressbar {
     width: 100%;
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
     height: ${dt('fileupload.progressbar.height')};
 }
 
 .p-fileupload-file-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-block-start: 1.125rem;
+    gap: ${dt('fileupload.filelist.gap')};
 }
 
 .p-fileupload-file {
@@ -76,10 +74,6 @@ const theme = ({ dt }) => `
 
 .p-fileupload-highlight {
     border: 1px dashed ${dt('fileupload.content.highlight.border.color')};
-}
-
-.p-fileupload-advanced .p-message {
-    margin-block-start: 0;
 }
 
 .p-fileupload-basic {

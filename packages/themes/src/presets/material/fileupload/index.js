@@ -16,7 +16,8 @@ export default {
     },
     content: {
         highlightBorderColor: '{primary.color}',
-        padding: '0 1.25rem 1.25rem 1.25rem'
+        padding: '0 1.25rem 1.25rem 1.25rem',
+        gap: '1rem'
     },
     file: {
         padding: '1rem',
@@ -25,6 +26,9 @@ export default {
         info: {
             gap: '0.5rem'
         }
+    },
+    fileList: {
+        gap: '0.5rem'
     },
     progressbar: {
         height: '0.25rem'
