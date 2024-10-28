@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
 }
 
 .p-drawer-footer {
-    padding: ${dt('drawer.header.padding')};
+    padding: ${dt('drawer.footer.padding')};
 }
 
 .p-drawer-title {

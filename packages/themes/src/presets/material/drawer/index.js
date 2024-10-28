@@ -14,5 +14,8 @@ export default {
     },
     content: {
         padding: '0 {overlay.modal.padding} {overlay.modal.padding} {overlay.modal.padding}'
+    },
+    footer: {
+        padding: '{overlay.modal.padding}'
     }
 };
