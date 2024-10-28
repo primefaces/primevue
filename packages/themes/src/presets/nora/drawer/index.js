@@ -3,7 +3,6 @@ export default {
         background: '{overlay.modal.background}',
         borderColor: '{overlay.modal.border.color}',
         color: '{overlay.modal.color}',
-        borderRadius: '{overlay.modal.border.radius}',
         shadow: '{overlay.modal.shadow}'
     },
     header: {
