@@ -34,18 +34,6 @@ export interface ListboxDesignTokens extends ColorSchemeDesignToken<ListboxDesig
          */
         borderColor?: string;
         /**
-         * Hover border color of root
-         *
-         * @designToken listbox.hover.border.color
-         */
-        hoverBorderColor?: string;
-        /**
-         * Focus border color of root
-         *
-         * @designToken listbox.focus.border.color
-         */
-        focusBorderColor?: string;
-        /**
          * Invalid border color of root
          *
          * @designToken listbox.invalid.border.color
@@ -75,41 +63,6 @@ export interface ListboxDesignTokens extends ColorSchemeDesignToken<ListboxDesig
          * @designToken listbox.border.radius
          */
         borderRadius?: string;
-        /**
-         * Focus ring of root
-         */
-        focusRing?: {
-            /**
-             * Focus ring width of root
-             *
-             * @designToken listbox.focus.ring.width
-             */
-            width?: string;
-            /**
-             * Focus ring style of root
-             *
-             * @designToken listbox.focus.ring.style
-             */
-            style?: string;
-            /**
-             * Focus ring color of root
-             *
-             * @designToken listbox.focus.ring.color
-             */
-            color?: string;
-            /**
-             * Focus ring offset of root
-             *
-             * @designToken listbox.focus.ring.offset
-             */
-            offset?: string;
-            /**
-             * Focus ring shadow of root
-             *
-             * @designToken listbox.focus.ring.shadow
-             */
-            shadow?: string;
-        };
         /**
          * Transition duration of root
          *
