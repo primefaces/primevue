@@ -69,6 +69,12 @@ export interface FileUploadDesignTokens extends ColorSchemeDesignToken<FileUploa
          */
         padding?: string;
         /**
+         * Border color of header
+         *
+         * @designToken fileupload.header.border.color
+         */
+        borderColor?: string;
+        /**
          * Border width of header
          *
          * @designToken fileupload.header.border.width
