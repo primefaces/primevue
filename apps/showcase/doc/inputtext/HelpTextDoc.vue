@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>An advisory text can be defined with the semantic <i>small</i> tag.</p>
+        <p>An advisory text can be defined with the <NuxtLink to="/message">Message</NuxtLink> component.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-2">
             <label for="username">Username</label>
             <InputText id="username" v-model="value" aria-describedby="username-help" />
-            <small id="username-help">Enter your username to reset your password.</small>
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
         </div>
     </div>
     <DocSectionCode :code="code" />
@@ -22,7 +22,7 @@ export default {
 <div class="flex flex-col gap-2">
     <label for="username">Username</label>
     <InputText id="username" v-model="value" aria-describedby="username-help" />
-    <small id="username-help">Enter your username to reset your password.</small>
+    <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
 </div>
 `,
                 options: `
@@ -31,7 +31,7 @@ export default {
         <div class="flex flex-col gap-2">
             <label for="username">Username</label>
             <InputText id="username" v-model="value" aria-describedby="username-help" />
-            <small id="username-help">Enter your username to reset your password.</small>
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
         </div>
     </div>
 </template>
@@ -52,7 +52,7 @@ export default {
         <div class="flex flex-col gap-2">
             <label for="username">Username</label>
             <InputText id="username" v-model="value" aria-describedby="username-help" />
-            <small id="username-help">Enter your username to reset your password.</small>
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
         </div>
     </div>
 </template>
