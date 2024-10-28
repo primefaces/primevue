@@ -14,6 +14,7 @@
 import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
+import ClearIconDoc from '@/doc/treeselect/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
@@ -67,6 +68,11 @@ export default {
                     id: 'filter',
                     label: 'Filter',
                     component: FilterDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'template',
