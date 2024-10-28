@@ -55,6 +55,9 @@ export default {
     chip: {
         borderRadius: '{border.radius.sm}'
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     css: ({ dt }) => `
 .p-treeselect.p-variant-filled {
     border-bottom-left-radius: 0;
