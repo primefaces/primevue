@@ -263,6 +263,17 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
         padding?: string;
     };
     /**
+     * Used to pass tokens of the clear icon section
+     */
+    clearIcon?: {
+        /**
+         * Color of clear icon
+         *
+         * @designToken treeselect.clear.icon.color
+         */
+        color?: string;
+    };
+    /**
      * Used to pass tokens of the empty message section
      */
     emptyMessage?: {
