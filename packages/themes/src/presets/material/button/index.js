@@ -244,6 +244,11 @@ export default {
                     activeBackground: '{red.100}',
                     color: '{red.500}'
                 },
+                contrast: {
+                    hoverBackground: '{surface.50}',
+                    activeBackground: '{surface.100}',
+                    color: '{surface.950}'
+                },
                 plain: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
@@ -470,6 +475,11 @@ export default {
                     hoverBackground: 'color-mix(in srgb, {red.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {red.400}, transparent 84%)',
                     color: '{red.400}'
+                },
+                contrast: {
+                    hoverBackground: '{surface.800}',
+                    activeBackground: '{surface.700}',
+                    color: '{surface.0}'
                 },
                 plain: {
                     hoverBackground: '{surface.800}',
