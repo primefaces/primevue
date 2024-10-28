@@ -35,7 +35,6 @@ const theme = ({ dt }) => `
     left: 0;
     display: block;
     position: absolute;
-    margin-top: -1rem;
     margin-top: calc(-1rem + 1px);
 }
 
