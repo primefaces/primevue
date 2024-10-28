@@ -12,13 +12,6 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('listbox.shadow')};
 }
 
-.p-listbox.p-focus {
-    border-color: ${dt('listbox.focus.border.color')};
-    box-shadow: ${dt('listbox.focus.ring.shadow')};
-    outline: ${dt('listbox.focus.ring.width')} ${dt('listbox.focus.ring.style')} ${dt('listbox.focus.ring.color')};
-    outline-offset: ${dt('listbox.focus.ring.offset')};
-}
-
 .p-listbox.p-disabled {
     opacity: 1;
     background: ${dt('listbox.disabled.background')};
