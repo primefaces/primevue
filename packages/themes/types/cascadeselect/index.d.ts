@@ -356,4 +356,15 @@ export interface CascadeSelectDesignTokens extends ColorSchemeDesignToken<Cascad
             size?: string;
         };
     };
+    /**
+     * Used to pass tokens of the clear icon section
+     */
+    clearIcon?: {
+        /**
+         * Color of clear icon
+         *
+         * @designToken cascadeselect.clear.icon.color
+         */
+        color?: string;
+    };
 }

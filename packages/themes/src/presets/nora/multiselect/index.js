@@ -71,6 +71,9 @@ export default {
         fontWeight: '{list.option.group.font.weight}',
         padding: '{list.option.group.padding}'
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     chip: {
         borderRadius: '{border.radius.xs}'
     },

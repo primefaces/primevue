@@ -170,6 +170,10 @@ const theme = ({ dt }) => `
     left: calc(-1 * ${dt('stepper.separator.size')});
 }
 
+.p-stepitem .p-stepper-separator:dir(rtl) {
+    left: calc(-9 * ${dt('stepper.separator.size')});
+}
+
 .p-stepitem:has(~ .p-stepitem-active) .p-stepper-separator {
     background: ${dt('stepper.separator.active.background')};
 }

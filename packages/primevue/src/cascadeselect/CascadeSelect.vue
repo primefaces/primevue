@@ -30,6 +30,9 @@
                 {{ label }}
             </slot>
         </span>
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+        </slot>
         <div :class="cx('dropdown')" role="button" tabindex="-1" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -101,6 +104,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
+import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'CascadeSelect',
@@ -383,13 +387,18 @@ export default {
                 return;
             }
 
-            if (!this.overlay || !this.overlay.contains(event.target)) {
+            if (event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
+                return;
+            } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide() : this.show();
                 focus(this.$refs.focusInput);
             }
 
             this.clicked = true;
             this.$emit('click', event);
+        },
+        onClearClick(event) {
+            this.updateModel(event, null);
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
@@ -841,14 +850,18 @@ export default {
         },
         focusedOptionId() {
             return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
+        },
+        isClearIconVisible() {
+            return this.showClear && this.d_value != null && isNotEmpty(this.options);
         }
     },
     components: {
-        CascadeSelectSub: CascadeSelectSub,
-        Portal: Portal,
-        ChevronDownIcon: ChevronDownIcon,
-        SpinnerIcon: SpinnerIcon,
-        AngleRightIcon: AngleRightIcon
+        CascadeSelectSub,
+        Portal,
+        ChevronDownIcon,
+        SpinnerIcon,
+        AngleRightIcon,
+        TimesIcon
     }
 };
 </script>

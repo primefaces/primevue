@@ -74,6 +74,9 @@ export default {
     chip: {
         borderRadius: '{border.radius.sm}'
     },
+    clearIcon: {
+        color: '{form.field.icon.color}'
+    },
     emptyMessage: {
         padding: '{list.option.padding}'
     },

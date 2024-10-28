@@ -18,6 +18,14 @@ export default {
             default: '960px'
         },
         dataKey: null,
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        clearIcon: {
+            type: String,
+            default: undefined
+        },
         inputId: {
             type: String,
             default: null

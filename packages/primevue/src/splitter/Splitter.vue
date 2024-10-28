@@ -47,19 +47,40 @@ export default {
     panelSizes: null,
     prevPanelIndex: null,
     timer: null,
+    mutationObserver: null,
     data() {
         return {
-            prevSize: null
+            prevSize: null,
+            isRTL: false
         };
     },
     mounted() {
         this.initializePanels();
+        this.updateDirection();
+        this.observeDirectionChanges();
     },
     beforeUnmount() {
         this.clear();
         this.unbindMouseListeners();
+
+        if (this.mutationObserver) {
+            this.mutationObserver.disconnect();
+        }
     },
     methods: {
+        updateDirection() {
+            this.isRTL = !!this.$el.closest('[dir="rtl"]');
+        },
+        observeDirectionChanges() {
+            const targetNode = document.documentElement;
+            const config = { attributes: true, attributeFilter: ['dir'] };
+
+            this.mutationObserver = new MutationObserver(() => {
+                this.updateDirection();
+            });
+
+            this.mutationObserver.observe(targetNode, config);
+        },
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
@@ -125,8 +146,15 @@ export default {
                     newNextPanelSize = (100 * (this.nextPanelSize + step)) / this.size;
                 }
             } else {
-                if (this.horizontal) newPos = (event.pageX * 100) / this.size - (this.startPos * 100) / this.size;
-                else newPos = (event.pageY * 100) / this.size - (this.startPos * 100) / this.size;
+                if (this.horizontal) {
+                    if (this.isRTL) {
+                        newPos = ((this.startPos - event.pageX) * 100) / this.size;
+                    } else {
+                        newPos = ((event.pageX - this.startPos) * 100) / this.size;
+                    }
+                } else {
+                    newPos = ((event.pageY - this.startPos) * 100) / this.size;
+                }
 
                 newPrevPanelSize = this.prevPanelSize + newPos;
                 newNextPanelSize = this.nextPanelSize - newPos;
