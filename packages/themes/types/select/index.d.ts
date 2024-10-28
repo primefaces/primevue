@@ -88,6 +88,12 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken select.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken select.shadow

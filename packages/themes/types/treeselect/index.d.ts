@@ -88,6 +88,12 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken treeselect.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken treeselect.shadow
