@@ -43,7 +43,6 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-handle:focus-visible {
-    border-color: ${dt('slider.handle.focus.border.color')};
     box-shadow: ${dt('slider.handle.focus.ring.shadow')};
     outline: ${dt('slider.handle.focus.ring.width')} ${dt('slider.handle.focus.ring.style')} ${dt('slider.handle.focus.ring.color')};
     outline-offset: ${dt('slider.handle.focus.ring.offset')};
