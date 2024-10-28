@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/multiselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/multiselect/BasicDoc.vue';
+import ClearIconDoc from '@/doc/multiselect/ClearIconDoc.vue';
 import ChipsDoc from '@/doc/multiselect/ChipsDoc.vue';
 import DisabledDoc from '@/doc/multiselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/multiselect/FilledDoc.vue';
@@ -68,6 +69,11 @@ export default {
                     id: 'filter',
                     label: 'Filter',
                     component: FilterDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'loadingstate',

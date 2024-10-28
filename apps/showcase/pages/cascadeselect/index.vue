@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/cascadeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/cascadeselect/BasicDoc.vue';
+import ClearIconDoc from '@/doc/cascadeselect/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/cascadeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/cascadeselect/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/cascadeselect/FloatLabelDoc.vue';
@@ -54,6 +55,11 @@ export default {
                     id: 'loadingstate',
                     label: 'Loading State',
                     component: LoadingStateDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'filled',
