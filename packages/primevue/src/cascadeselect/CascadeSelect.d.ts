@@ -328,6 +328,15 @@ export interface CascadeSelectProps {
      */
     dataKey?: string | undefined;
     /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
+     * Icon to display in clear button.
+     */
+    clearIcon?: string | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -552,6 +561,17 @@ export interface CascadeSelectSlots {
          * Options of the component
          */
         options: any[];
+    }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
 }
 

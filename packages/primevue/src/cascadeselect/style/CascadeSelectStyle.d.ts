@@ -29,6 +29,10 @@ export enum CascadeSelectClasses {
     /**
      * Class name of the dropdown icon element
      */
+    clearIcon = 'p-cascadeselect-clear-icon',
+    /**
+     * Class name of the dropdown icon element
+     */
     dropdownIcon = 'p-cascadeselect-dropdown-icon',
     /**
      * Class name of the overlay element

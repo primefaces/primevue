@@ -60,6 +60,14 @@ const theme = ({ dt }) => `
     border-end-end-radius: ${dt('border.radius.md')};
 }
 
+.p-cascadeselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('cascadeselect.clear.icon.color')};
+    inset-inline-end: ${dt('cascadeselect.dropdown.width')};
+}
+
 .p-cascadeselect-label {
     display: block;
     white-space: nowrap;
@@ -262,6 +270,7 @@ const classes = {
             'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
         }
     ],
+    clearIcon: 'p-cascadeselect-clear-icon',
     dropdown: 'p-cascadeselect-dropdown',
     loadingIcon: 'p-cascadeselect-loading-icon',
     dropdownIcon: 'p-cascadeselect-dropdown-icon',
