@@ -91,18 +91,6 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          * @designToken datepicker.header.padding
          */
         padding?: string;
-        /**
-         * Font weight of header
-         *
-         * @designToken datepicker.header.font.weight
-         */
-        fontWeight?: string;
-        /**
-         * Gap of header
-         *
-         * @designToken datepicker.header.gap
-         */
-        gap?: string;
     };
     /**
      * Used to pass tokens of the title section
