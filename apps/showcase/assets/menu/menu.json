@@ -593,11 +593,6 @@
             ]
         },
         {
-            "name": "Contribution",
-            "to": "/contribution",
-            "icon": "pi pi-users"
-        },
-        {
             "name": "Discover",
             "icon": "pi pi-search",
             "children": [
@@ -616,6 +611,11 @@
                 {
                     "name": "Changelog",
                     "href": "https://github.com/primefaces/primevue/blob/master/CHANGELOG.md"
+                },
+                {
+                    "name": "Contribution",
+                    "to": "/contribution",
+                    "icon": "pi pi-users"
                 },
                 {
                     "name": "Store",
