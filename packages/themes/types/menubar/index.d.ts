@@ -197,35 +197,35 @@ export interface MenubarDesignTokens extends ColorSchemeDesignToken<MenubarDesig
          * @designToken menubar.submenu.mobile.indent
          */
         mobileIndent?: string;
-    };
-    /**
-     * Used to pass tokens of the submenu icon section
-     */
-    submenuIcon?: {
         /**
-         * Size of submenu icon
-         *
-         * @designToken menubar.submenu.icon.size
+         * Icon of submenu
          */
-        size?: string;
-        /**
-         * Color of submenu icon
-         *
-         * @designToken menubar.submenu.icon.color
-         */
-        color?: string;
-        /**
-         * Focus color of submenu icon
-         *
-         * @designToken menubar.submenu.icon.focus.color
-         */
-        focusColor?: string;
-        /**
-         * Active color of submenu icon
-         *
-         * @designToken menubar.submenu.icon.active.color
-         */
-        activeColor?: string;
+        icon?: {
+            /**
+             * Icon size of submenu
+             *
+             * @designToken menubar.submenu.icon.size
+             */
+            size?: string;
+            /**
+             * Icon color of submenu
+             *
+             * @designToken menubar.submenu.icon.color
+             */
+            color?: string;
+            /**
+             * Icon focus color of submenu
+             *
+             * @designToken menubar.submenu.icon.focus.color
+             */
+            focusColor?: string;
+            /**
+             * Icon active color of submenu
+             *
+             * @designToken menubar.submenu.icon.active.color
+             */
+            activeColor?: string;
+        };
     };
     /**
      * Used to pass tokens of the separator section
