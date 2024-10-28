@@ -34,13 +34,13 @@ export default {
         borderColor: '{content.border.color}',
         borderRadius: '{content.border.radius}',
         shadow: '{overlay.navigation.shadow}',
-        mobileIndent: '1rem'
-    },
-    submenuIcon: {
-        size: '{navigation.submenu.icon.size}',
-        color: '{navigation.submenu.icon.color}',
-        focusColor: '{navigation.submenu.icon.focus.color}',
-        activeColor: '{navigation.submenu.icon.active.color}'
+        mobileIndent: '1rem',
+        icon: {
+            size: '{navigation.submenu.icon.size}',
+            color: '{navigation.submenu.icon.color}',
+            focusColor: '{navigation.submenu.icon.focus.color}',
+            activeColor: '{navigation.submenu.icon.active.color}'
+        }
     },
     separator: {
         borderColor: '{content.border.color}'
