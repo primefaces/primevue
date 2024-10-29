@@ -219,13 +219,15 @@ export default {
             d_sortOrder: this.sortOrder,
             d_multiSortMeta: this.multiSortMeta ? [...this.multiSortMeta] : [],
             hasASelectedNode: false,
-            d_columns: new HelperSet({ type: 'Column' })
+            d_columns: new HelperSet({ type: 'Column' }),
+            isRTL: false
         };
     },
     documentColumnResizeListener: null,
     documentColumnResizeEndListener: null,
     lastResizeHelperX: null,
     resizeColumnElement: null,
+    mutationObserver: null,
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
@@ -246,11 +248,32 @@ export default {
             this.d_multiSortMeta = newValue;
         }
     },
+    mounted() {
+        this.updateDirection();
+        this.observeDirectionChanges();
+    },
     beforeUnmount() {
         this.destroyStyleElement();
         this.d_columns.clear();
+
+        if (this.mutationObserver) {
+            this.mutationObserver.disconnect();
+        }
     },
     methods: {
+        updateDirection() {
+            this.isRTL = !!this.$el.closest('[dir="rtl"]');
+        },
+        observeDirectionChanges() {
+            const targetNode = document.documentElement;
+            const config = { attributes: true, attributeFilter: ['dir'] };
+
+            this.mutationObserver = new MutationObserver(() => {
+                this.updateDirection();
+            });
+
+            this.mutationObserver.observe(targetNode, config);
+        },
         columnProp(col, prop) {
             return getVNodeProp(col, prop);
         },
@@ -646,7 +669,7 @@ export default {
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
-            let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+            let delta = this.isRTL ? this.lastResizeHelperX - this.$refs.resizeHelper.offsetLeft : this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth || 15;

@@ -9,11 +9,11 @@
                     <SpinnerIcon v-else spin v-bind="ptm('nodetoggleicon')" />
                 </template>
                 <template v-else>
-                    <component v-if="column.children && column.children.rowtoggleicon" :is="column.children.rowtoggleicon" :node="node" :expanded="expanded" :class="cx('rowToggleIcon')" />
+                    <component v-if="column.children && column.children.rowtoggleicon" :is="column.children.rowtoggleicon" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
                     <!-- TODO: Deprecated since v4.0-->
-                    <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('rowToggleIcon')" />
-                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
-                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('rowToggleIcon')" v-bind="getColumnPT('rowToggleIcon')" />
+                    <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('nodeToggleIcon')" v-bind="getColumnPT('nodeToggleIcon')" />
+                    <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getColumnPT('nodeToggleIcon')" />
                 </template>
             </button>
             <Checkbox
@@ -39,10 +39,10 @@
 </template>
 
 <script>
+import { getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
+import { resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { getNextElementSibling, getPreviousElementSibling, getOuterWidth } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -171,26 +171,35 @@ export default {
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
+                let isRTL = this.$parentInstance.isRTL;
                 let align = this.columnProp('alignFrozen');
 
                 if (align === 'right') {
-                    let right = 0;
+                    let pos = 0;
                     let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        pos = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
-                    this.styleObject.right = right + 'px';
+                    if (isRTL) {
+                        this.styleObject.left = pos + 'px';
+                    } else {
+                        this.styleObject.right = pos + 'px';
+                    }
                 } else {
-                    let left = 0;
+                    let pos = 0;
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        pos = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
-                    this.styleObject.left = left + 'px';
+                    if (isRTL) {
+                        this.styleObject.right = pos + 'px';
+                    } else {
+                        this.styleObject.left = pos + 'px';
+                    }
                 }
             }
         },
