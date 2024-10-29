@@ -1,8 +1,8 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            An unstyled theme is basically a global <i>pt</i> configuration so that it can be defined only once from a single location, still a particular component can override a global configuration since the <i>pt</i> props of a component and the
-            global setting is merged with component having higher precedencee.
+            A global configuration can be created at application level to avoid repetition via the global <i>pt</i> option so that the styles can be shared from a single location. A particular component can still override a global configuration with
+            its own <i>pt</i> property.
         </p>
     </DocSectionText>
 
@@ -20,11 +20,12 @@ import PrimeVue from "primevue/config";
 const app = createApp(App);
 
 app.use(PrimeVue, {
+    unstyled: true,
     pt: {
         button: {
-            root: { class: 'bg-teal-500 hover:bg-teal-700 cursor-pointer text-white p-4 rounded border-0 flex gap-2' },
-            label: 'text-white font-bold text-xl', // OR { class: 'text-white font-bold text-xl' }
-            icon: 'text-white text-2xl'
+            root: 'bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2',
+            label: 'text-white font-bold text-lg',
+            icon: 'text-white text-xl'
         },
         panel: {
             header: 'bg-primary text-primary-contrast border-primary',
