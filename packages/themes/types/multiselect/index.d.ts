@@ -88,6 +88,12 @@ export interface MultiSelectDesignTokens extends ColorSchemeDesignToken<MultiSel
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken multiselect.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken multiselect.shadow

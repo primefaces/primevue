@@ -56,6 +56,10 @@ const theme = ({ dt }) => `
     color: ${dt('inputtext.placeholder.color')};
 }
 
+.p-inputtext.p-invalid::placeholder {
+    color: ${dt('inputtext.invalid.placeholder.color')};
+}
+
 .p-inputtext-sm {
     font-size: ${dt('inputtext.sm.font.size')};
     padding-block: ${dt('inputtext.sm.padding.y')};

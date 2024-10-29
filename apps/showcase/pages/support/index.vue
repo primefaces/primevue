@@ -53,7 +53,7 @@
                         </li>
                         <li class="flex items-center mb-4">
                             <i class="pi pi-check-circle mr-4 text-green-500"></i>
-                            <span class="leading-normal">Up to 5 accounts</span>
+                            <span class="leading-normal">Shared account per organization</span>
                         </li>
                         <li class="flex items-center mb-4">
                             <i class="pi pi-check-circle mr-4 text-green-500"></i>
@@ -85,7 +85,7 @@
                     </li>
                     <li>
                         <div class="font-semibold mb-1">2. Setup</div>
-                        <span class="leading-normal">A private repository with an exclusive issue tracker is created for you at GitHub.</span>
+                        <span class="leading-normal">An account is created for you in our exclusive JIRA issue tracker.</span>
                     </li>
                     <li>
                         <div class="font-semibold mb-1">3. Request Support</div>
@@ -200,7 +200,7 @@
                 <div class="flex-1 flex flex-col gap-8">
                     <div>
                         <div class="leading-normal mb-2 font-semibold">How many issue tracker accounts do we get?</div>
-                        <p class="!m-0 leading-normal">We provide at most 5 accounts per organization.</p>
+                        <p class="!m-0 leading-normal">We provide 1 shared account per organization.</p>
                     </div>
                     <div>
                         <div class="leading-normal mb-2 font-semibold">What is the duration of the service?</div>

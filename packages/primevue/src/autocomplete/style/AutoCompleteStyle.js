@@ -230,6 +230,10 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.placeholder.color')};
 }
 
+.p-autocomplete.p-invalid .p-autocomplete-input-chip input::placeholder {
+    color: ${dt('autocomplete.invalid.placeholder.color')};
+}
+
 .p-autocomplete-empty-message {
     padding: ${dt('autocomplete.empty.message.padding')};
 }

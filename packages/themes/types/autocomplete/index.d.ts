@@ -88,6 +88,12 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken autocomplete.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken autocomplete.shadow

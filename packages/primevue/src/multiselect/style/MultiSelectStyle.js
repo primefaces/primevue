@@ -90,6 +90,10 @@ const theme = ({ dt }) => `
     color: ${dt('multiselect.placeholder.color')};
 }
 
+.p-multiselect.p-invalid .p-multiselect-label.p-placeholder {
+    color: ${dt('multiselect.invalid.placeholder.color')};
+}
+
 .p-multiselect.p-disabled .p-multiselect-label {
     color: ${dt('multiselect.disabled.color')};
 }

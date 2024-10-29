@@ -31,7 +31,7 @@
             </div>
             <div class="config-panel-settings">
                 <span class="config-panel-label">Presets</span>
-                <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
+                <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" size="small" />
             </div>
             <div class="flex">
                 <div class="flex-1">

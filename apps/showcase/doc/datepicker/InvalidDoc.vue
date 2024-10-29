@@ -3,8 +3,8 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex flex-wrap justify-center gap-4">
-        <DatePicker v-model="date1" :invalid="!date1" />
-        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
+        <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -17,14 +17,14 @@ export default {
             date2: null,
             code: {
                 basic: `
-<DatePicker v-model="date1" :invalid="!date1" />
-<DatePicker v-model="date2" :invalid="!date2" variant="filled" />
+<DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+<DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
 `,
                 options: `
 <template>
     <div class="card flex flex-wrap justify-center gap-4">
-        <DatePicker v-model="date1" :invalid="!date1" />
-        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
+        <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
     </div>
 </template>
 
@@ -42,8 +42,8 @@ export default {
                 composition: `
 <template>
     <div class="card flex flex-wrap justify-center gap-4">
-        <DatePicker v-model="date1" :invalid="!date1" />
-        <DatePicker v-model="date2" :invalid="!date2" variant="filled" />
+        <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
     </div>
 </template>
 

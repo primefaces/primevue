@@ -52,6 +52,10 @@ const theme = ({ dt }) => `
     color: ${dt('textarea.placeholder.color')};
 }
 
+.p-textarea.p-invalid::placeholder {
+    color: ${dt('textarea.invalid.placeholder.color')};
+}
+
 .p-textarea-fluid {
     width: 100%;
 }

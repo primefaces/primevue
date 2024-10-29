@@ -82,6 +82,12 @@ export interface TextareaDesignTokens extends ColorSchemeDesignToken<TextareaDes
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken textarea.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken textarea.shadow
