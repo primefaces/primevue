@@ -21,11 +21,11 @@ import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
 import FormsDoc from '@/doc/autocomplete/FormsDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/autocomplete/IftaLabelDoc.vue';
-import SizesDoc from '@/doc/autocomplete/SizesDoc.vue';
 import ImportDoc from '@/doc/autocomplete/ImportDoc.vue';
 import InvalidDoc from '@/doc/autocomplete/InvalidDoc.vue';
 import MultipleDoc from '@/doc/autocomplete/MultipleDoc.vue';
 import ObjectsDoc from '@/doc/autocomplete/ObjectsDoc.vue';
+import SizesDoc from '@/doc/autocomplete/SizesDoc.vue';
 import TemplateDoc from '@/doc/autocomplete/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/autocomplete/VirtualScrollDoc.vue';
 import PTComponent from '@/doc/autocomplete/pt/index.vue';
@@ -46,6 +46,11 @@ export default {
                     component: BasicDoc
                 },
                 {
+                    id: 'objects',
+                    label: 'Objects',
+                    component: ObjectsDoc
+                },
+                {
                     id: 'forms',
                     label: 'Forms',
                     component: FormsDoc
@@ -54,11 +59,6 @@ export default {
                     id: 'dropdown',
                     label: 'Dropdown',
                     component: DropdownDoc
-                },
-                {
-                    id: 'objects',
-                    label: 'Objects',
-                    component: ObjectsDoc
                 },
                 {
                     id: 'template',

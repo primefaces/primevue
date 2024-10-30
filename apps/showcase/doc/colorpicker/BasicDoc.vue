@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ColorPicker is used as a controlled input with <i>v-model</i> property.</p>
+        <p>ColorPicker is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <ColorPicker v-model="color" />

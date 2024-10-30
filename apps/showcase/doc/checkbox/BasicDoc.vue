@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Binary checkbox is used as a controlled input with <i>v-model</i> and <i>binary</i> properties.</p>
+        <p>Binary checkbox is used with the <i>v-model</i> for two-way value binding and the <i>binary</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Checkbox v-model="checked" :binary="true" />
+        <Checkbox v-model="checked" binary />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             checked: false,
             code: {
                 basic: `
-<Checkbox v-model="checked" :binary="true" />
+<Checkbox v-model="checked" binary />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Checkbox v-model="checked" :binary="true" />
+        <Checkbox v-model="checked" binary />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Checkbox v-model="checked" :binary="true" />
+        <Checkbox v-model="checked" binary />
     </div>
 </template>
 
