@@ -2,7 +2,7 @@ import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
 .p-popover {
-    margin-top: ${dt('popover.gutter')};
+    margin-block-start: ${dt('popover.gutter')};
     background: ${dt('popover.background')};
     color: ${dt('popover.color')};
     border: 1px solid ${dt('popover.border.color')};
@@ -15,8 +15,8 @@ const theme = ({ dt }) => `
 }
 
 .p-popover-flipped {
-    margin-top: calc(${dt('popover.gutter')} * -1);
-    margin-bottom: ${dt('popover.gutter')};
+    margin-block-start: calc(${dt('popover.gutter')} * -1);
+    margin-block-end: ${dt('popover.gutter')};
 }
 
 .p-popover-enter-from {
