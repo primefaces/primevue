@@ -3,11 +3,11 @@
         <p>InputText is used with the <i>v-model</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+            <div class="flex flex-col gap-1">
                 <Password name="password" placeholder="Password" :feedback="false" fluid />
                 <template v-if="$form.password?.invalid">
-                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
                 </template>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
@@ -36,7 +36,7 @@ export default {
                             message: 'Must have a lowercase letter.'
                         })
                         .refine((value) => /[A-Z]/.test(value), {
-                            message: 'Must have a uppercase letter.'
+                            message: 'Must have an uppercase letter.'
                         })
                         .refine((value) => /\d/.test(value), {
                             message: 'Must have a number.'
@@ -45,11 +45,11 @@ export default {
             ),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
-    <div class="flex flex-col gap-2">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+    <div class="flex flex-col gap-1">
         <Password name="password" placeholder="Password" :feedback="false" fluid />
         <template v-if="$form.password?.invalid">
-            <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+            <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
         </template>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
@@ -58,11 +58,11 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+            <div class="flex flex-col gap-1">
                 <Password name="password" placeholder="Password" :feedback="false" fluid />
                 <template v-if="$form.password?.invalid">
-                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
                 </template>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
@@ -90,7 +90,7 @@ export default {
                             message: 'Must have a lowercase letter.'
                         })
                         .refine((value) => /[A-Z]/.test(value), {
-                            message: 'Must have a uppercase letter.'
+                            message: 'Must have an uppercase letter.'
                         })
                         .refine((value) => /\d/.test(value), {
                             message: 'Must have a number.'
@@ -113,11 +113,11 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+            <div class="flex flex-col gap-1">
                 <Password name="password" placeholder="Password" :feedback="false" fluid />
                 <template v-if="$form.password?.invalid">
-                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error">{{ error.message }}</Message>
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
                 </template>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
@@ -145,7 +145,7 @@ const resolver = ref(zodResolver(
                 message: 'Must have a lowercase letter.'
             })
             .refine((value) => /[A-Z]/.test(value), {
-                message: 'Must have a uppercase letter.'
+                message: 'Must have an uppercase letter.'
             })
             .refine((value) => /\d/.test(value), {
                 message: 'Must have a number.'

@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ColorPicker can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>ColorPicker integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
-                <ColorPicker name="colorpicker" />
-                <Message v-if="$form.colorpicker?.invalid" severity="error">{{ $form.colorpicker.error?.message }}</Message>
+                <ColorPicker name="color" />
+                <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                colorpicker: null
+                color: null
             },
             resolver: zodResolver(
                 z.object({
-                    colorpicker: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'ColorPicker is required.' })
+                    color: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'Color is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
     <div class="flex flex-col items-center gap-2">
-        <ColorPicker name="colorpicker" />
-        <Message v-if="$form.colorpicker?.invalid" severity="error">{{ $form.colorpicker.error?.message }}</Message>
+        <ColorPicker name="color" />
+        <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -44,8 +44,8 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
-                <ColorPicker name="colorpicker" />
-                <Message v-if="$form.colorpicker?.invalid" severity="error">{{ $form.colorpicker.error?.message }}</Message>
+                <ColorPicker name="color" />
+                <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                colorpicker: null
+                color: null
             },
             resolver: zodResolver(
                 z.object({
-                    colorpicker: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'ColorPicker is required.' })
+                    color: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'Color is required.' })
                 })
             )
         }
@@ -85,8 +85,8 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
             <div class="flex flex-col items-center gap-2">
-                <ColorPicker name="colorpicker" />
-                <Message v-if="$form.colorpicker?.invalid" severity="error">{{ $form.colorpicker.error?.message }}</Message>
+                <ColorPicker name="color" />
+                <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    colorpicker: null
+    color: null
 });
 const resolver = ref(zodResolver(
     z.object({
-        colorpicker: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'ColorPicker is required.' })
+        color: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'Color is required.' })
     })
 ));
 

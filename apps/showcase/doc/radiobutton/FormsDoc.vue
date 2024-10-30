@@ -1,28 +1,30 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>RadioButton can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>RadioButton integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="cheese" value="Cheese" />
-                    <label for="cheese">Cheese</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="mushroom" value="Mushroom" />
-                    <label for="mushroom">Mushroom</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="pepper" value="Pepper" />
-                    <label for="pepper">Pepper</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="onion" value="Onion" />
-                    <label for="onion">Onion</label>
-                </div>
-            </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
+            <div class="flex flex-col gap-2">
+                <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="cheese" value="Cheese" />
+                        <label for="cheese">Cheese</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom">Mushroom</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="pepper" value="Pepper" />
+                        <label for="pepper">Pepper</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="onion" value="Onion" />
+                        <label for="onion">Onion</label>
+                    </div>
+                </RadioButtonGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -37,35 +39,37 @@ export default {
     data() {
         return {
             initialValues: {
-                radiobutton: ''
+                ingredient: ''
             },
             resolver: zodResolver(
                 z.object({
-                    radiobutton: z.string().min(1, { message: 'Selection is required.' })
+                    ingredient: z.string().min(1, { message: 'Ingredient is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-    <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
-        <div class="flex items-center gap-2">
-            <RadioButton inputId="cheese" value="Cheese" />
-            <label for="cheese">Cheese</label>
-        </div>
-        <div class="flex items-center gap-2">
-            <RadioButton inputId="mushroom" value="Mushroom" />
-            <label for="mushroom">Mushroom</label>
-        </div>
-        <div class="flex items-center gap-2">
-            <RadioButton inputId="pepper" value="Pepper" />
-            <label for="pepper">Pepper</label>
-        </div>
-        <div class="flex items-center gap-2">
-            <RadioButton inputId="onion" value="Onion" />
-            <label for="onion">Onion</label>
-        </div>
-    </RadioButtonGroup>
-    <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
+    <div class="flex flex-col gap-2">
+        <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="cheese" value="Cheese" />
+                <label for="cheese">Cheese</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="mushroom" value="Mushroom" />
+                <label for="mushroom">Mushroom</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="pepper" value="Pepper" />
+                <label for="pepper">Pepper</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="onion" value="Onion" />
+                <label for="onion">Onion</label>
+            </div>
+        </RadioButtonGroup>
+        <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+    </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 `,
@@ -73,25 +77,27 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="cheese" value="Cheese" />
-                    <label for="cheese">Cheese</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="mushroom" value="Mushroom" />
-                    <label for="mushroom">Mushroom</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="pepper" value="Pepper" />
-                    <label for="pepper">Pepper</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="onion" value="Onion" />
-                    <label for="onion">Onion</label>
-                </div>
-            </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
+            <div class="flex flex-col gap-2">
+                <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="cheese" value="Cheese" />
+                        <label for="cheese">Cheese</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom">Mushroom</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="pepper" value="Pepper" />
+                        <label for="pepper">Pepper</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="onion" value="Onion" />
+                        <label for="onion">Onion</label>
+                    </div>
+                </RadioButtonGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -105,11 +111,11 @@ export default {
     data() {
         return {
             initialValues: {
-                radiobutton: ''
+                ingredient: ''
             },
             resolver: zodResolver(
                 z.object({
-                    radiobutton: z.string().min(1, { message: 'Selection is required.' })
+                    ingredient: z.string().min(1, { message: 'Ingredient is required.' })
                 })
             )
         }
@@ -129,25 +135,27 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <RadioButtonGroup name="radiobutton" class="flex flex-wrap gap-4">
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="cheese" value="Cheese" />
-                    <label for="cheese">Cheese</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="mushroom" value="Mushroom" />
-                    <label for="mushroom">Mushroom</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="pepper" value="Pepper" />
-                    <label for="pepper">Pepper</label>
-                </div>
-                <div class="flex items-center gap-2">
-                    <RadioButton inputId="onion" value="Onion" />
-                    <label for="onion">Onion</label>
-                </div>
-            </RadioButtonGroup>
-            <Message v-if="$form.radiobutton?.invalid" severity="error" icon="pi pi-times-circle">{{ $form.radiobutton.error?.message }}</Message>
+            <div class="flex flex-col gap-2">
+                <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="cheese" value="Cheese" />
+                        <label for="cheese">Cheese</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom">Mushroom</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="pepper" value="Pepper" />
+                        <label for="pepper">Pepper</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="onion" value="Onion" />
+                        <label for="onion">Onion</label>
+                    </div>
+                </RadioButtonGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
@@ -161,11 +169,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    radiobutton: ''
+    ingredient: ''
 });
 const resolver = ref(zodResolver(
     z.object({
-        radiobutton: z.string().min(1, { message: 'Selection is required.' })
+        ingredient: z.string().min(1, { message: 'Ingredient is required.' })
     })
 ));
 

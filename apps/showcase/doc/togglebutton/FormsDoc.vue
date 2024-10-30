@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ToggleButton can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>ToggleButton integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col items-center gap-2">
-                <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
+            <div class="flex flex-col items-center gap-1">
+                <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+                <Message v-if="$form.consent?.invalid" severity="error" size="small" variant="simple">{{ $form.consent.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                togglebutton: false
+                consent: false
             },
             resolver: zodResolver(
                 z.object({
-                    togglebutton: z.boolean().refine((val) => val === true, { message: 'ToggleButton is required.' })
+                    consent: z.boolean().refine((val) => val === true, { message: 'Consent is mandatory.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-    <div class="flex flex-col items-center gap-2">
-        <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-        <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
+    <div class="flex flex-col items-center gap-1">
+        <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+        <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -43,9 +43,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col items-center gap-2">
-                <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
+            <div class="flex flex-col items-center gap-1">
+                <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+                <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                togglebutton: false
+                consent: false
             },
             resolver: zodResolver(
                 z.object({
-                    togglebutton: z.boolean().refine((val) => val === true, { message: 'ToggleButton is required.' })
+                    consent: z.boolean().refine((val) => val === true, { message: 'Consent is mandatory.' })
                 })
             ),
         }
@@ -84,9 +84,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col items-center gap-2">
-                <ToggleButton name="togglebutton" class="w-24" onLabel="On" offLabel="Off" />
-                <Message v-if="$form.togglebutton?.invalid" severity="error">{{ $form.togglebutton.error?.message }}</Message>
+            <div class="flex flex-col items-center gap-1">
+                <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+                <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,12 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    togglebutton: false
+    consent: false
 });
+
 const resolver = ref(zodResolver(
     z.object({
-        togglebutton: z.boolean().refine((val) => val === true, { message: 'ToggleButton is required.' })
+        consent: z.boolean().refine((val) => val === true, { message: 'Consent is mandatory.' })
     })
 ));
 

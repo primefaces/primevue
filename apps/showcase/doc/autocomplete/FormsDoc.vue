@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>AutoComplete can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>AutoComplete integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" fluid />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error" size="small" variant="simple">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -31,18 +31,18 @@ export default {
                 z.object({
                     country: z.union([
                         z.object({
-                            name: z.string().min(1, 'Country required.')
+                            name: z.string().min(1, 'Country is required.')
                         }),
-                        z.any().refine((val) => false, { message: 'Country required.' })
+                        z.any().refine((val) => false, { message: 'Country is required.' })
                     ])
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-1">
         <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-        <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
+        <Message v-if="$form.country?.invalid" severity="error" size="small" variant="simple">{{ $form.country.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -51,9 +51,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error" size="small" variant="simple">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -78,9 +78,9 @@ export default {
                 z.object({
                     country: z.union([
                         z.object({
-                            name: z.string().min(1, 'Country required.')
+                            name: z.string().min(1, 'Country is required.')
                         }),
-                        z.any().refine((val) => false, { message: 'Country required.' })
+                        z.any().refine((val) => false, { message: 'Country is required.' })
                     ])
                 })
             )
@@ -115,9 +115,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <AutoComplete name="country" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
-                <Message v-if="$form.country?.invalid" severity="error">{{ $form.country.error?.message }}</Message>
+                <Message v-if="$form.country?.invalid" severity="error" size="small" variant="simple">{{ $form.country.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -139,14 +139,13 @@ onMounted(() => {
 const initialValues = ref({
     country: { name: '' }
 });
-const resolver = ref(
-zodResolver(
+const resolver = ref(zodResolver(
     z.object({
         country: z.union([
             z.object({
-                name: z.string().min(1, 'Country required.')
+                name: z.string().min(1, 'Country is required.')
             }),
-            z.any().refine((val) => false, { message: 'Country required.' })
+            z.any().refine((val) => false, { message: 'Country is required.' })
         ])
     })
 ));
