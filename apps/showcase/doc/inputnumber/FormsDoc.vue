@@ -5,8 +5,8 @@
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-1">
-                <InputNumber name="number" fluid />
-                <Message v-if="$form.number?.invalid" severity="error" size="small" variant="simple">{{ $form.number.error?.message }}</Message>
+                <InputNumber name="amount" fluid />
+                <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                number: 5
+                amount: 5
             },
             resolver: zodResolver(
                 z.object({
-                    number: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' })
+                    amount: z.union([z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' }), z.literal(null)]).refine((val) => val !== null, { message: 'Number is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
     <div class="flex flex-col gap-1">
-        <InputNumber name="number" fluid />
-        <Message v-if="$form.number?.invalid" severity="error" size="small" variant="simple">{{ $form.number.error?.message }}</Message>
+        <InputNumber name="amount" fluid />
+        <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -44,8 +44,8 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-1">
-                <InputNumber name="number" fluid />
-                <Message v-if="$form.number?.invalid" severity="error" size="small" variant="simple">{{ $form.number.error?.message }}</Message>
+                <InputNumber name="amount" fluid />
+                <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                number: 5
+                amount: 5
             },
             resolver: zodResolver(
                 z.object({
-                    number: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' })
+                    amount: z.union([z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' }), z.literal(null)]).refine((val) => val !== null, { message: 'Number is required.' })
                 })
             )
         }
@@ -85,8 +85,8 @@ export default {
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
             <div class="flex flex-col gap-1">
-                <InputNumber name="number" fluid />
-                <Message v-if="$form.number?.invalid" severity="error" size="small" variant="simple">{{ $form.number.error?.message }}</Message>
+                <InputNumber name="amount" fluid />
+                <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    number: 5
+    amount: 5
 });
 const resolver = ref(zodResolver(
     z.object({
-        number: z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' })
+        amount: z.union([z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' }), z.literal(null)]).refine((val) => val !== null, { message: 'Number is required.' })
     })
 ));
 

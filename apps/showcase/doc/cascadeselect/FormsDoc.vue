@@ -141,9 +141,12 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    city: z.object({
-                        cname: z.string().min(1, 'City is required.')
-                    })
+                    city: z.union([
+                        z.object({
+                            cname: z.string().min(1, 'City is required.')
+                        }),
+                        z.any().refine((val) => false, { message: 'City is required.' })
+                    ])
                 })
             ),
             countries: [
@@ -259,9 +262,12 @@ const initialValues = ref({
 
 const resolver = ref(zodResolver(
     z.object({
-        city: z.object({
-            cname: z.string().min(1, 'City is required.')
-        })
+        city: z.union([
+            z.object({
+                cname: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
     })
 ));
 
