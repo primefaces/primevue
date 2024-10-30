@@ -18,6 +18,22 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
+                <slot
+                    name="paginatorcontainer"
+                    :first="slotProps.first"
+                    :last="slotProps.last"
+                    :rows="slotProps.rows"
+                    :page="slotProps.page"
+                    :pageCount="slotProps.pageCount"
+                    :totalRecords="slotProps.totalRecords"
+                    :firstPageCallback="slotProps.firstPageCallback"
+                    :lastPageCallback="slotProps.lastPageCallback"
+                    :prevPageCallback="slotProps.prevPageCallback"
+                    :nextPageCallback="slotProps.nextPageCallback"
+                    :rowChangeCallback="slotProps.rowChangeCallback"
+                ></slot>
+            </template>
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
@@ -51,6 +67,22 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
+                <slot
+                    name="paginatorcontainer"
+                    :first="slotProps.first"
+                    :last="slotProps.last"
+                    :rows="slotProps.rows"
+                    :page="slotProps.page"
+                    :pageCount="slotProps.pageCount"
+                    :totalRecords="slotProps.totalRecords"
+                    :firstPageCallback="slotProps.firstPageCallback"
+                    :lastPageCallback="slotProps.lastPageCallback"
+                    :prevPageCallback="slotProps.prevPageCallback"
+                    :nextPageCallback="slotProps.nextPageCallback"
+                    :rowChangeCallback="slotProps.rowChangeCallback"
+                ></slot>
+            </template>
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
@@ -65,7 +97,7 @@
 </template>
 
 <script>
-import { resolveFieldData, localeComparator, sort } from '@primeuix/utils/object';
+import { localeComparator, resolveFieldData, sort } from '@primeuix/utils/object';
 import Paginator from 'primevue/paginator';
 import BaseDataView from './BaseDataView.vue';
 
