@@ -18,13 +18,13 @@
     <div class="card">
         <Paginator :rows="10" :totalRecords="120">
             <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
-                <div class="flex items-center gap-4 bg-primary rounded-full w-full p-3 justify-between">
-                    <Button icon="pi pi-chevron-left" rounded @click="prevPageCallback" />
-                    <div class="text-primary-contrast font-medium">
+                <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+                    <Button icon="pi pi-chevron-left" rounded text @click="prevPageCallback" :disabled="page === 0" />
+                    <div class="text-color font-medium">
                         <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
-                        <span class="block sm:hidden">Page {{ page }} of {{ pageCount }}</span>
+                        <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
                     </div>
-                    <Button icon="pi pi-chevron-right" rounded @click="nextPageCallback" />
+                    <Button icon="pi pi-chevron-right" rounded text @click="nextPageCallback" :disabled="page === pageCount - 1" />
                 </div>
             </template>
         </Paginator>
@@ -40,14 +40,16 @@ export default {
                 basic: `
 <Paginator :rows="10" :totalRecords="120">
     <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
-        <div class="flex items-center gap-4 bg-primary rounded-full w-full p-3 justify-between">
-            <Button icon="pi pi-chevron-left" rounded @click="prevPageCallback" />
-            <div class="text-primary-contrast font-medium">
-                <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
-                <span class="block sm:hidden">Page {{ page }} of {{ pageCount }}</span>
+        <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
+            <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+                <Button icon="pi pi-chevron-left" rounded text @click="prevPageCallback" :disabled="page === 0" />
+                <div class="text-color font-medium">
+                    <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
+                    <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
+                </div>
+                <Button icon="pi pi-chevron-right" rounded text @click="nextPageCallback" :disabled="page === pageCount - 1" />
             </div>
-            <Button icon="pi pi-chevron-right" rounded @click="nextPageCallback" />
-        </div>
+        </template>
     </template>
 </Paginator>
 `,
@@ -56,13 +58,13 @@ export default {
     <div class="card">
         <Paginator :rows="10" :totalRecords="120">
             <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
-                <div class="flex items-center gap-4 bg-primary rounded-full w-full p-3 justify-between">
-                    <Button icon="pi pi-chevron-left" rounded @click="prevPageCallback" />
-                    <div class="text-primary-contrast font-medium">
+                <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+                    <Button icon="pi pi-chevron-left" rounded text @click="prevPageCallback" :disabled="page === 0" />
+                    <div class="text-color font-medium">
                         <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
-                        <span class="block sm:hidden">Page {{ page }} of {{ pageCount }}</span>
+                        <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
                     </div>
-                    <Button icon="pi pi-chevron-right" rounded @click="nextPageCallback" />
+                    <Button icon="pi pi-chevron-right" rounded text @click="nextPageCallback" :disabled="page === pageCount - 1" />
                 </div>
             </template>
         </Paginator>
@@ -77,13 +79,13 @@ export default {
     <div class="card">
         <Paginator :rows="10" :totalRecords="120">
             <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
-                <div class="flex items-center gap-4 bg-primary rounded-full w-full p-3 justify-between">
-                    <Button icon="pi pi-chevron-left" rounded @click="prevPageCallback" />
-                    <div class="text-primary-contrast font-medium">
+                <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+                    <Button icon="pi pi-chevron-left" rounded text @click="prevPageCallback" :disabled="page === 0" />
+                    <div class="text-color font-medium">
                         <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
-                        <span class="block sm:hidden">Page {{ page }} of {{ pageCount }}</span>
+                        <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
                     </div>
-                    <Button icon="pi pi-chevron-right" rounded @click="nextPageCallback" />
+                    <Button icon="pi pi-chevron-right" rounded text @click="nextPageCallback" :disabled="page === pageCount - 1" />
                 </div>
             </template>
         </Paginator>
