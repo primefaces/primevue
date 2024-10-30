@@ -459,12 +459,12 @@ export interface PaginatorSlots {
          * Previous page function.
          * @param {Event} event - Browser event
          */
-        prevCallback: (event: Event) => void;
+        prevPageCallback: (event: Event) => void;
         /**
          * Next page function.
          * @param {Event} event - Browser event
          */
-        nextCallback: (event: Event) => void;
+        nextPageCallback: (event: Event) => void;
         /**
          * Row change function.
          */

@@ -4,7 +4,7 @@
             Paginator elements can be customized using the <i>template</i> property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that
             can be placed inside a paginator in any order.
         </p>
-        <ul class="mb-6 leading-loose">
+        <ul class="mb-6 leading-relaxed">
             <li>FirstPageLink</li>
             <li>PrevPageLink</li>
             <li>PageLinks</li>

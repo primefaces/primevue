@@ -12,8 +12,8 @@
                 :totalRecords="totalRecords"
                 :firstPageCallback="changePageToFirst"
                 :lastPageCallback="changePageToLast"
-                :prevCallback="changePageToPrev"
-                :nextCallback="changePageToNext"
+                :prevPageCallback="changePageToPrev"
+                :nextPageCallback="changePageToNext"
                 :rowChangeCallback="onRowChange"
             />
             <template v-else>
