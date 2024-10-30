@@ -81,25 +81,25 @@ const theme = ({ dt }) => `
 .p-drawer-left .p-drawer {
     width: 20rem;
     height: 100%;
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
 }
 
 .p-drawer-right .p-drawer {
     width: 20rem;
     height: 100%;
-    border-left-width: 1px;
+    border-inline-start-width: 1px;
 }
 
 .p-drawer-top .p-drawer {
     height: 10rem;
     width: 100%;
-    border-bottom-width: 1px;
+    border-block-end-width: 1px;
 }
 
 .p-drawer-bottom .p-drawer {
     height: 10rem;
     width: 100%;
-    border-top-width: 1px;
+    border-block-start-width: 1px;
 }
 
 .p-drawer-left .p-drawer-content,
@@ -112,6 +112,10 @@ const theme = ({ dt }) => `
 
 .p-drawer-open {
     display: flex;
+}
+
+.p-overlay-mask:dir(rtl) {
+    flex-direction: row-reverse;
 }
 `;
 
