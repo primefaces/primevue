@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>ToggleSwitch can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>ToggleSwitch integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
             <div class="flex flex-col items-center gap-2">
-                <ToggleSwitch name="toggleswitch" />
-                <Message v-if="$form.toggleswitch?.invalid" severity="error">{{ $form.toggleswitch.error?.message }}</Message>
+                <ToggleSwitch name="activation" />
+                <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                toggleswitch: false
+                activation: false
             },
             resolver: zodResolver(
                 z.object({
-                    toggleswitch: z.boolean().refine((val) => val === true, { message: 'ToggleSwitch is required.' })
+                    activation: z.boolean().refine((val) => val === true, { message: 'Activation is required.' })
                 })
             ),
             code: {
                 basic: `
-<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
     <div class="flex flex-col items-center gap-2">
-        <ToggleSwitch name="toggleswitch" />
-        <Message v-if="$form.toggleswitch?.invalid" severity="error">{{ $form.toggleswitch.error?.message }}</Message>
+        <ToggleSwitch name="activation" />
+        <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -42,10 +42,10 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
             <div class="flex flex-col items-center gap-2">
-                <ToggleSwitch name="toggleswitch" />
-                <Message v-if="$form.toggleswitch?.invalid" severity="error">{{ $form.toggleswitch.error?.message }}</Message>
+                <ToggleSwitch name="activation" />
+                <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                toggleswitch: false
+                activation: false
             },
             resolver: zodResolver(
                 z.object({
-                    toggleswitch: z.boolean().refine((val) => val === true, { message: 'ToggleSwitch is required.' })
+                    activation: z.boolean().refine((val) => val === true, { message: 'Activation is required.' })
                 })
             ),
         }
@@ -83,10 +83,10 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
             <div class="flex flex-col items-center gap-2">
-                <ToggleSwitch name="toggleswitch" />
-                <Message v-if="$form.toggleswitch?.invalid" severity="error">{{ $form.toggleswitch.error?.message }}</Message>
+                <ToggleSwitch name="activation" />
+                <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    toggleswitch: false
+    activation: false
 });
 const resolver = ref(zodResolver(
     z.object({
-        toggleswitch: z.boolean().refine((val) => val === true, { message: 'ToggleSwitch is required.' })
+        activation: z.boolean().refine((val) => val === true, { message: 'Activation is required.' })
     })
 ));
 <\/script>

@@ -2,9 +2,9 @@
     <DocSectionText v-bind="$attrs"> </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-80">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" fluid />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -27,10 +27,10 @@ export default {
                     city: z
                         .array(
                             z.object({
-                                name: z.string().min(1, 'City required.')
+                                name: z.string().min(1, 'City is required.')
                             })
                         )
-                        .min(1, 'City required.')
+                        .min(1, 'City is required.')
                 })
             ),
             cities: [
@@ -43,9 +43,9 @@ export default {
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-1">
         <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
-        <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
+        <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -54,9 +54,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -78,10 +78,10 @@ export default {
                     city: z
                     .array(
                         z.object({
-                            name: z.string().min(1, 'City required.')
+                            name: z.string().min(1, 'City is required.')
                         })
                     )
-                    .min(1, 'City required.')
+                    .min(1, 'City is required.')
                 })
             ),
             cities: [
@@ -108,9 +108,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
-                <Message v-if="$form.city?.invalid" severity="error">{{ $form.city.error?.message }}</Message>
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -132,10 +132,10 @@ const resolver = ref(zodResolver(
         city: z
             .array(
                 z.object({
-                    name: z.string().min(1, 'City required.')
+                    name: z.string().min(1, 'City is required.')
                 })
             )
-            .min(1, 'City required.')
+            .min(1, 'City is required.')
     })
 ));
 const cities = ref([

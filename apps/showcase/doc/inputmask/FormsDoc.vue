@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputMask can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>InputMask integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
-                <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+                <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                mask: ''
+                serialNumber: ''
             },
             resolver: zodResolver(
                 z.object({
-                    mask: z.string().min(1, { message: 'Mask is required.' })
+                    serialNumber: z.string().min(1, { message: 'Serial number is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-    <div class="flex flex-col gap-2">
-        <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-        <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
+    <div class="flex flex-col gap-1">
+        <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+        <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -43,9 +43,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
-                <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+                <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                mask: ''
+                serialNumber: ''
             },
             resolver: zodResolver(
                 z.object({
-                    mask: z.string().min(1, { message: 'Mask is required.' })
+                    serialNumber: z.string().min(1, { message: 'Serial number is required.' })
                 })
             )
         }
@@ -84,9 +84,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
-                <InputMask name="mask" mask="99-999999" placeholder="99-999999" fluid />
-                <Message v-if="$form.mask?.invalid" severity="error">{{ $form.mask.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+                <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,12 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    mask: ''
+    serialNumber: ''
 });
+
 const resolver = ref(zodResolver(
     z.object({
-        mask: z.string().min(1, { message: 'Mask is required.' })
+        serialNumber: z.string().min(1, { message: 'Serial number is required.' })
     })
 ));
 

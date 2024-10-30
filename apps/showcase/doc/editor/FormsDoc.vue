@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Editor can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>Editor integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Editor name="content" editorStyle="height: 320px" />
+                <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                editor: ''
+                content: ''
             },
             resolver: zodResolver(
                 z.object({
-                    editor: z.string().min(1, { message: 'Editor is required.' })
+                    content: z.string().min(1, { message: 'Content is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-    <div class="flex flex-col gap-2">
-        <Editor name="editor" editorStyle="height: 320px" />
-        <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
+    <div class="flex flex-col gap-1">
+        <Editor name="content" editorStyle="height: 320px" />
+        <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -43,9 +43,9 @@ export default {
 <template>
     <div class="card">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Editor name="content" editorStyle="height: 320px" />
+                <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                editor: ''
+                content: ''
             },
             resolver: zodResolver(
                 z.object({
-                    editor: z.string().min(1, { message: 'Editor is required.' })
+                    content: z.string().min(1, { message: 'Content is required.' })
                 })
             )
         }
@@ -84,9 +84,9 @@ export default {
 <template>
     <div class="card">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Editor name="editor" editorStyle="height: 320px" />
-                <Message v-if="$form.editor?.invalid" severity="error">{{ $form.editor.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Editor name="content" editorStyle="height: 320px" />
+                <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    editor: '
+    content: ''
 });
 const resolver = ref(zodResolver(
     z.object({
-        editor: z.string().min(1, { message: 'Editor is required.' })
+        content: z.string().min(1, { message: 'Content is required.' })
     })
 ));
 

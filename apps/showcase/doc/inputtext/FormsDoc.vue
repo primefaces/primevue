@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputText can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>InputText integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
@@ -32,7 +32,7 @@ export default {
             resolver: zodResolver(
                 z.object({
                     username: z.string().min(1, { message: 'Username is required.' }),
-                    email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Email must be valid.' })
+                    email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Invalid email address.' })
                 })
             ),
             code: {
@@ -80,7 +80,7 @@ export default {
             resolver: zodResolver(
                 z.object({
                     username: z.string().min(1, { message: 'Username is required.' }),
-                    email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Email must be valid.' })
+                    email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Invalid email address.' })
                 })
             )
         }
@@ -124,10 +124,11 @@ const initialValues = ref({
     username: '',
     email: ''
 });
+
 const resolver = ref(zodResolver(
     z.object({
         username: z.string().min(1, { message: 'Username is required.' }),
-        email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Email must be valid.' })
+        email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Invalid email address.' })
     })
 ));
 

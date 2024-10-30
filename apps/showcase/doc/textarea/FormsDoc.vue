@@ -1,12 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Textarea can be used with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
+        <p>Textarea integrates seamlessly with the <NuxtLink to="/forms">PrimeVue Forms</NuxtLink> library.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Textarea name="textarea" rows="5" cols="30" style="resize: none" />
-                <Message v-if="$form.textarea?.invalid" severity="error">{{ $form.textarea.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Textarea name="address" rows="5" cols="30" style="resize: none" />
+                <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -22,19 +22,19 @@ export default {
     data() {
         return {
             initialValues: {
-                textarea: ''
+                address: ''
             },
             resolver: zodResolver(
                 z.object({
-                    textarea: z.string().min(1, { message: 'Textarea is required.' })
+                    address: z.string().min(1, { message: 'Address is required.' })
                 })
             ),
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-    <div class="flex flex-col gap-2">
-        <Textarea name="textarea" rows="5" cols="30" style="resize: none" />
-        <Message v-if="$form.textarea?.invalid" severity="error">{{ $form.textarea.error?.message }}</Message>
+    <div class="flex flex-col gap-1">
+        <Textarea name="address" rows="5" cols="30" style="resize: none" />
+        <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -43,9 +43,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Textarea name="textarea" rows="5" cols="30" style="resize: none" />
-                <Message v-if="$form.textarea?.invalid" severity="error">{{ $form.textarea.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Textarea name="address" rows="5" cols="30" style="resize: none" />
+                <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -60,11 +60,11 @@ export default {
     data() {
         return {
             initialValues: {
-                textarea: ''
+                address: ''
             },
             resolver: zodResolver(
                 z.object({
-                    textarea: z.string().min(1, { message: 'Textarea is required.' })
+                    address: z.string().min(1, { message: 'Address is required.' })
                 })
             ),
         }
@@ -84,9 +84,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-                <Textarea name="textarea" rows="5" cols="30" style="resize: none" />
-                <Message v-if="$form.textarea?.invalid" severity="error">{{ $form.textarea.error?.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <Textarea name="address" rows="5" cols="30" style="resize: none" />
+                <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -101,11 +101,11 @@ import { z } from 'zod';
 
 const toast = useToast();
 const initialValues = ref({
-    textarea: ''
+    address: ''
 });
 const resolver = ref(zodResolver(
     z.object({
-        textarea: z.string().min(1, { message: 'Textarea is required.' })
+        address: z.string().min(1, { message: 'Address is required.' })
     })
 ));
 

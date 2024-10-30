@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -27,16 +27,16 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'TreeSelect is required.' })
+                    node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'Selection is required.' })
                 })
             ),
             nodes: null,
             code: {
                 basic: `
 <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-1">
         <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-        <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
+        <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -45,9 +45,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -67,7 +67,7 @@ export default {
             },
             resolver: zodResolver(
                 z.object({
-                    node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'TreeSelect is required.' })
+                    node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'Selection is required.' })
                 })
             ),
             nodes: null,
@@ -88,9 +88,9 @@ export default {
 <template>
     <div class="card flex justify-center">
         <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
-                <Message v-if="$form.node?.invalid" severity="error">{{ $form.node.error?.message }}</Message>
+                <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -110,7 +110,7 @@ const initialValues = ref({
 });
 const resolver = ref(zodResolver(
     z.object({
-        node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'TreeSelect is required.' })
+        node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'Selection is required.' })
     })
 ));
 
