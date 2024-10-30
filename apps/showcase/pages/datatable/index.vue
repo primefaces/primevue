@@ -35,6 +35,7 @@ import RowEditDoc from '@/doc/datatable/edit/RowEditDoc.vue';
 import AdvancedFilterDoc from '@/doc/datatable/filter/AdvancedFilterDoc.vue';
 import BasicFilterDoc from '@/doc/datatable/filter/BasicFilterDoc.vue';
 import PaginationBasicDoc from '@/doc/datatable/pagination/PaginationBasicDoc.vue';
+import PaginationHeadlessDoc from '@/doc/datatable/pagination/PaginationHeadlessDoc.vue';
 import PaginationTemplateDoc from '@/doc/datatable/pagination/PaginationTemplateDoc.vue';
 import PTComponent from '@/doc/datatable/pt/index.vue';
 import ExpandableRowGroupDoc from '@/doc/datatable/rowgroup/ExpandableRowGroupDoc.vue';
@@ -113,6 +114,11 @@ export default {
                             id: 'paginator_template',
                             label: 'Template',
                             component: PaginationTemplateDoc
+                        },
+                        {
+                            id: 'paginator_headless',
+                            label: 'Headless',
+                            component: PaginationHeadlessDoc
                         }
                     ]
                 },
