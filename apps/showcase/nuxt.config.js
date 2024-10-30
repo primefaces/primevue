@@ -58,9 +58,6 @@ export default defineNuxtConfig({
     app: {
         baseURL: baseUrl,
         head: {
-            htmlAttrs: {
-                dir: 'rtl'
-            },
             title: 'PrimeVue - Vue UI Component Library',
             meta: [
                 { charset: 'utf-8' },
