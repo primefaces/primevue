@@ -998,7 +998,6 @@ export default {
                 this.pm = currentHour > 11;
 
                 if (currentHour >= 12) currentHour = currentHour == 12 ? 12 : currentHour - 12;
-                else currentHour = currentHour == 0 ? 0 : currentHour;
             }
 
             this.currentHour = Math.floor(currentHour / this.stepHour) * this.stepHour;
@@ -1586,6 +1585,7 @@ export default {
 
                 newHour = newHour <= 0 ? 12 + newHour : newHour;
             }
+            1;
 
             if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
                 this.currentHour = newHour;
