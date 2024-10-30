@@ -998,7 +998,7 @@ export default {
                 this.pm = currentHour > 11;
 
                 if (currentHour >= 12) currentHour = currentHour == 12 ? 12 : currentHour - 12;
-                else currentHour = currentHour == 0 ? 12 : currentHour;
+                else currentHour = currentHour == 0 ? 0 : currentHour;
             }
 
             this.currentHour = Math.floor(currentHour / this.stepHour) * this.stepHour;
@@ -2925,6 +2925,9 @@ export default {
             return yearPickerValues;
         },
         formattedCurrentHour() {
+            if (this.currentHour == 0) {
+                return this.currentHour + 12;
+            }
             return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
         },
         formattedCurrentMinute() {
