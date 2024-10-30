@@ -1263,14 +1263,6 @@ export interface DataTableSlots {
      */
     footer(): VNode[];
     /**
-     * Custom paginator start template.
-     */
-    paginatorstart(): VNode[];
-    /**
-     * Custom paginator end template.
-     */
-    paginatorend(): VNode[];
-    /**
      * Custom empty template.
      */
     empty(): VNode[];
@@ -1353,6 +1345,18 @@ export interface DataTableSlots {
          */
         expanded: boolean;
     }): VNode[];
+    /**
+     * Custom paginator container template.
+     */
+    paginatorcontainer(): VNode[];
+    /**
+     * Custom paginator start template.
+     */
+    paginatorstart(): VNode[];
+    /**
+     * Custom paginator end template.
+     */
+    paginatorend(): VNode[];
     /**
      * Custom paginator first page link icon template.
      */
