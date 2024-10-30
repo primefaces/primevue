@@ -510,22 +510,8 @@
         },
         {
             "name": "Tailwind CSS",
-            "icon": "pi pi-heart",
-            "children": [
-                {
-                    "name": "Integration",
-                    "to": "/tailwind"
-                },
-                {
-                    "name": "Presets",
-                    "href": "https://tailwind.primevue.org"
-                }
-            ]
-        },
-        {
-            "name": "Figma UI Kit",
-            "icon": "pi pi-pencil",
-            "to": "/uikit"
+            "icon": "pi pi-star",
+            "to": "/tailwind"
         },
         {
             "name": "Icons",
@@ -542,8 +528,13 @@
             ]
         },
         {
+            "name": "Figma UI Kit",
+            "icon": "pi pi-pencil",
+            "to": "/uikit"
+        },
+        {
             "name": "Templates",
-            "icon": "pi pi-star",
+            "icon": "pi pi-heart",
             "to": "/templates"
         },
         {
