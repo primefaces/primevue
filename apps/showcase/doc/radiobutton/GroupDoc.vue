@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Two-way value binding is defined using <i>v-model</i>.</p>
+        <p>RadioButton is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-4">

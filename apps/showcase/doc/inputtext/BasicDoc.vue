@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputText is used with the <i>v-model</i> property.</p>
+        <p>InputText is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <InputText v-model="value" type="text" />
