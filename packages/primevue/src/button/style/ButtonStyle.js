@@ -31,14 +31,22 @@ const theme = ({ dt }) => `
     order: 1;
 }
 
+.p-button-icon-right:dir(rtl) {
+    order: -1;
+}
+
+.p-button:not(.p-button-vertical) .p-button-icon:not(.p-button-icon-right):dir(rtl) {
+    order: 1;
+}
+
 .p-button-icon-bottom {
     order: 2;
 }
 
 .p-button-icon-only {
     width: ${dt('button.icon.only.width')};
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
     gap: 0;
 }
 

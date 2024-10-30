@@ -24,7 +24,7 @@ const theme = ({ dt }) => `
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: top 0s linear ${dt('speeddial.transition.duration')};
+    transition: inset-block-start 0s linear ${dt('speeddial.transition.duration')};
     pointer-events: none;
     outline: 0 none;
     z-index: 2;
@@ -46,8 +46,8 @@ const theme = ({ dt }) => `
 
 .p-speeddial-mask {
     position: absolute;
-    left: 0;
-    top: 0;
+    inset-inline-start: 0;
+    inset-block-start: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
