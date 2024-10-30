@@ -20,9 +20,9 @@ import FormsDoc from '@/doc/checkbox/FormsDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
 import ImportDoc from '@/doc/checkbox/ImportDoc.vue';
 import IndeterminateDoc from '@/doc/checkbox/IndeterminateDoc.vue';
-import SizesDoc from '@/doc/checkbox/SizesDoc.vue';
 import InvalidDoc from '@/doc/checkbox/InvalidDoc.vue';
 import PTComponent from '@/doc/checkbox/pt/index.vue';
+import SizesDoc from '@/doc/checkbox/SizesDoc.vue';
 import ThemingDoc from '@/doc/checkbox/theming/index.vue';
 
 export default {
@@ -40,24 +40,24 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'forms',
-                    label: 'Forms',
-                    component: FormsDoc
-                },
-                {
-                    id: 'indeterminate',
-                    label: 'Indeterminate',
-                    component: IndeterminateDoc
-                },
-                {
                     id: 'group',
                     label: 'Group',
                     component: GroupDoc
                 },
                 {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
+                },
+                {
                     id: 'dynamic',
                     label: 'Dynamic',
                     component: DynamicDoc
+                },
+                {
+                    id: 'indeterminate',
+                    label: 'Indeterminate',
+                    component: IndeterminateDoc
                 },
                 {
                     id: 'filled',
