@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmit" v-bind="ptmi('root')">
+    <form @submit.prevent="onSubmit" :class="cx('root')" v-bind="ptmi('root')">
         <slot :register :valid :reset v-bind="states" />
     </form>
 </template>
@@ -30,7 +30,7 @@ export default {
         return {
             register,
             onSubmit,
-            ...omit($form, ['defineField', 'handleSubmit'])
+            ...omit($form, ['handleSubmit'])
         };
     }
 };
