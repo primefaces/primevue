@@ -1585,7 +1585,6 @@ export default {
 
                 newHour = newHour <= 0 ? 12 + newHour : newHour;
             }
-            1;
 
             if (this.validateTime(newHour, this.currentMinute, this.currentSecond, newPM)) {
                 this.currentHour = newHour;
