@@ -35,8 +35,8 @@ export const useForm = (options = {}) => {
         let results = {};
 
         isArray(options[option]) ? options[option].forEach(async (field) => (results = await validate(field))) : (options[option] ?? defaultValue) && (results = await validate());
-
         const field = Object.keys(fields).find((field) => fields[field]?.options?.[option]);
+
         field && (results = await validate(field));
 
         return results;
