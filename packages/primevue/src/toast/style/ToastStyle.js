@@ -63,6 +63,12 @@ const theme = ({ dt }) => `
     user-select: none;
 }
 
+.p-toast-close-button:dir(rtl) {
+    margin: -25% 0 0 auto;
+    left: -25%;
+    right: auto;
+}
+
 .p-toast-message-info,
 .p-toast-message-success,
 .p-toast-message-warn,
