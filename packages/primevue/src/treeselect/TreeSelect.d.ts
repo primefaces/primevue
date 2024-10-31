@@ -208,33 +208,6 @@ export interface TreeSelectProps {
      */
     scrollHeight?: string | undefined;
     /**
-     * Label to display when there are no selections.
-     */
-    placeholder?: string | undefined;
-    /**
-     * Defines the size of the component.
-     */
-    size?: 'small' | 'large' | undefined;
-    /**
-     * When present, it specifies that the component should have invalid state style.
-     * @defaultValue false
-     */
-    invalid?: boolean | undefined;
-    /**
-     * When present, it specifies that the component should be disabled.
-     * @defaultValue false
-     */
-    disabled?: boolean | undefined;
-    /**
-     * Specifies the input variant of the component.
-     * @defaultValue outlined
-     */
-    variant?: 'outlined' | 'filled' | undefined;
-    /**
-     * Index of the element in tabbing order.
-     */
-    tabindex?: string | undefined;
-    /**
      * Defines the selection mode.
      */
     selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
@@ -249,15 +222,19 @@ export interface TreeSelectProps {
      */
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
-     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No available options
-     */
-    emptyMessage?: string | undefined;
-    /**
      * Defines how the selected items are displayed.
      * @defaultValue comma
      */
     display?: 'comma' | 'chip' | undefined;
+    /**
+     * Label to display after exceeding max selected labels.
+     * @defaultValue null
+     */
+    selectedItemsLabel?: string | undefined;
+    /**
+     * Decides how many selected item labels to show at most.
+     */
+    maxSelectedLabels?: number | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
@@ -301,6 +278,38 @@ export interface TreeSelectProps {
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
     filterLocale?: string | undefined;
+    /**
+     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
+     * @defaultValue No available options
+     */
+    emptyMessage?: string | undefined;
+    /**
+     * Label to display when there are no selections.
+     */
+    placeholder?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     * @defaultValue false
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: string | undefined;
     /**
      * 	Identifier of the underlying input element.
      */

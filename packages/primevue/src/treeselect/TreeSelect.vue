@@ -29,10 +29,15 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
-                            <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
-                        </div>
-                        <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
+                        <template v-if="chipSelectedItems">
+                            <span>{{ label }}</span>
+                        </template>
+                        <template v-else>
+                            <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                                <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
+                            </div>
+                            <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
+                        </template>
                     </template>
                 </slot>
             </div>
@@ -252,6 +257,16 @@ export default {
             this.d_expandedKeys = keys;
 
             this.$emit('update:expandedKeys', this.d_expandedKeys);
+        },
+        getSelectedItemsLabel() {
+            let pattern = /{(.*?)}/;
+            const selectedItemsLabel = this.selectedItemsLabel || this.$primevue.config.locale.selectionMessage;
+
+            if (pattern.test(selectedItemsLabel)) {
+                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], Object.keys(this.d_value).length + '');
+            }
+
+            return selectedItemsLabel;
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -517,8 +532,22 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
+            let label;
 
-            return value.length ? value.map((node) => node.label).join(', ') : this.placeholder;
+            if (value.length) {
+                if (isNotEmpty(this.maxSelectedLabels) && value.length > this.maxSelectedLabels) {
+                    label = this.getSelectedItemsLabel();
+                } else {
+                    label = value.map((node) => node.label).join(', ');
+                }
+            } else {
+                label = this.placeholder;
+            }
+
+            return label;
+        },
+        chipSelectedItems() {
+            return isNotEmpty(this.maxSelectedLabels) && this.d_value && Object.keys(this.d_value).length > this.maxSelectedLabels;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;

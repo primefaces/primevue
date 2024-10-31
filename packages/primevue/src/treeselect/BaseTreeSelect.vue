@@ -23,6 +23,14 @@ export default {
             type: String,
             default: 'single'
         },
+        selectedItemsLabel: {
+            type: String,
+            default: null
+        },
+        maxSelectedLabels: {
+            type: Number,
+            default: null
+        },
         appendTo: {
             type: [String, Object],
             default: 'body'
