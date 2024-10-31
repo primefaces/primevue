@@ -1,9 +1,10 @@
 <template>
-    <DocComponent title="Vue Form Component" header="Forms" description="Form provides validation functionality and manages form state." :componentDocs="docs" :apiDocs="['Form']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent title="Vue Form Library" header="Forms" description="The PrimeVue Forms library provides comprehensive form state management with built-in validation support." :componentDocs="docs" :apiDocs="['Form']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
 import AccessibilityDoc from '@/doc/forms/AccessibilityDoc.vue';
+import DownloadDoc from '@/doc/forms/DownloadDoc.vue';
 import BasicDoc from '@/doc/forms/BasicDoc.vue';
 import DynamicDoc from '@/doc/forms/DynamicDoc.vue';
 import ImportDoc from '@/doc/forms/ImportDoc.vue';
@@ -19,6 +20,11 @@ export default {
     data() {
         return {
             docs: [
+            {
+                    id: 'download',
+                    label: 'Download',
+                    component: DownloadDoc
+                },
                 {
                     id: 'import',
                     label: 'Import',

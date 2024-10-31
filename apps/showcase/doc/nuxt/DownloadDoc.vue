@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue">npm Registry</a> along with the official
+            PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue">npm registry</a> along with the official
             <a href="https://www.npmjs.com/package/@primevue/nuxt-module" target="_blank" rel="noopener noreferrer">@primevue/nuxt-module</a>.
         </p>
     </DocSectionText>

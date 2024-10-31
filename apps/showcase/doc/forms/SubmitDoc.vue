@@ -1,18 +1,21 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>submit</i> callback provides an object containing the form's validity, all errors, and current states. This offers access to the form values as well as validation status and any existing errors during submission.</p>
+        <p>
+            The <i>submit</i> callback returns an object that encapsulates the form's validity, any existing errors, and its current state. This enables access to the form values, validation status, and any errors present at the time of submission.
+            View the <i>FormSubmitEvent</i> in the API documentation for more information about the available event data.
+        </p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-1">
                 <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
-                <Message v-if="$form.password?.invalid" severity="error">
-                    <ul class="mx-1 px-3">
-                        <li v-for="(error, index) of $form.password.errors" :key="index" class="py-1">{{ error.message }}</li>
+                <Message v-if="$form.password?.invalid" severity="error" size="small" variant="simple">
+                    <ul class="my-0 px-4 flex flex-col gap-1">
+                        <li v-for="(error, index) of $form.password.errors" :key="index">{{ error.message }}</li>
                     </ul>
                 </Message>
             </div>

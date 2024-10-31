@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>PrimeCLT is available for download on <a href="https://www.npmjs.com/package/primeclt">npm registry</a>.</p>
+        <p>Forms add-on is available for download on npm registry.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
@@ -11,7 +11,14 @@ export default {
         return {
             code: {
                 basic: `
-npm install -g primeclt
+# Using npm
+npm install @primevue/forms
+
+# Using yarn
+yarn add @primevue/forms
+
+# Using pnpm
+pnpm add @primevue/forms
 `
             }
         };
