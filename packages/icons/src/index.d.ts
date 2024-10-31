@@ -1,4 +1,4 @@
-import type { EmitFn } from '@primevue/core';
+import type { DefineComponent, EmitFn } from '@primevue/core';
 
 export interface IconProps {
     label?: string | undefined;
