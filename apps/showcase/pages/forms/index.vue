@@ -1,5 +1,13 @@
 <template>
-    <DocComponent title="Vue Form Library" header="Forms" description="The PrimeVue Forms library provides comprehensive form state management with built-in validation support." :componentDocs="docs" :apiDocs="['Form']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent
+        title="Vue Form Library"
+        header="Forms"
+        description="The PrimeVue Forms library provides comprehensive form state management with built-in validation support."
+        :componentDocs="docs"
+        :apiDocs="['Form']"
+        :ptTabComponent="ptComponent"
+        :themingDocs="themingDoc"
+    />
 </template>
 
 <script>
@@ -20,7 +28,7 @@ export default {
     data() {
         return {
             docs: [
-            {
+                {
                     id: 'download',
                     label: 'Download',
                     component: DownloadDoc
