@@ -66,7 +66,7 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-group .p-avatar + .p-avatar {
-    margin-left: ${dt('avatar.group.offset')};
+    margin-inline-start: ${dt('avatar.group.offset')};
 }
 
 .p-avatar-group .p-avatar {
@@ -74,11 +74,11 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-group .p-avatar-lg + .p-avatar-lg {
-    margin-left: ${dt('avatar.lg.group.offset')};
+    margin-inline-start: ${dt('avatar.lg.group.offset')};
 }
 
 .p-avatar-group .p-avatar-xl + .p-avatar-xl {
-    margin-left: ${dt('avatar.xl.group.offset')};
+    margin-inline-start: ${dt('avatar.xl.group.offset')};
 }
 `;
 
