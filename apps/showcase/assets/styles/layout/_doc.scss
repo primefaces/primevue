@@ -38,7 +38,8 @@
             background-color: transparent;
             border: 0 none;
             display: block;
-            padding: 0 2rem 1rem 2rem;
+            padding-block: 0 1rem;  /* Üst ve alt kenarlar */
+            padding-inline: 2rem;
             text-align: center;
             color: var(--text-color);
             font-size: 1rem;
@@ -48,8 +49,8 @@
             transition: outline-color 0.2s, border-color 0.2s;
             outline-color: transparent;
             border-bottom: 1px solid transparent;
-            border-top-right-radius: 6px;
-            border-top-left-radius: 6px;
+            border-start-end-radius: 6px;
+            border-start-start-radius: 6px;
             white-space: nowrap;
             --p-focus-ring-offset: -1px;
             @include focus-visible();
@@ -114,7 +115,7 @@
     > a {
         color: var(--primary-text-color);
         opacity: 0.7;
-        margin-left: 1rem;
+        margin-inline-start: 1rem;
         display: none;
         transition: outline-color 0.2s, border-color 0.2s, opacity 0.2s;
         outline-color: transparent;
@@ -123,7 +124,7 @@
     }
 
     > .doc-section-label-badge {
-        margin-left: 0.5rem;
+        margin-inline-start: 0.5rem;
     }
 
     &:has(.doc-section-label-badge) {
@@ -177,8 +178,9 @@
     max-height: calc(100vh - 15rem);
     list-style: none;
     margin: 0;
-    padding: 0.25rem 0;
-    margin-left: 4rem;
+    padding-block: 0.25rem;
+    padding-inline: 0;
+    margin-inline-start: 4rem;
     overflow-y: auto;
     overflow-x: hidden;
     align-self: flex-start;
@@ -326,8 +328,9 @@
 
     th {
         border-bottom: 1px solid var(--border-color);
-        padding: .75rem 1rem;
-        text-align: left;
+        padding-block: .75rem;
+        padding-inline: 1rem;
+        text-align: start;
         text-transform: capitalize;
     }
 
@@ -337,7 +340,8 @@
         }
 
         td {
-            padding: .75rem 1rem;
+            padding-block: .75rem;
+            padding-inline: 1rem;
             border-bottom: 1px solid var(--border-color);
             white-space: pre-line;
             line-height: 1.5;
@@ -373,7 +377,8 @@
                 background-color: var(--mark-background);
                 color: var(--mark-text);
                 border-radius: 6px;
-                padding: 2px 6px;
+                padding-block: 2px;
+                padding-inline: 6px;
                 font-weight: 600;
                 font-style: normal;
                 white-space: nowrap;
@@ -410,7 +415,8 @@
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 6px;
-                padding: 2px 6px;
+                padding-block: 2px;
+                padding-inline: 6px;
                 max-width: min-content;
                 border-color: var(--border-color);
                 background-color: var(--card-background);
