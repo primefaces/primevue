@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Form uses the <i>name</i> property to create a state object for tracking values, errors, and actions.</p>
+        <p>The <i>$form</i> object tracks the state management of the fields. Each field is linked with the <i>name</i> property. View the <i>FormFieldState</i> type in the API documentation for details about each property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
@@ -8,7 +8,7 @@
                 <InputText name="username" type="text" placeholder="Username" class="w-full sm:w-56" />
                 <Button type="submit" severity="secondary" label="Submit" class="w-full sm:w-56" />
             </div>
-            <Fieldset legend="Form States">
+            <Fieldset legend="Form States" class="h-80 overflow-auto">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
             </Fieldset>
         </Form>
@@ -30,7 +30,7 @@ export default {
         <InputText name="username" type="text" placeholder="Username" class="w-full sm:w-56" />
         <Button type="submit" severity="secondary" label="Submit" class="w-full sm:w-56" />
     </div>
-    <Fieldset legend="Form States">
+    <Fieldset legend="Form States" class="h-80 overflow-auto">
         <pre class="whitespace-pre-wrap">{{ $form }}</pre>
     </Fieldset>
 </Form>
@@ -45,7 +45,7 @@ export default {
                 <InputText name="username" type="text" placeholder="Username" class="w-full sm:w-56" />
                 <Button type="submit" severity="secondary" label="Submit" class="w-full sm:w-56" />
             </div>
-            <Fieldset legend="Form States">
+            <Fieldset legend="Form States" class="h-80 overflow-auto">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
             </Fieldset>
         </Form>
@@ -96,7 +96,7 @@ export default {
                 <InputText name="username" type="text" placeholder="Username" class="w-full sm:w-56" />
                 <Button type="submit" severity="secondary" label="Submit" class="w-full sm:w-56" />
             </div>
-            <Fieldset legend="Form States">
+            <Fieldset legend="Form States" class="h-80 overflow-auto">
                 <pre class="whitespace-pre-wrap">{{ $form }}</pre>
             </Fieldset>
         </Form>

@@ -1,6 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures.</p>
+        <p>
+            This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The
+            components named <i>Dynamic*</i> shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample
+            in StackBlitz to view the comprehensive implementation.
+        </p>
     </DocSectionText>
     <div class="card grid md:grid-cols-2 gap-4 w-full">
         <Fieldset legend="Form 1" pt:content:class="flex justify-center">

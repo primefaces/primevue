@@ -316,6 +316,15 @@ export default {
             $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use({ useDefaultOptions: true });
         },
         onRTLChange(value) {
+            if (!document.startViewTransition) {
+                this.toggleRTL();
+
+                return;
+            }
+
+            document.startViewTransition(() => this.toggleRTL(value));
+        },
+        toggleRTL(value) {
             const htmlElement = document.documentElement;
 
             if (value) {

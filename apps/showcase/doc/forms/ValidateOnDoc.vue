@@ -1,23 +1,24 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission, with options to apply this behavior globally or to specific fields via <i>validateOnValueUpdate</i>,
-            <i>validateOnBlur</i>, <i>validateOnMount</i>, and <i>validateOnSubmit</i>, which can also be set in PrimeVue components using <i>formControl</i> property.
+            Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission. These behaviors can be configured at form level or on specific fields via the
+            <i>validateOnValueUpdate</i>, <i>validateOnBlur</i>, <i>validateOnMount</i>, and <i>validateOnSubmit</i> options of the <i>formControl</i> property.
         </p>
+        <p>In this example, form disables <i>validateOnValueUpdate</i> and enables <i>validateOnBlur</i> at form level, and validates <b>firstName</b> on mount. The <i>firstName</i> field, overrides the form level setting locally.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['firstName']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
-                <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="firstName" type="text" placeholder="First Name" fluid :formControl="{ validateOnValueUpdate: true }" />
+                <Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="surname" type="text" placeholder="Surname" fluid />
-                <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="lastName" type="text" placeholder="Last Name" fluid />
+                <Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -31,23 +32,23 @@ export default {
         return {
             initialValues: {
                 username: '',
-                name: '',
-                surname: ''
+                firstName: '',
+                lastName: ''
             },
             code: {
                 basic: `
-<Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-    <div class="flex flex-col gap-2">
+<Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['firstName']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
         <InputText name="username" type="text" placeholder="Username" fluid />
-        <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
     </div>
-    <div class="flex flex-col gap-2">
-        <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
-        <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
+    <div class="flex flex-col gap-1">
+        <InputText name="firstName" type="text" placeholder="First Name" fluid :formControl="{ validateOnValueUpdate: true }" />
+        <Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error.message }}</Message>
     </div>
-    <div class="flex flex-col gap-2">
-        <InputText name="surname" type="text" placeholder="Surname" fluid />
-        <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
+    <div class="flex flex-col gap-1">
+        <InputText name="lastName" type="text" placeholder="Last Name" fluid />
+        <Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error.message }}</Message>
     </div>
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
@@ -57,18 +58,18 @@ export default {
     <div class="card flex justify-center">
         <Toast />
 
-        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['firstName']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }"/>
-                <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="firstName" type="text" placeholder="First Name" fluid :formControl="{ validateOnValueUpdate: true }" />
+                <Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="surname" type="text" placeholder="Surname" fluid />
-                <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="lastName" type="text" placeholder="Last Name" fluid />
+                <Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -81,8 +82,8 @@ export default {
         return {
             initialValues: {
                 username: '',
-                name: '',
-                surname: ''
+                firstName: '',
+                lastName: ''
             }
         };
     },
@@ -94,12 +95,12 @@ export default {
                 errors.username = [{ message: 'Username is required.' }];
             }
 
-            if (!values.name) {
-                errors.name = [{ message: 'Name is required.' }];
+            if (!values.firstName) {
+                errors.firstName = [{ message: 'First name is required.' }];
             }
 
-            if (!values.surname) {
-                errors.surname = [{ message: 'Surname is required.' }];
+            if (!values.lastName) {
+                errors.lastName = [{ message: 'Last name is required.' }];
             }
 
             return {
@@ -120,18 +121,18 @@ export default {
     <div class="card flex justify-center">
         <Toast />
 
-        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['name']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <div class="flex flex-col gap-2">
+        <Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['firstName']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
                 <InputText name="username" type="text" placeholder="Username" fluid />
-                <Message v-if="$form.username?.invalid" severity="error">{{ $form.username.error.message }}</Message>
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="name" type="text" placeholder="Name" fluid :formControl="{ validateOnValueUpdate: true }" />
-                <Message v-if="$form.name?.invalid" severity="error">{{ $form.name.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="firstName" type="text" placeholder="First Name" fluid :formControl="{ validateOnValueUpdate: true }" />
+                <Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error.message }}</Message>
             </div>
-            <div class="flex flex-col gap-2">
-                <InputText name="surname" type="text" placeholder="Surname" fluid />
-                <Message v-if="$form.surname?.invalid" severity="error">{{ $form.surname.error.message }}</Message>
+            <div class="flex flex-col gap-1">
+                <InputText name="lastName" type="text" placeholder="Last Name" fluid />
+                <Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error.message }}</Message>
             </div>
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
@@ -146,8 +147,8 @@ const toast = useToast();
 
 const initialValues = ref({
     username: '',
-    name: '',
-    surname: ''
+    firstName: '',
+    lastName: ''
 });
 
 const resolver = ({ values }) => {
@@ -158,11 +159,11 @@ const resolver = ({ values }) => {
     }
 
     if (!values.name) {
-        errors.name = [{ message: 'Name is required.' }];
+        errors.firstName = [{ message: 'First name is required.' }];
     }
 
     if (!values.surname) {
-        errors.surname = [{ message: 'Surname is required.' }];
+        errors.lastName = [{ message: 'Last name is required.' }];
     }
 
     return {
@@ -188,12 +189,12 @@ const onFormSubmit = ({ valid }) => {
                 errors.username = [{ message: 'Username is required.' }];
             }
 
-            if (!values.name) {
-                errors.name = [{ message: 'Name is required.' }];
+            if (!values.firstName) {
+                errors.firstName = [{ message: 'First name is required.' }];
             }
 
-            if (!values.surname) {
-                errors.surname = [{ message: 'Surname is required.' }];
+            if (!values.lastName) {
+                errors.lastName = [{ message: 'Last name is required.' }];
             }
 
             return {
