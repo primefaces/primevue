@@ -9,12 +9,12 @@ function tryOnMounted(fn, sync = true) {
 
 export const useForm = (options = {}) => {
     const states = reactive({});
-    const fieldOptionMap = reactive({});
+    const fields = reactive({});
     const valid = computed(() => Object.values(states).every((field) => !field.invalid));
 
-    const getInitialState = (field) => {
+    const getInitialState = (field, initialValue) => {
         return {
-            value: options.initialValues?.[field],
+            value: initialValue ?? options.initialValues?.[field],
             touched: false,
             dirty: false,
             pristine: true,
@@ -31,15 +31,29 @@ export const useForm = (options = {}) => {
         return value === true || (isArray(value) && value.includes(field));
     };
 
+    const validateOn = async (option, defaultValue) => {
+        let results = {};
+
+        isArray(options[option]) ? options[option].forEach(async (field) => (results = await validate(field))) : (options[option] ?? defaultValue) && (results = await validate());
+
+        const field = Object.keys(fields).find((field) => fields[field]?.options?.[option]);
+        field && (results = await validate(field));
+
+        return results;
+    };
+
+    const validateFieldOn = (field, fieldOptions, option, defaultValue) => {
+        (fieldOptions?.[option] ?? isFieldValidate(field, options[option] ?? defaultValue)) && validate(field);
+    };
+
     const defineField = (field, fieldOptions) => {
-        states[field] ||= getInitialState(field);
-        fieldOptionMap[field] = fieldOptions;
+        states[field] ||= getInitialState(field, fieldOptions?.initialValue);
 
         const props = mergeProps(resolve(fieldOptions, states[field])?.props, resolve(fieldOptions?.props, states[field]), {
             name: field,
             onBlur: () => {
                 states[field].touched = true;
-                (fieldOptions?.validateOnBlur ?? isFieldValidate(field, options.validateOnBlur)) && validate(field);
+                validateFieldOn(field, fieldOptions, 'validateOnBlur');
             },
             onInput: (event) => {
                 states[field].value = event.hasOwnProperty('value') ? event.value : event.target.value;
@@ -54,6 +68,8 @@ export const useForm = (options = {}) => {
             }
         });
 
+        fields[field] = { props, states: states[field], options: fieldOptions };
+
         watch(
             () => states[field].value,
             (newValue, oldValue) => {
@@ -65,7 +81,7 @@ export const useForm = (options = {}) => {
                     states[field].dirty = true;
                 }
 
-                (fieldOptions?.validateOnValueUpdate ?? isFieldValidate(field, options.validateOnValueUpdate ?? true)) && validate(field);
+                validateFieldOn(field, fieldOptions, 'validateOnValueUpdate', true);
             }
         );
 
@@ -74,9 +90,7 @@ export const useForm = (options = {}) => {
 
     const handleSubmit = (callback) => {
         return async (event) => {
-            let results = undefined;
-
-            (options.validateOnSubmit ?? true) && (results = await validate());
+            const results = await validateOn('validateOnSubmit', true);
 
             return callback({
                 originalEvent: event,
@@ -89,25 +103,34 @@ export const useForm = (options = {}) => {
     };
 
     const validate = async (field) => {
-        const names = Object.keys(states) ?? [];
-        const values = Object.entries(states).reduce((acc, [key, val]) => {
-            acc[key] = val.value;
+        const resolverOptions = Object.entries(states).reduce(
+            (acc, [key, val]) => {
+                acc.names.push(key);
+                acc.values[key] = val.value;
 
-            return acc;
-        }, {});
+                return acc;
+            },
+            { names: [], values: {} }
+        );
 
-        const result = (await options.resolver?.({ values, names })) ?? {};
+        const result = (await options.resolver?.(resolverOptions)) ?? {};
 
-        for (const sField of Object.keys(states)) {
-            if (sField === field || !field) {
-                const errors = result.errors?.[sField] ?? [];
-                //const value = result.values?.[sField] ?? states[sField].value;
+        result.errors ??= {};
 
-                states[sField].invalid = errors.length > 0;
-                states[sField].valid = !states[sField].invalid;
-                states[sField].errors = errors;
-                states[sField].error = errors?.[0] ?? null;
-                //states[sField].value = value;
+        for (const [fieldName, fieldInst] of Object.entries(fields)) {
+            const fieldResolver = fieldInst.options?.resolver;
+
+            fieldResolver && (result.errors[fieldName] = await fieldResolver({ value: fieldInst.states.value, name: fieldName })?.errors);
+
+            if (fieldName === field || !field) {
+                const errors = result.errors[fieldName] ?? [];
+                //const value = result.values?.[fieldName] ?? states[sField].value;
+
+                states[fieldName].invalid = errors.length > 0;
+                states[fieldName].valid = !states[fieldName].invalid;
+                states[fieldName].errors = errors;
+                states[fieldName].error = errors?.[0] ?? null;
+                //states[fieldName].value = value;
             }
         }
 
@@ -115,17 +138,14 @@ export const useForm = (options = {}) => {
     };
 
     const reset = () => {
-        Object.keys(states).forEach((field) => (states[field] = getInitialState(field)));
+        Object.keys(states).forEach((field) => (fields[field].states = states[field] = getInitialState(field, fields[field]?.options?.initialValue)));
     };
 
     const validateOnMounted = () => {
-        const field = Object.keys(fieldOptionMap).find((field) => fieldOptionMap[field]?.validateOnMount);
-
-        field && validate(field);
-        isArray(options.validateOnMount) ? options.validateOnMount.forEach(validate) : validate();
+        validateOn('validateOnMount');
     };
 
-    options.validateOnMount && tryOnMounted(validateOnMounted);
+    tryOnMounted(validateOnMounted);
 
     return {
         defineField,
@@ -133,6 +153,7 @@ export const useForm = (options = {}) => {
         validate,
         reset,
         valid,
-        states
+        states,
+        fields
     };
 };

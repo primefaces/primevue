@@ -38,6 +38,9 @@ export default {
         },
         $pcForm: {
             default: undefined
+        },
+        $pcFormField: {
+            default: undefined
         }
     },
     data() {
@@ -52,16 +55,16 @@ export default {
         defaultValue(newValue) {
             this.d_value = newValue;
         },
-        formControl: {
-            immediate: true,
-            handler(newValue) {
-                this.formField = this.$pcForm?.register?.(this.$formName, newValue) || {};
-            }
-        },
         $formName: {
             immediate: true,
             handler(newValue) {
-                this.formField = this.$pcForm?.register?.(newValue, this.formControl) || {};
+                this.formField = this.$pcForm?.register?.(newValue, this.$formControl) || {};
+            }
+        },
+        $formControl: {
+            immediate: true,
+            handler(newValue) {
+                this.formField = this.$pcForm?.register?.(this.$formName, newValue) || {};
             }
         },
         $formDefaultValue: {
@@ -89,13 +92,16 @@ export default {
             return isNotEmpty(this.d_value);
         },
         $invalid() {
-            return this.invalid ?? this.$pcForm?.states?.[this.$formName]?.invalid;
+            return this.invalid ?? this.$pcFormField?.$field?.invalid ?? this.$pcForm?.states?.[this.$formName]?.invalid;
         },
         $formName() {
-            return this.formControl?.name || this.name;
+            return this.name || this.$formControl?.name;
+        },
+        $formControl() {
+            return this.formControl || this.$pcFormField?.formControl;
         },
         $formDefaultValue() {
-            return this.d_value ?? this.$pcForm?.initialValues?.[this.$formName];
+            return this.d_value ?? this.$pcFormField?.initialValue ?? this.$pcForm?.initialValues?.[this.$formName];
         },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
