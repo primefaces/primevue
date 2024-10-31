@@ -40,10 +40,10 @@ const theme = ({ dt }) => `
     content: "";
     position: absolute;
     background: inherit;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    will-change: left, right;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    will-change: inset-inline-start, inset-inline-end;
     animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
 }
 
@@ -51,68 +51,69 @@ const theme = ({ dt }) => `
     content: "";
     position: absolute;
     background: inherit;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    will-change: left, right;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    will-change: inset-inline-start, inset-inline-end;
     animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
     animation-delay: 1.15s;
 }
 
-@-webkit-keyframes p-progressbar-indeterminate-anim {
-    0% {
-        left: -35%;
-        right: 100%;
-    }
-    60% {
-        left: 100%;
-        right: -90%;
-    }
-    100% {
-        left: 100%;
-        right: -90%;
-    }
-}
 @keyframes p-progressbar-indeterminate-anim {
     0% {
-        left: -35%;
-        right: 100%;
+        inset-inline-start: -35%;
+        inset-inline-end: 100%;
     }
     60% {
-        left: 100%;
-        right: -90%;
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
     }
     100% {
-        left: 100%;
-        right: -90%;
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
+    }
+}
+@-webkit-keyframes p-progressbar-indeterminate-anim {
+    0% {
+        inset-inline-start: -35%;
+        inset-inline-end: 100%;
+    }
+    60% {
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
+    }
+    100% {
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
+    }
+}
+
+@keyframes p-progressbar-indeterminate-anim-short {
+    0% {
+        inset-inline-start: -200%;
+        inset-inline-end: 100%;
+    }
+    60% {
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
+    }
+    100% {
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
     }
 }
 @-webkit-keyframes p-progressbar-indeterminate-anim-short {
     0% {
-        left: -200%;
-        right: 100%;
+        inset-inline-start: -200%;
+        inset-inline-end: 100%;
     }
     60% {
-        left: 107%;
-        right: -8%;
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
     }
     100% {
-        left: 107%;
-        right: -8%;
-    }
-}
-@keyframes p-progressbar-indeterminate-anim-short {
-    0% {
-        left: -200%;
-        right: 100%;
-    }
-    60% {
-        left: 107%;
-        right: -8%;
-    }
-    100% {
-        left: 107%;
-        right: -8%;
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
     }
 }
 `;
