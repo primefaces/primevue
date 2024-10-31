@@ -15,7 +15,7 @@
 
 <script setup>
 import { isNotEmpty } from '@primeuix/utils';
-import { zodResolver } from '@primevue/form/resolvers';
+import { zodResolver } from '@primevue/forms/resolvers';
 import { z } from 'zod';
 import DynamicFormControl from './DynamicFormControl.vue';
 import DynamicFormField from './DynamicFormField.vue';

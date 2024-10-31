@@ -16,7 +16,7 @@
         "incremental": true,
         "baseUrl": ".",
         "paths": {
-            "@primevue/form/*": ["./src/*"],
+            "@primevue/forms/*": ["./src/*"],
             "@primevue/core/*": ["../../packages/core/src/*"]
         }
     },

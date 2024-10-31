@@ -1,5 +1,5 @@
 {
-    "name": "@primevue/form",
+    "name": "@primevue/forms",
     "version": "4.1.1",
     "author": "PrimeTek Informatics",
     "description": "",
@@ -8,44 +8,36 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/primefaces/primevue.git",
-        "directory": "packages/form"
+        "directory": "packages/forms"
     },
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
-    "main": "./src/form/Form.vue",
-    "types": "./src/form/Form.d.ts",
+    "main": "./src/index.js",
+    "module": "./src/index.js",
+    "types": "./src/index.d.ts",
     "exports": {
-        ".": "./src/form/Form.vue",
-        "./style": "./src/form/style/FormStyle.js",
-        "./field": "./src/formfield/FormField.vue",
-        "./field/style": "./src/formfield/style/FormFieldStyle.js",
+        ".": "./src/index.js",
+        "./form": "./src/form/Form.vue",
+        "./form/style": "./src/form/style/FormStyle.js",
+        "./formfield": "./src/formfield/FormField.vue",
+        "./formfield/style": "./src/formfield/style/FormFieldStyle.js",
         "./*": "./src/*/index.js"
     },
     "publishConfig": {
-        "main": "./form/index.mjs",
-        "module": "./form/index.mjs",
-        "types": "./form/index.d.ts",
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.ts",
         "exports": {
             ".": {
-                "types": "./form/index.d.ts",
-                "import": "./form/index.mjs"
-            },
-            "./style": {
-                "types": "./form/style/index.d.ts",
-                "import": "./form/style/index.mjs"
-            },
-            "./field": {
-                "types": "./formfield/index.d.ts",
-                "import": "./formfield/index.mjs"
-            },
-            "./field/style": {
-                "types": "./formfield/style/index.d.ts",
-                "import": "./formfield/style/index.mjs"
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "default": "./index.mjs"
             },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",
