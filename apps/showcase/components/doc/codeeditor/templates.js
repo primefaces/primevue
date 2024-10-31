@@ -16,7 +16,7 @@ const core_dependencies = {
     primevue: pkg.version || PrimeVue.version || 'latest',
     '@primevue/themes': pkg.version || PrimeVue.version || 'latest',
     '@primevue/auto-import-resolver': pkg.version || PrimeVue.version || 'latest',
-    '@primevue/form': pkg.version || PrimeVue.version || 'latest',
+    '@primevue/forms': pkg.version || PrimeVue.version || 'latest',
     primeicons: app_dependencies['primeicons'] || 'latest',
     tailwindcss: app_dependencies['tailwindcss'] || 'latest',
     autoprefixer: app_dependencies['autoprefixer'] || 'latest',

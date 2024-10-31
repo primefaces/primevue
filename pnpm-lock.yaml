@@ -81,9 +81,9 @@ importers:
       '@primevue/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@primevue/form':
+      '@primevue/forms':
         specifier: workspace:*
-        version: link:../../packages/form
+        version: link:../../packages/forms
       '@primevue/nuxt-module':
         specifier: workspace:*
         version: link:../../packages/nuxt-module
@@ -175,7 +175,7 @@ importers:
         version: 3.5.12(typescript@5.6.3)
     publishDirectory: dist
 
-  packages/form:
+  packages/forms:
     dependencies:
       '@primeuix/form':
         specifier: 'catalog:'

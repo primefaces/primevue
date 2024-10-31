@@ -25,7 +25,7 @@ const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 // alias
 const ALIAS_ENTRIES = [
     {
-        find: /^@primevue\/form\/(.*)$/,
+        find: /^@primevue\/forms\/(.*)$/,
         replacement: path.resolve(__dirname, './src/$1'),
         customResolver(source, importer) {
             const basedir = path.dirname(importer);
@@ -43,8 +43,8 @@ const ALIAS_ENTRIES = [
             return targetFile ? path.join(folderPath, targetFile) : null;
         }
     },
-    { find: '@primevue/form/resolvers', replacement: path.resolve(__dirname, './src/resolvers/index.js') },
-    { find: '@primevue/form/useform', replacement: path.resolve(__dirname, './src/useform/index.js') }
+    { find: '@primevue/forms/resolvers', replacement: path.resolve(__dirname, './src/resolvers/index.js') },
+    { find: '@primevue/forms/useform', replacement: path.resolve(__dirname, './src/useform/index.js') }
 ];
 
 // plugins
