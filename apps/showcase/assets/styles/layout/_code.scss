@@ -2,7 +2,7 @@ code[class*="language-"],
 pre[class*="language-"] {
     background: none;
     font-family: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,Liberation Mono,monospace;
-    text-align: left;
+    text-align: start;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
@@ -36,7 +36,7 @@ pre[class*="language-"] {
     }
 
     code {
-        border-left: 1rem solid transparent;
+        border-inline-start: 1rem solid transparent;
         box-shadow: none;
         margin: 0;
         font-size: 14px;
@@ -47,7 +47,7 @@ pre[class*="language-"] {
         padding: 0 1rem;
         display: block;
         overflow: auto;
-        
+
         .token.comment,
         .token.block-comment,
         .token.prolog,
@@ -126,7 +126,7 @@ pre[class*="language-"] {
     display: none;
 }
 
-pre[class*="language-"] {    
+pre[class*="language-"] {
     code {
         background: var(--code-background);
     }
