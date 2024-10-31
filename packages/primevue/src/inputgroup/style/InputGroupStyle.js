@@ -36,6 +36,15 @@ const theme = ({ dt }) => `
     border-inline-end: 1px solid ${dt('inputgroup.addon.border.color')};
 }
 
+.p-inputgroupaddon:has(.p-button) {
+    padding: 0;
+    overflow: hidden;
+}
+
+.p-inputgroupaddon .p-button {
+    border-radius: 0;
+}
+
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-floatlabel > .p-component,
