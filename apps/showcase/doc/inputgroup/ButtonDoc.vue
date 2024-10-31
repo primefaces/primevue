@@ -10,13 +10,20 @@
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warn" />
+            <InputGroupAddon>
+                <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+            </InputGroupAddon>
         </InputGroup>
+        <Menu ref="menu" :model="items" popup class="!min-w-fit" />
 
         <InputGroup>
-            <Button icon="pi pi-check" severity="success" />
+            <InputGroupAddon>
+                <Button icon="pi pi-check" severity="secondary" />
+            </InputGroupAddon>
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" severity="danger" />
+            <InputGroupAddon>
+                <Button icon="pi pi-times" severity="secondary" />
+            </InputGroupAddon>
         </InputGroup>
     </div>
     <DocSectionCode :code="code" />
@@ -26,6 +33,7 @@
 export default {
     data() {
         return {
+            items: [{ label: 'Web Search' }, { label: 'AI Assistant' }, { label: 'History' }],
             code: {
                 basic: `
 <InputGroup>
@@ -35,13 +43,20 @@ export default {
 
 <InputGroup>
     <InputText placeholder="Keyword" />
-    <Button icon="pi pi-search" severity="warn" />
+    <InputGroupAddon>
+        <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+    </InputGroupAddon>
 </InputGroup>
+<Menu ref="menu" :model="items" popup class="!min-w-fit" />
 
 <InputGroup>
-    <Button icon="pi pi-check" severity="success" />
+    <InputGroupAddon>
+        <Button icon="pi pi-check" severity="secondary" />
+    </InputGroupAddon>
     <InputText placeholder="Vote" />
-    <Button icon="pi pi-times" severity="danger" />
+    <InputGroupAddon>
+        <Button icon="pi pi-times" severity="secondary" />
+    </InputGroupAddon>
 </InputGroup>
 `,
                 options: `
@@ -54,16 +69,38 @@ export default {
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warn" />
+            <InputGroupAddon>
+                <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+            </InputGroupAddon>
         </InputGroup>
+        <Menu ref="menu" :model="items" popup class="!min-w-fit" />
 
         <InputGroup>
-            <Button icon="pi pi-check" severity="success" />
+            <InputGroupAddon>
+                <Button icon="pi pi-check" severity="secondary" />
+            </InputGroupAddon>
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" severity="danger" />
+            <InputGroupAddon>
+                <Button icon="pi pi-times" severity="secondary" />
+            </InputGroupAddon>
         </InputGroup>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            items: [{ label: 'Web Search' }, { label: 'AI Assistant' }, { label: 'History' }],
+        };
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.menu.toggle(event);
+        }
+    }
+};
+<\/script>
 `,
                 composition: `
 <template>
@@ -75,19 +112,42 @@ export default {
 
         <InputGroup>
             <InputText placeholder="Keyword" />
-            <Button icon="pi pi-search" severity="warn" />
+            <InputGroupAddon>
+                <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+            </InputGroupAddon>
         </InputGroup>
+        <Menu ref="menu" :model="items" popup class="!min-w-fit" />
 
         <InputGroup>
-            <Button icon="pi pi-check" severity="success" />
+            <InputGroupAddon>
+                <Button icon="pi pi-check" severity="secondary" />
+            </InputGroupAddon>
             <InputText placeholder="Vote" />
-            <Button icon="pi pi-times" severity="danger" />
+            <InputGroupAddon>
+                <Button icon="pi pi-times" severity="secondary" />
+            </InputGroupAddon>
         </InputGroup>
     </div>
 </template>
+
+<script setup>
+import { ref } from "vue";
+
+const menu = ref();
+const items = ref([{ label: 'Web Search' }, { label: 'AI Assistant' }, { label: 'History' }]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+<\/script>
 `
             }
         };
+    },
+    methods: {
+        toggle(event) {
+            this.$refs.menu.toggle(event);
+        }
     }
 };
 </script>
