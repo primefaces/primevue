@@ -15,8 +15,8 @@ const theme = ({ dt }) => `
 
 .p-image-preview-mask {
     position: absolute;
-    left: 0;
-    top: 0;
+    inset-inline-start: 0;
+    inset-block-start: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -46,10 +46,10 @@ const theme = ({ dt }) => `
 
 .p-image-toolbar {
     position: absolute;
-    top: ${dt('image.toolbar.position.top')};
-    right: ${dt('image.toolbar.position.right')};
-    left: ${dt('image.toolbar.position.left')};
-    bottom: ${dt('image.toolbar.position.bottom')};
+    inset-block-start: ${dt('image.toolbar.position.top')};
+    inset-inline-end: ${dt('image.toolbar.position.right')};
+    inset-inline-start: ${dt('image.toolbar.position.left')};
+    inset-block-end: ${dt('image.toolbar.position.bottom')};
     display: flex;
     z-index: 1;
     padding: ${dt('image.toolbar.padding')};

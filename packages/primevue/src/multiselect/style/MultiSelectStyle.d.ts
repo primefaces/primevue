@@ -23,6 +23,10 @@ export enum MultiSelectClasses {
      */
     label = 'p-multiselect-label',
     /**
+     * Class name of the clear icon element
+     */
+    clearIcon = 'p-multiselect-clear-icon',
+    /**
      * Class name of the chip item element
      */
     chipItem = 'p-multiselect-chip-item',

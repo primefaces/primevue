@@ -24,7 +24,7 @@ const theme = ({ dt }) => `
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin: 0 0 0 auto;
+    margin-inline-start: auto;
     overflow: hidden;
     position: relative;
     width: ${dt('message.close.button.width')};
@@ -290,7 +290,7 @@ const theme = ({ dt }) => `
     outline-color: transparent;
     box-shadow: none;
 }
-    
+
 .p-message-simple .p-message-content {
     padding: ${dt('message.simple.content.padding')};
 }

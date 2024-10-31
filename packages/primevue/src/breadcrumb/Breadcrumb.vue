@@ -5,7 +5,7 @@
             <template v-for="(item, i) of model" :key="item.label + '_' + i">
                 <li v-if="home || i !== 0" :class="cx('separator')" v-bind="ptm('separator')">
                     <slot name="separator">
-                        <ChevronRightIcon aria-hidden="true" v-bind="ptm('separatorIcon')" />
+                        <ChevronRightIcon aria-hidden="true" :class="cx('separatorIcon')" v-bind="ptm('separatorIcon')" />
                     </slot>
                 </li>
                 <BreadcrumbItem :item="item" :index="i" :templates="$slots" :pt="pt" :unstyled="unstyled" />
