@@ -18,6 +18,8 @@
     "exports": {
         ".": "./src/form/Form.vue",
         "./style": "./src/form/style/FormStyle.js",
+        "./field": "./src/formfield/FormField.vue",
+        "./field/style": "./src/formfield/style/FormFieldStyle.js",
         "./*": "./src/*/index.js"
     },
     "publishConfig": {
@@ -32,6 +34,14 @@
             "./style": {
                 "types": "./form/style/index.d.ts",
                 "import": "./form/style/index.mjs"
+            },
+            "./field": {
+                "types": "./formfield/index.d.ts",
+                "import": "./formfield/index.mjs"
+            },
+            "./field/style": {
+                "types": "./formfield/style/index.d.ts",
+                "import": "./formfield/style/index.mjs"
             },
             "./*": {
                 "types": "./*/index.d.ts",
