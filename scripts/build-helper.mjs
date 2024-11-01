@@ -76,7 +76,7 @@ export function copyDependencies(inFolder, outFolder, subFolder) {
     });
 }
 
-export async function renameDTSFile(dir, newName) {
+export async function renameDTSFile(dir, newName, resolver) {
     const entries = await fs.readdir(dir, { withFileTypes: true });
 
     for (const entry of entries) {
@@ -84,7 +84,7 @@ export async function renameDTSFile(dir, newName) {
 
         if (entry.isDirectory()) {
             await renameDTSFile(fullPath, newName);
-        } else if (entry.name.endsWith('.d.ts')) {
+        } else if (entry.name.endsWith('.d.ts') && (resolver?.(entry.name, dir) ?? true)) {
             const newFullPath = path.join(dir, `${newName}.d.ts`);
 
             await fs.rename(fullPath, newFullPath);

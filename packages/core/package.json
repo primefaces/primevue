@@ -14,6 +14,7 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "main": "./src/index.js",
+    "module": "./src/index.js",
     "types": "./src/index.d.ts",
     "exports": {
         "./api": "./src/api/Api.js",
@@ -31,15 +32,18 @@
     },
     "publishConfig": {
         "main": "./index.mjs",
+        "module": "./index.mjs",
         "types": "./index.d.ts",
         "exports": {
             ".": {
                 "types": "./index.d.ts",
-                "import": "./index.mjs"
+                "import": "./index.mjs",
+                "default": "./index.mjs"
             },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",
