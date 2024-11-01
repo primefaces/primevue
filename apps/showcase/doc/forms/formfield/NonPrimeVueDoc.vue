@@ -1,14 +1,14 @@
 <template>
     <DocSectionText label="Non-PrimeVue" :level="2" v-bind="$attrs">
-        <p>It can also be used with non-PrimeVue components, providing a flexible way to manage validation and state for any custom HTML elements or third-party libraries.</p>
+        <p>Form API is not strictly tied to PrimeVue components, providing a flexible way to manage validation and state for any native HTML elements, your own custom components or third-party libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
                 <input type="text" placeholder="Username" :class="[{ error: $field?.invalid }]" v-bind="$field.props" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
-            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-1">
                 <input v-model="$field.value" type="password" placeholder="Password" :class="[{ error: $field?.invalid }]" @input="$field.onInput" @blur="$field.onBlur" @change="$field.onChange" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
@@ -34,11 +34,11 @@ export default {
             code: {
                 basic: `
 <Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-    <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-2">
+    <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
         <input type="text" placeholder="Username" :class="[{ error: $field?.invalid }]" v-bind="$field.props" />
         <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
     </FormField>
-    <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-2">
+    <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-1">
         <input v-model="$field.value" type="password" placeholder="Password" :class="[{ error: $field?.invalid }]" @input="$field.onInput" @blur="$field.onBlur" @change="$field.onChange" />
         <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
     </FormField>
@@ -51,11 +51,11 @@ export default {
         <Toast />
 
         <Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
                 <input type="text" placeholder="Username" :class="[{ error: $field?.invalid }]" v-bind="$field.props" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
-            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-1">
                 <input v-model="$field.value" type="password" placeholder="Password" :class="[{ error: $field?.invalid }]" @input="$field.onInput" @blur="$field.onBlur" @change="$field.onChange" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
@@ -105,11 +105,11 @@ input.error {
 <template>
     <div class="card flex justify-center">
         <Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
-            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
                 <input type="text" placeholder="Username" :class="[{ error: $field?.invalid }]" v-bind="$field.props" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
-            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-2">
+            <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-1">
                 <input v-model="$field.value" type="password" placeholder="Password" :class="[{ error: $field?.invalid }]" @input="$field.onInput" @blur="$field.onBlur" @change="$field.onChange" />
                 <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
             </FormField>
