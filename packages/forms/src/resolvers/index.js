@@ -1,1 +1,1 @@
-export * from '@primeuix/form/resolvers';
+export * from '@primeuix/forms/resolvers';

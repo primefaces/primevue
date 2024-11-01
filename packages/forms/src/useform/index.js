@@ -1,5 +1,5 @@
-import { isArray, resolve } from '@primeuix/utils';
-import { computed, mergeProps, nextTick, onMounted, reactive, toValue, watch } from 'vue';
+import { isArray, isNotEmpty, mergeKeys, resolve } from '@primeuix/utils';
+import { computed, getCurrentInstance, mergeProps, nextTick, onMounted, reactive, toValue, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
     if (getCurrentInstance()) onMounted(fn);
@@ -34,10 +34,10 @@ export const useForm = (options = {}) => {
     const validateOn = async (option, defaultValue) => {
         let results = {};
 
-        isArray(options[option]) ? options[option].forEach(async (field) => (results = await validate(field))) : (options[option] ?? defaultValue) && (results = await validate());
-        const field = Object.keys(fields).find((field) => fields[field]?.options?.[option]);
+        isArray(options[option]) ? (results = await validate(options[option])) : (options[option] ?? defaultValue) && (results = await validate());
+        const fieldArr = Object.keys(fields).filter((field) => fields[field]?.options?.[option]) || [];
 
-        field && (results = await validate(field));
+        isNotEmpty(fieldArr) && (results = await validate(fieldArr));
 
         return results;
     };
@@ -113,16 +113,25 @@ export const useForm = (options = {}) => {
             { names: [], values: {} }
         );
 
-        const result = (await options.resolver?.(resolverOptions)) ?? {};
+        let result = (await options.resolver?.(resolverOptions)) ?? {};
 
         result.errors ??= {};
 
+        const flattenFields = [field].flat();
+
         for (const [fieldName, fieldInst] of Object.entries(fields)) {
-            const fieldResolver = fieldInst.options?.resolver;
+            if (flattenFields.includes(fieldName) || !field) {
+                const fieldResolver = fieldInst.options?.resolver;
 
-            fieldResolver && (result.errors[fieldName] = await fieldResolver({ value: fieldInst.states.value, name: fieldName })?.errors);
+                if (fieldResolver) {
+                    const fieldValue = fieldInst.states.value;
+                    const fieldResult = (await fieldResolver({ values: fieldValue, value: fieldValue, name: fieldName })) ?? {};
 
-            if (fieldName === field || !field) {
+                    isArray(fieldResult.errors) && (fieldResult.errors = { [fieldName]: fieldResult.errors });
+
+                    result = mergeKeys(result, fieldResult);
+                }
+
                 const errors = result.errors[fieldName] ?? [];
                 //const value = result.values?.[fieldName] ?? states[sField].value;
 

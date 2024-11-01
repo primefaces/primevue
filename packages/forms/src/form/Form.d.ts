@@ -251,9 +251,9 @@ export interface FormSlots {
 export interface FormEmitsOptions {
     /**
      * Emitted when the form is submitted.
-     * @param {Event} event - Original DOM event.
+     * @param {FormSubmitEvent} event - Custom submit event.
      */
-    submit: (event: Event) => void;
+    submit: (event: FormSubmitEvent) => void;
 }
 
 export declare type FormEmits = EmitFn<FormEmitsOptions>;

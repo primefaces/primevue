@@ -1,16 +1,14 @@
 /**
  *
  * FormField is a helper component that provides validation and tracking for form fields.
- * It is a helper component for the Form component.
  *
  * [Live Demo](https://www.primevue.org/form/)
  *
  * @module formfield
- * @todo Add more documentation
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import { VNode } from 'vue';
+import { Component, VNode } from 'vue';
 
 /**
  * From primevue/passthrough/index.d.ts
@@ -78,87 +76,13 @@ export interface FormFieldPassThroughAttributes {
  */
 export interface FormFieldResolverOptions {
     /**
-     * The values of the form fields.
-     */
-    values: Record<string, any>;
-    /**
-     * The names of the form fields.
-     */
-    names: string[] | undefined;
-}
-
-/**
- * Submit events
- */
-export interface FormFieldSubmitEvent {
-    /**
-     * The original DOM event.
-     */
-    originalEvent: Event;
-    /**
-     * The form values.
-     */
-    values: Record<string, any>;
-    /**
-     * The form state.
-     */
-    states: Record<string, FormFieldState>;
-    /**
-     * Whether the form is valid.
-     */
-    valid: boolean;
-    /**
-     * The form errors.
-     */
-    errors: any[];
-    /**
-     * Resets the form.
-     */
-    reset: () => void;
-}
-
-/**
- * The state of a form field.
- */
-export interface FormFieldState {
-    /**
      * The value of the form field.
      */
     value: any;
     /**
-     * Whether the form field has been touched.
-     * @defaultValue false
+     * The name of the form field.
      */
-    touched: boolean;
-    /**
-     * Whether the form field has been modified.
-     * @defaultValue false
-     */
-    dirty: boolean;
-    /**
-     * Whether the form field has not been modified.
-     * @defaultValue true
-     */
-    pristine: boolean;
-    /**
-     * Whether the form field is valid.
-     * @defaultValue true
-     */
-    valid: boolean;
-    /**
-     * Whether the form field is invalid.
-     * @defaultValue false
-     */
-    invalid: boolean;
-    /**
-     * The first error message of the form field.
-     */
-    error: any;
-    /**
-     * All error messages of the form field.
-     * @defaultValue []
-     */
-    errors: any[];
+    name: string | undefined;
 }
 
 /**
@@ -169,31 +93,37 @@ export interface FormFieldProps {
      * A function that resolves validation logic.
      * @param {FormResolverOptions} e - Resolver options
      */
-    resolver?: (e: FormFieldResolverOptions) => Promise<Record<string, any>> | Record<string, any> | undefined;
+    resolver?: (e: FormFieldResolverOptions) => any | undefined;
     /**
-     * The initial values for the form fields.
+     * The initial value for the form field.
      */
-    initialValues?: Record<string, any> | undefined;
+    initialValue?: any;
     /**
-     * Whether to validate the form fields when the values change.
-     * @defaultValue true
+     * Whether to validate the form field when the value change.
      */
-    validateOnValueUpdate?: boolean | string[] | undefined;
+    validateOnValueUpdate?: boolean | undefined;
     /**
-     * Whether to validate the form fields when they lose focus (on blur).
+     * Whether to validate the form field when it loses focus (on blur).
+     */
+    validateOnBlur?: boolean | undefined;
+    /**
+     * Whether to validate the form field immediately after the form is mounted.
+     */
+    validateOnMount?: boolean | undefined;
+    /**
+     * Whether to validate the form field when the form is submitted.
+     */
+    validateOnSubmit?: boolean | undefined;
+    /**
+     * Use to change the HTML tag of root element.
+     * @defaultValue DIV
+     */
+    as?: string | Component | undefined;
+    /**
+     * When enabled, it changes the default rendered element for the one passed as a child element.
      * @defaultValue false
      */
-    validateOnBlur?: boolean | string[] | undefined;
-    /**
-     * Whether to validate the form fields immediately after the form is mounted.
-     * @defaultValue false
-     */
-    validateOnMount?: boolean | string[] | undefined;
-    /**
-     * Whether to validate the form fields when the form is submitted.
-     * @defaultValue true
-     */
-    validateOnSubmit?: boolean | string[] | undefined;
+    asChild?: boolean | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -218,51 +148,68 @@ export interface FormFieldProps {
 /**
  * Defines valid slots in Form component.
  */
-export interface FormSlots {
+export interface FormFieldSlots {
     /**
      * Default content slot.
      * @param {Object} scope - default slot's params.
      */
     default: (scope: {
         /**
-         * Registers a form field for validation and tracking.
-         * @param field - The name of the form field to register.
-         * @param options - Configuration options for the field, such as validation rules.
-         * @returns - Returns an object or value representing the registered field.
+         * @todo
          */
-        register: (field: string, options: any) => any;
+        props: any;
         /**
-         * Resets the entire form state, clearing values and validation statuses.
+         * The value of the form field.
          */
-        reset: () => void;
+        value: any;
         /**
-         * Indicates whether the form is valid, returning `true` if all fields pass validation.
+         * Whether the form field has been touched.
+         * @defaultValue false
+         */
+        touched: boolean;
+        /**
+         * Whether the form field has been modified.
+         * @defaultValue false
+         */
+        dirty: boolean;
+        /**
+         * Whether the form field has not been modified.
+         * @defaultValue true
+         */
+        pristine: boolean;
+        /**
+         * Whether the form field is valid.
+         * @defaultValue true
          */
         valid: boolean;
         /**
-         * Stores the state of each form field, with the field name as the key and its state as the value.
+         * Whether the form field is invalid.
+         * @defaultValue false
          */
-        states: Record<string, FormFieldState>;
+        invalid: boolean;
+        /**
+         * The first error message of the form field.
+         */
+        error: any;
+        /**
+         * All error messages of the form field.
+         * @defaultValue []
+         */
+        errors: any[];
     }) => VNode[];
 }
 
 /**
  * Defines valid emits in Form component.
  */
-export interface FormEmitsOptions {
-    /**
-     * Emitted when the form is submitted.
-     * @param {Event} event - Original DOM event.
-     */
-    submit: (event: Event) => void;
-}
+export interface FormFieldEmitsOptions {}
 
-export declare type FormEmits = EmitFn<FormEmitsOptions>;
+export declare type FormEmits = EmitFn<FormFieldEmitsOptions>;
 
 /**
- * **PrimeVue - Form**
+ * **PrimeVue - FormField**
  *
- * _Form provides validation functionality and manages form state._
+ * _FormField is a helper component that provides validation and tracking for form fields._
  *
  * [Live Demo](https://www.primevue.org/form/)
  * --- ---
@@ -271,11 +218,11 @@ export declare type FormEmits = EmitFn<FormEmitsOptions>;
  * @group Component
  *
  */
-declare const FormField: DefineComponent<FormFieldProps, FormSlots, FormEmits>;
+declare const FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FormField: DefineComponent<FormFieldProps, FormSlots, FormEmits>;
+        FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormEmits>;
     }
 }
 

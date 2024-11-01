@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import FormFieldStyle from '@primevue/forms/field/style';
+import FormFieldStyle from '@primevue/forms/formfield/style';
 
 export default {
     name: 'BaseFormField',

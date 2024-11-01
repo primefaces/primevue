@@ -53,7 +53,7 @@
     },
     "dependencies": {
         "@primeuix/utils": "catalog:",
-        "@primeuix/form": "catalog:",
+        "@primeuix/forms": "catalog:",
         "@primevue/core": "workspace:*"
     },
     "engines": {
