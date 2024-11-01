@@ -154,6 +154,7 @@ const theme = ({ dt }) => `
 .p-stepitem .p-steppanel-content {
     width: 100%;
     padding: ${dt('stepper.steppanel.padding')};
+    margin-inline-start: 1rem;
 }
 
 .p-stepitem .p-steppanel {
