@@ -1,5 +1,5 @@
 <template>
-    <Message v-if="visible" :severity>
+    <Message v-if="visible" :severity :icon size="small" variant="simple">
         <slot>{{ message }}</slot>
     </Message>
 </template>
@@ -16,6 +16,10 @@ const props = defineProps({
     severity: {
         type: String,
         default: 'error'
+    },
+    icon: {
+        type: String,
+        default: 'pi pi-key'
     }
 });
 
