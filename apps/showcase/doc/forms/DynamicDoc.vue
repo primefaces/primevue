@@ -31,7 +31,7 @@
             <DynamicForm :fields @submit="onFormSubmit('Form 2', $event)" />
         </Fieldset>
     </div>
-    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
+    <DocSectionCode :code="code" :extFiles="extFiles" :dependencies="{ zod: '3.23.8', valibot: '0.42.1' }" />
 </template>
 
 <script>
@@ -339,6 +339,382 @@ const onFormSubmit = (text, { valid }) => {
 };
 <\/script>
 `
+            },
+            extFiles: {
+                options: {
+                    'src/dynamic/DynamicForm.vue': {
+                        content: `<template>
+    <Form v-slot="$form" :initialValues="initialValues" :resolver="resolver" @submit="$emit('submit', $event)" class="flex flex-col gap-4 w-full sm:w-56">
+        <slot v-bind="$form">
+            <template v-for="({ groupId, label, messages, ...rest }, name) in fields" :key="name">
+                <DynamicFormField :groupId="groupId" :name="name">
+                    <DynamicFormLabel>{{ label }}</DynamicFormLabel>
+                    <DynamicFormControl v-bind="rest" />
+                    <DynamicFormMessage v-for="(message, index) in messages || [{}]" :key="index" v-bind="message" />
+                </DynamicFormField>
+            </template>
+            <DynamicFormSubmit />
+        </slot>
+    </Form>
+</template>
+
+<script setup>
+import { ref, computed, provide } from 'vue';
+import { isNotEmpty } from '@primeuix/utils';
+import { zodResolver } from '@primevue/forms/resolvers';
+import { z } from 'zod';
+import DynamicFormControl from './DynamicFormControl.vue';
+import DynamicFormField from './DynamicFormField.vue';
+import DynamicFormLabel from './DynamicFormLabel.vue';
+import DynamicFormMessage from './DynamicFormMessage.vue';
+import DynamicFormSubmit from './DynamicFormSubmit.vue';
+
+const props = defineProps({
+    fields: Object
+});
+
+const emit = defineEmits(['submit']);
+
+const defaultValues = ref({});
+const schemas = ref({});
+
+const resolver = computed(() => (isNotEmpty(schemas.value) ? zodResolver(z.object(schemas.value)) : undefined));
+const initialValues = computed(() => defaultValues.value);
+
+const addField = (name, schema, defaultValue) => {
+    schema && (schemas.value[name] = schema);
+    defaultValues.value[name] = defaultValue;
+};
+
+provide('$fcDynamicForm', {
+    addField
+});
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormControl.vue': {
+                        content: `<template>
+    <component :is="component" :id :name="name" class="w-full" />
+</template>
+
+<script setup>
+import * as PrimeVue from 'primevue';
+import { computed, inject } from 'vue';
+
+const props = defineProps({
+    as: {
+        type: String,
+        default: 'InputText'
+    },
+    schema: null,
+    defaultValue: {
+        default: ''
+    }
+});
+
+const $fcDynamicForm = inject('$fcDynamicForm', undefined);
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const id = computed(() => $fcDynamicFormField?.groupId);
+const name = computed(() => $fcDynamicFormField?.name);
+const component = computed(() => PrimeVue[props.as] ?? props.as);
+
+$fcDynamicForm?.addField(name.value, props.schema, props.defaultValue);
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormField.vue': {
+                        content: `<template>
+    <FormField class="flex flex-col gap-2">
+        <slot />
+    </FormField>
+</template>
+
+<script setup>
+import { provide } from 'vue';
+
+const props = defineProps({
+    groupId: {
+        type: String,
+        default: undefined
+    },
+    name: {
+        type: String,
+        default: undefined
+    }
+});
+
+provide('$fcDynamicFormField', {
+    groupId: props.groupId,
+    name: props.name
+});
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormLabel.vue': {
+                        content: `<template>
+    <label :for="htmlFor">
+        <slot />
+    </label>
+</template>
+
+<script setup>
+import { computed, inject } from 'vue';
+
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const htmlFor = computed(() => $fcDynamicFormField?.groupId);
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormMessage.vue': {
+                        content: `<template>
+    <Message v-if="visible" :severity :icon size="small" variant="simple">
+        <slot>{{ message }}</slot>
+    </Message>
+</template>
+
+<script setup>
+import { isNotEmpty } from '@primeuix/utils';
+import { computed, inject } from 'vue';
+
+const props = defineProps({
+    errorType: {
+        type: String,
+        default: undefined
+    },
+    severity: {
+        type: String,
+        default: 'error'
+    },
+    icon: {
+        type: String,
+        default: 'pi pi-key'
+    }
+});
+
+const $pcForm = inject('$pcForm', undefined); // Inject PrimeVue Form component
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const fieldName = computed(() => $fcDynamicFormField?.name);
+const state = computed(() => $pcForm?.states?.[fieldName.value]);
+const errors = computed(() => state.value?.errors);
+const invalid = computed(() => state.value?.invalid);
+const error = computed(() => errors.value?.find((error) => props.errorType === error.errorType || isNotEmpty(error[props.errorType])));
+const message = computed(() => (props.errorType ? error.value?.message : errors.value?.[0]?.message));
+const visible = computed(() => invalid.value && (error.value || props.errorType === undefined));
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormSubmit.vue': {
+                        content: `<template>
+    <Button type="submit" :severity :label />
+</template>
+
+<script setup>
+import Button from 'primevue/button';
+
+const props = defineProps({
+    severity: {
+        type: String,
+        default: 'secondary'
+    },
+    label: {
+        type: String,
+        default: 'Submit'
+    }
+});
+<\/script>
+`
+                    }
+                },
+                composition: {
+                    'src/dynamic/DynamicForm.vue': {
+                        content: `<template>
+    <Form v-slot="$form" :initialValues="initialValues" :resolver="resolver" @submit="$emit('submit', $event)" class="flex flex-col gap-4 w-full sm:w-56">
+        <slot v-bind="$form">
+            <template v-for="({ groupId, label, messages, ...rest }, name) in fields" :key="name">
+                <DynamicFormField :groupId="groupId" :name="name">
+                    <DynamicFormLabel>{{ label }}</DynamicFormLabel>
+                    <DynamicFormControl v-bind="rest" />
+                    <DynamicFormMessage v-for="(message, index) in messages || [{}]" :key="index" v-bind="message" />
+                </DynamicFormField>
+            </template>
+            <DynamicFormSubmit />
+        </slot>
+    </Form>
+</template>
+
+<script setup>
+import { ref, computed, provide } from 'vue';
+import { isNotEmpty } from '@primeuix/utils';
+import { zodResolver } from '@primevue/forms/resolvers';
+import { z } from 'zod';
+import DynamicFormControl from './DynamicFormControl.vue';
+import DynamicFormField from './DynamicFormField.vue';
+import DynamicFormLabel from './DynamicFormLabel.vue';
+import DynamicFormMessage from './DynamicFormMessage.vue';
+import DynamicFormSubmit from './DynamicFormSubmit.vue';
+
+const props = defineProps({
+    fields: Object
+});
+
+const emit = defineEmits(['submit']);
+
+const defaultValues = ref({});
+const schemas = ref({});
+
+const resolver = computed(() => (isNotEmpty(schemas.value) ? zodResolver(z.object(schemas.value)) : undefined));
+const initialValues = computed(() => defaultValues.value);
+
+const addField = (name, schema, defaultValue) => {
+    schema && (schemas.value[name] = schema);
+    defaultValues.value[name] = defaultValue;
+};
+
+provide('$fcDynamicForm', {
+    addField
+});
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormControl.vue': {
+                        content: `<template>
+    <component :is="component" :id :name="name" class="w-full" />
+</template>
+
+<script setup>
+import * as PrimeVue from 'primevue';
+import { computed, inject } from 'vue';
+
+const props = defineProps({
+    as: {
+        type: String,
+        default: 'InputText'
+    },
+    schema: null,
+    defaultValue: {
+        default: ''
+    }
+});
+
+const $fcDynamicForm = inject('$fcDynamicForm', undefined);
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const id = computed(() => $fcDynamicFormField?.groupId);
+const name = computed(() => $fcDynamicFormField?.name);
+const component = computed(() => PrimeVue[props.as] ?? props.as);
+
+$fcDynamicForm?.addField(name.value, props.schema, props.defaultValue);
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormField.vue': {
+                        content: `<template>
+    <FormField class="flex flex-col gap-2">
+        <slot />
+    </FormField>
+</template>
+
+<script setup>
+import { provide } from 'vue';
+
+const props = defineProps({
+    groupId: {
+        type: String,
+        default: undefined
+    },
+    name: {
+        type: String,
+        default: undefined
+    }
+});
+
+provide('$fcDynamicFormField', {
+    groupId: props.groupId,
+    name: props.name
+});
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormLabel.vue': {
+                        content: `<template>
+    <label :for="htmlFor">
+        <slot />
+    </label>
+</template>
+
+<script setup>
+import { computed, inject } from 'vue';
+
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const htmlFor = computed(() => $fcDynamicFormField?.groupId);
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormMessage.vue': {
+                        content: `<template>
+    <Message v-if="visible" :severity :icon size="small" variant="simple">
+        <slot>{{ message }}</slot>
+    </Message>
+</template>
+
+<script setup>
+import { isNotEmpty } from '@primeuix/utils';
+import { computed, inject } from 'vue';
+
+const props = defineProps({
+    errorType: {
+        type: String,
+        default: undefined
+    },
+    severity: {
+        type: String,
+        default: 'error'
+    },
+    icon: {
+        type: String,
+        default: 'pi pi-key'
+    }
+});
+
+const $pcForm = inject('$pcForm', undefined); // Inject PrimeVue Form component
+const $fcDynamicFormField = inject('$fcDynamicFormField', undefined);
+
+const fieldName = computed(() => $fcDynamicFormField?.name);
+const state = computed(() => $pcForm?.states?.[fieldName.value]);
+const errors = computed(() => state.value?.errors);
+const invalid = computed(() => state.value?.invalid);
+const error = computed(() => errors.value?.find((error) => props.errorType === error.errorType || isNotEmpty(error[props.errorType])));
+const message = computed(() => (props.errorType ? error.value?.message : errors.value?.[0]?.message));
+const visible = computed(() => invalid.value && (error.value || props.errorType === undefined));
+<\/script>
+`
+                    },
+                    'src/dynamic/DynamicFormSubmit.vue': {
+                        content: `<template>
+    <Button type="submit" :severity :label />
+</template>
+
+<script setup>
+import Button from 'primevue/button';
+
+const props = defineProps({
+    severity: {
+        type: String,
+        default: 'secondary'
+    },
+    label: {
+        type: String,
+        default: 'Submit'
+    }
+});
+<\/script>
+`
+                    }
+                }
             }
         };
     },
