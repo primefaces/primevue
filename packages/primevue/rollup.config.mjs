@@ -229,7 +229,8 @@ function addPassThrough() {
 }
 
 function addLibrary() {
-    ENTRY.format.umd({ name: 'PrimeVue', input: process.env.INPUT_DIR + 'primevue.js', output: process.env.OUTPUT_DIR + 'umd/primevue', minify: true });
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'index.js', output: process.env.OUTPUT_DIR + 'index' });
+    ENTRY.format.umd({ name: 'PrimeVue', input: process.env.INPUT_DIR + 'umd/primevue.js', output: process.env.OUTPUT_DIR + 'umd/primevue', minify: true });
 }
 
 addFile();

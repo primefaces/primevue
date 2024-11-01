@@ -31,6 +31,9 @@
     "sideEffects": [
         "*.vue"
     ],
+    "main": "./src/index.js",
+    "module": "./src/index.js",
+    "types": "./src/index.d.ts",
     "unpkg": "umd/primevue.min.js",
     "jsdelivr": "umd/primevue.min.js",
     "web-types": "./web-types.json",
@@ -313,10 +316,19 @@
         "./*": "./*"
     },
     "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.ts",
         "exports": {
+            ".": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "default": "./index.mjs"
+            },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",
