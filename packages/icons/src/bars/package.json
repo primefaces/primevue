@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./BarsIcon.vue",
+    "module": "./BarsIcon.vue",
+    "types": "./BarsIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./BarsIcon.vue"
     },
     "sideEffects": [
         "*.vue"

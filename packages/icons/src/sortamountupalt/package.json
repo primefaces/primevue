@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./SortAmountUpAltIcon.vue",
+    "module": "./SortAmountUpAltIcon.vue",
+    "types": "./SortAmountUpAltIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./SortAmountUpAltIcon.vue"
     },
     "sideEffects": [
         "*.vue"

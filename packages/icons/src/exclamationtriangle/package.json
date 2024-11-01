@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./ExclamationTriangleIcon.vue",
+    "module": "./ExclamationTriangleIcon.vue",
+    "types": "./ExclamationTriangleIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./ExclamationTriangleIcon.vue"
     },
     "sideEffects": [
         "*.vue"

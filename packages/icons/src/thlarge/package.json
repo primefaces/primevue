@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./ThLargeIcon.vue",
+    "module": "./ThLargeIcon.vue",
+    "types": "./ThLargeIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./ThLargeIcon.vue"
     },
     "sideEffects": [
         "*.vue"

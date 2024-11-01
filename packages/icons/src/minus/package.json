@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./MinusIcon.vue",
+    "module": "./MinusIcon.vue",
+    "types": "./MinusIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./MinusIcon.vue"
     },
     "sideEffects": [
         "*.vue"

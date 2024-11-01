@@ -1,6 +1,7 @@
 {
     "main": "./BaseIcon.vue",
     "module": "./BaseIcon.vue",
+    "types": "./BaseIcon.d.ts",
     "browser": {
         "./sfc": "./BaseIcon.vue"
     },

@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./FilterIcon.vue",
+    "module": "./FilterIcon.vue",
+    "types": "./FilterIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./FilterIcon.vue"
     },
     "sideEffects": [
         "*.vue"

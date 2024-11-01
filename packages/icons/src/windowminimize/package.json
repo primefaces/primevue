@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./WindowMinimizeIcon.vue",
+    "module": "./WindowMinimizeIcon.vue",
+    "types": "./WindowMinimizeIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./WindowMinimizeIcon.vue"
     },
     "sideEffects": [
         "*.vue"

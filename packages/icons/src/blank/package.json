@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./BlankIcon.vue",
+    "module": "./BlankIcon.vue",
+    "types": "./BlankIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./BlankIcon.vue"
     },
     "sideEffects": [
         "*.vue"

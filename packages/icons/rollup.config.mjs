@@ -26,7 +26,22 @@ const EXTERNALS = [...GLOBAL_EXTERNALS, ...INLINE_EXTERNALS];
 const ALIAS_ENTRIES = [
     {
         find: /^@primevue\/icons\/(.*)$/,
-        replacement: path.resolve(__dirname, './src/$1/index.vue')
+        replacement: path.resolve(__dirname, './src/$1'),
+        customResolver(source, importer) {
+            const basedir = path.dirname(importer);
+            const folderPath = path.resolve(basedir, source);
+            const folderName = path.basename(folderPath);
+
+            const fName = folderName === 'style' ? `${path.basename(path.dirname(folderPath))}Style` : folderName;
+            const files = fs.readdirSync(folderPath);
+            const targetFile = files.find((file) => {
+                const ext = path.extname(file);
+
+                return ['.vue', '.js'].includes(ext) && path.basename(file, ext).toLowerCase() === fName.toLowerCase();
+            });
+
+            return targetFile ? path.join(folderPath, targetFile) : null;
+        }
     },
     { find: '@primevue/icons/baseicon/style', replacement: path.resolve(__dirname, './src/baseicon/style/BaseIconStyle.js') },
     { find: '@primevue/icons/baseicon', replacement: path.resolve(__dirname, './src/baseicon/BaseIcon.vue') }
@@ -167,7 +182,9 @@ function addIcons() {
         .filter((dir) => dir.isDirectory())
         .forEach(({ name: folderName }) => {
             fs.readdirSync(path.resolve(__dirname, iconDir + '/' + folderName)).forEach((file) => {
-                if (/\.vue$/.test(file)) {
+                let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+
+                if (name === folderName || name === `${folderName}icon`) {
                     const input = process.env.INPUT_DIR + folderName + '/' + file;
                     const output = process.env.OUTPUT_DIR + folderName + '/index';
 
@@ -195,7 +212,12 @@ function addStyle() {
         });
 }
 
+function addLibrary() {
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'index.js', output: process.env.OUTPUT_DIR + 'index' });
+}
+
 addIcons();
 addStyle();
+addLibrary();
 
 export default ENTRY.entries;

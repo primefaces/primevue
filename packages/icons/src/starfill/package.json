@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./StarFillIcon.vue",
+    "module": "./StarFillIcon.vue",
+    "types": "./StarFillIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./StarFillIcon.vue"
     },
     "sideEffects": [
         "*.vue"

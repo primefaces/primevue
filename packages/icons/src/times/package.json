@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./TimesIcon.vue",
+    "module": "./TimesIcon.vue",
+    "types": "./TimesIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./TimesIcon.vue"
     },
     "sideEffects": [
         "*.vue"

@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./PencilIcon.vue",
+    "module": "./PencilIcon.vue",
+    "types": "./PencilIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./PencilIcon.vue"
     },
     "sideEffects": [
         "*.vue"
