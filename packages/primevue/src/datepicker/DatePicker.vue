@@ -2672,6 +2672,8 @@ export default {
             return this.currentView === 'month' ? this.currentYear : month.year;
         },
         onOverlayClick(event) {
+            event.stopPropagation();
+
             if (!this.inline) {
                 OverlayEventBus.emit('overlay-click', {
                     originalEvent: event,
