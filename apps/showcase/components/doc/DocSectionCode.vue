@@ -31,7 +31,7 @@
             </button>
         </div>
 
-        <div>
+        <div dir="ltr">
             <template v-if="codeMode === 'basic' && importCode">
                 <pre v-code.script><code>{{ code.basic }}
 </code></pre>
