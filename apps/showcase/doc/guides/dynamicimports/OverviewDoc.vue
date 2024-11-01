@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>With <i>@primevue/icons</i> for icons and <i>primevue</i> for components (except Editor and Chart), multiple items can be imported together.</p>
     </DocSectionText>
-    <pre v-code><code>
+    <pre v-code.script><code>
 import { Button, InputText } from 'primevue';
 import { SearchIcon, BellIcon } from '@primevue/icons';
 
