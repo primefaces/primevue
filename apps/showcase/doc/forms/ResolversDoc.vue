@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Validations are implemented the with <i>resolver</i> property. A custom resolver is responsible for handling the validation and returning an <i>errors</i> object with key-value pairs where key is the form field name and value is an array
+            Validations are implemented with the <i>resolver</i> property. A custom resolver is responsible for handling the validation and returning an <i>errors</i> object with key-value pairs where key is the form field name and value is an array
             of error object data. For productivity, we recommend using a schema validation library instead of building your own custom validation logic. The forms library provide built-in resolvers for popular options including
             <a href="https://zod.dev/">Zod</a>, <a href="https://github.com/jquense/yup">Yup</a>, <a href="https://joi.dev/">Joi</a>, <a href="https://valibot.dev/">Valibot</a>, and <a href="https://docs.superstructjs.org/">Superstruct</a> that can
             be be imported from <i>@primevue/forms/resolvers</i> path.
