@@ -5,7 +5,7 @@
         <div class="flex justify-center mt-6 relative z-30">
             <a href="https://www.primefaces.org/store" class="linkbox linkbox-primary">
                 <span>Explore All</span>
-                <i class="pi pi-arrow-right ml-2"></i>
+                <i class="pi pi-arrow-right ms-2"></i>
             </a>
         </div>
         <section :class="['templates flex justify-center items-center flex-col mt-7', { 'templates-animation': setAnimation }]">
