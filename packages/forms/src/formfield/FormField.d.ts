@@ -2,7 +2,7 @@
  *
  * FormField is a helper component that provides validation and tracking for form fields.
  *
- * [Live Demo](https://www.primevue.org/form/)
+ * [Live Demo](https://www.primevue.org/forms/)
  *
  * @module formfield
  */
@@ -211,7 +211,7 @@ export declare type FormEmits = EmitFn<FormFieldEmitsOptions>;
  *
  * _FormField is a helper component that provides validation and tracking for form fields._
  *
- * [Live Demo](https://www.primevue.org/form/)
+ * [Live Demo](https://www.primevue.org/forms/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *

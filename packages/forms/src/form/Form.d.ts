@@ -2,7 +2,7 @@
  *
  * Form provides validation functionality and manages form state.
  *
- * [Live Demo](https://www.primevue.org/form/)
+ * [Live Demo](https://www.primevue.org/forms/)
  *
  * @module form
  *
@@ -263,7 +263,7 @@ export declare type FormEmits = EmitFn<FormEmitsOptions>;
  *
  * _Form provides validation functionality and manages form state._
  *
- * [Live Demo](https://www.primevue.org/form/)
+ * [Live Demo](https://www.primevue.org/forms/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *

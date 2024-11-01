@@ -1,6 +1,6 @@
 /**
  *
- * [Live Demo](https://www.primevue.org/form/)
+ * [Live Demo](https://www.primevue.org/forms/)
  *
  * @module formstyle
  *
