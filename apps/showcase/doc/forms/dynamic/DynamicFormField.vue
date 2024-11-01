@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col gap-2">
+    <FormField class="flex flex-col gap-2">
         <slot />
-    </div>
+    </FormField>
 </template>
 
 <script setup>

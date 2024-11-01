@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import * as PrimeVue from 'primevue/primevue';
+import * as PrimeVue from 'primevue';
 import { computed, inject } from 'vue';
 
 const props = defineProps({

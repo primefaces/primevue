@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-import Form from '@primevue/forms';
+import { Form } from '@primevue/forms';
 `
             }
         };

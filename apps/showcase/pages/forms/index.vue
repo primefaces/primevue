@@ -4,7 +4,7 @@
         header="Forms"
         description="The PrimeVue Forms library provides comprehensive form state management with built-in validation support."
         :componentDocs="docs"
-        :apiDocs="['Form']"
+        :apiDocs="['Form', 'FormField']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />
@@ -12,11 +12,11 @@
 
 <script>
 import AccessibilityDoc from '@/doc/forms/AccessibilityDoc.vue';
-import DownloadDoc from '@/doc/forms/DownloadDoc.vue';
 import BasicDoc from '@/doc/forms/BasicDoc.vue';
+import DownloadDoc from '@/doc/forms/DownloadDoc.vue';
 import DynamicDoc from '@/doc/forms/DynamicDoc.vue';
+import FormFieldDoc from '@/doc/forms/FormFieldDoc.vue';
 import ImportDoc from '@/doc/forms/ImportDoc.vue';
-import RegisterDoc from '@/doc/forms/RegisterDoc.vue';
 import ResolversDoc from '@/doc/forms/ResolversDoc.vue';
 import StatesDoc from '@/doc/forms/StatesDoc.vue';
 import SubmitDoc from '@/doc/forms/SubmitDoc.vue';
@@ -59,9 +59,9 @@ export default {
                     component: ValidateOnDoc
                 },
                 {
-                    id: 'register',
-                    label: 'Register',
-                    component: RegisterDoc
+                    id: 'formfield',
+                    label: 'FormField',
+                    component: FormFieldDoc
                 },
                 {
                     id: 'submit',
