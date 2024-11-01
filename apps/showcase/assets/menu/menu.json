@@ -566,6 +566,11 @@
                 {
                     "name": "PrimeTV",
                     "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                },
+                {
+                    "name": "RTL",
+                    "to": "/guides/rtl",
+                    "badge": "NEW"
                 }
             ]
         },
