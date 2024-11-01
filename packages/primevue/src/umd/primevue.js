@@ -1,4 +1,4 @@
- /***************** PrimeVue (Auto-Generated) *****************/
+/***************** PrimeVue (Auto-Generated) *****************/
 
 // API
 export * from '@primevue/core';
