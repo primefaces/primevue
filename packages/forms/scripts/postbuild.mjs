@@ -5,7 +5,11 @@ import { clearPackageJson, copyDependencies, renameDTSFile, resolvePath } from '
 const { __dirname, __workspace, INPUT_DIR, OUTPUT_DIR } = resolvePath(import.meta.url);
 
 copyDependencies(INPUT_DIR, OUTPUT_DIR, '/style');
-renameDTSFile(OUTPUT_DIR, 'index');
+renameDTSFile(OUTPUT_DIR, 'index', (name) => {
+    return name !== 'types.d.ts';
+});
+
+fs.copySync(path.resolve(__dirname, '../src/types.d.ts'), `${OUTPUT_DIR}/types.d.ts`);
 
 fs.copySync(path.resolve(__dirname, '../package.json'), `${OUTPUT_DIR}/package.json`);
 fs.copySync(path.resolve(__dirname, '../README.md'), `${OUTPUT_DIR}/README.md`);
