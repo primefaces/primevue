@@ -15,7 +15,7 @@ let exports = {};
 let modules = {
     ignoredFolders: ['useconfirm', 'usedialog', 'usetoast', 'usestyle', 'editor', 'chart'],
     umd: [
-        ` /***************** PrimeVue (Auto-Generated) *****************/
+        `/***************** PrimeVue (Auto-Generated) *****************/
 
 // API
 export * from '@primevue/core';
