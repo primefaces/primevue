@@ -361,7 +361,7 @@ const onFormSubmit = (text, { valid }) => {
 <script setup>
 import { ref, computed, provide } from 'vue';
 import { isNotEmpty } from '@primeuix/utils';
-import { zodResolver } from '@primevue/forms/resolvers';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { z } from 'zod';
 import DynamicFormControl from './DynamicFormControl.vue';
 import DynamicFormField from './DynamicFormField.vue';
@@ -548,7 +548,7 @@ const props = defineProps({
 <script setup>
 import { ref, computed, provide } from 'vue';
 import { isNotEmpty } from '@primeuix/utils';
-import { zodResolver } from '@primevue/forms/resolvers';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { z } from 'zod';
 import DynamicFormControl from './DynamicFormControl.vue';
 import DynamicFormField from './DynamicFormField.vue';
