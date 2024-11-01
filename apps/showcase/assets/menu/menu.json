@@ -552,6 +552,10 @@
                     "to": "/guides/accessibility"
                 },
                 {
+                    "name": "Dynamic Imports",
+                    "to": "/guides/dynamicimports"
+                },
+                {
                     "name": "Migration to V4",
                     "to": "/guides/migration/v4"
                 },
