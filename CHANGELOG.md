@@ -1,5 +1,67 @@
 # Changelog
 
+## [4.2.0](https://github.com/primefaces/primevue/tree/4.2.0) (2024-10-31)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.1.1...4.2.0)
+
+**Deprecated:**
+
+-   Deprecate plain button in favor of Contrast [\#6657](https://github.com/primefaces/primevue/issues/6657)
+
+**Fixed bugs:**
+
+-   Remove unused Galleria mask design tokens [\#6670](https://github.com/primefaces/primevue/issues/6670)
+-   MegaMenu typo in Style [\#6669](https://github.com/primefaces/primevue/issues/6669)
+-   Remove TieredMenu Unused Design Tokens [\#6668](https://github.com/primefaces/primevue/issues/6668)
+-   AutoComplete Chip Focus Design token name is wrong [\#6667](https://github.com/primefaces/primevue/issues/6667)
+-   MegaMenu and Menubar token names wrong [\#6666](https://github.com/primefaces/primevue/issues/6666)
+-   Paginator: Responsive paginator shows all variations at same time instead of at each breakpoint [\#6595](https://github.com/primefaces/primevue/issues/6595)
+-   DatePicker: toggleCallback missing on dropdownbutton slot [\#6543](https://github.com/primefaces/primevue/issues/6543)
+-   @primevue/core: Inconsistency of vue version in peerdependencies [\#6492](https://github.com/primefaces/primevue/issues/6492)
+
+**Implemented New Features and Enhancements:**
+
+-   Stepper: design-token updates [\#6707](https://github.com/primefaces/primevue/issues/6707)
+-   Update the bundle of primevue package [\#6702](https://github.com/primefaces/primevue/issues/6702)
+-   Update the bundle of @primevue/icons package [\#6701](https://github.com/primefaces/primevue/issues/6701)
+-   Improve support for Buttons in InputGroupAddon [\#6695](https://github.com/primefaces/primevue/issues/6695)
+-   New Component: FormField [\#6693](https://github.com/primefaces/primevue/issues/6693)
+-   RTL support for Misc components [\#6691](https://github.com/primefaces/primevue/issues/6691)
+-   RTL support for Media components [\#6690](https://github.com/primefaces/primevue/issues/6690)
+-   RTL support for Message components [\#6689](https://github.com/primefaces/primevue/issues/6689)
+-   Breadcrumb: separatorIcon pt added [\#6688](https://github.com/primefaces/primevue/issues/6688)
+-   New paginatorcontainer slots for Data components [\#6683](https://github.com/primefaces/primevue/issues/6683)
+-   RTL support for Menu components [\#6682](https://github.com/primefaces/primevue/issues/6682)
+-   RTL support for Dialog components [\#6681](https://github.com/primefaces/primevue/issues/6681)
+-   RTL support for Button components [\#6680](https://github.com/primefaces/primevue/issues/6680)
+-   Paginator: Headless mode [\#6679](https://github.com/primefaces/primevue/issues/6679)
+-   RTL support for Data components [\#6677](https://github.com/primefaces/primevue/issues/6677)
+-   Update surface tones of input borders in dark mode for Aura and Lara [\#6673](https://github.com/primefaces/primevue/issues/6673)
+-   New Design Token for invalid placeholder color [\#6672](https://github.com/primefaces/primevue/issues/6672)
+-   maxSelectedLabels for TreeSelect [\#6671](https://github.com/primefaces/primevue/issues/6671)
+-   Listbox - Remove Unused Tokens [\#6665](https://github.com/primefaces/primevue/issues/6665)
+-   FileUpload New Design Tokens [\#6664](https://github.com/primefaces/primevue/issues/6664)
+-   FileUpload message overlaps with ProgressBar [\#6663](https://github.com/primefaces/primevue/issues/6663)
+-   Remove unused tokens from DatePicker [\#6662](https://github.com/primefaces/primevue/issues/6662)
+-   Drawer - Design Tokens [\#6661](https://github.com/primefaces/primevue/issues/6661)
+-   Avatar - New Design Tokens [\#6659](https://github.com/primefaces/primevue/issues/6659)
+-   Add variant prop to Button [\#6658](https://github.com/primefaces/primevue/issues/6658)
+-   Design tokens for InputOtp [\#6656](https://github.com/primefaces/primevue/issues/6656)
+-   Design tokens of clear icon for Selects [\#6655](https://github.com/primefaces/primevue/issues/6655)
+-   New Clear Icon prop and slot [\#6654](https://github.com/primefaces/primevue/issues/6654)
+-   Size and Variants for Message component [\#6653](https://github.com/primefaces/primevue/issues/6653)
+-   Size prop support for more components [\#6651](https://github.com/primefaces/primevue/issues/6651)
+-   RTL support for Panel components [\#6647](https://github.com/primefaces/primevue/issues/6647)
+-   RTL support for Form components [\#6636](https://github.com/primefaces/primevue/issues/6636)
+-   RTL support for showcase [\#6635](https://github.com/primefaces/primevue/issues/6635)
+-   Check form components affected by p-invalid class[\#6631](https://github.com/primefaces/primevue/issues/6631)
+-   New Component: CheckboxGroup [\#6613](https://github.com/primefaces/primevue/issues/6613)
+-   New Component: RadioButtonGroup [\#6612](https://github.com/primefaces/primevue/issues/6612)
+-   Add form support to components [\#6603](https://github.com/primefaces/primevue/issues/6603)
+-   Add an uncontrolled structure to components [\#6602](https://github.com/primefaces/primevue/issues/6602)
+-   New Component: Form [\#6601](https://github.com/primefaces/primevue/issues/6601)
+-   ContextMenu: Y axis collision detection not working for submenus [\#6348](https://github.com/primefaces/primevue/issues/6348)
+
 ## [4.1.1](https://github.com/primefaces/primevue/tree/4.1.1) (2024-10-16)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.1.0...4.1.1)
