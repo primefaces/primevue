@@ -218,9 +218,14 @@ function addUseForm() {
     ENTRY.format.es({ input: process.env.INPUT_DIR + 'useform/index.js', output: process.env.OUTPUT_DIR + 'useform/index' });
 }
 
+function addLibrary() {
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'index.js', output: process.env.OUTPUT_DIR + 'index' });
+}
+
 addFile();
 addStyle();
 addResolvers();
 addUseForm();
+addLibrary();
 
 export default ENTRY.entries;
