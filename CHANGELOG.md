@@ -9,7 +9,7 @@
 - Forms: Incorrect main/module/exports error when importing [\#6709](https://github.com/primefaces/primevue/issues/6709)
 - Forms: Could not resolve "valibot" [\#6708](https://github.com/primefaces/primevue/issues/6708)
 
-## [4.2.0](https://github.com/primefaces/primevue/tree/4.2.0) (2024-10-31)
+## [4.2.0](https://github.com/primefaces/primevue/tree/4.2.0) (2024-11-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.1.1...4.2.0)
 
