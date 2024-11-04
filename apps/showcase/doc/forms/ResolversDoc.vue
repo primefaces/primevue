@@ -41,7 +41,7 @@
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
-    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
+    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8', yup: '1.4.0', valibot: '0.42.1', superstruct: '2.0.2' }" />
 </template>
 
 <script>
