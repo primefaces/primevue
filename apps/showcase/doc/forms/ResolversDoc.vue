@@ -41,11 +41,14 @@
             <Button type="submit" severity="secondary" label="Submit" />
         </Form>
     </div>
-    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8' }" />
+    <DocSectionCode :code="code" :dependencies="{ zod: '3.23.8', yup: '1.4.0', valibot: '0.42.1', superstruct: '2.0.2' }" />
 </template>
 
 <script>
-import { superStructResolver, valibotResolver, yupResolver, zodResolver } from '@primevue/forms/resolvers';
+import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
+import { valibotResolver } from '@primevue/forms/resolvers/valibot';
+import { yupResolver } from '@primevue/forms/resolvers/yup';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';
@@ -114,7 +117,10 @@ export default {
 </template>
 
 <script>
-import { superStructResolver, valibotResolver, yupResolver, zodResolver } from '@primevue/forms/resolvers';
+import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
+import { valibotResolver } from '@primevue/forms/resolvers/valibot';
+import { yupResolver } from '@primevue/forms/resolvers/yup';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';
@@ -225,7 +231,10 @@ export default {
 
 <script setup>
 import { ref, watch } from 'vue';
-import { superStructResolver, valibotResolver, yupResolver, zodResolver } from '@primevue/forms/resolvers';
+import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
+import { valibotResolver } from '@primevue/forms/resolvers/valibot';
+import { yupResolver } from '@primevue/forms/resolvers/yup';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';

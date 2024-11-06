@@ -9,16 +9,7 @@
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import { Component, VNode } from 'vue';
-
-/**
- * From primevue/passthrough/index.d.ts
- */
-export declare type PassThroughMergePropsType = ((...args: any) => object | undefined) | boolean | undefined;
-
-export interface PassThroughOptions {
-    mergeSections?: boolean | undefined;
-    mergeProps?: PassThroughMergePropsType;
-}
+import type { PassThroughOptions } from '../types';
 
 export declare type FormFieldPassThroughOptionType = FormFieldPassThroughAttributes | ((options: FormFieldPassThroughMethodOptions) => FormFieldPassThroughAttributes | string) | string | null | undefined;
 

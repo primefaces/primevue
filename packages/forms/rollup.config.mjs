@@ -43,7 +43,6 @@ const ALIAS_ENTRIES = [
             return targetFile ? path.join(folderPath, targetFile) : null;
         }
     },
-    { find: '@primevue/forms/resolvers', replacement: path.resolve(__dirname, './src/resolvers/index.js') },
     { find: '@primevue/forms/useform', replacement: path.resolve(__dirname, './src/useform/index.js') }
 ];
 
@@ -211,7 +210,20 @@ function addStyle() {
 }
 
 function addResolvers() {
-    ENTRY.format.es({ input: process.env.INPUT_DIR + 'resolvers/index.js', output: process.env.OUTPUT_DIR + 'resolvers/index' });
+    fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR + 'resolvers'), { withFileTypes: true })
+        .filter((dir) => dir.isDirectory())
+        .forEach(({ name: folderName }) => {
+            fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR + 'resolvers/' + folderName)).forEach((file) => {
+                let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase();
+
+                if (name === 'index') {
+                    const input = process.env.INPUT_DIR + 'resolvers/' + folderName + '/' + file;
+                    const output = process.env.OUTPUT_DIR + 'resolvers/' + folderName + '/index';
+
+                    ENTRY.format.es({ input, output });
+                }
+            });
+        });
 }
 
 function addUseForm() {
