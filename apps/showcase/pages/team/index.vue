@@ -53,11 +53,6 @@
                     <span>UI/UX Designer</span>
                 </div>
                 <div class="flex flex-col items-center flex-auto">
-                    <img src="https://primefaces.org/cdn/primevue/images/team/toprak.jpg" class="rounded-full mb-6" alt="Toprak Koç" />
-                    <span class="mb-2 text-xl font-bold">Toprak Koç</span>
-                    <span>Front-End Developer</span>
-                </div>
-                <div class="flex flex-col items-center flex-auto">
                     <img src="https://primefaces.org/cdn/primevue/images/team/mehmet.jpg" class="rounded-full mb-6" alt="Mehmet Çetin" />
                     <span class="mb-2 text-xl font-bold">Mehmet Çetin</span>
                     <span>Front-End Developer</span>
