@@ -1,6 +1,7 @@
 {
-    "id": 70,
-    "content": "v4.2.0 is out with the Forms library",
+    "id": 71,
+    "content": "Figma UI Kit v3 is out! 🚀",
     "linkText": "Learn More",
-    "linkHref": "https://primevue.org/forms"
+    "linkHref": "https://primevue.org/uikit",
+    "target": "_self"
 }

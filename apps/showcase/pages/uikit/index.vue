@@ -133,6 +133,8 @@
                 <a
                     href="https://www.figma.com/design/G855HjuSyK8viJr0a5ZjRG/Preview-%7C%C2%A0PrimeOne-%7C-3.0.1?node-id=830-41631&t=m1MbOTTqKsBSRBLS-1"
                     class="p-8 w-full md:w-6/12 bg-white flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style="border-radius: 50px"
                 >
                     <span class="text-gray-900 text-4xl font-bold mb-8">Preview Light</span>
@@ -141,6 +143,8 @@
                 <a
                     href="https://www.figma.com/design/XBQzDl4vDOO0pyxEGYcICt/Preview-%7C%C2%A0Dark-%7C-PrimeOne-%7C-3.0.1?node-id=806-36648&t=7AME0kw905t3PVVY-1"
                     class="p-8 w-full md:w-6/12 bg-gray-900 flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style="border-radius: 50px"
                 >
                     <span class="text-white text-4xl font-bold mb-8">Preview Dark</span>
