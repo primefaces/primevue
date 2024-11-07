@@ -530,7 +530,8 @@
         {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
-            "to": "/uikit"
+            "to": "/uikit",
+            "badge": "NEW"
         },
         {
             "name": "Templates",
