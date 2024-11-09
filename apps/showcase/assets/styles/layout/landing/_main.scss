@@ -9,7 +9,7 @@
         background-color: var(--card-background);
         position: relative;
         z-index: 0;
-        
+
         &::before,
         &::after {
             content: "";
@@ -25,7 +25,7 @@
             opacity: 0;
             z-index: -1;
         }
-        
+
         &::after {
             animation: clippath 3s infinite -1.5s linear;
         }
@@ -48,7 +48,6 @@
         border-radius: 10px;
         font-weight: 600;
         padding: 1rem 1.5rem;
-        
         cursor: pointer;
         @include focus-visible();
 
@@ -168,7 +167,7 @@
     100% {
         clip-path: inset(0 0 98% 0);
     }
-    
+
     25% {
         clip-path: inset(0 98% 0 0);
     }
