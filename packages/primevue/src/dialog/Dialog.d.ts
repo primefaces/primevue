@@ -143,7 +143,7 @@ export interface DialogBreakpoints {
      *
      * Example:
      *
-     * <Dialog :breakpoints="{'960px': '75vw', '640px': '100vw'}" ... />
+     * <Dialog :breakpoints="{'1024px': '75vw', '640px': '100vw'}" ... />
      *
      * Result:
      *

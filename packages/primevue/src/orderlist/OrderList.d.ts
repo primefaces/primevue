@@ -210,7 +210,7 @@ export interface OrderListProps {
     responsive?: boolean | undefined;
     /**
      * The breakpoint to define the maximum width boundary when responsiveness is enabled.
-     * @defaultValue 960px
+     * @defaultValue 1024px
      */
     breakpoint?: string | undefined;
     /**

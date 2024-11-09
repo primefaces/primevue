@@ -1161,7 +1161,7 @@ export interface DataTableProps {
     frozenValue?: any[] | undefined | null;
     /**
      * The breakpoint to define the maximum width boundary when using stack responsive layout.
-     * @defaultValue 960px
+     * @defaultValue 1024px
      */
     breakpoint?: string | undefined;
     /**

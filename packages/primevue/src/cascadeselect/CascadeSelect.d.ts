@@ -305,7 +305,7 @@ export interface CascadeSelectProps {
     placeholder?: string | undefined;
     /**
      * The breakpoint to define the maximum width boundary.
-     * @defaultValue 960px
+     * @defaultValue 1024px
      */
     breakpoint?: string | undefined;
     /**

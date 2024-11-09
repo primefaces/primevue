@@ -236,7 +236,7 @@ export default {
         },
         breakpoint: {
             type: String,
-            default: '960px'
+            default: '1024px'
         },
         showHeaders: {
             type: Boolean,

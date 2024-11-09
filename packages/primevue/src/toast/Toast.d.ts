@@ -158,7 +158,7 @@ export interface ToastBreakpointsType {
      *
      * Example:
      *
-     * <Toast :breakpoints="{'960px': { width: '75vw', ... }" ... />
+     * <Toast :breakpoints="{'1024px': { width: '75vw', ... }" ... />
      *
      */
     [key: string]: any;

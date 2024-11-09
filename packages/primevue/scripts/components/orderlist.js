@@ -45,7 +45,7 @@ const OrderListProps = [
     {
         name: 'breakpoint',
         type: 'string',
-        default: '960px',
+        default: '1024px',
         description: 'The breakpoint to define the maximum width boundary when responsiveness is enabled.'
     },
     {

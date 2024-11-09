@@ -149,7 +149,7 @@ export interface ConfirmDialogBreakpoints {
      *
      * Example:
      *
-     * <ConfirmDialog :breakpoints="{'960px': '75vw', '640px': '100vw'}" ... />
+     * <ConfirmDialog :breakpoints="{'1024px': '75vw', '640px': '100vw'}" ... />
      *
      * Result:
      *

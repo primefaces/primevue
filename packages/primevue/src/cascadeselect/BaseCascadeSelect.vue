@@ -15,7 +15,7 @@ export default {
         placeholder: String,
         breakpoint: {
             type: String,
-            default: '960px'
+            default: '1024px'
         },
         dataKey: null,
         showClear: {
