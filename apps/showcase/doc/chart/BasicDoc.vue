@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
+import EventBus from '@/app/AppEventBus';
 
 export default {
     redrawListener: null,

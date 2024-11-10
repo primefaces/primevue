@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
+import EventBus from '@/app/AppEventBus';
 import { $t, updatePreset, updateSurfacePalette } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara';

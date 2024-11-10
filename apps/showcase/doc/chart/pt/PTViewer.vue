@@ -5,8 +5,8 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
 import { getPTOptions } from '@/components/doc/helpers';
-import EventBus from '@/layouts/AppEventBus';
 
 export default {
     data() {

@@ -131,8 +131,7 @@
 </template>
 
 <script>
-import AppConfigurator from '@/layouts/AppConfigurator';
-import EventBus from '@/layouts/AppEventBus';
+import EventBus from '@/app/AppEventBus';
 import docsearch from '@docsearch/js';
 
 export default {
@@ -246,9 +245,6 @@ export default {
         toggleDesigner() {
             this.$appState.designerActive = !this.$appState.designerActive;
         }
-    },
-    components: {
-        AppConfigurator
     }
 };
 </script>
