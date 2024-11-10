@@ -6,9 +6,7 @@
                     <span class="text-sm capitalize block w-20">{{ key }}</span>
                     <input :value="$preset.primitive[key]['500']" @input="onColorChange($event, key)" type="color" />
                 </div>
-                <div class="flex border border-surface">
-                    <div v-for="color of $preset.primitive[key]" :key="color" class="w-4 h-4 sm:w-8 sm:h-8" :style="{ backgroundColor: color }" :title="color"></div>
-                </div>
+                <DesignColorPalette :value="$preset.primitive[key]" />
             </section>
         </template>
     </Fieldset>

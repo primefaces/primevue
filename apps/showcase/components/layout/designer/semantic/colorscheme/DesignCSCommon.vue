@@ -5,9 +5,7 @@
                 <span class="text-sm">Surface</span>
                 <input :value="$colorScheme.surface['500']" @input="onSurfaceColorChange($event)" type="color" />
             </div>
-            <div class="flex border border-surface">
-                <div v-for="color of $colorScheme.surface" :key="color" class="w-4 h-4 sm:w-8 sm:h-8" :style="{ backgroundColor: color }" :title="color"></div>
-            </div>
+            <DesignColorPalette :value="$colorScheme.surface" />
         </section>
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Typography</div>
         <section class="grid grid-cols-4 mb-3 gap-2">
@@ -106,7 +104,7 @@ export default {
     inject: ['$colorScheme'],
     methods: {
         onSurfaceColorChange(event) {
-            this.$colorScheme.surface = palette(event.target.value);
+            this.$colorScheme.surface = { ...{ 0: 'ffffff' }, ...palette(event.target.value) };
         }
     }
 };

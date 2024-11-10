@@ -5,9 +5,7 @@
                 <span class="text-sm">Primary</span>
                 <input :value="$preset.semantic.primary['500']" @input="onPrimaryColorChange($event)" type="color" />
             </div>
-            <div class="flex border border-surface">
-                <div v-for="color of $preset.semantic.primary" :key="color" class="w-4 h-4 sm:w-8 sm:h-8" :style="{ backgroundColor: color }" :title="color"></div>
-            </div>
+            <DesignColorPalette :value="$preset.semantic.primary" />
         </section>
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
