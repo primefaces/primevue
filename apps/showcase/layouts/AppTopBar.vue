@@ -95,6 +95,11 @@
                     <AppConfigurator />
                 </li>
                 <li>
+                    <button type="button" class="topbar-item" @click="toggleDesigner">
+                        <i class="pi pi-pencil"></i>
+                    </button>
+                </li>
+                <li>
                     <button
                         v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
                         type="button"
@@ -237,6 +242,9 @@ export default {
         },
         containerRef(el) {
             this.container = el;
+        },
+        toggleDesigner() {
+            this.$appState.designerActive = !this.$appState.designerActive;
         }
     },
     components: {
