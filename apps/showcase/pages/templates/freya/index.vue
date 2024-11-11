@@ -44,7 +44,7 @@ export default {
                             license: {
                                 documentLink: 'https://freya.primevue.org/documentation',
                                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
-                                showDiscount: false,
+                                showDiscount: true,
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
