@@ -91,17 +91,11 @@ const theme = ({ dt }) => `
     max-width: ${dt('paginator.jump.to.page.input.max.width')};
 }
 
-.p-paginator-first:dir(rtl) {
-    order: 2;
-}
-.p-paginator-prev:dir(rtl) {
-    order: 1;
-}
-.p-paginator-next:dir(rtl) {
-    order: -1;
-}
+.p-paginator-first:dir(rtl),
+.p-paginator-prev:dir(rtl),
+.p-paginator-next:dir(rtl),
 .p-paginator-last:dir(rtl) {
-    order: -2;
+    transform: rotate(180deg);
 }
 `;
 
