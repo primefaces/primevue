@@ -18,7 +18,7 @@
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
                         <div class="text-5xl font-bold mb-4">Best Features of Figma</div>
-                        <p class="mb-4 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles and interactive components. It'll always follow the best practices.</p>
+                        <p class="mb-4 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles, variables and interactive components. It'll always follow the best practices.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
@@ -31,7 +31,7 @@
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Styles</span>
+                                <span class="font-bold">Variables and Styles</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
@@ -84,16 +84,16 @@
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
                         <div class="text-5xl font-bold mb-4">Two Themes</div>
-                        <p class="mb-4 text-lg">PrimeOne is designed based on Lara Blue Light and Lara Blue Dark themes. Easily change the themes of your designs using Figma's Swap Library feature.</p>
+                        <p class="mb-4 text-lg">PrimeOne is designed based on Aura Light and Aura Dark themes. Easily change the themes of your designs using Figma's Swap Library feature or Tokens Studio Sets.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Lara Light</span>
+                                <span class="font-bold">Aura Light</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Lara Dark</span>
+                                <span class="font-bold">Aura Dark</span>
                             </li>
                         </ul>
                     </div>
@@ -113,9 +113,13 @@
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Light and Dark Sets</span>
                             </li>
-                            <li class="flex items-center w-full p-4">
+                            <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Well Documented</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Primitive, Semantic and Component Tokens</span>
                             </li>
                         </ul>
                     </div>
@@ -125,18 +129,22 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-6 md:gap-20 mb-8">
+            <div class="flex flex-col md:flex-row gap-6 md:gap-6 mb-8">
                 <a
-                    href="https://www.figma.com/file/96Tql1EywmMtVlSFTkQ2MB/Preview-%7C-PrimeOne-%7C-2.2.0?type=design&node-id=806%3A36648&mode=design&t=CPR8n1g9WLc5D2Hs-1"
+                    href="https://www.figma.com/design/G855HjuSyK8viJr0a5ZjRG/Preview-%7C%C2%A0PrimeOne-%7C-3.0.1?node-id=830-41631&t=m1MbOTTqKsBSRBLS-1"
                     class="p-8 w-full md:w-6/12 bg-white flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style="border-radius: 50px"
                 >
                     <span class="text-gray-900 text-4xl font-bold mb-8">Preview Light</span>
                     <img alt="Figma Light" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-16" />
                 </a>
                 <a
-                    href="https://www.figma.com/file/ujRD6FFCWw1bE0h4wIebxl/Preview-%7C-Dark-%7C-PrimeOne-%7C-2.2.0?type=design&node-id=806%3A36648&mode=design&t=bG7aorZhOFIqX1qz-1"
+                    href="https://www.figma.com/design/XBQzDl4vDOO0pyxEGYcICt/Preview-%7C%C2%A0Dark-%7C-PrimeOne-%7C-3.0.1?node-id=806-36648&t=7AME0kw905t3PVVY-1"
                     class="p-8 w-full md:w-6/12 bg-gray-900 flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style="border-radius: 50px"
                 >
                     <span class="text-white text-4xl font-bold mb-8">Preview Dark</span>

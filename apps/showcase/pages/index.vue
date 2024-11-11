@@ -20,8 +20,6 @@ import HeroSection from '@/components/landing/HeroSection.vue';
 import TemplateSection from '@/components/landing/TemplateSection.vue';
 import ThemeSection from '@/components/landing/ThemeSection.vue';
 import UsersSection from '@/components/landing/UsersSection.vue';
-import AppNews from '@/layouts/AppNews';
-import AppTopBar from '@/layouts/AppTopBar.vue';
 
 export default {
     setup() {
@@ -52,8 +50,6 @@ export default {
         }
     },
     components: {
-        AppNews,
-        AppTopBar,
         HeroSection,
         ThemeSection,
         BlockSection,

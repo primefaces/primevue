@@ -150,7 +150,7 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
+import EventBus from '@/app/AppEventBus';
 export default {
     name: 'Overview',
     redrawListener: null,

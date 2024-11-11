@@ -1,6 +1,6 @@
 <template>
     <DocPTViewer :docs="docs">
-        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" style="min-width: 14rem" placeholder="Select a City" />
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" showClear style="min-width: 14rem" placeholder="Select a City" />
     </DocPTViewer>
 </template>
 
