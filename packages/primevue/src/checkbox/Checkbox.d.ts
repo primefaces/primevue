@@ -263,6 +263,11 @@ export interface CheckboxEmitsOptions {
      */
     'update:modelValue'(value: any): void;
     /**
+     * Emitted when the "indeterminate" changes.
+     * @param {false} value - New value.
+     */
+    'update:indeterminate'(value: false): void;
+    /**
      * Emitted when the value changes in uncontrolled mode.
      * @param {*} value - New value.
      */
