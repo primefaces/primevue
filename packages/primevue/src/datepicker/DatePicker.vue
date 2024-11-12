@@ -2927,6 +2927,7 @@ export default {
             if (this.currentHour == 0) {
                 return this.currentHour + 12;
             }
+
             return this.currentHour < 10 ? '0' + this.currentHour : this.currentHour;
         },
         formattedCurrentMinute() {
