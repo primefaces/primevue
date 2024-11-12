@@ -54,8 +54,8 @@
         </Tabs>
 
         <template #footer>
-            <div class="flex justify-end gap-2">
-                <Button type="button" label="Download" variant="outlined" />
+            <div class="flex justify-between gap-2">
+                <Button type="button" @click="download" label="Download" variant="outlined" icon="pi pi-download" />
                 <Button type="button" @click="apply" label="Apply" />
             </div>
         </template>
@@ -85,6 +85,38 @@ export default {
     methods: {
         apply() {
             updatePreset(this.preset);
+        },
+        download() {
+            const theme = JSON.stringify(this.preset, null, 4).replace(/"([^"]+)":/g, '$1:');
+            const textContent = `import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+import Aura from "@primevue/themes/aura";
+import { definePreset } from "@primevue/themes";
+
+const app = createApp(App);
+
+const MyPreset = definePreset(Aura, ${theme});
+
+app.use(PrimeVue, {
+    theme: {
+        preset: MyPreset
+    },
+});
+app.mount("#app");
+`;
+            const blob = new Blob([textContent], { type: 'text/plain' });
+
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+
+            a.href = url;
+            a.download = 'mytheme.js';
+            document.body.appendChild(a);
+            a.click();
+
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     }
 };
