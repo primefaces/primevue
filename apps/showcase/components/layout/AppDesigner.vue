@@ -6,6 +6,7 @@
                 <Tab value="1">Primitive</Tab>
                 <Tab value="2">Semantic</Tab>
                 <Tab value="3">Component</Tab>
+                <Tab value="4">Custom</Tab>
             </TabList>
             <TabPanels class="!px-0">
                 <TabPanel value="0">
@@ -75,7 +76,47 @@
                         </AccordionPanel>
                     </Accordion>
                 </TabPanel>
-                <TabPanel value="3"> <div class="p-4">Component tokens are not supported by the Visual Editor at the moment.</div></TabPanel>
+                <TabPanel value="3">Component tokens are not supported by the Visual Editor at the moment.</TabPanel>
+                <TabPanel value="4">
+                    <span class="leading-6">Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field.</span>
+                    <ul class="flex flex-col gap-4 list-none p-0 mx-0 my-4">
+                        <li v-for="(token, index) of customTokens" :key="index" class="first:border-t border-b border-surface-200 dark:border-surface-300 py-2">
+                            <div class="flex items-center gap-4">
+                                <label class="flex items-center gap-2 flex-auto">
+                                    <span class="text-sm">Name</span>
+                                    <input v-model="token['name']" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full" />
+                                </label>
+                                <label class="flex items-center gap-2 flex-auto">
+                                    <span class="text-sm">Value</span>
+                                    <input v-model="token['value']" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full" />
+                                </label>
+                                <button
+                                    type="button"
+                                    @click="removeToken(index)"
+                                    class="cursor-pointer inline-flex items-center justify-center ms-auto w-8 h-8 rounded-full bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-400/10 dark:hover:bg-red-400/20 dark:text-red-400 transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-red-600 focus-visible:dark:outline-red-400"
+                                >
+                                    <i class="pi pi-times" />
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="flex justify-between">
+                        <button
+                            type="button"
+                            @click="addToken"
+                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                        >
+                            Add New
+                        </button>
+                        <button
+                            type="button"
+                            @click="saveTokens"
+                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                        >
+                            Save
+                        </button>
+                    </div>
+                </TabPanel>
             </TabPanels>
         </Tabs>
 
@@ -134,8 +175,7 @@ export default {
                 { label: 'Lara', value: 'Lara' },
                 { label: 'Nora', value: 'Nora' }
             ],
-            customThemes: {},
-            newThemeName: null
+            customTokens: []
         };
     },
     mounted() {
@@ -146,7 +186,6 @@ export default {
     methods: {
         apply() {
             this.saveTheme();
-            console.log(this.preset);
             updatePreset(this.preset);
         },
         download() {
@@ -210,9 +249,35 @@ app.mount("#app");
             const savedTheme = localStorage.getItem(this.$appState.designerKey);
 
             if (savedTheme) {
-                this.preset = JSON.parse(savedTheme).defaultTheme;
+                const loadedThemeState = JSON.parse(savedTheme);
+
+                this.preset = loadedThemeState.defaultTheme;
+                this.customTokens = loadedThemeState.customTokens;
                 this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
             }
+        },
+        addToken() {
+            this.customTokens = [...this.customTokens, ...[{}]];
+        },
+        removeToken(index) {
+            this.customTokens.splice(index, 1);
+        },
+        saveTokens() {
+            const themeRecordState = localStorage.getItem(this.$appState.designerKey);
+            let themeRecord = null;
+
+            if (themeRecordState) {
+                themeRecord = JSON.parse(themeRecordState);
+                themeRecord.customTokens = this.customTokens;
+            } else {
+                themeRecord = {
+                    customTokens: this.customTokens
+                };
+            }
+
+            localStorage.setItem(this.$appState.designerKey, JSON.stringify(themeRecord));
+
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         }
     }
 };
