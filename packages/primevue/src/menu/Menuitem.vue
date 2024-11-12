@@ -83,8 +83,7 @@ export default {
                 action: mergeProps(
                     {
                         class: this.cx('itemLink'),
-                        tabindex: '-1',
-                        'aria-hidden': true
+                        tabindex: '-1'
                     },
                     this.getPTOptions('itemLink')
                 ),
