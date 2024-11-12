@@ -387,8 +387,9 @@ export default {
             let selectionEnd = event.target.selectionEnd;
             let inputValue = event.target.value;
             let newValueStr = null;
+            const code = event.code || event.key;
 
-            switch (event.code) {
+            switch (code) {
                 case 'ArrowUp':
                     this.spin(event, 1);
                     event.preventDefault();
