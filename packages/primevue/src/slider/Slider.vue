@@ -375,12 +375,16 @@ export default {
             else return ((this.value - this.min) * 100) / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.value && this.value[0]) return ((this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100) / (this.max - this.min);
-            else return 0;
+            if (this.value && this.value[0] !== undefined) {
+                if (this.value[0] < this.min) return 0;
+                else return ((this.value[0] - this.min) * 100) / (this.max - this.min);
+            } else return 0;
         },
         rangeEndPosition() {
-            if (this.value && this.value.length === 2) return ((this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100) / (this.max - this.min);
-            else return 100;
+            if (this.value && this.value.length === 2 && this.value[1] !== undefined) {
+                if (this.value[1] > this.max) return 100;
+                else return ((this.value[1] - this.min) * 100) / (this.max - this.min);
+            } else return 100;
         }
     }
 };
