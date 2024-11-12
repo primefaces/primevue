@@ -13,17 +13,23 @@
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
                             <span class="font-semibold">Built-in Themes</span>
+                            <span class="text-muted-color">Four alternatives to choose from.</span>
                             <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
                         </div>
                         <Divider>OR</Divider>
-                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
-                            <span class="font-semibold">Import Figma Tokens</span>
-                            <input type="file" />
+                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4 items-start">
+                            <span class="font-semibold">Load Theme</span>
+                            <span class="text-muted-color">Continue editing the theme files stored locally.</span>
+                            <Button label="Restore from local storage" class="!px-3 !py-2" severity="secondary" @click="loadFromLocalStorage" />
                         </div>
                         <Divider>OR</Divider>
-                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4 items-start">
-                            <span class="font-semibold">Saved Theme</span>
-                            <Button icon="pi pi-upload" label="Load" class="!px-3 !py-2" severity="secondary" />
+                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
+                            <div class="flex items-center gap-4">
+                                <span class="font-semibold">Import Figma Tokens </span>
+                                <Tag value="PRO" severity="contrast"></Tag>
+                            </div>
+                            <span class="text-muted-color leading-6">Export the token studio json file and import to the Visual Editor. This feature is currently under development.</span>
+                            <FileUpload mode="basic" disabled pt:root:class="!justify-start" />
                         </div>
                     </div>
                 </TabPanel>
@@ -120,18 +126,9 @@ export default {
         };
     },
     mounted() {
-        const savedTheme = localStorage.getItem(this.$appState.designerKey);
-
-        if (savedTheme) {
-            this.preset = JSON.parse(savedTheme).defaultTheme;
-            setTimeout(() => {
-                usePreset(this.preset);
-            }, 2000);
-        } else {
-            this.preset.semantic.primary = this.preset.primitive.emerald;
-            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
-            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
-        }
+        this.preset.semantic.primary = this.preset.primitive.emerald;
+        this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
+        this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
     },
     methods: {
         apply() {
@@ -194,6 +191,14 @@ app.mount("#app");
             };
 
             localStorage.setItem(this.$appState.designerKey, JSON.stringify(themeRecord));
+        },
+        loadFromLocalStorage() {
+            const savedTheme = localStorage.getItem(this.$appState.designerKey);
+
+            if (savedTheme) {
+                this.preset = JSON.parse(savedTheme).defaultTheme;
+                this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
+            }
         }
     }
 };

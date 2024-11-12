@@ -9,28 +9,22 @@
         </section>
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Transition Duration</span>
-                <input v-model="$preset.semantic.transitionDuration" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.transitionDuration" label="Transition Duration" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Disabled Opacity</span>
-                <input v-model="$preset.semantic.disabledOpacity" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.disabledOpacity" label="Disabled Opacity" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Icon Size</span>
-                <input v-model="$preset.semantic.iconSize" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.iconSize" label="Icon Size" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Anchor Gutter</span>
-                <input v-model="$preset.semantic.anchorGutter" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.anchorGutter" label="Anchor Gutter" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Border Radius</span>
-                <input v-model="$preset.semantic.content.borderRadius" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.content.borderRadius" label="Border Radius" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Mask Transition Dur.</span>
-                <input v-model="$preset.semantic.mask.transitionDuration" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.mask.transitionDuration" label="Mask Transition Dur." />
             </div>
             <div class="flex flex-col gap-1"></div>
             <div class="flex flex-col gap-1"></div>
@@ -39,19 +33,16 @@
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Focus Ring</div>
         <section class="grid grid-cols-4 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Width</span>
-                <input v-model="$preset.semantic.focusRing.width" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.focusRing.width" label="Width" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Style</span>
-                <input v-model="$preset.semantic.focusRing.style" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.focusRing.style" label="Style" />
             </div>
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$preset.semantic.focusRing.color" label="Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Offset</span>
-                <input v-model="$preset.semantic.focusRing.offset" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.focusRing.offset" label="Offset" />
             </div>
         </section>
     </Fieldset>
