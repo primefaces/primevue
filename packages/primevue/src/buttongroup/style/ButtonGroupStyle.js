@@ -1,6 +1,10 @@
 import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
+.p-buttongroup {
+    display: inline-flex;
+}
+
 .p-buttongroup .p-button {
     margin: 0;
 }
