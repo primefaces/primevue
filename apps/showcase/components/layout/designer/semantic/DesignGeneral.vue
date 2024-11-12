@@ -29,7 +29,7 @@
                 <input v-model="$preset.semantic.content.borderRadius" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Mask Transition Duration</span>
+                <span class="text-sm">Mask Transition Dur.</span>
                 <input v-model="$preset.semantic.mask.transitionDuration" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
             </div>
             <div class="flex flex-col gap-1"></div>
@@ -47,8 +47,7 @@
                 <input v-model="$preset.semantic.focusRing.style" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Color</span>
-                <input v-model="$preset.semantic.focusRing.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$preset.semantic.focusRing.color" label="Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
                 <span class="text-sm">Offset</span>
