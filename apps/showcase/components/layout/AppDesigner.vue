@@ -182,7 +182,7 @@ export default {
     },
     mounted() {
         this.replaceColorPalette();
-        this.generateACTokens();
+        this.generateACTokens(null, this.preset);
     },
     methods: {
         apply() {
@@ -270,6 +270,8 @@ app.mount("#app");
 
                     if (defaultTheme.customTokens) {
                         this.customTokens = defaultTheme.customTokens;
+                        this.acTokens = [];
+                        this.generateACTokens(null, this.preset);
                     }
 
                     this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
@@ -310,8 +312,25 @@ app.mount("#app");
                 return name;
             }
         },
-        generateACTokens() {
-            //@TODO: parse preset to generate tokens
+        camelCaseToDotCase(name) {
+            return '{' + name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase() + '}';
+        },
+        generateACTokens(parentPath, obj) {
+            for (let key in obj) {
+                if (key === 'dark') {
+                    continue;
+                }
+
+                if (key === 'primitive' || key === 'semantic' || key === 'colorScheme' || key === 'light' || key === 'extend') {
+                    this.generateACTokens(null, obj[key]);
+                } else {
+                    if (typeof obj[key] === 'object') {
+                        this.generateACTokens(parentPath ? parentPath + '.' + key : key, obj[key]);
+                    } else {
+                        this.acTokens.push(this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key));
+                    }
+                }
+            }
         }
     }
 };
