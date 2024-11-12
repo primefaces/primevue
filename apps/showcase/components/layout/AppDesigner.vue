@@ -160,7 +160,8 @@ const presets = {
 export default {
     provide() {
         return {
-            $preset: computed(() => this.preset)
+            $preset: computed(() => this.preset),
+            $acTokens: computed(() => this.acTokens)
         };
     },
     data() {
@@ -175,11 +176,13 @@ export default {
                 { label: 'Lara', value: 'Lara' },
                 { label: 'Nora', value: 'Nora' }
             ],
-            customTokens: []
+            customTokens: [],
+            acTokens: []
         };
     },
     mounted() {
         this.replaceColorPalette();
+        this.generateACTokens();
     },
     methods: {
         apply() {
@@ -306,6 +309,9 @@ app.mount("#app");
             } else {
                 return name;
             }
+        },
+        generateACTokens() {
+            //@TODO: parse preset to generate tokens
         }
     }
 };

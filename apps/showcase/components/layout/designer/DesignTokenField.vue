@@ -26,46 +26,6 @@
 <script>
 import { $dt } from '@primevue/themes';
 
-const tokens = [
-    '{primary.color}',
-    '{primary.contrast.color}',
-    '{primary.hover.color}',
-    '{primary.active.color}',
-    '{highlight.background}',
-    '{highlight.focus.background}',
-    '{highlight.color}',
-    '{highlight.focus.color}',
-    '{primary.50}',
-    '{primary.100}',
-    '{primary.200}',
-    '{primary.300}',
-    '{primary.400}',
-    '{primary.500}',
-    '{primary.600}',
-    '{primary.700}',
-    '{primary.800}',
-    '{primary.900}',
-    '{primary.950}',
-    '{surface.0}',
-    '{surface.50}',
-    '{surface.100}',
-    '{surface.200}',
-    '{surface.300}',
-    '{surface.400}',
-    '{surface.500}',
-    '{surface.600}',
-    '{surface.700}',
-    '{surface.800}',
-    '{surface.900}',
-    '{surface.950}',
-    '{border.radius.none}',
-    '{border.radius.xs}',
-    '{border.radius.sm}',
-    '{border.radius.md}',
-    '{border.radius.lg}',
-    '{border.radius.xl}'
-];
-
 export default {
     emits: ['update:modelValue'],
     props: {
@@ -82,6 +42,7 @@ export default {
             default: undefined
         }
     },
+    inject: ['$acTokens'],
     data() {
         return {
             items: []
@@ -98,7 +59,7 @@ export default {
             const query = event.query;
 
             if (query.startsWith('{')) {
-                this.items = tokens.filter((t) => t.startsWith(query));
+                this.items = this.$acTokens.filter((t) => t.startsWith(query));
             } else {
                 this.items = [];
             }
