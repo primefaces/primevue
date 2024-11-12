@@ -1,0 +1,22 @@
+.designer {
+    [type='color'] {
+        margin-top: -4px;
+        border: 0 none;
+        padding: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 28px;
+        height: 28px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    
+    [type='color']::-webkit-color-swatch {
+        border-radius: 4px;
+        width: 24px;
+        height: 24px;
+        border: 0 none;
+    }
+}

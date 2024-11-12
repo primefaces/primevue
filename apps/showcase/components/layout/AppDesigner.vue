@@ -1,5 +1,5 @@
 <template>
-    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="!w-screen md:!w-[60rem]" :modal="false">
+    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false">
         <Tabs value="0">
             <TabList>
                 <Tab value="0">Primitive</Tab>
@@ -49,7 +49,7 @@
                         </AccordionPanel>
                     </Accordion>
                 </TabPanel>
-                <TabPanel value="2"> Component tokens are not supported by the Visual Editor at the moment. </TabPanel>
+                <TabPanel value="2"> <div class="p-4">Component tokens are not supported by the Visual Editor at the moment.</div></TabPanel>
             </TabPanels>
         </Tabs>
 
@@ -64,7 +64,7 @@
 
 <script>
 import { updatePreset } from '@primevue/themes';
-import AuraBase from '@primevue/themes/nora/base';
+import AuraBase from '@primevue/themes/aura/base';
 
 export default {
     provide() {

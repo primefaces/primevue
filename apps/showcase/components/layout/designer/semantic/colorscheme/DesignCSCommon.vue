@@ -10,88 +10,69 @@
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Typography</div>
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Text Color</span>
-                <input v-model="$colorScheme.text.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.text.color" label="Text" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Text Hover Color</span>
-                <input v-model="$colorScheme.text.hoverColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.text.hoverColor" label="Text Hover" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Text Muted Color</span>
-                <input v-model="$colorScheme.text.mutedColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.text.mutedColor" label="Text Muted" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Text Hover Muted Color</span>
-                <input v-model="$colorScheme.text.hoverMutedColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.text.hoverMutedColor" label="Text Hover Muted" type="color" />
             </div>
         </section>
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Content Background</span>
-                <input v-model="$colorScheme.content.background" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.content.background" label="Content BG" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Content Hover Background</span>
-                <input v-model="$colorScheme.content.hoverBackground" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.content.hoverBackground" label="Content Hover BG" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Content Border Color</span>
-                <input v-model="$colorScheme.content.borderColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.content.borderColor" label="Content Border Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Content Color</span>
-                <input v-model="$colorScheme.content.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.content.color" label="Content Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Content Hover Color</span>
-                <input v-model="$colorScheme.content.hoverColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.content.hoverColor" label="Content Hover Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Mask Background</span>
-                <input v-model="$colorScheme.mask.background" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.mask.background" label="Mask BG" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Mask Color</span>
-                <input v-model="$colorScheme.mask.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.mask.color" label="Mask Color" type="color" />
             </div>
         </section>
 
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Accent</div>
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Primary</span>
-                <input v-model="$colorScheme.primary.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.primary.color" label="Primary" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Primary Contrast</span>
-                <input v-model="$colorScheme.primary.contrastColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.primary.contrastColor" label="Primary Contrast" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Primary Hover</span>
-                <input v-model="$colorScheme.primary.hoverColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.primary.hoverColor" label="Primary Hover" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Primary Active</span>
-                <input v-model="$colorScheme.primary.activeColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.primary.activeColor" label="Primary Active" type="color" />
             </div>
         </section>
         <section class="grid grid-cols-4 gap-2">
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Highlight Background</span>
-                <input v-model="$colorScheme.highlight.background" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.highlight.background" label="Highlight BG" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Highlight Color</span>
-                <input v-model="$colorScheme.highlight.color" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.highlight.color" label="Highlight Color" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Highlight Focus Background</span>
-                <input v-model="$colorScheme.highlight.focusBackground" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.highlight.focusBackground" label="Highlight Focus BG" type="color" />
             </div>
             <div class="flex flex-col gap-1">
-                <span class="text-sm">Highlight Focus Color</span>
-                <input v-model="$colorScheme.highlight.focusColor" type="text" class="border border-surface-300 dark:border-surface-600 rounded-lg p-2 w-full" />
+                <DesignTokenField v-model="$colorScheme.highlight.focusColor" label="Highlight Focus Color" type="color" />
             </div>
         </section>
     </Fieldset>
@@ -104,7 +85,7 @@ export default {
     inject: ['$colorScheme'],
     methods: {
         onSurfaceColorChange(event) {
-            this.$colorScheme.surface = { ...{ 0: 'ffffff' }, ...palette(event.target.value) };
+            this.$colorScheme.surface = { ...{ 0: '#ffffff' }, ...palette(event.target.value) };
         }
     }
 };
