@@ -3,7 +3,7 @@ export default {
         width: '2.75rem',
         height: '1rem',
         borderRadius: '30px',
-        gap: '0',
+        gap: '0px',
         shadow: 'none',
         focusRing: {
             width: '0',
