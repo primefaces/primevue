@@ -378,15 +378,13 @@ export default {
             if (this.value && this.value[0] !== undefined) {
                 if (this.value[0] < this.min) return 0;
                 else return ((this.value[0] - this.min) * 100) / (this.max - this.min);
-            }
-            else return 0;
+            } else return 0;
         },
         rangeEndPosition() {
             if (this.value && this.value.length === 2 && this.value[1] !== undefined) {
                 if (this.value[1] > this.max) return 100;
                 else return ((this.value[1] - this.min) * 100) / (this.max - this.min);
-            }
-            else return 100;
+            } else return 100;
         }
     }
 };
