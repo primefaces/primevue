@@ -14,6 +14,7 @@ const $appState = {
             newsActive: false,
             announcement: null,
             storageKey: 'primevue',
+            designerKey: 'primevue-designer-theme',
             designerActive: false
         });
     }

@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
     props: {
         value: {
@@ -16,7 +18,7 @@ export default {
     },
     provide() {
         return {
-            $colorScheme: this.value
+            $colorScheme: computed(() => this.value)
         };
     }
 };

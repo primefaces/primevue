@@ -2,18 +2,38 @@
     <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false">
         <Tabs value="0">
             <TabList>
-                <Tab value="0">Primitive</Tab>
-                <Tab value="1">Semantic</Tab>
-                <Tab value="2">Component</Tab>
+                <Tab value="0">Base</Tab>
+                <Tab value="1">Primitive</Tab>
+                <Tab value="2">Semantic</Tab>
+                <Tab value="3">Component</Tab>
             </TabList>
             <TabPanels class="!px-0">
                 <TabPanel value="0">
+                    <div class="text-lg font-semibold mb-4">Choose a Theme to Get Started</div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
+                            <span class="font-semibold">Built-in Themes</span>
+                            <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
+                        </div>
+                        <Divider>OR</Divider>
+                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
+                            <span class="font-semibold">Import Figma Tokens</span>
+                            <input type="file" />
+                        </div>
+                        <Divider>OR</Divider>
+                        <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4 items-start">
+                            <span class="font-semibold">Saved Theme</span>
+                            <Button icon="pi pi-upload" label="Load" class="!px-3 !py-2" severity="secondary" />
+                        </div>
+                    </div>
+                </TabPanel>
+                <TabPanel value="1">
                     <div class="flex flex-col gap-3">
                         <DesignBorderRadius />
                         <DesignColors />
                     </div>
                 </TabPanel>
-                <TabPanel value="1">
+                <TabPanel value="2">
                     <Accordion :value="['0', '1']" multiple>
                         <AccordionPanel value="0">
                             <AccordionHeader>Common</AccordionHeader>
@@ -49,41 +69,73 @@
                         </AccordionPanel>
                     </Accordion>
                 </TabPanel>
-                <TabPanel value="2"> <div class="p-4">Component tokens are not supported by the Visual Editor at the moment.</div></TabPanel>
+                <TabPanel value="3"> <div class="p-4">Component tokens are not supported by the Visual Editor at the moment.</div></TabPanel>
             </TabPanels>
         </Tabs>
 
         <template #footer>
             <div class="flex justify-between gap-2">
-                <Button type="button" @click="download" label="Download" variant="outlined" icon="pi pi-download" />
-                <Button type="button" @click="apply" label="Apply" />
+                <Button type="button" @click="download" label="Download" variant="outlined" icon="pi pi-download" class="!px-3 !py-2" />
+                <Button type="button" @click="apply" label="Apply" class="!px-3 !py-2" />
             </div>
         </template>
     </Drawer>
 </template>
 
 <script>
-import { updatePreset } from '@primevue/themes';
-import AuraBase from '@primevue/themes/aura/base';
+import { updatePreset, usePreset } from '@primevue/themes';
+import Aura from '@primevue/themes/aura';
+import Lara from '@primevue/themes/lara';
+import Material from '@primevue/themes/material';
+import Nora from '@primevue/themes/nora';
+import { computed } from 'vue';
+
+const presets = {
+    Aura,
+    Material,
+    Lara,
+    Nora
+};
 
 export default {
     provide() {
         return {
-            $preset: this.preset
+            $preset: computed(() => this.preset)
         };
     },
     data() {
         return {
-            preset: AuraBase
+            preset: {
+                primitive: Aura.primitive,
+                semantic: Aura.semantic
+            },
+            presetOptions: [
+                { label: 'Aura', value: 'Aura' },
+                { label: 'Material', value: 'Material' },
+                { label: 'Lara', value: 'Lara' },
+                { label: 'Nora', value: 'Nora' }
+            ],
+            customThemes: {},
+            newThemeName: null
         };
     },
     mounted() {
-        this.preset.semantic.primary = this.preset.primitive.emerald;
-        this.preset.semantic.colorScheme.light.surface = this.preset.primitive.slate;
-        this.preset.semantic.colorScheme.dark.surface = this.preset.primitive.zinc;
+        const savedTheme = localStorage.getItem(this.$appState.designerKey);
+
+        if (savedTheme) {
+            this.preset = JSON.parse(savedTheme).defaultTheme;
+            setTimeout(() => {
+                usePreset(this.preset);
+            }, 2000);
+        } else {
+            this.preset.semantic.primary = this.preset.primitive.emerald;
+            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
+            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+        }
     },
     methods: {
         apply() {
+            this.saveTheme();
             updatePreset(this.preset);
         },
         download() {
@@ -117,6 +169,31 @@ app.mount("#app");
 
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
+        },
+        onPresetChange(value) {
+            this.$appState.preset = value;
+            const newPreset = presets[value];
+
+            if (value === 'Material') {
+                document.body.classList.add('material');
+                this.$primevue.config.ripple = true;
+            } else {
+                document.body.classList.remove('material');
+            }
+
+            usePreset(newPreset);
+
+            this.preset = {
+                primitive: newPreset.primitive,
+                semantic: newPreset.semantic
+            };
+        },
+        saveTheme() {
+            const themeRecord = {
+                defaultTheme: this.preset
+            };
+
+            localStorage.setItem(this.$appState.designerKey, JSON.stringify(themeRecord));
         }
     }
 };
