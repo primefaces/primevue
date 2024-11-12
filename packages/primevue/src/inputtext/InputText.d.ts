@@ -98,22 +98,22 @@ export interface InputTextProps extends InputHTMLAttributes {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: 'small' | 'large' | undefined | null;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
-    invalid?: boolean | undefined;
+    invalid?: boolean | undefined | null;
     /**
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: 'outlined' | 'filled' | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null
      */
-    fluid?: boolean | undefined;
+    fluid?: boolean | undefined | null;
     /**
      * Form control object, typically used for handling validation and form state.
      */
