@@ -1,5 +1,5 @@
 <template>
-    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false">
+    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false">
         <Tabs value="0">
             <TabList>
                 <Tab value="0">Base</Tab>
@@ -81,8 +81,21 @@
 
         <template #footer>
             <div class="flex justify-between gap-2">
-                <Button type="button" @click="download" label="Download" variant="outlined" icon="pi pi-download" class="!px-3 !py-2" />
-                <Button type="button" @click="apply" label="Apply" class="!px-3 !py-2" />
+                <button
+                    type="button"
+                    @click="download"
+                    icon="pi pi-download"
+                    class="px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                >
+                    Download
+                </button>
+                <button
+                    type="button"
+                    @click="apply"
+                    class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                >
+                    Apply
+                </button>
             </div>
         </template>
     </Drawer>
@@ -133,6 +146,7 @@ export default {
     methods: {
         apply() {
             this.saveTheme();
+            console.log(this.preset);
             updatePreset(this.preset);
         },
         download() {
