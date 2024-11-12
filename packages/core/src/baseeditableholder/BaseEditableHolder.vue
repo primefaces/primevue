@@ -72,6 +72,14 @@ export default {
             handler(newValue) {
                 this.d_value !== newValue && (this.d_value = newValue);
             }
+        },
+        formValue: {
+            immediate: false,
+            handler(newValue) {
+                if (this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
+                    this.d_value = newValue;
+                }
+            }
         }
     },
     formField: {},
@@ -109,6 +117,9 @@ export default {
         // @deprecated use $filled instead
         filled() {
             return this.$filled;
+        },
+        formValue() {
+            return this.$pcForm?.states?.[this.name]?.value;
         }
     }
 };
