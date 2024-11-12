@@ -270,8 +270,7 @@ app.mount("#app");
 
                     if (defaultTheme.customTokens) {
                         this.customTokens = defaultTheme.customTokens;
-                        this.acTokens = [];
-                        this.generateACTokens(null, this.preset);
+                        this.refreshACTokens();
                     }
 
                     this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
@@ -290,6 +289,7 @@ app.mount("#app");
                 this.preset.extend[this.transformTokenName(token.name)] = token.value;
             });
 
+            this.refreshACTokens();
             this.saveTheme();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },
@@ -331,6 +331,10 @@ app.mount("#app");
                     }
                 }
             }
+        },
+        refreshACTokens() {
+            this.acTokens = [];
+            this.generateACTokens(null, this.preset);
         }
     }
 };
