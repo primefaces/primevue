@@ -411,7 +411,7 @@ export default {
             }
         },
         onFilterChange(event) {
-            this.$emit('filter', { originalEvent: event, value: event.target.value });
+            this.$emit('filter', { originalEvent: event, value: event.target.value, filterValue: this.visibleOptions });
             this.focusedOptionIndex = this.startRangeIndex = -1;
         },
         onFilterBlur() {

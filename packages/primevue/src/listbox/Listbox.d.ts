@@ -109,6 +109,10 @@ export interface ListboxFilterEvent {
      * Filter value
      */
     value: string;
+    /**
+     * Filtered options
+     */
+    filterValue: any[];
 }
 
 /**
