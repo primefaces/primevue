@@ -179,9 +179,7 @@ export default {
         };
     },
     mounted() {
-        this.preset.semantic.primary = this.preset.primitive.emerald;
-        this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
-        this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+        this.replaceColorPalette();
     },
     methods: {
         apply() {
@@ -231,29 +229,48 @@ app.mount("#app");
                 document.body.classList.remove('material');
             }
 
-            usePreset(newPreset);
-
             this.preset = {
                 primitive: newPreset.primitive,
                 semantic: newPreset.semantic
             };
+
+            this.preset.semantic.primary = this.preset.primitive.emerald;
+            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
+            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+
+            usePreset(this.preset);
         },
         saveTheme() {
-            const themeRecord = {
-                defaultTheme: this.preset
+            const localState = {
+                themes: {
+                    defaultTheme: {
+                        preset: this.preset,
+                        customTokens: this.customTokens
+                    }
+                }
             };
 
-            localStorage.setItem(this.$appState.designerKey, JSON.stringify(themeRecord));
+            localStorage.setItem(this.$appState.designerKey, JSON.stringify(localState));
         },
         loadFromLocalStorage() {
-            const savedTheme = localStorage.getItem(this.$appState.designerKey);
+            const localState = localStorage.getItem(this.$appState.designerKey);
 
-            if (savedTheme) {
-                const loadedThemeState = JSON.parse(savedTheme);
+            if (localState) {
+                const parsedLocalState = JSON.parse(localState);
 
-                this.preset = loadedThemeState.defaultTheme;
-                this.customTokens = loadedThemeState.customTokens;
-                this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
+                if (parsedLocalState?.themes?.defaultTheme) {
+                    const defaultTheme = parsedLocalState.themes.defaultTheme;
+
+                    if (defaultTheme.preset) {
+                        this.preset = defaultTheme.preset;
+                    }
+
+                    if (defaultTheme.customTokens) {
+                        this.customTokens = defaultTheme.customTokens;
+                    }
+
+                    this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
+                }
             }
         },
         addToken() {
@@ -263,21 +280,32 @@ app.mount("#app");
             this.customTokens.splice(index, 1);
         },
         saveTokens() {
-            const themeRecordState = localStorage.getItem(this.$appState.designerKey);
-            let themeRecord = null;
+            this.preset.extend = {};
+            this.customTokens.forEach((token) => {
+                this.preset.extend[this.transformTokenName(token.name)] = token.value;
+            });
 
-            if (themeRecordState) {
-                themeRecord = JSON.parse(themeRecordState);
-                themeRecord.customTokens = this.customTokens;
-            } else {
-                themeRecord = {
-                    customTokens: this.customTokens
-                };
-            }
-
-            localStorage.setItem(this.$appState.designerKey, JSON.stringify(themeRecord));
-
+            this.saveTheme();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
+        },
+        replaceColorPalette() {
+            this.preset.semantic.primary = this.preset.primitive.emerald;
+            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
+            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+        },
+        transformTokenName(name) {
+            if (name && name.trim().length) {
+                let tokenNameSections = name.split('.');
+                let transformedName = '';
+
+                tokenNameSections.forEach((section, index) => {
+                    transformedName += index === 0 ? section : section.charAt(0).toUpperCase() + section.substring(1);
+                });
+
+                return transformedName;
+            } else {
+                return name;
+            }
         }
     }
 };
