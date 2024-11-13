@@ -88,6 +88,7 @@
                             @node-collapse="$emit('node-collapse', $event)"
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
+                            @click.stop
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
@@ -133,13 +134,13 @@ import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
+import TimesIcon from '@primevue/icons/times';
 import Chip from 'primevue/chip';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import Tree from 'primevue/tree';
 import BaseTreeSelect from './BaseTreeSelect.vue';
-import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'TreeSelect',
@@ -228,14 +229,14 @@ export default {
 
             if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
                 return;
-            } else if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
+            } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 if (this.overlayVisible) this.hide();
                 else this.show();
 
                 focus(this.$refs.focusInput);
             }
         },
-        onClearClick(event) {
+        onClearClick() {
             this.onSelectionChange(null);
         },
         onSelectionChange(keys) {
