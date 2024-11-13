@@ -178,7 +178,7 @@ export default {
         let totalShiftedItems = this.totalShiftedItems;
 
         if (this.d_oldNumVisible !== this.d_numVisible || this.d_oldActiveItemIndex !== this.d_activeIndex) {
-            if (this.d_activeIndex <= this.getMedianItemIndex()) {
+            if (this.d_activeIndex <= this.getMedianItemIndex() || this.value.length <= this.d_numVisible) {
                 totalShiftedItems = 0;
             } else if (this.value.length - this.d_numVisible + this.getMedianItemIndex() < this.d_activeIndex) {
                 totalShiftedItems = this.d_numVisible - this.value.length;
