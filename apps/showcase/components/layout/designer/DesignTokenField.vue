@@ -2,8 +2,17 @@
     <div>
         <label :for="inputId" class="text-sm">{{ label }}</label>
         <div :id="id" class="relative">
-            <input :id="inputId" :list="listId" type="text" :value="modelValue" @input="onInput" @change="onChange" :class="['relative border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]" />
-            <datalist :id="listId" class="max-h-40 overflow-auto">
+            <input
+                :id="inputId"
+                :list="listId"
+                autocomplete="off"
+                type="text"
+                :value="modelValue"
+                @input="onInput"
+                @change="onChange"
+                :class="['relative border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]"
+            />
+            <datalist :id="listId">
                 <option v-for="item of items" :key="item">{{ item }}</option>
             </datalist>
             <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-3 w-6 h-6 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
