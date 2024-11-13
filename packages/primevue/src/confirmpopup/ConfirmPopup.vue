@@ -176,7 +176,7 @@ export default {
             this.autoFocusAccept = this.confirmation.defaultFocus === undefined || this.confirmation.defaultFocus === 'accept' ? true : false;
             this.autoFocusReject = this.confirmation.defaultFocus === 'reject' ? true : false;
 
-            this.target = document.activeElement;
+            this.target = this.target || document.activeElement;
 
             this.bindOutsideClickListener();
             this.bindScrollListener();
