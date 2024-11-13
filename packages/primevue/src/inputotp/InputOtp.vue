@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { isTouchDevice } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
 import BaseInputOtp from './BaseInputOtp.vue';
 
@@ -71,11 +72,7 @@ export default {
 
             if (event.inputType === 'deleteContentBackward') {
                 this.moveToPrev(event);
-            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward') {
-                this.moveToNext(event);
-            } else if (event instanceof CustomEvent) {
-                // iOS/macOS one-time-code autocomplete uses CustomEvent vs. InputEvent for each character in the code
-                // If moveToNext is not called, it will continue to append the next value after the first character
+            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward' || (isTouchDevice() && event instanceof CustomEvent)) {
                 this.moveToNext(event);
             }
         },
