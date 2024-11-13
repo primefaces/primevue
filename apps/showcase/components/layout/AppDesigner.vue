@@ -10,11 +10,12 @@
             </TabList>
             <TabPanels class="!px-0">
                 <TabPanel value="0">
-                    <div class="text-lg font-semibold mb-4">Choose a Theme to Get Started</div>
-                    <div class="flex flex-col gap-4">
+                    <div class="text-lg font-semibold mb-2">Choose a Theme to Get Started</div>
+                    <span class="block text-muted-color leading-6 mb-4">Begin by selecting a built-in theme as a foundation, continue editing your current theme, or import a Figma tokens file.</span>
+                    <div class="flex flex-col">
                         <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
-                            <span class="font-semibold">Built-in Themes</span>
-                            <span class="text-muted-color">Four alternatives to choose from.</span>
+                            <span class="font-semibold">Base Theme</span>
+                            <span class="text-muted-color">Variety of built-in themes with distinct characteristics.</span>
                             <SelectButton v-model="$appState.preset" @update:modelValue="onPresetChange" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
                         </div>
                         <Divider>OR</Divider>
@@ -36,7 +37,7 @@
                 </TabPanel>
                 <TabPanel value="1">
                     <div class="flex flex-col gap-3">
-                        <form @keydown="onKeyDown">
+                        <form @keydown="onKeyDown" class="flex flex-col gap-3">
                             <DesignBorderRadius />
                             <DesignColors />
                         </form>
@@ -48,7 +49,7 @@
                             <AccordionHeader>Common</AccordionHeader>
                             <AccordionContent>
                                 <div class="flex flex-col gap-3">
-                                    <form @keydown="onKeyDown">
+                                    <form @keydown="onKeyDown" class="flex flex-col gap-3">
                                         <DesignGeneral />
                                         <DesignFormField />
                                         <DesignList />
@@ -84,7 +85,9 @@
                         </AccordionPanel>
                     </Accordion>
                 </TabPanel>
-                <TabPanel value="3">Component tokens are not supported by the Visual Editor at the moment.</TabPanel>
+                <TabPanel value="3">
+                    <span class="leading-6">Component tokens are not supported by the Visual Editor at the moment.</span>
+                </TabPanel>
                 <TabPanel value="4">
                     <span class="leading-6">Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field.</span>
                     <ul class="flex flex-col gap-4 list-none p-0 mx-0 my-4">
@@ -101,7 +104,7 @@
                                 <button
                                     type="button"
                                     @click="removeToken(index)"
-                                    class="cursor-pointer inline-flex items-center justify-center ms-auto w-8 h-8 rounded-full bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-400/10 dark:hover:bg-red-400/20 dark:text-red-400 transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-red-600 focus-visible:dark:outline-red-400"
+                                    class="cursor-pointer inline-flex items-center justify-center ms-auto w-8 h-8 rounded-full bg-red-50 hover:bg-red-100 text-red-600 dark:bg-red-400/10 dark:hover:bg-red-400/20 dark:text-red-400 transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-red-600 focus:dark:outline-red-400"
                                 >
                                     <i class="pi pi-times" />
                                 </button>
@@ -112,14 +115,15 @@
                         <button
                             type="button"
                             @click="addToken"
-                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
                         >
                             Add New
                         </button>
                         <button
+                            v-if="customTokens.length"
                             type="button"
                             @click="saveTokens"
-                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
                         >
                             Save
                         </button>
@@ -134,14 +138,14 @@
                     type="button"
                     @click="download"
                     icon="pi pi-download"
-                    class="px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                    class="px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
                 >
                     Download
                 </button>
                 <button
                     type="button"
                     @click="apply"
-                    class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-zinc-950 focus-visible:dark:outline-white"
+                    class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
                 >
                     Apply
                 </button>
@@ -274,6 +278,7 @@ app.mount("#app");
 
                     if (defaultTheme.preset) {
                         this.preset = defaultTheme.preset;
+                        usePreset(this.preset);
                     }
 
                     if (defaultTheme.customTokens) {
