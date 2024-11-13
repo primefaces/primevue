@@ -114,6 +114,10 @@ export default {
             type: null,
             default: null
         },
+        disableThumbnailIndicatorsOnAllVisible: {
+            type: Boolean,
+            default: true
+        },
         ariaLabel: {
             type: String,
             default: null

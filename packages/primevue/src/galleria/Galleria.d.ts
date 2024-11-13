@@ -399,6 +399,11 @@ export interface GalleriaProps {
      */
     nextButtonProps?: ButtonHTMLAttributes | undefined;
     /**
+     * When enabled and all thumbnails are visible the thumbnail navigators are disabled.
+     * @defaultValue true
+     */
+    disableThumbnailIndicatorsOnAllVisible?: boolean | undefined,
+    /**
      * Defines a string value that labels an interactive element.
      */
     ariaLabel?: string | undefined;

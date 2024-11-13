@@ -137,7 +137,11 @@ export default {
         nextButtonProps: {
             type: null,
             default: null
-        }
+        },
+        disableThumbnailIndicatorsOnAllVisible: {
+            type: Boolean,
+            default: true
+        },
     },
     startPos: null,
     thumbnailsStyle: null,
@@ -508,10 +512,13 @@ export default {
             }
         },
         isNavBackwardDisabled() {
-            return (!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible;
+            return (!this.circular && this.d_activeIndex === 0) || this.allItemsVisibleAndShouldDisable();
         },
         isNavForwardDisabled() {
-            return (!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible;
+            return (!this.circular && this.d_activeIndex === this.value.length - 1) || this.allItemsVisibleAndShouldDisable();
+        },
+        allItemsVisibleAndShouldDisable() {
+            return this.value.length <= this.d_numVisible && this.disableThumbnailIndicatorsOnAllVisible;
         },
         firstItemAciveIndex() {
             return this.totalShiftedItems * -1;

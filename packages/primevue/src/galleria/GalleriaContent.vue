@@ -48,6 +48,7 @@
                 :showThumbnailNavigators="$attrs.showThumbnailNavigators"
                 :prevButtonProps="$attrs.prevButtonProps"
                 :nextButtonProps="$attrs.nextButtonProps"
+                :disable-thumbnail-indicators-on-all-visible="$attrs.disableThumbnailIndicatorsOnAllVisible"
                 @stop-slideshow="stopSlideShow"
                 :pt="pt"
                 :unstyled="unstyled"
