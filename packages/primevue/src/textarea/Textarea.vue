@@ -10,6 +10,7 @@ export default {
     name: 'Textarea',
     extends: BaseTextarea,
     inheritAttrs: false,
+    observer: null,
     mounted() {
         if (this.autoResize) {
             this.observer = new ResizeObserver(() => {
