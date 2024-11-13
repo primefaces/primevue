@@ -232,7 +232,7 @@ export default {
                 this.show();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
-                this.visibleOptions.length === 0 && this.hide();
+                !this.showEmptyMessage && this.visibleOptions.length === 0 && this.hide();
             }
 
             this.autoUpdateModel();
