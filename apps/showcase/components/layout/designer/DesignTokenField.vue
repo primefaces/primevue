@@ -1,29 +1,18 @@
 <template>
-    <span class="text-sm">{{ label }}</span>
-    <div class="relative">
-        <input v-if="false" type="text" :value="modelValue" @input="onInput" :class="['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]" />
-        <AutoComplete
-            :modelValue="modelValue"
-            @input="onInput"
-            :suggestions="items"
-            @complete="search"
-            unstyled
-            :pt="{
-                pcInputText: {
-                    root: ['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]
-                },
-                overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
-                listContainer: 'max-h-40 overflow-auto',
-                list: 'm-0 py-2 px-0 list-none',
-                option: 'cursor-pointer py-1 px-2 text-sm text-surface-700 dark:text-white/80 data-[p-focus=true]:bg-surface-100 data-[p-focus=true]:dark:bg-surface-800'
-            }"
-            @option-select="onOptionSelect"
-        />
-        <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-3 w-6 h-6 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
+    <div>
+        <label :for="inputId" class="text-sm">{{ label }}</label>
+        <div :id="id" class="relative">
+            <input :id="inputId" :list="listId" type="text" :value="modelValue" @input="onInput" @change="onChange" :class="['relative border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]" />
+            <datalist :id="listId" class="max-h-40 overflow-auto">
+                <option v-for="item of items" :key="item">{{ item }}</option>
+            </datalist>
+            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-3 w-6 h-6 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
+        </div>
     </div>
 </template>
 
 <script>
+import { UniqueComponentId } from '@primevue/core/utils';
 import { $dt } from '@primevue/themes';
 
 export default {
@@ -45,29 +34,41 @@ export default {
     inject: ['$acTokens'],
     data() {
         return {
-            items: []
+            id: null,
+            items: null
         };
     },
+    mounted() {
+        this.id = 'dt_field_' + UniqueComponentId();
+    },
     methods: {
-        onOptionSelect(event) {
-            this.$emit('update:modelValue', event.value);
-        },
         onInput(event) {
-            this.$emit('update:modelValue', event.target.value);
-        },
-        search(event) {
-            const query = event.query;
+            const value = event.target.value;
 
-            if (query.startsWith('{')) {
-                this.items = this.$acTokens.filter((t) => t.startsWith(query));
+            this.$emit('update:modelValue', value);
+
+            if (value.startsWith('{')) {
+                this.search(value);
             } else {
-                this.items = [];
+                this.items = null;
             }
+        },
+        onChange() {
+            this.items = null;
+        },
+        search(query) {
+            this.items = this.$acTokens.filter((t) => t.startsWith(query));
         }
     },
     computed: {
         previewColor() {
             return this.modelValue && this.modelValue.startsWith('{') && this.modelValue.endsWith('}') ? $dt(this.modelValue).variable : this.modelValue;
+        },
+        inputId() {
+            return this.id + '_input';
+        },
+        listId() {
+            return this.id + '_list';
         }
     }
 };
