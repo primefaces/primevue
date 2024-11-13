@@ -162,7 +162,7 @@
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
                                     </template>
-                                    <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
+                                    <li v-if="showEmptyMessage && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="empty">{{ searchResultMessageText }}</slot>
                                     </li>
                                 </ul>
