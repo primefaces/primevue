@@ -1,6 +1,6 @@
 <template>
     <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false">
-        <Tabs value="0">
+        <Tabs v-model:value="activeTab">
             <TabList>
                 <Tab value="0">Base</Tab>
                 <Tab value="1">Primitive</Tab>
@@ -143,6 +143,7 @@
                     Download
                 </button>
                 <button
+                    v-if="activeTab !== '0'"
                     type="button"
                     @click="apply"
                     class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
@@ -178,6 +179,7 @@ export default {
     },
     data() {
         return {
+            activeTab: '0',
             preset: {
                 primitive: Aura.primitive,
                 semantic: Aura.semantic
