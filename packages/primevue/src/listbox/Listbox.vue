@@ -703,17 +703,6 @@ export default {
             this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
-        flatOptions(options) {
-            return (options || []).reduce((result, option, index) => {
-                result.push({ optionGroup: option, group: true, index });
-
-                const optionGroupChildren = this.getOptionGroupChildren(option);
-
-                optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
-
-                return result;
-            }, []);
-        },
         listRef(el, contentRef) {
             this.list = el;
             contentRef && contentRef(el); // For VirtualScroller
@@ -723,10 +712,25 @@ export default {
         }
     },
     computed: {
-        visibleOptions() {
-            const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
+        optionsListFlat() {
+            return this.filterValue ? FilterService.filter(this.options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : this.options;
+        },
+        optionsListGroup() {
+            const filteredOptions = [];
 
-            return this.filterValue ? FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : options;
+            (this.options || []).forEach((optionGroup) => {
+                const optionGroupChildren = this.getOptionGroupChildren(optionGroup) || [];
+                const filteredChildren = this.filterValue ? FilterService.filter(optionGroupChildren, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale) : optionGroupChildren;
+
+                if (filteredChildren?.length) {
+                    filteredOptions.push({ optionGroup, group: true }, ...filteredChildren);
+                }
+            });
+
+            return filteredOptions;
+        },
+        visibleOptions() {
+            return this.optionGroupLabel ? this.optionsListGroup : this.optionsListFlat;
         },
         // @deprecated use $filled instead
         hasSelectedOption() {
