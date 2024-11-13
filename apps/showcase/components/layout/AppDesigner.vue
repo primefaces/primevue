@@ -202,15 +202,16 @@ export default {
             updatePreset(this.preset);
         },
         download() {
+            const basePreset = this.$appState.preset;
             const theme = JSON.stringify(this.preset, null, 4).replace(/"([^"]+)":/g, '$1:');
             const textContent = `import { createApp } from "vue";
 import PrimeVue from "primevue/config";
-import Aura from "@primevue/themes/aura";
+import {${basePreset}} from "@primevue/themes/${basePreset.toLowerCase()}";
 import { definePreset } from "@primevue/themes";
 
 const app = createApp(App);
 
-const MyPreset = definePreset(Aura, ${theme});
+const MyPreset = definePreset(${basePreset}, ${theme});
 
 app.use(PrimeVue, {
     theme: {
