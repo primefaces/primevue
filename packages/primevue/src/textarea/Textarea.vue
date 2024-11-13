@@ -11,17 +11,27 @@ export default {
     extends: BaseTextarea,
     inheritAttrs: false,
     mounted() {
-        if (this.$el.offsetParent && this.autoResize) {
-            this.resize();
+        if (this.autoResize) {
+            this.observer = new ResizeObserver(() => {
+                this.resize();
+            });
+            this.observer.observe(this.$el);
         }
     },
     updated() {
-        if (this.$el.offsetParent && this.autoResize) {
+        if (this.autoResize) {
             this.resize();
+        }
+    },
+    beforeUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
         }
     },
     methods: {
         resize() {
+            if (!this.$el.offsetParent) return;
+
             this.$el.style.height = 'auto';
             this.$el.style.height = this.$el.scrollHeight + 'px';
 
