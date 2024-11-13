@@ -36,8 +36,10 @@
                 </TabPanel>
                 <TabPanel value="1">
                     <div class="flex flex-col gap-3">
-                        <DesignBorderRadius />
-                        <DesignColors />
+                        <form @keydown="onKeyDown">
+                            <DesignBorderRadius />
+                            <DesignColors />
+                        </form>
                     </div>
                 </TabPanel>
                 <TabPanel value="2">
@@ -46,11 +48,13 @@
                             <AccordionHeader>Common</AccordionHeader>
                             <AccordionContent>
                                 <div class="flex flex-col gap-3">
-                                    <DesignGeneral />
-                                    <DesignFormField />
-                                    <DesignList />
-                                    <DesignNavigation />
-                                    <DesignOverlay />
+                                    <form @keydown="onKeyDown">
+                                        <DesignGeneral />
+                                        <DesignFormField />
+                                        <DesignList />
+                                        <DesignNavigation />
+                                        <DesignOverlay />
+                                    </form>
                                 </div>
                             </AccordionContent>
                         </AccordionPanel>
@@ -65,10 +69,14 @@
                                     </TabList>
                                     <TabPanels class="!px-0">
                                         <TabPanel value="cs-0">
-                                            <DesignCS :value="preset.semantic.colorScheme.light" />
+                                            <form @keydown="onKeyDown">
+                                                <DesignCS :value="preset.semantic.colorScheme.light" />
+                                            </form>
                                         </TabPanel>
                                         <TabPanel value="cs-1">
-                                            <DesignCS :value="preset.semantic.colorScheme.dark" />
+                                            <form @keydown="onKeyDown">
+                                                <DesignCS :value="preset.semantic.colorScheme.dark" />
+                                            </form>
                                         </TabPanel>
                                     </TabPanels>
                                 </Tabs>
@@ -335,6 +343,12 @@ app.mount("#app");
         refreshACTokens() {
             this.acTokens = [];
             this.generateACTokens(null, this.preset);
+        },
+        onKeyDown(event) {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+                this.apply();
+                event.preventDefault();
+            }
         }
     }
 };
