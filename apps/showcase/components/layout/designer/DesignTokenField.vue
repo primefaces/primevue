@@ -18,6 +18,7 @@
                     overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
                     listContainer: 'max-h-40 overflow-auto',
                     list: 'm-0 py-2 px-2 list-none',
+                    loader: 'hidden',
                     option: 'cursor-pointer py-1 text-sm text-surface-700 dark:text-white/80 data-[p-focus=true]:bg-surface-100 data-[p-focus=true]:dark:bg-surface-800 rounded-md'
                 }"
                 @option-select="onOptionSelect"
@@ -81,7 +82,7 @@ export default {
             if (query.startsWith('{')) {
                 this.items = this.$acTokens.filter((t) => t.label.startsWith(query));
             } else {
-                this.items = null;
+                this.items = [];
             }
         }
     },
