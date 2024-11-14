@@ -80,7 +80,6 @@ const theme = ({ dt }) => `
 .p-menubar-submenu .p-menubar-submenu-icon:dir(rtl) {
     margin-left: 0;
     margin-right: auto;
-    transform: rotate(180deg);
 }
 
 .p-menubar-item.p-focus > .p-menubar-item-content {
@@ -149,11 +148,6 @@ const theme = ({ dt }) => `
     display: block;
     left: 100%;
     top: 0;
-}
-
-.p-menubar-submenu > .p-menubar-item-active > .p-menubar-submenu:dir(rtl) {
-    left: auto;
-    right: 100%;
 }
 
 .p-menubar-end {
