@@ -31,7 +31,7 @@ const theme = ({ dt }) => `
 
 .p-treetable-scrollable .p-treetable-frozen-column {
     position: sticky;
-    background: inherit;
+    background: ${dt('treetable.header.cell.background')};
 }
 
 .p-treetable-scrollable th.p-treetable-frozen-column {
