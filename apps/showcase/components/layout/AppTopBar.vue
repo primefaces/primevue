@@ -95,8 +95,13 @@
                     <AppConfigurator />
                 </li>
                 <li>
-                    <button type="button" class="topbar-item" @click="toggleDesigner">
-                        <i class="pi pi-pencil"></i>
+                    <button type="button" class="topbar-item relative group overflow-hidden !border-transparent" @click="toggleDesigner">
+                        <span
+                            style="animation-duration: 2s; background: conic-gradient(from 90deg, #f97316, #f59e0b, #eab308, #84cc16, #22c55e, #10b981, #14b8a6, #06b6d4, #0ea5e9, #3b82f6, #6366f1, #8b5cf6, #a855f7, #d946ef, #ec4899, #f43f5e)"
+                            class="absolute -top-5 -left-5 w-20 h-20 animate-spin"
+                        ></span>
+                        <span style="inset: 1px; border-radius: 4px" class="absolute z-2 bg-surface-0 dark:bg-surface-900 transition-all"></span>
+                        <i class="pi pi-cog z-10"></i>
                     </button>
                 </li>
                 <li>

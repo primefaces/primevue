@@ -91,7 +91,8 @@
                 border-color: var(--primary-color);
             }
 
-            i, span {
+            i,
+            span {
                 color: var(--text-color);
             }
         }
@@ -130,7 +131,7 @@
             }
 
             .config-panel-colors {
-                > div {
+                >div {
                     padding-top: .5rem;
                     display: flex;
                     gap: .5rem;
@@ -161,6 +162,7 @@
                 gap: 0.5rem;
             }
         }
+
 
         .version-item {
             width: auto;
