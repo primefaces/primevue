@@ -224,17 +224,19 @@ const theme = ({ dt }) => `
 
 .p-datatable-filter-rule {
     border-block-end: 1px solid ${dt('datatable.filter.rule.border.color')};
+    padding-bottom: ${dt('datatable.filter.overlay.popover.gap')};
 }
 
 .p-datatable-filter-rule:last-child {
     border-block-end: 0 none;
+    padding-bottom: 0;
 }
 
 .p-datatable-filter-add-rule-button {
     width: 100%;
 }
 
-.p-datatable-filter-remove-button {
+.p-datatable-filter-remove-rule-button {
     width: 100%;
 }
 
