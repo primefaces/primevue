@@ -262,6 +262,10 @@ export interface DrawerEmitsOptions {
     /**
      * Callback to invoke when drawer gets hidden.
      */
+    'before-hide'(): void;
+    /**
+     * Callback to invoke when drawer gets hidden.
+     */
     hide(): void;
     /**
      * Callback to invoke after drawer is hidden.
