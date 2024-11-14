@@ -157,7 +157,7 @@
 
 <script>
 import { NoirPreset } from '@/themes/app-theme.js';
-import { $t, updatePreset, usePreset } from '@primevue/themes';
+import { $dt, $t, updatePreset, usePreset } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara';
 import Material from '@primevue/themes/material';
@@ -510,7 +510,7 @@ app.mount("#app");
             }
         },
         camelCaseToDotCase(name) {
-            return '{' + name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase() + '}';
+            return name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase();
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
@@ -524,7 +524,12 @@ app.mount("#app");
                     if (typeof obj[key] === 'object') {
                         this.generateACTokens(parentPath ? parentPath + '.' + key : key, obj[key]);
                     } else {
-                        this.acTokens.push(this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key));
+                        const regex = /\.\d+$/;
+                        const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
+                        const tokenValue = $dt(tokenName).value;
+                        const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
+
+                        this.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
                     }
                 }
             }
