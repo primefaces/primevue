@@ -54,7 +54,7 @@ export default {
     name: 'Drawer',
     extends: BaseDrawer,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide'],
+    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide'],
     data() {
         return {
             containerVisible: this.visible
@@ -107,6 +107,7 @@ export default {
         },
         onAfterEnter() {
             this.enableDocumentSettings();
+            this.$emit('after-show');
         },
         onBeforeLeave() {
             if (this.modal) {

@@ -1,6 +1,6 @@
 <template>
-    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false">
-        <Tabs v-model:value="activeTab">
+    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
+        <Tabs v-model:value="activeTab" :lazy="deferredTabs">
             <TabList>
                 <Tab value="0">Base</Tab>
                 <Tab value="1">Primitive</Tab>
@@ -181,6 +181,7 @@ export default {
     data() {
         return {
             activeTab: '0',
+            deferredTabs: true,
             preset: {
                 primitive: NoirPreset.primitive,
                 semantic: NoirPreset.semantic
@@ -537,6 +538,12 @@ app.mount("#app");
                 this.apply();
                 event.preventDefault();
             }
+        },
+        onShow() {
+            this.deferredTabs = false;
+        },
+        onHide() {
+            this.deferredTabs = true;
         }
     },
     computed: {
