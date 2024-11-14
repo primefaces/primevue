@@ -1,5 +1,19 @@
 <template>
-    <Drawer v-model:visible="$appState.designerActive" header="Theme Designer" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
+    <Drawer
+        v-model:visible="$appState.designerActive"
+        header="Theme Designer"
+        position="right"
+        class="designer !w-screen md:!w-[48rem]"
+        :modal="false"
+        :dismissable="false"
+        @after-show="onShow"
+        @after-hide="onHide"
+        :pt="{
+            header: 'p-5',
+            content: '!p-5',
+            footer: '!p-5'
+        }"
+    >
         <Tabs v-model:value="activeTab" :lazy="deferredTabs">
             <TabList>
                 <Tab value="0">Base</Tab>
