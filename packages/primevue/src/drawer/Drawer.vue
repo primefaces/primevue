@@ -114,8 +114,6 @@ export default {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
 
-            console.log('check');
-
             this.$emit('before-hide');
         },
         onLeave() {
