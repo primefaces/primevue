@@ -10,11 +10,11 @@ catalogs:
       specifier: ^0.0.2
       version: 0.0.2
     '@primeuix/styled':
-      specifier: ^0.3.0
-      version: 0.3.0
+      specifier: ^0.3.1
+      version: 0.3.1
     '@primeuix/utils':
-      specifier: ^0.3.0
-      version: 0.3.0
+      specifier: ^0.3.1
+      version: 0.3.1
 
 importers:
 
@@ -166,10 +166,10 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       vue:
         specifier: ^3.3.0
         version: 3.5.12(typescript@5.6.3)
@@ -182,7 +182,7 @@ importers:
         version: 0.0.2
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -192,7 +192,7 @@ importers:
     dependencies:
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -212,10 +212,10 @@ importers:
         version: 3.14.159(magicast@0.3.5)(rollup@4.26.0)
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primevue/auto-import-resolver':
         specifier: workspace:*
         version: link:../auto-import-resolver
@@ -270,10 +270,10 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -293,7 +293,7 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.3.0
+        version: 0.3.1
     publishDirectory: dist
 
 packages:
@@ -1982,12 +1982,12 @@ packages:
     resolution: {integrity: sha512-DpecPQd/Qf/kav4LKCaIeGuT3AkwhJzuHCkLANTVlN/zBvo8KIj3OZHsCkm0zlIMVVnaJdtx1ULNlRQdudef+A==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styled@0.3.0':
-    resolution: {integrity: sha512-XsLbmyM1u50A0EDATIHyqm5O/zOCSyNKPk4pNN8HFvEPehbsjf4tkXcRZAyaVvntSCLpV4XGAj7v5EDCQkBRlg==}
+  '@primeuix/styled@0.3.1':
+    resolution: {integrity: sha512-MIPtektNrFwEKJU0qXrguoultADtxMC39ghwXIGP3DR3zsB7vWk6VhJ1Mo7TxgWsVi3kHnh6g5v9X50eMFcBHw==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/utils@0.3.0':
-    resolution: {integrity: sha512-d6ymWez1n+iqwzAVhyOTmrOHl5qnSX2oGlTy97qGuA15gLai+MQaxONHFNdDia8Q7o396v7KK9IvhAx9VET/+A==}
+  '@primeuix/utils@0.3.1':
+    resolution: {integrity: sha512-KFJ8FylTX2j3AN6AvkF8JGSUNb7Dtqz1T5mlZnINDb6bwW+/V/d5wISiMEdhzdso69mmOX7IlYUDsj0w0pvxvA==}
     engines: {node: '>=12.11.0'}
 
   '@redocly/ajv@8.11.2':
@@ -8663,13 +8663,13 @@ snapshots:
 
   '@primeuix/forms@0.0.2':
     dependencies:
-      '@primeuix/utils': 0.3.0
+      '@primeuix/utils': 0.3.1
 
-  '@primeuix/styled@0.3.0':
+  '@primeuix/styled@0.3.1':
     dependencies:
-      '@primeuix/utils': 0.3.0
+      '@primeuix/utils': 0.3.1
 
-  '@primeuix/utils@0.3.0': {}
+  '@primeuix/utils@0.3.1': {}
 
   '@redocly/ajv@8.11.2':
     dependencies:
