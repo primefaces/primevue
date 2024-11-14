@@ -156,7 +156,8 @@
 </template>
 
 <script>
-import { updatePreset, usePreset } from '@primevue/themes';
+import { NoirPreset } from '@/themes/app-theme.js';
+import { $t, updatePreset, usePreset } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
 import Lara from '@primevue/themes/lara';
 import Material from '@primevue/themes/material';
@@ -181,8 +182,8 @@ export default {
         return {
             activeTab: '0',
             preset: {
-                primitive: Aura.primitive,
-                semantic: Aura.semantic
+                primitive: NoirPreset.primitive,
+                semantic: NoirPreset.semantic
             },
             presetOptions: [
                 { label: 'Aura', value: 'Aura' },
@@ -199,6 +200,173 @@ export default {
         this.generateACTokens(null, this.preset);
     },
     methods: {
+        getPresetExt() {
+            const color = this.primaryColors.find((c) => c.name === this.selectedPrimaryColor);
+
+            if (color.name === 'noir') {
+                document.documentElement.style.setProperty('--logo-color', 'var(--text-secondary-color)');
+
+                return {
+                    semantic: {
+                        primary: {
+                            50: '{surface.50}',
+                            100: '{surface.100}',
+                            200: '{surface.200}',
+                            300: '{surface.300}',
+                            400: '{surface.400}',
+                            500: '{surface.500}',
+                            600: '{surface.600}',
+                            700: '{surface.700}',
+                            800: '{surface.800}',
+                            900: '{surface.900}',
+                            950: '{surface.950}'
+                        },
+                        colorScheme: {
+                            light: {
+                                primary: {
+                                    color: '{primary.950}',
+                                    contrastColor: '#ffffff',
+                                    hoverColor: '{primary.800}',
+                                    activeColor: '{primary.700}'
+                                },
+                                highlight: {
+                                    background: '{primary.950}',
+                                    focusBackground: '{primary.700}',
+                                    color: '#ffffff',
+                                    focusColor: '#ffffff'
+                                }
+                            },
+                            dark: {
+                                primary: {
+                                    color: '{primary.50}',
+                                    contrastColor: '{primary.950}',
+                                    hoverColor: '{primary.200}',
+                                    activeColor: '{primary.300}'
+                                },
+                                highlight: {
+                                    background: '{primary.50}',
+                                    focusBackground: '{primary.300}',
+                                    color: '{primary.950}',
+                                    focusColor: '{primary.950}'
+                                }
+                            }
+                        }
+                    }
+                };
+            } else {
+                document.documentElement.style.setProperty('--logo-color', 'var(--primary-color)');
+
+                if (this.$appState.preset === 'Nora') {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.600}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.700}',
+                                        activeColor: '{primary.800}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.600}',
+                                        focusBackground: '{primary.700}',
+                                        color: '#ffffff',
+                                        focusColor: '#ffffff'
+                                    }
+                                },
+                                dark: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.400}',
+                                        activeColor: '{primary.300}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.500}',
+                                        focusBackground: '{primary.400}',
+                                        color: '{surface.900}',
+                                        focusColor: '{surface.900}'
+                                    }
+                                }
+                            }
+                        }
+                    };
+                } else if (this.$appState.preset === 'Material') {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.400}',
+                                        activeColor: '{primary.300}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.color}, transparent 88%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.color}, transparent 76%)',
+                                        color: '{primary.700}',
+                                        focusColor: '{primary.800}'
+                                    }
+                                },
+                                dark: {
+                                    primary: {
+                                        color: '{primary.400}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.300}',
+                                        activeColor: '{primary.200}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                                        color: 'rgba(255,255,255,.87)',
+                                        focusColor: 'rgba(255,255,255,.87)'
+                                    }
+                                }
+                            }
+                        }
+                    };
+                } else {
+                    return {
+                        semantic: {
+                            primary: color.palette,
+                            colorScheme: {
+                                light: {
+                                    primary: {
+                                        color: '{primary.500}',
+                                        contrastColor: '#ffffff',
+                                        hoverColor: '{primary.600}',
+                                        activeColor: '{primary.700}'
+                                    },
+                                    highlight: {
+                                        background: '{primary.50}',
+                                        focusBackground: '{primary.100}',
+                                        color: '{primary.700}',
+                                        focusColor: '{primary.800}'
+                                    }
+                                },
+                                dark: {
+                                    primary: {
+                                        color: '{primary.400}',
+                                        contrastColor: '{surface.900}',
+                                        hoverColor: '{primary.300}',
+                                        activeColor: '{primary.200}'
+                                    },
+                                    highlight: {
+                                        background: 'color-mix(in srgb, {primary.400}, transparent 84%)',
+                                        focusBackground: 'color-mix(in srgb, {primary.400}, transparent 76%)',
+                                        color: 'rgba(255,255,255,.87)',
+                                        focusColor: 'rgba(255,255,255,.87)'
+                                    }
+                                }
+                            }
+                        }
+                    };
+                }
+            }
+        },
         apply() {
             this.saveTheme();
             updatePreset(this.preset);
@@ -247,6 +415,8 @@ app.mount("#app");
                 document.body.classList.remove('material');
             }
 
+            /*
+            @todo: ask to the team about this
             this.preset = {
                 primitive: newPreset.primitive,
                 semantic: newPreset.semantic
@@ -257,6 +427,13 @@ app.mount("#app");
             this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
 
             usePreset(this.preset);
+            */
+            const currentPreset = $t().preset(newPreset).preset(this.getPresetExt()).use({ useDefaultOptions: true }).preset;
+
+            this.preset = {
+                primitive: currentPreset.primitive,
+                semantic: currentPreset.semantic
+            };
         },
         saveTheme() {
             const localState = {
@@ -310,9 +487,12 @@ app.mount("#app");
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },
         replaceColorPalette() {
+            /*
+            @todo: ask to the team about this
             this.preset.semantic.primary = this.preset.primitive.emerald;
             this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
             this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+            */
         },
         transformTokenName(name) {
             if (name && name.trim().length) {
@@ -357,6 +537,28 @@ app.mount("#app");
                 this.apply();
                 event.preventDefault();
             }
+        }
+    },
+    computed: {
+        selectedPrimaryColor() {
+            return this.$appState.primary;
+        },
+        selectedSurfaceColor() {
+            return this.$appState.surface;
+        },
+        primaryColors() {
+            const presetPalette = presets[this.$appState.preset].primitive;
+            const colors = ['emerald', 'green', 'lime', 'orange', 'amber', 'yellow', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink', 'rose'];
+            const palettes = [{ name: 'noir', palette: {} }];
+
+            colors.forEach((color) => {
+                palettes.push({
+                    name: color,
+                    palette: presetPalette[color]
+                });
+            });
+
+            return palettes;
         }
     }
 };

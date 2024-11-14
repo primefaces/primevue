@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-4">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
-                <input :value="$preset.semantic.primary['500']" @input="onPrimaryColorChange($event)" type="color" />
+                <input :defaultValue="primaryColor" @input="onPrimaryColorChange($event)" type="color" :title="$preset.semantic.primary['500']" />
             </div>
             <DesignColorPalette :value="$preset.semantic.primary" />
         </section>
@@ -49,13 +49,26 @@
 </template>
 
 <script>
-import { palette } from '@primevue/themes';
+import { isObject } from '@primeuix/utils';
+import { $dt, palette } from '@primevue/themes';
 
 export default {
     inject: ['$preset'],
+    data() {
+        return {
+            primaryColor: this.getColor('{primary.500}')
+        };
+    },
     methods: {
         onPrimaryColorChange(event) {
             this.$preset.semantic.primary = palette(event.target.value);
+        },
+        getColor(color) {
+            const colorScheme = this.$appState.darkTheme ? 'light' : 'dark';
+            const token = color?.replace(/{|}/g, '');
+            const tokenValue = $dt(token)?.value;
+
+            return (isObject(tokenValue) ? tokenValue[colorScheme]?.value : tokenValue) ?? color;
         }
     }
 };
