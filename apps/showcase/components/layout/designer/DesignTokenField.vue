@@ -65,12 +65,12 @@ export default {
             items: null
         };
     },
-    mounted() {
+    created() {
         this.id = 'dt_field_' + UniqueComponentId();
     },
     methods: {
         onOptionSelect(event) {
-            this.$emit('update:modelValue', event.value);
+            this.$emit('update:modelValue', event.value.label);
             event.originalEvent.stopPropagation();
         },
         onInput(event) {
@@ -88,7 +88,9 @@ export default {
     },
     computed: {
         previewColor() {
-            return this.modelValue && this.modelValue.startsWith('{') && this.modelValue.endsWith('}') ? $dt(this.modelValue).variable : this.modelValue;
+            const tokenValue = typeof this.modelValue === 'object' ? this.modelValue.label : this.modelValue;
+
+            return tokenValue && tokenValue.trim().length && tokenValue.startsWith('{') && tokenValue.endsWith('}') ? $dt(tokenValue).variable : tokenValue;
         },
         inputId() {
             return this.id + '_input';
