@@ -156,6 +156,7 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
 import { NoirPreset } from '@/themes/app-theme.js';
 import { $dt, $t, updatePreset, usePreset } from '@primevue/themes';
 import Aura from '@primevue/themes/aura';
@@ -371,6 +372,7 @@ export default {
         apply() {
             this.saveTheme();
             updatePreset(this.preset);
+            EventBus.emit('theme-palette-change');
         },
         download() {
             const basePreset = this.$appState.preset;
