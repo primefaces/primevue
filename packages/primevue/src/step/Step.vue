@@ -77,7 +77,7 @@ export default {
                     'aria-current': this.active ? 'step' : undefined,
                     'data-pc-name': 'step',
                     'data-pc-section': 'root',
-                    'data-p-disabled': this.disabled,
+                    'data-p-disabled': this.isStepDisabled,
                     'data-p-active': this.active
                 },
                 header: {
@@ -86,7 +86,7 @@ export default {
                     taindex: this.disabled ? -1 : undefined,
                     'aria-controls': this.ariaControls,
                     'data-pc-section': 'header',
-                    disabled: this.disabled,
+                    disabled: this.isStepDisabled,
                     onClick: this.onStepClick
                 }
             };
