@@ -73,7 +73,7 @@ export default {
                 this.d_value !== newValue && (this.d_value = newValue);
             }
         },
-        formValue: {
+        $formValue: {
             immediate: false,
             handler(newValue) {
                 if (this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
@@ -111,15 +111,15 @@ export default {
         $formDefaultValue() {
             return this.d_value ?? this.$pcFormField?.initialValue ?? this.$pcForm?.initialValues?.[this.$formName];
         },
+        $formValue() {
+            return this.$pcForm?.states?.[this.$formName]?.value;
+        },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
         },
         // @deprecated use $filled instead
         filled() {
             return this.$filled;
-        },
-        formValue() {
-            return this.$pcForm?.states?.[this.name]?.value;
         }
     }
 };
