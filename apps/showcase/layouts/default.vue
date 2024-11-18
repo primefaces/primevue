@@ -41,6 +41,9 @@ export default {
             }
         }
     },
+    mounted() {
+        console.log('default layout');
+    },
     methods: {
         onMenuButtonClick() {
             if (this.sidebarActive) {
