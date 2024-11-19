@@ -18,7 +18,7 @@
                 <slot name="icon" :value="d_value" :class="cx('icon')">
                     <span v-if="onIcon || offIcon" :class="[cx('icon'), d_value ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
                 </slot>
-                <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
+                <span :class="cx('label')" v-bind="getPTOptions('label')" v-html="label"></span>
             </slot>
         </span>
     </button>
