@@ -40,6 +40,7 @@
             :aria-expanded="overlayVisible"
             :aria-controls="id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
+            :aria-invalid="invalid || undefined"
             :aria-disabled="disabled"
             @focus="onFocus"
             @blur="onBlur"
