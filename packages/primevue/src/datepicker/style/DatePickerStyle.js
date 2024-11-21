@@ -68,6 +68,7 @@ const theme = ({ dt }) => `
     inset-inline-end: ${dt('form.field.padding.x')};
     margin-block-start: calc(-1 * (${dt('icon.size')} / 2));
     color: ${dt('datepicker.input.icon.color')};
+    line-height: 1;
 }
 
 .p-datepicker-fluid {

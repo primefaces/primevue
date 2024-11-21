@@ -7,6 +7,7 @@ const theme = ({ dt }) => `
 
 .p-datatable-table {
     border-spacing: 0;
+    border-collapse: separate;
     width: 100%;
 }
 

@@ -184,7 +184,7 @@
             padding: .25rem;
             background-color: var(--overlay-background);
             position: absolute;
-            right: 0;
+            inset-inline-end: 0;
             top: calc(100% + 2px);
             border-radius: 6px;
             border: 1px solid var(--border-color);

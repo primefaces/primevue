@@ -15,11 +15,11 @@ const theme = ({ dt }) => `
 }
 
 .p-imagecompare img + img {
-    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    clip-path: polygon(0 0, ${dt('imagecompare.scope.x', '50%')} 0, ${dt('imagecompare.scope.x', '50%')} 100%, 0 100%);
 }
 
 .p-imagecompare:dir(rtl) img + img {
-    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(calc(100% - ${dt('imagecompare.scope.x', '50%')}) 0, 100% 0, 100% 100%, calc(100% - ${dt('imagecompare.scope.x', '50%')}) 100%);
 }
 
 .p-imagecompare-slider {
