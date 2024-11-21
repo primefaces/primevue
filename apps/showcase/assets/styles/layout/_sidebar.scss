@@ -4,7 +4,7 @@
     top: 6rem;
     height: calc(100vh - 9rem);
     user-select: none;
-    transition: transform .4s cubic-bezier(.05,.74,.2,.99), opacity .3s;
+    transition: transform .4s cubic-bezier(.05, .74, .2, .99), opacity .3s;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -29,11 +29,11 @@
         margin: 0;
         padding: 0;
 
-        > li {
+        >li {
             margin-bottom: .25rem;
 
-            > button,
-            > a {
+            >button,
+            >a {
                 display: flex;
                 width: 100%;
                 align-items: center;
@@ -95,7 +95,7 @@
                 &.router-link-active {
                     color: var(--primary-text-color);
 
-                    > .menu-icon {
+                    >.menu-icon {
                         i {
                             color: var(--primary-text-color);
                         }
@@ -103,7 +103,7 @@
                 }
             }
 
-            > div {
+            >div {
                 overflow: hidden;
 
                 ol {
