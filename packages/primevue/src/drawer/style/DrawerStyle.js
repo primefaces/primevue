@@ -113,7 +113,7 @@ const theme = ({ dt }) => `
     display: flex;
 }
 
-.p-overlay-mask:dir(rtl) {
+.p-drawer-mask:dir(rtl) {
     flex-direction: row-reverse;
 }
 `;
