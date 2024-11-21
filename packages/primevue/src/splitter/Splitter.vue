@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getHeight, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
+import { getHeight, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import { isArray } from '@primeuix/utils/object';
 import { getVNodeProp } from '@primevue/core/utils';
 import BaseSplitter from './BaseSplitter.vue';
@@ -47,40 +47,19 @@ export default {
     panelSizes: null,
     prevPanelIndex: null,
     timer: null,
-    mutationObserver: null,
     data() {
         return {
-            prevSize: null,
-            isRTL: false
+            prevSize: null
         };
     },
     mounted() {
         this.initializePanels();
-        this.updateDirection();
-        this.observeDirectionChanges();
     },
     beforeUnmount() {
         this.clear();
         this.unbindMouseListeners();
-
-        if (this.mutationObserver) {
-            this.mutationObserver.disconnect();
-        }
     },
     methods: {
-        updateDirection() {
-            this.isRTL = !!this.$el.closest('[dir="rtl"]');
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
-        },
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
@@ -147,7 +126,7 @@ export default {
                 }
             } else {
                 if (this.horizontal) {
-                    if (this.isRTL) {
+                    if (isRTL(this.$el)) {
                         newPos = ((this.startPos - event.pageX) * 100) / this.size;
                     } else {
                         newPos = ((event.pageX - this.startPos) * 100) / this.size;
