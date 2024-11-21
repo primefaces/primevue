@@ -1,7 +1,8 @@
 html {
     font-size: 14px;
     font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-feature-settings: "cv02","cv03","cv04","cv11";
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    line-height: normal;
 }
 
 .material {
@@ -33,7 +34,12 @@ a {
     color: var(--selection-text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-block: 1.5rem 1rem;
     margin-inline: 0;
     font-family: inherit;
@@ -84,13 +90,6 @@ p {
 button {
     font-family: inherit;
     font-feature-settings: inherit;
-}
-
-*,
-::before,
-::after {
-    border-width: 0;
-    border-style: solid;
 }
 
 textarea {

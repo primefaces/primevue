@@ -90,21 +90,21 @@ export default {
 }
 
 .p-checkbox {
+    --p-md-check-icon-t: 10px;
+    --p-md-check-icon-w: 6px;
+    --p-md-check-icon-h: 12px;
+}
+
+.p-checkbox-sm {
     --p-md-check-icon-t: 8px;
     --p-md-check-icon-w: 4px;
     --p-md-check-icon-h: 10px;
 }
 
-.p-checkbox-sm {
-    --p-md-check-icon-t: 6px;
-    --p-md-check-icon-w: 2px;
-    --p-md-check-icon-h: 8px;
-}
-
 .p-checkbox-lg {
-    --p-md-check-icon-t: 10px;
-    --p-md-check-icon-w: 6px;
-    --p-md-check-icon-h: 14px;
+    --p-md-check-icon-t: 12px;
+    --p-md-check-icon-w: 8px;
+    --p-md-check-icon-h: 16px;
 }
 
 @keyframes p-md-check {
