@@ -63,7 +63,7 @@ export default {
             return isNotEmpty(this.onLabel) && isNotEmpty(this.offLabel);
         },
         label() {
-            return this.hasLabel ? (this.d_value ? this.onLabel : this.offLabel) : '&nbsp;';
+            return this.hasLabel ? (this.d_value ? this.onLabel : this.offLabel) : '\u00A0';
         }
     },
     directives: {
