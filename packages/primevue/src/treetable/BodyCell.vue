@@ -171,7 +171,6 @@ export default {
         },
         updateStickyPosition() {
             if (this.columnProp('frozen')) {
-                let isRTL = this.$parentInstance.isRTL;
                 let align = this.columnProp('alignFrozen');
 
                 if (align === 'right') {
@@ -182,11 +181,7 @@ export default {
                         pos = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
-                    if (isRTL) {
-                        this.styleObject.left = pos + 'px';
-                    } else {
-                        this.styleObject.right = pos + 'px';
-                    }
+                    this.styleObject.insetInlineEnd = pos + 'px';
                 } else {
                     let pos = 0;
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
@@ -195,11 +190,7 @@ export default {
                         pos = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
-                    if (isRTL) {
-                        this.styleObject.right = pos + 'px';
-                    } else {
-                        this.styleObject.left = pos + 'px';
-                    }
+                    this.styleObject.insetInlineStart = pos + 'px';
                 }
             }
         },
