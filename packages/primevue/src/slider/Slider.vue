@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { getAttribute, getWindowScrollLeft, getWindowScrollTop } from '@primeuix/utils/dom';
+import { getAttribute, getWindowScrollLeft, getWindowScrollTop, isRTL } from '@primeuix/utils/dom';
 import BaseSlider from './BaseSlider.vue';
 
 export default {
@@ -81,22 +81,8 @@ export default {
     barHeight: null,
     dragListener: null,
     dragEndListener: null,
-    mutationObserver: null,
-    data() {
-        return {
-            isRTL: false
-        };
-    },
     beforeUnmount() {
         this.unbindDragListeners();
-
-        if (this.mutationObserver) {
-            this.mutationObserver.disconnect();
-        }
-    },
-    mounted() {
-        this.updateDirection();
-        this.observeDirectionChanges();
     },
     methods: {
         updateDomData() {
@@ -113,7 +99,8 @@ export default {
             let pageY = event.touches ? event.touches[0].pageY : event.pageY;
 
             if (this.orientation === 'horizontal') {
-                if (this.isRTL) {
+                // @todo: Check this
+                if (isRTL(this.$el)) {
                     handleValue = ((this.initX + this.barWidth - pageX) * 100) / this.barWidth;
                 } else {
                     handleValue = ((pageX - this.initX) * 100) / this.barWidth;
@@ -308,7 +295,7 @@ export default {
                 const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
 
                 if (this.horizontal) {
-                    return this.isRTL ? { right: rangeSliderPosition + '%', width: rangeSliderWidth + '%' } : { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
+                    return { 'inset-inline-start': rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
                 } else {
                     return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
                 }
@@ -322,37 +309,24 @@ export default {
         },
         handleStyle() {
             if (this.horizontal) {
-                return this.isRTL ? { right: this.handlePosition + '%' } : { left: this.handlePosition + '%' };
+                return { 'inset-inline-start': this.handlePosition + '%' };
             } else {
                 return { bottom: this.handlePosition + '%' };
             }
         },
         rangeStartHandleStyle() {
             if (this.horizontal) {
-                return this.isRTL ? { right: this.rangeStartPosition + '%' } : { left: this.rangeStartPosition + '%' };
+                return { 'inset-inline-start': this.rangeStartPosition + '%' };
             } else {
                 return { bottom: this.rangeStartPosition + '%' };
             }
         },
         rangeEndHandleStyle() {
             if (this.horizontal) {
-                return this.isRTL ? { right: this.rangeEndPosition + '%' } : { left: this.rangeEndPosition + '%' };
+                return { 'inset-inline-start': this.rangeEndPosition + '%' };
             } else {
                 return { bottom: this.rangeEndPosition + '%' };
             }
-        },
-        updateDirection() {
-            this.isRTL = !!this.$el.closest('[dir="rtl"]');
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
         }
     },
     computed: {
