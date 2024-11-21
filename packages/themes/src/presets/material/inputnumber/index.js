@@ -59,7 +59,5 @@ export default {
 .p-inputnumber-vertical:has(.p-variant-filled) .p-inputnumber-increment-button {
     border-block-end: 1px solid ${dt('inputtext.border.color')}
 }
-
-
 `
 };
