@@ -169,7 +169,7 @@ const classes = {
     ],
     mask: 'p-tree-mask p-overlay-mask',
     loadingIcon: 'p-tree-loading-icon',
-    pcFilter: 'p-tree-filter',
+    pcFilterContainer: 'p-tree-filter',
     pcFilterInput: 'p-tree-filter-input',
     wrapper: 'p-tree-root', //TODO: discuss
     rootChildren: 'p-tree-root-children',
