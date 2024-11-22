@@ -2926,7 +2926,7 @@ export default {
             return yearPickerValues;
         },
         formattedCurrentHour() {
-            if (this.currentHour == 0) {
+            if (this.currentHour == 0 && this.hourFormat == '12') {
                 return this.currentHour + 12;
             }
 
