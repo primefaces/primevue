@@ -313,7 +313,7 @@ export default {
                 this.clicked = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
+                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput?.$el);
             };
 
             setTimeout(() => {

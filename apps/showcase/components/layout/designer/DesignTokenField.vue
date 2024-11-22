@@ -58,7 +58,6 @@ export default {
             default: undefined
         }
     },
-    inject: ['$acTokens'],
     data() {
         return {
             id: null,
@@ -80,7 +79,7 @@ export default {
             const query = event.query;
 
             if (query.startsWith('{')) {
-                this.items = this.$acTokens.filter((t) => t.label.startsWith(query));
+                this.items = this.$appState.designer.acTokens.filter((t) => t.label.startsWith(query));
             } else {
                 this.items = [];
             }

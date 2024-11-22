@@ -1,6 +1,6 @@
 <template>
     <Drawer
-        v-model:visible="$appState.designerActive"
+        v-model:visible="$appState.designer.active"
         header="Theme Designer"
         position="right"
         class="designer !w-screen md:!w-[48rem]"
@@ -14,7 +14,7 @@
             footer: '!p-5'
         }"
     >
-        <Tabs v-model:value="activeTab" :lazy="deferredTabs">
+        <Tabs v-model:value="$appState.designer.activeTab" :lazy="deferredTabs">
             <TabList>
                 <Tab value="0">Base</Tab>
                 <Tab value="1">Primitive</Tab>
@@ -85,12 +85,12 @@
                                     <TabPanels class="!px-0">
                                         <TabPanel value="cs-0">
                                             <form @keydown="onKeyDown">
-                                                <DesignCS :value="preset.semantic.colorScheme.light" />
+                                                <DesignCS :value="$appState.designer.preset.semantic.colorScheme.light" />
                                             </form>
                                         </TabPanel>
                                         <TabPanel value="cs-1">
                                             <form @keydown="onKeyDown">
-                                                <DesignCS :value="preset.semantic.colorScheme.dark" />
+                                                <DesignCS :value="$appState.designer.preset.semantic.colorScheme.dark" />
                                             </form>
                                         </TabPanel>
                                     </TabPanels>
@@ -105,7 +105,7 @@
                 <TabPanel value="4">
                     <span class="leading-6 text-muted-color">Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field.</span>
                     <ul class="flex flex-col gap-4 list-none p-0 mx-0 my-4">
-                        <li v-for="(token, index) of customTokens" :key="index" class="first:border-t border-b border-surface-200 dark:border-surface-300 py-2">
+                        <li v-for="(token, index) of $appState.designer.customTokens" :key="index" class="first:border-t border-b border-surface-200 dark:border-surface-300 py-2">
                             <div class="flex items-center gap-4">
                                 <label class="flex items-center gap-2 flex-auto">
                                     <span class="text-sm">Name</span>
@@ -134,7 +134,7 @@
                             Add New
                         </button>
                         <button
-                            v-if="customTokens.length"
+                            v-if="$appState.designer.customTokens.length"
                             type="button"
                             @click="saveTokens"
                             class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
@@ -157,7 +157,7 @@
                     Download
                 </button>
                 <button
-                    v-if="activeTab !== '0'"
+                    v-if="$appState.designer.activeTab !== '0'"
                     type="button"
                     @click="apply"
                     class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
@@ -188,41 +188,42 @@ const presets = {
 export default {
     provide() {
         return {
-            $preset: computed(() => this.preset),
-            $acTokens: computed(() => this.acTokens)
+            $preset: computed(() => this.$appState.designer.preset)
         };
     },
     data() {
         return {
-            activeTab: '0',
             deferredTabs: true,
-            preset: {
-                primitive: Aura.primitive,
-                semantic: Aura.semantic
-            },
             presetOptions: [
                 { label: 'Aura', value: 'Aura' },
                 { label: 'Material', value: 'Material' },
                 { label: 'Lara', value: 'Lara' },
                 { label: 'Nora', value: 'Nora' }
-            ],
-            customTokens: [],
-            acTokens: []
+            ]
         };
     },
     mounted() {
-        this.replaceColorPalette();
-        this.generateACTokens(null, this.preset);
+        if (!this.$appState.designer.preset) {
+            const defaultPreset = presets.Aura;
+
+            this.$appState.designer.preset = {
+                primitive: defaultPreset.primitive,
+                semantic: defaultPreset.semantic
+            };
+
+            this.replaceColorPalette();
+            this.generateACTokens(null, this.$appState.designer.preset);
+        }
     },
     methods: {
         apply() {
             this.saveTheme();
-            updatePreset(this.preset);
+            updatePreset(this.$appState.designer.preset);
             EventBus.emit('theme-palette-change');
         },
         download() {
             const basePreset = this.$appState.preset;
-            const theme = JSON.stringify(this.preset, null, 4).replace(/"([^"]+)":/g, '$1:');
+            const theme = JSON.stringify(this.$appState.designer.preset, null, 4).replace(/"([^"]+)":/g, '$1:');
             const textContent = `import { createApp } from "vue";
 import PrimeVue from "primevue/config";
 import {${basePreset}} from "@primevue/themes/${basePreset.toLowerCase()}";
@@ -264,31 +265,29 @@ app.mount("#app");
                 document.body.classList.remove('material');
             }
 
-            this.preset = {
+            this.$appState.designer.preset = {
                 primitive: newPreset.primitive,
                 semantic: newPreset.semantic
             };
 
-            this.preset.semantic.primary = this.preset.primitive.emerald;
-            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
-            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+            this.replaceColorPalette();
 
-            usePreset(this.preset);
+            usePreset(this.$appState.designer.preset);
         },
         saveTheme() {
             const localState = {
                 themes: {
                     defaultTheme: {
-                        preset: this.preset,
-                        customTokens: this.customTokens
+                        preset: this.$appState.designer.preset,
+                        customTokens: this.$appState.designer.customTokens
                     }
                 }
             };
 
-            localStorage.setItem(this.$appState.designerKey, JSON.stringify(localState));
+            localStorage.setItem(this.$appState.designer.key, JSON.stringify(localState));
         },
         loadFromLocalStorage() {
-            const localState = localStorage.getItem(this.$appState.designerKey);
+            const localState = localStorage.getItem(this.$appState.designer.key);
 
             if (localState) {
                 const parsedLocalState = JSON.parse(localState);
@@ -297,29 +296,31 @@ app.mount("#app");
                     const defaultTheme = parsedLocalState.themes.defaultTheme;
 
                     if (defaultTheme.preset) {
-                        this.preset = defaultTheme.preset;
-                        usePreset(this.preset);
+                        this.$appState.designer.preset = defaultTheme.preset;
+                        usePreset(this.$appState.designer.preset);
                     }
 
                     if (defaultTheme.customTokens) {
-                        this.customTokens = defaultTheme.customTokens;
+                        this.$appState.designer.customTokens = defaultTheme.customTokens;
                         this.refreshACTokens();
                     }
 
-                    this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer', life: 3000 });
+                    this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme loaded to Designer.', life: 3000 });
                 }
+            } else {
+                this.$toast.add({ severity: 'warn', summary: 'Error', detail: 'No saved theme found.', life: 3000 });
             }
         },
         addToken() {
-            this.customTokens = [...this.customTokens, ...[{}]];
+            this.$appState.designer.customTokens = [...this.$appState.designer.customTokens, ...[{}]];
         },
         removeToken(index) {
-            this.customTokens.splice(index, 1);
+            this.$appState.designer.customTokens.splice(index, 1);
         },
         saveTokens() {
-            this.preset.extend = {};
-            this.customTokens.forEach((token) => {
-                this.preset.extend[this.transformTokenName(token.name)] = token.value;
+            this.$appState.designer.preset.extend = {};
+            this.$appState.designer.customTokens.forEach((token) => {
+                this.$appState.designer.preset.extend[this.transformTokenName(token.name)] = token.value;
             });
 
             this.refreshACTokens();
@@ -327,9 +328,9 @@ app.mount("#app");
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },
         replaceColorPalette() {
-            this.preset.semantic.primary = this.preset.primitive.emerald;
-            this.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.slate };
-            this.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.preset.primitive.zinc };
+            this.$appState.designer.preset.semantic.primary = this.$appState.designer.preset.primitive.emerald;
+            this.$appState.designer.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.preset.primitive.slate };
+            this.$appState.designer.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.preset.primitive.zinc };
         },
         transformTokenName(name) {
             if (name && name.trim().length) {
@@ -365,14 +366,14 @@ app.mount("#app");
                         const tokenValue = $dt(tokenName).value;
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
 
-                        this.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
+                        this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
                     }
                 }
             }
         },
         refreshACTokens() {
-            this.acTokens = [];
-            this.generateACTokens(null, this.preset);
+            this.$appState.designer.acTokens = [];
+            this.generateACTokens(null, this.$appState.designer.preset);
         },
         onKeyDown(event) {
             if (event.code === 'Enter' || event.code === 'NumpadEnter') {

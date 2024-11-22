@@ -6,7 +6,7 @@
                 Enhance your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
             </p>
             <div class="flex items-center gap-4">
-                <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary">
+                <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary" @click="onGetStartedClick">
                     <span>Get Started </span>
                     <i class="pi pi-arrow-right ms-4"></i>
                 </PrimeVueNuxtLink>
@@ -513,6 +513,9 @@ export default {
         toggleSlimMenu() {
             this.isSlimMenu = !this.isSlimMenu;
             this.isSlimMenuSelected = this.isSlimMenu;
+        },
+        onGetStartedClick() {
+            this.$appState.designer.active = false;
         },
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);

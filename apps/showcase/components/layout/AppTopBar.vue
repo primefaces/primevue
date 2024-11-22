@@ -248,7 +248,7 @@ export default {
             this.container = el;
         },
         toggleDesigner() {
-            this.$appState.designerActive = !this.$appState.designerActive;
+            this.$appState.designer.active = !this.$appState.designer.active;
         }
     }
 };
