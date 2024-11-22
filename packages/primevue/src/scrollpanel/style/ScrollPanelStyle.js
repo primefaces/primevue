@@ -13,7 +13,8 @@ const theme = ({ dt }) => `
 .p-scrollpanel-content {
     height: calc(100% + calc(2 * ${dt('scrollpanel.bar.size')}));
     width: calc(100% + calc(2 * ${dt('scrollpanel.bar.size')}));
-    padding: 0 calc(2 * ${dt('scrollpanel.bar.size')}) calc(2 * ${dt('scrollpanel.bar.size')}) 0;
+    padding-inline: 0 calc(2 * ${dt('scrollpanel.bar.size')});
+    padding-block: 0 calc(2 * ${dt('scrollpanel.bar.size')});
     position: relative;
     overflow: auto;
     box-sizing: border-box;

@@ -138,7 +138,7 @@ export default {
                             this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
 
-                            this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
+                            this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; inset-inline-start:' + (Math.abs(this.$refs.content.scrollLeft) / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                         }
                     }
 
