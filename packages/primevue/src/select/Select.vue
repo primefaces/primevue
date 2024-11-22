@@ -688,7 +688,7 @@ export default {
             this.scrollInView();
 
             setTimeout(() => {
-                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput?.$el);
             }, 1);
         },
         onOverlayAfterEnter() {
@@ -705,7 +705,7 @@ export default {
 
             if (this.autoFilterFocus && this.filter && !this.editable) {
                 this.$nextTick(() => {
-                    focus(this.$refs.filterInput.$el);
+                    focus(this.$refs.filterInput?.$el);
                 });
             }
 
