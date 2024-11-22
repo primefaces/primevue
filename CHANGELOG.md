@@ -1,5 +1,30 @@
 # Changelog
 
+## [4.2.3](https://github.com/primefaces/primevue/tree/4.2.3) (2024-11-22)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.2.2...4.2.3)
+
+**Fixed bugs:**
+
+-   Drawer: RTL position bug [\#6827](https://github.com/primefaces/primevue/issues/6827)
+-   Tabs: Mismatch between prop "value" and emit update:value [\#6825](https://github.com/primefaces/primevue/issues/6825)
+-   DatePicker: Wrong hour displayed for midnight when set to timeOnly and 24h [\#6824](https://github.com/primefaces/primevue/issues/6824)
+-   Material: filled mode InputNumber defects [\#6823](https://github.com/primefaces/primevue/issues/6823)
+-   Material: filled mode InputGroup defects [\#6820](https://github.com/primefaces/primevue/issues/6820)
+-   Tree: Wrong passThrough option in documentation [\#6818](https://github.com/primefaces/primevue/issues/6818)
+-   PanelMenu: wrong value of the hasSubmenu slot prop [\#6815](https://github.com/primefaces/primevue/issues/6815)
+-   ToggleButton: &nbsp; when label is empty [\#6809](https://github.com/primefaces/primevue/issues/6809)
+-   DataTable: Hover CSS rule not applied [\#6796](https://github.com/primefaces/primevue/issues/6796)
+-   ColorPicker: Showing Text Cursor on Focus [\#6795](https://github.com/primefaces/primevue/issues/6795)
+-   Select: Cannot read properties of null (reading '$el') - filter and auto-filter-focus error [\#6793](https://github.com/primefaces/primevue/issues/6793)
+-   Step: Cannot disable custom step element [\#6763](https://github.com/primefaces/primevue/issues/6763)
+-   InputText: Interface 'InputTextProps' incorrectly extends interface 'InputHTMLAttributes'. Password: Interface 'PasswordProps' incorrectly extends interface 'InputHTMLAttributes'. [\#5480](https://github.com/primefaces/primevue/issues/5480)
+
+**Implemented New Features and Enhancements:**
+
+-   Improve RTL implementation [\#6826](https://github.com/primefaces/primevue/issues/6826)
+-   Better compatability with CSS libraries like Tailwind, Bootstrap [\#6822](https://github.com/primefaces/primevue/issues/6822)
+
 ## [4.2.2](https://github.com/primefaces/primevue/tree/4.2.2) (2024-11-14)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.2.1...4.2.2)
