@@ -505,6 +505,11 @@ const theme = ({ dt }) => `
     color: ${dt('datatable.row.selected.color')};
 }
 
+.p-datatable-striped.p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {
+    background: ${dt('datatable.row.hover.background')};
+    color: ${dt('datatable.row.hover.color')};
+}
+
 .p-datatable.p-datatable-sm .p-datatable-header {
     padding: 0.375rem 0.5rem;
 }
