@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
+import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import Ripple from 'primevue/ripple';
@@ -47,12 +47,10 @@ export default {
     extends: BaseTabList,
     inheritAttrs: false,
     inject: ['$pcTabs'],
-    mutationObserver: null,
     data() {
         return {
             isPrevButtonEnabled: false,
-            isNextButtonEnabled: true,
-            isRTL: false
+            isNextButtonEnabled: true
         };
     },
     resizeObserver: undefined,
@@ -76,19 +74,12 @@ export default {
             this.updateButtonState();
             this.bindResizeObserver();
         }
-
-        this.updateDirection();
-        this.observeDirectionChanges();
     },
     updated() {
         this.showNavigators && this.updateButtonState();
     },
     beforeUnmount() {
         this.unbindResizeObserver();
-
-        if (this.mutationObserver) {
-            this.mutationObserver.disconnect();
-        }
     },
     methods: {
         onScroll(event) {
@@ -99,30 +90,19 @@ export default {
         onPrevButtonClick() {
             const content = this.$refs.content;
             const width = getWidth(content);
-            let pos;
+            const pos = Math.abs(content.scrollLeft) - width;
+            const scrollLeft = pos <= 0 ? 0 : pos;
 
-            if (this.isRTL) {
-                pos = content.scrollLeft + width;
-            } else {
-                pos = content.scrollLeft - width;
-            }
-
-            content.scrollLeft = pos <= 0 ? 0 : pos;
+            content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
             const width = getWidth(content) - this.getVisibleButtonWidths();
-            let pos, lastPos;
+            const pos = width + Math.abs(content.scrollLeft);
+            const lastPos = content.scrollWidth - width;
+            const scrollLeft = pos >= lastPos ? lastPos : pos;
 
-            if (this.isRTL) {
-                pos = content.scrollLeft - width;
-                lastPos = content.scrollWidth + width;
-            } else {
-                pos = content.scrollLeft + width;
-                lastPos = content.scrollWidth - width;
-            }
-
-            content.scrollLeft = pos >= lastPos ? lastPos : pos;
+            content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
         bindResizeObserver() {
             this.resizeObserver = new ResizeObserver(() => this.updateButtonState());
@@ -146,7 +126,8 @@ export default {
         },
         updateButtonState() {
             const { list, content } = this.$refs;
-            const { scrollLeft, scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
+            const { scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
+            const scrollLeft = Math.abs(content.scrollLeft);
             const [width, height] = [getWidth(content), getHeight(content)];
 
             if (this.$pcTabs.isVertical()) {
@@ -161,19 +142,6 @@ export default {
             const { prevBtn, nextBtn } = this.$refs;
 
             return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
-        },
-        updateDirection() {
-            this.isRTL = !!this.$el.closest('[dir="rtl"]');
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
         }
     },
     computed: {
