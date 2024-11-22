@@ -6,7 +6,7 @@
     <InputText v-model="filter" class="w-full p-4 mt-4 mb-6" placeholder="Search an icon" />
 
     <div class="card">
-        <div class="grid grid-cols-12 gap-4 text-center">
+        <div class="grid grid-cols-12 gap-4 text-center icons-size">
             <div v-for="icon of filteredIcons" :key="icon.properties.name" class="col-span-12 md:col-span-2 mb-8">
                 <i :class="'text-2xl mb-4 text-surface-500 dark:text-surface-400 pi pi-' + icon.properties.name"></i>
                 <div>pi-{{ icon.properties.name }}</div>
@@ -14,6 +14,12 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+.icons-size {
+    --p-icon-size: 2rem;
+}
+</style>
 
 <script>
 import { IconService } from '@/service/IconService';
