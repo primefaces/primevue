@@ -250,6 +250,14 @@ export interface ToastProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Used to specify a callback function to be run when the @mouseenter event is fired on the message component.
+     */
+    onMouseEnter?: Function | undefined;
+    /**
+     * Used to specify a callback function to be run when the @mouseleave event is fired on the message component.
+     */
+    onMouseLeave?: Function | undefined;
 }
 
 /**
