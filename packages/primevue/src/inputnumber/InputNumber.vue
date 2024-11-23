@@ -385,6 +385,7 @@ export default {
 
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
+            let selectionRange = selectionEnd - selectionStart;
             let inputValue = event.target.value;
             let newValueStr = null;
             const code = event.code || event.key;
@@ -401,14 +402,20 @@ export default {
                     break;
 
                 case 'ArrowLeft':
-                    if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
+                    if (selectionRange > 1) {
+                        const cursorPosition = this.isNumeralChar(inputValue.charAt(selectionStart)) ? selectionStart + 1 : selectionStart + 2;
+                        this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
+                    } else if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
                         event.preventDefault();
                     }
 
                     break;
 
                 case 'ArrowRight':
-                    if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
+                    if (selectionRange > 1) {
+                        const cursorPosition = selectionEnd - 1;
+                        this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
+                    } else if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
                         event.preventDefault();
                     }
 
