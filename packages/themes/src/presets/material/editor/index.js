@@ -31,7 +31,7 @@ export default {
         borderRadius: '{content.border.radius}'
     },
     css: ({ dt }) => `
-.p-editor .p-editor-toolbar {
+.p-editor .ql-toolbar, .p-editor .p-editor-toolbar {
     padding: 0.75rem
 }
 `

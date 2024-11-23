@@ -9,6 +9,7 @@ import FormsDoc from '@/doc/editor/FormsDoc.vue';
 import ImportDoc from '@/doc/editor/ImportDoc.vue';
 import QuillDoc from '@/doc/editor/QuillDoc.vue';
 import ReadOnlyDoc from '@/doc/editor/ReadOnlyDoc.vue';
+import CustomToolbarDoc from '@/doc/editor/CustomToolbarDoc.vue';
 import TemplateDoc from '@/doc/editor/TemplateDoc.vue';
 import PTComponent from '@/doc/editor/pt/index.vue';
 import ThemingDoc from '@/doc/editor/theming/index.vue';
@@ -41,6 +42,11 @@ export default {
                     id: 'readonly',
                     label: 'ReadOnly',
                     component: ReadOnlyDoc
+                },
+                {
+                    id: 'customtoolbar',
+                    label: 'Custom Toolbar',
+                    component: CustomToolbarDoc
                 },
                 {
                     id: 'template',

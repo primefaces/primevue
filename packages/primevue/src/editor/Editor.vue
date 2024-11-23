@@ -1,6 +1,6 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
-        <div ref="toolbarElement" :class="cx('toolbar')" v-bind="ptm('toolbar')">
+        <div v-if="!(modules && modules.toolbar)" ref="toolbarElement" class="ql-toolbar" :class="cx('toolbar')" v-bind="ptm('toolbar')">
             <slot name="toolbar">
                 <span class="ql-formats" v-bind="ptm('formats')">
                     <select class="ql-header" defaultValue="0" v-bind="ptm('header')">
@@ -50,6 +50,7 @@
 <script>
 import { isExist } from '@primeuix/utils/dom';
 import BaseEditor from './BaseEditor.vue';
+import 'quill/dist/quill.snow.css';
 
 const QuillJS = (function () {
     try {
@@ -82,6 +83,7 @@ export default {
         }
     },
     mounted() {
+
         const configuration = {
             modules: {
                 toolbar: this.$refs.toolbarElement,
