@@ -31,6 +31,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
+            :dt="dt?.inputtext"
             :pt="ptm('pcInputText')"
         />
         <ul

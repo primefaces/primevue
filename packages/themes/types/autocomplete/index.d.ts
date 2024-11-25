@@ -9,6 +9,7 @@
  */
 
 import { ColorSchemeDesignToken } from '..';
+import { InputTextDesignTokens } from '../inputtext';
 
 export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCompleteDesignTokens> {
     /**
@@ -427,6 +428,10 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         activeColor?: string;
     };
+    /**
+     * Used to pass tokens of the inputtext section
+     */
+    inputtext?: InputTextDesignTokens;
     /**
      * Used to pass tokens of the chip section
      */
