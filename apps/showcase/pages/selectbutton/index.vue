@@ -12,6 +12,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc.vue';
+import AllowEmptyDoc from '@/doc/selectbutton/AllowEmptyDoc.vue';
 import BasicDoc from '@/doc/selectbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/selectbutton/DisabledDoc.vue';
 import FormsDoc from '@/doc/selectbutton/FormsDoc.vue';
@@ -22,7 +23,6 @@ import MultipleDoc from '@/doc/selectbutton/MultipleDoc.vue';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc.vue';
 import PTComponent from '@/doc/selectbutton/pt/index.vue';
 import ThemingDoc from '@/doc/selectbutton/theming/index.vue';
-import AllowEmptyDoc from '../../doc/selectbutton/AllowEmptyDoc.vue';
 
 export default {
     data() {
