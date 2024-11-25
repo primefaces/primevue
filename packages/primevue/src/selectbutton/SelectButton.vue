@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
-            <ToggleButton
+            <ToggleButtonForSelectButton
                 :modelValue="isSelected(option)"
                 :onLabel="getOptionLabel(option)"
                 :offLabel="getOptionLabel(option)"
@@ -16,7 +16,7 @@
                         <span v-bind="ptm('pcToggleButton')['label']">{{ getOptionLabel(option) }}</span>
                     </slot>
                 </template>
-            </ToggleButton>
+            </ToggleButtonForSelectButton>
         </template>
     </div>
 </template>
@@ -98,7 +98,18 @@ export default {
         ripple: Ripple
     },
     components: {
-        ToggleButton
+        ToggleButtonForSelectButton: defineComponent({
+            ...ToggleButton,
+            emits: ['change'],
+            methods: {
+                ...ToggleButton.methods,
+                onChange: function (event) {
+                    if (!this.disabled && !this.readonly) {
+                        this.$emit('change', event);
+                    }
+                }
+            }
+        })
     }
 };
 </script>
