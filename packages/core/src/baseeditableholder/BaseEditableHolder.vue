@@ -76,7 +76,7 @@ export default {
         $formValue: {
             immediate: false,
             handler(newValue) {
-                if (this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
+                if (this.$formName !== undefined && this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
                     this.d_value = newValue;
                 }
             }
@@ -120,6 +120,9 @@ export default {
         // @deprecated use $filled instead
         filled() {
             return this.$filled;
+        },
+        formValue() {
+            return this.$pcForm?.states?.[this.$formName]?.value;
         }
     }
 };
