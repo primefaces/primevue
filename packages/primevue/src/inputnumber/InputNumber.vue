@@ -404,6 +404,7 @@ export default {
                 case 'ArrowLeft':
                     if (selectionRange > 1) {
                         const cursorPosition = this.isNumeralChar(inputValue.charAt(selectionStart)) ? selectionStart + 1 : selectionStart + 2;
+
                         this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
                     } else if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
                         event.preventDefault();
@@ -414,6 +415,7 @@ export default {
                 case 'ArrowRight':
                     if (selectionRange > 1) {
                         const cursorPosition = selectionEnd - 1;
+
                         this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
                     } else if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
                         event.preventDefault();
