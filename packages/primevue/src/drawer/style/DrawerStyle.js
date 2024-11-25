@@ -4,7 +4,6 @@ const theme = ({ dt }) => `
 .p-drawer {
     display: flex;
     flex-direction: column;
-    pointer-events: auto;
     transform: translate3d(0px, 0px, 0px);
     position: relative;
     transition: transform 0.3s;
@@ -114,13 +113,13 @@ const theme = ({ dt }) => `
     display: flex;
 }
 
-.p-overlay-mask:dir(rtl) {
+.p-drawer-mask:dir(rtl) {
     flex-direction: row-reverse;
 }
 `;
 
 const inlineStyles = {
-    mask: ({ position }) => ({
+    mask: ({ position, modal }) => ({
         position: 'fixed',
         height: '100%',
         width: '100%',
@@ -128,8 +127,12 @@ const inlineStyles = {
         top: 0,
         display: 'flex',
         justifyContent: position === 'left' ? 'flex-start' : position === 'right' ? 'flex-end' : 'center',
-        alignItems: position === 'top' ? 'flex-start' : position === 'bottom' ? 'flex-end' : 'center'
-    })
+        alignItems: position === 'top' ? 'flex-start' : position === 'bottom' ? 'flex-end' : 'center',
+        pointerEvents: modal ? 'auto' : 'none'
+    }),
+    root: {
+        pointerEvents: 'auto'
+    }
 };
 
 const classes = {

@@ -162,7 +162,7 @@
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
                                     </template>
-                                    <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
+                                    <li v-if="showEmptyMessage && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="empty">{{ searchResultMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -232,6 +232,7 @@ export default {
                 this.show();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
+                !this.showEmptyMessage && this.visibleOptions.length === 0 && this.hide();
             }
 
             this.autoUpdateModel();
@@ -312,7 +313,7 @@ export default {
                 this.clicked = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
+                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput?.$el);
             };
 
             setTimeout(() => {

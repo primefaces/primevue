@@ -1,5 +1,5 @@
 <template>
-    <Fieldset legend="Common" :toggleable="true" class="mb-3">
+    <Fieldset legend="Common" :toggleable="true">
         <section class="flex justify-between items-center mb-4">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Surface</span>

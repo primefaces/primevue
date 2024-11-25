@@ -61,14 +61,12 @@ export default {
     lastPageY: null,
     timer: null,
     outsideClickListener: null,
-    mutationObserver: null,
     data() {
         return {
             id: this.$attrs.id,
             orientation: 'vertical',
             lastScrollTop: 0,
-            lastScrollLeft: 0,
-            isRTL: false
+            lastScrollLeft: 0
         };
     },
     watch: {
@@ -82,9 +80,6 @@ export default {
         if (this.$el.offsetParent) {
             this.initialize();
         }
-
-        this.updateDirection();
-        this.observeDirectionChanges();
     },
     updated() {
         if (!this.initialized && this.$el.offsetParent) {
@@ -97,25 +92,8 @@ export default {
         if (this.frame) {
             window.cancelAnimationFrame(this.frame);
         }
-
-        if (this.mutationObserver) {
-            this.mutationObserver.disconnect();
-        }
     },
     methods: {
-        updateDirection() {
-            this.isRTL = !!this.$el.closest('[dir="rtl"]');
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
-        },
         initialize() {
             this.moveBar();
             this.bindDocumentResizeListener();
@@ -160,11 +138,7 @@ export default {
                             this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
 
-                            if (this.isRTL) {
-                                this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; right:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
-                            } else {
-                                this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
-                            }
+                            this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; inset-inline-start:' + (Math.abs(this.$refs.content.scrollLeft) / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                         }
                     }
 
@@ -176,13 +150,8 @@ export default {
                             this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
 
-                            if (this.isRTL) {
-                                this.$refs.yBar.style.cssText =
-                                    'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);left:' + right + 'px;';
-                            } else {
-                                this.$refs.yBar.style.cssText =
-                                    'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
-                            }
+                            this.$refs.yBar.style.cssText =
+                                'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px); inset-inline-end:' + right + 'px;';
                         }
                     }
                 });

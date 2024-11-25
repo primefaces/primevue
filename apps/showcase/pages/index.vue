@@ -10,6 +10,7 @@
         <BlockSection />
         <TemplateSection />
         <FooterSection />
+        <Toast />
     </div>
 </template>
 
@@ -33,6 +34,9 @@ export default {
             type: String,
             default: null
         }
+    },
+    created() {
+        this.$appState.designer.active = false;
     },
     mounted() {
         let afId = this.$route.query['af_id'];

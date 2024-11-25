@@ -61,8 +61,8 @@ const theme = ({ dt }) => `
     color: ${dt('panelmenu.submenu.icon.color')};
 }
 
-.p-panelmenu-header.p-panelmenu-header-active .p-panelmenu-submenu-icon:dir(rtl) {
-    transform: rotate(-180deg);
+.p-panelmenu-submenu-icon:dir(rtl) {
+    transform: rotate(180deg);
 }
 
 .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content {

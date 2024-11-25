@@ -1,9 +1,11 @@
 <template>
-    <DesignCSCommon />
-    <DesignCSFormField />
-    <DesignCSOverlay />
-    <DesignCSList />
-    <DesignCSNavigation />
+    <div class="flex flex-col gap-3">
+        <DesignCSCommon />
+        <DesignCSFormField />
+        <DesignCSOverlay />
+        <DesignCSList />
+        <DesignCSNavigation />
+    </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <Fieldset legend="Form Field" :toggleable="true" class="mb-3">
+    <Fieldset legend="Form Field" :toggleable="true">
         <section class="grid grid-cols-4 mb-3 gap-2">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$colorScheme.formField.background" label="BG" type="color" />

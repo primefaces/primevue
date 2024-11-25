@@ -13,7 +13,7 @@
             </template>
         </Editor>
     </div>
-    <DocSectionCode :code="code" :dependencies="{ quill: '1.3.7' }" component="Editor" />
+    <DocSectionCode :code="code" :dependencies="{ quill: '2.0.0' }" component="Editor" />
 </template>
 
 <script>

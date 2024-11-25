@@ -28,7 +28,7 @@
                                 <span :class="cx('headerLabel')" v-bind="getPTOptions('headerLabel', item, index)">{{ getItemLabel(item) }}</span>
                             </a>
                         </template>
-                        <component v-else :is="$slots.item" :item="item" :root="true" :active="isItemActive(item)" :hasSubmenu="getItemProp(item, 'items')" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
+                        <component v-else :is="$slots.item" :item="item" :root="true" :active="isItemActive(item)" :hasSubmenu="isItemGroup(item)" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
                     </div>
                 </div>
                 <transition name="p-toggleable-content" v-bind="ptm('transition')">
@@ -53,9 +53,9 @@
 </template>
 
 <script>
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
+import { equals, isNotEmpty, resolve } from '@primeuix/utils/object';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, getAttribute, findSingle } from '@primeuix/utils/dom';
-import { equals, resolve } from '@primeuix/utils/object';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import { mergeProps } from 'vue';
@@ -110,6 +110,9 @@ export default {
         },
         isItemFocused(item) {
             return equals(item, this.activeItem);
+        },
+        isItemGroup(item) {
+            return isNotEmpty(item.items);
         },
         getPanelId(index) {
             return `${this.id}_${index}`;

@@ -7,6 +7,7 @@ const theme = ({ dt }) => `
 
 .p-datatable-table {
     border-spacing: 0;
+    border-collapse: separate;
     width: 100%;
 }
 
@@ -224,17 +225,19 @@ const theme = ({ dt }) => `
 
 .p-datatable-filter-rule {
     border-block-end: 1px solid ${dt('datatable.filter.rule.border.color')};
+    padding-bottom: ${dt('datatable.filter.overlay.popover.gap')};
 }
 
 .p-datatable-filter-rule:last-child {
     border-block-end: 0 none;
+    padding-bottom: 0;
 }
 
 .p-datatable-filter-add-rule-button {
     width: 100%;
 }
 
-.p-datatable-filter-remove-button {
+.p-datatable-filter-remove-rule-button {
     width: 100%;
 }
 
@@ -500,6 +503,11 @@ const theme = ({ dt }) => `
 .p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-datatable-row-selected {
     background: ${dt('datatable.row.selected.background')};
     color: ${dt('datatable.row.selected.color')};
+}
+
+.p-datatable-striped.p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {
+    background: ${dt('datatable.row.hover.background')};
+    color: ${dt('datatable.row.hover.color')};
 }
 
 .p-datatable.p-datatable-sm .p-datatable-header {

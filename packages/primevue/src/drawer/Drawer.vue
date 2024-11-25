@@ -1,8 +1,8 @@
 <template>
     <Portal>
-        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position })" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position, modal })" v-bind="ptm('mask')">
             <transition name="p-drawer" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" :style="sx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="hide"></slot>
                     <template v-else>
                         <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
@@ -54,7 +54,7 @@ export default {
     name: 'Drawer',
     extends: BaseDrawer,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'hide', 'after-hide'],
+    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide'],
     data() {
         return {
             containerVisible: this.visible
@@ -107,6 +107,7 @@ export default {
         },
         onAfterEnter() {
             this.enableDocumentSettings();
+            this.$emit('after-show');
         },
         onBeforeLeave() {
             if (this.modal) {

@@ -2,6 +2,7 @@ import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
 .p-inputgroup,
+.p-inputgroup .p-iconfield,
 .p-inputgroup .p-floatlabel,
 .p-inputgroup .p-iftalabel {
     display: flex;
@@ -47,6 +48,7 @@ const theme = ({ dt }) => `
 
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-inputwrapper > .p-component,
+.p-inputgroup > .p-iconfield > .p-component,
 .p-inputgroup > .p-floatlabel > .p-component,
 .p-inputgroup > .p-floatlabel > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel > .p-component,
@@ -58,6 +60,7 @@ const theme = ({ dt }) => `
 .p-inputgroupaddon:first-child,
 .p-inputgroup > .p-component:first-child,
 .p-inputgroup > .p-inputwrapper:first-child > .p-component,
+.p-inputgroup > .p-iconfield:first-child > .p-component,
 .p-inputgroup > .p-floatlabel:first-child > .p-component,
 .p-inputgroup > .p-floatlabel:first-child > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel:first-child > .p-component,
@@ -69,6 +72,7 @@ const theme = ({ dt }) => `
 .p-inputgroupaddon:last-child,
 .p-inputgroup > .p-component:last-child,
 .p-inputgroup > .p-inputwrapper:last-child > .p-component,
+.p-inputgroup > .p-iconfield:last-child > .p-component,
 .p-inputgroup > .p-floatlabel:last-child > .p-component,
 .p-inputgroup > .p-floatlabel:last-child > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel:last-child > .p-component,
@@ -88,6 +92,10 @@ const theme = ({ dt }) => `
 
 .p-inputgroup > .p-button:not(.p-button-icon-only) {
     width: auto;
+}
+
+.p-inputgroup .p-iconfield + .p-iconfield .p-inputtext {
+    border-inline-start: 0;
 }
 `;
 

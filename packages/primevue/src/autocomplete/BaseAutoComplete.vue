@@ -150,6 +150,10 @@ export default {
             type: String,
             default: null
         },
+        showEmptyMessage: {
+            type: Boolean,
+            default: true
+        },
         tabindex: {
             type: Number,
             default: 0

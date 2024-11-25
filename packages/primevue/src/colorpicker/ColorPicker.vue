@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" v-bind="ptmi('root')">
-        <input v-if="!inline" ref="input" :id="inputId" type="text" :class="cx('preview')" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" @blur="onInputBlur" v-bind="ptm('preview')" />
+        <input v-if="!inline" ref="input" :id="inputId" type="text" :class="cx('preview')" readonly :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" @blur="onInputBlur" v-bind="ptm('preview')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass, overlayClass]" @click="onOverlayClick" v-bind="{ ...ptm('panel'), ...ptm('overlay') }">

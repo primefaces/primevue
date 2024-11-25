@@ -14,8 +14,14 @@ const $appState = {
             newsActive: false,
             announcement: null,
             storageKey: 'primevue',
-            designerKey: 'primevue-designer-theme',
-            designerActive: false
+            designer: {
+                key: 'primevue-designer-theme',
+                active: false,
+                activeTab: '0',
+                preset: null,
+                customTokens: [],
+                acTokens: []
+            }
         });
     }
 };

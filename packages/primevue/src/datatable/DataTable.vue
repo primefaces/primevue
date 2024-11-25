@@ -329,6 +329,7 @@ import {
     getOuterHeight,
     getOuterWidth,
     isClickable,
+    isRTL,
     removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
@@ -410,8 +411,7 @@ export default {
             d_editingMeta: {},
             d_filters: this.cloneFilters(this.filters),
             d_columns: new HelperSet({ type: 'Column' }),
-            d_columnGroups: new HelperSet({ type: 'ColumnGroup' }),
-            isRTL: false
+            d_columnGroups: new HelperSet({ type: 'ColumnGroup' })
         };
     },
     rowTouched: false,
@@ -432,7 +432,6 @@ export default {
     columnWidthsState: null,
     tableWidthState: null,
     columnWidthsRestored: false,
-    mutationObserver: null,
     watch: {
         first(newValue) {
             this.d_first = newValue;
@@ -485,9 +484,6 @@ export default {
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
             this.updateEditingRowKeys(this.editingRows);
         }
-
-        this.updateDirection();
-        this.observeDirectionChanges();
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -495,10 +491,6 @@ export default {
 
         this.d_columns.clear();
         this.d_columnGroups.clear();
-
-        if (this.mutationObserver) {
-            this.mutationObserver.disconnect();
-        }
     },
     updated() {
         if (this.isStateful()) {
@@ -510,19 +502,6 @@ export default {
         }
     },
     methods: {
-        updateDirection() {
-            this.isRTL = !!this.$el.closest('[dir="rtl"]');
-        },
-        observeDirectionChanges() {
-            const targetNode = document.documentElement;
-            const config = { attributes: true, attributeFilter: ['dir'] };
-
-            this.mutationObserver = new MutationObserver(() => {
-                this.updateDirection();
-            });
-
-            this.mutationObserver.observe(targetNode, config);
-        },
         columnProp(col, prop) {
             return getVNodeProp(col, prop);
         },
@@ -1312,7 +1291,7 @@ export default {
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
-            let delta = this.isRTL ? this.lastResizeHelperX - this.$refs.resizeHelper.offsetLeft : this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+            let delta = isRTL(this.$el) ? this.lastResizeHelperX - this.$refs.resizeHelper.offsetLeft : this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth || 15;

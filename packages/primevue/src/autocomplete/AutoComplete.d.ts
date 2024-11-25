@@ -514,6 +514,11 @@ export interface AutoCompleteProps {
      */
     emptySearchMessage?: string | undefined;
     /**
+     * When enabled, empty search message will be visible.
+     * @defaultValue true
+     */
+    showEmptyMessage?: boolean | undefined;
+    /**
      * Index of the element in tabbing order.
      */
     tabindex?: number | string | undefined;

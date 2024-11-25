@@ -1,6 +1,6 @@
 <template>
     <Fieldset legend="Rounded" :toggleable="true">
-        <section class="grid grid-cols-4 mb-3 gap-2">
+        <section class="grid grid-cols-4 gap-2">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$preset.primitive.borderRadius.none" label="None" />
             </div>

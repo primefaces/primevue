@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { isTouchDevice } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
 import BaseInputOtp from './BaseInputOtp.vue';
 
@@ -71,7 +72,7 @@ export default {
 
             if (event.inputType === 'deleteContentBackward') {
                 this.moveToPrev(event);
-            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward') {
+            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward' || (isTouchDevice() && event instanceof CustomEvent)) {
                 this.moveToNext(event);
             }
         },

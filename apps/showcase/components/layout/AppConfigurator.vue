@@ -317,7 +317,7 @@ export default {
         },
         onRTLChange(value) {
             if (!document.startViewTransition) {
-                this.toggleRTL();
+                this.toggleRTL(value);
 
                 return;
             }
