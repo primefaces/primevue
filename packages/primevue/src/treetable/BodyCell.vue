@@ -21,7 +21,7 @@
                 :modelValue="checked"
                 :binary="true"
                 :class="cx('pcNodeCheckbox')"
-                :readonly="node.selectable === false"
+                :disabled="node.selectable === false"
                 @change="toggleCheckbox"
                 :tabindex="-1"
                 :indeterminate="partialChecked"
