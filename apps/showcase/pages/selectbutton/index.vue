@@ -22,6 +22,7 @@ import MultipleDoc from '@/doc/selectbutton/MultipleDoc.vue';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc.vue';
 import PTComponent from '@/doc/selectbutton/pt/index.vue';
 import ThemingDoc from '@/doc/selectbutton/theming/index.vue';
+import AllowEmptyDoc from '../../doc/selectbutton/AllowEmptyDoc.vue';
 
 export default {
     data() {
@@ -41,6 +42,11 @@ export default {
                     id: 'forms',
                     label: 'Forms',
                     component: FormsDoc
+                },
+                {
+                    id: 'allow-empty',
+                    label: 'Allow empty',
+                    component: AllowEmptyDoc
                 },
                 {
                     id: 'multiple',
