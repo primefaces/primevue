@@ -169,7 +169,7 @@ export interface PasswordMeterStateOptions {
 /**
  * Defines valid properties in Password component.
  */
-export interface PasswordProps {
+export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.
      */

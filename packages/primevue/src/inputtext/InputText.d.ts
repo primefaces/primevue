@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import 'vue';
+import { InputHTMLAttributes } from 'vue';
 
 export declare type InputTextPassThroughOptionType<T = any> = InputTextPassThroughAttributes | ((options: InputTextPassThroughMethodOptions<T>) => InputTextPassThroughAttributes | string) | string | null | undefined;
 
@@ -82,7 +82,7 @@ export interface InputTextContext {
 /**
  * Defines valid properties in InputText component.
  */
-export interface InputTextProps {
+export interface InputTextProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.
      */
