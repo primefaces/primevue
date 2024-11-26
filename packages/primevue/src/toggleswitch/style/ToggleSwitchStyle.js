@@ -24,7 +24,6 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch-slider {
-    display: inline-block;
     cursor: pointer;
     width: 100%;
     height: 100%;
