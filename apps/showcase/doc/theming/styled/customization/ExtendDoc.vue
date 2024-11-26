@@ -29,8 +29,7 @@ const MyPreset = definePreset(Aura, {
                     myCheckedDisabledBackground: '{primary.color}'
                 } 
             }
-        },
-        css: ({ dt }) => \`
+            css: ({ dt }) => \`
 .p-toggleswitch.p-disabled .p-toggleswitch-slider {
     opacity: \${dt('toggleswitch.my.disabled.opacity')};
 }
@@ -39,6 +38,7 @@ const MyPreset = definePreset(Aura, {
     background: \${dt('toggleswitch.my.checked.disabled.background')};
 }
 \`
+        },
     }
 });
 `
