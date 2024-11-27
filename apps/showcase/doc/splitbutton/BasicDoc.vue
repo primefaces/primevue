@@ -101,13 +101,13 @@ const items = [
     {
         label: 'Update',
         command: () => {
-            this.$toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
         }
     },
     {
         label: 'Delete',
         command: () => {
-            this.$toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
         }
     },
     {
