@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.2.4](https://github.com/primefaces/primevue/tree/4.2.4) (2024-11-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.2.3...4.2.4)
+
+**Fixed bugs:**
+
+-   Chip component's removable Icon uses aria-hidden  [\#6864](https://github.com/primefaces/primevue/issues/6864)
+-   Textarea filled variant fails in Material Theme [\#6878](https://github.com/primefaces/primevue/issues/6878)
+-   InputText: Missing attributes such as placeholder. [\#6867](https://github.com/primefaces/primevue/issues/6867)
+-   ToggleSwitch: Material theme switch uncentered handle [\#6859](https://github.com/primefaces/primevue/issues/6859)
+-   TreeTable: Checkbox selectable does not work [\#6849](https://github.com/primefaces/primevue/issues/6849)
+-   Knob: Incorrect TypeScript Definition for valueTemplate (not supporting plain strings) [\#6843](https://github.com/primefaces/primevue/issues/6843)
+-   InputNumber: selection state is not changed when pressing arrow right and arrow left [\#6837](https://github.com/primefaces/primevue/issues/6837)
+-   Virtual scroller: step prop in delay mode breaks the component [\#6776](https://github.com/primefaces/primevue/issues/6776)
+
 ## [4.2.3](https://github.com/primefaces/primevue/tree/4.2.3) (2024-11-22)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.2.2...4.2.3)
