@@ -93,6 +93,10 @@ const theme = ({ dt }) => `
     background: ${dt('floatlabel.on.active.background')};
     padding: ${dt('floatlabel.on.active.padding')};
 }
+
+.p-floatlabel:not(:has(input:focus)) ::placeholder {
+    color: transparent;
+}
 `;
 
 const classes = {
