@@ -6,9 +6,9 @@
 
 **Fixed bugs:**
 
--   Chip component's removable Icon uses aria-hidden  [\#6864](https://github.com/primefaces/primevue/issues/6864)
 -   Textarea filled variant fails in Material Theme [\#6878](https://github.com/primefaces/primevue/issues/6878)
 -   InputText: Missing attributes such as placeholder. [\#6867](https://github.com/primefaces/primevue/issues/6867)
+-   Chip component's removable Icon uses aria-hidden  [\#6864](https://github.com/primefaces/primevue/issues/6864)
 -   ToggleSwitch: Material theme switch uncentered handle [\#6859](https://github.com/primefaces/primevue/issues/6859)
 -   TreeTable: Checkbox selectable does not work [\#6849](https://github.com/primefaces/primevue/issues/6849)
 -   Knob: Incorrect TypeScript Definition for valueTemplate (not supporting plain strings) [\#6843](https://github.com/primefaces/primevue/issues/6843)
