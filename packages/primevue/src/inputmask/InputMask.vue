@@ -447,6 +447,7 @@ export default {
         },
 
         updateModelValue(value) {
+            if (this.currentVal === value) return;
             const val = this.unmask ? this.getUnmaskedValue() : value;
 
             this.currentVal = value;
