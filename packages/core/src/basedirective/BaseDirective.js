@@ -6,6 +6,9 @@ import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
 import { mergeProps } from 'vue';
 
+const _themesCallback = new Map();
+const _configCallback = new Map();
+
 const BaseDirective = {
     _getMeta: (...args) => [isObject(args[0]) ? undefined : args[0], resolve(isObject(args[0]) ? args[0] : args[1])],
     _getConfig: (binding, vnode) => (binding?.instance?.$primevue || vnode?.ctx?.appContext?.config?.globalProperties?.$primevue)?.config,
@@ -76,7 +79,9 @@ const BaseDirective = {
         BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
         BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
 
-        BaseDirective._themeChangeListener(() => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions));
+        const loadStyle = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions)
+
+        BaseDirective._themeChangeListener(el.$instance, loadStyle);
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
@@ -130,9 +135,32 @@ const BaseDirective = {
             instance.scopedStyleEl = scopedStyle.el;
         }
     },
-    _themeChangeListener(callback = () => {}) {
+    _themeChangeListener(instance, callback = () => {}) {
+        if (!instance || !callback) return;
+        
+        // Store callback reference
+        let listeners = _themesCallback.get(instance.$attrSelector);
+
+        if (!listeners) {
+            listeners = new Set();
+            _themesCallback.set(instance.$attrSelector, listeners);
+        }
+
+        listeners.add(callback);
+
         Base.clearLoadedStyleNames();
         ThemeService.on('theme:change', callback);
+    },
+    _removeThemeListeners(instance) {
+        const listeners = _themesCallback.get(instance.$attrSelector);
+
+        if (listeners) {
+            listeners.forEach(callback => {
+                ThemeService.off('theme:change', callback);
+            });
+            listeners.clear();
+            _themesCallback.delete(instance);
+        }
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${toCapitalCase(hookName)}`;
@@ -193,14 +221,30 @@ const BaseDirective = {
         const handleWatch = (el) => {
             const watchers = el.$instance?.watch;
 
+
+            const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
+            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue)
+
+            _configCallback.set(el, { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple });
+
             // for 'config'
             watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
-            PrimeVueService.on('config:change', ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue));
+            PrimeVueService.on('config:change', handleWatchConfig);
 
             // for 'config.ripple'
             watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$primevueConfig?.ripple);
-            PrimeVueService.on('config:ripple:change', ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue));
+            PrimeVueService.on('config:ripple:change', handleWatchConfigRipple);
         };
+
+        const removeWatch = (el) => {
+            const watchers = _configCallback.get(el);
+
+            if (watchers) {
+                PrimeVueService.off('config:change', watchers.config);
+                PrimeVueService.off('config:ripple:change', watchers['config.ripple']);
+                _configCallback.delete(el);
+            }
+        }
 
         return {
             created: (el, binding, vnode, prevVnode) => {
@@ -225,6 +269,8 @@ const BaseDirective = {
                 handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {
+                removeWatch(el);
+                BaseDirective._removeThemeListeners(el.$instance);
                 handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },
             unmounted: (el, binding, vnode, prevVnode) => {
