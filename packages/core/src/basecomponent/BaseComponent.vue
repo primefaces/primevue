@@ -53,7 +53,7 @@ export default {
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
                     this._themeScopedListener = () => this._loadScopedThemeStyles(newValue);
-                    this._themeChangeListener(this._themeScopedListener)
+                    this._themeChangeListener(this._themeScopedListener);
                 } else {
                     this._unloadScopedThemeStyles();
                 }
@@ -107,6 +107,7 @@ export default {
     unmounted() {
         ThemeService.off('theme:change', this._loadCoreStyles);
         ThemeService.off('theme:change', this._load);
+        this._unloadScopedThemeStyles();
         this._hook('onUnmounted');
     },
     methods: {

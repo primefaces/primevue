@@ -79,7 +79,7 @@ const BaseDirective = {
         BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
         BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
 
-        const loadStyle = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions)
+        const loadStyle = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
 
         BaseDirective._themeChangeListener(el.$instance, loadStyle);
     },
@@ -137,7 +137,7 @@ const BaseDirective = {
     },
     _themeChangeListener(instance, callback = () => {}) {
         if (!instance || !callback) return;
-        
+
         // Store callback reference
         let listeners = _themesCallback.get(instance.$attrSelector);
 
@@ -155,7 +155,7 @@ const BaseDirective = {
         const listeners = _themesCallback.get(instance.$attrSelector);
 
         if (listeners) {
-            listeners.forEach(callback => {
+            listeners.forEach((callback) => {
                 ThemeService.off('theme:change', callback);
             });
             listeners.clear();
@@ -221,11 +221,10 @@ const BaseDirective = {
         const handleWatch = (el) => {
             const watchers = el.$instance?.watch;
 
-
             const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
-            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue)
+            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue);
 
-            _configCallback.set(el, { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple });
+            _configCallback.set(el.$instance.$attrSelector, { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple });
 
             // for 'config'
             watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
@@ -237,14 +236,14 @@ const BaseDirective = {
         };
 
         const removeWatch = (el) => {
-            const watchers = _configCallback.get(el);
+            const watchers = _configCallback.get(el.$instance.$attrSelector);
 
             if (watchers) {
                 PrimeVueService.off('config:change', watchers.config);
                 PrimeVueService.off('config:ripple:change', watchers['config.ripple']);
-                _configCallback.delete(el);
+                _configCallback.delete(el.$instance.$attrSelector);
             }
-        }
+        };
 
         return {
             created: (el, binding, vnode, prevVnode) => {
