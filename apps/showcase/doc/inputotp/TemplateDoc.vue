@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <InputOtp v-model="value">
             <template #default="{ attrs, events }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
             </template>
         </InputOtp>
     </div>
@@ -21,7 +21,7 @@ export default {
                 basic: `
 <InputOtp v-model="value">
     <template #default="{ attrs, events }">
-        <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+        <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
     </template>
 </InputOtp>
 `,
@@ -30,7 +30,7 @@ export default {
     <div class="card flex justify-center">
         <InputOtp v-model="value">
             <template #default="{ attrs, events }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
             </template>
         </InputOtp>
     </div>
@@ -69,7 +69,7 @@ export default {
     <div class="card flex justify-center">
         <InputOtp v-model="value">
             <template #default="{ attrs, events }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
             </template>
         </InputOtp>
     </div>
