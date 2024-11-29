@@ -263,7 +263,7 @@ const save = () => {
     },
     methods: {
         save() {
-            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
         }
     }
 };
