@@ -3,7 +3,7 @@
         <Button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" :aria-label="scrollTopAriaLabel" :unstyled="unstyled" v-bind="buttonProps" :pt="pt">
             <template #icon="slotProps">
                 <slot name="icon" :class="cx('icon')">
-                    <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon, slotProps.class]" v-bind="ptmi('root')['icon']" />
+                    <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon, slotProps.class]" v-bind="ptm('icon')" />
                 </slot>
             </template>
         </Button>
