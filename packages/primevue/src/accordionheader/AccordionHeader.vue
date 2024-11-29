@@ -1,5 +1,5 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="$attrs">
         <slot :active="$pcAccordionPanel.active"></slot>
         <slot name="toggleicon" :active="$pcAccordionPanel.active" :class="cx('toggleicon')">
             <component
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { findSingle, getAttribute, focus } from '@primeuix/utils/dom';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';

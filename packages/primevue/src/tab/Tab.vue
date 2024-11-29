@@ -1,12 +1,12 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="$attrs">
         <slot></slot>
     </component>
     <slot v-else :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs" :onClick="onClick"></slot>
 </template>
 
 <script>
-import { getAttribute, focus, findSingle } from '@primeuix/utils/dom';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';

@@ -1,5 +1,5 @@
 <template>
-    <input type="text" :class="cx('root')" :value="d_value" :disabled="disabled" :aria-invalid="$invalid || undefined" @input="onInput" v-bind="attrs" />
+    <input type="text" :class="cx('root')" :value="d_value" :disabled="disabled" :aria-invalid="$invalid || undefined" @input="onInput" v-bind="$attrs" />
 </template>
 
 <script>

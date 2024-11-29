@@ -1,5 +1,5 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" v-bind="$attrs">
         <slot>
             <slot v-if="loading" name="loadingicon" :class="[cx('loadingIcon'), cx('icon')]" v-bind="ptm('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), cx('icon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
