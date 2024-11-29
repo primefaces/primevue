@@ -10,6 +10,7 @@ const theme = ({ dt }) => `
 .p-slider-handle {
     cursor: grab;
     touch-action: none;
+    user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
