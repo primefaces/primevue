@@ -198,6 +198,7 @@ input.p-select-label {
 
 .p-select-fluid {
     display: flex;
+    width: 100%;
 }
 
 .p-select-sm .p-select-label {
