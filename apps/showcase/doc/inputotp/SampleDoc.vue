@@ -8,7 +8,7 @@
             <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
             <InputOtp v-model="value" :length="6" style="gap: 0">
                 <template #default="{ attrs, events, index }">
-                    <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
                     <div v-if="index === 3" class="px-4">
                         <i class="pi pi-minus" />
                     </div>
@@ -35,7 +35,7 @@ export default {
     <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
     <InputOtp v-model="value" :length="6" style="gap: 0">
         <template #default="{ attrs, events, index }">
-            <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
+            <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
             <div v-if="index === 3" class="px-4">
                 <i class="pi pi-minus" />
             </div>
@@ -55,7 +55,7 @@ export default {
             <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
             <InputOtp v-model="value" :length="6" style="gap: 0">
                 <template #default="{ attrs, events, index }">
-                    <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
                     <div v-if="index === 3" class="px-4">
                         <i class="pi pi-minus" />
                     </div>
@@ -125,7 +125,7 @@ export default {
             <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
             <InputOtp v-model="value" :length="6" style="gap: 0">
                 <template #default="{ attrs, events, index }">
-                    <input type="text" v-bind="$attrs" v-on="events" class="custom-otp-input" />
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
                     <div v-if="index === 3" class="px-4">
                         <i class="pi pi-minus" />
                     </div>
