@@ -2,7 +2,7 @@
     <slot v-if="!$pcTabs"></slot>
     <template v-else>
         <template v-if="!asChild">
-            <component v-if="$pcTabs?.lazy ? active : true" v-show="$pcTabs?.lazy ? true : active" :is="as" :class="cx('root')" v-bind="$attrs">
+            <component v-if="$pcTabs?.lazy ? active : true" v-show="$pcTabs?.lazy ? true : active" :is="as" :class="cx('root')" v-bind="attrs">
                 <slot></slot>
             </component>
         </template>

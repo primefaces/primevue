@@ -1,5 +1,5 @@
 <template>
-    <component v-if="!asChild" :is="as" :class="cx('root')" v-bind="$attrs">
+    <component v-if="!asChild" :is="as" :class="cx('root')" v-bind="attrs">
         <slot></slot>
     </component>
     <slot v-else :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs"></slot>
