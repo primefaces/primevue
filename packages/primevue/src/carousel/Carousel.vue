@@ -602,7 +602,7 @@ export default {
             return this.orientation === 'vertical';
         },
         hasValidItemCount() {
-            return this.value && this.value.length >= this.d_numVisible;
+            return this.value && this.value.length > this.d_numVisible;
         },
         isCircular() {
             return this.hasValidItemCount() && this.d_circular;
