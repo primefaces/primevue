@@ -226,7 +226,7 @@ export default {
             const theme = JSON.stringify(this.$appState.designer.preset, null, 4).replace(/"([^"]+)":/g, '$1:');
             const textContent = `import { createApp } from "vue";
 import PrimeVue from "primevue/config";
-import {${basePreset}} from "@primevue/themes/${basePreset.toLowerCase()}";
+import ${basePreset} from "@primevue/themes/${basePreset.toLowerCase()}";
 import { definePreset } from "@primevue/themes";
 
 const app = createApp(App);
