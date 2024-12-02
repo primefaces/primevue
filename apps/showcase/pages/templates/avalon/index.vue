@@ -45,7 +45,7 @@ export default {
                             license: {
                                 documentLink: 'https://avalon.primevue.org/documentation',
                                 description: 'The download package is a Vite-based project containing all application source codes deployed at the live demo. The project code is written in JavaScript.',
-                                showDiscount: true,
+                                showDiscount: false,
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
