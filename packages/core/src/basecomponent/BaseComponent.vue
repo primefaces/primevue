@@ -70,7 +70,7 @@ export default {
         const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
 
         (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
-        this.$attrSelector = uuid('pc');
+        this.$attrSelector = typeof process === "object" ? 'pc' : uuid('pc');
     },
     created() {
         this._hook('onCreated');
