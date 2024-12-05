@@ -849,7 +849,7 @@ export default {
                 const targetRow = event.currentTarget?.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';
-                targetRow.tabIndex = '0';
+                if (targetRow) targetRow.tabIndex = '0';
             }
         },
         onRowDblClick(e) {
