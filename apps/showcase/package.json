@@ -63,8 +63,7 @@
         "superstruct": "^2.0.2"
     },
     "dependencies": {
-        "@docsearch/js": "^3.3.3",
-        "nuxt-gtag": "^0.6.2"
+        "@docsearch/js": "^3.3.3"
     },
     "engines": {
         "node": ">=12.11.0"

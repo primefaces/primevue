@@ -24,7 +24,7 @@ try {
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     typescript: false,
-    modules: ['nuxt-gtag', '@primevue/nuxt-module'],
+    modules: ['@primevue/nuxt-module'],
     components: {
         path: '~/components',
         pathPrefix: false
@@ -99,9 +99,6 @@ export default defineNuxtConfig({
             contextPath: baseUrl,
             DEV_ENV: PROCESS_ENV.DEV_ENV
         }
-    },
-    gtag: {
-        id: 'G-48TTQ6G6KV'
     },
     css: ['primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/tailwind/main.css', '@/assets/styles/layout/layout.scss']
 });
