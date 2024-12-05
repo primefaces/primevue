@@ -104,7 +104,7 @@ export default {
             return this.d_value ?? this.$pcFormField?.initialValue ?? this.$pcForm?.initialValues?.[this.$formName];
         },
         controlled() {
-            return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
+            return this.$inProps.modelValue !== undefined;
         },
         // @deprecated use $filled instead
         filled() {
