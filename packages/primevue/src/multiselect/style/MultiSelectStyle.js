@@ -209,6 +209,7 @@ const theme = ({ dt }) => `
 
 .p-multiselect-fluid {
     display: flex;
+    width: 100%;
 }
 
 .p-multiselect-sm .p-multiselect-label {
