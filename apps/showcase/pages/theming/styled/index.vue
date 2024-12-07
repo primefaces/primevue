@@ -9,7 +9,7 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Styled Mode</h1>
-                    <p>Choose from a variety of pre-styled themes or develop your own..</p>
+                    <p>Choose from a variety of pre-styled themes or develop your own.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -30,7 +30,6 @@ import ScaleDoc from '@/doc/theming/styled/ScaleDoc.vue';
 import ScopedTokensDoc from '@/doc/theming/styled/ScopedTokensDoc.vue';
 import OptionsDoc from '@/doc/theming/styled/configuration/OptionsDoc.vue';
 import ThemeDoc from '@/doc/theming/styled/configuration/ThemeDoc.vue';
-import LibrariesDoc from '@/doc/theming/styled/csslayer/LibrariesDoc.vue';
 import ResetDoc from '@/doc/theming/styled/csslayer/ResetDoc.vue';
 import SpecificityDoc from '@/doc/theming/styled/csslayer/SpecificityDoc.vue';
 import ComponentDoc from '@/doc/theming/styled/customization/ComponentDoc.vue';
@@ -114,14 +113,14 @@ export default {
                             component: PrimaryDoc
                         },
                         {
-                            id: 'noir',
-                            label: 'Noir',
-                            component: NoirDoc
-                        },
-                        {
                             id: 'surface',
                             label: 'Surface',
                             component: SurfaceDoc
+                        },
+                        {
+                            id: 'noir',
+                            label: 'Noir',
+                            component: NoirDoc
                         },
                         {
                             id: 'font',
@@ -205,11 +204,6 @@ export default {
                             id: 'reset',
                             label: 'Reset',
                             component: ResetDoc
-                        },
-                        {
-                            id: 'libraries',
-                            label: 'Libraries',
-                            component: LibrariesDoc
                         }
                     ]
                 },

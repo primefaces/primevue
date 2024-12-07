@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            The <i>noir</i> mode is the nickname of a variant that uses black tones as the primary and requires and additional <i>colorScheme</i> configuration to implement. A sample preset configuration with black and white variants as the primary
+            The <i>noir</i> mode is the nickname of a variant that uses surface tones as the primary and requires and additional <i>colorScheme</i> configuration to implement. A sample preset configuration with black and white variants as the primary
             color;
         </p>
     </DocSectionText>

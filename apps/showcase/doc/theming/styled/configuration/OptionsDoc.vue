@@ -42,7 +42,7 @@ options: {
 options: {
     cssLayer: {
         name: 'primevue',
-        order: 'tailwind-base, primevue, tailwind-utilities'
+        order: 'app-styles, primevue, another-css-library'
     }
 }
 `
