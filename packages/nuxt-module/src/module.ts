@@ -42,7 +42,7 @@ export default defineNuxtModule<ModuleOptions>({
     },
     hooks: {},
     setup(moduleOptions, nuxt) {
-        moduleOptions.components.exclude = moduleOptions.components.exclude || ['Editor', 'Chart'];
+        moduleOptions.components.exclude = moduleOptions.components.exclude || ['Editor', 'Chart', 'Form', 'FormField'];
 
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
