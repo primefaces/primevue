@@ -117,7 +117,7 @@ export { styles, stylesToTop, themes };
 import { defineNuxtPlugin, useRuntimeConfig } from '#imports';
 ${registered.config.map((config: MetaType) => `import ${config.as} from '${config.from}';`).join('\n')}
 ${registered.services.map((service: MetaType) => `import ${service.as} from '${service.from}';`).join('\n')}
-${autoImport && registered.directives.map((directive: MetaType) => `import ${directive.as} from '${directive.from}';`).join('\n')}
+${autoImport ? registered.directives.map((directive: MetaType) => `import ${directive.as} from '${directive.from}';`).join('\n') : ''}
 ${importPT ? `import ${importPT.as} from '${normalize(importPT.from)}';\n` : ''}
 ${hasTheme && importTheme ? `import ${importTheme.as} from '${normalize(importTheme.from)}';\n` : ''}
 
@@ -130,7 +130,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
 
   usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt, ...theme });
   ${registered.services.map((service: MetaType) => `vueApp.use(${service.as});`).join('\n')}
-  ${autoImport && registered.directives.map((directive: MetaType) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
+  ${autoImport ? registered.directives.map((directive: MetaType) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n') : ''}
 });
         `;
             }
