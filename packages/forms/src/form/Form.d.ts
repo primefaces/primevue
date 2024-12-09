@@ -213,27 +213,29 @@ export interface FormSlots {
      * Default content slot.
      * @param {Object} scope - default slot's params.
      */
-    default: (scope: {
-        /**
-         * Registers a form field for validation and tracking.
-         * @param field - The name of the form field to register.
-         * @param options - Configuration options for the field, such as validation rules.
-         * @returns - Returns an object or value representing the registered field.
-         */
-        register: (field: string, options: any) => any;
-        /**
-         * Resets the entire form state, clearing values and validation statuses.
-         */
-        reset: () => void;
-        /**
-         * Indicates whether the form is valid, returning `true` if all fields pass validation.
-         */
-        valid: boolean;
-        /**
-         * Stores the state of each form field, with the field name as the key and its state as the value.
-         */
-        states: Record<string, FormFieldState>;
-    }) => VNode[];
+    default: (
+        scope: {
+            /**
+             * Registers a form field for validation and tracking.
+             * @param field - The name of the form field to register.
+             * @param options - Configuration options for the field, such as validation rules.
+             * @returns - Returns an object or value representing the registered field.
+             */
+            register: (field: string, options: any) => any;
+            /**
+             * Resets the entire form state, clearing values and validation statuses.
+             */
+            reset: () => void;
+            /**
+             * Indicates whether the form is valid, returning `true` if all fields pass validation.
+             */
+            valid: boolean;
+
+            /**
+             * Index signature for dynamically added form fields.
+             */
+        } & Record<string, FormFieldState>
+    ) => VNode[];
 }
 
 /**
