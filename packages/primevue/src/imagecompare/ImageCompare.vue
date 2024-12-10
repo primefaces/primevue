@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptmi('root')">
         <slot name="left"></slot>
         <slot name="right"></slot>
         <input type="range" min="0" max="100" value="50" @input="onSlide" :class="cx('slider')" v-bind="ptm('slider')" />
