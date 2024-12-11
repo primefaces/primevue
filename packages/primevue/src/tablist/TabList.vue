@@ -89,18 +89,24 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = getWidth(content);
-            const pos = Math.abs(content.scrollLeft) - width;
-            const scrollLeft = pos <= 0 ? 0 : pos;
+            const buttonWidths = this.getVisibleButtonWidths();
+            const width = getWidth(content) - buttonWidths;
+            const currentScrollLeft = Math.abs(content.scrollLeft);
+            const scrollStep = width * 0.8;
+            const targetScrollLeft = currentScrollLeft - scrollStep;
+            const scrollLeft = Math.max(targetScrollLeft, 0);
 
             content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
-            const width = getWidth(content) - this.getVisibleButtonWidths();
-            const pos = width + Math.abs(content.scrollLeft);
-            const lastPos = content.scrollWidth - width;
-            const scrollLeft = pos >= lastPos ? lastPos : pos;
+            const buttonWidths = this.getVisibleButtonWidths();
+            const width = getWidth(content) - buttonWidths;
+            const currentScrollLeft = Math.abs(content.scrollLeft);
+            const scrollStep = width * 0.8;
+            const targetScrollLeft = currentScrollLeft + scrollStep;
+            const maxScrollLeft = content.scrollWidth - width;
+            const scrollLeft = Math.min(targetScrollLeft, maxScrollLeft);
 
             content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
@@ -139,9 +145,14 @@ export default {
             }
         },
         getVisibleButtonWidths() {
-            const { prevBtn, nextBtn } = this.$refs;
+            const { prevButton, nextButton } = this.$refs;
+            let width = 0;
 
-            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
+            if (this.showNavigators) {
+                width = (prevButton?.offsetWidth || 0) + (nextButton?.offsetWidth || 0);
+            }
+
+            return width;
         }
     },
     computed: {
