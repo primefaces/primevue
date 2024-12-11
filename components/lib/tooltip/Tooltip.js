@@ -5,7 +5,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
     beforeMount(el, options) {
         let target = this.getTarget(el);
 
-        target.$_ptooltipModifiers = this.getModifiers(options);
+        target?.$_ptooltipModifiers = this.getModifiers(options);
 
         if (!options.value) return;
         else if (typeof options.value === 'string') {
