@@ -6,9 +6,6 @@ import BaseStyle from '@primevue/core/base/style';
 import PrimeVueService from '@primevue/core/service';
 import { mergeProps } from 'vue';
 
-const _themesCallback = new Map();
-const _configCallback = new Map();
-
 const BaseDirective = {
     _getMeta: (...args) => [isObject(args[0]) ? undefined : args[0], resolve(isObject(args[0]) ? args[0] : args[1])],
     _getConfig: (binding, vnode) => (binding?.instance?.$primevue || vnode?.ctx?.appContext?.config?.globalProperties?.$primevue)?.config,
@@ -79,9 +76,11 @@ const BaseDirective = {
         BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
         BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
 
-        const loadStyle = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
+        BaseDirective._removeThemeListeners(el.$instance);
 
-        BaseDirective._themeChangeListener(el.$instance, loadStyle);
+        el.$instance.$loadStyles = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
+
+        BaseDirective._themeChangeListener(el.$instance.$loadStyles);
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
@@ -135,32 +134,12 @@ const BaseDirective = {
             instance.scopedStyleEl = scopedStyle.el;
         }
     },
-    _themeChangeListener(instance, callback = () => {}) {
-        if (!instance || !callback) return;
-
-        // Store callback reference
-        let listeners = _themesCallback.get(instance.$attrSelector);
-
-        if (!listeners) {
-            listeners = new Set();
-            _themesCallback.set(instance.$attrSelector, listeners);
-        }
-
-        listeners.add(callback);
-
+    _themeChangeListener(callback = () => {}) {
         Base.clearLoadedStyleNames();
         ThemeService.on('theme:change', callback);
     },
     _removeThemeListeners(instance) {
-        const listeners = _themesCallback.get(instance.$attrSelector);
-
-        if (listeners) {
-            listeners.forEach((callback) => {
-                ThemeService.off('theme:change', callback);
-            });
-            listeners.clear();
-            _themesCallback.delete(instance);
-        }
+        ThemeService.off('theme:change', instance.$loadStyles);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${toCapitalCase(hookName)}`;
@@ -224,7 +203,7 @@ const BaseDirective = {
             const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
             const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue);
 
-            _configCallback.set(el.$instance.$attrSelector, { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple });
+            el.$instance.$watchersCallback = { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple };
 
             // for 'config'
             watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
@@ -236,12 +215,11 @@ const BaseDirective = {
         };
 
         const removeWatch = (el) => {
-            const watchers = _configCallback.get(el.$instance.$attrSelector);
+            const watchers = el.$instance.$watchersCallback;
 
             if (watchers) {
                 PrimeVueService.off('config:change', watchers.config);
                 PrimeVueService.off('config:ripple:change', watchers['config.ripple']);
-                _configCallback.delete(el.$instance.$attrSelector);
             }
         };
 
