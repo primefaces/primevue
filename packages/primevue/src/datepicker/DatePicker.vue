@@ -7,7 +7,7 @@
             role="combobox"
             :class="[inputClass, cx('pcInputText')]"
             :style="inputStyle"
-            :value="inputFieldValue"
+            :defaultValue="inputFieldValue"
             :placeholder="placeholder"
             :name="name"
             :size="size"
@@ -2591,6 +2591,7 @@ export default {
                 if (this.isValidSelection(value)) {
                     this.typeUpdate = true;
                     this.updateModel(value);
+                    this.updateCurrentMetaData();
                 }
             } catch (err) {
                 /* NoOp */
