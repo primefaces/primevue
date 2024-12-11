@@ -8,6 +8,7 @@
                 :disabled="disabled || isOptionDisabled(option)"
                 :unstyled="unstyled"
                 :size="size"
+                :readonly="!allowEmpty && isSelected(option)"
                 @change="onOptionSelect($event, option, index)"
                 :pt="ptm('pcToggleButton')"
             >
