@@ -590,6 +590,20 @@
 -   DataTable: Can't copy text with control + c when Table has selectable rows [\#5757](https://github.com/primefaces/primevue/issues/5757)
 -   InputNumber : Request to Disable Ctrl+V Input in Component when readonly is set to true [\#5726](https://github.com/primefaces/primevue/issues/5726)
 
+## [3.53.1](https://github.com/primefaces/primevue/tree/3.53.1) (2024-12-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.53.0...3.53.1)
+
+**Fixed bugs:**
+
+-   feat :InputNumber: Accept Comma And NumpadDecimal as decimal "sign"  [\#6506](https://github.com/primefaces/primevue/issues/6506)
+-   fix(v3): global vue type augmentation [\#6380](https://github.com/primefaces/primevue/issues/6380)
+-   Dialog: [V3] When it non-fixed, it will cause the appendTo target shrink or joggled. [\#6162](https://github.com/primefaces/primevue/issues/6162)
+-   fix(Calendar): highlight range of year in YearMode [\#5988](https://github.com/primefaces/primevue/issues/5988)
+-   fix(Calendar): highlight range of month in MonthMode [\#5987](https://github.com/primefaces/primevue/issues/5987)
+-   TreeNode selectable not being used when in checkbox selectionMode [\#5330](https://github.com/primefaces/primevue/issues/5330)
+-   InputNumber: Issue Accept Numpad Decimal when different to the region symbol  [\#3722](https://github.com/primefaces/primevue/issues/3722)
+
 ## [3.52.0](https://github.com/primefaces/primevue/tree/3.52.0) (2024-04-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.51.0...3.52.0)
