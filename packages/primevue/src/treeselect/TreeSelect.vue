@@ -452,22 +452,11 @@ export default {
         onOverlayKeydown(event) {
             if (event.code === 'Escape') this.hide();
         },
-        findSelectedNodes(node, keys, selectedNodes) {
-            if (node) {
-                if (this.isSelected(node, keys)) {
-                    selectedNodes.push(node);
-                    delete keys[node.key];
-                }
+        fillNodeMap(node, nodeMap) {
+            nodeMap[node.key] = node;
 
-                if (Object.keys(keys).length && node.children) {
-                    for (let childNode of node.children) {
-                        this.findSelectedNodes(childNode, keys, selectedNodes);
-                    }
-                }
-            } else {
-                for (let childNode of this.options) {
-                    this.findSelectedNodes(childNode, keys, selectedNodes);
-                }
+            if (node.children?.length) {
+                node.children.forEach(children => this.fillNodeMap(children, nodeMap))
             }
         },
         isSelected(node, keys) {
@@ -520,13 +509,24 @@ export default {
         }
     },
     computed: {
+        nodeMap() {
+            const nodeMap = {};
+
+            this.options?.forEach(node => this.fillNodeMap(node, nodeMap))
+
+            return nodeMap;
+        },
         selectedNodes() {
             let selectedNodes = [];
 
             if (this.d_value && this.options) {
-                let keys = { ...this.d_value };
+                Object.keys(this.d_value).forEach(key => {
+                    const node = this.nodeMap[key];
 
-                this.findSelectedNodes(null, keys, selectedNodes);
+                    if (this.isSelected(node, this.d_value)) {
+                        selectedNodes.push(node)
+                    }
+                })
             }
 
             return selectedNodes;
