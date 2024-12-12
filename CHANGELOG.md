@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.53.1](https://github.com/primefaces/primevue/tree/3.53.1) (2024-12-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/3.53.0...3.53.1)
+
+**Fixed bugs:**
+
+-   feat :InputNumber: Accept Comma And NumpadDecimal as decimal "sign"  [\#6506](https://github.com/primefaces/primevue/issues/6506)
+-   fix(v3): global vue type augmentation [\#6380](https://github.com/primefaces/primevue/issues/6380)
+-   Dialog: [V3] When it non-fixed, it will cause the appendTo target shrink or joggled. [\#6162](https://github.com/primefaces/primevue/issues/6162)
+-   fix(Calendar): highlight range of year in YearMode [\#5988](https://github.com/primefaces/primevue/issues/5988)
+-   fix(Calendar): highlight range of month in MonthMode [\#5987](https://github.com/primefaces/primevue/issues/5987)
+-   TreeNode selectable not being used when in checkbox selectionMode [\#5330](https://github.com/primefaces/primevue/issues/5330)
+-   InputNumber: Issue Accept Numpad Decimal when different to the region symbol  [\#3722](https://github.com/primefaces/primevue/issues/3722)
+
 ## [3.53.0](https://github.com/primefaces/primevue/tree/3.53.0) (2024-06-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/3.52.0...3.53.0)
