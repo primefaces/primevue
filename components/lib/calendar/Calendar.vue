@@ -724,7 +724,6 @@ export default {
 
                     return currentDate >= startDate && currentDate <= endDate;
                 }
-
             } else {
                 return this.modelValue.getMonth() === month && this.modelValue.getFullYear() === this.currentYear;
             }

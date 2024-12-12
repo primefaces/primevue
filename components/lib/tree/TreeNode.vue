@@ -144,7 +144,7 @@ export default {
             if (this.isCheckboxSelectionMode()) {
                 if (this.node.selectable != false) {
                     this.toggleCheckbox();
-                }                
+                }
             } else {
                 this.$emit('node-click', {
                     originalEvent: event,
