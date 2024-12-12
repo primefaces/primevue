@@ -1,5 +1,29 @@
 # Changelog
 
+## [4.2.5](https://github.com/primefaces/primevue/tree/4.2.5) (2024-12-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.2.4...4.2.5)
+
+**Fixed bugs:**
+
+-   TreeTable: Row selected on click at node toggle icon [\#6932](https://github.com/primefaces/primevue/issues/6932)
+-   DatePicker: Date unformatted with initial date [\#6930](https://github.com/primefaces/primevue/issues/6930)
+-   MultiSelect: Fluid doesn't applying 100% width [\#6916](https://github.com/primefaces/primevue/issues/6916)
+-   Tabs: Scrollable tabs being skipped [\#6915](https://github.com/primefaces/primevue/issues/6915)
+-   ImageCompare: ARIA Attributes [\#6912](https://github.com/primefaces/primevue/issues/6912)
+-   DataTable: RowExpansion & RowSelection [\#6904](https://github.com/primefaces/primevue/issues/6904)
+-   FileUpload: fileLimit dosent prevent new items beeing pushed into Files[], when exceeded [\#6900](https://github.com/primefaces/primevue/issues/6900)
+-   Galleria: 'Indicator' Slot, Keyboard Accessibility Broken [\#6899](https://github.com/primefaces/primevue/issues/6899)
+-   Select: fluid doesnt apply properly [\#6896](https://github.com/primefaces/primevue/issues/6896)
+-   ScrollTop: icon pt implementation defect [\#6892](https://github.com/primefaces/primevue/issues/6892)
+-   Slider: While dragging the handle sometimes it breaks [\#6884](https://github.com/primefaces/primevue/issues/6884)
+-   SplitButton: Toast usages in examples for composition API are not correct [\#6879](https://github.com/primefaces/primevue/issues/6879)
+-   InputMask components fires @update:modelValue although value not changed [\#6868](https://github.com/primefaces/primevue/issues/6868)
+-   Carousel: Item disappear when there is only one item with autoplay and circular activated [\#6812](https://github.com/primefaces/primevue/issues/6812)
+-   DatePicker: manual input not working [\#6739](https://github.com/primefaces/primevue/issues/6739)
+-   SelectButton: allowEmpty does not stop unselecting [\#6718](https://github.com/primefaces/primevue/issues/6718)
+-   Form: type of v-slot="$form" is incorrect [\#6717](https://github.com/primefaces/primevue/issues/6717)
+
 ## [4.2.4](https://github.com/primefaces/primevue/tree/4.2.4) (2024-11-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.2.3...4.2.4)
@@ -8,7 +32,7 @@
 
 -   Textarea filled variant fails in Material Theme [\#6878](https://github.com/primefaces/primevue/issues/6878)
 -   InputText: Missing attributes such as placeholder. [\#6867](https://github.com/primefaces/primevue/issues/6867)
--   Chip component's removable Icon uses aria-hidden  [\#6864](https://github.com/primefaces/primevue/issues/6864)
+-   Chip component's removable Icon uses aria-hidden [\#6864](https://github.com/primefaces/primevue/issues/6864)
 -   ToggleSwitch: Material theme switch uncentered handle [\#6859](https://github.com/primefaces/primevue/issues/6859)
 -   TreeTable: Checkbox selectable does not work [\#6849](https://github.com/primefaces/primevue/issues/6849)
 -   Knob: Incorrect TypeScript Definition for valueTemplate (not supporting plain strings) [\#6843](https://github.com/primefaces/primevue/issues/6843)
@@ -596,13 +620,13 @@
 
 **Fixed bugs:**
 
--   feat :InputNumber: Accept Comma And NumpadDecimal as decimal "sign"  [\#6506](https://github.com/primefaces/primevue/issues/6506)
+-   feat :InputNumber: Accept Comma And NumpadDecimal as decimal "sign" [\#6506](https://github.com/primefaces/primevue/issues/6506)
 -   fix(v3): global vue type augmentation [\#6380](https://github.com/primefaces/primevue/issues/6380)
 -   Dialog: [V3] When it non-fixed, it will cause the appendTo target shrink or joggled. [\#6162](https://github.com/primefaces/primevue/issues/6162)
 -   fix(Calendar): highlight range of year in YearMode [\#5988](https://github.com/primefaces/primevue/issues/5988)
 -   fix(Calendar): highlight range of month in MonthMode [\#5987](https://github.com/primefaces/primevue/issues/5987)
 -   TreeNode selectable not being used when in checkbox selectionMode [\#5330](https://github.com/primefaces/primevue/issues/5330)
--   InputNumber: Issue Accept Numpad Decimal when different to the region symbol  [\#3722](https://github.com/primefaces/primevue/issues/3722)
+-   InputNumber: Issue Accept Numpad Decimal when different to the region symbol [\#3722](https://github.com/primefaces/primevue/issues/3722)
 
 ## [3.52.0](https://github.com/primefaces/primevue/tree/3.52.0) (2024-04-26)
 
