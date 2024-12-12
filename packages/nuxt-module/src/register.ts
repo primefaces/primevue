@@ -45,7 +45,7 @@ function registerComponents(resolvePath: any, moduleOptions: ModuleOptions) {
             global: true
         };
 
-        !moduleOptions.autoImport && addComponent(opt);
+        moduleOptions.autoImport && addComponent(opt);
 
         return {
             ..._item,
@@ -82,7 +82,7 @@ function registerComposables(resolvePath: any, moduleOptions: ModuleOptions) {
             from: resolvePath({ name, as: item.as, from: item.from, type: 'composable' })
         };
 
-        addImports(opt);
+        moduleOptions.autoImport && addImports(opt);
 
         return opt;
     });
@@ -111,7 +111,7 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
         }
     ];
 
-    if (!moduleOptions.autoImport && !options?.unstyled) {
+    if (moduleOptions.autoImport && !options?.unstyled) {
         if (isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',
