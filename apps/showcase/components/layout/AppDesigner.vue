@@ -50,7 +50,7 @@
                     </div>
                 </TabPanel>
                 <TabPanel value="1">
-                    <div class="flex flex-col gap-3">
+                    <div>
                         <form @keydown="onKeyDown" class="flex flex-col gap-3">
                             <DesignBorderRadius />
                             <DesignColors />
@@ -62,7 +62,7 @@
                         <AccordionPanel value="0">
                             <AccordionHeader>Common</AccordionHeader>
                             <AccordionContent>
-                                <div class="flex flex-col gap-3">
+                                <div>
                                     <form @keydown="onKeyDown" class="flex flex-col gap-3">
                                         <DesignGeneral />
                                         <DesignFormField />
@@ -100,7 +100,9 @@
                     </Accordion>
                 </TabPanel>
                 <TabPanel value="3">
-                    <span class="leading-6 text-muted-color">Component tokens are not supported by the Visual Editor at the moment and will be available with a future update. </span>
+                    <form @keydown="onKeyDown">
+                        <DesignComponent />
+                    </form>
                 </TabPanel>
                 <TabPanel value="4">
                     <span class="leading-6 text-muted-color">Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field.</span>
@@ -204,13 +206,7 @@ export default {
     },
     mounted() {
         if (!this.$appState.designer.preset) {
-            const defaultPreset = presets.Aura;
-
-            this.$appState.designer.preset = {
-                primitive: defaultPreset.primitive,
-                semantic: defaultPreset.semantic
-            };
-
+            this.$appState.designer.preset = presets.Aura;
             this.replaceColorPalette();
             this.generateACTokens(null, this.$appState.designer.preset);
         }
@@ -265,10 +261,7 @@ app.mount("#app");
                 document.body.classList.remove('material');
             }
 
-            this.$appState.designer.preset = {
-                primitive: newPreset.primitive,
-                semantic: newPreset.semantic
-            };
+            this.$appState.designer.preset = newPreset;
 
             this.replaceColorPalette();
 
@@ -351,7 +344,7 @@ app.mount("#app");
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
-                if (key === 'dark') {
+                if (key === 'dark' || key === 'components') {
                     continue;
                 }
 

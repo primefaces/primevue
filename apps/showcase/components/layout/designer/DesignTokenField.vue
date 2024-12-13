@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label :for="inputId" class="text-sm text-zinc-700 dark:text-white">{{ label }}</label>
+        <label :for="inputId" class="text-sm text-zinc-700 dark:text-white capitalize">{{ label }}</label>
         <div :id="id" class="relative">
             <AutoComplete
                 :modelValue="modelValue"
@@ -13,7 +13,7 @@
                 :showEmptyMessage="false"
                 :pt="{
                     pcInputText: {
-                        root: ['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full', { 'pr-8': type === 'color' }]
+                        root: ['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full text-sm', { 'pr-8': type === 'color' }]
                     },
                     overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
                     listContainer: 'max-h-40 overflow-auto',
