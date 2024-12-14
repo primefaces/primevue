@@ -222,42 +222,51 @@ export default {
         }
     },
     watch: {
-        valueToRender(newValueToRender, oldValueToRender) {
-            const newSelectionKeys = { ...this.selectionKeys };
+        valueToRender(newValueToRender) {
+            const _selectionKeys = { ...this.selectionKeys };
+
+            const getChildrenSelection = (node) => {
+                const selection = { allChecked: true, someChecked: false };
+
+                for (const childNode of node.children) {
+                    const keyState = _selectionKeys[childNode.key];
+
+                    if (keyState?.checked) {
+                        selection.someChecked = true;
+                    } else if (keyState?.partialChecked) {
+                        selection.someChecked = true;
+                        selection.allChecked = false;
+                    } else {
+                        selection.allChecked = false;
+                    }
+                }
+
+                return selection;
+            };
 
             const recalculateSelection = (nodes) => {
-                nodes.forEach((node) => {
-                    if (node.children && node.children.length) {
-                        recalculateSelection(node.children);
-
-                        let allChecked = true;
-                        let someChecked = false;
-
-                        node.children.forEach((child) => {
-                            if (newSelectionKeys[child.key]?.checked) {
-                                someChecked = true;
-                            } else if (newSelectionKeys[child.key]?.partialChecked) {
-                                someChecked = true;
-                                allChecked = false;
-                            } else {
-                                allChecked = false;
-                            }
-                        });
-
-                        if (allChecked) {
-                            newSelectionKeys[node.key] = { checked: true, partialChecked: false };
-                        } else if (someChecked) {
-                            newSelectionKeys[node.key] = { checked: false, partialChecked: true };
-                        } else {
-                            delete newSelectionKeys[node.key];
-                        }
+                for (const node of nodes) {
+                    if (!node.children || !node.children.length) {
+                        continue;
                     }
-                });
+
+                    recalculateSelection(node.children);
+
+                    const { allChecked, someChecked } = getChildrenSelection(node);
+
+                    if (allChecked) {
+                        _selectionKeys[node.key] = { checked: true, partialChecked: false };
+                    } else if (someChecked) {
+                        _selectionKeys[node.key] = { checked: false, partialChecked: true };
+                    } else {
+                        delete _selectionKeys[node.key];
+                    }
+                }
             };
 
             recalculateSelection(newValueToRender);
 
-            this.$emit('update:selectionKeys', newSelectionKeys);
+            this.$emit('update:selectionKeys', _selectionKeys);
         }
     },
     computed: {
