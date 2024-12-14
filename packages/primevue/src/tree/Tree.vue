@@ -222,7 +222,7 @@ export default {
             return matched;
         },
         getUnfilteredNode(node) {
-            return this.filter ? this.value.find((n) => n.key === node.key) : undefined;
+            return this.filter && this.selectionMode === 'checkbox' ? this.value.find((n) => n.key === node.key) : undefined;
         }
     },
     computed: {
