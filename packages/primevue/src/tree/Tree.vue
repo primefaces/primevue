@@ -24,6 +24,7 @@
                     v-for="(node, index) of valueToRender"
                     :key="node.key"
                     :node="node"
+                    :unfilteredNode="getUnfilteredNode(node)"
                     :templates="$slots"
                     :level="level + 1"
                     :index="index"
@@ -219,6 +220,9 @@ export default {
             }
 
             return matched;
+        },
+        getUnfilteredNode(node) {
+            return this.filter ? this.value.find((n) => n.key === node.key) : undefined;
         }
     },
     computed: {

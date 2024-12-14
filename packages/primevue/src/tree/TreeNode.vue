@@ -55,6 +55,7 @@
                 v-for="childNode of node.children"
                 :key="childNode.key"
                 :node="childNode"
+                :unfilteredNode="getUnfilteredNode(childNode)"
                 :templates="templates"
                 :level="level + 1"
                 :loadingMode="loadingMode"
@@ -89,6 +90,10 @@ export default {
     emits: ['node-toggle', 'node-click', 'checkbox-change'],
     props: {
         node: {
+            type: null,
+            default: null
+        },
+        unfilteredNode: {
             type: null,
             default: null
         },
@@ -342,10 +347,10 @@ export default {
             let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
             const _check = !this.checked;
 
-            this.propagateDown(this.node, _check, _selectionKeys);
+            this.propagateDown(this.currentNode, _check, _selectionKeys);
 
             this.$emit('checkbox-change', {
-                node: this.node,
+                node: this.currentNode,
                 check: _check,
                 selectionKeys: _selectionKeys
             });
@@ -366,20 +371,20 @@ export default {
             let checkedChildCount = 0;
             let childPartialSelected = false;
 
-            for (let child of this.node.children) {
+            for (let child of this.currentNode.children) {
                 if (_selectionKeys[child.key] && _selectionKeys[child.key].checked) checkedChildCount++;
                 else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
             }
 
-            if (check && checkedChildCount === this.node.children.length) {
-                _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
+            if (check && checkedChildCount === this.currentNode.children.length) {
+                _selectionKeys[this.currentNode.key] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
-                    delete _selectionKeys[this.node.key];
+                    delete _selectionKeys[this.currentNode.key];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
-                else delete _selectionKeys[this.node.key];
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.currentNode.children.length)) _selectionKeys[this.currentNode.key] = { checked: false, partialChecked: true };
+                else delete _selectionKeys[this.currentNode.key];
             }
 
             this.$emit('checkbox-change', {
@@ -425,9 +430,15 @@ export default {
         },
         isSameNode(event) {
             return event.currentTarget && (event.currentTarget.isSameNode(event.target) || event.currentTarget.isSameNode(event.target.closest('[role="treeitem"]')));
+        },
+        getUnfilteredNode(node) {
+            return this.unfilteredNode?.children.find((n) => n.key === node.key);
         }
     },
     computed: {
+        currentNode() {
+            return this.unfilteredNode ? this.unfilteredNode : this.node;
+        },
         hasChildren() {
             return this.node.children && this.node.children.length > 0;
         },
