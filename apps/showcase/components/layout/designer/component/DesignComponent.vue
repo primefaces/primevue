@@ -2,7 +2,7 @@
     <section class="flex flex-col gap-3">
         <div class="text-lg font-semibold capitalize">{{ componentKey }}</div>
         <template v-for="(value, name) in tokens" :key="name">
-            <DesignComponentSection v-if="name !== 'colorScheme'" :componentKey="componentKey" :name="name" />
+            <DesignComponentSection v-if="name !== 'colorScheme'" :componentKey="componentKey" :path="name" />
         </template>
         <Tabs v-if="hasColorScheme" value="cs-0">
             <TabList>
@@ -12,12 +12,12 @@
             <TabPanels class="!px-0">
                 <TabPanel value="cs-0">
                     <div class="flex flex-col gap-3">
-                        <DesignComponentSection v-for="(value, name) in lightTokens" :key="name" :componentKey="componentKey" :name="name" colorScheme="light" />
+                        <DesignComponentSection v-for="(value, name) in lightTokens" :key="name" :componentKey="componentKey" :path="'colorScheme.light.' + name" />
                     </div>
                 </TabPanel>
                 <TabPanel value="cs-1">
                     <div class="flex flex-col gap-3">
-                        <DesignComponentSection v-for="(value, name) in darkTokens" :key="name" :componentKey="componentKey" :name="name" colorScheme="dark" />
+                        <DesignComponentSection v-for="(value, name) in darkTokens" :key="name" :componentKey="componentKey" :path="'colorScheme.dark.' + name" />
                     </div>
                 </TabPanel>
             </TabPanels>

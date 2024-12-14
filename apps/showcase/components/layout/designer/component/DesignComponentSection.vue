@@ -7,7 +7,7 @@
             </template>
         </div>
         <template v-if="hasNestedTokens">
-            <DesignComponentSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :componentKey="componentKey" :name="n_name" :parentPath="fullPath" class="mt-3" />
+            <DesignComponentSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :componentKey="componentKey" :path="path + '.' + n_name" class="mt-3" />
         </template>
     </section>
 </template>
@@ -19,15 +19,7 @@ export default {
             type: null,
             default: null
         },
-        name: {
-            type: null,
-            default: null
-        },
-        parentPath: {
-            type: null,
-            default: null
-        },
-        colorScheme: {
+        path: {
             type: null,
             default: null
         }
@@ -66,17 +58,16 @@ export default {
         }
     },
     computed: {
-        fullPath() {
-            return this.parentPath ? this.parentPath + '.' + this.name : this.name;
-        },
         sectionName() {
-            const names = this.fullPath.split('.');
+            const names = this.path.split('.');
 
-            return names.map((n) => this.capitalize(this.camelCaseToSpaces(n))).join(' ');
+            return names
+                .filter((n) => n !== 'colorScheme' && n !== 'light' && n !== 'dark')
+                .map((n) => this.capitalize(this.camelCaseToSpaces(n)))
+                .join(' ');
         },
         tokens() {
-            if (this.colorScheme) return this.getObjectProperty(this.$preset.components[this.componentKey].colorScheme[this.colorScheme], this.fullPath);
-            else return this.getObjectProperty(this.$preset.components[this.componentKey], this.fullPath);
+            return this.getObjectProperty(this.$preset.components[this.componentKey], this.path);
         },
         nestedTokens() {
             const groups = {};
