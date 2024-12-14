@@ -221,6 +221,45 @@ export default {
             return matched;
         }
     },
+    watch: {
+        valueToRender(newValueToRender, oldValueToRender) {
+            const newSelectionKeys = { ...this.selectionKeys };
+
+            const recalculateSelection = (nodes) => {
+                nodes.forEach((node) => {
+                    if (node.children && node.children.length) {
+                        recalculateSelection(node.children);
+
+                        let allChecked = true;
+                        let someChecked = false;
+
+                        node.children.forEach((child) => {
+                            if (newSelectionKeys[child.key]?.checked) {
+                                someChecked = true;
+                            } else if (newSelectionKeys[child.key]?.partialChecked) {
+                                someChecked = true;
+                                allChecked = false;
+                            } else {
+                                allChecked = false;
+                            }
+                        });
+
+                        if (allChecked) {
+                            newSelectionKeys[node.key] = { checked: true, partialChecked: false };
+                        } else if (someChecked) {
+                            newSelectionKeys[node.key] = { checked: false, partialChecked: true };
+                        } else {
+                            delete newSelectionKeys[node.key];
+                        }
+                    }
+                });
+            };
+
+            recalculateSelection(newValueToRender);
+
+            this.$emit('update:selectionKeys', newSelectionKeys);
+        }
+    },
     computed: {
         filteredValue() {
             let filteredNodes = [];
