@@ -349,45 +349,15 @@ export interface TreeTableDesignTokens extends ColorSchemeDesignToken<TreeTableD
         padding?: string;
     };
     /**
-     * Used to pass tokens of the column resizer width section
+     * Used to pass tokens of the column resizer section
      */
-    columnResizerWidth?: {
+    columnResizer?: {
         /**
-         * 0 of column resizer width
+         * Width of column resizer
          *
-         * @designToken treetable.column.resizer.width.0
+         * @designToken treetable.column.resizer.width
          */
-        0?: string;
-        /**
-         * 1 of column resizer width
-         *
-         * @designToken treetable.column.resizer.width.1
-         */
-        1?: string;
-        /**
-         * 2 of column resizer width
-         *
-         * @designToken treetable.column.resizer.width.2
-         */
-        2?: string;
-        /**
-         * 3 of column resizer width
-         *
-         * @designToken treetable.column.resizer.width.3
-         */
-        3?: string;
-        /**
-         * 4 of column resizer width
-         *
-         * @designToken treetable.column.resizer.width.4
-         */
-        4?: string;
-        /**
-         * 5 of column resizer width
-         *
-         * @designToken treetable.column.resizer.width.5
-         */
-        5?: string;
+        width?: string;
     };
     /**
      * Used to pass tokens of the resize indicator section
