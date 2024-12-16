@@ -65,11 +65,6 @@ export default {
                     component: IftaLabelDoc
                 },
                 {
-                    id: 'iftalabel',
-                    label: 'Ifta Label',
-                    component: IftaLabelDoc
-                },
-                {
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
