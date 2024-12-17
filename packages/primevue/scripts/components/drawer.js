@@ -70,7 +70,13 @@ const DrawerProps = [
         type: 'boolean',
         default: 'false',
         description: 'When enabled, it removes component related styles in the core.'
-    }
+    },
+    {
+        name: 'appendTo',
+        type: 'string',
+        default: 'body',
+        description: 'A valid query selector or an HTMLElement to specify where the drawer gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+    },
 ];
 
 const DrawerEvents = [

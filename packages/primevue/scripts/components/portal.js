@@ -3,7 +3,7 @@ const PortalProps = [
         name: 'appendTo',
         type: 'string',
         default: 'body',
-        description: 'A valid query selector or an HTMLElement to specify where the dialog gets attached. Special keywords are "body" for document body and "self" for the element itself.'
+        description: 'A valid query selector or an HTMLElement to specify where the child component gets attached. Special keywords are "body" for document body and "self" for the element itself.'
     },
     {
         name: 'disabled',

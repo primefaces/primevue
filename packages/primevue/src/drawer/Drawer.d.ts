@@ -7,7 +7,7 @@
  * @module drawer
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -200,6 +200,11 @@ export interface DrawerProps {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * A valid query selector or an HTMLElement to specify where the drawer gets attached.
+     * @defaultValue body
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
 }
 
 /**

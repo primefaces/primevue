@@ -51,7 +51,11 @@ export default {
         blockScroll: {
             type: Boolean,
             default: false
-        }
+        },
+        appendTo: {
+            type: [String, Object],
+            default: 'body'
+        },
     },
     style: DrawerStyle,
     provide() {

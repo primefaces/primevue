@@ -1,5 +1,5 @@
 <template>
-    <Portal>
+    <Portal :appendTo="appendTo">
         <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position, modal })" v-bind="ptm('mask')">
             <transition name="p-drawer" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" :style="sx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')">
