@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>AutoComplete is used as a controlled component with <i>v-model</i> property. In addition, <i>suggestions</i> property and a <i>complete</i> method are required to query the results.</p>
+        <p>AutoComplete is used with the <i>v-model</i> property for two-way value binding. In addition, <i>suggestions</i> property and a <i>complete</i> method are required to query the results.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <AutoComplete v-model="value" :suggestions="items" @complete="search" />

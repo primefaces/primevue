@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./EyeSlashIcon.vue",
+    "module": "./EyeSlashIcon.vue",
+    "types": "./EyeSlashIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./EyeSlashIcon.vue"
     },
     "sideEffects": [
         "*.vue"

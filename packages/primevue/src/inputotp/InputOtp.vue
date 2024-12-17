@@ -6,10 +6,12 @@
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('pcInputText')"
+                    :name="$formName"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
                     :disabled="disabled"
+                    :size="size"
                     :invalid="invalid"
                     :tabindex="tabindex"
                     :unstyled="unstyled"
@@ -27,6 +29,7 @@
 </template>
 
 <script>
+import { isTouchDevice } from '@primeuix/utils/dom';
 import InputText from 'primevue/inputtext';
 import BaseInputOtp from './BaseInputOtp.vue';
 
@@ -34,7 +37,7 @@ export default {
     name: 'InputOtp',
     extends: BaseInputOtp,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
     data() {
         return {
             tokens: []
@@ -69,14 +72,14 @@ export default {
 
             if (event.inputType === 'deleteContentBackward') {
                 this.moveToPrev(event);
-            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward') {
+            } else if (event.inputType === 'insertText' || event.inputType === 'deleteContentForward' || (isTouchDevice() && event instanceof CustomEvent)) {
                 this.moveToNext(event);
             }
         },
         updateModel(event) {
             const newValue = this.tokens.join('');
 
-            this.$emit('update:modelValue', newValue);
+            this.writeValue(newValue, event);
             this.$emit('change', {
                 originalEvent: event,
                 value: newValue

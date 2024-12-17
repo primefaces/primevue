@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./SearchPlusIcon.vue",
+    "module": "./SearchPlusIcon.vue",
+    "types": "./SearchPlusIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./SearchPlusIcon.vue"
     },
     "sideEffects": [
         "*.vue"

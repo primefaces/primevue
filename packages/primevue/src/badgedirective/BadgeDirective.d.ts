@@ -11,12 +11,12 @@ import type { DirectiveHooks } from '@primevue/core/basedirective';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { DirectiveBinding, ObjectDirective } from 'vue';
 
-export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
+export declare type BadgeDirectivePassThroughOptionType = BadgeDirectivePassThroughAttributes | ((options: BadgeDirectivePassThroughMethodOptions) => BadgeDirectivePassThroughAttributes) | null | undefined;
 
 /**
  * Custom passthrough(pt) option method.
  */
-export interface BadgePassThroughMethodOptions {
+export interface BadgeDirectivePassThroughMethodOptions {
     context: BadgeContext;
     /**
      * Defines valid attributes.

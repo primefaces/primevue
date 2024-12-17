@@ -21,7 +21,15 @@ export default {
             color: 'unset',
             shadow: 'none'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            fontSize: '{form.field.sm.font.size}',
+            padding: '0.625rem 0.75rem'
+        },
+        lg: {
+            fontSize: '{form.field.lg.font.size}',
+            padding: '0.875rem 1.25rem'
+        }
     },
     icon: {
         color: '{text.muted.color}',

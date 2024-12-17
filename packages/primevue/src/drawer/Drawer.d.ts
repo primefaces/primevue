@@ -256,13 +256,22 @@ export interface DrawerEmitsOptions {
      */
     'update:visible'(value: boolean): void;
     /**
-     * Callback to invoke when drawer gets shown.
+     * Callback to invoke when drawer is shown.
      */
     show(): void;
     /**
      * Callback to invoke when drawer gets hidden.
      */
     hide(): void;
+    /**
+     * Callback to invoke after drawer is hidden.
+     */
+    'after-hide'(): void;
+
+    /**
+     * Callback to invoke after drawer is shown.
+     */
+    'after-show'(): void;
 }
 
 export declare type DrawerEmits = EmitFn<DrawerEmitsOptions>;

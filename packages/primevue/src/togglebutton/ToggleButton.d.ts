@@ -105,6 +105,14 @@ export interface ToggleButtonProps {
      */
     modelValue?: boolean | undefined;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: boolean | undefined;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Icon for the on state.
      */
     onIcon?: string | undefined;
@@ -150,6 +158,14 @@ export interface ToggleButtonProps {
      * Establishes relationships between the component and label(s) where its value should be one or more element IDs.
      */
     ariaLabelledby?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -204,6 +220,11 @@ export interface ToggleButtonEmitsOptions {
      * @param {boolean} value - New value.
      */
     'update:modelValue'(value: boolean): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {boolean} value - New value.
+     */
+    'value-change'(value: boolean): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.

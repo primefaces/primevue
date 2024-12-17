@@ -4,9 +4,9 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div v-for="category of categories" :key="category.key" class="flex items-center">
+            <div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
-                <label :for="category.key" class="ml-2">{{ category.name }}</label>
+                <label :for="category.key">{{ category.name }}</label>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@ export default {
             ],
             code: {
                 basic: `
-<div v-for="category of categories" :key="category.key" class="flex items-center">
+<div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
     <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
     <label :for="category.key">{{ category.name }}</label>
 </div>
@@ -35,7 +35,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div v-for="category of categories" :key="category.key" class="flex items-center">
+            <div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
                 <label :for="category.key">{{ category.name }}</label>
             </div>
@@ -63,7 +63,7 @@ export default {
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-col gap-4">
-            <div v-for="category of categories" :key="category.key" class="flex items-center">
+            <div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
                 <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
                 <label :for="category.key">{{ category.name }}</label>
             </div>

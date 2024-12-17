@@ -6,14 +6,32 @@ export default {
     },
     content: {
         padding: '1rem 1.25rem',
-        gap: '0.5rem'
+        gap: '0.5rem',
+        sm: {
+            padding: '0.625rem 0.625rem'
+        },
+        lg: {
+            padding: '0.825rem 0.825rem'
+        }
     },
     text: {
         fontSize: '1rem',
-        fontWeight: '500'
+        fontWeight: '500',
+        sm: {
+            fontSize: '0.875rem'
+        },
+        lg: {
+            fontSize: '1.125rem'
+        }
     },
     icon: {
-        size: '1.25rem'
+        size: '1.25rem',
+        sm: {
+            size: '1rem'
+        },
+        lg: {
+            size: '1.5rem'
+        }
     },
     closeButton: {
         width: '2rem',
@@ -26,7 +44,23 @@ export default {
         }
     },
     closeIcon: {
-        size: '1rem'
+        size: '1rem',
+        sm: {
+            fontSize: '0.875rem'
+        },
+        lg: {
+            fontSize: '1.125rem'
+        }
+    },
+    outlined: {
+        root: {
+            borderWidth: '1px'
+        }
+    },
+    simple: {
+        content: {
+            padding: '0'
+        }
     },
     colorScheme: {
         light: {
@@ -41,6 +75,13 @@ export default {
                         color: '{blue.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{blue.600}',
+                    borderColor: '{blue.600}'
+                },
+                simple: {
+                    color: '{blue.600}'
                 }
             },
             success: {
@@ -54,6 +95,13 @@ export default {
                         color: '{green.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{green.600}',
+                    borderColor: '{green.600}'
+                },
+                simple: {
+                    color: '{green.600}'
                 }
             },
             warn: {
@@ -67,6 +115,13 @@ export default {
                         color: '{yellow.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{yellow.900}',
+                    borderColor: '{yellow.900}'
+                },
+                simple: {
+                    color: '{yellow.900}'
                 }
             },
             error: {
@@ -80,6 +135,13 @@ export default {
                         color: '{red.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{red.600}',
+                    borderColor: '{red.600}'
+                },
+                simple: {
+                    color: '{red.600}'
                 }
             },
             secondary: {
@@ -93,6 +155,13 @@ export default {
                         color: '{surface.600}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.600}',
+                    borderColor: '{surface.600}'
+                },
+                simple: {
+                    color: '{surface.600}'
                 }
             },
             contrast: {
@@ -106,6 +175,13 @@ export default {
                         color: '{surface.50}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.950}',
+                    borderColor: '{surface.950}'
+                },
+                simple: {
+                    color: '{surface.950}'
                 }
             }
         },
@@ -121,6 +197,13 @@ export default {
                         color: '{blue.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{blue.500}',
+                    borderColor: '{blue.500}'
+                },
+                simple: {
+                    color: '{blue.500}'
                 }
             },
             success: {
@@ -134,6 +217,13 @@ export default {
                         color: '{green.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{green.500}',
+                    borderColor: '{green.500}'
+                },
+                simple: {
+                    color: '{green.500}'
                 }
             },
             warn: {
@@ -147,6 +237,13 @@ export default {
                         color: '{yellow.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{yellow.500}',
+                    borderColor: '{yellow.500}'
+                },
+                simple: {
+                    color: '{yellow.500}'
                 }
             },
             error: {
@@ -160,6 +257,13 @@ export default {
                         color: '{red.500}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{red.500}',
+                    borderColor: '{red.500}'
+                },
+                simple: {
+                    color: '{red.500}'
                 }
             },
             secondary: {
@@ -173,6 +277,13 @@ export default {
                         color: '{surface.300}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.400}',
+                    borderColor: '{surface.400}'
+                },
+                simple: {
+                    color: '{surface.400}'
                 }
             },
             contrast: {
@@ -186,6 +297,13 @@ export default {
                         color: '{surface.950}',
                         shadow: 'none'
                     }
+                },
+                outlined: {
+                    color: '{surface.0}',
+                    borderColor: '{surface.0}'
+                },
+                simple: {
+                    color: '{surface.0}'
                 }
             }
         }

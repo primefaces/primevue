@@ -34,7 +34,7 @@ describe('MultiSelect.vue', () => {
         expect(wrapper.find('.p-multiselect-label.p-placeholder').text()).toBe('Select Cities');
         expect(wrapper.find('.p-multiselect-panel').exists()).toBe(false);
 
-        await wrapper.vm.onContainerClick();
+        await wrapper.vm.$refs.container.click();
 
         expect(wrapper.findAll('li.p-multiselect-option').length).toBe(5);
         expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['aria-label']).toBe('New York');
@@ -47,7 +47,7 @@ describe('MultiSelect.vue', () => {
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([[wrapper.vm.options[0]]]);
 
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0]] });
-        await wrapper.vm.onContainerClick();
+        await wrapper.vm.$refs.container.click();
 
         expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
         expect(wrapper.find('.p-multiselect-label').text()).toBe('New York');
@@ -61,7 +61,7 @@ describe('MultiSelect.vue', () => {
         expect(wrapper.emitted()['update:modelValue'][0]).toEqual([[wrapper.vm.options[0], wrapper.vm.options[1]]]);
 
         await wrapper.setProps({ modelValue: [wrapper.vm.options[0], wrapper.vm.options[1]] });
-        await wrapper.vm.onContainerClick();
+        await wrapper.vm.$refs.container.click();
 
         expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
         expect(wrapper.findAll('li.p-multiselect-option')[1].attributes()['data-p-selected']).toBe('true');
@@ -106,7 +106,7 @@ describe('MultiSelect.vue', () => {
                 filterIcon: 'pi pi-discord'
             });
 
-            await wrapper.vm.onContainerClick();
+            await wrapper.vm.$refs.container.click();
 
             const icon = wrapper.find('.p-multiselect-filter-container [data-pc-section="filtericon"]');
 
@@ -123,7 +123,7 @@ describe('MultiSelect.vue', () => {
                 modelValue: wrapper.vm.options
             });
 
-            await wrapper.vm.onContainerClick();
+            await wrapper.vm.$refs.container.click();
 
             wrapper.findAll('.p-checkbox-icon').forEach((icon) => {
                 expect(icon.classes()).toContain('pi-discord');
@@ -172,7 +172,7 @@ describe('MultiSelect.vue', () => {
                 optionGroupChildren: 'items'
             });
 
-            await wrapper.vm.onContainerClick();
+            await wrapper.vm.$refs.container.click();
             expect(wrapper.find('.p-multiselect-option-group').exists()).toBe(true);
         });
 
@@ -185,7 +185,7 @@ describe('MultiSelect.vue', () => {
                 autoFilterFocus: true
             });
 
-            await wrapper.vm.onContainerClick();
+            await wrapper.vm.$refs.container.click();
             const input = await wrapper.find('input.p-multiselect-filter');
 
             input.setValue('Ber');
@@ -203,7 +203,7 @@ describe('MultiSelect.vue', () => {
                 autoFilterFocus: true
             });
 
-            await wrapper.vm.onContainerClick();
+            await wrapper.vm.$refs.container.click();
             const input = await wrapper.find('input.p-multiselect-filter');
 
             input.value = 'Ber';

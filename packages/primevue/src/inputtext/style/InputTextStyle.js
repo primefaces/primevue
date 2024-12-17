@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('inputtext.color')};
     background: ${dt('inputtext.background')};
-    padding: ${dt('inputtext.padding.y')} ${dt('inputtext.padding.x')};
+    padding-block: ${dt('inputtext.padding.y')};
+    padding-inline: ${dt('inputtext.padding.x')};
     border: 1px solid ${dt('inputtext.border.color')};
     transition: background ${dt('inputtext.transition.duration')}, color ${dt('inputtext.transition.duration')}, border-color ${dt('inputtext.transition.duration')}, outline-color ${dt('inputtext.transition.duration')}, box-shadow ${dt(
     'inputtext.transition.duration'
@@ -55,14 +56,20 @@ const theme = ({ dt }) => `
     color: ${dt('inputtext.placeholder.color')};
 }
 
+.p-inputtext.p-invalid::placeholder {
+    color: ${dt('inputtext.invalid.placeholder.color')};
+}
+
 .p-inputtext-sm {
     font-size: ${dt('inputtext.sm.font.size')};
-    padding: ${dt('inputtext.sm.padding.y')} ${dt('inputtext.sm.padding.x')};
+    padding-block: ${dt('inputtext.sm.padding.y')};
+    padding-inline: ${dt('inputtext.sm.padding.x')};
 }
 
 .p-inputtext-lg {
     font-size: ${dt('inputtext.lg.font.size')};
-    padding: ${dt('inputtext.lg.padding.y')} ${dt('inputtext.lg.padding.x')};
+    padding-block: ${dt('inputtext.lg.padding.y')};
+    padding-inline: ${dt('inputtext.lg.padding.x')};
 }
 
 .p-inputtext-fluid {
@@ -74,12 +81,12 @@ const classes = {
     root: ({ instance, props }) => [
         'p-inputtext p-component',
         {
-            'p-filled': instance.filled,
-            'p-inputtext-sm': props.size === 'small',
-            'p-inputtext-lg': props.size === 'large',
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputtext-fluid': instance.hasFluid
+            'p-filled': instance.$filled,
+            'p-inputtext-sm p-inputfield-sm': props.size === 'small',
+            'p-inputtext-lg p-inputfield-lg': props.size === 'large',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-inputtext-fluid': instance.$fluid
         }
     ]
 };

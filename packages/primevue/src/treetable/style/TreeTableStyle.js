@@ -7,6 +7,7 @@ const theme = ({ dt }) => `
 
 .p-treetable-table {
     border-spacing: 0;
+    border-collapse: separate;
     width: 100%;
 }
 
@@ -15,7 +16,7 @@ const theme = ({ dt }) => `
 }
 
 .p-treetable-scrollable-table > .p-treetable-thead {
-    top: 0;
+    inset-block-start: 0;
     z-index: 1;
 }
 
@@ -24,14 +25,14 @@ const theme = ({ dt }) => `
     z-index: 1;
 }
 
-.p-treetable-scrollable-table>.p-treetable-tfoot {
-    bottom: 0;
+.p-treetable-scrollable-table > .p-treetable-tfoot {
+    inset-block-end: 0;
     z-index: 1;
 }
 
 .p-treetable-scrollable .p-treetable-frozen-column {
     position: sticky;
-    background: inherit;
+    background: ${dt('treetable.header.cell.background')};
 }
 
 .p-treetable-scrollable th.p-treetable-frozen-column {
@@ -42,7 +43,7 @@ const theme = ({ dt }) => `
     background: ${dt('treetable.header.cell.background')};
 }
 
-.p-treetable-scrollable > .p-treetable-table-container > .p-treetable-table > .p-treetable-tfoot  {
+.p-treetable-scrollable > .p-treetable-table-container > .p-treetable-table > .p-treetable-tfoot {
     background: ${dt('treetable.footer.cell.background')};
 }
 
@@ -83,12 +84,12 @@ const theme = ({ dt }) => `
 .p-treetable-column-resizer {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
     margin: 0;
     width: ${dt('treetable.column.resizer.width')};
     height: 100%;
-    padding: 0px;
+    padding: 0;
     cursor: col-resize;
     border: 1px solid transparent;
 }
@@ -153,7 +154,7 @@ const theme = ({ dt }) => `
     border-width: 0 0 1px 0;
     color: ${dt('treetable.header.cell.color')};
     font-weight: normal;
-    text-align: left;
+    text-align: start;
     transition: background ${dt('treetable.transition.duration')}, color ${dt('treetable.transition.duration')}, border-color ${dt('treetable.transition.duration')},
             outline-color ${dt('treetable.transition.duration')}, box-shadow ${dt('treetable.transition.duration')};
 }
@@ -171,7 +172,7 @@ const theme = ({ dt }) => `
 }
 
 .p-treetable-tbody > tr > td {
-    text-align: left;
+    text-align: start;
     border-color: ${dt('treetable.body.cell.border.color')};
     border-style: solid;
     border-width: 0 0 1px 0;
@@ -189,11 +190,11 @@ const theme = ({ dt }) => `
 }
 
 .p-treetable-tbody > tr:has(+ .p-treetable-row-selected) > td {
-    border-bottom-color: ${dt('treetable.body.cell.selected.border.color')};
+    border-block-end-color: ${dt('treetable.body.cell.selected.border.color')};
 }
 
 .p-treetable-tbody > tr.p-treetable-row-selected > td {
-    border-bottom-color: ${dt('treetable.body.cell.selected.border.color')};
+    border-block-end-color: ${dt('treetable.body.cell.selected.border.color')};
 }
 
 .p-treetable-tbody > tr:focus-visible,
@@ -204,7 +205,7 @@ const theme = ({ dt }) => `
 }
 
 .p-treetable-tfoot > tr > td {
-    text-align: left;
+    text-align: start;
     padding: ${dt('treetable.footer.cell.padding')};
     border-color: ${dt('treetable.footer.cell.border.color')};
     border-style: solid;
@@ -311,7 +312,7 @@ const theme = ({ dt }) => `
     border-width: 1px;
 }
 
-.p-treetable-gridlines .p-treetable-tfoot >tr > td {
+.p-treetable-gridlines .p-treetable-tfoot > tr > td {
     border-width: 1px 0 1px 1px;
 }
 
@@ -371,11 +372,11 @@ const theme = ({ dt }) => `
     padding: 0.9375rem 1.25rem;
 }
 
-.p-treetable.p-treetable-lg .p-treetable-tbody>tr>td {
+.p-treetable.p-treetable-lg .p-treetable-tbody > tr > td {
     padding: 0.9375rem 1.25rem;
 }
 
-.p-treetable.p-treetable-lg .p-treetable-tfoot>tr>td {
+.p-treetable.p-treetable-lg .p-treetable-tfoot > tr > td {
     padding: 0.9375rem 1.25rem;
 }
 
@@ -426,6 +427,10 @@ const theme = ({ dt }) => `
     box-shadow: ${dt('treetable.node.toggle.button.focus.ring.shadow')};
     outline: ${dt('treetable.node.toggle.button.focus.ring.width')} ${dt('treetable.node.toggle.button.focus.ring.style')} ${dt('treetable.node.toggle.button.focus.ring.color')};
     outline-offset: ${dt('treetable.node.toggle.button.focus.ring.offset')};
+}
+
+.p-treetable-node-toggle-icon:dir(rtl) {
+    transform: rotate(180deg);
 }
 `;
 

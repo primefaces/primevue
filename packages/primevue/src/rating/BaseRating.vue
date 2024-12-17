@@ -1,19 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import RatingStyle from 'primevue/rating/style';
 
 export default {
     name: 'BaseRating',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         readonly: {
             type: Boolean,
             default: false

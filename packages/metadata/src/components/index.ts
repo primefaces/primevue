@@ -5,6 +5,7 @@ export const form: MetaType[] = toMeta([
     'Calendar',
     'CascadeSelect',
     'Checkbox',
+    'CheckboxGroup',
     'Chips',
     'ColorPicker',
     'DatePicker',
@@ -28,6 +29,7 @@ export const form: MetaType[] = toMeta([
     'MultiSelect',
     'Password',
     'RadioButton',
+    'RadioButtonGroup',
     'Rating',
     'Select',
     'SelectButton',
@@ -94,5 +96,10 @@ export const media: MetaType[] = toMeta(['Carousel', 'Galleria', 'Image', 'Image
 
 export const misc: MetaType[] = toMeta(['Avatar', 'AvatarGroup', 'Badge', 'BlockUI', 'Chip', 'Inplace', 'MeterGroup', 'OverlayBadge', 'ScrollTop', 'Skeleton', 'ProgressBar', 'ProgressSpinner', 'Tag', 'Terminal']);
 
+export const extensions: MetaType[] = toMeta([
+    { name: 'Form', from: '@primevue/forms/form' },
+    { name: 'FormField', from: '@primevue/forms/formfield' }
+]);
+
 // All PrimeVue Components
-export const components: MetaType[] = [...form, ...button, ...data, ...panel, ...overlay, ...file, ...menu, ...chart, ...messages, ...media, ...misc];
+export const components: MetaType[] = [...form, ...button, ...data, ...panel, ...overlay, ...file, ...menu, ...chart, ...messages, ...media, ...misc, ...extensions];

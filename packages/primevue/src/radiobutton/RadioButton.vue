@@ -6,7 +6,7 @@
             :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="value"
-            :name="name"
+            :name="groupName"
             :checked="checked"
             :tabindex="tabindex"
             :disabled="disabled"
@@ -33,7 +33,12 @@ export default {
     name: 'RadioButton',
     extends: BaseRadioButton,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
+    inject: {
+        $pcRadioButtonGroup: {
+            default: undefined
+        }
+    },
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -49,7 +54,7 @@ export default {
             if (!this.disabled && !this.readonly) {
                 const newModelValue = this.binary ? !this.checked : this.value;
 
-                this.$emit('update:modelValue', newModelValue);
+                this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.writeValue(newModelValue, event) : this.writeValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },
@@ -58,11 +63,17 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         }
     },
     computed: {
+        groupName() {
+            return this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.groupName : this.$formName;
+        },
         checked() {
-            return this.modelValue != null && (this.binary ? !!this.modelValue : equals(this.modelValue, this.value));
+            const value = this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.d_value : this.d_value;
+
+            return value != null && (this.binary ? !!value : equals(value, this.value));
         }
     }
 };

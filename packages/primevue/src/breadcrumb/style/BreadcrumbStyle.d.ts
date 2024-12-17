@@ -27,6 +27,10 @@ export enum BreadcrumbClasses {
      */
     separator = 'p-breadcrumb-separator',
     /**
+     * Class name of the separator icon element
+     */
+    separatorIcon = 'p-breadcrumb-separator-icon',
+    /**
      * Class name of the item element
      */
     item = 'p-breadcrumb-item',

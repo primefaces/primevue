@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const prettier = require('prettier');
 
 // prettier-ignore
 const THEME_COMPONENTS = [
@@ -101,7 +102,7 @@ try {
     console.error(err);
 }
 
-THEME_COMPONENTS.forEach((comp) => {
+THEME_COMPONENTS.forEach(async (comp) => {
     const data = fs.readFileSync(path.resolve(rootDir, `src/presets/${themeName}/${comp.toLowerCase()}/index.js`), { encoding: 'utf8', flag: 'r' });
     let theme = data.replace('export default', 'module.exports = ');
 
@@ -237,7 +238,10 @@ ${defaultText}
 }
 `;
 
-        fs.writeFileSync(outputFile, text, 'utf8');
+        const prettierConfig = await prettier.resolveConfig(__dirname);
+        const formattedText = prettier.format(text, { ...prettierConfig, parser: 'typescript' });
+
+        fs.writeFileSync(outputFile, formattedText, 'utf8');
     } catch (err) {
         console.error(err);
     }

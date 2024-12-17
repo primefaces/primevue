@@ -3,14 +3,14 @@ import BaseStyle from '@primevue/core/base/style';
 const theme = ({ dt }) => `
 .p-scrolltop.p-button {
     position: fixed !important;
-    bottom: 20px;
-    right: 20px;
+    inset-block-end: 20px;
+    inset-inline-end: 20px;
 }
 
 .p-scrolltop-sticky.p-button {
     position: sticky !important;
     display: flex;
-    margin-left: auto;
+    margin-inline-start: auto;
 }
 
 .p-scrolltop-enter-from {

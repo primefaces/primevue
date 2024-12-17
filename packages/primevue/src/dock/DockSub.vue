@@ -56,10 +56,10 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
-import { UniqueComponentId } from '@primevue/core/utils';
 import { find, findSingle } from '@primeuix/utils/dom';
 import { resolve } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
+import { UniqueComponentId } from '@primevue/core/utils';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { mergeProps } from 'vue';
@@ -261,7 +261,6 @@ export default {
                 action: mergeProps(
                     {
                         tabindex: -1,
-                        'aria-hidden': true,
                         class: this.cx('itemLink')
                     },
                     this.getPTOptions('itemLink', item, index)

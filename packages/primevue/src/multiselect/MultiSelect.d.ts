@@ -132,6 +132,10 @@ export interface MultiSelectPassThroughOptions {
      */
     label?: MultiSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    clearIcon?: MultiSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the chip's DOM element.
      */
     chipItem?: MultiSelectPassThroughOptionType;
@@ -317,6 +321,14 @@ export interface MultiSelectProps {
      */
     modelValue?: any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * An array of select items to display as the available options.
      */
     options?: any[] | undefined;
@@ -349,6 +361,10 @@ export interface MultiSelectProps {
      * Label to display when there are no selections.
      */
     placeholder?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -395,6 +411,20 @@ export interface MultiSelectProps {
      * A property to uniquely identify an option.
      */
     dataKey?: string | undefined;
+    /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
+     * Icon to display in clear button.
+     */
+    clearIcon?: string | undefined;
+    /**
+     * Clears the filter value when clicking on the clear icon.
+     * @defaultValue false
+     */
+    resetFilterOnClear?: boolean;
     /**
      * When specified, displays a filter input at header.
      * @defaultValue false
@@ -546,6 +576,10 @@ export interface MultiSelectProps {
      * Identifier of the underlying input element.
      */
     ariaLabelledby?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -788,6 +822,17 @@ export interface MultiSelectSlots {
         class: string;
     }): VNode[];
     /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
+    }): VNode[];
+    /**
      * Custom dropdown icon template.
      * @param {Object} scope - dropdownicon slot's params.
      */
@@ -808,6 +853,11 @@ export interface MultiSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {MultiSelectChangeEvent} event - Custom change event.

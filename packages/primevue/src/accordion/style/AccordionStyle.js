@@ -31,18 +31,18 @@ const theme = ({ dt }) => `
 
 .p-accordionpanel:first-child > .p-accordionheader {
     border-width: ${dt('accordion.header.first.border.width')};
-    border-top-left-radius: ${dt('accordion.header.first.top.border.radius')};
-    border-top-right-radius: ${dt('accordion.header.first.top.border.radius')};
+    border-start-start-radius: ${dt('accordion.header.first.top.border.radius')};
+    border-start-end-radius: ${dt('accordion.header.first.top.border.radius')};
 }
 
 .p-accordionpanel:last-child > .p-accordionheader {
-    border-bottom-left-radius: ${dt('accordion.header.last.bottom.border.radius')};
-    border-bottom-right-radius: ${dt('accordion.header.last.bottom.border.radius')};
+    border-end-start-radius: ${dt('accordion.header.last.bottom.border.radius')};
+    border-end-end-radius: ${dt('accordion.header.last.bottom.border.radius')};
 }
 
 .p-accordionpanel:last-child.p-accordionpanel-active > .p-accordionheader {
-    border-bottom-left-radius: ${dt('accordion.header.last.active.bottom.border.radius')};
-    border-bottom-right-radius:${dt('accordion.header.last.active.bottom.border.radius')};
+    border-end-start-radius: ${dt('accordion.header.last.active.bottom.border.radius')};
+    border-end-end-radius: ${dt('accordion.header.last.active.bottom.border.radius')};
 }
 
 .p-accordionheader-toggle-icon {
@@ -57,7 +57,7 @@ const theme = ({ dt }) => `
 
 .p-accordionpanel:not(.p-accordionpanel-active):not(.p-disabled) > .p-accordionheader:hover {
     background: ${dt('accordion.header.hover.background')};
-    color: ${dt('accordion.header.hover.color')}
+    color: ${dt('accordion.header.hover.color')};
 }
 
 .p-accordionpanel:not(.p-accordionpanel-active):not(.p-disabled) .p-accordionheader:hover .p-accordionheader-toggle-icon {
@@ -66,19 +66,19 @@ const theme = ({ dt }) => `
 
 .p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader {
     background: ${dt('accordion.header.active.background')};
-    color: ${dt('accordion.header.active.color')}
+    color: ${dt('accordion.header.active.color')};
 }
 
 .p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader .p-accordionheader-toggle-icon {
     color: ${dt('accordion.header.toggle.icon.active.color')};
 }
 
-.p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader:hover  {
+.p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader:hover {
     background: ${dt('accordion.header.active.hover.background')};
-    color: ${dt('accordion.header.active.hover.color')}
+    color: ${dt('accordion.header.active.hover.color')};
 }
 
-.p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader:hover  .p-accordionheader-toggle-icon {
+.p-accordionpanel:not(.p-disabled).p-accordionpanel-active > .p-accordionheader:hover .p-accordionheader-toggle-icon {
     color: ${dt('accordion.header.toggle.icon.active.hover.color')};
 }
 
@@ -88,7 +88,7 @@ const theme = ({ dt }) => `
     border-color: ${dt('accordion.content.border.color')};
     background-color: ${dt('accordion.content.background')};
     color: ${dt('accordion.content.color')};
-    padding: ${dt('accordion.content.padding')}
+    padding: ${dt('accordion.content.padding')};
 }
 `;
 

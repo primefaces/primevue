@@ -169,11 +169,19 @@ export interface PasswordMeterStateOptions {
 /**
  * Defines valid properties in Password component.
  */
-export interface PasswordProps extends InputHTMLAttributes {
+export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.
      */
     modelValue?: Nullable<string>;
+    /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: Nullable<string>;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
     /**
      * Text to prompt password entry. Defaults to PrimeVue Locale configuration.
      */
@@ -223,6 +231,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      * Icon to show displaying the password as plain text.
      */
     unmaskIcon?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -314,6 +326,10 @@ export interface PasswordProps extends InputHTMLAttributes {
      */
     ariaLabel?: string | undefined;
     /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -403,6 +419,11 @@ export interface PasswordEmitsOptions {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {string} value - New value.
+     */
+    'value-change'(value: string): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.

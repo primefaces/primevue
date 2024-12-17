@@ -157,35 +157,6 @@ export interface TieredMenuDesignTokens extends ColorSchemeDesignToken<TieredMen
         mobileIndent?: string;
     };
     /**
-     * Used to pass tokens of the submenu label section
-     */
-    submenuLabel?: {
-        /**
-         * Padding of submenu label
-         *
-         * @designToken tieredmenu.submenu.label.padding
-         */
-        padding?: string;
-        /**
-         * Font weight of submenu label
-         *
-         * @designToken tieredmenu.submenu.label.font.weight
-         */
-        fontWeight?: string;
-        /**
-         * Background of submenu label
-         *
-         * @designToken tieredmenu.submenu.label.background
-         */
-        background?: string;
-        /**
-         * Color of submenu label
-         *
-         * @designToken tieredmenu.submenu.label.color
-         */
-        color?: string;
-    };
-    /**
      * Used to pass tokens of the submenu icon section
      */
     submenuIcon?: {

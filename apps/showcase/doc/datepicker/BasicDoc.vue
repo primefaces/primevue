@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>DatePicker uses a controlled input component with <i>v-model</i> property.</p>
+        <p>DatePicker is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <DatePicker v-model="date" />

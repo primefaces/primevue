@@ -21,10 +21,10 @@
 import AutoImportDoc from '@/doc/nuxt/AutoImportDoc.vue';
 import DownloadDoc from '@/doc/nuxt/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/nuxt/ExamplesDoc.vue';
-import SetupDoc from '@/doc/nuxt/SetupDoc.vue';
-import StyledModeDoc from '@/doc/nuxt/StyledModeDoc.vue';
-import UnstyledModeDoc from '@/doc/nuxt/UnstyledModeDoc.vue';
-import UsageDoc from '@/doc/nuxt/UsageDoc.vue';
+import ModuleDoc from '@/doc/nuxt/ModuleDoc.vue';
+import NextStepsDoc from '@/doc/nuxt/NextStepsDoc.vue';
+import ThemeDoc from '@/doc/nuxt/ThemeDoc.vue';
+import VerifyDoc from '@/doc/nuxt/VerifyDoc.vue';
 import ComponentsDoc from '@/doc/nuxt/configuration/ComponentsDoc.vue';
 import ComposablesDoc from '@/doc/nuxt/configuration/ComposablesDoc.vue';
 import DirectivesDoc from '@/doc/nuxt/configuration/DirectivesDoc.vue';
@@ -43,31 +43,19 @@ export default {
                     component: DownloadDoc
                 },
                 {
-                    id: 'setup',
-                    label: 'Setup',
-                    component: SetupDoc
+                    id: 'module',
+                    label: 'Module',
+                    component: ModuleDoc
                 },
                 {
-                    id: 'theming',
-                    label: 'Theming',
-                    description: 'PrimeVue has two styling modes; Styled and Unstyled. If you are just getting started, begin with the styled mode.',
-                    children: [
-                        {
-                            id: 'styled',
-                            label: 'Styled Mode',
-                            component: StyledModeDoc
-                        },
-                        {
-                            id: 'unstyled',
-                            label: 'Unstyled Mode',
-                            component: UnstyledModeDoc
-                        }
-                    ]
+                    id: 'theme',
+                    label: 'Theme',
+                    component: ThemeDoc
                 },
                 {
-                    id: 'usage',
-                    label: 'Usage',
-                    component: UsageDoc
+                    id: 'verify',
+                    label: 'Verify',
+                    component: VerifyDoc
                 },
                 {
                     id: 'configuration',
@@ -119,6 +107,11 @@ export default {
                     id: 'examples',
                     label: 'Examples',
                     component: ExamplesDoc
+                },
+                {
+                    id: 'nextsteps',
+                    label: 'Next Steps',
+                    component: NextStepsDoc
                 }
             ]
         };

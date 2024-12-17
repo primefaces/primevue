@@ -48,7 +48,7 @@
 
     .layout-sidebar {
         top: 0;
-        left: 0;
+        inset-inline-start: 0;
         position: fixed;
         z-index: 1102;
         height: 100%;
@@ -57,6 +57,10 @@
         backdrop-filter: blur(20px);
         width: 300px;
         opacity: 0;
+
+        &:dir(rtl) {
+            transform: translateX(100%);
+        }
 
         nav {
             padding: 1rem 1rem;

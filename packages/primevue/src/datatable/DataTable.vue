@@ -27,6 +27,22 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
+            <template v-if="$slots.paginatorcontainer" #container>
+                <slot
+                    name="paginatorcontainer"
+                    :first="slotProps.first"
+                    :last="slotProps.last"
+                    :rows="slotProps.rows"
+                    :page="slotProps.page"
+                    :pageCount="slotProps.pageCount"
+                    :totalRecords="slotProps.totalRecords"
+                    :firstPageCallback="slotProps.firstPageCallback"
+                    :lastPageCallback="slotProps.lastPageCallback"
+                    :prevPageCallback="slotProps.prevPageCallback"
+                    :nextPageCallback="slotProps.nextPageCallback"
+                    :rowChangeCallback="slotProps.rowChangeCallback"
+                ></slot>
+            </template>
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
@@ -242,6 +258,22 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
+                <slot
+                    name="paginatorcontainer"
+                    :first="slotProps.first"
+                    :last="slotProps.last"
+                    :rows="slotProps.rows"
+                    :page="slotProps.page"
+                    :pageCount="slotProps.pageCount"
+                    :totalRecords="slotProps.totalRecords"
+                    :firstPageCallback="slotProps.firstPageCallback"
+                    :lastPageCallback="slotProps.lastPageCallback"
+                    :prevPageCallback="slotProps.prevPageCallback"
+                    :nextPageCallback="slotProps.nextPageCallback"
+                    :rowChangeCallback="slotProps.rowChangeCallback"
+                ></slot>
+            </template>
             <template v-if="$slots.paginatorstart" #start>
                 <slot name="paginatorstart"></slot>
             </template>
@@ -297,6 +329,7 @@ import {
     getOuterHeight,
     getOuterWidth,
     isClickable,
+    isRTL,
     removeClass,
     setAttribute
 } from '@primeuix/utils/dom';
@@ -816,7 +849,7 @@ export default {
                 const targetRow = event.currentTarget?.closest('tr[data-p-selectable-row="true"]');
 
                 focusedItem.tabIndex = '-1';
-                targetRow.tabIndex = '0';
+                if (targetRow) targetRow.tabIndex = '0';
             }
         },
         onRowDblClick(e) {
@@ -1258,7 +1291,7 @@ export default {
             this.$refs.resizeHelper.style.display = 'block';
         },
         onColumnResizeEnd() {
-            let delta = this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
+            let delta = isRTL(this.$el) ? this.lastResizeHelperX - this.$refs.resizeHelper.offsetLeft : this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
             let newColumnWidth = columnWidth + delta;
             let minWidth = this.resizeColumnElement.style.minWidth || 15;

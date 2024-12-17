@@ -281,6 +281,10 @@ export interface DataViewSlots {
         layout?: string | undefined;
     }): VNode[];
     /**
+     * Custom paginator container template.
+     */
+    paginatorcontainer(): VNode[];
+    /**
      * Custom paginator start template.
      */
     paginatorstart(): VNode[];

@@ -34,12 +34,6 @@ export interface DrawerDesignTokens extends ColorSchemeDesignToken<DrawerDesignT
          */
         color?: string;
         /**
-         * Border radius of root
-         *
-         * @designToken drawer.border.radius
-         */
-        borderRadius?: string;
-        /**
          * Shadow of root
          *
          * @designToken drawer.shadow
@@ -82,6 +76,17 @@ export interface DrawerDesignTokens extends ColorSchemeDesignToken<DrawerDesignT
          * Padding of content
          *
          * @designToken drawer.content.padding
+         */
+        padding?: string;
+    };
+    /**
+     * Used to pass tokens of the footer section
+     */
+    footer?: {
+        /**
+         * Padding of footer
+         *
+         * @designToken drawer.footer.padding
          */
         padding?: string;
     };

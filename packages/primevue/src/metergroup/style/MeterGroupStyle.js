@@ -52,13 +52,13 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-horizontal .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('metergroup.border.radius')};
-    border-bottom-left-radius: ${dt('metergroup.border.radius')};
+    border-start-start-radius: ${dt('metergroup.border.radius')};
+    border-end-start-radius: ${dt('metergroup.border.radius')};
 }
 
 .p-metergroup-horizontal .p-metergroup-meter:last-of-type {
-    border-top-right-radius: ${dt('metergroup.border.radius')};
-    border-bottom-right-radius: ${dt('metergroup.border.radius')};
+    border-start-end-radius: ${dt('metergroup.border.radius')};
+    border-end-end-radius: ${dt('metergroup.border.radius')};
 }
 
 .p-metergroup-vertical {
@@ -77,16 +77,17 @@ const theme = ({ dt }) => `
 }
 
 .p-metergroup-vertical .p-metergroup-label-list {
-    align-items: start;
+    align-items: flex-start;
 }
 
 .p-metergroup-vertical .p-metergroup-meter:first-of-type {
-    border-top-left-radius: ${dt('metergroup.border.radius')};
-    border-top-right-radius: ${dt('metergroup.border.radius')};
+    border-start-start-radius: ${dt('metergroup.border.radius')};
+    border-start-end-radius: ${dt('metergroup.border.radius')};
 }
+
 .p-metergroup-vertical .p-metergroup-meter:last-of-type {
-    border-bottom-left-radius: ${dt('metergroup.border.radius')};
-    border-bottom-right-radius: ${dt('metergroup.border.radius')};
+    border-end-start-radius: ${dt('metergroup.border.radius')};
+    border-end-end-radius: ${dt('metergroup.border.radius')};
 }
 `;
 

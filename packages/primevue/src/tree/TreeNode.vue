@@ -30,7 +30,7 @@
             </button>
             <Checkbox
                 v-if="checkboxMode"
-                :modelValue="checked"
+                :defaultValue="checked"
                 :binary="true"
                 :indeterminate="partialChecked"
                 :class="cx('nodeCheckbox')"

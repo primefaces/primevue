@@ -41,5 +41,23 @@ export default {
     right: 2px;
     height: calc(100% - 4px);
 }
+
+.p-inputnumber-horizontal:has(.p-variant-filled) .p-inputnumber-button {
+    border-block-start-color: ${dt('inputtext.filled.background')};
+    border-inline-color: ${dt('inputtext.filled.background')};
+    background: ${dt('inputtext.filled.background')} no-repeat;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+} 
+    
+.p-inputnumber-vertical:has(.p-variant-filled) .p-inputnumber-button {
+    border-block-color: ${dt('inputtext.filled.background')};
+    border-inline-color: ${dt('inputtext.filled.background')};
+    background: ${dt('inputtext.filled.background')} no-repeat;
+} 
+
+.p-inputnumber-vertical:has(.p-variant-filled) .p-inputnumber-increment-button {
+    border-block-end: 1px solid ${dt('inputtext.border.color')}
+}
 `
 };

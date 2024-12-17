@@ -91,18 +91,6 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          * @designToken datepicker.header.padding
          */
         padding?: string;
-        /**
-         * Font weight of header
-         *
-         * @designToken datepicker.header.font.weight
-         */
-        fontWeight?: string;
-        /**
-         * Gap of header
-         *
-         * @designToken datepicker.header.gap
-         */
-        gap?: string;
     };
     /**
      * Used to pass tokens of the title section
@@ -131,6 +119,28 @@ export interface DatePickerDesignTokens extends ColorSchemeDesignToken<DatePicke
          * @designToken datepicker.dropdown.width
          */
         width?: string;
+        /**
+         * Sm of dropdown
+         */
+        sm?: {
+            /**
+             * Sm width of dropdown
+             *
+             * @designToken datepicker.dropdown.sm.width
+             */
+            width?: string;
+        };
+        /**
+         * Lg of dropdown
+         */
+        lg?: {
+            /**
+             * Lg width of dropdown
+             *
+             * @designToken datepicker.dropdown.lg.width
+             */
+            width?: string;
+        };
         /**
          * Border color of dropdown
          *

@@ -54,8 +54,8 @@ const theme = ({ dt }) => `
 .p-colorpicker-color-selector {
     width: 150px;
     height: 150px;
-    top: 8px;
-    left: 8px;
+    inset-block-start: 8px;
+    inset-inline-start: 8px;
     position: absolute;
 }
 
@@ -67,8 +67,8 @@ const theme = ({ dt }) => `
 
 .p-colorpicker-color-handle {
     position: absolute;
-    top: 0px;
-    left: 150px;
+    inset-block-start: 0px;
+    inset-inline-start: 150px;
     border-radius: 100%;
     width: 10px;
     height: 10px;
@@ -83,8 +83,8 @@ const theme = ({ dt }) => `
 .p-colorpicker-hue {
     width: 17px;
     height: 150px;
-    top: 8px;
-    left: 167px;
+    inset-block-start: 8px;
+    inset-inline-start: 167px;
     position: absolute;
     opacity: 0.85;
     background: linear-gradient(0deg,
@@ -99,11 +99,11 @@ const theme = ({ dt }) => `
 
 .p-colorpicker-hue-handle {
     position: absolute;
-    top: 150px;
-    left: 0px;
+    inset-block-start: 150px;
+    inset-inline-start: 0px;
     width: 21px;
-    margin-left: -2px;
-    margin-top: -5px;
+    margin-inline-start: -2px;
+    margin-block-start: -5px;
     height: 10px;
     border-width: 2px;
     border-style: solid;
@@ -116,11 +116,12 @@ const theme = ({ dt }) => `
 const classes = {
     root: 'p-colorpicker p-component',
     preview: ({ props }) => ['p-colorpicker-preview', { 'p-disabled': props.disabled }],
-    panel: ({ props }) => [
+    panel: ({ instance, props }) => [
         'p-colorpicker-panel',
         {
             'p-colorpicker-panel-inline': props.inline,
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-invalid': instance.$invalid
         }
     ],
     colorSelector: 'p-colorpicker-color-selector',

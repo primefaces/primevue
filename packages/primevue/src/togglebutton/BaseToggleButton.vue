@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import ToggleButtonStyle from 'primevue/togglebutton/style';
 
 export default {
     name: 'BaseToggleButton',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: Boolean,
         onIcon: String,
         offIcon: String,
         onLabel: {
@@ -21,14 +20,6 @@ export default {
             type: String,
             default: 'left'
         },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         readonly: {
             type: Boolean,
             default: false
@@ -42,6 +33,10 @@ export default {
             default: null
         },
         ariaLabel: {
+            type: String,
+            default: null
+        },
+        size: {
             type: String,
             default: null
         }

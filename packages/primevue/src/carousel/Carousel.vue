@@ -601,11 +601,14 @@ export default {
         isVertical() {
             return this.orientation === 'vertical';
         },
+        hasValidItemCount() {
+            return this.value && this.value.length > this.d_numVisible;
+        },
         isCircular() {
-            return this.value && this.d_circular && this.value.length >= this.d_numVisible;
+            return this.hasValidItemCount() && this.d_circular;
         },
         isAutoplay() {
-            return this.autoplayInterval && this.allowAutoplay;
+            return this.hasValidItemCount() && this.autoplayInterval && this.allowAutoplay;
         },
         firstIndex() {
             return this.isCircular() ? -1 * (this.totalShiftedItems + this.d_numVisible) : this.totalShiftedItems * -1;

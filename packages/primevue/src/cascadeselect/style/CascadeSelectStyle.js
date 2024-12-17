@@ -56,8 +56,16 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('cascadeselect.dropdown.color')};
     width: ${dt('cascadeselect.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-start-end-radius: ${dt('border.radius.md')};
+    border-end-end-radius: ${dt('border.radius.md')};
+}
+
+.p-cascadeselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('cascadeselect.clear.icon.color')};
+    inset-inline-end: ${dt('cascadeselect.dropdown.width')};
 }
 
 .p-cascadeselect-label {
@@ -78,8 +86,8 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.placeholder.color')};
 }
 
-.p-cascadeselect-clearable .p-cascadeselect-label {
-    padding-right: 1.75rem;
+.p-cascadeselect.p-invalid .p-cascadeselect-label.p-placeholder {
+    color: ${dt('cascadeselect.invalid.placeholder.color')};
 }
 
 .p-cascadeselect.p-disabled .p-cascadeselect-label {
@@ -126,7 +134,7 @@ const theme = ({ dt }) => `
     padding: ${dt('cascadeselect.list.padding')};
     display: flex;
     flex-direction: column;
-    gap: ${dt('cascadeselect.list.gap')}
+    gap: ${dt('cascadeselect.list.gap')};
 }
 
 .p-cascadeselect-option {
@@ -168,8 +176,8 @@ const theme = ({ dt }) => `
 }
 
 .p-cascadeselect-option-active > .p-cascadeselect-option-list {
-    left: 100%;
-    top: 0;
+    inset-inline-start: 100%;
+    inset-block-start: 0;
 }
 
 .p-cascadeselect-option-content {
@@ -192,12 +200,16 @@ const theme = ({ dt }) => `
     color: ${dt('cascadeselect.option.icon.color')};
 }
 
+.p-cascadeselect-group-icon:dir(rtl) {
+    transform: rotate(180deg);
+}
+
 .p-cascadeselect-mobile-active .p-cascadeselect-option-list {
     position: static;
     box-shadow: none;
     border: 0 none;
-    padding-left: ${dt('tieredmenu.submenu.mobile.indent')};
-    padding-right: 0;
+    padding-inline-start: ${dt('tieredmenu.submenu.mobile.indent')};
+    padding-inline-end: 0;
 }
 
 .p-cascadeselect-mobile-active .p-cascadeselect-group-icon {
@@ -207,6 +219,30 @@ const theme = ({ dt }) => `
 
 .p-cascadeselect-mobile-active .p-cascadeselect-option-active > .p-cascadeselect-option-content .p-cascadeselect-group-icon {
     transform: rotate(-90deg);
+}
+
+.p-cascadeselect-sm .p-cascadeselect-label {
+    font-size: ${dt('cascadeselect.sm.font.size')};
+    padding-block: ${dt('cascadeselect.sm.padding.y')};
+    padding-inline: ${dt('cascadeselect.sm.padding.x')};
+}
+
+.p-cascadeselect-sm .p-cascadeselect-dropdown .p-icon {
+    font-size: ${dt('cascadeselect.sm.font.size')};
+    width: ${dt('cascadeselect.sm.font.size')};
+    height: ${dt('cascadeselect.sm.font.size')};
+}
+
+.p-cascadeselect-lg .p-cascadeselect-label {
+    font-size: ${dt('cascadeselect.lg.font.size')};
+    padding-block: ${dt('cascadeselect.lg.padding.y')};
+    padding-inline: ${dt('cascadeselect.lg.padding.x')};
+}
+
+.p-cascadeselect-lg .p-cascadeselect-dropdown .p-icon {
+    font-size: ${dt('cascadeselect.lg.font.size')};
+    width: ${dt('cascadeselect.lg.font.size')};
+    height: ${dt('cascadeselect.lg.font.size')};
 }
 `;
 
@@ -220,13 +256,15 @@ const classes = {
         {
             'p-cascadeselect-mobile': instance.queryMatches,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-cascadeselect-open': instance.overlayVisible,
-            'p-cascadeselect-fluid': instance.hasFluid
+            'p-cascadeselect-fluid': instance.$fluid,
+            'p-cascadeselect-sm p-inputfield-sm': props.size === 'small',
+            'p-cascadeselect-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     label: ({ instance, props }) => [
@@ -236,6 +274,7 @@ const classes = {
             'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
         }
     ],
+    clearIcon: 'p-cascadeselect-clear-icon',
     dropdown: 'p-cascadeselect-dropdown',
     loadingIcon: 'p-cascadeselect-loading-icon',
     dropdownIcon: 'p-cascadeselect-dropdown-icon',

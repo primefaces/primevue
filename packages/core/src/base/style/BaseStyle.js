@@ -3,7 +3,9 @@ import { isNotEmpty, minifyCSS, resolve } from '@primeuix/utils/object';
 import { useStyle } from '@primevue/core/usestyle';
 
 const theme = ({ dt }) => `
-* {
+*,
+::before,
+::after {
     box-sizing: border-box;
 }
 

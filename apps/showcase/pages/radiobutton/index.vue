@@ -15,8 +15,10 @@ import AccessibilityDoc from '@/doc/radiobutton/AccessibilityDoc.vue';
 import DisabledDoc from '@/doc/radiobutton/DisabledDoc.vue';
 import DynamicDoc from '@/doc/radiobutton/DynamicDoc.vue';
 import FilledDoc from '@/doc/radiobutton/FilledDoc.vue';
+import FormsDoc from '@/doc/radiobutton/FormsDoc.vue';
 import GroupDoc from '@/doc/radiobutton/GroupDoc.vue';
 import ImportDoc from '@/doc/radiobutton/ImportDoc.vue';
+import SizesDoc from '@/doc/radiobutton/SizesDoc.vue';
 import InvalidDoc from '@/doc/radiobutton/InvalidDoc.vue';
 import PTComponent from '@/doc/radiobutton/pt/index.vue';
 import ThemingDoc from '@/doc/radiobutton/theming/index.vue';
@@ -36,6 +38,11 @@ export default {
                     component: GroupDoc
                 },
                 {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
+                },
+                {
                     id: 'dynamic',
                     label: 'Dynamic',
                     component: DynamicDoc
@@ -44,6 +51,11 @@ export default {
                     id: 'filled',
                     label: 'Filled',
                     component: FilledDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

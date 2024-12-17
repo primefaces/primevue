@@ -1,30 +1,13 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import RadioButtonStyle from 'primevue/radiobutton/style';
 
 export default {
     name: 'BaseRadioButton',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
         value: null,
-        modelValue: null,
         binary: Boolean,
-        name: {
-            type: String,
-            default: null
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         readonly: {
             type: Boolean,
             default: false

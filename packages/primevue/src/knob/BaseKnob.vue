@@ -1,23 +1,15 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
 import { $dt } from '@primeuix/styled';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import KnobStyle from 'primevue/knob/style';
 
 export default {
     name: 'BaseKnob',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: {
-            type: Number,
-            default: null
-        },
         size: {
             type: Number,
             default: 100
-        },
-        disabled: {
-            type: Boolean,
-            default: false
         },
         readonly: {
             type: Boolean,

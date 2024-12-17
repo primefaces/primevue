@@ -88,6 +88,12 @@ export interface InputTextDesignTokens extends ColorSchemeDesignToken<InputTextD
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken inputtext.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken inputtext.shadow

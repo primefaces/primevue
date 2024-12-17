@@ -69,6 +69,12 @@ export interface FileUploadDesignTokens extends ColorSchemeDesignToken<FileUploa
          */
         padding?: string;
         /**
+         * Border color of header
+         *
+         * @designToken fileupload.header.border.color
+         */
+        borderColor?: string;
+        /**
          * Border width of header
          *
          * @designToken fileupload.header.border.width
@@ -103,6 +109,12 @@ export interface FileUploadDesignTokens extends ColorSchemeDesignToken<FileUploa
          * @designToken fileupload.content.padding
          */
         padding?: string;
+        /**
+         * Gap of content
+         *
+         * @designToken fileupload.content.gap
+         */
+        gap?: string;
     };
     /**
      * Used to pass tokens of the file section
@@ -137,6 +149,17 @@ export interface FileUploadDesignTokens extends ColorSchemeDesignToken<FileUploa
              */
             gap?: string;
         };
+    };
+    /**
+     * Used to pass tokens of the file list section
+     */
+    fileList?: {
+        /**
+         * Gap of file list
+         *
+         * @designToken fileupload.file.list.gap
+         */
+        gap?: string;
     };
     /**
      * Used to pass tokens of the progressbar section

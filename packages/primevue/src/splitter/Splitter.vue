@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { getHeight, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
+import { getHeight, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import { isArray } from '@primeuix/utils/object';
 import { getVNodeProp } from '@primevue/core/utils';
 import BaseSplitter from './BaseSplitter.vue';
@@ -125,8 +125,15 @@ export default {
                     newNextPanelSize = (100 * (this.nextPanelSize + step)) / this.size;
                 }
             } else {
-                if (this.horizontal) newPos = (event.pageX * 100) / this.size - (this.startPos * 100) / this.size;
-                else newPos = (event.pageY * 100) / this.size - (this.startPos * 100) / this.size;
+                if (this.horizontal) {
+                    if (isRTL(this.$el)) {
+                        newPos = ((this.startPos - event.pageX) * 100) / this.size;
+                    } else {
+                        newPos = ((event.pageX - this.startPos) * 100) / this.size;
+                    }
+                } else {
+                    newPos = ((event.pageY - this.startPos) * 100) / this.size;
+                }
 
                 newPrevPanelSize = this.prevPanelSize + newPos;
                 newNextPanelSize = this.nextPanelSize - newPos;

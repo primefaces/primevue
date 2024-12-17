@@ -102,6 +102,10 @@ export interface RadioButtonProps {
      */
     modelValue?: any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
      * Name of the input element.
      */
     name?: string | undefined;
@@ -110,6 +114,10 @@ export interface RadioButtonProps {
      * @default false
      */
     binary?: boolean;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -154,6 +162,10 @@ export interface RadioButtonProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -202,6 +214,11 @@ export interface RadioButtonEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on radio button value change.
      * @param {Event} event - Browser event.

@@ -29,14 +29,22 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
-                            <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
-                        </div>
-                        <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
+                        <template v-if="chipSelectedItems">
+                            <span>{{ label }}</span>
+                        </template>
+                        <template v-else>
+                            <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                                <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
+                            </div>
+                            <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
+                        </template>
                     </template>
                 </slot>
             </div>
         </div>
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+        </slot>
         <div :class="cx('dropdown')" role="button" aria-haspopup="tree" :aria-expanded="overlayVisible" v-bind="ptm('dropdown')">
             <!-- TODO: triggericon is deprecated since v4.0 -->
             <slot :name="$slots.dropdownicon ? 'dropdownicon' : 'triggericon'" :class="cx('dropdownIcon')">
@@ -56,7 +64,7 @@
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
                     ></span>
-                    <slot name="header" :value="modelValue" :options="options"></slot>
+                    <slot name="header" :value="d_value" :options="options"></slot>
                     <div :class="cx('treeContainer')" :style="{ 'max-height': scrollHeight }" v-bind="ptm('treeContainer')">
                         <TSTree
                             ref="tree"
@@ -72,7 +80,7 @@
                             :filterPlaceholder="filterPlaceholder"
                             :filterLocale="filterLocale"
                             @update:selectionKeys="onSelectionChange"
-                            :selectionKeys="modelValue"
+                            :selectionKeys="d_value"
                             :expandedKeys="d_expandedKeys"
                             @update:expandedKeys="onNodeToggle"
                             :metaKeySelection="metaKeySelection"
@@ -80,6 +88,7 @@
                             @node-collapse="$emit('node-collapse', $event)"
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
+                            @click.stop
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
@@ -102,7 +111,7 @@
                             <slot name="empty">{{ emptyMessageText }}</slot>
                         </div>
                     </div>
-                    <slot name="footer" :value="modelValue" :options="options"></slot>
+                    <slot name="footer" :value="d_value" :options="options"></slot>
                     <span
                         ref="lastHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -121,10 +130,11 @@
 
 <script>
 import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
-import { isEmpty } from '@primeuix/utils/object';
+import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
+import TimesIcon from '@primevue/icons/times';
 import Chip from 'primevue/chip';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
@@ -136,7 +146,7 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
+    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -210,22 +220,28 @@ export default {
         onBlur(event) {
             this.focused = false;
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onClick(event) {
             if (this.disabled) {
                 return;
             }
 
-            if (!this.disabled && (!this.overlay || !this.overlay.contains(event.target))) {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
+                return;
+            } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 if (this.overlayVisible) this.hide();
                 else this.show();
 
                 focus(this.$refs.focusInput);
             }
         },
+        onClearClick() {
+            this.onSelectionChange(null);
+        },
         onSelectionChange(keys) {
             this.selfChange = true;
-            this.$emit('update:modelValue', keys);
+            this.writeValue(keys);
             this.$emit('change', keys);
         },
         onNodeSelect(node) {
@@ -242,6 +258,16 @@ export default {
             this.d_expandedKeys = keys;
 
             this.$emit('update:expandedKeys', this.d_expandedKeys);
+        },
+        getSelectedItemsLabel() {
+            let pattern = /{(.*?)}/;
+            const selectedItemsLabel = this.selectedItemsLabel || this.$primevue.config.locale.selectionMessage;
+
+            if (pattern.test(selectedItemsLabel)) {
+                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], Object.keys(this.d_value).length + '');
+            }
+
+            return selectedItemsLabel;
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -448,7 +474,7 @@ export default {
             return this.selectionMode === 'checkbox' ? keys[node.key] && keys[node.key].checked : keys[node.key];
         },
         updateTreeState() {
-            let keys = { ...this.modelValue };
+            let keys = { ...this.d_value };
 
             if (keys && this.options) {
                 this.updateTreeBranchState(null, null, keys);
@@ -497,8 +523,8 @@ export default {
         selectedNodes() {
             let selectedNodes = [];
 
-            if (this.modelValue && this.options) {
-                let keys = { ...this.modelValue };
+            if (this.d_value && this.options) {
+                let keys = { ...this.d_value };
 
                 this.findSelectedNodes(null, keys, selectedNodes);
             }
@@ -507,14 +533,28 @@ export default {
         },
         label() {
             let value = this.selectedNodes;
+            let label;
 
-            return value.length ? value.map((node) => node.label).join(', ') : this.placeholder;
+            if (value.length) {
+                if (isNotEmpty(this.maxSelectedLabels) && value.length > this.maxSelectedLabels) {
+                    label = this.getSelectedItemsLabel();
+                } else {
+                    label = value.map((node) => node.label).join(', ');
+                }
+            } else {
+                label = this.placeholder;
+            }
+
+            return label;
+        },
+        chipSelectedItems() {
+            return isNotEmpty(this.maxSelectedLabels) && this.d_value && Object.keys(this.d_value).length > this.maxSelectedLabels;
         },
         emptyMessageText() {
             return this.emptyMessage || this.$primevue.config.locale.emptyMessage;
         },
         emptyValue() {
-            return !this.modelValue || Object.keys(this.modelValue).length === 0;
+            return !this.$filled;
         },
         emptyOptions() {
             return !this.options || this.options.length === 0;
@@ -524,13 +564,17 @@ export default {
         },
         hasFluid() {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
+        },
+        isClearIconVisible() {
+            return this.showClear && this.d_value != null && isNotEmpty(this.options);
         }
     },
     components: {
         TSTree: Tree,
         Chip,
-        Portal: Portal,
-        ChevronDownIcon: ChevronDownIcon
+        Portal,
+        ChevronDownIcon,
+        TimesIcon
     },
     directives: {
         ripple: Ripple

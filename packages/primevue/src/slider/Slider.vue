@@ -1,19 +1,20 @@
 <template>
     <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false">
-        <span :class="cx('range')" :style="[sx('range'), rangeStyle]" v-bind="ptm('range')"></span>
+        <span :class="cx('range')" :style="[sx('range'), rangeStyle()]" v-bind="ptm('range')"></span>
         <span
             v-if="!range"
             :class="cx('handle')"
-            :style="[sx('handle'), handleStyle]"
+            :style="[sx('handle'), handleStyle()]"
             @touchstart.passive="onDragStart($event)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event)"
             @keydown="onKeyDown($event)"
+            @blur="onBlur($event)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue"
+            :aria-valuenow="d_value"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -23,16 +24,17 @@
         <span
             v-if="range"
             :class="cx('handle')"
-            :style="[sx('handle'), rangeStartHandleStyle]"
+            :style="[sx('handle'), rangeStartHandleStyle()]"
             @touchstart.passive="onDragStart($event, 0)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 0)"
             @keydown="onKeyDown($event, 0)"
+            @blur="onBlur($event, 0)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue ? modelValue[0] : null"
+            :aria-valuenow="d_value ? d_value[0] : null"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -42,16 +44,17 @@
         <span
             v-if="range"
             :class="cx('handle')"
-            :style="[sx('handle'), rangeEndHandleStyle]"
+            :style="[sx('handle'), rangeEndHandleStyle()]"
             @touchstart.passive="onDragStart($event, 1)"
             @touchmove.passive="onDrag($event)"
             @touchend="onDragEnd($event)"
             @mousedown="onMouseDown($event, 1)"
             @keydown="onKeyDown($event, 1)"
+            @blur="onBlur($event, 1)"
             :tabindex="tabindex"
             role="slider"
             :aria-valuemin="min"
-            :aria-valuenow="modelValue ? modelValue[1] : null"
+            :aria-valuenow="d_value ? d_value[1] : null"
             :aria-valuemax="max"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -62,14 +65,14 @@
 </template>
 
 <script>
-import { getWindowScrollLeft, getWindowScrollTop, getAttribute } from '@primeuix/utils/dom';
+import { getAttribute, getWindowScrollLeft, getWindowScrollTop, isRTL } from '@primeuix/utils/dom';
 import BaseSlider from './BaseSlider.vue';
 
 export default {
     name: 'Slider',
     extends: BaseSlider,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'slideend'],
+    emits: ['change', 'slideend'],
     dragging: false,
     handleIndex: null,
     initX: null,
@@ -95,8 +98,17 @@ export default {
             let pageX = event.touches ? event.touches[0].pageX : event.pageX;
             let pageY = event.touches ? event.touches[0].pageY : event.pageY;
 
-            if (this.orientation === 'horizontal') handleValue = ((pageX - this.initX) * 100) / this.barWidth;
-            else handleValue = ((this.initY + this.barHeight - pageY) * 100) / this.barHeight;
+            if (this.orientation === 'horizontal') {
+                // @todo: Check this
+                if (isRTL(this.$el)) {
+                    handleValue = ((this.initX + this.barWidth - pageX) * 100) / this.barWidth;
+                } else {
+                    handleValue = ((pageX - this.initX) * 100) / this.barWidth;
+                }
+            } else {
+                handleValue = ((this.initY + this.barHeight - pageY) * 100) / this.barHeight;
+            }
+
             let newValue = (this.max - this.min) * (handleValue / 100) + this.min;
 
             if (this.step) {
@@ -136,7 +148,7 @@ export default {
                 modelValue = newValue;
             }
 
-            this.$emit('update:modelValue', modelValue);
+            this.writeValue(modelValue, event);
             this.$emit('change', modelValue);
         },
         onDragStart(event, index) {
@@ -155,12 +167,10 @@ export default {
             }
 
             event.currentTarget.focus();
-            event.preventDefault();
         },
         onDrag(event) {
             if (this.dragging) {
                 this.setValue(event);
-                event.preventDefault();
             }
         },
         onDragEnd(event) {
@@ -224,6 +234,9 @@ export default {
                     break;
             }
         },
+        onBlur(event, index) {
+            this.formField.onBlur?.(event);
+        },
         decrementValue(event, index, pageKey = false) {
             let newValue;
 
@@ -275,15 +288,54 @@ export default {
                 document.removeEventListener('mouseup', this.dragEndListener);
                 this.dragEndListener = null;
             }
+        },
+        rangeStyle() {
+            if (this.range) {
+                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
+                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
+
+                if (this.horizontal) {
+                    return { 'inset-inline-start': rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
+                } else {
+                    return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
+                }
+            } else {
+                if (this.horizontal) {
+                    return { width: this.handlePosition + '%' };
+                } else {
+                    return { height: this.handlePosition + '%' };
+                }
+            }
+        },
+        handleStyle() {
+            if (this.horizontal) {
+                return { 'inset-inline-start': this.handlePosition + '%' };
+            } else {
+                return { bottom: this.handlePosition + '%' };
+            }
+        },
+        rangeStartHandleStyle() {
+            if (this.horizontal) {
+                return { 'inset-inline-start': this.rangeStartPosition + '%' };
+            } else {
+                return { bottom: this.rangeStartPosition + '%' };
+            }
+        },
+        rangeEndHandleStyle() {
+            if (this.horizontal) {
+                return { 'inset-inline-start': this.rangeEndPosition + '%' };
+            } else {
+                return { bottom: this.rangeEndPosition + '%' };
+            }
         }
     },
     computed: {
         value() {
             if (this.range) {
-                return [this.modelValue?.[0] ?? this.min, this.modelValue?.[1] ?? this.max];
+                return [this.d_value?.[0] ?? this.min, this.d_value?.[1] ?? this.max];
             }
 
-            return this.modelValue ?? this.min;
+            return this.d_value ?? this.min;
         },
         horizontal() {
             return this.orientation === 'horizontal';
@@ -291,42 +343,22 @@ export default {
         vertical() {
             return this.orientation === 'vertical';
         },
-        rangeStyle() {
-            if (this.range) {
-                const rangeSliderWidth = this.rangeEndPosition > this.rangeStartPosition ? this.rangeEndPosition - this.rangeStartPosition : this.rangeStartPosition - this.rangeEndPosition;
-                const rangeSliderPosition = this.rangeEndPosition > this.rangeStartPosition ? this.rangeStartPosition : this.rangeEndPosition;
-
-                if (this.horizontal) return { left: rangeSliderPosition + '%', width: rangeSliderWidth + '%' };
-                else return { bottom: rangeSliderPosition + '%', height: rangeSliderWidth + '%' };
-            } else {
-                if (this.horizontal) return { width: this.handlePosition + '%' };
-                else return { height: this.handlePosition + '%' };
-            }
-        },
-        handleStyle() {
-            if (this.horizontal) return { left: this.handlePosition + '%' };
-            else return { bottom: this.handlePosition + '%' };
-        },
         handlePosition() {
             if (this.value < this.min) return 0;
             else if (this.value > this.max) return 100;
             else return ((this.value - this.min) * 100) / (this.max - this.min);
         },
         rangeStartPosition() {
-            if (this.value && this.value[0]) return ((this.value[0] < this.min ? 0 : this.value[0] - this.min) * 100) / (this.max - this.min);
-            else return 0;
+            if (this.value && this.value[0] !== undefined) {
+                if (this.value[0] < this.min) return 0;
+                else return ((this.value[0] - this.min) * 100) / (this.max - this.min);
+            } else return 0;
         },
         rangeEndPosition() {
-            if (this.value && this.value.length === 2) return ((this.value[1] > this.max ? 100 : this.value[1] - this.min) * 100) / (this.max - this.min);
-            else return 100;
-        },
-        rangeStartHandleStyle() {
-            if (this.horizontal) return { left: this.rangeStartPosition + '%' };
-            else return { bottom: this.rangeStartPosition + '%' };
-        },
-        rangeEndHandleStyle() {
-            if (this.horizontal) return { left: this.rangeEndPosition + '%' };
-            else return { bottom: this.rangeEndPosition + '%' };
+            if (this.value && this.value.length === 2 && this.value[1] !== undefined) {
+                if (this.value[1] > this.max) return 100;
+                else return ((this.value[1] - this.min) * 100) / (this.max - this.min);
+            } else return 100;
         }
     }
 };

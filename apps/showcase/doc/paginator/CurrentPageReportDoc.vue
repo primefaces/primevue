@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>Current page report item in the template displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following;</p>
-        <ul class="mb-6 leading-loose">
+        <ul class="mb-6 leading-relaxed">
             <li>{currentPage}</li>
             <li>{totalPages}</li>
             <li>{rows}</li>

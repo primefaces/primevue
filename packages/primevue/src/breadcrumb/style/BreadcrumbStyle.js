@@ -23,6 +23,10 @@ const theme = ({ dt }) => `
     color: ${dt('breadcrumb.separator.color')};
 }
 
+.p-breadcrumb-separator-icon:dir(rtl) {
+    transform: rotate(180deg);
+}
+
 .p-breadcrumb::-webkit-scrollbar {
     display: none;
 }
@@ -67,6 +71,7 @@ const classes = {
     list: 'p-breadcrumb-list',
     homeItem: 'p-breadcrumb-home-item',
     separator: 'p-breadcrumb-separator',
+    separatorIcon: 'p-breadcrumb-separator-icon',
     item: ({ instance }) => ['p-breadcrumb-item', { 'p-disabled': instance.disabled() }],
     itemLink: 'p-breadcrumb-item-link',
     itemIcon: 'p-breadcrumb-item-icon',

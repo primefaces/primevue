@@ -50,6 +50,8 @@ const ALIAS_ENTRIES = [
     { find: '@primevue/core/basecomponent/style', replacement: path.resolve(__dirname, '../core/src/basecomponent/style/BaseComponentStyle.js') },
     { find: '@primevue/core/basecomponent', replacement: path.resolve(__dirname, '../core/src/basecomponent/BaseComponent.vue') },
     { find: '@primevue/core/basedirective', replacement: path.resolve(__dirname, '../core/src/basedirective/BaseDirective.js') },
+    { find: '@primevue/core/baseeditableholder', replacement: path.resolve(__dirname, '../core/src/baseeditableholder/BaseEditableHolder.vue') },
+    { find: '@primevue/core/baseinput', replacement: path.resolve(__dirname, '../core/src/baseinput/BaseInput.vue') },
     { find: '@primevue/core/config', replacement: path.resolve(__dirname, '../core/src/config/PrimeVue.js') },
     { find: '@primevue/core/service', replacement: path.resolve(__dirname, '../core/src/service/PrimeVueService.js') },
     { find: '@primevue/core/usestyle', replacement: path.resolve(__dirname, '../core/src/usestyle/UseStyle.js') },
@@ -227,7 +229,8 @@ function addPassThrough() {
 }
 
 function addLibrary() {
-    ENTRY.format.umd({ name: 'PrimeVue', input: process.env.INPUT_DIR + 'primevue.js', output: process.env.OUTPUT_DIR + 'umd/primevue', minify: true });
+    ENTRY.format.es({ input: process.env.INPUT_DIR + 'index.js', output: process.env.OUTPUT_DIR + 'index' });
+    ENTRY.format.umd({ name: 'PrimeVue', input: process.env.INPUT_DIR + 'umd/primevue.js', output: process.env.OUTPUT_DIR + 'umd/primevue', minify: true });
 }
 
 addFile();

@@ -81,6 +81,10 @@ export interface TreeSelectPassThroughOptions {
      */
     label?: TreeSelectPassThroughOptionType;
     /**
+     * Used to pass attributes to the clear icon's DOM element.
+     */
+    clearIcon?: TreeSelectPassThroughOptionType;
+    /**
      * Used to pass attributes to the chip's DOM element.
      */
     chipItem?: TreeSelectPassThroughOptionType;
@@ -174,6 +178,14 @@ export interface TreeSelectProps {
      */
     modelValue?: TreeNode | any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: TreeNode | any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * An array of treenodes.
      */
     options?: TreeNode[] | undefined;
@@ -182,33 +194,19 @@ export interface TreeSelectProps {
      */
     expandedKeys?: TreeExpandedKeys;
     /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
+     * Icon to display in clear button.
+     */
+    clearIcon?: string | undefined;
+    /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 20rem
      */
     scrollHeight?: string | undefined;
-    /**
-     * Label to display when there are no selections.
-     */
-    placeholder?: string | undefined;
-    /**
-     * When present, it specifies that the component should have invalid state style.
-     * @defaultValue false
-     */
-    invalid?: boolean | undefined;
-    /**
-     * When present, it specifies that the component should be disabled.
-     * @defaultValue false
-     */
-    disabled?: boolean | undefined;
-    /**
-     * Specifies the input variant of the component.
-     * @defaultValue outlined
-     */
-    variant?: 'outlined' | 'filled' | undefined;
-    /**
-     * Index of the element in tabbing order.
-     */
-    tabindex?: string | undefined;
     /**
      * Defines the selection mode.
      */
@@ -224,15 +222,19 @@ export interface TreeSelectProps {
      */
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
-     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
-     * @defaultValue No available options
-     */
-    emptyMessage?: string | undefined;
-    /**
      * Defines how the selected items are displayed.
      * @defaultValue comma
      */
     display?: 'comma' | 'chip' | undefined;
+    /**
+     * Label to display after exceeding max selected labels.
+     * @defaultValue null
+     */
+    selectedItemsLabel?: string | undefined;
+    /**
+     * Decides how many selected item labels to show at most.
+     */
+    maxSelectedLabels?: number | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
@@ -277,6 +279,38 @@ export interface TreeSelectProps {
      */
     filterLocale?: string | undefined;
     /**
+     * Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.
+     * @defaultValue No available options
+     */
+    emptyMessage?: string | undefined;
+    /**
+     * Label to display when there are no selections.
+     */
+    placeholder?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * When present, it specifies that the component should have invalid state style.
+     * @defaultValue false
+     */
+    invalid?: boolean | undefined;
+    /**
+     * When present, it specifies that the component should be disabled.
+     * @defaultValue false
+     */
+    disabled?: boolean | undefined;
+    /**
+     * Specifies the input variant of the component.
+     * @defaultValue outlined
+     */
+    variant?: 'outlined' | 'filled' | undefined;
+    /**
+     * Index of the element in tabbing order.
+     */
+    tabindex?: string | undefined;
+    /**
      * 	Identifier of the underlying input element.
      */
     inputId?: string | undefined;
@@ -304,6 +338,10 @@ export interface TreeSelectProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -457,6 +495,17 @@ export interface TreeSelectSlots {
          */
         partialChecked: boolean;
     }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
+    }): VNode[];
 }
 
 /**
@@ -468,6 +517,11 @@ export interface TreeSelectEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.

@@ -1,13 +1,38 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            Unstyled mode consists of two solutions. First part is removal of the component specific style classes from the DOM, when <i>unstyled</i> setting is enabled components do not include any CSS selectors while core functionality is still
-            available. For example, in the default styled mode, the select component adds <i>.p-select</i> style class to the root element and includes CSS to corresponding style. In unstyled setting, this style class is not added to the root element
-            and the CSS is not included in the page.
+            The term <i>unstyled</i> is used to define an alternative styling approach instead of the default theming with design tokens. PrimeVue offers two options for styling the components with your own css; the <i>hybrid</i> mode and the
+            <i>pure</i> mode.
         </p>
         <p>
-            The second part is custom styling as components are displayed as transparent without their styles. <NuxtLink to="/passthrough">Pass Through Props</NuxtLink> feature is the key of since it also supports a global configuration to create
-            themes in unstyled mode. In fact, the upcoming Tailwind theme is basically a custom <i>pt</i> configuration.
+            In both options, the css variables of the design tokens and the css rule sets that utilize them are not included. The main difference is, the <i>hybrid</i> mode keeps the selectors in the DOM such as <i>p-select</i> whereas the
+            <i>pure</i> mode do not include them. Unstyled components still need to be styled on your end, in the next sections, we'll cover the styling solutions for both modes.
         </p>
     </DocSectionText>
+    <table class="doc-table table-fixed">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Hybrid</th>
+                <th>Pure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>p-* selectors in DOM</td>
+                <td><i class="pi pi-check ms-4" /></td>
+                <td><i class="pi pi-times ms-4" /></td>
+            </tr>
+            <tr>
+                <td>CSS rule sets</td>
+                <td><i class="pi pi-times ms-4" /></td>
+                <td><i class="pi pi-times ms-4" /></td>
+            </tr>
+            <tr>
+                <td>CSS variables</td>
+                <td><i class="pi pi-times ms-4" /></td>
+                <td><i class="pi pi-times ms-4" /></td>
+            </tr>
+        </tbody>
+    </table>
 </template>

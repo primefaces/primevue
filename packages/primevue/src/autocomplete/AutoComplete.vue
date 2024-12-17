@@ -5,13 +5,15 @@
             ref="focusInput"
             :id="inputId"
             type="text"
+            :name="$formName"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
             :value="inputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
-            :fluid="hasFluid"
+            :fluid="$fluid"
             :disabled="disabled"
+            :size="size"
             :invalid="invalid"
             :variant="variant"
             autocomplete="off"
@@ -45,14 +47,14 @@
             v-bind="ptm('inputMultiple')"
         >
             <li
-                v-for="(option, i) of modelValue"
+                v-for="(option, i) of d_value"
                 :key="`${i}_${getOptionLabel(option)}`"
                 :id="id + '_multiple_option_' + i"
                 :class="cx('chipItem', { i })"
                 role="option"
                 :aria-label="getOptionLabel(option)"
                 :aria-selected="true"
-                :aria-setsize="modelValue.length"
+                :aria-setsize="d_value.length"
                 :aria-posinset="i + 1"
                 v-bind="ptm('chipItem')"
             >
@@ -122,7 +124,7 @@
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="overlayVisible" :ref="overlayRef" :id="panelId" :class="[cx('overlay'), panelClass, overlayClass]" :style="{ ...panelStyle, ...overlayStyle }" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
-                    <slot name="header" :value="modelValue" :suggestions="visibleOptions"></slot>
+                    <slot name="header" :value="d_value" :suggestions="visibleOptions"></slot>
                     <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
@@ -160,7 +162,7 @@
                                             <slot name="option" :option="option" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                                         </li>
                                     </template>
-                                    <li v-if="!items || (items && items.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
+                                    <li v-if="showEmptyMessage && (!items || (items && items.length === 0))" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')">
                                         <slot name="empty">{{ searchResultMessageText }}</slot>
                                     </li>
                                 </ul>
@@ -170,7 +172,7 @@
                             </template>
                         </VirtualScroller>
                     </div>
-                    <slot name="footer" :value="modelValue" :suggestions="visibleOptions"></slot>
+                    <slot name="footer" :value="d_value" :suggestions="visibleOptions"></slot>
                     <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSelectedMessage')" :data-p-hidden-accessible="true">
                         {{ selectedMessageText }}
                     </span>
@@ -199,7 +201,7 @@ export default {
     name: 'AutoComplete',
     extends: BaseAutoComplete,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'item-select', 'item-unselect', 'option-select', 'option-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
+    emits: ['change', 'focus', 'blur', 'item-select', 'item-unselect', 'option-select', 'option-unselect', 'dropdown-click', 'clear', 'complete', 'before-show', 'before-hide', 'show', 'hide'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -230,6 +232,7 @@ export default {
                 this.show();
                 this.focusedOptionIndex = this.overlayVisible && this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : -1;
                 this.searching = false;
+                !this.showEmptyMessage && this.visibleOptions.length === 0 && this.hide();
             }
 
             this.autoUpdateModel();
@@ -310,7 +313,7 @@ export default {
                 this.clicked = false;
                 this.focusedOptionIndex = -1;
 
-                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
+                isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput?.$el);
             };
 
             setTimeout(() => {
@@ -342,6 +345,7 @@ export default {
             this.focused = false;
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onKeyDown(event) {
             if (this.disabled) {
@@ -533,7 +537,7 @@ export default {
                 this.$refs.focusInput.value = '';
 
                 if (!this.isSelected(option)) {
-                    this.updateModel(event, [...(this.modelValue || []), value]);
+                    this.updateModel(event, [...(this.d_value || []), value]);
                 }
             } else {
                 this.updateModel(event, value);
@@ -602,9 +606,9 @@ export default {
             this.focusedOptionIndex = -1;
 
             if (this.multiple) {
-                if (isEmpty(target.value) && this.hasSelectedOption) {
+                if (isEmpty(target.value) && this.$filled) {
                     focus(this.$refs.multiContainer);
-                    this.focusedMultipleOptionIndex = this.modelValue.length;
+                    this.focusedMultipleOptionIndex = this.d_value.length;
                 } else {
                     event.stopPropagation(); // To prevent onArrowLeftKeyOnMultiple method
                 }
@@ -644,7 +648,7 @@ export default {
         onEnterKey(event) {
             if (!this.typeahead) {
                 if (this.multiple) {
-                    this.updateModel(event, [...(this.modelValue || []), event.target.value]);
+                    this.updateModel(event, [...(this.d_value || []), event.target.value]);
                     this.$refs.focusInput.value = '';
                 }
             } else {
@@ -659,6 +663,8 @@ export default {
                     this.hide();
                 }
             }
+
+            event.preventDefault();
         },
         onEscapeKey(event) {
             this.overlayVisible && this.hide(true);
@@ -673,11 +679,11 @@ export default {
         },
         onBackspaceKey(event) {
             if (this.multiple) {
-                if (isNotEmpty(this.modelValue) && !this.$refs.focusInput.value) {
-                    const removedValue = this.modelValue[this.modelValue.length - 1];
-                    const newValue = this.modelValue.slice(0, -1);
+                if (isNotEmpty(this.d_value) && !this.$refs.focusInput.value) {
+                    const removedValue = this.d_value[this.d_value.length - 1];
+                    const newValue = this.d_value.slice(0, -1);
 
-                    this.$emit('update:modelValue', newValue);
+                    this.writeValue(newValue, event);
                     this.$emit('item-unselect', { originalEvent: event, value: removedValue });
                     this.$emit('option-unselect', { originalEvent: event, value: removedValue });
                 }
@@ -691,7 +697,7 @@ export default {
         onArrowRightKeyOnMultiple() {
             this.focusedMultipleOptionIndex++;
 
-            if (this.focusedMultipleOptionIndex > this.modelValue.length - 1) {
+            if (this.focusedMultipleOptionIndex > this.d_value.length - 1) {
                 this.focusedMultipleOptionIndex = -1;
                 focus(this.$refs.focusInput);
             }
@@ -810,7 +816,7 @@ export default {
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
 
-            return this.multiple ? (this.modelValue || []).some((value) => this.isEquals(value, optionValue)) : this.isEquals(this.modelValue, this.getOptionValue(option));
+            return this.multiple ? (this.d_value || []).some((value) => this.isEquals(value, optionValue)) : this.isEquals(this.d_value, this.getOptionValue(option));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -829,7 +835,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
-            return this.hasSelectedOption ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            return this.$filled ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
@@ -856,8 +862,8 @@ export default {
             this.$emit('complete', { originalEvent: event, query });
         },
         removeOption(event, index) {
-            const removedOption = this.modelValue[index];
-            const value = this.modelValue.filter((_, i) => i !== index).map((option) => this.getOptionValue(option));
+            const removedOption = this.d_value[index];
+            const value = this.d_value.filter((_, i) => i !== index).map((option) => this.getOptionValue(option));
 
             this.updateModel(event, value);
             this.$emit('item-unselect', { originalEvent: event, value: removedOption });
@@ -888,13 +894,13 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
         updateModel(event, value) {
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         flatOptions(options) {
@@ -924,23 +930,25 @@ export default {
             return this.optionGroupLabel ? this.flatOptions(this.suggestions) : this.suggestions || [];
         },
         inputValue() {
-            if (isNotEmpty(this.modelValue)) {
-                if (typeof this.modelValue === 'object') {
-                    const label = this.getOptionLabel(this.modelValue);
+            if (this.$filled) {
+                if (typeof this.d_value === 'object') {
+                    const label = this.getOptionLabel(this.d_value);
 
-                    return label != null ? label : this.modelValue;
+                    return label != null ? label : this.d_value;
                 } else {
-                    return this.modelValue;
+                    return this.d_value;
                 }
             } else {
                 return '';
             }
         },
+        // @deprecated use $filled instead.
         hasSelectedOption() {
-            return isNotEmpty(this.modelValue);
+            return this.$filled;
         },
         equalityKey() {
-            return this.dataKey; // TODO: The 'optionValue' properties can be added.
+            // @todo: The 'optionValue' properties can be added.
+            return this.dataKey;
         },
         searchResultMessageText() {
             return isNotEmpty(this.visibleOptions) && this.overlayVisible ? this.searchMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptySearchMessageText;
@@ -958,7 +966,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
-            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.modelValue.length : '1') : this.emptySelectionMessageText;
+            return this.$filled ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.d_value.length : '1') : this.emptySelectionMessageText;
         },
         listAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.listLabel : undefined;
@@ -977,9 +985,6 @@ export default {
         },
         panelId() {
             return this.id + '_panel';
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

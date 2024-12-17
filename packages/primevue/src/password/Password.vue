@@ -1,12 +1,13 @@
 <template>
     <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
-        <PInputText
+        <InputText
             ref="input"
             :id="inputId"
             :type="inputType"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
-            :value="modelValue"
+            :value="d_value"
+            :name="$formName"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-controls="(overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId"
@@ -18,6 +19,7 @@
             :disabled="disabled"
             :variant="variant"
             :invalid="invalid"
+            :size="size"
             :autofocus="autofocus"
             @input="onInput"
             @focus="onFocus"
@@ -67,7 +69,6 @@
 
 <script>
 import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
-import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
@@ -81,7 +82,7 @@ export default {
     name: 'Password',
     extends: BasePassword,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'invalid'],
+    emits: ['change', 'focus', 'blur', 'invalid'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -159,14 +160,14 @@ export default {
             return level;
         },
         onInput(event) {
-            this.$emit('update:modelValue', event.target.value);
+            this.writeValue(event.target.value, event);
             this.$emit('change', event);
         },
         onFocus(event) {
             this.focused = true;
 
             if (this.feedback) {
-                this.setPasswordMeter(this.modelValue);
+                this.setPasswordMeter(this.d_value);
                 this.overlayVisible = true;
             }
 
@@ -201,14 +202,14 @@ export default {
             }
         },
         setPasswordMeter() {
-            if (!this.modelValue) {
+            if (!this.d_value) {
                 this.meter = null;
                 this.infoText = this.promptText;
 
                 return;
             }
 
-            const { meter, label } = this.checkPasswordStrength(this.modelValue);
+            const { meter, label } = this.checkPasswordStrength(this.d_value);
 
             this.meter = meter;
             this.infoText = label;
@@ -307,9 +308,6 @@ export default {
         inputType() {
             return this.unmasked ? 'text' : 'password';
         },
-        filled() {
-            return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
         weakText() {
             return this.weakLabel || this.$primevue.config.locale.weak;
         },
@@ -324,16 +322,13 @@ export default {
         },
         overlayUniqueId() {
             return this.id + '_overlay';
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {
-        PInputText: InputText,
-        Portal: Portal,
-        EyeSlashIcon: EyeSlashIcon,
-        EyeIcon: EyeIcon
+        InputText,
+        Portal,
+        EyeSlashIcon,
+        EyeIcon
     }
 };
 </script>

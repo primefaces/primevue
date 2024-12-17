@@ -7,12 +7,15 @@ import AccessibilityDoc from '@/doc/message/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/message/BasicDoc.vue';
 import ClosabledDoc from '@/doc/message/ClosableDoc.vue';
 import DynamicDoc from '@/doc/message/DynamicDoc.vue';
-import FormDoc from '@/doc/message/FormDoc.vue';
+import FormsDoc from '@/doc/message/FormsDoc.vue';
 import IconDoc from '@/doc/message/IconDoc.vue';
 import ImportDoc from '@/doc/message/ImportDoc.vue';
 import LifeDoc from '@/doc/message/LifeDoc.vue';
-import SeverityDoc from '@/doc/message/SeverityDoc.vue';
+import OutlinedDoc from '@/doc/message/OutlinedDoc.vue';
+import SimpleDoc from '@/doc/message/SimpleDoc.vue';
 import PTComponent from '@/doc/message/pt/index.vue';
+import SeverityDoc from '@/doc/message/SeverityDoc.vue';
+import SizesDoc from '@/doc/message/SizesDoc.vue';
 import ThemingDoc from '@/doc/message/theming/index.vue';
 
 export default {
@@ -40,9 +43,24 @@ export default {
                     component: IconDoc
                 },
                 {
-                    id: 'form',
-                    label: 'Form',
-                    component: FormDoc
+                    id: 'outlined',
+                    label: 'Outlined',
+                    component: OutlinedDoc
+                },
+                {
+                    id: 'simple',
+                    label: 'Simple',
+                    component: SimpleDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'dynamic',

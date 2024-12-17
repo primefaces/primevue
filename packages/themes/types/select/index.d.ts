@@ -88,6 +88,12 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken select.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken select.shadow
@@ -152,6 +158,52 @@ export interface SelectDesignTokens extends ColorSchemeDesignToken<SelectDesignT
          * @designToken select.transition.duration
          */
         transitionDuration?: string;
+        /**
+         * Sm of root
+         */
+        sm?: {
+            /**
+             * Sm font size of root
+             *
+             * @designToken select.sm.font.size
+             */
+            fontSize?: string;
+            /**
+             * Sm padding x of root
+             *
+             * @designToken select.sm.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Sm padding y of root
+             *
+             * @designToken select.sm.padding.y
+             */
+            paddingY?: string;
+        };
+        /**
+         * Lg of root
+         */
+        lg?: {
+            /**
+             * Lg font size of root
+             *
+             * @designToken select.lg.font.size
+             */
+            fontSize?: string;
+            /**
+             * Lg padding x of root
+             *
+             * @designToken select.lg.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Lg padding y of root
+             *
+             * @designToken select.lg.padding.y
+             */
+            paddingY?: string;
+        };
     };
     /**
      * Used to pass tokens of the dropdown section

@@ -56,8 +56,16 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('multiselect.dropdown.color')};
     width: ${dt('multiselect.dropdown.width')};
-    border-top-right-radius: ${dt('multiselect.border.radius')};
-    border-bottom-right-radius: ${dt('multiselect.border.radius')};
+    border-start-end-radius: ${dt('multiselect.border.radius')};
+    border-end-end-radius: ${dt('multiselect.border.radius')};
+}
+
+.p-multiselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('multiselect.clear.icon.color')};
+    inset-inline-end: ${dt('multiselect.dropdown.width')};
 }
 
 .p-multiselect-label-container {
@@ -68,7 +76,7 @@ const theme = ({ dt }) => `
 
 .p-multiselect-label {
     display: flex;
-    align-items-center;
+    align-items: center;
     gap: calc(${dt('multiselect.padding.y')} / 2);
     white-space: nowrap;
     cursor: pointer;
@@ -80,6 +88,10 @@ const theme = ({ dt }) => `
 
 .p-multiselect-label.p-placeholder {
     color: ${dt('multiselect.placeholder.color')};
+}
+
+.p-multiselect.p-invalid .p-multiselect-label.p-placeholder {
+    color: ${dt('multiselect.invalid.placeholder.color')};
 }
 
 .p-multiselect.p-disabled .p-multiselect-label {
@@ -113,7 +125,7 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-header .p-checkbox {
-    margin-right: ${dt('multiselect.option.gap')};
+    margin-inline-end: ${dt('multiselect.option.gap')};
 }
 
 .p-multiselect-filter-container {
@@ -135,7 +147,7 @@ const theme = ({ dt }) => `
     padding: ${dt('multiselect.list.padding')};
     display: flex;
     flex-direction: column;
-    gap: ${dt('multiselect.list.gap')}
+    gap: ${dt('multiselect.list.gap')};
 }
 
 .p-multiselect-option {
@@ -154,7 +166,7 @@ const theme = ({ dt }) => `
     transition: background ${dt('multiselect.transition.duration')}, color ${dt('multiselect.transition.duration')}, border-color ${dt('multiselect.transition.duration')}, box-shadow ${dt('multiselect.transition.duration')}, outline-color ${dt(
     'multiselect.transition.duration'
 )};
-    border-radius: ${dt('multiselect.option.border.radius')}
+    border-radius: ${dt('multiselect.option.border.radius')};
 }
 
 .p-multiselect-option:not(.p-multiselect-option-selected):not(.p-disabled).p-focus {
@@ -186,8 +198,8 @@ const theme = ({ dt }) => `
 }
 
 .p-multiselect-label .p-chip {
-    padding-top: calc(${dt('multiselect.padding.y')} / 2);
-    padding-bottom: calc(${dt('multiselect.padding.y')} / 2);
+    padding-block-start: calc(${dt('multiselect.padding.y')} / 2);
+    padding-block-end: calc(${dt('multiselect.padding.y')} / 2);
     border-radius: ${dt('multiselect.chip.border.radius')};
 }
 
@@ -197,6 +209,31 @@ const theme = ({ dt }) => `
 
 .p-multiselect-fluid {
     display: flex;
+    width: 100%;
+}
+
+.p-multiselect-sm .p-multiselect-label {
+    font-size: ${dt('multiselect.sm.font.size')};
+    padding-block: ${dt('multiselect.sm.padding.y')};
+    padding-inline: ${dt('multiselect.sm.padding.x')};
+}
+
+.p-multiselect-sm .p-multiselect-dropdown .p-icon {
+    font-size: ${dt('multiselect.sm.font.size')};
+    width: ${dt('multiselect.sm.font.size')};
+    height: ${dt('multiselect.sm.font.size')};
+}
+
+.p-multiselect-lg .p-multiselect-label {
+    font-size: ${dt('multiselect.lg.font.size')};
+    padding-block: ${dt('multiselect.lg.padding.y')};
+    padding-inline: ${dt('multiselect.lg.padding.x')};
+}
+
+.p-multiselect-lg .p-multiselect-dropdown .p-icon {
+    font-size: ${dt('multiselect.lg.font.size')};
+    width: ${dt('multiselect.lg.font.size')};
+    height: ${dt('multiselect.lg.font.size')};
 }
 `;
 
@@ -210,13 +247,15 @@ const classes = {
         {
             'p-multiselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue && props.modelValue.length,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-multiselect-open': instance.overlayVisible,
-            'p-multiselect-fluid': instance.hasFluid
+            'p-multiselect-fluid': instance.$fluid,
+            'p-multiselect-sm p-inputfield-sm': props.size === 'small',
+            'p-multiselect-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     labelContainer: 'p-multiselect-label-container',
@@ -227,6 +266,7 @@ const classes = {
             'p-multiselect-label-empty': !props.placeholder && (!props.modelValue || props.modelValue.length === 0)
         }
     ],
+    clearIcon: 'p-multiselect-clear-icon',
     chipItem: 'p-multiselect-chip-item',
     pcChip: 'p-multiselect-chip',
     chipIcon: 'p-multiselect-chip-icon',

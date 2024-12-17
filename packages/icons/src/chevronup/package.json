@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./ChevronUpIcon.vue",
+    "module": "./ChevronUpIcon.vue",
+    "types": "./ChevronUpIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./ChevronUpIcon.vue"
     },
     "sideEffects": [
         "*.vue"

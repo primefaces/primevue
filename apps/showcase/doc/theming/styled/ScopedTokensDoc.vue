@@ -1,6 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Design tokens can be scoped to a certain component using CSS variables. In this example, first switch uses the global tokens whereas second one overrides the global with its own tokens.</p>
+        <p>Design tokens can be scoped to a certain component using the <i>dt</i> property. In this example, first switch uses the global tokens whereas second one overrides the global with its own tokens.</p>
+        <p>This approach is recommended over the <i>:deep()</i> as it offers a cleaner API while avoiding the hassle of CSS rule overrides.</p>
     </DocSectionText>
     <div class="card flex justify-center gap-4">
         <ToggleSwitch v-model="checked1" />

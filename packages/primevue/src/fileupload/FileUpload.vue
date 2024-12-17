@@ -135,7 +135,7 @@ export default {
             let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
 
             for (let file of files) {
-                if (!this.isFileSelected(file)) {
+                if (!this.isFileSelected(file) && !this.isFileLimitExceeded()) {
                     if (this.validate(file)) {
                         if (this.isImage(file)) {
                             file.objectURL = window.URL.createObjectURL(file);

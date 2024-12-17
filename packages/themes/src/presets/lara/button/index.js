@@ -7,14 +7,14 @@ export default {
         paddingY: '{form.field.padding.y}',
         iconOnlyWidth: '2.75rem',
         sm: {
-            fontSize: '0.875rem',
-            paddingX: '0.625rem',
-            paddingY: '0.5rem'
+            fontSize: '{form.field.sm.font.size}',
+            paddingX: '{form.field.sm.padding.x}',
+            paddingY: '{form.field.sm.padding.y}'
         },
         lg: {
-            fontSize: '1.125rem',
-            paddingX: '0.875rem',
-            paddingY: '0.75rem'
+            fontSize: '{form.field.lg.font.size}',
+            paddingX: '{form.field.lg.padding.x}',
+            paddingY: '{form.field.lg.padding.y}'
         },
         label: {
             fontWeight: '600'
@@ -244,6 +244,11 @@ export default {
                     activeBackground: '{red.100}',
                     color: '{red.500}'
                 },
+                contrast: {
+                    hoverBackground: '{surface.50}',
+                    activeBackground: '{surface.100}',
+                    color: '{surface.950}'
+                },
                 plain: {
                     hoverBackground: '{surface.50}',
                     activeBackground: '{surface.100}',
@@ -470,6 +475,11 @@ export default {
                     hoverBackground: 'color-mix(in srgb, {red.400}, transparent 96%)',
                     activeBackground: 'color-mix(in srgb, {red.400}, transparent 84%)',
                     color: '{red.400}'
+                },
+                contrast: {
+                    hoverBackground: '{surface.800}',
+                    activeBackground: '{surface.700}',
+                    color: '{surface.0}'
                 },
                 plain: {
                     hoverBackground: '{surface.800}',

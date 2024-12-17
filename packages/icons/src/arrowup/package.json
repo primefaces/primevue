@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./ArrowUpIcon.vue",
+    "module": "./ArrowUpIcon.vue",
+    "types": "./ArrowUpIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./ArrowUpIcon.vue"
     },
     "sideEffects": [
         "*.vue"

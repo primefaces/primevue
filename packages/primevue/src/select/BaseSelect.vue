@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import SelectStyle from 'primevue/select/style';
 
 export default {
     name: 'BaseSelect',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         options: Array,
         optionLabel: [String, Function],
         optionValue: [String, Function],
@@ -33,26 +32,10 @@ export default {
             type: String,
             default: null
         },
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         dataKey: null,
         showClear: {
             type: Boolean,
             default: false
-        },
-        fluid: {
-            type: Boolean,
-            default: null
         },
         inputId: {
             type: String,

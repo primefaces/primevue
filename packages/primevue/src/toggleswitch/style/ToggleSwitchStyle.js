@@ -12,7 +12,7 @@ const theme = ({ dt }) => `
     appearance: none;
     position: absolute;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100%;
     padding: 0;
@@ -24,7 +24,6 @@ const theme = ({ dt }) => `
 }
 
 .p-toggleswitch-slider {
-    display: inline-block;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -50,10 +49,10 @@ const theme = ({ dt }) => `
     color: ${dt('toggleswitch.handle.color')};
     width: ${dt('toggleswitch.handle.size')};
     height: ${dt('toggleswitch.handle.size')};
-    left: ${dt('toggleswitch.gap')};
-    margin-top: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
+    inset-inline-start: ${dt('toggleswitch.gap')};
+    margin-block-start: calc(-1 * calc(${dt('toggleswitch.handle.size')} / 2));
     border-radius: ${dt('toggleswitch.handle.border.radius')};
-    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, left ${dt('toggleswitch.slide.duration')}, box-shadow ${dt('toggleswitch.slide.duration')};
+    transition: background ${dt('toggleswitch.transition.duration')}, color ${dt('toggleswitch.transition.duration')}, inset-inline-start ${dt('toggleswitch.slide.duration')}, box-shadow ${dt('toggleswitch.slide.duration')};
 }
 
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
@@ -64,7 +63,7 @@ const theme = ({ dt }) => `
 .p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-handle {
     background: ${dt('toggleswitch.handle.checked.background')};
     color: ${dt('toggleswitch.handle.checked.color')};
-    left: calc(${dt('toggleswitch.width')} - calc(${dt('toggleswitch.handle.size')} + ${dt('toggleswitch.gap')}));
+    inset-inline-start: calc(${dt('toggleswitch.width')} - calc(${dt('toggleswitch.handle.size')} + ${dt('toggleswitch.gap')}));
 }
 
 .p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {
@@ -120,7 +119,7 @@ const classes = {
         {
             'p-toggleswitch-checked': instance.checked,
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid
         }
     ],
     input: 'p-toggleswitch-input',

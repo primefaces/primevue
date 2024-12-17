@@ -3,7 +3,7 @@
         <p>Multiple add-ons can be placed inside the same group.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <InputGroup>
+        <InputGroup class="sm:!w-96">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>
@@ -24,7 +24,7 @@ export default {
         return {
             code: {
                 basic: `
-<InputGroup>
+<InputGroup class="sm:!w-96">
     <InputGroupAddon>
         <i class="pi pi-clock"></i>
     </InputGroupAddon>
@@ -39,7 +39,7 @@ export default {
                 options: `
 <template>
     <div class="card flex justify-center">
-        <InputGroup>
+        <InputGroup class="sm:!w-96">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>
@@ -56,7 +56,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <InputGroup>
+        <InputGroup class="sm:!w-96">
             <InputGroupAddon>
                 <i class="pi pi-clock"></i>
             </InputGroupAddon>

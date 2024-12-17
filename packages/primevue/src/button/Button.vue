@@ -1,11 +1,11 @@
 <template>
     <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" v-bind="attrs">
         <slot>
-            <slot v-if="loading" name="loadingicon" :class="[cx('loadingIcon'), cx('icon')]">
+            <slot v-if="loading" name="loadingicon" :class="[cx('loadingIcon'), cx('icon')]" v-bind="ptm('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), cx('icon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="[cx('loadingIcon'), cx('icon')]" spin v-bind="ptm('loadingIcon')" />
             </slot>
-            <slot v-else name="icon" :class="[cx('icon')]">
+            <slot v-else name="icon" :class="[cx('icon')]" v-bind="ptm('icon')">
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
             </slot>
             <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>

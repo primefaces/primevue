@@ -33,12 +33,13 @@ describe('Textarea.vue', () => {
     });
 
     it('should resize', async () => {
-        const firstHeight = wrapper.attributes().style;
-
         await wrapper.setProps({ autoResize: true });
+        const textarea = wrapper.find('textarea');
 
-        await wrapper.vm.onInput({ target: { value: 'primevue' } });
+        await wrapper.vm.onInput({ target: { value: 'primevue\nprimevue\nprimevue' } });
+        await wrapper.vm.resize();
+        await wrapper.vm.$nextTick();
 
-        expect(wrapper.attributes().style).not.toEqual(firstHeight);
+        expect(textarea.element.style.height).not.toBe('auto');
     });
 });

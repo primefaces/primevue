@@ -5,8 +5,9 @@
         :class="cx('root')"
         :tabindex="tabindex"
         :disabled="disabled"
-        :aria-pressed="modelValue"
+        :aria-pressed="d_value"
         @click="onChange"
+        @blur="onBlur"
         v-bind="getPTOptions('root')"
         :aria-labelledby="ariaLabelledby"
         :data-p-checked="active"
@@ -14,8 +15,8 @@
     >
         <span :class="cx('content')" v-bind="getPTOptions('content')">
             <slot>
-                <slot name="icon" :value="modelValue" :class="cx('icon')">
-                    <span v-if="onIcon || offIcon" :class="[cx('icon'), modelValue ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
+                <slot name="icon" :value="d_value" :class="cx('icon')">
+                    <span v-if="onIcon || offIcon" :class="[cx('icon'), d_value ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
                 </slot>
                 <span :class="cx('label')" v-bind="getPTOptions('label')">{{ label }}</span>
             </slot>
@@ -32,7 +33,7 @@ export default {
     name: 'ToggleButton',
     extends: BaseToggleButton,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change'],
+    emits: ['change'],
     methods: {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
@@ -46,20 +47,23 @@ export default {
         },
         onChange(event) {
             if (!this.disabled && !this.readonly) {
-                this.$emit('update:modelValue', !this.modelValue);
+                this.writeValue(!this.d_value, event);
                 this.$emit('change', event);
             }
+        },
+        onBlur(event) {
+            this.formField.onBlur?.(event);
         }
     },
     computed: {
         active() {
-            return this.modelValue === true;
+            return this.d_value === true;
         },
         hasLabel() {
             return isNotEmpty(this.onLabel) && isNotEmpty(this.offLabel);
         },
         label() {
-            return this.hasLabel ? (this.modelValue ? this.onLabel : this.offLabel) : '&nbsp;';
+            return this.hasLabel ? (this.d_value ? this.onLabel : this.offLabel) : '\u00A0';
         }
     },
     directives: {

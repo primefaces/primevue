@@ -2,6 +2,7 @@ import BaseStyle from '@primevue/core/base/style';
 
 const theme = ({ dt }) => `
 .p-inputgroup,
+.p-inputgroup .p-iconfield,
 .p-inputgroup .p-floatlabel,
 .p-inputgroup .p-iftalabel {
     display: flex;
@@ -22,22 +23,32 @@ const theme = ({ dt }) => `
     padding: ${dt('inputgroup.addon.padding')};
     background: ${dt('inputgroup.addon.background')};
     color: ${dt('inputgroup.addon.color')};
-    border-top: 1px solid ${dt('inputgroup.addon.border.color')};
-    border-bottom: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-block-start: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-block-end: 1px solid ${dt('inputgroup.addon.border.color')};
     min-width: ${dt('inputgroup.addon.min.width')};
 }
 
 .p-inputgroupaddon:first-child,
 .p-inputgroupaddon + .p-inputgroupaddon {
-    border-left: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-inline-start: 1px solid ${dt('inputgroup.addon.border.color')};
 }
 
 .p-inputgroupaddon:last-child {
-    border-right: 1px solid ${dt('inputgroup.addon.border.color')};
+    border-inline-end: 1px solid ${dt('inputgroup.addon.border.color')};
+}
+
+.p-inputgroupaddon:has(.p-button) {
+    padding: 0;
+    overflow: hidden;
+}
+
+.p-inputgroupaddon .p-button {
+    border-radius: 0;
 }
 
 .p-inputgroup > .p-component,
 .p-inputgroup > .p-inputwrapper > .p-component,
+.p-inputgroup > .p-iconfield > .p-component,
 .p-inputgroup > .p-floatlabel > .p-component,
 .p-inputgroup > .p-floatlabel > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel > .p-component,
@@ -49,23 +60,25 @@ const theme = ({ dt }) => `
 .p-inputgroupaddon:first-child,
 .p-inputgroup > .p-component:first-child,
 .p-inputgroup > .p-inputwrapper:first-child > .p-component,
+.p-inputgroup > .p-iconfield:first-child > .p-component,
 .p-inputgroup > .p-floatlabel:first-child > .p-component,
 .p-inputgroup > .p-floatlabel:first-child > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel:first-child > .p-component,
 .p-inputgroup > .p-iftalabel:first-child > .p-inputwrapper > .p-component {
-    border-top-left-radius: ${dt('inputgroup.addon.border.radius')};
-    border-bottom-left-radius: ${dt('inputgroup.addon.border.radius')};
+    border-start-start-radius: ${dt('inputgroup.addon.border.radius')};
+    border-end-start-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-inputgroupaddon:last-child,
 .p-inputgroup > .p-component:last-child,
 .p-inputgroup > .p-inputwrapper:last-child > .p-component,
+.p-inputgroup > .p-iconfield:last-child > .p-component,
 .p-inputgroup > .p-floatlabel:last-child > .p-component,
 .p-inputgroup > .p-floatlabel:last-child > .p-inputwrapper > .p-component,
 .p-inputgroup > .p-iftalabel:last-child > .p-component,
 .p-inputgroup > .p-iftalabel:last-child > .p-inputwrapper > .p-component {
-    border-top-right-radius: ${dt('inputgroup.addon.border.radius')};
-    border-bottom-right-radius: ${dt('inputgroup.addon.border.radius')};
+    border-start-end-radius: ${dt('inputgroup.addon.border.radius')};
+    border-end-end-radius: ${dt('inputgroup.addon.border.radius')};
 }
 
 .p-inputgroup .p-component:focus,
@@ -79,6 +92,10 @@ const theme = ({ dt }) => `
 
 .p-inputgroup > .p-button:not(.p-button-icon-only) {
     width: auto;
+}
+
+.p-inputgroup .p-iconfield + .p-iconfield .p-inputtext {
+    border-inline-start: 0;
 }
 `;
 

@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     font-size: 1rem;
     color: ${dt('textarea.color')};
     background: ${dt('textarea.background')};
-    padding: ${dt('textarea.padding.y')} ${dt('textarea.padding.x')};
+    padding-block: ${dt('textarea.padding.y')};
+    padding-inline: ${dt('textarea.padding.x')};
     border: 1px solid ${dt('textarea.border.color')};
     transition: background ${dt('textarea.transition.duration')}, color ${dt('textarea.transition.duration')}, border-color ${dt('textarea.transition.duration')}, outline-color ${dt('textarea.transition.duration')}, box-shadow ${dt(
     'textarea.transition.duration'
@@ -51,6 +52,10 @@ const theme = ({ dt }) => `
     color: ${dt('textarea.placeholder.color')};
 }
 
+.p-textarea.p-invalid::placeholder {
+    color: ${dt('textarea.invalid.placeholder.color')};
+}
+
 .p-textarea-fluid {
     width: 100%;
 }
@@ -59,17 +64,31 @@ const theme = ({ dt }) => `
     overflow: hidden;
     resize: none;
 }
+
+.p-textarea-sm {
+    font-size: ${dt('textarea.sm.font.size')};
+    padding-block: ${dt('textarea.sm.padding.y')};
+    padding-inline: ${dt('textarea.sm.padding.x')};
+}
+
+.p-textarea-lg {
+    font-size: ${dt('textarea.lg.font.size')};
+    padding-block: ${dt('textarea.lg.padding.y')};
+    padding-inline: ${dt('textarea.lg.padding.x')};
+}
 `;
 
 const classes = {
     root: ({ instance, props }) => [
         'p-textarea p-component',
         {
-            'p-filled': instance.filled,
+            'p-filled': instance.$filled,
             'p-textarea-resizable ': props.autoResize,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-textarea-fluid': instance.hasFluid
+            'p-textarea-sm p-inputfield-sm': props.size === 'small',
+            'p-textarea-lg p-inputfield-lg': props.size === 'large',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-textarea-fluid': instance.$fluid
         }
     ]
 };

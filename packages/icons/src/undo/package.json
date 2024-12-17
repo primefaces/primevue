@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./UndoIcon.vue",
+    "module": "./UndoIcon.vue",
+    "types": "./UndoIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./UndoIcon.vue"
     },
     "sideEffects": [
         "*.vue"

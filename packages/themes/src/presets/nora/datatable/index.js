@@ -68,7 +68,9 @@ export default {
     dropPoint: {
         color: '{primary.color}'
     },
-    columnResizerWidth: '0.5rem',
+    columnResizer: {
+        width: '0.5rem'
+    },
     resizeIndicator: {
         width: '1px',
         color: '{primary.color}'

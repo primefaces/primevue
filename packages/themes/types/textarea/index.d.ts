@@ -82,6 +82,12 @@ export interface TextareaDesignTokens extends ColorSchemeDesignToken<TextareaDes
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken textarea.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken textarea.shadow
@@ -146,5 +152,51 @@ export interface TextareaDesignTokens extends ColorSchemeDesignToken<TextareaDes
          * @designToken textarea.transition.duration
          */
         transitionDuration?: string;
+        /**
+         * Sm of root
+         */
+        sm?: {
+            /**
+             * Sm font size of root
+             *
+             * @designToken textarea.sm.font.size
+             */
+            fontSize?: string;
+            /**
+             * Sm padding x of root
+             *
+             * @designToken textarea.sm.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Sm padding y of root
+             *
+             * @designToken textarea.sm.padding.y
+             */
+            paddingY?: string;
+        };
+        /**
+         * Lg of root
+         */
+        lg?: {
+            /**
+             * Lg font size of root
+             *
+             * @designToken textarea.lg.font.size
+             */
+            fontSize?: string;
+            /**
+             * Lg padding x of root
+             *
+             * @designToken textarea.lg.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Lg padding y of root
+             *
+             * @designToken textarea.lg.padding.y
+             */
+            paddingY?: string;
+        };
     };
 }

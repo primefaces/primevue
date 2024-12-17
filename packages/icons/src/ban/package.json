@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./BanIcon.vue",
+    "module": "./BanIcon.vue",
+    "types": "./BanIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./BanIcon.vue"
     },
     "sideEffects": [
         "*.vue"

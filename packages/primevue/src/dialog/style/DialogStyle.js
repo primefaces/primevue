@@ -42,6 +42,7 @@ const theme = ({ dt }) => `
     align-items: center;
     gap: ${dt('dialog.header.gap')};
 }
+
 .p-dialog-enter-active {
     transition: all 150ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -113,6 +114,24 @@ const theme = ({ dt }) => `
 .p-dialog-bottomright .p-dialog-enter-from,
 .p-dialog-bottomright .p-dialog-leave-to {
     transform: translate3d(100%, 0px, 0px);
+}
+
+.p-dialog-left:dir(rtl) .p-dialog-enter-from,
+.p-dialog-left:dir(rtl) .p-dialog-leave-to,
+.p-dialog-topleft:dir(rtl) .p-dialog-enter-from,
+.p-dialog-topleft:dir(rtl) .p-dialog-leave-to,
+.p-dialog-bottomleft:dir(rtl) .p-dialog-enter-from,
+.p-dialog-bottomleft:dir(rtl) .p-dialog-leave-to {
+    transform: translate3d(100%, 0px, 0px);
+}
+
+.p-dialog-right:dir(rtl) .p-dialog-enter-from,
+.p-dialog-right:dir(rtl) .p-dialog-leave-to,
+.p-dialog-topright:dir(rtl) .p-dialog-enter-from,
+.p-dialog-topright:dir(rtl) .p-dialog-leave-to,
+.p-dialog-bottomright:dir(rtl) .p-dialog-enter-from,
+.p-dialog-bottomright:dir(rtl) .p-dialog-leave-to {
+    transform: translate3d(-100%, 0px, 0px);
 }
 
 .p-dialog-maximized {

@@ -1,0 +1,11 @@
+{
+    "main": "./FormField.vue",
+    "module": "./FormField.vue",
+    "types": "./FormField.d.ts",
+    "browser": {
+        "./sfc": "./FormField.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

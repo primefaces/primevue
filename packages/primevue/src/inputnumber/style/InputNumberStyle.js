@@ -37,20 +37,20 @@ const theme = ({ dt }) => `
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 1px;
-    right: 1px;
+    inset-block-start: 1px;
+    inset-inline-end: 1px;
     height: calc(100% - 2px);
     z-index: 1;
 }
 
 .p-inputnumber-stacked .p-inputnumber-increment-button {
     padding: 0;
-    border-top-right-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
+    border-start-end-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-decrement-button {
     padding: 0;
-    border-bottom-right-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
+    border-end-end-radius: calc(${dt('inputnumber.button.border.radius')} - 1px);
 }
 
 .p-inputnumber-stacked .p-inputnumber-button {
@@ -72,9 +72,9 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-horizontal .p-inputnumber-increment-button {
     order: 3;
-    border-top-right-radius: ${dt('inputnumber.button.border.radius')};
-    border-bottom-right-radius: ${dt('inputnumber.button.border.radius')};
-    border-left: 0 none;
+    border-start-end-radius: ${dt('inputnumber.button.border.radius')};
+    border-end-end-radius: ${dt('inputnumber.button.border.radius')};
+    border-inline-start: 0 none;
 }
 
 .p-inputnumber-horizontal .p-inputnumber-input {
@@ -84,9 +84,9 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-horizontal .p-inputnumber-decrement-button {
     order: 1;
-    border-top-left-radius: ${dt('inputnumber.button.border.radius')};
-    border-bottom-left-radius: ${dt('inputnumber.button.border.radius')};
-    border-right: 0 none;
+    border-start-start-radius: ${dt('inputnumber.button.border.radius')};
+    border-end-start-radius: ${dt('inputnumber.button.border.radius')};
+    border-inline-end: 0 none;
 }
 
 .p-floatlabel:has(.p-inputnumber-horizontal) label {
@@ -112,10 +112,10 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-increment-button {
     order: 1;
-    border-top-left-radius: ${dt('inputnumber.button.border.radius')};
-    border-top-right-radius: ${dt('inputnumber.button.border.radius')};
+    border-start-start-radius: ${dt('inputnumber.button.border.radius')};
+    border-start-end-radius: ${dt('inputnumber.button.border.radius')};
     width: 100%;
-    border-bottom: 0 none;
+    border-block-end: 0 none;
 }
 
 .p-inputnumber-vertical .p-inputnumber-input {
@@ -126,10 +126,10 @@ const theme = ({ dt }) => `
 
 .p-inputnumber-vertical .p-inputnumber-decrement-button {
     order: 3;
-    border-bottom-left-radius: ${dt('inputnumber.button.border.radius')};
-    border-bottom-right-radius: ${dt('inputnumber.button.border.radius')};
+    border-end-start-radius: ${dt('inputnumber.button.border.radius')};
+    border-end-end-radius: ${dt('inputnumber.button.border.radius')};
     width: 100%;
-    border-top: 0 none;
+    border-block-start: 0 none;
 }
 
 .p-inputnumber-input {
@@ -147,18 +147,30 @@ const theme = ({ dt }) => `
 .p-inputnumber-fluid.p-inputnumber-vertical .p-inputnumber-input {
     width: 100%;
 }
+
+.p-inputnumber:has(.p-inputtext-sm) .p-inputnumber-button .p-icon {
+    font-size: ${dt('form.field.sm.font.size')};
+    width: ${dt('form.field.sm.font.size')};
+    height: ${dt('form.field.sm.font.size')};
+}
+
+.p-inputnumber:has(.p-inputtext-lg) .p-inputnumber-button .p-icon {
+    font-size: ${dt('form.field.lg.font.size')};
+    width: ${dt('form.field.lg.font.size')};
+    height: ${dt('form.field.lg.font.size')};
+}
 `;
 
 const classes = {
     root: ({ instance, props }) => [
         'p-inputnumber p-component p-inputwrapper',
         {
-            'p-inputwrapper-filled': instance.filled || props.allowEmpty === false,
+            'p-inputwrapper-filled': instance.$filled || props.allowEmpty === false,
             'p-inputwrapper-focus': instance.focused,
             'p-inputnumber-stacked': props.showButtons && props.buttonLayout === 'stacked',
             'p-inputnumber-horizontal': props.showButtons && props.buttonLayout === 'horizontal',
             'p-inputnumber-vertical': props.showButtons && props.buttonLayout === 'vertical',
-            'p-inputnumber-fluid': instance.hasFluid
+            'p-inputnumber-fluid': instance.$fluid
         }
     ],
     pcInputText: 'p-inputnumber-input',

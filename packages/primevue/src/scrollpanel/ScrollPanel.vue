@@ -40,8 +40,8 @@
 </template>
 
 <script>
+import { addClass, getHeight, removeClass } from '@primeuix/utils/dom';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { getHeight, addClass, removeClass } from '@primeuix/utils/dom';
 import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
@@ -137,7 +137,8 @@ export default {
                         } else {
                             this.$refs.xBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && removeClass(this.$refs.xBar, 'p-scrollpanel-hidden');
-                            this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; left:' + (this.$refs.content.scrollLeft / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
+
+                            this.$refs.xBar.style.cssText = 'width:' + Math.max(this.scrollXRatio * 100, 10) + '%; inset-inline-start:' + (Math.abs(this.$refs.content.scrollLeft) / totalWidth) * 100 + '%;bottom:' + bottom + 'px;';
                         }
                     }
 
@@ -148,8 +149,9 @@ export default {
                         } else {
                             this.$refs.yBar.setAttribute('data-p-scrollpanel-hidden', 'false');
                             !this.isUnstyled && removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
+
                             this.$refs.yBar.style.cssText =
-                                'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px);right:' + right + 'px;';
+                                'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px); inset-inline-end:' + right + 'px;';
                         }
                     }
                 });

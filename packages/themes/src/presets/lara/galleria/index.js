@@ -77,10 +77,6 @@ export default {
         hoverBackground: 'rgba(255, 255, 255, 0.6)',
         activeBackground: 'rgba(255, 255, 255, 0.9)'
     },
-    mask: {
-        background: '{mask.background}',
-        color: '{mask.color}'
-    },
     closeButton: {
         size: '3rem',
         gutter: '0.5rem',

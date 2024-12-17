@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import MultiSelectStyle from 'primevue/multiselect/style';
 
 export default {
     name: 'BaseMultiSelect',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         options: Array,
         optionLabel: null,
         optionValue: null,
@@ -18,22 +17,6 @@ export default {
             default: '14rem'
         },
         placeholder: String,
-        variant: {
-            type: String,
-            default: null
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        fluid: {
-            type: Boolean,
-            default: null
-        },
         inputId: {
             type: String,
             default: null
@@ -55,6 +38,18 @@ export default {
             default: null
         },
         dataKey: null,
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        clearIcon: {
+            type: String,
+            default: undefined
+        },
+        resetFilterOnClear: {
+            type: Boolean,
+            default: false
+        },
         filter: Boolean,
         filterPlaceholder: String,
         filterLocale: String,

@@ -498,28 +498,20 @@
             ]
         },
         {
+            "name": "Forms",
+            "icon": "pi pi-check-circle",
+            "to": "/forms",
+            "badge": "NEW"
+        },
+        {
             "name": "Pass Through",
             "icon": "pi pi-directions",
             "to": "/passthrough"
         },
         {
             "name": "Tailwind CSS",
-            "icon": "pi pi-heart",
-            "children": [
-                {
-                    "name": "Integration",
-                    "to": "/tailwind"
-                },
-                {
-                    "name": "Presets",
-                    "href": "https://tailwind.primevue.org"
-                }
-            ]
-        },
-        {
-            "name": "Figma UI Kit",
-            "icon": "pi pi-pencil",
-            "to": "/uikit"
+            "icon": "pi pi-star",
+            "to": "/tailwind"
         },
         {
             "name": "Icons",
@@ -536,8 +528,14 @@
             ]
         },
         {
+            "name": "Figma UI Kit",
+            "icon": "pi pi-pencil",
+            "to": "/uikit",
+            "badge": "NEW"
+        },
+        {
             "name": "Templates",
-            "icon": "pi pi-star",
+            "icon": "pi pi-heart",
             "to": "/templates"
         },
         {
@@ -555,6 +553,10 @@
                     "to": "/guides/accessibility"
                 },
                 {
+                    "name": "Dynamic Imports",
+                    "to": "/guides/dynamicimports"
+                },
+                {
                     "name": "Migration to V4",
                     "to": "/guides/migration/v4"
                 },
@@ -565,6 +567,11 @@
                 {
                     "name": "PrimeTV",
                     "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                },
+                {
+                    "name": "RTL",
+                    "to": "/guides/rtl",
+                    "badge": "NEW"
                 }
             ]
         },
@@ -587,11 +594,6 @@
             ]
         },
         {
-            "name": "Contribution",
-            "to": "/contribution",
-            "icon": "pi pi-users"
-        },
-        {
             "name": "Discover",
             "icon": "pi pi-search",
             "children": [
@@ -610,6 +612,11 @@
                 {
                     "name": "Changelog",
                     "href": "https://github.com/primefaces/primevue/blob/master/CHANGELOG.md"
+                },
+                {
+                    "name": "Contribution",
+                    "to": "/contribution",
+                    "icon": "pi pi-users"
                 },
                 {
                     "name": "Store",

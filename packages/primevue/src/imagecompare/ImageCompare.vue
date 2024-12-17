@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptmi('root')">
         <slot name="left"></slot>
         <slot name="right"></slot>
         <input type="range" min="0" max="100" value="50" @input="onSlide" :class="cx('slider')" v-bind="ptm('slider')" />
@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { $dt } from '@primeuix/styled';
+import { setCSSProperty } from '@primeuix/utils/dom';
 import BaseImageCompare from './BaseImageCompare.vue';
 
 export default {
@@ -17,7 +19,7 @@ export default {
             const value = event.target.value;
             const image = event.target.previousElementSibling;
 
-            image.style.clipPath = 'polygon(0 0,' + value + '% 0,' + value + '% 100%, 0 100%)';
+            setCSSProperty(image, $dt('imagecompare.scope.x').name, `${value}%`);
         }
     }
 };

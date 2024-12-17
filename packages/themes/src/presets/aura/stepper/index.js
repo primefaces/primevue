@@ -48,6 +48,7 @@ export default {
     steppanel: {
         background: '{content.background}',
         color: '{content.color}',
-        padding: '0 0 0 1rem'
+        padding: '0',
+        indent: '1rem'
     }
 };

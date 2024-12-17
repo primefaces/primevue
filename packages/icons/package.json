@@ -1,6 +1,6 @@
 {
     "name": "@primevue/icons",
-    "version": "4.1.1",
+    "version": "4.2.5",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -13,18 +13,77 @@
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
+    "sideEffects": [
+        "*.vue"
+    ],
+    "main": "./src/index.js",
+    "module": "./src/index.js",
     "types": "./src/index.d.ts",
     "exports": {
-        "./baseicon/style": "./src/baseicon/style/BaseIconStyle.js",
+        "./angledoubledown": "./src/angledoubledown/AngleDoubleDownIcon.vue",
+        "./angledoubleleft": "./src/angledoubleleft/AngleDoubleLeftIcon.vue",
+        "./angledoubleright": "./src/angledoubleright/AngleDoubleRightIcon.vue",
+        "./angledoubleup": "./src/angledoubleup/AngleDoubleUpIcon.vue",
+        "./angledown": "./src/angledown/AngleDownIcon.vue",
+        "./angleleft": "./src/angleleft/AngleLeftIcon.vue",
+        "./angleright": "./src/angleright/AngleRightIcon.vue",
+        "./angleup": "./src/angleup/AngleUpIcon.vue",
+        "./arrowdown": "./src/arrowdown/ArrowDownIcon.vue",
+        "./arrowup": "./src/arrowup/ArrowUpIcon.vue",
+        "./ban": "./src/ban/BanIcon.vue",
+        "./bars": "./src/bars/BarsIcon.vue",
         "./baseicon": "./src/baseicon/BaseIcon.vue",
-        "./*": "./src/*/index.vue"
+        "./baseicon/style": "./src/baseicon/style/BaseIconStyle.js",
+        "./blank": "./src/blank/BlankIcon.vue",
+        "./calendar": "./src/calendar/CalendarIcon.vue",
+        "./check": "./src/check/CheckIcon.vue",
+        "./chevrondown": "./src/chevrondown/ChevronDownIcon.vue",
+        "./chevronleft": "./src/chevronleft/ChevronLeftIcon.vue",
+        "./chevronright": "./src/chevronright/ChevronRightIcon.vue",
+        "./chevronup": "./src/chevronup/ChevronUpIcon.vue",
+        "./exclamationtriangle": "./src/exclamationtriangle/ExclamationTriangleIcon.vue",
+        "./eye": "./src/eye/EyeIcon.vue",
+        "./eyeslash": "./src/eyeslash/EyeSlashIcon.vue",
+        "./filter": "./src/filter/FilterIcon.vue",
+        "./filterslash": "./src/filterslash/FilterSlashIcon.vue",
+        "./infocircle": "./src/infocircle/InfoCircleIcon.vue",
+        "./minus": "./src/minus/MinusIcon.vue",
+        "./pencil": "./src/pencil/PencilIcon.vue",
+        "./plus": "./src/plus/PlusIcon.vue",
+        "./refresh": "./src/refresh/RefreshIcon.vue",
+        "./search": "./src/search/SearchIcon.vue",
+        "./searchminus": "./src/searchminus/SearchMinusIcon.vue",
+        "./searchplus": "./src/searchplus/SearchPlusIcon.vue",
+        "./sortalt": "./src/sortalt/SortAltIcon.vue",
+        "./sortamountdown": "./src/sortamountdown/SortAmountDownIcon.vue",
+        "./sortamountupalt": "./src/sortamountupalt/SortAmountUpAltIcon.vue",
+        "./spinner": "./src/spinner/SpinnerIcon.vue",
+        "./star": "./src/star/StarIcon.vue",
+        "./starfill": "./src/starfill/StarFillIcon.vue",
+        "./thlarge": "./src/thlarge/ThLargeIcon.vue",
+        "./times": "./src/times/TimesIcon.vue",
+        "./timescircle": "./src/timescircle/TimesCircleIcon.vue",
+        "./trash": "./src/trash/TrashIcon.vue",
+        "./undo": "./src/undo/UndoIcon.vue",
+        "./upload": "./src/upload/UploadIcon.vue",
+        "./windowmaximize": "./src/windowmaximize/WindowMaximizeIcon.vue",
+        "./windowminimize": "./src/windowminimize/WindowMinimizeIcon.vue",
+        "./*": "./*"
     },
     "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
         "types": "./index.d.ts",
         "exports": {
+            ".": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "default": "./index.mjs"
+            },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",

@@ -1,6 +1,6 @@
 {
     "name": "@primevue/monorepo",
-    "version": "4.1.1",
+    "version": "4.2.5",
     "author": "PrimeTek Informatics",
     "homepage": "https://primevue.org/",
     "repository": {
@@ -12,14 +12,14 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "scripts": {
-        "setup": "rm -rf **/node_modules **/dist ./pnpm-lock.yaml && pnpm install",
+        "setup": "rm -rf **/node_modules **/dist **/.nuxt ./pnpm-lock.yaml && pnpm install",
         "link": "pnpm --filter './packages/*' dev:link",
         "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
         "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag beta",
         "release:rc": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag rc",
         "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
         "build:check": "pnpm run format:check && pnpm run security:check",
-        "build:packages": "pnpm run build:metadata && pnpm run build:resolver && pnpm run build:core && pnpm run build:lib && pnpm run build:module && pnpm run build:themes && pnpm run build:icons && pnpm run build:showcase",
+        "build:packages": "pnpm run build:metadata && pnpm run build:resolver && pnpm run build:core && pnpm run build:lib && pnpm run build:module && pnpm run build:themes && pnpm run build:icons && pnpm run build:forms && pnpm run build:showcase",
         "build:resolver": "pnpm --filter auto-import-resolver build",
         "build:core": "pnpm --filter core build",
         "build:metadata": "pnpm --filter metadata build",
@@ -27,9 +27,11 @@
         "build:lib": "pnpm --filter primevue build",
         "build:themes": "pnpm --filter themes build",
         "build:icons": "pnpm --filter icons build",
+        "build:forms": "pnpm --filter forms build",
         "build:showcase": "pnpm --filter showcase build",
         "build:apidoc": "pnpm --filter themes build:tokens && pnpm --filter showcase build:apidoc",
         "dev": "pnpm --filter showcase dev",
+        "preview": "pnpm --filter showcase preview",
         "hot:dev": "DEV_ENV=hot pnpm --filter showcase dev",
         "module:dev": "pnpm --filter @primevue/nuxt-module dev",
         "security:check": "pnpm audit --prod --audit-level high",

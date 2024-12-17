@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>PrimeCLT is available for download on <a href="https://www.npmjs.com/package/primeclt">npm Registry</a>.</p>
+        <p>PrimeCLT is available for download on <a href="https://www.npmjs.com/package/primeclt">npm registry</a>.</p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>

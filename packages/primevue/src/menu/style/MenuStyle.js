@@ -77,7 +77,7 @@ const theme = ({ dt }) => `
 }
 
 .p-menu-separator {
-    border-top: 1px solid ${dt('menu.separator.border.color')};
+    border-block-start: 1px solid ${dt('menu.separator.border.color')};
 }
 `;
 

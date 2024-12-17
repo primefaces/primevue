@@ -18,6 +18,10 @@ const theme = ({ dt }) => `
     gap: ${dt('carousel.content.gap')};
 }
 
+.p-carousel-content:dir(rtl) {
+    flex-direction: row-reverse;
+}
+
 .p-carousel-viewport {
     overflow: hidden;
     width: 100%;
@@ -26,6 +30,10 @@ const theme = ({ dt }) => `
 .p-carousel-item-list {
     display: flex;
     flex-direction: row;
+}
+
+.p-carousel-item-list:dir(rtl) {
+    flex-direction: row-reverse;
 }
 
 .p-carousel-prev-button,

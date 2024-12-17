@@ -43,10 +43,10 @@ const theme = ({ dt }) => `
     transition: background ${dt('togglebutton.transition.duration')}, color ${dt('togglebutton.transition.duration')}, border-color ${dt('togglebutton.transition.duration')},
             outline-color ${dt('togglebutton.transition.duration')}, box-shadow ${dt('togglebutton.transition.duration')};
     position: absolute;
-    left: ${dt('togglebutton.content.left')};
-    top: ${dt('togglebutton.content.top')};
-    width: calc(100% - calc(2 *  ${dt('togglebutton.content.left')}));
-    height: calc(100% - calc(2 *  ${dt('togglebutton.content.top')}));
+    inset-inline-start: ${dt('togglebutton.content.left')};
+    inset-block-start: ${dt('togglebutton.content.top')};
+    width: calc(100% - calc(2 * ${dt('togglebutton.content.left')}));
+    height: calc(100% - calc(2 * ${dt('togglebutton.content.top')}));
     border-radius: ${dt('togglebutton.border.radius')};
 }
 
@@ -99,6 +99,16 @@ const theme = ({ dt }) => `
 .p-togglebutton:disabled .p-togglebutton-icon {
     color: ${dt('togglebutton.icon.disabled.color')};
 }
+
+.p-togglebutton-sm {
+    padding: ${dt('togglebutton.sm.padding')};
+    font-size: ${dt('togglebutton.sm.font.size')};
+}
+
+.p-togglebutton-lg {
+    padding: ${dt('togglebutton.lg.padding')};
+    font-size: ${dt('togglebutton.lg.font.size')};
+}
 `;
 
 const classes = {
@@ -106,7 +116,9 @@ const classes = {
         'p-togglebutton p-component',
         {
             'p-togglebutton-checked': instance.active,
-            'p-invalid': props.invalid
+            'p-invalid': instance.$invalid,
+            'p-togglebutton-sm p-inputfield-sm': props.size === 'small',
+            'p-togglebutton-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     content: 'p-togglebutton-content',

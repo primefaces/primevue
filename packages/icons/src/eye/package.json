@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./EyeIcon.vue",
+    "module": "./EyeIcon.vue",
+    "types": "./EyeIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./EyeIcon.vue"
     },
     "sideEffects": [
         "*.vue"

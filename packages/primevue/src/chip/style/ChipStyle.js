@@ -7,7 +7,8 @@ const theme = ({ dt }) => `
     background: ${dt('chip.background')};
     color: ${dt('chip.color')};
     border-radius: ${dt('chip.border.radius')};
-    padding: ${dt('chip.padding.y')} ${dt('chip.padding.x')};
+    padding-block: ${dt('chip.padding.y')};
+    padding-inline: ${dt('chip.padding.x')};
     gap: ${dt('chip.gap')};
 }
 
@@ -22,16 +23,16 @@ const theme = ({ dt }) => `
     border-radius: 50%;
     width: ${dt('chip.image.width')};
     height: ${dt('chip.image.height')};
-    margin-left: calc(-1 * ${dt('chip.padding.y')});
+    margin-inline-start: calc(-1 * ${dt('chip.padding.y')});
 }
 
 .p-chip:has(.p-chip-remove-icon) {
-    padding-right: ${dt('chip.padding.y')};
+    padding-inline-end: ${dt('chip.padding.y')};
 }
 
 .p-chip:has(.p-chip-image) {
-    padding-top: calc(${dt('chip.padding.y')} / 2);
-    padding-bottom: calc(${dt('chip.padding.y')} / 2);
+    padding-block-start: calc(${dt('chip.padding.y')} / 2);
+    padding-block-end: calc(${dt('chip.padding.y')} / 2);
 }
 
 .p-chip-remove-icon {

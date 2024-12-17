@@ -82,30 +82,42 @@ export interface InputTextContext {
 /**
  * Defines valid properties in InputText component.
  */
-export interface InputTextProps extends InputHTMLAttributes {
+export interface InputTextProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.
      */
     modelValue?: Nullable<string>;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: Nullable<string>;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: 'small' | 'large' | undefined | null;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
-    invalid?: boolean | undefined;
+    invalid?: boolean | undefined | null;
     /**
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: 'outlined' | 'filled' | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null
      */
-    fluid?: boolean | undefined;
+    fluid?: boolean | undefined | null;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -141,6 +153,11 @@ export interface InputTextEmitsOptions {
      * @param {string} value - New value.
      */
     'update:modelValue'(value: string | undefined): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {string} value - New value.
+     */
+    'value-change'(value: string | undefined): void;
 }
 
 export declare type InputTextEmits = EmitFn<InputTextEmitsOptions>;

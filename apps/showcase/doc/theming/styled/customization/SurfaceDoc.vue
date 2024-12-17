@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             The color scheme palette that varies between light and dark modes is specified with the surface tokens. Example below uses <i>zinc</i> for light mode and <i>slategray</i> for dark mode. With this setting, light mode, would have a
-            grayscale tone and dark mode would include blue tone.
+            grayscale tone and dark mode would include bluish tone.
         </p>
     </DocSectionText>
     <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />

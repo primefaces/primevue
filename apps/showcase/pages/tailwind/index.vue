@@ -21,7 +21,7 @@ import ExtensionsDoc from '@/doc/tailwind/ExtensionsDoc.vue';
 import OverrideDoc from '@/doc/tailwind/OverrideDoc.vue';
 import OverviewDoc from '@/doc/tailwind/OverviewDoc.vue';
 import PluginDoc from '@/doc/tailwind/PluginDoc.vue';
-import PresetsDoc from '@/doc/tailwind/PresetsDoc.vue';
+import TailwindThemeDoc from '@/doc/tailwind/TailwindThemeDoc.vue';
 import ColorPaletteDoc from '@/doc/tailwind/samples/ColorPaletteDoc.vue';
 import FormDoc from '@/doc/tailwind/samples/FormDoc.vue';
 import HeadlessDoc from '@/doc/tailwind/samples/HeadlessDoc.vue';
@@ -36,9 +36,9 @@ export default {
                     component: OverviewDoc
                 },
                 {
-                    id: 'presets',
-                    label: 'Presets',
-                    component: PresetsDoc
+                    id: 'tailwind-theme',
+                    label: 'Tailwind Theme',
+                    component: TailwindThemeDoc
                 },
                 {
                     id: 'plugin',

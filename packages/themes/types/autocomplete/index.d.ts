@@ -88,6 +88,12 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken autocomplete.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken autocomplete.shadow
@@ -304,6 +310,28 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         width?: string;
         /**
+         * Sm of dropdown
+         */
+        sm?: {
+            /**
+             * Sm width of dropdown
+             *
+             * @designToken autocomplete.dropdown.sm.width
+             */
+            width?: string;
+        };
+        /**
+         * Lg of dropdown
+         */
+        lg?: {
+            /**
+             * Lg width of dropdown
+             *
+             * @designToken autocomplete.dropdown.lg.width
+             */
+            width?: string;
+        };
+        /**
          * Border color of dropdown
          *
          * @designToken autocomplete.dropdown.border.color
@@ -416,11 +444,11 @@ export interface AutoCompleteDesignTokens extends ColorSchemeDesignToken<AutoCom
          */
         focusBackground?: string;
         /**
-         * Color of chip
+         * Focus color of chip
          *
-         * @designToken autocomplete.chip.color
+         * @designToken autocomplete.chip.focus.color
          */
-        color?: string;
+        focusColor?: string;
     };
     /**
      * Used to pass tokens of the empty message section

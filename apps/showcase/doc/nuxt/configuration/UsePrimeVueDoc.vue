@@ -12,7 +12,7 @@ export default {
             code: {
                 basic: `
 primevue: {
-    usePrimeVue: true
+    usePrimeVue: true | false
 }
 `
             }

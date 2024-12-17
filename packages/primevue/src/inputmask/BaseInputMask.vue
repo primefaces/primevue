@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import InputMaskStyle from 'primevue/inputmask/style';
 
 export default {
     name: 'BaseInputMask',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         slotChar: {
             type: String,
             default: '_'
@@ -38,26 +37,6 @@ export default {
         readonly: {
             type: Boolean,
             default: false
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        name: {
-            type: String,
-            default: null
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        fluid: {
-            type: Boolean,
-            default: null
         }
     },
     style: InputMaskStyle,

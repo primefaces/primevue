@@ -6,10 +6,11 @@
         :readonly="readonly"
         :disabled="disabled"
         :invalid="invalid"
+        :size="size"
         :name="name"
         :variant="variant"
         :placeholder="placeholder"
-        :fluid="hasFluid"
+        :fluid="$fluid"
         :unstyled="unstyled"
         @input="onInput"
         @compositionend="onInput"
@@ -24,7 +25,6 @@
 
 <script>
 import { getUserAgent } from '@primeuix/utils/dom';
-import { isEmpty } from '@primeuix/utils/object';
 import InputText from 'primevue/inputtext';
 import { mergeProps } from 'vue';
 import BaseInputMask from './BaseInputMask.vue';
@@ -33,7 +33,7 @@ export default {
     name: 'InputMask',
     extends: BaseInputMask,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
+    emits: ['focus', 'blur', 'keydown', 'complete', 'keypress', 'paste'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -111,6 +111,7 @@ export default {
             }
 
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         },
         onKeyDown(event) {
             if (this.readonly) {
@@ -446,19 +447,20 @@ export default {
         },
 
         updateModelValue(value) {
+            if (this.currentVal === value) return;
             const val = this.unmask ? this.getUnmaskedValue() : value;
 
             this.currentVal = value;
 
-            this.$emit('update:modelValue', this.defaultBuffer !== val ? val : '');
+            this.writeValue(this.defaultBuffer !== val ? val : '');
         },
         updateValue(updateModel = true) {
             if (this.$el) {
-                if (this.modelValue == null) {
+                if (this.d_value == null) {
                     this.$el.value = '';
                     updateModel && this.updateModelValue('');
                 } else {
-                    this.$el.value = this.modelValue;
+                    this.$el.value = this.d_value;
                     this.checkVal();
 
                     setTimeout(() => {
@@ -527,13 +529,10 @@ export default {
             this.updateValue(false);
         },
         isValueUpdated() {
-            return this.unmask ? this.modelValue != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.modelValue;
+            return this.unmask ? this.d_value != this.getUnmaskedValue() : this.defaultBuffer !== this.$el.value && this.$el.value !== this.d_value;
         }
     },
     computed: {
-        filled() {
-            return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
         inputClass() {
             return [this.cx('root'), this.class];
         },
@@ -545,12 +544,9 @@ export default {
         ptmParams() {
             return {
                 context: {
-                    filled: this.filled
+                    filled: this.$filled
                 }
             };
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

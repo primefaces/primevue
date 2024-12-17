@@ -46,7 +46,7 @@
             @keydown="onKeyDown"
             v-bind="ptm('label')"
         >
-            <slot name="value" :value="modelValue" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label ?? 'empty' }}</slot>
+            <slot name="value" :value="d_value" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label ?? 'empty' }}</slot>
         </span>
         <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
@@ -74,7 +74,7 @@
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
                     ></span>
-                    <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+                    <slot name="header" :value="d_value" :options="visibleOptions"></slot>
                     <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
                         <IconField :unstyled="unstyled" :pt="ptm('pcFilterContainer')">
                             <InputText
@@ -165,7 +165,7 @@
                             </template>
                         </VirtualScroller>
                     </div>
-                    <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
+                    <slot name="footer" :value="d_value" :options="visibleOptions"></slot>
                     <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenEmptyMessage')" :data-p-hidden-accessible="true">
                         {{ emptyMessageText }}
                     </span>
@@ -191,7 +191,7 @@
 
 <script>
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
-import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
+import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
@@ -214,10 +214,7 @@ export default {
     name: 'Select',
     extends: BaseSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
-    inject: {
-        $pcFluid: { default: null }
-    },
+    emits: ['change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter'],
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
@@ -358,6 +355,7 @@ export default {
             this.focusedOptionIndex = -1;
             this.searchValue = '';
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         },
         onKeyDown(event) {
             if (this.disabled || isAndroid()) {
@@ -690,7 +688,7 @@ export default {
             this.scrollInView();
 
             setTimeout(() => {
-                this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
             }, 1);
         },
         onOverlayAfterEnter() {
@@ -705,7 +703,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
 
-            if (this.autoFilterFocus && this.filter) {
+            if (this.autoFilterFocus && this.filter && !this.editable) {
                 this.$nextTick(() => {
                     focus(this.$refs.filterInput.$el);
                 });
@@ -810,7 +808,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return equals(this.modelValue, this.getOptionValue(option), this.equalityKey);
+            return equals(this.d_value, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -829,7 +827,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
-            return this.hasSelectedOption ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            return this.$filled ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
@@ -902,13 +900,13 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
         updateModel(event, value) {
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         flatOptions(options) {
@@ -959,8 +957,9 @@ export default {
 
             return options;
         },
+        // @deprecated use $filled instead
         hasSelectedOption() {
-            return isNotEmpty(this.modelValue);
+            return this.$filled;
         },
         label() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
@@ -970,7 +969,7 @@ export default {
         editableInputValue() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
 
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.modelValue || '';
+            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.d_value || '';
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
@@ -997,7 +996,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
-            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
+            return this.$filled ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
@@ -1006,13 +1005,10 @@ export default {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
         },
         isClearIconVisible() {
-            return this.showClear && this.modelValue != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value != null && isNotEmpty(this.options);
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     directives: {

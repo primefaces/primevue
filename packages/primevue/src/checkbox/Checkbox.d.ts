@@ -103,6 +103,10 @@ export interface CheckboxProps {
      */
     modelValue?: any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
      * Name of the input element.
      */
     name?: string | undefined;
@@ -116,6 +120,10 @@ export interface CheckboxProps {
      * @default false
      */
     indeterminate?: boolean | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -175,6 +183,10 @@ export interface CheckboxProps {
      * Establishes a string value that labels the component.
      */
     ariaLabel?: string | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -250,6 +262,16 @@ export interface CheckboxEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the "indeterminate" changes.
+     * @param {false} value - New value.
+     */
+    'update:indeterminate'(value: false): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {Event} event - Browser event.

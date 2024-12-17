@@ -6,13 +6,13 @@
                 Enhance your web applications with PrimeVue's comprehensive suite of customizable, feature-rich UI components. With PrimeVue, turning your development vision into reality has never been easier.
             </p>
             <div class="flex items-center gap-4">
-                <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary">
+                <PrimeVueNuxtLink to="/setup" class="linkbox linkbox-primary" @click="onGetStartedClick">
                     <span>Get Started </span>
-                    <i class="pi pi-arrow-right ml-4"></i>
+                    <i class="pi pi-arrow-right ms-4"></i>
                 </PrimeVueNuxtLink>
                 <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="linkbox">
                     <span>Give a Star</span>
-                    <i class="pi pi-star-fill ml-4 text-yellow-500"></i>
+                    <i class="pi pi-star-fill ms-4 text-yellow-500"></i>
                 </a>
             </div>
         </div>
@@ -324,7 +324,7 @@
 </template>
 
 <script>
-import EventBus from '@/layouts/AppEventBus';
+import EventBus from '@/app/AppEventBus';
 
 export default {
     data() {
@@ -513,6 +513,9 @@ export default {
         toggleSlimMenu() {
             this.isSlimMenu = !this.isSlimMenu;
             this.isSlimMenuSelected = this.isSlimMenu;
+        },
+        onGetStartedClick() {
+            this.$appState.designer.active = false;
         },
         setChartData() {
             const documentStyle = getComputedStyle(document.documentElement);

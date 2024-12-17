@@ -27,24 +27,22 @@ const theme = ({ dt }) => `
 
 .p-fileupload-content {
     border: 1px solid transparent;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: ${dt('fileupload.content.gap')};
     transition: border-color ${dt('fileupload.transition.duration')};
     padding: ${dt('fileupload.content.padding')};
 }
 
 .p-fileupload-content .p-progressbar {
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     height: ${dt('fileupload.progressbar.height')};
 }
 
 .p-fileupload-file-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1.125rem;
+    gap: ${dt('fileupload.filelist.gap')};
 }
 
 .p-fileupload-file {
@@ -52,12 +50,12 @@ const theme = ({ dt }) => `
     flex-wrap: wrap;
     align-items: center;
     padding: ${dt('fileupload.file.padding')};
-    border-bottom: 1px solid ${dt('fileupload.file.border.color')};
+    border-block-end: 1px solid ${dt('fileupload.file.border.color')};
     gap: ${dt('fileupload.file.gap')};
 }
 
 .p-fileupload-file:last-child {
-    border-bottom: 0;
+    border-block-end: 0;
 }
 
 .p-fileupload-file-info {
@@ -71,15 +69,11 @@ const theme = ({ dt }) => `
 }
 
 .p-fileupload-file-actions {
-    margin-left: auto;
+    margin-inline-start: auto;
 }
 
 .p-fileupload-highlight {
     border: 1px dashed ${dt('fileupload.content.highlight.border.color')};
-}
-
-.p-fileupload-advanced .p-message {
-    margin-top: 0;
 }
 
 .p-fileupload-basic {

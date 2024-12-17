@@ -60,28 +60,16 @@ const theme = ({ dt }) => `
     width: 100%;
 }
 
-.p-dock-top .p-dock-item {
-    transform-origin: center top;
-}
-
 .p-dock-bottom {
     left: 0;
     bottom: 0;
     width: 100%;
 }
 
-.p-dock-bottom .p-dock-item {
-    transform-origin: center bottom;
-}
-
 .p-dock-right {
     right: 0;
     top: 0;
     height: 100%;
-}
-
-.p-dock-right .p-dock-item {
-    transform-origin: center right;
 }
 
 .p-dock-right .p-dock-list {
@@ -94,10 +82,6 @@ const theme = ({ dt }) => `
     height: 100%;
 }
 
-.p-dock-left .p-dock-item {
-    transform-origin: center left;
-}
-
 .p-dock-left .p-dock-list {
     flex-direction: column;
 }
@@ -107,19 +91,23 @@ const theme = ({ dt }) => `
     overflow-x: auto;
     width: 100%;
 }
+
 .p-dock-mobile.p-dock-top .p-dock-list-container .p-dock-list,
 .p-dock-mobile.p-dock-bottom .p-dock-list-container .p-dock-list {
     margin: 0 auto;
 }
+
 .p-dock-mobile.p-dock-left .p-dock-list-container,
 .p-dock-mobile.p-dock-right .p-dock-list-container {
     overflow-y: auto;
     height: 100%;
 }
+
 .p-dock-mobile.p-dock-left .p-dock-list-container .p-dock-list,
 .p-dock-mobile.p-dock-right .p-dock-list-container .p-dock-list {
     margin: auto 0;
 }
+
 .p-dock-mobile .p-dock-list .p-dock-item {
     transform: none;
     margin: 0;

@@ -10,6 +10,7 @@ const theme = ({ dt }) => `
 .p-slider-handle {
     cursor: grab;
     touch-action: none;
+    user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +44,6 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-handle:focus-visible {
-    border-color: ${dt('slider.handle.focus.border.color')};
     box-shadow: ${dt('slider.handle.focus.ring.shadow')};
     outline: ${dt('slider.handle.focus.ring.width')} ${dt('slider.handle.focus.ring.style')} ${dt('slider.handle.focus.ring.color')};
     outline-offset: ${dt('slider.handle.focus.ring.offset')};
@@ -60,15 +60,15 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-horizontal .p-slider-range {
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     height: 100%;
 }
 
 .p-slider-horizontal .p-slider-handle {
-    top: 50%;
-    margin-top: calc(-1 * calc(${dt('slider.handle.height')} / 2));
-    margin-left: calc(-1 * calc(${dt('slider.handle.width')} / 2));
+    inset-block-start: 50%;
+    margin-block-start: calc(-1 * calc(${dt('slider.handle.height')} / 2));
+    margin-inline-start: calc(-1 * calc(${dt('slider.handle.width')} / 2));
 }
 
 .p-slider-vertical {
@@ -77,14 +77,14 @@ const theme = ({ dt }) => `
 }
 
 .p-slider-vertical .p-slider-handle {
-    left: 50%;
-    margin-left: calc(-1 * calc(${dt('slider.handle.width')} / 2));
-    margin-bottom: calc(-1 * calc(${dt('slider.handle.height')} / 2));
+    inset-inline-start: 50%;
+    margin-inline-start: calc(-1 * calc(${dt('slider.handle.width')} / 2));
+    margin-block-end: calc(-1 * calc(${dt('slider.handle.height')} / 2));
 }
 
 .p-slider-vertical .p-slider-range {
-    bottom: 0;
-    left: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     width: 100%;
 }
 `;
@@ -95,10 +95,11 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ instance, props }) => [
         'p-slider p-component',
         {
             'p-disabled': props.disabled,
+            'p-invalid': instance.$invalid,
             'p-slider-horizontal': props.orientation === 'horizontal',
             'p-slider-vertical': props.orientation === 'vertical'
         }

@@ -115,10 +115,6 @@ export interface InplaceProps {
      */
     disabled?: boolean | undefined;
     /**
-     * Icon to display in the close button.
-     */
-    closeIcon?: string | undefined;
-    /**
      * Used to pass all properties of the HTMLDivElement to display container.
      */
     displayProps?: HTMLAttributes | undefined;

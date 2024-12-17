@@ -11,8 +11,10 @@ import DisabledDoc from '@/doc/datepicker/DisabledDoc.vue';
 import FilledDoc from '@/doc/datepicker/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/datepicker/FloatLabelDoc.vue';
 import FormatDoc from '@/doc/datepicker/FormatDoc.vue';
+import FormsDoc from '@/doc/datepicker/FormsDoc.vue';
 import IconDoc from '@/doc/datepicker/IconDoc.vue';
 import IftaLabelDoc from '@/doc/datepicker/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import ImportDoc from '@/doc/datepicker/ImportDoc.vue';
 import InlineDoc from '@/doc/datepicker/InlineDoc.vue';
 import InvalidDoc from '@/doc/datepicker/InvalidDoc.vue';
@@ -40,6 +42,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'format',
@@ -120,6 +127,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

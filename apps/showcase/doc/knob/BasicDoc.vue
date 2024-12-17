@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Knob is an input component and used with the standard <i>v-model</i> directive.</p>
+        <p>Knob is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Knob v-model="value" />

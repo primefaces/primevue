@@ -13,7 +13,8 @@ const theme = ({ dt }) => `
 .p-scrollpanel-content {
     height: calc(100% + calc(2 * ${dt('scrollpanel.bar.size')}));
     width: calc(100% + calc(2 * ${dt('scrollpanel.bar.size')}));
-    padding: 0 calc(2 * ${dt('scrollpanel.bar.size')}) calc(2 * ${dt('scrollpanel.bar.size')}) 0;
+    padding-inline: 0 calc(2 * ${dt('scrollpanel.bar.size')});
+    padding-block: 0 calc(2 * ${dt('scrollpanel.bar.size')});
     position: relative;
     overflow: auto;
     box-sizing: border-box;
@@ -31,7 +32,6 @@ const theme = ({ dt }) => `
     cursor: pointer;
     opacity: 0;
     outline-color: transparent;
-    transition: outline-color ${dt('scrollpanel.transition.duration')};
     background: ${dt('scrollpanel.bar.background')};
     border: 0 none;
     transition: outline-color ${dt('scrollpanel.transition.duration')}, opacity ${dt('scrollpanel.transition.duration')};
@@ -45,12 +45,12 @@ const theme = ({ dt }) => `
 
 .p-scrollpanel-bar-y {
     width: ${dt('scrollpanel.bar.size')};
-    top: 0;
+    inset-block-start: 0;
 }
 
 .p-scrollpanel-bar-x {
     height: ${dt('scrollpanel.bar.size')};
-    bottom: 0;
+    inset-block-end: 0;
 }
 
 .p-scrollpanel-hidden {

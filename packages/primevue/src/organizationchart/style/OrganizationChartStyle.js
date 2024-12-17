@@ -40,10 +40,10 @@ const theme = ({ dt }) => `
 
 .p-organizationchart-node-toggle-button {
     position: absolute;
-    bottom: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
-    margin-left: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
+    inset-block-end: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
+    margin-inline-start: calc(-1 * calc(${dt('organizationchart.node.toggle.button.size')} / 2));
     z-index: 2;
-    left: 50%;
+    inset-inline-start: 50%;
     user-select: none;
     cursor: pointer;
     width: ${dt('organizationchart.node.toggle.button.size')};
@@ -75,7 +75,7 @@ const theme = ({ dt }) => `
 
 .p-organizationchart-node-toggle-button-icon {
     position: relative;
-    top: 1px;
+    inset-block-start: 1px;
 }
 
 .p-organizationchart-connector-down {
@@ -91,11 +91,11 @@ const theme = ({ dt }) => `
 
 .p-organizationchart-connector-left {
     border-radius: 0;
-    border-right: 1px solid ${dt('organizationchart.connector.color')};
+    border-inline-end: 1px solid ${dt('organizationchart.connector.color')};
 }
 
 .p-organizationchart-connector-top {
-    border-top: 1px solid ${dt('organizationchart.connector.color')};
+    border-block-start: 1px solid ${dt('organizationchart.connector.color')};
 }
 
 .p-organizationchart-node-selectable {
@@ -103,16 +103,16 @@ const theme = ({ dt }) => `
 }
 
 .p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-left) {
-    border-right: 0 none;
+    border-inline-end: 0 none;
 }
 
 .p-organizationchart-connectors :nth-last-child(1 of .p-organizationchart-connector-left) {
-    border-top-right-radius: ${dt('organizationchart.connector.border.radius')};
+    border-start-end-radius: ${dt('organizationchart.connector.border.radius')};
 }
 
 .p-organizationchart-connectors :nth-child(1 of .p-organizationchart-connector-right) {
-    border-left: 1px solid ${dt('organizationchart.connector.color')};
-    border-top-left-radius: ${dt('organizationchart.connector.border.radius')};
+    border-inline-start: 1px solid ${dt('organizationchart.connector.color')};
+    border-start-start-radius: ${dt('organizationchart.connector.border.radius')};
 }
 `;
 

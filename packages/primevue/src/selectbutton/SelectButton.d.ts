@@ -130,6 +130,14 @@ export interface SelectButtonProps {
      */
     modelValue?: any;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * An array of selectitems to display as the available options.
      */
     options?: any[] | undefined;
@@ -173,6 +181,14 @@ export interface SelectButtonProps {
      * Identifier of the underlying element.
      */
     ariaLabelledby?: string | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -223,6 +239,11 @@ export interface SelectButtonEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {SelectButtonChangeEvent} event - Custom change event.

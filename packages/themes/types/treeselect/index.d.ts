@@ -88,6 +88,12 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
          */
         placeholderColor?: string;
         /**
+         * Invalid placeholder color of root
+         *
+         * @designToken treeselect.invalid.placeholder.color
+         */
+        invalidPlaceholderColor?: string;
+        /**
          * Shadow of root
          *
          * @designToken treeselect.shadow
@@ -152,6 +158,52 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
          * @designToken treeselect.transition.duration
          */
         transitionDuration?: string;
+        /**
+         * Sm of root
+         */
+        sm?: {
+            /**
+             * Sm font size of root
+             *
+             * @designToken treeselect.sm.font.size
+             */
+            fontSize?: string;
+            /**
+             * Sm padding x of root
+             *
+             * @designToken treeselect.sm.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Sm padding y of root
+             *
+             * @designToken treeselect.sm.padding.y
+             */
+            paddingY?: string;
+        };
+        /**
+         * Lg of root
+         */
+        lg?: {
+            /**
+             * Lg font size of root
+             *
+             * @designToken treeselect.lg.font.size
+             */
+            fontSize?: string;
+            /**
+             * Lg padding x of root
+             *
+             * @designToken treeselect.lg.padding.x
+             */
+            paddingX?: string;
+            /**
+             * Lg padding y of root
+             *
+             * @designToken treeselect.lg.padding.y
+             */
+            paddingY?: string;
+        };
     };
     /**
      * Used to pass tokens of the dropdown section
@@ -215,6 +267,17 @@ export interface TreeSelectDesignTokens extends ColorSchemeDesignToken<TreeSelec
          * @designToken treeselect.tree.padding
          */
         padding?: string;
+    };
+    /**
+     * Used to pass tokens of the clear icon section
+     */
+    clearIcon?: {
+        /**
+         * Color of clear icon
+         *
+         * @designToken treeselect.clear.icon.color
+         */
+        color?: string;
     };
     /**
      * Used to pass tokens of the empty message section

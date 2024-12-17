@@ -1,13 +1,13 @@
 <template>
     <Head>
         <Title>Configuration - PrimeVue</Title>
-        <Meta name="description" content="Global configuration options of the components." />
+        <Meta name="description" content="Application wide configuration for PrimeVue." />
     </Head>
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
                 <h1>Configuration</h1>
-                <p>Application widget configuration for PrimeVue.</p>
+                <p>Application wide configuration for PrimeVue.</p>
             </div>
             <DocSections :docs="docs" />
         </div>

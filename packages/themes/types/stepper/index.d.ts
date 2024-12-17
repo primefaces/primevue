@@ -253,5 +253,11 @@ export interface StepperDesignTokens extends ColorSchemeDesignToken<StepperDesig
          * @designToken stepper.steppanel.padding
          */
         padding?: string;
+        /**
+         * Indent of steppanel
+         *
+         * @designToken stepper.steppanel.indent
+         */
+        indent?: string;
     };
 }

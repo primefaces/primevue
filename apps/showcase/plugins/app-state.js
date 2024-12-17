@@ -13,7 +13,15 @@ const $appState = {
             sourceType: 'options-api',
             newsActive: false,
             announcement: null,
-            storageKey: 'primevue'
+            storageKey: 'primevue',
+            designer: {
+                key: 'primevue-designer-theme',
+                active: false,
+                activeTab: '0',
+                preset: null,
+                customTokens: [],
+                acTokens: []
+            }
         });
     }
 };

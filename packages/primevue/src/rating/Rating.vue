@@ -1,13 +1,13 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="value in stars" :key="value">
-            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= modelValue" :data-p-focused="value === focusedOptionIndex">
+            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= d_value" :data-p-focused="value === focusedOptionIndex">
                 <span class="p-hidden-accessible" v-bind="ptm('hiddenOptionInputContainer')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
                         :value="value"
-                        :name="name"
-                        :checked="modelValue === value"
+                        :name="d_name"
+                        :checked="d_value === value"
                         :disabled="disabled"
                         :readonly="readonly"
                         :aria-label="starAriaLabel(value)"
@@ -17,7 +17,7 @@
                         v-bind="ptm('hiddenOptionInput')"
                     />
                 </span>
-                <slot v-if="value <= modelValue" name="onicon" :value="value" :class="cx('onIcon')">
+                <slot v-if="value <= d_value" name="onicon" :value="value" :class="cx('onIcon')">
                     <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="[cx('onIcon'), onIcon]" v-bind="ptm('onIcon')" />
                 </slot>
                 <slot v-else name="officon" :value="value" :class="cx('offIcon')">
@@ -29,8 +29,8 @@
 </template>
 
 <script>
+import { focus, getFirstFocusableElement } from '@primeuix/utils/dom';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { getFirstFocusableElement, focus } from '@primeuix/utils/dom';
 import BanIcon from '@primevue/icons/ban';
 import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
@@ -40,27 +40,27 @@ export default {
     name: 'Rating',
     extends: BaseRating,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur'],
+    emits: ['change', 'focus', 'blur'],
     data() {
         return {
-            name: this.$attrs.name,
+            d_name: this.name,
             focusedOptionIndex: -1,
             isFocusVisibleItem: true
         };
     },
     watch: {
-        '$attrs.name': function (newValue) {
-            this.name = newValue || UniqueComponentId();
+        name: function (newValue) {
+            this.d_name = newValue || UniqueComponentId();
         }
     },
     mounted() {
-        this.name = this.name || UniqueComponentId();
+        this.d_name = this.d_name || UniqueComponentId();
     },
     methods: {
         getPTOptions(key, value) {
             return this.ptm(key, {
                 context: {
-                    active: value <= this.modelValue,
+                    active: value <= this.d_value,
                     focused: value === this.focusedOptionIndex
                 }
             });
@@ -81,13 +81,14 @@ export default {
         onBlur(event) {
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onChange(event, value) {
             this.onOptionSelect(event, value);
             this.isFocusVisibleItem = true;
         },
         onOptionSelect(event, value) {
-            if (this.focusedOptionIndex === value || this.modelValue === value) {
+            if (this.focusedOptionIndex === value || this.d_value === value) {
                 this.focusedOptionIndex = -1;
                 this.updateModel(event, null);
             } else {
@@ -96,7 +97,7 @@ export default {
             }
         },
         updateModel(event, value) {
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         starAriaLabel(value) {
@@ -104,9 +105,9 @@ export default {
         }
     },
     components: {
-        StarFillIcon: StarFillIcon,
-        StarIcon: StarIcon,
-        BanIcon: BanIcon
+        StarFillIcon,
+        StarIcon,
+        BanIcon
     }
 };
 </script>

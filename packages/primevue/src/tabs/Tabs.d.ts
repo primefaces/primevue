@@ -74,7 +74,7 @@ export interface TabsState {
     /**
      * Current active value state.
      */
-    d_value: number;
+    d_value: string | number;
     /**
      * Unique id for the Tabs component.
      */
@@ -159,9 +159,9 @@ export interface TabsSlots {
 export interface TabsEmitsOptions {
     /**
      * Emitted when the value changes.
-     * @param {string} value - Current value.
+     * @param {string | number} value - Current value.
      */
-    'update:value'(value: number): void;
+    'update:value'(value: string | number): void;
 }
 
 export declare type TabsEmits = EmitFn<TabsEmitsOptions>;

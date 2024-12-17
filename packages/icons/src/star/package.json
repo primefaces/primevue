@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./StarIcon.vue",
+    "module": "./StarIcon.vue",
+    "types": "./StarIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./StarIcon.vue"
     },
     "sideEffects": [
         "*.vue"

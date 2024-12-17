@@ -78,6 +78,10 @@ export default {
             type: String,
             default: null
         },
+        variant: {
+            type: String,
+            default: null
+        },
         plain: {
             type: Boolean,
             default: false

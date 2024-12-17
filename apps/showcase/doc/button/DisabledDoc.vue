@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>disabled</i> is present, the element cannot be edited and focused.</p>
+        <p>When <i>disabled</i> is present, the element cannot be used.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Button label="Submit" disabled />

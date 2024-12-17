@@ -17,11 +17,14 @@ const theme = ({ dt }) => `
 }
 
 .p-tree-root-children {
-    padding: ${dt('tree.gap')} 0 0 0;
+    padding: 0;
+    padding-block-start: ${dt('tree.gap')};
 }
 
 .p-tree-node-children {
-    padding: ${dt('tree.gap')} 0 0 ${dt('tree.indent')};
+    padding: 0;
+    padding-block-start: ${dt('tree.gap')};
+    padding-inline-start: ${dt('tree.indent')};
 }
 
 .p-tree-node {
@@ -166,7 +169,7 @@ const classes = {
     ],
     mask: 'p-tree-mask p-overlay-mask',
     loadingIcon: 'p-tree-loading-icon',
-    pcFilter: 'p-tree-filter',
+    pcFilterContainer: 'p-tree-filter',
     pcFilterInput: 'p-tree-filter-input',
     wrapper: 'p-tree-root', //TODO: discuss
     rootChildren: 'p-tree-root-children',

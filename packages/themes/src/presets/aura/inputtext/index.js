@@ -12,6 +12,7 @@ export default {
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
+        invalidPlaceholderColor: '{form.field.invalid.placeholder.color}',
         shadow: '{form.field.shadow}',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
@@ -25,14 +26,14 @@ export default {
         },
         transitionDuration: '{form.field.transition.duration}',
         sm: {
-            fontSize: '0.875rem',
-            paddingX: '0.625rem',
-            paddingY: '0.375rem'
+            fontSize: '{form.field.sm.font.size}',
+            paddingX: '{form.field.sm.padding.x}',
+            paddingY: '{form.field.sm.padding.y}'
         },
         lg: {
-            fontSize: '1.125rem',
-            paddingX: '0.875rem',
-            paddingY: '0.625rem'
+            fontSize: '{form.field.lg.font.size}',
+            paddingX: '{form.field.lg.padding.x}',
+            paddingY: '{form.field.lg.padding.y}'
         }
     }
 };

@@ -29,7 +29,7 @@ const theme = ({ dt }) => `
 }
 
 .p-terminal-prompt-label {
-    margin-right: ${dt('terminal.prompt.gap')};
+    margin-inline-end: ${dt('terminal.prompt.gap')};
 }
 
 .p-terminal-input::-ms-clear {

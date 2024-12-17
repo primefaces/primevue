@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the standard.</p>
+        <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-4">
         <InputText v-model="value1" type="text" size="small" placeholder="Small" />

@@ -15,7 +15,11 @@ const theme = ({ dt }) => `
 }
 
 .p-imagecompare img + img {
-    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    clip-path: polygon(0 0, ${dt('imagecompare.scope.x', '50%')} 0, ${dt('imagecompare.scope.x', '50%')} 100%, 0 100%);
+}
+
+.p-imagecompare:dir(rtl) img + img {
+    clip-path: polygon(calc(100% - ${dt('imagecompare.scope.x', '50%')}) 0, 100% 0, 100% 100%, calc(100% - ${dt('imagecompare.scope.x', '50%')}) 100%);
 }
 
 .p-imagecompare-slider {
@@ -23,7 +27,7 @@ const theme = ({ dt }) => `
     -webkit-appearance: none;
     width: calc(100% + ${dt('imagecompare.handle.size')});
     height: 100%;
-    margin-left: calc(-1 * calc(${dt('imagecompare.handle.size')} / 2));
+    margin-inline-start: calc(-1 * calc(${dt('imagecompare.handle.size')} / 2));
     background-color: transparent;
     outline: none;
     transition: all ${dt('imagecompare.handle.transition.duration')};
@@ -62,10 +66,10 @@ const theme = ({ dt }) => `
     outline: ${dt('imagecompare.handle.focus.ring.width')} ${dt('imagecompare.handle.focus.ring.style')} ${dt('imagecompare.handle.focus.ring.color')};
     outline-offset: ${dt('imagecompare.handle.focus.ring.offset')};
 }
-    
+
 .p-imagecompare-slider:hover {
     width: calc(100% + ${dt('imagecompare.handle.hover.size')});
-    margin-left: calc(-1 * calc(${dt('imagecompare.handle.hover.size')} / 2));
+    margin-inline-start: calc(-1 * calc(${dt('imagecompare.handle.hover.size')} / 2));
 }
 
 .p-imagecompare-slider:hover::-webkit-slider-thumb {

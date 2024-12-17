@@ -1,6 +1,6 @@
 {
     "name": "@primevue/core",
-    "version": "4.1.1",
+    "version": "4.2.5",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -14,6 +14,7 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "main": "./src/index.js",
+    "module": "./src/index.js",
     "types": "./src/index.d.ts",
     "exports": {
         "./api": "./src/api/Api.js",
@@ -22,6 +23,8 @@
         "./basecomponent/style": "./src/basecomponent/style/BaseComponentStyle.js",
         "./basecomponent": "./src/basecomponent/BaseComponent.vue",
         "./basedirective": "./src/basedirective/BaseDirective.js",
+        "./baseeditableholder": "./src/baseeditableholder/BaseEditableHolder.vue",
+        "./baseinput": "./src/baseinput/BaseInput.vue",
         "./config": "./src/config/PrimeVue.js",
         "./service": "./src/service/PrimeVueService.js",
         "./usestyle": "./src/usestyle/UseStyle.js",
@@ -29,15 +32,18 @@
     },
     "publishConfig": {
         "main": "./index.mjs",
+        "module": "./index.mjs",
         "types": "./index.d.ts",
         "exports": {
             ".": {
                 "types": "./index.d.ts",
-                "import": "./index.mjs"
+                "import": "./index.mjs",
+                "default": "./index.mjs"
             },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",
@@ -56,7 +62,7 @@
         "@primeuix/utils": "catalog:"
     },
     "peerDependencies": {
-        "vue": "^3.0.0"
+        "vue": "^3.3.0"
     },
     "engines": {
         "node": ">=12.11.0"

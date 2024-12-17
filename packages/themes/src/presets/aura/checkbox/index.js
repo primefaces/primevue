@@ -24,13 +24,27 @@ export default {
             offset: '{focus.ring.offset}',
             shadow: '{focus.ring.shadow}'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            width: '1rem',
+            height: '1rem'
+        },
+        lg: {
+            width: '1.5rem',
+            height: '1.5rem'
+        }
     },
     icon: {
         size: '0.875rem',
         color: '{form.field.color}',
         checkedColor: '{primary.contrast.color}',
         checkedHoverColor: '{primary.contrast.color}',
-        disabledColor: '{form.field.disabled.color}'
+        disabledColor: '{form.field.disabled.color}',
+        sm: {
+            size: '0.75rem'
+        },
+        lg: {
+            size: '1rem'
+        }
     }
 };

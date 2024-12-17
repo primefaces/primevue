@@ -467,6 +467,14 @@ export interface GalleriaSlots {
          * Index of the indicator item
          */
         index: number;
+        /**
+         * Current active item index as a number.
+         */
+        activeIndex: number;
+        /**
+         * Index of the element in tabbing order.
+         */
+        tabindex: number;
     }): VNode[];
     /**
      * Custom thumbnail template.

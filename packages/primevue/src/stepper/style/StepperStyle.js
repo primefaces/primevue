@@ -154,6 +154,7 @@ const theme = ({ dt }) => `
 .p-stepitem .p-steppanel-content {
     width: 100%;
     padding: ${dt('stepper.steppanel.padding')};
+    margin-inline-start: 1rem;
 }
 
 .p-stepitem .p-steppanel {
@@ -168,6 +169,10 @@ const theme = ({ dt }) => `
     margin: ${dt('stepper.separator.margin')};
     position: relative;
     left: calc(-1 * ${dt('stepper.separator.size')});
+}
+
+.p-stepitem .p-stepper-separator:dir(rtl) {
+    left: calc(-9 * ${dt('stepper.separator.size')});
 }
 
 .p-stepitem:has(~ .p-stepitem-active) .p-stepper-separator {

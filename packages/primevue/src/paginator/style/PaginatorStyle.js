@@ -22,11 +22,11 @@ const theme = ({ dt }) => `
 }
 
 .p-paginator-content-start {
-    margin-right: auto;
+    margin-inline-end: auto;
 }
 
 .p-paginator-content-end {
-    margin-left: auto;
+    margin-inline-start: auto;
 }
 
 .p-paginator-page,
@@ -89,6 +89,13 @@ const theme = ({ dt }) => `
 
 .p-paginator-jtp-input .p-inputtext {
     max-width: ${dt('paginator.jump.to.page.input.max.width')};
+}
+
+.p-paginator-first:dir(rtl),
+.p-paginator-prev:dir(rtl),
+.p-paginator-next:dir(rtl),
+.p-paginator-last:dir(rtl) {
+    transform: rotate(180deg);
 }
 `;
 

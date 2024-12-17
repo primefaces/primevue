@@ -21,6 +21,7 @@ import type { CarouselPassThroughOptions } from 'primevue/carousel';
 import type { CascadeSelectPassThroughOptions } from 'primevue/cascadeselect';
 import type { ChartPassThroughOptions } from 'primevue/chart';
 import type { CheckboxPassThroughOptions } from 'primevue/checkbox';
+import type { CheckboxGroupPassThroughOptions } from 'primevue/checkboxgroup';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { ChipsPassThroughOptions } from 'primevue/chips';
 import type { ColorPickerPassThroughOptions } from 'primevue/colorpicker';
@@ -83,6 +84,7 @@ import type { PopoverPassThroughOptions } from 'primevue/popover';
 import type { ProgressBarPassThroughOptions } from 'primevue/progressbar';
 import type { ProgressSpinnerPassThroughOptions } from 'primevue/progressspinner';
 import type { RadioButtonPassThroughOptions } from 'primevue/radiobutton';
+import type { RadioButtonGroupPassThroughOptions } from 'primevue/radiobuttongroup';
 import type { RatingPassThroughOptions } from 'primevue/rating';
 import type { RippleDirectivePassThroughOptions } from 'primevue/ripple';
 import type { RowPassThroughOptions } from 'primevue/row';
@@ -173,6 +175,7 @@ export interface PrimeVuePTOptions {
     cascadeselect?: DefaultPassThrough<CascadeSelectPassThroughOptions>;
     chart?: DefaultPassThrough<ChartPassThroughOptions>;
     checkbox?: DefaultPassThrough<CheckboxPassThroughOptions>;
+    checkboxgroup?: DefaultPassThrough<CheckboxGroupPassThroughOptions>;
     chip?: DefaultPassThrough<ChipPassThroughOptions>;
     /**
      * @deprecated since v4. Use the new structure of InputChips instead.
@@ -245,6 +248,7 @@ export interface PrimeVuePTOptions {
     progressbar?: DefaultPassThrough<ProgressBarPassThroughOptions>;
     progressspinner?: DefaultPassThrough<ProgressSpinnerPassThroughOptions>;
     radiobutton?: DefaultPassThrough<RadioButtonPassThroughOptions>;
+    radiobuttongroup?: DefaultPassThrough<RadioButtonGroupPassThroughOptions>;
     rating?: DefaultPassThrough<RatingPassThroughOptions>;
     row?: DefaultPassThrough<RowPassThroughOptions>;
     scrollpanel?: DefaultPassThrough<ScrollPanelPassThroughOptions>;

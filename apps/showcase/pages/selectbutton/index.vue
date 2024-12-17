@@ -14,7 +14,9 @@
 import AccessibilityDoc from '@/doc/selectbutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/selectbutton/BasicDoc.vue';
 import DisabledDoc from '@/doc/selectbutton/DisabledDoc.vue';
+import FormsDoc from '@/doc/selectbutton/FormsDoc.vue';
 import ImportDoc from '@/doc/selectbutton/ImportDoc.vue';
+import SizesDoc from '@/doc/selectbutton/SizesDoc.vue';
 import InvalidDoc from '@/doc/selectbutton/InvalidDoc.vue';
 import MultipleDoc from '@/doc/selectbutton/MultipleDoc.vue';
 import TemplateDoc from '@/doc/selectbutton/TemplateDoc.vue';
@@ -36,6 +38,11 @@ export default {
                     component: BasicDoc
                 },
                 {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
+                },
+                {
                     id: 'multiple',
                     label: 'Multiple',
                     component: MultipleDoc
@@ -44,6 +51,11 @@ export default {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

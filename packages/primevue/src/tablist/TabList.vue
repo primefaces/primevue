@@ -36,11 +36,11 @@
 </template>
 
 <script>
-import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth } from '@primeuix/utils/dom';
+import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
-import BaseTabList from './BaseTabList.vue';
 import Ripple from 'primevue/ripple';
+import BaseTabList from './BaseTabList.vue';
 
 export default {
     name: 'TabList',
@@ -89,18 +89,26 @@ export default {
         },
         onPrevButtonClick() {
             const content = this.$refs.content;
-            const width = getWidth(content);
-            const pos = content.scrollLeft - width;
+            const buttonWidths = this.getVisibleButtonWidths();
+            const width = getWidth(content) - buttonWidths;
+            const currentScrollLeft = Math.abs(content.scrollLeft);
+            const scrollStep = width * 0.8;
+            const targetScrollLeft = currentScrollLeft - scrollStep;
+            const scrollLeft = Math.max(targetScrollLeft, 0);
 
-            content.scrollLeft = pos <= 0 ? 0 : pos;
+            content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
         onNextButtonClick() {
             const content = this.$refs.content;
-            const width = getWidth(content) - this.getVisibleButtonWidths();
-            const pos = content.scrollLeft + width;
-            const lastPos = content.scrollWidth - width;
+            const buttonWidths = this.getVisibleButtonWidths();
+            const width = getWidth(content) - buttonWidths;
+            const currentScrollLeft = Math.abs(content.scrollLeft);
+            const scrollStep = width * 0.8;
+            const targetScrollLeft = currentScrollLeft + scrollStep;
+            const maxScrollLeft = content.scrollWidth - width;
+            const scrollLeft = Math.min(targetScrollLeft, maxScrollLeft);
 
-            content.scrollLeft = pos >= lastPos ? lastPos : pos;
+            content.scrollLeft = isRTL(content) ? -1 * scrollLeft : scrollLeft;
         },
         bindResizeObserver() {
             this.resizeObserver = new ResizeObserver(() => this.updateButtonState());
@@ -124,7 +132,8 @@ export default {
         },
         updateButtonState() {
             const { list, content } = this.$refs;
-            const { scrollLeft, scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
+            const { scrollTop, scrollWidth, scrollHeight, offsetWidth, offsetHeight } = content;
+            const scrollLeft = Math.abs(content.scrollLeft);
             const [width, height] = [getWidth(content), getHeight(content)];
 
             if (this.$pcTabs.isVertical()) {
@@ -136,9 +145,14 @@ export default {
             }
         },
         getVisibleButtonWidths() {
-            const { prevBtn, nextBtn } = this.$refs;
+            const { prevButton, nextButton } = this.$refs;
+            let width = 0;
 
-            return [prevBtn, nextBtn].reduce((acc, el) => (el ? acc + getWidth(el) : acc), 0);
+            if (this.showNavigators) {
+                width = (prevButton?.offsetWidth || 0) + (nextButton?.offsetWidth || 0);
+            }
+
+            return width;
         }
     },
     computed: {

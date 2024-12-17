@@ -1,24 +1,24 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Two-way value binding is defined using <i>v-model</i>.</p>
+        <p>RadioButton is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-4">
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
-                <label for="ingredient1" class="ml-2">Cheese</label>
+                <label for="ingredient1">Cheese</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
-                <label for="ingredient2" class="ml-2">Mushroom</label>
+                <label for="ingredient2">Mushroom</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
-                <label for="ingredient3" class="ml-2">Pepper</label>
+                <label for="ingredient3">Pepper</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
-                <label for="ingredient4" class="ml-2">Onion</label>
+                <label for="ingredient4">Onion</label>
             </div>
         </div>
     </div>
@@ -33,21 +33,21 @@ export default {
             code: {
                 basic: `
 <div class="flex flex-wrap gap-4">
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
         <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
-        <label for="ingredient1" class="ml-2">Cheese</label>
+        <label for="ingredient1">Cheese</label>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
         <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
-        <label for="ingredient2" class="ml-2">Mushroom</label>
+        <label for="ingredient2">Mushroom</label>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
         <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
-        <label for="ingredient3" class="ml-2">Pepper</label>
+        <label for="ingredient3">Pepper</label>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
         <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
-        <label for="ingredient4" class="ml-2">Onion</label>
+        <label for="ingredient4">Onion</label>
     </div>
 </div>
 `,
@@ -55,21 +55,21 @@ export default {
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-4">
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
-                <label for="ingredient1" class="ml-2">Cheese</label>
+                <label for="ingredient1">Cheese</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
-                <label for="ingredient2" class="ml-2">Mushroom</label>
+                <label for="ingredient2">Mushroom</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
-                <label for="ingredient3" class="ml-2">Pepper</label>
+                <label for="ingredient3">Pepper</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
-                <label for="ingredient4" class="ml-2">Onion</label>
+                <label for="ingredient4">Onion</label>
             </div>
         </div>
     </div>
@@ -89,21 +89,21 @@ export default {
 <template>
     <div class="card flex justify-center">
         <div class="flex flex-wrap gap-4">
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
-                <label for="ingredient1" class="ml-2">Cheese</label>
+                <label for="ingredient1">Cheese</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
-                <label for="ingredient2" class="ml-2">Mushroom</label>
+                <label for="ingredient2">Mushroom</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
-                <label for="ingredient3" class="ml-2">Pepper</label>
+                <label for="ingredient3">Pepper</label>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-2">
                 <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
-                <label for="ingredient4" class="ml-2">Onion</label>
+                <label for="ingredient4">Onion</label>
             </div>
         </div>
     </div>

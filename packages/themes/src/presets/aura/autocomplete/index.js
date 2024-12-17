@@ -12,6 +12,7 @@ export default {
         color: '{form.field.color}',
         disabledColor: '{form.field.disabled.color}',
         placeholderColor: '{form.field.placeholder.color}',
+        invalidPlaceholderColor: '{form.field.invalid.placeholder.color}',
         shadow: '{form.field.shadow}',
         paddingX: '{form.field.padding.x}',
         paddingY: '{form.field.padding.y}',
@@ -55,6 +56,12 @@ export default {
     },
     dropdown: {
         width: '2.5rem',
+        sm: {
+            width: '2rem'
+        },
+        lg: {
+            width: '3rem'
+        },
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',
@@ -77,7 +84,7 @@ export default {
         light: {
             chip: {
                 focusBackground: '{surface.200}',
-                color: '{surface.800}'
+                focusColor: '{surface.800}'
             },
             dropdown: {
                 background: '{surface.100}',
@@ -91,7 +98,7 @@ export default {
         dark: {
             chip: {
                 focusBackground: '{surface.700}',
-                color: '{surface.0}'
+                focusColor: '{surface.0}'
             },
             dropdown: {
                 background: '{surface.800}',

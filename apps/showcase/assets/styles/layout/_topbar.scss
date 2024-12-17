@@ -23,7 +23,7 @@
 
     .layout-topbar-logo-container {
         width: 250px;
-        margin-right: 4rem;
+        margin-inline-end: 4rem;
     }
 
     .layout-topbar-logo,
@@ -52,7 +52,7 @@
             width: 25px;
         }
     }
-    
+
     .menu-button {
         display: none;
     }
@@ -84,21 +84,22 @@
             outline-color: transparent;
             background-color: var(--card-background);
             cursor: pointer;
-    
+
             @include focus-visible();
-    
+
             &:hover {
                 border-color: var(--primary-color);
             }
-    
-            i, span {
+
+            i,
+            span {
                 color: var(--text-color);
             }
         }
 
         .config-item {
             background-color: var(--primary-color);
-            
+
             i {
                 color: var(--primary-contrast-color);
             }
@@ -107,7 +108,7 @@
         .config-panel {
             position: absolute;
             top: calc(100% + 2px);
-            right: 0;
+            inset-inline-end: 0;
             width: 18rem;
             padding: .75rem;
             background-color: var(--overlay-background);
@@ -115,7 +116,7 @@
             border: 1px solid var(--border-color);
             transform-origin: top;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            
+
             .config-panel-content {
                 display: flex;
                 flex-direction: column;
@@ -130,12 +131,12 @@
             }
 
             .config-panel-colors {
-                > div {
+                >div {
                     padding-top: .5rem;
                     display: flex;
                     gap: .5rem;
                     flex-wrap: wrap;
-    
+
                     button {
                         border: none;
                         width: 1.25rem;
@@ -147,7 +148,7 @@
                         outline-width: 2px;
                         outline-style: solid;
                         outline-offset: 1px;
-    
+
                         &.active-color {
                             outline-color: var(--primary-color);
                         }
@@ -162,6 +163,7 @@
             }
         }
 
+
         .version-item {
             width: auto;
             padding: 0.5rem;
@@ -173,7 +175,7 @@
             }
 
             .version-icon {
-                margin-left: .25rem;
+                margin-inline-start: .25rem;
                 color: var(--text-secondary-color);
             }
         }
@@ -182,7 +184,7 @@
             padding: .25rem;
             background-color: var(--overlay-background);
             position: absolute;
-            right: 0;
+            inset-inline-end: 0;
             top: calc(100% + 2px);
             border-radius: 6px;
             border: 1px solid var(--border-color);

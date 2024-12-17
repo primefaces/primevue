@@ -156,7 +156,7 @@ export default {
             this.$emit('node-toggle', this.node);
         },
         onClick(event) {
-            if (isClickable(event.target) || getAttribute(event.target, 'data-pc-section') === 'nodetogglebutton' || getAttribute(event.target, 'data-pc-section') === 'rowtoggleicon' || event.target.tagName === 'path') {
+            if (isClickable(event.target) || getAttribute(event.target, 'data-pc-section') === 'nodetogglebutton' || getAttribute(event.target, 'data-pc-section') === 'nodetoggleicon' || event.target.tagName === 'path') {
                 return;
             }
 

@@ -1,0 +1,11 @@
+{
+    "main": "./BaseEditableHolder.vue",
+    "module": "./BaseEditableHolder.vue",
+    "types": "./BaseEditableHolder.d.ts",
+    "browser": {
+        "./sfc": "./BaseEditableHolder.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

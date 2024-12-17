@@ -12,6 +12,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/menubar/AccessibilityDoc.vue';
+import AdvancedDoc from '@/doc/menubar/AdvancedDoc.vue';
 import BasicDoc from '@/doc/menubar/BasicDoc.vue';
 import CommandDoc from '@/doc/menubar/CommandDoc.vue';
 import ImportDoc from '@/doc/menubar/ImportDoc.vue';
@@ -33,6 +34,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'advanced',
+                    label: 'Advanced',
+                    component: AdvancedDoc
                 },
                 {
                     id: 'template',

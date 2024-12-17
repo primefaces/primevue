@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./SpinnerIcon.vue",
+    "module": "./SpinnerIcon.vue",
+    "types": "./SpinnerIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./SpinnerIcon.vue"
     },
     "sideEffects": [
         "*.vue"

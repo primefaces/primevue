@@ -6,7 +6,7 @@
             :class="[cx('input'), inputClass]"
             :style="inputStyle"
             :value="value"
-            :name="name"
+            :name="groupName"
             :checked="checked"
             :tabindex="tabindex"
             :disabled="disabled"
@@ -40,7 +40,12 @@ export default {
     name: 'Checkbox',
     extends: BaseCheckbox,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'update:indeterminate'],
+    emits: ['change', 'focus', 'blur', 'update:indeterminate'],
+    inject: {
+        $pcCheckboxGroup: {
+            default: undefined
+        }
+    },
     data() {
         return {
             d_indeterminate: this.indeterminate
@@ -65,13 +70,14 @@ export default {
         },
         onChange(event) {
             if (!this.disabled && !this.readonly) {
+                const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;
                 let newModelValue;
 
                 if (this.binary) {
                     newModelValue = this.d_indeterminate ? this.trueValue : this.checked ? this.falseValue : this.trueValue;
                 } else {
-                    if (this.checked || this.d_indeterminate) newModelValue = this.modelValue.filter((val) => !equals(val, this.value));
-                    else newModelValue = this.modelValue ? [...this.modelValue, this.value] : [this.value];
+                    if (this.checked || this.d_indeterminate) newModelValue = value.filter((val) => !equals(val, this.value));
+                    else newModelValue = value ? [...value, this.value] : [this.value];
                 }
 
                 if (this.d_indeterminate) {
@@ -79,7 +85,7 @@ export default {
                     this.$emit('update:indeterminate', this.d_indeterminate);
                 }
 
-                this.$emit('update:modelValue', newModelValue);
+                this.$pcCheckboxGroup ? this.$pcCheckboxGroup.writeValue(newModelValue, event) : this.writeValue(newModelValue, event);
                 this.$emit('change', event);
             }
         },
@@ -88,11 +94,17 @@ export default {
         },
         onBlur(event) {
             this.$emit('blur', event);
+            this.formField.onBlur?.(event);
         }
     },
     computed: {
+        groupName() {
+            return this.$pcCheckboxGroup ? this.$pcCheckboxGroup.groupName : this.$formName;
+        },
         checked() {
-            return this.d_indeterminate ? false : this.binary ? this.modelValue === this.trueValue : contains(this.value, this.modelValue);
+            const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;
+
+            return this.d_indeterminate ? false : this.binary ? value === this.trueValue : contains(this.value, value);
         }
     },
     components: {

@@ -15,6 +15,7 @@ import AccessibilityDoc from '@/doc/paginator/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/paginator/BasicDoc.vue';
 import CurrentPageReportDoc from '@/doc/paginator/CurrentPageReportDoc.vue';
 import CustomContentDoc from '@/doc/paginator/CustomContentDoc.vue';
+import HeadlessDoc from '@/doc/paginator/HeadlessDoc.vue';
 import ImportDoc from '@/doc/paginator/ImportDoc.vue';
 import ResponsiveDoc from '@/doc/paginator/ResponsiveDoc.vue';
 import TemplateDoc from '@/doc/paginator/TemplateDoc.vue';
@@ -54,6 +55,11 @@ export default {
                     id: 'customcontent',
                     label: 'Custom Content',
                     component: CustomContentDoc
+                },
+                {
+                    id: 'headless',
+                    label: 'Headless',
+                    component: HeadlessDoc
                 },
                 {
                     id: 'accessibility',

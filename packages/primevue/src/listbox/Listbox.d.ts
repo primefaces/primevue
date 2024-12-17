@@ -109,6 +109,10 @@ export interface ListboxFilterEvent {
      * Filter value
      */
     value: string;
+    /**
+     * Filtered options
+     */
+    filterValue: any[];
 }
 
 /**
@@ -259,6 +263,14 @@ export interface ListboxProps {
      * Value of the component.
      */
     modelValue?: any;
+    /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: any;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
     /**
      * An array of selectitems to display as the available options.
      */
@@ -416,6 +428,10 @@ export interface ListboxProps {
      */
     ariaLabelledby?: string | undefined;
     /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -564,6 +580,11 @@ export interface ListboxEmitsOptions {
      * @param {*} value - New value.
      */
     'update:modelValue'(value: any): void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {*} value - New value.
+     */
+    'value-change'(value: any): void;
     /**
      * Callback to invoke on value change.
      * @param {ListboxChangeEvent} event - Custom change event.

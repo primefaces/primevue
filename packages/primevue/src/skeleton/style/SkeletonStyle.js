@@ -17,7 +17,11 @@ const theme = ({ dt }) => `
     top: 0;
     transform: translateX(-100%);
     z-index: 1;
-    background: linear-gradient( 90deg, rgba(255, 255, 255, 0), ${dt('skeleton.animation.background')}, rgba(255, 255, 255, 0) );
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0), ${dt('skeleton.animation.background')}, rgba(255, 255, 255, 0));
+}
+
+[dir='rtl'] .p-skeleton::after {
+    animation-name: p-skeleton-animation-rtl;
 }
 
 .p-skeleton-circle {
@@ -34,6 +38,15 @@ const theme = ({ dt }) => `
     }
     to {
         transform: translateX(100%);
+    }
+}
+
+@keyframes p-skeleton-animation-rtl {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
 `;

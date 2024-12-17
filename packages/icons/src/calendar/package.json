@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./CalendarIcon.vue",
+    "module": "./CalendarIcon.vue",
+    "types": "./CalendarIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./CalendarIcon.vue"
     },
     "sideEffects": [
         "*.vue"

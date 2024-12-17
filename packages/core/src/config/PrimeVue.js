@@ -247,7 +247,7 @@ export function setupConfig(app, PrimeVue) {
             isThemeChanged.value = false;
             PrimeVueService.emit('config:theme:change', { newValue, oldValue });
         },
-        { immediate: true, deep: true }
+        { immediate: true, deep: false }
     );
 
     const stopUnstyledWatcher = watch(

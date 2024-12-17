@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TextareaHTMLAttributes } from 'vue';
+import { InputHTMLAttributes } from 'vue';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
 
@@ -85,18 +85,29 @@ export interface TextareaContext {
 
 /**
  * Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.
- * @extends TextareaHTMLAttributes
  */
-export interface TextareaProps extends TextareaHTMLAttributes {
+export interface TextareaProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.
      */
     modelValue?: Nullable<string>;
     /**
+     * The default value for the input when not controlled by `modelValue`.
+     */
+    defaultValue?: Nullable<string>;
+    /**
+     * The name attribute for the element, typically used in form submissions.
+     */
+    name?: string | undefined;
+    /**
      * When present, height of textarea changes as being typed.
      * @defaultValue false
      */
     autoResize?: boolean | undefined;
+    /**
+     * Defines the size of the component.
+     */
+    size?: 'small' | 'large' | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -112,6 +123,10 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * @defaultValue null
      */
     fluid?: boolean | undefined;
+    /**
+     * Form control object, typically used for handling validation and form state.
+     */
+    formControl?: Record<string, any> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -147,6 +162,11 @@ export interface TextareaEmitsOptions {
      * @param {string} value - New value.
      */
     'update:modelValue': (value: string) => void;
+    /**
+     * Emitted when the value changes in uncontrolled mode.
+     * @param {string} value - New value.
+     */
+    'value-change'(value: string): void;
 }
 
 export declare type TextareaEmits = EmitFn<TextareaEmitsOptions>;

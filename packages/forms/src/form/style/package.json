@@ -1,0 +1,6 @@
+{
+    "main": "./FormStyle.js",
+    "module": "./FormStyle.js",
+    "types": "./FormStyle.d.ts",
+    "sideEffects": false
+}

@@ -55,6 +55,12 @@ export default {
     },
     dropdown: {
         width: '2.5rem',
+        sm: {
+            width: '2rem'
+        },
+        lg: {
+            width: '3rem'
+        },
         background: '{form.field.background}',
         color: '{form.field.icon.color}',
         hoverColor: '{form.field.icon.color}',
@@ -81,7 +87,7 @@ export default {
         light: {
             chip: {
                 focusBackground: '{surface.300}',
-                color: '{surface.900}'
+                focusColor: '{surface.900}'
             },
             dropdown: {
                 hoverBackground: '{surface.200}',
@@ -91,7 +97,7 @@ export default {
         dark: {
             chip: {
                 focusBackground: '{surface.600}',
-                color: '{surface.0}'
+                focusColor: '{surface.0}'
             },
             dropdown: {
                 hoverBackground: '{surface.700}',

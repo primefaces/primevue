@@ -14,9 +14,7 @@ export default {
         background: '{content.background}',
         borderColor: '{content.border.color}',
         color: '{content.color}',
-        padding: '0 0 0.5rem 0',
-        fontWeight: '500',
-        gap: '0.5rem'
+        padding: '0 0 0.5rem 0'
     },
     title: {
         gap: '0.5rem',
@@ -24,6 +22,12 @@ export default {
     },
     dropdown: {
         width: '3rem',
+        sm: {
+            width: '2.5rem'
+        },
+        lg: {
+            width: '3.5rem'
+        },
         borderColor: '{form.field.border.color}',
         hoverBorderColor: '{form.field.border.color}',
         activeBorderColor: '{form.field.border.color}',

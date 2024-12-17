@@ -621,7 +621,7 @@ export default {
             return Math.floor(((first ?? this.first) + this.d_numToleratedItems * 4) / (this.step || 1));
         },
         isPageChanged(first) {
-            return this.step ? this.page !== this.getPageByFirst(first ?? this.first) : true;
+            return this.step && !this.lazy ? this.page !== this.getPageByFirst(first ?? this.first) : true;
         },
         setContentEl(el) {
             this.content = el || this.content || findSingle(this.element, '[data-pc-section="content"]');

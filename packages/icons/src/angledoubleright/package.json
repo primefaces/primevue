@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./AngleDoubleRightIcon.vue",
+    "module": "./AngleDoubleRightIcon.vue",
+    "types": "./AngleDoubleRightIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./AngleDoubleRightIcon.vue"
     },
     "sideEffects": [
         "*.vue"

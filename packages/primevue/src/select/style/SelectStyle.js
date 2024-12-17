@@ -52,7 +52,7 @@ const theme = ({ dt }) => `
     top: 50%;
     margin-top: -0.5rem;
     color: ${dt('select.clear.icon.color')};
-    right: ${dt('select.dropdown.width')};
+    inset-inline-end: ${dt('select.dropdown.width')};
 }
 
 .p-select-dropdown {
@@ -63,8 +63,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('select.dropdown.color')};
     width: ${dt('select.dropdown.width')};
-    border-top-right-radius: ${dt('select.border.radius')};
-    border-bottom-right-radius: ${dt('select.border.radius')};
+    border-start-end-radius: ${dt('select.border.radius')};
+    border-end-end-radius: ${dt('select.border.radius')};
 }
 
 .p-select-label {
@@ -86,8 +86,12 @@ const theme = ({ dt }) => `
     color: ${dt('select.placeholder.color')};
 }
 
+.p-select.p-invalid .p-select-label.p-placeholder {
+    color: ${dt('select.invalid.placeholder.color')};
+}
+
 .p-select:has(.p-select-clear-icon) .p-select-label {
-    padding-right: calc(1rem + ${dt('select.padding.x')});
+    padding-inline-end: calc(1rem + ${dt('select.padding.x')});
 }
 
 .p-select.p-disabled .p-select-label {
@@ -194,6 +198,31 @@ input.p-select-label {
 
 .p-select-fluid {
     display: flex;
+    width: 100%;
+}
+
+.p-select-sm .p-select-label {
+    font-size: ${dt('select.sm.font.size')};
+    padding-block: ${dt('select.sm.padding.y')};
+    padding-inline: ${dt('select.sm.padding.x')};
+}
+
+.p-select-sm .p-select-dropdown .p-icon {
+    font-size: ${dt('select.sm.font.size')};
+    width: ${dt('select.sm.font.size')};
+    height: ${dt('select.sm.font.size')};
+}
+
+.p-select-lg .p-select-label {
+    font-size: ${dt('select.lg.font.size')};
+    padding-block: ${dt('select.lg.padding.y')};
+    padding-inline: ${dt('select.lg.padding.x')};
+}
+
+.p-select-lg .p-select-dropdown .p-icon {
+    font-size: ${dt('select.lg.font.size')};
+    width: ${dt('select.lg.font.size')};
+    height: ${dt('select.lg.font.size')};
 }
 `;
 
@@ -202,13 +231,15 @@ const classes = {
         'p-select p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
+            'p-invalid': instance.$invalid,
+            'p-variant-filled': instance.$variant === 'filled',
             'p-focus': state.focused,
-            'p-inputwrapper-filled': instance.hasSelectedOption,
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-select-open': state.overlayVisible,
-            'p-select-fluid': instance.hasFluid
+            'p-select-fluid': instance.$fluid,
+            'p-select-sm p-inputfield-sm': props.size === 'small',
+            'p-select-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     label: ({ instance, props }) => [

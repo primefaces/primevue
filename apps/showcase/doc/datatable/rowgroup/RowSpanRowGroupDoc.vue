@@ -33,7 +33,6 @@
                         <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
                     </template>
                 </Column>
-                <Column field="date" header="Date" style="min-width: 100px"></Column>
             </DataTable>
         </div>
     </DeferredDemo>
@@ -79,7 +78,6 @@ export default {
             <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
         </template>
     </Column>
-    <Column field="date" header="Date" style="min-width: 100px"></Column>
 </DataTable>
 `,
                 options: `
@@ -114,7 +112,6 @@ export default {
                     <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
                 </template>
             </Column>
-            <Column field="date" header="Date" style="min-width: 100px"></Column>
         </DataTable>
     </div>
 </template>
@@ -186,7 +183,6 @@ export default {
                     <Tag :value="slotProps.data.status" :severity="getSeverity(slotProps.data.status)" />
                 </template>
             </Column>
-            <Column field="date" header="Date" style="min-width: 100px"></Column>
         </DataTable>
     </div>
 </template>

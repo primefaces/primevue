@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseInput from '@primevue/core/baseinput';
 import TreeSelectStyle from 'primevue/treeselect/style';
 
 export default {
     name: 'BaseTreeSelect',
-    extends: BaseComponent,
+    extends: BaseInput,
     props: {
-        modelValue: null,
         options: Array,
         scrollHeight: {
             type: String,
@@ -16,18 +15,6 @@ export default {
             type: String,
             default: null
         },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        variant: {
-            type: String,
-            default: null
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
         tabindex: {
             type: Number,
             default: null
@@ -35,6 +22,14 @@ export default {
         selectionMode: {
             type: String,
             default: 'single'
+        },
+        selectedItemsLabel: {
+            type: String,
+            default: null
+        },
+        maxSelectedLabels: {
+            type: Number,
+            default: null
         },
         appendTo: {
             type: [String, Object],
@@ -52,10 +47,6 @@ export default {
             type: Boolean,
             default: false
         },
-        fluid: {
-            type: Boolean,
-            default: null
-        },
         loading: {
             type: Boolean,
             default: false
@@ -67,6 +58,14 @@ export default {
         loadingMode: {
             type: String,
             default: 'mask'
+        },
+        showClear: {
+            type: Boolean,
+            default: false
+        },
+        clearIcon: {
+            type: String,
+            default: undefined
         },
         filter: {
             type: Boolean,

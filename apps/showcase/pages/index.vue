@@ -2,6 +2,7 @@
     <div :class="containerClass">
         <AppNews />
         <AppTopBar :showMenuButton="false" />
+        <AppDesigner />
         <HeroSection />
         <FeaturesSection />
         <UsersSection />
@@ -9,6 +10,7 @@
         <BlockSection />
         <TemplateSection />
         <FooterSection />
+        <Toast />
     </div>
 </template>
 
@@ -20,8 +22,6 @@ import HeroSection from '@/components/landing/HeroSection.vue';
 import TemplateSection from '@/components/landing/TemplateSection.vue';
 import ThemeSection from '@/components/landing/ThemeSection.vue';
 import UsersSection from '@/components/landing/UsersSection.vue';
-import AppNews from '@/layouts/AppNews';
-import AppTopBar from '@/layouts/AppTopBar.vue';
 
 export default {
     setup() {
@@ -34,6 +34,9 @@ export default {
             type: String,
             default: null
         }
+    },
+    created() {
+        this.$appState.designer.active = false;
     },
     mounted() {
         let afId = this.$route.query['af_id'];
@@ -52,8 +55,6 @@ export default {
         }
     },
     components: {
-        AppNews,
-        AppTopBar,
         HeroSection,
         ThemeSection,
         BlockSection,

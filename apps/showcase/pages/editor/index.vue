@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/editor/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/editor/BasicDoc.vue';
+import FormsDoc from '@/doc/editor/FormsDoc.vue';
 import ImportDoc from '@/doc/editor/ImportDoc.vue';
 import QuillDoc from '@/doc/editor/QuillDoc.vue';
 import ReadOnlyDoc from '@/doc/editor/ReadOnlyDoc.vue';
@@ -30,6 +31,11 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
                 },
                 {
                     id: 'readonly',

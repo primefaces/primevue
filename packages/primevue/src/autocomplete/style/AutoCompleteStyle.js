@@ -10,11 +10,11 @@ const theme = ({ dt }) => `
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;
-    right: ${dt('autocomplete.padding.x')};
+    inset-inline-end: ${dt('autocomplete.padding.x')};
 }
 
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-loader {
-    right: calc(${dt('autocomplete.dropdown.width')} + ${dt('autocomplete.padding.x')});
+    inset-inline-end: calc(${dt('autocomplete.dropdown.width')} + ${dt('autocomplete.padding.x')});
 }
 
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input {
@@ -24,25 +24,24 @@ const theme = ({ dt }) => `
 
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input,
 .p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input-multiple {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
 }
 
 .p-autocomplete-dropdown {
     cursor: pointer;
     display: inline-flex;
-    cursor: pointer;
     user-select: none;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
     width: ${dt('autocomplete.dropdown.width')};
-    border-top-right-radius: ${dt('autocomplete.dropdown.border.radius')};
-    border-bottom-right-radius: ${dt('autocomplete.dropdown.border.radius')};
+    border-start-end-radius: ${dt('autocomplete.dropdown.border.radius')};
+    border-end-end-radius: ${dt('autocomplete.dropdown.border.radius')};
     background: ${dt('autocomplete.dropdown.background')};
     border: 1px solid ${dt('autocomplete.dropdown.border.color')};
-    border-left: 0 none;
+    border-inline-start: 0 none;
     color: ${dt('autocomplete.dropdown.color')};
     transition: background ${dt('autocomplete.transition.duration')}, color ${dt('autocomplete.transition.duration')}, border-color ${dt('autocomplete.transition.duration')}, outline-color ${dt('autocomplete.transition.duration')}, box-shadow ${dt(
     'autocomplete.transition.duration'
@@ -190,14 +189,14 @@ const theme = ({ dt }) => `
 }
 
 .p-autocomplete-chip.p-chip {
-    padding-top: calc(${dt('autocomplete.padding.y')} / 2);
-    padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-block-start: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-block-end: calc(${dt('autocomplete.padding.y')} / 2);
     border-radius: ${dt('autocomplete.chip.border.radius')};
 }
 
 .p-autocomplete-input-multiple:has(.p-autocomplete-chip) {
-    padding-left: calc(${dt('autocomplete.padding.y')} / 2);
-    padding-right: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-inline-start: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-inline-end: calc(${dt('autocomplete.padding.y')} / 2);
 }
 
 .p-autocomplete-chip-item.p-focus .p-autocomplete-chip {
@@ -208,8 +207,8 @@ const theme = ({ dt }) => `
 .p-autocomplete-input-chip {
     flex: 1 1 auto;
     display: inline-flex;
-    padding-top: calc(${dt('autocomplete.padding.y')} / 2);
-    padding-bottom: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-block-start: calc(${dt('autocomplete.padding.y')} / 2);
+    padding-block-end: calc(${dt('autocomplete.padding.y')} / 2);
 }
 
 .p-autocomplete-input-chip input {
@@ -231,6 +230,10 @@ const theme = ({ dt }) => `
     color: ${dt('autocomplete.placeholder.color')};
 }
 
+.p-autocomplete.p-invalid .p-autocomplete-input-chip input::placeholder {
+    color: ${dt('autocomplete.invalid.placeholder.color')};
+}
+
 .p-autocomplete-empty-message {
     padding: ${dt('autocomplete.empty.message.padding')};
 }
@@ -241,6 +244,26 @@ const theme = ({ dt }) => `
 
 .p-autocomplete-fluid:has(.p-autocomplete-dropdown) .p-autocomplete-input {
     width: 1%;
+}
+
+.p-autocomplete:has(.p-inputtext-sm) .p-autocomplete-dropdown {
+    width: ${dt('autocomplete.dropdown.sm.width')};
+}
+
+.p-autocomplete:has(.p-inputtext-sm) .p-autocomplete-dropdown .p-icon {
+    font-size: ${dt('form.field.sm.font.size')};
+    width: ${dt('form.field.sm.font.size')};
+    height: ${dt('form.field.sm.font.size')};
+}
+
+.p-autocomplete:has(.p-inputtext-lg) .p-autocomplete-dropdown {
+    width: ${dt('autocomplete.dropdown.lg.width')};
+}
+
+.p-autocomplete:has(.p-inputtext-lg) .p-autocomplete-dropdown .p-icon {
+    font-size: ${dt('form.field.lg.font.size')};
+    width: ${dt('form.field.lg.font.size')};
+    height: ${dt('form.field.lg.font.size')};
 }
 `;
 
@@ -253,19 +276,19 @@ const classes = {
         'p-autocomplete p-component p-inputwrapper',
         {
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
+            'p-invalid': instance.$invalid,
             'p-focus': instance.focused,
-            'p-inputwrapper-filled': props.modelValue || isNotEmpty(instance.inputValue),
+            'p-inputwrapper-filled': instance.$filled || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible,
-            'p-autocomplete-fluid': instance.hasFluid
+            'p-autocomplete-fluid': instance.$fluid
         }
     ],
     pcInputText: 'p-autocomplete-input',
     inputMultiple: ({ props, instance }) => [
         'p-autocomplete-input-multiple',
         {
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled'
+            'p-variant-filled': instance.$variant === 'filled'
         }
     ],
     chipItem: ({ instance, i }) => [

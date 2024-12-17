@@ -57,7 +57,9 @@ export default {
         borderWidth: '0 0 1px 0',
         padding: '0.75rem 1rem'
     },
-    columnResizerWidth: '0.5rem',
+    columnResizer: {
+        width: '0.5rem'
+    },
     resizeIndicator: {
         width: '1px',
         color: '{primary.color}'

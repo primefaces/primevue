@@ -25,7 +25,7 @@
         </div>
         <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
             <div :class="cx('label')" v-bind="ptm('label')">
-                <slot name="value" :value="modelValue" :placeholder="placeholder">
+                <slot name="value" :value="d_value" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
                     </template>
@@ -34,7 +34,7 @@
                             <span>{{ label }}</span>
                         </template>
                         <template v-else>
-                            <span v-for="item of modelValue" :key="getLabelByValue(item)" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                            <span v-for="item of d_value" :key="getLabelByValue(item)" :class="cx('chipItem')" v-bind="ptm('chipItem')">
                                 <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
                                     <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
@@ -45,11 +45,14 @@
                                 </slot>
                             </span>
                         </template>
-                        <template v-if="!modelValue || modelValue.length === 0">{{ placeholder || 'empty' }}</template>
+                        <template v-if="!d_value || d_value.length === 0">{{ placeholder || 'empty' }}</template>
                     </template>
                 </slot>
             </div>
         </div>
+        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+        </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" aria-hidden="true" v-bind="ptm('loadingIcon')" />
@@ -73,7 +76,7 @@
                         :data-p-hidden-accessible="true"
                         :data-p-hidden-focusable="true"
                     ></span>
-                    <slot name="header" :value="modelValue" :options="visibleOptions"></slot>
+                    <slot name="header" :value="d_value" :options="visibleOptions"></slot>
                     <div v-if="(showToggleAll && selectionLimit == null) || filter" :class="cx('header')" v-bind="ptm('header')">
                         <Checkbox
                             v-if="showToggleAll && selectionLimit == null"
@@ -156,7 +159,7 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :modelValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')">
+                                            <Checkbox :defaultValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')">
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :is="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component
@@ -185,7 +188,7 @@
                             </template>
                         </VirtualScroller>
                     </div>
-                    <slot name="footer" :value="modelValue" :options="visibleOptions"></slot>
+                    <slot name="footer" :value="d_value" :options="visibleOptions"></slot>
                     <span v-if="!options || (options && options.length === 0)" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenEmptyMessage')" :data-p-hidden-accessible="true">
                         {{ emptyMessageText }}
                     </span>
@@ -235,7 +238,7 @@ export default {
     name: 'MultiSelect',
     extends: BaseMultiSelect,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
+    emits: ['change', 'focus', 'blur', 'before-show', 'before-hide', 'show', 'hide', 'filter', 'selectall-change'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -377,6 +380,7 @@ export default {
             this.focusedOptionIndex = -1;
             this.searchValue = '';
             this.$emit('blur', event);
+            this.formField.onBlur?.();
         },
         onKeyDown(event) {
             if (this.disabled) {
@@ -457,11 +461,17 @@ export default {
                 return;
             }
 
-            if (!this.overlay || !this.overlay.contains(event.target)) {
+            if (event.target.tagName === 'INPUT' || event.target.getAttribute('data-pc-section') === 'clearicon' || event.target.closest('[data-pc-section="clearicon"]')) {
+                return;
+            } else if (!this.overlay || !this.overlay.contains(event.target)) {
                 this.overlayVisible ? this.hide(true) : this.show(true);
             }
 
             this.clicked = true;
+        },
+        onClearClick(event) {
+            this.updateModel(event, null);
+            this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -481,8 +491,8 @@ export default {
             let selected = this.isSelected(option);
             let value = null;
 
-            if (selected) value = this.modelValue.filter((val) => !equals(val, this.getOptionValue(option), this.equalityKey));
-            else value = [...(this.modelValue || []), this.getOptionValue(option)];
+            if (selected) value = this.d_value.filter((val) => !equals(val, this.getOptionValue(option), this.equalityKey));
+            else value = [...(this.d_value || []), this.getOptionValue(option)];
 
             this.updateModel(event, value);
             index !== -1 && (this.focusedOptionIndex = index);
@@ -814,7 +824,7 @@ export default {
             const selectedItemsLabel = this.selectedItemsLabel || this.$primevue.config.locale.selectionMessage;
 
             if (pattern.test(selectedItemsLabel)) {
-                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.modelValue.length + '');
+                return selectedItemsLabel.replace(selectedItemsLabel.match(pattern)[0], this.d_value.length + '');
             }
 
             return selectedItemsLabel;
@@ -830,7 +840,7 @@ export default {
         },
         removeOption(event, optionValue) {
             event.stopPropagation();
-            let value = this.modelValue.filter((val) => !equals(val, optionValue, this.equalityKey));
+            let value = this.d_value.filter((val) => !equals(val, optionValue, this.equalityKey));
 
             this.updateModel(event, value);
         },
@@ -855,7 +865,7 @@ export default {
         isSelected(option) {
             const optionValue = this.getOptionValue(option);
 
-            return (this.modelValue || []).some((value) => this.isEquals(value, optionValue));
+            return (this.d_value || []).some((value) => this.isEquals(value, optionValue));
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -874,9 +884,9 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
-            if (this.hasSelectedOption) {
-                for (let index = this.modelValue.length - 1; index >= 0; index--) {
-                    const value = this.modelValue[index];
+            if (this.$filled) {
+                for (let index = this.d_value.length - 1; index >= 0; index--) {
+                    const value = this.d_value[index];
                     const matchedOptionIndex = this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option) && this.isEquals(value, this.getOptionValue(option)));
 
                     if (matchedOptionIndex > -1) return matchedOptionIndex;
@@ -886,25 +896,25 @@ export default {
             return -1;
         },
         findFirstSelectedOptionIndex() {
-            return this.hasSelectedOption ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            return this.$filled ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
         },
         findLastSelectedOptionIndex() {
-            return this.hasSelectedOption ? findLastIndex(this.visibleOptions, (option) => this.isValidSelectedOption(option)) : -1;
+            return this.$filled ? findLastIndex(this.visibleOptions, (option) => this.isValidSelectedOption(option)) : -1;
         },
         findNextSelectedOptionIndex(index) {
-            const matchedOptionIndex = this.hasSelectedOption && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            const matchedOptionIndex = this.$filled && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
         },
         findPrevSelectedOptionIndex(index) {
-            const matchedOptionIndex = this.hasSelectedOption && index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
+            const matchedOptionIndex = this.$filled && index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
 
             return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
         },
         findNearestSelectedOptionIndex(index, firstCheckUp = false) {
             let matchedOptionIndex = -1;
 
-            if (this.hasSelectedOption) {
+            if (this.$filled) {
                 if (firstCheckUp) {
                     matchedOptionIndex = this.findPrevSelectedOptionIndex(index);
                     matchedOptionIndex = matchedOptionIndex === -1 ? this.findNextSelectedOptionIndex(index) : matchedOptionIndex;
@@ -980,7 +990,7 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.hasSelectedOption) {
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
                 const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
 
@@ -988,7 +998,7 @@ export default {
             }
         },
         updateModel(event, value) {
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
             this.$emit('change', { originalEvent: event, value });
         },
         flatOptions(options) {
@@ -1043,18 +1053,18 @@ export default {
             // TODO: Refactor
             let label;
 
-            if (this.modelValue && this.modelValue.length) {
-                if (isNotEmpty(this.maxSelectedLabels) && this.modelValue.length > this.maxSelectedLabels) {
+            if (this.d_value && this.d_value.length) {
+                if (isNotEmpty(this.maxSelectedLabels) && this.d_value.length > this.maxSelectedLabels) {
                     return this.getSelectedItemsLabel();
                 } else {
                     label = '';
 
-                    for (let i = 0; i < this.modelValue.length; i++) {
+                    for (let i = 0; i < this.d_value.length; i++) {
                         if (i !== 0) {
                             label += ', ';
                         }
 
-                        label += this.getLabelByValue(this.modelValue[i]);
+                        label += this.getLabelByValue(this.d_value[i]);
                     }
                 }
             } else {
@@ -1064,13 +1074,14 @@ export default {
             return label;
         },
         chipSelectedItems() {
-            return isNotEmpty(this.maxSelectedLabels) && this.modelValue && this.modelValue.length > this.maxSelectedLabels;
+            return isNotEmpty(this.maxSelectedLabels) && this.d_value && this.d_value.length > this.maxSelectedLabels;
         },
         allSelected() {
             return this.selectAll !== null ? this.selectAll : isNotEmpty(this.visibleOptions) && this.visibleOptions.every((option) => this.isOptionGroup(option) || this.isOptionDisabled(option) || this.isSelected(option));
         },
+        // @deprecated use $filled instead.
         hasSelectedOption() {
-            return isNotEmpty(this.modelValue);
+            return this.$filled;
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
@@ -1079,7 +1090,7 @@ export default {
             return this.filterFields || [this.optionLabel];
         },
         maxSelectionLimitReached() {
-            return this.selectionLimit && this.modelValue && this.modelValue.length === this.selectionLimit;
+            return this.selectionLimit && this.d_value && this.d_value.length === this.selectionLimit;
         },
         filterResultMessageText() {
             return isNotEmpty(this.visibleOptions) ? this.filterMessageText.replaceAll('{0}', this.visibleOptions.length) : this.emptyFilterMessageText;
@@ -1100,7 +1111,7 @@ export default {
             return this.emptySelectionMessage || this.$primevue.config.locale.emptySelectionMessage || '';
         },
         selectedMessageText() {
-            return this.hasSelectedOption ? this.selectionMessageText.replaceAll('{0}', this.modelValue.length) : this.emptySelectionMessageText;
+            return this.$filled ? this.selectionMessageText.replaceAll('{0}', this.d_value.length) : this.emptySelectionMessageText;
         },
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
@@ -1119,6 +1130,9 @@ export default {
         },
         hasFluid() {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
+        },
+        isClearIconVisible() {
+            return this.showClear && this.d_value != null && isNotEmpty(this.options);
         }
     },
     directives: {

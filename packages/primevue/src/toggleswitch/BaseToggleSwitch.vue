@@ -1,29 +1,17 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import ToggleSwitchStyle from 'primevue/toggleswitch/style';
 
 export default {
     name: 'BaseToggleSwitch',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: {
-            type: null,
-            default: false
-        },
         trueValue: {
             type: null,
             default: true
         },
         falseValue: {
             type: null,
-            default: false
-        },
-        invalid: {
-            type: Boolean,
-            default: false
-        },
-        disabled: {
-            type: Boolean,
             default: false
         },
         readonly: {

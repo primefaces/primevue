@@ -37,7 +37,13 @@ const theme = ({ dt }) => `
 `;
 
 const classes = {
-    root: ({ props }) => ['p-knob p-component', { 'p-disabled': props.disabled }],
+    root: ({ instance, props }) => [
+        'p-knob p-component',
+        {
+            'p-disabled': props.disabled,
+            'p-invalid': instance.$invalid
+        }
+    ],
     range: 'p-knob-range',
     value: 'p-knob-value',
     text: 'p-knob-text'

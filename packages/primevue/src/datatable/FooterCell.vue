@@ -6,9 +6,9 @@
 </template>
 
 <script>
+import { getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
-import { getNextElementSibling, getOuterWidth, getPreviousElementSibling } from '@primeuix/utils/dom';
 import { mergeProps } from 'vue';
 
 export default {
@@ -69,23 +69,23 @@ export default {
                 let align = this.columnProp('alignFrozen');
 
                 if (align === 'right') {
-                    let right = 0;
+                    let pos = 0;
                     let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        right = getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        pos = getOuterWidth(next) + parseFloat(next.style.right || 0);
                     }
 
-                    this.styleObject.right = right + 'px';
+                    this.styleObject.insetInlineEnd = pos + 'px';
                 } else {
-                    let left = 0;
+                    let pos = 0;
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        left = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        pos = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
                     }
 
-                    this.styleObject.left = left + 'px';
+                    this.styleObject.insetInlineStart = pos + 'px';
                 }
             }
         }

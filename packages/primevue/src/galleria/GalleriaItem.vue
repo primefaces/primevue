@@ -29,7 +29,7 @@
                 :data-p-active="isIndicatorItemActive(index)"
             >
                 <button v-if="!templates['indicator']" type="button" :tabindex="activeIndex === index ? '0' : '-1'" :class="cx('indicatorButton')" v-bind="ptm('indicatorButton', getIndicatorPTOptions(index))"></button>
-                <component v-if="templates.indicator" :is="templates.indicator" :index="index" />
+                <component v-if="templates.indicator" :is="templates.indicator" :index="index" :activeIndex="activeIndex" :tabindex="activeIndex === index ? '0' : '-1'" />
             </li>
         </ul>
     </div>
@@ -216,7 +216,7 @@ export default {
             const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
             const highlightedIndex = indicators.findIndex((ind) => getAttribute(ind, 'data-p-active') === true);
 
-            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > [tabindex="0"]');
             const activeIndex = indicators.findIndex((ind) => ind === activeIndicator.parentElement);
 
             indicators[activeIndex].children[0].tabIndex = '-1';
@@ -224,7 +224,7 @@ export default {
         },
         findFocusedIndicatorIndex() {
             const indicators = [...find(this.$refs.indicatorContent, '[data-pc-section="indicator"]')];
-            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > button[tabindex="0"]');
+            const activeIndicator = findSingle(this.$refs.indicatorContent, '[data-pc-section="indicator"] > [tabindex="0"]');
 
             return indicators.findIndex((ind) => ind === activeIndicator.parentElement);
         },

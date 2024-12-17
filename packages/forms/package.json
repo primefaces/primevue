@@ -1,0 +1,62 @@
+{
+    "name": "@primevue/forms",
+    "version": "4.2.5",
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/forms"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "main": "./src/index.js",
+    "module": "./src/index.js",
+    "types": "./src/index.d.ts",
+    "exports": {
+        ".": "./src/index.js",
+        "./form": "./src/form/Form.vue",
+        "./form/style": "./src/form/style/FormStyle.js",
+        "./formfield": "./src/formfield/FormField.vue",
+        "./formfield/style": "./src/formfield/style/FormFieldStyle.js",
+        "./*": "./src/*/index.js"
+    },
+    "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.ts",
+        "exports": {
+            ".": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "default": "./index.mjs"
+            },
+            "./*": {
+                "types": "./*/index.d.ts",
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
+            }
+        },
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && rollup -c && pnpm run build:postbuild",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
+    },
+    "dependencies": {
+        "@primeuix/utils": "catalog:",
+        "@primeuix/forms": "catalog:",
+        "@primevue/core": "workspace:*"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

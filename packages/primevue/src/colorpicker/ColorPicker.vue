@@ -1,6 +1,6 @@
 <template>
     <div ref="container" :class="cx('root')" v-bind="ptmi('root')">
-        <input v-if="!inline" ref="input" :id="inputId" type="text" :class="cx('preview')" readonly="readonly" :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" v-bind="ptm('preview')" />
+        <input v-if="!inline" ref="input" :id="inputId" type="text" :class="cx('preview')" readonly :tabindex="tabindex" :disabled="disabled" @click="onInputClick" @keydown="onInputKeydown" @blur="onInputBlur" v-bind="ptm('preview')" />
         <Portal :appendTo="appendTo" :disabled="inline">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div v-if="inline ? true : overlayVisible" :ref="pickerRef" :class="[cx('panel'), panelClass, overlayClass]" @click="onOverlayClick" v-bind="{ ...ptm('panel'), ...ptm('overlay') }">
@@ -32,7 +32,7 @@ export default {
     name: 'ColorPicker',
     extends: BaseColorPicker,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'change', 'show', 'hide'],
+    emits: ['change', 'show', 'hide'],
     data() {
         return {
             overlayVisible: false
@@ -117,7 +117,7 @@ export default {
             this.updateInput();
         },
         updateModel(event) {
-            let value = this.modelValue;
+            let value = this.d_value;
 
             switch (this.format) {
                 case 'hex':
@@ -137,7 +137,7 @@ export default {
                     break;
             }
 
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
             this.$emit('change', { event, value });
         },
         updateColorSelector() {
@@ -395,6 +395,9 @@ export default {
                     //NoOp
                     break;
             }
+        },
+        onInputBlur(event) {
+            this.formField.onBlur?.();
         },
         onColorMousedown(event) {
             if (this.disabled) {

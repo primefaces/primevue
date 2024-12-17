@@ -122,7 +122,7 @@ export interface MeterItem {
     /**
      * Current icon of the meter item.
      */
-    icon: string;
+    icon?: string;
     /**
      * Optional keys.
      */

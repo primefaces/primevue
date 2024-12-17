@@ -48,6 +48,14 @@ const theme = ({ dt }) => `
     background: ${dt('treeselect.disabled.background')};
 }
 
+.p-treeselect-clear-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5rem;
+    color: ${dt('treeselect.clear.icon.color')};
+    inset-inline-end: ${dt('treeselect.dropdown.width')};
+}
+
 .p-treeselect-dropdown {
     display: flex;
     align-items: center;
@@ -56,8 +64,8 @@ const theme = ({ dt }) => `
     background: transparent;
     color: ${dt('treeselect.dropdown.color')};
     width: ${dt('treeselect.dropdown.width')};
-    border-top-right-radius: ${dt('border.radius.md')};
-    border-bottom-right-radius: ${dt('border.radius.md')};
+    border-start-end-radius: ${dt('border.radius.md')};
+    border-end-end-radius: ${dt('border.radius.md')};
 }
 
 .p-treeselect-label-container {
@@ -68,7 +76,7 @@ const theme = ({ dt }) => `
 
 .p-treeselect-label {
     display: flex;
-    align-items-center;
+    align-items: center;
     gap: calc(${dt('treeselect.padding.y')} / 2);
     white-space: nowrap;
     cursor: pointer;
@@ -80,6 +88,10 @@ const theme = ({ dt }) => `
 
 .p-treeselect-label.p-placeholder {
     color: ${dt('treeselect.placeholder.color')};
+}
+
+.p-treeselect.p-invalid .p-treeselect-label.p-placeholder {
+    color: ${dt('treeselect.invalid.placeholder.color')};
 }
 
 .p-treeselect.p-disabled .p-treeselect-label {
@@ -129,13 +141,37 @@ const theme = ({ dt }) => `
 }
 
 .p-treeselect-label .p-chip {
-    padding-top: calc(${dt('treeselect.padding.y')} / 2);
-    padding-bottom: calc(${dt('treeselect.padding.y')} / 2);
+    padding-block-start: calc(${dt('treeselect.padding.y')} / 2);
+    padding-block-end: calc(${dt('treeselect.padding.y')} / 2);
     border-radius: ${dt('treeselect.chip.border.radius')};
 }
 
 .p-treeselect-label:has(.p-chip) {
     padding: calc(${dt('treeselect.padding.y')} / 2) calc(${dt('treeselect.padding.x')} / 2);
+}
+
+.p-treeselect-sm .p-treeselect-label {
+    font-size: ${dt('treeselect.sm.font.size')};
+    padding-block: ${dt('treeselect.sm.padding.y')};
+    padding-inline: ${dt('treeselect.sm.padding.x')};
+}
+
+.p-treeselect-sm .p-treeselect-dropdown .p-icon {
+    font-size: ${dt('treeselect.sm.font.size')};
+    width: ${dt('treeselect.sm.font.size')};
+    height: ${dt('treeselect.sm.font.size')};
+}
+
+.p-treeselect-lg .p-treeselect-label {
+    font-size: ${dt('treeselect.lg.font.size')};
+    padding-block: ${dt('treeselect.lg.padding.y')};
+    padding-inline: ${dt('treeselect.lg.padding.x')};
+}
+
+.p-treeselect-lg .p-treeselect-dropdown .p-icon {
+    font-size: ${dt('treeselect.lg.font.size')};
+    width: ${dt('treeselect.lg.font.size')};
+    height: ${dt('treeselect.lg.font.size')};
 }
 `;
 
@@ -149,13 +185,15 @@ const classes = {
         {
             'p-treeselect-display-chip': props.display === 'chip',
             'p-disabled': props.disabled,
-            'p-invalid': props.invalid,
+            'p-invalid': instance.$invalid,
             'p-focus': instance.focused,
-            'p-variant-filled': props.variant ? props.variant === 'filled' : instance.$primevue.config.inputStyle === 'filled' || instance.$primevue.config.inputVariant === 'filled',
-            'p-inputwrapper-filled': !instance.emptyValue,
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused || instance.overlayVisible,
             'p-treeselect-open': instance.overlayVisible,
-            'p-treeselect-fluid': instance.hasFluid
+            'p-treeselect-fluid': instance.$fluid,
+            'p-treeselect-sm p-inputfield-sm': props.size === 'small',
+            'p-treeselect-lg p-inputfield-lg': props.size === 'large'
         }
     ],
     labelContainer: 'p-treeselect-label-container',
@@ -166,6 +204,7 @@ const classes = {
             'p-treeselect-label-empty': !props.placeholder && instance.emptyValue
         }
     ],
+    clearIcon: 'p-treeselect-clear-icon',
     chip: 'p-treeselect-chip-item',
     pcChip: 'p-treeselect-chip',
     dropdown: 'p-treeselect-dropdown',

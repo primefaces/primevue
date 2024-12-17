@@ -1,0 +1,6 @@
+{
+    "main": "./CheckboxGroupStyle.js",
+    "module": "./CheckboxGroupStyle.js",
+    "types": "./CheckboxGroupStyle.d.ts",
+    "sideEffects": false
+}

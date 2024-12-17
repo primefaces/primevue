@@ -9,6 +9,7 @@ const theme = ({ dt }) => `
     height: ${dt('avatar.height')};
     font-size: ${dt('avatar.font.size')};
     background: ${dt('avatar.background')};
+    color: ${dt('avatar.color')};
     border-radius: ${dt('avatar.border.radius')};
 }
 
@@ -25,7 +26,9 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-icon {
-    font-size: ${dt('avatar.font.size')};
+    font-size: ${dt('avatar.icon.size')};
+    width: ${dt('avatar.icon.size')};
+    height: ${dt('avatar.icon.size')};
 }
 
 .p-avatar img {
@@ -40,7 +43,9 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-lg .p-avatar-icon {
-    font-size: ${dt('avatar.lg.font.size')};
+    font-size: ${dt('avatar.lg.icon.size')};
+    width: ${dt('avatar.lg.icon.size')};
+    height: ${dt('avatar.lg.icon.size')};
 }
 
 .p-avatar-xl {
@@ -50,7 +55,9 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-xl .p-avatar-icon {
-    font-size: ${dt('avatar.xl.font.size')};
+    font-size: ${dt('avatar.xl.icon.size')};
+    width: ${dt('avatar.xl.icon.size')};
+    height: ${dt('avatar.xl.icon.size')};
 }
 
 .p-avatar-group {
@@ -59,11 +66,19 @@ const theme = ({ dt }) => `
 }
 
 .p-avatar-group .p-avatar + .p-avatar {
-    margin-left: ${dt('avatar.group.offset')};
+    margin-inline-start: ${dt('avatar.group.offset')};
 }
 
 .p-avatar-group .p-avatar {
     border: 2px solid ${dt('avatar.group.border.color')};
+}
+
+.p-avatar-group .p-avatar-lg + .p-avatar-lg {
+    margin-inline-start: ${dt('avatar.lg.group.offset')};
+}
+
+.p-avatar-group .p-avatar-xl + .p-avatar-xl {
+    margin-inline-start: ${dt('avatar.xl.group.offset')};
 }
 `;
 

@@ -1,6 +1,6 @@
 {
     "name": "primevue",
-    "version": "4.1.1",
+    "version": "4.2.5",
     "author": "PrimeTek Informatics",
     "description": "PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 370+ ready to use UI blocks to build spectacular applications in no time.",
     "homepage": "https://primevue.org/",
@@ -31,6 +31,9 @@
     "sideEffects": [
         "*.vue"
     ],
+    "main": "./src/index.js",
+    "module": "./src/index.js",
+    "types": "./src/index.d.ts",
     "unpkg": "umd/primevue.min.js",
     "jsdelivr": "umd/primevue.min.js",
     "web-types": "./web-types.json",
@@ -81,6 +84,8 @@
         "./chart/style": "./src/chart/style/ChartStyle.js",
         "./checkbox": "./src/checkbox/Checkbox.vue",
         "./checkbox/style": "./src/checkbox/style/CheckboxStyle.js",
+        "./checkboxgroup": "./src/checkboxgroup/CheckboxGroup.vue",
+        "./checkboxgroup/style": "./src/checkboxgroup/style/CheckboxGroupStyle.js",
         "./chip": "./src/chip/Chip.vue",
         "./chip/style": "./src/chip/style/ChipStyle.js",
         "./chips": "./src/chips/Chips.vue",
@@ -213,6 +218,8 @@
         "./progressspinner/style": "./src/progressspinner/style/ProgressSpinnerStyle.js",
         "./radiobutton": "./src/radiobutton/RadioButton.vue",
         "./radiobutton/style": "./src/radiobutton/style/RadioButtonStyle.js",
+        "./radiobuttongroup": "./src/radiobuttongroup/RadioButtonGroup.vue",
+        "./radiobuttongroup/style": "./src/radiobuttongroup/style/RadioButtonGroupStyle.js",
         "./rating": "./src/rating/Rating.vue",
         "./rating/style": "./src/rating/style/RatingStyle.js",
         "./ripple": "./src/ripple/Ripple.js",
@@ -309,10 +316,19 @@
         "./*": "./*"
     },
     "publishConfig": {
+        "main": "./index.mjs",
+        "module": "./index.mjs",
+        "types": "./index.d.ts",
         "exports": {
+            ".": {
+                "types": "./index.d.ts",
+                "import": "./index.mjs",
+                "default": "./index.mjs"
+            },
             "./*": {
                 "types": "./*/index.d.ts",
-                "import": "./*/index.mjs"
+                "import": "./*/index.mjs",
+                "default": "./*/index.mjs"
             }
         },
         "directory": "dist",

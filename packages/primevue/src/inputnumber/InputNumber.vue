@@ -9,13 +9,14 @@
             :value="formattedValue"
             :aria-valuemin="min"
             :aria-valuemax="max"
-            :aria-valuenow="modelValue"
+            :aria-valuenow="d_value"
             :inputmode="mode === 'decimal' && !minFractionDigits ? 'numeric' : 'decimal'"
             :disabled="disabled"
             :readonly="readonly"
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :size="size"
             :invalid="invalid"
             :variant="variant"
             @input="onUserInput"
@@ -73,7 +74,7 @@
 
 <script>
 import { clearSelection, getSelection } from '@primeuix/utils/dom';
-import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
+import { isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
 import InputText from 'primevue/inputtext';
@@ -83,7 +84,7 @@ export default {
     name: 'InputNumber',
     extends: BaseInputNumber,
     inheritAttrs: false,
-    emits: ['update:modelValue', 'input', 'focus', 'blur'],
+    emits: ['input', 'focus', 'blur'],
     inject: {
         $pcFluid: { default: null }
     },
@@ -103,12 +104,14 @@ export default {
     timer: null,
     data() {
         return {
-            d_modelValue: this.modelValue,
+            // @deprecated
+            d_modelValue: this.d_value,
             focused: false
         };
     },
     watch: {
-        modelValue(newValue) {
+        d_value(newValue) {
+            // @deprecated since v4.2.0
             this.d_modelValue = newValue;
         },
         locale(newValue, oldValue) {
@@ -382,10 +385,12 @@ export default {
 
             let selectionStart = event.target.selectionStart;
             let selectionEnd = event.target.selectionEnd;
+            let selectionRange = selectionEnd - selectionStart;
             let inputValue = event.target.value;
             let newValueStr = null;
+            const code = event.code || event.key;
 
-            switch (event.code) {
+            switch (code) {
                 case 'ArrowUp':
                     this.spin(event, 1);
                     event.preventDefault();
@@ -397,14 +402,22 @@ export default {
                     break;
 
                 case 'ArrowLeft':
-                    if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
+                    if (selectionRange > 1) {
+                        const cursorPosition = this.isNumeralChar(inputValue.charAt(selectionStart)) ? selectionStart + 1 : selectionStart + 2;
+
+                        this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
+                    } else if (!this.isNumeralChar(inputValue.charAt(selectionStart - 1))) {
                         event.preventDefault();
                     }
 
                     break;
 
                 case 'ArrowRight':
-                    if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
+                    if (selectionRange > 1) {
+                        const cursorPosition = selectionEnd - 1;
+
+                        this.$refs.input.$el.setSelectionRange(cursorPosition, cursorPosition);
+                    } else if (!this.isNumeralChar(inputValue.charAt(selectionStart))) {
                         event.preventDefault();
                     }
 
@@ -778,6 +791,7 @@ export default {
         handleOnInput(event, currentValue, newValue) {
             if (this.isValueChanged(currentValue, newValue)) {
                 this.$emit('input', { originalEvent: event, value: newValue, formattedValue: currentValue });
+                this.formField.onInput?.({ originalEvent: event, value: newValue });
             }
         },
         isValueChanged(currentValue, newValue) {
@@ -911,8 +925,7 @@ export default {
             return 0;
         },
         updateModel(event, value) {
-            this.d_modelValue = value;
-            this.$emit('update:modelValue', value);
+            this.writeValue(value, event);
         },
         onInputFocus(event) {
             this.focused = true;
@@ -930,6 +943,7 @@ export default {
             let newValue = this.validateValue(this.parseValue(input.value));
 
             this.$emit('blur', { originalEvent: event, value: input.value });
+            this.formField.onBlur?.(event);
 
             input.value = this.formatValue(newValue);
             input.setAttribute('aria-valuenow', newValue);
@@ -945,16 +959,13 @@ export default {
             }
         },
         maxBoundry() {
-            return this.d_modelValue >= this.max;
+            return this.d_value >= this.max;
         },
         minBoundry() {
-            return this.d_modelValue <= this.min;
+            return this.d_value <= this.min;
         }
     },
     computed: {
-        filled() {
-            return this.modelValue != null && this.modelValue.toString().length > 0;
-        },
         upButtonListeners() {
             return {
                 mousedown: (event) => this.onUpButtonMouseDown(event),
@@ -974,15 +985,12 @@ export default {
             };
         },
         formattedValue() {
-            const val = !this.modelValue && !this.allowEmpty ? 0 : this.modelValue;
+            const val = !this.d_value && !this.allowEmpty ? 0 : this.d_value;
 
             return this.formatValue(val);
         },
         getFormatter() {
             return this.numberFormat;
-        },
-        hasFluid() {
-            return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         }
     },
     components: {

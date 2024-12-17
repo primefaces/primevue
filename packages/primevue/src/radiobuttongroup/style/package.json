@@ -1,0 +1,6 @@
+{
+    "main": "./RadioButtonGroupStyle.js",
+    "module": "./RadioButtonGroupStyle.js",
+    "types": "./RadioButtonGroupStyle.d.ts",
+    "sideEffects": false
+}

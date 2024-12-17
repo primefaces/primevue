@@ -70,42 +70,28 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Form Library</h2>
                                 <p class="mt-0 mb-4 leading-normal">Built-in form library with validations.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 25%; height: 4px"></div>
+                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Components</h2>
-                                <p class="mt-0 mb-4 leading-normal">New Carousel, Tab Orientations, Updated Menu, Navigation Drawer...</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Tailwind CSS Presets</h2>
-                                <p class="mt-0 mb-4 leading-normal">Simplified usage in unstyled mode, typescript support, install via npx.</p>
+                                <p class="mt-0 mb-4 leading-normal">Simplified usage in unstyled mode.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Drag Drop Utils</h2>
-                                <p class="mt-0 mb-4 leading-normal">Drag and Drop utilities.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">RTL Support</h2>
                                 <p class="mt-0 mb-4 leading-normal">Right-to-left layout option for components.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-8">
-                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeVue+ Suite | 2025</h2>
-                                <p class="mt-0 mb-4 leading-normal">Gantt Chart, Flow Chart, Sheet, PDF Viewer, Calendar, Timeline, Editor.</p>
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeVue+ Suite -> 2025</h2>
+                                <p class="mt-0 mb-4 leading-normal">Gantt Chart, Flow Chart, Plot Charts, Graphs, PDF Viewer, Event Calendar, Timeline, Html Editor.</p>
                                 <div class="bg-surface-200 rounded">
                                     <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
                                 </div>
@@ -129,7 +115,7 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">New Figma Tokens - Phase 2</h2>
                                 <p class="mt-0 mb-4 leading-normal">Update tokens to sync with the new styled mode.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-indigo-500 rounded" style="width: 50%; height: 4px"></div>
+                                    <div class="bg-indigo-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +138,7 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Documentation</h2>
                                 <p class="mt-0 mb-4 leading-normal">Interactive component viewer to explore tokens and pt sections.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-teal-500 rounded" style="width: 25%; height: 4px"></div>
+                                    <div class="bg-teal-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +162,7 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Genesis</h2>
                                 <p class="mt-0 mb-4 leading-normal">Brand new multi-purpose template.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-teal-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-teal-500 rounded" style="width: 50%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
@@ -190,14 +176,14 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Tailwind Blocks</h2>
                                 <p class="mt-0 mb-4 leading-normal">Migrate Blocks to v4 and Tailwind CSS.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 90%; height: 4px"></div>
+                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-8">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Online App</h2>
                                 <p class="mt-0 mb-4 leading-normal">Implement an app to access the blocks instead of an offline download.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 90%; height: 4px"></div>
+                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>

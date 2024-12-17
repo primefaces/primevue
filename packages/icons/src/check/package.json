@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./CheckIcon.vue",
+    "module": "./CheckIcon.vue",
+    "types": "./CheckIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./CheckIcon.vue"
     },
     "sideEffects": [
         "*.vue"

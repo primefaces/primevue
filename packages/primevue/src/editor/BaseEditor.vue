@@ -1,12 +1,11 @@
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
+import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import EditorStyle from 'primevue/editor/style';
 
 export default {
     name: 'BaseEditor',
-    extends: BaseComponent,
+    extends: BaseEditableHolder,
     props: {
-        modelValue: String,
         placeholder: String,
         readonly: Boolean,
         formats: Array,

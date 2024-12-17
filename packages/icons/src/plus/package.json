@@ -1,9 +1,9 @@
 {
-    "main": "./index.vue",
-    "module": "./index.vue",
-    "types": "./index.d.ts",
+    "main": "./PlusIcon.vue",
+    "module": "./PlusIcon.vue",
+    "types": "./PlusIcon.d.ts",
     "browser": {
-        "./sfc": "./index.vue"
+        "./sfc": "./PlusIcon.vue"
     },
     "sideEffects": [
         "*.vue"

@@ -58,6 +58,16 @@ export default {
         formField: {
             paddingX: '0.75rem',
             paddingY: '0.625rem',
+            sm: {
+                fontSize: '0.875rem',
+                paddingX: '0.625rem',
+                paddingY: '0.5rem'
+            },
+            lg: {
+                fontSize: '1.125rem',
+                paddingX: '0.875rem',
+                paddingY: '0.75rem'
+            },
             borderRadius: '{border.radius.md}',
             focusRing: {
                 width: '{focus.ring.width}',
@@ -174,10 +184,11 @@ export default {
                     color: '{surface.700}',
                     disabledColor: '{surface.500}',
                     placeholderColor: '{surface.500}',
+                    invalidPlaceholderColor: '{red.600}',
                     floatLabelColor: '{surface.500}',
                     floatLabelFocusColor: '{primary.600}',
                     floatLabelActiveColor: '{surface.500}',
-                    floatLabelInvalidColor: '{red.400}',
+                    floatLabelInvalidColor: '{form.field.invalid.placeholder.color}',
                     iconColor: '{surface.500}',
                     shadow: 'none'
                 },
@@ -294,17 +305,18 @@ export default {
                     filledBackground: '{surface.800}',
                     filledHoverBackground: '{surface.800}',
                     filledFocusBackground: '{surface.950}',
-                    borderColor: '{surface.700}',
+                    borderColor: '{surface.600}',
                     hoverBorderColor: '{primary.color}',
                     focusBorderColor: '{primary.color}',
                     invalidBorderColor: '{red.300}',
                     color: '{surface.0}',
                     disabledColor: '{surface.400}',
                     placeholderColor: '{surface.400}',
+                    invalidPlaceholderColor: '{red.400}',
                     floatLabelColor: '{surface.400}',
                     floatLabelFocusColor: '{primary.color}',
                     floatLabelActiveColor: '{surface.400}',
-                    floatLabelInvalidColor: '{red.300}',
+                    floatLabelInvalidColor: '{form.field.invalid.placeholder.color}',
                     iconColor: '{surface.400}',
                     shadow: 'none'
                 },

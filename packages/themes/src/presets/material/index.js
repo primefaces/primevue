@@ -36,6 +36,7 @@ import inplace from '@primevue/themes/material/inplace';
 import inputchips from '@primevue/themes/material/inputchips';
 import inputgroup from '@primevue/themes/material/inputgroup';
 import inputnumber from '@primevue/themes/material/inputnumber';
+import inputotp from '@primevue/themes/material/inputotp';
 import inputtext from '@primevue/themes/material/inputtext';
 import knob from '@primevue/themes/material/knob';
 import listbox from '@primevue/themes/material/listbox';
@@ -127,6 +128,7 @@ export default {
         inputchips,
         inputgroup,
         inputnumber,
+        inputotp,
         inputtext,
         knob,
         listbox,

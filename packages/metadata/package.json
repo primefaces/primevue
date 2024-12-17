@@ -1,6 +1,6 @@
 {
     "name": "@primevue/metadata",
-    "version": "4.1.1",
+    "version": "4.2.5",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -23,7 +23,8 @@
         "exports": {
             ".": {
                 "types": "./index.d.mts",
-                "import": "./index.mjs"
+                "import": "./index.mjs",
+                "default": "./index.mjs"
             }
         },
         "directory": "dist",

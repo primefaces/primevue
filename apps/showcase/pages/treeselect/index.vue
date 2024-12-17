@@ -14,11 +14,14 @@
 import AccessibilityDoc from '@/doc/treeselect/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/treeselect/BasicDoc.vue';
 import CheckboxDoc from '@/doc/treeselect/CheckboxDoc.vue';
+import ClearIconDoc from '@/doc/treeselect/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/treeselect/DisabledDoc.vue';
 import FilledDoc from '@/doc/treeselect/FilledDoc.vue';
 import FilterDoc from '@/doc/treeselect/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/treeselect/FloatLabelDoc.vue';
+import FormsDoc from '@/doc/treeselect/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/treeselect/IftaLabelDoc.vue';
+import SizesDoc from '@/doc/treeselect/SizesDoc.vue';
 import ImportDoc from '@/doc/treeselect/ImportDoc.vue';
 import InvalidDoc from '@/doc/treeselect/InvalidDoc.vue';
 import LazyDoc from '@/doc/treeselect/LazyDoc.vue';
@@ -42,6 +45,11 @@ export default {
                     component: BasicDoc
                 },
                 {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
+                },
+                {
                     id: 'multiple',
                     label: 'Multiple',
                     component: MultipleDoc
@@ -62,6 +70,11 @@ export default {
                     component: FilterDoc
                 },
                 {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
+                },
+                {
                     id: 'template',
                     label: 'Template',
                     component: TemplateDoc
@@ -80,6 +93,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
                 },
                 {
                     id: 'invalid',

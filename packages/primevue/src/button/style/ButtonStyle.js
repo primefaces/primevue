@@ -31,14 +31,22 @@ const theme = ({ dt }) => `
     order: 1;
 }
 
+.p-button-icon-right:dir(rtl) {
+    order: -1;
+}
+
+.p-button:not(.p-button-vertical) .p-button-icon:not(.p-button-icon-right):dir(rtl) {
+    order: 1;
+}
+
 .p-button-icon-bottom {
     order: 2;
 }
 
 .p-button-icon-only {
     width: ${dt('button.icon.only.width')};
-    padding-left: 0;
-    padding-right: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
     gap: 0;
 }
 
@@ -559,6 +567,24 @@ const theme = ({ dt }) => `
     color: ${dt('button.text.danger.color')};
 }
 
+.p-button-text.p-button-contrast {
+    background: transparent;
+    border-color: transparent;
+    color: ${dt('button.text.contrast.color')};
+}
+
+.p-button-text.p-button-contrast:not(:disabled):hover {
+    background: ${dt('button.text.contrast.hover.background')};
+    border-color: transparent;
+    color: ${dt('button.text.contrast.color')};
+}
+
+.p-button-text.p-button-contrast:not(:disabled):active {
+    background: ${dt('button.text.contrast.active.background')};
+    border-color: transparent;
+    color: ${dt('button.text.contrast.color')};
+}
+
 .p-button-text.p-button-plain {
     background: transparent;
     border-color: transparent;
@@ -607,12 +633,12 @@ const classes = {
             'p-button-icon-only': instance.hasIcon && !props.label && !props.badge,
             'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
             'p-button-loading': props.loading,
-            'p-button-link': props.link,
+            'p-button-link': props.link || props.variant === 'link',
             [`p-button-${props.severity}`]: props.severity,
             'p-button-raised': props.raised,
             'p-button-rounded': props.rounded,
-            'p-button-text': props.text,
-            'p-button-outlined': props.outlined,
+            'p-button-text': props.text || props.variant === 'text',
+            'p-button-outlined': props.outlined || props.variant === 'outlined',
             'p-button-sm': props.size === 'small',
             'p-button-lg': props.size === 'large',
             'p-button-plain': props.plain,

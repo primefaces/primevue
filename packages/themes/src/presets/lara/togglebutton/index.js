@@ -22,7 +22,15 @@ export default {
             offset: '{form.field.focus.ring.offset}',
             shadow: '{form.field.focus.ring.shadow}'
         },
-        transitionDuration: '{form.field.transition.duration}'
+        transitionDuration: '{form.field.transition.duration}',
+        sm: {
+            fontSize: '{form.field.sm.font.size}',
+            padding: '0.5rem 0.75rem'
+        },
+        lg: {
+            fontSize: '{form.field.lg.font.size}',
+            padding: '0.75rem 1.25rem'
+        }
     },
     icon: {
         color: '{text.muted.color}',
