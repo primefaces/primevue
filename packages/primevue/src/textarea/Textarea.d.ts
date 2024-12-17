@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { InputHTMLAttributes } from 'vue';
+import type { TextareaHTMLAttributes } from 'vue';
 
 export declare type TextareaPassThroughOptionType = TextareaPassThroughAttributes | ((options: TextareaPassThroughMethodOptions) => TextareaPassThroughAttributes | string) | string | null | undefined;
 
@@ -86,7 +86,7 @@ export interface TextareaContext {
 /**
  * Defines valid properties in Textarea component. In addition to these, all properties of TextareaHTMLAttributes can be used in this component.
  */
-export interface TextareaProps extends Omit<InputHTMLAttributes, 'size'> {
+export interface TextareaProps extends TextareaHTMLAttributes {
     /**
      * Value of the component.
      */
