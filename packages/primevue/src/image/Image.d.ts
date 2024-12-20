@@ -172,6 +172,10 @@ export interface ImageState {
  */
 export interface ImageProps {
     /**
+     * Image url.
+     */
+    src?: string | undefined;
+    /**
      * Controls the preview functionality.
      * @defaultValue false
      */
