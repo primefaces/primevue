@@ -1,6 +1,6 @@
 <template>
     <template v-for="(instance, key) in instanceMap" :key="key">
-        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide">
+        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide(instance)">
             <template v-if="instance.options.templates && instance.options.templates.header" #header>
                 <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'" v-bind="instance.options.emits"></component>
             </template>
@@ -61,11 +61,11 @@ export default {
     methods: {
         onDialogHide(instance) {
             !this.currentInstance && instance.options.onClose && instance.options.onClose({ type: 'dialog-close' });
-            delete this.instanceMap[instance.key];
         },
-        onDialogAfterHide() {
+        onDialogAfterHide(instance) {
             this.currentInstance && delete this.currentInstance;
             this.currentInstance = null;
+            delete this.instanceMap[instance.key];
         },
         getTemplateItems(template) {
             return Array.isArray(template) ? template : [template];
