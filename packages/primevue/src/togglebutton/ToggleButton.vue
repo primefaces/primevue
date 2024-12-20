@@ -9,6 +9,7 @@
         @click="onChange"
         @blur="onBlur"
         v-bind="getPTOptions('root')"
+        :aria-label="ariaLabel"
         :aria-labelledby="ariaLabelledby"
         :data-p-checked="active"
         :data-p-disabled="disabled"
