@@ -456,7 +456,7 @@ export default {
             nodeMap[node.key] = node;
 
             if (node.children?.length) {
-                node.children.forEach(children => this.fillNodeMap(children, nodeMap))
+                node.children.forEach((children) => this.fillNodeMap(children, nodeMap));
             }
         },
         isSelected(node, keys) {
@@ -512,7 +512,7 @@ export default {
         nodeMap() {
             const nodeMap = {};
 
-            this.options?.forEach(node => this.fillNodeMap(node, nodeMap))
+            this.options?.forEach((node) => this.fillNodeMap(node, nodeMap));
 
             return nodeMap;
         },
@@ -520,13 +520,13 @@ export default {
             let selectedNodes = [];
 
             if (this.d_value && this.options) {
-                Object.keys(this.d_value).forEach(key => {
+                Object.keys(this.d_value).forEach((key) => {
                     const node = this.nodeMap[key];
 
                     if (this.isSelected(node, this.d_value)) {
-                        selectedNodes.push(node)
+                        selectedNodes.push(node);
                     }
-                })
+                });
             }
 
             return selectedNodes;
