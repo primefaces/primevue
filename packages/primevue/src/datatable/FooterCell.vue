@@ -73,7 +73,7 @@ export default {
                     let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        pos = getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        pos = getOuterWidth(next) + parseFloat(next.style['inset-inline-end'] || 0);
                     }
 
                     this.styleObject.insetInlineEnd = pos + 'px';
@@ -82,7 +82,7 @@ export default {
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        pos = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        pos = getOuterWidth(prev) + parseFloat(prev.style['inset-inline-start'] || 0);
                     }
 
                     this.styleObject.insetInlineStart = pos + 'px';

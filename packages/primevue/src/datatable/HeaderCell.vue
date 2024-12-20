@@ -283,7 +283,7 @@ export default {
                     let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (next) {
-                        pos = getOuterWidth(next) + parseFloat(next.style.right || 0);
+                        pos = getOuterWidth(next) + parseFloat(next.style['inset-inline-end'] || 0);
                     }
 
                     this.styleObject.insetInlineEnd = pos + 'px';
@@ -292,7 +292,7 @@ export default {
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
-                        pos = getOuterWidth(prev) + parseFloat(prev.style.left || 0);
+                        pos = getOuterWidth(prev) + parseFloat(prev.style['inset-inline-start'] || 0);
                     }
 
                     this.styleObject.insetInlineStart = pos + 'px';
@@ -304,8 +304,8 @@ export default {
                     let index = getIndex(this.$el);
 
                     if (filterRow.children[index]) {
-                        filterRow.children[index].style.left = this.styleObject.left;
-                        filterRow.children[index].style.right = this.styleObject.right;
+                        filterRow.children[index].style['inset-inline-start'] = this.styleObject['inset-inline-start'];
+                        filterRow.children[index].style['inset-inline-end'] = this.styleObject['inset-inline-end'];
                     }
                 }
             }
