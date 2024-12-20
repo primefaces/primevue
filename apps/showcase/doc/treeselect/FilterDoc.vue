@@ -8,7 +8,7 @@
     </DocSectionText>
     <div class="card flex flex-wrap justify-center items-end gap-4">
         <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
-        <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
     <DocSectionCode :code="code" :service="['NodeService']" v-bind="$attrs" />
 </template>
@@ -21,6 +21,7 @@ export default {
         return {
             nodes: null,
             selectedValue: null,
+            selectedValue2: null,
             code: {
                 basic: `
 <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
@@ -42,6 +43,7 @@ export default {
         return {
             nodes: null,
             selectedValue: null,
+            selectedValue2: null,
         }
     },
     mounted() {
@@ -64,6 +66,7 @@ import { NodeService } from './service/NodeService';
 
 const nodes = ref(null);
 const selectedValue = ref(null);
+const selectedValue2 = ref(null);
 
 onMounted(() => {
     NodeService.getTreeNodes().then((data) => (nodes.value = data));
