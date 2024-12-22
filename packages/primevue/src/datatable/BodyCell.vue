@@ -221,6 +221,7 @@ export default {
     documentEditListener: null,
     selfClick: false,
     overlayEventListener: null,
+    editCompleteTimeout: null,
     data() {
         return {
             d_editing: this.editing,
@@ -306,8 +307,14 @@ export default {
                 this.documentEditListener = (event) => {
                     this.selfClick = this.$el && this.$el.contains(event.target);
 
+                    if (this.editCompleteTimeout) {
+                        clearTimeout(this.editCompleteTimeout);
+                    }
+
                     if (!this.selfClick) {
-                        this.completeEdit(event, 'outside');
+                        this.editCompleteTimeout = setTimeout(() => {
+                            this.completeEdit(event, 'outside');
+                        }, 1);
                     }
                 };
 
@@ -319,6 +326,11 @@ export default {
                 document.removeEventListener('mousedown', this.documentEditListener);
                 this.documentEditListener = null;
                 this.selfClick = false;
+
+                if (this.editCompleteTimeout) {
+                    clearTimeout(this.editCompleteTimeout);
+                    this.editCompleteTimeout = null;
+                }
             }
         },
         switchCellToViewMode() {
