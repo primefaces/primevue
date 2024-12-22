@@ -401,20 +401,22 @@ export default {
                 }
             }
         },
-        moveToPreviousCell(event) {
+        async moveToPreviousCell(event) {
             let currentCell = this.findCell(event.target);
             let targetCell = this.findPreviousEditableColumn(currentCell);
 
             if (targetCell) {
+                await this.$nextTick();
                 invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
         },
-        moveToNextCell(event) {
+        async moveToNextCell(event) {
             let currentCell = this.findCell(event.target);
             let targetCell = this.findNextEditableColumn(currentCell);
 
             if (targetCell) {
+                await this.$nextTick();
                 invokeElementMethod(targetCell, 'click');
                 event.preventDefault();
             }
