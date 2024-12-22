@@ -304,11 +304,11 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
+                    this.selfClick = this.$el && this.$el.contains(event.target);
+
                     if (!this.selfClick) {
                         this.completeEdit(event, 'outside');
                     }
-
-                    this.selfClick = false;
                 };
 
                 document.addEventListener('mousedown', this.documentEditListener);
@@ -335,9 +335,7 @@ export default {
                     this.$emit('cell-edit-init', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
 
                     this.overlayEventListener = (e) => {
-                        if (this.$el && this.$el.contains(e.target)) {
-                            this.selfClick = true;
-                        }
+                        this.selfClick = this.$el && this.$el.contains(e.target);
                     };
 
                     OverlayEventBus.on('overlay-click', this.overlayEventListener);
