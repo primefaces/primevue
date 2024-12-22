@@ -311,12 +311,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.documentEditListener);
+                document.addEventListener('mousedown', this.documentEditListener);
             }
         },
         unbindDocumentEditListener() {
             if (this.documentEditListener) {
-                document.removeEventListener('click', this.documentEditListener);
+                document.removeEventListener('mousedown', this.documentEditListener);
                 this.documentEditListener = null;
                 this.selfClick = false;
             }
@@ -329,8 +329,6 @@ export default {
         },
         onClick(event) {
             if (this.editMode === 'cell' && this.isEditable()) {
-                this.selfClick = true;
-
                 if (!this.d_editing) {
                     this.d_editing = true;
                     this.bindDocumentEditListener();
