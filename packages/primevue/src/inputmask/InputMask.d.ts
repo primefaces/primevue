@@ -60,10 +60,9 @@ export interface InputMaskSharedPassThroughMethodOptions {
  */
 export interface InputMaskPassThroughOptions {
     /**
-     * Used to pass attributes to the InputText component.
-     * @see {@link InputTextPassThroughOptions}
+     * Used to pass attributes to the root's DOM element.
      */
-    root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    root?: InputMaskPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
