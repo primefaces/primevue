@@ -15,6 +15,7 @@ import TemplateDoc from '@/doc/toast/TemplateDoc.vue';
 import ToastServiceDoc from '@/doc/toast/ToastServiceDoc.vue';
 import PTComponent from '@/doc/toast/pt/index.vue';
 import ThemingDoc from '@/doc/toast/theming/index.vue';
+import RemovingToastsDoc from '@/doc/toast/RemovingToastsDoc.vue';
 
 export default {
     data() {
@@ -64,6 +65,11 @@ export default {
                     id: 'headless',
                     label: 'Headless',
                     component: HeadlessDoc
+                },
+                {
+                    id: 'remove-toast',
+                    label: 'Removing Toasts',
+                    component: RemovingToastsDoc
                 },
                 {
                     id: 'accessibility',
