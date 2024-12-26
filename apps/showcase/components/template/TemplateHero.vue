@@ -6,8 +6,11 @@
                 class="absolute top-0 left-0 w-full h-full backdrop-blur-[2px] rounded-3xl border border-[rgba(255,255,255,0.24)] [background:linear-gradient(180deg,rgba(170,140,255,0.00)_0%,var(--p-primary-400)/0.8_100%),rgba(255,255,255,0.10)] shadow-[0px_2px_4px_0px_rgba(255,255,255,0.24)_inset,0px_48px_80px_0px_rgba(0,0,0,0.08),0px_-5px_13px_-2px_rgba(255,255,255,0.55)_inset]"
             />
             <div class="z-10 relative">
-                <div class="h-8 lg:h-10 [&>svg]:h-full [&>svg]:w-auto select-none">
-                    <component :is="templateHeroData.logo"> </component>
+                <div class="flex gap-4 items-center">
+                    <div class="h-8 lg:h-10 [&>svg]:h-full [&>svg]:w-auto select-none">
+                        <component :is="templateHeroData.logo"> </component>
+                    </div>
+                    <div v-if="templateHeroData.isMultipurpose" class="bg-surface-0 text-surface-900 px-2 py-1 font-medium leading-6 rounded-md">Multipurpose</div>
                 </div>
                 <p class="text-primary-contrast mt-4 mb-0 lg:text-base text-sm">{{ templateHeroData.description }}</p>
                 <div class="flex items-center gap-4 mt-8">

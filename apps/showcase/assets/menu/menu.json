@@ -33,6 +33,10 @@
                 {
                     "name": "CDN",
                     "to": "/cdn"
+                },
+                {
+                    "name": "Laravel",
+                    "to": "/laravel"
                 }
             ]
         },

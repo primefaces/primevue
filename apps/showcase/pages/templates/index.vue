@@ -5,6 +5,26 @@
             <p>Highly customizable application templates to get started in no time with style. Designed and implemented by PrimeTek.</p>
         </div>
 
+        <h2>Multi-Purpose Templates</h2>
+        <div class="templates-page grid grid-cols-12 gap-4">
+            <div class="col-span-12 lg:col-span-6 xl:col-span-4">
+                <div class="card mb-0">
+                    <a href="https://genesis.primevue.org" rel="noopener noreferrer">
+                        <img alt="Genesis" src="https://primefaces.org/cdn/primevue/images/layouts/genesis-vue.jpg" class="w-full" />
+                    </a>
+                    <div class="flex gap-4 mt-4">
+                        <a href="https://genesis.primevue.org" class="p-button flex-1" rel="noopener noreferrer" target="_blank">
+                            <span class="p-button-label">Preview</span>
+                        </a>
+                        <PrimeVueNuxtLink to="/templates/genesis" class="p-button p-button-outlined flex-1">
+                            <span class="p-button-label">Learn More</span>
+                        </PrimeVueNuxtLink>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Admin Templates</h2>
         <div class="templates-page grid grid-cols-12 gap-4">
             <div class="col-span-12 lg:col-span-6 xl:col-span-4">
                 <div class="card mb-0">
