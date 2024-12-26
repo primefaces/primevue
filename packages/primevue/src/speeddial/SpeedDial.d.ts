@@ -125,7 +125,7 @@ export interface SpeedDialState {
      * Current visible state as a boolean.
      * @defaultValue false
      */
-    visible: boolean;
+    d_visible: boolean;
     /**
      * Current click state of component as a boolean.
      * @defaultValue false
