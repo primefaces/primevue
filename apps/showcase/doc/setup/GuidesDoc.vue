@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs"></DocSectionText>
     <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-12 sm:col-span-3">
+        <div class="col-span-12 sm:col-span-6 md:col-span-3">
             <div class="card">
                 <NuxtLink to="/vite">
                     <span class="images">
@@ -57,7 +57,7 @@
                 </NuxtLink>
             </div>
         </div>
-        <div class="col-span-12 sm:col-span-3">
+        <div class="col-span-12 sm:col-span-6 md:col-span-3">
             <div class="card">
                 <NuxtLink to="/nuxt">
                     <span class="images">
@@ -81,7 +81,7 @@
                 </NuxtLink>
             </div>
         </div>
-        <div class="col-span-12 sm:col-span-3">
+        <div class="col-span-12 sm:col-span-6 md:col-span-3">
             <div class="card flex-1">
                 <NuxtLink to="/cdn">
                     <span class="images">
@@ -111,7 +111,7 @@
                 </NuxtLink>
             </div>
         </div>
-        <div class="col-span-12 sm:col-span-3">
+        <div class="col-span-12 sm:col-span-6 md:col-span-3">
             <div class="card flex-1">
                 <NuxtLink to="/laravel">
                     <span class="images">

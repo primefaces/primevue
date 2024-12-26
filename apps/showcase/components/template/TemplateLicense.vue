@@ -21,7 +21,7 @@
                 </template>
             </div>
             <p class="text-muted-color text-center mt-6 mb-0">{{ license.description }}</p>
-            <p class="text-muted-color text-center mt-6 mb-0">
+            <p v-if="license.documentLink" class="text-muted-color text-center mt-6 mb-0">
                 Visit the
                 <a :href="license.documentLink" target="_blank" class="text-primary cursor-pointer transition-all hover:underline"> official documentation </a> for more information.
             </p>

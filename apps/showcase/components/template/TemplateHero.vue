@@ -30,7 +30,7 @@
                         <i class="pi pi-github" />
                         <span class="hover:underline">{{ templateHeroData.free ? 'Open Issues' : 'Community' }}</span>
                     </a>
-                    <a class="flex items-center gap-2 text-primary-contrast lg:text-base text-sm" :href="templateHeroData.docHref" target="_blank">
+                    <a v-if="templateHeroData.docHref" class="flex items-center gap-2 text-primary-contrast lg:text-base text-sm" :href="templateHeroData.docHref" target="_blank">
                         <i class="pi pi-book" />
                         <span class="hover:underline">Documentation</span>
                     </a>
