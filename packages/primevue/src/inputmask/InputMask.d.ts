@@ -9,7 +9,6 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
 export declare type InputMaskPassThroughOptionType = InputMaskPassThroughAttributes | ((options: InputMaskPassThroughMethodOptions) => InputMaskPassThroughAttributes | string) | string | null | undefined;
@@ -65,9 +64,8 @@ export interface InputMaskPassThroughOptions {
     root?: InputMaskPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
-     * @see {@link InputTextPassThroughOptions}
      */
-    pcInputText?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    pcInputText?: InputMaskPassThroughOptionType;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
