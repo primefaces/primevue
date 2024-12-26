@@ -1,7 +1,7 @@
 <template>
     <div class="template-features">
         <div v-if="displayType === 'vertical'" class="px-6 py-6 sm:px-10 sm:py-10 lg:py-20 rounded-3xl bg-surface-0 dark:bg-surface-900">
-            <div class="mx-auto max-w-3xl flex sm:flex-row flex-col items-start gap-6">
+            <div class="mx-auto max-w-3xl flex md:flex-row flex-col items-start gap-6">
                 <div
                     v-for="(_, i) of Array(2).fill(null)"
                     :key="i"
