@@ -104,10 +104,10 @@ export interface SplitButtonPassThroughAttributes {
  */
 export interface SplitButtonState {
     /**
-     * Current blocked state as a boolean.
+     * Current expanded state as a boolean.
      * @defaultValue false
      */
-    isBlocked: boolean;
+    isExpanded: boolean;
 }
 
 /**
