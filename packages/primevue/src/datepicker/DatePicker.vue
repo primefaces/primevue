@@ -392,6 +392,7 @@
                                 :class="cx('pcDecrementButton')"
                                 :aria-label="$primevue.config.locale.prevMinute"
                                 :disabled="disabled"
+                                :unstyled="unstyled"
                                 @mousedown="onTimePickerElementMouseDown($event, 1, -1)"
                                 @mouseup="onTimePickerElementMouseUp($event)"
                                 @keydown="onContainerButtonKeydown"
