@@ -176,16 +176,23 @@ export default {
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/genesis/fully-responsive.png'
                                 },
                                 {
+                                    title: 'Support',
+                                    description: `PrimeTek offers assistance with account management and licensing issues, with the expectation that users have the necessary technical knowledge to use our products, as we do not offer technical support or consulting. Users
+                                        can seek assistance in our community via our public <a href="https://discord.com/invite/gzKFYnpmCY">Discord</a> and
+                                        <a href="https://github.com/orgs/primefaces/discussions/categories/primevue-templates" class="doc-link">Forum</a>.`,
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-lifetime.png'
+                                },
+                                {
+                                    title: 'Top Notch Quality',
+                                    description: 'Superior standards with 100% compatibility for strict mode and linting tools.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality.png',
+                                    darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality-dark.png'
+                                },
+                                {
                                     title: 'Cross Browser Compatible',
                                     description: 'First class support for Firefox, Safari, Chrome and Edge.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-compatible.png',
                                     darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-compatible-dark.png'
-                                },
-                                {
-                                    title: 'Support',
-                                    description:
-                                        'PrimeTek offers assistance with account management and licensing issues, with the expectation that users have the necessary technical knowledge to use our products, as we do not offer technical support or consulting. Users can seek assistance in our community via our public Discord and Forum.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-lifetime.png'
                                 },
                                 {
                                     title: 'Customizable Design',
@@ -196,7 +203,7 @@ export default {
                                 {
                                     title: 'Mobile Experience',
                                     description: 'Touch optimized enhanced mobile experience with responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/genesis/mobile-experience.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-mobile.png'
                                 }
                             ],
                             displayType: 'vertical'

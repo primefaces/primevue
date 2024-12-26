@@ -10,7 +10,7 @@
                         'sm:pt-32': i === 1
                     }"
                 >
-                    <template v-for="(data, j) of i === 0 ? featuresData.slice(0, Math.ceil(featuresData.length / 2)) : featuresData.slice(featuresData.length / 2)" :key="j">
+                    <template v-for="(data, j) of i === 0 ? featuresData.slice(0, Math.floor((featuresData.length + 1) / 2)) : featuresData.slice(Math.floor((featuresData.length + 1) / 2))" :key="j">
                         <div v-animateonscroll.once="{ enterClass: 'animate-fadein' }" class="w-full p-4 md:p-5 rounded-2xl border border-surface animate-duration-500">
                             <div class="w-full bg-surface-100 dark:bg-surface-800 rounded-lg overflow-hidden flex">
                                 <img class="w-full h-auto rounded-lg" :src="$appState.darkTheme ? data.darkSrc || data.src : data.src" :alt="data.title" />
