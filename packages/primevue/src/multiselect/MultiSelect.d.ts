@@ -803,9 +803,9 @@ export interface MultiSelectSlots {
      */
     itemcheckboxicon(scope: {
         /**
-         * Options of the loader items for virtualscroller
+         * Whether the data is selected.
          */
-        selected: boolean;
+        checked: boolean;
         /**
          * Style class of the loading icon.
          */
