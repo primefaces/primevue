@@ -15,12 +15,18 @@ const $appState = {
             announcement: null,
             storageKey: 'primevue',
             designer: {
-                key: 'primevue-designer-theme',
+                localStoreKey: 'primevue-designer-licensekey',
+                licenseKey: null,
                 active: false,
+                activeView: 'dashboard',
                 activeTab: '0',
-                preset: null,
-                customTokens: [],
-                acTokens: []
+                theme: {
+                    name: null,
+                    preset: null,
+                    customTokens: [],
+                    acTokens: []
+                },
+                themes: []
             }
         });
     }

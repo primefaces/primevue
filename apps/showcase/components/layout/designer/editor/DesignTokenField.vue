@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label :for="inputId" class="text-sm text-zinc-700 dark:text-white capitalize">{{ label }}</label>
+        <label :for="inputId" class="text-sm text-zinc-700 dark:text-white block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap" :title="label">{{ label }}</label>
         <div :id="id" class="relative">
             <AutoComplete
                 :modelValue="modelValue"

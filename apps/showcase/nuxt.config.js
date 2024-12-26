@@ -97,7 +97,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             contextPath: baseUrl,
-            DEV_ENV: PROCESS_ENV.DEV_ENV
+            DEV_ENV: PROCESS_ENV.DEV_ENV,
+            designerApiBase: ''
         }
     },
     css: ['primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/tailwind/main.css', '@/assets/styles/layout/layout.scss']

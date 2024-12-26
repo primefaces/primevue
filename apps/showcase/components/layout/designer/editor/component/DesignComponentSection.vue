@@ -24,7 +24,6 @@ export default {
             default: null
         }
     },
-    inject: ['$preset'],
     methods: {
         camelCaseToSpaces(val) {
             return val.replace(/([a-z])([A-Z])/g, '$1 $2');
@@ -67,7 +66,7 @@ export default {
                 .join(' ');
         },
         tokens() {
-            return this.getObjectProperty(this.$preset.components[this.componentKey], this.path);
+            return this.getObjectProperty(this.$appState.designer.theme.preset.components[this.componentKey], this.path);
         },
         nestedTokens() {
             const groups = {};

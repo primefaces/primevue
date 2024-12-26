@@ -1,5 +1,5 @@
 <template>
-    <section class="flex flex-col gap-3">
+    <section v-if="isComponentRoute" class="flex flex-col gap-3">
         <div class="text-lg font-semibold capitalize">{{ componentKey }}</div>
         <template v-for="(value, name) in tokens" :key="name">
             <DesignComponentSection v-if="name !== 'colorScheme'" :componentKey="componentKey" :path="name" />
@@ -27,19 +27,23 @@
 
 <script>
 export default {
-    inject: ['$preset'],
     computed: {
         componentKey() {
             return this.$route.name;
         },
+        isComponentRoute() {
+            const components = this.$appState.designer.theme?.preset?.components;
+
+            return components ? components[this.componentKey] != null : false;
+        },
         tokens() {
-            return this.$preset.components[this.componentKey];
+            return this.$appState.designer.theme?.preset?.components[this.componentKey];
         },
         lightTokens() {
-            return this.$preset.components[this.componentKey].colorScheme.light;
+            return this.$appState.designer.theme?.preset?.components[this.componentKey].colorScheme.light;
         },
         darkTokens() {
-            return this.$preset.components[this.componentKey].colorScheme.dark;
+            return this.$appState.designer.theme?.preset?.components[this.componentKey].colorScheme.dark;
         },
         hasColorScheme() {
             return this.tokens.colorScheme != undefined;
