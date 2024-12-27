@@ -127,8 +127,6 @@ body:
       label: PrimeVue version
       description: >-
         Only issues related to v4 are valid.
-      options:
-        - v4
     validations:
       required: true
   - type: input
