@@ -23,7 +23,7 @@
 
 <script>
 import { getHeight, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
-import { isArray } from '@primeuix/utils/object';
+import { isArray, isNotEmpty } from '@primeuix/utils/object';
 import { getVNodeProp } from '@primevue/core/utils';
 import BaseSplitter from './BaseSplitter.vue';
 
@@ -76,7 +76,7 @@ export default {
                     let _panelSizes = [];
 
                     this.panels.map((panel, i) => {
-                        let panelInitialSize = panel.props && panel.props.size ? panel.props.size : null;
+                        let panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
                         let panelSize = panelInitialSize || 100 / this.panels.length;
 
                         _panelSizes[i] = panelSize;
