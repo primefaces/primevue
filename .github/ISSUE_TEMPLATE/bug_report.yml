@@ -1,102 +1,168 @@
 name: Bug report
-description: Create a report to help PrimeVue improve.
-title: 'Component Name: Issue Title'
-labels: 'Status: Needs Triage'
+description: Create a report to help PrimeNG improve.
+title: Issue Title
+labels:
+  - 'Status: Needs Triage'
 body:
-    - type: markdown
-      attributes:
-          # yamllint disable rule:line-length
-          value: >
-              ### There is no guarantee in receiving an immediate response in GitHub Issue Tracker, If you'd like to secure our response, you may consider *PrimeVue PRO Support* where support is provided within 4 business hours
-          # yamllint enable rule:line-length
-    - type: textarea
-      id: description
-      attributes:
-          label: Describe the bug
-          description: A clear and concise description of what the bug is.
-      validations:
-          required: true
-    - type: input
-      id: reproducer
-      attributes:
-          label: Reproducer
-          placeholder: https://stackblitz.com/edit/primevue-4-vite-issue-template
-          description: |
-              Please fork one of the issue template
-              [PrimeVue 4 Issue Template](https://stackblitz.com/edit/primevue-4-vite-issue-template)
-              [PrimeVue 4 TypeScript Issue Template](https://stackblitz.com/edit/primevue-4-ts-vite-issue-template-csnodp)
-              [PrimeVue 3 Issue Template](https://stackblitz.com/edit/primevue-3-vite-issue-template)
-              [PrimeVue 3 TypeScript Issue Template](https://stackblitz.com/edit/primevue-3-vite-ts-issue-template)
-              [PrimeVue Nuxt Issue Template](https://stackblitz.com/edit/primevue-nuxt-issue-template)
-              [PrimeVue 2 Issue Template](https://codesandbox.io/s/primevue-2-issue-template-dw7jd7)
-              and create a case demonstrating your bug report. Issues **without** a Stackblitz have much less possibility to be reviewed.
-      validations:
-          required: true
-    - type: input
-      id: pr-version
-      attributes:
-          label: PrimeVue version
-          placeholder: x.x.x
-      validations:
-          required: true
-    - type: dropdown
-      id: vue-version
-      attributes:
-          label: Vue version
-          multiple: false
-          options:
-              - 4.x
-              - 3.x
-              - 2.x
-      validations:
-          required: true
-    - type: dropdown
-      id: language
-      attributes:
-          label: Language
-          multiple: false
-          options:
-              - TypeScript
-              - ES5
-              - ES6
-              - ALL
-      validations:
-          required: true
-    - type: dropdown
-      id: engine
-      attributes:
-          label: Build / Runtime
-          multiple: false
-          options:
-              - Vue CLI App
-              - TypeScript
-              - Nuxt
-              - Vite
-      validations:
-          required: true
-    - type: input
-      id: browsers
-      attributes:
-          label: Browser(s)
-          description: List specific browser(s) the problem occurs on or leave blank if ALL browsers
-          placeholder: >
-              e.g. Safari 15, iOS 15.4, Chrome 90
-    - type: textarea
-      id: reproduce-steps
-      attributes:
-          label: Steps to reproduce the behavior
-          description: A clear and concise description of how to make the issue happen.
-          placeholder: >
-              1. Go to '...'
-              2. Click on '....'
-              3. Scroll down to '....'
-              4. See error
-      validations:
-          required: false
-    - type: textarea
-      id: expected-behavior
-      attributes:
-          label: Expected behavior
-          description: A clear and concise description of what you expected to happen.
-      validations:
-          required: false
+  - type: markdown
+    attributes:
+      value: >
+        ## Overview
+
+
+        PrimeNG receives close to 2 million downloads per month. As any other popular OSS project, you may understand that the core team does not have the bandwidth to review each and every issue in detail in their daily routines. We have established strict guidelines for issue creation to ensure we can effectively address issues. It will help us prioritize and manage our workload efficiently.
+
+
+        Adhering to these guidelines, you help us maintain and improve the project more effectively. If you'd like to get our detailed attention, consider PrimeNG PRO Support instead, which provides support within one business day. Thank you for your cooperation and contributions!
+
+
+        ## Issue Creation Guidelines
+
+
+        To help us assist you better, please follow these mandatory requirements when creating an issue:
+
+
+        **Important:** Our bot will automatically close issues that do not follow these guidelines.
+
+
+        ### Reproducer
+
+
+        Provide a clear and concise executable example that reproduces the issue based on our StackBlitz template.
+
+
+        ### PrimeNG Version
+
+        Ensure that you are using PrimeNG version v19. Issues related to other versions will not be reviewed as they are part of PrimeNG LTS, which has an internal ticket management system.
+
+
+        ### Provide a Pull Request
+
+        We highly encourage contributions from the community! If you have the time and ability, consider submitting a pull request to address this issue. Here's how you can get started:
+
+          1. Fork the repository.
+          2. Create a new branch (`git checkout -b feature/YourFeatureName`).
+          3. Run "npm run dev" command to deploy the showcase locally using the monorepo.
+          4. Make your changes.
+          5. Commit your changes (`git commit -m 'Add some feature'`).
+          6. Push to the branch (`git push origin feature/YourFeatureName`).
+          7. Open a pull request.
+
+        ### Reason for No PR
+
+
+        If you are unable to provide a PR, please explain why. Understanding the reasons can help us improve and assist you in contributing.
+
+
+        ### Discussions and Questions
+
+
+        Please refrain from creating issue tickets for questions or support requests. Instead, use the GitHub Discussions or join the PrimeLand  Discord server for assistance.
+
+
+        ## New Issue Report
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the report is about.
+    validations:
+      required: true
+  - type: input
+    id: pull_request
+    attributes:
+      label: Pull Request Link
+      description: Link to your pull request.
+    validations:
+      required: false
+  - type: checkboxes
+    id: reason_for_no_pr
+    attributes:
+      label: Reason for not contributing a PR
+      options:
+        - label: Lack of time
+        - label: Unsure how to implement the fix/feature
+        - label: Difficulty understanding the codebase
+        - label: Other
+    validations:
+      required: false
+  - type: textarea
+    id: pr_other
+    attributes:
+      label: Other Reason
+      description: >-
+        If your answer to the previous question is "Other", please explain the
+        reason.
+    validations:
+      required: false
+  - type: input
+    id: reproducer
+    attributes:
+      label: Reproducer
+      placeholder: 'https://stackblitz.com/github/primefaces/primeng-issue-template'
+      description: >-
+        Issues **without** a StackBlitz example will be closed automatically.
+        Please fork one of the issue template [PrimeNG Issue
+        Template](https://stackblitz.com/github/primefaces/primeng-issue-template?file=src%2Fapp%2Fapp.component.html)
+        and create a case demonstrating your bug report.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Tell us about your environment.
+    validations:
+      required: true
+  - type: input
+    id: pr-version
+    attributes:
+      label: Angular version
+      placeholder: x.x.x
+    validations:
+      required: true
+  - type: dropdown
+    id: primeng-version
+    attributes:
+      label: PrimeNG version
+      description: >-
+        Only issues related to v19 are valid, previous versions are covered by
+        PrimeNG LTS service.
+      options:
+        - v19
+        - v18 (LTS Only)
+        - v17 (LTS Only)
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node version
+      placeholder: x.x.x
+    validations:
+      required: false
+  - type: input
+    id: browsers
+    attributes:
+      label: Browser(s)
+      description: >-
+        List specific browser(s) the problem occurs on or leave blank if ALL
+        browsers
+      placeholder: |
+        e.g. Safari 15, iOS 15.4, Chrome 90
+  - type: textarea
+    id: reproduce-steps
+    attributes:
+      label: Steps to reproduce the behavior
+      description: A clear and concise description of how to make the issue happen.
+      placeholder: |
+        1. Go to '...' 2. Click on '....' 3. Scroll down to '....' 4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
