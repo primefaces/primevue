@@ -47,17 +47,17 @@ describe('Tree.vue', () => {
                 filter: true
             }
         });
-				
-				let searchField = wrapper.find('input.p-inputtext');
-				const key = 't';
-				searchField.element.value = key;
+
+        let searchField = wrapper.find('input.p-inputtext');
+        const key = 't';
+        searchField.element.value = key;
 
         await searchField.trigger('keyup', {
-					key
-				});
+            key
+        });
 
         expect(wrapper.emitted('filter')).toBeTruthy();
-				expect(wrapper.emitted('filter')[0][0].value).toEqual(key);
+        expect(wrapper.emitted('filter')[0][0].value).toEqual(key);
     });
 
     it('should render icon', ({ expect }) => {
