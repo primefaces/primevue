@@ -42,6 +42,21 @@ export interface InputOtpPassThroughMethodOptions {
 }
 
 /**
+ * Custom change event.
+ * @see {@link InputOtpEmitsOptions.change}
+ */
+export interface InputOtpChangeEvent {
+    /**
+     * Browser event
+     */
+    originalEvent: Event;
+    /**
+     * Value of the input
+     */
+    value: string;
+}
+
+/**
  * Custom shared passthrough(pt) option method.
  */
 export interface InputOtpSharedPassThroughMethodOptions {
@@ -252,19 +267,19 @@ export interface InputOtpSlots {
 export interface InputOtpEmitsOptions {
     /**
      * Emitted when the value changes.
-     * @param {boolean} value - New value.
+     * @param {string} value - New value.
      */
-    'update:modelValue'(value: boolean): void;
+    'update:modelValue'(value: string): void;
     /**
      * Emitted when the value changes in uncontrolled mode.
-     * @param {boolean} value - New value.
+     * @param {string} value - New value.
      */
-    'value-change'(value: boolean): void;
+    'value-change'(value: string): void;
     /**
      * Callback to invoke on value change.
-     * @param {Event} event - Browser event.
+     * @param {InputOtpChangeEvent} event - Custom change event.
      */
-    change(event: Event): void;
+    change(event: InputOtpChangeEvent): void;
     /**
      * Callback to invoke when the component receives focus.
      * @param {Event} event - Browser event.
