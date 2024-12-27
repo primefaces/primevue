@@ -1,5 +1,5 @@
 name: Bug report
-description: Create a report to help PrimeNG improve.
+description: Create a report to help PrimeVue improve.
 title: Issue Title
 labels:
   - 'Status: Needs Triage'
@@ -10,10 +10,10 @@ body:
         ## Overview
 
 
-        PrimeNG receives close to 2 million downloads per month. As any other popular OSS project, you may understand that the core team does not have the bandwidth to review each and every issue in detail in their daily routines. We have established strict guidelines for issue creation to ensure we can effectively address issues. It will help us prioritize and manage our workload efficiently.
+        PrimeVue receives close to 1 million downloads per month. As any other popular OSS project, you may understand that the core team does not have the bandwidth to review each and every issue in detail in their daily routines. We have established strict guidelines for issue creation to ensure we can effectively address issues. It will help us prioritize and manage our workload efficiently.
 
 
-        Adhering to these guidelines, you help us maintain and improve the project more effectively. If you'd like to get our detailed attention, consider PrimeNG PRO Support instead, which provides support within one business day. Thank you for your cooperation and contributions!
+        Adhering to these guidelines, you help us maintain and improve the project more effectively. If you'd like to get our detailed attention, consider PrimeVue PRO Support instead, which provides support within one business day. Thank you for your cooperation and contributions!
 
 
         ## Issue Creation Guidelines
@@ -31,9 +31,9 @@ body:
         Provide a clear and concise executable example that reproduces the issue based on our StackBlitz template.
 
 
-        ### PrimeNG Version
+        ### PrimeVue Version
 
-        Ensure that you are using PrimeNG version v19. Issues related to other versions will not be reviewed as they are part of PrimeNG LTS, which has an internal ticket management system.
+        Ensure that you are using PrimeVue version v4.
 
 
         ### Provide a Pull Request
@@ -99,11 +99,11 @@ body:
     id: reproducer
     attributes:
       label: Reproducer
-      placeholder: 'https://stackblitz.com/github/primefaces/primeng-issue-template'
+      placeholder: 'https://stackblitz.com/edit/primevue-4-vite-issue-template'
       description: >-
         Issues **without** a StackBlitz example will be closed automatically.
-        Please fork one of the issue template [PrimeNG Issue
-        Template](https://stackblitz.com/github/primefaces/primeng-issue-template?file=src%2Fapp%2Fapp.component.html)
+        Please fork one of the issue template [PrimeVue Issue
+        Template](https://stackblitz.com/edit/primevue-4-vite-issue-template)
         and create a case demonstrating your bug report.
     validations:
       required: true
@@ -117,21 +117,18 @@ body:
   - type: input
     id: pr-version
     attributes:
-      label: Angular version
+      label: Vue version
       placeholder: x.x.x
     validations:
       required: true
-  - type: dropdown
-    id: primeng-version
+  - type: input
+    id: primevue-version
     attributes:
-      label: PrimeNG version
+      label: PrimeVue version
       description: >-
-        Only issues related to v19 are valid, previous versions are covered by
-        PrimeNG LTS service.
+        Only issues related to v4 are valid.
       options:
-        - v19
-        - v18 (LTS Only)
-        - v17 (LTS Only)
+        - v4
     validations:
       required: true
   - type: input
