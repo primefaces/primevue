@@ -32,7 +32,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Thanks a lot for this issue! PrimeVue team's roadmap is busy, but community feedback is crucial in prioritization. The more upvotes help ensure this fix can be addressed quickly or the related PR can be merged soon.
+            Thanks a lot for this issue! PrimeTek's own vision for PrimeVue is demanding, but community feedback is crucial in prioritization. The more upvotes help ensure this fix can be addressed quickly or the related PR can be merged soon.
 
       - name: Needs More Information
         if: contains(github.event.label.name, 'Needs More Information')
@@ -62,4 +62,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Due to PrimeVue team's busy roadmap, this issue is available for anyone to work on. [**Make sure to reference this issue in your pull request.**](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) :sparkles: Thank you for your contribution! :sparkles:
+            Due to PrimeTek's demanding roadmap for PrimeVue and the limited bandwidth of the core team, this issue is available for anyone to work on. [**Make sure to reference this issue in your pull request.**](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) :sparkles: Thank you for your contribution! :sparkles:
