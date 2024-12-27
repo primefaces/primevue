@@ -9,7 +9,7 @@
             </div>
         </template>
         <IconField v-if="filter" :unstyled="unstyled" :pt="{ ...ptm('pcFilter'), ...ptm('pcFilterContainer') }" :class="cx('pcFilterContainer')">
-            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keydown="onFilterKeydown" :pt="ptm('pcFilterInput')" />
+            <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keyup="onFilterKeyup" :pt="ptm('pcFilterInput')" />
             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                 <!--TODO: searchicon deprecated since v4.0-->
                 <slot :name="$slots.filtericon ? 'filtericon' : 'searchicon'" :class="cx('filterIcon')">
@@ -172,7 +172,7 @@ export default {
         isNodeLeaf(node) {
             return node.leaf === false ? false : !(node.children && node.children.length);
         },
-        onFilterKeydown(event) {
+        onFilterKeyup(event) {
             if (event.code === 'Enter' || event.code === 'NumpadEnter') {
                 event.preventDefault();
             }
