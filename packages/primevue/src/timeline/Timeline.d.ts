@@ -99,7 +99,6 @@ export interface TimelineContext {
      * Current index of the item as a number.
      */
     index: number;
-
     /**
      * Total number of items in the timeline.
      */
