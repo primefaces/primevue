@@ -40,7 +40,7 @@
                         <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 py-1" maxlength="100" @blur="renameTheme(theme)" />
                         <i class="hidden group-hover:block pi pi-pencil !text-sm absolute top-50 right-0 text-muted-color"></i>
                     </div>
-                    <span class="text-muted-color text-xs">{{ formatTimestamp(theme.last_updated) }}</span>
+                    <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
                 </div>
                 <button
                     type="button"
@@ -68,7 +68,7 @@ export default {
             designerApiBase: runtimeConfig.public.designerApiBase
         };
     },
-    inject: ['designerUtils'],
+    inject: ['designerService'],
     data() {
         return {
             loading: false,
@@ -100,7 +100,13 @@ export default {
                         this.duplicateTheme(this.currentTheme);
                     }
                 },
-                { label: 'Download', icon: 'pi pi-download' }
+                {
+                    label: 'Download',
+                    icon: 'pi pi-download',
+                    command: () => {
+                        this.designerService.downloadTheme(this.currentTheme);
+                    }
+                }
             ]
         };
     },
@@ -119,12 +125,12 @@ export default {
     methods: {
         async activate(silent) {
             this.loading = true;
-            const { data, error } = await $fetch(this.designerApiBase + '/license/' + this.$appState.designer.licenseKey);
+            const { data, error } = await $fetch(this.designerApiBase + '/license/verify/' + this.$appState.designer.licenseKey);
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
-                if (data) {
+                if (data.valid) {
                     if (!silent) {
                         this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                     }
@@ -152,20 +158,22 @@ export default {
             }
         },
         async loadTheme(theme) {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/' + theme.t_key);
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + this.$appState.designer.licenseKey + '/' + theme.t_key);
 
             if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: 'Code: ' + error.code, life: 3000 });
+                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
                 this.$appState.designer.theme = {
+                    key: data.t_key,
                     name: data.t_name,
-                    preset: JSON.parse(data.preset),
+                    preset: JSON.parse(data.t_preset),
+                    config: JSON.parse(data.t_config),
                     customTokens: [],
                     acTokens: []
                 };
 
                 usePreset(this.$appState.designer.theme.preset);
-                this.designerUtils.refreshACTokens();
+                this.designerService.refreshACTokens();
                 this.$appState.designer.activeView = 'editor';
             }
         },

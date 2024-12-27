@@ -42,7 +42,7 @@
 
 <script>
 export default {
-    inject: ['designer'],
+    inject: ['designerService'],
     methods: {
         addToken() {
             this.$appState.designer.theme.customTokens = [...this.$appState.designer.theme.customTokens, ...[{}]];
@@ -56,8 +56,8 @@ export default {
                 this.$appState.designer.theme.preset.extend[this.transformTokenName(token.name)] = token.value;
             });
 
-            designer.refreshACTokens();
-            designer.saveTheme();
+            this.designerService.refreshACTokens();
+            this.designerService.saveTheme();
 
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },

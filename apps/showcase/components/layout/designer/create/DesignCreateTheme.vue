@@ -1,7 +1,7 @@
 <template>
     <section class="mb-6">
         <span class="block text-lg font-semibold mb-2">Theme Name</span>
-        <input v-model="themeName" type="text" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
+        <input v-model="themeName" type="text" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" maxlength="25" />
     </section>
 
     <section class="mb-6">
@@ -96,28 +96,43 @@ export default {
                 document.body.classList.remove('material');
             }
 
-            const { error } = await $fetch(this.designerApiBase + '/theme/create', {
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
                 method: 'POST',
                 body: {
                     name: this.themeName,
                     preset: newPreset,
-                    license_key: this.$appState.designer.licenseKey
+                    license_key: this.$appState.designer.licenseKey,
+                    config: {
+                        font_size: '14px',
+                        font_family: 'Inter var'
+                    }
                 }
             });
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
             } else {
-                this.$appState.designer.theme = {
+                this.loadThemeEditor(data.t_key, newPreset);
+            }
+        },
+        async createThemeFromFigma() {
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
+                method: 'POST',
+                body: {
                     name: this.themeName,
-                    preset: newPreset,
-                    customTokens: [],
-                    acTokens: []
-                };
-                this.replaceColorPalette();
-                usePreset(newPreset);
+                    figma_tokens: this.figmaData,
+                    license_key: this.$appState.designer.licenseKey,
+                    config: {
+                        font_size: '14px',
+                        font_family: 'Inter var'
+                    }
+                }
+            });
 
-                this.$appState.designer.activeView = 'editor';
+            if (error) {
+                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+            } else {
+                this.loadThemeEditor(data.t_key, newPreset);
             }
         },
         onFileSelect(event) {
@@ -139,30 +154,22 @@ export default {
 
             reader.readAsText(file);
         },
-        async createThemeFromFigma() {
-            const { data: newPreset, error } = await $fetch(this.designerApiBase + '/theme/figma', {
-                method: 'POST',
-                body: {
-                    name: this.themeName,
-                    figma_tokens: this.figmaData,
-                    license_key: this.$appState.designer.licenseKey
+        loadThemeEditor(t_key, preset) {
+            this.$appState.designer.theme = {
+                name: this.themeName,
+                key: t_key,
+                preset: preset,
+                customTokens: [],
+                acTokens: [],
+                config: {
+                    baseFontSize: '14px',
+                    fontFamily: 'Inter var'
                 }
-            });
+            };
+            this.replaceColorPalette();
+            usePreset(preset);
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
-            } else {
-                this.$appState.designer.theme = {
-                    name: this.themeName,
-                    preset: newPreset,
-                    customTokens: [],
-                    acTokens: []
-                };
-                this.replaceColorPalette();
-                usePreset(newPreset);
-
-                this.$appState.designer.activeView = 'editor';
-            }
+            this.$appState.designer.activeView = 'editor';
         }
     }
 };

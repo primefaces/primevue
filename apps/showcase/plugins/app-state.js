@@ -21,10 +21,12 @@ const $appState = {
                 activeView: 'dashboard',
                 activeTab: '0',
                 theme: {
+                    key: null,
                     name: null,
                     preset: null,
                     customTokens: [],
-                    acTokens: []
+                    acTokens: [],
+                    config: null
                 },
                 themes: []
             }
