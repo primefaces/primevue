@@ -5,7 +5,7 @@
                 v-if="showThumbnailNavigators"
                 v-ripple
                 :class="cx('thumbnailPrevButton')"
-                :disabled="isNavBackwardDisabled()"
+                :disabled="isNavBackwardDisabled"
                 type="button"
                 :aria-label="ariaPrevButtonLabel"
                 @click="navBackward($event)"
@@ -57,7 +57,7 @@
                 v-if="showThumbnailNavigators"
                 v-ripple
                 :class="cx('thumbnailNextButton')"
-                :disabled="isNavForwardDisabled()"
+                :disabled="isNavForwardDisabled"
                 type="button"
                 :aria-label="ariaNextButtonLabel"
                 @click="navForward($event)"
@@ -507,12 +507,7 @@ export default {
                 this.documentResizeListener = null;
             }
         },
-        isNavBackwardDisabled() {
-            return (!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible;
-        },
-        isNavForwardDisabled() {
-            return (!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible;
-        },
+
         firstItemAciveIndex() {
             return this.totalShiftedItems * -1;
         },
@@ -532,6 +527,16 @@ export default {
         },
         ariaNextButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
+        },
+        isNavBackwardDisabled() {
+            // console.log((!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible);
+
+            return (!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible;
+        },
+        isNavForwardDisabled() {
+            console.log((!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible);
+
+            return (!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible;
         }
     },
     components: {

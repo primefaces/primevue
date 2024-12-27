@@ -458,7 +458,7 @@ const classes = {
     prevButton: ({ instance }) => [
         'p-galleria-prev-button p-galleria-nav-button',
         {
-            'p-disabled': instance.isNavBackwardDisabled()
+            'p-disabled': instance.isNavBackwardDisabled
         }
     ],
     prevIcon: 'p-galleria-prev-icon',
@@ -466,7 +466,7 @@ const classes = {
     nextButton: ({ instance }) => [
         'p-galleria-next-button p-galleria-nav-button',
         {
-            'p-disabled': instance.isNavForwardDisabled()
+            'p-disabled': instance.isNavForwardDisabled
         }
     ],
     nextIcon: 'p-galleria-next-icon',
@@ -484,7 +484,7 @@ const classes = {
     thumbnailPrevButton: ({ instance }) => [
         'p-galleria-thumbnail-prev-button p-galleria-thumbnail-nav-button',
         {
-            'p-disabled': instance.isNavBackwardDisabled()
+            'p-disabled': instance.isNavBackwardDisabled
         }
     ],
     thumbnailPrevIcon: 'p-galleria-thumbnail-prev-icon',
@@ -503,7 +503,7 @@ const classes = {
     thumbnailNextButton: ({ instance }) => [
         'p-galleria-thumbnail-next-button p-galleria-thumbnail-nav-button',
         {
-            'p-disabled': instance.isNavForwardDisabled()
+            'p-disabled': instance.isNavForwardDisabled
         }
     ],
     thumbnailNextIcon: 'p-galleria-thumbnail-next-icon'
