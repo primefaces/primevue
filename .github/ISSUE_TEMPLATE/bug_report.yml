@@ -125,6 +125,7 @@ body:
     id: primevue-version
     attributes:
       label: PrimeVue version
+      placeholder: 4.x.x
       description: >-
         Only issues related to v4 are valid.
     validations:
