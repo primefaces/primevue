@@ -6,7 +6,7 @@
             :type="inputType"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
-            :value="d_value"
+            :defaultValue="d_value"
             :name="$formName"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
