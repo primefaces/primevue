@@ -96,43 +96,55 @@ export default {
                 document.body.classList.remove('material');
             }
 
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
-                method: 'POST',
-                body: {
-                    name: this.themeName,
-                    preset: newPreset,
-                    license_key: this.$appState.designer.licenseKey,
-                    config: {
-                        font_size: '14px',
-                        font_family: 'Inter var'
+            if (this.$appState.designer.licenseKey) {
+                const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
+                    method: 'POST',
+                    body: {
+                        name: this.themeName,
+                        preset: newPreset,
+                        license_key: this.$appState.designer.licenseKey,
+                        config: {
+                            font_size: '14px',
+                            font_family: 'Inter var'
+                        }
                     }
-                }
-            });
+                });
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                if (error) {
+                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                } else {
+                    this.loadThemeEditor(data.t_key, newPreset);
+                }
             } else {
-                this.loadThemeEditor(data.t_key, newPreset);
+                this.loadThemeEditor('trial', newPreset);
             }
         },
         async createThemeFromFigma() {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
-                method: 'POST',
-                body: {
-                    name: this.themeName,
-                    figma_tokens: this.figmaData,
-                    license_key: this.$appState.designer.licenseKey,
-                    config: {
-                        font_size: '14px',
-                        font_family: 'Inter var'
-                    }
-                }
-            });
+            if (this.figmaData) {
+                if (this.$appState.designer.licenseKey) {
+                    const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
+                        method: 'POST',
+                        body: {
+                            name: this.themeName,
+                            figma_tokens: this.figmaData,
+                            license_key: this.$appState.designer.licenseKey,
+                            config: {
+                                font_size: '14px',
+                                font_family: 'Inter var'
+                            }
+                        }
+                    });
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                    if (error) {
+                        this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                    } else {
+                        this.loadThemeEditor(data.t_key, newPreset);
+                    }
+                } else {
+                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'A valid license required', life: 3000 });
+                }
             } else {
-                this.loadThemeEditor(data.t_key, newPreset);
+                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'File is required', life: 3000 });
             }
         },
         onFileSelect(event) {

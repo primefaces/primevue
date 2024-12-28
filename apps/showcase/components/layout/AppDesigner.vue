@@ -65,27 +65,30 @@ export default {
             this.deferredTabs = true;
         },
         async downloadTheme(theme) {
-            try {
-                const response = await $fetch(this.designerApiBase + '/theme/download/' + this.$appState.designer.licenseKey + '/' + theme.t_key, {
-                    responseType: 'blob'
-                });
+            if (!this.$appState.designer.licenseKey) {
+                this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required to download', life: 3000 });
+            } else {
+                try {
+                    const response = await $fetch(this.designerApiBase + '/theme/download/' + this.$appState.designer.licenseKey + '/' + theme.t_key, {
+                        responseType: 'blob'
+                    });
 
-                if (response.error) {
-                    this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
-                } else {
-                    const blobUrl = window.URL.createObjectURL(response);
-                    const link = document.createElement('a');
+                    if (response.error) {
+                        this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                    } else {
+                        const blobUrl = window.URL.createObjectURL(response);
+                        const link = document.createElement('a');
 
-                    link.href = blobUrl;
-                    link.download = theme.t_name + '.zip';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    window.URL.revokeObjectURL(blobUrl);
+                        link.href = blobUrl;
+                        link.download = theme.t_name + '.zip';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        window.URL.revokeObjectURL(blobUrl);
+                    }
+                } catch (err) {
+                    this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: 'Failed to download file', life: 3000 });
                 }
-            } catch (err) {
-                console.log(err);
-                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: 'Failed to download file', life: 3000 });
             }
         },
         async updateTheme(theme) {
@@ -104,7 +107,10 @@ export default {
             }
         },
         applyTheme(theme) {
-            this.updateTheme(theme);
+            if (this.$appState.designer.licenseKey) {
+                this.updateTheme(theme);
+            }
+
             updatePreset(theme.preset);
             EventBus.emit('theme-palette-change');
         },

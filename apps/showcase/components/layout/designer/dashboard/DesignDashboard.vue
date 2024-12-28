@@ -1,16 +1,17 @@
 <template>
     <div class="text-lg font-semibold mb-2">License Key</div>
     <span class="block text-muted-color leading-6 mb-4"
-        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to use the Designer in free tier. <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
+        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer with limited features. <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme
+        Designer.</span
     >
     <form @submit.prevent class="flex gap-4">
-        <input v-model="$appState.designer.licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
+        <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
         <button
             type="button"
             @click="activate(false)"
             icon="pi pi-download"
-            :disabled="!$appState.designer.licenseKey"
-            class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white disabled:opacity-60"
+            :disabled="!licenseKey"
+            class="px-3 py-2 bg-zinc-950 disabled:hover:bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:disabled:hover:bg-white dark:text-black rounded-md font-medium cursor-pointer disabled:cursor-auto transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white disabled:opacity-60"
         >
             Activate
         </button>
@@ -71,6 +72,7 @@ export default {
     inject: ['designerService'],
     data() {
         return {
+            licenseKey: null,
             loading: false,
             currentTheme: null,
             confirmDialogVisible: false,
@@ -115,7 +117,7 @@ export default {
             const keyValue = localStorage.getItem(this.$appState.designer.localStoreKey);
 
             if (keyValue) {
-                this.$appState.designer.licenseKey = keyValue;
+                this.licenseKey = keyValue;
                 this.activate(true);
             }
         } else {
@@ -124,13 +126,14 @@ export default {
     },
     methods: {
         async activate(silent) {
-            this.loading = true;
-            const { data, error } = await $fetch(this.designerApiBase + '/license/verify/' + this.$appState.designer.licenseKey);
+            const { data, error } = await $fetch(this.designerApiBase + '/license/verify/' + this.licenseKey);
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
                 if (data.valid) {
+                    this.$appState.designer.licenseKey = this.licenseKey;
+
                     if (!silent) {
                         this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                     }
@@ -142,13 +145,12 @@ export default {
                     this.$appState.designer.themes = [];
                 }
             }
-
-            this.loading = false;
         },
         openNewTheme() {
             this.$appState.designer.activeView = 'create_theme';
         },
         async loadThemes() {
+            this.loading = true;
             const { data, error } = await $fetch(this.designerApiBase + '/theme/list/' + this.$appState.designer.licenseKey);
 
             if (error) {
@@ -156,6 +158,8 @@ export default {
             } else {
                 this.$appState.designer.themes = data;
             }
+
+            this.loading = false;
         },
         async loadTheme(theme) {
             const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + this.$appState.designer.licenseKey + '/' + theme.t_key);
