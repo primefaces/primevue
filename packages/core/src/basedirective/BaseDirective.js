@@ -70,7 +70,7 @@ const BaseDirective = {
     },
     _loadStyles: (el, binding, vnode) => {
         const config = BaseDirective._getConfig(binding, vnode);
-        const useStyleOptions = { nonce: config?.csp?.nonce };
+        const useStyleOptions = { nonce: config?.csp?.nonce, applicationNode: config?.applicationNode };
 
         BaseDirective._loadCoreStyles(el.$instance, useStyleOptions);
         BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);

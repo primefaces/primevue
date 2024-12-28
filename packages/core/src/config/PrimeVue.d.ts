@@ -12,6 +12,7 @@ export interface PrimeVueConfiguration {
     zIndex?: PrimeVueZIndexOptions;
     theme?: any;
     unstyled?: boolean;
+    applicationNode?: string | undefined;
     pt?: any;
     ptOptions?: any;
     csp?: PrimeVueCSPOptions;

@@ -144,6 +144,7 @@ export const defaultOptions = {
     theme: undefined,
     unstyled: false,
     pt: undefined,
+    applicationNode: undefined,
     ptOptions: {
         mergeSections: true,
         mergeProps: false

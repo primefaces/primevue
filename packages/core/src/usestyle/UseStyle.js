@@ -31,8 +31,15 @@ export function useStyle(css, options = {}) {
         onMounted: onStyleMounted = undefined,
         onUpdated: onStyleUpdated = undefined,
         onLoad: onStyleLoaded = undefined,
-        props = {}
+        props = {},
+        applicationNode = undefined
     } = options;
+
+    let node;
+
+    if(applicationNode){
+        node = document.getElementById(applicationNode);
+    }
 
     let stop = () => {};
 
@@ -54,7 +61,13 @@ export function useStyle(css, options = {}) {
                 media,
                 nonce: _nonce
             });
-            first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
+
+            if(applicationNode){
+                first ? node.prepend(styleRef.value) : node.appendChild(styleRef.value);
+            } else {
+                first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value)
+            }
+
             setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             setAttributes(styleRef.value, _styleProps);
             styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
