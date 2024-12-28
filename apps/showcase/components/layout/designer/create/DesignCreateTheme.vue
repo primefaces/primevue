@@ -67,6 +67,7 @@ export default {
             designerApiBase: runtimeConfig.public.designerApiBase
         };
     },
+    inject: ['designerService'],
     data() {
         return {
             themeName: null,
@@ -171,15 +172,15 @@ export default {
                 name: this.themeName,
                 key: t_key,
                 preset: preset,
-                customTokens: [],
-                acTokens: [],
                 config: {
                     baseFontSize: '14px',
                     fontFamily: 'Inter var'
                 }
             };
+            this.design;
             this.replaceColorPalette();
             usePreset(preset);
+            this.designerService.refreshACTokens();
 
             this.$appState.designer.activeView = 'editor';
         }

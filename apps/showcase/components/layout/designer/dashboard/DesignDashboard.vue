@@ -171,9 +171,7 @@ export default {
                     key: data.t_key,
                     name: data.t_name,
                     preset: JSON.parse(data.t_preset),
-                    config: JSON.parse(data.t_config),
-                    customTokens: [],
-                    acTokens: []
+                    config: JSON.parse(data.t_config)
                 };
 
                 usePreset(this.$appState.designer.theme.preset);

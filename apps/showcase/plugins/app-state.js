@@ -24,10 +24,9 @@ const $appState = {
                     key: null,
                     name: null,
                     preset: null,
-                    customTokens: [],
-                    acTokens: [],
                     config: null
                 },
+                acTokens: [],
                 themes: []
             }
         });

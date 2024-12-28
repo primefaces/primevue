@@ -135,13 +135,13 @@ export default {
                         const tokenValue = $dt(tokenName).value;
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
 
-                        this.$appState.designer.theme.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
+                        this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
                     }
                 }
             }
         },
         refreshACTokens() {
-            this.$appState.designer.theme.acTokens = [];
+            this.$appState.designer.acTokens = [];
             this.generateACTokens(null, this.$appState.designer.theme.preset);
         },
         openDashboard() {
