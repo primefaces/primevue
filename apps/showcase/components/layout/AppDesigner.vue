@@ -31,15 +31,24 @@
 </template>
 
 <script>
-import { $dt } from '@primevue/themes';
+import EventBus from '@/app/AppEventBus';
+import { $dt, updatePreset } from '@primevue/themes';
 
 export default {
+    setup() {
+        const runtimeConfig = useRuntimeConfig();
+
+        return {
+            designerApiBase: runtimeConfig.public.designerApiBase
+        };
+    },
     provide() {
         return {
             designerService: {
                 refreshACTokens: this.refreshACTokens,
                 saveTheme: this.saveTheme,
-                downloadTheme: this.downloadTheme
+                downloadTheme: this.downloadTheme,
+                applyTheme: this.applyTheme
             }
         };
     },
@@ -55,8 +64,49 @@ export default {
         onHide() {
             this.deferredTabs = true;
         },
-        downloadTheme(theme) {
-            // TODO: Fetch from endpoint
+        async downloadTheme(theme) {
+            try {
+                const response = await $fetch(this.designerApiBase + '/theme/download/' + this.$appState.designer.licenseKey + '/' + theme.t_key, {
+                    responseType: 'blob'
+                });
+
+                if (response.error) {
+                    this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                } else {
+                    const blobUrl = window.URL.createObjectURL(response);
+                    const link = document.createElement('a');
+
+                    link.href = blobUrl;
+                    link.download = theme.t_name + '.zip';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(blobUrl);
+                }
+            } catch (err) {
+                console.log(err);
+                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: 'Failed to download file', life: 3000 });
+            }
+        },
+        async updateTheme(theme) {
+            const { error } = await $fetch(this.designerApiBase + '/theme/update', {
+                method: 'POST',
+                body: {
+                    key: theme.key,
+                    preset: theme.preset,
+                    config: theme.config,
+                    license_key: this.$appState.designer.licenseKey
+                }
+            });
+
+            if (error) {
+                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+            }
+        },
+        applyTheme(theme) {
+            this.updateTheme(theme);
+            updatePreset(theme.preset);
+            EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
             return name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase();

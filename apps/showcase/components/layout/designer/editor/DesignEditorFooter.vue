@@ -20,41 +20,17 @@
 </template>
 
 <script>
-import EventBus from '@/app/AppEventBus';
-import { updatePreset } from '@primevue/themes';
-
 export default {
-    setup() {
-        const runtimeConfig = useRuntimeConfig();
-
-        return {
-            designerApiBase: runtimeConfig.public.designerApiBase
-        };
-    },
     inject: ['designerService'],
     methods: {
         download() {
-            this.designerService.downloadTheme(this.$appState.desiger.theme);
+            this.designerService.downloadTheme({
+                t_key: this.$appState.designer.theme.key,
+                t_name: this.$appState.designer.theme.name
+            });
         },
         apply() {
-            this.updateTheme();
-            updatePreset(this.$appState.designer.theme.preset);
-            EventBus.emit('theme-palette-change');
-        },
-        async updateTheme() {
-            const { error } = await $fetch(this.designerApiBase + '/theme/update', {
-                method: 'POST',
-                body: {
-                    key: this.$appState.designer.theme.key,
-                    preset: this.$appState.designer.theme.preset,
-                    config: this.$appState.designer.theme.config,
-                    license_key: this.$appState.designer.licenseKey
-                }
-            });
-
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
-            }
+            this.designerService.applyTheme(this.$appState.designer.theme);
         }
     }
 };

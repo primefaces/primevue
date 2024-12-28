@@ -77,10 +77,11 @@ export default {
             default: true
         }
     },
+    inject: ['designerService'],
     methods: {
         onKeyDown(event) {
             if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-                this.apply();
+                this.designerService.applyTheme(this.$appState.designer.theme);
                 event.preventDefault();
             }
         }
