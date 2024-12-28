@@ -48,7 +48,8 @@ export default {
                 refreshACTokens: this.refreshACTokens,
                 saveTheme: this.saveTheme,
                 downloadTheme: this.downloadTheme,
-                applyTheme: this.applyTheme
+                applyTheme: this.applyTheme,
+                applyFont: this.applyFont
             }
         };
     },
@@ -91,7 +92,7 @@ export default {
                 }
             }
         },
-        async updateTheme(theme) {
+        async saveTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/update', {
                 method: 'POST',
                 body: {
@@ -108,7 +109,7 @@ export default {
         },
         applyTheme(theme) {
             if (this.$appState.designer.licenseKey) {
-                this.updateTheme(theme);
+                this.saveTheme(theme);
             }
 
             updatePreset(theme.preset);
@@ -145,6 +146,36 @@ export default {
         },
         openDashboard() {
             this.$appState.designer.activeView = 'dashboard';
+        },
+        applyFont(fontFamily) {
+            if (fontFamily !== 'Inter var') {
+                this.loadFont(fontFamily, 400);
+                this.loadFont(fontFamily, 500);
+                this.loadFont(fontFamily, 600);
+                this.loadFont(fontFamily, 700);
+            } else {
+                document.body.style.fontFamily = `"Inter var", sans-serif`;
+            }
+        },
+        async loadFont(fontFamily, weight) {
+            const fontFamilyPath = fontFamily.toLowerCase().replace(/\s+/g, '-');
+            const fontUrl = `https://fonts.bunny.net/${fontFamilyPath}/files/${fontFamilyPath}-latin-${weight}-normal.woff2`;
+
+            const font = new FontFace(fontFamily, `url(${fontUrl})`, {
+                weight: weight.toString(),
+                style: 'normal'
+            });
+
+            try {
+                const loadedFont = await font.load();
+
+                document.fonts.add(loadedFont);
+                document.body.style.fontFamily = `"${fontFamily}", sans-serif`;
+
+                return loadedFont;
+            } catch (error) {
+                // silent fail as some fonts may have not all the font weights
+            }
         }
     },
     computed: {
