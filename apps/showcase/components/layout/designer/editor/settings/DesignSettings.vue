@@ -39,7 +39,7 @@ export default {
     data() {
         return {
             fontSizes: ['12px', '13px', '14px', '15px', '16px', '17px', '18px'],
-            fonts: ['DM Sans', 'Inter var', 'Lato', 'Poppins', 'Public Sans', 'Roboto', 'Open Sans', 'Quicksand']
+            fonts: ['DM Sans', 'Inter var', 'Figtree', 'Lato', 'Lexend', 'Poppins', 'Public Sans', 'Raleway', 'Roboto', 'Open Sans', 'Quicksand']
         };
     },
     methods: {
