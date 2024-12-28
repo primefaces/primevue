@@ -82,6 +82,15 @@ export default {
         }
     },
     inject: ['designerService'],
+    watch: {
+        $route: {
+            handler() {
+                if (!this.isComponentRoute && this.$appState.designer.activeTab === '2') {
+                    this.$appState.designer.activeTab = '0';
+                }
+            }
+        }
+    },
     methods: {
         onKeyDown(event) {
             if (event.code === 'Enter' || event.code === 'NumpadEnter') {
@@ -92,9 +101,10 @@ export default {
     },
     computed: {
         isComponentRoute() {
-            const components = this.$appState.designer.theme?.preset?.components;
+            const components = this.$appState.designer.theme.preset.components;
+            const directives = this.$appState.designer.theme.preset.directives;
 
-            return components ? components[this.$route.name] != null : false;
+            return components[this.$route.name] != null || directives[this.$route.name];
         }
     }
 };

@@ -66,7 +66,9 @@ export default {
                 .join(' ');
         },
         tokens() {
-            return this.getObjectProperty(this.$appState.designer.theme.preset.components[this.componentKey], this.path);
+            const source = this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+
+            return this.getObjectProperty(source, this.path);
         },
         nestedTokens() {
             const groups = {};

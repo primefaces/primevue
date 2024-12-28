@@ -32,18 +32,19 @@ export default {
             return this.$route.name;
         },
         isComponentRoute() {
-            const components = this.$appState.designer.theme?.preset?.components;
+            const components = this.$appState.designer.theme.preset.components;
+            const directives = this.$appState.designer.theme.preset.directives;
 
-            return components ? components[this.componentKey] != null : false;
+            return components[this.componentKey] != null || directives[this.componentKey] != null;
         },
         tokens() {
-            return this.$appState.designer.theme?.preset?.components[this.componentKey];
+            return this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
         },
         lightTokens() {
-            return this.$appState.designer.theme?.preset?.components[this.componentKey].colorScheme.light;
+            return this.tokens.colorScheme?.light;
         },
         darkTokens() {
-            return this.$appState.designer.theme?.preset?.components[this.componentKey].colorScheme.dark;
+            return this.tokens.colorScheme?.dark;
         },
         hasColorScheme() {
             return this.tokens.colorScheme != undefined;
