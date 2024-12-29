@@ -120,7 +120,8 @@ export default {
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
-                if (key === 'dark' || key === 'components') {
+
+                if (key === 'dark' || key === 'components' || key === 'directives') {
                     continue;
                 }
 
@@ -131,6 +132,7 @@ export default {
                         this.generateACTokens(parentPath ? parentPath + '.' + key : key, obj[key]);
                     } else {
                         const regex = /\.\d+$/;
+
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
                         const tokenValue = $dt(tokenName).value;
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);

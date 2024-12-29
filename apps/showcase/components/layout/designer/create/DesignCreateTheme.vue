@@ -173,8 +173,8 @@ export default {
                 key: t_key,
                 preset: preset,
                 config: {
-                    baseFontSize: '14px',
-                    fontFamily: 'Inter var'
+                    font_size: '14px',
+                    font_family: 'Inter var'
                 }
             };
             this.design;

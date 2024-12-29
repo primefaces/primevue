@@ -175,8 +175,8 @@ export default {
                 };
 
                 usePreset(this.$appState.designer.theme.preset);
-                this.designerService.applyFont(this.$appState.designer.theme.config.fontFamily);
-                document.documentElement.style.fontSize = this.$appState.designer.theme.config.baseFontSize;
+                this.designerService.applyFont(this.$appState.designer.theme.config.font_family);
+                document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
                 this.designerService.refreshACTokens();
                 this.$appState.designer.activeView = 'editor';
             }

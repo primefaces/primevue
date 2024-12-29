@@ -5,14 +5,14 @@
         <div class="flex gap-4">
             <div class="mb-4">
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Base</div>
-                <select v-model="$appState.designer.theme.config.baseFontSize" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
+                <select v-model="$appState.designer.theme.config.font_size" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
                     <option v-for="fontSize of fontSizes" :key="fontSize" :value="fontSize">{{ fontSize }}</option>
                 </select>
             </div>
 
             <div>
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Family</div>
-                <select v-model="$appState.designer.theme.config.fontFamily" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
+                <select v-model="$appState.designer.theme.config.font_family" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
                     <option v-for="font of fonts" :key="font" :value="font">{{ font }}</option>
                 </select>
             </div>
@@ -44,11 +44,11 @@ export default {
     },
     methods: {
         changeFont() {
-            this.designerService.applyFont(this.$appState.designer.theme.config.fontFamily);
+            this.designerService.applyFont(this.$appState.designer.theme.config.font_size);
             this.designerService.saveTheme(this.$appState.designer.theme);
         },
         changeBaseFontSize() {
-            document.documentElement.style.fontSize = this.$appState.designer.theme.config.baseFontSize;
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_family;
             this.designerService.saveTheme(this.$appState.designer.theme);
         }
     }
