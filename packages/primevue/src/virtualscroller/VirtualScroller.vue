@@ -1,5 +1,6 @@
 <template>
-    <template v-if="!disabled">
+    <template v-if="!disabled"
+        ><Button @click="items.push('Item #' + items.length)" label="Add" /><Button @click="scrollToIndex(items.length)" label="Scroll" />
         <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptmi('root')">
             <slot
                 name="content"
@@ -91,11 +92,12 @@ export default {
                 this.d_loading = newValue;
             }
         },
-        items(newValue, oldValue) {
-            if (!oldValue || oldValue.length !== (newValue || []).length) {
+        items: {
+            handler(newValue) {
                 this.init();
                 this.calculateAutoSize();
-            }
+            },
+            deep: true
         },
         itemSize() {
             this.init();
