@@ -1,6 +1,5 @@
 <template>
-    <template v-if="!disabled"
-        ><Button @click="items.push('Item #' + items.length)" label="Add" /><Button @click="scrollToIndex(items.length)" label="Scroll" />
+    <template v-if="!disabled">
         <div :ref="elementRef" :class="containerClass" :tabindex="tabindex" :style="style" @scroll="onScroll" v-bind="ptmi('root')">
             <slot
                 name="content"
