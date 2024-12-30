@@ -1329,6 +1329,8 @@ export default {
                     if (lookAhead(match)) {
                         while (num.length < len) {
                             num = '0' + num;
+                            this.selectionStart = this.selectionStart + 1;
+                            this.selectionEnd = this.selectionEnd + 1;
                         }
                     }
 

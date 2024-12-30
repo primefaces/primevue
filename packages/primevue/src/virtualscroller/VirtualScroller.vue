@@ -91,11 +91,12 @@ export default {
                 this.d_loading = newValue;
             }
         },
-        items(newValue, oldValue) {
-            if (!oldValue || oldValue.length !== (newValue || []).length) {
+        items: {
+            handler(newValue) {
                 this.init();
                 this.calculateAutoSize();
-            }
+            },
+            deep: true
         },
         itemSize() {
             this.init();
