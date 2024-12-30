@@ -120,7 +120,6 @@ export default {
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
-
                 if (key === 'dark' || key === 'components' || key === 'directives') {
                     continue;
                 }
