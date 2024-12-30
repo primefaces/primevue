@@ -798,7 +798,10 @@ export default {
         hasFocusableElements() {
             return getFocusableElements(this.overlay, ':not([data-p-hidden-focusable="true"])').length > 0;
         },
-        isOptionMatched(option) {
+        isOptionExactMatched(option) {
+            return this.isValidOption(option) && typeof this.getOptionLabel(option) === 'string' && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale) == this.searchValue.toLocaleLowerCase(this.filterLocale);
+        },
+        isOptionStartsWith(option) {
             return this.isValidOption(option) && typeof this.getOptionLabel(option) === 'string' && this.getOptionLabel(option)?.toLocaleLowerCase(this.filterLocale).startsWith(this.searchValue.toLocaleLowerCase(this.filterLocale));
         },
         isValidOption(option) {
@@ -846,11 +849,10 @@ export default {
             let matched = false;
 
             if (isNotEmpty(this.searchValue)) {
-                if (this.focusedOptionIndex !== -1) {
-                    optionIndex = this.visibleOptions.slice(this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option));
-                    optionIndex = optionIndex === -1 ? this.visibleOptions.slice(0, this.focusedOptionIndex).findIndex((option) => this.isOptionMatched(option)) : optionIndex + this.focusedOptionIndex;
-                } else {
-                    optionIndex = this.visibleOptions.findIndex((option) => this.isOptionMatched(option));
+                optionIndex = this.visibleOptions.findIndex((option) => this.isOptionExactMatched(option));
+
+                if (optionIndex === -1) {
+                    optionIndex = this.visibleOptions.findIndex((option) => this.isOptionStartsWith(option));
                 }
 
                 if (optionIndex !== -1) {
