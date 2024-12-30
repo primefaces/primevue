@@ -271,7 +271,7 @@ const classes = {
         'p-cascadeselect-label',
         {
             'p-placeholder': instance.label === props.placeholder,
-            'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
+            'p-cascadeselect-label-empty': !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label?.length === 0)
         }
     ],
     clearIcon: 'p-cascadeselect-clear-icon',
