@@ -50,6 +50,7 @@ describe('Tree.vue', () => {
 
         let searchField = wrapper.find('input.p-inputtext');
         const key = 't';
+
         searchField.element.value = key;
 
         await searchField.trigger('keyup', {
