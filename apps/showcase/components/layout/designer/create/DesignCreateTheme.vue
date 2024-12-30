@@ -139,7 +139,7 @@ export default {
                     if (error) {
                         this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
                     } else {
-                        this.loadThemeEditor(data.t_key, newPreset);
+                        this.loadThemeEditor(data.t_key, data.t_preset);
                     }
                 } else {
                     this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'A valid license required', life: 3000 });

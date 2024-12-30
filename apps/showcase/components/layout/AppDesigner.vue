@@ -28,6 +28,7 @@
             <DesignEditorFooter v-if="$appState.designer.activeView === 'editor'" />
         </template>
     </Drawer>
+    <ConfirmDialog group="designer"></ConfirmDialog>
 </template>
 
 <script>
@@ -120,7 +121,6 @@ export default {
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
-
                 if (key === 'dark' || key === 'components' || key === 'directives') {
                     continue;
                 }

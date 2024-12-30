@@ -53,8 +53,6 @@
             </div>
         </template>
         <Menu ref="themeMenu" :model="themeOptions" :popup="true" />
-
-        <ConfirmDialog group="designer"></ConfirmDialog>
     </div>
 </template>
 
@@ -86,6 +84,9 @@ export default {
                             message: 'Are you sure you want to delete this theme?',
                             header: 'Confirmation',
                             icon: 'pi pi-exclamation-triangle',
+                            acceptProps: {
+                                severity: 'contrast'
+                            },
                             rejectProps: {
                                 severity: 'secondary'
                             },
