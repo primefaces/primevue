@@ -71,8 +71,12 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required to download', life: 3000 });
             } else {
                 try {
-                    const response = await $fetch(this.designerApiBase + '/theme/download/' + this.$appState.designer.licenseKey + '/' + theme.t_key, {
-                        responseType: 'blob'
+                    const response = await $fetch(this.designerApiBase + '/theme/download/' + theme.t_key, {
+                        responseType: 'blob',
+                        headers: {
+                            Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                            'X-License-Key': this.$appState.designer.licenseKey
+                        }
                     });
 
                     if (response.error) {
@@ -96,6 +100,10 @@ export default {
         async saveTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/update', {
                 method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
+                },
                 body: {
                     key: theme.key,
                     preset: theme.preset,

@@ -15,8 +15,9 @@ const $appState = {
             announcement: null,
             storageKey: 'primevue',
             designer: {
-                localStoreKey: 'primevue-designer-licensekey',
+                localStoreKey: 'primevue-designer',
                 licenseKey: null,
+                ticket: null,
                 active: false,
                 activeView: 'dashboard',
                 activeTab: '0',

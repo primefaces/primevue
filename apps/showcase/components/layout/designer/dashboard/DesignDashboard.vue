@@ -134,13 +134,15 @@ export default {
             } else {
                 if (data.valid) {
                     this.$appState.designer.licenseKey = this.licenseKey;
+                    this.$appState.designer.ticket = data.ticket;
+
+                    this.loadThemes();
+
+                    localStorage.setItem(this.$appState.designer.localStoreKey, this.licenseKey);
 
                     if (!silent) {
                         this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                     }
-
-                    this.loadThemes();
-                    localStorage.setItem(this.$appState.designer.localStoreKey, this.$appState.designer.licenseKey);
                 } else {
                     this.$toast.add({ severity: 'warn', summary: 'Unable to Activate', detail: 'Invalid key', life: 3000 });
                     this.$appState.designer.themes = [];
@@ -152,7 +154,12 @@ export default {
         },
         async loadThemes() {
             this.loading = true;
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/list/' + this.$appState.designer.licenseKey);
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/list/', {
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
+                }
+            });
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
@@ -163,7 +170,12 @@ export default {
             this.loading = false;
         },
         async loadTheme(theme) {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + this.$appState.designer.licenseKey + '/' + theme.t_key);
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + theme.t_key, {
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
+                }
+            });
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
@@ -185,9 +197,12 @@ export default {
         async renameTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/rename/' + theme.t_key, {
                 method: 'PATCH',
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
+                },
                 body: {
-                    name: theme.t_name,
-                    license_key: this.$appState.designer.licenseKey
+                    name: theme.t_name
                 }
             });
 
@@ -198,8 +213,9 @@ export default {
         async deleteTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/delete/' + theme.t_key, {
                 method: 'DELETE',
-                body: {
-                    license_key: this.$appState.designer.licenseKey
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
                 }
             });
 
@@ -212,8 +228,9 @@ export default {
         async duplicateTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/duplicate/' + theme.t_key, {
                 method: 'POST',
-                body: {
-                    license_key: this.$appState.designer.licenseKey
+                headers: {
+                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                    'X-License-Key': this.$appState.designer.licenseKey
                 }
             });
 

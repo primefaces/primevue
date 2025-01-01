@@ -100,10 +100,13 @@ export default {
             if (this.$appState.designer.licenseKey) {
                 const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
                     method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                        'X-License-Key': this.$appState.designer.licenseKey
+                    },
                     body: {
                         name: this.themeName,
                         preset: newPreset,
-                        license_key: this.$appState.designer.licenseKey,
                         config: {
                             font_size: '14px',
                             font_family: 'Inter var'
@@ -125,10 +128,13 @@ export default {
                 if (this.$appState.designer.licenseKey) {
                     const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
                         method: 'POST',
+                        headers: {
+                            Authorization: `Bearer ${this.$appState.designer.ticket}`,
+                            'X-License-Key': this.$appState.designer.licenseKey
+                        },
                         body: {
                             name: this.themeName,
                             figma_tokens: this.figmaData,
-                            license_key: this.$appState.designer.licenseKey,
                             config: {
                                 font_size: '14px',
                                 font_family: 'Inter var'
