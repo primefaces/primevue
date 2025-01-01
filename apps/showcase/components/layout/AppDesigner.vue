@@ -107,8 +107,7 @@ export default {
                 body: {
                     key: theme.key,
                     preset: theme.preset,
-                    config: theme.config,
-                    license_key: this.$appState.designer.licenseKey
+                    config: theme.config
                 }
             });
 
@@ -168,15 +167,14 @@ export default {
             }
         },
         async loadFont(fontFamily, weight) {
-            const fontFamilyPath = fontFamily.toLowerCase().replace(/\s+/g, '-');
-            const fontUrl = `https://fonts.bunny.net/${fontFamilyPath}/files/${fontFamilyPath}-latin-${weight}-normal.woff2`;
-
-            const font = new FontFace(fontFamily, `url(${fontUrl})`, {
-                weight: weight.toString(),
-                style: 'normal'
-            });
-
             try {
+                const fontFamilyPath = fontFamily.toLowerCase().replace(/\s+/g, '-');
+                const fontUrl = `https://fonts.bunny.net/${fontFamilyPath}/files/${fontFamilyPath}-latin-${weight}-normal.woff2`;
+                const font = new FontFace(fontFamily, `url(${fontUrl})`, {
+                    weight: weight.toString(),
+                    style: 'normal'
+                });
+
                 const loadedFont = await font.load();
 
                 document.fonts.add(loadedFont);

@@ -5,14 +5,14 @@
         <div class="flex gap-4">
             <div class="mb-4">
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Base</div>
-                <select v-model="$appState.designer.theme.config.font_size" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
+                <select v-model="$appState.designer.theme.config.fontSize" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
                     <option v-for="fontSize of fontSizes" :key="fontSize" :value="fontSize">{{ fontSize }}</option>
                 </select>
             </div>
 
             <div>
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Family</div>
-                <select v-model="$appState.designer.theme.config.font_family" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
+                <select v-model="$appState.designer.theme.config.fontFamily" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
                     <option v-for="font of fonts" :key="font" :value="font">{{ font }}</option>
                 </select>
             </div>
@@ -77,16 +77,16 @@ export default {
             missingTokens: [],
             status: null,
             fontSizes: ['12px', '13px', '14px', '15px', '16px'],
-            fonts: ['DM Sans', 'Inter var', 'Figtree', 'Lato', 'Lexend', 'Poppins', 'Public Sans', 'Raleway', 'Roboto', 'Open Sans', 'Quicksand']
+            fonts: ['DM Sans', 'Inter var', 'Figtree', 'Lato', 'Lexend', 'Montserrat', 'Poppins', 'Public Sans', 'Raleway', 'Roboto', 'Open Sans', 'Quicksand']
         };
     },
     methods: {
         changeFont() {
-            this.designerService.applyFont(this.$appState.designer.theme.config.font_size);
+            this.designerService.applyFont(this.$appState.designer.theme.config.fontFamily);
             this.designerService.saveTheme(this.$appState.designer.theme);
         },
         changeBaseFontSize() {
-            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_family;
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
             this.designerService.saveTheme(this.$appState.designer.theme);
         },
         async preview() {
@@ -95,9 +95,6 @@ export default {
                 headers: {
                     Authorization: `Bearer ${this.$appState.designer.ticket}`,
                     'X-License-Key': this.$appState.designer.licenseKey
-                },
-                body: {
-                    license_key: this.$appState.designer.licenseKey
                 }
             });
 
@@ -131,9 +128,6 @@ export default {
                 headers: {
                     Authorization: `Bearer ${this.$appState.designer.ticket}`,
                     'X-License-Key': this.$appState.designer.licenseKey
-                },
-                body: {
-                    license_key: this.$appState.designer.licenseKey
                 }
             });
 

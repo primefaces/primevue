@@ -108,8 +108,8 @@ export default {
                         name: this.themeName,
                         preset: newPreset,
                         config: {
-                            font_size: '14px',
-                            font_family: 'Inter var'
+                            fontSize: '14px',
+                            fontFamily: 'Inter var'
                         }
                     }
                 });
@@ -136,8 +136,8 @@ export default {
                             name: this.themeName,
                             figma_tokens: this.figmaData,
                             config: {
-                                font_size: '14px',
-                                font_family: 'Inter var'
+                                fontSize: '14px',
+                                fontFamily: 'Inter var'
                             }
                         }
                     });
@@ -179,8 +179,8 @@ export default {
                 key: t_key,
                 preset: preset,
                 config: {
-                    font_size: '14px',
-                    font_family: 'Inter var'
+                    fontSize: '14px',
+                    fontFamily: 'Inter var'
                 }
             };
             this.design;
