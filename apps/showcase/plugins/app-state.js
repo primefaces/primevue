@@ -18,6 +18,7 @@ const $appState = {
                 localStoreKey: 'primevue-designer',
                 licenseKey: null,
                 ticket: null,
+                themeLimit: null,
                 active: false,
                 activeView: 'dashboard',
                 activeTab: '0',

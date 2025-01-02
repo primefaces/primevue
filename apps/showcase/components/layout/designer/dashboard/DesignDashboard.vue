@@ -17,10 +17,20 @@
         </button>
     </form>
 
-    <div class="text-lg font-semibold mb-2 mt-6">My Themes</div>
+    <div class="flex justify-between items-center mb-2 mt-6">
+        <span class="text-lg font-semibold">My Themes</span>
+        <span class="text-muted-color text-sm">{{ $appState.designer.themes?.length }} / {{ $appState.designer.themeLimit }}</span>
+    </div>
     <span class="block text-muted-color leading-6 mb-4">Continue editing your existing themes or build a new one.</span>
     <div class="flex flex-wrap gap-6">
-        <button type="button" class="rounded-xl h-36 w-36 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-black dark:text-white" @click="openNewTheme">
+        <button
+            type="button"
+            :class="[
+                'rounded-xl h-36 w-36 bg-transparent border border-gray-200 dark:border-gray-700 text-black dark:text-white',
+                { 'opacity-50 cursor-auto': themeLimitReached, 'hover:border-gray-400 dark:hover:border-gray-500': !themeLimitReached }
+            ]"
+            @click="openNewTheme"
+        >
             <i class="pi pi-plus !text-2xl"></i>
         </button>
         <template v-if="loading">
@@ -38,7 +48,7 @@
                 </button>
                 <div class="flex flex-col items-center gap-2">
                     <div class="group flex items-center gap-2 relative">
-                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 py-1" maxlength="100" @blur="renameTheme(theme)" />
+                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 py-1 text-center" maxlength="100" @blur="renameTheme(theme)" />
                         <i class="hidden group-hover:block pi pi-pencil !text-sm absolute top-50 right-0 text-muted-color"></i>
                     </div>
                     <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
@@ -70,7 +80,7 @@ export default {
     inject: ['designerService'],
     data() {
         return {
-            licenseKey: null,
+            licenseKey: this.$appState.designer.licenseKey,
             loading: false,
             currentTheme: null,
             confirmDialogVisible: false,
@@ -135,6 +145,7 @@ export default {
                 if (data.valid) {
                     this.$appState.designer.licenseKey = this.licenseKey;
                     this.$appState.designer.ticket = data.ticket;
+                    this.$appState.designer.themeLimit = data.themeLimit;
 
                     this.loadThemes();
 
@@ -150,7 +161,9 @@ export default {
             }
         },
         openNewTheme() {
-            this.$appState.designer.activeView = 'create_theme';
+            if (!this.themeLimitReached) {
+                this.$appState.designer.activeView = 'create_theme';
+            }
         },
         async loadThemes() {
             this.loading = true;
@@ -259,7 +272,13 @@ export default {
             this.$refs.themeMenu.toggle(event);
         },
         abbrThemeName(theme) {
-            return theme.t_name ? theme.t_name.substring(0, 2) : 'U';
+            return theme.t_name ? theme.t_name.substring(0, 2) : 'UT';
+        }
+    },
+    computed: {
+        themeLimitReached() {
+            if (this.$appState.designer.themeLimit > 0 && this.$appState.designer.themes?.length) return this.$appState.designer.themeLimit === this.$appState.designer.themes.length;
+            else return false;
         }
     }
 };

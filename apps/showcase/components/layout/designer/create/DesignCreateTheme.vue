@@ -146,6 +146,10 @@ export default {
                         this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
                     } else {
                         this.loadThemeEditor(data.t_key, data.t_preset);
+
+                        if (data.lostAndFound?.length) {
+                            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'There are missing tokens. An update is recommended using the "Migration Assistant" in the settings section.' });
+                        }
                     }
                 } else {
                     this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'A valid license required', life: 3000 });
@@ -183,7 +187,6 @@ export default {
                     fontFamily: 'Inter var'
                 }
             };
-            this.design;
             this.replaceColorPalette();
             usePreset(preset);
             this.designerService.refreshACTokens();
