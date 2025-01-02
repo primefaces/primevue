@@ -99,7 +99,7 @@ export default {
         },
         async saveTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/update', {
-                method: 'POST',
+                method: 'PATCH',
                 headers: {
                     Authorization: `Bearer ${this.$appState.designer.ticket}`,
                     'X-License-Key': this.$appState.designer.licenseKey

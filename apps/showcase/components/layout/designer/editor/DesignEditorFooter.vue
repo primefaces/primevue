@@ -31,6 +31,7 @@ export default {
         },
         apply() {
             this.designerService.applyTheme(this.$appState.designer.theme);
+            this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Theme saved', life: 3000 });
         }
     }
 };
