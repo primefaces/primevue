@@ -132,6 +132,12 @@ const CalendarProps = [
         description: 'Array with dates to disable.'
     },
     {
+        name: 'enabledDates',
+        type: 'array',
+        default: 'null',
+        description: 'Array with dates to enable.'
+    },
+    {
         name: 'disabledDays',
         type: 'array',
         default: 'null',

@@ -8605,6 +8605,14 @@
                             "description": "Array with dates to disable."
                         },
                         {
+                            "name": "enabledDates",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Date[]",
+                            "default": "",
+                            "description": "Array with dates to enable."
+                        },
+                        {
                             "name": "disabledDays",
                             "optional": true,
                             "readonly": false,
