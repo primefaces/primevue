@@ -25,21 +25,8 @@
             before the migration.
         </span>
         <div class="flex justify-between">
-            <button
-                type="button"
-                @click="preview"
-                class="px-3 py-2 bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white"
-            >
-                Preview
-            </button>
-            <button
-                type="button"
-                :disabled="status !== 'preview'"
-                @click="confirmMigration"
-                class="px-3 py-2 bg-zinc-950 disabled:hover:bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:disabled:hover:bg-white dark:text-black rounded-md font-medium cursor-pointer disabled:cursor-auto transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white disabled:opacity-60"
-            >
-                Migrate
-            </button>
+            <button type="button" @click="preview" class="btn-design-outlined">Preview</button>
+            <button type="button" :disabled="status !== 'preview'" @click="confirmMigration" class="btn-design">Migrate</button>
         </div>
         <div v-if="status === 'preview'">
             <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-amber-600 dark:text-black font-medium mt-4 rounded-md leading-normal">

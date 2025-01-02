@@ -6,15 +6,7 @@
     >
     <form @submit.prevent class="flex gap-4">
         <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
-        <button
-            type="button"
-            @click="activate(false)"
-            icon="pi pi-download"
-            :disabled="!licenseKey"
-            class="px-3 py-2 bg-zinc-950 disabled:hover:bg-zinc-950 hover:bg-zinc-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:disabled:hover:bg-white dark:text-black rounded-md font-medium cursor-pointer disabled:cursor-auto transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white disabled:opacity-60"
-        >
-            Activate
-        </button>
+        <button type="button" @click="activate(false)" icon="pi pi-download" :disabled="!licenseKey" class="btn-design">Activate</button>
     </form>
 
     <div class="flex justify-between items-center mb-2 mt-6">
