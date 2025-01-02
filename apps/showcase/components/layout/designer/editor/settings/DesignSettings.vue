@@ -64,7 +64,33 @@ export default {
             missingTokens: [],
             status: null,
             fontSizes: ['12px', '13px', '14px', '15px', '16px'],
-            fonts: ['DM Sans', 'Inter var', 'Figtree', 'Lato', 'Lexend', 'Montserrat', 'Poppins', 'Public Sans', 'Raleway', 'Roboto', 'Open Sans', 'Quicksand']
+            fonts: [
+                'DM Sans',
+                'Dosis',
+                'Figtree',
+                'IBM Plex Sans',
+                'Inter var',
+                'Lato',
+                'Lexend',
+                'Merriweather Sans',
+                'Montserrat',
+                'Noto Sans Display',
+                'Nunito',
+                'Nunito Sans',
+                'Open Sans',
+                'Poppins',
+                'PT Sans',
+                'Public Sans',
+                'Quicksand',
+                'Raleway',
+                'Roboto',
+                'Signika',
+                'Source Sans Pro',
+                'Space Grotesk',
+                'Titillium Web',
+                'Ubuntu Condensed',
+                'Ubuntu Sans'
+            ]
         };
     },
     methods: {
