@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <label :for="inputId" class="text-sm text-zinc-700 dark:text-white block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap" :title="label">{{ label }}</label>
+    <div class="group">
+        <div class="flex justify-between justify-items-center">
+            <label :for="inputId" class="text-sm text-zinc-700 dark:text-white block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap" :title="label">{{ label }}</label>
+            <button type="button" @click="transfer"><i class="pi pi-sort-alt !text-xs text-zinc-400 hidden group-hover:block animate-fadein"></i></button>
+        </div>
         <div :id="id" class="relative">
             <AutoComplete
                 :modelValue="modelValue"
@@ -41,6 +44,8 @@
 <script>
 import { UniqueComponentId } from '@primevue/core/utils';
 import { $dt } from '@primevue/themes';
+import set from 'lodash.set';
+import unset from 'lodash.unset';
 
 export default {
     emits: ['update:modelValue'],
@@ -55,6 +60,14 @@ export default {
         },
         modelValue: {
             type: null,
+            default: undefined
+        },
+        componentKey: {
+            type: null,
+            default: null
+        },
+        path: {
+            type: String,
             default: undefined
         }
     },
@@ -83,6 +96,59 @@ export default {
             } else {
                 this.items = [];
             }
+        },
+        getPathFromColorScheme(colorScheme) {
+            const lightPrefix = 'light.';
+            const darkPrefix = 'dark.';
+
+            if (colorScheme.startsWith(lightPrefix)) {
+                return colorScheme.slice(lightPrefix.length);
+            } else if (colorScheme.startsWith(darkPrefix)) {
+                return colorScheme.slice(darkPrefix.length);
+            }
+
+            return colorScheme;
+        },
+        transfer(event) {
+            let tokens = this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+            const colorSchemePrefix = 'colorScheme.';
+
+            if (this.path.startsWith(colorSchemePrefix)) {
+                let tokenPath = this.getPathFromColorScheme(this.path.slice(colorSchemePrefix.length));
+
+                set(tokens, tokenPath, this.modelValue);
+                unset(tokens, 'colorScheme.light.' + tokenPath);
+                unset(tokens, 'colorScheme.dark.' + tokenPath);
+            } else {
+                set(tokens, 'colorScheme.light.' + this.path, this.modelValue);
+                set(tokens, 'colorScheme.dark.' + this.path, this.modelValue);
+                unset(tokens, this.path);
+            }
+
+            this.removeEmptyProps(tokens);
+
+            event.preventDefault();
+        },
+        removeEmptyProps(obj) {
+            if (typeof obj !== 'object' || obj === null) {
+                return obj;
+            }
+
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    const value = obj[key];
+
+                    if (typeof value === 'object' && value !== null) {
+                        this.removeEmptyProps(value);
+                    }
+
+                    if (typeof value === 'object' && value !== null && Object.keys(value).length === 0) {
+                        delete obj[key];
+                    }
+                }
+            }
+
+            return obj;
         }
     },
     computed: {
