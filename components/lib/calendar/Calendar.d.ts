@@ -619,6 +619,10 @@ export interface CalendarProps {
      */
     disabledDates?: Date[] | undefined;
     /**
+     * Array with dates to enable.
+     */
+    enabledDates?: Date[] | undefined;
+    /**
      * Array with disabled weekday numbers.
      */
     disabledDays?: number[] | undefined;
