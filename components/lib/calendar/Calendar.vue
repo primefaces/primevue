@@ -819,11 +819,10 @@ export default {
             let validMax = true;
             let validDate = true;
             let validDay = true;
-
+            let enabledDate = true;
             if (otherMonth && !this.selectOtherMonths) {
                 return false;
             }
-
             if (this.minDate) {
                 if (this.minDate.getFullYear() > year) {
                     validMin = false;
@@ -837,7 +836,6 @@ export default {
                     }
                 }
             }
-
             if (this.maxDate) {
                 if (this.maxDate.getFullYear() < year) {
                     validMax = false;
@@ -851,16 +849,16 @@ export default {
                     }
                 }
             }
-
+            if (this.enabledDates) {
+                enabledDate = this.isDateEnabled(day, month, year);
+            }
             if (this.disabledDates) {
                 validDate = !this.isDateDisabled(day, month, year);
             }
-
             if (this.disabledDays) {
                 validDay = !this.isDayDisabled(day, month, year);
             }
-
-            return validMin && validMax && validDate && validDay;
+            return validMin && validMax && validDate && validDay && enabledDate;
         },
         onOverlayEnter(el) {
             el.setAttribute(this.attributeSelector, '');
@@ -1113,6 +1111,17 @@ export default {
             if (this.disabledDates) {
                 for (let disabledDate of this.disabledDates) {
                     if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        },
+        isDateEnabled(day, month, year) {
+            if (this.enabledDates) {
+                for (let enabledDate of this.enabledDates) {
+                    if (enabledDate.getFullYear() === year && enabledDate.getMonth() === month && enabledDate.getDate() === day) {
                         return true;
                     }
                 }

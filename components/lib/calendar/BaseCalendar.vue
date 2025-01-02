@@ -96,6 +96,10 @@ export default {
             type: Array,
             value: null
         },
+        enabledDates: {
+            type: Array,
+            value: null
+        },
         disabledDays: {
             type: Array,
             value: null
