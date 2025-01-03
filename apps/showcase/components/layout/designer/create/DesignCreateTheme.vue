@@ -13,13 +13,7 @@
                 <span class="text-muted-color">Variety of built-in themes with distinct characteristics.</span>
                 <div class="flex justify-between">
                     <SelectButton v-model="basePreset" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
-                    <button
-                        type="button"
-                        @click="createThemeFromPreset"
-                        class="btn-design"
-                    >
-                        Create
-                    </button>
+                    <button type="button" @click="createThemeFromPreset" class="btn-design">Create</button>
                 </div>
             </div>
 
@@ -30,13 +24,7 @@
                 <span class="text-muted-color leading-6">Export the token.json file from Figma Token Studio and import to the Visual Editor.</span>
                 <div class="flex justify-between">
                     <FileUpload mode="basic" pt:root:class="!justify-start" @select="onFileSelect($event)" />
-                    <button
-                        type="button"
-                        @click="createThemeFromFigma"
-                        class="btn-design"
-                    >
-                        Create
-                    </button>
+                    <button type="button" @click="createThemeFromFigma" class="btn-design">Create</button>
                 </div>
             </div>
         </div>
