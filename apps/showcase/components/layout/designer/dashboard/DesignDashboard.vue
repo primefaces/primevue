@@ -23,8 +23,8 @@
         <button
             type="button"
             :class="[
-                'rounded-xl h-32 w-32 bg-transparent border border-gray-200 dark:border-gray-700 text-black dark:text-white',
-                { 'opacity-50 cursor-auto': themeLimitReached, 'hover:border-gray-400 dark:hover:border-gray-500': !themeLimitReached }
+                'rounded-xl h-32 w-32 bg-transparent border border-surface-200 dark:border-surface-700 text-black dark:text-white',
+                { 'opacity-50 cursor-auto': themeLimitReached, 'hover:border-surface-400 dark:hover:border-surface-500': !themeLimitReached }
             ]"
             @click="openNewTheme"
         >
@@ -38,7 +38,7 @@
             <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
                 <button
                     type="button"
-                    class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-black dark:text-white"
+                    class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
                     @click="loadTheme(theme)"
                 >
                     <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
@@ -50,7 +50,7 @@
                     </div>
                     <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
                 </div>
-                <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-zinc-500 dark:text-zinc-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
+                <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-500 dark:text-surface-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
                     <i class="pi pi-ellipsis-h !text-xs" />
                 </button>
             </div>
