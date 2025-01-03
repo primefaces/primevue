@@ -10,4 +10,8 @@
     .btn-design-outlined {
         @apply px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 focus:dark:outline-white disabled:opacity-60;
     }
+
+    .icon-btn {
+      @apply h-8 w-8 rounded-full inline-flex justify-center items-center hover:bg-surface-100 dark:hover:bg-surface-800 text-zinc-500 dark:text-zinc-400 transition-colors duration-200;
+    }
 }

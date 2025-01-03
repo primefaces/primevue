@@ -1,18 +1,32 @@
 <template>
     <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide" :dt="drawerTokens">
-        <template #header>
-            <div class="flex items-center gap-2">
-                <Button v-if="$appState.designer.activeView !== 'dashboard'" variant="text" severity="secondary" rounded type="button" icon="pi pi-chevron-left" @click="openDashboard" />
-                <span class="font-bold text-xl">{{ viewTitle }}</span>
+        <template #container="{ closeCallback }">
+            <div class="flex items-center justify-between p-5">
+                <div class="flex items-center gap-2">
+                    <button v-if="$appState.designer.activeView !== 'dashboard'" type="button" @click="openDashboard" class="icon-btn">
+                        <i class="pi pi-chevron-left" />
+                    </button>
+                    <span class="font-bold text-xl">{{ viewTitle }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button type="button" @click="toggleDarkMode" class="icon-btn">
+                        <i :class="['pi', { 'pi-moon': $appState.darkTheme, 'pi-sun': !$appState.darkTheme }]"></i>
+                    </button>
+                    <button type="button" @click="closeCallback" class="icon-btn">
+                        <i class="pi pi-times" />
+                    </button>
+                </div>
             </div>
-        </template>
 
-        <DesignDashboard v-if="$appState.designer.activeView === 'dashboard'" />
-        <DesignCreateTheme v-else-if="$appState.designer.activeView === 'create_theme'" />
-        <DesignEditor v-else-if="$appState.designer.activeView === 'editor'" :deferred="deferredTabs" />
+            <div class="flex-auto overflow-auto pb-5 px-5">
+                <DesignDashboard v-if="$appState.designer.activeView === 'dashboard'" />
+                <DesignCreateTheme v-else-if="$appState.designer.activeView === 'create_theme'" />
+                <DesignEditor v-else-if="$appState.designer.activeView === 'editor'" :deferred="deferredTabs" />
+            </div>
 
-        <template #footer>
-            <DesignEditorFooter v-if="$appState.designer.activeView === 'editor'" />
+            <div class="p-5">
+                <DesignEditorFooter v-if="$appState.designer.activeView === 'editor'" />
+            </div>
         </template>
     </Drawer>
     <ConfirmDialog group="designer"></ConfirmDialog>
@@ -177,6 +191,9 @@ export default {
             this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
             this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
             this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
+        },
+        toggleDarkMode() {
+            EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
         }
     },
     computed: {
