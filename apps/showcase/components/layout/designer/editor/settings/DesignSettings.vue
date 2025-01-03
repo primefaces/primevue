@@ -77,18 +77,19 @@ export default {
                 'Noto Sans Display',
                 'Nunito',
                 'Nunito Sans',
+                'Onest',
                 'Open Sans',
+                'Outfit',
                 'Poppins',
                 'PT Sans',
                 'Public Sans',
                 'Quicksand',
                 'Raleway',
                 'Roboto',
-                'Signika',
                 'Source Sans Pro',
                 'Space Grotesk',
+                'Spline Sans',
                 'Titillium Web',
-                'Ubuntu Condensed',
                 'Ubuntu Sans'
             ]
         };

@@ -82,11 +82,6 @@ export default {
         };
     },
     methods: {
-        replaceColorPalette() {
-            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
-            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
-            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
-        },
         async createThemeFromPreset() {
             const newPreset = presets[this.basePreset];
 
@@ -187,7 +182,7 @@ export default {
                     fontFamily: 'Inter var'
                 }
             };
-            this.replaceColorPalette();
+            this.designerService.replaceColorPalette();
             usePreset(preset);
             this.designerService.refreshACTokens();
 

@@ -37,7 +37,8 @@ export default {
                 saveTheme: this.saveTheme,
                 downloadTheme: this.downloadTheme,
                 applyTheme: this.applyTheme,
-                applyFont: this.applyFont
+                applyFont: this.applyFont,
+                replaceColorPalette: this.replaceColorPalette
             }
         };
     },
@@ -171,6 +172,11 @@ export default {
             } catch (error) {
                 // silent fail as some fonts may have not all the font weights
             }
+        },
+        replaceColorPalette() {
+            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
+            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
+            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
         }
     },
     computed: {
