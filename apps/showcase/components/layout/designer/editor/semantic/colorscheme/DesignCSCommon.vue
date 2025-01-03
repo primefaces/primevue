@@ -1,6 +1,6 @@
 <template>
     <Fieldset legend="Common" :toggleable="true">
-        <section class="flex justify-between items-center mb-4">
+        <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Surface</span>
                 <input :value="$colorScheme.surface['500']" @input="onSurfaceColorChange($event)" type="color" />

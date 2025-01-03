@@ -1,6 +1,6 @@
 <template>
     <Fieldset legend="General" :toggleable="true">
-        <section class="flex justify-between items-center mb-5">
+        <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
                 <input :value="$appState.designer.theme.preset.semantic.primary['500']" @input="onPrimaryColorChange($event)" type="color" />

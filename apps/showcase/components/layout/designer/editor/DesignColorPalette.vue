@@ -1,6 +1,6 @@
 <template>
-    <div class="flex border border-surface rounded-l-lg rounded-r-lg overflow-hidden">
-        <div v-for="color of value" :key="color" class="w-8 h-8" :style="{ backgroundColor: color }" :title="color"></div>
+    <div class="flex flex-1 border border-surface rounded-l-lg rounded-r-lg overflow-hidden">
+        <div v-for="color of value" :key="color" class="flex-1 h-8" :style="{ backgroundColor: color }" :title="color"></div>
     </div>
 </template>
 
