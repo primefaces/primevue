@@ -1,5 +1,5 @@
 <template>
-    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide" :dt="drawerTokens">
+    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
         <template #container="{ closeCallback }">
             <div class="flex items-center justify-between p-5">
                 <div class="flex items-center gap-2">
@@ -209,38 +209,6 @@ export default {
             }
 
             return null;
-        },
-        drawerTokens() {
-            return {
-                root: {
-                    shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
-                },
-                header: {
-                    padding: '1.25rem'
-                },
-                title: {
-                    fontSize: '1.5rem',
-                    fontWeight: '600'
-                },
-                content: {
-                    padding: '0 1.25rem 1.25rem 1.25rem'
-                },
-                footer: {
-                    padding: '1.25rem'
-                },
-                colorScheme: {
-                    light: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.200}',
-                        color: '#09090b'
-                    },
-                    dark: {
-                        background: '{surface.900}',
-                        borderColor: '{surface.700}',
-                        color: '#ffffff'
-                    }
-                }
-            };
         }
     }
 };
