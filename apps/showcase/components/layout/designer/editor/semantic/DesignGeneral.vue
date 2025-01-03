@@ -1,13 +1,13 @@
 <template>
     <Fieldset legend="General" :toggleable="true">
-        <section class="flex justify-between items-center mb-4">
+        <section class="flex justify-between items-center mb-5">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
                 <input :value="$appState.designer.theme.preset.semantic.primary['500']" @input="onPrimaryColorChange($event)" type="color" />
             </div>
             <DesignColorPalette :value="$appState.designer.theme.preset.semantic.primary" />
         </section>
-        <section class="grid grid-cols-4 mb-3 gap-2">
+        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.transitionDuration" label="Transition Duration" />
             </div>
@@ -31,7 +31,7 @@
         </section>
 
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Focus Ring</div>
-        <section class="grid grid-cols-4 gap-2">
+        <section class="grid grid-cols-4 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.focusRing.width" label="Width" />
             </div>

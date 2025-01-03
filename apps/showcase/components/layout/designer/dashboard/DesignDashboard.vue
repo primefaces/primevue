@@ -11,14 +11,19 @@
 
     <div class="flex justify-between items-center mb-2 mt-6">
         <span class="text-lg font-semibold">My Themes</span>
-        <span class="text-muted-color text-sm">{{ $appState.designer.themes?.length }} / {{ $appState.designer.themeLimit }}</span>
+        <div v-if="$appState.designer.themeLimit" class="flex items-center gap-2">
+            <span class="text-muted-color text-xs">{{ $appState.designer.themes.length }} / {{ $appState.designer.themeLimit }}</span>
+            <div class="h-2 border rounded-md w-32 overflow-hidden">
+                <div class="bg-zinc-950 dark:bg-white h-full" :style="{ width: themeUsageRatio + '%' }"></div>
+            </div>
+        </div>
     </div>
     <span class="block text-muted-color leading-6 mb-4">Continue editing your existing themes or build a new one.</span>
-    <div class="flex flex-wrap gap-6">
+    <div class="flex flex-wrap gap-4">
         <button
             type="button"
             :class="[
-                'rounded-xl h-36 w-36 bg-transparent border border-gray-200 dark:border-gray-700 text-black dark:text-white',
+                'rounded-xl h-32 w-32 bg-transparent border border-gray-200 dark:border-gray-700 text-black dark:text-white',
                 { 'opacity-50 cursor-auto': themeLimitReached, 'hover:border-gray-400 dark:hover:border-gray-500': !themeLimitReached }
             ]"
             @click="openNewTheme"
@@ -26,31 +31,27 @@
             <i class="pi pi-plus !text-2xl"></i>
         </button>
         <template v-if="loading">
-            <Skeleton class="!rounded-xl !h-36 !w-36">-</Skeleton>
-            <Skeleton class="!rounded-xl !h-36 !w-36">-</Skeleton>
+            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
+            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
         </template>
         <template v-else>
             <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
                 <button
                     type="button"
-                    class="rounded-xl h-36 w-36 px-4 overflow-hidden text-ellipsis bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-black dark:text-white"
+                    class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-black dark:text-white"
                     @click="loadTheme(theme)"
                 >
-                    <span class="text-2xl uppercase">{{ abbrThemeName(theme) }}</span>
+                    <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
                 </button>
-                <div class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-1">
                     <div class="group flex items-center gap-2 relative">
-                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 py-1 text-center" maxlength="100" @blur="renameTheme(theme)" />
+                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 text-center" maxlength="100" @blur="renameTheme(theme)" />
                         <i class="hidden group-hover:block pi pi-pencil !text-sm absolute top-50 right-0 text-muted-color"></i>
                     </div>
                     <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
                 </div>
-                <button
-                    type="button"
-                    @click="toggleMenuOptions($event, theme)"
-                    class="bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-black dark:text-white flex absolute top-2 right-2 w-8 h-8 rounded-full items-center justify-center"
-                >
-                    <i class="pi pi-ellipsis-v" />
+                <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-zinc-500 dark:text-zinc-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
+                    <i class="pi pi-ellipsis-h !text-xs" />
                 </button>
             </div>
         </template>
@@ -270,8 +271,10 @@ export default {
     },
     computed: {
         themeLimitReached() {
-            if (this.$appState.designer.themeLimit > 0 && this.$appState.designer.themes?.length) return this.$appState.designer.themeLimit === this.$appState.designer.themes.length;
-            else return false;
+            return this.$appState.designer.themeLimit ? this.$appState.designer.themeLimit === this.$appState.designer.themes.length : false;
+        },
+        themeUsageRatio() {
+            return this.$appState.designer.themeLimit ? 100 * (this.$appState.designer.themes.length / this.$appState.designer.themeLimit) : 0;
         }
     }
 };

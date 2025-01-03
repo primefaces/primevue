@@ -1,8 +1,8 @@
 <template>
     <div class="group">
         <div class="flex justify-between justify-items-center">
-            <label :for="inputId" class="text-sm text-zinc-700 dark:text-white block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap" :title="label">{{ label }}</label>
-            <button type="button" @click="transfer"><i class="pi pi-sort-alt !text-xs text-zinc-400 hidden group-hover:block animate-fadein"></i></button>
+            <label :for="inputId" class="text-xs text-zinc-700 dark:text-white block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap mb-px" :title="label">{{ label }}</label>
+            <button type="button" @click="transfer"><i class="pi pi-sort-alt !text-xs text-zinc-400 hidden group-hover:block animate-fadein" title="Transfer between color scheme and common"></i></button>
         </div>
         <div :id="id" class="relative">
             <AutoComplete
@@ -16,7 +16,7 @@
                 :showEmptyMessage="false"
                 :pt="{
                     pcInputText: {
-                        root: ['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full text-sm', { 'pr-8': type === 'color' }]
+                        root: ['border border-surface-300 dark:border-surface-600 rounded-lg py-2 px-2 w-full text-xs', { 'pr-8': type === 'color' }]
                     },
                     overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
                     listContainer: 'max-h-40 overflow-auto',

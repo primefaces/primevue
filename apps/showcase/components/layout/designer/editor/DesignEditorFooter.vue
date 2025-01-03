@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between gap-2">
+    <div class="flex justify-end gap-2">
         <button type="button" @click="download" icon="pi pi-download" class="btn-design-outlined">Download</button>
         <button type="button" @click="apply" icon="pi pi-download" class="btn-design">Apply</button>
     </div>

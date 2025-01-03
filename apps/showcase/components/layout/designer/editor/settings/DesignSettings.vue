@@ -1,9 +1,9 @@
 <template>
-    <section class="mb-6">
-        <div class="text-lg font-semibold mb-4">Font</div>
+    <section>
+        <div class="text-lg font-semibold mb-2">Font</div>
 
         <div class="flex gap-4">
-            <div class="mb-4">
+            <div>
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Base</div>
                 <select v-model="$appState.designer.theme.config.fontSize" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
                     <option v-for="fontSize of fontSizes" :key="fontSize" :value="fontSize">{{ fontSize }}</option>
@@ -18,15 +18,15 @@
             </div>
         </div>
     </section>
-    <section class="mb-6">
+    <section class="mt-6">
         <div class="block text-lg font-semibold mb-2">Migration Assistant</div>
         <span class="block text-muted-color leading-6 mb-4"
             >Automatically update your themes to the latest version. This tool does not override the values of existing tokens, and only adds missing tokens if necessary. Still, it is recommended to duplicate your theme as a backup and run a preview
             before the migration.
         </span>
-        <div class="flex justify-between">
-            <button type="button" @click="preview" class="btn-design-outlined">Preview</button>
-            <button type="button" :disabled="status !== 'preview'" @click="confirmMigration" class="btn-design">Migrate</button>
+        <div class="flex justify-start gap-2">
+            <button type="button" @click="preview" class="btn-design-outlined">Check for Updates</button>
+            <button v-if="status === 'preview' && missingTokens.length > 0" type="button" @click="confirmMigration" class="btn-design">Migrate</button>
         </div>
         <div v-if="status === 'preview'">
             <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-amber-600 dark:text-black font-medium mt-4 rounded-md leading-normal">
