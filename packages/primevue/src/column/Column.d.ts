@@ -380,6 +380,11 @@ export interface ColumnProps {
      */
     sortable?: boolean | undefined;
     /**
+     * Defines if a column is resizable when not all columns are.
+     * @defaultValue false
+     */
+    resizable?: boolean | undefined;
+    /**
      * Header content of the column.
      */
     header?: string | undefined;

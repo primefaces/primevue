@@ -631,7 +631,7 @@ const classes = {
                   'p-datatable-header-cell',
                   {
                       'p-datatable-sortable-column': instance.columnProp('sortable'),
-                      'p-datatable-resizable-column': instance.resizableColumns,
+                      'p-datatable-resizable-column': instance.isResizable, // instance.resizableColumns,
                       'p-datatable-column-sorted': instance.isColumnSorted(),
                       'p-datatable-frozen-column': instance.columnProp('frozen'),
                       'p-datatable-reorderable-column': props.reorderableColumns
