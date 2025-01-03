@@ -131,15 +131,13 @@ const css = ({ dt }) => `
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
+    opacity: 0;
     overflow: hidden;
     padding: 0;
+    pointer-events: none;
     position: absolute;
+    white-space: nowrap;
     width: 1px;
-}
-
-.p-hidden-accessible input,
-.p-hidden-accessible select {
-    transform: scale(0);
 }
 
 .p-overflow-hidden {
