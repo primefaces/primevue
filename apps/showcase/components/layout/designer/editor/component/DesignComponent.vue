@@ -27,7 +27,7 @@
                     </TabPanel>
                 </TabPanels>
             </Tabs>
-            <span v-else class="block py-3"> There are no design tokens per color scheme. </span>
+            <span v-else class="block py-3">There are no design tokens defined per color scheme.</span>
         </Fieldset>
     </section>
 </template>

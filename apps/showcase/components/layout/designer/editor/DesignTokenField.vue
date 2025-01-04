@@ -2,7 +2,9 @@
     <div class="group">
         <div class="flex justify-between justify-items-center">
             <label :for="inputId" class="text-xs text-zinc-700 dark:text-white/70 block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap mb-px" :title="label">{{ label }}</label>
-            <button type="button" @click="transfer"><i class="pi pi-sort-alt !text-xs text-zinc-700 dark:text-white/70 hidden group-hover:block animate-fadein" title="Transfer between color scheme and common"></i></button>
+            <button v-if="switchable" type="button" @click="transfer">
+                <i class="pi pi-sort-alt !text-xs text-zinc-500 dark:text-white/50 hidden group-hover:block animate-fadein" title="Transfer between color scheme and common"></i>
+            </button>
         </div>
         <div :id="id" class="relative">
             <AutoComplete
@@ -16,7 +18,7 @@
                 :showEmptyMessage="false"
                 :pt="{
                     pcInputText: {
-                        root: ['border border-surface-300 text-zinc-950 dark:text-white dark:border-surface-600 rounded-lg py-2 px-2 w-full text-xs', { 'pr-8': type === 'color' }]
+                        root: ['border border-surface-300 text-zinc-950 dark:text-white dark:border-surface-600 rounded-lg py-2 px-2 w-full text-xs', { 'pr-6': type === 'color' }]
                     },
                     overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
                     listContainer: 'max-h-40 overflow-auto',
@@ -36,7 +38,7 @@
                     </div>
                 </template>
             </AutoComplete>
-            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-3 w-6 h-6 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
+            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-2 w-4 h-4 rounded-full border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
         </div>
     </div>
 </template>
@@ -69,6 +71,10 @@ export default {
         path: {
             type: String,
             default: undefined
+        },
+        switchable: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
