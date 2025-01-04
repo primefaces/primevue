@@ -180,6 +180,27 @@
             color: inherit;
             padding: 0 1.125rem 1.125rem 1.125rem;
         }
+    }
 
+    .p-fileupload-choose-button {
+        padding: 0.5rem 0.75rem;
+        background: light-dark(#09090b, #ffffff);
+        border-color: light-dark(#09090b, #ffffff);
+        color: light-dark(#ffffff, #000000);
+        cursor: pointer;
+        font-weight: medium;
+        border-radius: 4px;
+        transition: background 0.2s;
+
+        &:hover {
+            background: light-dark(#27272a, #f3f4f6);
+            border-color: light-dark(#27272a, #f3f4f6);
+        }
+
+        &:focus-visible {
+            outline: 1px solid light-dark(#09090b, #ffffff);
+            outline-offset: 2px;
+            box-shadow: none;
+        }
     }
 }

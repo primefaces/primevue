@@ -12,7 +12,23 @@
                 <span class="font-semibold">Base Theme</span>
                 <span class="text-muted-color">Variety of built-in themes with distinct characteristics.</span>
                 <div class="flex justify-between">
-                    <SelectButton v-model="basePreset" :options="presetOptions" optionLabel="label" optionValue="value" :allowEmpty="false" />
+                    <div class="flex">
+                        <button
+                            v-for="presetOption of presetOptions"
+                            :key="presetOption.label"
+                            type="button"
+                            @click="basePreset = presetOption.value"
+                            :class="[
+                                'border border-surface-200 dark:border-surface-700 px-3 py-2 border-r-0 last:border-r first:rounded-l-md last:rounded-r-md transition-colors duration-200',
+                                {
+                                    'bg-zinc-950 text-white dark:bg-white dark:text-black': presetOption.value === basePreset,
+                                    'hover:bg-gray-100 dark:hover:bg-surface-800': presetOption.value !== basePreset
+                                }
+                            ]"
+                        >
+                            {{ presetOption.label }}
+                        </button>
+                    </div>
                     <button type="button" @click="createThemeFromPreset" class="btn-design">Create</button>
                 </div>
             </div>

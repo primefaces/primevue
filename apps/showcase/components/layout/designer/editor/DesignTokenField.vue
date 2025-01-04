@@ -38,7 +38,7 @@
                     </div>
                 </template>
             </AutoComplete>
-            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-2 w-4 h-4 rounded-full border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
+            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-2 w-4 h-4 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
         </div>
     </div>
 </template>
