@@ -634,7 +634,9 @@ export default {
             let newValueStr;
 
             if (sign.isMinusSign) {
-                if (selectionStart === 0) {
+                const value = this.parseValue(inputValue);
+
+                if (selectionStart === 0 || value === 0) {
                     newValueStr = inputValue;
 
                     if (minusCharIndex === -1 || selectionEnd !== 0) {
