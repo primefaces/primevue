@@ -5,7 +5,7 @@
             <Tab value="1">Semantic</Tab>
             <Tab value="2" :disabled="!isComponentRoute">Component</Tab>
             <Tab value="3">Custom</Tab>
-            <Tab value="4" class="ml-auto">Settings</Tab>
+            <Tab value="4" class="!ml-auto">Settings</Tab>
         </TabList>
         <TabPanels>
             <TabPanel value="0">

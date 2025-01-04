@@ -28,7 +28,7 @@
         background: light-dark(var(--p-surface-0), var(--p-surface-900));
         border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
         color: light-dark(#09090b, #ffffff);
-        box-shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)';
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
 
     .p-fieldset {

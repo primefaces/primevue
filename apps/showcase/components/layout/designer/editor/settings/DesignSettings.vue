@@ -29,19 +29,19 @@
             <button v-if="status === 'preview' && missingTokens.length > 0" type="button" @click="confirmMigration" class="btn-design">Migrate</button>
         </div>
         <div v-if="status === 'preview'">
-            <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-amber-600 dark:text-black font-medium mt-4 rounded-md leading-normal">
+            <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-yellow-500/30 dark:text-yellow-100 font-medium mt-4 rounded-md leading-normal">
                 There are missing tokens, you may add them automatically using the migrate option with placeholder values. After migration, visit the corresponding section to define the actual values for your theme.
             </div>
-            <div v-else class="p-3 bg-green-100 text-green-950 dark:bg-green-500 dark:text-black font-medium mt-4 rounded-md leading-normal">Your theme is up to date.</div>
+            <div v-else class="p-3 bg-green-100 text-green-950 dark:bg-green-500/30 dark:text-white font-medium mt-4 rounded-md leading-normal">Your theme is up to date.</div>
         </div>
         <div v-else-if="status === 'updated'">
-            <div class="p-3 bg-green-100 text-green-950 dark:bg-green-500 dark:text-black font-medium mt-4 rounded-md leading-normal">Your theme is successfully updated.</div>
+            <div class="p-3 bg-green-100 text-green-950 dark:bg-green-500/30 dark:text-white font-medium mt-4 rounded-md leading-normal">Your theme is successfully updated.</div>
         </div>
 
         <div v-if="missingTokens.length" class="max-h-60 overflow-auto mt-4 px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-full">
             <ul class="flex flex-col gap-1">
                 <li v-for="token of missingTokens" :key="token.value" class="flex justify-between">
-                    <span class="bg-red-50 text-red-950 text-sm font-medium px-2 py-1 rounded-lg">{{ token.value }}</span>
+                    <span class="bg-red-50 text-red-950 dark:bg-red-500/30 dark:text-red-100 text-sm font-medium px-2 py-1 rounded-lg">{{ token.value }}</span>
                     <span class="bg-zinc-950 text-white dark:bg-white dark:text-black rounded-full px-2 text-xs inline-flex items-center font-medium">{{ token.type }}</span>
                 </li>
             </ul>
