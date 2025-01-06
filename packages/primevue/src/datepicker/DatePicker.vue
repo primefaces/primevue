@@ -1252,7 +1252,7 @@ export default {
         },
         formatValue(value) {
             if (typeof value === 'string') {
-                return this.dateFormat ? this.formatDate(new Date(value), this.dateFormat) : value;
+                return value;
             }
 
             let formattedValue = '';
