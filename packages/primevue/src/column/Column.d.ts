@@ -661,7 +661,7 @@ export interface ColumnSlots {
         /**
          * Column field.
          */
-        field: string;
+        field: string | ((item: any) => string) | undefined;
         /**
          * Row index.
          */
