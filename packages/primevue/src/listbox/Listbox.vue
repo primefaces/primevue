@@ -90,10 +90,10 @@
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"
                             >
-                                <template v-if="checkmark">
+                                <div v-if="checkmark">
                                     <CheckIcon v-if="isSelected(option)" :class="cx('optionCheckIcon')" v-bind="ptm('optionCheckIcon')" />
                                     <BlankIcon v-else :class="cx('optionBlankIcon')" v-bind="ptm('optionBlankIcon')" />
-                                </template>
+                                </div>
                                 <slot name="option" :option="option" :selected="isSelected(option)" :index="getOptionIndex(i, getItemOptions)">{{ getOptionLabel(option) }}</slot>
                             </li>
                         </template>
