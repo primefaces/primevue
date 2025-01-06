@@ -620,11 +620,11 @@ const classes = {
     ],
     thead: 'p-datatable-thead',
     headerCell: ({ instance, props, column }) =>
-        column && !instance.columnProp(column, 'hidden') && (props.rowGroupMode !== 'subheader' || props.groupRowsBy !== instance.columnProp(column, 'field'))
+        column && !instance.columnProp('hidden') && (props.rowGroupMode !== 'subheader' || props.groupRowsBy !== instance.columnProp(column, 'field'))
             ? [
                   'p-datatable-header-cell',
                   {
-                      'p-datatable-frozen-column': instance.columnProp(column, 'frozen')
+                      'p-datatable-frozen-column': instance.columnProp('frozen')
                   }
               ]
             : [
@@ -653,7 +653,7 @@ const classes = {
     filterElementContainer: 'p-datatable-filter-element-container',
     pcColumnFilterButton: 'p-datatable-column-filter-button',
     pcColumnFilterClearButton: 'p-datatable-column-filter-clear-button',
-    filterOverlay: ({ instance, props }) => [
+    filterOverlay: ({ props }) => [
         'p-datatable-filter-overlay p-component',
         {
             'p-datatable-filter-overlay-popover': props.display === 'menu'
