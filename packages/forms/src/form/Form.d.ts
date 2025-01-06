@@ -240,11 +240,12 @@ export interface FormSlots {
              * Indicates whether the form is valid, returning `true` if all fields pass validation.
              */
             valid: boolean;
-
+        } & {
             /**
-             * Index signature for dynamically added form fields.
+             * Stores the state of each form field, with the field name as the key and its state as the value.
              */
-        } & Record<string, FormFieldState>
+            [key: string]: FormFieldState;
+        }
     ) => VNode[];
 }
 
