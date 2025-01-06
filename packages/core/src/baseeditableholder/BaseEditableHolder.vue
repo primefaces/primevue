@@ -76,7 +76,7 @@ export default {
         $formValue: {
             immediate: false,
             handler(newValue) {
-                if (this.$formName !== undefined && this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
+                if (this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
                     this.d_value = newValue;
                 }
             }
@@ -112,7 +112,7 @@ export default {
             return this.d_value ?? this.$pcFormField?.initialValue ?? this.$pcForm?.initialValues?.[this.$formName];
         },
         $formValue() {
-            return this.$pcForm?.states?.[this.$formName]?.value;
+            return this.$pcFormField?.$field?.value ?? this.$pcForm?.states?.[this.$formName]?.value;
         },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));

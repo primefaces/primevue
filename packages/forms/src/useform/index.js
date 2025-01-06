@@ -7,6 +7,29 @@ function tryOnMounted(fn, sync = true) {
     else nextTick(fn);
 }
 
+function watchPausable(source, callback, options) {
+    const isActive = ref(true);
+
+    const stop = watch(
+        source,
+        (newValue, oldValue) => {
+            if (!isActive.value) return;
+            callback(newValue, oldValue);
+        },
+        options
+    );
+
+    return {
+        stop,
+        pause: () => {
+            isActive.value = false;
+        },
+        resume: () => {
+            isActive.value = true;
+        }
+    };
+}
+
 export const useForm = (options = {}) => {
     const states = reactive({});
     const fields = reactive({});
@@ -47,6 +70,8 @@ export const useForm = (options = {}) => {
     };
 
     const defineField = (field, fieldOptions) => {
+        fields[field]?._watcher.stop();
+
         states[field] ||= getInitialState(field, fieldOptions?.initialValue);
 
         const props = mergeProps(resolve(fieldOptions, states[field])?.props, resolve(fieldOptions?.props, states[field]), {
@@ -68,9 +93,7 @@ export const useForm = (options = {}) => {
             }
         });
 
-        fields[field] = { props, states: states[field], options: fieldOptions };
-
-        watch(
+        const _watcher = watchPausable(
             () => states[field].value,
             (newValue, oldValue) => {
                 if (states[field].pristine) {
@@ -85,6 +108,8 @@ export const useForm = (options = {}) => {
             }
         );
 
+        fields[field] = { props, states: states[field], options: fieldOptions, _watcher };
+
         return [states[field], props];
     };
 
@@ -98,6 +123,16 @@ export const useForm = (options = {}) => {
                 states: toValue(states),
                 reset,
                 ...results
+            });
+        };
+    };
+
+    const handleReset = (callback) => {
+        return async (event) => {
+            reset();
+
+            return callback({
+                originalEvent: event
             });
         };
     };
@@ -147,7 +182,22 @@ export const useForm = (options = {}) => {
     };
 
     const reset = () => {
-        Object.keys(states).forEach((field) => (fields[field].states = states[field] = getInitialState(field, fields[field]?.options?.initialValue)));
+        Object.keys(states).forEach(async (field) => {
+            const watcher = fields[field]._watcher;
+
+            watcher.pause();
+            fields[field].states = states[field] = getInitialState(field, fields[field]?.options?.initialValue);
+            await nextTick();
+            watcher.resume();
+        });
+    };
+
+    const setFieldValue = (field, value) => {
+        states[field].value = value;
+    };
+
+    const setValues = (values) => {
+        Object.keys(values).forEach((field) => setFieldValue(field, values[field]));
     };
 
     const validateOnMounted = () => {
@@ -158,8 +208,11 @@ export const useForm = (options = {}) => {
 
     return {
         defineField,
+        setFieldValue,
         handleSubmit,
+        handleReset,
         validate,
+        setValues,
         reset,
         valid,
         states,

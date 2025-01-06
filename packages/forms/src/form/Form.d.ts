@@ -108,6 +108,16 @@ export interface FormSubmitEvent {
 }
 
 /**
+ * Reset events
+ */
+export interface FormResetEvent {
+    /**
+     * The original DOM event.
+     */
+    originalEvent: Event;
+}
+
+/**
  * The state of a form field.
  */
 export interface FormFieldState {
@@ -247,6 +257,11 @@ export interface FormEmitsOptions {
      * @param {FormSubmitEvent} event - Custom submit event.
      */
     submit: (event: FormSubmitEvent) => void;
+    /**
+     * Emitted when the form is reset.
+     * @param {FormResetEvent} event - Custom reset event.
+     */
+    reset: (event: FormResetEvent) => void;
 }
 
 export declare type FormEmits = EmitFn<FormEmitsOptions>;

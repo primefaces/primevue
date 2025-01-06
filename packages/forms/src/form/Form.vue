@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmit" :class="cx('root')" v-bind="ptmi('root')">
+    <form @submit.prevent="onSubmit" @reset.prevent="onReset" :class="cx('root')" v-bind="ptmi('root')">
         <slot :register :valid :reset v-bind="states" />
     </form>
 </template>
@@ -13,7 +13,7 @@ export default {
     name: 'Form',
     extends: BaseForm,
     inheritAttrs: false,
-    emits: ['submit'],
+    emits: ['submit', 'reset'],
     setup(props, { emit }) {
         const $form = useForm(props);
 
@@ -27,10 +27,15 @@ export default {
             emit('submit', e);
         });
 
+        const onReset = $form.handleReset((e) => {
+            emit('reset', e);
+        });
+
         return {
             register,
             onSubmit,
-            ...omit($form, ['handleSubmit'])
+            onReset,
+            ...omit($form, ['handleSubmit', 'handleReset'])
         };
     }
 };
