@@ -100,11 +100,11 @@ import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core
 import AngleRightIcon from '@primevue/icons/angleright';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
+import TimesIcon from '@primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
-import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'CascadeSelect',
@@ -359,6 +359,10 @@ export default {
         },
         onOptionMouseEnter(event) {
             if (this.focusOnHover) {
+                if (event.processedOption.level === 0) {
+                    this.dirty = true;
+                }
+
                 if (this.dirty || (!this.dirty && isNotEmpty(this.d_value))) {
                     this.onOptionChange({ ...event, type: 'hover' });
                 } else if (!this.dirty && event.processedOption.level === 0) {
