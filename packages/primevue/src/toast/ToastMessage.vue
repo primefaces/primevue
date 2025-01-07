@@ -1,5 +1,5 @@
 <template>
-    <div :class="[cx('message'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('message')" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div :class="[cx('message'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('message')" @click="onMessageClick" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
         <component v-if="templates.container" :is="templates.container" :message="message" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('messageContent'), message.contentStyleClass]" v-bind="ptm('messageContent')">
             <template v-if="!templates.message">
@@ -99,8 +99,11 @@ export default {
                 this.closeTimeout = null;
             }
         },
+        onMessageClick(event) {
+            this.props.onClick && this.props.onClick({ originalEvent: event, message: this.message });
+        },
         onMouseEnter(event) {
-            this.props.onMouseEnter && this.props.onMouseEnter(event);
+            this.props.onMouseEnter && this.props.onMouseEnter({ originalEvent: event, message: this.message });
 
             if (event.defaultPrevented) {
                 return;
@@ -113,7 +116,7 @@ export default {
             }
         },
         onMouseLeave(event) {
-            this.props.onMouseLeave && this.props.onMouseLeave(event);
+            this.props.onMouseLeave && this.props.onMouseLeave({ originalEvent: event, message: this.message });
 
             if (event.defaultPrevented) {
                 return;

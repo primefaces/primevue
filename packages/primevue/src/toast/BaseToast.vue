@@ -57,6 +57,10 @@ export default {
         onMouseLeave: {
             type: Function,
             default: undefined
+        },
+        onClick: {
+            type: Function,
+            default: undefined
         }
     },
     style: ToastStyle,

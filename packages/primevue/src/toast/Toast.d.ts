@@ -232,6 +232,18 @@ export interface ToastProps {
      */
     message?: ToastMessageOptions;
     /**
+     * Used to specify a callback function to be run when the mouseenter event is fired on the message component.
+     */
+    onMouseEnter?: Function | undefined;
+    /**
+     * Used to specify a callback function to be run when the mouseleave event is fired on the message component.
+     */
+    onMouseLeave?: Function | undefined;
+    /**
+     * Used to specify a callback function to be run when the click event is fired on the message component.
+     */
+    onClick?: Function | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
@@ -250,14 +262,6 @@ export interface ToastProps {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Used to specify a callback function to be run when the @mouseenter event is fired on the message component.
-     */
-    onMouseEnter?: Function | undefined;
-    /**
-     * Used to specify a callback function to be run when the @mouseleave event is fired on the message component.
-     */
-    onMouseLeave?: Function | undefined;
 }
 
 /**
