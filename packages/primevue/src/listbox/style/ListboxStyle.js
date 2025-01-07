@@ -86,8 +86,13 @@ const theme = ({ dt }) => `
     color: ${dt('listbox.option.focus.color')};
 }
 
+.p-listbox-option-blank-icon {
+    flex-shrink: 0;
+}
+
 .p-listbox-option-check-icon {
     position: relative;
+    flex-shrink: 0;
     margin-inline-start: ${dt('listbox.checkmark.gutter.start')};
     margin-inline-end: ${dt('listbox.checkmark.gutter.end')};
     color: ${dt('listbox.checkmark.color')};

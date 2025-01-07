@@ -185,8 +185,13 @@ input.p-select-label {
     color: ${dt('select.option.selected.focus.color')};
 }
 
+.p-select-option-blank-icon {
+    flex-shrink: 0;
+}
+
 .p-select-option-check-icon {
     position: relative;
+    flex-shrink: 0;
     margin-inline-start: ${dt('select.checkmark.gutter.start')};
     margin-inline-end: ${dt('select.checkmark.gutter.end')};
     color: ${dt('select.checkmark.color')};
