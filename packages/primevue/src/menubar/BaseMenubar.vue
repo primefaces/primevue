@@ -10,6 +10,14 @@ export default {
             type: Array,
             default: null
         },
+        autoZIndex: {
+            type: Boolean,
+            default: true
+        },
+        baseZIndex: {
+            type: Number,
+            default: 0
+        },
         buttonProps: {
             type: null,
             default: null

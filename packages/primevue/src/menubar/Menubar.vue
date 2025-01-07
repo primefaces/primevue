@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import BarsIcon from '@primevue/icons/bars';
 import BaseMenubar from './BaseMenubar.vue';
 import MenubarSub from './MenubarSub.vue';
@@ -110,7 +110,7 @@ export default {
         this.unbindResizeListener();
         this.unbindMatchMediaListener();
 
-        if (this.container) {
+        if (this.container && this.autoZIndex) {
             ZIndex.clear(this.container);
         }
 
@@ -144,11 +144,19 @@ export default {
         toggle(event) {
             if (this.mobileActive) {
                 this.mobileActive = false;
-                ZIndex.clear(this.menubar);
+
+                if (this.autoZIndex) {
+                    ZIndex.clear(this.menubar);
+                }
+
                 this.hide();
             } else {
                 this.mobileActive = true;
-                ZIndex.set('menu', this.menubar, this.$primevue.config.zIndex.menu);
+
+                if (this.autoZIndex) {
+                    ZIndex.set('menu', this.menubar, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                }
+
                 setTimeout(() => {
                     this.show();
                 }, 1);
@@ -297,6 +305,8 @@ export default {
                     focus(this.menubar);
                 }
             }
+
+            this.toggle(originalEvent);
         },
         onItemMouseEnter(event) {
             if (this.dirty) {

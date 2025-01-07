@@ -6,6 +6,18 @@ const MenubarProps = [
         description: 'An array of menuitems.'
     },
     {
+        name: 'baseZIndex',
+        type: 'number',
+        default: '0',
+        description: 'Base zIndex value to use in layering.'
+    },
+    {
+        name: 'autoZIndex',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether to automatically manage layering.'
+    },
+    {
         name: 'pt',
         type: 'any',
         default: 'null',

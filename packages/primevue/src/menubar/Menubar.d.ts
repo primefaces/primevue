@@ -236,6 +236,16 @@ export interface MenubarProps {
      */
     model?: MenuItem[] | undefined;
     /**
+     * Whether to automatically manage layering.
+     * @defaultValue true
+     */
+    autoZIndex?: boolean | undefined;
+    /**
+     * Base zIndex value to use in layering.
+     * @defaultValue 0
+     */
+    baseZIndex?: number | undefined;
+    /**
      * The breakpoint to define the maximum width boundary.
      * @defaultValue 960px
      */

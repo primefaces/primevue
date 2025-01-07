@@ -125,7 +125,6 @@ const theme = ({ dt }) => `
     display: none;
     position: absolute;
     min-width: 12.5rem;
-    z-index: 1;
     background: ${dt('menubar.submenu.background')};
     border: 1px solid ${dt('menubar.submenu.border.color')};
     border-radius: ${dt('menubar.submenu.border.radius')};
