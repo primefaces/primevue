@@ -54,7 +54,7 @@ export default {
     name: 'Drawer',
     extends: BaseDrawer,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide'],
+    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide', 'before-hide'],
     data() {
         return {
             containerVisible: this.visible
@@ -113,6 +113,8 @@ export default {
             if (this.modal) {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
+
+            this.$emit('before-hide');
         },
         onLeave() {
             this.$emit('hide');
