@@ -10,7 +10,7 @@
                     <div class="h-8 lg:h-10 [&>svg]:h-full [&>svg]:w-auto select-none">
                         <component :is="templateHeroData.logo"> </component>
                     </div>
-                    <div v-if="templateHeroData.isMultipurpose" class="bg-surface-0 text-surface-900 px-2 py-1 font-medium leading-6 rounded-md">Multipurpose</div>
+                    <div v-if="templateHeroData.isMultipurpose" class="bg-surface-0 dark:bg-surface-900 text-surface-900 dark:text-surface-0 px-2 py-1 font-medium leading-6 rounded-md">Multipurpose</div>
                 </div>
                 <p class="text-primary-contrast mt-4 mb-0 lg:text-base text-sm">{{ templateHeroData.description }}</p>
                 <div class="flex items-center gap-4 mt-8">
