@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmit" @reset.prevent="onReset" :class="cx('root')" v-bind="ptmi('root')">
+    <form ref="formRef" @submit.prevent="onSubmit" @reset.prevent="onReset" :class="cx('root')" v-bind="ptmi('root')">
         <slot :register :valid :reset v-bind="states" />
     </form>
 </template>
@@ -7,6 +7,7 @@
 <script>
 import { omit } from '@primeuix/utils';
 import { useForm } from '@primevue/forms/useform';
+import { ref } from 'vue';
 import BaseForm from './BaseForm.vue';
 
 export default {
@@ -15,7 +16,12 @@ export default {
     inheritAttrs: false,
     emits: ['submit', 'reset'],
     setup(props, { emit }) {
+        const formRef = ref(null);
         const $form = useForm(props);
+
+        const submit = () => {
+            formRef.value?.requestSubmit();
+        };
 
         const register = (field, options) => {
             const [, fieldProps] = $form.defineField(field, options);
@@ -32,6 +38,8 @@ export default {
         });
 
         return {
+            formRef,
+            submit,
             register,
             onSubmit,
             onReset,

@@ -11,6 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import { VNode } from 'vue';
 import type { PassThroughOptions } from '../types';
+import { useFormFieldState } from '../useform';
 
 export declare type FormPassThroughOptionType = FormPassThroughAttributes | ((options: FormPassThroughMethodOptions) => FormPassThroughAttributes | string) | string | null | undefined;
 
@@ -266,6 +267,48 @@ export interface FormEmitsOptions {
 }
 
 export declare type FormEmits = EmitFn<FormEmitsOptions>;
+
+export interface FormFieldState extends useFormFieldState {}
+
+export interface FormInstance {
+    /**
+     * Set the value of a form field.
+     * @param field field name
+     * @param value field value
+     */
+    setFieldValue: (field: string, value: any) => void;
+    /**
+     * Validates the form or a specific field.
+     * @param field
+     * @returns
+     */
+    validate: (field?: string | string[]) => Promise<{
+        values?: any;
+        errors: any;
+    }>;
+    /**
+     * Sets the values of the form fields.
+     * @param values
+     */
+    setValues: (values: Record<string, any>) => void;
+    /**
+     * Resets the entire form state, clearing values and validation statuses.
+     */
+    reset: () => void;
+    /**
+     * Submits the form.
+     * @returns
+     */
+    submit: () => void;
+    /**
+     * Whether the form is valid.
+     */
+    valid: boolean;
+    /**
+     * The state of each form field, with the field name as the key and its state as the value.
+     */
+    states: Record<string, FormFieldState>;
+}
 
 /**
  * **PrimeVue - Form**
