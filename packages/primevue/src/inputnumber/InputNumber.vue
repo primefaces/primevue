@@ -3,6 +3,7 @@
         <InputText
             ref="input"
             :id="inputId"
+            :name="$formName"
             role="spinbutton"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
