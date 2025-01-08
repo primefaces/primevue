@@ -634,7 +634,9 @@ export default {
             let newValueStr;
 
             if (sign.isMinusSign) {
-                if (selectionStart === 0) {
+                const value = this.parseValue(inputValue);
+
+                if (selectionStart === 0 || value === 0) {
                     newValueStr = inputValue;
 
                     if (minusCharIndex === -1 || selectionEnd !== 0) {
@@ -782,8 +784,16 @@ export default {
 
             if (valueStr != null) {
                 newValue = this.parseValue(valueStr);
-                newValue = !newValue && !this.allowEmpty ? 0 : newValue;
-                this.updateInput(newValue, insertedValueStr, operation, valueStr);
+
+                if (!newValue && !this.allowEmpty) {
+                    newValue = 0;
+                    this.updateInput(newValue, insertedValueStr, operation, valueStr);
+                    const cursorPos = this.prefix ? this.prefix.length + 1 : 1;
+
+                    this.$refs.input.$el.setSelectionRange(cursorPos, cursorPos);
+                } else {
+                    this.updateInput(newValue, insertedValueStr, operation, valueStr);
+                }
 
                 this.handleOnInput(event, currentValue, newValue);
             }
@@ -864,7 +874,7 @@ export default {
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 } else if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single') {
-                        this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
+                        this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                     } else if (operation === 'delete-single') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
                     } else if (operation === 'delete-range' || operation === 'spin') {
