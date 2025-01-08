@@ -70,6 +70,12 @@ export const useForm = (options = {}) => {
     };
 
     const defineField = (field, fieldOptions) => {
+        if (!field) {
+            console.warn('The `name` attribute is required for the field definition.');
+
+            return []; // prevent errors
+        }
+
         fields[field]?._watcher.stop();
 
         states[field] ||= getInitialState(field, fieldOptions?.initialValue);
