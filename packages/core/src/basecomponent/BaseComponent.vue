@@ -332,7 +332,7 @@ export default {
             return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
-            return { nonce: this.$primevueConfig?.csp?.nonce };
+            return { nonce: this.$primevueConfig?.csp?.nonce, applicationNode: this.$primevueConfig?.applicationNode };
         },
         $primevueConfig() {
             return this.$primevue?.config;

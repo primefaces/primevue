@@ -35,12 +35,6 @@ export function useStyle(css, options = {}) {
         applicationNode = undefined
     } = options;
 
-    let node;
-
-    if(applicationNode){
-        node = document.getElementById(applicationNode);
-    }
-
     let stop = () => {};
 
     /* @todo: Improve _options params */
@@ -63,7 +57,7 @@ export function useStyle(css, options = {}) {
             });
 
             if(applicationNode){
-                first ? node.prepend(styleRef.value) : node.appendChild(styleRef.value);
+                first ? applicationNode.prepend(styleRef.value) : applicationNode.appendChild(styleRef.value);
             } else {
                 first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value)
             }
@@ -103,6 +97,7 @@ export function useStyle(css, options = {}) {
     return {
         id,
         name,
+        applicationNode,
         el: styleRef,
         css: cssRef,
         unload,

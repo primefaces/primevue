@@ -53,10 +53,7 @@ export default defineNuxtConfig({
               }
             : {
                   autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
-                  importTheme: { from: '@/themes/app-theme.js' },
-                  options: {
-                      applicationNode: '__nuxt'
-                  }
+                  importTheme: { from: '@/themes/app-theme.js' }
               },
     app: {
         baseURL: baseUrl,
