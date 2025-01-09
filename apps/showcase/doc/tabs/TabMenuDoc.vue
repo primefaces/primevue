@@ -32,13 +32,9 @@ export default {
                 basic: `
 <Tabs value="/dashboard">
     <TabList>
-        <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
-            <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
-                <a v-ripple :href="href" @click="navigate" class="flex items-center gap-2 text-inherit">
-                    <i :class="tab.icon" />
-                    <span>{{ tab.label }}</span>
-                </a>
-            </router-link>
+        <Tab v-ripple v-for="tab in items" :key="tab.label" :value="tab.route" as="router-link" :to="tab.route" class="flex items-center gap-2">
+            <i :class="tab.icon" />
+            <span>{{ tab.label }}</span>
         </Tab>
     </TabList>
 </Tabs>
@@ -48,13 +44,9 @@ export default {
     <div class="card">
         <Tabs value="/dashboard">
             <TabList>
-                <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
-                    <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
-                        <a v-ripple :href="href" @click="navigate" class="flex items-center gap-2 text-inherit">
-                            <i :class="tab.icon" />
-                            <span>{{ tab.label }}</span>
-                        </a>
-                    </router-link>
+                <Tab v-ripple v-for="tab in items" :key="tab.label" :value="tab.route" as="router-link" :to="tab.route" class="flex items-center gap-2">
+                    <i :class="tab.icon" />
+                    <span>{{ tab.label }}</span>
                 </Tab>
             </TabList>
         </Tabs>
@@ -81,13 +73,9 @@ export default {
     <div class="card">
         <Tabs value="/dashboard">
             <TabList>
-                <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
-                    <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
-                        <a v-ripple :href="href" @click="navigate" class="flex items-center gap-2 text-inherit">
-                            <i :class="tab.icon" />
-                            <span>{{ tab.label }}</span>
-                        </a>
-                    </router-link>
+                <Tab v-ripple v-for="tab in items" :key="tab.label" :value="tab.route" as="router-link" :to="tab.route" class="flex items-center gap-2">
+                    <i :class="tab.icon" />
+                    <span>{{ tab.label }}</span>
                 </Tab>
             </TabList>
         </Tabs>
