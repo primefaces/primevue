@@ -2555,6 +2555,9 @@ export default {
                                     if (focusableElements[i].tagName === 'SPAN') {
                                         spanIndex = i;
                                         break;
+                                    } else if (focusableElements[i].tagName === 'BUTTON') {
+                                        spanIndex = i;
+                                        break;
                                     }
                                 }
 
