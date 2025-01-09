@@ -1,4 +1,4 @@
-import { isArray, isNotEmpty, mergeKeys, resolve } from '@primeuix/utils';
+import { isArray, isEmpty, isNotEmpty, mergeKeys, resolve } from '@primeuix/utils';
 import { computed, getCurrentInstance, mergeProps, nextTick, onMounted, reactive, toValue, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
@@ -71,7 +71,7 @@ export const useForm = (options = {}) => {
 
     const defineField = (field, fieldOptions) => {
         if (!field) {
-            console.warn('The `name` attribute is required for the field definition.');
+            //console.warn('The `name` attribute is required for the field definition.');
 
             return []; // prevent errors
         }
@@ -161,7 +161,7 @@ export const useForm = (options = {}) => {
         const flattenFields = [field].flat();
 
         for (const [fieldName, fieldInst] of Object.entries(fields)) {
-            if (flattenFields.includes(fieldName) || !field) {
+            if (flattenFields.includes(fieldName) || !field || isEmpty(result.errors)) {
                 const fieldResolver = fieldInst.options?.resolver;
 
                 if (fieldResolver) {
