@@ -151,6 +151,7 @@ export default {
         progressspinner,
         radiobutton,
         rating,
+        ripple,
         scrollpanel,
         select,
         selectbutton,
@@ -176,10 +177,7 @@ export default {
         treetable,
         toast,
         toolbar,
-        virtualscroller
-    },
-    directives: {
         tooltip,
-        ripple
+        virtualscroller
     }
 };
