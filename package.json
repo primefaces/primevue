@@ -12,7 +12,9 @@
         "url": "https://github.com/primefaces/primevue/issues"
     },
     "scripts": {
-        "setup": "rm -rf **/node_modules **/dist **/.nuxt ./pnpm-lock.yaml && pnpm install",
+        "setup": "pnpm run clean && pnpm run init",
+        "clean": "npx rimraf --glob **/node_modules **/dist **/.nuxt ./pnpm-lock.yaml",
+        "init": "pnpm install",
         "link": "pnpm --filter './packages/*' dev:link",
         "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
         "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag beta",

@@ -3,6 +3,6 @@ packages:
     - 'apps/*'
 
 catalog:
-  '@primeuix/styled': ^0.3.2
-  '@primeuix/utils': ^0.3.2
+  '@primeuix/styled': ^0.4.0
+  '@primeuix/utils': ^0.4.0
   '@primeuix/forms': ^0.0.2
