@@ -423,7 +423,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
             let top = hostOffset.top - getOuterHeight(tooltipElement);
 
-            if (hostOffset.left < tooltipWidth) {
+            if (hostOffset.left < tooltipWidth / 2) {
                 left = hostOffset.left;
             }
 
@@ -436,7 +436,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             tooltipElement.style.top = top + 'px';
 
             // The center of the target relative to the tooltip
-            let elementRelativeCenter = Math.abs(this.getHostOffset(tooltipElement).left - hostOffset.left) + elementWidth / 2;
+            let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
             arrowElement.style.top = null;
             arrowElement.style.right = null;
@@ -455,7 +455,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
             let top = hostOffset.top + getOuterHeight(el);
 
-            if (hostOffset.left < tooltipWidth) {
+            if (hostOffset.left < tooltipWidth / 2) {
                 left = hostOffset.left;
             }
 
@@ -468,7 +468,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             tooltipElement.style.top = top + 'px';
 
             // The center of the target relative to the tooltip
-            let elementRelativeCenter = Math.abs(this.getHostOffset(tooltipElement).left - hostOffset.left) + elementWidth / 2;
+            let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
             arrowElement.style.top = '0';
             arrowElement.style.right = null;
