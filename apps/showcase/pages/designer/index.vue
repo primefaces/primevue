@@ -1,170 +1,147 @@
 <template>
     <div>
         <Head>
-            <Title>UI Kit - PrimeVue</Title>
-            <Meta name="description" content="Design files for PrimeVue Components." />
+            <Title>Theme Designer - PrimeVue</Title>
+            <Meta name="description" content="Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant." />
         </Head>
 
         <div>
             <div style="border-radius: 50px; max-height: 500px" class="overflow-hidden mb-8 flex items-center">
-                <img alt="PrimeVue Figma UI Kit" :src="coverImage" class="w-full" />
+                <img alt="PrimeVue Designer" :src="coverImage" class="w-full" />
             </div>
 
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-figma.png" class="w-full" />
+                        <img alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/designer/feature-1.png" class="w-full" />
                     </div>
                     <div class="w-full md:w-6/12">
-                        <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
-                        <div class="text-5xl font-bold mb-4">Best Features of Figma</div>
-                        <p class="mb-4 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles, variables and interactive components. It'll always follow the best practices.</p>
+                        <div class="text-primary font-bold mb-2">POWERFUL</div>
+                        <div class="text-5xl font-bold mb-4">Visual Editor</div>
+                        <p class="mb-4 text-lg">Transform your PrimeVue components with our advanced visual editor. Design, customize, and preview changes in real-time, all within an intuitive interface.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Auto Layout</span>
+                                <span class="font-bold">Intelligent Completion</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Variants</span>
+                                <span class="font-bold">Entire Token Set</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Variables and Styles</span>
+                                <span class="font-bold">Custom Tokens</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Interactive Components</span>
+                                <span class="font-bold">Light and Dark Modes</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Boolean, Instance Swap and Text Properties</span>
+                                <span class="font-bold">Real Time Preview</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Nested Instances</span>
+                                <span class="font-bold">Starter Kits</span>
                             </li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <div class="text-primary font-bold mb-2">ENTERPRISE GRADE</div>
-                        <div class="text-5xl font-bold mb-4">Powerful System</div>
-                        <p class="mb-4 text-lg">Save countless hours on every project with a carefully designed system that uses Prime UI Suite components. Start producing design results in no time.</p>
+                        <div class="text-primary font-bold mb-2">AUTOMATED</div>
+                        <div class="text-5xl font-bold mb-4">Figma to Theme</div>
+                        <p class="mb-4 text-lg">
+                            Bridge the gap between design and development with our powerful Figma sync technology. Fully integrated with the PrimeVue Figma UI Kit, get started in no time by importing your design token file. Save countless hours in
+                            your workflow by eliminating manual theme creation from Figma designs.
+                        </p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Numerous Components</span>
+                                <span class="font-bold">Automatic Mapping</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Icon Library</span>
+                                <span class="font-bold">Eliminate Handoff</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Easy Customization</span>
+                                <span class="font-bold">Maintain Perfect Fidelity</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Atomic Approach</span>
+                                <span class="font-bold">Verify Synchorization</span>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png" class="w-full" />
+                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
                     </div>
                 </div>
+
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-themes.png" class="w-full" />
+                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-3.png" class="w-full" />
                     </div>
                     <div class="w-full md:w-6/12">
-                        <div class="text-primary font-bold mb-2">DARK MODE</div>
-                        <div class="text-5xl font-bold mb-4">Two Themes</div>
-                        <p class="mb-4 text-lg">PrimeOne is designed based on Aura Light and Aura Dark themes. Easily change the themes of your designs using Figma's Swap Library feature or Tokens Studio Sets.</p>
+                        <div class="text-primary font-bold mb-2">INTELLIGENT</div>
+                        <div class="text-5xl font-bold mb-4">Migration Assistant</div>
+                        <p class="mb-4 text-lg">
+                            Update your existing themes and design tokens into the latest version effortlessly. Our intelligent migration assistant handles the heavy lifting, ensuring a smooth transition for your design system.
+                        </p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Aura Light</span>
+                                <span class="font-bold">Automatic Updates</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Aura Dark</span>
+                                <span class="font-bold">Preview Changes</span>
                             </li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
                     <div class="w-full md:w-6/12">
-                        <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
-                        <div class="text-5xl font-bold mb-4">Tokens Support</div>
-                        <p class="mb-4 text-lg">Empower yourself with unprecedented control over your designs. Tokens Studio integration unlocks a whole new level of flexibility, allowing you to create and manage design tokens seamlessly.</p>
+                        <div class="text-primary font-bold mb-2">REMOTE</div>
+                        <div class="text-5xl font-bold mb-4">Cloud Storage</div>
+                        <p class="mb-4 text-lg">Store and manage your themes securely in the cloud. Access your design system from anywhere with enterprise-grade cloud storage.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Countless Design Tokens</span>
+                                <span class="font-bold">Access Anywhere</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Light and Dark Sets</span>
-                            </li>
-                            <li class="flex items-center w-6/12 p-4">
-                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Well Documented</span>
-                            </li>
-                            <li class="flex items-center w-6/12 p-4">
-                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Primitive, Semantic and Component Tokens</span>
+                                <span class="font-bold">Multiple Themes</span>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
+                        <img alt="Tokens Support" src="https://primefaces.org/cdn/designer/feature-4.png" class="w-full" />
                     </div>
                 </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-6 md:gap-6 mb-8">
-                <a
-                    href="https://www.figma.com/design/G855HjuSyK8viJr0a5ZjRG/Preview-%7C%C2%A0PrimeOne-%7C-3.0.1?node-id=830-41631&t=m1MbOTTqKsBSRBLS-1"
-                    class="p-8 w-full md:w-6/12 bg-white flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="border-radius: 50px"
-                >
-                    <span class="text-gray-900 text-4xl font-bold mb-8">Preview Light</span>
-                    <img alt="Figma Light" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-16" />
-                </a>
-                <a
-                    href="https://www.figma.com/design/XBQzDl4vDOO0pyxEGYcICt/Preview-%7C%C2%A0Dark-%7C-PrimeOne-%7C-3.0.1?node-id=806-36648&t=7AME0kw905t3PVVY-1"
-                    class="p-8 w-full md:w-6/12 bg-gray-900 flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="border-radius: 50px"
-                >
-                    <span class="text-white text-4xl font-bold mb-8">Preview Dark</span>
-                    <img alt="Figma Dark" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-dark.svg" class="w-16" />
-                </a>
             </div>
 
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="font-bold text-5xl mb-6 text-center">Pricing</div>
-                <div class="mb-2 text-center leading-normal text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, UI Kit is available for affordable prices.</div>
+                <div class="mb-2 text-center leading-normal text-lg">Choose the right plan for your business. Whether you are an individual or a member of a team, Designer is available for affordable prices.</div>
                 <div class="text-center mb-8">
-                    <a href="https://www.primefaces.org/uikit/licenses" class="doc-link">View License Details</a>
+                    <a href="https://www.primefaces.org/designer/termsandconditions" class="doc-link">View License Details</a>
                 </div>
 
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
-                                <div class="font-medium text-xl mb-2">Single Designer</div>
-                                <div class="text-surface-500 dark:text-surface-400 font-medium">For individual designers</div>
+                                <div class="font-medium text-xl mb-2">Basic</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
                                     <span class="text-2xl font-bold">$249</span>
@@ -173,23 +150,19 @@
                                 <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span class="font-bold">1 Designer</span>
+                                        <span>Up to 2 Themes</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Auto Layout & Variants</span>
+                                        <span>1 Year Service</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Interactive Components</span>
+                                        <span>Visual Editor</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
-                                    </li>
-                                    <li class="flex items-center mb-4">
-                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span>Migration Assistant</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -197,7 +170,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700 mt-auto" />
-                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
+                                <a v-ripple href="https://www.primefaces.org/store/designer.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -205,33 +178,33 @@
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
-                                <div class="font-medium text-xl mb-2">Team</div>
-                                <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
+                                <div class="font-medium text-xl mb-2">Extended</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
-                                    <span class="text-2xl font-bold">$990</span>
+                                    <span class="text-2xl font-bold">$1990</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span class="font-bold">Up to 5 Designers</span>
+                                        <span class="font-bold">Figma to Code</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Auto Layout & Variants</span>
+                                        <span>Up to 10 Themes</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Interactive Components</span>
+                                        <span>1 Year Service</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
+                                        <span>Visual Editor</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span>Migration Assistant</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -239,7 +212,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <a v-ripple href="https://www.primefaces.org/store/uikit.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
+                                <a v-ripple href="https://www.primefaces.org/store/designer.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -248,7 +221,7 @@
                         <div class="p-4 h-full">
                             <div class="shadow p-8 flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Enterprise</div>
-                                <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For custom requirements</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex gap-4 flex-wrap">
                                     <span class="text-2xl font-bold">EXCLUSIVE DEALS</span>
@@ -257,23 +230,23 @@
                                 <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span class="font-bold">Custom Team Size</span>
+                                        <span class="font-bold">Figma to Code</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Auto Layout & Variants</span>
+                                        <span>Custom Theme Limit</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Interactive Components</span>
+                                        <span>Multi Year Service</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
+                                        <span>Visual Editor</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span>Migration Assistant</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -293,26 +266,26 @@
                 <div class="grid grid-cols-12 gap-4 text-lg">
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
                         <div class="leading-normal mb-2 font-bold">What do I get when I purchase a license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download two Figma files for light and dark themes.</p>
+                        <p class="mt-0 mb-12 p-0 leading-normal">A license key to unlock the features based on your plan.</p>
 
                         <div class="leading-normal mb-2 font-bold">Is there a recurring fee or is the license perpetual?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment with 1 year free updates, not subscription based.</p>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Designer license is annual with no auto renewals.</p>
 
-                        <div class="leading-normal mb-2 font-bold">Can I use UI Kit license for commercial projects?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, your license allows you to sell your projects that utilize the UI Kit implementations.</p>
+                        <div class="leading-normal mb-2 font-bold">What happens after the 1 year period is concluded?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">License key will expire and a new license key needs to be purchased to continue using the tool.</p>
 
-                        <div class="leading-normal mb-2 font-bold">Can I create multiple projects for multiple clients?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">There is no limit, you are able to use UI Kit in multiple projects for multiple clients.</p>
+                        <div class="leading-normal mb-2 font-bold">Can I have trial access to the Designer?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Visual Editor is available for trial purposes, various features such as downloads, migration assistant and cloud storage are disabled.</p>
                     </div>
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="leading-normal mb-2 font-bold">What Does "Free Updates" Mean?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">
-                            All updates are completely free for the first year after your purchase. After this one-year period, you will no longer have access to newer versions. However, all versions released within the first year from your purchase
-                            date will remain accessible to you indefinitely.
-                        </p>
+                        <div class="leading-normal mb-2 font-bold">Can I create multiple themes?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, based on the theme limit of your plan.</p>
 
-                        <div class="leading-normal mb-2 font-bold">How Can I Extend My Access to Updates After One Year?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">At PrimeStore, you have the option to purchase an additional update term. This will grant you access to all existing versions and updates for another year.</p>
+                        <div class="leading-normal mb-2 font-bold">How can I update my theme?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Migration Assistant tool automatically scans your theme and adds missing tokens for the latest version.</p>
+
+                        <div class="leading-normal mb-2 font-bold">I have purchased the Figma UI Kit, does Designer require a separate purchase?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, Figma UI Kit and Designer are different products. The Designer offers Figma to Code generation feature so it is recommended to purchase both for an efficient workflow.</p>
 
                         <div class="leading-normal mb-2 font-bold">How can I get support?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">
@@ -322,17 +295,17 @@
                         </p>
                     </div>
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
-                        <div class="leading-normal mb-2 font-bold">Does the enterprise license include contractors within the organization?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, contractors are also able to use the UI Kit within your company within the custom team limit.</p>
+                        <div class="leading-normal mb-2 font-bold">Is there a limit on the team size within the organization?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">No, any team member is able to utilize the tool and the generated themes.</p>
 
-                        <div class="leading-normal mb-2 font-bold">Can subsidiary company of a larger organization share the enterprise license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">No, enterprise license is per company so each subsidiary company needs to purchase a separate license.</p>
+                        <div class="leading-normal mb-2 font-bold">Can subsidiary company of a larger organization share a license?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">No, license is per organization so each subsidiary company needs to purchase a separate license.</p>
 
-                        <div class="leading-normal mb-2 font-bold">Can I include UI Kit in an open source project?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Due to the license, it is not possible to use the UI Kit in an open source project where the design files are publicly available.</p>
+                        <div class="leading-normal mb-2 font-bold">Can I include generated theme in an open source project?</div>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, the generated theme is suitable for usage in an open source project.</p>
 
                         <div class="leading-normal mb-2 font-bold">We're a reseller, are we able to purchase a license on behalf of our client?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, after the purchase, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> so we can transfer the license to your client.</p>
+                        <p class="mt-0 mb-12 p-0 leading-normal">Yes, please <a href="mailto:contact@primetek.com.tr" class="doc-link">contact us</a> to initiate the procurement process.</p>
                     </div>
                 </div>
             </div>
@@ -344,9 +317,9 @@
 export default {
     computed: {
         coverImage() {
-            const image = this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpeg' : 'images/uikit/primeone-cover-light.jpeg';
+            const image = this.$appState.darkTheme ? 'hero-dark.png' : 'hero.png';
 
-            return 'https://primefaces.org/cdn/primevue/' + image;
+            return 'https://primefaces.org/cdn/designer/' + image;
         }
     }
 };

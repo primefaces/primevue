@@ -538,6 +538,21 @@
             "badge": "NEW"
         },
         {
+            "name": "Theme Designer",
+            "icon": "pi pi-sparkles",
+            "badge": "NEW",
+            "children": [
+                {
+                    "name": "Overview",
+                    "to": "/designer"
+                },
+                {
+                    "name": "Guide",
+                    "to": "/designer/guide"
+                }
+            ]
+        },
+        {
             "name": "Templates",
             "icon": "pi pi-heart",
             "to": "/templates"
