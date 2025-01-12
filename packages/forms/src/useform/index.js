@@ -185,11 +185,9 @@ export const useForm = (options = {}) => {
             { names: [], values: {} }
         );
 
-        let result =
-            (await options.resolver?.({
-                names: resolverOptions.names,
-                values: groupKeys(resolverOptions.values)
-            })) ?? {};
+        const [names, values] = [resolverOptions.names, groupKeys(resolverOptions.values)];
+
+        let result = (await options.resolver?.({ names, values })) ?? { values };
 
         result.errors ??= {};
 
@@ -201,7 +199,7 @@ export const useForm = (options = {}) => {
 
                 if (fieldResolver) {
                     const fieldValue = fieldInst.states.value;
-                    const fieldResult = (await fieldResolver({ values: fieldValue, value: fieldValue, name: fieldName })) ?? {};
+                    const fieldResult = (await fieldResolver({ values: fieldValue, value: fieldValue, name: fieldName })) ?? { values: fieldValue };
 
                     isArray(fieldResult.errors) && (fieldResult.errors = { [fieldName]: fieldResult.errors });
 
