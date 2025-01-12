@@ -278,6 +278,12 @@ export interface FormInstance {
      */
     setFieldValue: (field: string, value: any) => void;
     /**
+     * Get the state of a form field.
+     * @param field field name
+     * @returns field state
+     */
+    getFieldState: (field: string) => FormFieldState | undefined;
+    /**
      * Validates the form or a specific field.
      * @param field
      * @returns

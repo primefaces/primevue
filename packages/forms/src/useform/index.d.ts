@@ -12,6 +12,7 @@ export interface useFormFieldState {
 export interface useFormReturn {
     defineField: (field: string, options?: any) => any;
     setFieldValue: (field: string, value: any) => void;
+    getFieldState: (field: string) => useFormFieldState | undefined;
     handleSubmit: (event: any) => any;
     handleReset: (event: any) => any;
     validate: (field: string) => any;

@@ -76,7 +76,7 @@ export default {
         $formValue: {
             immediate: false,
             handler(newValue) {
-                if (this.$pcForm?.states?.[this.$formName] && newValue !== this.d_value) {
+                if (this.$pcForm?.getFieldState(this.$formName) && newValue !== this.d_value) {
                     this.d_value = newValue;
                 }
             }
@@ -104,7 +104,7 @@ export default {
             return isNotEmpty(this.d_value);
         },
         $invalid() {
-            return this.findNonEmpty(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.states?.[this.$formName]?.invalid);
+            return this.findNonEmpty(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.getFieldState(this.$formName)?.invalid);
         },
         $formName() {
             return this.name || this.$formControl?.name;
@@ -116,7 +116,7 @@ export default {
             return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         },
         $formValue() {
-            return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.states?.[this.$formName]?.value);
+            return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
         },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
