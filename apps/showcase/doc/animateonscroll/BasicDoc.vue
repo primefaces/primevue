@@ -10,7 +10,7 @@
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
                 class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" size="xlarge" />
                 <span class="text-2xl font-medium">Jenna Thompson</span>
@@ -61,12 +61,12 @@
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-45 slide-in-from-t-12 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">850K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">850K</span>
                 <span class="text-2xl font-bold">Customers</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -74,7 +74,7 @@
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 slide-in-from-t-20 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
                 <span class="text-2xl font-bold">Revenue</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -82,13 +82,13 @@
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-[-45deg] slide-in-from-t-16 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">140K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">140K</span>
                 <span class="text-2xl font-bold">Sales</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
                     <i class="pi pi-wifi !text-2xl"></i>
@@ -121,7 +121,7 @@ export default {
         return {
             code: {
                 basic: `
-<div class="flex flex-wrap gap-8">
+<div class="flex flex-wrap justify-center gap-8">
     <div
         v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
         class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
@@ -154,7 +154,7 @@ export default {
     </div>
 </div>
 
-<div class="flex flex-wrap gap-8">
+<div class="flex flex-wrap justify-center gap-8">
     <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
         <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" size="xlarge" />
         <span class="text-2xl font-medium">Jenna Thompson</span>
@@ -172,12 +172,12 @@ export default {
     </div>
 </div>
 
-<div class="flex flex-wrap gap-8">
+<div class="flex flex-wrap justify-center gap-8">
     <div
         v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-45 slide-in-from-t-12 animate-duration-1000' }"
         class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-        <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">850K</span>
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">850K</span>
         <span class="text-2xl font-bold">Customers</span>
         <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
     </div>
@@ -185,7 +185,7 @@ export default {
         v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 slide-in-from-t-20 animate-duration-1000' }"
         class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-        <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
         <span class="text-2xl font-bold">Revenue</span>
         <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
     </div>
@@ -193,13 +193,13 @@ export default {
         v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-[-45deg] slide-in-from-t-16 animate-duration-1000' }"
         class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
     >
-        <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">140K</span>
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">140K</span>
         <span class="text-2xl font-bold">Sales</span>
         <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
     </div>
 </div>
 
-<div class="flex flex-wrap gap-8">
+<div class="flex flex-wrap justify-center gap-8">
     <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
         <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
             <i class="pi pi-wifi !text-2xl"></i>
@@ -233,7 +233,7 @@ export default {
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
                 class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
@@ -266,7 +266,7 @@ export default {
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" size="xlarge" />
                 <span class="text-2xl font-medium">Jenna Thompson</span>
@@ -284,12 +284,12 @@ export default {
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-45 slide-in-from-t-12 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">850K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">850K</span>
                 <span class="text-2xl font-bold">Customers</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -297,7 +297,7 @@ export default {
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 slide-in-from-t-20 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
                 <span class="text-2xl font-bold">Revenue</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -305,13 +305,13 @@ export default {
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-[-45deg] slide-in-from-t-16 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">140K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">140K</span>
                 <span class="text-2xl font-bold">Sales</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
                     <i class="pi pi-wifi !text-2xl"></i>
@@ -347,7 +347,7 @@ export default {
             </span>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
                 class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
@@ -380,7 +380,7 @@ export default {
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" size="xlarge" />
                 <span class="text-2xl font-medium">Jenna Thompson</span>
@@ -398,12 +398,12 @@ export default {
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-45 slide-in-from-t-12 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">850K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">850K</span>
                 <span class="text-2xl font-bold">Customers</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -411,7 +411,7 @@ export default {
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 slide-in-from-t-20 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
                 <span class="text-2xl font-bold">Revenue</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
@@ -419,13 +419,13 @@ export default {
                 v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-[-45deg] slide-in-from-t-16 animate-duration-1000' }"
                 class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
             >
-                <span class="bg-white/10 text-xl font-medium rounded-xl px-4 py-2">140K</span>
+                <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">140K</span>
                 <span class="text-2xl font-bold">Sales</span>
                 <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
             </div>
         </div>
         <div class="h-[30rem]"></div>
-        <div class="flex flex-wrap gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
                 <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
                     <i class="pi pi-wifi !text-2xl"></i>
