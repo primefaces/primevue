@@ -1,7 +1,7 @@
 <template>
     <div style="border-radius: 50px" class="overflow-hidden mb-8">
         <NuxtLink to="/designer" class="block">
-            <img alt="PrimeVue Designer" :src="coverImage" class="w-full opacity-0 animate-fadein animate-delay-200 animate-fill-forwards" />
+            <img alt="PrimeVue Designer" :src="coverImage" class="w-full" />
         </NuxtLink>
     </div>
 
