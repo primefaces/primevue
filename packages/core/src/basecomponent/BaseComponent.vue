@@ -45,10 +45,15 @@ export default {
         },
         dt: {
             immediate: true,
-            handler(newValue) {
+            handler(newValue, oldValue) {
+                if (oldValue) {
+                    ThemeService.off('theme:change', this._themeScopedListener);
+                }
+
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
-                    this._themeChangeListener(() => this._loadScopedThemeStyles(newValue));
+                    this._themeScopedListener = () => this._loadScopedThemeStyles(newValue);
+                    this._themeChangeListener(this._themeScopedListener);
                 } else {
                     this._unloadScopedThemeStyles();
                 }
@@ -100,6 +105,8 @@ export default {
         this._hook('onBeforeUnmount');
     },
     unmounted() {
+        ThemeService.off('theme:change', this._loadCoreStyles);
+        ThemeService.off('theme:change', this._load);
         this._unloadScopedThemeStyles();
         this._hook('onUnmounted');
     },
@@ -116,21 +123,20 @@ export default {
         _mergeProps(fn, ...args) {
             return isFunction(fn) ? fn(...args) : mergeProps(...args);
         },
+        _load() {
+            // @todo
+            if (!Base.isStyleNameLoaded('base')) {
+                BaseStyle.loadCSS(this.$styleOptions);
+                this._loadGlobalStyles();
+
+                Base.setLoadedStyleName('base');
+            }
+
+            this._loadThemeStyles();
+        },
         _loadStyles() {
-            const _load = () => {
-                // @todo
-                if (!Base.isStyleNameLoaded('base')) {
-                    BaseStyle.loadCSS(this.$styleOptions);
-                    this._loadGlobalStyles();
-
-                    Base.setLoadedStyleName('base');
-                }
-
-                this._loadThemeStyles();
-            };
-
-            _load();
-            this._themeChangeListener(_load);
+            this._load();
+            this._themeChangeListener(this._load);
         },
         _loadCoreStyles() {
             if (!Base.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {

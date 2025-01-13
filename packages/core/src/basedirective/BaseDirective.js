@@ -76,7 +76,11 @@ const BaseDirective = {
         BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
         BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
 
-        BaseDirective._themeChangeListener(() => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions));
+        BaseDirective._removeThemeListeners(el.$instance);
+
+        el.$instance.$loadStyles = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
+
+        BaseDirective._themeChangeListener(el.$instance.$loadStyles);
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
@@ -133,6 +137,9 @@ const BaseDirective = {
     _themeChangeListener(callback = () => {}) {
         Base.clearLoadedStyleNames();
         ThemeService.on('theme:change', callback);
+    },
+    _removeThemeListeners(instance) {
+        ThemeService.off('theme:change', instance.$loadStyles);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${toCapitalCase(hookName)}`;
@@ -193,13 +200,27 @@ const BaseDirective = {
         const handleWatch = (el) => {
             const watchers = el.$instance?.watch;
 
+            const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
+            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue);
+
+            el.$instance.$watchersCallback = { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple };
+
             // for 'config'
             watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
-            PrimeVueService.on('config:change', ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue));
+            PrimeVueService.on('config:change', handleWatchConfig);
 
             // for 'config.ripple'
             watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$primevueConfig?.ripple);
-            PrimeVueService.on('config:ripple:change', ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue));
+            PrimeVueService.on('config:ripple:change', handleWatchConfigRipple);
+        };
+
+        const removeWatch = (el) => {
+            const watchers = el.$instance.$watchersCallback;
+
+            if (watchers) {
+                PrimeVueService.off('config:change', watchers.config);
+                PrimeVueService.off('config:ripple:change', watchers['config.ripple']);
+            }
         };
 
         return {
@@ -225,6 +246,8 @@ const BaseDirective = {
                 handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {
+                removeWatch(el);
+                BaseDirective._removeThemeListeners(el.$instance);
                 handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },
             unmounted: (el, binding, vnode, prevVnode) => {
