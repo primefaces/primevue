@@ -137,7 +137,7 @@ export default {
             });
         },
         async migrate() {
-            const { error } = await $fetch(this.designerApiBase + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
+            const { data, error } = await $fetch(this.designerApiBase + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
                 method: 'PATCH',
                 headers: {
                     Authorization: `Bearer ${this.$appState.designer.ticket}`,
@@ -150,6 +150,8 @@ export default {
             } else {
                 this.status = 'updated';
                 this.missingTokens = [];
+
+                this.designerService.activateTheme(data);
             }
         }
     }

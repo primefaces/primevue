@@ -60,8 +60,6 @@
 </template>
 
 <script>
-import { usePreset } from '@primevue/themes';
-
 export default {
     setup() {
         const runtimeConfig = useRuntimeConfig();
@@ -186,18 +184,7 @@ export default {
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
-                this.$appState.designer.theme = {
-                    key: data.t_key,
-                    name: data.t_name,
-                    preset: JSON.parse(data.t_preset),
-                    config: JSON.parse(data.t_config)
-                };
-
-                usePreset(this.$appState.designer.theme.preset);
-                this.designerService.applyFont(this.$appState.designer.theme.config.fontFamily);
-                document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
-                this.designerService.replaceColorPalette();
-                this.designerService.refreshACTokens();
+                this.designerService.activateTheme(data);
                 this.$appState.designer.activeView = 'editor';
             }
         },

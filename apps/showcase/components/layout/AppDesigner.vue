@@ -34,7 +34,7 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset } from '@primevue/themes';
+import { $dt, updatePreset, usePreset } from '@primevue/themes';
 
 export default {
     setup() {
@@ -50,6 +50,7 @@ export default {
                 refreshACTokens: this.refreshACTokens,
                 saveTheme: this.saveTheme,
                 downloadTheme: this.downloadTheme,
+                activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
                 replaceColorPalette: this.replaceColorPalette
@@ -194,6 +195,20 @@ export default {
         },
         toggleDarkMode() {
             EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
+        },
+        activateTheme(data) {
+            this.$appState.designer.theme = {
+                key: data.t_key,
+                name: data.t_name,
+                preset: JSON.parse(data.t_preset),
+                config: JSON.parse(data.t_config)
+            };
+
+            usePreset(this.$appState.designer.theme.preset);
+            this.applyFont(this.$appState.designer.theme.config.fontFamily);
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
+            this.replaceColorPalette();
+            this.refreshACTokens();
         }
     },
     computed: {
