@@ -5,4 +5,7 @@
             A theme can be renamed, duplicated and downloaded using the <i class="pi pi-ellipsis-h !text-sm"></i> button.
         </p>
     </DocSectionText>
+    <div class="w-full sm:w-[48rem] px-8 pt-8 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface">
+        <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/guide-dashboard.png" class="w-full" />
+    </div>
 </template>
