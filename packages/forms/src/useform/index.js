@@ -1,5 +1,5 @@
 import { isArray, isEmpty, isNotEmpty, mergeKeys, resolve } from '@primeuix/utils';
-import { computed, getCurrentInstance, mergeProps, nextTick, onMounted, reactive, toValue, watch } from 'vue';
+import { computed, getCurrentInstance, mergeProps, nextTick, onMounted, reactive, ref, toValue, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
     if (getCurrentInstance()) onMounted(fn);
