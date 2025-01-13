@@ -79,6 +79,9 @@ export default {
                         headers: {
                             Authorization: `Bearer ${this.$appState.designer.ticket}`,
                             'X-License-Key': this.$appState.designer.licenseKey
+                        },
+                        query: {
+                            library: 'primevue'
                         }
                     });
 
