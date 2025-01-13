@@ -197,7 +197,7 @@ const BaseDirective = {
             el.$pd[name] = { ...el.$pd?.[name], name, instance: el.$instance };
         };
 
-        const handleWatch = (el) => {
+        const handleWatchers = (el) => {
             const watchers = el.$instance?.watch;
 
             const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
@@ -214,7 +214,7 @@ const BaseDirective = {
             PrimeVueService.on('config:ripple:change', handleWatchConfigRipple);
         };
 
-        const removeWatch = (el) => {
+        const stopWatchers = (el) => {
             const watchers = el.$instance.$watchersCallback;
 
             if (watchers) {
@@ -232,7 +232,7 @@ const BaseDirective = {
             beforeMount: (el, binding, vnode, prevVnode) => {
                 BaseDirective._loadStyles(el, binding, vnode);
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
-                handleWatch(el);
+                handleWatchers(el);
             },
             mounted: (el, binding, vnode, prevVnode) => {
                 BaseDirective._loadStyles(el, binding, vnode);
@@ -246,7 +246,7 @@ const BaseDirective = {
                 handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {
-                removeWatch(el);
+                stopWatchers(el);
                 BaseDirective._removeThemeListeners(el.$instance);
                 handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },

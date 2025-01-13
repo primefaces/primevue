@@ -37,6 +37,8 @@ export default {
         isUnstyled: {
             immediate: true,
             handler(newValue) {
+                ThemeService.off('theme:change', this._loadCoreStyles);
+
                 if (!newValue) {
                     this._loadCoreStyles();
                     this._themeChangeListener(this._loadCoreStyles); // update styles with theme settings
@@ -46,9 +48,7 @@ export default {
         dt: {
             immediate: true,
             handler(newValue, oldValue) {
-                if (oldValue) {
-                    ThemeService.off('theme:change', this._themeScopedListener);
-                }
+                ThemeService.off('theme:change', this._themeScopedListener);
 
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
@@ -105,8 +105,7 @@ export default {
         this._hook('onBeforeUnmount');
     },
     unmounted() {
-        ThemeService.off('theme:change', this._loadCoreStyles);
-        ThemeService.off('theme:change', this._load);
+        this._removeThemeListeners();
         this._unloadScopedThemeStyles();
         this._hook('onUnmounted');
     },
@@ -207,6 +206,11 @@ export default {
         _themeChangeListener(callback = () => {}) {
             Base.clearLoadedStyleNames();
             ThemeService.on('theme:change', callback);
+        },
+        _removeThemeListeners() {
+            ThemeService.off('theme:change', this._loadCoreStyles);
+            ThemeService.off('theme:change', this._load);
+            ThemeService.off('theme:change', this._themeScopedListener);
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
