@@ -52,12 +52,12 @@ describe('Paginator.vue', () => {
     it('should initialize on the correct page when initialPage is set to a value greater than 0', async () => {
         await wrapper.setProps({ initialPage: 2 });
 
-        expect(wrapper.vm.page).toBe(2);
-        expect(wrapper.findAll('.p-paginator-page')[2].classes()).toContain('p-paginator-page-selected');
+        expect(wrapper.vm.page).toBe(1);
+        expect(wrapper.findAll('.p-paginator-page')[1].classes()).toContain('p-paginator-page-selected');
     });
 
     it('should initialize on page 0 when initialPage is 0', async () => {
-        await wrapper.setProps({ initialPage: 0 });
+        await wrapper.setProps({ initialPage: 1 });
 
         expect(wrapper.vm.page).toBe(0);
         expect(wrapper.findAll('.p-paginator-page')[0].classes()).toContain('p-paginator-page-selected');

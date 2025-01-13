@@ -146,7 +146,6 @@ export default {
 
             if (pageIndex >= 0 && pageIndex < this.pageCount && pageIndex !== this.page) {
                 this.d_first = pageIndex * this.d_rows;
-                this.page = pageIndex;
                 this.changePage(pageIndex);
             }
         },
