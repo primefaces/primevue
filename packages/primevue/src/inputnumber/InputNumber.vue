@@ -872,7 +872,6 @@ export default {
                         if (insertedValueStr === '0') {
                             newSelectionEnd = selectionEnd + 1;
                         } else {
-                            console.log(Number(this.isDecimalSign(value) || this.isDecimalSign(insertedValueStr)));
                             newSelectionEnd = newSelectionEnd + Number(this.isDecimalSign(value) || this.isDecimalSign(insertedValueStr));
                         }
 

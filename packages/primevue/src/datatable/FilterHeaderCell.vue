@@ -161,7 +161,6 @@ export default {
 
                     this.styleObject.insetInlineEnd = pos + 'px';
                 } else {
-                    console.log(getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]'));
                     let pos = 0;
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
