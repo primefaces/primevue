@@ -127,7 +127,7 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
                 styles.push({
                     name: `${item.as}Style`,
                     as: `${item.as}Style`,
-                    from: resolvePath({ name: `${item.as}Style`, as: `${item.as}Style`, from: `primevue/${item.as.toLowerCase()}/style`, type: 'style' })
+                    from: resolvePath({ name: `${item.as}Style`, as: `${item.as}Style`, from: `${item.from.toLowerCase()}/style`, type: 'style' })
                 })
             );
     }
