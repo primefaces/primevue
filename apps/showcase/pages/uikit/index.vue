@@ -13,9 +13,9 @@
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-figma.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-figma.png" class="w-full" />
                     </div>
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
                         <div class="text-5xl font-bold mb-4">Best Features of Figma</div>
                         <p class="mb-4 text-lg">PrimeOne for Figma uses the latest powerful features like components, variants, auto layout, styles, variables and interactive components. It'll always follow the best practices.</p>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">ENTERPRISE GRADE</div>
                         <div class="text-5xl font-bold mb-4">Powerful System</div>
                         <p class="mb-4 text-lg">Save countless hours on every project with a carefully designed system that uses Prime UI Suite components. Start producing design results in no time.</p>
@@ -74,14 +74,14 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png" class="w-full" />
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-themes.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-themes.png" class="w-full" />
                     </div>
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
                         <div class="text-5xl font-bold mb-4">Two Themes</div>
                         <p class="mb-4 text-lg">PrimeOne is designed based on Aura Light and Aura Dark themes. Easily change the themes of your designs using Figma's Swap Library feature or Tokens Studio Sets.</p>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
                         <div class="text-5xl font-bold mb-4">Tokens Support</div>
                         <p class="mb-4 text-lg">Empower yourself with unprecedented control over your designs. Tokens Studio integration unlocks a whole new level of flexibility, allowing you to create and manage design tokens seamlessly.</p>
@@ -124,7 +124,7 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
                     </div>
                 </div>
             </div>
@@ -161,7 +161,7 @@
 
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-12 lg:col-span-4">
-                        <div class="p-4 h-full">
+                        <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Single Designer</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For individual designers</div>
@@ -203,7 +203,7 @@
                     </div>
 
                     <div class="col-span-12 lg:col-span-4">
-                        <div class="p-4 h-full">
+                        <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="p-4 h-full">
                             <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Team</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
@@ -245,7 +245,7 @@
                     </div>
 
                     <div class="col-span-12 lg:col-span-4">
-                        <div class="p-4 h-full">
+                        <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="p-4 h-full">
                             <div class="shadow p-8 flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Enterprise</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
