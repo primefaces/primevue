@@ -249,6 +249,11 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         getTooltipElement(el) {
             return document.getElementById(el.$_ptooltipId);
         },
+        getArrowElement(el) {
+            let tooltipElement = this.getTooltipElement(el);
+
+            return findSingle(tooltipElement, '[data-pc-section="arrow"]');
+        },
         create(el) {
             const modifiers = el.$_ptooltipModifiers;
 
@@ -383,7 +388,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         alignRight(el) {
             this.preAlign(el, 'right');
             let tooltipElement = this.getTooltipElement(el);
-            let arrowElement = findSingle(tooltipElement, '[data-pc-section="arrow"]');
+            let arrowElement = this.getArrowElement(el);
             let hostOffset = this.getHostOffset(el);
             let left = hostOffset.left + getOuterWidth(el);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
@@ -399,7 +404,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         alignLeft(el) {
             this.preAlign(el, 'left');
             let tooltipElement = this.getTooltipElement(el);
-            let arrowElement = findSingle(tooltipElement, '[data-pc-section="arrow"]');
+            let arrowElement = this.getArrowElement(el);
             let hostOffset = this.getHostOffset(el);
             let left = hostOffset.left - getOuterWidth(tooltipElement);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
@@ -415,7 +420,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         alignTop(el) {
             this.preAlign(el, 'top');
             let tooltipElement = this.getTooltipElement(el);
-            let arrowElement = findSingle(tooltipElement, '[data-pc-section="arrow"]');
+            let arrowElement = this.getArrowElement(el);
             let tooltipWidth = getOuterWidth(tooltipElement);
             let elementWidth = getOuterWidth(el);
             let { width: viewportWidth } = getViewport();
@@ -446,7 +451,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         alignBottom(el) {
             this.preAlign(el, 'bottom');
             let tooltipElement = this.getTooltipElement(el);
-            let arrowElement = findSingle(tooltipElement, '[data-pc-section="arrow"]');
+            let arrowElement = this.getArrowElement(el);
             let tooltipWidth = getOuterWidth(tooltipElement);
             let elementWidth = getOuterWidth(el);
             let { width: viewportWidth } = getViewport();

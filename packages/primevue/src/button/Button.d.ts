@@ -227,7 +227,13 @@ export interface ButtonSlots {
     /**
      * Custom content such as icons, images and text can be placed inside the button via the default slot. Note that when slot is used, label, icon and badge properties are not included.
      */
-    default(): VNode[];
+    default(scope: {
+        /**
+         * Object containing the accessibility attributes.
+         * @remarks Only available when {@link ButtonProps.asChild} is set to true.
+         */
+        a11yAttrs?: Record<string, unknown>;
+    }): VNode[];
     /**
      * Custom icon template.
      * @param {Object} scope - icon slot's params.
