@@ -229,10 +229,10 @@ export interface ButtonSlots {
      */
     default(scope: {
         /**
-        * Object containing the accessibility attributes.
-        * @remarks Only available when {@link ButtonProps.asChild} is set to true.
-        */
-        a11yAttrs?: Record<string, unknown>
+         * Object containing the accessibility attributes.
+         * @remarks Only available when {@link ButtonProps.asChild} is set to true.
+         */
+        a11yAttrs?: Record<string, unknown>;
     }): VNode[];
     /**
      * Custom icon template.
