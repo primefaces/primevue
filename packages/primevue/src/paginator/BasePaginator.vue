@@ -37,6 +37,10 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
+        },
+        initialPage: {
+            type: Number,
+            default: 0
         }
     },
     style: PaginatorStyle,

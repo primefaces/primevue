@@ -271,6 +271,11 @@ export interface PaginatorProps {
      */
     alwaysShow?: boolean | undefined;
     /**
+     * Number of the initial page to display.
+     * @defaultValue 0
+     */
+    initialPage?: number | undefined;
+    /**
      * It generates scoped CSS variables using design tokens for the component.
      */
     dt?: DesignToken<any>;
