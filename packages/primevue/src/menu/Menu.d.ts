@@ -331,13 +331,13 @@ export interface MenuEmitsOptions {
      */
     blur(event: Event): void;
     /**
-     * Callback to invoke when the overlay is shown.
-     * @remarks Emitted when {@link MenuProps.popup} is true
+     * Callback to invoke when the menu popup is shown.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
      */
     show(): void;
     /**
-     * Callback to invoke when the overlay is hidden.
-     * @remarks Emitted when {@link MenuProps.popup} is true
+     * Callback to invoke when the menu popup is hidden.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
      */
     hide(): void;
 }
