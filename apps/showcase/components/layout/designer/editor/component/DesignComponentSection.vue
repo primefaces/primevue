@@ -66,7 +66,7 @@ export default {
                 .join(' ');
         },
         tokens() {
-            const source = this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+            const source = this.$appState.designer.theme.preset.components[this.componentKey];
 
             return this.getObjectProperty(source, this.path);
         },

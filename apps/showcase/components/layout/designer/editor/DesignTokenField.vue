@@ -117,7 +117,7 @@ export default {
             return colorScheme;
         },
         transfer(event) {
-            let tokens = this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+            let tokens = this.$appState.designer.theme.preset.components[this.componentKey];
             const colorSchemePrefix = 'colorScheme.';
 
             if (this.path.startsWith(colorSchemePrefix)) {

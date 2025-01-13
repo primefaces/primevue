@@ -59,7 +59,7 @@
                 </Accordion>
             </TabPanel>
             <TabPanel value="2">
-                <form @keydown="onKeyDown">
+                <form v-if="isComponentRoute" @keydown="onKeyDown">
                     <DesignComponent />
                 </form>
             </TabPanel>
@@ -101,10 +101,7 @@ export default {
     },
     computed: {
         isComponentRoute() {
-            const components = this.$appState.designer.theme.preset.components;
-            const directives = this.$appState.designer.theme.preset.directives;
-
-            return components[this.$route.name] != null || directives[this.$route.name];
+            return this.$appState.designer.theme.preset?.components[this.$route.name] != null;
         }
     }
 };

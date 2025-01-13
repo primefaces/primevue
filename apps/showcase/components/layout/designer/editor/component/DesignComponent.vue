@@ -1,5 +1,5 @@
 <template>
-    <section v-if="isComponentRoute">
+    <section>
         <div class="text-lg font-semibold capitalize mb-2">{{ componentKey }}</div>
         <Fieldset legend="Common" :toggleable="true" class="mb-3">
             <div class="flex flex-col gap-3">
@@ -38,14 +38,8 @@ export default {
         componentKey() {
             return this.$route.name;
         },
-        isComponentRoute() {
-            const components = this.$appState.designer.theme.preset.components;
-            const directives = this.$appState.designer.theme.preset.directives;
-
-            return components[this.componentKey] != null || directives[this.componentKey] != null;
-        },
         tokens() {
-            return this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+            return this.$appState.designer.theme.preset.components[this.componentKey];
         },
         lightTokens() {
             return this.tokens.colorScheme?.light;
