@@ -272,7 +272,7 @@ export interface PaginatorProps {
     alwaysShow?: boolean | undefined;
     /**
      * Number of the initial page to display.
-     * @defaultValue 0
+     * @defaultValue 1
      */
     initialPage?: number | undefined;
     /**
