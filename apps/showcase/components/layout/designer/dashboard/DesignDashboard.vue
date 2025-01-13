@@ -1,4 +1,10 @@
 <template>
+    <div style="border-radius: 50px" class="overflow-hidden mb-8">
+        <NuxtLink to="/designer" class="block">
+            <img alt="PrimeVue Designer" :src="coverImage" class="w-full opacity-0 animate-fadein animate-delay-200 animate-fill-forwards" />
+        </NuxtLink>
+    </div>
+
     <div class="text-lg font-semibold mb-2">License Key</div>
     <span class="block text-muted-color leading-6 mb-4"
         >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer with limited features. <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme
@@ -262,6 +268,11 @@ export default {
         },
         themeUsageRatio() {
             return this.$appState.designer.themeLimit ? 100 * (this.$appState.designer.themes.length / this.$appState.designer.themeLimit) : 0;
+        },
+        coverImage() {
+            const image = this.$appState.darkTheme ? 'editor-intro-dark.png' : 'editor-intro.png';
+
+            return 'https://primefaces.org/cdn/designer/' + image;
         }
     }
 };
