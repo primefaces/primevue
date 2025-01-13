@@ -451,11 +451,11 @@ const classes = {
             'p-datepicker-today': date.today
         }
     ],
-    day: ({ instance, props, date }) => {
+    day: ({ instance, props, state, date }) => {
         let selectedDayClass = '';
 
         if (instance.isRangeSelection() && instance.isSelected(date) && date.selectable) {
-            selectedDayClass = instance.isDateEquals(props.modelValue[0], date) || instance.isDateEquals(props.modelValue[1], date) ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
+            selectedDayClass = instance.isDateEquals(state.d_value[0], date) || instance.isDateEquals(state.d_value[1], date) ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
         }
 
         return [
