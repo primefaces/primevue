@@ -57,7 +57,14 @@ export function useStyle(css, options = {}) {
             });
 
             if(applicationNode){
-                first ? applicationNode.prepend(styleRef.value) : applicationNode.appendChild(styleRef.value);
+                const extraSheet = new CSSStyleSheet();
+
+                setTimeout(() => {
+                    styleRef.value.innerText = styleRef.value.innerText.replace(":root", ":host");
+                    extraSheet.replaceSync(styleRef.value.innerText);
+                    applicationNode.adoptedStyleSheets.push(extraSheet);
+                }, 1);
+
             } else {
                 first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value)
             }
