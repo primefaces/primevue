@@ -100,10 +100,10 @@ export default {
             }
         },
         onMessageClick(event) {
-            this.props.onClick && this.props.onClick({ originalEvent: event, message: this.message });
+            this.props?.onClick && this.props.onClick({ originalEvent: event, message: this.message });
         },
         onMouseEnter(event) {
-            this.props.onMouseEnter && this.props.onMouseEnter({ originalEvent: event, message: this.message });
+            this.props?.onMouseEnter && this.props.onMouseEnter({ originalEvent: event, message: this.message });
 
             if (event.defaultPrevented) {
                 return;
@@ -116,7 +116,7 @@ export default {
             }
         },
         onMouseLeave(event) {
-            this.props.onMouseLeave && this.props.onMouseLeave({ originalEvent: event, message: this.message });
+            this.props?.onMouseLeave && this.props.onMouseLeave({ originalEvent: event, message: this.message });
 
             if (event.defaultPrevented) {
                 return;
