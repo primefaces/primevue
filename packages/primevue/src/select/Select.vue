@@ -96,6 +96,7 @@
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
+                                :formControl="{ novalidate: true }"
                             />
                             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">

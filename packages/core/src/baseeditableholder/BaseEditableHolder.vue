@@ -104,13 +104,16 @@ export default {
             return isNotEmpty(this.d_value);
         },
         $invalid() {
-            return this.findNonEmpty(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.getFieldState(this.$formName)?.invalid);
+            return !this.$formNovalidate && this.findNonEmpty(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.getFieldState(this.$formName)?.invalid);
         },
         $formName() {
-            return this.name || this.$formControl?.name;
+            return !this.$formNovalidate ? this.name || this.$formControl?.name : undefined;
         },
         $formControl() {
             return this.formControl || this.$pcFormField?.formControl;
+        },
+        $formNovalidate() {
+            return this.$formControl?.novalidate;
         },
         $formDefaultValue() {
             return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);

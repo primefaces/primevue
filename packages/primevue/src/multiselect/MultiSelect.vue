@@ -88,6 +88,7 @@
                             @change="onToggleAll"
                             :unstyled="unstyled"
                             :pt="getHeaderCheckboxPTOptions('pcHeaderCheckbox')"
+                            :formControl="{ novalidate: true }"
                         >
                             <template #icon="slotProps">
                                 <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
@@ -113,6 +114,7 @@
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
+                                :formControl="{ novalidate: true }"
                             />
                             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
@@ -159,7 +161,15 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :defaultValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')">
+                                            <Checkbox
+                                                :defaultValue="isSelected(option)"
+                                                :binary="true"
+                                                :tabindex="-1"
+                                                :variant="variant"
+                                                :unstyled="unstyled"
+                                                :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')"
+                                                :formControl="{ novalidate: true }"
+                                            >
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :is="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component

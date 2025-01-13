@@ -24,9 +24,13 @@ export default {
         };
 
         const register = (field, options) => {
-            const [, fieldProps] = $form.defineField(field, options);
+            if (!options?.novalidate) {
+                const [, fieldProps] = $form.defineField(field, options);
 
-            return fieldProps;
+                return fieldProps;
+            }
+
+            return {};
         };
 
         const onSubmit = $form.handleSubmit((e) => {
