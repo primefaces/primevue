@@ -46,8 +46,6 @@
 <script>
 import { UniqueComponentId } from '@primevue/core/utils';
 import { $dt } from '@primevue/themes';
-import set from 'lodash.set';
-import unset from 'lodash.unset';
 
 export default {
     emits: ['update:modelValue'],
@@ -122,13 +120,13 @@ export default {
             if (this.path.startsWith(colorSchemePrefix)) {
                 let tokenPath = this.getPathFromColorScheme(this.path.slice(colorSchemePrefix.length));
 
-                set(tokens, tokenPath, this.modelValue);
-                unset(tokens, 'colorScheme.light.' + tokenPath);
-                unset(tokens, 'colorScheme.dark.' + tokenPath);
+                this.set(tokens, tokenPath, this.modelValue);
+                this.unset(tokens, 'colorScheme.light.' + tokenPath);
+                this.unset(tokens, 'colorScheme.dark.' + tokenPath);
             } else {
-                set(tokens, 'colorScheme.light.' + this.path, this.modelValue);
-                set(tokens, 'colorScheme.dark.' + this.path, this.modelValue);
-                unset(tokens, this.path);
+                this.set(tokens, 'colorScheme.light.' + this.path, this.modelValue);
+                this.set(tokens, 'colorScheme.dark.' + this.path, this.modelValue);
+                this.unset(tokens, this.path);
             }
 
             this.removeEmptyProps(tokens);
@@ -155,6 +153,62 @@ export default {
             }
 
             return obj;
+        },
+        set(obj, path, value) {
+            if (Object(obj) !== obj) return obj;
+            const pathArray = Array.isArray(path) ? path : path.toString().match(/[^.[\]]+/g) || [];
+
+            pathArray.reduce((acc, key, i) => {
+                if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+                    return acc;
+                }
+
+                if (i === pathArray.length - 1) {
+                    acc[key] = value;
+
+                    return value;
+                }
+
+                acc[key] = Object(acc[key]) === acc[key] ? acc[key] : {};
+
+                return acc[key];
+            }, obj);
+
+            return obj;
+        },
+        unset(obj, path) {
+            if (Object(obj) !== obj) return false;
+
+            const pathArray = Array.isArray(path) ? path : path.toString().match(/[^.[\]]+/g) || [];
+
+            if (pathArray.length === 0) return false;
+
+            if (pathArray.includes('__proto__') || pathArray.includes('constructor') || pathArray.includes('prototype')) {
+                return false;
+            }
+
+            let current = obj;
+            const length = pathArray.length;
+
+            for (let i = 0; i < length - 1; i++) {
+                const key = pathArray[i];
+
+                if (current[key] == null) {
+                    return false;
+                }
+
+                current = current[key];
+            }
+
+            const lastKey = pathArray[length - 1];
+
+            if (!(lastKey in current)) {
+                return false;
+            }
+
+            delete current[lastKey];
+
+            return true;
         }
     },
     computed: {

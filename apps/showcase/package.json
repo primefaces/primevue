@@ -63,9 +63,7 @@
         "superstruct": "^2.0.2"
     },
     "dependencies": {
-        "@docsearch/js": "^3.3.3",
-        "lodash.set": "^4.3.2",
-        "lodash.unset": "^4.3.2"
+        "@docsearch/js": "^3.3.3"
     },
     "engines": {
         "node": ">=12.11.0"
