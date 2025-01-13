@@ -7,8 +7,8 @@
 
     <div class="text-lg font-semibold mb-2">License Key</div>
     <span class="block text-muted-color leading-6 mb-4"
-        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer with limited features. <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme
-        Designer.</span
+        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistand and cloud storage are not available.
+        <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
     >
     <form @submit.prevent class="flex gap-4">
         <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
