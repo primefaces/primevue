@@ -6,7 +6,7 @@
             backup and run a preview before the migration. Depending on the result, you may choose to proceed with the migration process. In case there are missing tokens, your theme would receive them with placeholder values so it is recommended to
             take a note of them before migration and then visit the components to replace the placeholder values with actual values of your choice. These types of newly added tokens would be highlighed in Editor.
         </p>
-        <div class="w-full sm:w-[48rem] px-8 pt-8 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface">
+        <div class="px-8 pt-8 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface" style="max-width: 48rem">
             <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/guide-migration.png" class="w-full" />
         </div>
     </DocSectionText>
