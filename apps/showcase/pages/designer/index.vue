@@ -13,9 +13,9 @@
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/designer/feature-1.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/designer/feature-1.png" class="w-full" />
                     </div>
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">POWERFUL</div>
                         <div class="text-5xl font-bold mb-4">Visual Editor</div>
                         <p class="mb-4 text-lg">Transform your PrimeVue components with our advanced visual editor. Design, customize, and preview changes in real-time, all within an intuitive interface.</p>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">AUTOMATED</div>
                         <div class="text-5xl font-bold mb-4">Figma to Theme</div>
                         <p class="mb-4 text-lg">
@@ -78,15 +78,15 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-3.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-3.png" class="w-full" />
                     </div>
-                    <div class="w-full md:w-6/12">
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">INTELLIGENT</div>
                         <div class="text-5xl font-bold mb-4">Migration Assistant</div>
                         <p class="mb-4 text-lg">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
+                <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
                     <div class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">REMOTE</div>
                         <div class="text-5xl font-bold mb-4">Cloud Storage</div>
@@ -124,7 +124,7 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img alt="Tokens Support" src="https://primefaces.org/cdn/designer/feature-4.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://primefaces.org/cdn/designer/feature-4.png" class="w-full" />
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
                 <div class="grid grid-cols-12 gap-4">
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
-                            <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
+                            <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Basic</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
@@ -177,7 +177,7 @@
 
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
-                            <div class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
+                            <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Extended</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
@@ -219,7 +219,7 @@
 
                     <div class="col-span-12 lg:col-span-4">
                         <div class="p-4 h-full">
-                            <div class="shadow p-8 flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
+                            <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="shadow p-8 flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Enterprise</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For custom requirements</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
