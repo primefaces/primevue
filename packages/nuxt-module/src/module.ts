@@ -59,6 +59,7 @@ export default defineNuxtModule<ModuleOptions>({
 
         //nuxt.options.build.transpile.push('nuxt');
         nuxt.options.build.transpile.push('primevue');
+        hasTheme && nuxt.options.build.transpile.push('@primevue/themes');
 
         let registeredStyles: MetaType[] = registered.styles;
 
