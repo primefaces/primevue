@@ -330,6 +330,16 @@ export interface MenuEmitsOptions {
      * @param {Event} event - Browser event.
      */
     blur(event: Event): void;
+    /**
+     * Callback to invoke when the menu popup is shown.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
+     */
+    show(): void;
+    /**
+     * Callback to invoke when the menu popup is hidden.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
+     */
+    hide(): void;
 }
 
 export declare type MenuEmits = EmitFn<MenuEmitsOptions>;
