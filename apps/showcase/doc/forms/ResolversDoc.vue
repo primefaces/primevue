@@ -175,6 +175,7 @@ export default {
                     }
 
                     return {
+                        values,
                         errors
                     };
                 };
@@ -292,6 +293,7 @@ const changeResolver = (schema) => {
             }
 
             return {
+                values,
                 errors
             };
         };
@@ -343,6 +345,7 @@ const onFormSubmit = ({ valid }) => {
                     }
 
                     return {
+                        values,
                         errors
                     };
                 };
