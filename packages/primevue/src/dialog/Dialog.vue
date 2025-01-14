@@ -141,7 +141,6 @@ export default {
     },
     methods: {
         close() {
-            console.log('close');
             this.$emit('update:visible', false);
         },
         onEnter() {
