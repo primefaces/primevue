@@ -52,5 +52,7 @@ export * from '@primevue/core/baseinput';
 export * from '@primevue/core/config';
 export { default as PrimeVue } from '@primevue/core/config';
 export * from '@primevue/core/service';
+export * from '@primevue/core/useattrselector';
+export * from '@primevue/core/useid';
 export * from '@primevue/core/usestyle';
 export * from '@primevue/core/utils';
