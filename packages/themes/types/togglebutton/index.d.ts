@@ -221,17 +221,17 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
      */
     content?: {
         /**
-         * Left of content
+         * Padding of the content
          *
-         * @designToken togglebutton.content.left
+         * @designToken togglebutton.content.padding
          */
-        left?: string;
+        padding?: string;
         /**
-         * Top of content
+         * Border radius of the content
          *
-         * @designToken togglebutton.content.top
+         * @designToken togglebutton.border.radius
          */
-        top?: string;
+        borderRadius?: string;
         /**
          * Checked shadow of content
          *
@@ -244,5 +244,27 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
          * @designToken togglebutton.content.checked.background
          */
         checkedBackground?: string;
+        /**
+         * Sm of content
+         */
+        sm?: {
+            /**
+             * Sm padding of content
+             *
+             * @designToken togglebutton.content.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of root
+         */
+        lg?: {
+            /**
+             * Lg padding of content
+             *
+             * @designToken togglebutton.content.lg.padding
+             */
+            padding?: string;
+        };
     };
 }

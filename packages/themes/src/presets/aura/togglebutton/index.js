@@ -1,6 +1,6 @@
 export default {
     root: {
-        padding: '0.5rem 1rem',
+        padding: '0.25rem',
         borderRadius: '{content.border.radius}',
         gap: '0.5rem',
         fontWeight: '500',
@@ -18,20 +18,26 @@ export default {
         transitionDuration: '{form.field.transition.duration}',
         sm: {
             fontSize: '{form.field.sm.font.size}',
-            padding: '0.375rem 0.75rem'
+            padding: '0.25rem'
         },
         lg: {
             fontSize: '{form.field.lg.font.size}',
-            padding: '0.625rem 1.25rem'
+            padding: '0.25rem'
         }
     },
     icon: {
         disabledColor: '{form.field.disabled.color}'
     },
     content: {
-        left: '0.25rem',
-        top: '0.25rem',
-        checkedShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)'
+        padding: '0.25rem 0.75rem',
+        borderRadius: '{content.border.radius}',
+        checkedShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
+        sm: {
+            padding: '0.25rem 0.75rem'
+        },
+        lg: {
+            padding: '0.25rem 0.75rem'
+        }
     },
     colorScheme: {
         light: {
