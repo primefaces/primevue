@@ -411,11 +411,6 @@ export default {
                     this.onBackspaceKey(event);
                     break;
 
-                case 'ShiftLeft':
-                case 'ShiftRight':
-                    //NOOP
-                    break;
-
                 default:
                     break;
             }
@@ -598,7 +593,7 @@ export default {
 
             const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
-            if (event.shiftKey) {
+            if (this.multiple && event.shiftKey) {
                 this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
             }
 
@@ -621,7 +616,7 @@ export default {
             } else {
                 const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
 
-                if (event.shiftKey) {
+                if (this.multiple && event.shiftKey) {
                     this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
                 }
 
@@ -655,7 +650,7 @@ export default {
             const metaKey = event.metaKey || event.ctrlKey;
             const optionIndex = this.findFirstOptionIndex();
 
-            if (event.shiftKey && metaKey) {
+            if (this.multiple && event.shiftKey && metaKey) {
                 this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
             }
 
@@ -670,7 +665,7 @@ export default {
             const metaKey = event.metaKey || event.ctrlKey;
             const optionIndex = this.findLastOptionIndex();
 
-            if (event.shiftKey && metaKey) {
+            if (this.multiple && event.shiftKey && metaKey) {
                 this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
             }
 
@@ -699,7 +694,7 @@ export default {
                     this.onArrowDownKey(event);
                 } else {
                     if (this.focusedOptionIndex !== -1) {
-                        if (event.shiftKey) {
+                        if (this.multiple && event.shiftKey) {
                             this.onOptionSelectRange(event, this.focusedOptionIndex);
                             event.preventDefault();
                         } else {
