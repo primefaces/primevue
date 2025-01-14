@@ -529,13 +529,9 @@ export default {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;
         },
         isNavBackwardDisabled() {
-            // console.log((!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible);
-
             return (!this.circular && this.d_activeIndex === 0) || this.value.length <= this.d_numVisible;
         },
         isNavForwardDisabled() {
-            console.log((!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible);
-
             return (!this.circular && this.d_activeIndex === this.value.length - 1) || this.value.length <= this.d_numVisible;
         }
     },
