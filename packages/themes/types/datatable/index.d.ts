@@ -311,12 +311,6 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          */
         padding?: string;
         /**
-         * Selected border color of body cell
-         *
-         * @designToken datatable.body.cell.selected.border.color
-         */
-        selectedBorderColor?: string;
-        /**
          * Sm of body cell
          */
         sm?: {
@@ -338,6 +332,12 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
              */
             padding?: string;
         };
+        /**
+         * Selected border color of body cell
+         *
+         * @designToken datatable.body.cell.selected.border.color
+         */
+        selectedBorderColor?: string;
     };
     /**
      * Used to pass tokens of the footer cell section
