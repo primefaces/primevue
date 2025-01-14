@@ -68,19 +68,19 @@ const BaseDirective = {
     _useDefaultPT: (instance = {}, defaultPT = {}, callback, key, params) => {
         return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
-    _loadStyles: (el, binding, vnode) => {
+    _loadStyles: (instance = {}, binding, vnode) => {
         const config = BaseDirective._getConfig(binding, vnode);
         const useStyleOptions = { nonce: config?.csp?.nonce };
 
-        BaseDirective._loadCoreStyles(el.$instance, useStyleOptions);
-        BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
-        BaseDirective._loadScopedThemeStyles(el.$instance, useStyleOptions);
+        BaseDirective._loadCoreStyles(instance, useStyleOptions);
+        BaseDirective._loadThemeStyles(instance, useStyleOptions);
+        BaseDirective._loadScopedThemeStyles(instance, useStyleOptions);
 
-        BaseDirective._removeThemeListeners(el.$instance);
+        BaseDirective._removeThemeListeners(instance);
 
-        el.$instance.$loadStyles = () => BaseDirective._loadThemeStyles(el.$instance, useStyleOptions);
+        instance.$loadStyles = () => BaseDirective._loadThemeStyles(instance, useStyleOptions);
 
-        BaseDirective._themeChangeListener(el.$instance.$loadStyles);
+        BaseDirective._themeChangeListener(instance.$loadStyles);
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
@@ -138,7 +138,7 @@ const BaseDirective = {
         Base.clearLoadedStyleNames();
         ThemeService.on('theme:change', callback);
     },
-    _removeThemeListeners(instance) {
+    _removeThemeListeners(instance = {}) {
         ThemeService.off('theme:change', instance.$loadStyles);
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
@@ -177,14 +177,14 @@ const BaseDirective = {
                 $attrSelector: el.$pd?.[name]?.attrSelector,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
-                isUnstyled: () => (el.$instance?.$binding?.value?.unstyled !== undefined ? el.$instance?.$binding?.value?.unstyled : config?.unstyled),
-                theme: () => el.$instance?.$primevueConfig?.theme,
-                preset: () => el.$instance?.$binding?.value?.dt,
+                isUnstyled: () => (el._$instances[name]?.$binding?.value?.unstyled !== undefined ? el._$instances[name]?.$binding?.value?.unstyled : config?.unstyled),
+                theme: () => el._$instances[name]?.$primevueConfig?.theme,
+                preset: () => el._$instances[name]?.$binding?.value?.dt,
                 /* instance's methods */
-                ptm: (key = '', params = {}) => BaseDirective._getPTValue(el.$instance, el.$instance?.$binding?.value?.pt, key, { ...params }),
-                ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el.$instance, obj, key, params, false),
-                cx: (key = '', params = {}) => (!el.$instance?.isUnstyled() ? BaseDirective._getOptionValue(el.$instance?.$style?.classes, key, { ...params }) : undefined),
-                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el.$instance?.$style?.inlineStyles, key, { ...params }) : undefined),
+                ptm: (key = '', params = {}) => BaseDirective._getPTValue(el._$instances[name], el._$instances[name]?.$binding?.value?.pt, key, { ...params }),
+                ptmo: (obj = {}, key = '', params = {}) => BaseDirective._getPTValue(el._$instances[name], obj, key, params, false),
+                cx: (key = '', params = {}) => (!el._$instances[name]?.isUnstyled() ? BaseDirective._getOptionValue(el._$instances[name]?.$style?.classes, key, { ...params }) : undefined),
+                sx: (key = '', when = true, params = {}) => (when ? BaseDirective._getOptionValue(el._$instances[name]?.$style?.inlineStyles, key, { ...params }) : undefined),
                 ...$options
             };
 
@@ -194,28 +194,30 @@ const BaseDirective = {
             BaseDirective._hook(name, hook, el, binding, vnode, prevVnode); // handle hooks during directive uses (global and self-definition)
 
             el.$pd ||= {};
-            el.$pd[name] = { ...el.$pd?.[name], name, instance: el.$instance };
+            el.$pd[name] = { ...el.$pd?.[name], name, instance: el._$instances[name] };
         };
 
         const handleWatchers = (el) => {
-            const watchers = el.$instance?.watch;
+            const instance = el._$instances[name];
+            const watchers = instance?.watch;
 
-            const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(el.$instance, newValue, oldValue);
-            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(el.$instance, newValue, oldValue);
+            const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(instance, newValue, oldValue);
 
-            el.$instance.$watchersCallback = { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple };
+            const handleWatchConfigRipple = ({ newValue, oldValue }) => watchers?.['config.ripple']?.call(instance, newValue, oldValue);
+
+            instance.$watchersCallback = { config: handleWatchConfig, 'config.ripple': handleWatchConfigRipple };
 
             // for 'config'
-            watchers?.['config']?.call(el.$instance, el.$instance?.$primevueConfig);
+            watchers?.['config']?.call(instance, instance?.$primevueConfig);
             PrimeVueService.on('config:change', handleWatchConfig);
 
             // for 'config.ripple'
-            watchers?.['config.ripple']?.call(el.$instance, el.$instance?.$primevueConfig?.ripple);
+            watchers?.['config.ripple']?.call(instance, instance?.$primevueConfig?.ripple);
             PrimeVueService.on('config:ripple:change', handleWatchConfigRipple);
         };
 
         const stopWatchers = (el) => {
-            const watchers = el.$instance.$watchersCallback;
+            const watchers = el._$instances[name].$watchersCallback;
 
             if (watchers) {
                 PrimeVueService.off('config:change', watchers.config);
@@ -230,28 +232,28 @@ const BaseDirective = {
                 handleHook('created', el, binding, vnode, prevVnode);
             },
             beforeMount: (el, binding, vnode, prevVnode) => {
-                BaseDirective._loadStyles(el, binding, vnode);
+                BaseDirective._loadStyles(el.$pd[name]?.instance, binding, vnode);
                 handleHook('beforeMount', el, binding, vnode, prevVnode);
                 handleWatchers(el);
             },
             mounted: (el, binding, vnode, prevVnode) => {
-                BaseDirective._loadStyles(el, binding, vnode);
+                BaseDirective._loadStyles(el.$pd[name]?.instance, binding, vnode);
                 handleHook('mounted', el, binding, vnode, prevVnode);
             },
             beforeUpdate: (el, binding, vnode, prevVnode) => {
                 handleHook('beforeUpdate', el, binding, vnode, prevVnode);
             },
             updated: (el, binding, vnode, prevVnode) => {
-                BaseDirective._loadStyles(el, binding, vnode);
+                BaseDirective._loadStyles(el.$pd[name]?.instance, binding, vnode);
                 handleHook('updated', el, binding, vnode, prevVnode);
             },
             beforeUnmount: (el, binding, vnode, prevVnode) => {
                 stopWatchers(el);
-                BaseDirective._removeThemeListeners(el.$instance);
+                BaseDirective._removeThemeListeners(el.$pd[name]?.instance);
                 handleHook('beforeUnmount', el, binding, vnode, prevVnode);
             },
             unmounted: (el, binding, vnode, prevVnode) => {
-                el.$instance?.scopedStyleEl?.value?.remove();
+                el.$pd[name]?.instance?.scopedStyleEl?.value?.remove();
                 handleHook('unmounted', el, binding, vnode, prevVnode);
             }
         };
