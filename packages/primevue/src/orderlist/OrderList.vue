@@ -34,7 +34,7 @@
         </div>
         <Listbox
             ref="listbox"
-            :id="id"
+            :id="$id"
             :modelValue="d_selection"
             :options="modelValue"
             multiple
@@ -69,7 +69,6 @@
 <script>
 import { find, findSingle, scrollInView, setAttribute } from '@primeuix/utils/dom';
 import { findIndexInList, isNotEmpty } from '@primeuix/utils/object';
-import { UniqueComponentId } from '@primevue/core/utils';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleUpIcon from '@primevue/icons/angledoubleup';
 import AngleDownIcon from '@primevue/icons/angledown';
@@ -90,14 +89,8 @@ export default {
     list: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_selection: this.selection
         };
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
     },
     beforeUnmount() {
         this.destroyStyle();
@@ -109,8 +102,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.responsive) {
             this.createStyle();
         }
