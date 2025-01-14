@@ -273,7 +273,7 @@ function addPackageJson() {
         "*.vue"
     ],
     "peerDependencies": {
-        "vue": "^3.0.0"
+        "vue": "^3.5.0"
     },
     "engines": {
         "node": ">=12.11.0"
