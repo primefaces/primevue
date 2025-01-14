@@ -166,6 +166,10 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Cloud Storage</span>
+                                    </li>
+                                    <li class="flex items-center mb-4">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Use on Unlimited Projects</span>
                                     </li>
                                 </ul>
@@ -179,7 +183,7 @@
                         <div class="p-4 h-full">
                             <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000' }" class="shadow p-8 h-full flex flex-col bg-surface-0 dark:bg-surface-900" style="border-radius: 6px">
                                 <div class="font-medium text-xl mb-2">Extended</div>
-                                <div class="text-surface-500 dark:text-surface-400 font-medium">For large teams</div>
+                                <div class="text-surface-500 dark:text-surface-400 font-medium">For teams with UI/UX designers</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <div class="flex flex-wrap gap-4">
                                     <span class="text-2xl font-bold">$1990</span>
@@ -205,6 +209,10 @@
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Migration Assistant</span>
+                                    </li>
+                                    <li class="flex items-center mb-4">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Cloud Storage</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -247,6 +255,10 @@
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Migration Assistant</span>
+                                    </li>
+                                    <li class="flex items-center mb-4">
+                                        <i class="pi pi-check-circle text-green-500 mr-2"></i>
+                                        <span>Cloud Storage</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
