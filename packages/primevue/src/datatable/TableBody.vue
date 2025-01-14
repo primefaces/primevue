@@ -36,8 +36,8 @@
                     :isVirtualScrollerDisabled="isVirtualScrollerDisabled"
                     :editingMeta="editingMeta"
                     :rowGroupHeaderStyle="rowGroupHeaderStyle"
-                    :expandedRowId="expandedRowId"
-                    :nameAttributeSelector="nameAttributeSelector"
+                    :expandedRowId="$id"
+                    :nameAttributeSelector="$attrSelector"
                     @rowgroup-toggle="$emit('rowgroup-toggle', $event)"
                     @row-click="$emit('row-click', $event)"
                     @row-dblclick="$emit('row-dblclick', $event)"
@@ -70,10 +70,9 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
-import { UniqueComponentId } from '@primevue/core/utils';
 import { getOuterHeight } from '@primeuix/utils/dom';
 import { resolveFieldData } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
 import BodyRow from './BodyRow.vue';
 
 export default {
@@ -290,12 +289,6 @@ export default {
                     scrollable: this.$parentInstance?.$parentInstance?.scrollable
                 }
             };
-        },
-        expandedRowId() {
-            return UniqueComponentId();
-        },
-        nameAttributeSelector() {
-            return UniqueComponentId();
         }
     },
     components: {
