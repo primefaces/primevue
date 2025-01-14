@@ -210,7 +210,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Route Location the router-link should navigate to when clicked on.
      */
-    to?: string
+    to?: string;
 }
 
 /**
