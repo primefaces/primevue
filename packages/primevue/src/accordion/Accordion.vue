@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import AccordionContent from 'primevue/accordioncontent';
@@ -44,14 +43,10 @@ export default {
     emits: ['update:value', 'update:activeIndex', 'tab-open', 'tab-close', 'tab-click'],
     data() {
         return {
-            id: this.$attrs.id,
             d_value: this.value
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         value(newValue) {
             this.d_value = newValue;
         },
@@ -63,9 +58,6 @@ export default {
                 }
             }
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         isItemActive(value) {
