@@ -212,6 +212,7 @@ export default {
     virtualScroller: null,
     searchTimeout: null,
     dirty: false,
+    startRangeIndex: -1,
     data() {
         return {
             id: this.$attrs.id,
@@ -389,6 +390,7 @@ export default {
 
                 case 'Enter':
                 case 'NumpadEnter':
+                case 'Space':
                     this.onEnterKey(event);
                     break;
 
@@ -398,6 +400,11 @@ export default {
 
                 case 'Tab':
                     this.onTabKey(event);
+                    break;
+
+                case 'ShiftLeft':
+                case 'ShiftRight':
+                    this.onShiftKey(event);
                     break;
 
                 case 'Backspace':
@@ -553,6 +560,21 @@ export default {
                 this.changeFocusedOptionIndex(event, index);
             }
         },
+        onOptionSelectRange(event, start = -1, end = -1) {
+            start === -1 && (start = this.findNearestSelectedOptionIndex(end, true));
+            end === -1 && (end = this.findNearestSelectedOptionIndex(start));
+
+            if (start !== -1 && end !== -1) {
+                const rangeStart = Math.min(start, end);
+                const rangeEnd = Math.max(start, end);
+                const value = this.visibleOptions
+                    .slice(rangeStart, rangeEnd + 1)
+                    .filter((option) => this.isValidOption(option))
+                    .map((option) => this.getOptionValue(option));
+
+                this.updateModel(event, value);
+            }
+        },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
@@ -576,6 +598,10 @@ export default {
 
             const optionIndex = this.focusedOptionIndex !== -1 ? this.findNextOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findFirstOptionIndex() : this.findFirstFocusedOptionIndex();
 
+            if (event.shiftKey) {
+                this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
+            }
+
             this.changeFocusedOptionIndex(event, optionIndex);
 
             event.preventDefault();
@@ -594,6 +620,10 @@ export default {
                 event.preventDefault();
             } else {
                 const optionIndex = this.focusedOptionIndex !== -1 ? this.findPrevOptionIndex(this.focusedOptionIndex) : this.clicked ? this.findLastOptionIndex() : this.findLastFocusedOptionIndex();
+
+                if (event.shiftKey) {
+                    this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
+                }
 
                 this.changeFocusedOptionIndex(event, optionIndex);
 
@@ -622,6 +652,12 @@ export default {
         onHomeKey(event) {
             const { currentTarget } = event;
             const len = currentTarget.value.length;
+            const metaKey = event.metaKey || event.ctrlKey;
+            const optionIndex = this.findFirstOptionIndex();
+
+            if (event.shiftKey && metaKey) {
+                this.onOptionSelectRange(event, optionIndex, this.startRangeIndex);
+            }
 
             currentTarget.setSelectionRange(0, event.shiftKey ? len : 0);
             this.focusedOptionIndex = -1;
@@ -631,6 +667,12 @@ export default {
         onEndKey(event) {
             const { currentTarget } = event;
             const len = currentTarget.value.length;
+            const metaKey = event.metaKey || event.ctrlKey;
+            const optionIndex = this.findLastOptionIndex();
+
+            if (event.shiftKey && metaKey) {
+                this.onOptionSelectRange(event, this.startRangeIndex, optionIndex);
+            }
 
             currentTarget.setSelectionRange(event.shiftKey ? 0 : len, len);
             this.focusedOptionIndex = -1;
@@ -657,7 +699,12 @@ export default {
                     this.onArrowDownKey(event);
                 } else {
                     if (this.focusedOptionIndex !== -1) {
-                        this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                        if (event.shiftKey) {
+                            this.onOptionSelectRange(event, this.focusedOptionIndex);
+                            event.preventDefault();
+                        } else {
+                            this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                        }
                     }
 
                     this.hide();
@@ -676,6 +723,9 @@ export default {
             }
 
             this.overlayVisible && this.hide();
+        },
+        onShiftKey() {
+            this.startRangeIndex = this.focusedOptionIndex;
         },
         onBackspaceKey(event) {
             if (this.multiple) {
@@ -923,6 +973,31 @@ export default {
         },
         virtualScrollerRef(el) {
             this.virtualScroller = el;
+        },
+        findNextSelectedOptionIndex(index) {
+            const matchedOptionIndex = this.$filled && index < this.visibleOptions.length - 1 ? this.visibleOptions.slice(index + 1).findIndex((option) => this.isValidSelectedOption(option)) : -1;
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex + index + 1 : -1;
+        },
+        findPrevSelectedOptionIndex(index) {
+            const matchedOptionIndex = this.$filled && index > 0 ? findLastIndex(this.visibleOptions.slice(0, index), (option) => this.isValidSelectedOption(option)) : -1;
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex : -1;
+        },
+        findNearestSelectedOptionIndex(index, firstCheckUp = false) {
+            let matchedOptionIndex = -1;
+
+            if (this.$filled) {
+                if (firstCheckUp) {
+                    matchedOptionIndex = this.findPrevSelectedOptionIndex(index);
+                    matchedOptionIndex = matchedOptionIndex === -1 ? this.findNextSelectedOptionIndex(index) : matchedOptionIndex;
+                } else {
+                    matchedOptionIndex = this.findNextSelectedOptionIndex(index);
+                    matchedOptionIndex = matchedOptionIndex === -1 ? this.findPrevSelectedOptionIndex(index) : matchedOptionIndex;
+                }
+            }
+
+            return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         }
     },
     computed: {
