@@ -38,10 +38,16 @@ export default {
         disabledColor: '{form.field.disabled.color}'
     },
     content: {
-        left: '0.25rem',
-        top: '0.25rem',
         checkedBackground: 'transparent',
-        checkedShadow: 'none'
+        checkedShadow: 'none',
+        padding: '0',
+        borderRadius: '0',
+        sm: {
+            padding: '0'
+        },
+        lg: {
+            padding: '0'
+        }
     },
     colorScheme: {
         light: {

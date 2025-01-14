@@ -511,43 +511,43 @@ const theme = ({ dt }) => `
 }
 
 .p-datatable.p-datatable-sm .p-datatable-header {
-    padding: 0.375rem 0.5rem;
+    padding: ${dt('datatable.header.sm.padding')};
 }
 
 .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
-    padding: 0.375rem 0.5rem;
+    padding: ${dt('datatable.header.cell.sm.padding')};
 }
 
 .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
-    padding: 0.375rem 0.5rem;
+    padding: ${dt('datatable.body.cell.sm.padding')};
 }
 
 .p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
-    padding: 0.375rem 0.5rem;
+    padding: ${dt('datatable.footer.cell.sm.padding')};
 }
 
 .p-datatable.p-datatable-sm .p-datatable-footer {
-    padding: 0.375rem 0.5rem;
+    padding: ${dt('datatable.footer.sm.padding')};
 }
 
 .p-datatable.p-datatable-lg .p-datatable-header {
-    padding: 1rem 1.25rem;
+    padding: ${dt('datatable.header.lg.padding')};
 }
 
 .p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
-    padding: 1rem 1.25rem;
+    padding: ${dt('datatable.header.cell.lg.padding')};
 }
 
 .p-datatable.p-datatable-lg .p-datatable-tbody > tr > td {
-    padding: 1rem 1.25rem;
+    padding: ${dt('datatable.body.lg.padding')};
 }
 
 .p-datatable.p-datatable-lg .p-datatable-tfoot > tr > td {
-    padding: 1rem 1.25rem;
+    padding: ${dt('datatable.footer.cell.lg.padding')};
 }
 
 .p-datatable.p-datatable-lg .p-datatable-footer {
-    padding: 1rem 1.25rem;
+    padding: ${dt('datatable.footer.lg.padding')};
 }
 
 .p-datatable-row-toggle-button {

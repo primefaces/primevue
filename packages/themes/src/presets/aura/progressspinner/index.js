@@ -2,18 +2,18 @@ export default {
     colorScheme: {
         light: {
             root: {
-                'color.1': '{red.500}',
-                'color.2': '{blue.500}',
-                'color.3': '{green.500}',
-                'color.4': '{yellow.500}'
+                colorOne: '{red.500}',
+                colorTwo: '{blue.500}',
+                colorThree: '{green.500}',
+                colorFour: '{yellow.500}'
             }
         },
         dark: {
             root: {
-                'color.1': '{red.400}',
-                'color.2': '{blue.400}',
-                'color.3': '{green.400}',
-                'color.4': '{yellow.400}'
+                colorOne: '{red.400}',
+                colorTwo: '{blue.400}',
+                colorThree: '{green.400}',
+                colorFour: '{yellow.400}'
             }
         }
     }
