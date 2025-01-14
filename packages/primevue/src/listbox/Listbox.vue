@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" @focusout="onFocusout" v-bind="ptmi('root')">
+    <div :id="$id" :class="cx('root')" @focusout="onFocusout" v-bind="ptmi('root')">
         <span
             ref="firstHiddenFocusableElement"
             role="presentation"
@@ -25,7 +25,7 @@
                     autocomplete="off"
                     :disabled="disabled"
                     :unstyled="unstyled"
-                    :aria-owns="id + '_list'"
+                    :aria-owns="$id + '_list'"
                     :aria-activedescendant="focusedOptionId"
                     :tabindex="!disabled && !focused ? tabindex : -1"
                     @input="onFilterChange"
@@ -49,7 +49,7 @@
                 <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
                     <ul
                         :ref="(el) => listRef(el, contentRef)"
-                        :id="id + '_list'"
+                        :id="$id + '_list'"
                         :class="[cx('list'), styleClass]"
                         :style="contentStyle"
                         :tabindex="-1"
@@ -65,12 +65,12 @@
                         v-bind="ptm('list')"
                     >
                         <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
-                            <li v-if="isOptionGroup(option)" :id="id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
+                            <li v-if="isOptionGroup(option)" :id="$id + '_' + getOptionIndex(i, getItemOptions)" :style="{ height: itemSize ? itemSize + 'px' : undefined }" :class="cx('optionGroup')" role="option" v-bind="ptm('optionGroup')">
                                 <slot name="optiongroup" :option="option.optionGroup" :index="getOptionIndex(i, getItemOptions)">{{ getOptionGroupLabel(option.optionGroup) }}</slot>
                             </li>
                             <li
                                 v-else
-                                :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                 v-ripple
                                 :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                 :class="cx('option', { option, index: i, getItemOptions })"
@@ -135,7 +135,6 @@
 import { findSingle, focus, getFirstFocusableElement, isElement } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { FilterService } from '@primevue/core/api';
-import { UniqueComponentId } from '@primevue/core/utils';
 import BlankIcon from '@primevue/icons/blank';
 import CheckIcon from '@primevue/icons/check';
 import SearchIcon from '@primevue/icons/search';
@@ -159,22 +158,17 @@ export default {
     searchValue: '',
     data() {
         return {
-            id: this.$attrs.id,
             filterValue: null,
             focused: false,
             focusedOptionIndex: -1
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     methods: {
@@ -683,7 +677,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -764,7 +758,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', this.multiple ? this.d_value.length : '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
+            return this.focusedOptionIndex !== -1 ? `${this.$id}_${this.focusedOptionIndex}` : null;
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
