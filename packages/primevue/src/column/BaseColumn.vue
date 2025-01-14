@@ -80,7 +80,7 @@ export default {
         },
         showClearButton: {
             type: Boolean,
-            default: true
+            default: false
         },
         showApplyButton: {
             type: Boolean,

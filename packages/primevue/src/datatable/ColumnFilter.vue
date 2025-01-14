@@ -17,7 +17,7 @@
             v-bind="{ ...getColumnPT('pcColumnFilterButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
         >
             <template #icon="slotProps">
-                <component :is="filterIconTemplate || 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
+                <component :is="filterIconTemplate || hasRowFilter() ? 'FilterFillIcon' : 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
             </template>
         </Button>
         <Button
@@ -170,6 +170,7 @@ import { FilterOperator } from '@primevue/core/api';
 import BaseComponent from '@primevue/core/basecomponent';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import FilterIcon from '@primevue/icons/filter';
+import FilterFillIcon from '@primevue/icons/filterfill';
 import FilterSlashIcon from '@primevue/icons/filterslash';
 import PlusIcon from '@primevue/icons/plus';
 import TrashIcon from '@primevue/icons/trash';
@@ -212,7 +213,7 @@ export default {
         },
         showClearButton: {
             type: Boolean,
-            default: true
+            default: false
         },
         showApplyButton: {
             type: Boolean,
@@ -718,6 +719,7 @@ export default {
         Button,
         Portal,
         FilterSlashIcon,
+        FilterFillIcon,
         FilterIcon,
         TrashIcon,
         PlusIcon
