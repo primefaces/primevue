@@ -62,6 +62,28 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.header.padding
          */
         padding?: string;
+        /**
+         * Sm of header
+         */
+        sm?: {
+            /**
+             * Sm padding of header
+             *
+             * @designToken datatable.header.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of header
+         */
+        lg?: {
+            /**
+             * Lg padding of header
+             *
+             * @designToken datatable.header.lg.padding
+             */
+            padding?: string;
+        };
     };
     /**
      * Used to pass tokens of the header cell section
@@ -155,6 +177,28 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
              * @designToken datatable.header.cell.focus.ring.shadow
              */
             shadow?: string;
+        };
+        /**
+         * Sm of header cell
+         */
+        sm?: {
+            /**
+             * Sm padding of header cell
+             *
+             * @designToken datatable.header.cell.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of header cell
+         */
+        lg?: {
+            /**
+             * Lg padding of header cell
+             *
+             * @designToken datatable.header.cell.lg.padding
+             */
+            padding?: string;
         };
     };
     /**
@@ -272,6 +316,28 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.body.cell.selected.border.color
          */
         selectedBorderColor?: string;
+        /**
+         * Sm of body cell
+         */
+        sm?: {
+            /**
+             * Sm padding of body cell
+             *
+             * @designToken datatable.body.cell.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of body cell
+         */
+        lg?: {
+            /**
+             * Lg padding of body cell
+             *
+             * @designToken datatable.body.cell.lg.padding
+             */
+            padding?: string;
+        };
     };
     /**
      * Used to pass tokens of the footer cell section
@@ -301,6 +367,28 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.footer.cell.padding
          */
         padding?: string;
+        /**
+         * Sm of footer cell
+         */
+        sm?: {
+            /**
+             * Sm padding of footer cell
+             *
+             * @designToken datatable.footer.cell.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of footer cell
+         */
+        lg?: {
+            /**
+             * Lg padding of footer cell
+             *
+             * @designToken datatable.footer.cell.lg.padding
+             */
+            padding?: string;
+        };
     };
     /**
      * Used to pass tokens of the column footer section
@@ -347,6 +435,28 @@ export interface DataTableDesignTokens extends ColorSchemeDesignToken<DataTableD
          * @designToken datatable.footer.padding
          */
         padding?: string;
+        /**
+         * Sm of footer
+         */
+        sm?: {
+            /**
+             * Sm padding of footer
+             *
+             * @designToken datatable.footer.sm.padding
+             */
+            padding?: string;
+        };
+        /**
+         * Lg of footer
+         */
+        lg?: {
+            /**
+             * Lg padding of footer
+             *
+             * @designToken datatable.footer.lg.padding
+             */
+            padding?: string;
+        };
     };
     /**
      * Used to pass tokens of the drop point section

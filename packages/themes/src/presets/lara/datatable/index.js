@@ -5,7 +5,13 @@ export default {
     header: {
         borderColor: '{datatable.border.color}',
         borderWidth: '1px 0 1px 0',
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        sm: {
+            padding: '0.375rem 0.5rem'
+        },
+        lg: {
+            padding: '1rem 1.25rem'
+        }
     },
     headerCell: {
         selectedBackground: '{highlight.background}',
@@ -20,6 +26,12 @@ export default {
             color: '{focus.ring.color}',
             offset: '{focus.ring.offset}',
             shadow: 'inset {focus.ring.shadow}'
+        },
+        sm: {
+            padding: '0.375rem 0.5rem'
+        },
+        lg: {
+            padding: '1rem 1.25rem'
         }
     },
     columnTitle: {
@@ -42,11 +54,23 @@ export default {
     },
     bodyCell: {
         borderColor: '{datatable.border.color}',
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        sm: {
+            padding: '0.375rem 0.5rem'
+        },
+        lg: {
+            padding: '1rem 1.25rem'
+        }
     },
     footerCell: {
         borderColor: '{datatable.border.color}',
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        sm: {
+            padding: '0.375rem 0.5rem'
+        },
+        lg: {
+            padding: '1rem 1.25rem'
+        }
     },
     columnFooter: {
         fontWeight: '700'
@@ -54,7 +78,13 @@ export default {
     footer: {
         borderColor: '{datatable.border.color}',
         borderWidth: '0 0 1px 0',
-        padding: '0.75rem 1rem'
+        padding: '0.75rem 1rem',
+        sm: {
+            padding: '0.375rem 0.5rem'
+        },
+        lg: {
+            padding: '1rem 1.25rem'
+        }
     },
     dropPoint: {
         color: '{primary.color}'
