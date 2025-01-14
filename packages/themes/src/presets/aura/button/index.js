@@ -9,12 +9,14 @@ export default {
         sm: {
             fontSize: '{form.field.sm.font.size}',
             paddingX: '{form.field.sm.padding.x}',
-            paddingY: '{form.field.sm.padding.y}'
+            paddingY: '{form.field.sm.padding.y}',
+            iconOnlyWidth: '2rem'
         },
         lg: {
             fontSize: '{form.field.lg.font.size}',
             paddingX: '{form.field.lg.padding.x}',
-            paddingY: '{form.field.lg.padding.y}'
+            paddingY: '{form.field.lg.padding.y}',
+            iconOnlyWidth: '3rem'
         },
         label: {
             fontWeight: '500'
