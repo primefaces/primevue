@@ -141,7 +141,6 @@ export default {
     },
     methods: {
         close() {
-            console.log('close');
             this.$emit('update:visible', false);
         },
         onEnter() {
@@ -332,7 +331,7 @@ export default {
                 this.bindDocumentDragEndListener();
             }
 
-            if (this.closeOnEscape) {
+            if (this.closeOnEscape && this.closable) {
                 this.bindDocumentKeyDownListener();
             }
         },
