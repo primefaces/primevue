@@ -18,7 +18,7 @@
             <li
                 v-for="(val, i) of modelValue"
                 :key="`${i}_${val}`"
-                :id="id + '_inputchips_item_' + i"
+                :id="$id + '_inputchips_item_' + i"
                 role="option"
                 :class="cx('chipItem', { index: i })"
                 :aria-label="val"
@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import Chip from 'primevue/chip';
 import BaseInputChips from './BaseInputChips.vue';
 
@@ -71,20 +70,13 @@ export default {
     emits: ['update:modelValue', 'add', 'remove', 'focus', 'blur'],
     data() {
         return {
-            id: this.$attrs.id,
             inputValue: null,
             focused: false,
             focusedIndex: null
         };
     },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
     mounted() {
         console.warn('Deprecated since v4. Use AutoComplete component instead with its typeahead property.');
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         onWrapperClick() {
@@ -261,7 +253,7 @@ export default {
             return this.max && this.modelValue && this.max === this.modelValue.length;
         },
         focusedOptionId() {
-            return this.focusedIndex !== null ? `${this.id}_inputchips_item_${this.focusedIndex}` : null;
+            return this.focusedIndex !== null ? `${this.$id}_inputchips_item_${this.focusedIndex}` : null;
         }
     },
     components: {
