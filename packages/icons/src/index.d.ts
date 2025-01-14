@@ -98,6 +98,10 @@ export { default as EyeSlashIcon } from '@primevue/icons/eyeslash';
 export * from '@primevue/icons/filter';
 export { default as FilterIcon } from '@primevue/icons/filter';
 
+// FilterFillIcon
+export * from '@primevue/icons/filterfill';
+export { default as FilterFillIcon } from '@primevue/icons/filterfill';
+
 // FilterSlashIcon
 export * from '@primevue/icons/filterslash';
 export { default as FilterSlashIcon } from '@primevue/icons/filterslash';
