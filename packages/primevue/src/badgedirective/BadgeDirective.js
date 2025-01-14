@@ -1,11 +1,11 @@
 import { addClass, createElement, hasClass, removeClass } from '@primeuix/utils/dom';
-import { UniqueComponentId } from '@primevue/core/utils';
+import { uuid } from '@primeuix/utils/uuid';
 import BaseBadgeDirective from './BaseBadgeDirective';
 
 const BadgeDirective = BaseBadgeDirective.extend('badge', {
     mounted(el, binding) {
         console.warn('Deprecated since v4. Use OverlayBadge component instead.');
-        const id = UniqueComponentId() + '_badge';
+        const id = uuid('pv_id') + '_badge';
 
         const badge = createElement('span', {
             id,

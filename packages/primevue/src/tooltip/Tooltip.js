@@ -1,7 +1,8 @@
 import { addClass, createElement, fadeIn, findSingle, getAttribute, getOuterHeight, getOuterWidth, getViewport, getWindowScrollLeft, getWindowScrollTop, hasClass, isExist, isTouchDevice, removeClass } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
+import { uuid } from '@primeuix/utils/uuid';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import BaseTooltip from './BaseTooltip';
 
 const Tooltip = BaseTooltip.extend('tooltip', {
@@ -17,7 +18,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
-            target.$_ptooltipIdAttr = UniqueComponentId() + '_tooltip';
+            target.$_ptooltipIdAttr = uuid('pv_id') + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
@@ -29,7 +30,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-                target.$_ptooltipIdAttr = options.value.id || UniqueComponentId() + '_tooltip';
+                target.$_ptooltipIdAttr = options.value.id || uuid('pv_id') + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
@@ -57,7 +58,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
-            target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
+            target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || uuid('pv_id') + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
@@ -74,7 +75,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-                target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
+                target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || uuid('pv_id') + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
