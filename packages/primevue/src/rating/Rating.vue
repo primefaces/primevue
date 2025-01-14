@@ -6,7 +6,7 @@
                     <input
                         type="radio"
                         :value="value"
-                        :name="d_name"
+                        :name="namex"
                         :checked="d_value === value"
                         :disabled="disabled"
                         :readonly="readonly"
@@ -30,7 +30,6 @@
 
 <script>
 import { focus, getFirstFocusableElement } from '@primeuix/utils/dom';
-import { UniqueComponentId } from '@primevue/core/utils';
 import BanIcon from '@primevue/icons/ban';
 import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
@@ -43,18 +42,9 @@ export default {
     emits: ['change', 'focus', 'blur'],
     data() {
         return {
-            d_name: this.name,
             focusedOptionIndex: -1,
             isFocusVisibleItem: true
         };
-    },
-    watch: {
-        name: function (newValue) {
-            this.d_name = newValue || UniqueComponentId();
-        }
-    },
-    mounted() {
-        this.d_name = this.d_name || UniqueComponentId();
     },
     methods: {
         getPTOptions(key, value) {
@@ -102,6 +92,11 @@ export default {
         },
         starAriaLabel(value) {
             return value === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, value);
+        }
+    },
+    computed: {
+        namex() {
+            return this.name || `${this.$attrSelector}_name`;
         }
     },
     components: {
