@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" :class="cx('root')" v-bind="ptmi('root')">
+    <div :id="$id" :class="cx('root')" v-bind="ptmi('root')">
         <template v-for="(item, index) of model" :key="getPanelKey(index)">
             <div v-if="isItemVisible(item)" :style="getItemProp(item, 'style')" :class="[cx('panel'), getItemProp(item, 'class')]" v-bind="ptm('panel')">
                 <div
@@ -55,7 +55,6 @@
 <script>
 import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import { equals, isNotEmpty, resolve } from '@primeuix/utils/object';
-import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import { mergeProps } from 'vue';
@@ -69,18 +68,9 @@ export default {
     emits: ['update:expandedKeys', 'panel-open', 'panel-close'],
     data() {
         return {
-            id: this.$attrs.id,
             activeItem: null,
             activeItems: []
         };
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         getItemProp(item, name) {
@@ -115,7 +105,7 @@ export default {
             return isNotEmpty(item.items);
         },
         getPanelId(index) {
-            return `${this.id}_${index}`;
+            return `${this.$id}_${index}`;
         },
         getPanelKey(index) {
             return this.getPanelId(index);
