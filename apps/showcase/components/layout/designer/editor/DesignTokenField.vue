@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
+import { uuid } from '@primeuix/utils';
 import { $dt } from '@primevue/themes';
 
 export default {
@@ -85,7 +85,7 @@ export default {
         };
     },
     created() {
-        this.id = 'dt_field_' + UniqueComponentId();
+        this.id = uuid('dt_field_');
     },
     methods: {
         onOptionSelect(event) {
