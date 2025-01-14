@@ -19,7 +19,7 @@
                     <button class="ql-italic" type="button" v-bind="ptm('italic')"></button>
                     <button class="ql-underline" type="button" v-bind="ptm('underline')"></button>
                 </span>
-                <span :key="reRenderColorKey" class="ql-formats" v-bind="ptm('formats')">
+                <span class="ql-formats" v-bind="ptm('formats')">
                     <select class="ql-color" v-bind="ptm('color')"></select>
                     <select class="ql-background" v-bind="ptm('background')"></select>
                 </span>
@@ -64,16 +64,10 @@ export default {
     extends: BaseEditor,
     inheritAttrs: false,
     emits: ['text-change', 'selection-change', 'load'],
-    data() {
-        return {
-            reRenderColorKey: 0
-        };
-    },
     quill: null,
     watch: {
         modelValue(newValue, oldValue) {
             if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
-                this.reRenderColorKey++;
                 this.renderValue(newValue);
             }
         },
