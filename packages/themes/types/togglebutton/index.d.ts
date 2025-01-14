@@ -221,15 +221,15 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
      */
     content?: {
         /**
-         * Padding of the content
+         * Padding of content
          *
          * @designToken togglebutton.content.padding
          */
         padding?: string;
         /**
-         * Border radius of the content
+         * Border radius of content
          *
-         * @designToken togglebutton.border.radius
+         * @designToken togglebutton.content.border.radius
          */
         borderRadius?: string;
         /**
@@ -238,12 +238,6 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
          * @designToken togglebutton.content.checked.shadow
          */
         checkedShadow?: string;
-        /**
-         * Checked background of content
-         *
-         * @designToken togglebutton.content.checked.background
-         */
-        checkedBackground?: string;
         /**
          * Sm of content
          */
@@ -256,7 +250,7 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
             padding?: string;
         };
         /**
-         * Lg of root
+         * Lg of content
          */
         lg?: {
             /**
@@ -266,5 +260,11 @@ export interface ToggleButtonDesignTokens extends ColorSchemeDesignToken<ToggleB
              */
             padding?: string;
         };
+        /**
+         * Checked background of content
+         *
+         * @designToken togglebutton.content.checked.background
+         */
+        checkedBackground?: string;
     };
 }
