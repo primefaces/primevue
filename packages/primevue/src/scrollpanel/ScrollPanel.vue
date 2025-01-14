@@ -41,7 +41,6 @@
 
 <script>
 import { addClass, getHeight, removeClass } from '@primeuix/utils/dom';
-import { UniqueComponentId } from '@primevue/core/utils';
 import BaseScrollPanel from './BaseScrollPanel.vue';
 
 export default {
@@ -63,20 +62,12 @@ export default {
     outsideClickListener: null,
     data() {
         return {
-            id: this.$attrs.id,
             orientation: 'vertical',
             lastScrollTop: 0,
             lastScrollLeft: 0
         };
     },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.$el.offsetParent) {
             this.initialize();
         }
@@ -378,7 +369,7 @@ export default {
     },
     computed: {
         contentId() {
-            return this.id + '_content';
+            return this.$id + '_content';
         }
     }
 };

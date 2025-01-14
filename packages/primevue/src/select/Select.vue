@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
+    <div ref="container" :id="$id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
         <input
             v-if="editable"
             ref="focusInput"
@@ -17,7 +17,7 @@
             :aria-labelledby="ariaLabelledby"
             aria-haspopup="listbox"
             :aria-expanded="overlayVisible"
-            :aria-controls="id + '_list'"
+            :aria-controls="$id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
             :aria-invalid="invalid || undefined"
             @focus="onFocus"
@@ -38,7 +38,7 @@
             :aria-labelledby="ariaLabelledby"
             aria-haspopup="listbox"
             :aria-expanded="overlayVisible"
-            :aria-controls="id + '_list'"
+            :aria-controls="$id + '_list'"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
             :aria-invalid="invalid || undefined"
             :aria-disabled="disabled"
@@ -90,7 +90,7 @@
                                 :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
-                                :aria-owns="id + '_list'"
+                                :aria-owns="$id + '_list'"
                                 :aria-activedescendant="focusedOptionId"
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
@@ -112,11 +112,11 @@
                     <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="$id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li
                                             v-if="isOptionGroup(option)"
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="cx('optionGroup')"
                                             role="option"
@@ -128,7 +128,7 @@
                                         </li>
                                         <li
                                             v-else
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
                                             :class="cx('option', { option, focusedOption: getOptionIndex(i, getItemOptions) })"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
@@ -196,7 +196,7 @@ import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement
 import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import BlankIcon from '@primevue/icons/blank';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
@@ -229,7 +229,6 @@ export default {
     isModelValueChanged: false,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionIndex: -1,
@@ -238,9 +237,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         modelValue() {
             this.isModelValueChanged = true;
         },
@@ -249,7 +245,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
         this.bindLabelClickListener();
     },
@@ -893,7 +888,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -1003,7 +998,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
+            return this.focusedOptionIndex !== -1 ? `${this.$id}_${this.focusedOptionIndex}` : null;
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;

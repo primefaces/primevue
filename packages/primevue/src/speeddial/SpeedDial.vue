@@ -6,7 +6,7 @@
                 :disabled="disabled"
                 :aria-expanded="d_visible"
                 :aria-haspopup="true"
-                :aria-controls="id + '_list'"
+                :aria-controls="$id + '_list'"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
                 :unstyled="unstyled"
@@ -23,16 +23,16 @@
                 </template>
             </Button>
         </slot>
-        <ul :ref="listRef" :id="id + '_list'" :class="cx('list')" :style="sx('list')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('list')">
+        <ul :ref="listRef" :id="$id + '_list'" :class="cx('list')" :style="sx('list')" role="menu" tabindex="-1" @focus="onFocus" @blur="onBlur" @keydown="onKeyDown" v-bind="ptm('list')">
             <template v-for="(item, index) of model" :key="index">
                 <li
                     v-if="isItemVisible(item)"
-                    :id="`${id}_${index}`"
-                    :class="cx('item', { id: `${id}_${index}` })"
+                    :id="`${$id}_${index}`"
+                    :class="cx('item', { id: `${$id}_${index}` })"
                     :style="getItemStyle(index)"
                     role="none"
-                    :data-p-active="isItemActive(`${id}_${index}`)"
-                    v-bind="getPTOptions(`${id}_${index}`, 'item')"
+                    :data-p-active="isItemActive(`${$id}_${index}`)"
+                    v-bind="getPTOptions(`${$id}_${index}`, 'item')"
                 >
                     <template v-if="!$slots.item">
                         <Button
@@ -45,11 +45,11 @@
                             :unstyled="unstyled"
                             @click="onItemClick($event, item)"
                             v-bind="actionButtonProps"
-                            :pt="getPTOptions(`${id}_${index}`, 'pcAction')"
+                            :pt="getPTOptions(`${$id}_${index}`, 'pcAction')"
                         >
                             <template v-if="item.icon" #icon="slotProps">
                                 <slot name="itemicon" :item="item" :class="slotProps.class">
-                                    <span :class="[item.icon, slotProps.class]" v-bind="getPTOptions(`${id}_${index}`, 'actionIcon')"></span>
+                                    <span :class="[item.icon, slotProps.class]" v-bind="getPTOptions(`${$id}_${index}`, 'actionIcon')"></span>
                                 </slot>
                             </template>
                         </Button>
@@ -67,7 +67,6 @@
 <script>
 import { $dt } from '@primeuix/styled';
 import { find, findSingle, focus, hasClass } from '@primeuix/utils/dom';
-import { UniqueComponentId } from '@primevue/core/utils';
 import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
@@ -87,7 +86,6 @@ export default {
     list: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_visible: this.visible,
             isItemClicked: false,
             focused: false,
@@ -95,16 +93,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         visible(newValue) {
             this.d_visible = newValue;
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.type !== 'linear') {
             const button = findSingle(this.container, '[data-pc-name="pcbutton"]');
             const firstItem = findSingle(this.list, '[data-pc-section="item"]');

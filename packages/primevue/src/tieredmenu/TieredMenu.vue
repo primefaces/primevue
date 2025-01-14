@@ -1,13 +1,13 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
+            <div v-if="visible" :ref="containerRef" :id="$id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
                 <TieredMenuSub
                     :ref="menubarRef"
-                    :id="id + '_list'"
+                    :id="$id + '_list'"
                     :class="cx('rootList')"
                     :tabindex="!disabled ? tabindex : -1"
                     role="menubar"
@@ -16,7 +16,7 @@
                     :aria-disabled="disabled || undefined"
                     aria-orientation="vertical"
                     :aria-activedescendant="focused ? focusedItemId : undefined"
-                    :menuId="id"
+                    :menuId="$id"
                     :focusedItemId="focused ? focusedItemId : undefined"
                     :items="processedItems"
                     :templates="$slots"
@@ -45,7 +45,7 @@
 import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseTieredMenu from './BaseTieredMenu.vue';
@@ -67,7 +67,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
@@ -79,9 +78,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         activeItemPath(newPath) {
             if (!this.popup) {
                 if (isNotEmpty(newPath)) {
@@ -95,7 +91,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
     },
     beforeUnmount() {
@@ -612,7 +607,7 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
+            const id = index !== -1 ? `${this.$id}_${index}` : this.focusedItemId;
             const element = findSingle(this.menubar, `li[id="${id}"]`);
 
             if (element) {
@@ -657,7 +652,7 @@ export default {
             return processedItem ? processedItem.items : this.processedItems;
         },
         focusedItemId() {
-            return this.focusedItemInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
+            return this.focusedItemInfo.index !== -1 ? `${this.$id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {

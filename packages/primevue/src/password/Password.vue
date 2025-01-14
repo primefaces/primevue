@@ -70,7 +70,7 @@
 <script>
 import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
 import EyeSlashIcon from '@primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
@@ -88,7 +88,6 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             overlayVisible: false,
             meter: null,
             infoText: null,
@@ -96,18 +95,12 @@ export default {
             unmasked: false
         };
     },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
@@ -321,7 +314,7 @@ export default {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         },
         overlayUniqueId() {
-            return this.id + '_overlay';
+            return this.$id + '_overlay';
         }
     },
     components: {

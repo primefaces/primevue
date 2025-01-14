@@ -54,6 +54,8 @@ const ALIAS_ENTRIES = [
     { find: '@primevue/core/baseinput', replacement: path.resolve(__dirname, '../core/src/baseinput/BaseInput.vue') },
     { find: '@primevue/core/config', replacement: path.resolve(__dirname, '../core/src/config/PrimeVue.js') },
     { find: '@primevue/core/service', replacement: path.resolve(__dirname, '../core/src/service/PrimeVueService.js') },
+    { find: '@primevue/core/useattrselector', replacement: path.resolve(__dirname, '../core/src/useattrselector/UseAttrSelector.js') },
+    { find: '@primevue/core/useid', replacement: path.resolve(__dirname, '../core/src/useid/UseId.js') },
     { find: '@primevue/core/usestyle', replacement: path.resolve(__dirname, '../core/src/usestyle/UseStyle.js') },
     { find: '@primevue/core/utils', replacement: path.resolve(__dirname, '../core/src/utils/Utils.js') },
     { find: '@primevue/core', replacement: path.resolve(__dirname, '../core/src/index.js') },

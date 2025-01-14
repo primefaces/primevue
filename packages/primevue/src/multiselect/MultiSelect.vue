@@ -14,7 +14,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="listbox"
                 :aria-expanded="overlayVisible"
-                :aria-controls="id + '_list'"
+                :aria-controls="$id + '_list'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"
@@ -108,7 +108,7 @@
                                 :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
-                                :aria-owns="id + '_list'"
+                                :aria-owns="$id + '_list'"
                                 :aria-activedescendant="focusedOptionId"
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
@@ -130,11 +130,11 @@
                     <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" :aria-label="listAriaLabel" v-bind="ptm('list')">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="$id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" :aria-label="listAriaLabel" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li
                                             v-if="isOptionGroup(option)"
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="cx('optionGroup')"
                                             role="option"
@@ -144,7 +144,7 @@
                                         </li>
                                         <li
                                             v-else
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="cx('option', { option, index: i, getItemOptions })"
@@ -227,7 +227,7 @@ import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement
 import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
@@ -264,7 +264,6 @@ export default {
     selectOnFocus: false,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionIndex: -1,
@@ -273,15 +272,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -989,7 +984,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -1124,7 +1119,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', this.d_value.length) : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
+            return this.focusedOptionIndex !== -1 ? `${this.$id}_${this.focusedOptionIndex}` : null;
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;

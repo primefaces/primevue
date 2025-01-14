@@ -16,7 +16,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="tree"
                 :aria-expanded="overlayVisible"
-                :aria-controls="id + '_tree'"
+                :aria-controls="$id + '_tree'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"
@@ -59,10 +59,10 @@
                     <slot name="header" :value="d_value" :options="options" />
                     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
-                            :id="id + '_tree'"
+                            :id="$id + '_tree'"
                             role="tree"
                             aria-orientation="horizontal"
-                            :selectId="id"
+                            :selectId="$id"
                             :focusedOptionId="focused ? focusedOptionId : undefined"
                             :options="processedOptions"
                             :activeOptionPath="activeOptionPath"
@@ -96,7 +96,7 @@
 import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, isString, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import AngleRightIcon from '@primevue/icons/angleright';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -120,7 +120,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
@@ -133,15 +132,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
         this.bindMatchMediaListener();
     },
@@ -758,7 +753,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -853,7 +848,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
+            return this.focusedOptionInfo.index !== -1 ? `${this.$id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
         },
         isClearIconVisible() {
             return this.showClear && this.d_value != null && isNotEmpty(this.options);

@@ -168,7 +168,6 @@
 <script>
 import { find, scrollInView, setAttribute } from '@primeuix/utils/dom';
 import { findIndexInList, isEmpty } from '@primeuix/utils/object';
-import { UniqueComponentId } from '@primevue/core/utils';
 import AngleDoubleDownIcon from '@primevue/icons/angledoubledown';
 import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
@@ -194,15 +193,11 @@ export default {
     mediaChangeListener: null,
     data() {
         return {
-            id: this.$attrs.id,
             d_selection: this.selection,
             viewChanged: false
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         selection(newValue) {
             this.d_selection = newValue;
         },
@@ -223,8 +218,6 @@ export default {
         this.destroyMedia();
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.responsive) {
             this.createStyle();
             this.initMedia();
@@ -597,10 +590,10 @@ export default {
     },
     computed: {
         idSource() {
-            return `${this.id}_source`;
+            return `${this.$id}_source`;
         },
         idTarget() {
-            return `${this.id}_target`;
+            return `${this.$id}_target`;
         },
         sourceList() {
             return this.modelValue && this.modelValue[0] ? this.modelValue[0] : null;

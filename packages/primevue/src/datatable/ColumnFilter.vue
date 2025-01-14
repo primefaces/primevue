@@ -17,7 +17,7 @@
             v-bind="{ ...getColumnPT('pcColumnFilterButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
         >
             <template #icon="slotProps">
-                <component :is="filterIconTemplate || 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
+                <component :is="filterIconTemplate || hasRowFilter() ? 'FilterFillIcon' : 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
             </template>
         </Button>
         <Button
@@ -164,12 +164,13 @@
 </template>
 
 <script>
+import { absolutePosition, addStyle, focus, getAttribute, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterOperator } from '@primevue/core/api';
 import BaseComponent from '@primevue/core/basecomponent';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { getAttribute, focus, addStyle, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
-import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import FilterIcon from '@primevue/icons/filter';
+import FilterFillIcon from '@primevue/icons/filterfill';
 import FilterSlashIcon from '@primevue/icons/filterslash';
 import PlusIcon from '@primevue/icons/plus';
 import TrashIcon from '@primevue/icons/trash';
@@ -212,7 +213,7 @@ export default {
         },
         showClearButton: {
             type: Boolean,
-            default: true
+            default: false
         },
         showApplyButton: {
             type: Boolean,
@@ -298,16 +299,10 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             overlayVisible: false,
             defaultMatchMode: null,
             defaultOperator: null
         };
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
     },
     overlay: null,
     selfClick: false,
@@ -324,8 +319,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.filters && this.filters[this.field]) {
             let fieldFilters = this.filters[this.field];
 
@@ -647,7 +640,7 @@ export default {
             return this.showMenu && (this.display === 'row' ? this.type !== 'boolean' : true);
         },
         overlayId() {
-            return this.id + '_overlay';
+            return this.$id + '_overlay';
         },
         matchModes() {
             return (
@@ -726,6 +719,7 @@ export default {
         Button,
         Portal,
         FilterSlashIcon,
+        FilterFillIcon,
         FilterIcon,
         TrashIcon,
         PlusIcon

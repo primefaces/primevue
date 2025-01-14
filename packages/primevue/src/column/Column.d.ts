@@ -431,7 +431,7 @@ export interface ColumnProps {
     showFilterOperator?: boolean | undefined;
     /**
      * Displays a button to clear the column filtering.
-     * @defaultValue true
+     * @defaultValue false
      */
     showClearButton?: boolean | undefined;
     /**

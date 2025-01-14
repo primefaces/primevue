@@ -1,10 +1,10 @@
 <template>
-    <div :ref="containerRef" :id="id" :class="cx('root')" v-bind="ptmi('root')">
+    <div :ref="containerRef" :id="$id" :class="cx('root')" v-bind="ptmi('root')">
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
         <!--TODO: menubutton deprecated since v4.0. Use button-->
-        <slot :id="id" :name="$slots.button ? 'button' : 'menubutton'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
+        <slot :id="$id" :name="$slots.button ? 'button' : 'menubutton'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
             <a
                 v-if="model && model.length > 0"
                 ref="menubutton"
@@ -13,7 +13,7 @@
                 :class="cx('button')"
                 :aria-haspopup="model.length && model.length > 0 ? true : false"
                 :aria-expanded="mobileActive"
-                :aria-controls="id"
+                :aria-controls="$id"
                 :aria-label="$primevue.config.locale.aria?.navigation"
                 @click="menuButtonClick($event)"
                 @keydown="menuButtonKeydown($event)"
@@ -27,7 +27,7 @@
         </slot>
         <MegaMenuSub
             :ref="menubarRef"
-            :id="id + '_list'"
+            :id="$id + '_list'"
             :tabindex="!disabled ? tabindex : -1"
             role="menubar"
             :aria-label="ariaLabel"
@@ -35,7 +35,7 @@
             :aria-disabled="disabled || undefined"
             :aria-orientation="orientation"
             :aria-activedescendant="focused ? focusedItemId : undefined"
-            :menuId="id"
+            :menuId="$id"
             :focusedItemId="focused ? focusedItemId : undefined"
             :items="processedItems"
             :horizontal="horizontal"
@@ -62,7 +62,6 @@
 import { findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { UniqueComponentId } from '@primevue/core/utils';
 import BarsIcon from '@primevue/icons/bars';
 import BaseMegaMenu from './BaseMegaMenu.vue';
 import MegaMenuSub from './MegaMenuSub.vue';
@@ -81,7 +80,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             mobileActive: false,
             focused: false,
             focusedItemInfo: { index: -1, key: '', parentKey: '' },
@@ -92,9 +90,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         activeItem(newItem) {
             if (isNotEmpty(newItem)) {
                 this.bindOutsideClickListener();
@@ -106,7 +101,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
     },
     beforeUnmount() {
@@ -606,7 +600,7 @@ export default {
             this.scrollInView();
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
+            const id = index !== -1 ? `${this.$id}_${index}` : this.focusedItemId;
             let element;
 
             if (id === null && this.queryMatches) {
@@ -675,7 +669,7 @@ export default {
             return this.orientation === 'vertical';
         },
         focusedItemId() {
-            return isNotEmpty(this.focusedItemInfo.key) ? `${this.id}_${this.focusedItemInfo.key}` : null;
+            return isNotEmpty(this.focusedItemInfo.key) ? `${this.$id}_${this.focusedItemInfo.key}` : null;
         }
     },
     components: {

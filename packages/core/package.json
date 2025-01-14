@@ -18,6 +18,7 @@
     "types": "./src/index.d.ts",
     "exports": {
         "./api": "./src/api/Api.js",
+        "./useid": "./src/useid/UseId.js",
         "./base/style": "./src/base/style/BaseStyle.js",
         "./base": "./src/base/Base.js",
         "./basecomponent/style": "./src/basecomponent/style/BaseComponentStyle.js",
@@ -27,6 +28,7 @@
         "./baseinput": "./src/baseinput/BaseInput.vue",
         "./config": "./src/config/PrimeVue.js",
         "./service": "./src/service/PrimeVueService.js",
+        "./useattrselector": "./src/useattrselector/UseAttrSelector.js",
         "./usestyle": "./src/usestyle/UseStyle.js",
         "./utils": "./src/utils/Utils.js"
     },
@@ -62,7 +64,7 @@
         "@primeuix/utils": "catalog:"
     },
     "peerDependencies": {
-        "vue": "^3.3.0"
+        "vue": "^3.5.0"
     },
     "engines": {
         "node": ">=12.11.0"

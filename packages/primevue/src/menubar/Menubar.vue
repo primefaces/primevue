@@ -3,7 +3,7 @@
         <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
             <slot name="start"></slot>
         </div>
-        <slot :id="id" :name="$slots.button ? 'button' : 'menubutton'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
+        <slot :id="$id" :name="$slots.button ? 'button' : 'menubutton'" :class="cx('button')" :toggleCallback="(event) => menuButtonClick(event)">
             <!-- TODO: menubutton deprecated since v4.0-->
             <a
                 v-if="model && model.length > 0"
@@ -13,7 +13,7 @@
                 :class="cx('button')"
                 :aria-haspopup="model.length && model.length > 0 ? true : false"
                 :aria-expanded="mobileActive"
-                :aria-controls="id"
+                :aria-controls="$id"
                 :aria-label="$primevue.config.locale.aria?.navigation"
                 @click="menuButtonClick($event)"
                 @keydown="menuButtonKeydown($event)"
@@ -27,7 +27,7 @@
         </slot>
         <MenubarSub
             :ref="menubarRef"
-            :id="id + '_list'"
+            :id="$id + '_list'"
             role="menubar"
             :items="processedItems"
             :templates="$slots"
@@ -35,7 +35,7 @@
             :mobileActive="mobileActive"
             tabindex="0"
             :aria-activedescendant="focused ? focusedItemId : undefined"
-            :menuId="id"
+            :menuId="$id"
             :focusedItemId="focused ? focusedItemId : undefined"
             :activeItemPath="activeItemPath"
             :level="0"
@@ -57,9 +57,8 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import BarsIcon from '@primevue/icons/bars';
 import BaseMenubar from './BaseMenubar.vue';
@@ -73,7 +72,6 @@ export default {
     matchMediaListener: null,
     data() {
         return {
-            id: this.$attrs.id,
             mobileActive: false,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
@@ -84,9 +82,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         activeItemPath(newPath) {
             if (isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
@@ -101,7 +96,6 @@ export default {
     container: null,
     menubar: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
     },
     beforeUnmount() {
@@ -590,7 +584,7 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemId;
+            const id = index !== -1 ? `${this.$id}_${index}` : this.focusedItemId;
             const element = findSingle(this.menubar, `li[id="${id}"]`);
 
             if (element) {
@@ -635,7 +629,7 @@ export default {
             return processedItem ? processedItem.items : this.processedItems;
         },
         focusedItemId() {
-            return this.focusedItemInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
+            return this.focusedItemInfo.index !== -1 ? `${this.$id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {

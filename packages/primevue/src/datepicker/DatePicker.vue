@@ -1,5 +1,5 @@
 <template>
-    <span ref="container" :id="d_id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
+    <span ref="container" :id="$id" :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
         <InputText
             v-if="!inline"
             :ref="inputRef"
@@ -537,7 +537,7 @@
 import { absolutePosition, addStyle, find, findSingle, getAttribute, getFocusableElements, getIndex, getOuterWidth, isTouchDevice, relativePosition, setAttribute } from '@primeuix/utils/dom';
 import { localeComparator } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import CalendarIcon from '@primevue/icons/calendar';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
@@ -573,7 +573,6 @@ export default {
     typeUpdate: false,
     data() {
         return {
-            d_id: this.id,
             currentMonth: null,
             currentYear: null,
             currentHour: null,
@@ -588,9 +587,6 @@ export default {
         };
     },
     watch: {
-        id: function (newValue) {
-            this.d_id = newValue || UniqueComponentId();
-        },
         modelValue(newValue) {
             this.updateCurrentMetaData();
 
@@ -639,7 +635,6 @@ export default {
         this.updateCurrentMetaData();
     },
     mounted() {
-        this.d_id = this.d_id || UniqueComponentId();
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
 
@@ -2961,7 +2956,7 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         panelId() {
-            return this.d_id + '_panel';
+            return this.$id + '_panel';
         }
     },
     components: {
