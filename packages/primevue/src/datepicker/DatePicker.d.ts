@@ -737,10 +737,6 @@ export interface DatePickerProps {
      */
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
-     * Identifier of the element.
-     */
-    id?: string | undefined;
-    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
