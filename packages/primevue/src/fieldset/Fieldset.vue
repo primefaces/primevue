@@ -2,13 +2,13 @@
     <fieldset :class="cx('root')" v-bind="ptmi('root')">
         <legend :class="cx('legend')" v-bind="ptm('legend')">
             <slot name="legend" :toggleCallback="toggle">
-                <span v-if="!toggleable" :id="id + '_header'" :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
+                <span v-if="!toggleable" :id="$id + '_header'" :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
                 <button
                     v-if="toggleable"
-                    :id="id + '_header'"
+                    :id="$id + '_header'"
                     v-ripple
                     type="button"
-                    :aria-controls="id + '_content'"
+                    :aria-controls="$id + '_content'"
                     :aria-expanded="!d_collapsed"
                     :aria-label="buttonAriaLabel"
                     :class="cx('toggleButton')"
@@ -25,7 +25,7 @@
             </slot>
         </legend>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
-            <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('contentContainer')">
+            <div v-show="!d_collapsed" :id="$id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="$id + '_header'" v-bind="ptm('contentContainer')">
                 <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Ripple from 'primevue/ripple';
@@ -48,20 +47,13 @@ export default {
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {
-            id: this.$attrs.id,
             d_collapsed: this.collapsed
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         collapsed(newValue) {
             this.d_collapsed = newValue;
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         toggle(event) {
