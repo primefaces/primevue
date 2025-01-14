@@ -16,4 +16,9 @@ export declare class HelperSet {
     get(parentInstance?: any, slots?: any): any[] | null | undefined;
 }
 
+/**
+ * @deprecated since v4.3.0. Use `uuid` from @primeuix/utils instead.
+ * @param {string} prefix
+ * @return {string}
+ */
 export declare function UniqueComponentId(prefix?: string): string;
