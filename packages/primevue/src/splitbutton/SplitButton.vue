@@ -33,7 +33,7 @@
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
-            :aria-controls="id + '_overlay'"
+            :aria-controls="$id + '_overlay'"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             :severity="severity"
@@ -51,7 +51,7 @@
                 </slot>
             </template>
         </PVSButton>
-        <PVSMenu ref="menu" :id="id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('pcMenu')">
+        <PVSMenu ref="menu" :id="$id + '_overlay'" :model="model" :popup="true" :autoZIndex="autoZIndex" :baseZIndex="baseZIndex" :appendTo="appendTo" :unstyled="unstyled" :pt="ptm('pcMenu')">
             <template v-if="$slots.menuitemicon" #itemicon="slotProps">
                 <slot name="menuitemicon" :item="slotProps.item" :class="slotProps.class" />
             </template>
@@ -64,7 +64,6 @@
 
 <script>
 import { isEmpty } from '@primeuix/utils/object';
-import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import Button from 'primevue/button';
 import TieredMenu from 'primevue/tieredmenu';
@@ -80,18 +79,10 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             isExpanded: false
         };
     },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         this.$watch('$refs.menu.visible', (newValue) => {
             this.isExpanded = newValue;
         });
