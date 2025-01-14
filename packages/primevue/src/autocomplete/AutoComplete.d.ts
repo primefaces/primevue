@@ -281,6 +281,14 @@ export interface AutoCompleteState {
  */
 export interface AutoCompleteContext {
     /**
+     * Current option.
+     */
+    option?: any;
+    /**
+     * Index of the current option.
+     */
+    index: number;
+    /**
      * Current selection state of the item as a boolean.
      * @defaultValue false
      */
