@@ -124,7 +124,7 @@ export default {
     methods: {
         renderValue(value) {
             if (this.quill) {
-                if (value) this.quill.clipboard.dangerouslyPasteHTML(value);
+                if (value) this.quill.clipboard.convert({ html: value });
                 else this.quill.setText('');
             }
         },
