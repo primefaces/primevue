@@ -133,7 +133,7 @@ export default {
 
             this.quill.on('text-change', (delta, oldContents, source) => {
                 if (source === 'user') {
-                    let html = this.$refs.editorElement.children[0].innerHTML;
+                    let html = this.quill.getSemanticHTML();
                     let text = this.quill.getText().trim();
 
                     if (html === '<p><br></p>') {
@@ -152,7 +152,7 @@ export default {
             });
 
             this.quill.on('selection-change', (range, oldRange, source) => {
-                let html = this.$refs.editorElement.children[0].innerHTML;
+                let html = this.quill.getSemanticHTML();
                 let text = this.quill.getText().trim();
 
                 this.$emit('selection-change', {
