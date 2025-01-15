@@ -27,10 +27,6 @@ export interface EditorPassThroughMethodOptions {
      */
     props: EditorProps;
     /**
-     * Defines current inline state.
-     */
-    state: EditorState;
-    /**
      * Defines valid attributes.
      */
     attrs: any;
@@ -196,17 +192,6 @@ export interface EditorPassThroughOptions {
  */
 export interface EditorPassThroughAttributes {
     [key: string]: any;
-}
-
-/**
- * Defines current inline state in Editor component.
- */
-export interface EditorState {
-    /**
-     * Current rerendered color key as a number.
-     * @defaultValue 0
-     */
-    reRenderColorKey: number;
 }
 
 /**
