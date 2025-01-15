@@ -322,7 +322,7 @@ export default {
                 this.bindDocumentDragEndListener();
             }
 
-            if (this.closeOnEscape) {
+            if (this.closeOnEscape && this.closable) {
                 this.bindDocumentKeyDownListener();
             }
         },
