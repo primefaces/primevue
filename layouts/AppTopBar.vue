@@ -115,7 +115,7 @@
                         style="max-width: 8rem"
                         class="topbar-item version-item"
                     >
-                        <span class="version-text">{{ versions[0].name }}</span>
+                        <span class="version-text">{{ versions[1].name }}</span>
                         <span class="version-icon pi pi-angle-down"></span>
                     </button>
 
