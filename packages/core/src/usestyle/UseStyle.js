@@ -31,7 +31,8 @@ export function useStyle(css, options = {}) {
         onMounted: onStyleMounted = undefined,
         onUpdated: onStyleUpdated = undefined,
         onLoad: onStyleLoaded = undefined,
-        props = {}
+        props = {},
+        applicationNode = undefined
     } = options;
 
     let stop = () => {};
@@ -54,7 +55,20 @@ export function useStyle(css, options = {}) {
                 media,
                 nonce: _nonce
             });
-            first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
+
+            if(applicationNode){
+                const extraSheet = new CSSStyleSheet();
+
+                setTimeout(() => {
+                    styleRef.value.innerText = styleRef.value.innerText.replace(":root", ":host");
+                    extraSheet.replaceSync(styleRef.value.innerText);
+                    applicationNode.adoptedStyleSheets.push(extraSheet);
+                }, 1);
+
+            } else {
+                first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value)
+            }
+
             setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             setAttributes(styleRef.value, _styleProps);
             styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
@@ -90,6 +104,7 @@ export function useStyle(css, options = {}) {
     return {
         id,
         name,
+        applicationNode,
         el: styleRef,
         css: cssRef,
         unload,
