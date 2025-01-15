@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     '@primeuix/forms':
-      specifier: ^0.0.2
-      version: 0.0.2
+      specifier: ^0.0.3
+      version: 0.0.3
     '@primeuix/styled':
       specifier: ^0.4.0
       version: 0.4.0
@@ -176,7 +176,7 @@ importers:
     dependencies:
       '@primeuix/forms':
         specifier: 'catalog:'
-        version: 0.0.2
+        version: 0.0.3
       '@primeuix/utils':
         specifier: 'catalog:'
         version: 0.4.0
@@ -1978,16 +1978,12 @@ packages:
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
-  '@primeuix/forms@0.0.2':
-    resolution: {integrity: sha512-DpecPQd/Qf/kav4LKCaIeGuT3AkwhJzuHCkLANTVlN/zBvo8KIj3OZHsCkm0zlIMVVnaJdtx1ULNlRQdudef+A==}
+  '@primeuix/forms@0.0.3':
+    resolution: {integrity: sha512-k2MeLb7/B5TUhpBe/Q7z9+EQuu3/gzvv7J0tDxSjkuf/RAqa8hI02M3TZAuZ4PbIqB1GxxHHbBL3tOrGBDJykw==}
     engines: {node: '>=12.11.0'}
 
   '@primeuix/styled@0.4.0':
     resolution: {integrity: sha512-QLylbvV2HVyqt6a4rMdqOTRMiq95My0G4jipoJYTSTujBMkaGWV9immXsMcknK2IIEQ9KpIilS1dJXa2ONC46Q==}
-    engines: {node: '>=12.11.0'}
-
-  '@primeuix/utils@0.3.2':
-    resolution: {integrity: sha512-B+nphqTQeq+i6JuICLdVWnDMjONome2sNz0xI65qIOyeB4EF12CoKRiCsxuZ5uKAkHi/0d1LqlQ9mIWRSdkavw==}
     engines: {node: '>=12.11.0'}
 
   '@primeuix/utils@0.4.0':
@@ -8766,15 +8762,13 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@primeuix/forms@0.0.2':
+  '@primeuix/forms@0.0.3':
     dependencies:
-      '@primeuix/utils': 0.3.2
+      '@primeuix/utils': 0.4.0
 
   '@primeuix/styled@0.4.0':
     dependencies:
       '@primeuix/utils': 0.4.0
-
-  '@primeuix/utils@0.3.2': {}
 
   '@primeuix/utils@0.4.0': {}
 
