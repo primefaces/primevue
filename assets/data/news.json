@@ -1,9 +1,10 @@
 {
     "id": 60,
-    "content": "Diamond Template Remastered ⭐️",
-    "linkText": "Live Demo",
-    "linkHref": "http://diamond.primevue.org",
-    "backgroundStyle": "background-color:var(--primary-color)",
-    "textStyle": "color:var(--primary-color-text);font-weight:500",
-    "linkStyle": "color:var(--primary-color-text);font-weight:700;text-decoration: underline;"
+    "content": "V3 has reached EOL, Upgrade to ",
+    "linkText": "PrimeVue 4",
+    "linkHref": "http://primevue.org",
+    "backgroundStyle": "background-color:var(--yellow-500)",
+    "textStyle": "color:#000;font-weight:500",
+    "linkStyle": "color:#000;font-weight:700;text-decoration: underline;",
+    "closable": false
 }

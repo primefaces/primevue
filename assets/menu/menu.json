@@ -539,13 +539,12 @@
         {
             "name": "Tailwind",
             "icon": "pi pi-heart",
-            "href": "https://tailwind.primevue.org/",
-            "badge": "NEW"
+            "href": "https://tailwind.primevue.org/"
         },
         {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
-            "to": "/uikit"
+            "href": "https://primevue.org/uikit/"
         },
         {
             "name": "Icons",
@@ -565,12 +564,12 @@
         {
             "name": "Templates",
             "icon": "pi pi-star",
-            "to": "/templates"
+            "href": "https://primevue.org/templates"
         },
         {
             "name": "PrimeBlocks",
             "icon": "pi pi-server",
-            "href": "https://blocks.primevue.org"
+            "href": "https://primeblocks.org"
         },
         {
             "name": "Guides",
@@ -611,7 +610,7 @@
             "children": [
                 {
                     "name": "About Us",
-                    "to": "/team"
+                    "href": "https://primevue.org/team/"
                 },
                 {
                     "name": "Roadmap",

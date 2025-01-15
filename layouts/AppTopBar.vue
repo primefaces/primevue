@@ -60,7 +60,7 @@
                 </PrimeVueNuxtLink>
             </div>
 
-            <ul class="flex list-none m-0 p-0 gap-2 align-items-center">
+            <ul class="topbar-items">
                 <li>
                     <div id="docsearch"></div>
                 </li>
@@ -108,23 +108,22 @@
                         <i class="pi pi-palette"></i>
                     </button>
                 </li>
-                <li class="relative">
+                <li>
                     <button
-                        v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'scalein', leaveToClass: 'hidden', leaveActiveClass: 'fadeout', hideOnOutsideClick: true }"
+                        v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
                         type="button"
                         style="max-width: 8rem"
-                        class="px-link flex align-items-center surface-card h-2rem px-2 border-1 border-solid surface-border transition-all transition-duration-300 hover:border-primary"
+                        class="topbar-item version-item"
                     >
-                        <span class="text-900 block white-space-nowrap overflow-hidden"> {{ versions[1].version }}</span>
-                        <span class="ml-2 pi pi-angle-down text-600"></span>
+                        <span class="version-text">{{ versions[0].name }}</span>
+                        <span class="version-icon pi pi-angle-down"></span>
                     </button>
 
-                    <div class="p-3 surface-overlay hidden absolute right-0 top-auto border-round shadow-2 origin-top w-8rem">
-                        <ul class="list-none m-0 p-0">
+                    <div class="versions-panel hidden">
+                        <ul>
                             <li v-for="version in versions" :key="version.version" role="none">
-                                <a :href="version.url" class="inline-flex p-2 border-round hover:surface-hover w-full">
-                                    <span class="font-bold text-900">{{ version.name }}</span>
-                                    <span class="ml-2 text-700 white-space-nowrap block overflow-hidden text-overflow-ellipsis">{{ version.version }}</span>
+                                <a :href="version.url">
+                                    <span>PrimeVue {{ version.name }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -166,20 +165,13 @@ export default {
     data() {
         return {
             versions: [
-                {
+            {
                     name: 'v4',
-                    version: 'v4',
                     url: 'https://primevue.org'
                 },
                 {
                     name: 'v3',
-                    version: pkg.version,
                     url: 'https://v3.primevue.org'
-                },
-                {
-                    name: 'v2',
-                    version: '2.10.4',
-                    url: 'https://www.primefaces.org/primevue-v2'
                 }
             ]
         };

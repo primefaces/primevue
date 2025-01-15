@@ -55,4 +55,102 @@
     .menu-button {
         display: none;
     }
+
+    .topbar-items {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        gap: 0.5rem;
+        align-items: center;
+
+        li {
+            position: relative;
+        }
+
+        .topbar-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid var(--surface-border);
+            width: 2rem;
+            height: 2rem;
+            transition: outline-color .2s, border-color .2s;
+            border-radius: 6px;
+            margin: 0;
+            padding: 0;
+            outline-color: transparent;
+            background-color: var(--surface-0);
+            cursor: pointer;
+
+            @include focus-visible();
+
+            &:hover {
+                border-color: var(--primary-color);
+            }
+
+            i,
+            span {
+                color: var(--text-color);
+            }
+        }
+        
+        .version-item {
+            width: auto;
+            padding: 0.5rem;
+        
+            .version-text {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        
+            .version-icon {
+                margin-inline-start: .25rem;
+                color: var(--text-secondary-color);
+            }
+        }
+        
+        .versions-panel {
+            padding: .25rem;
+            background-color: var(--overlay-background);
+            position: absolute;
+            inset-inline-end: 0;
+            top: calc(100% + 2px);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transform-origin: top;
+        
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+        
+                li {
+                    margin: 2px;
+        
+                }
+        
+                a {
+                    display: inline-flex;
+                    padding: 0.5rem .75rem;
+                    border-radius: 6px;
+                    width: 100%;
+                    overflow: hidden;
+                    color: var(--text-color);
+                    white-space: nowrap;
+        
+                    &:hover {
+                        background-color: var(--hover-background);
+                    }
+                }
+            }
+        }
+    }
+
 }
