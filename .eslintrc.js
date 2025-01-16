@@ -95,5 +95,19 @@ module.exports = {
             { blankLine: 'always', prev: '*', next: 'block-like' },
             { blankLine: 'always', prev: ['import'], next: ['const', 'let', 'var'] }
         ]
-    }
+    },
+    overrides: [
+        {
+            files: ['*.typedef.vue'],
+            extends: ['plugin:vue/vue3-recommended', '@vue/eslint-config-typescript', 'plugin:@typescript-eslint/recommended-type-checked'],
+            parser: 'vue-eslint-parser',
+            parserOptions: {
+                ecmaVersion: 'latest',
+                sourceType: 'module',
+                parser: '@typescript-eslint/parser',
+                project: ['tsconfig.lint.json'],
+                extraFileExtensions: ['.vue']
+            }
+        }
+    ]
 };

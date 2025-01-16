@@ -21,6 +21,6 @@
             "@primevue/icons/*": ["../../packages/icons/src/*"]
         }
     },
-    "include": ["**/*.ts", "src/*"],
+    "include": ["**/*.ts", "src/*", "**/*.typedef.vue"],
     "exclude": ["node_modules", "dist"]
 }
