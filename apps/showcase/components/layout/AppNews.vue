@@ -36,8 +36,12 @@ export default {
     },
     methods: {
         onClose() {
+            const itemString = localStorage.getItem(this.$appState.storageKey);
+            const existingItem = itemString ? JSON.parse(itemString) : {};
+
             this.$appState.newsActive = false;
             const item = {
+                ...existingItem,
                 hiddenNews: this.$appState.announcement.id
             };
 
