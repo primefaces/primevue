@@ -191,11 +191,11 @@ export interface MenuRouterBindProps {
 /**
  * Defines valid properties in Menu component.
  */
-export interface MenuProps {
+export interface MenuProps<Item extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: Item[] | undefined;
     /**
      * Defines if menu would displayed as a popup.
      * @defaultValue false
@@ -252,7 +252,7 @@ export interface MenuProps {
 /**
  * Defines valid slots in Menu component.
  */
-export interface MenuSlots {
+export interface MenuSlots<Item extends MenuItem = MenuItem> {
     /**
      * Custom start template.
      */
@@ -269,7 +269,7 @@ export interface MenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: Item;
         /**
          * Label property of the menuitem
          */
@@ -287,7 +287,7 @@ export interface MenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: Item;
         /**
          * Style class of the item icon element.
          */
@@ -302,7 +302,7 @@ export interface MenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: Item;
     }): VNode[];
     /**
      * Custom submenu item template.
@@ -312,7 +312,7 @@ export interface MenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: Item;
     }): VNode[];
 }
 

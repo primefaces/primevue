@@ -1,11 +1,8 @@
-<script setup lang="ts" generic="T extends MenuItem">
+<script setup lang="ts" generic="Item extends MenuItem">
 import type { MenuItem } from 'primevue/menuitem';
-import { VNode } from 'vue';
+import { MenuEmits, MenuProps, MenuSlots } from './Menu';
 
-defineProps<{
-    items: T[];
-}>();
-defineSlots<{
-    item(scope: { item: T }): VNode[];
-}>();
+defineProps<MenuProps<Item>>();
+defineSlots<MenuSlots<Item>>();
+defineEmits<MenuEmits>();
 </script>
