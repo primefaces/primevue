@@ -212,7 +212,8 @@ export interface DialogProps {
     showHeader?: boolean | undefined;
     /**
      * Whether background scroll should be blocked when dialog is visible.
-     * @defaultValue false
+     * @defaultValue undefined
+     * @remarks If unset it will act as true when {@link DialogProps.modal} is true.
      */
     blockScroll?: boolean | undefined;
     /**

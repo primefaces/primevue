@@ -56,7 +56,7 @@ export default {
         },
         blockScroll: {
             type: Boolean,
-            default: false
+            default: undefined
         },
         baseZIndex: {
             type: Number,

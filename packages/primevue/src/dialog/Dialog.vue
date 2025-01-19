@@ -219,17 +219,19 @@ export default {
                 this.$emit('maximize', event);
             }
 
-            if (!this.modal) {
-                this.maximized ? blockBodyScroll() : unblockBodyScroll();
+            if (this.c_blockScroll) {
+                blockBodyScroll();
+            } else {
+                unblockBodyScroll();
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if (this.c_blockScroll) {
                 blockBodyScroll();
             }
         },
         unbindDocumentState() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if (this.c_blockScroll) {
                 unblockBodyScroll();
             }
         },
@@ -404,6 +406,18 @@ export default {
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
+        },
+        c_blockScroll() {
+            if (this.maximizable && this.maximized) {
+                return true;
+            }
+
+            // If the blockScroll prop is unset we use the modal prop to not introduce a breaking change.
+            if (this.blockScroll == null) {
+                return this.modal;
+            }
+
+            return this.blockScroll;
         }
     },
     directives: {
