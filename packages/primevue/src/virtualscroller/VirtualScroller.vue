@@ -313,7 +313,7 @@ export default {
                 Promise.resolve().then(() => {
                     this.lazyLoadState = {
                         first: this.step ? (both ? { rows: 0, cols: first.cols } : 0) : first,
-                        last: Math.min(this.step ? this.step : last, this.items?.length || 0)
+                        last: Math.min(this.step ? this.step : last, this.items?.length - 1 || 0)
                     };
 
                     this.$emit('lazy-load', this.lazyLoadState);
@@ -513,7 +513,7 @@ export default {
                 if (this.lazy && this.isPageChanged(first)) {
                     const lazyLoadState = {
                         first: this.step ? Math.min(this.getPageByFirst(first) * this.step, (this.items?.length || 0) - this.step) : first,
-                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items?.length || 0)
+                        last: Math.min(this.step ? (this.getPageByFirst(first) + 1) * this.step : last, this.items?.length - 1 || 0)
                     };
                     const isLazyStateChanged = this.lazyLoadState.first !== lazyLoadState.first || this.lazyLoadState.last !== lazyLoadState.last;
 
