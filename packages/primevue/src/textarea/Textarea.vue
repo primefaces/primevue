@@ -14,7 +14,10 @@ export default {
     mounted() {
         if (this.autoResize) {
             this.observer = new ResizeObserver(() => {
-                this.resize();
+                // Firefox has issues without the requestAnimationFrame - ResizeObserver loop completed with undelivered notifications.
+                requestAnimationFrame(() => {
+                    this.resize();
+                });
             });
             this.observer.observe(this.$el);
         }
