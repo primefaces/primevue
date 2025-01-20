@@ -59,12 +59,15 @@ export function useStyle(css, options = {}) {
             if(applicationNode){
                 const extraSheet = new CSSStyleSheet();
 
-                setTimeout(() => {
+                const nextTickEvent = async () => {
+                    await nextTick();
+                }
+
+                nextTickEvent().then(() => {
                     styleRef.value.innerText = styleRef.value.innerText.replace(":root", ":host");
                     extraSheet.replaceSync(styleRef.value.innerText);
                     applicationNode.adoptedStyleSheets.push(extraSheet);
-                }, 1);
-
+                });
             } else {
                 first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value)
             }
