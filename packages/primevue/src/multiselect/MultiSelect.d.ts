@@ -628,6 +628,12 @@ export interface MultiSelectSlots {
          * A value in the selection
          */
         value: any;
+        /**
+         * Chip icon function.
+         * @param {Event} event - Browser event
+         * @param {any} item - Item
+         */
+        removeCallback: (event: Event, item: any) => void;
     }): VNode[];
     /**
      * Custom header template.
