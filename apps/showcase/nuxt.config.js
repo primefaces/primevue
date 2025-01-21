@@ -11,6 +11,7 @@ const alias = {
     '@primevue/themes/material': path.resolve(__dirname, '../../packages/themes/src/presets/material'),
     '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src'),
+    '@primeuix/themes/styles': path.resolve(__dirname, '../../../../packages/themes/src/styles'),
     '@primeuix/themes': path.resolve(__dirname, '../../../../packages/themes/src/presets')
 };
 
