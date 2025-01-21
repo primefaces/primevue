@@ -221,13 +221,13 @@ export default {
     scrollHandler: null,
     resizeListener: null,
     labelClickListener: null,
+    matchMediaOrientationListener: null,
     overlay: null,
     list: null,
     virtualScroller: null,
     searchTimeout: null,
     searchValue: null,
     isModelValueChanged: false,
-    matchMediaOrientationListener: null,
     data() {
         return {
             clicked: false,

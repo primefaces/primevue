@@ -564,6 +564,7 @@ export default {
     outsideClickListener: null,
     resizeListener: null,
     matchMediaListener: null,
+    matchMediaOrientationListener: null,
     overlay: null,
     input: null,
     previousButton: null,
@@ -571,7 +572,6 @@ export default {
     timePickerTimer: null,
     preventFocus: false,
     typeUpdate: false,
-    matchMediaOrientationListener: null,
     data() {
         return {
             currentMonth: null,
