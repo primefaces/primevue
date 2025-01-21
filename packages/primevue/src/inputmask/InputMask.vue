@@ -47,6 +47,11 @@ export default {
             if (oldMask !== newMask) {
                 this.initMask();
             }
+        },
+        disabled(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                this.updateValue();
+            }
         }
     },
     mounted() {
