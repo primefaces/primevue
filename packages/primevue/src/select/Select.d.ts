@@ -818,11 +818,11 @@ export interface SelectMethods {
  * @group Component
  *
  */
-declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
+declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
+        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
     }
 }
 
