@@ -79,27 +79,31 @@ export default {
             }
 
             this.focus = true;
-
-            clearTimeout(this.caretTimeoutId);
-            let pos;
-
             this.focusText = this.$el.value;
 
-            pos = this.checkVal();
+            if (!this.$el.value || this.$el.value === this.defaultBuffer) {
+                requestAnimationFrame(() => {
+                    if (this.$el === document.activeElement) {
+                        this.caret(0, 0);
+                    }
+                });
+            } else {
+                let pos = this.checkVal();
 
-            this.caretTimeoutId = setTimeout(() => {
-                if (this.$el !== document.activeElement) {
-                    return;
-                }
+                this.caretTimeoutId = setTimeout(() => {
+                    if (this.$el !== document.activeElement) {
+                        return;
+                    }
 
-                this.writeBuffer();
+                    this.writeBuffer();
 
-                if (pos === this.mask.replace('?', '').length) {
-                    this.caret(0, pos);
-                } else {
-                    this.caret(pos);
-                }
-            }, 10);
+                    if (pos === this.mask.replace('?', '').length) {
+                        this.caret(0, pos);
+                    } else {
+                        this.caret(pos);
+                    }
+                }, 10);
+            }
 
             this.$emit('focus', event);
         },
