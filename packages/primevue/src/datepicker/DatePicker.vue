@@ -571,6 +571,7 @@ export default {
     timePickerTimer: null,
     preventFocus: false,
     typeUpdate: false,
+    matchMediaOrientationListener: null,
     data() {
         return {
             currentMonth: null,
@@ -583,7 +584,8 @@ export default {
             overlayVisible: false,
             currentView: this.view,
             query: null,
-            queryMatches: false
+            queryMatches: false,
+            queryOrientation: null
         };
     },
     watch: {
@@ -637,6 +639,7 @@ export default {
     mounted() {
         this.createResponsiveStyle();
         this.bindMatchMediaListener();
+        this.bindMatchMediaOrientationListener();
 
         if (this.inline) {
             if (!this.disabled) {
@@ -670,6 +673,7 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
         this.unbindMatchMediaListener();
+        this.unbindMatchMediaOrientationListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -1069,6 +1073,26 @@ export default {
             if (this.matchMediaListener) {
                 this.query.removeEventListener('change', this.matchMediaListener);
                 this.matchMediaListener = null;
+            }
+        },
+        bindMatchMediaOrientationListener() {
+            if (!this.matchMediaOrientationListener) {
+                const query = matchMedia(`(orientation: portrait)`);
+
+                this.queryOrientation = query;
+
+                this.matchMediaOrientationListener = () => {
+                    this.alignOverlay();
+                };
+
+                this.queryOrientation.addEventListener('change', this.matchMediaOrientationListener);
+            }
+        },
+        unbindMatchMediaOrientationListener() {
+            if (this.matchMediaOrientationListener) {
+                this.queryOrientation.removeEventListener('change', this.matchMediaOrientationListener);
+                this.queryOrientation = null;
+                this.matchMediaOrientationListener = null;
             }
         },
         isOutsideClicked(event) {

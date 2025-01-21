@@ -227,13 +227,15 @@ export default {
     searchTimeout: null,
     searchValue: null,
     isModelValueChanged: false,
+    matchMediaOrientationListener: null,
     data() {
         return {
             clicked: false,
             focused: false,
             focusedOptionIndex: -1,
             filterValue: null,
-            overlayVisible: false
+            overlayVisible: false,
+            queryOrientation: null
         };
     },
     watch: {
@@ -247,6 +249,7 @@ export default {
     mounted() {
         this.autoUpdateModel();
         this.bindLabelClickListener();
+        this.bindMatchMediaOrientationListener();
     },
     updated() {
         if (this.overlayVisible && this.isModelValueChanged) {
@@ -259,6 +262,7 @@ export default {
         this.unbindOutsideClickListener();
         this.unbindResizeListener();
         this.unbindLabelClickListener();
+        this.unbindMatchMediaOrientationListener();
 
         if (this.scrollHandler) {
             this.scrollHandler.destroy();
@@ -790,6 +794,26 @@ export default {
                 if (label && isVisible(label)) {
                     label.removeEventListener('click', this.labelClickListener);
                 }
+            }
+        },
+        bindMatchMediaOrientationListener() {
+            if (!this.matchMediaOrientationListener) {
+                const query = matchMedia(`(orientation: portrait)`);
+
+                this.queryOrientation = query;
+
+                this.matchMediaOrientationListener = () => {
+                    this.alignOverlay();
+                };
+
+                this.queryOrientation.addEventListener('change', this.matchMediaOrientationListener);
+            }
+        },
+        unbindMatchMediaOrientationListener() {
+            if (this.matchMediaOrientationListener) {
+                this.queryOrientation.removeEventListener('change', this.matchMediaOrientationListener);
+                this.queryOrientation = null;
+                this.matchMediaOrientationListener = null;
             }
         },
         hasFocusableElements() {
