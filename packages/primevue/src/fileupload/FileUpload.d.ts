@@ -649,11 +649,11 @@ export interface FileUploadMethods {
  * @group Component
  *
  */
-declare const FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits>;
+declare const FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits, FileUploadMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits>;
+        FileUpload: DefineComponent<FileUploadProps, FileUploadSlots, FileUploadEmits, FileUploadMethods>;
     }
 }
 

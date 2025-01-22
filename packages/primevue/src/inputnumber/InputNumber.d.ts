@@ -497,11 +497,11 @@ export interface InputNumberMethods {
  * @group Component
  *
  */
-declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits>;
+declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits>;
+        InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
     }
 }
 

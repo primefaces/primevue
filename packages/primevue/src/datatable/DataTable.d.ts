@@ -1641,7 +1641,7 @@ declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTab
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits>;
+        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
     }
 }
 

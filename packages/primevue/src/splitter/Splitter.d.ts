@@ -249,7 +249,7 @@ declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits>;
+        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits, SplitterMethods>;
     }
 }
 
