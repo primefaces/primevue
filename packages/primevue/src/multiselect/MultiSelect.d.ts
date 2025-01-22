@@ -938,11 +938,11 @@ export interface MultiSelectMethods {
  * @group Component
  *
  */
-declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
+declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
+        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
     }
 }
 
