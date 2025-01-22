@@ -8,7 +8,7 @@
             <slot v-else name="icon" :class="[cx('icon')]" v-bind="ptm('icon')">
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
             </slot>
-            <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
+            <span v-if="!hasIcon || !!label" :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
             <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('pcBadge')"></Badge>
         </slot>
     </component>
