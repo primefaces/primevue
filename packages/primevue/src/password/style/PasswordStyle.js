@@ -71,6 +71,7 @@ const theme = ({ dt }) => `
     margin-top: calc(-1 * calc(${dt('icon.size')} / 2));
     width: ${dt('icon.size')};
     height: ${dt('icon.size')};
+    cursor: pointer;
 }
 
 .p-password:has(.p-password-toggle-mask-icon) .p-password-input {
