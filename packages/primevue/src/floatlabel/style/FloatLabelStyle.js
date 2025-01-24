@@ -43,7 +43,7 @@ const theme = ({ dt }) => `
     top: ${dt('floatlabel.over.active.top')};
     transform: translateY(0);
     font-size: ${dt('floatlabel.active.font.size')};
-    font-weight: ${dt('floatlabel.label.active.font.weight')};
+    font-weight: ${dt('floatlabel.active.font.weight')};
 }
 
 .p-floatlabel:has(input.p-filled) label,
