@@ -12,6 +12,7 @@
 
 <script>
 import AccessibilityDoc from '@/doc/confirmdialog/AccessibilityDoc.vue';
+import AsyncDoc from '@/doc/confirmdialog/AsyncDoc.vue';
 import BasicDoc from '@/doc/confirmdialog/BasicDoc.vue';
 import ConfirmationServiceDoc from '@/doc/confirmdialog/ConfirmationServiceDoc.vue';
 import HeadlessDoc from '@/doc/confirmdialog/HeadlessDoc.vue';
@@ -44,6 +45,11 @@ export default {
                     id: 'position',
                     label: 'Position',
                     component: PositionDoc
+                },
+                {
+                    id: 'async',
+                    label: 'Async',
+                    component: AsyncDoc
                 },
                 {
                     id: 'template',

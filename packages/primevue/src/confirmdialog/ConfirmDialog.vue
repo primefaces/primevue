@@ -11,12 +11,13 @@
         :breakpoints="breakpoints"
         :closeOnEscape="closeOnEscape"
         :draggable="draggable"
+        :closable="!isAcceptPending"
         @update:visible="onHide"
         :pt="pt"
         :unstyled="unstyled"
     >
         <template v-if="$slots.container" #container="slotProps">
-            <slot name="container" :message="confirmation" :closeCallback="slotProps.onclose" :acceptCallback="accept" :rejectCallback="reject" />
+            <slot name="container" :message="confirmation" :closeCallback="slotProps.onclose" :acceptCallback="accept" :rejectCallback="reject" :isAcceptPending="isAcceptPending" />
         </template>
         <template v-if="!$slots.container">
             <template v-if="!$slots.message">
@@ -38,6 +39,7 @@
                 v-bind="confirmation.rejectProps"
                 :label="rejectLabel"
                 :pt="ptm('pcRejectButton')"
+                :disabled="isAcceptPending"
             >
                 <template v-if="rejectIcon || $slots.rejecticon" #icon="iconProps">
                     <slot name="rejecticon">
@@ -45,7 +47,7 @@
                     </slot>
                 </template>
             </Button>
-            <Button :label="acceptLabel" :class="[cx('pcAcceptButton'), confirmation.acceptClass]" :autofocus="autoFocusAccept" :unstyled="unstyled" @click="accept()" v-bind="confirmation.acceptProps" :pt="ptm('pcAcceptButton')">
+            <Button :label="acceptLabel" :class="[cx('pcAcceptButton'), confirmation.acceptClass]" :autofocus="autoFocusAccept" :unstyled="unstyled" @click="accept()" v-bind="confirmation.acceptProps" :pt="ptm('pcAcceptButton')" :loading="isAcceptPending">
                 <template v-if="acceptIcon || $slots.accepticon" #icon="iconProps">
                     <slot name="accepticon">
                         <span :class="[acceptIcon, iconProps.class]" v-bind="ptm('pcAcceptButton')['icon']" data-pc-section="acceptbuttonicon" />
@@ -70,7 +72,9 @@ export default {
     data() {
         return {
             visible: false,
-            confirmation: null
+            confirmation: null,
+
+            isAcceptPending: false
         };
     },
     mounted() {
@@ -103,9 +107,20 @@ export default {
         ConfirmationEventBus.off('close', this.closeListener);
     },
     methods: {
-        accept() {
+        async accept() {
             if (this.confirmation.accept) {
-                this.confirmation.accept();
+                const possiblePromise = this.confirmation.accept();
+                const isPromise = possiblePromise instanceof Promise;
+
+                if (isPromise) {
+                    this.isAcceptPending = true;
+
+                    try {
+                        await possiblePromise;
+                    } finally {
+                        this.isAcceptPending = false;
+                    }
+                }
             }
 
             this.visible = false;
@@ -178,7 +193,7 @@ export default {
             return this.confirmation.defaultFocus === 'reject' ? true : false;
         },
         closeOnEscape() {
-            return this.confirmation ? this.confirmation.closeOnEscape : true;
+            return this.isAcceptPending ? false : this.confirmation ? this.confirmation.closeOnEscape : true;
         }
     },
     components: {
