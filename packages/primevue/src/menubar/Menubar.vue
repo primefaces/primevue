@@ -42,6 +42,7 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :pt="pt"
+            :get-parent-ptm="getParentPtm"
             :unstyled="unstyled"
             @focus="onFocus"
             @blur="onBlur"
@@ -57,10 +58,10 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
-import { focus, isTouchDevice, findSingle } from '@primeuix/utils/dom';
-import { isNotEmpty, resolve, isPrintableCharacter, isEmpty, findLastIndex } from '@primeuix/utils/object';
+import { findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
+import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { UniqueComponentId } from '@primevue/core/utils';
 import BarsIcon from '@primevue/icons/bars';
 import BaseMenubar from './BaseMenubar.vue';
 import MenubarSub from './MenubarSub.vue';
@@ -122,6 +123,9 @@ export default {
         },
         getItemLabel(item) {
             return this.getItemProp(item, 'label');
+        },
+        getParentPtm(name, params) {
+            return this.ptm(name, params);
         },
         isItemDisabled(item) {
             return this.getItemProp(item, 'disabled');

@@ -1,5 +1,5 @@
 <template>
-    <ul :class="level === 0 ? cx('rootList') : cx('submenu')" v-bind="level === 0 ? ptm('rootList') : ptm('submenu')">
+    <ul :class="level === 0 ? cx('rootList') : cx('submenu')" v-bind="level === 0 ? getParentPtm('rootList') : getParentPtm('submenu')">
         <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
             <li
                 v-if="isItemVisible(processedItem) && !getItemProp(processedItem, 'separator')"
@@ -53,6 +53,7 @@
                     :level="level + 1"
                     :aria-labelledby="getItemLabelId(processedItem)"
                     :pt="pt"
+                    :get-parent-ptm="getParentPtm"
                     :unstyled="unstyled"
                     @item-click="$emit('item-click', $event)"
                     @item-mouseenter="$emit('item-mouseenter', $event)"
@@ -120,6 +121,10 @@ export default {
         activeItemPath: {
             type: Object,
             default: null
+        },
+        getParentPtm: {
+            type: Function,
+            default: null
         }
     },
     list: null,
@@ -141,7 +146,7 @@ export default {
             return `${this.menuId}_${processedItem.key}_label`;
         },
         getPTOptions(processedItem, index, key) {
-            return this.ptm(key, {
+            return this.getParentPtm(key, {
                 context: {
                     item: processedItem.item,
                     index,
