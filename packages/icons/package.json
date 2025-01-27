@@ -45,6 +45,7 @@
         "./eye": "./src/eye/EyeIcon.vue",
         "./eyeslash": "./src/eyeslash/EyeSlashIcon.vue",
         "./filter": "./src/filter/FilterIcon.vue",
+        "./filterfill": "./src/filterfill/FilterFillIcon.vue",
         "./filterslash": "./src/filterslash/FilterSlashIcon.vue",
         "./infocircle": "./src/infocircle/InfoCircleIcon.vue",
         "./minus": "./src/minus/MinusIcon.vue",
