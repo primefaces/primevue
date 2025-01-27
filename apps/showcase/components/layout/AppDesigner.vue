@@ -34,7 +34,7 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset, usePreset } from '@primevue/themes';
+import { $dt, updatePreset, usePreset } from '@primeuix/themes';
 
 export default {
     setup() {

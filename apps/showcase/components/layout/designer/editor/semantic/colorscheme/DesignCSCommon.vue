@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { palette } from '@primevue/themes';
+import { palette } from '@primeuix/themes';
 
 export default {
     inject: ['$colorScheme'],

@@ -48,7 +48,7 @@
 
 <script>
 import { uuid } from '@primeuix/utils';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/themes';
 
 export default {
     emits: ['update:modelValue'],

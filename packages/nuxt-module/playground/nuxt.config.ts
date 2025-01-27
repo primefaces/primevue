@@ -1,5 +1,5 @@
 // @ts-ignore
-import Aura from '@primevue/themes/aura';
+import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
     modules: ['../src/module'],

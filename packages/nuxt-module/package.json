@@ -87,7 +87,7 @@
         "nitropack": "^2.6.3",
         "nuxt": "3.3.2",
         "vitest": "^1.6.0",
-        "@primevue/themes": "workspace:*"
+        "@primeuix/themes": "catalog:"
     },
     "engines": {
         "node": ">=12.11.0"

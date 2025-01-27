@@ -55,7 +55,6 @@
         "primevue": "workspace:*",
         "@primevue/core": "workspace:*",
         "@primevue/nuxt-module": "workspace:*",
-        "@primevue/themes": "workspace:*",
         "@primevue/forms": "workspace:*",
         "@primeuix/themes": "catalog:",
         "yup": "1.4.0",

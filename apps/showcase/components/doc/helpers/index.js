@@ -1,5 +1,5 @@
 import APIDocs from '@/doc/common/apidoc/index.json';
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/themes';
 
 export const getPTOptions = (name) => {
     const { props } = APIDocs[name.toLowerCase()].interfaces.values[`${name}PassThroughOptions`] || APIDocs[name.toLowerCase()].interfaces.values[`${name}DirectivePassThroughOptions`];
