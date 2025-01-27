@@ -1,10 +1,5 @@
+import { theme } from '@primeuix/styles/radiobuttongroup';
 import BaseStyle from '@primevue/core/base/style';
-
-const theme = ({ dt }) => `
-.p-radiobutton-group {
-    display: inline-flex;
-}
-`;
 
 const classes = {
     root: 'p-radiobutton-group p-component'
