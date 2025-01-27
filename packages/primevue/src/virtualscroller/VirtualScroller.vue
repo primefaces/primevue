@@ -92,9 +92,11 @@ export default {
             }
         },
         items: {
-            handler(newValue) {
-                this.init();
-                this.calculateAutoSize();
+            handler(newValue, oldValue) {
+                if (!oldValue || oldValue.length !== (newValue || []).length) {
+                    this.init();
+                    this.calculateAutoSize();
+                }
             },
             deep: true
         },
