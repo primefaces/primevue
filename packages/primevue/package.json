@@ -353,6 +353,7 @@
     "dependencies": {
         "@primeuix/styled": "catalog:",
         "@primeuix/utils": "catalog:",
+        "@primeuix/styles": "catalog:",
         "@primevue/core": "workspace:*",
         "@primevue/icons": "workspace:*"
     },
