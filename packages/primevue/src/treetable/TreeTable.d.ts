@@ -382,6 +382,10 @@ export interface TreeTableState {
  */
 export interface TreeTableContext {
     /**
+     * Current node of the item.
+     */
+    node: TreeNode;
+    /**
      * Current index state of the item.
      */
     index: number;
@@ -400,6 +404,31 @@ export interface TreeTableContext {
      * @defaultValue false
      */
     selected: boolean;
+    /**
+     * Current horizontal and/or vertical scrolling state.
+     * @defaultValue false
+     */
+    scrollable: boolean;
+    /**
+     * Current show gridlines state.
+     * @defaultValue false
+     */
+    showGridlines: boolean;
+    /**
+     * Current size of the table.
+     * @defaultValue null
+     */
+    size: string | null;
+    /**
+     * Current check state of the node as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current partial check state of the node as a boolean.
+     * @defaultValue false
+     */
+    partialChecked: boolean;
 }
 
 /**

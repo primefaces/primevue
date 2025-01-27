@@ -146,7 +146,8 @@ export default {
                     frozen: this.columnProp('frozen'),
                     scrollable: this.$parentInstance.scrollable,
                     showGridlines: this.$parentInstance.showGridlines,
-                    size: this.$parentInstance?.size
+                    size: this.$parentInstance?.size,
+                    node: this.node
                 }
             };
 
@@ -165,7 +166,8 @@ export default {
                 },
                 context: {
                     checked: this.checked,
-                    partialChecked: this.partialChecked
+                    partialChecked: this.partialChecked,
+                    node: this.node
                 }
             };
 
