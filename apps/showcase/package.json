@@ -57,6 +57,7 @@
         "@primevue/nuxt-module": "workspace:*",
         "@primevue/themes": "workspace:*",
         "@primevue/forms": "workspace:*",
+        "@primeuix/themes": "catalog:",
         "yup": "1.4.0",
         "zod": "3.23.8",
         "valibot": "^0.42.1",

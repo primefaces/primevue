@@ -53,11 +53,11 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $t, updatePreset, updateSurfacePalette } from '@primevue/themes';
-import Aura from '@primevue/themes/aura';
-import Lara from '@primevue/themes/lara';
-import Material from '@primevue/themes/material';
-import Nora from '@primevue/themes/nora';
+import { $t, updatePreset, updateSurfacePalette } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+import Lara from '@primeuix/themes/lara';
+import Material from '@primeuix/themes/material';
+import Nora from '@primeuix/themes/nora';
 
 const presets = {
     Aura,
