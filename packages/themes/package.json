@@ -82,7 +82,8 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "catalog:"
+        "@primeuix/styled": "catalog:",
+        "@primeuix/themes": "catalog:"
     },
     "engines": {
         "node": ">=12.11.0"

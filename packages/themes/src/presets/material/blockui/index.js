@@ -1,5 +1,1 @@
-export default {
-    root: {
-        borderRadius: '{content.border.radius}'
-    }
-};
+export { default } from '@primeuix/themes/material/blockui';
