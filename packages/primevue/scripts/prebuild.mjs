@@ -13,7 +13,7 @@ updatePackageJson(pkg);
 // update package.json > "exports" for local
 let exports = {};
 let modules = {
-    ignoredFolders: ['useconfirm', 'usedialog', 'usetoast', 'usestyle', 'editor', 'chart'],
+    ignoredFolders: ['useconfirm', 'usedialog', 'usetoast', 'usestyle', 'editor', 'chart', 'utils'],
     umd: [
         `/***************** PrimeVue (Auto-Generated) *****************/
 
@@ -26,6 +26,9 @@ export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 
 // Themes
 export * from '@primeuix/styled';
+
+// Utils
+export * from '../utils/Utils.js';
 
 // UseConfirm
 export * from '../useconfirm/UseConfirm.js';
@@ -54,6 +57,9 @@ export { default as ChartStyle } from '../chart/style/ChartStyle.js';
     ],
     esm: [
         `/***************** PrimeVue (Auto-Generated) *****************/
+
+// Utils
+export * from 'primevue/utils';
 
 // UseConfirm
 export * from 'primevue/useconfirm';

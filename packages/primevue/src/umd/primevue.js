@@ -10,6 +10,9 @@ export { default as BaseIconStyle } from '@primevue/icons/baseicon/style';
 // Themes
 export * from '@primeuix/styled';
 
+// Utils
+export * from '../utils/Utils.js';
+
 // UseConfirm
 export * from '../useconfirm/UseConfirm.js';
 

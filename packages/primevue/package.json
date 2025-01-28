@@ -311,6 +311,7 @@
         "./usedialog": "./src/usedialog/UseDialog.js",
         "./usestyle": "./src/usestyle/UseStyle.js",
         "./usetoast": "./src/usetoast/UseToast.js",
+        "./utils": "./src/utils/Utils.js",
         "./virtualscroller": "./src/virtualscroller/VirtualScroller.vue",
         "./virtualscroller/style": "./src/virtualscroller/style/VirtualScrollerStyle.js",
         "./*": "./*"

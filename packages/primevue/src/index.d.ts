@@ -1,5 +1,8 @@
 /***************** PrimeVue (Auto-Generated) *****************/
 
+// Utils
+export * from 'primevue/utils';
+
 // UseConfirm
 export * from 'primevue/useconfirm';
 
