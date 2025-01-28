@@ -20,7 +20,7 @@ catalogs:
       version: 0.1.0-beta.4
     '@primeuix/utils':
       specifier: ^0.4.0
-      version: 0.4.0
+      version: 0.4.1
 
 importers:
 
@@ -172,7 +172,7 @@ importers:
         version: 0.4.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.4.0
+        version: 0.4.1
       vue:
         specifier: ^3.5.0
         version: 3.5.13(typescript@5.7.3)
@@ -185,7 +185,7 @@ importers:
         version: 0.0.4
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.4.0
+        version: 0.4.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -195,7 +195,7 @@ importers:
     dependencies:
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.4.0
+        version: 0.4.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -218,7 +218,7 @@ importers:
         version: 0.4.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.4.0
+        version: 0.4.1
       '@primevue/auto-import-resolver':
         specifier: workspace:*
         version: link:../auto-import-resolver
@@ -279,7 +279,7 @@ importers:
         version: 0.1.0-beta.2
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.4.0
+        version: 0.4.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -2004,8 +2004,8 @@ packages:
   '@primeuix/themes@0.1.0-beta.4':
     resolution: {integrity: sha512-/i1ODYYtl3GdYrMUsFrWFU6SJiSiw96xjmoJnXkCsX/q6GfkV7pokLSgKs9IDfF16bYhjfPz1pE65N2h1UnijQ==}
 
-  '@primeuix/utils@0.4.0':
-    resolution: {integrity: sha512-Z4Z0Ml1jc8cbReJsxctqET4kzRUnBoWu4Rcr5xBdiMN6mv1VyKVph6tF5bBh4lbvsdIyJmzaqAHSRNUgH8dylQ==}
+  '@primeuix/utils@0.4.1':
+    resolution: {integrity: sha512-5+1NLfyna+gLRPeFTo+xlR0tfPVLuVdidbeahAMLkQga5Rw0LxyUBCyD2/Zv2JkV69o2T+hpEDyddl3VdnYoBw==}
     engines: {node: '>=12.11.0'}
 
   '@redocly/ajv@8.11.2':
@@ -8808,11 +8808,11 @@ snapshots:
 
   '@primeuix/forms@0.0.4':
     dependencies:
-      '@primeuix/utils': 0.4.0
+      '@primeuix/utils': 0.4.1
 
   '@primeuix/styled@0.4.1':
     dependencies:
-      '@primeuix/utils': 0.4.0
+      '@primeuix/utils': 0.4.1
 
   '@primeuix/styles@0.1.0-beta.2':
     dependencies:
@@ -8822,7 +8822,7 @@ snapshots:
     dependencies:
       '@primeuix/styled': 0.4.1
 
-  '@primeuix/utils@0.4.0': {}
+  '@primeuix/utils@0.4.1': {}
 
   '@redocly/ajv@8.11.2':
     dependencies:
