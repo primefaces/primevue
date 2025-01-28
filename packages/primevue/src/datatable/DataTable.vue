@@ -920,6 +920,7 @@ export default {
                         }
 
                         const isCopyShortcut = event.code === 'KeyC' && metaKey;
+
                         if (!isCopyShortcut) event.preventDefault();
 
                         break;
