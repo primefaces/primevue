@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { addClass, addStyle, blockBodyScroll, focus, getOuterHeight, getOuterWidth, getViewport, setAttribute, unblockBodyScroll } from '@primeuix/utils/dom';
+import { addClass, addStyle, focus, getOuterHeight, getOuterWidth, getViewport, setAttribute } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
@@ -71,6 +71,7 @@ import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
+import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import { computed } from 'vue';
 import BaseDialog from './BaseDialog.vue';
 

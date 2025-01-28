@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     },
     vite: {
         resolve: {
-            dedupe: ['vue', '@primeuix/themes'],
+            dedupe: ['vue', '@primeuix/themes', '@primeuix/utils'],
             optimizeDeps: {
                 disabled: true
             },
