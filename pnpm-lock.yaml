@@ -16,8 +16,8 @@ catalogs:
       specifier: 0.1.0-beta.1
       version: 0.1.0-beta.1
     '@primeuix/themes':
-      specifier: 0.1.0-beta.3
-      version: 0.1.0-beta.3
+      specifier: 0.1.0-beta.4
+      version: 0.1.0-beta.4
     '@primeuix/utils':
       specifier: ^0.4.0
       version: 0.4.0
@@ -83,7 +83,7 @@ importers:
     devDependencies:
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.3
+        version: 0.1.0-beta.4
       '@primevue/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -252,7 +252,7 @@ importers:
         version: 3.15.4(@types/node@18.19.74)(@vue/test-utils@2.4.6)(jiti@2.4.2)(magicast@0.3.5)(rollup@4.32.0)(terser@5.37.0)(typescript@5.7.3)(vitest@1.6.0(@types/node@18.19.74)(terser@5.37.0))(yaml@2.7.0)
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.3
+        version: 0.1.0-beta.4
       '@types/node':
         specifier: ^18.17.17
         version: 18.19.74
@@ -302,7 +302,7 @@ importers:
         version: 0.4.1
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.3
+        version: 0.1.0-beta.4
     publishDirectory: dist
 
 packages:
@@ -2001,8 +2001,8 @@ packages:
   '@primeuix/styles@0.1.0-beta.1':
     resolution: {integrity: sha512-igH5ceNtuL5zjp+Vq6fi4NjIlmlozgPrZ34cKivYtIg6id3MoD21mmd/LdH22ct8tTYYjSs43eZHir3P9yhlKQ==}
 
-  '@primeuix/themes@0.1.0-beta.3':
-    resolution: {integrity: sha512-tSrMqnHKxkjOQJt/fs4fXfqpMX6y5VizNdSMHBJvM/iKkm97oF0iKgDCQGTG+CNGFY4dPmW+DjCr64HApprApw==}
+  '@primeuix/themes@0.1.0-beta.4':
+    resolution: {integrity: sha512-/i1ODYYtl3GdYrMUsFrWFU6SJiSiw96xjmoJnXkCsX/q6GfkV7pokLSgKs9IDfF16bYhjfPz1pE65N2h1UnijQ==}
 
   '@primeuix/utils@0.4.0':
     resolution: {integrity: sha512-Z4Z0Ml1jc8cbReJsxctqET4kzRUnBoWu4Rcr5xBdiMN6mv1VyKVph6tF5bBh4lbvsdIyJmzaqAHSRNUgH8dylQ==}
@@ -8816,7 +8816,7 @@ snapshots:
     dependencies:
       '@primeuix/styled': 0.4.1
 
-  '@primeuix/themes@0.1.0-beta.3':
+  '@primeuix/themes@0.1.0-beta.4':
     dependencies:
       '@primeuix/styled': 0.4.1
 

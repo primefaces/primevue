@@ -7,4 +7,4 @@ catalog:
   '@primeuix/utils': ^0.4.0
   '@primeuix/forms': ^0.0.4
   '@primeuix/styles': 0.1.0-beta.1
-  '@primeuix/themes': 0.1.0-beta.3
+  '@primeuix/themes': 0.1.0-beta.4
