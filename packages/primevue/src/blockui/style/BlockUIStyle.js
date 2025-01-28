@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/blockui';
+import { style } from '@primeuix/styles/blockui';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -7,6 +7,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'blockui',
-    theme,
+    style,
     classes
 });

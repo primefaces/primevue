@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/avatar';
+import { style } from '@primeuix/styles/avatar';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -17,6 +17,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'avatar',
-    theme,
+    style,
     classes
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/multiselect';
+import { style } from '@primeuix/styles/multiselect';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -57,7 +57,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'multiselect',
-    theme,
+    style,
     classes,
     inlineStyles
 });

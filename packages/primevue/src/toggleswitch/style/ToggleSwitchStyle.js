@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/toggleswitch';
+import { style } from '@primeuix/styles/toggleswitch';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -21,7 +21,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'toggleswitch',
-    theme,
+    style,
     classes,
     inlineStyles
 });

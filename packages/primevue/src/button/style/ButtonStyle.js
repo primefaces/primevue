@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/button';
+import { style } from '@primeuix/styles/button';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -32,6 +32,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'button',
-    theme,
+    style,
     classes
 });

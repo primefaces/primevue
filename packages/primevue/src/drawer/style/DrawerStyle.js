@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/drawer';
+import { style } from '@primeuix/styles/drawer';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -48,7 +48,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'drawer',
-    theme,
+    style,
     classes,
     inlineStyles
 });

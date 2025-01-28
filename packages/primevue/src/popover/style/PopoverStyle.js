@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/popover';
+import { style } from '@primeuix/styles/popover';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -8,6 +8,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'popover',
-    theme,
+    style,
     classes
 });

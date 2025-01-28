@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/contextmenu';
+import { style } from '@primeuix/styles/contextmenu';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -28,6 +28,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'contextmenu',
-    theme,
+    style,
     classes
 });

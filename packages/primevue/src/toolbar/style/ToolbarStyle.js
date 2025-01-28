@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/toolbar';
+import { style } from '@primeuix/styles/toolbar';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -10,6 +10,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'toolbar',
-    theme,
+    style,
     classes
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/galleria';
+import { style } from '@primeuix/styles/galleria';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -81,6 +81,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'galleria',
-    theme,
+    style,
     classes
 });

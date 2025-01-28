@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/picklist';
+import { style } from '@primeuix/styles/picklist';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -12,6 +12,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'picklist',
-    theme,
+    style,
     classes
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/carousel';
+import { style } from '@primeuix/styles/carousel';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -55,6 +55,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'carousel',
-    theme,
+    style,
     classes
 });

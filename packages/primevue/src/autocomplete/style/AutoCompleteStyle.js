@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/autocomplete';
+import { style } from '@primeuix/styles/autocomplete';
 import { isNotEmpty } from '@primeuix/utils/object';
 import BaseStyle from '@primevue/core/base/style';
 
@@ -54,7 +54,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'autocomplete',
-    theme,
+    style,
     classes,
     inlineStyles
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/tieredmenu';
+import { style } from '@primeuix/styles/tieredmenu';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -35,7 +35,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tieredmenu',
-    theme,
+    style,
     classes,
     inlineStyles
 });

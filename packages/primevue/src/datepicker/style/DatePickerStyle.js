@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/datepicker';
+import { style } from '@primeuix/styles/datepicker';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -97,7 +97,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'datepicker',
-    theme,
+    style,
     classes,
     inlineStyles
 });

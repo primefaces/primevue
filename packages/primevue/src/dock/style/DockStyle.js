@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/dock';
+import { style } from '@primeuix/styles/dock';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -25,6 +25,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'dock',
-    theme,
+    style,
     classes
 });

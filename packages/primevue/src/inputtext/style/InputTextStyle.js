@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/inputtext';
+import { style } from '@primeuix/styles/inputtext';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -17,6 +17,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'inputtext',
-    theme,
+    style,
     classes
 });

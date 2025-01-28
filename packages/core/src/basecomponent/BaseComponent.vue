@@ -172,7 +172,7 @@ export default {
                 BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
                 BaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions }, style);
+                BaseStyle.loadStyle({ name: 'global-style', ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName('common');
             }
@@ -182,7 +182,7 @@ export default {
                 const { css, style } = this.$style?.getComponentTheme?.() || {};
 
                 this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
+                this.$style?.loadStyle({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName(this.$style.name);
             }
@@ -348,7 +348,7 @@ export default {
             return this.$primevueConfig?.theme;
         },
         $style() {
-            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
             return { nonce: this.$primevueConfig?.csp?.nonce };

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/splitter';
+import { style } from '@primeuix/styles/splitter';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -13,7 +13,7 @@ const inlineStyles = {
 
 export default BaseStyle.extend({
     name: 'splitter',
-    theme,
+    style,
     classes,
     inlineStyles
 });

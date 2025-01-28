@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/tag';
+import { style } from '@primeuix/styles/tag';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -20,6 +20,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tag',
-    theme,
+    style,
     classes
 });

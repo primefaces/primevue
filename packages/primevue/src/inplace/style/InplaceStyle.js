@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/inplace';
+import { style } from '@primeuix/styles/inplace';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -9,6 +9,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'inplace',
-    theme,
+    style,
     classes
 });

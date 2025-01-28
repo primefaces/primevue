@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/slider';
+import { style } from '@primeuix/styles/slider';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -22,7 +22,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'slider',
-    theme,
+    style,
     classes,
     inlineStyles
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/megamenu';
+import { style } from '@primeuix/styles/megamenu';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -77,7 +77,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'megamenu',
-    theme,
+    style,
     classes,
     inlineStyles
 });

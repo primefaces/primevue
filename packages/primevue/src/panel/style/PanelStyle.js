@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/panel';
+import { style } from '@primeuix/styles/panel';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -19,6 +19,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'panel',
-    theme,
+    style,
     classes
 });

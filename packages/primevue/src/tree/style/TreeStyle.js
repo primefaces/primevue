@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/tree';
+import { style } from '@primeuix/styles/tree';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -35,6 +35,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tree',
-    theme,
+    style,
     classes
 });

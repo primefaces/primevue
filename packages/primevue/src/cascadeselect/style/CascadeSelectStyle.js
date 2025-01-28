@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/cascadeselect';
+import { style } from '@primeuix/styles/cascadeselect';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -59,7 +59,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'cascadeselect',
-    theme,
+    style,
     classes,
     inlineStyles
 });

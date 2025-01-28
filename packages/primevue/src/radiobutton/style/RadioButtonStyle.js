@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/radiobutton';
+import { style } from '@primeuix/styles/radiobutton';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -20,6 +20,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'radiobutton',
-    theme,
+    style,
     classes
 });

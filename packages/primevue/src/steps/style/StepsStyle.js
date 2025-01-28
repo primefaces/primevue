@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/steps';
+import { style } from '@primeuix/styles/steps';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -18,6 +18,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'steps',
-    theme,
+    style,
     classes
 });

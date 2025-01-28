@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/rating';
+import { style } from '@primeuix/styles/rating';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -32,6 +32,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'rating',
-    theme,
+    style,
     classes
 });

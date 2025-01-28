@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/fieldset';
+import { style } from '@primeuix/styles/fieldset';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -18,6 +18,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'fieldset',
-    theme,
+    style,
     classes
 });

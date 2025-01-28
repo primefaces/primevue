@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/virtualscroller';
+import { style } from '@primeuix/styles/virtualscroller';
 import BaseStyle from '@primevue/core/base/style';
 
 const css = `
@@ -56,5 +56,5 @@ const css = `
 export default BaseStyle.extend({
     name: 'virtualscroller',
     css,
-    theme
+    style
 });

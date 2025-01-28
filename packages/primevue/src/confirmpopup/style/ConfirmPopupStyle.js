@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/confirmpopup';
+import { style } from '@primeuix/styles/confirmpopup';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -13,6 +13,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'confirmpopup',
-    theme,
+    style,
     classes
 });

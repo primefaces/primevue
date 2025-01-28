@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/inputchips';
+import { style } from '@primeuix/styles/inputchips';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -26,6 +26,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'inputchips',
-    theme,
+    style,
     classes
 });

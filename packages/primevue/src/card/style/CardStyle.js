@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/card';
+import { style } from '@primeuix/styles/card';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -14,6 +14,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'card',
-    theme,
+    style,
     classes
 });

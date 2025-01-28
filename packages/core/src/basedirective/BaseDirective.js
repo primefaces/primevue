@@ -100,7 +100,7 @@ const BaseDirective = {
             BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...useStyleOptions });
             BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...useStyleOptions });
             BaseStyle.load(global?.css, { name: 'global-variables', ...useStyleOptions });
-            BaseStyle.loadTheme({ name: 'global-style', ...useStyleOptions }, style);
+            BaseStyle.loadStyle({ name: 'global-style', ...useStyleOptions }, style);
 
             Theme.setLoadedStyleName('common');
         }
@@ -110,7 +110,7 @@ const BaseDirective = {
             const { css, style } = instance.$style?.getDirectiveTheme?.() || {};
 
             instance.$style?.load(css, { name: `${instance.$style.name}-variables`, ...useStyleOptions });
-            instance.$style?.loadTheme({ name: `${instance.$style.name}-style`, ...useStyleOptions }, style);
+            instance.$style?.loadStyle({ name: `${instance.$style.name}-style`, ...useStyleOptions }, style);
 
             Theme.setLoadedStyleName(instance.$style.name);
         }
@@ -172,7 +172,7 @@ const BaseDirective = {
                 $modifiers: binding?.modifiers,
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
-                $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...options?.style },
+                $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...options?.style },
                 $primevueConfig: config,
                 $attrSelector: el.$pd?.[name]?.attrSelector,
                 /* computed instance variables */

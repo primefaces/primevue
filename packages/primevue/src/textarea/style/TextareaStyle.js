@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/textarea';
+import { style } from '@primeuix/styles/textarea';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -18,6 +18,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'textarea',
-    theme,
+    style,
     classes
 });

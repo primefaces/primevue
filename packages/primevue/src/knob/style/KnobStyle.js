@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/knob';
+import { style } from '@primeuix/styles/knob';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -16,6 +16,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'knob',
-    theme,
+    style,
     classes
 });

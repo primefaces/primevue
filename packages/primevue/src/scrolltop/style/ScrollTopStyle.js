@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/scrolltop';
+import { style } from '@primeuix/styles/scrolltop';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -8,6 +8,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'scrolltop',
-    theme,
+    style,
     classes
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/toast';
+import { style } from '@primeuix/styles/toast';
 import BaseStyle from '@primevue/core/base/style';
 
 // Position
@@ -44,7 +44,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'toast',
-    theme,
+    style,
     classes,
     inlineStyles
 });

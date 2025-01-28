@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/speeddial';
+import { style } from '@primeuix/styles/speeddial';
 import BaseStyle from '@primevue/core/base/style';
 
 /* Direction */
@@ -42,7 +42,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'speeddial',
-    theme,
+    style,
     classes,
     inlineStyles
 });

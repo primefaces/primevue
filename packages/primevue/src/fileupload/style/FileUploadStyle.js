@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/fileupload';
+import { style } from '@primeuix/styles/fileupload';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -21,6 +21,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'fileupload',
-    theme,
+    style,
     classes
 });

@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/progressbar';
+import { style } from '@primeuix/styles/progressbar';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -15,6 +15,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'progressbar',
-    theme,
+    style,
     classes
 });

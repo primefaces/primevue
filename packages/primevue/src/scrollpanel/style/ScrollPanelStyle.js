@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/scrollpanel';
+import { style } from '@primeuix/styles/scrollpanel';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -11,6 +11,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'scrollpanel',
-    theme,
+    style,
     classes
 });

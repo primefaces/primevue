@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/treetable';
+import { style } from '@primeuix/styles/treetable';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -84,7 +84,7 @@ const inlineStyles = {
 
 export default BaseStyle.extend({
     name: 'treetable',
-    theme,
+    style,
     classes,
     inlineStyles
 });

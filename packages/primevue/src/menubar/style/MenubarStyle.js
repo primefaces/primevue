@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/menubar';
+import { style } from '@primeuix/styles/menubar';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -36,7 +36,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'menubar',
-    theme,
+    style,
     classes,
     inlineStyles
 });

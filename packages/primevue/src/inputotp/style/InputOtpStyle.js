@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/inputotp';
+import { style } from '@primeuix/styles/inputotp';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -8,6 +8,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'inputotp',
-    theme,
+    style,
     classes
 });

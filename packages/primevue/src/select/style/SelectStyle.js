@@ -1,5 +1,5 @@
+import { style } from '@primeuix/styles/select';
 import BaseStyle from '@primevue/core/base/style';
-import { theme } from '@primeuix/styles/select';
 
 const classes = {
     root: ({ instance, props, state }) => [
@@ -51,6 +51,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'select',
-    theme,
+    style,
     classes
 });

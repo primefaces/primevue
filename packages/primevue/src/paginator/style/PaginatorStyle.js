@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/paginator';
+import { style } from '@primeuix/styles/paginator';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -55,6 +55,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'paginator',
-    theme,
+    style,
     classes
 });

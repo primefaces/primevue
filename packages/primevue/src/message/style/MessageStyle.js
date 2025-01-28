@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/message';
+import { style } from '@primeuix/styles/message';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -20,6 +20,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'message',
-    theme,
+    style,
     classes
 });

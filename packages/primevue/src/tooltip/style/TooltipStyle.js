@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/tooltip';
+import { style } from '@primeuix/styles/tooltip';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -9,6 +9,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'tooltip-directive',
-    theme,
+    style,
     classes
 });

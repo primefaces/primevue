@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/badge';
+import { style } from '@primeuix/styles/badge';
 import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import BaseStyle from '@primevue/core/base/style';
 
@@ -23,6 +23,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'badge',
-    theme,
+    style,
     classes
 });

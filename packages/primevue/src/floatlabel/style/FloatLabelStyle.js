@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/floatlabel';
+import { style } from '@primeuix/styles/floatlabel';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -14,6 +14,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'floatlabel',
-    theme,
+    style,
     classes
 });

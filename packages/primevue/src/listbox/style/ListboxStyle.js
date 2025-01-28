@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/listbox';
+import { style } from '@primeuix/styles/listbox';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -30,6 +30,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'listbox',
-    theme,
+    style,
     classes
 });

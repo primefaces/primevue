@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/divider';
+import { style } from '@primeuix/styles/divider';
 import BaseStyle from '@primevue/core/base/style';
 
 /* Position */
@@ -26,7 +26,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'divider',
-    theme,
+    style,
     classes,
     inlineStyles
 });

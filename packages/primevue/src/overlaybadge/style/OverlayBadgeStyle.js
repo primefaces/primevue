@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/overlaybadge';
+import { style } from '@primeuix/styles/overlaybadge';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -7,6 +7,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'overlaybadge',
-    theme,
+    style,
     classes
 });

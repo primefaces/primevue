@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/stepper';
+import { style } from '@primeuix/styles/stepper';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -13,6 +13,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'stepper',
-    theme,
+    style,
     classes
 });

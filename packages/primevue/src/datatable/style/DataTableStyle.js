@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/datatable';
+import { style } from '@primeuix/styles/datatable';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
@@ -148,7 +148,7 @@ const inlineStyles = {
 
 export default BaseStyle.extend({
     name: 'datatable',
-    theme,
+    style,
     classes,
     inlineStyles
 });

@@ -203,7 +203,7 @@ export function setupConfig(app, PrimeVue) {
             BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...styleOptions });
             BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...styleOptions });
             BaseStyle.load(global?.css, { name: 'global-variables', ...styleOptions });
-            BaseStyle.loadTheme({ name: 'global-style', ...styleOptions }, style);
+            BaseStyle.loadStyle({ name: 'global-style', ...styleOptions }, style);
 
             Theme.setLoadedStyleName('common');
         }

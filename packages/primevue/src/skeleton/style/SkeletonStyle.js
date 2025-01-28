@@ -1,4 +1,4 @@
-import { theme } from '@primeuix/styles/skeleton';
+import { style } from '@primeuix/styles/skeleton';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
@@ -17,7 +17,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'skeleton',
-    theme,
+    style,
     classes,
     inlineStyles
 });
