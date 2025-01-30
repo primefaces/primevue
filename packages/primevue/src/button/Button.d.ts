@@ -171,7 +171,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Defines the size of the button.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Specifies the variant of the component.
      * @defaultValue undefined
