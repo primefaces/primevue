@@ -120,10 +120,10 @@ export const useForm = (options = {}) => {
                 validateFieldOn(field, fieldOptions, 'validateOnBlur');
             },
             onInput: (event) => {
-                _states[field].value = Object.hasOwn(event, 'value') ? event.value : event.target.value;
+                _states[field].value = event && Object.hasOwn(event, 'value') ? event.value : event.target.value;
             },
             onChange: (event) => {
-                _states[field].value = Object.hasOwn(event, 'value') ? event.value : event.target.type === 'checkbox' || event.target.type === 'radio' ? event.target.checked : event.target.value;
+                _states[field].value = event && Object.hasOwn(event, 'value') ? event.value : event.target.type === 'checkbox' || event.target.type === 'radio' ? event.target.checked : event.target.value;
             },
             onInvalid: (errors) => {
                 _states[field].invalid = true;
