@@ -1347,8 +1347,58 @@ export interface DataTableSlots {
     }): VNode[];
     /**
      * Custom paginator container template.
+     * @param {Object} scope - paginatorcontainer slot's params.
      */
-    paginatorcontainer(): VNode[];
+    paginatorcontainer(scope: {
+        /**
+         * Index of first record
+         */
+        first: number;
+        /**
+         * Index of last record
+         */
+        last: number;
+        /**
+         * Number of rows to display in new page
+         */
+        rows: number;
+        /**
+         * New page number
+         */
+        page: number;
+        /**
+         * Total number of pages
+         */
+        pageCount?: number;
+        /**
+         * Total records
+         */
+        totalRecords?: number;
+        /**
+         * First page function.
+         * @param {Event} event - Browser event
+         */
+        firstPageCallback: (event: Event) => void;
+        /**
+         * Last page function.
+         * @param {Event} event - Browser event
+         */
+        lastPageCallback: (event: Event) => void;
+        /**
+         * Previous page function.
+         * @param {Event} event - Browser event
+         */
+        prevPageCallback: (event: Event) => void;
+        /**
+         * Next page function.
+         * @param {Event} event - Browser event
+         */
+        nextPageCallback: (event: Event) => void;
+        /**
+         * Row change function.
+         */
+        rowChangeCallback: (value: number) => void;
+    }): VNode[];
     /**
      * Custom paginator start template.
      */
