@@ -51,7 +51,16 @@
             </div>
         </div>
         <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
-            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+            <component
+                :is="clearIcon ? 'i' : 'TimesIcon'"
+                ref="clearIcon"
+                :class="[cx('clearIcon'), clearIcon]"
+                @click="onClearClick"
+                @keydown="onClearIconKeyDown"
+                v-bind="ptm('clearIcon')"
+                data-pc-section="clearicon"
+                :tabindex="!disabled ? 0 : -1"
+            />
         </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
@@ -386,6 +395,20 @@ export default {
             this.searchValue = '';
             this.$emit('blur', event);
             this.formField.onBlur?.();
+        },
+        onClearIconKeyDown(event) {
+            if (this.disabled) {
+                event.preventDefault();
+
+                return;
+            }
+
+            switch (event.code) {
+                case 'Enter':
+                case 'NumpadEnter':
+                    this.onClearClick(event);
+                    break;
+            }
         },
         onKeyDown(event) {
             if (this.disabled) {
