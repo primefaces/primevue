@@ -20,7 +20,7 @@ const classes = {
         }
     ],
     pcInputText: 'p-autocomplete-input',
-    inputMultiple: ({ props, instance }) => [
+    inputMultiple: ({ instance }) => [
         'p-autocomplete-input-multiple',
         {
             'p-variant-filled': instance.$variant === 'filled'

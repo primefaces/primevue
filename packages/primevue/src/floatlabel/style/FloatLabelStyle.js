@@ -2,7 +2,7 @@ import { style } from '@primeuix/styles/floatlabel';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
-    root: ({ instance, props }) => [
+    root: ({ props }) => [
         'p-floatlabel',
         {
             'p-floatlabel-over': props.variant === 'over',

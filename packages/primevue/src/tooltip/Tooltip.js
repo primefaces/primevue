@@ -503,7 +503,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
         },
         getTarget(el) {
-            return hasClass(el, 'p-inputwrapper') ? findSingle(el, 'input') ?? el : el;
+            return hasClass(el, 'p-inputwrapper') ? (findSingle(el, 'input') ?? el) : el;
         },
         getModifiers(options) {
             // modifiers

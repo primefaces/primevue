@@ -28,7 +28,7 @@ const core_dependencies = {
 // create-vue -> https://github.com/vuejs/create-vue
 const getVueApp = (props = {}, sourceType) => {
     const path = 'src/';
-    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles } = props;
+    const { code: sources, title = 'primevue_demo', description = '', service, dependencies: deps, component, extFiles } = props;
     const dependencies = { ...core_dependencies, ...deps };
 
     const fileExtension = '.vue';
@@ -827,7 +827,7 @@ export default {
         }
     }
 };
-<\/script>
+</script>
 `
         },
         [`${path}plugins/appState.js`]: {

@@ -1,4 +1,4 @@
-import { addClass, removeClass } from '@primeuix/utils/dom';
+import { addClass } from '@primeuix/utils/dom';
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import { describe, expect, it, vi } from 'vitest';

@@ -3,7 +3,7 @@ import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
-    install: (Vue, options) => {
+    install: (Vue) => {
         Vue.config.globalProperties.$appState = reactive({
             preset: 'Aura',
             primary: 'noir',

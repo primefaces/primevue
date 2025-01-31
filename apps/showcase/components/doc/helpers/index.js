@@ -40,7 +40,9 @@ export const getPTOptions = (name) => {
 };
 
 export const getStyleOptions = (name) => {
-    const { members = [] } = APIDocs[name.toLowerCase() + 'style']?.enumerations?.values?.[`${name}Classes`];
+    const styleDoc = APIDocs[name.toLowerCase() + 'style'];
+    const enumValues = styleDoc && styleDoc.enumerations && styleDoc.enumerations.values;
+    const { members = [] } = enumValues ? enumValues[`${name}Classes`] || {} : {};
     let data = [];
 
     for (const member of members) {
@@ -59,16 +61,21 @@ export const getTokenOptions = (name) => {
     const values = APIDocs[`themes/${name.toLowerCase()}`]?.tokens?.values;
     let data = [];
 
-    for (const [key, value] of Object.entries(values || {})) {
-        for (const tokens of value?.props) {
-            const { token, description } = tokens;
-            const designToken = $dt(token);
+    if (values) {
+        /* eslint-disable-next-line no-unused-vars */
+        for (const [key, value] of Object.entries(values)) {
+            if (value && value.props) {
+                for (const tokens of value.props) {
+                    const { token, description } = tokens;
+                    const designToken = $dt(token);
 
-            data.push({
-                token,
-                variable: designToken.name,
-                description: description
-            });
+                    data.push({
+                        token,
+                        variable: designToken.name,
+                        description: description
+                    });
+                }
+            }
         }
     }
 

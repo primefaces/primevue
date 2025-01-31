@@ -33,6 +33,7 @@ function watchPausable(source, callback, options) {
 // @todo: move to utils
 function groupKeys(obj) {
     return Object.entries(obj).reduce((result, [key, value]) => {
+        /* eslint-disable-next-line no-useless-escape */
         key.split(/[\.\[\]]+/)
             .filter(Boolean)
             .reduce((acc, curr, idx, arr) => (acc[curr] ??= isNaN(arr[idx + 1]) ? (idx === arr.length - 1 ? value : {}) : []), result);
@@ -55,6 +56,7 @@ function getValueByPath(obj, path) {
         // do nothing and continue to other methods to resolve path data
     }
 
+    /* eslint-disable-next-line no-useless-escape */
     const keys = path.split(/[\.\[\]]+/).filter(Boolean);
 
     return keys.reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined), obj);
@@ -118,10 +120,10 @@ export const useForm = (options = {}) => {
                 validateFieldOn(field, fieldOptions, 'validateOnBlur');
             },
             onInput: (event) => {
-                _states[field].value = event.hasOwnProperty('value') ? event.value : event.target.value;
+                _states[field].value = Object.hasOwn(event, 'value') ? event.value : event.target.value;
             },
             onChange: (event) => {
-                _states[field].value = event.hasOwnProperty('value') ? event.value : event.target.type === 'checkbox' || event.target.type === 'radio' ? event.target.checked : event.target.value;
+                _states[field].value = Object.hasOwn(event, 'value') ? event.value : event.target.type === 'checkbox' || event.target.type === 'radio' ? event.target.checked : event.target.value;
             },
             onInvalid: (errors) => {
                 _states[field].invalid = true;

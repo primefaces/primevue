@@ -203,7 +203,6 @@ function addStyle() {
             try {
                 fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR + folderName + '/style')).forEach((file) => {
                     if (/\.js$/.test(file)) {
-                        const name = file.split(/(.js)$/)[0].toLowerCase();
                         const input = process.env.INPUT_DIR + folderName + '/style/' + file;
                         const output = process.env.OUTPUT_DIR + folderName + '/style/index';
 

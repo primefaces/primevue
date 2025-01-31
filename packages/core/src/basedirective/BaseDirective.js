@@ -40,7 +40,7 @@ const BaseDirective = {
             return computedValue?.[_key] ?? computedValue;
         };
 
-        return pt?.hasOwnProperty('_usept')
+        return Object.hasOwn(pt, '_usept')
             ? {
                   _usept: pt['_usept'],
                   originalValue: getValue(pt.originalValue),
@@ -51,7 +51,7 @@ const BaseDirective = {
     _usePT: (instance = {}, pt, callback, key, params) => {
         const fn = (value) => callback(value, key, params);
 
-        if (pt?.hasOwnProperty('_usept')) {
+        if (Object.hasOwn(pt, '_usept')) {
             const { mergeSections = true, mergeProps: useMergeProps = false } = pt['_usept'] || instance.$primevueConfig?.ptOptions || {};
             const originalValue = fn(pt.originalValue);
             const value = fn(pt.value);
@@ -152,6 +152,7 @@ const BaseDirective = {
         selfHook?.(instance, options);
         defaultHook?.(instance, options);
     },
+    /* eslint-disable-next-line no-unused-vars */
     _mergeProps(instance = {}, fn, ...args) {
         return isFunction(fn) ? fn(...args) : mergeProps(...args);
     },

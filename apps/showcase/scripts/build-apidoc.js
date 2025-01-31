@@ -103,10 +103,10 @@ const getTypeDoc = (typeDocOptions) => {
                         description: '',
                         values: []
                     };
-                    const emit = {
-                        description: staticMessages['emit'],
-                        values: []
-                    };
+                    // const emit = {
+                    //     description: staticMessages['emit'],
+                    //     values: []
+                    // };
 
                     if (component_props) {
                         props.description = component_props.comment ? component_props.comment.summary.map((s) => parseText(s.text || '')).join(' ') : '';
@@ -615,18 +615,16 @@ const getTypeDoc = (typeDocOptions) => {
                     module_interfaces_group &&
                         module_interfaces_group.children.forEach((event) => {
                             const event_props_description = event.comment && event.comment.summary.map((s) => s.text || '').join(' ');
-                            let component_prop = '';
-
-                            if (event.comment && event.comment.getTag('@see')) {
-                                const tag = event.comment.getTag('@see');
-                                const content = tag.content[0];
-
-                                if (content.text.includes("['")) {
-                                    component_prop = `${content.target.name}${content.text}`;
-                                } else {
-                                    component_prop = `${content.text === content.target?.name ? content.target.parent.name : content.target?.name}.${content.text}`;
-                                }
-                            }
+                            // let component_prop = '';
+                            // if (event.comment && event.comment.getTag('@see')) {
+                            // const tag = event.comment.getTag('@see');
+                            // const content = tag.content[0];
+                            // if (content.text.includes("['")) {
+                            //     component_prop = `${content.target.name}${content.text}`;
+                            // } else {
+                            //     component_prop = `${content.text === content.target?.name ? content.target.parent.name : content.target?.name}.${content.text}`;
+                            // }
+                            // }
 
                             !doc[name]['tokens'] &&
                                 (doc[name]['tokens'] = {

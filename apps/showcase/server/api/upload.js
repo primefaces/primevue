@@ -1,4 +1,4 @@
-export default defineEventHandler((event) => {
+export default defineEventHandler(() => {
     return {
         headers: { 'Access-Control-Allow-Origin': '*' },
         statusCode: 200,

@@ -9,7 +9,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
 
         target.$_pkeyfilterModifier = this.getModifiers(options);
 
-        if (typeof options.value) {
+        if (options.value !== undefined) {
             target.$_pkeyfilterPattern = options.value?.pattern || options.value;
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
@@ -26,7 +26,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
         target.$_pkeyfilterModifier = this.getModifiers(options);
         this.unbindEvents(el, options);
 
-        if (typeof options.value) {
+        if (options.value !== undefined) {
             target.$_pkeyfilterPattern = options.value?.pattern || options.value;
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
@@ -38,14 +38,14 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
     },
     DEFAULT_PATTERNS: {
         pint: /[\d]/,
-        int: /[\d\-]/,
-        pnum: /[\d\.]/,
-        money: /[\d\.\s,]/,
-        num: /[\d\-\.]/,
+        int: /[\d-]/,
+        pnum: /[\d.]/,
+        money: /[\d.\s,]/,
+        num: /[\d-.]/,
         hex: /[0-9a-f]/i,
-        email: /[a-z0-9_\.\-@]/i,
+        email: /[a-z0-9_.-@]/i,
         alpha: /[a-z_]/i,
-        alphanum: /[a-z0-9_]/i
+        alphanum: /[a-z0-9_]/
     },
     methods: {
         getTarget(el) {
