@@ -706,7 +706,9 @@ export default {
 
             if (this.autoFilterFocus && this.filter && !this.editable) {
                 this.$nextTick(() => {
-                    focus(this.$refs.filterInput.$el);
+                    if (this.$refs.filterInput) {
+                        focus(this.$refs.filterInput.$el);
+                    }
                 });
             }
 
