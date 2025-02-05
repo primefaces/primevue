@@ -222,16 +222,18 @@ export default {
                     }
                 };
 
-                xhr.open('POST', this.url, true);
+                if (this.url) {
+                    xhr.open('POST', this.url, true);
 
-                this.$emit('before-send', {
-                    xhr: xhr,
-                    formData: formData
-                });
+                    this.$emit('before-send', {
+                        xhr: xhr,
+                        formData: formData
+                    });
 
-                xhr.withCredentials = this.withCredentials;
+                    xhr.withCredentials = this.withCredentials;
 
-                xhr.send(formData);
+                    xhr.send(formData);
+                }
             }
         },
         clear() {
