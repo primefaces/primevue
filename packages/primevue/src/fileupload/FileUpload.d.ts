@@ -530,7 +530,7 @@ export interface FileUploadSlots {
         /**
          * Status messages about upload process.
          */
-        messages: string | undefined;
+        messages: string[] | null;
     }): VNode[];
     /**
      * Custom content when there is no selected file.
