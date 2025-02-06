@@ -102,6 +102,10 @@ export interface ConfirmDialogPassThroughOptions {
      */
     footer?: ConfirmDialogPassThroughOptionType;
     /**
+     * Used to pass attributes to the mask's DOM element.
+     */
+    mask?: ConfirmDialogPassThroughOptionType;
+    /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
