@@ -112,9 +112,13 @@ export interface SelectPassThroughOptions<T = any> {
      */
     clearIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the dropdown' DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
     dropdown?: SelectPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the dropdown icon's DOM element.
+     */
+    dropdownIcon?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
