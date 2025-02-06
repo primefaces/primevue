@@ -377,7 +377,7 @@
                         <td>Next Page</td>
                     </tr>
                     <tr>
-                        <td>aria.prevPageLabel</td>
+                        <td>aria.previousPageLabel</td>
                         <td>Previous Page</td>
                     </tr>
                     <tr>

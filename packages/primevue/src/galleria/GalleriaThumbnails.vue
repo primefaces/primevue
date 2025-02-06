@@ -523,7 +523,7 @@ export default {
     },
     computed: {
         ariaPrevButtonLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.prevPageLabel : undefined;
+            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.previousPageLabel : undefined;
         },
         ariaNextButtonLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.nextPageLabel : undefined;

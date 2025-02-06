@@ -103,7 +103,7 @@ export const defaultOptions = {
             firstPageLabel: 'First Page',
             lastPageLabel: 'Last Page',
             nextPageLabel: 'Next Page',
-            prevPageLabel: 'Previous Page',
+            previousPageLabel: 'Previous Page',
             rowsPerPageLabel: 'Rows per page',
             jumpToPageDropdownLabel: 'Jump to Page Dropdown',
             jumpToPageInputLabel: 'Jump to Page Input',

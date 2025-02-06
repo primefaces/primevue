@@ -12,7 +12,7 @@
         </p>
 
         <p>
-            Next and Previous navigators are button elements with <i>aria-label</i> attributes referring to the <i>aria.prevPageLabel</i> and <i>aria.nextPageLabel</i> properties of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API by
+            Next and Previous navigators are button elements with <i>aria-label</i> attributes referring to the <i>aria.previousPageLabel</i> and <i>aria.nextPageLabel</i> properties of the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API by
             default respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using <i>nextButtonProps</i> and <i>prevButtonProps</i>.
         </p>
 

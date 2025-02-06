@@ -33,7 +33,7 @@
                         />
                         <PrevPageLink
                             v-else-if="item === 'PrevPageLink'"
-                            :aria-label="getAriaLabel('prevPageLabel')"
+                            :aria-label="getAriaLabel('previousPageLabel')"
                             :template="$slots.previcon || $slots.prevpagelinkicon"
                             @click="changePageToPrev($event)"
                             :disabled="isFirstPage || empty"

@@ -55,7 +55,7 @@ export interface PrimeVueLocaleAriaOptions {
     firstPageLabel?: string;
     lastPageLabel?: string;
     nextPageLabel?: string;
-    prevPageLabel?: string;
+    previousPageLabel?: string;
     rowsPerPageLabel?: string;
     jumpToPageDropdownLabel?: string;
     jumpToPageInputLabel?: string;
