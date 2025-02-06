@@ -433,9 +433,9 @@ export default {
             const calculateFirst = (_currentIndex, _triggerIndex, _first, _last, _num, _numT, _isScrollDownOrRight, _isCols) => {
                 if (_currentIndex <= _numT) return 0;
                 const firstValue = Math.max(0, _isScrollDownOrRight ? (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) : _currentIndex > _triggerIndex ? _first : _currentIndex - 2 * _numT);
-                const maxFirst = this.getLast(firstValue, _isCols)
+                const maxFirst = this.getLast(firstValue, _isCols);
                 if (firstValue > maxFirst) return maxFirst - _num;
-                else return firstValue
+                else return firstValue;
             };
 
             const calculateLast = (_currentIndex, _first, _last, _num, _numT, _isCols) => {
