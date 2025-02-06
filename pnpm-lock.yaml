@@ -2028,9 +2028,9 @@ packages:
   '@redocly/config@0.20.3':
     resolution: {integrity: sha512-Nyyv1Bj7GgYwj/l46O0nkH1GTKWbO3Ixe7KFcn021aZipkZd+z8Vlu1BwkhqtVgivcKaClaExtWU/lDHkjBzag==}
 
-  '@redocly/openapi-core@1.28.2':
-    resolution: {integrity: sha512-nC8ZTFfp1C0RrK7OjYYJL1u0SPYdOtXbLBichCMMfsjwMuEBdGfbDNBJF07mx6/hw6rGRxPsLlvPPa7csX4UpA==}
-    engines: {node: '>=18.17.0', npm: '>=10.8.2'}
+  '@redocly/openapi-core@1.28.3':
+    resolution: {integrity: sha512-PtUnjtU9rYA+72PlN3MiR/J++PQI0q6AMV7hIHJQmtsEMtB1OU8l3duT5Txkpc6JJi7deHg66UpzVznImz3OCw==}
+    engines: {node: '>=18.17.0', npm: '>=9.5.0'}
 
   '@rollup/plugin-alias@5.1.1':
     resolution: {integrity: sha512-PR9zDb+rOzkRb2VD+EuKB7UC41vU5DIwZ5qqCpk0KJudcWAyi8rvYOhS7+L5aZCspw1stTViLgN5v6FF1p5cgQ==}
@@ -6141,8 +6141,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  tsconfck@3.1.4:
-    resolution: {integrity: sha512-kdqWFGVJqe+KGYvlSO9NIaWn9jT1Ny4oKVzAJsKii5eoE9snzTJzL4+MMVOMn+fikWGFmKEylcXL710V/kIPJQ==}
+  tsconfck@3.1.5:
+    resolution: {integrity: sha512-CLDfGgUp7XPswWnezWwsCRxNmgQjhYq3VXHM0/XIRxhVrKw0M1if9agzryh1QS3nxjCROvV+xWxoJO1YctzzWg==}
     engines: {node: ^18 || >=20}
     hasBin: true
     peerDependencies:
@@ -8505,7 +8505,7 @@ snapshots:
       nuxi: 3.3.2
       pathe: 1.1.2
       pkg-types: 1.3.1
-      tsconfck: 3.1.4(typescript@5.7.3)
+      tsconfck: 3.1.5(typescript@5.7.3)
       unbuild: 2.0.0(typescript@5.7.3)
     transitivePeerDependencies:
       - sass
@@ -8869,7 +8869,7 @@ snapshots:
 
   '@redocly/config@0.20.3': {}
 
-  '@redocly/openapi-core@1.28.2(supports-color@9.4.0)':
+  '@redocly/openapi-core@1.28.3(supports-color@9.4.0)':
     dependencies:
       '@redocly/ajv': 8.11.2
       '@redocly/config': 0.20.3
@@ -12345,7 +12345,7 @@ snapshots:
 
   openapi-typescript@7.6.1(typescript@5.7.3):
     dependencies:
-      '@redocly/openapi-core': 1.28.2(supports-color@9.4.0)
+      '@redocly/openapi-core': 1.28.3(supports-color@9.4.0)
       ansi-colors: 4.1.3
       change-case: 5.4.4
       parse-json: 8.1.0
@@ -13711,7 +13711,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  tsconfck@3.1.4(typescript@5.7.3):
+  tsconfck@3.1.5(typescript@5.7.3):
     optionalDependencies:
       typescript: 5.7.3
 
