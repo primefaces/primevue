@@ -106,7 +106,7 @@ export interface InputTextProps extends Omit<InputHTMLAttributes, 'size'> {
     invalid?: boolean | undefined | null;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
     variant?: 'outlined' | 'filled' | undefined | null;
     /**

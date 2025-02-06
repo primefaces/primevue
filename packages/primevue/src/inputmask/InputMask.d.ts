@@ -162,9 +162,9 @@ export interface InputMaskProps {
     size?: 'small' | 'large' | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: 'outlined' | 'filled' | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null

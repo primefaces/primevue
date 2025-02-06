@@ -391,9 +391,9 @@ export interface AutoCompleteProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: 'outlined' | 'filled' | undefined | null;
     /**
      * A property to uniquely identify an option.
      */
