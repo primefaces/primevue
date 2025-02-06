@@ -25,7 +25,7 @@ export default {
 <Panel
     :pt="{
         root: {
-            class='border-1 border-solid'
+            class: 'border-1 border-solid'
         },
         header: {
             'data-test-id': 'testid',
