@@ -73,11 +73,11 @@ export interface DataTableSharedPassThroughMethodOptions {
 /**
  * Custom datatable export metadata.
  */
-export interface DataTableExportFunctionOptions {
+export interface DataTableExportFunctionOptions<T = any> {
     /**
      * Row data
      */
-    data: any;
+    data: T;
     /**
      * Column Field
      */
@@ -300,7 +300,7 @@ export interface DataTableFilterEvent extends DataTableSortEvent {
  * Custom row click event.
  * @see {@link DataTableEmitsOptions['row-click']}
  */
-export interface DataTableRowClickEvent {
+export interface DataTableRowClickEvent<T = any> {
     /**
      * Browser event.
      */
@@ -308,7 +308,7 @@ export interface DataTableRowClickEvent {
     /**
      * Selected row data.
      */
-    data: any;
+    data: T;
     /**
      * Row index.
      */
@@ -333,7 +333,7 @@ export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
  * Custom row select event.
  * @see {@link DataTableEmitsOptions['row-select']}
  */
-export interface DataTableRowSelectEvent {
+export interface DataTableRowSelectEvent<T = any> {
     /**
      * Browser event
      */
@@ -341,7 +341,7 @@ export interface DataTableRowSelectEvent {
     /**
      * Selected row data
      */
-    data: any;
+    data: T;
     /**
      * Row index
      */
@@ -363,7 +363,7 @@ export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
  * Custom row select all event.
  * @see {@link DataTableEmitsOptions['row-select-all']}
  */
-export interface DataTableRowSelectAllEvent {
+export interface DataTableRowSelectAllEvent<T = any> {
     /**
      * Browser event
      */
@@ -371,7 +371,7 @@ export interface DataTableRowSelectAllEvent {
     /**
      * Selected dataset
      */
-    data: any;
+    data: T;
 }
 
 /**
@@ -461,7 +461,7 @@ export interface DataTableRowReorderEvent {
  * Custom row expand event.
  * @see {@link DataTableEmitsOptions['row-expand']}
  */
-export interface DataTableRowExpandEvent {
+export interface DataTableRowExpandEvent<T = any> {
     /**
      * Browser event
      */
@@ -469,7 +469,7 @@ export interface DataTableRowExpandEvent {
     /**
      * Expanded row data
      */
-    data: any;
+    data: T;
 }
 
 /**
@@ -483,7 +483,7 @@ export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
  * Custom cell edit init event.
  * @see {@link DataTableEmitsOptions['cell-edit-init']}
  */
-export interface DataTableCellEditInitEvent {
+export interface DataTableCellEditInitEvent<T = any> {
     /**
      * Browser event
      */
@@ -491,7 +491,7 @@ export interface DataTableCellEditInitEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * Field name of the row data.
      */
@@ -513,7 +513,7 @@ export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent
  * Custom cell edit complete event.
  * @see {@link DataTableEmitsOptions['cell-edit-complete']}
  */
-export interface DataTableCellEditCompleteEvent {
+export interface DataTableCellEditCompleteEvent<T = any> {
     /**
      * Browser event
      */
@@ -521,11 +521,11 @@ export interface DataTableCellEditCompleteEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * New row data after editing.
      */
-    newData: any;
+    newData: T;
     /**
      * Field value of row data to edit.
      */
@@ -552,7 +552,7 @@ export interface DataTableCellEditCompleteEvent {
  * Custom row edit init event.
  * @see {@link DataTableEmitsOptions['row-edit-init']}
  */
-export interface DataTableRowEditInitEvent {
+export interface DataTableRowEditInitEvent<T = any> {
     /**
      * Browser event
      */
@@ -560,11 +560,11 @@ export interface DataTableRowEditInitEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * New row data after editing.
      */
-    newData: any;
+    newData: T;
     /**
      * Field name of the row data.
      */
@@ -580,14 +580,14 @@ export interface DataTableRowEditInitEvent {
  * @see {@link DataTableEmitsOptions['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
-export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditSaveEvent<T = any> extends DataTableRowEditInitEvent<T> {}
 
 /**
  *  Custom row edit cancel event.
  * @see {@link DataTableEmitsOptions['row-edit-cancel']}
  * @extends DataTableRowEditCancelEvent
  */
-export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditCancelEvent<T = any> extends DataTableRowEditInitEvent<T> {}
 
 /**
  * Custom state event.
@@ -880,7 +880,7 @@ export interface DataTableContext {
 /**
  * Defines valid properties in DataTable component.
  */
-export interface DataTableProps {
+export interface DataTableProps<T = any> {
     /**
      * An array of objects to display.
      */
@@ -1013,7 +1013,7 @@ export interface DataTableProps {
     /**
      * 	An array of fields as string or function to use in global filtering.
      */
-    globalFilterFields?: (string | ((data: any) => string))[] | undefined;
+    globalFilterFields?: (string | ((data: T) => string))[] | undefined;
     /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
@@ -1021,7 +1021,7 @@ export interface DataTableProps {
     /**
      * Selected row in single mode or an array of values in multiple mode.
      */
-    selection?: any[] | any | undefined;
+    selection?: T[] | T | undefined;
     /**
      * Specifies the selection mode.
      */
@@ -1129,18 +1129,18 @@ export interface DataTableProps {
     /**
      * A collection of rows to represent the current editing data in row edit mode.
      */
-    editingRows?: any[] | DataTableEditingRows;
+    editingRows?: T[] | DataTableEditingRows;
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      * The return value is added to the row's :classes array (see Vue.js class bindings).
      */
-    rowClass?: (data: any) => string | object | undefined;
+    rowClass?: (data: T) => string | object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style object for the corresponding row.
      * The function may also return an array of style objects which will be merged.
      * The return value of this function is directly applied as a Vue.js style-binding on the table row.
      */
-    rowStyle?: (data: any) => object | object[] | undefined;
+    rowStyle?: (data: T) => object | object[] | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false
@@ -1253,7 +1253,7 @@ export interface DataTableProps {
 /**
  * Defines valid slots in DataTable component.
  */
-export interface DataTableSlots {
+export interface DataTableSlots<T = any> {
     /**
      * Custom header template.
      */
@@ -1274,7 +1274,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1288,7 +1288,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1307,7 +1307,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1471,7 +1471,7 @@ export interface DataTableSlots {
 /**
  * Defines valid emits in Datatable component.
  */
-export interface DataTableEmitsOptions {
+export interface DataTableEmitsOptions<T = any> {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -1501,7 +1501,7 @@ export interface DataTableEmitsOptions {
      * Emitted when the selection changes.
      * @param {*} value - New value.
      */
-    'update:selection'(value: any[] | any | undefined): void;
+    'update:selection'(value: T[] | T | undefined): void;
     /**
      * Emitted when the contextMenuSelection changes.
      * @param {*} value - New value.
@@ -1511,12 +1511,12 @@ export interface DataTableEmitsOptions {
      * Emitted when the expandedRows changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRows'(value: any[] | DataTableExpandedRows): void;
+    'update:expandedRows'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the expandedRowGroups changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRowGroups'(value: any[] | DataTableExpandedRows): void;
+    'update:expandedRowGroups'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the filters changes.
      * @param {DataTableFilterMeta} value - New value.
@@ -1526,7 +1526,7 @@ export interface DataTableEmitsOptions {
      * Emitted when the editingRows changes.
      * @param {DataTableEditingRows} value - New value.
      */
-    'update:editingRows'(value: any[] | DataTableEditingRows): void;
+    'update:editingRows'(value: T[] | DataTableEditingRows): void;
     /**
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {DataTablePageEvent} event - Custom page event.
@@ -1546,7 +1546,7 @@ export interface DataTableEmitsOptions {
      * Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.
      * @param {*} value - Value displayed by the table.
      */
-    'value-change'(value: any[]): void;
+    'value-change'(value: T[]): void;
     /**
      * Callback to invoke when a row is clicked.
      * @param {DataTableRowClickEvent} event - Custom row click event.
