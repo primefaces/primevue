@@ -37,7 +37,6 @@
                                 :class="cx('itemLink')"
                                 :target="processedItem.target"
                                 tabindex="-1"
-                                aria-hidden="true"
                                 v-bind="getPTOptions('itemLink', processedItem, index)"
                             >
                                 <!-- TODO: icon deprecated since v4.0-->
