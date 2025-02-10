@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getAttribute, focus, findSingle } from '@primeuix/utils/dom';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
@@ -128,10 +128,10 @@ export default {
             return equals(this.$pcTabs?.d_value, this.value);
         },
         id() {
-            return `${this.$pcTabs?.id}_tab_${this.value}`;
+            return `${this.$pcTabs?.$id}_tab_${this.value}`;
         },
         ariaControls() {
-            return `${this.$pcTabs?.id}_tabpanel_${this.value}`;
+            return `${this.$pcTabs?.$id}_tabpanel_${this.value}`;
         },
         attrs() {
             return mergeProps(this.asAttrs, this.a11yAttrs, this.ptmi('root', this.ptParams));
