@@ -5,14 +5,20 @@
         </NuxtLink>
     </div>
 
-    <div class="text-lg font-semibold mb-2">License Key</div>
+    <div class="text-lg font-semibold mb-2">Authenticate</div>
     <span class="block text-muted-color leading-6 mb-4"
         >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistand and cloud storage are not available.
         <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
     >
-    <form @submit.prevent class="flex gap-4">
-        <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" />
-        <button type="button" @click="activate(false)" icon="pi pi-download" :disabled="!licenseKey" class="btn-design">Activate</button>
+    <span class="block text-muted-color leading-6 mb-4">License Key and Passkey are available at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>.</span>
+    <form v-if="!$appState.designer.verified" @submit.prevent class="flex gap-4">
+        <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" placeholder="License Key" />
+        <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Passkey" />
+        <button type="button" @click="activate(false)" class="btn-design">Activate</button>
+    </form>
+    <form v-else @submit.prevent class="flex gap-4">
+        <input value="***********************************************************" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" placeholder="License Key" disabled />
+        <button type="button" @click="signOut" class="btn-design">Sign Out</button>
     </form>
 
     <div class="flex justify-between items-center mb-2 mt-6">
@@ -77,7 +83,8 @@ export default {
     inject: ['designerService'],
     data() {
         return {
-            licenseKey: this.$appState.designer.licenseKey,
+            licenseKey: null,
+            otp: null,
             loading: false,
             currentTheme: null,
             confirmDialogVisible: false,
@@ -121,40 +128,70 @@ export default {
         };
     },
     created() {
-        if (!this.$appState.designer.licenseKey) {
-            const keyValue = localStorage.getItem(this.$appState.designer.localStoreKey);
-
-            if (keyValue) {
-                this.licenseKey = keyValue;
-                this.activate(true);
-            }
-        } else {
+        if (this.$appState.designer.verified) {
             this.loadThemes();
         }
     },
     methods: {
         async activate(silent) {
-            const { data, error } = await $fetch(this.designerApiBase + '/license/verify/' + this.licenseKey);
+            const { data, error } = await $fetch(this.designerApiBase + '/license/signin/' + this.licenseKey, {
+                credentials: 'include',
+                query: {
+                    passkey: this.otp
+                }
+            });
 
             if (error) {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
                 if (data.valid) {
-                    this.$appState.designer.licenseKey = this.licenseKey;
-                    this.$appState.designer.ticket = data.ticket;
+                    this.$appState.designer.verified = true;
                     this.$appState.designer.themeLimit = data.themeLimit;
 
                     this.loadThemes();
-
-                    localStorage.setItem(this.$appState.designer.localStoreKey, this.licenseKey);
 
                     if (!silent) {
                         this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                     }
                 } else {
-                    this.$toast.add({ severity: 'warn', summary: 'Unable to Activate', detail: 'Invalid key', life: 3000 });
+                    this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Invalid key.', life: 3000 });
                     this.$appState.designer.themes = [];
                 }
+            }
+        },
+        async signOut() {
+            const { data } = await $fetch(this.designerApiBase + '/license/signout/', {
+                credentials: 'include'
+            });
+
+            if (data.signout) {
+                this.$appState.designer.verified = false;
+                this.$appState.designer.themeLimit = null;
+                this.$appState.designer.themes = [];
+                this.$appState.designer.acTokens = [];
+
+                this.$appState.designer = {
+                    verified: false,
+                    ticket: null,
+                    themeLimit: null,
+                    active: true,
+                    activeView: 'dashboard',
+                    activeTab: '0',
+                    theme: {
+                        key: null,
+                        name: null,
+                        preset: null,
+                        config: null
+                    },
+                    acTokens: [],
+                    themes: []
+                };
+
+                this.licenseKey = null;
+                this.otp = null;
+                this.currentTheme = null;
+
+                usePreset(Aura);
             }
         },
         openNewTheme() {
@@ -165,9 +202,9 @@ export default {
         async loadThemes() {
             this.loading = true;
             const { data, error } = await $fetch(this.designerApiBase + '/theme/list/', {
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.designerService.getCSRFToken()
                 }
             });
 
@@ -181,9 +218,9 @@ export default {
         },
         async loadTheme(theme) {
             const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + theme.t_key, {
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.designerService.getCSRFToken()
                 }
             });
 
@@ -197,9 +234,9 @@ export default {
         async renameTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/rename/' + theme.t_key, {
                 method: 'PATCH',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.designerService.getCSRFToken()
                 },
                 body: {
                     name: theme.t_name
@@ -213,9 +250,9 @@ export default {
         async deleteTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/delete/' + theme.t_key, {
                 method: 'DELETE',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.designerService.getCSRFToken()
                 }
             });
 
@@ -228,9 +265,9 @@ export default {
         async duplicateTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/duplicate/' + theme.t_key, {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.designerService.getCSRFToken()
                 }
             });
 

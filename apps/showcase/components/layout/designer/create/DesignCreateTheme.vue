@@ -107,16 +107,17 @@ export default {
                 document.body.classList.remove('material');
             }
 
-            if (this.$appState.designer.licenseKey) {
+            if (this.$appState.designer.verified) {
                 const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
-                        Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                        'X-License-Key': this.$appState.designer.licenseKey
+                        'X-CSRF-Token': this.designerService.getCSRFToken()
                     },
                     body: {
                         name: this.themeName,
                         preset: newPreset,
+                        project: 'primevue',
                         config: {
                             fontSize: '14px',
                             fontFamily: 'Inter var'
@@ -135,12 +136,12 @@ export default {
         },
         async createThemeFromFigma() {
             if (this.figmaData) {
-                if (this.$appState.designer.licenseKey) {
+                if (this.$appState.designer.verified) {
                     const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
                         method: 'POST',
+                        credentials: 'include',
                         headers: {
-                            Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                            'X-License-Key': this.$appState.designer.licenseKey
+                            'X-CSRF-Token': this.designerService.getCSRFToken()
                         },
                         body: {
                             name: this.themeName,

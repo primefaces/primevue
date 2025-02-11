@@ -53,7 +53,8 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette
+                replaceColorPalette: this.replaceColorPalette,
+                getCSRFToken: this.getCSRFToken
             }
         };
     },
@@ -61,6 +62,14 @@ export default {
         return {
             deferredTabs: true
         };
+    },
+    async mounted() {
+        const { data } = await $fetch(this.designerApiBase + '/license/restore', {
+            credentials: 'include'
+        });
+
+        this.$appState.designer.verified = data.valid;
+        this.$appState.designer.themeLimit = data.themeLimit;
     },
     methods: {
         onShow() {
@@ -70,15 +79,15 @@ export default {
             this.deferredTabs = true;
         },
         async downloadTheme(theme) {
-            if (!this.$appState.designer.licenseKey) {
-                this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required to download', life: 3000 });
+            if (!this.$appState.designer.verified) {
+                this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required for download.', life: 3000 });
             } else {
                 try {
                     const response = await $fetch(this.designerApiBase + '/theme/download/' + theme.t_key, {
                         responseType: 'blob',
+                        credentials: 'include',
                         headers: {
-                            Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                            'X-License-Key': this.$appState.designer.licenseKey
+                            'X-CSRF-Token': this.getCSRFToken()
                         },
                         query: {
                             library: 'primevue'
@@ -106,9 +115,9 @@ export default {
         async saveTheme(theme) {
             const { error } = await $fetch(this.designerApiBase + '/theme/update', {
                 method: 'PATCH',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.getCSRFToken()
                 },
                 body: {
                     key: theme.key,
@@ -122,7 +131,7 @@ export default {
             }
         },
         applyTheme(theme) {
-            if (this.$appState.designer.licenseKey) {
+            if (this.$appState.designer.verified) {
                 this.saveTheme(theme);
             }
 
@@ -212,6 +221,14 @@ export default {
             document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
             this.replaceColorPalette();
             this.refreshACTokens();
+        },
+        getCSRFToken() {
+            const name = 'X-CSRF-Token';
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            else return null;
         }
     },
     computed: {
