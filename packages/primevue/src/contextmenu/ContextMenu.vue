@@ -577,7 +577,7 @@ export default {
             const element = findSingle(this.list, `li[id="${id}"]`);
 
             if (element) {
-                element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                element.scrollIntoView && element.scrollIntoView({ block: 'nearest' });
             }
         },
         createProcessedItems(items, level = 0, parent = {}, parentKey = '') {

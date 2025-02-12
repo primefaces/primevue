@@ -498,7 +498,7 @@ export default {
                 let selectedItem = findSingle(this.overlay, '[data-p-selected="true"]');
 
                 if (selectedItem) {
-                    selectedItem.scrollIntoView({ block: 'nearest', inline: 'start' });
+                    selectedItem.scrollIntoView({ block: 'nearest' });
                 }
             }
         }
