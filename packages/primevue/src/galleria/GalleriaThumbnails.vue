@@ -421,6 +421,12 @@ export default {
             }
         },
         changePageOnTouch(e, diff) {
+            const touchThreshold = 10
+
+            if(Math.abs(diff) < touchThreshold) {
+                // only a click/tap
+                return;
+            }
             if (diff < 0) {
                 // left
                 this.navForward(e);
