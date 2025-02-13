@@ -1,5 +1,5 @@
 import APIDocs from '@/doc/common/apidoc/index.json';
-import { $dt } from '@primeuix/themes';
+import ComponentTokens from '@primeuix/themes/tokens';
 
 export const getPTOptions = (name) => {
     const { props } = APIDocs[name.toLowerCase()].interfaces.values[`${name}PassThroughOptions`] || APIDocs[name.toLowerCase()].interfaces.values[`${name}DirectivePassThroughOptions`];
@@ -58,24 +58,17 @@ export const getStyleOptions = (name) => {
 };
 
 export const getTokenOptions = (name) => {
-    const values = APIDocs[`themes/${name.toLowerCase()}`]?.tokens?.values;
     let data = [];
 
-    if (values) {
-        /* eslint-disable-next-line no-unused-vars */
-        for (const [key, value] of Object.entries(values)) {
-            if (value && value.props) {
-                for (const tokens of value.props) {
-                    const { token, description } = tokens;
-                    const designToken = $dt(token);
+    if (ComponentTokens[name.toLowerCase()]) {
+        const tokens = ComponentTokens[name.toLowerCase()].tokens;
 
-                    data.push({
-                        token,
-                        variable: designToken.name,
-                        description: description
-                    });
-                }
-            }
+        for (const [_, value] of Object.entries(tokens)) {
+            data.push({
+                token: value.token,
+                variable: value.variable,
+                description: value.description
+            });
         }
     }
 

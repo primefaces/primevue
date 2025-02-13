@@ -693,10 +693,5 @@ const inlineDocs = getTypeDoc({
     entryPoints: ['../../packages/primevue', '../../packages/forms']
 });
 
-const themeDocs = getTypeDoc({
-    name: 'PrimeUIX',
-    entryPoints: ['../../node_modules/@primeuix/themes/types']
-});
-
 !fs.existsSync(outputPath) && fs.mkdirSync(outputPath);
-fs.writeFileSync(path.resolve(outputPath, 'index.json'), JSON.stringify({ ...inlineDocs, ...themeDocs }, null, 4));
+fs.writeFileSync(path.resolve(outputPath, 'index.json'), JSON.stringify({ ...inlineDocs }, null, 4));
