@@ -66,9 +66,9 @@ export default {
         }
     },
     mounted() {
-        this.$nextTick(() => {
+        setTimeout(() => {
             this.updateInkBar();
-        });
+        }, 150);
 
         if (this.showNavigators) {
             this.updateButtonState();
