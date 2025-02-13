@@ -5,12 +5,7 @@ const classes = {
     root: ({ props }) => [
         'p-tag p-component',
         {
-            'p-tag-info': props.severity === 'info',
-            'p-tag-success': props.severity === 'success',
-            'p-tag-warn': props.severity === 'warn',
-            'p-tag-danger': props.severity === 'danger',
-            'p-tag-secondary': props.severity === 'secondary',
-            'p-tag-contrast': props.severity === 'contrast',
+            [`p-tag-${props.severity}`]: props.severity,
             'p-tag-rounded': props.rounded
         }
     ],
