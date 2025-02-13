@@ -591,12 +591,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }
