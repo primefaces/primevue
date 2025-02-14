@@ -26,9 +26,10 @@ export default {
                             templateHeroData: {
                                 logo: markRaw(PoseidonLogo),
                                 pattern: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/hero-background.png',
-                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/poseidon-hero-dashboard1.png',
-                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/poseidon-hero-dashboard2.png',
-                                description: 'A modern and easy to use premium application template with various color schemes.Based on flat design language, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
+                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-hero-1.jpg',
+                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-hero-2.jpg',
+                                description:
+                                    'Experience a modern, user-friendly premium application template featuring a variety of color schemes. Based on flat design principles, it is fully responsive and touch-optimized, built with SASS, CSS3, and HTML5.',
                                 liveHref: 'https://poseidon.primevue.org',
                                 docHref: 'https://poseidon.primevue.org/documentation',
                                 pattern: {
@@ -69,39 +70,65 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'Light / Dark / Dim Modes',
-                                    description: 'Poseidon offers you 3 uniquely designed layout modes to choose from; Light, Dim, and Dark.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-darkmode.png'
+                                    title: 'Light / Dark Modes',
+                                    description: 'Poseidon offers light and dark color schemes with alternative color palettes.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-lightdark.png'
                                 },
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Poseidon offers 12 built-in component themes with dark, light and dim options. Also if you wanna create your own theme you can do it by just defining couple SASS variables.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-component-themes.png'
+                                    description: 'Poseidon offers 17 fully customizable built-in themes featuring two different presets; Aura and Lara.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-component.png'
                                 },
                                 {
                                     id: 3,
-                                    title: '3 Menu Orientations',
-                                    description: 'Poseidon has 3 menu layouts to choose from; Static, Overlay and Horizontal.',
+                                    title: '7 Menu Orientations',
+                                    description: 'Poseidon has 7 menu layouts to choose from; Static, Overlay, Horizontal, Compact, Slim, Reveal and Drawer.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-orientations.png',
                                     type: 'inline-animation',
                                     inlineFeaturesData: [
                                         {
                                             id: 1,
                                             title: 'Static',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/Static.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-static.png'
                                         },
                                         {
                                             id: 2,
                                             title: 'Overlay',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/Overlay.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-overlay.png'
                                         },
                                         {
                                             id: 3,
                                             title: 'Horizontal',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/Horizontal.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-horizontal.png'
+                                        },
+                                        {
+                                            id: 4,
+                                            title: 'Drawer',
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-drawer.png'
+                                        },
+                                        {
+                                            id: 5,
+                                            title: 'Slim',
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-slim.png'
+                                        },
+                                        {
+                                            id: 6,
+                                            title: 'Compact',
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-compact.png'
+                                        },
+                                        {
+                                            id: 7,
+                                            title: 'Reveal',
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-reveal.png'
                                         }
                                     ]
+                                },
+                                {
+                                    id: 4,
+                                    title: 'Application Themes',
+                                    description: 'The application layout and components seamlessly complements your brand color.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-layout.png'
                                 }
                             ]
                         }
@@ -121,9 +148,9 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'PrimeFlex CSS Utilities',
-                                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-utilities.png'
+                                    title: 'Tailwind CSS',
+                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-tailwind.png'
                                 },
                                 {
                                     id: 2,
@@ -136,6 +163,13 @@ export default {
                                     title: 'PrimeIcons',
                                     description: 'Poseidon ships with PrimeIcons, PrimeTek’s modern icon library including a wide range of icons for your applications.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-icons.png'
+                                },
+                                {
+                                    id: 4,
+                                    title: 'Figma File',
+                                    description:
+                                        'Poseidon uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can <a href="https://www.figma.com/design/eMNbyxsMp3H0PQbMyyGK77/Preview-%7C-Poseidon?node-id=0-1&t=wJRSplRnKvjqju9S-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> the Figma file before the purchase. Note that PrimeVue UI components are excluded from the Poseidon Figma file as they are available in PrimeOne for Figma only.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-figma.png'
                                 }
                             ]
                         },
@@ -151,8 +185,8 @@ export default {
                             featuresData: [
                                 {
                                     title: 'Fully Responsive',
-                                    description: 'Apollo is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/poseidon-features2-responsive.png'
+                                    description: 'Poseidon is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-responsive.png'
                                 },
                                 {
                                     title: 'Support',
@@ -160,12 +194,6 @@ export default {
                                         can seek assistance in our community via our public <a href="https://discord.com/invite/gzKFYnpmCY">Discord</a> and
                                         <a href="https://github.com/orgs/primefaces/discussions/categories/primevue-templates" class="doc-link">Forum</a>.`,
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-lifetime.png'
-                                },
-                                {
-                                    title: 'Top Notch Quality',
-                                    description: 'Superior standards with 100% compatibility for strict mode and linting tools.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality.png',
-                                    darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality-dark.png'
                                 },
                                 {
                                     title: 'Cross Browser Compatible',
@@ -182,7 +210,12 @@ export default {
                                 {
                                     title: 'Mobile Experience',
                                     description: 'Touch optimized enhanced mobile experience with responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-mobile.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-mobile.png'
+                                },
+                                {
+                                    title: 'Ready to Use Pages',
+                                    description: 'Landing, dashboards, user management, mail, chat, authentication and many more to discover.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-pages.png'
                                 }
                             ],
                             displayType: 'vertical'
