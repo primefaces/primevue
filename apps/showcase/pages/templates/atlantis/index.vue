@@ -141,8 +141,8 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'PrimeFlex CSS Utilities',
-                                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
+                                    title: 'Tailwind CSS',
+                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/features-animation-utilities.png'
                                 },
                                 {

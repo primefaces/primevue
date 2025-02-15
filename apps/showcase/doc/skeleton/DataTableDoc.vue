@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Sample DataTable implementation using different Skeleton components and PrimeFlex CSS utilities.</p>
+        <p>Sample DataTable implementation using different Skeleton components and Tailwind CSS utilities.</p>
     </DocSectionText>
     <div class="card">
         <DataTable :value="products">

@@ -3161,7 +3161,7 @@
         }
     },
     "animateonscrollstyle": {
-        "description": "AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load.\n\n[Live Demo](https://primevue.org/animateonscroll)",
+        "description": "AnimateOnScroll manages CSS classes declaratively to during enter/leave animations on scroll or on page load.\n\n[Live Demo](https://primevue.org/animateonscroll)",
         "interfaces": {
             "description": "Defines the custom interfaces used by the module.",
             "eventDescription": "Defines the custom events used by the component's emit.",

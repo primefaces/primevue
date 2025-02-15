@@ -75,7 +75,7 @@ export interface AnimateOnScrollDirectiveBinding extends Omit<DirectiveBinding, 
 /**
  * **PrimeVue - AnimateOnScroll**
  *
- * _AnimateOnScroll manages PrimeFlex CSS classes declaratively to during enter/leave animations on scroll or on page load._
+ * _AnimateOnScroll manages CSS classes declaratively to during enter/leave animations on scroll or on page load._
  *
  * [Live Demo](https://www.primevue.org/animateonscroll/)
  * --- ---
