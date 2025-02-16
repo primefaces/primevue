@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
-                        <div class="shrink-0 p-4 bg-indigo-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">Figma UI Kit</div>
+                        <div class="shrink-0 p-4 bg-indigo-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">FIGMA UI KIT</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-indigo-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Updates to Sync PrimeVue Design Tokens</h2>
