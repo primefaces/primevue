@@ -140,9 +140,8 @@
 .card {
     padding: 0;
     min-height: 15rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 }
 
 .card a {
