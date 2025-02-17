@@ -79,7 +79,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerAPI: runtimeConfig.public.designerAPI
         };
     },
     inject: ['designerService'],
@@ -108,7 +108,7 @@ export default {
             }
 
             if (this.$appState.designer.verified) {
-                const { data, error } = await $fetch(this.designerApiBase + '/theme/create', {
+                const { data, error } = await $fetch(this.designerAPI + '/theme/create', {
                     method: 'POST',
                     credentials: 'include',
                     headers: {
@@ -119,8 +119,8 @@ export default {
                         preset: newPreset,
                         project: 'primevue',
                         config: {
-                            fontSize: '14px',
-                            fontFamily: 'Inter var'
+                            font_size: '14px',
+                            font_family: 'Inter var'
                         }
                     }
                 });
@@ -137,7 +137,7 @@ export default {
         async createThemeFromFigma() {
             if (this.figmaData) {
                 if (this.$appState.designer.verified) {
-                    const { data, error } = await $fetch(this.designerApiBase + '/theme/figma', {
+                    const { data, error } = await $fetch(this.designerAPI + '/theme/figma', {
                         method: 'POST',
                         credentials: 'include',
                         headers: {
@@ -146,9 +146,10 @@ export default {
                         body: {
                             name: this.themeName,
                             figma_tokens: this.figmaData,
+                            project: 'primevue',
                             config: {
-                                fontSize: '14px',
-                                fontFamily: 'Inter var'
+                                font_size: '14px',
+                                font_family: 'Inter var'
                             }
                         }
                     });
@@ -194,8 +195,8 @@ export default {
                 key: t_key,
                 preset: preset,
                 config: {
-                    fontSize: '14px',
-                    fontFamily: 'Inter var'
+                    font_size: '14px',
+                    font_family: 'Inter var'
                 }
             };
             this.designerService.replaceColorPalette();

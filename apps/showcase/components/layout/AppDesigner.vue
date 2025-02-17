@@ -41,7 +41,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerAPI: runtimeConfig.public.designerAPI
         };
     },
     provide() {
@@ -64,12 +64,19 @@ export default {
         };
     },
     async mounted() {
-        const { data } = await $fetch(this.designerApiBase + '/license/restore', {
+        const { data, error } = await $fetch(this.designerAPI + '/license/restore', {
             credentials: 'include'
         });
 
-        this.$appState.designer.verified = data.valid;
-        this.$appState.designer.themeLimit = data.themeLimit;
+        if (error) {
+            this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+        } else {
+            this.$appState.designer.verified = data.valid;
+
+            if (data.valid) {
+                this.$appState.designer.themeLimit = data.themeLimit;
+            }
+        }
     },
     methods: {
         onShow() {
@@ -83,7 +90,7 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required for download.', life: 3000 });
             } else {
                 try {
-                    const response = await $fetch(this.designerApiBase + '/theme/download/' + theme.t_key, {
+                    const response = await $fetch(this.designerAPI + '/theme/download/' + theme.t_key, {
                         responseType: 'blob',
                         credentials: 'include',
                         headers: {
@@ -113,7 +120,7 @@ export default {
             }
         },
         async saveTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/update', {
+            const { error } = await $fetch(this.designerAPI + '/theme/update', {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
@@ -217,13 +224,13 @@ export default {
             };
 
             usePreset(this.$appState.designer.theme.preset);
-            this.applyFont(this.$appState.designer.theme.config.fontFamily);
-            document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
+            this.applyFont(this.$appState.designer.theme.config.font_family);
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
             this.replaceColorPalette();
             this.refreshACTokens();
         },
         getCSRFToken() {
-            const name = 'X-CSRF-Token';
+            const name = '_p_csrf_token';
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
 

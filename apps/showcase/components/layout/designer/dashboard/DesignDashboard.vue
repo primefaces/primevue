@@ -7,13 +7,13 @@
 
     <div class="text-lg font-semibold mb-2">Authenticate</div>
     <span class="block text-muted-color leading-6 mb-4"
-        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistand and cloud storage are not available.
+        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistant and cloud storage are not available.
         <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
     >
-    <span class="block text-muted-color leading-6 mb-4">License Key and Passkey are available at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>.</span>
+    <span class="block text-muted-color leading-6 mb-4">License key and pass key are available at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>.</span>
     <form v-if="!$appState.designer.verified" @submit.prevent class="flex gap-4">
         <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" placeholder="License Key" />
-        <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Passkey" />
+        <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Pass Key" />
         <button type="button" @click="activate(false)" class="btn-design">Activate</button>
     </form>
     <form v-else @submit.prevent class="flex gap-4">
@@ -72,12 +72,15 @@
 </template>
 
 <script>
+import { usePreset } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+
 export default {
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerAPI: runtimeConfig.public.designerAPI
         };
     },
     inject: ['designerService'],
@@ -133,8 +136,8 @@ export default {
         }
     },
     methods: {
-        async activate(silent) {
-            const { data, error } = await $fetch(this.designerApiBase + '/license/signin/' + this.licenseKey, {
+        async activate() {
+            const { data, error } = await $fetch(this.designerAPI + '/license/signin/' + this.licenseKey, {
                 credentials: 'include',
                 query: {
                     passkey: this.otp
@@ -150,9 +153,7 @@ export default {
 
                     this.loadThemes();
 
-                    if (!silent) {
-                        this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
-                    }
+                    this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                 } else {
                     this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Invalid key.', life: 3000 });
                     this.$appState.designer.themes = [];
@@ -160,16 +161,11 @@ export default {
             }
         },
         async signOut() {
-            const { data } = await $fetch(this.designerApiBase + '/license/signout/', {
+            const { data } = await $fetch(this.designerAPI + '/license/signout/', {
                 credentials: 'include'
             });
 
             if (data.signout) {
-                this.$appState.designer.verified = false;
-                this.$appState.designer.themeLimit = null;
-                this.$appState.designer.themes = [];
-                this.$appState.designer.acTokens = [];
-
                 this.$appState.designer = {
                     verified: false,
                     ticket: null,
@@ -192,6 +188,8 @@ export default {
                 this.currentTheme = null;
 
                 usePreset(Aura);
+                document.body.classList.remove('material');
+                this.$primevue.config.ripple = false;
             }
         },
         openNewTheme() {
@@ -201,7 +199,7 @@ export default {
         },
         async loadThemes() {
             this.loading = true;
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/list/', {
+            const { data, error } = await $fetch(this.designerAPI + '/theme/list/', {
                 credentials: 'include',
                 headers: {
                     'X-CSRF-Token': this.designerService.getCSRFToken()
@@ -217,7 +215,7 @@ export default {
             this.loading = false;
         },
         async loadTheme(theme) {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + theme.t_key, {
+            const { data, error } = await $fetch(this.designerAPI + '/theme/load/' + theme.t_key, {
                 credentials: 'include',
                 headers: {
                     'X-CSRF-Token': this.designerService.getCSRFToken()
@@ -232,7 +230,7 @@ export default {
             }
         },
         async renameTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/rename/' + theme.t_key, {
+            const { error } = await $fetch(this.designerAPI + '/theme/rename/' + theme.t_key, {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
@@ -248,7 +246,7 @@ export default {
             }
         },
         async deleteTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/delete/' + theme.t_key, {
+            const { error } = await $fetch(this.designerAPI + '/theme/delete/' + theme.t_key, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -263,7 +261,7 @@ export default {
             }
         },
         async duplicateTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/duplicate/' + theme.t_key, {
+            const { error } = await $fetch(this.designerAPI + '/theme/duplicate/' + theme.t_key, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
