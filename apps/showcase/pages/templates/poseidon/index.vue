@@ -150,12 +150,12 @@ export default {
                                     id: 1,
                                     title: 'Tailwind CSS',
                                     description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-tailwind.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/common/tailwind.png'
                                 },
                                 {
                                     id: 2,
                                     title: 'PrimeBlocks',
-                                    description: 'Fully compatible with PrimeBlocks, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the template and requires a separate purchase.',
+                                    slotType: 'description2',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/features-animation-blocks.png'
                                 },
                                 {
@@ -167,16 +167,19 @@ export default {
                                 {
                                     id: 4,
                                     title: 'Figma File',
-                                    description:
-                                        'Poseidon uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can <a href="https://www.figma.com/design/eMNbyxsMp3H0PQbMyyGK77/Preview-%7C-Poseidon?node-id=0-1&t=wJRSplRnKvjqju9S-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> the Figma file before the purchase. Note that PrimeVue UI components are excluded from the Poseidon Figma file as they are available in PrimeOne for Figma only.',
+                                    slotType: 'description4',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-figma.png'
                                 }
                             ]
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
-                template and requires a separate purchase.`
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
+                    template and requires a separate purchase.`,
+                            description4: `
+                    Poseidon uses Figma as the design tool. It will be possible to download the Figma file after your purchase.
+                    You can <a href="https://www.figma.com/design/eMNbyxsMp3H0PQbMyyGK77/Preview-%7C-Poseidon?node-id=0-1&t=wJRSplRnKvjqju9S-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> the Figma file before the purchase.
+                    Note that PrimeVue UI components are excluded from the Poseidon Figma file as they are available in PrimeOne for Figma only.`
                         }
                     },
                     {
