@@ -230,12 +230,22 @@ export default {
             this.refreshACTokens();
         },
         getCSRFToken() {
-            const name = '_p_csrf_token';
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
+            const cookie = this.getCookie('_p_csrf_token');
+            console.log('CSRF Cookie:' + cookie);
+            return cookie;
+        },
+        getCookie(name) {
+            var cookieArr = document.cookie.split(";");
 
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            else return null;
+            for(var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+
+                if(name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            return null;
         }
     },
     computed: {
