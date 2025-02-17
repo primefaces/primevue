@@ -58,6 +58,7 @@
         "prettier": "3.4.2",
         "rollup-plugin-postcss": "^4.0.0",
         "rollup-plugin-vue": "^6.0.0-beta.9",
+        "tailwindcss-primeui": "^0.4.0",
         "typescript": "^4.9.4"
     },
     "publishConfig": {
