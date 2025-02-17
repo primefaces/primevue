@@ -16,7 +16,7 @@ const $appState = {
             storageKey: 'primevue',
             designer: {
                 verified: false,
-                ticket: null,
+                csrfToken: null,
                 themeLimit: null,
                 active: false,
                 activeView: 'dashboard',

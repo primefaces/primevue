@@ -108,7 +108,7 @@ export default {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -141,7 +141,7 @@ export default {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 

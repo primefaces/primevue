@@ -53,8 +53,7 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette,
-                getCSRFToken: this.getCSRFToken
+                replaceColorPalette: this.replaceColorPalette
             }
         };
     },
@@ -74,6 +73,7 @@ export default {
             this.$appState.designer.verified = data.valid;
 
             if (data.valid) {
+                this.$appState.designer.csrfToken = data.csrfToken;
                 this.$appState.designer.themeLimit = data.themeLimit;
             }
         }
@@ -94,7 +94,7 @@ export default {
                         responseType: 'blob',
                         credentials: 'include',
                         headers: {
-                            'X-CSRF-Token': this.getCSRFToken()
+                            'X-CSRF-Token': this.$appState.designer.csrfToken
                         },
                         query: {
                             library: 'primevue'
@@ -124,7 +124,7 @@ export default {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 },
                 body: {
                     key: theme.key,
@@ -228,11 +228,6 @@ export default {
             document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
             this.replaceColorPalette();
             this.refreshACTokens();
-        },
-        getCSRFToken() {
-            const cookie = this.getCookie('_p_csrf_token');
-            console.log('CSRF Cookie:' + cookie);
-            return cookie;
         },
         getCookie(name) {
             var cookieArr = document.cookie.split(";");

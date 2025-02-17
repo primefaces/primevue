@@ -149,6 +149,7 @@ export default {
             } else {
                 if (data.valid) {
                     this.$appState.designer.verified = true;
+                    this.$appState.designer.csrfToken = data.csrfToken;
                     this.$appState.designer.themeLimit = data.themeLimit;
 
                     this.loadThemes();
@@ -202,7 +203,7 @@ export default {
             const { data, error } = await $fetch(this.designerAPI + '/theme/list/', {
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -218,7 +219,7 @@ export default {
             const { data, error } = await $fetch(this.designerAPI + '/theme/load/' + theme.t_key, {
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -234,7 +235,7 @@ export default {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 },
                 body: {
                     name: theme.t_name
@@ -250,7 +251,7 @@ export default {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -265,7 +266,7 @@ export default {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
