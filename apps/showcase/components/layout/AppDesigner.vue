@@ -53,8 +53,7 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette,
-                getCSRFToken: this.getCSRFToken
+                replaceColorPalette: this.replaceColorPalette
             }
         };
     },
@@ -74,6 +73,7 @@ export default {
             this.$appState.designer.verified = data.valid;
 
             if (data.valid) {
+                this.$appState.designer.csrfToken = data.csrfToken;
                 this.$appState.designer.themeLimit = data.themeLimit;
             }
         }
@@ -94,7 +94,7 @@ export default {
                         responseType: 'blob',
                         credentials: 'include',
                         headers: {
-                            'X-CSRF-Token': this.getCSRFToken()
+                            'X-CSRF-Token': this.$appState.designer.csrfToken
                         },
                         query: {
                             library: 'primevue'
@@ -124,7 +124,7 @@ export default {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 },
                 body: {
                     key: theme.key,
@@ -229,13 +229,18 @@ export default {
             this.replaceColorPalette();
             this.refreshACTokens();
         },
-        getCSRFToken() {
-            const name = '_p_csrf_token';
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
+        getCookie(name) {
+            var cookieArr = document.cookie.split(";");
 
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            else return null;
+            for(var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+
+                if(name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            return null;
         }
     },
     computed: {

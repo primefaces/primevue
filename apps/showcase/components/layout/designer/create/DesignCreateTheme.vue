@@ -112,7 +112,7 @@ export default {
                     method: 'POST',
                     credentials: 'include',
                     headers: {
-                        'X-CSRF-Token': this.designerService.getCSRFToken()
+                        'X-CSRF-Token': this.$appState.designer.csrfToken
                     },
                     body: {
                         name: this.themeName,
@@ -141,7 +141,7 @@ export default {
                         method: 'POST',
                         credentials: 'include',
                         headers: {
-                            'X-CSRF-Token': this.designerService.getCSRFToken()
+                            'X-CSRF-Token': this.$appState.designer.csrfToken
                         },
                         body: {
                             name: this.themeName,
