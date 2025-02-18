@@ -1,5 +1,5 @@
 <template>
-    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
+    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" blockScroll @after-show="onShow" @after-hide="onHide">
         <template #container="{ closeCallback }">
             <div class="flex items-center justify-between p-5">
                 <div class="flex items-center gap-2">
@@ -34,7 +34,7 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset, usePreset } from '@primeuix/themes';
+import { $dt, usePreset } from '@primeuix/themes';
 
 export default {
     setup() {
@@ -53,7 +53,7 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette
+                resolveColor: this.resolveColor
             }
         };
     },
@@ -140,9 +140,10 @@ export default {
         applyTheme(theme) {
             if (this.$appState.designer.verified) {
                 this.saveTheme(theme);
+                this.refreshACTokens();
             }
 
-            updatePreset(theme.preset);
+            usePreset(theme.preset);
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
@@ -163,7 +164,7 @@ export default {
                         const regex = /\.\d+$/;
 
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
-                        const tokenValue = $dt(tokenName).value;
+                        const tokenValue = obj[key];
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
 
                         this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
@@ -207,11 +208,6 @@ export default {
                 // silent fail as some fonts may have not all the font weights
             }
         },
-        replaceColorPalette() {
-            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
-            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
-            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
-        },
         toggleDarkMode() {
             EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
         },
@@ -226,7 +222,6 @@ export default {
             usePreset(this.$appState.designer.theme.preset);
             this.applyFont(this.$appState.designer.theme.config.font_family);
             document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
-            this.replaceColorPalette();
             this.refreshACTokens();
         },
         getCookie(name) {
@@ -241,6 +236,14 @@ export default {
             }
 
             return null;
+        },
+        resolveColor(token) {
+            if (token.startsWith('{') && token.endsWith('}')) {
+                let cssVariable = $dt(token).variable.slice(4, -1);
+                return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+            } else {
+                return token;
+            }
         }
     },
     computed: {

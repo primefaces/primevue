@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { usePreset } from '@primeuix/themes';
+
 export default {
     inject: ['designerService'],
     data() {
@@ -61,6 +63,7 @@ export default {
             });
 
             this.designerService.saveTheme(this.$appState.designer.theme);
+            usePreset(this.$appState.designer.theme.preset);
             this.designerService.refreshACTokens();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },
