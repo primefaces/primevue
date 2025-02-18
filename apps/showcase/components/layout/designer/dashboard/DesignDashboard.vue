@@ -195,8 +195,6 @@ export default {
                 this.currentTheme = null;
 
                 usePreset(Aura);
-                document.body.classList.remove('material');
-                this.$primevue.config.ripple = false;
             }
         },
         openNewTheme() {

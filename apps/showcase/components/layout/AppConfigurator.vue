@@ -306,13 +306,6 @@ export default {
             const preset = presets[value];
             const surfacePalette = this.surfaces.find((s) => s.name === this.selectedSurfaceColor)?.palette;
 
-            if (value === 'Material') {
-                document.body.classList.add('material');
-                this.$primevue.config.ripple = true;
-            } else {
-                document.body.classList.remove('material');
-            }
-
             $t().preset(preset).preset(this.getPresetExt()).surfacePalette(surfacePalette).use({ useDefaultOptions: true });
         },
         onRTLChange(value) {

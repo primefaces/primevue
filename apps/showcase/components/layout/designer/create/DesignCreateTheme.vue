@@ -103,13 +103,6 @@ export default {
             } else {
                 const newPreset = presets[this.basePreset];
 
-                if (this.basePreset === 'Material') {
-                    document.body.classList.add('material');
-                    this.$primevue.config.ripple = true;
-                } else {
-                    document.body.classList.remove('material');
-                }
-
                 if (this.$appState.designer.verified) {
                     const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
                         method: 'POST',

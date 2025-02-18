@@ -73,8 +73,7 @@ export default defineNuxtConfig({
             ],
             link: [
                 { rel: 'icon', href: baseUrl + 'favicon.ico' },
-                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400|Roboto:500|Roboto:600|Roboto:700', fetchpriority: 'low' }
+                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
             ],
             script: [
                 {
