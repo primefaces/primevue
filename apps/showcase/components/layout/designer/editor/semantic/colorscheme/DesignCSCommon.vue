@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Surface</span>
-                <input :value="designerService.resolveColor($colorScheme.surface['500'])" @input="onSurfaceColorChange($event)" type="color" />
+                <input :value="designerService.resolveColor($colorScheme.surface['500'])" @input="onSurfaceColorChange($event)" type="color" @blur="onColorPickerBlur" />
             </div>
             <DesignColorPalette :value="$colorScheme.surface" />
         </section>
@@ -86,6 +86,9 @@ export default {
     methods: {
         onSurfaceColorChange(event) {
             this.$colorScheme.surface = { ...{ 0: '#ffffff' }, ...palette(event.target.value) };
+        },
+        onColorPickerBlur() {
+            this.designerService.refreshACTokens();
         }
     }
 };

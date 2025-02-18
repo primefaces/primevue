@@ -1,5 +1,5 @@
 <template>
-    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
+    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" blockScroll @after-show="onShow" @after-hide="onHide">
         <template #container="{ closeCallback }">
             <div class="flex items-center justify-between p-5">
                 <div class="flex items-center gap-2">
@@ -164,7 +164,7 @@ export default {
                         const regex = /\.\d+$/;
 
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
-                        const tokenValue = $dt(tokenName).value;
+                        const tokenValue = obj[key];
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
 
                         this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });

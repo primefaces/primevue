@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
-                <input :value="designerService.resolveColor($appState.designer.theme.preset.semantic.primary['500'])" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" />
+                <input :value="designerService.resolveColor($appState.designer.theme.preset.semantic.primary['500'])" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" @onBlur="onColorPickerBlur" />
             </div>
             <DesignColorPalette :value="$appState.designer.theme.preset.semantic.primary" />
         </section>
@@ -56,6 +56,9 @@ export default {
     methods: {
         onPrimaryColorChange(event) {
             this.$appState.designer.theme.preset.semantic.primary = palette(event.target.value);
+        },
+        onColorPickerBlur() {
+            this.designerService.refreshACTokens();
         }
     }
 };
