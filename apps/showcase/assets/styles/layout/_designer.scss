@@ -25,15 +25,15 @@
     }
 
     &.p-drawer {
-        background: light-dark(var(--p-surface-0), var(--p-surface-900));
-        border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
-        color: light-dark(#09090b, #ffffff);
+        background: var(--overlay-background);
+        border-color: var(--border-color);
+        color: var(--high-contrast-text-color);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     }
 
     .p-fieldset {
         background: transparent;
-        border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
+        border-color: var(--border-color);
         border-radius: 4px;
         color: inherit;
         padding: 0 1.125rem 1.125rem 1.125rem;
@@ -84,15 +84,15 @@
         .p-tablist-tab-list {
             background: transparent;
             border-style: solid;
-            border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
+            border-color: var(--border-color);
             border-width: 0 0 1px 0;
         }
 
         .p-tab {
             background: transparent;
             border-width: 0 0 1px 0;
-            border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
-            color: light-dark(var(--p-surface-500), var(--p-surface-400));
+            border-color: var(--border-color);
+            color: var(--text-secondary-color);
             padding: 1rem 1.125rem;
             font-weight: 600;
             transition: none;
@@ -102,19 +102,19 @@
         .p-tab:not(.p-tab-active):not(.p-disabled):hover {
             background: transparent;
             border-color: transparent;
-            color: light-dark(var(--p-surface-700), var(--p-surface-0));
+            color: var(--high-contrast-text-color);
         }
 
         .p-tab-active {
             background: transparent;
             border-color: transparent;
-            color: light-dark(#09090b, #ffffff);
+            color: var(--high-contrast-text-color);
         }
 
         .p-tablist-active-bar {
             inset-block-end: -1px;
             height: 1px;
-            background: light-dark(#09090b, #ffffff);
+            background: var(--high-contrast-text-color);
             transition: 250ms cubic-bezier(0.35, 0, 0.25, 1);
         }
 
@@ -128,12 +128,12 @@
     .p-accordion {
         .p-accordionpanel {
             border-width: 0 0 1px 0;
-            border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
+            border-color: var(--border-color);
         }
 
         .p-accordionheader {
             padding: 1.125rem;
-            color: light-dark(var(--p-surface-500), var(--p-surface-400));
+            color: var(--text-secondary-color);
             background: transparent;
             border-width: 0;
             border-color: unset;
@@ -159,13 +159,13 @@
         }
 
         .p-accordionheader-toggle-icon {
-            color: light-dark(var(--p-surface-500), var(--p-surface-400));
+            color: var(--text-secondary-color);
         }
 
         .p-accordionpanel:not(.p-accordionpanel-active):not(.p-disabled)>.p-accordionheader:hover,
         .p-accordionpanel:not(.p-disabled).p-accordionpanel-active>.p-accordionheader {
             background: transparent;
-            color: light-dark(var(--p-surface-700), var(--p-surface-0));
+            color: var(--text-color);
         }
 
         .p-accordionpanel:not(.p-accordionpanel-active):not(.p-disabled) .p-accordionheader:hover .p-accordionheader-toggle-icon,
@@ -175,7 +175,7 @@
 
         .p-accordioncontent-content {
             border-width: 0;
-            border-color: light-dark(var(--p-surface-200), var(--p-surface-700));
+            border-color: var(--border-color);
             background-color: transparent;
             color: inherit;
             padding: 0 1.125rem 1.125rem 1.125rem;
@@ -184,21 +184,21 @@
 
     .p-fileupload-choose-button {
         padding: 0.5rem 0.75rem;
-        background: light-dark(#09090b, #ffffff);
-        border-color: light-dark(#09090b, #ffffff);
-        color: light-dark(#ffffff, #000000);
+        background: var(--designer-primary-color);
+        border-color: var(--designer-primary-color);
+        color: var(--designer-primary-contrast-color);
         cursor: pointer;
         font-weight: medium;
         border-radius: 4px;
         transition: background 0.2s;
 
         &:hover {
-            background: light-dark(#27272a, #f3f4f6);
-            border-color: light-dark(#27272a, #f3f4f6);
+            background: var(--designer-primary--emphasis-color);
+            border-color: var(--designer-primary--emphasis-color);
         }
 
         &:focus-visible {
-            outline: 1px solid light-dark(#09090b, #ffffff);
+            outline: 1px solid var(--designer-primary-color);
             outline-offset: 2px;
             box-shadow: none;
         }
