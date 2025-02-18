@@ -13,6 +13,16 @@
         cursor: pointer;
     }
 
+    input:focus-visible {
+        outline: 1px solid var(--designer-focus-outline-color);
+        outline-offset: 0px;
+    }
+
+    button:focus-visible {
+        outline: 1px solid var(--designer-focus-outline-color);
+        outline-offset: 2px;
+    }
+
     .p-icon,
     .pi {
         font-size: 14px !important;
@@ -63,7 +73,11 @@
             background: transparent;
             border: 0 none;
             border-radius: 4px;
-            outline-color: transparent;
+
+            &:focus-visible {
+                outline: 1px solid var(--designer-focus-outline-color);
+                outline-offset: -1px;
+            }
         }
 
         .p-fieldset-toggle-icon {
@@ -104,6 +118,11 @@
             font-weight: 600;
             transition: none;
             margin: 0 0 -1px 0;
+
+            &:focus-visible {
+                outline: 1px solid var(--designer-focus-outline-color);
+                outline-offset: -1px;
+            }
         }
 
         .p-tab:not(.p-tab-active):not(.p-disabled):hover {
@@ -130,6 +149,13 @@
             color: inherit;
             padding: 0.875rem 0 1.125rem 0;
         }
+
+        .p-tabpanel {
+            &:focus-visible {
+                outline: 1px solid var(--designer-focus-outline-color);
+                outline-offset: 0;
+            }
+        }
     }
 
     .p-accordion {
@@ -147,6 +173,11 @@
             font-weight: 600;
             border-radius: 4px;
             transition: none;
+
+            &:focus-visible {
+                outline: 1px solid var(--designer-focus-outline-color);
+                outline-offset: -1px;
+            }
         }
 
         .p-accordionpanel:first-child>.p-accordionheader {

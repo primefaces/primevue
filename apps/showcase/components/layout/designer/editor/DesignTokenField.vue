@@ -2,7 +2,7 @@
     <div class="group">
         <div class="flex justify-between justify-items-center">
             <label :for="inputId" class="text-xs text-zinc-700 dark:text-white/70 block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap mb-px" :title="label">{{ label }}</label>
-            <button v-if="switchable" type="button" @click="transfer">
+            <button v-if="switchable" type="button" @click="transfer" tabindex="-1">
                 <i class="pi pi-sort-alt !text-xs text-zinc-500 dark:text-white/50 hidden group-hover:block animate-fadein" title="Transfer between color scheme and common"></i>
             </button>
         </div>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import { uuid } from '@primeuix/utils';
 import { $dt } from '@primeuix/themes';
+import { uuid } from '@primeuix/utils';
 
 export default {
     emits: ['update:modelValue'],
