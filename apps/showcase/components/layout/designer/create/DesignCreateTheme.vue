@@ -210,7 +210,6 @@ export default {
             this.designerService.applyFont('Inter var');
             document.documentElement.style.fontSize = '14px';
 
-            this.designerService.replaceColorPalette();
             usePreset(preset);
             this.designerService.refreshACTokens();
 

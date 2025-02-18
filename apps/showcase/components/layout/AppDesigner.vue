@@ -53,7 +53,7 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette
+                resolveColor: this.resolveColor
             }
         };
     },
@@ -207,11 +207,6 @@ export default {
                 // silent fail as some fonts may have not all the font weights
             }
         },
-        replaceColorPalette() {
-            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
-            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
-            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
-        },
         toggleDarkMode() {
             EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
         },
@@ -240,6 +235,14 @@ export default {
             }
 
             return null;
+        },
+        resolveColor(token) {
+            if (token.startsWith('{') && token.endsWith('}')) {
+                let cssVariable = $dt(token).variable.slice(4, -1);
+                return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+            } else {
+                return token;
+            }
         }
     },
     computed: {

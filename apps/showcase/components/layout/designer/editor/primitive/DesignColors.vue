@@ -4,7 +4,7 @@
             <section v-if="key !== 'borderRadius'" class="flex justify-between items-center mb-4 gap-8">
                 <div class="flex gap-2 items-center">
                     <span class="text-sm capitalize block w-20">{{ key }}</span>
-                    <input :value="$appState.designer.theme.preset.primitive[key]['500']" @input="onColorChange($event, key)" type="color" />
+                    <input :value="designerService.resolveColor($appState.designer.theme.preset.primitive[key]['500'])" @input="onColorChange($event, key)" type="color" />
                 </div>
                 <DesignColorPalette :value="$appState.designer.theme.preset.primitive[key]" />
             </section>
@@ -16,6 +16,7 @@
 import { palette } from '@primeuix/themes';
 
 export default {
+    inject: ['designerService'],
     methods: {
         onColorChange(event, color) {
             this.$appState.designer.theme.preset.primitive[color] = palette(event.target.value);

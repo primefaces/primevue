@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
-                <input :value="$appState.designer.theme.preset.semantic.primary['500']" @input="onPrimaryColorChange($event)" type="color" />
+                <input :value="designerService.resolveColor($appState.designer.theme.preset.semantic.primary['500'])" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" />
             </div>
             <DesignColorPalette :value="$appState.designer.theme.preset.semantic.primary" />
         </section>
@@ -52,6 +52,7 @@
 import { palette } from '@primeuix/themes';
 
 export default {
+    inject: ['designerService'],
     methods: {
         onPrimaryColorChange(event) {
             this.$appState.designer.theme.preset.semantic.primary = palette(event.target.value);
