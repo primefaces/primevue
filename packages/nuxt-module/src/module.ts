@@ -101,12 +101,15 @@ const config = runtimeConfig?.public?.primevue ?? {};
 const { options = {} } = config;
 
 const stylesToTop = [${registered.injectStylesAsStringToTop.join('')}].join('');
+const styleParams = {
+    ${options?.prefix ? `prefix: '${options?.prefix}'` : ''}
+}
 const styleProps = {
-    ${options?.csp?.nonce ? `nonce: ${options?.csp?.nonce}` : ''}
+    ${options?.csp?.nonce ? `nonce: '${options?.csp?.nonce}'` : ''}
 }
 const styles = [
     ${registered.injectStylesAsString.join('')},
-    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleProps) : ''`).join(',')}
+    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getStyleSheet ? ${item.as}.getStyleSheet(undefined, styleParams, styleProps) : ''`).join(',')}
 ].join('');
 
 ${hasTheme ? `Theme.setTheme(${importTheme?.as} || options?.theme)` : ''}
@@ -116,8 +119,8 @@ const themes = ${
                     ? `[]`
                     : `
 [
-    ${`${uniqueRegisteredStyles?.[0].as} && ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet ? ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet(undefined, styleProps) : ''`},
-    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(undefined, styleProps) : ''`).join(',')}
+    ${uniqueRegisteredStyles?.[0].as} && ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet ? ${uniqueRegisteredStyles?.[0].as}.getCommonThemeStyleSheet(styleParams, styleProps) : '',
+    ${uniqueRegisteredStyles?.map((item: MetaType) => `${item.as} && ${item.as}.getThemeStyleSheet ? ${item.as}.getThemeStyleSheet(styleParams, styleProps) : ''`).join(',')}
 ].join('');`
             }
 

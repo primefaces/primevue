@@ -584,7 +584,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event.target)) {
+                    const target = event.composedPath()[0];
+                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(target)) {
                         this.overlayVisible = false;
                     }
 

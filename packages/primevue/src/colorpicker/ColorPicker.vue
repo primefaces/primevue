@@ -465,8 +465,8 @@ export default {
             !this.isUnstyled && addClass(this.$el, 'p-colorpicker-dragging');
             event.preventDefault();
         },
-        isInputClicked(event) {
-            return this.$refs.input && this.$refs.input.isSameNode(event.target);
+        isInputClicked(target) {
+            return this.$refs.input && this.$refs.input.isSameNode(target);
         },
         bindDragListeners() {
             this.bindDocumentMouseMoveListener();
@@ -479,7 +479,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.picker && !this.picker.contains(event.target) && !this.isInputClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.overlayVisible && this.picker && !this.picker.contains(target) && !this.isInputClicked(target)) {
                         this.overlayVisible = false;
                     }
                 };

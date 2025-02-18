@@ -223,7 +223,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.isOutsideTopbarMenuClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.isOutsideTopbarMenuClicked(target)) {
                         this.unbindOutsideClickListener();
                     }
                 };
@@ -237,8 +238,8 @@ export default {
                 this.outsideClickListener = null;
             }
         },
-        isOutsideTopbarMenuClicked(event) {
-            return !(this.$refs.topbarMenu.isSameNode(event.target) || this.$refs.topbarMenu.contains(event.target));
+        isOutsideTopbarMenuClicked(target) {
+            return !(this.$refs.topbarMenu.isSameNode(target) || this.$refs.topbarMenu.contains(target));
         },
         containerRef(el) {
             this.container = el;

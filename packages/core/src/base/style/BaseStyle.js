@@ -1,6 +1,6 @@
 import { css as Css, Theme, dt } from '@primeuix/styled';
 import { style } from '@primeuix/styles/base';
-import { isNotEmpty, minifyCSS, resolve } from '@primeuix/utils/object';
+import { isNotEmpty, transformCSS, resolve } from '@primeuix/utils/object';
 import { useStyle } from '@primevue/core/usestyle';
 
 const css = ({ dt }) => `
@@ -28,71 +28,89 @@ const classes = {};
 
 const inlineStyles = {};
 
-export default {
+export const getBaseStyleInstance = (Theme, dt, Css) => ({
     name: 'base',
+    Theme,
+    dt,
+    Css,
     css,
     style,
     classes,
     inlineStyles,
     load(style, options = {}, transform = (cs) => cs) {
-        const computedStyle = transform(Css`${style}`);
+        const computedStyle = transform(this.Css`${style}`);
 
-        return isNotEmpty(computedStyle) ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
+        return isNotEmpty(computedStyle) ? useStyle(transformCSS(computedStyle, options), { name: this.name, ...options }) : {};
     },
     loadCSS(options = {}) {
         return this.load(this.css, options);
     },
     loadStyle(options = {}, style = '') {
-        return this.load(this.style, options, (computedStyle = '') => Theme.transformCSS(options.name || this.name, `${computedStyle}${Css`${style}`}`));
+        return this.load(this.style, options, (computedStyle = '') => this.Theme.transformCSS(options.name || this.name, `${computedStyle}${this.Css`${style}`}`));
     },
     getCommonTheme(params) {
-        return Theme.getCommon(this.name, params);
+        return this.Theme.getCommon(this.name, params);
     },
     getComponentTheme(params) {
-        return Theme.getComponent(this.name, params);
+        return this.Theme.getComponent(this.name, params);
     },
     getDirectiveTheme(params) {
-        return Theme.getDirective(this.name, params);
+        return this.Theme.getDirective(this.name, params);
     },
     getPresetTheme(preset, selector, params) {
-        return Theme.getCustomPreset(this.name, preset, selector, params);
+        return this.Theme.getCustomPreset(this.name, preset, selector, params);
     },
     getLayerOrderThemeCSS() {
-        return Theme.getLayerOrderCSS(this.name);
+        return this.Theme.getLayerOrderCSS(this.name);
     },
-    getStyleSheet(extendedCSS = '', props = {}) {
+    getStyleSheet(extendedCSS = '', params = {}, props = {}) {
         if (this.css) {
-            const _css = resolve(this.css, { dt }) || '';
-            const _style = minifyCSS(Css`${_css}${extendedCSS}`);
+            const _css = resolve(this.css, { dt: this.dt }) || '';
+            const _style = transformCSS(this.Css`${_css}${extendedCSS}`, params);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
+            let id = this.name;
 
-            return isNotEmpty(_style) ? `<style type="text/css" data-primevue-style-id="${this.name}" ${_props}>${_style}</style>` : '';
+            if (params?.prefix) {
+                id = id ? `${params.prefix}_${id}` : id;
+            }
+
+            return isNotEmpty(_style) ? `<style type="text/css" data-primevue-style-id="${id}" ${_props}>${_style}</style>` : '';
         }
 
         return '';
     },
     getCommonThemeStyleSheet(params, props = {}) {
-        return Theme.getCommonStyleSheet(this.name, params, props);
+        return this.Theme.getCommonStyleSheet(this.name, params, props);
     },
     getThemeStyleSheet(params, props = {}) {
-        let css = [Theme.getStyleSheet(this.name, params, props)];
+        let css = [this.Theme.getStyleSheet(this.name, params, props)];
 
         if (this.style) {
             const name = this.name === 'base' ? 'global-style' : `${this.name}-style`;
-            const _css = Css`${resolve(this.style, { dt })}`;
-            const _style = minifyCSS(Theme.transformCSS(name, _css));
+            const _css = this.Css`${resolve(this.style, { dt: this.dt })}`;
+            const _style = transformCSS(this.Theme.transformCSS(name, _css), params);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
+            let id = name;
 
-            isNotEmpty(_style) && css.push(`<style type="text/css" data-primevue-style-id="${name}" ${_props}>${_style}</style>`);
+            if (params?.prefix) {
+                id = id ? `${params.prefix}_${id}` : id;
+            }
+
+            isNotEmpty(_style) && css.push(`<style type="text/css" data-primevue-style-id="${id}" ${_props}>${_style}</style>`);
         }
 
         return css.join('');
     },
     extend(inStyle) {
         return { ...this, css: undefined, style: undefined, ...inStyle };
+    },
+    bindInstance(BaseStyle) {
+        return { ...this, Theme: BaseStyle.Theme, dt: BaseStyle.dt, Css: BaseStyle.Css };
     }
-};
+});
+
+export default getBaseStyleInstance(Theme, dt, Css);

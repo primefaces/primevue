@@ -21,6 +21,7 @@ export function useStyle(css, options = {}) {
     const defaultDocument = isClient() ? window.document : undefined;
     const {
         document = defaultDocument,
+        prefix = undefined,
         immediate = true,
         manual = false,
         name = `style_${++_id}`,
@@ -33,6 +34,7 @@ export function useStyle(css, options = {}) {
         onLoad: onStyleLoaded = undefined,
         props = {}
     } = options;
+    const root = options.root?.host ? options.root : defaultDocument;
 
     let stop = () => {};
 
@@ -41,9 +43,14 @@ export function useStyle(css, options = {}) {
         if (!document) return;
 
         const _styleProps = { ...props, ..._props };
-        const [_name, _id, _nonce] = [_styleProps.name || name, _styleProps.id || id, _styleProps.nonce || nonce];
+        let [_name, _id, _nonce] = [_styleProps.name || name, _styleProps.id || id, _styleProps.nonce || nonce];
 
-        styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
+        if (prefix) {
+            _name = _name ? `${prefix}_${_name}` : _name;
+            _id = _id ? `${prefix}_${_id}` : _id;
+        }
+
+        styleRef.value = root.querySelector(`style[data-primevue-style-id="${_name}"]`) || root.getElementById(_id) || document.createElement('style');
 
         if (!styleRef.value.isConnected) {
             cssRef.value = _css || css;
@@ -54,7 +61,7 @@ export function useStyle(css, options = {}) {
                 media,
                 nonce: _nonce
             });
-            first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
+            first ? (root.head || root).prepend(styleRef.value) : (root.head || root).appendChild(styleRef.value);
             setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             setAttributes(styleRef.value, _styleProps);
             styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
@@ -78,7 +85,7 @@ export function useStyle(css, options = {}) {
     const unload = () => {
         if (!document || !isLoaded.value) return;
         stop();
-        isExist(styleRef.value) && document.head.removeChild(styleRef.value);
+        isExist(styleRef.value) && (root.head || root).removeChild(styleRef.value);
         isLoaded.value = false;
         styleRef.value = null;
     };

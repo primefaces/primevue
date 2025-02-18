@@ -824,7 +824,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.overlayVisible && this.overlay && this.isOutsideClicked(target)) {
                         this.hide();
                     }
                 };
@@ -871,15 +872,15 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isOutsideClicked(event) {
-            return !this.overlay.contains(event.target) && !this.isInputClicked(event) && !this.isDropdownClicked(event);
+        isOutsideClicked(target) {
+            return !this.overlay.contains(target) && !this.isInputClicked(target) && !this.isDropdownClicked(target);
         },
-        isInputClicked(event) {
-            if (this.multiple) return event.target === this.$refs.multiContainer || this.$refs.multiContainer.contains(event.target);
-            else return event.target === this.$refs.focusInput.$el;
+        isInputClicked(target) {
+            if (this.multiple) return target === this.$refs.multiContainer || this.$refs.multiContainer.contains(target);
+            else return target === this.$refs.focusInput.$el;
         },
-        isDropdownClicked(event) {
-            return this.$refs.dropdownButton ? event.target === this.$refs.dropdownButton || this.$refs.dropdownButton.contains(event.target) : false;
+        isDropdownClicked(target) {
+            return this.$refs.dropdownButton ? target === this.$refs.dropdownButton || this.$refs.dropdownButton.contains(target) : false;
         },
         isOptionMatched(option, value) {
             return this.isValidOption(option) && this.getOptionLabel(option)?.toLocaleLowerCase(this.searchLocale) === value.toLocaleLowerCase(this.searchLocale);

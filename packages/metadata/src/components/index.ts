@@ -98,7 +98,8 @@ export const misc: MetaType[] = toMeta(['Avatar', 'AvatarGroup', 'Badge', 'Block
 
 export const extensions: MetaType[] = toMeta([
     { name: 'Form', from: '@primevue/forms/form' },
-    { name: 'FormField', from: '@primevue/forms/formfield' }
+    { name: 'FormField', from: '@primevue/forms/formfield' },
+    { name: 'BaseIcon', from: '@primevue/icons/baseicon' }
 ]);
 
 // All PrimeVue Components

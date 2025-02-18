@@ -147,6 +147,7 @@ export interface PrimeVueConfiguration {
     pt?: PassThrough<PrimeVuePTOptions>;
     ptOptions?: PassThroughOptions;
     csp?: PrimeVueCSPOptions;
+    prefix?: string;
 }
 
 export interface PrimeVuePTOptions {

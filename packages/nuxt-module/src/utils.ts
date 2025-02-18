@@ -11,10 +11,15 @@ export const Utils = {
         getPath(fn: any, options: ResolvePathOptions) {
             return isFunction(fn) ? fn(options) : options.from;
         },
-        createStyleAsString(css: string, options = { name: '' }) {
-            const { name, ...rest } = options;
+        createStyleAsString(css: string, options = { name: '', prefix: undefined }) {
+            const { name, prefix, ...rest } = options;
+            let id = name;
 
-            return createStyleAsString(css, { 'data-primevue-style-id': name, ...rest });
+            if (prefix) {
+                id = id ? `${prefix}_${id}` : id;
+            }
+
+            return createStyleAsString(css, { 'data-primevue-style-id': id, ...rest });
         }
     }
 };

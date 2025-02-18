@@ -1,8 +1,9 @@
-import { Theme, ThemeService } from '@primeuix/styled';
+import { getStyledSingleton, getStyledInstance } from '@primeuix/styled';
+import { default as BaseSingleton, getBaseInstance } from '@primevue/core/base';
+import { default as BaseStyleSingleton, getBaseStyleInstance } from '@primevue/core/base/style';
+import { default as PrimeVueServiceSingleton, getPrimeVueServiceInstance } from '@primevue/core/service';
 import { mergeKeys } from '@primeuix/utils';
 import { FilterMatchMode } from '@primevue/core/api';
-import BaseStyle from '@primevue/core/base/style';
-import PrimeVueService from '@primevue/core/service';
 import { inject, reactive, ref, watch } from 'vue';
 
 export const defaultOptions = {
@@ -150,7 +151,8 @@ export const defaultOptions = {
     },
     csp: {
         nonce: undefined
-    }
+    },
+    prefix: undefined
 };
 
 const PrimeVueSymbol = Symbol();
@@ -166,14 +168,25 @@ export function usePrimeVue() {
 }
 
 export function setup(app, options) {
+    const root = app._root;
+    const styled = !root?.host ? getStyledSingleton() : getStyledInstance();
+    const Base = !root?.host ? BaseSingleton : getBaseInstance();
+    const BaseStyle = !root?.host ? BaseStyleSingleton : getBaseStyleInstance(styled.Theme, styled.dt, styled.css);
+    const PrimeVueService = !root?.host ? PrimeVueServiceSingleton : getPrimeVueServiceInstance();
+
     const PrimeVue = {
-        config: reactive(options)
+        config: reactive(options),
+        styled,
+        Base,
+        BaseStyle,
+        PrimeVueService,
+        root
     };
 
     app.config.globalProperties.$primevue = PrimeVue;
     app.provide(PrimeVueSymbol, PrimeVue);
 
-    clearConfig();
+    clearConfig(styled.ThemeService);
     setupConfig(app, PrimeVue);
 
     return PrimeVue;
@@ -181,7 +194,7 @@ export function setup(app, options) {
 
 let stopWatchers = [];
 
-export function clearConfig() {
+export function clearConfig(ThemeService) {
     ThemeService.clear();
 
     stopWatchers.forEach((fn) => fn?.());
@@ -196,20 +209,20 @@ export function setupConfig(app, PrimeVue) {
         if (PrimeVue.config?.theme === 'none') return;
 
         // common
-        if (!Theme.isStyleNameLoaded('common')) {
-            const { primitive, semantic, global, style } = BaseStyle.getCommonTheme?.() || {};
-            const styleOptions = { nonce: PrimeVue.config?.csp?.nonce };
+        if (!PrimeVue.styled.Theme.isStyleNameLoaded('common')) {
+            const { primitive, semantic, global, style } = PrimeVue.BaseStyle.getCommonTheme?.() || {};
+            const styleOptions = { nonce: PrimeVue.config?.csp?.nonce, prefix: PrimeVue.config?.prefix, root: PrimeVue.root };
 
-            BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...styleOptions });
-            BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...styleOptions });
-            BaseStyle.load(global?.css, { name: 'global-variables', ...styleOptions });
-            BaseStyle.loadStyle({ name: 'global-style', ...styleOptions }, style);
+            PrimeVue.BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...styleOptions });
+            PrimeVue.BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...styleOptions });
+            PrimeVue.BaseStyle.load(global?.css, { name: 'global-variables', ...styleOptions });
+            PrimeVue.BaseStyle.loadStyle({ name: 'global-style', ...styleOptions }, style);
 
-            Theme.setLoadedStyleName('common');
+            PrimeVue.styled.Theme.setLoadedStyleName('common');
         }
     };
 
-    ThemeService.on('theme:change', function (newTheme) {
+    PrimeVue.styled.ThemeService.on('theme:change', function (newTheme) {
         if (!isThemeChanged.value) {
             app.config.globalProperties.$primevue.config.theme = newTheme;
             isThemeChanged.value = true;
@@ -220,7 +233,7 @@ export function setupConfig(app, PrimeVue) {
     const stopConfigWatcher = watch(
         PrimeVue.config,
         (newValue, oldValue) => {
-            PrimeVueService.emit('config:change', { newValue, oldValue });
+            PrimeVue.PrimeVueService.emit('config:change', { newValue, oldValue });
         },
         { immediate: true, deep: true }
     );
@@ -228,7 +241,7 @@ export function setupConfig(app, PrimeVue) {
     const stopRippleWatcher = watch(
         () => PrimeVue.config.ripple,
         (newValue, oldValue) => {
-            PrimeVueService.emit('config:ripple:change', { newValue, oldValue });
+            PrimeVue.PrimeVueService.emit('config:ripple:change', { newValue, oldValue });
         },
         { immediate: true, deep: true }
     );
@@ -237,7 +250,7 @@ export function setupConfig(app, PrimeVue) {
         () => PrimeVue.config.theme,
         (newValue, oldValue) => {
             if (!isThemeChanged.value) {
-                Theme.setTheme(newValue);
+                PrimeVue.styled.Theme.setTheme(newValue);
             }
 
             if (!PrimeVue.config.unstyled) {
@@ -245,7 +258,7 @@ export function setupConfig(app, PrimeVue) {
             }
 
             isThemeChanged.value = false;
-            PrimeVueService.emit('config:theme:change', { newValue, oldValue });
+            PrimeVue.PrimeVueService.emit('config:theme:change', { newValue, oldValue });
         },
         { immediate: true, deep: false }
     );
@@ -257,7 +270,7 @@ export function setupConfig(app, PrimeVue) {
                 loadCommonTheme();
             }
 
-            PrimeVueService.emit('config:unstyled:change', { newValue, oldValue });
+            PrimeVue.PrimeVueService.emit('config:unstyled:change', { newValue, oldValue });
         },
         { immediate: true, deep: true }
     );
@@ -275,3 +288,23 @@ export default {
         setup(app, configOptions);
     }
 };
+
+export function wrapCustomElement(VueElementConstructor) {
+    class WrappedPrimeVueCustomElement extends VueElementConstructor {
+        connectedCallback() {
+            const originalCreateApp = this._createApp.bind(this);
+
+            this._createApp = (...args) => {
+                const app = originalCreateApp(...args);
+
+                app._root = this._root;
+
+                return app;
+            };
+
+            super.connectedCallback();
+        }
+    }
+
+    return WrappedPrimeVueCustomElement;
+}

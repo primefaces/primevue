@@ -95,7 +95,7 @@ export default {
         };
     },
     beforeMount() {
-        VirtualScrollerStyle.loadCSS({ nonce: this.$primevueConfig?.csp?.nonce });
+        VirtualScrollerStyle.loadCSS({ nonce: this.$primevueConfig?.csp?.nonce, prefix: this.$primevueConfig?.prefix, root: this.$primevue.root });
     }
 };
 </script>

@@ -1,5 +1,5 @@
 <script>
-import { $dt } from '@primeuix/styled';
+import { usePrimeVue } from '@primevue/core';
 import BaseEditableHolder from '@primevue/core/baseeditableholder';
 import KnobStyle from 'primevue/knob/style';
 
@@ -30,19 +30,19 @@ export default {
         valueColor: {
             type: String,
             default: () => {
-                return $dt('knob.value.background').variable;
+                return usePrimeVue().styled.$dt('knob.value.background').variable;
             }
         },
         rangeColor: {
             type: String,
             default: () => {
-                return $dt('knob.range.background').variable;
+                return usePrimeVue().styled.$dt('knob.range.background').variable;
             }
         },
         textColor: {
             type: String,
             default: () => {
-                return $dt('knob.text.color').variable;
+                return usePrimeVue().styled.$dt('knob.text.color').variable;
             }
         },
         strokeWidth: {

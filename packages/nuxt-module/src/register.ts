@@ -143,7 +143,7 @@ function registerInjectStylesAsString(moduleOptions: ModuleOptions) {
 
 function registerInjectStylesAsStringToTop(moduleOptions: any) {
     // @todo - Remove `cssLayerOrder`
-    return [Utils.object.createStyleAsString(moduleOptions.cssLayerOrder ? `@layer ${moduleOptions.cssLayerOrder}` : undefined, { name: 'layer-order' })];
+    return [Utils.object.createStyleAsString(moduleOptions.cssLayerOrder ? `@layer ${moduleOptions.cssLayerOrder};` : undefined, { name: 'layer-order', prefix: moduleOptions.options?.prefix })];
 }
 
 export function register(moduleOptions: ModuleOptions) {

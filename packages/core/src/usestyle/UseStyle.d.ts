@@ -1,5 +1,7 @@
 export interface StyleOptions {
-    document?: HTMLElement;
+    document?: Document;
+    root?: ShadowRoot | HTMLElement;
+    prefix?: string;
     immediate?: boolean;
     manual?: boolean;
     name?: string;

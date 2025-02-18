@@ -1,4 +1,4 @@
-export default {
+export const getBaseInstance = () => ({
     _loadedStyleNames: new Set(),
     getLoadedStyleNames() {
         return this._loadedStyleNames;
@@ -15,4 +15,6 @@ export default {
     clearLoadedStyleNames() {
         this._loadedStyleNames.clear();
     }
-};
+});
+
+export default getBaseInstance();
