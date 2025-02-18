@@ -1,4 +1,8 @@
-import { Plugin } from 'vue';
+import { Plugin, VueElementConstructor as VueElementConstructorType } from 'vue';
+import { getStyledInstance } from '@primeuix/styled';
+import { getBaseInstance } from '@primevue/core/base';
+import { getBaseStyleInstance } from '@primevue/core/base/style';
+import { getPrimeVueServiceInstance } from '@primevue/core/service';
 
 export interface PrimeVueConfiguration {
     ripple?: boolean;
@@ -15,6 +19,7 @@ export interface PrimeVueConfiguration {
     pt?: any;
     ptOptions?: any;
     csp?: PrimeVueCSPOptions;
+    prefix?: string;
 }
 
 export declare const defaultOptions: PrimeVueConfiguration;
@@ -165,6 +170,13 @@ declare module 'vue' {
     interface ComponentCustomProperties {
         $primevue: {
             config: PrimeVueConfiguration;
+            styled: ReturnType<typeof getStyledInstance>;
+            Base: ReturnType<typeof getBaseInstance>;
+            BaseStyle: ReturnType<typeof getBaseStyleInstance>;
+            PrimeVueService: ReturnType<typeof getPrimeVueServiceInstance>;
+            root?: ShadowRoot | HTMLElement;
         };
     }
 }
+
+export declare function wrapCustomElement(VueElementConstructor: VueElementConstructorType): VueElementConstructorType;

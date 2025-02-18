@@ -37,7 +37,7 @@ export default {
     },
     beforeUnmount() {
         if (this.fullScreen) {
-            unblockBodyScroll();
+            unblockBodyScroll(this.$primevue.styled.$dt);
         }
 
         this.mask = null;
@@ -53,7 +53,7 @@ export default {
         },
         onEnter(el) {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
-            blockBodyScroll();
+            blockBodyScroll(this.$primevue.styled.$dt);
             this.focus();
         },
         onBeforeLeave() {
@@ -62,7 +62,7 @@ export default {
         onAfterLeave(el) {
             ZIndex.clear(el);
             this.containerVisible = false;
-            unblockBodyScroll();
+            unblockBodyScroll(this.$primevue.styled.$dt);
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {

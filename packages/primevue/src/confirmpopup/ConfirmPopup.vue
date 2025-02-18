@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import { $dt } from '@primeuix/styled';
 import { absolutePosition, addClass, focus, getOffset, isTouchDevice } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -212,7 +211,7 @@ export default {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
 
-            this.container.style.setProperty($dt('confirmpopup.arrow.left').name, `${arrowLeft}px`);
+            this.container.style.setProperty(this.$primevue.styled.$dt('confirmpopup.arrow.left').name, `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-confirmpopup-flipped', 'true');
