@@ -57,8 +57,8 @@
                 </button>
                 <div class="flex flex-col items-center gap-1">
                     <div class="group flex items-center gap-2 relative">
-                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 text-center" maxlength="100" @blur="renameTheme(theme)" />
-                        <i class="hidden group-hover:block pi pi-pencil !text-sm absolute top-50 right-0 text-muted-color"></i>
+                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 text-center pr-4" maxlength="100" @blur="renameTheme(theme)" />
+                        <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
                     </div>
                     <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
                 </div>
