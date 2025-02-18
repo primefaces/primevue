@@ -34,7 +34,7 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset, usePreset } from '@primeuix/themes';
+import { $dt, usePreset } from '@primeuix/themes';
 
 export default {
     setup() {
@@ -143,7 +143,7 @@ export default {
                 this.refreshACTokens();
             }
 
-            updatePreset(theme.preset);
+            usePreset(theme.preset);
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
