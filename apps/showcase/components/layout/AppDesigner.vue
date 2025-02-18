@@ -140,6 +140,7 @@ export default {
         applyTheme(theme) {
             if (this.$appState.designer.verified) {
                 this.saveTheme(theme);
+                this.refreshACTokens();
             }
 
             updatePreset(theme.preset);
