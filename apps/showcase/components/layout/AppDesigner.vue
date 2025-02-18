@@ -226,7 +226,6 @@ export default {
             usePreset(this.$appState.designer.theme.preset);
             this.applyFont(this.$appState.designer.theme.config.font_family);
             document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
-            this.replaceColorPalette();
             this.refreshACTokens();
         },
         getCookie(name) {

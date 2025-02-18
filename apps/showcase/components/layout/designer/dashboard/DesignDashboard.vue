@@ -40,7 +40,7 @@
             ]"
             @click="openNewTheme"
         >
-            <i class="pi pi-plus !text-2xl"></i>
+            <i class="pi pi-plus"></i>
         </button>
         <template v-if="loading">
             <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
