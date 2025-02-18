@@ -114,6 +114,7 @@ export default {
                             name: this.themeName,
                             preset: newPreset,
                             project: 'primevue',
+                            base: this.basePreset,
                             config: {
                                 font_size: '14px',
                                 font_family: 'Inter var'
@@ -147,6 +148,7 @@ export default {
                                 name: this.themeName,
                                 figma_tokens: this.figmaData,
                                 project: 'primevue',
+                                base: 'Figma',
                                 config: {
                                     font_size: '14px',
                                     font_family: 'Inter var'
