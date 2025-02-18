@@ -5,5 +5,7 @@
  * @module utils
  *
  */
-export declare function blockBodyScroll(): void;
-export declare function unblockBodyScroll(): void;
+import { $dt as $dtSingleton } from '@primeuix/styled';
+
+export declare function blockBodyScroll($dt: typeof $dtSingleton): void;
+export declare function unblockBodyScroll($dt: typeof $dtSingleton): void;
