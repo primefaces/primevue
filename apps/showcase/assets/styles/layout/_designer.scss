@@ -228,14 +228,16 @@
         cursor: pointer;
         font-weight: medium;
         border-radius: 4px;
-        transition: background 0.2s;
+        transition: background-color 0.2s;
 
-        &:hover {
-            background: var(--designer-primary--emphasis-color);
-            border-color: var(--designer-primary--emphasis-color);
+        &:enabled:hover,
+        &:enabled:active {
+            background: var(--designer-primary-emphasis-color);
+            border-color: var(--designer-primary-emphasis-color);
         }
 
-        &:focus-visible {
+        &:enabled:active,
+        &:enabled:focus-visible {
             outline: 1px solid var(--designer-primary-color);
             outline-offset: 2px;
             box-shadow: none;
