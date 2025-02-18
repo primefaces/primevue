@@ -80,7 +80,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerAPI: runtimeConfig.public.designerAPI
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     inject: ['designerService'],
@@ -137,7 +137,7 @@ export default {
     },
     methods: {
         async activate() {
-            const { data, error } = await $fetch(this.designerAPI + '/license/signin/' + this.licenseKey, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/license/signin/' + this.licenseKey, {
                 credentials: 'include',
                 query: {
                     passkey: this.otp
@@ -162,7 +162,7 @@ export default {
             }
         },
         async signOut() {
-            const { data } = await $fetch(this.designerAPI + '/license/signout/', {
+            const { data } = await $fetch(this.designerApiUrl + '/license/signout/', {
                 credentials: 'include'
             });
 
@@ -200,7 +200,7 @@ export default {
         },
         async loadThemes() {
             this.loading = true;
-            const { data, error } = await $fetch(this.designerAPI + '/theme/list/', {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/list/', {
                 credentials: 'include',
                 headers: {
                     'X-CSRF-Token': this.$appState.designer.csrfToken
@@ -216,7 +216,7 @@ export default {
             this.loading = false;
         },
         async loadTheme(theme) {
-            const { data, error } = await $fetch(this.designerAPI + '/theme/load/' + theme.t_key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/load/' + theme.t_key, {
                 credentials: 'include',
                 headers: {
                     'X-CSRF-Token': this.$appState.designer.csrfToken
@@ -231,7 +231,7 @@ export default {
             }
         },
         async renameTheme(theme) {
-            const { error } = await $fetch(this.designerAPI + '/theme/rename/' + theme.t_key, {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/rename/' + theme.t_key, {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
@@ -247,7 +247,7 @@ export default {
             }
         },
         async deleteTheme(theme) {
-            const { error } = await $fetch(this.designerAPI + '/theme/delete/' + theme.t_key, {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/delete/' + theme.t_key, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
@@ -262,7 +262,7 @@ export default {
             }
         },
         async duplicateTheme(theme) {
-            const { error } = await $fetch(this.designerAPI + '/theme/duplicate/' + theme.t_key, {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/duplicate/' + theme.t_key, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {

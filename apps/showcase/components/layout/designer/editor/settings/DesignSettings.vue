@@ -55,7 +55,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerAPI: runtimeConfig.public.designerAPI
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     inject: ['designerService'],
@@ -104,7 +104,7 @@ export default {
             this.designerService.saveTheme(this.$appState.designer.theme);
         },
         async preview() {
-            const { data, error } = await $fetch(this.designerAPI + '/theme/migrate/preview/' + this.$appState.designer.theme.key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/migrate/preview/' + this.$appState.designer.theme.key, {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
@@ -137,7 +137,7 @@ export default {
             });
         },
         async migrate() {
-            const { data, error } = await $fetch(this.designerAPI + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {

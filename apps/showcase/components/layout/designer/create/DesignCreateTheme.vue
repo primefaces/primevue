@@ -79,7 +79,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerAPI: runtimeConfig.public.designerAPI
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     inject: ['designerService'],
@@ -108,7 +108,7 @@ export default {
             }
 
             if (this.$appState.designer.verified) {
-                const { data, error } = await $fetch(this.designerAPI + '/theme/create', {
+                const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
                     method: 'POST',
                     credentials: 'include',
                     headers: {
@@ -137,7 +137,7 @@ export default {
         async createThemeFromFigma() {
             if (this.figmaData) {
                 if (this.$appState.designer.verified) {
-                    const { data, error } = await $fetch(this.designerAPI + '/theme/figma', {
+                    const { data, error } = await $fetch(this.designerApiUrl + '/theme/figma', {
                         method: 'POST',
                         credentials: 'include',
                         headers: {
