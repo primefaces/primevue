@@ -98,46 +98,20 @@ export default {
     },
     methods: {
         async createThemeFromPreset() {
-            const newPreset = presets[this.basePreset];
-
-            if (this.basePreset === 'Material') {
-                document.body.classList.add('material');
-                this.$primevue.config.ripple = true;
+            if (this.themeName == null || !this.themeName.trim().length) {
+                this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Name is required', life: 3000 });
             } else {
-                document.body.classList.remove('material');
-            }
+                const newPreset = presets[this.basePreset];
 
-            if (this.$appState.designer.verified) {
-                const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
-                    method: 'POST',
-                    credentials: 'include',
-                    headers: {
-                        'X-CSRF-Token': this.$appState.designer.csrfToken
-                    },
-                    body: {
-                        name: this.themeName,
-                        preset: newPreset,
-                        project: 'primevue',
-                        config: {
-                            font_size: '14px',
-                            font_family: 'Inter var'
-                        }
-                    }
-                });
-
-                if (error) {
-                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                if (this.basePreset === 'Material') {
+                    document.body.classList.add('material');
+                    this.$primevue.config.ripple = true;
                 } else {
-                    this.loadThemeEditor(data.t_key, newPreset);
+                    document.body.classList.remove('material');
                 }
-            } else {
-                this.loadThemeEditor('trial', newPreset);
-            }
-        },
-        async createThemeFromFigma() {
-            if (this.figmaData) {
+
                 if (this.$appState.designer.verified) {
-                    const { data, error } = await $fetch(this.designerApiUrl + '/theme/figma', {
+                    const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
                         method: 'POST',
                         credentials: 'include',
                         headers: {
@@ -145,7 +119,7 @@ export default {
                         },
                         body: {
                             name: this.themeName,
-                            figma_tokens: this.figmaData,
+                            preset: newPreset,
                             project: 'primevue',
                             config: {
                                 font_size: '14px',
@@ -157,17 +131,51 @@ export default {
                     if (error) {
                         this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
                     } else {
-                        this.loadThemeEditor(data.t_key, data.t_preset);
-
-                        if (data.lostAndFound?.length) {
-                            this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'There are missing tokens. An update is recommended using the "Migration Assistant" in the settings section.' });
-                        }
+                        this.loadThemeEditor(data.t_key, newPreset);
                     }
                 } else {
-                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'A valid license required', life: 3000 });
+                    this.loadThemeEditor('trial', newPreset);
                 }
+            }
+        },
+        async createThemeFromFigma() {
+            if (this.themeName == null || !this.themeName.trim().length) {
+                this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Name is required', life: 3000 });
             } else {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'File is required', life: 3000 });
+                if (this.figmaData) {
+                    if (this.$appState.designer.verified) {
+                        const { data, error } = await $fetch(this.designerApiUrl + '/theme/figma', {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: {
+                                'X-CSRF-Token': this.$appState.designer.csrfToken
+                            },
+                            body: {
+                                name: this.themeName,
+                                figma_tokens: this.figmaData,
+                                project: 'primevue',
+                                config: {
+                                    font_size: '14px',
+                                    font_family: 'Inter var'
+                                }
+                            }
+                        });
+
+                        if (error) {
+                            this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                        } else {
+                            this.loadThemeEditor(data.t_key, data.t_preset);
+
+                            if (data.lostAndFound?.length) {
+                                this.$toast.add({ severity: 'warn', summary: 'Warning', detail: 'There are missing tokens. An update is recommended using the "Migration Assistant" in the settings section.' });
+                            }
+                        }
+                    } else {
+                        this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'A valid license required', life: 3000 });
+                    }
+                } else {
+                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: 'File is required', life: 3000 });
+                }
             }
         },
         onFileSelect(event) {
