@@ -41,7 +41,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerAPI: runtimeConfig.public.designerAPI
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     provide() {
@@ -63,7 +63,7 @@ export default {
         };
     },
     async mounted() {
-        const { data, error } = await $fetch(this.designerAPI + '/license/restore', {
+        const { data, error } = await $fetch(this.designerApiUrl + '/license/restore', {
             credentials: 'include'
         });
 
@@ -90,7 +90,7 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required for download.', life: 3000 });
             } else {
                 try {
-                    const response = await $fetch(this.designerAPI + '/theme/download/' + theme.t_key, {
+                    const response = await $fetch(this.designerApiUrl + '/theme/download/' + theme.t_key, {
                         responseType: 'blob',
                         credentials: 'include',
                         headers: {
@@ -120,7 +120,7 @@ export default {
             }
         },
         async saveTheme(theme) {
-            const { error } = await $fetch(this.designerAPI + '/theme/update', {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/update', {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
@@ -230,12 +230,12 @@ export default {
             this.refreshACTokens();
         },
         getCookie(name) {
-            var cookieArr = document.cookie.split(";");
+            var cookieArr = document.cookie.split(';');
 
-            for(var i = 0; i < cookieArr.length; i++) {
-                var cookiePair = cookieArr[i].split("=");
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
 
-                if(name == cookiePair[0].trim()) {
+                if (name == cookiePair[0].trim()) {
                     return decodeURIComponent(cookiePair[1]);
                 }
             }
