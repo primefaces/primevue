@@ -6,11 +6,17 @@
     </div>
 
     <div class="text-lg font-semibold mb-2">Authenticate</div>
-    <span class="block text-muted-color leading-6 mb-4"
-        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistant and cloud storage are not available.
-        <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
-    >
-    <span class="block text-muted-color leading-6 mb-4">License key and pass key are available at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>.</span>
+    <div v-if="!$appState.designer.verified">
+        <span class="block leading-6 mb-4"
+            >Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant. <NuxtLink to="/designer" class="doc-link">Discover</NuxtLink> more about the
+            Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink></span
+        >
+        <span class="block leading-6 mb-4"
+            >A license can be purchased from <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>, if you do not have a license key, you are still able to experience the Designer in trial
+            mode. Note that in trial mode, downloads, figma to code, migration assistant and cloud storage are not available.</span
+        >
+        <span class="block leading-6 mb-4">Sign-in at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a> to retrieve your license key along with the pass key.</span>
+    </div>
     <form v-if="!$appState.designer.verified" @submit.prevent class="flex gap-4">
         <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" placeholder="License Key" />
         <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Pass Key" />
@@ -227,6 +233,7 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
                 this.designerService.activateTheme(data);
+                this.$appState.designer.activeTab = '0';
                 this.$appState.designer.activeView = 'editor';
             }
         },

@@ -213,6 +213,7 @@ export default {
             usePreset(preset);
             this.designerService.refreshACTokens();
 
+            this.$appState.designer.activeTab = '0';
             this.$appState.designer.activeView = 'editor';
         }
     }
