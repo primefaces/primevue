@@ -133,11 +133,12 @@
 
         .p-tab-active {
             background: transparent;
-            border-color: transparent;
+            border-color: var(--high-contrast-text-color);
             color: var(--high-contrast-text-color);
         }
 
         .p-tablist-active-bar {
+            display: none;
             inset-block-end: -1px;
             height: 1px;
             background: var(--high-contrast-text-color);
