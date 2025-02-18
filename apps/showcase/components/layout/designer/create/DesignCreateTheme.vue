@@ -199,6 +199,9 @@ export default {
                     font_family: 'Inter var'
                 }
             };
+            this.designerService.applyFont('Inter var');
+            document.documentElement.style.fontSize = '14px';
+
             this.designerService.replaceColorPalette();
             usePreset(preset);
             this.designerService.refreshACTokens();
