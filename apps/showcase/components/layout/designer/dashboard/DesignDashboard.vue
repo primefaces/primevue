@@ -9,7 +9,7 @@
     <div v-if="!$appState.designer.verified">
         <span class="block leading-6 mb-4"
             >Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant. <NuxtLink to="/designer" class="doc-link">Discover</NuxtLink> more about the
-            Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink></span
+            Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink>.</span
         >
         <span class="block leading-6 mb-4"
             >A license can be purchased from <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>, if you do not have a license key, you are still able to experience the Designer in trial
@@ -63,7 +63,15 @@
                 </button>
                 <div class="flex flex-col items-center gap-1">
                     <div class="group flex items-center gap-2 relative">
-                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 text-center pr-4" maxlength="100" @blur="renameTheme(theme)" />
+                        <input
+                            v-model="theme.t_name"
+                            type="text"
+                            :class="['w-24 text-sm px-2 text-center pr-4', { 'bg-red-50 dark:bg-red-500/30': !theme.t_name }]"
+                            maxlength="100"
+                            @blur="renameTheme(theme)"
+                            @keydown.enter="onThemeNameEnterKey($event)"
+                            @keydown.escape="onThemeNameEscape($event)"
+                        />
                         <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
                     </div>
                     <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
@@ -73,7 +81,7 @@
                 </button>
             </div>
         </template>
-        <Menu ref="themeMenu" :model="themeOptions" :popup="true" />
+        <Menu ref="themeMenu" :model="themeOptions" :popup="true" @show="onMenuShow" @hide="onMenuHide" />
     </div>
 </template>
 
@@ -82,6 +90,7 @@ import { usePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
 
 export default {
+    scrollListener: null,
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
@@ -90,6 +99,9 @@ export default {
         };
     },
     inject: ['designerService'],
+    beforeUnmount() {
+        this.unbindScrollListener();
+    },
     data() {
         return {
             licenseKey: null,
@@ -236,20 +248,29 @@ export default {
             }
         },
         async renameTheme(theme) {
-            const { error } = await $fetch(this.designerApiUrl + '/theme/rename/' + theme.t_key, {
-                method: 'PATCH',
-                credentials: 'include',
-                headers: {
-                    'X-CSRF-Token': this.$appState.designer.csrfToken
-                },
-                body: {
-                    name: theme.t_name
-                }
-            });
+            if (theme.t_name && theme.t_name.trim().length) {
+                const { error } = await $fetch(this.designerApiUrl + '/theme/rename/' + theme.t_key, {
+                    method: 'PATCH',
+                    credentials: 'include',
+                    headers: {
+                        'X-CSRF-Token': this.$appState.designer.csrfToken
+                    },
+                    body: {
+                        name: theme.t_name
+                    }
+                });
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                if (error) {
+                    this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                }
             }
+        },
+        onThemeNameEnterKey(event) {
+            event.target.blur();
+        },
+        onThemeNameEscape(event) {
+            event.target.blur();
+            event.stopPropagation();
         },
         async deleteTheme(theme) {
             const { error } = await $fetch(this.designerApiUrl + '/theme/delete/' + theme.t_key, {
@@ -298,6 +319,27 @@ export default {
         toggleMenuOptions(event, theme) {
             this.currentTheme = theme;
             this.$refs.themeMenu.toggle(event);
+        },
+        onMenuShow() {
+            this.bindScrollListener();
+        },
+        onMenuHide() {
+            this.unbindScrollListener();
+        },
+        bindScrollListener() {
+            if (!this.scrollListener) {
+                this.scrollListener = () => {
+                    this.$refs.themeMenu.hide();
+                };
+
+                window.addEventListener('scroll', this.scrollListener);
+            }
+        },
+        unbindScrollListener() {
+            if (this.scrollListener) {
+                window.removeEventListener('scroll', this.scrollListener);
+                this.scrollListener = null;
+            }
         },
         abbrThemeName(theme) {
             return theme.t_name ? theme.t_name.substring(0, 2) : 'UT';

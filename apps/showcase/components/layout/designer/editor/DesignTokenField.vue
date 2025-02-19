@@ -17,6 +17,7 @@
                 unstyled
                 optionLabel="label"
                 :showEmptyMessage="false"
+                appendTo="self"
                 :pt="{
                     pcInputText: {
                         root: [
