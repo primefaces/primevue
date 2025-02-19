@@ -686,6 +686,7 @@ export default {
 
             setTimeout(() => {
                 this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
             }, 1);
         },
         onOverlayAfterEnter() {
