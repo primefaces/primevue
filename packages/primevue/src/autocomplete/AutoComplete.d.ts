@@ -582,6 +582,15 @@ export interface AutoCompleteSlots {
          * A value in the selection
          */
         value: any;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        removeCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom header template of panel.
