@@ -18,6 +18,10 @@ export default {
             type: Boolean,
             default: true
         },
+        appendTo: {
+            type: [String, Object],
+            default: 'body'
+        },
         baseZIndex: {
             type: Number,
             default: 0

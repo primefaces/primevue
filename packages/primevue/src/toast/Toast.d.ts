@@ -11,6 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { HintedString } from "@primevue/core/index";
 
 export declare type ToastPassThroughOptionType = ToastPassThroughAttributes | ((options: ToastPassThroughMethodOptions) => ToastPassThroughAttributes | string) | string | null | undefined;
 
@@ -192,6 +193,11 @@ export interface ToastProps {
      * @defaultValue true
      */
     autoZIndex?: boolean | undefined;
+    /**
+     * A valid query selector or an HTMLElement to specify where the dialog gets attached.
+     * @defaultValue body
+     */
+    appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Base zIndex value to use in layering.
      * @defaultValue 0
