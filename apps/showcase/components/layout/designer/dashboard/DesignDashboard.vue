@@ -80,7 +80,7 @@
                 </button>
             </div>
         </template>
-        <Menu ref="themeMenu" :model="themeOptions" :popup="true" />
+        <Menu ref="themeMenu" :model="themeOptions" :popup="true" @show="onMenuShow" @hide="onMenuHide" />
     </div>
 </template>
 
@@ -89,6 +89,7 @@ import { usePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
 
 export default {
+    scrollListener: null,
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
@@ -97,6 +98,9 @@ export default {
         };
     },
     inject: ['designerService'],
+    beforeUnmount() {
+        this.unbindScrollListener();
+    },
     data() {
         return {
             licenseKey: null,
@@ -310,6 +314,27 @@ export default {
         toggleMenuOptions(event, theme) {
             this.currentTheme = theme;
             this.$refs.themeMenu.toggle(event);
+        },
+        onMenuShow() {
+            this.bindScrollListener();
+        },
+        onMenuHide() {
+            this.unbindScrollListener();
+        },
+        bindScrollListener() {
+            if (!this.scrollListener) {
+                this.scrollListener = () => {
+                    this.$refs.themeMenu.hide();
+                };
+
+                window.addEventListener('scroll', this.scrollListener);
+            }
+        },
+        unbindScrollListener() {
+            if (this.scrollListener) {
+                window.removeEventListener('scroll', this.scrollListener);
+                this.scrollListener = null;
+            }
         },
         abbrThemeName(theme) {
             return theme.t_name ? theme.t_name.substring(0, 2) : 'UT';
