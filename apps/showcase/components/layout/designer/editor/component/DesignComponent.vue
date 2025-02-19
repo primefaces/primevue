@@ -5,7 +5,7 @@
             <div class="flex flex-col gap-3">
                 <template v-if="hasCommonTokens">
                     <template v-for="(value, name) in tokens" :key="name">
-                        <DesignComponentSection v-if="name !== 'colorScheme'" :componentKey="componentKey" :path="name" />
+                        <DesignComponentSection v-if="name !== 'colorScheme' && name !== 'css'" :componentKey="componentKey" :path="name" />
                     </template>
                 </template>
                 <span v-else class="block py-3">There are no design tokens</span>
@@ -54,7 +54,11 @@ export default {
             return this.tokens.colorScheme != undefined;
         },
         hasCommonTokens() {
-            return Object.keys(this.tokens).filter((name) => name !== 'colorScheme').length > 0;
+            return (
+                Object.keys(this.tokens).filter((name) => {
+                    return name !== 'colorScheme' && name !== 'css';
+                }).length > 0
+            );
         }
     }
 };
