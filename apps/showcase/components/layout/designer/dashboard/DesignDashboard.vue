@@ -70,6 +70,7 @@
                             maxlength="100"
                             @blur="renameTheme(theme)"
                             @keydown.enter="onThemeNameEnterKey($event)"
+                            @keydown.escape="onThemeNameEscape($event)"
                         />
                         <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
                     </div>
@@ -266,6 +267,10 @@ export default {
         },
         onThemeNameEnterKey(event) {
             event.target.blur();
+        },
+        onThemeNameEscape(event) {
+            event.target.blur();
+            event.stopPropagation();
         },
         async deleteTheme(theme) {
             const { error } = await $fetch(this.designerApiUrl + '/theme/delete/' + theme.t_key, {
