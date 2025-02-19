@@ -1137,7 +1137,7 @@ export default {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value && this.d_value.length && this.d_value != null && isNotEmpty(this.options);
         }
     },
     directives: {
