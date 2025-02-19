@@ -1178,8 +1178,8 @@ export default {
             }
 
             if (this.lazy && this.paginator) {
-                rangeStart -= this.first;
-                rangeEnd -= this.first;
+                rangeStart -= this.d_first;
+                rangeEnd -= this.d_first;
             }
 
             const value = this.processedData;
