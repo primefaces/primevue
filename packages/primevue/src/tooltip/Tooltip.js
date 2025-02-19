@@ -1,7 +1,7 @@
 import { addClass, createElement, fadeIn, findSingle, getAttribute, getOuterHeight, getOuterWidth, getViewport, getWindowScrollLeft, getWindowScrollTop, hasClass, isExist, isTouchDevice, removeClass } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
 import { uuid } from '@primeuix/utils/uuid';
-import { ZIndex } from '@primeuix/utils/zindex';
+import { ZIndex } from '@primeuix/utils';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import BaseTooltip from './BaseTooltip';
 
@@ -10,7 +10,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         return {
             handlers: new WeakMap(),
             timer: null
-        }
+        };
     },
 
     beforeMount(el, options) {
@@ -85,7 +85,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         } else if (typeof options.value === 'object' && options.value) {
             if (isEmpty(options.value.value) || options.value.value.trim() === '') {
                 this.unbindEvents(target, options);
-                return;
+
             } else {
                 target.$_ptooltipValue = options.value.value;
                 target.$_ptooltipDisabled = !!options.value.disabled === options.value.disabled ? options.value.disabled : false;
@@ -155,6 +155,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                     el.removeEventListener('focus', handlers.focus);
                     handlers.focus = null;
                 }
+
                 if (handlers.blur) {
                     el.removeEventListener('blur', handlers.blur);
                     handlers.blur = null;
@@ -164,10 +165,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                     el.removeEventListener('mouseenter', handlers.mouseenter);
                     handlers.mouseenter = null;
                 }
+
                 if (handlers.mouseleave) {
                     el.removeEventListener('mouseleave', handlers.mouseleave);
                     handlers.mouseleave = null;
                 }
+
                 if (handlers.click) {
                     el.removeEventListener('click', handlers.click);
                     handlers.click = null;
@@ -259,6 +262,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let tooltipElement = this.create(el, options);
 
             const handlers = this.handlers.get(el);
+
             handlers.tooltipLeave = () => {
                 this.hide(el);
                 tooltipElement.removeEventListener('mouseleave', handlers.tooltipLeave);
@@ -273,6 +277,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 if (!isTouchDevice()) {
                     this.hide(el);
                 }
+
                 window.removeEventListener('resize', resizeHandler);
             };
 
