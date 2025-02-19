@@ -966,7 +966,7 @@ export default {
         },
         clearTimer() {
             if (this.timer) {
-                clearInterval(this.timer);
+                clearTimeout(this.timer);
             }
         },
         maxBoundry() {
