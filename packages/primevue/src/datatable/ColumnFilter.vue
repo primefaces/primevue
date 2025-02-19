@@ -17,7 +17,7 @@
             v-bind="{ ...getColumnPT('pcColumnFilterButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
         >
             <template #icon="slotProps">
-                <component :is="filterIconTemplate || hasFilter() ? 'FilterFillIcon' : 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
+                <component :is="filterIconTemplate || (hasFilter() ? 'FilterFillIcon' : 'FilterIcon')" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
             </template>
         </Button>
         <Button
