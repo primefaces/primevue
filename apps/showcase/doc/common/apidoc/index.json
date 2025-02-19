@@ -21177,7 +21177,7 @@
                             "name": "filterButtonProps",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableFilterButtonPropsOptions",
+                            "type": "Partial<DataTableFilterButtonPropsOptions>",
                             "default": "",
                             "description": "Used to pass all filter button property object"
                         },
