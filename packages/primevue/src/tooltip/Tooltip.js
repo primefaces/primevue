@@ -6,8 +6,25 @@ import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import BaseTooltip from './BaseTooltip';
 
 const Tooltip = BaseTooltip.extend('tooltip', {
+    data() {
+        return {
+            handlers: new WeakMap(),
+            timer: null
+        }
+    },
+
     beforeMount(el, options) {
         let target = this.getTarget(el);
+
+        this.handlers.set(target, {
+            mouseenter: null,
+            mouseleave: null,
+            focus: null,
+            blur: null,
+            click: null,
+            keydown: null,
+            tooltipLeave: null
+        });
 
         target.$_ptooltipModifiers = this.getModifiers(options);
 
@@ -43,6 +60,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
         el.setAttribute('data-pd-tooltip', true);
     },
+
     updated(el, options) {
         let target = this.getTarget(el);
 
@@ -67,7 +85,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         } else if (typeof options.value === 'object' && options.value) {
             if (isEmpty(options.value.value) || options.value.value.trim() === '') {
                 this.unbindEvents(target, options);
-
                 return;
             } else {
                 target.$_ptooltipValue = options.value.value;
@@ -84,8 +101,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
         }
     },
+
     unmounted(el, options) {
         let target = this.getTarget(el);
+
+        clearTimeout(this.timer);
+        this.timer = null;
 
         this.remove(target);
         this.unbindEvents(target, options);
@@ -94,45 +115,71 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipScrollHandler.destroy();
             target.$_ptooltipScrollHandler = null;
         }
+
+        this.handlers.delete(target);
     },
-    timer: undefined,
+
     methods: {
         bindEvents(el, options) {
             const modifiers = el.$_ptooltipModifiers;
+            const handlers = this.handlers.get(el);
 
             if (modifiers.focus) {
-                el.$_focusevent = (event) => this.onFocus(event, options);
+                handlers.focus = (event) => this.onFocus(event, options);
+                handlers.blur = (event) => this.onBlur(event);
 
-                el.addEventListener('focus', el.$_focusevent);
-                el.addEventListener('blur', this.onBlur.bind(this));
+                el.addEventListener('focus', handlers.focus);
+                el.addEventListener('blur', handlers.blur);
             } else {
-                el.$_mouseenterevent = (event) => this.onMouseEnter(event, options);
+                handlers.mouseenter = (event) => this.onMouseEnter(event, options);
+                handlers.mouseleave = (event) => this.onMouseLeave(event);
+                handlers.click = (event) => this.onClick(event);
 
-                el.addEventListener('mouseenter', el.$_mouseenterevent);
-                el.addEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.addEventListener('click', this.onClick.bind(this));
+                el.addEventListener('mouseenter', handlers.mouseenter);
+                el.addEventListener('mouseleave', handlers.mouseleave);
+                el.addEventListener('click', handlers.click);
             }
 
-            el.addEventListener('keydown', this.onKeydown.bind(this));
+            handlers.keydown = (event) => this.onKeydown(event);
+            el.addEventListener('keydown', handlers.keydown);
         },
+
         unbindEvents(el) {
+            if (!this.handlers.has(el)) return;
+
+            const handlers = this.handlers.get(el);
             const modifiers = el.$_ptooltipModifiers;
 
             if (modifiers.focus) {
-                el.removeEventListener('focus', el.$_focusevent);
-                el.$_focusevent = null;
-
-                el.removeEventListener('blur', this.onBlur.bind(this));
+                if (handlers.focus) {
+                    el.removeEventListener('focus', handlers.focus);
+                    handlers.focus = null;
+                }
+                if (handlers.blur) {
+                    el.removeEventListener('blur', handlers.blur);
+                    handlers.blur = null;
+                }
             } else {
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                el.$_mouseenterevent = null;
-
-                el.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.removeEventListener('click', this.onClick.bind(this));
+                if (handlers.mouseenter) {
+                    el.removeEventListener('mouseenter', handlers.mouseenter);
+                    handlers.mouseenter = null;
+                }
+                if (handlers.mouseleave) {
+                    el.removeEventListener('mouseleave', handlers.mouseleave);
+                    handlers.mouseleave = null;
+                }
+                if (handlers.click) {
+                    el.removeEventListener('click', handlers.click);
+                    handlers.click = null;
+                }
             }
 
-            el.removeEventListener('keydown', this.onKeydown.bind(this));
+            if (handlers.keydown) {
+                el.removeEventListener('keydown', handlers.keydown);
+                handlers.keydown = null;
+            }
         },
+
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
                 el.$_ptooltipScrollHandler = new ConnectedOverlayScrollHandler(el, () => {
@@ -142,17 +189,20 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             el.$_ptooltipScrollHandler.bindScrollListener();
         },
+
         unbindScrollListener(el) {
             if (el.$_ptooltipScrollHandler) {
                 el.$_ptooltipScrollHandler.unbindScrollListener();
             }
         },
+
         onMouseEnter(event, options) {
             const el = event.currentTarget;
             const showDelay = el.$_ptooltipShowDelay;
 
             this.show(el, options, showDelay);
         },
+
         onMouseLeave(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
@@ -172,30 +222,35 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 this.hide(el, hideDelay);
             }
         },
+
         onFocus(event, options) {
             const el = event.currentTarget;
             const showDelay = el.$_ptooltipShowDelay;
 
             this.show(el, options, showDelay);
         },
+
         onBlur(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
 
             this.hide(el, hideDelay);
         },
+
         onClick(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
 
             this.hide(el, hideDelay);
         },
+
         onKeydown(event) {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
 
             event.code === 'Escape' && this.hide(event.currentTarget, hideDelay);
         },
+
         tooltipActions(el, options) {
             if (el.$_ptooltipDisabled || !isExist(el)) {
                 return;
@@ -203,30 +258,30 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             let tooltipElement = this.create(el, options);
 
+            const handlers = this.handlers.get(el);
+            handlers.tooltipLeave = () => {
+                this.hide(el);
+                tooltipElement.removeEventListener('mouseleave', handlers.tooltipLeave);
+            };
+
+            tooltipElement.addEventListener('mouseleave', handlers.tooltipLeave);
+
             this.align(el);
             !this.isUnstyled() && fadeIn(tooltipElement, 250);
 
-            const $this = this;
-
-            window.addEventListener('resize', function onWindowResize() {
+            const resizeHandler = () => {
                 if (!isTouchDevice()) {
-                    $this.hide(el);
+                    this.hide(el);
                 }
+                window.removeEventListener('resize', resizeHandler);
+            };
 
-                window.removeEventListener('resize', onWindowResize);
-            });
-
-            tooltipElement.addEventListener('mouseleave', function onTooltipLeave() {
-                $this.hide(el);
-
-                tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                setTimeout(() => el.addEventListener('mouseenter', el.$_mouseenterevent), 50);
-            });
+            window.addEventListener('resize', resizeHandler);
 
             this.bindScrollListener(el);
             ZIndex.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
         },
+
         show(el, options, showDelay) {
             if (showDelay !== undefined) {
                 this.timer = setTimeout(() => this.tooltipActions(el, options), showDelay);
@@ -234,27 +289,23 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 this.tooltipActions(el, options);
             }
         },
-        tooltipRemoval(el) {
-            this.remove(el);
-            this.unbindScrollListener(el);
-        },
+
         hide(el, hideDelay) {
             clearTimeout(this.timer);
 
             if (hideDelay !== undefined) {
-                setTimeout(() => this.tooltipRemoval(el), hideDelay);
+                setTimeout(() => this.remove(el), hideDelay);
             } else {
-                this.tooltipRemoval(el);
+                this.remove(el);
             }
+
+            this.unbindScrollListener(el);
         },
+
         getTooltipElement(el) {
             return document.getElementById(el.$_ptooltipId);
         },
-        getArrowElement(el) {
-            let tooltipElement = this.getTooltipElement(el);
 
-            return findSingle(tooltipElement, '[data-pc-section="arrow"]');
-        },
         create(el) {
             const modifiers = el.$_ptooltipModifiers;
 
@@ -306,11 +357,18 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             return container;
         },
+
         remove(el) {
             if (el) {
-                let tooltipElement = this.getTooltipElement(el);
+                const tooltipElement = this.getTooltipElement(el);
+                const handlers = this.handlers.get(el);
 
                 if (tooltipElement && tooltipElement.parentElement) {
+                    if (handlers?.tooltipLeave) {
+                        tooltipElement.removeEventListener('mouseleave', handlers.tooltipLeave);
+                        handlers.tooltipLeave = null;
+                    }
+
                     ZIndex.clear(tooltipElement);
                     document.body.removeChild(tooltipElement);
                 }
@@ -318,6 +376,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 el.$_ptooltipId = null;
             }
         },
+
         align(el) {
             const modifiers = el.$_ptooltipModifiers;
 
@@ -379,6 +438,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 }
             }
         },
+
         getHostOffset(el) {
             let offset = el.getBoundingClientRect();
             let targetLeft = offset.left + getWindowScrollLeft();
@@ -386,6 +446,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             return { left: targetLeft, top: targetTop };
         },
+
         alignRight(el) {
             this.preAlign(el, 'right');
             let tooltipElement = this.getTooltipElement(el);
@@ -402,6 +463,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             arrowElement.style.bottom = null;
             arrowElement.style.left = '0';
         },
+
         alignLeft(el) {
             this.preAlign(el, 'left');
             let tooltipElement = this.getTooltipElement(el);
@@ -418,6 +480,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             arrowElement.style.bottom = null;
             arrowElement.style.left = null;
         },
+
         alignTop(el) {
             this.preAlign(el, 'top');
             let tooltipElement = this.getTooltipElement(el);
@@ -434,14 +497,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
 
             if (hostOffset.left + tooltipWidth > viewportWidth) {
-                // accounting for a scrollbar being present, getViewport() width includes scrollbars
                 left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
             }
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
 
-            // The center of the target relative to the tooltip
             let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
             arrowElement.style.top = null;
@@ -449,6 +510,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             arrowElement.style.bottom = '0';
             arrowElement.style.left = elementRelativeCenter + 'px';
         },
+
         alignBottom(el) {
             this.preAlign(el, 'bottom');
             let tooltipElement = this.getTooltipElement(el);
@@ -466,14 +528,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
 
             if (hostOffset.left + tooltipWidth > viewportWidth) {
-                // accounting for a scrollbar being present, getViewport() width includes scrollbars
                 left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
             }
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
 
-            // The center of the target relative to the tooltip
             let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
             arrowElement.style.top = '0';
@@ -481,6 +541,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             arrowElement.style.bottom = null;
             arrowElement.style.left = elementRelativeCenter + 'px';
         },
+
         preAlign(el, position) {
             let tooltipElement = this.getTooltipElement(el);
 
@@ -491,6 +552,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             tooltipElement.$_ptooltipPosition = position;
             tooltipElement.setAttribute('data-p-position', position);
         },
+
         isOutOfBounds(el) {
             let tooltipElement = this.getTooltipElement(el);
             let offset = tooltipElement.getBoundingClientRect();
@@ -502,16 +564,16 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
         },
+
         getTarget(el) {
             return hasClass(el, 'p-inputwrapper') ? (findSingle(el, 'input') ?? el) : el;
         },
+
         getModifiers(options) {
-            // modifiers
             if (options.modifiers && Object.keys(options.modifiers).length) {
                 return options.modifiers;
             }
 
-            // arg
             if (options.arg && typeof options.arg === 'object') {
                 return Object.entries(options.arg).reduce((acc, [key, val]) => {
                     if (key === 'event' || key === 'position') acc[val] = true;
@@ -521,6 +583,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
 
             return {};
+        },
+
+        getArrowElement(el) {
+            let tooltipElement = this.getTooltipElement(el);
+
+            return findSingle(tooltipElement, '[data-pc-section="arrow"]');
         }
     }
 });
