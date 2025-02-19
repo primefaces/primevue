@@ -24,6 +24,12 @@ const ToastProps = [
         description: 'Base zIndex value to use in layering.'
     },
     {
+        name: 'appendTo',
+        type: 'string',
+        default: 'body',
+        description: 'A valid query selector or an HTMLElement to specify where the overlay gets attached.'
+    },
+    {
         name: 'breakpoints',
         type: 'object',
         default: 'null',
