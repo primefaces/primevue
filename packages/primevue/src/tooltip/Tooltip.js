@@ -16,7 +16,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
     beforeMount(el, options) {
         let target = this.getTarget(el);
 
-        // Khởi tạo handlers cho element
         this.handlers.set(target, {
             mouseenter: null,
             mouseleave: null,
