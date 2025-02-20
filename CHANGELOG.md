@@ -1,8 +1,8 @@
 # Changelog
 
-## [4.3.0](https://github.com/primefaces/primevue/tree/4.3.0) (2025-02-20)
+## [4.3.0-rc.1](https://github.com/primefaces/primevue/tree/4.3.0-rc.1) (2025-02-20)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/4.2.5...4.3.0)
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.2.5...4.3.0-rc.1)
 
 **Breaking Changes:**
 
