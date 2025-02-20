@@ -101,8 +101,7 @@
                         },
                         {
                             "name": "FloatLabel",
-                            "to": "/floatlabel",
-                            "badge": "NEW"
+                            "to": "/floatlabel"
                         },
                         {
                             "name": "IconField",
@@ -110,8 +109,7 @@
                         },
                         {
                             "name": "IftaLabel",
-                            "to": "/iftalabel",
-                            "badge": "NEW"
+                            "to": "/iftalabel"
                         },
                         {
                             "name": "InputGroup",
@@ -135,8 +133,7 @@
                         },
                         {
                             "name": "KeyFilter",
-                            "to": "/keyfilter",
-                            "badge": "NEW"
+                            "to": "/keyfilter"
                         },
                         {
                             "name": "Knob",
@@ -421,8 +418,7 @@
                         },
                         {
                             "name": "ImageCompare",
-                            "to": "/imagecompare",
-                            "badge": "NEW"
+                            "to": "/imagecompare"
                         }
                     ]
                 },
@@ -534,13 +530,11 @@
         {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
-            "to": "/uikit",
-            "badge": "NEW"
+            "to": "/uikit"
         },
         {
             "name": "Theme Designer",
             "icon": "pi pi-sparkles",
-            "badge": "NEW",
             "children": [
                 {
                     "name": "Overview",
@@ -589,8 +583,7 @@
                 },
                 {
                     "name": "RTL",
-                    "to": "/guides/rtl",
-                    "badge": "NEW"
+                    "to": "/guides/rtl"
                 }
             ]
         },
