@@ -26006,7 +26006,7 @@
                             "description": "Enables dragging to change the position using header."
                         },
                         {
-                            "name": "keepInViewPort",
+                            "name": "keepInViewport",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
