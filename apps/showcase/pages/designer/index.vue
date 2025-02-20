@@ -143,8 +143,9 @@
                                 <div class="font-medium text-xl mb-2">Basic</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For small teams</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <div class="flex flex-wrap gap-4">
+                                <div class="flex flex-wrap gap-1 items-center">
                                     <span class="text-2xl font-bold">$249</span>
+                                    <span class="text-sm text-muted-color">/ year</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
@@ -185,8 +186,9 @@
                                 <div class="font-medium text-xl mb-2">Extended</div>
                                 <div class="text-surface-500 dark:text-surface-400 font-medium">For teams with UI/UX designers</div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <div class="flex flex-wrap gap-4">
+                                <div class="flex flex-wrap gap-1 items-center">
                                     <span class="text-2xl font-bold">$1990</span>
+                                    <span class="text-sm text-muted-color">/ year</span>
                                 </div>
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
