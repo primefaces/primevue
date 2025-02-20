@@ -690,6 +690,7 @@ export default {
 
             setTimeout(() => {
                 this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.autoUpdateModel();
             }, 1);
         },
         onOverlayAfterEnter() {
@@ -925,8 +926,11 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
+            if (this.autoOptionFocus) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
