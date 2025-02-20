@@ -483,6 +483,11 @@ export interface SelectProps {
      */
     autoOptionFocus?: boolean | undefined;
     /**
+     * Whether to focus on the first visible or selected element when the user filters the options.
+     * @defaultValue false
+     */
+    autoOptionFocusAfterFilter?: boolean | undefined;
+    /**
      * Whether to focus on the filter element when the overlay panel is shown.
      * @defaultValue false
      */

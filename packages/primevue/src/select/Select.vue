@@ -488,7 +488,7 @@ export default {
             const value = event.target.value;
 
             this.filterValue = value;
-            this.focusedOptionIndex = -1;
+            this.focusedOptionIndex = this.autoOptionFocusAfterFilter ? this.findFirstFocusedOptionIndex() : -1;
             this.$emit('filter', { originalEvent: event, value });
 
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
