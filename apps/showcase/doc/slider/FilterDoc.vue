@@ -56,7 +56,7 @@ export default {
     computed: {
         filterStyle() {
             return {
-                filter: \`contrast(\${this.filterValues[0]}%) brightness(\${this.filterValues[1]}%) sepia(\${this.filterValues[2]}%)\`
+                filter: \`contrast(\${filterValues.value[0]}%) brightness(\${filterValues.value[1]}%) sepia(\${filterValues.value[2]}%)\`
             };
         }
     }
