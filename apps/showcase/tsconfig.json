@@ -15,11 +15,6 @@
         "jsx": "preserve",
         "incremental": true
     },
-    "include": [
-        "../../packages/primevue/src/**/*.d.ts",
-        "../../packages/forms/src/**/*.d.ts",
-        "../../node_modules/@primeuix/styles/**/*.d.ts",
-        "../../node_modules/@primeuix/themes/**/*.d.ts"
-    ],
+    "include": ["../../packages/primevue/src/**/*.d.ts", "../../packages/forms/src/**/*.d.ts", "../../node_modules/@primeuix/styles/**/*.d.ts", "../../node_modules/@primeuix/themes/**/*.d.ts"],
     "exclude": ["node_modules", "**/node_modules", "**/dist", "**/*.spec.ts", "**/*.test.ts"]
 }
