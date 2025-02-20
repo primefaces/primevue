@@ -48,39 +48,33 @@
         >
             <i class="pi pi-plus"></i>
         </button>
-        <template v-if="loading">
-            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
-            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
-        </template>
-        <template v-else>
-            <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
-                <button
-                    type="button"
-                    class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
-                    @click="loadTheme(theme)"
-                >
-                    <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
-                </button>
-                <div class="flex flex-col items-center gap-1">
-                    <div class="group flex items-center gap-2 relative">
-                        <input
-                            v-model="theme.t_name"
-                            type="text"
-                            :class="['w-24 text-sm px-2 text-center pr-4', { 'bg-red-50 dark:bg-red-500/30': !theme.t_name }]"
-                            maxlength="100"
-                            @blur="renameTheme(theme)"
-                            @keydown.enter="onThemeNameEnterKey($event)"
-                            @keydown.escape="onThemeNameEscape($event)"
-                        />
-                        <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
-                    </div>
-                    <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
+        <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
+            <button
+                type="button"
+                class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
+                @click="loadTheme(theme)"
+            >
+                <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
+            </button>
+            <div class="flex flex-col items-center gap-1">
+                <div class="group flex items-center gap-2 relative">
+                    <input
+                        v-model="theme.t_name"
+                        type="text"
+                        :class="['w-24 text-sm px-2 text-center pr-4', { 'bg-red-50 dark:bg-red-500/30': !theme.t_name }]"
+                        maxlength="100"
+                        @blur="renameTheme(theme)"
+                        @keydown.enter="onThemeNameEnterKey($event)"
+                        @keydown.escape="onThemeNameEscape($event)"
+                    />
+                    <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
                 </div>
-                <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-500 dark:text-surface-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
-                    <i class="pi pi-ellipsis-h !text-xs" />
-                </button>
+                <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
             </div>
-        </template>
+            <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-500 dark:text-surface-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
+                <i class="pi pi-ellipsis-h !text-xs" />
+            </button>
+        </div>
         <Menu ref="themeMenu" :model="themeOptions" :popup="true" @show="onMenuShow" @hide="onMenuHide" />
     </div>
 </template>

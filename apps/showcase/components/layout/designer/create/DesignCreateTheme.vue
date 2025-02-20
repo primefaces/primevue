@@ -64,12 +64,10 @@
 import { usePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
 import Lara from '@primeuix/themes/lara';
-import Material from '@primeuix/themes/material';
 import Nora from '@primeuix/themes/nora';
 
 const presets = {
     Aura,
-    Material,
     Lara,
     Nora
 };
@@ -90,7 +88,6 @@ export default {
             figmaData: null,
             presetOptions: [
                 { label: 'Aura', value: 'Aura' },
-                { label: 'Material', value: 'Material' },
                 { label: 'Lara', value: 'Lara' },
                 { label: 'Nora', value: 'Nora' }
             ]
@@ -101,7 +98,7 @@ export default {
             if (this.themeName == null || !this.themeName.trim().length) {
                 this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Name is required', life: 3000 });
             } else {
-                const newPreset = presets[this.basePreset];
+                const newPreset = structuredClone(presets[this.basePreset]);
 
                 if (this.$appState.designer.verified) {
                     const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
