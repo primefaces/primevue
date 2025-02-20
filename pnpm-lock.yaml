@@ -13,11 +13,11 @@ catalogs:
       specifier: ^0.5.0
       version: 0.5.0
     '@primeuix/styles':
-      specifier: ^0.1.0-beta.3
-      version: 0.1.0-beta.3
+      specifier: ^1.0.0-rc.1
+      version: 1.0.0-rc.1
     '@primeuix/themes':
-      specifier: ^0.1.0-beta.6
-      version: 0.1.0-beta.6
+      specifier: ^1.0.0-rc.1
+      version: 1.0.0-rc.1
     '@primeuix/utils':
       specifier: ^0.5.1
       version: 0.5.1
@@ -49,7 +49,7 @@ importers:
         version: 10.0.1(eslint@9.20.1(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.2.3
-        version: 5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.4.2)
+        version: 5.2.3(@types/eslint@9.6.1)(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.4.2)
       eslint-plugin-vue:
         specifier: ^9.32.0
         version: 9.32.0(eslint@9.20.1(jiti@2.4.2))
@@ -80,7 +80,7 @@ importers:
     devDependencies:
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.6
+        version: 1.0.0-rc.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -249,7 +249,7 @@ importers:
         version: 3.15.4(@types/node@18.19.76)(@vue/test-utils@2.4.6)(jiti@2.4.2)(magicast@0.3.5)(terser@5.39.0)(typescript@5.7.3)(vitest@1.6.1(@types/node@18.19.76)(terser@5.39.0))(yaml@2.7.0)
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.6
+        version: 1.0.0-rc.1
       '@types/node':
         specifier: ^18.17.17
         version: 18.19.76
@@ -273,7 +273,7 @@ importers:
         version: 0.5.0
       '@primeuix/styles':
         specifier: 'catalog:'
-        version: 0.1.0-beta.3
+        version: 1.0.0-rc.1
       '@primeuix/utils':
         specifier: 'catalog:'
         version: 0.5.1
@@ -299,7 +299,7 @@ importers:
         version: 0.5.0
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 0.1.0-beta.6
+        version: 1.0.0-rc.1
     publishDirectory: dist
 
 packages:
@@ -2012,11 +2012,11 @@ packages:
     resolution: {integrity: sha512-k5CTQ+10cXIXxZTep7sktmYe8lJkjmUaFVDAc1OCsWTJR+bhBy/s6zWIatGljVtuf3RmTSxtlrHQeFLjPmdUNQ==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styles@0.1.0-beta.3':
-    resolution: {integrity: sha512-dk6w4pMaPZmgKqT8CdQOZRP3SHgRXypzFgama+OXJRnXEB3o0ILJoQ8wPafrYQds++QYUQL9egpTdDyZvz5T9Q==}
+  '@primeuix/styles@1.0.0-rc.1':
+    resolution: {integrity: sha512-A8vG07B0NRUE2r6InDEqQIMAHfHuJm8gHxb8M+jNgP6DAkKZRYK+Q2hYcNaQWXjdwt+exJt23J2aA9zrPEdzaQ==}
 
-  '@primeuix/themes@0.1.0-beta.6':
-    resolution: {integrity: sha512-jvr76mAl7csDR6FEbWlQUHB+nUqUdU7Ksl6WgfsYsXw0zxS+Yer7lRdY0GsVHkRhLoA6iIJBQ0enqBHSr3WUvw==}
+  '@primeuix/themes@1.0.0-rc.1':
+    resolution: {integrity: sha512-F9dJIPPQXwWYdbgE8J04n1eLMuVmJ+XeAkrSqQu2NqGHUffB3dH2Zm0Mqknu0L7xrt/tjqnZ1EBlwsmvi1rycQ==}
 
   '@primeuix/utils@0.4.1':
     resolution: {integrity: sha512-5+1NLfyna+gLRPeFTo+xlR0tfPVLuVdidbeahAMLkQga5Rw0LxyUBCyD2/Zv2JkV69o2T+hpEDyddl3VdnYoBw==}
@@ -8862,11 +8862,11 @@ snapshots:
     dependencies:
       '@primeuix/utils': 0.5.1
 
-  '@primeuix/styles@0.1.0-beta.3':
+  '@primeuix/styles@1.0.0-rc.1':
     dependencies:
       '@primeuix/styled': 0.5.0
 
-  '@primeuix/themes@0.1.0-beta.6':
+  '@primeuix/themes@1.0.0-rc.1':
     dependencies:
       '@primeuix/styled': 0.5.0
 
@@ -10745,13 +10745,14 @@ snapshots:
     dependencies:
       eslint: 9.20.1(jiti@2.4.2)
 
-  eslint-plugin-prettier@5.2.3(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.4.2):
+  eslint-plugin-prettier@5.2.3(@types/eslint@9.6.1)(eslint-config-prettier@10.0.1(eslint@9.20.1(jiti@2.4.2)))(eslint@9.20.1(jiti@2.4.2))(prettier@3.4.2):
     dependencies:
       eslint: 9.20.1(jiti@2.4.2)
       prettier: 3.4.2
       prettier-linter-helpers: 1.0.0
       synckit: 0.9.2
     optionalDependencies:
+      '@types/eslint': 9.6.1
       eslint-config-prettier: 10.0.1(eslint@9.20.1(jiti@2.4.2))
 
   eslint-plugin-vue@9.32.0(eslint@9.20.1(jiti@2.4.2)):
