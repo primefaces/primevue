@@ -101,7 +101,7 @@ export default {
             if (this.themeName == null || !this.themeName.trim().length) {
                 this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Name is required', life: 3000 });
             } else {
-                const newPreset = presets[this.basePreset];
+                const newPreset = structuredClone(presets[this.basePreset]);
 
                 if (this.$appState.designer.verified) {
                     const { data, error } = await $fetch(this.designerApiUrl + '/theme/create', {
