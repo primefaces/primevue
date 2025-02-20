@@ -124,7 +124,7 @@ export default {
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
-            let newValue = parseFloat(value.toFixed(10));
+            let newValue = Math.round(value * 100) / 100;
             let modelValue;
 
             if (this.range) {
