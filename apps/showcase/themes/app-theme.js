@@ -1,3 +1,6 @@
+// @ts-ignore
+import '@primeuix/styles'; // When styles change, the app will hot reload.
+
 import { definePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
 
