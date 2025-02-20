@@ -248,7 +248,7 @@ export interface DialogProps {
      * Keeps dialog in the viewport when dragging.
      * @defaultValue true
      */
-    keepInViewPort?: boolean | undefined;
+    keepInViewport?: boolean | undefined;
     /**
      * Minimum value for the left coordinate of dialog in dragging.
      * @defaultValue 0.
