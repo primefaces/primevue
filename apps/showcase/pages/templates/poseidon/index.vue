@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(PoseidonLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/hero-background.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-hero-1.jpg',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/nextgen/poseidon-hero-2.jpg',
                                 description:

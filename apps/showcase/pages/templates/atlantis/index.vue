@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(AtlantisLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/atlantis-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/atlantis-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/atlantis-hero-dashboard2.png',
                                 description: 'Prepare to be amazed by the remastered Atlantis for PrimeVue featuring a new gorgeous dark mode for the entire layout, 5 menu modes, reusable css widgets, utilities, modern icons and many more.',

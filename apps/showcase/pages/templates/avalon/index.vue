@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(AvalonLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png',
                                 rectangle: false,
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard2.png',

@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(VeronaLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png',
                                 description: 'Prepare to be amazed by the remastered Verona for PrimeVue featuring a new gorgeous dark mode for the entire layout, 2 menu modes, reusable css widgets, utilities, modern icons and many more.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard2.png',

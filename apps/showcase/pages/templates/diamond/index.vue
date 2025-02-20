@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(DiamondLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-remastered-hero-dashboard-2.png',
                                 description: 'An amazing application template for Vue based on Vite with light-dark modes with 8 surface colors, seven menu layouts, various menu themes, sample apps, ready to use template pages and 3 presets.',

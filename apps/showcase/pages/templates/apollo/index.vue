@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(ApolloLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard2.png',
                                 description: 'Application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 24 PrimeVue themes.',

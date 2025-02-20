@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(UltimaLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png',
                                 description:
                                     'A highly customizable premium application template featuring 4 menu modes, 13 themes, light and dark modes. Based on material design language, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard1.png',

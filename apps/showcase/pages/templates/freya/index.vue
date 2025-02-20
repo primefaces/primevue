@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(FreyaLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/freya/freya-hero-dashboard2.png',
                                 description: 'Freya is a modern admin template for developers and IT professionals. It comes with a huge collection of reusable UI components and dozens of built-in layouts for various purposes.',

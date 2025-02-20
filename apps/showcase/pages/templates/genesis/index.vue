@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(GenesisLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/genesis/hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-2.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-1.png',
                                 description: 'Genesis, crafted by Prime, is the ultimate multi-purpose website template built with Vue and Nuxt. It offers unmatched versatility and performance with a suite of example pages to elevate your projects.',

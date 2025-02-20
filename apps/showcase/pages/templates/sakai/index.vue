@@ -24,7 +24,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(SakaiLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard2.png',
                                 description: 'Sakai is a free application template for Vue based on Vite and Nuxt.',
