@@ -686,7 +686,7 @@ export default {
 
             setTimeout(() => {
                 this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
-                this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.editable ? -1 : this.findSelectedOptionIndex();
+                this.autoUpdateModel();
             }, 1);
         },
         onOverlayAfterEnter() {
@@ -900,8 +900,11 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
+            if (this.autoOptionFocus) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },
