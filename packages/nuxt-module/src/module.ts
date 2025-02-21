@@ -1,9 +1,6 @@
 import { addPlugin, addPluginTemplate, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit';
-import { isNotEmpty } from '@primeuix/utils';
-import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 import type { MetaType } from '@primevue/metadata';
 import { normalize } from 'pathe';
-import Components from 'unplugin-vue-components/nuxt';
 import { register } from './register';
 import type { ModuleOptions } from './types';
 
@@ -45,7 +42,7 @@ export default defineNuxtModule<ModuleOptions>({
     },
     hooks: {},
     setup(moduleOptions, nuxt) {
-        moduleOptions.components.exclude = moduleOptions.components.exclude || ['Editor', 'Chart'];
+        moduleOptions.components.exclude = moduleOptions.components.exclude || ['Editor', 'Chart', 'Form', 'FormField'];
 
         const resolver = createResolver(import.meta.url);
         const registered = register(moduleOptions);
@@ -63,31 +60,6 @@ export default defineNuxtModule<ModuleOptions>({
         hasTheme && nuxt.options.build.transpile.push('@primeuix/themes');
 
         let registeredStyles: MetaType[] = registered.styles;
-
-        if (autoImport) {
-            const dts = isNotEmpty(moduleOptions.components?.prefix) || isNotEmpty(moduleOptions.directives?.prefix);
-
-            Components(
-                {
-                    dts,
-                    resolvers: [
-                        PrimeVueResolver({
-                            components: moduleOptions.components,
-                            directives: moduleOptions.directives,
-                            resolve: (meta: MetaType) => {
-                                registeredStyles.push({
-                                    ...meta,
-                                    name: `${meta.name}Style`,
-                                    as: `${meta.as}Style`,
-                                    from: `${meta.from}/style`
-                                });
-                            }
-                        })
-                    ]
-                },
-                nuxt
-            );
-        }
 
         const styleContent = () => {
             if (!loadStyles) return `export const styles = [], stylesToTop = [], themes = [];`;
@@ -147,7 +119,7 @@ export { styles, stylesToTop, themes };
 import { defineNuxtPlugin, useRuntimeConfig } from '#imports';
 ${registered.config.map((config: MetaType) => `import ${config.as} from '${config.from}';`).join('\n')}
 ${registered.services.map((service: MetaType) => `import ${service.as} from '${service.from}';`).join('\n')}
-${!autoImport && registered.directives.map((directive: MetaType) => `import ${directive.as} from '${directive.from}';`).join('\n')}
+${autoImport ? registered.directives.map((directive: MetaType) => `import ${directive.as} from '${directive.from}';`).join('\n') : ''}
 ${importPT ? `import ${importPT.as} from '${normalize(importPT.from)}';\n` : ''}
 ${hasTheme && importTheme ? `import ${importTheme.as} from '${normalize(importTheme.from)}';\n` : ''}
 
@@ -160,7 +132,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
 
   usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt, ...theme });
   ${registered.services.map((service: MetaType) => `vueApp.use(${service.as});`).join('\n')}
-  ${!autoImport && registered.directives.map((directive: MetaType) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n')}
+  ${autoImport ? registered.directives.map((directive: MetaType) => `vueApp.directive('${directive.name}', ${directive.as});`).join('\n') : ''}
 });
         `;
             }
