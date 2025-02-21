@@ -21,7 +21,12 @@ const dialog = useDialog();
 const showProducts = () => {
     dialog.open(ProductListDemo, {
         onCancel: (e) => {
-            console.log(e);  // {user: 'primetime'}
+            console.log(e);      // {user: 'primetime'}
+        },
+        emits: {
+            onSave: (e) => {
+                console.log(e);  // {user: 'primetime'}
+            }
         }
     });
 }
@@ -35,6 +40,10 @@ const emit = defineEmits(['cancel', 'save'])
 
 function buttonClick() {
     emit('cancel', {user: 'primetime'});
+}
+
+function saveButtonClick() {
+    emit('save', {user: 'primetime'});
 }
 <\/script>
 `
