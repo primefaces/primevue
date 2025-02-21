@@ -9,12 +9,18 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
-      # Setup .npmrc file to publish to npm
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+            version: 9.6.0
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
       - run: |
             pnpm run setup
             pnpm run release
