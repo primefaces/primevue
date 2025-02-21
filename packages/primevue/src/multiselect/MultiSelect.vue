@@ -773,12 +773,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -1137,7 +1137,7 @@ export default {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value && this.d_value.length && this.d_value != null && isNotEmpty(this.options);
         }
     },
     directives: {

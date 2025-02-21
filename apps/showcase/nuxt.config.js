@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     },
     vite: {
         resolve: {
-            dedupe: ['vue', '@primeuix/themes', '@primeuix/utils'],
+            dedupe: ['vue', '@primeuix/styles', '@primeuix/themes', '@primeuix/utils'],
             optimizeDeps: {
                 disabled: true
             },
@@ -73,8 +73,7 @@ export default defineNuxtConfig({
             ],
             link: [
                 { rel: 'icon', href: baseUrl + 'favicon.ico' },
-                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400|Roboto:500|Roboto:600|Roboto:700', fetchpriority: 'low' }
+                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
             ],
             script: [
                 {
@@ -94,7 +93,7 @@ export default defineNuxtConfig({
         public: {
             contextPath: baseUrl,
             DEV_ENV: PROCESS_ENV.DEV_ENV,
-            designerApiBase: ''
+            designerApiUrl: ''
         }
     },
     css: ['primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/tailwind/main.css', '@/assets/styles/layout/layout.scss']

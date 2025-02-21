@@ -309,7 +309,7 @@ export default {
 
             const { index, key, level, parentKey, children } = processedOption;
             const grouped = isNotEmpty(children);
-            const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
+            const activeOptionPath = this.activeOptionPath ? this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key) : [];
 
             this.focusedOptionInfo = { index, level, parentKey };
 
@@ -573,12 +573,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -646,7 +646,7 @@ export default {
             return this.isValidOption(processedOption) && this.isSelected(processedOption);
         },
         isSelected(processedOption) {
-            return this.activeOptionPath.some((p) => p.key === processedOption.key);
+            return this.activeOptionPath && this.activeOptionPath.some((p) => p.key === processedOption.key);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((processedOption) => this.isValidOption(processedOption));
@@ -819,7 +819,7 @@ export default {
             return this.createProcessedOptions(this.options || []);
         },
         visibleOptions() {
-            const processedOption = this.activeOptionPath.find((p) => p.key === this.focusedOptionInfo.parentKey);
+            const processedOption = this.activeOptionPath && this.activeOptionPath.find((p) => p.key === this.focusedOptionInfo.parentKey);
 
             return processedOption ? processedOption.children : this.processedOptions;
         },

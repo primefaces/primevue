@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(GenesisLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/genesis/hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-2.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-1.png',
                                 description: 'Genesis, crafted by Prime, is the ultimate multi-purpose website template built with Vue and Nuxt. It offers unmatched versatility and performance with a suite of example pages to elevate your projects.',
@@ -162,7 +161,7 @@ export default {
                                 <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the template and requires a separate purchase.`,
                             description4: `
                                 Genesis uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
-                                <a href="https://www.figma.com/design/bGujrJyznnSatJFMtkXbTN/Preview-%7C-Genesis?node-id=0-1&t=etuXAwkUAEuhJ3p0-1">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are
+                                <a href="https://www.figma.com/design/bGujrJyznnSatJFMtkXbTN/Preview-%7C-Genesis?node-id=0-1&t=etuXAwkUAEuhJ3p0-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are
                                 excluded from the Genesis Figma file as they are available in <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.`
                         }
                     },

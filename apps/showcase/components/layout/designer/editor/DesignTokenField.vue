@@ -2,7 +2,7 @@
     <div class="group">
         <div class="flex justify-between justify-items-center">
             <label :for="inputId" class="text-xs text-zinc-700 dark:text-white/70 block capitalize text-ellipsis overflow-hidden w-full whitespace-nowrap mb-px" :title="label">{{ label }}</label>
-            <button v-if="switchable" type="button" @click="transfer">
+            <button v-if="switchable" type="button" @click="transfer" tabindex="-1">
                 <i class="pi pi-sort-alt !text-xs text-zinc-500 dark:text-white/50 hidden group-hover:block animate-fadein" title="Transfer between color scheme and common"></i>
             </button>
         </div>
@@ -10,12 +10,14 @@
             <AutoComplete
                 :modelValue="modelValue"
                 @input="onInput"
+                @blur="onBlur"
                 :inputId="inputId"
                 :suggestions="items"
                 @complete="search"
                 unstyled
                 optionLabel="label"
                 :showEmptyMessage="false"
+                appendTo="self"
                 :pt="{
                     pcInputText: {
                         root: [
@@ -34,7 +36,7 @@
                 <template #option="slotProps">
                     <div v-tooltip.left="slotProps.option.value" class="flex items-center justify-between gap-4 px-2">
                         <span>{{ slotProps.option.token }}</span>
-                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: slotProps.option.variable }"></div>
+                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: designerService.resolveColor(slotProps.option.value) }"></div>
                         <div v-else class="text-xs max-w-16 text-ellipsis whitespace-nowrap overflow-hidden">
                             {{ slotProps.option.value }}
                         </div>
@@ -47,11 +49,12 @@
 </template>
 
 <script>
-import { uuid } from '@primeuix/utils';
 import { $dt } from '@primeuix/themes';
+import { uuid } from '@primeuix/utils';
 
 export default {
     emits: ['update:modelValue'],
+    inject: ['designerService'],
     props: {
         label: {
             type: String,
@@ -212,6 +215,9 @@ export default {
             delete current[lastKey];
 
             return true;
+        },
+        onBlur() {
+            this.designerService.refreshACTokens();
         }
     },
     computed: {

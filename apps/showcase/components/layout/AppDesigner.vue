@@ -34,14 +34,14 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset, usePreset } from '@primeuix/themes';
+import { $dt, usePreset } from '@primeuix/themes';
 
 export default {
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     provide() {
@@ -53,8 +53,7 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette,
-                getCSRFToken: this.getCSRFToken
+                resolveColor: this.resolveColor
             }
         };
     },
@@ -64,12 +63,20 @@ export default {
         };
     },
     async mounted() {
-        const { data } = await $fetch(this.designerApiBase + '/license/restore', {
+        const { data, error } = await $fetch(this.designerApiUrl + '/license/restore', {
             credentials: 'include'
         });
 
-        this.$appState.designer.verified = data.valid;
-        this.$appState.designer.themeLimit = data.themeLimit;
+        if (error) {
+            this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+        } else {
+            this.$appState.designer.verified = data.valid;
+
+            if (data.valid) {
+                this.$appState.designer.csrfToken = data.csrfToken;
+                this.$appState.designer.themeLimit = data.themeLimit;
+            }
+        }
     },
     methods: {
         onShow() {
@@ -83,11 +90,11 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required for download.', life: 3000 });
             } else {
                 try {
-                    const response = await $fetch(this.designerApiBase + '/theme/download/' + theme.t_key, {
+                    const response = await $fetch(this.designerApiUrl + '/theme/download/' + theme.t_key, {
                         responseType: 'blob',
                         credentials: 'include',
                         headers: {
-                            'X-CSRF-Token': this.getCSRFToken()
+                            'X-CSRF-Token': this.$appState.designer.csrfToken
                         },
                         query: {
                             library: 'primevue'
@@ -113,11 +120,11 @@ export default {
             }
         },
         async saveTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/update', {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/update', {
                 method: 'PATCH',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 },
                 body: {
                     key: theme.key,
@@ -133,9 +140,10 @@ export default {
         applyTheme(theme) {
             if (this.$appState.designer.verified) {
                 this.saveTheme(theme);
+                this.refreshACTokens();
             }
 
-            updatePreset(theme.preset);
+            usePreset(theme.preset);
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
@@ -156,7 +164,7 @@ export default {
                         const regex = /\.\d+$/;
 
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
-                        const tokenValue = $dt(tokenName).value;
+                        const tokenValue = obj[key];
                         const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
 
                         this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
@@ -200,11 +208,6 @@ export default {
                 // silent fail as some fonts may have not all the font weights
             }
         },
-        replaceColorPalette() {
-            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
-            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
-            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
-        },
         toggleDarkMode() {
             EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
         },
@@ -217,18 +220,30 @@ export default {
             };
 
             usePreset(this.$appState.designer.theme.preset);
-            this.applyFont(this.$appState.designer.theme.config.fontFamily);
-            document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
-            this.replaceColorPalette();
+            this.applyFont(this.$appState.designer.theme.config.font_family);
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
             this.refreshACTokens();
         },
-        getCSRFToken() {
-            const name = 'X-CSRF-Token';
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
+        getCookie(name) {
+            var cookieArr = document.cookie.split(';');
 
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            else return null;
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+
+                if (name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            return null;
+        },
+        resolveColor(token) {
+            if (token.startsWith('{') && token.endsWith('}')) {
+                let cssVariable = $dt(token).variable.slice(4, -1);
+                return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+            } else {
+                return token;
+            }
         }
     },
     computed: {

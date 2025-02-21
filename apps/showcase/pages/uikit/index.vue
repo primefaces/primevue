@@ -98,7 +98,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20">
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
                         <div class="text-5xl font-bold mb-4">Tokens Support</div>
@@ -125,6 +125,41 @@
                     </div>
                     <div class="w-full md:w-6/12">
                         <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
+                    <div class="w-full md:w-6/12">
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
+                    </div>
+                    <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
+                        <div class="text-primary font-bold mb-2">AUTOMATED</div>
+                        <div class="text-5xl font-bold mb-4">Figma to Theme</div>
+                        <p class="mb-4 text-lg">
+                            <i>This feature requires a <NuxtLink to="/designer" class="doc-link">Theme Designer</NuxtLink> subscription.</i>
+                        </p>
+                        <p class="mb-4 text-lg">
+                            Bridge the gap between design and development with our powerful Figma sync technology. Fully integrated with the PrimeVue Figma UI Kit, get started in no time by importing your design token file. Save countless hours in
+                            your workflow by eliminating manual theme creation from Figma designs.
+                        </p>
+
+                        <ul class="flex flex-wrap m-0 p-0 text-lg">
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Automatic Mapping</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Eliminate Handoff</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Maintain Perfect Fidelity</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Verify Synchorization</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

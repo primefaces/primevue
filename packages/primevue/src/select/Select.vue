@@ -690,6 +690,7 @@ export default {
 
             setTimeout(() => {
                 this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.autoUpdateModel();
             }, 1);
         },
         onOverlayAfterEnter() {
@@ -734,12 +735,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -925,8 +926,11 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
+            if (this.autoOptionFocus) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 this.onOptionSelect(null, this.visibleOptions[this.focusedOptionIndex], false);
             }
         },

@@ -37,6 +37,12 @@ export default [
                 { blankLine: 'always', prev: 'block-like', next: '*' },
                 { blankLine: 'always', prev: '*', next: 'block-like' },
                 { blankLine: 'always', prev: ['import'], next: ['const', 'let', 'var'] }
+            ],
+            'no-unused-vars': [
+                'warn',
+                {
+                    varsIgnorePattern: '^_'
+                }
             ]
         }
     },

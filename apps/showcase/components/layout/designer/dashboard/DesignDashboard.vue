@@ -6,14 +6,20 @@
     </div>
 
     <div class="text-lg font-semibold mb-2">Authenticate</div>
-    <span class="block text-muted-color leading-6 mb-4"
-        >A license can be purchased from PrimeStore, if you do not have a license key, you are still able to experience the Designer in trial mode. In trial mode, downloads, figma to code, migration assistand and cloud storage are not available.
-        <NuxtLink to="/designer" class="doc-link">Learn more</NuxtLink> about the Theme Designer.</span
-    >
-    <span class="block text-muted-color leading-6 mb-4">License Key and Passkey are available at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>.</span>
+    <div v-if="!$appState.designer.verified">
+        <span class="block leading-6 mb-4"
+            >Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant. <NuxtLink to="/designer" class="doc-link">Discover</NuxtLink> more about the
+            Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink>.</span
+        >
+        <span class="block leading-6 mb-4"
+            >A license can be purchased from <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>, if you do not have a license key, you are still able to experience the Designer in trial
+            mode. Note that in trial mode, downloads, figma to code, migration assistant and cloud storage are not available.</span
+        >
+        <span class="block leading-6 mb-4">Sign-in at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a> to retrieve your license key along with the pass key.</span>
+    </div>
     <form v-if="!$appState.designer.verified" @submit.prevent class="flex gap-4">
         <input v-model="licenseKey" type="password" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 flex-1" placeholder="License Key" />
-        <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Passkey" />
+        <input v-model="otp" autocomplete="off" class="px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700" placeholder="Pass Key" />
         <button type="button" @click="activate(false)" class="btn-design">Activate</button>
     </form>
     <form v-else @submit.prevent class="flex gap-4">
@@ -40,47 +46,56 @@
             ]"
             @click="openNewTheme"
         >
-            <i class="pi pi-plus !text-2xl"></i>
+            <i class="pi pi-plus"></i>
         </button>
-        <template v-if="loading">
-            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
-            <Skeleton class="!rounded-xl !h-32 !w-32">-</Skeleton>
-        </template>
-        <template v-else>
-            <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
-                <button
-                    type="button"
-                    class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
-                    @click="loadTheme(theme)"
-                >
-                    <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
-                </button>
-                <div class="flex flex-col items-center gap-1">
-                    <div class="group flex items-center gap-2 relative">
-                        <input v-model="theme.t_name" type="text" class="w-24 text-sm px-2 text-center" maxlength="100" @blur="renameTheme(theme)" />
-                        <i class="hidden group-hover:block pi pi-pencil !text-sm absolute top-50 right-0 text-muted-color"></i>
-                    </div>
-                    <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
+        <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
+            <button
+                type="button"
+                class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
+                @click="loadTheme(theme)"
+            >
+                <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
+            </button>
+            <div class="flex flex-col items-center gap-1">
+                <div class="group flex items-center gap-2 relative">
+                    <input
+                        v-model="theme.t_name"
+                        type="text"
+                        :class="['w-24 text-sm px-2 text-center pr-4', { 'bg-red-50 dark:bg-red-500/30': !theme.t_name }]"
+                        maxlength="100"
+                        @blur="renameTheme(theme)"
+                        @keydown.enter="onThemeNameEnterKey($event)"
+                        @keydown.escape="onThemeNameEscape($event)"
+                    />
+                    <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
                 </div>
-                <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-500 dark:text-surface-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
-                    <i class="pi pi-ellipsis-h !text-xs" />
-                </button>
+                <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
             </div>
-        </template>
-        <Menu ref="themeMenu" :model="themeOptions" :popup="true" />
+            <button type="button" @click="toggleMenuOptions($event, theme)" class="hover:bg-surface-100 dark:hover:bg-surface-800 text-surface-500 dark:text-surface-400 flex absolute top-1 right-1 w-8 h-8 rounded-lg items-center justify-center">
+                <i class="pi pi-ellipsis-h !text-xs" />
+            </button>
+        </div>
+        <Menu ref="themeMenu" :model="themeOptions" :popup="true" @show="onMenuShow" @hide="onMenuHide" />
     </div>
 </template>
 
 <script>
+import { usePreset } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+
 export default {
+    scrollListener: null,
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     inject: ['designerService'],
+    beforeUnmount() {
+        this.unbindScrollListener();
+    },
     data() {
         return {
             licenseKey: null,
@@ -133,8 +148,8 @@ export default {
         }
     },
     methods: {
-        async activate(silent) {
-            const { data, error } = await $fetch(this.designerApiBase + '/license/signin/' + this.licenseKey, {
+        async activate() {
+            const { data, error } = await $fetch(this.designerApiUrl + '/license/signin/' + this.licenseKey, {
                 credentials: 'include',
                 query: {
                     passkey: this.otp
@@ -146,13 +161,12 @@ export default {
             } else {
                 if (data.valid) {
                     this.$appState.designer.verified = true;
+                    this.$appState.designer.csrfToken = data.csrfToken;
                     this.$appState.designer.themeLimit = data.themeLimit;
 
                     this.loadThemes();
 
-                    if (!silent) {
-                        this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
-                    }
+                    this.$toast.add({ severity: 'success', summary: 'Success', detail: 'License is activated.', life: 3000 });
                 } else {
                     this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Invalid key.', life: 3000 });
                     this.$appState.designer.themes = [];
@@ -160,16 +174,11 @@ export default {
             }
         },
         async signOut() {
-            const { data } = await $fetch(this.designerApiBase + '/license/signout/', {
+            const { data } = await $fetch(this.designerApiUrl + '/license/signout/', {
                 credentials: 'include'
             });
 
             if (data.signout) {
-                this.$appState.designer.verified = false;
-                this.$appState.designer.themeLimit = null;
-                this.$appState.designer.themes = [];
-                this.$appState.designer.acTokens = [];
-
                 this.$appState.designer = {
                     verified: false,
                     ticket: null,
@@ -201,10 +210,10 @@ export default {
         },
         async loadThemes() {
             this.loading = true;
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/list/', {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/list/', {
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -217,10 +226,10 @@ export default {
             this.loading = false;
         },
         async loadTheme(theme) {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/load/' + theme.t_key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/load/' + theme.t_key, {
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -228,31 +237,41 @@ export default {
                 this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
             } else {
                 this.designerService.activateTheme(data);
+                this.$appState.designer.activeTab = '0';
                 this.$appState.designer.activeView = 'editor';
             }
         },
         async renameTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/rename/' + theme.t_key, {
-                method: 'PATCH',
-                credentials: 'include',
-                headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
-                },
-                body: {
-                    name: theme.t_name
-                }
-            });
+            if (theme.t_name && theme.t_name.trim().length) {
+                const { error } = await $fetch(this.designerApiUrl + '/theme/rename/' + theme.t_key, {
+                    method: 'PATCH',
+                    credentials: 'include',
+                    headers: {
+                        'X-CSRF-Token': this.$appState.designer.csrfToken
+                    },
+                    body: {
+                        name: theme.t_name
+                    }
+                });
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                if (error) {
+                    this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+                }
             }
         },
+        onThemeNameEnterKey(event) {
+            event.target.blur();
+        },
+        onThemeNameEscape(event) {
+            event.target.blur();
+            event.stopPropagation();
+        },
         async deleteTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/delete/' + theme.t_key, {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/delete/' + theme.t_key, {
                 method: 'DELETE',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -263,11 +282,11 @@ export default {
             }
         },
         async duplicateTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/duplicate/' + theme.t_key, {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/duplicate/' + theme.t_key, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
-                    'X-CSRF-Token': this.designerService.getCSRFToken()
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -294,6 +313,27 @@ export default {
         toggleMenuOptions(event, theme) {
             this.currentTheme = theme;
             this.$refs.themeMenu.toggle(event);
+        },
+        onMenuShow() {
+            this.bindScrollListener();
+        },
+        onMenuHide() {
+            this.unbindScrollListener();
+        },
+        bindScrollListener() {
+            if (!this.scrollListener) {
+                this.scrollListener = () => {
+                    this.$refs.themeMenu.hide();
+                };
+
+                window.addEventListener('scroll', this.scrollListener);
+            }
+        },
+        unbindScrollListener() {
+            if (this.scrollListener) {
+                window.removeEventListener('scroll', this.scrollListener);
+                this.scrollListener = null;
+            }
         },
         abbrThemeName(theme) {
             return theme.t_name ? theme.t_name.substring(0, 2) : 'UT';

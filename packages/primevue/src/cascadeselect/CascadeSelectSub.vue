@@ -131,7 +131,7 @@ export default {
             return equals(this.value, processedOption?.option);
         },
         isOptionActive(processedOption) {
-            return this.activeOptionPath.some((path) => path.key === processedOption.key);
+            return this.activeOptionPath && this.activeOptionPath.some((path) => path.key === processedOption.key);
         },
         isOptionFocused(processedOption) {
             return this.focusedOptionId === this.getOptionId(processedOption);

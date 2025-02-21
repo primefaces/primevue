@@ -1,7 +1,9 @@
 <template>
-    <div class="leading-6 text-muted-color mb-4">Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field.</div>
+    <div class="leading-6 text-muted-color mb-4">
+        Extend the theming system with your own design tokens e.g. <span class="font-medium">accent.color</span>. Do not use curly braces in the name field, and ensure that the name does not match any built-in tokens.
+    </div>
     <ul v-if="tokens?.length" class="flex flex-col gap-4 list-none p-0 mx-0 mb-4">
-        <li v-for="(token, index) of tokens" :key="index" class="first:border-t border-b border-surface-200 dark:border-surface-300 py-2">
+        <li v-for="(token, index) of tokens" :key="index" class="first:border-t border-b border-surface-200 dark:border-surface-700 py-2">
             <div class="flex items-center gap-4">
                 <label class="flex items-center gap-2 flex-auto">
                     <span class="text-sm">Name</span>
@@ -28,6 +30,8 @@
 </template>
 
 <script>
+import { usePreset } from '@primeuix/themes';
+
 export default {
     inject: ['designerService'],
     data() {
@@ -61,6 +65,7 @@ export default {
             });
 
             this.designerService.saveTheme(this.$appState.designer.theme);
+            usePreset(this.$appState.designer.theme.preset);
             this.designerService.refreshACTokens();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },

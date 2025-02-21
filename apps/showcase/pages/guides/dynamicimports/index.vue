@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <Title>PrimeFlex - Dynamic Imports</Title>
+        <Title>PrimeVue - Dynamic Imports</Title>
         <Meta name="description" content="Dynamic imports enable the loading of multiple items as needed, streamlining the import process." />
     </Head>
     <div class="doc">

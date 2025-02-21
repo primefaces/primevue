@@ -580,7 +580,7 @@ export default {
             return false;
         },
         isDecimalSign(char) {
-            if (this._decimal.test(char)) {
+            if (this.locale.includes('fr') && ['.', ','].includes(char) || this._decimal.test(char)) {
                 this._decimal.lastIndex = 0;
 
                 return true;
@@ -966,7 +966,7 @@ export default {
         },
         clearTimer() {
             if (this.timer) {
-                clearInterval(this.timer);
+                clearTimeout(this.timer);
             }
         },
         maxBoundry() {

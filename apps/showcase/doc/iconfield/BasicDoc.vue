@@ -5,7 +5,7 @@
     <div class="card flex flex-wrap justify-center gap-4">
         <IconField>
             <InputIcon class="pi pi-search" />
-            <Password v-model="value1" placeholder="Search" />
+            <InputText v-model="value1" placeholder="Search" />
         </IconField>
 
         <IconField>

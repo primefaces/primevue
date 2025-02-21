@@ -17,7 +17,7 @@
             v-bind="{ ...getColumnPT('pcColumnFilterButton', ptmFilterMenuParams), ...filterButtonProps.filter }"
         >
             <template #icon="slotProps">
-                <component :is="filterIconTemplate || hasFilter() ? 'FilterFillIcon' : 'FilterIcon'" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
+                <component :is="filterIconTemplate || (hasFilter() ? 'FilterFillIcon' : 'FilterIcon')" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
             </template>
         </Button>
         <Button
@@ -591,12 +591,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }

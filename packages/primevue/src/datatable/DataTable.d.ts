@@ -1219,7 +1219,7 @@ export interface DataTableProps<T = any> {
             }
         }
      */
-    filterButtonProps?: DataTableFilterButtonPropsOptions | undefined;
+    filterButtonProps?: Partial<DataTableFilterButtonPropsOptions> | undefined;
     /**
      * Used to pass all edit button property object
      * @defaultValue {

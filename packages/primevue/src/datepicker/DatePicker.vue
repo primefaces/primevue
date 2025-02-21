@@ -2568,22 +2568,23 @@ export default {
                             if (this.timeOnly) {
                                 focusableElements[0].focus();
                             } else {
-                                let spanIndex = null;
+                                let elementIndex = focusableElements.findIndex((el) => el.tagName === 'SPAN');
 
-                                for (let i = 0; i < focusableElements.length; i++) {
-                                    if (focusableElements[i].tagName === 'SPAN') {
-                                        spanIndex = i;
-                                        break;
-                                    } else if (focusableElements[i].tagName === 'BUTTON') {
-                                        spanIndex = i;
-                                        break;
-                                    }
+                                if (elementIndex === -1) {
+                                    elementIndex = focusableElements.findIndex((el) => el.tagName === 'BUTTON');
                                 }
 
-                                focusableElements[spanIndex].focus();
+                                if (elementIndex !== -1) {
+                                    focusableElements[elementIndex].focus();
+                                } else {
+                                    focusableElements[0].focus();
+                                }
                             }
-                        } else if (focusedIndex === focusableElements.length - 1) focusableElements[0].focus();
-                        else focusableElements[focusedIndex + 1].focus();
+                        } else if (focusedIndex === focusableElements.length - 1) {
+                            focusableElements[0].focus();
+                        } else {
+                            focusableElements[focusedIndex + 1].focus();
+                        }
                     }
                 }
             }

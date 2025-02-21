@@ -59,5 +59,8 @@
             The <a href="https://www.npmjs.com/package/nuxt-primevue" target="_blank" rel="noopener noreferrer" class="doc-link">nuxt-primevue</a> module has been replaced with the new
             <a href="https://www.npmjs.com/package/@primevue/nuxt-module" target="_blank" rel="noopener noreferrer" class="doc-link">@primevue/nuxt-module</a>. The old module is still maintained for v3 users.
         </p>
+
+        <h4>PrimeFlex CSS</h4>
+        <p>In case you are using PrimeFlex CSS library, upgrade to PrimeFlex v4 since PrimeFlex v3 is not compatible with PrimeVue v4+.</p>
     </DocSectionText>
 </template>
