@@ -118,8 +118,12 @@ export default {
     methods: {
         renderValue(value) {
             if (this.quill) {
-                if (value) this.quill.clipboard.convert({ html: value });
-                else this.quill.setText('');
+                if (value) {
+                    const delta = this.quill.clipboard.convert({ html: value });
+                    this.quill.setContents(delta);
+                } else {
+                    this.quill.setText('');
+                }
             }
         },
         initQuill() {
