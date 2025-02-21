@@ -15,7 +15,8 @@ jobs:
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm run setup
-      - run: npm run release
+      - run: |
+            pnpm run setup
+            pnpm run release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
