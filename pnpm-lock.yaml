@@ -4,18 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@primeuix/forms':
-      specifier: ^0.0.2
-      version: 0.0.2
-    '@primeuix/styled':
-      specifier: ^0.3.2
-      version: 0.3.2
-    '@primeuix/utils':
-      specifier: ^0.3.2
-      version: 0.3.2
-
 importers:
 
   .:
@@ -74,9 +62,6 @@ importers:
       '@docsearch/js':
         specifier: ^3.3.3
         version: 3.8.0(@algolia/client-search@5.15.0)(search-insights@2.17.3)
-      nuxt-gtag:
-        specifier: ^0.6.2
-        version: 0.6.3(magicast@0.3.5)(rollup@3.29.5)
     devDependencies:
       '@primevue/core':
         specifier: workspace:*
@@ -114,7 +99,7 @@ importers:
       primeicons:
         specifier: ^7.0.0
         version: 7.0.0
-      primevue:
+      primevue-vaultic:
         specifier: workspace:*
         version: link:../../packages/primevue
       quill:
@@ -225,7 +210,7 @@ importers:
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
-      primevue:
+      primevue-vaultic:
         specifier: workspace:*
         version: link:../primevue
       unplugin-vue-components:
@@ -4613,9 +4598,6 @@ packages:
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     hasBin: true
 
-  nuxt-gtag@0.6.3:
-    resolution: {integrity: sha512-3dBM4HHyxSGrq4Sy6zlO35rvpz0d1awBU8RUN7u/UGUprygtO6M2zs0E1jISqYYjticOkW179RZ15gMT/ko9KQ==}
-
   nuxt@3.3.2:
     resolution: {integrity: sha512-9xNd9+7M03oYktHnuEEgNRJYfkFwjlLvRi1NsEuEyzcc0SgazGZT89CBsQnlWI3wFMhoxoYPGJ8rc4sJAhJ1Gg==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
@@ -6700,6 +6682,18 @@ packages:
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
+catalogs:
+  default:
+    '@primeuix/forms':
+      specifier: ^0.0.2
+      version: 0.0.2
+    '@primeuix/styled':
+      specifier: ^0.3.2
+      version: 0.3.2
+    '@primeuix/utils':
+      specifier: ^0.3.2
+      version: 0.3.2
 
 snapshots:
 
@@ -11844,16 +11838,6 @@ snapshots:
   nuxi@3.3.2:
     optionalDependencies:
       fsevents: 2.3.3
-
-  nuxt-gtag@0.6.3(magicast@0.3.5)(rollup@3.29.5):
-    dependencies:
-      '@nuxt/kit': 3.14.1592(magicast@0.3.5)(rollup@3.29.5)
-      defu: 6.1.4
-      pathe: 1.1.2
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
 
   nuxt@3.3.2(@types/node@18.19.67)(encoding@0.1.13)(eslint@8.57.1)(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.28.0)(terser@5.36.0)(typescript@5.7.2):
     dependencies:

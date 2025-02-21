@@ -233,7 +233,7 @@ function addLibrary() {
 function addPackageJson() {
     const outputDir = path.resolve(__dirname, process.env.OUTPUT_DIR);
     const packageJson = `{
-    "name": "primevue",
+    "name": "primevue-vaultic",
     "version": "${pkg.version}",
     "private": "false",
     "author": "PrimeTek Informatics",

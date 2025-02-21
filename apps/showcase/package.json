@@ -52,7 +52,7 @@
         "tailwindcss": "^3.4.1",
         "tailwindcss-primeui": "^0.3.2",
         "typedoc": "0.23.23",
-        "primevue": "workspace:*",
+        "primevue-vaultic": "workspace:*",
         "@primevue/core": "workspace:*",
         "@primevue/nuxt-module": "workspace:*",
         "@primevue/themes": "workspace:*",

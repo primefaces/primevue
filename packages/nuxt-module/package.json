@@ -33,7 +33,7 @@
     ],
     "build": {
         "externals": [
-            "primevue",
+            "primevue-vaultic",
             "@primevue/metadata",
             "@primevue/auto-import-resolver",
             "unplugin-vue-components",
@@ -70,7 +70,7 @@
         "@nuxt/kit": "^3.7.3",
         "@primeuix/styled": "catalog:",
         "@primeuix/utils": "catalog:",
-        "primevue": "workspace:*",
+        "primevue-vaultic": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
         "@primevue/metadata": "workspace:*",
         "unplugin-vue-components": "0.27.0",
