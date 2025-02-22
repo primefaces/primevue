@@ -4,12 +4,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       id-token: write
+
     strategy:
-      matrix:
-      node-version: [18, 20]
+        matrix:
+            node-version: [18, 20]
     steps:
       - uses: actions/checkout@v4
 
