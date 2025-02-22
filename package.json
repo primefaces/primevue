@@ -14,7 +14,7 @@
     "scripts": {
         "setup": "rm -rf **/node_modules **/dist **/.nuxt ./pnpm-lock.yaml && pnpm install",
         "link": "pnpm --filter './packages/*' dev:link",
-        "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --failOnWarn=false",
+        "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
         "release:beta": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag beta",
         "release:rc": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary --tag rc",
         "build": "NODE_ENV=production pnpm run build:check && pnpm run build:packages",
