@@ -55,10 +55,10 @@
         "access": "public"
     },
     "scripts": {
-        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package --failOnWarn=false",
         "build:package": "pnpm run build:prebuild && pnpm run prepack",
         "build:prebuild": "node ./scripts/prebuild.mjs",
-        "prepack": "nuxt-module-build --failOnWarn=false",
+        "prepack": "nuxt-module-build",
         "dev": "nuxi dev playground",
         "dev:build": "nuxi build playground",
         "dev:prepare": "nuxt-module-build --stub && nuxt-module-build prepare && nuxi prepare playground",
