@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.3.0](https://github.com/primefaces/primevue/tree/4.3.0) (2025-02-24)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.0-rc.1...4.3.0)
+
+**Fixed bugs:**
+
+- Editor losing focus when inside Tabs component [\#7211](https://github.com/primefaces/primevue/issues/7211)
+
 ## [4.3.0-rc.1](https://github.com/primefaces/primevue/tree/4.3.0-rc.1) (2025-02-20)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.2.5...4.3.0-rc.1)
