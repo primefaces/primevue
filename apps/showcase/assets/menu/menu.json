@@ -500,8 +500,7 @@
         {
             "name": "Forms",
             "icon": "pi pi-check-circle",
-            "to": "/forms",
-            "badge": "NEW"
+            "to": "/forms"
         },
         {
             "name": "Pass Through",

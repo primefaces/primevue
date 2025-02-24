@@ -6,8 +6,8 @@
         </p>
     </DocSectionText>
     <div class="doc-notification">
-        Tailwind version of PrimeVue instead of the default styled mode is not tested with Tailwind v4. For the next-gen version with Tailwind v4, we aim to drop @apply based version in favor of a simplified pass-through approach where Tailwind
-        utilities are injected directly into PrimeVue component dom elements.
+        Tailwind version of PrimeVue instead of the default styled mode is not tested with Tailwind v4. For the next-gen version of this project, we are building a new UI Component library based on the code ownership model where components are
+        located inside your project source instead of imported from npm. This new library is powered by Unstyled PrimeVue Core and Tailwind v4.
     </div>
 </template>
 
