@@ -3,8 +3,8 @@ packages:
     - 'apps/*'
 
 catalog:
-  '@primeuix/styled': ^0.5.0
-  '@primeuix/utils': ^0.5.1
-  '@primeuix/forms': ^0.0.4
-  '@primeuix/styles': ^1.0.0-rc.1
-  '@primeuix/themes': ^1.0.0-rc.1
+    '@primeuix/styled': ^0.5.0
+    '@primeuix/utils': ^0.5.1
+    '@primeuix/forms': ^0.0.4
+    '@primeuix/styles': ^1.0.0
+    '@primeuix/themes': ^1.0.0

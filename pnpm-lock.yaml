@@ -13,11 +13,11 @@ catalogs:
       specifier: ^0.5.0
       version: 0.5.0
     '@primeuix/styles':
-      specifier: ^1.0.0-rc.1
-      version: 1.0.0-rc.1
+      specifier: ^1.0.0
+      version: 1.0.0
     '@primeuix/themes':
-      specifier: ^1.0.0-rc.1
-      version: 1.0.0-rc.1
+      specifier: ^1.0.0
+      version: 1.0.0
     '@primeuix/utils':
       specifier: ^0.5.1
       version: 0.5.1
@@ -58,7 +58,7 @@ importers:
         version: 15.15.0
       pnpm:
         specifier: ^9.6.0
-        version: 9.15.5
+        version: 9.15.6
       prettier:
         specifier: 3.4.2
         version: 3.4.2
@@ -80,7 +80,7 @@ importers:
     devDependencies:
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.0.0-rc.1
+        version: 1.0.0
       '@primevue/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -249,7 +249,7 @@ importers:
         version: 3.17.0(@types/node@18.19.76)(@vue/test-utils@2.4.6)(jiti@2.4.2)(magicast@0.3.5)(terser@5.39.0)(typescript@5.7.3)(vitest@1.6.1(@types/node@18.19.76)(terser@5.39.0))(yaml@2.7.0)
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.0.0-rc.1
+        version: 1.0.0
       '@types/node':
         specifier: ^18.17.17
         version: 18.19.76
@@ -273,7 +273,7 @@ importers:
         version: 0.5.0
       '@primeuix/styles':
         specifier: 'catalog:'
-        version: 1.0.0-rc.1
+        version: 1.0.0
       '@primeuix/utils':
         specifier: 'catalog:'
         version: 0.5.1
@@ -299,7 +299,7 @@ importers:
         version: 0.5.0
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.0.0-rc.1
+        version: 1.0.0
     publishDirectory: dist
 
 packages:
@@ -2012,11 +2012,11 @@ packages:
     resolution: {integrity: sha512-k5CTQ+10cXIXxZTep7sktmYe8lJkjmUaFVDAc1OCsWTJR+bhBy/s6zWIatGljVtuf3RmTSxtlrHQeFLjPmdUNQ==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styles@1.0.0-rc.1':
-    resolution: {integrity: sha512-A8vG07B0NRUE2r6InDEqQIMAHfHuJm8gHxb8M+jNgP6DAkKZRYK+Q2hYcNaQWXjdwt+exJt23J2aA9zrPEdzaQ==}
+  '@primeuix/styles@1.0.0':
+    resolution: {integrity: sha512-j/TlbqihLNMP37zFNjxac5dTRaQEf5Ldrv0P7NwKigCCc/+MI5j4MddxDw1LnxkGhWCJ1Gjbt9uwyQteWtSv7A==}
 
-  '@primeuix/themes@1.0.0-rc.1':
-    resolution: {integrity: sha512-F9dJIPPQXwWYdbgE8J04n1eLMuVmJ+XeAkrSqQu2NqGHUffB3dH2Zm0Mqknu0L7xrt/tjqnZ1EBlwsmvi1rycQ==}
+  '@primeuix/themes@1.0.0':
+    resolution: {integrity: sha512-fxUgcAP9H6FeytbE8c4QvRt8aBnoyZJqvtnnVwHT8PHr1dNSnC1nYKGrXpebcx3SpNy9Hp9oVidGsl6u61+pXQ==}
 
   '@primeuix/utils@0.4.1':
     resolution: {integrity: sha512-5+1NLfyna+gLRPeFTo+xlR0tfPVLuVdidbeahAMLkQga5Rw0LxyUBCyD2/Zv2JkV69o2T+hpEDyddl3VdnYoBw==}
@@ -5007,8 +5007,8 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  pnpm@9.15.5:
-    resolution: {integrity: sha512-hFGWAmqrHMPwmKBHS2TfurKv56G06R3YaJXY5Koyp6bQMEni0K13C75N4COnEi+2jBodbg0DPHB2CF+dXUgA1A==}
+  pnpm@9.15.6:
+    resolution: {integrity: sha512-E5yrBo/fC3USaBeaxfkJtb5yr7SnXFE9GQXRUb78iXe1k9PPhnHtg9TWY3xclLmP+84QgSXeSlonoxIzYBqZ3g==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -8865,11 +8865,11 @@ snapshots:
     dependencies:
       '@primeuix/utils': 0.5.1
 
-  '@primeuix/styles@1.0.0-rc.1':
+  '@primeuix/styles@1.0.0':
     dependencies:
       '@primeuix/styled': 0.5.0
 
-  '@primeuix/themes@1.0.0-rc.1':
+  '@primeuix/themes@1.0.0':
     dependencies:
       '@primeuix/styled': 0.5.0
 
@@ -12594,7 +12594,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  pnpm@9.15.5: {}
+  pnpm@9.15.6: {}
 
   postcss-calc@10.1.1(postcss@8.5.3):
     dependencies:
