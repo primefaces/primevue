@@ -1,13 +1,13 @@
 <template>
     <div :class="cx('itemsContainer')" v-bind="ptm('itemsContainer')">
         <div :class="cx('items')" v-bind="ptm('items')">
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('prevButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled()" v-bind="ptm('prevButton')" data-pc-group-section="itemnavigator">
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('prevButton')" @click="navBackward($event)" :disabled="isNavBackwardDisabled" v-bind="ptm('prevButton')" data-pc-group-section="itemnavigator">
                 <component :is="templates.previousitemicon || 'ChevronLeftIcon'" :class="cx('prevIcon')" v-bind="ptm('prevIcon')" />
             </button>
             <div :id="id + '_item_' + activeIndex" :class="cx('item')" role="group" :aria-label="ariaSlideNumber(activeIndex + 1)" :aria-roledescription="ariaSlideLabel" v-bind="ptm('item')">
                 <component v-if="templates.item" :is="templates.item" :item="activeItem" />
             </div>
-            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextButton')" @click="navForward($event)" :disabled="isNavForwardDisabled()" v-bind="ptm('nextButton')" data-pc-group-section="itemnavigator">
+            <button v-if="showItemNavigators" v-ripple type="button" :class="cx('nextButton')" @click="navForward($event)" :disabled="isNavForwardDisabled" v-bind="ptm('nextButton')" data-pc-group-section="itemnavigator">
                 <component :is="templates.nextitemicon || 'ChevronRightIcon'" :class="cx('nextIcon')" v-bind="ptm('nextIcon')" />
             </button>
             <div v-if="templates['caption']" :class="cx('caption')" v-bind="ptm('caption')">
@@ -238,12 +238,6 @@ export default {
         isIndicatorItemActive(index) {
             return this.activeIndex === index;
         },
-        isNavBackwardDisabled() {
-            return !this.circular && this.activeIndex === 0;
-        },
-        isNavForwardDisabled() {
-            return !this.circular && this.activeIndex === this.value.length - 1;
-        },
         ariaSlideNumber(value) {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slideNumber.replace(/{slideNumber}/g, value) : undefined;
         },
@@ -258,6 +252,12 @@ export default {
 
         ariaSlideLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
+        },
+        isNavBackwardDisabled() {
+            return !this.circular && this.activeIndex === 0;
+        },
+        isNavForwardDisabled() {
+            return !this.circular && this.activeIndex === this.value.length - 1;
         }
     },
     components: {
