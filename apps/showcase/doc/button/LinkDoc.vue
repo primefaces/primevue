@@ -1,11 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The button element can be displayed as a link element visually when the <i>link</i> property is present. If you need to use buttons for actual navigations, use the <i>as</i> property to customize the rendered element.</p>
+        <p>The button element can be displayed as a link element visually when the <i>link</i> property is present. If you need to customize the rendering, use the <i>as</i> to change the element or <i>asChild</i> for advanced templating.</p>
     </DocSectionText>
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
-        <Button as="router-link" label="Router" to="/" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -18,14 +20,18 @@ export default {
                 basic: `
 <Button label="Link" variant="link" />
 <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
-<Button as="router-link" label="Router" to="/" />
+<Button asChild v-slot="slotProps">
+    <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+</Button>
 `,
                 options: `
 <template>
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
-        <Button as="router-link" label="Router" to="/" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
     </div>
 </template>
 
@@ -37,7 +43,9 @@ export default {
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
-        <Button as="router-link" label="Router" to="/" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
     </div>
 </template>
 
