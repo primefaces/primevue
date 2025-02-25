@@ -39,6 +39,7 @@ export default {
         };
     },
     hsbValue: null,
+    localHue: null,
     outsideClickListener: null,
     documentMouseMoveListener: null,
     documentMouseUpListener: null,
@@ -91,7 +92,7 @@ export default {
             let brightness = Math.floor((100 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
 
             this.hsbValue = this.validateHSB({
-                h: this.hsbValue.h,
+                h: this.localHue,
                 s: saturation,
                 b: brightness
             });
@@ -103,9 +104,10 @@ export default {
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            this.localHue = Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
 
             this.hsbValue = this.validateHSB({
-                h: Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
+                h: this.localHue,
                 s: 100,
                 b: 100
             });
@@ -339,6 +341,12 @@ export default {
                 }
             } else {
                 hsb = this.HEXtoHSB(this.defaultColor);
+            }
+
+            if (this.localHue == null) {
+                this.localHue = hsb.h;
+            } else {
+                hsb.h = this.localHue;
             }
 
             return hsb;
