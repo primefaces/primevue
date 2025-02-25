@@ -738,6 +738,7 @@ export default {
             this.scrollInView();
 
             this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            this.autoUpdateModel();
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -995,8 +996,11 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
+            if (this.autoOptionFocus) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
 
                 this.updateModel(null, [value]);
