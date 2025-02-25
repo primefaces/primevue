@@ -1,5 +1,15 @@
 # Changelog
 
+## [4.3.1](https://github.com/primefaces/primevue/tree/4.3.1) (2025-02-25)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.0...4.3.1)
+
+**Fixed bugs:**
+
+- DatePicker: selection start and end bug [\#7318](https://github.com/primefaces/primevue/issues/7318)
+- InputNumber: locale warnings [\#7317](https://github.com/primefaces/primevue/issues/7317)
+- ConfirmPopup: alignment bug on first click [\#7316](https://github.com/primefaces/primevue/issues/7316)
+
 ## [4.3.0](https://github.com/primefaces/primevue/tree/4.3.0) (2025-02-24)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.0-rc.1...4.3.0)
