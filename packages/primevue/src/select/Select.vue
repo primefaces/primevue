@@ -3,6 +3,7 @@
         <input
             v-if="editable"
             ref="focusInput"
+            :name="name"
             :id="labelId || inputId"
             type="text"
             :class="[cx('label'), inputClass, labelClass]"
@@ -29,6 +30,7 @@
         <span
             v-else
             ref="focusInput"
+            :name="name"
             :id="labelId || inputId"
             :class="[cx('label'), inputClass, labelClass]"
             :style="[inputStyle, labelStyle]"
