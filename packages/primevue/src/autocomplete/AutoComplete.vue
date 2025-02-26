@@ -60,7 +60,19 @@
             >
                 <slot name="chip" :class="cx('pcChip')" :value="option" :index="i" :removeCallback="(event) => removeOption(event, i)" v-bind="ptm('pcChip')">
                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                    <Chip :class="cx('pcChip')" :label="getOptionLabel(option)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, i)" :pt="ptm('pcChip')">
+                    <Chip
+                        :class="cx('pcChip')"
+                        :label="getOptionLabel(option)"
+                        :removeIcon="chipIcon || removeTokenIcon"
+                        removable
+                        :unstyled="unstyled"
+                        @remove="removeOption($event, i)"
+                        :pt="ptm('pcChip')"
+                        @keydown="(event) => onClearIconKeyDown(event, i)"
+                        v-bind="ptm('clearIcon')"
+                        data-pc-section="clearicon"
+                        :tabindex="!disabled ? 0 : -1"
+                    >
                         <template #removeicon>
                             <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
                         </template>
@@ -344,6 +356,18 @@ export default {
             this.focusedOptionIndex = -1;
             this.$emit('blur', event);
             this.formField.onBlur?.();
+        },
+        onClearIconKeyDown(event, index) {
+            if (this.disabled) {
+                event.preventDefault();
+                return;
+            }
+            switch (event.code) {
+                case 'Enter':
+                case 'NumpadEnter':
+                    this.removeOption(event, index);
+                    break;
+            }
         },
         onKeyDown(event) {
             if (this.disabled) {

@@ -17,6 +17,7 @@
             :placeholder="placeholder"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
+            :required="required"
             :size="size"
             :invalid="invalid"
             :variant="variant"
