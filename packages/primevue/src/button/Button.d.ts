@@ -207,10 +207,6 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Route Location the router-link should navigate to when clicked on.
-     */
-    to?: string;
 }
 
 /**

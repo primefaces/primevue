@@ -581,7 +581,7 @@ export default {
             return false;
         },
         isDecimalSign(char) {
-            if (this.locale.includes('fr') && ['.', ','].includes(char) || this._decimal.test(char)) {
+            if ((this.locale?.includes('fr') && ['.', ','].includes(char)) || this._decimal.test(char)) {
                 this._decimal.lastIndex = 0;
 
                 return true;
