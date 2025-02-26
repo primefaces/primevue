@@ -506,6 +506,7 @@
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
                         <Button
+                            v-if="!timeOnly"
                             :label="todayLabel"
                             @click="onTodayButtonClick($event)"
                             :class="cx('pcTodayButton')"
