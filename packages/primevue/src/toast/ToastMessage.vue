@@ -6,7 +6,7 @@
                 <component :is="templates.messageicon ? templates.messageicon : templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('messageIcon')" v-bind="ptm('messageIcon')" />
                 <div :class="cx('messageText')" v-bind="ptm('messageText')">
                     <span :class="cx('summary')" v-bind="ptm('summary')">{{ message.summary }}</span>
-                    <div :class="cx('detail')" v-bind="ptm('detail')">{{ message.detail }}</div>
+                    <div v-if="message.detail" :class="cx('detail')" v-bind="ptm('detail')">{{ message.detail }}</div>
                 </div>
             </template>
             <component v-else :is="templates.message" :message="message"></component>
