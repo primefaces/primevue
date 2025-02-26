@@ -8427,14 +8427,6 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When enabled, it removes component related styles in the core."
-                        },
-                        {
-                            "name": "to",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "string",
-                            "default": "",
-                            "description": "Route Location the router-link should navigate to when clicked on."
                         }
                     ],
                     "methods": [],
