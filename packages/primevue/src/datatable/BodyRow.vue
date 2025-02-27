@@ -350,12 +350,21 @@ export default {
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
+                if(this.d_rowExpanded){
+                    groupRowSpan++;
+                }
+
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
                     let nextRowData = this.value[++index];
 
                     if (nextRowData) {
                         nextRowFieldData = resolveFieldData(nextRowData, field);
+
+                        const nextRowKeyData = this.dataKey ? resolveFieldData(nextRowData, this.dataKey) : null;
+                        const isNextRowExpanded = (nextRowKeyData && this.expandedRows?.hasOwnProperty?.(nextRowKeyData)) || this.expandedRows?.some?.((d) => this.equals(nextRowData, d))
+            
+                        if(isNextRowExpanded) groupRowSpan++;
                     } else {
                         break;
                     }
