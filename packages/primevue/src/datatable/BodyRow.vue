@@ -349,10 +349,21 @@ export default {
                 const currentRowFieldData = resolveFieldData(this.value[index], field);
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
+                
+                if(this.d_rowExpanded){
+                    groupRowSpan++;
+                }
 
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
                     let nextRowData = this.value[++index];
+
+                    const nextRowKeyData = this.dataKey ? resolveFieldData(nextRowData, this.dataKey) : null;
+                    const isNextRowExpanded = (nextRowKeyData && this.expandedRows?.hasOwnProperty?.(nextRowKeyData)) || this.expandedRows?.some?.((d) => this.equals(nextRowData, d))
+        
+                    if(isNextRowExpanded){
+                        groupRowSpan++;
+                    }
 
                     if (nextRowData) {
                         nextRowFieldData = resolveFieldData(nextRowData, field);
