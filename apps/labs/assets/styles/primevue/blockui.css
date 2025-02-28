@@ -1,0 +1,15 @@
+.p-blockui {
+    @apply relative
+}
+
+.p-blockui-mask {
+    @apply rounded-md
+}
+
+.p-blockui-mask.p-overlay-mask {
+    @apply absolute
+}
+
+.p-blockui-mask-document.p-overlay-mask {
+    @apply fixed
+}

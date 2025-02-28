@@ -1,0 +1,169 @@
+.p-menubar {
+    @apply flex items-center rounded-md px-3 py-2 gap-2
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700
+}
+
+.p-menubar-start,
+.p-megamenu-end {
+    @apply flex items-center
+}
+
+.p-menubar-root-list,
+.p-menubar-submenu {
+    @apply flex m-0 p-0 list-none outline-none
+}
+
+.p-menubar-root-list {
+    @apply items-center flex-wrap gap-2
+}
+
+.p-menubar-root-list > .p-menubar-item > .p-menubar-item-content {
+    @apply rounded-md
+}
+
+.p-menubar-root-list > .p-menubar-item > .p-menubar-item-content > .p-menubar-item-link {
+    @apply px-3 py-2
+}
+
+.p-menubar-item-content {
+    @apply transition-colors duration-200 rounded-sm text-surface-700 dark:text-surface-0
+}
+
+.p-menubar-item-link {
+    @apply cursor-pointer flex items-center no-underline overflow-hidden relative text-inherit
+        px-3 py-2 gap-2 select-none outline-none
+}
+
+.p-menubar-item-icon {
+    @apply text-surface-400 dark:text-surface-500
+}
+
+.p-menubar-submenu-icon {
+    @apply text-surface-400 dark:text-surface-500 ms-auto text-sm w-[0.875rem] h-[0.875rem]
+}
+
+.p-menubar-submenu-icon:dir(rtl) {
+    @apply rotate-180
+}
+
+.p-menubar-item.p-focus > .p-menubar-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-item-active > .p-menubar-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-menubar-item-active > .p-menubar-item-content .p-menubar-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-item-active > .p-menubar-item-content .p-menubar-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-menubar-submenu {
+    @apply hidden absolute min-w-52 z-10
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        flex-col p-1 gap-[2px] rounded-md
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-menubar-submenu .p-menubar-separator {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-menubar-submenu .p-menubar-item {
+    @apply relative
+}
+
+ .p-menubar-submenu > .p-menubar-item-active > .p-menubar-submenu {
+    @apply block start-full top-0
+}
+
+.p-menubar-end {
+    @apply ms-auto self-center
+}
+
+.p-menubar-button {
+    @apply hidden justify-center items-center cursor-pointer w-7 h-7 relative border-none rounded-full
+        text-surface-500 dark:text-surface-400 hover:text-surface-600 dark:hover:text-surface-300
+        bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        transition-colors duration-200
+}
+
+.p-menubar-mobile {
+    @apply relative
+}
+
+.p-menubar-mobile .p-menubar-button {
+    @apply flex
+}
+
+.p-menubar-mobile .p-menubar-root-list {
+    @apply absolute hidden w-full flex-col top-full start-0 z-10 p-1 gap-[2px] rounded-md
+        border border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-menubar-mobile .p-menubar-root-list > .p-menubar-item > .p-menubar-item-content > .p-menubar-item-link {
+    @apply px-3 py-3
+}
+
+.p-menubar-mobile-active .p-menubar-root-list {
+    @apply flex
+}
+
+.p-menubar-mobile .p-menubar-root-list .p-menubar-item {
+    @apply w-full static
+}
+
+.p-menubar-mobile .p-menubar-root-list .p-menubar-separator {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-menubar-mobile .p-menubar-root-list > .p-menubar-item > .p-menubar-item-content .p-menubar-submenu-icon {
+    @apply ms-auto transition-transform duration-[200ms]
+}
+
+.p-menubar-mobile .p-menubar-root-list > .p-menubar-item-active > .p-menubar-item-content .p-menubar-submenu-icon {
+    @apply -rotate-180
+}
+
+.p-menubar-mobile .p-menubar-submenu .p-menubar-submenu-icon {
+    @apply transition-transform duration-200 rotate-90
+}
+
+.p-menubar-mobile  .p-menubar-item-active > .p-menubar-item-content .p-menubar-submenu-icon {
+    @apply -rotate-90
+}
+
+.p-menubar-mobile .p-menubar-submenu {
+    @apply w-full static shadow-none border-none ps-4 pe-0
+}

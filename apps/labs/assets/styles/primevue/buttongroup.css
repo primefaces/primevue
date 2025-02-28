@@ -1,0 +1,19 @@
+.p-buttongroup .p-button {
+    @apply m-0 focus-visible:relative focus-visible:z-10
+}
+
+.p-buttongroup .p-button:not(:last-child) {
+    @apply border-r-0
+}
+
+.p-buttongroup .p-button:not(:first-of-type):not(:last-of-type) {
+    @apply rounded-none
+}
+
+.p-buttongroup .p-button:first-of-type:not(:only-of-type) {
+    @apply rounded-e-none
+}
+
+.p-buttongroup .p-button:last-of-type:not(:only-of-type) {
+    @apply rounded-s-none
+}

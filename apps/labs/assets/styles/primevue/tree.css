@@ -1,0 +1,103 @@
+.p-tree {
+    @apply bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-4
+}
+
+.p-tree-root-children,
+.p-tree-node-children {
+    @apply flex flex-col list-none m-0 gap-[2px]
+}
+
+.p-tree-root-children {
+    @apply pt-[2px] pb-0 px-0
+}
+
+.p-tree-node-children {
+    @apply pt-[2px] pe-0 pb-0 ps-4
+}
+
+.p-tree-node {
+    @apply p-0 outline-none
+}
+
+.p-tree-node-content {
+    @apply rounded-md px-2 py-1 flex items-center text-surface-700 dark:text-surface-0 gap-1 transition-colors duration-200
+}
+
+.p-tree-node:focus-visible > .p-tree-node-content {
+    @apply outline outline-1 outline-offset-2 outline-primary
+}
+
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover {
+    @apply bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-tree-node-content.p-tree-node-selectable:not(.p-tree-node-selected):hover .p-tree-node-icon {
+    @apply text-surface-600 dark:text-surface-300
+}
+
+.p-tree-node-content.p-tree-node-selected {
+    @apply bg-highlight
+}
+
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button {
+    @apply text-inherit
+}
+
+.p-tree-node-toggle-button {
+    @apply cursor-pointer select-none inline-flex justify-center rounded-full items-center overflow-hidden relative flex-shrink-0
+        w-7 h-7 p-0 transition-colors duration-200 border-none
+        bg-transparent enabled:hover:bg-surface-100 dark:enabled:hover:bg-surface-800
+        text-surface-500 dark:text-surface-400 enabled:hover:text-surface-600 dark:enabled:hover:text-surface-300
+}
+
+.p-tree-node-content.p-tree-node-selected .p-tree-node-toggle-button:hover {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary
+}
+
+.p-tree-root {
+    @apply overflow-auto
+}
+
+.p-tree-node-selectable {
+    @apply cursor-pointer select-none
+}
+
+.p-tree-node-leaf > .p-tree-node-content .p-tree-node-toggle-button {
+    @apply invisible
+}
+
+.p-tree-node-icon {
+    @apply text-surface-500 dark:text-surface-400 transition-colors duration-200
+}
+
+.p-tree-node-content.p-tree-node-selected .p-tree-node-icon {
+    @apply text-primary
+}
+
+.p-tree-filter {
+    @apply mb-2
+}
+
+.p-tree-filter-input {
+    @apply w-full
+}
+
+.p-tree-loading {
+    @apply relative h-full
+}
+
+.p-tree-loading-icon {
+    @apply text-[2rem] h-8 w-8
+}
+
+.p-tree .p-tree-mask {
+    @apply absolute z-10 flex items-center justify-center
+}
+
+.p-tree-flex-scrollable {
+    @apply flex flex-1 h-full flex-col
+}
+
+.p-tree-flex-scrollable .p-tree-root {
+    @apply flex-1
+}

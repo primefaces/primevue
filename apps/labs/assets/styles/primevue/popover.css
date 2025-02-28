@@ -1,0 +1,46 @@
+.p-popover {
+    @apply mt-[10px] bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700
+        rounded-md shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+        before:bottom-full before:left-5 before:h-0 before:w-0 before:absolute before:pointer-events-none
+        before:border-[10px] before:-ms-[10px] before:border-transparent before:border-b-surface-200 dark:before:border-b-surface-700
+        after:bottom-full after:left-5 after:h-0 after:w-0 after:absolute after:pointer-events-none
+        after:border-[8px] after:-ms-[8px] after:border-transparent after:border-b-surface-0 dark:after:border-b-surface-900
+}
+
+.p-popover-content {
+    @apply p-3
+}
+
+.p-popover-flipped {
+    @apply -mt-[10px] mb-[10px]
+}
+
+.p-popover-enter-from {
+    @apply opacity-0 scale-y-75
+}
+
+.p-popover-leave-to {
+    @apply opacity-0
+}
+
+.p-popover-enter-active {
+    @apply [transition:transform_120ms_cubic-bezier(0,0,0.2,1),opacity_120ms_cubic-bezier(0,0,0.2,1)]
+}
+
+.p-popover-leave-active {
+    @apply transition-opacity duration-100 ease-linear
+}
+
+.p-popover-flipped:after,
+.p-popover-flipped:before {
+    @apply bottom-auto top-full
+}
+
+.p-popover.p-popover-flipped:after {
+    @apply border-b-transparent border-t-surface-0 dark:border-t-surface-900
+}
+
+.p-popover.p-popover-flipped:before {
+    @apply border-b-transparent border-t-surface-200 dark:border-t-surface-700
+}

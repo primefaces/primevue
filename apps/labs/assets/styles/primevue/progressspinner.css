@@ -1,0 +1,58 @@
+.p-progressspinner {
+    @apply relative my-0 mx-auto w-[100px] h-[100px] inline-block
+        before:block before:pt-[100%]
+}
+
+.p-progressspinner-spin {
+    @apply h-full origin-center w-full absolute top-0 bottom-0 start-0 end-0 m-auto;
+}
+
+.p-progressspinner-spin {
+    animation: p-progressspinner-rotate 2s linear infinite;
+}
+
+.p-progressspinner-circle {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: 0;
+    stroke: theme(colors.red.500);
+    stroke-linecap: round;
+    animation: p-progressspinner-dash 1.5s ease-in-out infinite, p-progressspinner-color 6s ease-in-out infinite;
+}
+
+@keyframes p-progressspinner-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes p-progressspinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes p-progressspinner-color {
+    100%,
+    0% {
+        stroke: theme(colors.red.500);
+    }
+    40% {
+        stroke: theme(colors.blue.500);
+    }
+    66% {
+        stroke: theme(colors.green.500);
+    }
+    80%,
+    90% {
+        stroke: theme(colors.yellow.500);
+    }
+}

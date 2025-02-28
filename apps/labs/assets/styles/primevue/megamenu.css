@@ -1,0 +1,207 @@
+.p-megamenu {
+    @apply relative flex items-center rounded-md gap-2
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700
+}
+
+.p-megamenu-start,
+.p-megamenu-end {
+    @apply flex items-center
+}
+
+.p-megamenu-root-list {
+    @apply m-0 p-0 list-none outline-none flex items-center flex-wrap gap-2
+}
+
+.p-megamenu-root-list > .p-megamenu-item > .p-menumegamenubar-item-content {
+    @apply rounded-md
+}
+
+.p-megamenu-root-list > .p-megamenu-item > .p-megamenu-item-content > .p-megamenu-item-link {
+    @apply px-3 py-2
+}
+
+.p-megamenu-item-content {
+    @apply transition-colors duration-200 rounded-sm text-surface-700 dark:text-surface-0
+}
+
+.p-megamenu-item-link {
+    @apply cursor-pointer flex items-center no-underline overflow-hidden relative text-inherit
+        px-3 py-2 gap-2 select-none outline-none
+}
+
+.p-megamenu-item-icon {
+    @apply text-surface-400 dark:text-surface-500
+}
+
+.p-megamenu-submenu-icon {
+    @apply text-surface-400 dark:text-surface-500 ms-auto text-sm w-[0.875rem] h-[0.875rem]
+}
+
+.p-megamenu-item.p-focus > .p-megamenu-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-megamenu-item.p-focus > .p-megamenu-item-content .p-megamenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-item.p-focus > .p-megamenu-item-content .p-megamenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover .p-megamenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-item:not(.p-disabled) > .p-megamenu-item-content:hover .p-megamenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-item-active > .p-megamenu-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-megamenu-item-active > .p-megamenu-item-content .p-megamenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-item-active > .p-megamenu-item-content .p-megamenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-megamenu-overlay {
+    @apply hidden absolute w-auto z-10 start-0 min-w-full rounded-md
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-megamenu-root-list > .p-megamenu-item-active > .p-megamenu-overlay {
+    @apply block
+}
+
+.p-megamenu-submenu {
+    @apply m-0 p-1 list-none min-w-52 flex flex-col gap-[2px]
+}
+
+.p-megamenu-submenu-label {
+    @apply px-3 py-2 text-surface-500 dark:text-surface-400 font-semibold bg-transparent
+}
+
+.p-megamenu-separator {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-megamenu-horizontal {
+    @apply items-center px-3 py-2
+}
+
+.p-megamenu-horizontal .p-megamenu-root-list {
+    @apply flex items-center flex-wrap gap-2
+}
+
+.p-megamenu-horizontal .p-megamenu-end {
+    @apply ms-auto self-center
+}
+
+.p-megamenu-vertical {
+    @apply inline-flex min-w-52 flex-col items-stretch p-1
+}
+
+.p-megamenu-vertical .p-megamenu-root-list {
+    @apply items-stretch flex-col gap-[2px]
+}
+
+.p-megamenu-vertical .p-megamenu-root-list > .p-megamenu-item-active > .p-megamenu-overlay {
+    @apply start-full top-0
+}
+
+.p-megamenu-vertical .p-megamenu-root-list > .p-megamenu-item > .p-megamenu-item-content .p-megamenu-submenu-icon {
+    @apply ms-auto
+}
+
+.p-megamenu-grid {
+    @apply flex
+}
+
+.p-megamenu-col-2,
+.p-megamenu-col-3,
+.p-megamenu-col-4,
+.p-megamenu-col-6,
+.p-megamenu-col-12 {
+    @apply flex-grow-0 flex-shrink-0 basis-auto p-2
+}
+
+.p-megamenu-col-2 {
+    @apply w-1/6;
+}
+
+.p-megamenu-col-3 {
+    @apply w-1/4
+}
+
+.p-megamenu-col-4 {
+    @apply w-1/3
+}
+
+.p-megamenu-col-6 {
+    @apply w-1/2
+}
+
+.p-megamenu-col-12 {
+    @apply w-full
+}
+
+.p-megamenu-button {
+    @apply hidden justify-center items-center cursor-pointer w-7 h-7 relative border-none rounded-full
+        text-surface-500 dark:text-surface-400 hover:text-surface-600 dark:hover:text-surface-300
+        bg-transparent hover:bg-surface-100 dark:hover:bg-surface-800
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        transition-colors duration-200
+}
+
+.p-megamenu-mobile {
+    @apply flex
+}
+
+.p-megamenu-mobile .p-megamenu-button {
+    @apply flex
+}
+
+.p-megamenu-mobile .p-megamenu-root-list {
+    @apply absolute hidden flex-col top-full start-0 z-10 w-full p-1 gap-[2px]
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-megamenu-mobile-active .p-megamenu-root-list {
+    @apply flex
+}
+
+.p-megamenu-mobile .p-megamenu-root-list .p-megamenu-item {
+    @apply w-full static
+}
+
+.p-megamenu-mobile .p-megamenu-overlay {
+    @apply static border-none rounded-none shadow-none
+}
+
+.p-megamenu-mobile .p-megamenu-grid {
+    @apply flex-wrap overflow-auto max-h-[90%]
+}
+
+.p-megamenu-mobile .p-megamenu-root-list > .p-megamenu-item > .p-megamenu-item-content .p-megamenu-submenu-icon {
+    @apply ms-auto transition-transform duration-[200ms]
+}
+
+.p-megamenu-mobile .p-megamenu-root-list > .p-megamenu-item-active > .p-megamenu-item-content .p-megamenu-submenu-icon {
+    @apply -rotate-180
+}

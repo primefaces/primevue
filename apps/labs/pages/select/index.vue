@@ -1,0 +1,132 @@
+<template>
+    <DocComponent title="Vue Select Component" header="Select" description="Select is used to choose an item from a collection of options." :componentDocs="docs" :presetDoc="presetDoc" apiLink="/select/#api" ptLink="/select/#pt" />
+</template>
+
+<script>
+import AccessibilityDoc from '@/doc/select/AccessibilityDoc.vue';
+import BasicDoc from '@/doc/select/BasicDoc.vue';
+import CheckmarkDoc from '@/doc/select/CheckmarkDoc.vue';
+import ClearIconDoc from '@/doc/select/ClearIconDoc.vue';
+import DisabledDoc from '@/doc/select/DisabledDoc.vue';
+import EditableDoc from '@/doc/select/EditableDoc.vue';
+import FilledDoc from '@/doc/select/FilledDoc.vue';
+import FilterDoc from '@/doc/select/FilterDoc.vue';
+import FloatLabelDoc from '@/doc/select/FloatLabelDoc.vue';
+import FormsDoc from '@/doc/select/FormsDoc.vue';
+import GroupDoc from '@/doc/select/GroupDoc.vue';
+import IftaLabelDoc from '@/doc/select/IftaLabelDoc.vue';
+import ImportDoc from '@/doc/select/ImportDoc.vue';
+import InvalidDoc from '@/doc/select/InvalidDoc.vue';
+import LazyVirtualScrollDoc from '@/doc/select/LazyVirtualScrollDoc.vue';
+import LoadingStateDoc from '@/doc/select/LoadingStateDoc.vue';
+import SizesDoc from '@/doc/select/SizesDoc.vue';
+import TemplateDoc from '@/doc/select/TemplateDoc.vue';
+import VirtualScrollDoc from '@/doc/select/VirtualScrollDoc.vue';
+
+export default {
+    data() {
+        return {
+            docs: [
+                {
+                    id: 'import',
+                    label: 'Import',
+                    component: ImportDoc
+                },
+                {
+                    id: 'basic',
+                    label: 'Basic',
+                    component: BasicDoc
+                },
+                {
+                    id: 'forms',
+                    label: 'Forms',
+                    component: FormsDoc
+                },
+                {
+                    id: 'checkmark',
+                    label: 'Checkmark',
+                    component: CheckmarkDoc
+                },
+                {
+                    id: 'editable',
+                    label: 'Editable',
+                    component: EditableDoc
+                },
+                {
+                    id: 'group',
+                    label: 'Group',
+                    component: GroupDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
+                },
+                {
+                    id: 'filter',
+                    label: 'Filter',
+                    component: FilterDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
+                },
+                {
+                    id: 'loadingstate',
+                    label: 'Loading State',
+                    component: LoadingStateDoc
+                },
+                {
+                    id: 'virtualscroll',
+                    label: 'Virtual Scroll',
+                    component: VirtualScrollDoc
+                },
+                {
+                    id: 'lazyvirtualscroll',
+                    label: 'Lazy Virtual Scroll',
+                    component: LazyVirtualScrollDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
+                },
+                {
+                    id: 'floatlabel',
+                    label: 'Float Label',
+                    component: FloatLabelDoc
+                },
+                {
+                    id: 'iftalabel',
+                    label: 'Ifta Label',
+                    component: IftaLabelDoc
+                },
+                {
+                    id: 'sizes',
+                    label: 'Sizes',
+                    component: SizesDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
+                },
+                {
+                    id: 'disabled',
+                    label: 'Disabled',
+                    component: DisabledDoc
+                },
+                {
+                    id: 'accessibility',
+                    label: 'Accessibility',
+                    component: AccessibilityDoc
+                }
+            ],
+            presetDoc: {
+                key: 'select'
+            }
+        };
+    }
+};
+</script>

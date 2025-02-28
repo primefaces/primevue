@@ -1,0 +1,28 @@
+:root.p-dark {
+    --primary-text-color: var(--p-primary-400);
+    --primary-color: var(--p-primary-color);
+    --primary-contrast-color:var(--p-primary-contrast-color);
+    --primary-hover-color: var(--p-primary-hover-color);
+    --text-color: var(--p-surface-0);
+    --text-secondary-color: var(--p-surface-400);
+    --glow-image: url(https://www.primefaces.org/cdn/primevue/images/layout/pattern.png), radial-gradient(50% 50% at center -25px, var(--p-primary-color) 0%, #000000 100%);
+    --glow-blend: hard-light, color-dodge;
+    --topbar-sticky-background:rgba(0,0,0,.3);
+    --mobile-menu-background: rgba(0,0,0,.3);
+    --card-border: 1px solid transparent;
+    --card-background: var(--p-surface-900);
+    --border-color: var(--p-surface-700);
+    --ground-background: var(--p-surface-950);
+    --overlay-background: var(--p-surface-900);
+    --hover-background: var(--p-surface-800);
+    --code-background: var(--p-surface-900);
+    --high-contrast-text-color: var(--p-surface-0);
+    --hover-border-color: var(--p-surface-500);
+    --mark-background: var(--p-surface-700);
+    --mark-text-color: var(--p-surface-200);
+    --selection-background: var(--p-surface-700);
+    --selection-text-color: var(--p-surface-0);
+    --code-button-text-color: var(--p-surface-300);
+    --docsearch-mask-background: var(--p-mask-background);
+    --logo-color: var(--p-primary-400);
+}

@@ -101,10 +101,77 @@ importers:
         version: 5.7.3
 
   apps/labs:
+    dependencies:
+      '@docsearch/js':
+        specifier: catalog:app
+        version: 3.9.0(@algolia/client-search@5.20.3)(search-insights@2.17.3)
+      '@primeuix/themes':
+        specifier: 'catalog:'
+        version: 1.0.0
+      '@primevue/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@primevue/forms':
+        specifier: workspace:*
+        version: link:../../packages/forms
+      '@primevue/nuxt-module':
+        specifier: workspace:*
+        version: link:../../packages/nuxt-module
+      chart.js:
+        specifier: catalog:app
+        version: 3.3.2
+      primeicons:
+        specifier: 'catalog:'
+        version: 7.0.0
+      primevue:
+        specifier: workspace:*
+        version: link:../../packages/primevue
+      quill:
+        specifier: catalog:app
+        version: 2.0.0
+      superstruct:
+        specifier: ^2.0.2
+        version: 2.0.2
+      valibot:
+        specifier: ^0.42.1
+        version: 0.42.1(typescript@5.7.3)
+      yup:
+        specifier: 1.4.0
+        version: 1.4.0
+      zod:
+        specifier: 3.23.8
+        version: 3.23.8
     devDependencies:
+      '@stackblitz/sdk':
+        specifier: ^1.8.2
+        version: 1.11.0
+      autoprefixer:
+        specifier: ^10
+        version: 10.4.20(postcss@8.5.3)
+      jsdom:
+        specifier: ^19.0.0
+        version: 19.0.0
       nuxt:
         specifier: catalog:app
         version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@22.13.5)(db0@0.2.4)(eslint@9.21.0(jiti@2.4.2))(ioredis@5.5.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.8)(sass@1.45.0)(terser@5.39.0)(typescript@5.7.3)(vite@6.0.11(@types/node@22.13.5)(jiti@2.4.2)(sass@1.45.0)(terser@5.39.0)(yaml@2.7.0))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.7.0)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.5.3
+      sass:
+        specifier: catalog:app
+        version: 1.45.0
+      sass-loader:
+        specifier: catalog:app
+        version: 8.0.2(sass@1.45.0)(webpack@5.98.0)
+      tailwindcss:
+        specifier: ^3
+        version: 3.4.17
+      tailwindcss-primeui:
+        specifier: 'catalog:'
+        version: 0.5.1(tailwindcss@3.4.17)
+      typedoc:
+        specifier: 0.27.9
+        version: 0.27.9(typescript@5.7.3)
       vite:
         specifier: catalog:app
         version: 6.0.11(@types/node@22.13.5)(jiti@2.4.2)(sass@1.45.0)(terser@5.39.0)(yaml@2.7.0)

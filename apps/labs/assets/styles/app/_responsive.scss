@@ -1,0 +1,181 @@
+@media screen and (min-width: 1920px) {
+    .layout-content {
+        max-width: 1728px;
+        margin: 0 auto;
+    }
+
+    .layout-topbar-inner,
+    .layout-footer {
+        max-width: 1728px;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 1199px) {
+    .layout-topbar-inner {
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        .menu-button {
+            display: block;
+        }
+
+        .layout-topbar-logo-container {
+            width: auto;
+            margin-right: 0;
+        }
+
+        .DocSearch-Button {
+            width: 2rem;
+            height: 2rem;
+            overflow: hidden;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+
+            .DocSearch-Search-Icon {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            .DocSearch-Button-Placeholder,
+            .DocSearch-Button-Keys {
+                display: none;
+            }
+        }
+    }
+
+    .layout-sidebar {
+        top: 0;
+        inset-inline-start: 0;
+        position: fixed;
+        z-index: 1102;
+        height: 100%;
+        transform: translateX(-100%);
+        background-color: var(--mobile-menu-background);
+        backdrop-filter: blur(20px);
+        width: 300px;
+        opacity: 0;
+
+        &:dir(rtl) {
+            transform: translateX(100%);
+        }
+
+        nav {
+            padding: 1rem 1rem;
+        }
+
+        &.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .layout-news-active {
+        .layout-sidebar {
+            top: 0;
+        }
+    }
+
+    .layout-mask {
+        background-color: rgba(0, 0, 0, 0.1);
+
+        &.layout-mask-active {
+            z-index: 1101;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: background-color .5s;
+        }
+    }
+
+    .doc-section-nav {
+        display: none;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .layout-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .layout-footer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .blocked-scroll {
+        overflow: hidden;
+        padding-right: var(--p-scrollbar-width);
+    }
+}
+
+@media (max-width: 768px) {
+    .DocSearch-Container {
+        position: fixed !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .layout-topbar-inner {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .layout-topbar-logo {
+            display: none;
+        }
+
+        .layout-topbar-icon {
+            display: inline-flex;
+        }
+    }
+
+    .layout-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .layout-footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .doc-tabmenu {
+        li {
+            flex: 1 1 0;
+
+            button {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+    }
+
+    .layout-news {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 12px;
+
+        > i {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.p-tooltip {
+    @apply absolute hidden max-w-48
+}
+
+.p-tooltip-right,
+.p-tooltip-left {
+    @apply py-0 px-1
+}
+
+.p-tooltip-top,
+.p-tooltip-bottom {
+    @apply py-1 px-0
+}
+
+.p-tooltip-text {
+    @apply whitespace-pre-line break-words  bg-surface-700 text-surface-0 py-2 px-3
+        rounded-md shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-tooltip-arrow {
+    @apply absolute w-0 h-0 border-solid border-transparent
+}
+
+.p-tooltip-right .p-tooltip-arrow {
+    @apply -mt-1 border-[.25rem] border-s-0 border-e-surface-700 rtl:rotate-180
+}
+
+.p-tooltip-left .p-tooltip-arrow {
+    @apply -mt-1 border-[.25rem] border-e-0 border-s-surface-700 rtl:rotate-180
+}
+
+.p-tooltip-top .p-tooltip-arrow {
+    @apply -ms-1 border-[.25rem] border-b-0 border-t-surface-700
+}
+
+.p-tooltip-bottom .p-tooltip-arrow {
+    @apply -ms-1 border-[.25rem] border-t-0 border-b-surface-700
+}

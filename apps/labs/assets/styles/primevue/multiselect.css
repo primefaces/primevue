@@ -1,0 +1,143 @@
+@import './checkbox';
+@import './chip';
+@import './inputtext';
+@import './iconfield';
+
+.p-multiselect {
+    @apply inline-flex cursor-pointer relative select-none rounded-md
+        bg-surface-0 dark:bg-surface-950
+        border border-surface-300 dark:border-surface-700
+        shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
+        transition-colors duration-200
+}
+
+.p-multiselect:not(.p-disabled):hover {
+    @apply border-surface-400 dark:border-surface-600
+}
+
+.p-multiselect:not(.p-disabled).p-focus {
+    @apply border-primary
+}
+
+.p-multiselect.p-variant-filled {
+    @apply bg-surface-50 dark:bg-surface-800
+}
+
+.p-multiselect.p-invalid {
+    @apply border-red-400 dark:border-red-300
+}
+
+.p-multiselect.p-disabled {
+    @apply bg-surface-200 text-surface-500 dark:bg-surface-700 dark:text-surface-400 opacity-100 cursor-default
+}
+
+.p-multiselect-dropdown {
+    @apply flex items-center justify-center shrink-0 bg-transparent
+        text-surface-500 dark:text-surface-400 w-10 rounded-e-md
+}
+
+.p-multiselect-clear-icon {
+    @apply absolute top-1/2 -mt-2 text-surface-500 dark:text-surface-400 end-10
+}
+
+.p-multiselect-label-container {
+    @apply overflow-hidden flex-auto
+}
+
+.p-multiselect-label {
+    @apply flex items-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis px-3 py-2 text-surface-700 dark:text-surface-0
+}
+
+.p-multiselect-label.p-placeholder {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-multiselect.p-disabled .p-multiselect-label {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-multiselect-label-empty {
+    @apply overflow-hidden opacity-0
+}
+
+.p-multiselect .p-multiselect-overlay {
+    @apply min-w-full
+}
+
+.p-multiselect-overlay {
+    @apply absolute top-0 left-0 rounded-md
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-multiselect-header {
+    @apply flex items-center pt-2 pb-1 px-4
+}
+
+.p-multiselect-header .p-checkbox {
+    @apply me-2
+}
+
+.p-multiselect-filter-container {
+    @apply flex-auto
+}
+
+.p-multiselect-filter {
+    @apply w-full
+}
+
+.p-multiselect-list-container {
+    @apply overflow-auto
+}
+
+.p-multiselect-list {
+    @apply m-0 p-1 list-none gap-[2px] flex flex-col
+}
+
+.p-multiselect-option {
+    @apply cursor-pointer font-normal whitespace-nowrap relative overflow-hidden flex items-center gap-2 px-3 py-2
+        rounded-sm text-surface-700 dark:text-surface-0 bg-transparent border-none
+        transition-colors duration-200
+}
+
+.p-multiselect-option:not(.p-disabled).p-focus {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-0
+}
+
+.p-multiselect-option-group {
+    @apply m-0 px-3 py-2 bg-transparent text-surface-500 dark:text-surface-400 font-semibold
+}
+
+.p-multiselect-empty-message {
+    @apply px-3 py-2
+}
+
+.p-multiselect-label .p-chip {
+    @apply py-1 rounded-sm
+}
+
+.p-multiselect-label:has(.p-chip) {
+    @apply py-1 px-[0.375rem]
+}
+
+.p-multiselect-fluid {
+    @apply flex
+}
+
+.p-multiselect-sm .p-multiselect-label {
+    @apply text-sm px-[0.625rem] py-[0.375rem]
+}
+
+.p-multiselect-sm .p-multiselect-dropdown .p-icon {
+    @apply text-sm w-[0.875rem] h-[0.875rem]
+}
+
+.p-multiselect-lg .p-multiselect-label {
+    @apply text-lg px-[0.875rem] py-[0.625rem]
+}
+
+.p-multiselect-lg .p-multiselect-dropdown .p-icon {
+    @apply text-lg w-[1.125rem] h-[1.125rem]
+}

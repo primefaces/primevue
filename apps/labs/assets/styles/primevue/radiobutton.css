@@ -1,0 +1,93 @@
+.p-radiobutton {
+    @apply relative inline-flex select-none w-5 h-5
+}
+
+.p-radiobutton-input {
+    @apply cursor-pointer disabled:cursor-default appearance-none absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
+        border border-transparent rounded-full
+}
+
+.p-radiobutton-box {
+    @apply flex justify-center items-center rounded-full
+        border border-surface-300 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-950
+        w-5 h-5
+        transition-colors duration-200
+        shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
+}
+
+.p-radiobutton-icon {
+    @apply bg-transparent text-xs w-3 h-3 rounded-full
+        transition-all duration-200 backface-hidden
+}
+
+.p-radiobutton-icon {
+    @apply scale-[0.1]
+}
+
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    @apply border-surface-400 dark:border-surface-600
+}
+
+.p-radiobutton-checked .p-radiobutton-box {
+    @apply border-primary bg-primary
+}
+
+.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+    @apply bg-primary-contrast visible
+}
+
+.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+    @apply scale-100
+}
+
+.p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover) .p-radiobutton-box {
+    @apply border-primary-emphasis bg-primary-emphasis
+}
+
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover).p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
+    @apply bg-primary-contrast
+}
+
+.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:focus-visible) .p-radiobutton-box {
+    @apply outline outline-1 outline-offset-2 outline-primary
+}
+
+.p-radiobutton.p-invalid > .p-radiobutton-box {
+    @apply border-red-400 dark:border-red-300
+}
+
+.p-radiobutton.p-variant-filled .p-radiobutton-box {
+    @apply bg-surface-50 dark:bg-surface-800
+}
+
+.p-radiobutton.p-disabled {
+    @apply opacity-100
+}
+
+.p-radiobutton.p-disabled .p-radiobutton-box {
+    @apply bg-surface-200 dark:bg-surface-400
+        border-surface-300 dark:border-surface-700
+}
+
+.p-radiobutton-checked.p-disabled .p-radiobutton-box .p-radiobutton-icon {
+    @apply bg-surface-700 dark:bg-surface-400
+}
+
+.p-radiobutton-sm,
+.p-radiobutton-sm .p-radiobutton-box {
+    @apply w-4 h-4
+}
+
+.p-radiobutton-sm .p-radiobutton-icon {
+    @apply w-2 h-2
+}
+
+.p-radiobutton-lg,
+.p-radiobutton-lg .p-radiobutton-box {
+    @apply w-6 h-6
+}
+
+.p-radiobutton-lg .p-radiobutton-icon {
+    @apply w-4 h-4
+}

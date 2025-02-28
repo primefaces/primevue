@@ -1,0 +1,143 @@
+@import './inputtext';
+@import './chip';
+
+.p-autocomplete {
+    @apply inline-flex
+}
+
+.p-autocomplete.p-disabled {
+    @apply opacity-100
+}
+
+.p-autocomplete-loader {
+    @apply absolute top-1/2 -mt-2 end-3
+}
+
+.p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-loader {
+    @apply end-[3.25rem]
+}
+
+.p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input {
+    @apply flex-auto w-[1%]
+}
+
+.p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input,
+.p-autocomplete:has(.p-autocomplete-dropdown) .p-autocomplete-input-multiple {
+    @apply rounded-e-none
+}
+
+.p-autocomplete-dropdown {
+    @apply cursor-pointer inline-flex items-center justify-center select-none overflow-hidden relative w-10 rounded-e-md
+        bg-surface-100 enabled:hover:bg-surface-200 enabled:active:bg-surface-300
+        text-surface-600 enabled:hover:text-surface-700 enabled:hover:active:text-surface-800
+        dark:bg-surface-800 dark:enabled:hover:bg-surface-700 dark:enabled:active:bg-surface-600
+        dark:text-surface-300 dark:enabled:hover:text-surface-200 dark:enabled:active:text-surface-100
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        transition-colors duration-200
+}
+
+.p-autocomplete .p-autocomplete-overlay {
+    @apply min-w-full
+}
+
+.p-autocomplete-overlay {
+    @apply absolute top-0 left-0 rounded-md
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-autocomplete-list-container {
+    @apply overflow-auto
+}
+
+.p-autocomplete-list {
+    @apply m-0 p-1 list-none flex flex-col gap-[2px]
+}
+
+.p-autocomplete-option {
+    @apply cursor-pointer whitespace-nowrap relative overflow-hidden flex items-center px-3 py-2 rounded-sm
+        text-surface-700 dark:text-surface-0 bg-transparent border-none
+        transition-colors duration-200
+}
+
+.p-autocomplete-option:not(.p-autocomplete-option-selected):not(.p-disabled).p-focus {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-0
+}
+
+.p-autocomplete-option-selected {
+    @apply bg-highlight
+}
+
+.p-autocomplete-option-selected.p-focus {
+    @apply bg-highlight-emphasis
+}
+
+.p-autocomplete-option-group {
+    @apply m-0 px-3 py-2 text-surface-500 dark:text-surface-400 font-semibold bg-transparent
+}
+
+.p-autocomplete-input-multiple {
+    @apply m-0 list-none cursor-text overflow-hidden flex items-center flex-wrap
+        px-3 py-1 gap-1 text-surface-700 dark:text-surface-0 bg-surface-0 dark:bg-surface-950
+        border border-surface-300 dark:border-surface-700 rounded-md w-full
+        shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
+        transition-colors duration-200 outline-none
+}
+
+.p-autocomplete:not(.p-disabled):hover .p-autocomplete-input-multiple {
+    @apply border-surface-400 dark:border-surface-600
+}
+
+.p-autocomplete:not(.p-disabled).p-focus .p-autocomplete-input-multiple {
+    @apply border-primary
+}
+
+.p-autocomplete.p-invalid .p-autocomplete-input-multiple {
+    @apply border-red-400 dark:border-red-300
+}
+
+.p-variant-filled.p-autocomplete-input-multiple {
+    @apply bg-surface-50 dark:bg-surface-800
+}
+
+.p-autocomplete.p-disabled .p-autocomplete-input-multiple {
+    @apply opacity-100 cursor-default bg-surface-200 text-surface-500 dark:bg-surface-700 dark:text-surface-400
+}
+
+.p-autocomplete-chip.p-chip {
+    @apply py-1 rounded-sm
+}
+
+.p-autocomplete-input-multiple:has(.p-autocomplete-chip) {
+    @apply px-1
+}
+
+.p-autocomplete-chip-item.p-focus .p-autocomplete-chip {
+    @apply bg-surface-200 text-surface-800 dark:bg-surface-700 dark:text-surface-0
+}
+
+.p-autocomplete-input-chip {
+    @apply flex-auto inline-flex py-1
+}
+
+.p-autocomplete-input-chip input {
+    @apply border-none outline-none bg-transparent m-0 p-0 shadow-none rounded-none w-full text-inherit
+}
+
+.p-autocomplete-input-chip input::placeholder {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-autocomplete-empty-message {
+    @apply px-3 py-2
+}
+
+.p-autocomplete-fluid {
+    @apply flex
+}
+
+.p-autocomplete-fluid:has(.p-autocomplete-dropdown) .p-autocomplete-input {
+    @apply w-[1%]
+}
