@@ -28,7 +28,6 @@
         "unstyled",
         "passthrough"
     ],
-    "type": "module",
     "scripts": {
         "build": "pnpm run build:prebuild && nuxt build",
         "dev": "nuxt dev",
