@@ -21,18 +21,19 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: { enabled: false },
     modules: ['@primevue/nuxt-module'],
-    components: {
-        path: '~/components',
-        pathPrefix: false
-    },
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false
+        }
+    ],
     vite: {
+        optimizeDeps: {
+            noDiscovery: true,
+            include: []
+        },
         resolve: {
             dedupe: ['vue', '@primeuix/styles', '@primeuix/themes', '@primeuix/utils'],
-            optimizeDeps: {
-                disabled: true,
-                noDiscovery: true,
-                include: []
-            },
             alias
         }
     },
