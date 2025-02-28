@@ -73,15 +73,7 @@ export default defineNuxtModule<ModuleOptions>({
                     resolvers: [
                         PrimeVueResolver({
                             components: moduleOptions.components,
-                            directives: moduleOptions.directives,
-                            resolve: (meta: MetaType) => {
-                                registeredStyles.push({
-                                    ...meta,
-                                    name: `${meta.name}Style`,
-                                    as: `${meta.as}Style`,
-                                    from: `${meta.from}/style`
-                                });
-                            }
+                            directives: moduleOptions.directives
                         })
                     ]
                 },

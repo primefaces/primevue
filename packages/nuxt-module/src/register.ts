@@ -45,7 +45,8 @@ function registerComponents(resolvePath: any, moduleOptions: ModuleOptions) {
             global: true
         };
 
-        !moduleOptions.autoImport && addComponent(opt);
+        //!moduleOptions.autoImport && addComponent(opt);
+        addComponent(opt);
 
         return {
             ..._item,
@@ -111,7 +112,8 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
         }
     ];
 
-    if (!moduleOptions.autoImport && !options?.unstyled) {
+    if (!options?.unstyled) {
+        // !moduleOptions.autoImport && !options?.unstyled
         if (isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',

@@ -13,15 +13,6 @@
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
-    "scripts": {
-        "build": "pnpm run build:prebuild && nuxt build",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "preview": "nuxt preview",
-        "postinstall": "nuxt prepare",
-        "build:prebuild": "node ./scripts/prebuild.js",
-        "build:apidoc": "node ./scripts/build-apidoc.js"
-    },
     "keywords": [
         "primevue",
         "vue",
@@ -37,35 +28,42 @@
         "unstyled",
         "passthrough"
     ],
-    "devDependencies": {
-        "@stackblitz/sdk": "^1.8.2",
-        "autoprefixer": "^10.4.16",
-        "chart.js": "3.3.2",
-        "jsdom": "^19.0.0",
-        "nuxt": "3.3.2",
-        "postcss": "^8.4.31",
-        "prettier": "2.7.1",
-        "primeicons": "^7.0.0",
-        "quill": "2.0.0",
-        "sass": "1.45.0",
-        "sass-loader": "8.0.2",
-        "tailwindcss": "^3.4.1",
-        "tailwindcss-primeui": "^0.4.0",
-        "typedoc": "0.23.23",
-        "primevue": "workspace:*",
-        "@primevue/core": "workspace:*",
-        "@primevue/nuxt-module": "workspace:*",
-        "@primevue/forms": "workspace:*",
-        "@primeuix/themes": "catalog:",
-        "yup": "1.4.0",
-        "zod": "3.23.8",
-        "valibot": "^0.42.1",
-        "superstruct": "^2.0.2"
+    "type": "module",
+    "scripts": {
+        "build": "pnpm run build:prebuild && nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "build:prebuild": "node ./scripts/prebuild.js",
+        "build:apidoc": "node ./scripts/build-apidoc.js"
     },
     "dependencies": {
-        "@docsearch/js": "^3.3.3"
+        "@docsearch/js": "catalog:app",
+        "@primeuix/themes": "catalog:",
+        "@primevue/core": "workspace:*",
+        "@primevue/forms": "workspace:*",
+        "@primevue/nuxt-module": "workspace:*",
+        "primeicons": "catalog:",
+        "primevue": "workspace:*",
+        "chart.js": "catalog:app",
+        "quill": "catalog:app",
+        "superstruct": "^2.0.2",
+        "valibot": "^0.42.1",
+        "yup": "1.4.0",
+        "zod": "3.23.8"
     },
-    "engines": {
-        "node": ">=12.11.0"
+    "devDependencies": {
+        "@stackblitz/sdk": "^1.8.2",
+        "autoprefixer": "^10",
+        "jsdom": "^19.0.0",
+        "nuxt": "catalog:app",
+        "postcss": "^8.4.31",
+        "sass": "catalog:app",
+        "sass-loader": "catalog:app",
+        "tailwindcss": "^3",
+        "tailwindcss-primeui": "catalog:",
+        "typedoc": "0.27.9",
+        "vite": "catalog:app"
     }
 }
