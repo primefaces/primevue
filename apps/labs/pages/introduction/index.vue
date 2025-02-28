@@ -1,15 +1,15 @@
 <template>
     <div>
         <Head>
-            <Title>Icons - Plex</Title>
-            <Meta name="description" content="Plex components can be used with any icon library using the templating features." />
+            <Title>Vue Icon Library - PrimeVue</Title>
+            <Meta name="description" content="PrimeVue components can be used with any icon library using the templating features." />
         </Head>
 
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Icons</h1>
-                    <p>Plex components can be used with any icon library using the templating features.</p>
+                    <h1>Custom Icons</h1>
+                    <p>PrimeVue components can be used with any icon library using the templating features.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import FontAwesomeDoc from '@/doc/icons/FontAwesomeDoc.vue';
-import ImageDoc from '@/doc/icons/ImageDoc.vue';
-import MaterialDoc from '@/doc/icons/MaterialDoc.vue';
-import SVGDoc from '@/doc/icons/SVGDoc.vue';
-import VideoDoc from '@/doc/icons/VideoDoc.vue';
+import FontAwesomeDoc from '@/doc/customicons/FontAwesomeDoc.vue';
+import ImageDoc from '@/doc/customicons/ImageDoc.vue';
+import MaterialDoc from '@/doc/customicons/MaterialDoc.vue';
+import SVGDoc from '@/doc/customicons/SVGDoc.vue';
+import VideoDoc from '@/doc/customicons/VideoDoc.vue';
 
 export default {
     data() {

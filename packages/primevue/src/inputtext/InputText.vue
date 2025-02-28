@@ -1,5 +1,5 @@
 <template>
-    <input type="text" :class="cx('root')" :value="d_value" :name="name" :disabled="disabled" :aria-invalid="$invalid || undefined" @input="onInput" v-bind="attrs" />
+    <input type="text" :class="cx('root')" :value="d_value" :name="name" :disabled="disabled" :aria-invalid="$invalid || undefined" :data-p="dataP" @input="onInput" v-bind="attrs" />
 </template>
 
 <script>
@@ -26,6 +26,20 @@ export default {
                 }),
                 this.formField
             );
+        },
+        dataP() {
+            const p = [];
+            if (this.$invalid) {
+                p.push('invalid')
+            }
+            if (this.size) {
+                p.push(this.size)
+            }
+            if (this.$fluid) {
+                p.push('fluid')
+            }
+
+            return p.join(' ');
         }
     }
 };

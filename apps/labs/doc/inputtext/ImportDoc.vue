@@ -1,17 +1,15 @@
 <template>
     <DocSectionText v-bind="$attrs" />
-    <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
+    <DocSectionCode :code="code" lang="script" />
 </template>
 
 <script>
 export default {
     data() {
         return {
-            code: {
-                basic: `
-import InputText from 'primevue/inputtext';
+            code: `
+import InputText from '@/plex/inputtext';
 `
-            }
         };
     }
 };

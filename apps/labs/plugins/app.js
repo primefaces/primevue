@@ -1,5 +1,6 @@
 import DeferredDemo from '@/components/demo/DeferredDemo.vue';
 import CodeHighlight from '@/directives/CodeHighlight';
+import { reactive } from 'vue';
 
 const $appStatePlugin = {
     install: (app) => {

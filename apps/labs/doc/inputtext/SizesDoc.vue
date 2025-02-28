@@ -1,68 +1,39 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
+        <p>InputText is used with the <i>v-model</i> property for two-way value binding.</p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-4">
-        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
-        <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
+        <PlexInputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <PlexInputText v-model="value2" type="text" placeholder="Normal" />
+        <PlexInputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
-    <DocSectionCode :code="code" />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            value1: null,
-            value2: null,
-            value3: null,
-            code: {
-                basic: `
-<InputText v-model="value1" type="text" size="small" placeholder="Small" />
-<InputText v-model="value2" type="text" placeholder="Normal" />
-<InputText v-model="value3" type="text" size="large" placeholder="Large" />
-`,
-                options: `
-<template>
-    <div class="card flex flex-col items-center gap-4">
-        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
-        <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
-    </div>
-</template>
+<script setup>
+import PlexInputText from '@/plex/inputtext';
+import { ref } from 'vue';
 
-<script>
-export default {
-    data() {
-        return {
-            value1: null,
-            value2: null,
-            value3: null
-        }
-    }
-}
-<\/script>
-`,
-                composition: `
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+
+const code = ref(`
 <template>
     <div class="card flex flex-col items-center gap-4">
-        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
-        <InputText v-model="value2" type="text" placeholder="Normal" />
-        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
+        <PlexInputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <PlexInputText v-model="value2" type="text" placeholder="Normal" />
+        <PlexInputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
 </template>
 
 <script setup>
+import PlexInputText from '@/plex/inputtext';
 import { ref } from 'vue';
 
 const value1 = ref(null);
 const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
-`
-            }
-        };
-    }
-};
+`);
 </script>

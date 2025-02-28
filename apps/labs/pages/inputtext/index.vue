@@ -1,84 +1,46 @@
 <template>
-    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element." :componentDocs="docs" :presetDoc="presetDoc" apiLink="/inputtext/#api" ptLink="/inputtext/#pt" />
+    <DocComponent title="Vue Input Component" header="InputText" description="InputText is an extension to standard input element with theming." :componentDocs="docs" />
 </template>
 
-<script>
-import AccessibilityDoc from '@/doc/inputtext/AccessibilityDoc.vue';
+<script setup>
 import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
-import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
-import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
-import FormsDoc from '@/doc/inputtext/FormsDoc.vue';
-import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
-import IftaLabelDoc from '@/doc/inputtext/IftaLabelDoc.vue';
+/*import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';*/
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
 import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
+import { ref } from 'vue';
 
-export default {
-    data() {
-        return {
-            docs: [
-                {
-                    id: 'import',
-                    label: 'Import',
-                    component: ImportDoc
-                },
-                {
-                    id: 'basic',
-                    label: 'Basic',
-                    component: BasicDoc
-                },
-                {
-                    id: 'forms',
-                    label: 'Forms',
-                    component: FormsDoc
-                },
-                {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
-                    id: 'floatlabel',
-                    label: 'Float Label',
-                    component: FloatLabelDoc
-                },
-                {
-                    id: 'iftalabel',
-                    label: 'Ifta Label',
-                    component: IftaLabelDoc
-                },
-                {
-                    id: 'sizes',
-                    label: 'Sizes',
-                    component: SizesDoc
-                },
-                {
-                    id: 'helptext',
-                    label: 'Help Text',
-                    component: HelpTextDoc
-                },
-                {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
-                },
-                {
-                    id: 'disabled',
-                    label: 'Disabled',
-                    component: DisabledDoc
-                },
-                {
-                    id: 'accessibility',
-                    label: 'Accessibility',
-                    component: AccessibilityDoc
-                }
-            ],
-            presetDoc: {
-                key: 'inputtext'
-            }
-        };
+const docs = ref([
+    {
+        id: 'import',
+        label: 'Import',
+        component: ImportDoc
+    },
+    {
+        id: 'basic',
+        label: 'Basic',
+        component: BasicDoc
+    },
+    {
+        id: 'sizes',
+        label: 'Sizes',
+        component: SizesDoc
+    }/*,
+    {
+        id: 'helptext',
+        label: 'Help Text',
+        component: HelpTextDoc
+    },*/,
+    {
+        id: 'invalid',
+        label: 'Invalid',
+        component: InvalidDoc
+    },
+    {
+        id: 'disabled',
+        label: 'Disabled',
+        component: DisabledDoc
     }
-};
+]);
 </script>
