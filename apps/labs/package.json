@@ -1,0 +1,16 @@
+{
+    "name": "labs",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "devDependencies": {
+        "nuxt": "catalog:app",
+        "vite": "catalog:app"
+    }
+}
