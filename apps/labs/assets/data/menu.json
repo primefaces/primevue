@@ -27,6 +27,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "Slider",
+                    "to": "/slider"
+                },
+                {
                     "name": "Textarea",
                     "to": "/textarea"
                 }

@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Textarea Component" header="InputText" description="Textarea adds styling and auto-resize functionality to standard textarea element." :componentDocs="docs" />
+    <DocComponent title="Vue Textarea Component" header="Textarea" description="Textarea adds styling and auto-resize functionality to standard textarea element." :componentDocs="docs" />
 </template>
 
 <script setup>
