@@ -35,6 +35,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "RadioButton",
+                    "to": "/radiobutton"
+                },
+                {
                     "name": "SelectButton",
                     "to": "/selectbutton"
                 },

@@ -8,33 +8,13 @@
     <DocSectionCode :code="code" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            value: null,
-            code: {
-                basic: `
-<RadioButton v-model="value" value="1" :invalid="value === null" />
-`,
-                options: `
-<template>
-    <div class="card flex justify-center">
-        <RadioButton v-model="value" value="1" :invalid="value === null" />
-    </div>
-</template>
+<script setup>
+import RadioButton from '@/plex/radiobutton';
+import { ref } from 'vue';
 
-<script>
-export default {
-    data() {
-        return {
-            value: null
-        }
-    }
-};
-<\/script>
-`,
-                composition: `
+const value = ref(null);
+
+const code = ref(`
 <template>
     <div class="card flex justify-center">
         <RadioButton v-model="value" value="1" :invalid="value === null" />
@@ -42,13 +22,10 @@ export default {
 </template>
 
 <script setup>
+import RadioButton from '@/plex/radiobutton';
 import { ref } from 'vue';
 
-const value = ref(null);
+const val = ref(null);
 <\/script>
-`
-            }
-        };
-    }
-};
+`);
 </script>
