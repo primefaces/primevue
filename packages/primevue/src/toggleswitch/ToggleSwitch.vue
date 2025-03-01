@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-disabled="disabled">
+    <div :class="cx('root')" :style="sx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-disabled="disabled" :data-p="dataP">
         <input
             :id="inputId"
             type="checkbox"
@@ -19,8 +19,8 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <div :class="cx('slider')" v-bind="getPTOptions('slider')">
-            <div :class="cx('handle')" v-bind="getPTOptions('handle')">
+        <div :class="cx('slider')" v-bind="getPTOptions('slider')" :data-p="dataP">
+            <div :class="cx('handle')" v-bind="getPTOptions('handle')" :data-p="dataP">
                 <slot name="handle" :checked="checked" />
             </div>
         </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import BaseToggleSwitch from './BaseToggleSwitch.vue';
 
 export default {
@@ -65,6 +66,13 @@ export default {
     computed: {
         checked() {
             return this.d_value === this.trueValue;
+        },
+        dataP() {
+            return cn({
+                checked: this.checked,
+                disabled: this.disabled,
+                invalid: this.$invalid
+            });
         }
     }
 };

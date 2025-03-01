@@ -15,6 +15,9 @@ export default {
             addVariant('p-filled', '&[data-p~="filled"]');
             addVariant('p-horizontal', '&[data-p~="horizontal"]');
             addVariant('p-vertical', '&[data-p~="vertical"]');
+            addVariant('p-checked', '&[data-p~="checked"]');
+            addVariant('p-disabled', '&[data-p~="disabled"]');
+            addVariant('p-enabled', '&:not([data-p~="disabled"])');
         })
     ],
     theme: {

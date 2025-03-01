@@ -33,6 +33,10 @@
                 {
                     "name": "Textarea",
                     "to": "/textarea"
+                },
+                {
+                    "name": "ToggleSwitch",
+                    "to": "/toggleswitch"
                 }
             ]
         },
