@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <PlexInputText v-model="value" type="text" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
 <script setup>

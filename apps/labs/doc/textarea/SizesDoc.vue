@@ -7,7 +7,7 @@
         <PlexTextarea v-model="value2" placeholder="Normal" rows="3" />
         <PlexTextarea v-model="value3" size="large" placeholder="Large" rows="3" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
 <script setup>

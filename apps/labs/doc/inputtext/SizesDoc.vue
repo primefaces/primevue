@@ -7,7 +7,7 @@
         <PlexInputText v-model="value2" type="text" placeholder="Normal" />
         <PlexInputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
 <script setup>

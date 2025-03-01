@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <PlexSlider v-model="value" orientation="vertical" class="h-56" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
 <script setup>

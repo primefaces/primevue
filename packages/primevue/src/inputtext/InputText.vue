@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { cn } from '@primeuix/utils/classnames';
+import { cn } from '@primeuix/utils';
 import { mergeProps } from 'vue';
 import BaseInputText from './BaseInputText.vue';
 

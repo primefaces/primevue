@@ -5,7 +5,7 @@
     <div class="card flex justify-center">
         <PlexTextarea v-model="value" rows="5" cols="30" disabled class="resize-none" />
     </div>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
 <script setup>
