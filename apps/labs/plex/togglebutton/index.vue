@@ -7,6 +7,7 @@
 </template>
 
 <script setup>
+import ToggleButton from 'primevue/togglebutton';
 import { ref } from 'vue';
 
 const theme = ref({

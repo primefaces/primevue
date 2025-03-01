@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
+    <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')" :data-p="dataP">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
             <ToggleButton
                 :modelValue="isSelected(option)"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { equals, resolveFieldData } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import ToggleButton from 'primevue/togglebutton';
@@ -93,6 +94,11 @@ export default {
     computed: {
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid
+            });
         }
     },
     directives: {
