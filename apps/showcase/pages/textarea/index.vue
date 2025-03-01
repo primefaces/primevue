@@ -2,7 +2,7 @@
     <DocComponent
         title="Vue Textarea Component"
         header="Textarea"
-        description="Textarea adds styling, key filtering and autoResize functionality to standard textarea element."
+        description="Textarea adds styling and autoResize functionality to standard textarea element."
         :componentDocs="docs"
         :apiDocs="['Textarea']"
         :ptTabComponent="ptComponent"
@@ -20,9 +20,9 @@ import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
 import FormsDoc from '@/doc/textarea/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/textarea/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
-import SizesDoc from '@/doc/textarea/SizesDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
 import PTComponent from '@/doc/textarea/pt/index.vue';
+import SizesDoc from '@/doc/textarea/SizesDoc.vue';
 import ThemingDoc from '@/doc/textarea/theming/index.vue';
 
 export default {
