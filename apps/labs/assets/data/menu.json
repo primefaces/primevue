@@ -43,6 +43,10 @@
                     "to": "/timeline"
                 },
                 {
+                    "name": "ToggleButton",
+                    "to": "/togglebutton"
+                },
+                {
                     "name": "ToggleSwitch",
                     "to": "/toggleswitch"
                 }

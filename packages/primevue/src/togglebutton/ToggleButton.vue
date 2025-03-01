@@ -13,8 +13,9 @@
         :aria-labelledby="ariaLabelledby"
         :data-p-checked="active"
         :data-p-disabled="disabled"
+        :data-p="dataP"
     >
-        <span :class="cx('content')" v-bind="getPTOptions('content')">
+        <span :class="cx('content')" v-bind="getPTOptions('content')" :data-p="dataP">
             <slot>
                 <slot name="icon" :value="d_value" :class="cx('icon')">
                     <span v-if="onIcon || offIcon" :class="[cx('icon'), d_value ? onIcon : offIcon]" v-bind="getPTOptions('icon')" />
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { isNotEmpty } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import BaseToggleButton from './BaseToggleButton.vue';
@@ -65,6 +67,13 @@ export default {
         },
         label() {
             return this.hasLabel ? (this.d_value ? this.onLabel : this.offLabel) : '\u00A0';
+        },
+        dataP() {
+            return cn({
+                checked: this.active,
+                invalid: this.$invalid,
+                [this.size]: this.size
+            });
         }
     },
     directives: {
