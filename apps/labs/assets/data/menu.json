@@ -39,6 +39,10 @@
                     "to": "/textarea"
                 },
                 {
+                    "name": "Timeline",
+                    "to": "/timeline"
+                },
+                {
                     "name": "ToggleSwitch",
                     "to": "/toggleswitch"
                 }

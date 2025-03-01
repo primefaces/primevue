@@ -18,6 +18,11 @@ export default {
             addVariant('p-checked', '&[data-p~="checked"]');
             addVariant('p-disabled', '&[data-p~="disabled"]');
             addVariant('p-enabled', '&:not([data-p~="disabled"])');
+            addVariant('p-left', '&[data-p~="left"]');
+            addVariant('p-right', '&[data-p~="right"]');
+            addVariant('p-top', '&[data-p~="top"]');
+            addVariant('p-bottom', '&[data-p~="bottom"]');
+            addVariant('p-alternate', '&[data-p~="alternate"]');
         })
     ],
     theme: {
