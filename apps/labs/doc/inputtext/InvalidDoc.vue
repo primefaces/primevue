@@ -3,13 +3,13 @@
         <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <PlexInputText v-model="value" :invalid="!value" placeholder="Name" />
+        <InputText v-model="value" :invalid="!value" placeholder="Name" />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
+import InputText from '@/plex/inputtext';
 import { ref } from 'vue';
 
 const value = ref('');
@@ -17,12 +17,12 @@ const value = ref('');
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <PlexInputText v-model="value" :invalid="!value" placeholder="Name" />
+        <InputText v-model="value" :invalid="!value" placeholder="Name" />
     </div>
 </template>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
+import InputText from '@/plex/inputtext';
 import { ref } from 'vue';
 
 const value = ref(null);

@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             code: `
-import PlexSlider from '@/plex/slider';
+import Slider from '@/plex/slider';
 `
         };
     }

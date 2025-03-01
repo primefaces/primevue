@@ -3,15 +3,15 @@
         <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-4">
-        <PlexInputText v-model="value1" type="text" size="small" placeholder="Small" />
-        <PlexInputText v-model="value2" type="text" placeholder="Normal" />
-        <PlexInputText v-model="value3" type="text" size="large" placeholder="Large" />
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <InputText v-model="value2" type="text" placeholder="Normal" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
+import InputText from '@/plex/inputtext';
 import { ref } from 'vue';
 
 const value1 = ref(null);
@@ -21,14 +21,14 @@ const value3 = ref(null);
 const code = ref(`
 <template>
     <div class="card flex flex-col items-center gap-4">
-        <PlexInputText v-model="value1" type="text" size="small" placeholder="Small" />
-        <PlexInputText v-model="value2" type="text" placeholder="Normal" />
-        <PlexInputText v-model="value3" type="text" size="large" placeholder="Large" />
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <InputText v-model="value2" type="text" placeholder="Normal" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
     </div>
 </template>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
+import InputText from '@/plex/inputtext';
 import { ref } from 'vue';
 
 const value1 = ref(null);

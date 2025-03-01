@@ -3,13 +3,13 @@
         <p>Size of each movement is defined with the <i>step</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <PlexSlider v-model="value" :step="20" class="w-56" />
+        <Slider v-model="value" :step="20" class="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
-import PlexSlider from '@/plex/slider';
+import Slider from '@/plex/slider';
 import { ref } from 'vue';
 
 const value = ref(20);
@@ -17,12 +17,12 @@ const value = ref(20);
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <PlexSlider v-model="value" :step="20" class="w-56" />
+        <Slider v-model="value" :step="20" class="w-56" />
     </div>
 </template>
 
 <script setup>
-import PlexSlider from '@/plex/slider';
+import Slider from '@/plex/slider';
 import { ref } from 'vue';
 
 const value = ref(20);

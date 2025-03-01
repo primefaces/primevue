@@ -4,16 +4,16 @@
     </DocSectionText>
     <div class="card flex justify-center">
         <div class="w-56">
-            <PlexInputText v-model.number="value" class="w-full mb-4" />
-            <PlexSlider v-model="value" class="w-full" />
+            <InputText v-model.number="value" class="w-full mb-4" />
+            <Slider v-model="value" class="w-full" />
         </div>
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
-import PlexSlider from '@/plex/slider';
+import InputText from '@/plex/inputtext';
+import Slider from '@/plex/slider';
 import { ref } from 'vue';
 
 const value = ref(50);
@@ -21,14 +21,14 @@ const value = ref(50);
 const code = ref(`
 <div class="card flex justify-center">
     <div class="w-56">
-        <PlexInputText v-model.number="value" class="w-full mb-4" />
-        <PlexSlider v-model="value" class="w-full" />
+        <InputText v-model.number="value" class="w-full mb-4" />
+        <Slider v-model="value" class="w-full" />
     </div>
 </div>
 
 <script setup>
-import PlexInputText from '@/plex/inputtext';
-import PlexSlider from '@/plex/slider';
+import InputText from '@/plex/inputtext';
+import Slider from '@/plex/slider';
 import { ref } from 'vue';
 
 const value = ref(50);

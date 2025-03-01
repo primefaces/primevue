@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             code: `
-import PlexTextarea from '@/plex/textarea';
+import Textarea from '@/plex/textarea';
 `
         };
     }
