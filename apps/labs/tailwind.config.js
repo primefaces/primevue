@@ -11,6 +11,7 @@ export default {
             addVariant('p-small', '&[data-p~="small"]')
             addVariant('p-large', '&[data-p~="large"]')
             addVariant('p-fluid', '&[data-p~="fluid"]')
+            addVariant('p-filled', '&[data-p~="filled"]')
         })
     ],
     theme: {

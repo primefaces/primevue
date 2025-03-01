@@ -30,13 +30,16 @@ export default {
         dataP() {
             const p = [];
             if (this.$invalid) {
-                p.push('invalid')
+                p.push('invalid');
             }
             if (this.size) {
-                p.push(this.size)
+                p.push(this.size);
             }
             if (this.$fluid) {
-                p.push('fluid')
+                p.push('fluid');
+            }
+            if (this.$variant === 'filled') {
+                p.push('filled');
             }
 
             return p.join(' ');
