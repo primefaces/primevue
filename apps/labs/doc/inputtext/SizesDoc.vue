@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>InputText is used with the <i>v-model</i> property for two-way value binding.</p>
+        <p>InputText provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-4">
         <PlexInputText v-model="value1" type="text" size="small" placeholder="Small" />

@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils/classnames';
 import { mergeProps } from 'vue';
 import BaseInputText from './BaseInputText.vue';
 
@@ -28,21 +29,12 @@ export default {
             );
         },
         dataP() {
-            const p = [];
-            if (this.$invalid) {
-                p.push('invalid');
-            }
-            if (this.size) {
-                p.push(this.size);
-            }
-            if (this.$fluid) {
-                p.push('fluid');
-            }
-            if (this.$variant === 'filled') {
-                p.push('filled');
-            }
-
-            return p.join(' ');
+            return cn({
+                invalid: this.$invalid,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
         }
     }
 };

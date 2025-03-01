@@ -22,6 +22,6 @@ const theme = ref({
         px-3 py-2 p-fluid:w-full
         p-small:text-sm p-small:px-[0.625rem] p-small-py-[0.375rem]
         p-large:text-lg p-small:px-[0.875rem] p-small-py-[0.625rem]
-        transition-colors duration-200`
+        transition-colors duration-200 shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]`
 });
 </script>

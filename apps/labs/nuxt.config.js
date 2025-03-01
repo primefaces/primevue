@@ -34,15 +34,10 @@ export default defineNuxtConfig({
     runtimeConfig: {
         GITHUB_TOKEN: ''
     },
-    primevue: {
-        options: {
-            theme: 'none'
-        }
-    },
     app: {
         baseURL: baseUrl,
         head: {
-            title: 'Tailwind CSS based Vue UI Component Library',
+            title: 'Plex UI Component Library for Vue.js',
             meta: [
                 { charset: 'utf-8' },
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
