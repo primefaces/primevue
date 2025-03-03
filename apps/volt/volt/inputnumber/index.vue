@@ -1,5 +1,9 @@
 <template>
-    <InputNumber unstyled :pt="theme" />
+    <InputNumber unstyled :pt="theme">
+        <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
+            <slot :name="slotName" v-bind="slotProps ?? {}" />
+        </template>
+    </InputNumber>
 </template>
 
 <script setup>
