@@ -23,6 +23,10 @@
             "icon": "pi pi-compass",
             "children": [
                 {
+                    "name": "Avatar",
+                    "to": "/avatar"
+                },
+                {
                     "name": "Checkbox",
                     "to": "/checkbox"
                 },

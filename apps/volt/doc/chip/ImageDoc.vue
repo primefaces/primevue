@@ -24,5 +24,9 @@ const code = ref(`
         <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
     </div>
 </template>
+
+<script setup>
+import Chip from '@/volt/chip';
+<\/script>
 `);
 </script>

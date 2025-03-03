@@ -24,5 +24,9 @@ const code = ref(`
         </Chip>
     </div>
 </template>
+
+<script setup>
+import Chip from '@/volt/chip';
+<\/script>
 `);
 </script>
