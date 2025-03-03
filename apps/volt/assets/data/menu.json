@@ -47,6 +47,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "ProgressBar",
+                    "to": "/progressbar"
+                },
+                {
                     "name": "RadioButton",
                     "to": "/radiobutton"
                 },

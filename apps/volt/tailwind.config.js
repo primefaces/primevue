@@ -30,6 +30,8 @@ export default {
             addVariant('p-readonly', '&[data-p~="readonly"]');
             addVariant('p-removable', '&[data-p~="removable"]');
             addVariant('p-circle', '&[data-p~="circle"]');
+            addVariant('p-determinate', '&[data-p~="determinate"]');
+            addVariant('p-indeterminate', '&[data-p~="indeterminate"]');
         })
     ],
     theme: {
