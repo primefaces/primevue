@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import ToggleSwitch from '@/volt/toggleswitch';
+            code: `import ToggleSwitch from '@/volt/toggleswitch';
 `
         };
     }

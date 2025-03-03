@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import Timeline from '@/volt/timeline';
+            code: `import Timeline from '@/volt/timeline';
 `
         };
     }

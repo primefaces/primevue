@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import Textarea from '@/volt/textarea';
+            code: `import Textarea from '@/volt/textarea';
 `
         };
     }

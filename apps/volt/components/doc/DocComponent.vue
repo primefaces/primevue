@@ -1,13 +1,16 @@
 <template>
     <div :class="['doc-component', className]">
         <Head>
-            <Title>Tailwind CSS | {{ title }}</Title>
-            <Meta name="description" :content="'Tailwind CSS | ' + description" />
+            <Title>Volt | {{ title }}</Title>
+            <Meta name="description" :content="'Volt | ' + description" />
         </Head>
 
         <ul class="doc-tabmenu">
             <li :class="{ 'doc-tabmenu-active': tab === 0 }">
                 <button type="button" @click="tab = 0">FEATURES</button>
+            </li>
+            <li :class="{ 'doc-tabmenu-active': tab === 1 }">
+                <button type="button" @click="tab = 1">THEMING</button>
             </li>
         </ul>
 
@@ -46,6 +49,10 @@
                     <DocSections :docs="componentDocs" />
                 </div>
                 <DocSectionNav :docs="componentDocs" />
+            </div>
+
+            <div v-if="tab === 1" class="doc-tabpanel">
+                <DocPreset :presetKey="header?.toLowerCase()" :introText="`${header} Styles`" />
             </div>
         </div>
     </div>

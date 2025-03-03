@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import RadioButton from '@/volt/radiobutton';
+            code: `import RadioButton from '@/volt/radiobutton';
 `
         };
     }

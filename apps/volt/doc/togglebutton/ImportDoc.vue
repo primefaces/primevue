@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import ToggleButton from '@/volt/togglebutton';
+            code: `import ToggleButton from '@/volt/togglebutton';
 `
         };
     }

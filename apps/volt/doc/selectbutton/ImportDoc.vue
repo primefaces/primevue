@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import SelectButton from '@/volt/selectbutton';
+            code: `import SelectButton from '@/volt/selectbutton';
 `
         };
     }

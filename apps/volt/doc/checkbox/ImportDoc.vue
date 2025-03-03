@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import Checkbox from '@/volt/checkbox';
+            code: `import Checkbox from '@/volt/checkbox';
 `
         };
     }

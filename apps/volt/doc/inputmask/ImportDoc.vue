@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import InputMask from '@/volt/inputmask';
+            code: `import InputMask from '@/volt/inputmask';
 `
         };
     }

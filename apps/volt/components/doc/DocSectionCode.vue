@@ -13,7 +13,8 @@
             </template>
 
             <template v-else-if="lang === 'script'">
-                <pre v-code.script><code>{{ code }}
+                <pre v-code.script><code>
+{{ code }}
 </code></pre>
             </template>
         </div>

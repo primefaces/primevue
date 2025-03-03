@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import InputNumber from '@/volt/inputnumber';
+            code: `import InputNumber from '@/volt/inputnumber';
 `
         };
     }

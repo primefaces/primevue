@@ -7,8 +7,7 @@
 export default {
     data() {
         return {
-            code: `
-import Rating from '@/volt/rating';
+            code: `import Rating from '@/volt/rating';
 `
         };
     }
