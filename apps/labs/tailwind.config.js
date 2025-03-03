@@ -23,6 +23,9 @@ export default {
             addVariant('p-top', '&[data-p~="top"]');
             addVariant('p-bottom', '&[data-p~="bottom"]');
             addVariant('p-alternate', '&[data-p~="alternate"]');
+            addVariant('p-active', '&[data-p~="active"]');
+            addVariant('p-focus-visible', '&[data-p~="focus-visible"]');
+            addVariant('p-readonly', '&[data-p~="readonly"]');
         })
     ],
     theme: {

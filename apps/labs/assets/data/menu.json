@@ -39,6 +39,10 @@
                     "to": "/radiobutton"
                 },
                 {
+                    "name": "Rating",
+                    "to": "/rating"
+                },
+                {
                     "name": "SelectButton",
                     "to": "/selectbutton"
                 },
