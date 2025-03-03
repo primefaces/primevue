@@ -10,9 +10,5 @@
             "@primevue/auto-import-resolver/*": ["../../packages/auto-import-resolver/src/*"]
         }
     },
-    "exclude": [
-      "dist",
-      "node_modules",
-      "playground"
-    ]
+    "exclude": ["dist", "node_modules", "playground"]
 }
