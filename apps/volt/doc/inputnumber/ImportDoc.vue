@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             code: `
-import InputNumber from '@/plex/inputnumber';
+import InputNumber from '@/volt/inputnumber';
 `
         };
     }

@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import InputNumber from '@/plex/inputnumber';
+import InputNumber from '@/volt/inputnumber';
 import { ref } from 'vue';
 
 const value1 = ref(1500);
@@ -55,7 +55,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import InputNumber from '@/plex/inputnumber';
+import InputNumber from '@/volt/inputnumber';
 import { ref } from 'vue';
 
 const value1 = ref(1500);

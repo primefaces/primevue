@@ -39,7 +39,7 @@ const theme = ref({
         dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
         dark:border-surface-700 dark:enabled:hover:border-surface-700 dark:enabled:active:border-surface-700
         dark:text-surface-400 dark:enabled:hover:text-surface-300 dark:enabled:active:text-surface-200
-        transition-colors duration-200
+        transition-colors duration-200 disabled:pointer-events-none
         p-stacked:relative p-stacked:flex-auto p-stacked:border-none
         p-stacked:p-0 p-stacked:rounded-tr-[5px]
         p-horizontal:order-3 p-horizontal:rounded-e-md p-horizontal:border-s-0
@@ -52,7 +52,7 @@ const theme = ref({
         dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
         dark:border-surface-700 dark:enabled:hover:border-surface-700 dark:enabled:active:border-surface-700
         dark:text-surface-400 dark:enabled:hover:text-surface-300 dark:enabled:active:text-surface-200
-        transition-colors duration-200
+        transition-colors duration-200 disabled:pointer-events-none
         p-stacked:relative p-stacked:flex-auto p-stacked:border-none
         p-stacked:p-0 p-stacked:rounded-br-[5px]
         p-horizontal:order-1 p-horizontal:rounded-s-md p-horizontal:border-e-0
