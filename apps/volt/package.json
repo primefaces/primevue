@@ -31,8 +31,7 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "build:prebuild": "node ./scripts/prebuild.js",
-        "build:presetdoc": "node ./scripts/build-presetdoc.js"
+        "build:prebuild": "node ./scripts/prebuild.mjs"
     },
     "dependencies": {
         "@docsearch/js": "catalog:app",
@@ -62,5 +61,8 @@
         "tailwindcss-primeui": "catalog:",
         "typedoc": "0.27.9",
         "vite": "catalog:app"
+    },
+    "engines": {
+        "node": ">=12.11.0"
     }
 }
