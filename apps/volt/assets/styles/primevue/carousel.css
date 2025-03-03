@@ -1,0 +1,64 @@
+@import './button';
+
+.p-carousel {
+    @apply flex flex-col
+}
+
+.p-carousel-content-container {
+    @apply flex flex-col overflow-auto
+}
+
+.p-carousel-content {
+    @apply flex flex-row gap-1
+}
+
+.p-carousel-content:dir(rtl) {
+    @apply flex-row-reverse
+}
+
+.p-carousel-viewport {
+    @apply overflow-hidden w-full
+}
+
+.p-carousel-item-list {
+    @apply flex flex-row
+}
+
+.p-carousel-prev-button,
+.p-carousel-next-button {
+    @apply self-center flex-shrink-0
+}
+
+.p-carousel-indicator-list {
+    @apply flex flex-row justify-center flex-wrap p-4 gap-2 m-0 list-none
+}
+
+.p-carousel-indicator-list:dir(rtl) {
+    @apply rtl:flex-row-reverse
+}
+
+.p-carousel-indicator-button {
+    @apply flex items-center justify-center w-8 h-2 border-none rounded-md p-0 m-0 select-none cursor-pointer transition-colors duration-200
+        bg-surface-200 hover:bg-surface-300 dark:bg-surface-700 dark:hover:bg-surface-600
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-carousel-indicator-active .p-carousel-indicator-button {
+    @apply bg-primary
+}
+
+.p-carousel-vertical .p-carousel-content {
+    @apply flex-col
+}
+
+.p-carousel-vertical .p-carousel-item-list {
+    @apply flex-col h-full
+}
+
+.p-items-hidden .p-carousel-item {
+    @apply invisible
+}
+
+.p-items-hidden .p-carousel-item.p-carousel-item-active {
+    @apply visible
+}

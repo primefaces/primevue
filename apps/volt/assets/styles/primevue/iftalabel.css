@@ -1,0 +1,32 @@
+.p-iftalabel {
+    @apply block relative
+}
+
+.p-iftalabel label {
+    @apply absolute pointer-events-none top-2 transition-all ease-out duration-200 leading-none text-xs font-medium start-3 text-surface-500 dark:text-surface-400
+}
+
+.p-iftalabel .p-inputtext,
+.p-iftalabel .p-textarea,
+.p-iftalabel .p-select-label,
+.p-iftalabel .p-multiselect-label,
+.p-iftalabel .p-autocomplete-input-multiple,
+.p-iftalabel .p-cascadeselect-label,
+.p-iftalabel .p-treeselect-label {
+    @apply pt-6 pb-2
+}
+
+.p-iftalabel:has(.p-invalid) label {
+    @apply text-red-400 dark:text-red-300
+}
+
+.p-iftalabel:has(input:focus) label ,
+.p-iftalabel:has(input:-webkit-autofill) label,
+.p-iftalabel:has(textarea:focus) label ,
+.p-iftalabel:has(.p-inputwrapper-focus) label  {
+    @apply text-primary
+}
+
+.p-iftalabel .p-inputicon {
+    @apply top-6 translate-y-1/4 mt-0
+}

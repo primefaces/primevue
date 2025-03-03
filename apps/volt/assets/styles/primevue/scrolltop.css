@@ -1,0 +1,25 @@
+@import './button';
+
+.p-scrolltop.p-button {
+    @apply fixed bottom-5 end-5
+}
+
+.p-scrolltop-sticky.p-button {
+    @apply sticky flex ms-auto
+}
+
+.p-scrolltop-enter-from {
+    @apply opacity-0
+}
+
+.p-scrolltop-enter-active {
+    @apply transition-opacity duration-150
+}
+
+.p-scrolltop.p-scrolltop-leave-to {
+    @apply opacity-0
+}
+
+.p-scrolltop-leave-active {
+    @apply transition-opacity duration-150
+}

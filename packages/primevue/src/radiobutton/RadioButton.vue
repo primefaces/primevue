@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-disabled="disabled" :data-p="dataP">
         <input
             :id="inputId"
             type="radio"
@@ -19,13 +19,14 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <div :class="cx('box')" v-bind="getPTOptions('box')">
-            <div :class="cx('icon')" v-bind="getPTOptions('icon')"></div>
+        <div :class="cx('box')" v-bind="getPTOptions('box')" :data-p="dataP">
+            <div :class="cx('icon')" v-bind="getPTOptions('icon')" :data-p="dataP"></div>
         </div>
     </div>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { equals } from '@primeuix/utils/object';
 import BaseRadioButton from './BaseRadioButton.vue';
 
@@ -74,6 +75,15 @@ export default {
             const value = this.$pcRadioButtonGroup ? this.$pcRadioButtonGroup.d_value : this.d_value;
 
             return value != null && (this.binary ? !!value : equals(value, this.value));
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid,
+                checked: this.checked,
+                disabled: this.disabled,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
         }
     }
 };

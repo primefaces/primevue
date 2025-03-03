@@ -1,0 +1,34 @@
+@import './button';
+@import './tieredmenu';
+
+.p-splitbutton {
+    @apply inline-flex relative rounded-md
+}
+
+.p-splitbutton-button {
+    @apply rounded-e-none border-r-0 enabled:hover:border-r-0 enabled:active:border-r-0 focus-visible:z-10
+}
+
+.p-splitbutton-dropdown {
+    @apply rounded-s-none focus-visible:z-10
+}
+
+.p-splitbutton .p-menu {
+    @apply min-w-full
+}
+
+.p-splitbutton-fluid {
+    @apply w-full
+}
+
+.p-splitbutton-rounded .p-splitbutton-dropdown {
+    @apply rounded-e-[2rem]
+}
+
+.p-splitbutton-rounded .p-splitbutton-button {
+    @apply rounded-s-[2rem]
+}
+
+.p-splitbutton-raised {
+    @apply shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),0_2px_2px_0_rgba(0,0,0,0.14),0_1px_5px_0_rgba(0,0,0,0.12)]
+}

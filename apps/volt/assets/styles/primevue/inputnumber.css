@@ -1,0 +1,84 @@
+@import './inputtext';
+
+.p-inputnumber {
+    @apply inline-flex relative
+}
+
+.p-inputnumber-button {
+    @apply flex items-center justify-center flex-grow-0 flex-shrink-0 basis-auto cursor-pointer w-10
+        bg-transparent enabled:hover:bg-surface-100 enabled:active:bg-surface-200
+        border border-surface-300 enabled:hover:border-surface-300 enabled:active:border-surface-300
+        text-surface-400 enabled:hover:text-surface-500 enabled:active:text-surface-600
+        dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
+        dark:border-surface-700 dark:enabled:hover:border-surface-700 dark:enabled:active:border-surface-700
+        dark:text-surface-400 dark:enabled:hover:text-surface-300 dark:enabled:active:text-surface-200
+        transition-colors duration-200
+}
+
+.p-inputnumber-stacked .p-inputnumber-button {
+    @apply relative flex-auto border-none
+}
+
+.p-inputnumber-stacked .p-inputnumber-button-group {
+    @apply flex flex-col absolute top-px end-px h-[calc(100%-2px)] z-10
+}
+
+.p-inputnumber-stacked .p-inputnumber-increment-button {
+    @apply p-0 rounded-tr-[5px]
+}
+
+.p-inputnumber-stacked .p-inputnumber-decrement-button {
+    @apply p-0 rounded-br-[5px]
+}
+
+.p-inputnumber-horizontal .p-inputnumber-increment-button {
+    @apply order-3 rounded-e-md border-s-0
+}
+
+.p-inputnumber-horizontal .p-inputnumber-input {
+    @apply order-2 rounded-none
+}
+
+.p-inputnumber-horizontal .p-inputnumber-decrement-button {
+    @apply order-1 rounded-s-md border-r-0
+}
+
+.p-floatlabel:has(.p-inputnumber-horizontal) label {
+    @apply ms-10
+}
+
+.p-inputnumber-vertical {
+    @apply flex-col
+}
+
+.p-inputnumber-vertical .p-inputnumber-button {
+    @apply py-2
+}
+
+.p-inputnumber-vertical .p-inputnumber-increment-button {
+    @apply order-1 rounded-ss-md rounded-se-md w-full border-b-0
+}
+
+.p-inputnumber-vertical .p-inputnumber-input {
+    @apply order-2 rounded-none text-center
+}
+
+.p-inputnumber-vertical .p-inputnumber-decrement-button {
+    @apply order-3 rounded-ee-md rounded-es-md w-full border-t-0
+}
+
+.p-inputnumber-input {
+    @apply flex-auto
+}
+
+.p-inputnumber-fluid {
+    @apply w-full
+}
+
+.p-inputnumber-fluid .p-inputnumber-input {
+    @apply w-[1%]
+}
+
+.p-inputnumber-fluid.p-inputnumber-vertical .p-inputnumber-input {
+    @apply w-full
+}

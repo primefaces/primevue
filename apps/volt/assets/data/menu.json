@@ -1,0 +1,134 @@
+{
+    "data": [
+        {
+            "name": "Getting Started",
+            "icon": "pi pi-home",
+            "children": [
+                {
+                    "name": "Introduction",
+                    "to": "/introduction"
+                },
+                {
+                    "name": "Vite",
+                    "to": "/vite"
+                },
+                {
+                    "name": "Nuxt",
+                    "to": "/nuxt"
+                }
+            ]
+        },
+        {
+            "name": "Components",
+            "icon": "pi pi-compass",
+            "children": [
+                {
+                    "name": "Checkbox",
+                    "to": "/checkbox"
+                },
+                {
+                    "name": "InputMask",
+                    "to": "/inputmask"
+                },
+                {
+                    "name": "InputNumber",
+                    "to": "/inputnumber"
+                },
+                {
+                    "name": "InputText",
+                    "to": "/inputtext"
+                },
+                {
+                    "name": "RadioButton",
+                    "to": "/radiobutton"
+                },
+                {
+                    "name": "Rating",
+                    "to": "/rating"
+                },
+                {
+                    "name": "SelectButton",
+                    "to": "/selectbutton"
+                },
+                {
+                    "name": "Slider",
+                    "to": "/slider"
+                },
+                {
+                    "name": "Textarea",
+                    "to": "/textarea"
+                },
+                {
+                    "name": "Timeline",
+                    "to": "/timeline"
+                },
+                {
+                    "name": "ToggleButton",
+                    "to": "/togglebutton"
+                },
+                {
+                    "name": "ToggleSwitch",
+                    "to": "/toggleswitch"
+                }
+            ]
+        },
+        {
+            "name": "Icons",
+            "icon": "pi pi-eye",
+            "to": "/icons"
+        },
+        {
+            "name": "Support",
+            "icon": "pi pi-question",
+            "children": [
+                {
+                    "name": "Discord Server",
+                    "href": "https://discord.gg/gzKFYnpmCY"
+                },
+                {
+                    "name": "Forum",
+                    "href": "https://github.com/orgs/primefaces/discussions"
+                },
+                {
+                    "name": "PRO Support",
+                    "href": "https://primevue.org/support"
+                }
+            ]
+        },
+        {
+            "name": "Discover",
+            "icon": "pi pi-search",
+            "children": [
+                {
+                    "name": "About Us",
+                    "href": "https://primevue.org/team"
+                },
+                {
+                    "name": "Newsletter",
+                    "href": "https://www.primefaces.org/newsletter"
+                },
+                {
+                    "name": "PrimeGear",
+                    "href": "https://gear.primefaces.org"
+                },
+                {
+                    "name": "Source Code",
+                    "href": "https://github.com/primefaces/primevue-tailwind"
+                },
+                {
+                    "name": "Store",
+                    "href": "https://www.primefaces.org/store/"
+                },
+                {
+                    "name": "Twitter",
+                    "href": "https://twitter.com/primevue"
+                },
+                {
+                    "name": "PrimeTV",
+                    "icon": "pi pi-youtube",
+                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                }
+            ]
+        }
+    ]
+}

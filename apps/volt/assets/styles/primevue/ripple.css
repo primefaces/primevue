@@ -1,0 +1,7 @@
+.p-ink {
+    @apply block absolute bg-black/10 dark:bg-white/30 scale-0 rounded-[100%] pointer-events-none
+}
+
+.p-ink-active {
+    @apply transition-[opacity,transform] duration-500 scale-[2.5] opacity-0 ease-linear
+}

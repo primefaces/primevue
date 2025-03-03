@@ -1,0 +1,102 @@
+.p-steplist {
+    @apply relative flex justify-between items-center m-0 p-0 list-none overflow-x-auto
+}
+
+.p-step {
+    @apply relative flex flex-auto items-center gap-4 p-2 last-of-type:flex-initial
+}
+
+.p-step-header {
+    @apply border-none inline-flex items-center no-underline cursor-pointer
+        transition-colors duration-200 rounded-md bg-transparent p-0 gap-2
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-step.p-disabled .p-step-header {
+    @apply cursor-default
+}
+
+
+.p-stepper.p-stepper-readonly .p-step {
+    @apply cursor-auto
+}
+
+.p-step-title {
+    @apply block whitespace-nowrap overflow-hidden text-ellipsis max-w-full
+        text-surface-500 dark:text-surface-400 font-medium transition-colors duration-200
+}
+
+.p-step-number {
+    @apply flex items-center justify-center text-surface-500 dark:text-surface-400
+        bg-surface-0 dark:bg-surface-900 border-2 border-surface-200 dark:border-surface-700
+        min-w-8 h-8 leading-8 text-lg font-medium rounded-full z-10 relative
+        after:absolute after:w-full after:h-full after:rounded-full after:shadow-[0px_0.5px_0px_0px_rgba(0,0,0,0.06),0px_1px_1px_0px_rgba(0,0,0,0.12)]
+}
+
+.p-step-active .p-step-header {
+    @apply cursor-default
+}
+
+.p-step-active .p-step-number {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary border-surface-200 dark:border-surface-700
+}
+
+.p-step-active .p-step-title {
+    @apply text-primary
+}
+
+.p-step:not(.p-disabled):focus-visible {
+    @apply outline outline-1 outline-offset-2 outline-primary
+}
+
+.p-step:has(~ .p-step-active) .p-stepper-separator {
+    @apply bg-primary
+}
+
+.p-stepper-separator {
+    @apply flex-1 bg-surface-200 dark:bg-surface-700 w-full h-[2px] transition-colors duration-200
+}
+
+.p-steppanels {
+    @apply pt-[0.875rem] pb-[1.125rem] px-2
+}
+
+.p-steppanel {
+    @apply bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0
+}
+
+.p-stepper:has(.p-stepitem) {
+    @apply flex flex-col
+}
+
+.p-stepitem {
+    @apply flex flex-col flex-initial
+}
+
+.p-stepitem.p-stepitem-active {
+    @apply flex-auto
+}
+
+.p-stepitem .p-step {
+    @apply flex-initial
+}
+
+.p-stepitem .p-steppanel-content {
+    @apply w-full ps-4
+}
+
+.p-stepitem .p-steppanel {
+    @apply flex flex-auto
+}
+
+.p-stepitem .p-stepper-separator {
+    @apply flex-grow-0 flex-shrink-0 basis-auto w-[2px] h-auto ms-[1.625rem] relative start-[-2.5px]
+}
+
+.p-stepitem:has(~ .p-stepitem-active) .p-stepper-separator {
+    @apply bg-primary
+}
+
+.p-stepitem:last-of-type .p-steppanel {
+    @apply ps-8
+}

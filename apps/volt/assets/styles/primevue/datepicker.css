@@ -1,0 +1,211 @@
+@import './button';
+@import './inputtext';
+
+.p-datepicker {
+    @apply inline-flex max-w-full
+}
+
+.p-datepicker-input {
+    @apply flex-auto w-[1%]
+}
+
+.p-datepicker:has(.p-datepicker-dropdown) .p-datepicker-input {
+    @apply rounded-e-none
+}
+
+.p-datepicker-dropdown {
+    @apply inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none
+        w-10 rounded-e-md border border-s-0 border-surface-300 dark:border-surface-700
+        bg-surface-100 enabled:hover:bg-surface-200 enabled:active:bg-surface-300
+        text-surface-600 enabled:hover:text-surface-700 enabled:active:text-surface-800
+        dark:bg-surface-800 dark:enabled:hover:bg-surface-700 dark:enabled:active:bg-surface-600
+        dark:text-surface-300 dark:enabled:hover:text-surface-200 dark:enabled:active:text-surface-100
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        transition-colors duration-200
+}
+
+.p-datepicker:has(.p-datepicker-input-icon-container) {
+    @apply relative
+}
+
+.p-datepicker:has(.p-datepicker-input-icon-container) .p-datepicker-input {
+    @apply pe-10
+}
+
+.p-datepicker-input-icon-container {
+    @apply cursor-pointer absolute top-1/2 end-3 -mt-2 text-surface-400
+}
+
+.p-datepicker-fluid {
+    @apply flex
+}
+
+.p-datepicker-fluid .p-datepicker-input {
+    @apply w-[1%]
+}
+
+.p-datepicker .p-datepicker-panel {
+    @apply min-w-full
+}
+
+.p-datepicker-panel {
+    @apply w-auto p-3 rounded-md
+        border border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-datepicker-panel-inline {
+    @apply inline-block overflow-x-auto shadow-none
+}
+
+.p-datepicker-header {
+    @apply flex items-center justify-between pt-0 px-0 pb-2 font-medium gap-2
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        border-b border-surface-200 dark:border-surface-700
+}
+
+.p-datepicker-next-button:dir(rtl) {
+    @apply order-[-1]
+}
+.p-datepicker-prev-button:dir(rtl) {
+    @apply order-1
+}
+
+.p-datepicker-title {
+    @apply flex items-center justify-between gap-2 font-medium
+}
+
+.p-datepicker-select-year,
+.p-datepicker-select-month {
+    @apply border-none bg-transparent m-0 cursor-pointer font-medium transition-colors duration-200
+        py-1 px-2 rounded-md text-surface-700 dark:text-surface-0
+        enabled:hover:bg-surface-100 enabled:hover:text-surface-800
+        dark:enabled:hover:bg-surface-800 dark:enabled:hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-datepicker-calendar-container {
+    @apply flex
+}
+
+.p-datepicker-calendar-container .p-datepicker-calendar {
+    @apply flex-auto border-s border-surface-200 dark:border-surface-700 gap-3
+        first:ps-0 first:border-s-0 last:pe-0
+}
+
+.p-datepicker-day-view {
+    @apply w-full border-collapse text-base mt-2 mx-0 mb-0
+}
+
+.p-datepicker-weekday-cell {
+    @apply p-1
+}
+
+.p-datepicker-weekday {
+    @apply font-medium text-surface-700 dark:text-surface-0
+}
+
+.p-datepicker-day-cell {
+    @apply p-1
+}
+
+.p-datepicker-day {
+    @apply flex items-center justify-center cursor-pointer my-0 mx-auto overflow-hidden relative w-8 h-8
+        rounded-full p-1 transition-colors duration-200 border border-transparent text-surface-700 dark:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-datepicker-day:not(.p-datepicker-day-selected):not(.p-disabled):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-datepicker-day-selected {
+    @apply bg-primary text-primary-contrast
+}
+
+.p-datepicker-day-selected-range {
+    @apply bg-highlight
+}
+
+.p-datepicker-today > .p-datepicker-day {
+    @apply bg-surface-200 text-surface-900 dark:bg-surface-700 dark:text-surface-0
+}
+
+.p-datepicker-today > .p-datepicker-day-selected {
+    @apply bg-primary text-primary-contrast
+}
+
+.p-datepicker-today > .p-datepicker-day-selected-range {
+    @apply bg-highlight
+}
+
+.p-datepicker-weeknumber {
+    @apply text-center
+}
+
+.p-datepicker-month-view {
+    @apply mt-2 mb-0 mx-0
+}
+
+.p-datepicker-month {
+    @apply w-1/3 inline-flex items-center justify-center cursor-pointer overflow-hidden relative
+        p-[0.375rem] transition-colors duration-200 rounded-md text-surface-700 dark:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-datepicker-month:not(.p-disabled):not(.p-datepicker-month-selected):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-datepicker-month-selected {
+    @apply bg-primary text-primary-contrast
+}
+
+.p-datepicker-year-view {
+    @apply mt-2 mb-0 mx-0
+}
+
+.p-datepicker-year {
+    @apply w-1/2 inline-flex items-center justify-center cursor-pointer overflow-hidden relative
+        p-[0.375rem] transition-colors duration-200 rounded-md text-surface-700 dark:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-datepicker-year:not(.p-disabled):not(.p-datepicker-year-selected):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-datepicker-year-selected {
+    @apply bg-primary text-primary-contrast
+}
+
+.p-datepicker-buttonbar {
+    @apply flex justify-between items-center pt-2 pb-0 px-0 border-t border-surface-200 dark:border-surface-700
+}
+
+.p-datepicker-buttonbar .p-button {
+    @apply w-auto
+}
+
+.p-datepicker-time-picker {
+    @apply flex items-center justify-center border-t border-surface-200 dark:border-surface-700 p-0 gap-2
+}
+
+.p-datepicker-calendar-container + .p-datepicker-time-picker {
+    @apply pt-2 pb-0 px-0
+}
+
+.p-datepicker-time-picker > div {
+    @apply flex items-center flex-col gap-1
+}
+
+.p-datepicker-time-picker span {
+    @apply text-base
+}
+
+.p-datepicker-timeonly .p-datepicker-time-picker {
+    @apply border-t-0
+}

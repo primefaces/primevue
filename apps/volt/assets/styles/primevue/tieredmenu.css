@@ -1,0 +1,105 @@
+.p-tieredmenu {
+    @apply bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700
+        rounded-md min-w-52
+}
+
+.p-tieredmenu-root-list,
+.p-tieredmenu-submenu {
+    @apply m-0 p-1 list-none outline-none flex flex-col gap-[2px]
+}
+
+.p-tieredmenu-submenu {
+    @apply absolute min-w-full z-10 rounded-md
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-tieredmenu-item {
+    @apply relative
+}
+
+.p-tieredmenu-item-content {
+    @apply transition-colors duration-200 rounded-sm text-surface-700 dark:text-surface-0
+}
+
+.p-tieredmenu-item-link {
+    @apply cursor-pointer flex items-center no-underline overflow-hidden relative text-inherit
+        px-3 py-2 gap-2 select-none outline-none
+}
+
+.p-tieredmenu-item-icon {
+    @apply text-surface-400 dark:text-surface-500
+}
+
+.p-tieredmenu-submenu-icon {
+    @apply text-surface-400 dark:text-surface-500 ms-auto text-sm w-[0.875rem] h-[0.875rem]
+}
+
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content .p-tieredmenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover .p-tieredmenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-item:not(.p-disabled) > .p-tieredmenu-item-content:hover .p-tieredmenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-item-active > .p-tieredmenu-item-content {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-item-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-tieredmenu-separator {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-tieredmenu-overlay {
+    @apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-tieredmenu-enter-from,
+.p-tieredmenu-leave-active {
+    @apply opacity-0
+}
+
+.p-tieredmenu-enter-active {
+    @apply transition-opacity duration-[250ms]
+}
+
+.p-tieredmenu-mobile .p-tieredmenu-submenu {
+    @apply static shadow-none border-none ps-4 pe-0
+}
+
+.p-tieredmenu-mobile .p-tieredmenu-submenu-icon {
+    @apply transition-transform duration-200 rotate-90
+}
+
+.p-tieredmenu-mobile .p-tieredmenu-item-active > .p-tieredmenu-item-content .p-tieredmenu-submenu-icon {
+    @apply -rotate-90
+}

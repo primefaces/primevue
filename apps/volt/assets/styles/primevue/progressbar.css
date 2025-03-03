@@ -1,0 +1,67 @@
+.p-progressbar {
+    @apply relative overflow-hidden h-5 bg-surface-200 dark:bg-surface-700 rounded-md
+}
+
+.p-progressbar-value {
+    @apply m-0 bg-primary
+}
+
+.p-progressbar-label {
+    @apply text-primary-contrast text-xs font-semibold
+}
+
+.p-progressbar-determinate .p-progressbar-value {
+    @apply h-full w-0 absolute flex items-center justify-center overflow-hidden transition-[width] duration-1000 ease-in-out
+}
+
+.p-progressbar-determinate .p-progressbar-label {
+    @apply inline-flex
+}
+
+.p-progressbar-indeterminate .p-progressbar-value::before {
+    @apply content-[''] absolute bg-inherit top-0 start-0 bottom-0 will-change-[inset-inline-start,inset-inline-end];
+}
+
+.p-progressbar-indeterminate .p-progressbar-value::before {
+    animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.p-progressbar-indeterminate .p-progressbar-value::after {
+    @apply content-[''] absolute bg-inherit top-0 start-0 bottom-0 will-change-[inset-inline-start,inset-inline-end];
+
+}
+
+.p-progressbar-indeterminate .p-progressbar-value::after {
+    animation: p-progressbar-indeterminate-anim-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+    animation-delay: 1.15s;
+}
+
+@keyframes p-progressbar-indeterminate-anim {
+    0% {
+        inset-inline-start: -35%;
+        inset-inline-end: 100%;
+    }
+    60% {
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
+    }
+    100% {
+        inset-inline-start: 100%;
+        inset-inline-end: -90%;
+    }
+}
+
+@keyframes p-progressbar-indeterminate-anim-short {
+    0% {
+        inset-inline-start: -200%;
+        inset-inline-end: 100%;
+    }
+    60% {
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
+    }
+    100% {
+        inset-inline-start: 107%;
+        inset-inline-end: -8%;
+    }
+}

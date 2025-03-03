@@ -1,0 +1,125 @@
+@import './button';
+
+.p-dialog {
+    @apply max-h-[90%] scale-100 rounded-xl
+        border border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+        shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)]
+}
+
+.p-dialog-content {
+    @apply overflow-y-auto pt-0 px-5 pb-5
+}
+
+.p-dialog-header {
+    @apply flex items-center justify-between shrink-0 p-5
+}
+
+.p-dialog-title {
+    @apply font-semibold text-xl
+}
+
+.p-dialog-footer {
+    @apply shrink-0 pt-0 px-5 pb-5 flex justify-end gap-2
+}
+
+.p-dialog-header-actions {
+    @apply flex items-center gap-2
+}
+
+.p-dialog-enter-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0,0,0.2,1)]
+}
+
+.p-dialog-leave-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]
+}
+
+.p-dialog-enter-from,
+.p-dialog-leave-to {
+    @apply opacity-0 scale-75
+}
+
+.p-dialog-top .p-dialog,
+.p-dialog-bottom .p-dialog,
+.p-dialog-left .p-dialog,
+.p-dialog-right .p-dialog,
+.p-dialog-topleft .p-dialog,
+.p-dialog-topright .p-dialog,
+.p-dialog-bottomleft .p-dialog,
+.p-dialog-bottomright .p-dialog {
+    @apply m-3 [transform:translate3d(0,0,0)]
+}
+
+.p-dialog-top .p-dialog-enter-active,
+.p-dialog-top .p-dialog-leave-active,
+.p-dialog-bottom .p-dialog-enter-active,
+.p-dialog-bottom .p-dialog-leave-active,
+.p-dialog-left .p-dialog-enter-active,
+.p-dialog-left .p-dialog-leave-active,
+.p-dialog-right .p-dialog-enter-active,
+.p-dialog-right .p-dialog-leave-active,
+.p-dialog-topleft .p-dialog-enter-active,
+.p-dialog-topleft .p-dialog-leave-active,
+.p-dialog-topright .p-dialog-enter-active,
+.p-dialog-topright .p-dialog-leave-active,
+.p-dialog-bottomleft .p-dialog-enter-active,
+.p-dialog-bottomleft .p-dialog-leave-active,
+.p-dialog-bottomright .p-dialog-enter-active,
+.p-dialog-bottomright .p-dialog-leave-active {
+    @apply transition-all duration-300 ease-out
+}
+
+.p-dialog-top .p-dialog-enter-from,
+.p-dialog-top .p-dialog-leave-to {
+    @apply [transform:translate3d(0,-100%,0)]
+}
+
+.p-dialog-bottom .p-dialog-enter-from,
+.p-dialog-bottom .p-dialog-leave-to {
+    @apply [transform:translate3d(0,100%,0)]
+}
+
+.p-dialog-left .p-dialog-enter-from,
+.p-dialog-left .p-dialog-leave-to,
+.p-dialog-topleft .p-dialog-enter-from,
+.p-dialog-topleft .p-dialog-leave-to,
+.p-dialog-bottomleft .p-dialog-enter-from,
+.p-dialog-bottomleft .p-dialog-leave-to {
+    @apply [transform:translate3d(-100%,0,0)]
+}
+
+.p-dialog-right .p-dialog-enter-from,
+.p-dialog-right .p-dialog-leave-to,
+.p-dialog-topright .p-dialog-enter-from,
+.p-dialog-topright .p-dialog-leave-to,
+.p-dialog-bottomright .p-dialog-enter-from,
+.p-dialog-bottomright .p-dialog-leave-to {
+    @apply [transform:translate3d(100%,0,0)]
+}
+
+.p-dialog-left:dir(rtl) .p-dialog-enter-from,
+.p-dialog-left:dir(rtl) .p-dialog-leave-to,
+.p-dialog-topleft:dir(rtl) .p-dialog-enter-from,
+.p-dialog-topleft:dir(rtl) .p-dialog-leave-to,
+.p-dialog-bottomleft:dir(rtl) .p-dialog-enter-from,
+.p-dialog-bottomleft:dir(rtl) .p-dialog-leave-to {
+    @apply [transform:translate3d(100%,0,0)]
+}
+.p-dialog-right:dir(rtl) .p-dialog-enter-from,
+.p-dialog-right:dir(rtl) .p-dialog-leave-to,
+.p-dialog-topright:dir(rtl) .p-dialog-enter-from,
+.p-dialog-topright:dir(rtl) .p-dialog-leave-to,
+.p-dialog-bottomright:dir(rtl) .p-dialog-enter-from,
+.p-dialog-bottomright:dir(rtl) .p-dialog-leave-to {
+    @apply [transform:translate3d(-100%,0,0)]
+}
+
+.p-dialog-maximized {
+    @apply !w-screen !h-screen top-0 start-0 max-h-full rounded-none
+}
+
+.p-dialog-maximized .p-dialog-content {
+    @apply flex-grow
+}

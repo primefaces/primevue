@@ -1,0 +1,144 @@
+@import './button';
+@import './inputtext';
+@import './iconfield';
+
+.p-select {
+    @apply inline-flex cursor-pointer relative select-none rounded-md
+        bg-surface-0 dark:bg-surface-950
+        border border-surface-300 dark:border-surface-700
+        shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
+        transition-colors duration-200
+}
+
+.p-select:not(.p-disabled):hover {
+    @apply border-surface-400 dark:border-surface-600
+}
+
+.p-select:not(.p-disabled).p-focus {
+    @apply border-primary
+}
+
+.p-select.p-variant-filled {
+    @apply bg-surface-50 dark:bg-surface-800
+}
+
+.p-select.p-invalid {
+    @apply border-red-400 dark:border-red-300
+}
+
+.p-select.p-disabled {
+    @apply bg-surface-200 text-surface-500 dark:bg-surface-700 dark:text-surface-400 opacity-100 cursor-default
+}
+
+.p-select-clear-icon {
+    @apply absolute top-1/2 -mt-2 text-surface-500 dark:text-surface-400 end-10
+}
+
+.p-select-dropdown {
+    @apply flex items-center justify-center shrink-0 bg-transparent
+        text-surface-500 dark:text-surface-400 w-10 rounded-e-md
+}
+
+.p-select-label {
+    @apply block whitespace-nowrap overflow-hidden flex-auto w-[1%]
+        py-2 px-3 overflow-ellipsis
+        text-surface-700 dark:text-surface-0 bg-transparent border-none outline-none
+}
+
+.p-select-label.p-placeholder {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-select:has(.p-select-clear-icon) .p-select-label {
+    @apply pe-7
+}
+
+.p-select.p-disabled .p-select-label {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-select-label-empty {
+    @apply overflow-hidden opacity-0
+}
+
+input.p-select-label {
+    @apply cursor-default
+}
+
+.p-select .p-select-overlay {
+    @apply min-w-full
+}
+
+.p-select-overlay {
+    @apply absolute top-0 left-0 rounded-md
+        bg-surface-0 dark:bg-surface-900
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-select-header {
+    @apply pt-2 pb-1 px-4
+}
+
+.p-select-filter {
+    @apply w-full
+}
+
+.p-select-list-container {
+    @apply overflow-auto
+}
+
+.p-select-option-group {
+    @apply m-0 px-3 py-2 bg-transparent text-surface-500 dark:text-surface-400 font-semibold
+}
+
+.p-select-list {
+    @apply m-0 p-1 list-none gap-[2px] flex flex-col
+}
+
+.p-select-option {
+    @apply cursor-pointer font-normal whitespace-nowrap relative overflow-hidden flex items-center
+        px-3 py-2 border-none text-surface-700 dark:text-surface-0 bg-transparent rounded-sm
+        transition-colors duration-200
+}
+
+.p-select-option:not(.p-select-option-selected):not(.p-disabled).p-focus {
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-select-option.p-select-option-selected {
+    @apply bg-highlight
+}
+
+.p-select-option.p-select-option-selected.p-focus {
+    @apply bg-highlight-emphasis
+}
+
+.p-select-option-check-icon {
+    @apply relative -ms-[0.375rem] me-[0.375rem] text-surface-700 dark:text-surface-0
+}
+
+.p-select-empty-message {
+    @apply px-3 py-2
+}
+
+.p-select-fluid {
+    @apply flex
+}
+
+.p-select-sm .p-select-label {
+    @apply text-sm px-[0.625rem] py-[0.375rem]
+}
+
+.p-select-sm .p-select-dropdown .p-icon {
+    @apply text-sm w-[0.875rem] h-[0.875rem]
+}
+
+.p-select-lg .p-select-label {
+    @apply text-lg px-[0.875rem] py-[0.625rem]
+}
+
+.p-select-lg .p-select-dropdown .p-icon {
+    @apply text-lg w-[1.125rem] h-[1.125rem]
+}

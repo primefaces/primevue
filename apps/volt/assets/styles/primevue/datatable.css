@@ -1,0 +1,408 @@
+@import './paginator';
+
+.p-datatable {
+    @apply relative
+}
+
+.p-datatable-table {
+    @apply border-spacing-0 w-full
+}
+
+.p-datatable-scrollable > .p-datatable-table-container {
+    @apply relative
+}
+
+.p-datatable-scrollable-table > .p-datatable-thead {
+    @apply top-0 z-10
+}
+
+.p-datatable-scrollable-table > .p-datatable-frozen-tbody {
+    @apply sticky z-10
+}
+
+.p-datatable-scrollable-table > .p-datatable-tfoot {
+    @apply bottom-0 z-10
+}
+
+.p-datatable-scrollable .p-datatable-frozen-column {
+    @apply sticky bg-surface-0 dark:bg-surface-900
+}
+
+.p-datatable-scrollable th.p-datatable-frozen-column {
+    @apply z-10
+}
+
+.p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-thead,
+.p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-thead {
+    @apply bg-surface-0 dark:bg-surface-900
+}
+
+.p-datatable-scrollable > .p-datatable-table-container > .p-datatable-table > .p-datatable-tfoot,
+.p-datatable-scrollable > .p-datatable-table-container > .p-virtualscroller > .p-datatable-table > .p-datatable-tfoot {
+    @apply bg-surface-0 dark:bg-surface-900
+}
+
+.p-datatable-flex-scrollable {
+    @apply flex flex-col h-full
+}
+
+.p-datatable-flex-scrollable > .p-datatable-table-container {
+    @apply flex flex-col flex-1 h-full
+}
+
+.p-datatable-scrollable-table > .p-datatable-tbody > .p-datatable-row-group-header {
+    @apply sticky z-10
+}
+
+.p-datatable-resizable-table > .p-datatable-thead > tr > th,
+.p-datatable-resizable-table > .p-datatable-tfoot > tr > td,
+.p-datatable-resizable-table > .p-datatable-tbody > tr > td {
+    @apply overflow-hidden whitespace-nowrap
+}
+
+.p-datatable-resizable-table > .p-datatable-thead > tr > th.p-datatable-resizable-column:not(.p-datatable-frozen-column) {
+    @apply bg-clip-padding relative
+}
+
+.p-datatable-resizable-table-fit > .p-datatable-thead > tr > th.p-datatable-resizable-column:last-child .p-datatable-column-resizer {
+    @apply hidden
+}
+
+.p-datatable-column-resizer {
+    @apply block absolute top-0 end-0 m-0 w-2 h-full p-0 cursor-col-resize border border-transparent
+}
+
+.p-datatable-column-header-content {
+    @apply flex items-center gap-2
+}
+
+.p-datatable-column-resize-indicator {
+    @apply w-px absolute z-10 hidden bg-primary
+}
+
+.p-datatable-row-reorder-indicator-up,
+.p-datatable-row-reorder-indicator-down {
+    @apply absolute hidden
+}
+
+.p-datatable-reorderable-column,
+.p-datatable-reorderable-row-handle {
+    @apply cursor-move
+}
+
+.p-datatable-mask {
+    @apply absolute flex items-center justify-center z-20
+}
+
+.p-datatable-inline-filter {
+    @apply flex items-center w-full gap-2
+}
+
+.p-datatable-inline-filter .p-datatable-filter-element-container {
+    @apply flex-auto w-[1%]
+}
+
+.p-datatable-filter-overlay {
+    @apply bg-surface-0 dark:bg-surface-900 rounded-md min-w-52
+        border border-surface-200 dark:border-surface-700
+        text-surface-700 dark:text-surface-0
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-datatable-filter-constraint-list {
+    @apply m-0 list-none flex flex-col p-1 gap-[2px]
+}
+
+.p-datatable-filter-constraint {
+    @apply px-3 py-2 rounded-sm cursor-pointer transition-colors duration-200 text-surface-700 dark:text-surface-0
+}
+
+.p-datatable-filter-constraint-selected {
+    @apply bg-highlight
+}
+
+.p-datatable-filter-constraint:not(.p-datatable-filter-constraint-selected):not(.p-disabled):hover
+{
+    @apply bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-datatable-filter-constraint:focus-visible {
+    @apply outline-none bg-surface-100 dark:bg-surface-800 text-surface-800 dark:text-surface-0
+}
+
+.p-datatable-filter-constraint-selected:focus-visible {
+    @apply bg-highlight-emphasis
+}
+
+.p-datatable-filter-constraint-separator {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-datatable-popover-filter {
+    @apply inline-flex ms-auto
+}
+
+.p-datatable-filter-overlay-popover {
+    @apply flex flex-col gap-2
+        bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0
+        border border-surface-200 dark:border-surface-700 rounded-md p-3 min-w-52
+        shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]
+}
+
+.p-datatable-filter-operator-dropdown {
+    @apply w-full
+}
+
+.p-datatable-filter-rule-list,
+.p-datatable-filter-rule {
+    @apply flex flex-col gap-2
+}
+
+.p-datatable-filter-rule {
+    @apply border-b border-surface-200 dark:border-surface-700 last:border-b-0 pb-2 last:pb-0
+}
+
+.p-datatable-filter-add-rule-button {
+    @apply w-full
+}
+
+.p-datatable-filter-remove-rule-button {
+    @apply w-full
+}
+
+.p-datatable-filter-buttonbar {
+    @apply p-0 flex items-center justify-between
+}
+
+.p-datatable-virtualscroller-spacer {
+    @apply flex
+}
+
+.p-datatable .p-virtualscroller .p-virtualscroller-loading {
+    @apply !transform-none min-h-0 sticky top-0 start-0
+}
+
+.p-datatable-paginator-top {
+    @apply border-b border-surface-200 dark:border-surface-700
+}
+
+.p-datatable-paginator-bottom {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-datatable-header {
+    @apply py-3 px-4 border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-datatable-footer {
+    @apply py-3 px-4 border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-datatable-header-cell {
+    @apply py-3 px-4 font-normal text-start transition-colors duration-200
+        border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-datatable-column-title {
+    @apply font-semibold
+}
+
+.p-datatable-tbody > tr {
+    @apply bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 transition-colors duration-200
+}
+
+.p-datatable-tbody > tr > td {
+    @apply text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
+}
+
+.p-datatable-hoverable .p-datatable-tbody > tr:not(.p-datatable-row-selected):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-datatable-tbody > tr.p-datatable-row-selected {
+    @apply bg-highlight
+}
+
+.p-datatable-tbody > tr:has(+ .p-datatable-row-selected) > td {
+    @apply border-b-primary-100 dark:border-b-primary-900
+}
+
+.p-datatable-tbody > tr.p-datatable-row-selected > td {
+    @apply border-b-primary-100 dark:border-b-primary-900
+}
+
+.p-datatable-tbody > tr:focus-visible,
+.p-datatable-tbody > tr.p-datatable-contextmenu-row-selected {
+    @apply outline outline-1 -outline-offset-1 outline-primary
+}
+
+.p-datatable-tfoot > tr > td {
+    @apply text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-datatable-column-footer {
+    @apply font-semibold
+}
+
+.p-datatable-sortable-column {
+    @apply cursor-pointer select-none focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-primary
+}
+
+.p-datatable-column-title,
+.p-datatable-sort-icon,
+.p-datatable-sort-badge {
+    @apply align-middle
+}
+
+.p-datatable-sort-icon {
+    @apply text-surface-500 dark:text-surface-400 transition-colors duration-200
+}
+
+.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-datatable-sortable-column:not(.p-datatable-column-sorted):hover .p-datatable-sort-icon {
+    @apply text-surface-600 dark:text-surface-300
+}
+
+.p-datatable-column-sorted {
+    @apply bg-highlight
+}
+
+.p-datatable-column-sorted .p-datatable-sort-icon {
+    @apply bg-highlight
+}
+
+.p-datatable-hoverable .p-datatable-selectable-row {
+    @apply cursor-pointer
+}
+
+.p-datatable-tbody > tr.p-datatable-dragpoint-top > td {
+    @apply shadow-[inset_0_2px_0_0_theme(colors.primary)]
+}
+
+.p-datatable-tbody > tr.p-datatable-dragpoint-bottom > td {
+    @apply shadow-[inset_0_-2px_0_0_theme(colors.primary)]
+}
+
+.p-datatable-loading-icon {
+    @apply text-[2rem] w-8 h-8
+}
+
+.p-datatable-gridlines .p-datatable-header {
+    @apply border-t border-x
+}
+
+.p-datatable-gridlines .p-datatable-footer {
+    @apply border-b border-x
+}
+
+.p-datatable-gridlines .p-datatable-paginator-top {
+    @apply border-t border-x
+}
+
+.p-datatable-gridlines .p-datatable-paginator-bottom {
+    @apply border-b border-x
+}
+
+.p-datatable-gridlines .p-datatable-thead > tr > th {
+    @apply border-t border-x last:border
+}
+
+.p-datatable-gridlines .p-datatable-tbody > tr > td {
+    @apply border-t border-s last:border-r
+}
+
+.p-datatable-gridlines .p-datatable-tbody > tr:last-child > td {
+    @apply border-y border-s last:border
+}
+
+.p-datatable-gridlines .p-datatable-tfoot > tr > td {
+    @apply border-y border-s last:border
+}
+
+.p-datatable.p-datatable-gridlines .p-datatable-thead + .p-datatable-tfoot > tr > td {
+    @apply border-b border-s last:border-r
+}
+
+.p-datatable.p-datatable-gridlines:has(.p-datatable-thead):has(.p-datatable-tbody) .p-datatable-tbody > tr > td {
+    @apply border-b border-s last:border-r
+}
+
+.p-datatable.p-datatable-gridlines:has(.p-datatable-tbody):has(.p-datatable-tfoot) .p-datatable-tbody > tr:last-child > td {
+    @apply border-s last:border-r
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd {
+    @apply bg-surface-50 dark:bg-surface-950
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody > tr.p-row-odd.p-datatable-row-selected {
+    @apply bg-highlight
+}
+
+.p-datatable.p-datatable-sm .p-datatable-header {
+    @apply py-1 px-2
+}
+
+.p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+    @apply py-1 px-2
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+    @apply py-1 px-2
+}
+
+.p-datatable.p-datatable-sm .p-datatable-tfoot > tr > td {
+    @apply py-1 px-2
+}
+
+.p-datatable.p-datatable-sm .p-datatable-footer {
+    @apply py-1 px-2
+}
+
+.p-datatable.p-datatable-lg .p-datatable-header {
+    @apply py-4 px-5
+}
+
+.p-datatable.p-datatable-lg .p-datatable-thead > tr > th {
+    @apply py-4 px-5
+}
+
+.p-datatable.p-datatable-lg .p-datatable-tbody>tr>td {
+    @apply py-4 px-5
+}
+
+.p-datatable.p-datatable-lg .p-datatable-tfoot>tr>td {
+    @apply py-4 px-5
+}
+
+.p-datatable.p-datatable-lg .p-datatable-footer {
+    @apply py-4 px-5
+}
+
+.p-datatable-row-toggle-button {
+    @apply inline-flex items-center justify-center overflow-hidden relative w-7 h-7 cursor-pointer select-none
+        transition-colors duration-200 rounded-full border-none bg-transparent
+        text-surface-500 enabled:hover:bg-surface-100 enabled:hover:text-surface-700
+        dark:text-surface-400 dark:enabled:hover:bg-surface-800 dark:enabled:hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+
+}
+
+.p-datatable-tbody > tr.p-datatable-row-selected .p-datatable-row-toggle-button:hover {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary
+}
+
+.p-datatable-row-toggle-icon:dir(rtl) {
+    @apply rotate-180
+}

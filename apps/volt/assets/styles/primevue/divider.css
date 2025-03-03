@@ -1,0 +1,52 @@
+.p-divider-horizontal {
+    @apply flex w-full relative items-center my-4 mx-0 py-0 px-4
+        before:absolute before:block before:top-1/2 before:start-0 before:w-full
+        before:border-t before:border-surface-200 dark:before:border-surface-700
+}
+
+.p-divider-horizontal .p-divider-content {
+    @apply py-0 px-2
+}
+
+.p-divider-vertical {
+    @apply min-h-full flex relative justify-center my-0 mx-4 py-2 px-0
+        before:absolute before:block before:top-0 before:start-1/2 before:h-full
+        before:border-s before:border-surface-200 before:dark:border-surface-700
+}
+
+.p-divider.p-divider-vertical .p-divider-content {
+    @apply py-2 px-0
+}
+
+.p-divider-content {
+    @apply z-10 bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0
+}
+
+.p-divider-solid.p-divider-horizontal:before {
+    @apply border-solid
+}
+
+.p-divider-solid.p-divider-vertical:before {
+    @apply border-solid
+}
+
+.p-divider-dashed.p-divider-horizontal:before {
+    @apply border-dashed
+}
+
+.p-divider-dashed.p-divider-vertical:before {
+    @apply border-dashed
+}
+
+.p-divider-dotted.p-divider-horizontal:before {
+    @apply border-dotted
+}
+
+.p-divider-dotted.p-divider-vertical:before {
+    @apply border-dotted
+}
+
+.p-divider-left:dir(rtl),
+.p-divider-right:dir(rtl) {
+    @apply flex-row-reverse
+}

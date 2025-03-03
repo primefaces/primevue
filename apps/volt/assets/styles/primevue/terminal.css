@@ -1,0 +1,22 @@
+.p-terminal {
+    @apply h-72 overflow-auto px-3 py-2 rounded-md
+        border border-surface-300 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-950
+        text-surface-700 dark:text-surface-0
+}
+
+.p-terminal-prompt {
+    @apply flex items-center
+}
+
+.p-terminal-prompt-value {
+    @apply flex-auto border-none bg-transparent text-inherit p-0 outline-none text-base
+}
+
+.p-terminal-prompt-label {
+    @apply me-1
+}
+
+.p-terminal-input::-ms-clear {
+    @apply hidden
+}

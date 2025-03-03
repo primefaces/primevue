@@ -1,0 +1,300 @@
+@import './paginator';
+
+.p-treetable {
+    @apply relative
+}
+
+.p-treetable-table {
+    @apply border-spacing-0 w-full
+}
+
+.p-treetable-scrollable > .p-treetable-table-container {
+    @apply relative
+}
+
+.p-treetable-scrollable-table > .p-treetable-thead {
+    @apply top-0 z-10
+}
+
+.p-treetable-scrollable-table > .p-treetable-frozen-tbody {
+    @apply sticky z-10
+}
+
+.p-treetable-scrollable-table>.p-treetable-tfoot {
+    @apply bottom-0 z-10
+}
+
+.p-treetable-scrollable .p-treetable-frozen-column {
+    @apply sticky bg-surface-0 dark:bg-surface-900
+}
+
+.p-treetable-scrollable th.p-treetable-frozen-column {
+    @apply z-10
+}
+
+.p-treetable-scrollable > .p-treetable-table-container > .p-treetable-table > .p-treetable-thead {
+    @apply bg-surface-0 dark:bg-surface-900
+}
+
+.p-treetable-scrollable > .p-treetable-table-container > .p-treetable-table > .p-treetable-tfoot  {
+    @apply bg-surface-0 dark:bg-surface-900
+}
+
+.p-treetable-flex-scrollable {
+    @apply flex flex-col h-full
+}
+
+.p-treetable-flex-scrollable > .p-treetable-table-container {
+    @apply flex flex-col flex-1 h-full
+}
+
+.p-treetable-scrollable-table > .p-treetable-tbody > .p-treetable-row-group-header {
+    @apply sticky z-10
+}
+
+.p-treetable-resizable-table > .p-treetable-thead > tr > th,
+.p-treetable-resizable-table > .p-treetable-tfoot > tr > td,
+.p-treetable-resizable-table > .p-treetable-tbody > tr > td {
+    @apply overflow-hidden whitespace-nowrap
+}
+
+.p-treetable-resizable-table > .p-treetable-thead > tr > th.p-treetable-resizable-column:not(.p-treetable-frozen-column) {
+    @apply bg-clip-padding relative
+}
+
+.p-treetable-resizable-table-fit > .p-treetable-thead > tr > th.p-treetable-resizable-column:last-child .p-treetable-column-resizer {
+    @apply hidden
+}
+
+.p-treetable-column-resizer {
+    @apply block absolute top-0 end-0 m-0 w-2 h-full p-0 cursor-col-resize border border-transparent
+}
+
+.p-treetable-column-header-content {
+    @apply flex items-center gap-2
+}
+
+.p-treetable-column-resize-indicator {
+    @apply w-px absolute z-10 hidden bg-primary
+}
+
+.p-treetable-mask {
+    @apply absolute flex items-center justify-center z-20
+}
+
+.p-treetable-paginator-top {
+    @apply border-b border-surface-200 dark:border-surface-700
+}
+
+.p-treetable-paginator-bottom {
+    @apply border-t border-surface-200 dark:border-surface-700
+}
+
+.p-treetable-header {
+    @apply py-3 px-4 border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-treetable-footer {
+    @apply py-3 px-4 border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-treetable-header-cell {
+    @apply py-3 px-4 font-normal text-start transition-colors duration-200
+        border-b border-surface-200 dark:border-surface-700
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-treetable-column-title {
+    @apply font-semibold
+}
+
+.p-treetable-tbody > tr {
+    @apply bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 transition-colors duration-200
+}
+
+.p-treetable-tbody > tr > td {
+    @apply text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
+}
+
+.p-treetable-hoverable .p-treetable-tbody > tr:not(.p-treetable-row-selected):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-treetable-tbody > tr.p-treetable-row-selected {
+    @apply bg-highlight
+}
+
+.p-treetable-tbody > tr:has(+ .p-treetable-row-selected) > td {
+    @apply border-b-primary-100 dark:border-b-primary-900
+}
+
+.p-treetable-tbody > tr.p-treetable-row-selected > td {
+    @apply border-b-primary-100 dark:border-b-primary-900
+}
+
+.p-treetable-tbody > tr:focus-visible,
+.p-treetable-tbody > tr.p-treetable-contextmenu-row-selected {
+    @apply outline outline-1 -outline-offset-1 outline-primary
+}
+
+.p-treetable-tfoot > tr > td {
+    @apply text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-treetable-column-footer {
+    @apply font-semibold
+}
+
+.p-treetable-sortable-column {
+    @apply cursor-pointer select-none focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-primary
+}
+
+.p-treetable-column-title,
+.p-treetable-sort-icon,
+.p-treetable-sort-badge {
+    @apply align-middle
+}
+
+.p-treetable-sort-icon {
+    @apply text-surface-500 dark:text-surface-400 transition-colors duration-200
+}
+
+.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover {
+    @apply bg-surface-100 text-surface-800 dark:bg-surface-800 dark:text-surface-0
+}
+
+.p-treetable-sortable-column:not(.p-treetable-column-sorted):hover .p-treetable-sort-icon {
+    @apply text-surface-600 dark:text-surface-300
+}
+
+.p-treetable-column-sorted {
+    @apply bg-highlight
+}
+
+.p-treetable-column-sorted .p-treetable-sort-icon {
+    @apply bg-highlight
+}
+
+.p-treetable-hoverable .p-treetable-selectable-row {
+    @apply cursor-pointer
+}
+
+.p-treetable-loading-icon {
+    @apply text-[2rem] w-8 h-8
+}
+
+.p-treetable-gridlines .p-treetable-header {
+    @apply border-t border-x
+}
+
+.p-treetable-gridlines .p-treetable-footer {
+    @apply border-b border-x
+}
+
+.p-treetable-gridlines .p-treetable-paginator-top {
+    @apply border-t border-x
+}
+
+.p-treetable-gridlines .p-treetable-paginator-bottom {
+    @apply border-b border-x
+}
+
+.p-treetable-gridlines .p-treetable-thead > tr > th {
+    @apply border-t border-x last:border
+}
+
+.p-treetable-gridlines .p-treetable-tbody > tr > td {
+    @apply border-t border-s last:border-r
+}
+
+.p-treetable-gridlines .p-treetable-tbody > tr:last-child > td {
+    @apply border-y border-s last:border
+}
+
+.p-treetable-gridlines .p-treetable-tfoot > tr > td {
+    @apply border-y border-s last:border
+}
+
+.p-treetable.p-treetable-gridlines .p-treetable-thead + .p-treetable-tfoot > tr > td {
+    @apply border-b border-s last:border-r
+}
+
+.p-treetable.p-treetable-gridlines:has(.p-treetable-thead):has(.p-treetable-tbody) .p-treetable-tbody > tr > td {
+    @apply border-b border-s last:border-r
+}
+
+.p-treetable.p-treetable-gridlines:has(.p-treetable-tbody):has(.p-treetable-tfoot) .p-treetable-tbody > tr:last-child > td {
+    @apply border-x
+}
+
+.p-treetable.p-treetable-sm .p-treetable-header {
+    @apply py-1 px-2
+}
+
+.p-treetable.p-treetable-sm .p-treetable-thead > tr > th {
+    @apply py-1 px-2
+}
+
+.p-treetable.p-treetable-sm .p-treetable-tbody > tr > td {
+    @apply py-1 px-2
+}
+
+.p-treetable.p-treetable-sm .p-treetable-tfoot > tr > td {
+    @apply py-1 px-2
+}
+
+.p-treetable.p-treetable-sm .p-treetable-footer {
+    @apply py-1 px-2
+}
+
+.p-treetable.p-treetable-lg .p-treetable-header {
+    @apply py-4 px-5
+}
+
+.p-treetable.p-treetable-lg .p-treetable-thead > tr > th {
+    @apply py-4 px-5
+}
+
+.p-treetable.p-treetable-lg .p-treetable-tbody>tr>td {
+    @apply py-4 px-5
+}
+
+.p-treetable.p-treetable-lg .p-treetable-tfoot>tr>td {
+    @apply py-4 px-5
+}
+
+.p-treetable.p-treetable-lg .p-treetable-footer {
+    @apply py-4 px-5
+}
+
+.p-treetable-body-cell-content {
+    @apply flex items-center gap-2
+}
+
+.p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-node-toggle-button {
+    @apply text-inherit
+}
+
+.p-treetable-node-toggle-button {
+    @apply inline-flex items-center justify-center overflow-hidden relative select-none
+        transition-colors duration-200 w-7 h-7 rounded-full border-none bg-transparent cursor-pointer
+        enabled:hover:bg-surface-100 dark:enabled:hover:bg-surface-900
+        text-surface-500 dark:text-surface-400 enabled:hover:text-surface-700 dark:enabled:hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+
+}
+
+.p-treetable-tbody > tr.p-treetable-row-selected .p-treetable-node-toggle-button:hover {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary
+}
+
+.p-treetable-node-toggle-icon:dir(rtl) {
+    @apply rotate-180
+}

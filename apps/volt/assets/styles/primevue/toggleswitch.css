@@ -1,0 +1,66 @@
+.p-toggleswitch {
+    @apply inline-block w-10 h-6
+}
+
+.p-toggleswitch-input {
+    @apply cursor-pointer disabled:cursor-default appearance-none absolute top-0 start-0 w-full h-full m-0 p-0 opacity-0 z-10 rounded-[30px]
+}
+
+.p-toggleswitch-slider {
+    @apply inline-block w-full h-full rounded-[30px] shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
+        bg-surface-300 dark:bg-surface-700
+        border border-transparent
+        transition-colors duration-200
+}
+
+.p-toggleswitch-handle {
+    @apply absolute top-1/2 flex justify-center items-center
+        bg-surface-0 dark:bg-surface-400
+        text-surface-500 dark:text-surface-900
+        w-4 h-4 start-1 -mt-2 rounded-full
+        transition-[background,color,left] duration-200
+}
+
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
+    @apply bg-primary
+}
+
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-handle {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary start-5
+}
+
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-slider {
+    @apply bg-surface-400 dark:bg-surface-600
+}
+
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover) .p-toggleswitch-handle {
+    @apply bg-surface-0 dark:bg-surface-300 text-surface-700 dark:text-surface-800
+}
+
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-slider {
+    @apply bg-primary-emphasis
+}
+
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:hover).p-toggleswitch-checked .p-toggleswitch-handle {
+    @apply bg-surface-0 dark:bg-surface-900 text-primary-emphasis
+}
+
+.p-toggleswitch:not(.p-disabled):has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider {
+    @apply outline outline-1 outline-offset-2 outline-primary
+}
+
+.p-toggleswitch.p-invalid > .p-toggleswitch-slider {
+    @apply border-red-400 dark:border-red-300
+}
+
+.p-toggleswitch.p-disabled {
+    @apply opacity-100
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-slider {
+    @apply bg-surface-200 dark:bg-surface-600
+}
+
+.p-toggleswitch.p-disabled .p-toggleswitch-handle {
+    @apply bg-surface-700 dark:bg-surface-900
+}

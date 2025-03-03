@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-const primeui = require('tailwindcss-primeui');
+import PrimeUI from 'tailwindcss-primeui';
 
-module.exports = {
+export default {
     darkMode: ['selector', '[class="p-dark"]'],
     content: ['./pages/**/*.vue', './layouts/**/*.vue', './components/**/*.{js,vue,ts}', './doc/**/*.{js,vue,ts}', './error.vue'],
-    plugins: [primeui],
+    plugins: [PrimeUI],
     theme: {
         screens: {
             sm: '576px',

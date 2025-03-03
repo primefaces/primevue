@@ -1,0 +1,212 @@
+.p-message {
+    @apply rounded-md outline outline-1
+}
+
+.p-message-content {
+    @apply flex items-center px-3 py-2 gap-2 h-full
+}
+
+.p-message-icon {
+    @apply flex-shrink-0
+}
+
+.p-message-close-button {
+    @apply flex items-center justify-center flex-shrink-0 ms-auto overflow-hidden relative cursor-pointer select-none
+        w-7 h-7 rounded-full bg-transparent transition-colors duration-200 text-inherit p-0 border-none
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+}
+
+.p-message-info {
+    @apply bg-blue-50/95 outline-blue-200 text-blue-600
+        dark:bg-blue-500/15 dark:outline-blue-700/35 dark:text-blue-500
+        shadow-[0px_4px_8px_0px_theme(colors.blue.500/0.04)]
+}
+
+.p-message-info .p-message-close-button {
+    @apply hover:bg-blue-100 focus-visible:outline-blue-600
+        dark:hover:bg-white/5 dark:focus-visible:outline-blue-500
+}
+
+.p-message-info.p-message-outlined {
+    @apply text-blue-500 outline-blue-500 dark:text-blue-600 dark:outline-blue-600
+}
+
+.p-message-info.p-message-simple {
+    @apply text-blue-500 dark:text-blue-600
+}
+
+.p-message-success {
+    @apply bg-green-50/95 outline-green-200 text-green-600
+        dark:bg-green-500/15 dark:outline-green-700/35 dark:text-green-500
+        shadow-[0px_4px_8px_0px_theme(colors.green.500/0.04)]
+}
+
+.p-message-success .p-message-close-button {
+    @apply hover:bg-green-100 focus-visible:outline-green-600
+        dark:hover:bg-white/5 dark:focus-visible:outline-green-500
+}
+
+.p-message-success.p-message-outlined {
+    @apply text-green-500 outline-green-500 dark:text-green-600 dark:outline-green-600
+}
+
+.p-message-success.p-message-simple {
+    @apply text-green-500 dark:text-green-600
+}
+
+.p-message-warn {
+    @apply bg-yellow-50/95 outline-yellow-200 text-yellow-600
+        dark:bg-yellow-500/15 dark:outline-yellow-700/35 dark:text-yellow-500
+        shadow-[0px_4px_8px_0px_theme(colors.yellow.500/0.04)]
+}
+
+.p-message-warn .p-message-close-button {
+    @apply hover:bg-yellow-100 focus-visible:outline-yellow-600
+        dark:hover:bg-white/5 dark:focus-visible:outline-yellow-500
+}
+
+.p-message-warn.p-message-outlined {
+    @apply text-yellow-500 outline-yellow-500 dark:text-yellow-600 dark:outline-yellow-600
+}
+
+.p-message-warn.p-message-simple {
+    @apply text-yellow-500 dark:text-yellow-600
+}
+
+.p-message-error {
+    @apply bg-red-50/95 outline-red-200 text-red-600
+        dark:bg-red-500/15 dark:outline-red-700/35 dark:text-red-500
+        shadow-[0px_4px_8px_0px_theme(colors.red.500/0.04)]
+}
+
+.p-message-error .p-message-close-button {
+    @apply hover:bg-red-100 focus-visible:outline-red-600
+        dark:hover:bg-white/5 dark:focus-visible:outline-red-500
+}
+
+.p-message-error.p-message-outlined {
+    @apply text-red-500 outline-red-500 dark:text-red-600 dark:outline-red-600
+}
+
+.p-message-error.p-message-simple {
+    @apply text-red-500 dark:text-red-600
+}
+
+.p-message-secondary {
+    @apply bg-surface-100 outline-surface-200 text-surface-600
+        dark:bg-surface-800 dark:outline-surface-700 dark:text-surface-300
+        shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04)]
+}
+
+.p-message-secondary .p-message-close-button {
+    @apply hover:bg-surface-200 focus-visible:outline-surface-600
+        dark:hover:bg-surface-700 dark:focus-visible:outline-surface-300
+}
+
+.p-message-secondary.p-message-outlined {
+    @apply text-surface-500 outline-surface-500 dark:text-surface-600 dark:outline-surface-600
+}
+
+.p-message-secondary.p-message-simple {
+    @apply text-surface-500 dark:text-surface-600
+}
+
+.p-message-contrast {
+    @apply bg-surface-900 outline-surface-950 text-surface-50
+        dark:bg-surface-0 dark:outline-surface-100 dark:text-surface-950
+        shadow-[0px_4px_8px_0px_rgba(0,0,0,0.04)]
+}
+
+.p-message-contrast .p-message-close-button {
+    @apply hover:bg-surface-800 focus-visible:outline-surface-50
+        dark:hover:bg-surface-100 dark:focus-visible:outline-surface-950
+}
+
+.p-message-contrast.p-message-outlined {
+    @apply text-surface-950 outline-surface-950 dark:text-surface-0 dark:outline-surface-0
+}
+
+.p-message-contrast.p-message-simple {
+    @apply text-surface-950 dark:text-surface-0
+}
+
+.p-message-text {
+    @apply text-base font-medium
+}
+
+.p-message-icon {
+    @apply text-lg w-[1.125rem] h-[1.125rem]
+}
+
+.p-message-enter-from {
+    @apply opacity-0
+}
+
+.p-message-enter-active {
+    @apply transition-opacity duration-300
+}
+
+.p-message.p-message-leave-from {
+    @apply max-h-[1000px]
+}
+
+.p-message.p-message-leave-to {
+    @apply max-h-0 opacity-0 m-0
+}
+
+.p-message-leave-active {
+    @apply overflow-hidden [transition:max-height_0.45s_cubic-bezier(0,1,0,1),opacity_0.3s,margin0.3s]
+}
+
+.p-message-leave-active .p-message-close-button {
+    @apply opacity-0
+}
+
+.p-message-sm .p-message-content {
+    @apply px-2.5 py-[0.375rem]
+}
+
+.p-message-sm .p-message-text {
+    @apply text-sm
+}
+
+.p-message-sm .p-message-icon {
+    @apply w-4 h-4 text-sm
+}
+
+.p-message-sm .p-message-close-icon {
+    @apply w-3.5 h-3.5 text-sm
+}
+
+.p-message-lg .p-message-content {
+    @apply px-3.5 py-2.5
+}
+
+.p-message-lg .p-message-text {
+    @apply text-xl
+}
+
+.p-message-lg .p-message-icon {
+    @apply w-5 h-5 text-xl
+}
+
+.p-message-lg .p-message-close-icon {
+    @apply w-[1.125rem] h-[1.125rem] text-xl
+}
+
+.p-message-outlined {
+    @apply bg-transparent outline outline-1
+}
+
+.p-message-simple {
+    @apply bg-transparent outline-none shadow-none
+}
+
+.p-message-simple .p-message-content {
+    @apply p-0
+}
+
+.p-message-outlined .p-message-close-button:hover,
+.p-message-simple .p-message-close-button:hover {
+    @apply bg-transparent
+}

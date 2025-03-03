@@ -1,0 +1,331 @@
+@import './badge';
+
+.p-button {
+    @apply inline-flex cursor-pointer select-none items-center justify-center overflow-hidden relative
+        bg-primary enabled:hover:bg-primary-emphasis enabled:active:bg-primary-emphasis-alt text-primary-contrast
+        border border-primary enabled:hover:border-primary-emphasis enabled:active:border-primary-emphasis-alt
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        px-3 py-2 transition-colors duration-200 gap-2 rounded-md
+        disabled:cursor-default
+}
+
+.p-button-icon-right {
+    @apply order-1
+}
+
+.p-button-icon-right:dir(rtl) {
+    @apply order-[-1]
+}
+
+.p-button:not(.p-button-vertical) .p-button-icon:not(.p-button-icon-right):dir(rtl) {
+    @apply order-1
+}
+
+.p-button-icon-bottom {
+    @apply order-2
+}
+
+.p-button-icon-only {
+    @apply w-10 px-0 gap-0
+}
+
+.p-button-icon-only.p-button-rounded {
+    @apply rounded-full h-10
+}
+
+.p-button-icon-only .p-button-label {
+    @apply invisible w-0
+}
+
+.p-button-sm {
+    @apply text-sm px-[0.625rem] py-[0.375rem]
+}
+
+.p-button-sm .p-button-icon {
+    @apply text-sm
+}
+
+.p-button-lg {
+    @apply text-[1.125rem] px-[0.875rem] py-[0.625rem]
+}
+
+.p-button-lg .p-button-icon {
+    @apply text-[1.125rem]
+}
+
+.p-button-vertical {
+    @apply flex-col
+}
+
+.p-button-label {
+    @apply font-medium
+}
+
+.p-button-fluid {
+    @apply w-full
+}
+
+.p-button-fluid.p-button-icon-only {
+    @apply w-10
+}
+
+.p-button .p-badge {
+    @apply min-w-4 h-4 leading-4
+}
+
+.p-button-raised {
+    @apply shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),0_2px_2px_0_rgba(0,0,0,0.14),0_1px_5px_0_rgba(0,0,0,0.12)]
+}
+
+.p-button-rounded {
+    @apply rounded-[2rem]
+}
+
+.p-button-secondary {
+    @apply bg-surface-100 enabled:hover:bg-surface-200 enabled:active:bg-surface-300
+        border-surface-100 enabled:hover:border-surface-200 enabled:active:border-surface-300
+        text-surface-600 enabled:hover:text-surface-700 enabled:active:text-surface-800
+        dark:bg-surface-800 dark:enabled:hover:bg-surface-700 dark:enabled:active:bg-surface-600
+        dark:border-surface-800 dark:enabled:hover:border-surface-700 dark:enabled:active:border-surface-600
+        dark:text-surface-300 dark:enabled:hover:text-surface-200 dark:enabled:active:text-surface-100
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-surface-600 dark:focus-visible:outline-surface-300
+}
+
+.p-button-success {
+    @apply bg-green-500 enabled:hover:bg-green-600 enabled:active:bg-green-700
+        border-green-500 enabled:hover:border-green-600 enabled:active:border-green-700
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-green-400 dark:enabled:hover:bg-green-300 dark:enabled:active:bg-green-200
+        dark:border-green-400 dark:enabled:hover:border-green-300 dark:enabled:active:border-green-200
+        dark:text-green-950 dark:enabled:hover:text-green-950 dark:enabled:active:text-green-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-green-500 dark:focus-visible:outline-green-400
+}
+
+.p-button-info {
+    @apply bg-sky-500 enabled:hover:bg-sky-600 enabled:active:bg-sky-700
+        border-sky-500 enabled:hover:border-sky-600 enabled:active:border-sky-700
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-sky-400 dark:enabled:hover:bg-sky-300 dark:enabled:active:bg-sky-200
+        dark:border-sky-400 dark:enabled:hover:border-sky-300 dark:enabled:active:border-sky-200
+        dark:text-sky-950 dark:enabled:hover:text-sky-950 dark:enabled:active:text-sky-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-sky-500 dark:focus-visible:outline-sky-400
+}
+
+.p-button-warn {
+    @apply bg-orange-500 enabled:hover:bg-orange-600 enabled:active:bg-orange-700
+        border-orange-500 enabled:hover:border-orange-600 enabled:active:border-orange-700
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-orange-400 dark:enabled:hover:bg-orange-300 dark:enabled:active:bg-orange-200
+        dark:border-orange-400 dark:enabled:hover:border-orange-300 dark:enabled:active:border-orange-200
+        dark:text-orange-950 dark:enabled:hover:text-orange-950 dark:enabled:active:text-orange-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-orange-500 dark:focus-visible:outline-orange-400
+}
+
+.p-button-help {
+    @apply bg-purple-500 enabled:hover:bg-purple-600 enabled:active:bg-purple-700
+        border-purple-500 enabled:hover:border-purple-600 enabled:active:border-purple-700
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-purple-400 dark:enabled:hover:bg-purple-300 dark:enabled:active:bg-purple-200
+        dark:border-purple-400 dark:enabled:hover:border-purple-300 dark:enabled:active:border-purple-200
+        dark:text-purple-950 dark:enabled:hover:text-purple-950 dark:enabled:active:text-purple-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-purple-500 dark:focus-visible:outline-purple-400
+}
+
+.p-button-danger {
+    @apply bg-red-500 enabled:hover:bg-red-600 enabled:active:bg-red-700
+        border-red-500 enabled:hover:border-red-600 enabled:active:border-red-700
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-red-400 dark:enabled:hover:bg-red-300 dark:enabled:active:bg-red-200
+        dark:border-red-400 dark:enabled:hover:border-red-300 dark:enabled:active:border-red-200
+        dark:text-red-950 dark:enabled:hover:text-red-950 dark:enabled:active:text-red-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-red-500 dark:focus-visible:outline-red-400
+}
+
+.p-button-contrast {
+    @apply bg-surface-950 enabled:hover:bg-surface-900 enabled:active:bg-surface-800
+        border-surface-950 enabled:hover:border-surface-900 enabled:active:border-surface-800
+        text-white enabled:hover:text-white enabled:active:text-white
+        dark:bg-surface-0 dark:enabled:hover:bg-surface-100 dark:enabled:active:bg-surface-200
+        dark:border-surface-100 dark:enabled:hover:border-surface-200 dark:enabled:active:border-surface-300
+        dark:text-surface-950 dark:enabled:hover:text-surface-950 dark:enabled:active:text-surface-950
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2
+        focus-visible:outline-surface-950 dark:focus-visible:outline-surface-0
+}
+
+.p-button-outlined {
+    @apply bg-transparent enabled:hover:bg-primary-50 enabled:active:bg-primary-100
+        border-primary-200 enabled:hover:border-primary-200 enabled:active:border-primary-200
+        text-primary enabled:hover:text-primary enabled:active:text-primary
+        dark:bg-transparent dark:enabled:hover:bg-primary/5 dark:enabled:active:bg-primary/15
+        dark:border-primary-700 dark:enabled:hover:border-primary-700 dark:enabled:active:border-primary-700
+        dark:text-primary dark:enabled:hover:text-primary dark:enabled:active:text-primary
+}
+
+.p-button-outlined.p-button-secondary {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-surface-200 enabled:hover:border-surface-200 enabled:active:border-surface-200
+        text-surface-500 enabled:hover:text-surface-500 enabled:active:text-surface-500
+        dark:bg-transparent dark:enabled:hover:bg-white/5 dark:enabled:active:bg-white/15
+        dark:border-surface-700 dark:enabled:hover:border-surface-700 dark:enabled:active:border-surface-700
+        dark:text-surface-400 dark:enabled:hover:text-surface-400 dark:enabled:active:text-surface-400
+}
+
+.p-button-outlined.p-button-success {
+    @apply bg-transparent enabled:hover:bg-green-50 enabled:active:bg-green-100
+        border-green-200 enabled:hover:border-green-200 enabled:active:border-green-200
+        text-green-500 enabled:hover:text-green-500 enabled:active:text-green-500
+        dark:bg-transparent dark:enabled:hover:bg-green-400/5 dark:enabled:active:bg-green-400/15
+        dark:border-green-700 dark:enabled:hover:border-green-700 dark:enabled:active:border-green-700
+        dark:text-green-400 dark:enabled:hover:text-green-400 dark:enabled:active:text-green-400
+}
+
+.p-button-outlined.p-button-info {
+    @apply bg-transparent enabled:hover:bg-sky-50 enabled:active:bg-sky-100
+        border-sky-200 enabled:hover:border-sky-200 enabled:active:border-sky-200
+        text-sky-500 enabled:hover:text-sky-500 enabled:active:text-sky-500
+        dark:bg-transparent dark:enabled:hover:bg-sky-400/5 dark:enabled:active:bg-sky-400/15
+        dark:border-sky-700 dark:enabled:hover:border-sky-700 dark:enabled:active:border-sky-700
+        dark:text-sky-400 dark:enabled:hover:text-sky-400 dark:enabled:active:text-sky-400
+}
+
+.p-button-outlined.p-button-warn {
+    @apply bg-transparent enabled:hover:bg-orange-50 enabled:active:bg-orange-100
+        border-orange-200 enabled:hover:border-orange-200 enabled:active:border-orange-200
+        text-orange-500 enabled:hover:text-orange-500 enabled:active:text-orange-500
+        dark:bg-transparent dark:enabled:hover:bg-orange-400/5 dark:enabled:active:bg-orange-400/15
+        dark:border-orange-700 dark:enabled:hover:border-orange-700 dark:enabled:active:border-orange-700
+        dark:text-orange-400 dark:enabled:hover:text-orange-400 dark:enabled:active:text-orange-400
+}
+
+.p-button-outlined.p-button-help {
+    @apply bg-transparent enabled:hover:bg-purple-50 enabled:active:bg-purple-100
+        border-purple-200 enabled:hover:border-purple-200 enabled:active:border-purple-200
+        text-purple-500 enabled:hover:text-purple-500 enabled:active:text-purple-500
+        dark:bg-transparent dark:enabled:hover:bg-purple-400/5 dark:enabled:active:bg-purple-400/15
+        dark:border-purple-700 dark:enabled:hover:border-purple-700 dark:enabled:active:border-purple-700
+        dark:text-purple-400 dark:enabled:hover:text-purple-400 dark:enabled:active:text-purple-400
+}
+
+.p-button-outlined.p-button-danger {
+    @apply bg-transparent enabled:hover:bg-red-50 enabled:active:bg-red-100
+        border-red-200 enabled:hover:border-red-200 enabled:active:border-red-200
+        text-red-500 enabled:hover:text-red-500 enabled:active:text-red-500
+        dark:bg-transparent dark:enabled:hover:bg-red-400/5 dark:enabled:active:bg-red-400/15
+        dark:border-red-700 dark:enabled:hover:border-red-700 dark:enabled:active:border-red-700
+        dark:text-red-400 dark:enabled:hover:text-red-400 dark:enabled:active:text-red-400
+}
+
+.p-button-outlined.p-button-contrast {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-surface-700 enabled:hover:border-surface-700 enabled:active:border-surface-700
+        text-surface-950 enabled:hover:text-surface-950 enabled:active:text-surface-950
+        dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
+        dark:border-surface-500 dark:enabled:hover:border-surface-500 dark:enabled:active:border-surface-500
+        dark:text-surface-0 dark:enabled:hover:text-surface-0 dark:enabled:active:text-surface-0
+}
+
+.p-button-outlined.p-button-plain {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-surface-200 enabled:hover:border-surface-200 enabled:active:border-surface-200
+        text-surface-700 enabled:hover:text-surface-700 enabled:active:text-surface-700
+        dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
+        dark:border-surface-600 dark:enabled:hover:border-surface-600 dark:enabled:active:border-surface-600
+        dark:text-surface-0 dark:enabled:hover:text-surface-0 dark:enabled:active:text-surface-0
+}
+
+.p-button-text {
+    @apply bg-transparent enabled:hover:bg-primary-50 enabled:active:bg-primary-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-primary enabled:hover:text-primary enabled:active:text-primary
+        dark:bg-transparent dark:enabled:hover:bg-primary/5 dark:enabled:active:bg-primary/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-primary dark:enabled:hover:text-primary dark:enabled:active:text-primary
+}
+
+.p-button-text.p-button-secondary {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-surface-500 enabled:hover:text-surface-500 enabled:active:text-surface-500
+        dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-surface-400 dark:enabled:hover:text-surface-400 dark:enabled:active:text-surface-400
+}
+
+.p-button-text.p-button-success {
+    @apply bg-transparent enabled:hover:bg-green-50 enabled:active:bg-green-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-green-500 enabled:hover:text-green-500 enabled:active:text-green-500
+        dark:bg-transparent dark:enabled:hover:bg-green-400/5 dark:enabled:active:bg-green-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-green-400 dark:enabled:hover:text-green-400 dark:enabled:active:text-green-400
+}
+
+.p-button-text.p-button-info {
+    @apply bg-transparent enabled:hover:bg-sky-50 enabled:active:bg-sky-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-sky-500 enabled:hover:text-sky-500 enabled:active:text-sky-500
+        dark:bg-transparent dark:enabled:hover:bg-sky-400/5 dark:enabled:active:bg-sky-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-sky-400 dark:enabled:hover:text-sky-400 dark:enabled:active:text-sky-400
+}
+
+.p-button-text.p-button-warn {
+    @apply bg-transparent enabled:hover:bg-orange-50 enabled:active:bg-orange-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-orange-500 enabled:hover:text-orange-500 enabled:active:text-orange-500
+        dark:bg-transparent dark:enabled:hover:bg-orange-400/5 dark:enabled:active:bg-orange-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-orange-400 dark:enabled:hover:text-orange-400 dark:enabled:active:text-orange-400
+}
+
+.p-button-text.p-button-help {
+    @apply bg-transparent enabled:hover:bg-purple-50 enabled:active:bg-purple-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-purple-500 enabled:hover:text-purple-500 enabled:active:text-purple-500
+        dark:bg-transparent dark:enabled:hover:bg-purple-400/5 dark:enabled:active:bg-purple-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-purple-400 dark:enabled:hover:text-purple-400 dark:enabled:active:text-purple-400
+}
+
+.p-button-text.p-button-danger {
+    @apply bg-transparent enabled:hover:bg-red-50 enabled:active:bg-red-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-red-500 enabled:hover:text-red-500 enabled:active:text-red-500
+        dark:bg-transparent dark:enabled:hover:bg-red-400/5 dark:enabled:active:bg-red-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-red-400 dark:enabled:hover:text-red-400 dark:enabled:active:text-red-400
+}
+
+.p-button-text.p-button-contrast {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-surface-500 enabled:hover:text-surface-500 enabled:active:text-surface-500
+        dark:bg-transparent dark:enabled:hover:bg-surface-400/5 dark:enabled:active:bg-surface-400/15
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-surface-400 dark:enabled:hover:text-surface-400 dark:enabled:active:text-surface-400
+}
+
+.p-button-text.p-button-plain {
+    @apply bg-transparent enabled:hover:bg-surface-50 enabled:active:bg-surface-100
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-surface-700 enabled:hover:text-surface-700 enabled:active:text-surface-700
+        dark:bg-transparent dark:enabled:hover:bg-surface-800 dark:enabled:active:bg-surface-700
+        dark:border-transparent dark:enabled:hover:border-transparent dark:enabled:active:border-transparent
+        dark:text-surface-0 dark:enabled:hover:text-surface-0 dark:enabled:active:text-surface-0
+}
+
+.p-button-link {
+    @apply bg-transparent enabled:hover:bg-transparent enabled:active:bg-transparent
+        border-transparent enabled:hover:border-transparent enabled:active:border-transparent
+        text-primary enabled:hover:text-primary enabled:active:text-primary
+}
+
+.p-button-link:not(:disabled):hover .p-button-label {
+    @apply underline
+}

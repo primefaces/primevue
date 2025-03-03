@@ -1,0 +1,73 @@
+.p-floatlabel {
+    @apply block relative
+}
+
+.p-floatlabel label {
+    @apply absolute pointer-events-none top-1/2 -translate-y-1/2 transition-all duration-200 ease-out leading-none font-medium
+        start-3 text-surface-500 dark:text-surface-400
+}
+
+.p-floatlabel:has(.p-textarea) label {
+    @apply top-2 translate-y-0
+}
+
+.p-floatlabel:has(.p-inputicon:first-child) label {
+    @apply start-10
+}
+
+.p-floatlabel:has(.p-invalid) label {
+    @apply text-red-400 dark:text-red-300
+}
+
+.p-floatlabel:has(input:focus) label,
+.p-floatlabel:has(input.p-filled) label,
+.p-floatlabel:has(input:-webkit-autofill) label,
+.p-floatlabel:has(textarea:focus) label,
+.p-floatlabel:has(textarea.p-filled) label,
+.p-floatlabel:has(.p-inputwrapper-focus) label,
+.p-floatlabel:has(.p-inputwrapper-filled) label {
+    @apply -top-5 translate-y-0 text-xs font-normal
+}
+
+.p-floatlabel:has(input.p-filled) label,
+.p-floatlabel:has(textarea.p-filled) label,
+.p-floatlabel:has(.p-inputwrapper-filled) label {
+    @apply text-surface-500 dark:text-surface-400
+}
+
+.p-floatlabel:has(input:focus) label,
+.p-floatlabel:has(input:-webkit-autofill) label,
+.p-floatlabel:has(textarea:focus) label ,
+.p-floatlabel:has(.p-inputwrapper-focus) label  {
+    @apply text-primary
+}
+
+.p-floatlabel-in .p-inputtext,
+.p-floatlabel-in .p-textarea,
+.p-floatlabel-in .p-select-label,
+.p-floatlabel-in .p-multiselect-label,
+.p-floatlabel-in .p-autocomplete-input-multiple,
+.p-floatlabel-in .p-cascadeselect-label,
+.p-floatlabel-in .p-treeselect-label {
+    @apply pt-6 pb-2
+}
+
+.p-floatlabel-in:has(input:focus) label,
+.p-floatlabel-in:has(input.p-filled) label,
+.p-floatlabel-in:has(input:-webkit-autofill) label,
+.p-floatlabel-in:has(textarea:focus) label,
+.p-floatlabel-in:has(textarea.p-filled) label,
+.p-floatlabel-in:has(.p-inputwrapper-focus) label,
+.p-floatlabel-in:has(.p-inputwrapper-filled) label {
+    @apply top-2
+}
+
+.p-floatlabel-on:has(input:focus) label,
+.p-floatlabel-on:has(input.p-filled) label,
+.p-floatlabel-on:has(input:-webkit-autofill) label,
+.p-floatlabel-on:has(textarea:focus) label,
+.p-floatlabel-on:has(textarea.p-filled) label,
+.p-floatlabel-on:has(.p-inputwrapper-focus) label,
+.p-floatlabel-on:has(.p-inputwrapper-filled) label {
+    @apply top-0 -translate-y-1/2 rounded-sm bg-surface-0 dark:bg-surface-950 py-0 px-[0.125rem]
+}

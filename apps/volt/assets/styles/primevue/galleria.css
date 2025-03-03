@@ -1,0 +1,244 @@
+.p-galleria {
+    @apply overflow-hidden border border-surface-200 dark:border-surface-700 rounded-md
+}
+
+.p-galleria-content {
+    @apply flex flex-col
+}
+
+.p-galleria-items-container {
+    @apply flex flex-col relative
+}
+
+.p-galleria-items {
+    @apply relative flex h-full
+}
+
+.p-galleria-nav-button {
+    @apply absolute top-1/2 inline-flex justify-center items-center overflow-hidden select-none border-none cursor-pointer
+        w-12 h-12 transition-colors duration-200 p-0 -mt-12 mx-2 mb-0 rounded-full
+        bg-white/10 text-surface-100 enabled:hover:bg-white/20 enabled:hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-galleria-next-icon,
+.p-galleria-prev-icon {
+    @apply text-2xl w-6 h-6
+}
+
+.p-galleria-prev-button {
+    @apply start-0
+}
+
+.p-galleria-next-button {
+    @apply end-0
+}
+
+.p-galleria-prev-button:dir(rtl) {
+    @apply start-auto end-0
+}
+.p-galleria-next-button:dir(rtl) {
+    @apply end-auto start-0
+}
+
+.p-galleria-item {
+    @apply flex justify-center items-center h-full w-full
+}
+
+.p-galleria-hover-navigators .p-galleria-nav-button {
+    @apply pointer-events-none opacity-0 transition-opacity duration-200 ease-in-out
+}
+
+.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button {
+    @apply pointer-events-auto opacity-100
+}
+
+.p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button.p-disabled {
+    @apply pointer-events-none
+}
+
+.p-galleria-caption {
+    @apply absolute bottom-0 left-0 w-full bg-black/5 text-surface-100 p-4
+}
+
+.p-galleria-thumbnails {
+    @apply flex flex-col overflow-auto flex-shrink-0
+}
+
+.p-galleria-thumbnail-nav-button {
+    @apply self-center flex-grow-0 flex-shrink-0 basis-auto justify-center items-center overflow-hidden relative
+        my-0 mx-2 p-0 border-none select-none cursor-pointer w-8 h-8 rounded-md transition-colors duration-200 bg-transparent
+        text-surface-600 hover:bg-surface-100 hover:text-surface-700
+        dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-galleria-thumbnail-nav-button .p-galleria-thumbnail-next-icon,
+.p-galleria-thumbnail-nav-button .p-galleria-thumbnail-prev-icon {
+    @apply text-base w-4 h-4
+}
+
+.p-galleria-thumbnails-content {
+    @apply flex flex-row bg-surface-0 dark:bg-surface-900 py-4 px-1
+}
+
+.p-galleria-thumbnails-viewport {
+    @apply overflow-hidden w-full
+}
+
+.p-galleria:not(.p-galleria-thumbnails-right):not(.p-galleria-thumbnails-left) .p-galleria-thumbnail-prev-button:dir(rtl),
+.p-galleria:not(.p-galleria-thumbnails-right):not(.p-galleria-thumbnails-left) .p-galleria-thumbnail-next-button:dir(rtl) {
+    @apply rotate-180
+}
+
+.p-galleria-thumbnail-items {
+    @apply flex
+}
+
+.p-galleria-thumbnail-item {
+    @apply overflow-auto flex items-center justify-center cursor-pointer opacity-50
+}
+
+.p-galleria-thumbnail {
+    @apply outline-transparent transition-opacity duration-300 hover:opacity-100
+}
+
+.p-galleria-thumbnail-item-current {
+    @apply opacity-100
+}
+
+.p-galleria-thumbnails-left .p-galleria-content,
+.p-galleria-thumbnails-right .p-galleria-content {
+    @apply flex-row
+}
+
+.p-galleria-thumbnails-left .p-galleria-items-container,
+.p-galleria-thumbnails-right .p-galleria-items-container {
+    @apply flex-row
+}
+
+.p-galleria-thumbnails-left .p-galleria-items-container,
+.p-galleria-thumbnails-top .p-galleria-items-container {
+    @apply order-2
+}
+
+.p-galleria-thumbnails-left .p-galleria-thumbnails,
+.p-galleria-thumbnails-top .p-galleria-thumbnails {
+    @apply order-1
+}
+
+.p-galleria-thumbnails-left .p-galleria-thumbnails-content,
+.p-galleria-thumbnails-right .p-galleria-thumbnails-content {
+    @apply flex-col flex-grow
+}
+
+.p-galleria-thumbnails-left .p-galleria-thumbnail-items,
+.p-galleria-thumbnails-right .p-galleria-thumbnail-items {
+    @apply flex-col h-full
+}
+
+.p-galleria-indicator-list {
+    @apply flex items-center justify-center p-4 gap-2 m-0 list-none
+}
+
+.p-galleria-indicator-button {
+    @apply inline-flex items-center w-4 h-4 rounded-full m-0 p-0 border-none select-none cursor-pointer transition-colors duration-200
+        bg-surface-200 hover:bg-surface-300 dark:bg-surface-700 dark:hover:bg-surface-600
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-galleria-indicator-active .p-galleria-indicator-button {
+    @apply bg-primary
+}
+
+.p-galleria-indicators-left .p-galleria-items-container,
+.p-galleria-indicators-right .p-galleria-items-container {
+    @apply flex-row items-center
+}
+
+.p-galleria-indicators-left .p-galleria-items,
+.p-galleria-indicators-top .p-galleria-items {
+    @apply order-2
+}
+
+.p-galleria-indicators-left .p-galleria-indicator-list,
+.p-galleria-indicators-top .p-galleria-indicator-list {
+    @apply order-1
+}
+
+.p-galleria-indicators-left .p-galleria-indicator-list,
+.p-galleria-indicators-right .p-galleria-indicator-list {
+    @apply flex-col
+}
+
+.p-galleria-inset-indicators .p-galleria-indicator-list {
+    @apply absolute flex z-10 bg-black/50
+}
+
+.p-galleria-inset-indicators .p-galleria-indicator-button {
+    @apply bg-white/40 hover:bg-white/60
+}
+
+.p-galleria-inset-indicators .p-galleria-indicator-active .p-galleria-indicator-button {
+    @apply bg-white/90
+}
+
+.p-galleria-inset-indicators.p-galleria-indicators-top .p-galleria-indicator-list {
+    @apply top-0 left-0 w-full items-start
+}
+
+.p-galleria-inset-indicators.p-galleria-indicators-right .p-galleria-indicator-list {
+    @apply right-0 top-0 h-full items-end
+}
+
+.p-galleria-inset-indicators.p-galleria-indicators-bottom .p-galleria-indicator-list {
+    @apply bottom-0 left-0 w-full items-end
+}
+
+.p-galleria-inset-indicators.p-galleria-indicators-left .p-galleria-indicator-list {
+    @apply left-0 top-0 h-full items-start
+}
+
+.p-galleria-mask {
+    @apply fixed top-0 left-0 w-full h-full flex items-center justify-center
+}
+
+.p-galleria-close-button {
+    @apply absolute top-0 right-0 flex items-center justify-center overflow-hidden m-2 rounded-full
+        transition-colors duration-200 select-none cursor-pointer w-12 h-12 p-0 border-none
+        bg-white/10 text-surface-50 hover:bg-white/20 hover:text-surface-0
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-galleria-close-icon {
+    @apply text-2xl w-6 h-6
+}
+
+.p-galleria-mask .p-galleria-nav-button {
+    @apply fixed top-1/2
+}
+
+.p-galleria-enter-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0,0,0.2,1)]
+}
+
+.p-galleria-leave-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]
+}
+
+.p-galleria-enter-from,
+.p-galleria-leave-to {
+    @apply opacity-0 scale-75
+}
+
+.p-galleria-enter-active .p-galleria-nav-button {
+    @apply opacity-0
+}
+
+.p-items-hidden .p-galleria-thumbnail-item {
+    @apply invisible
+}
+
+.p-items-hidden .p-galleria-thumbnail-item.p-galleria-thumbnail-item-active {
+    @apply visible
+}

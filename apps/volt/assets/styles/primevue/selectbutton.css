@@ -1,0 +1,25 @@
+@import './togglebutton';
+
+.p-selectbutton {
+    @apply inline-flex select-none rounded-md
+}
+
+.p-selectbutton .p-togglebutton {
+    @apply rounded-none border-y border-r border-s-0
+}
+
+.p-selectbutton .p-togglebutton:focus-visible {
+    @apply relative z-10
+}
+
+.p-selectbutton .p-togglebutton:first-child {
+    @apply border-s rounded-s-md
+}
+
+.p-selectbutton .p-togglebutton:last-child {
+    @apply rounded-e-md
+}
+
+.p-selectbutton.p-invalid {
+    @apply outline outline-offset-0 outline-red-400 dark:outline-red-300
+}

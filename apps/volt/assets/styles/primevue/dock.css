@@ -1,0 +1,84 @@
+.p-dock {
+    @apply absolute z-10 flex justify-center items-center pointer-events-none
+}
+
+.p-dock-list-container {
+    @apply flex pointer-events-auto bg-white/10 border border-white/10 p-2 rounded-xl
+}
+
+.p-dock-list {
+    @apply m-0 p-0 list-none flex items-center justify-center outline-none
+}
+
+.p-dock-item {
+    @apply transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform p-2 rounded-md
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-dock-item-link {
+    @apply flex flex-col items-center justify-center relative cursor-default w-12 h-12
+}
+
+.p-dock-top {
+    @apply start-0 top-0 w-full
+}
+
+.p-dock-top .p-dock-item {
+    @apply origin-[center_top]
+}
+
+.p-dock-bottom {
+    @apply start-0 bottom-0 w-full
+}
+
+.p-dock-bottom .p-dock-item {
+    @apply origin-[center_bottom]
+}
+
+.p-dock-right {
+    @apply end-0 top-0 h-full
+}
+
+.p-dock-right .p-dock-item {
+    @apply origin-[center_right]
+}
+
+.p-dock-right .p-dock-list {
+    @apply flex-col
+}
+
+.p-dock-left {
+    @apply start-0 top-0 h-full
+}
+
+.p-dock-left .p-dock-item {
+    @apply origin-[center_left]
+}
+
+.p-dock-left .p-dock-list {
+    @apply flex-col
+}
+
+.p-dock-mobile.p-dock-top .p-dock-list-container,
+.p-dock-mobile.p-dock-bottom .p-dock-list-container {
+    @apply overflow-x-auto w-full
+}
+
+.p-dock-mobile.p-dock-top .p-dock-list-container .p-dock-list,
+.p-dock-mobile.p-dock-bottom .p-dock-list-container .p-dock-list {
+    @apply mt-0 mx-auto
+}
+
+.p-dock-mobile.p-dock-left .p-dock-list-container,
+.p-dock-mobile.p-dock-right .p-dock-list-container {
+    @apply overflow-y-auto h-full
+}
+
+.p-dock-mobile.p-dock-left .p-dock-list-container .p-dock-list,
+.p-dock-mobile.p-dock-right .p-dock-list-container .p-dock-list {
+    @apply mt-auto mx-0
+}
+
+.p-dock-mobile .p-dock-list .p-dock-item {
+    @apply transform-none m-0
+}

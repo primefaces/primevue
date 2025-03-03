@@ -1,0 +1,67 @@
+.p-metergroup {
+    @apply flex gap-4
+}
+
+.p-metergroup-meters {
+    @apply flex bg-surface-200 dark:bg-surface-700 rounded-md
+}
+
+.p-metergroup-label-list {
+    @apply flex flex-wrap m-0 p-0 list-none
+}
+
+.p-metergroup-label {
+    @apply inline-flex items-center gap-2
+}
+
+.p-metergroup-label-marker {
+    @apply inline-flex w-2 h-2 rounded-full
+}
+
+.p-metergroup-label-icon {
+    @apply text-base w-4 h-4
+}
+
+.p-metergroup-horizontal {
+    @apply flex-col
+}
+
+.p-metergroup-label-list-horizontal {
+    @apply gap-4
+}
+
+.p-metergroup-horizontal .p-metergroup-meters {
+    @apply h-2
+}
+
+.p-metergroup-horizontal .p-metergroup-meter:first-of-type {
+    @apply rounded-s-md
+}
+
+.p-metergroup-horizontal .p-metergroup-meter:last-of-type {
+    @apply rounded-e-md
+}
+
+.p-metergroup-vertical {
+    @apply flex-row
+}
+
+.p-metergroup-label-list-vertical {
+    @apply flex-col gap-2
+}
+
+.p-metergroup-vertical .p-metergroup-meters {
+    @apply flex-col w-2 h-full
+}
+
+.p-metergroup-vertical .p-metergroup-label-list {
+    @apply items-start
+}
+
+.p-metergroup-vertical .p-metergroup-meter:first-of-type {
+    @apply rounded-ss-md rounded-se-md
+}
+
+.p-metergroup-vertical .p-metergroup-meter:last-of-type {
+    @apply rounded-ee-md rounded-es-md
+}

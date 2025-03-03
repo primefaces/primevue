@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            val: null
+            value: null
         }
     }
 };
@@ -44,7 +44,7 @@ export default {
 <script setup>
 import { ref } from 'vue';
 
-const val = ref(null);
+const value = ref(null);
 <\/script>
 `
             }

@@ -1,0 +1,38 @@
+.p-imagecompare {
+    @apply relative overflow-hidden w-full aspect-video
+}
+
+.p-imagecompare img {
+    @apply w-full h-full absolute
+}
+
+.p-imagecompare img + img {
+    @apply [clip-path:polygon(0_0,50%_0,50%_100%,0_100%)]
+}
+
+.p-imagecompare:dir(rtl) img + img {
+    @apply [clip-path:polygon(50%_0,100%_0,100%_100%,50%_100%)]
+}
+
+.p-imagecompare-slider {
+    @apply relative appearance-none w-[calc(100%+1rem)] h-full -ms-2 bg-transparent outline-none transition-all duration-200
+        hover:w-[calc(100%+2rem)] hover:-ms-4
+}
+
+.p-imagecompare-slider::-webkit-slider-thumb {
+    @apply appearance-none h-4 w-4 bg-white/30 rounded-full bg-contain cursor-ew-resize transition-all duration-200
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-imagecompare-slider::-moz-range-thumb {
+    @apply appearance-none h-4 w-4 bg-white/30 rounded-full bg-contain cursor-ew-resize transition-all duration-200
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-imagecompare-slider:hover::-webkit-slider-thumb {
+    @apply bg-white/40 h-8 w-8
+}
+
+.p-imagecompare-slider:hover::-moz-range-thumb {
+    @apply bg-white/40 h-8 w-8
+}

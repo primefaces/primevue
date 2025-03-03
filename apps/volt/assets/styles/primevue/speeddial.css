@@ -1,0 +1,48 @@
+@import './button';
+
+.p-speeddial {
+    @apply static flex gap-2
+}
+
+.p-speeddial-button {
+    @apply z-10
+}
+
+.p-speeddial-button.p-speeddial-rotate {
+    @apply [transition:transform_250ms_cubic-bezier(0.4,0,0.2,1)_0ms,background_200ms,color_200ms,border-color_200ms] will-change-transform
+}
+
+.p-speeddial-list {
+    @apply m-0 p-0 list-none flex items-center justify-center pointer-events-none outline-none z-20 gap-2
+        transition-[top] ease-linear duration-200
+}
+
+.p-speeddial-item {
+    @apply scale-0 opacity-0 [transition:transform_200ms_cubic-bezier(0.4,0,0.2,1)_0ms,opacity_0.8s] will-change-transform
+}
+
+.p-speeddial-circle .p-speeddial-item,
+.p-speeddial-semi-circle .p-speeddial-item,
+.p-speeddial-quarter-circle .p-speeddial-item {
+    @apply absolute
+}
+
+.p-speeddial-mask {
+    @apply absolute start-0 top-0 w-full h-full opacity-0 bg-black/40 dark:bg-black/60 rounded-md transition-opacity duration-150
+}
+
+.p-speeddial-mask-visible {
+    @apply pointer-events-none opacity-100 transition-opacity duration-150
+}
+
+.p-speeddial-open .p-speeddial-list {
+    @apply pointer-events-auto
+}
+
+.p-speeddial-open .p-speeddial-item {
+    @apply scale-100 opacity-100
+}
+
+.p-speeddial-open .p-speeddial-rotate {
+    @apply rotate-45
+}

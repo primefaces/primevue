@@ -1,0 +1,56 @@
+.p-image-mask {
+    @apply flex items-center justify-center
+}
+
+.p-image-preview {
+    @apply relative inline-flex leading-none
+}
+
+.p-image-preview-mask {
+    @apply absolute start-0 top-0 w-full h-full flex items-center justify-center opacity-0
+        border-none p-0 cursor-pointer bg-transparent text-surface-200 transition-all duration-200
+}
+
+.p-image-preview:hover > .p-image-preview-mask {
+    @apply opacity-100 cursor-pointer bg-black/40 dark:bg-black/60
+}
+
+.p-image-preview-icon {
+    @apply text-2xl w-6 h-6
+}
+
+.p-image-toolbar {
+    @apply absolute top-4 end-4 start-auto bottom-auto flex z-10 p-2 bg-white/10 border border-white/20 rounded-3xl gap-2;
+}
+
+.p-image-action {
+    @apply inline-flex justify-center items-center text-surface-50 bg-transparent w-12 h-12 m-0 p-0
+        border-none cursor-pointer select-none rounded-full transition-colors duration-200
+        hover:text-surface-0 hover:bg-white/10
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+}
+
+.p-image-action .p-icon {
+    @apply text-2xl h-6 w-6
+}
+
+.p-image-action.p-disabled {
+    @apply pointer-events-auto
+}
+
+.p-image-original {
+    @apply transition-transform duration-150 max-w-[100vw] max-h-[100vh]
+}
+
+.p-image-original-enter-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0,0,0.2,1)]
+}
+
+.p-image-original-leave-active {
+    @apply transition-all duration-150 ease-[cubic-bezier(0.4,0,0.2,1)]
+}
+
+.p-image-original-enter-from,
+.p-image-original-leave-to {
+    @apply opacity-0 scale-75
+}

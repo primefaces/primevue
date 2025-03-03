@@ -1,0 +1,56 @@
+.p-splitter {
+    @apply flex flex-wrap
+        border border-surface-200 dark:border-surface-700 rounded-md
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0
+}
+
+.p-splitter-vertical {
+    @apply flex-col
+}
+
+.p-splitter-gutter {
+    @apply flex-grow-0 flex-shrink-0 flex items-center justify-center z-10 bg-surface-200 dark:bg-surface-700
+}
+
+.p-splitter-gutter-handle {
+    @apply rounded-md bg-transparent 
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+        transition-colors duration-200
+}
+
+.p-splitter-horizontal.p-splitter-resizing {
+    @apply cursor-col-resize select-none
+}
+
+.p-splitter-vertical.p-splitter-resizing {
+    @apply cursor-row-resize select-none
+}
+
+.p-splitter-horizontal > .p-splitter-gutter > .p-splitter-gutter-handle {
+    @apply h-[24px] w-full
+}
+
+.p-splitter-vertical > .p-splitter-gutter > .p-splitter-gutter-handle {
+    @apply w-[24px] h-full
+}
+
+.p-splitter-horizontal > .p-splitter-gutter {
+    @apply cursor-col-resize
+}
+
+.p-splitter-vertical > .p-splitter-gutter {
+    @apply cursor-row-resize
+}
+
+.p-splitterpanel {
+    @apply flex-grow overflow-hidden
+}
+
+.p-splitterpanel-nested {
+    @apply flex
+}
+
+.p-splitterpanel .p-splitter {
+    @apply flex-grow border-none
+}

@@ -1,0 +1,81 @@
+.p-connected-overlay-enter-from {
+    @apply opacity-0 scale-y-75
+}
+
+.p-connected-overlay-leave-to {
+    @apply opacity-0
+}
+
+.p-connected-overlay-enter-active {
+    @apply transition-[opacity,transform] duration-150 ease-[cubic-bezier(0,0,0.2,1)]
+}
+
+.p-connected-overlay-leave-active {
+    @apply transition-opacity duration-100 ease-linear
+}
+
+.p-toggleable-content-enter-from,
+.p-toggleable-content-leave-to {
+    @apply max-h-0
+}
+
+.p-toggleable-content-enter-to,
+.p-toggleable-content-leave-from {
+    @apply max-h-[1000px]
+}
+
+.p-toggleable-content-leave-active {
+    @apply overflow-hidden transition-[max-height] animate-duration-[450ms] ease-[cubic-bezier(0,1,0,1)];
+}
+
+.p-toggleable-content-enter-active {
+    @apply overflow-hidden transition-[max-height] duration-1000 ease-in-out
+}
+
+.p-disabled,
+.p-disabled * {
+    @apply cursor-default pointer-events-none select-none
+}
+
+.p-disabled,
+.p-component:disabled {
+    @apply opacity-60
+}
+
+.pi {
+    @apply text-base
+}
+
+.p-icon {
+    @apply w-4 h-4
+}
+
+.p-overlay-mask {
+    @apply bg-black/50 text-surface-200 transition-colors duration-150 fixed top-0 start-0 w-full h-full
+}
+
+.p-overlay-mask-enter {
+    animation: p-overlay-mask-enter-animation 150ms forwards;
+}
+
+.p-overlay-mask-leave {
+    animation: p-overlay-mask-leave-animation 150ms forwards;
+}
+
+@keyframes p-overlay-mask-enter-animation {
+    from {
+        background: transparent;
+    }
+    to {
+        background: rgba(0,0,0,0.5);
+    }
+}
+
+@keyframes p-overlay-mask-leave-animation {
+    from {
+        background: rgba(0,0,0,0.5);
+    }
+    to {
+        background: transparent;
+    }
+}
