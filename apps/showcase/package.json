@@ -4,6 +4,7 @@
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
+    "type": "module",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -34,8 +35,8 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "build:prebuild": "node ./scripts/prebuild.js",
-        "build:apidoc": "node ./scripts/build-apidoc.js"
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:apidoc": "node ./scripts/build-apidoc.cjs"
     },
     "dependencies": {
         "@docsearch/js": "catalog:app",
@@ -62,7 +63,7 @@
         "sass-loader": "catalog:app",
         "tailwindcss": "^3",
         "tailwindcss-primeui": "catalog:",
-        "typedoc": "0.27.9",
+        "typedoc": "0.23.23",
         "vite": "catalog:app"
     }
 }

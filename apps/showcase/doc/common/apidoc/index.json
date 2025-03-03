@@ -736,7 +736,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "DIV",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -1830,7 +1830,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "DIV",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -2117,7 +2117,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "BUTTON",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -2418,7 +2418,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "DIV",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -8303,7 +8303,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "BUTTON",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -64096,7 +64096,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "BUTTON",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -64869,7 +64869,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "BUTTON",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -66369,7 +66369,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "BUTTON",
                             "description": "Use to change the HTML tag of root element."
                         },
@@ -67535,7 +67535,7 @@
                             "name": "as",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Component<any, any, any, ComputedOptions, MethodOptions, Object, any>",
+                            "type": "string | Component",
                             "default": "DIV",
                             "description": "Use to change the HTML tag of root element."
                         },

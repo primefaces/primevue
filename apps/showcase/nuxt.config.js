@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     vite: {
         optimizeDeps: {
             noDiscovery: true,
-            include: ['quill']
+            include: ['quill', 'yup']
         },
         resolve: {
             dedupe: ['vue', '@primeuix/styles', '@primeuix/themes', '@primeuix/utils'],
