@@ -67,6 +67,8 @@ export default {
         },
         onFocus(event, value) {
             this.focusedOptionIndex = value;
+            this.isFocusVisibleItem = event.sourceCapabilities?.firesTouchEvents === false;
+
             this.$emit('focus', event);
         },
         onBlur(event) {
