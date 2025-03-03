@@ -82,6 +82,16 @@
             "to": "/icons"
         },
         {
+            "name": "Templates",
+            "icon": "pi pi-heart",
+            "to": "https://primevue.org/templates"
+        },
+        {
+            "name": "PrimeBlocks",
+            "icon": "pi pi-server",
+            "href": "https://primeblocks.org"
+        },
+        {
             "name": "Support",
             "icon": "pi pi-question",
             "children": [
@@ -117,7 +127,7 @@
                 },
                 {
                     "name": "Source Code",
-                    "href": "https://github.com/primefaces/primevue-tailwind"
+                    "href": "https://github.com/primefaces/primevue/tree/master/apps/volt/volt"
                 },
                 {
                     "name": "Store",
