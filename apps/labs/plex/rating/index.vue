@@ -1,5 +1,11 @@
 <template>
-    <Rating unstyled :pt="theme">
+    <Rating
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -7,7 +13,9 @@
 </template>
 
 <script setup>
+import Rating from 'primevue/rating';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `relative flex items-center gap-1 p-disabled:opacity-60 p-disabled:pointer-events-none p-readonly:pointer-events-none`,

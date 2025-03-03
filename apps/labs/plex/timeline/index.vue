@@ -1,5 +1,11 @@
 <template>
-    <Timeline unstyled :pt="theme">
+    <Timeline
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -9,6 +15,7 @@
 <script setup>
 import Timeline from 'primevue/timeline';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `flex flex-col flex-grow
@@ -20,7 +27,7 @@ const theme = ref({
         p-vertical:p-alternate:even:flex-row-reverse
         p-horizontal:p-alternate:even:flex-col-reverse`,
     eventOpposite: `flex-1
-        p-left:text-end p-right:text-start 
+        p-left:text-end p-right:text-start
         p-vertical:py-0 p-vertical:px-4 p-vertical:leading-none
         p-vertical:p-alternate:group-odd:text-end  p-vertical:p-alternate:group-even:text-start
         p-horizontal:py-4 p-horizontal:px-0`,

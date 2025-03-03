@@ -1,5 +1,11 @@
 <template>
-    <ToggleSwitch unstyled :pt="theme">
+    <ToggleSwitch
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -9,6 +15,7 @@
 <script setup>
 import ToggleSwitch from 'primevue/toggleswitch';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `inline-block w-10 h-6`,

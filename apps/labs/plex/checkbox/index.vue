@@ -1,10 +1,17 @@
 <template>
-    <Checkbox unstyled :pt="theme" />
+    <Checkbox
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    />
 </template>
 
 <script setup>
 import Checkbox from 'primevue/checkbox';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `relative inline-flex select-none w-5 h-5 align-bottom
@@ -17,7 +24,7 @@ const theme = ref({
         bg-surface-0 dark:bg-surface-950
         text-surface-700 dark:text-surface-0
         peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
-        p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast 
+        p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast
         peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
         peer-focus-visible:outline peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary
         p-invalid:border-red-400 dark:p-invalid:border-red-300

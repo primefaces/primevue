@@ -1,10 +1,17 @@
 <template>
-    <InputText unstyled :pt="theme" />
+    <InputText
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    />
 </template>
 
 <script setup>
 import InputText from 'primevue/inputtext';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `appearance-none rounded-md outline-none
@@ -12,10 +19,10 @@ const theme = ref({
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800
         text-surface-700 dark:text-surface-0
         placeholder:text-surface-500 dark:placeholder:text-surface-400
-        border border-surface-300 dark:border-surface-700 
+        border border-surface-300 dark:border-surface-700
         enabled:hover:border-surface-400 dark:enabled:hover:border-surface-600
         enabled:focus:border-primary
-        disabled:bg-surface-200 disabled:text-surface-500 
+        disabled:bg-surface-200 disabled:text-surface-500
         dark:disabled:bg-surface-700 dark:disabled:text-surface-400
         p-invalid:border-red-400 dark:p-invalid:border-red-300
         p-invalid:placeholder:text-red-600 dark:p-invalid:placeholder:text-red-400

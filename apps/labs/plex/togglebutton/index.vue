@@ -1,5 +1,11 @@
 <template>
-    <ToggleButton unstyled :pt="theme">
+    <ToggleButton
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -9,6 +15,7 @@
 <script setup>
 import ToggleButton from 'primevue/togglebutton';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const theme = ref({
     root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none
@@ -25,7 +32,7 @@ const theme = ref({
         transition-colors duration-200
         p-1 p-small:text-sm p-large:text-lg
     `,
-    content: `relative flex-auto inline-flex items-center justify-center gap-2 py-1 px-3 
+    content: `relative flex-auto inline-flex items-center justify-center gap-2 py-1 px-3
         rounded-md transition-colors duration-200
         p-checked:bg-surface-0 dark:p-checked:bg-surface-800 p-checked:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.02),0px_1px_2px_0px_rgba(0,0,0,0.04)]`,
     icon: ``,

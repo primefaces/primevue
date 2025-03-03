@@ -1,10 +1,17 @@
 <template>
-    <Slider unstyled :pt="theme" />
+    <Slider
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    />
 </template>
 
 <script setup>
 import Slider from 'primevue/slider';
 import { ref } from 'vue';
+import { ptViewMerge } from '../utils';
 
 const handleCommon = `cursor-grab touch-none flex items-center justify-center h-[20px] w-[20px]
         bg-surface-200 dark:bg-surface-700 rounded-full
@@ -19,7 +26,7 @@ const handleCommon = `cursor-grab touch-none flex items-center justify-center h-
 
 const theme = ref({
     root: `relative bg-surface-200 dark:bg-surface-700 rounded-sm
-            p-horizontal:h-[3px] 
+            p-horizontal:h-[3px]
             p-vertical:min-h-[100px] p-vertical:w-[3px]`,
     range: `block bg-primary rounded-sm
             p-horizontal:top-0 p-horizontal:start-0 p-horizontal:h-full
