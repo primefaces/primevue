@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import FontAwesomeDoc from '@/doc/customicons/FontAwesomeDoc.vue';
-import ImageDoc from '@/doc/customicons/ImageDoc.vue';
-import MaterialDoc from '@/doc/customicons/MaterialDoc.vue';
-import SVGDoc from '@/doc/customicons/SVGDoc.vue';
-import VideoDoc from '@/doc/customicons/VideoDoc.vue';
+import FontAwesomeDoc from '@/doc/icons/FontAwesomeDoc.vue';
+import ImageDoc from '@/doc/icons/ImageDoc.vue';
+import MaterialDoc from '@/doc/icons/MaterialDoc.vue';
+import SVGDoc from '@/doc/icons/SVGDoc.vue';
+import VideoDoc from '@/doc/icons/VideoDoc.vue';
 
 export default {
     data() {
