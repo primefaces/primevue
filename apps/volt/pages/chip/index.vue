@@ -34,7 +34,7 @@ export default {
                     component: ImageDoc
                 },
                 {
-                    id: 'templatedoc',
+                    id: 'template',
                     label: 'Template',
                     component: TemplateDoc
                 }
