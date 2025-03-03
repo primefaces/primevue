@@ -27,6 +27,10 @@
                     "to": "/checkbox"
                 },
                 {
+                    "name": "Chip",
+                    "to": "/chip"
+                },
+                {
                     "name": "InputMask",
                     "to": "/inputmask"
                 },

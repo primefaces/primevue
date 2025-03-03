@@ -27,6 +27,7 @@ export default {
             addVariant('p-active', '&[data-p~="active"]');
             addVariant('p-focus-visible', '&[data-p~="focus-visible"]');
             addVariant('p-readonly', '&[data-p~="readonly"]');
+            addVariant('p-removable', '&[data-p~="removable"]');
         })
     ],
     theme: {
