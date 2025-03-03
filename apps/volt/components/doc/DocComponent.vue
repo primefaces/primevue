@@ -21,14 +21,14 @@
                         </p>
                         <div class="pt-3 flex gap-2">
                             <a
-                                :href="`https://primevue.org/${apiLink}`"
+                                :href="`https://primevue.org${originPath}/#api`"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex rounded-full px-3 py-1 bg-surface-200 hover:bg-surface-300 transition-all duration-200 gap-2 items-center text-sm dark:bg-surface-800 dark:hover:bg-surface-700"
                                 ><span class="text-surface-900 dark:text-surface-50 font-medium">API Doc</span><i class="pi pi-external-link text-xs text-surface-900 dark:text-surface-50"></i
                             ></a>
                             <a
-                                :href="`https://primevue.org/${ptLink}`"
+                                :href="`https://primevue.org${originPath}/#pt`"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex rounded-full px-3 py-1 bg-surface-200 hover:bg-surface-300 transition-all duration-200 gap-2 items-center text-sm text-surface-900 dark:bg-surface-800 dark:hover:bg-surface-700"
@@ -44,16 +44,20 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: ['title', 'header', 'description', 'componentDocs', 'className', 'presetDoc', 'apiLink', 'ptLink'],
-    data() {
-        return {
-            tab: 0
-        };
-    },
-    mounted() {
-        this.tab = this.$route.hash.includes('presets') ? 1 : 0;
-    }
-};
+<script setup>
+import { computed, defineProps, ref } from 'vue';
+
+defineProps({
+    title: String,
+    header: String,
+    description: String,
+    componentDocs: Object,
+    className: String,
+    presetDoc: Object
+});
+
+const route = useRoute();
+const tab = ref(0);
+
+const originPath = computed(() => route.path);
 </script>
