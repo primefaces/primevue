@@ -3,8 +3,8 @@
         <div class="doc-intro">
             <h1>{{ introText }}</h1>
         </div>
-        <div class="xl:pe-72 -mt-4">
-            <DocSectionCode :code="code" lang="script" />
+        <div class="xl:pe-72">
+            <DocSectionCode :code="code" />
         </div>
     </div>
 </template>
@@ -30,7 +30,7 @@ export default {
         if (this.presetKey) {
             const content = await import(`../../volt/${this.presetKey}/index.vue?raw`);
 
-            this.code = content.default;
+            this.code = '\n' + content.default;
         }
     }
 };

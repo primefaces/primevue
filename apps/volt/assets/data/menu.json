@@ -59,6 +59,10 @@
                     "to": "/selectbutton"
                 },
                 {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
+                },
+                {
                     "name": "Slider",
                     "to": "/slider"
                 },
