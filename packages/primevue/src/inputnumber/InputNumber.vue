@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptmi('root')">
+    <span :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
         <InputText
             ref="input"
             :id="inputId"
@@ -29,17 +29,18 @@
             @blur="onInputBlur"
             :pt="ptm('pcInputText')"
             :unstyled="unstyled"
+            :data-p="dataP"
         />
-        <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')">
+        <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')" :data-p="dataP">
             <slot name="incrementbutton" :listeners="upButtonListeners">
-                <button :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('incrementButton')">
+                <button :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('incrementButton')" :data-p="dataP">
                     <slot :name="$slots.incrementicon ? 'incrementicon' : 'incrementbuttonicon'">
                         <component :is="incrementIcon || incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="[incrementIcon, incrementButtonIcon]" v-bind="ptm('incrementIcon')" data-pc-section="incrementicon" />
                     </slot>
                 </button>
             </slot>
             <slot name="decrementbutton" :listeners="downButtonListeners">
-                <button :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('decrementButton')">
+                <button :class="[cx('decrementButton'), decrementButtonClass]" v-on="downButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('decrementButton')" :data-p="dataP">
                     <slot :name="$slots.decrementicon ? 'decrementicon' : 'decrementbuttonicon'">
                         <component :is="decrementIcon || decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="[decrementIcon, decrementButtonIcon]" v-bind="ptm('decrementIcon')" data-pc-section="decrementicon" />
                     </slot>
@@ -47,7 +48,17 @@
             </slot>
         </span>
         <slot name="incrementbutton" :listeners="upButtonListeners">
-            <button v-if="showButtons && buttonLayout !== 'stacked'" :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('incrementButton')">
+            <button
+                v-if="showButtons && buttonLayout !== 'stacked'"
+                :class="[cx('incrementButton'), incrementButtonClass]"
+                v-on="upButtonListeners"
+                :disabled="disabled"
+                :tabindex="-1"
+                aria-hidden="true"
+                type="button"
+                v-bind="ptm('incrementButton')"
+                :data-p="dataP"
+            >
                 <slot :name="$slots.incrementicon ? 'incrementicon' : 'incrementbuttonicon'">
                     <component :is="incrementIcon || incrementButtonIcon ? 'span' : 'AngleUpIcon'" :class="[incrementIcon, incrementButtonIcon]" v-bind="ptm('incrementIcon')" data-pc-section="incrementicon" />
                 </slot>
@@ -63,6 +74,7 @@
                 aria-hidden="true"
                 type="button"
                 v-bind="ptm('decrementButton')"
+                :data-p="dataP"
             >
                 <slot :name="$slots.decrementicon ? 'decrementicon' : 'decrementbuttonicon'">
                     <component :is="decrementIcon || decrementButtonIcon ? 'span' : 'AngleDownIcon'" :class="[decrementIcon, decrementButtonIcon]" v-bind="ptm('decrementIcon')" data-pc-section="decrementicon" />
@@ -74,6 +86,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { clearSelection, getSelection } from '@primeuix/utils/dom';
 import { isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
@@ -1002,6 +1015,15 @@ export default {
         },
         getFormatter() {
             return this.numberFormat;
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size,
+                [this.buttonLayout]: this.showButtons && this.buttonLayout
+            });
         }
     },
     components: {

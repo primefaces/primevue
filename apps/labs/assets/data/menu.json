@@ -31,6 +31,10 @@
                     "to": "/inputmask"
                 },
                 {
+                    "name": "InputNumber",
+                    "to": "/inputnumber"
+                },
+                {
                     "name": "InputText",
                     "to": "/inputtext"
                 },
