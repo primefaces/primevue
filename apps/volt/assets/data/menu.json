@@ -98,6 +98,11 @@
             "to": "/icons"
         },
         {
+            "name": "Figma UI Kit",
+            "icon": "pi pi-pencil",
+            "to": "https://primevue.org/uikit"
+        },
+        {
             "name": "Templates",
             "icon": "pi pi-heart",
             "to": "https://primevue.org/templates"
