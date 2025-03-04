@@ -21,7 +21,7 @@ const core_dependencies = {
     tailwindcss: app_dependencies['tailwindcss'] || 'latest',
     autoprefixer: app_dependencies['autoprefixer'] || 'latest',
     postcss: app_dependencies['postcss'] || 'latest',
-    'tailwindcss-primeui': app_dependencies['tailwindcss-primeui'] || 'latest',
+    'tailwindcss-primeui': 'latest',
     'unplugin-vue-components': 'latest'
 };
 
