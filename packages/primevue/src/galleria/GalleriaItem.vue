@@ -249,7 +249,6 @@ export default {
         activeItem() {
             return this.value[this.activeIndex];
         },
-
         ariaSlideLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.slide : undefined;
         },
