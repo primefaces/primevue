@@ -21,7 +21,7 @@ const theme = ref({
     root: `inline-flex cursor-pointer select-none items-center justify-center overflow-hidden relative
         px-3 py-2 gap-2 rounded-md disabled:pointer-events-none disabled:opacity-60 transition-colors duration-200
         bg-surface-950 enabled:hover:bg-surface-900 enabled:active:bg-surface-800
-        border-surface-950 enabled:hover:border-surface-900 enabled:active:border-surface-800
+        border border-surface-950 enabled:hover:border-surface-900 enabled:active:border-surface-800
         text-white enabled:hover:text-white enabled:active:text-white
         dark:bg-surface-0 dark:enabled:hover:bg-surface-100 dark:enabled:active:bg-surface-200
         dark:border-surface-100 dark:enabled:hover:border-surface-200 dark:enabled:active:border-surface-300
