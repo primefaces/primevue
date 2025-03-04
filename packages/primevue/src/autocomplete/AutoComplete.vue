@@ -702,8 +702,6 @@ export default {
                     this.hide();
                 }
             }
-
-            event.preventDefault();
         },
         onEscapeKey(event) {
             this.overlayVisible && this.hide(true);
