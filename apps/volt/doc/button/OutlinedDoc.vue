@@ -4,37 +4,35 @@
     </DocSectionText>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" variant="outlined" />
-        <Button label="Secondary" severity="secondary" variant="outlined" />
-        <Button label="Success" severity="success" variant="outlined" />
-        <Button label="Info" severity="info" variant="outlined" />
-        <Button label="Warn" severity="warn" variant="outlined" />
-        <Button label="Help" severity="help" variant="outlined" />
-        <Button label="Danger" severity="danger" variant="outlined" />
-        <Button label="Contrast" severity="contrast" variant="outlined" />
+        <SecondaryButton label="Secondary" variant="outlined" />
+        <ContrastButton label="Contrast" variant="outlined" />
+        <DangerButton label="Danger" variant="outlined" />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 import { ref } from 'vue';
 
 const code = ref(`
 <template>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" variant="outlined" />
-        <Button label="Secondary" severity="secondary" variant="outlined" />
-        <Button label="Success" severity="success" variant="outlined" />
-        <Button label="Info" severity="info" variant="outlined" />
-        <Button label="Warn" severity="warn" variant="outlined" />
-        <Button label="Help" severity="help" variant="outlined" />
-        <Button label="Danger" severity="danger" variant="outlined" />
-        <Button label="Contrast" severity="contrast" variant="outlined" />
+        <SecondaryButton label="Secondary" variant="outlined" />
+        <ContrastButton label="Contrast" variant="outlined" />
+        <DangerButton label="Danger" variant="outlined" />
     </div>
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 <\/script>
 `);
 </script>

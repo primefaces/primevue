@@ -1,40 +1,38 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>severity</i> property defines the variant of a button.</p>
+        <p>Secondary, Contrast and Danger buttons are available as separate components for severity alternatives.</p>
     </DocSectionText>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" />
-        <Button label="Secondary" severity="secondary" />
-        <Button label="Success" severity="success" />
-        <Button label="Info" severity="info" />
-        <Button label="Warn" severity="warn" />
-        <Button label="Help" severity="help" />
-        <Button label="Danger" severity="danger" />
-        <Button label="Contrast" severity="contrast" />
+        <SecondaryButton label="Secondary" />
+        <ContrastButton label="Contrast" />
+        <DangerButton label="Danger" />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 import { ref } from 'vue';
 
 const code = ref(`
 <template>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" />
-        <Button label="Secondary" severity="secondary" />
-        <Button label="Success" severity="success" />
-        <Button label="Info" severity="info" />
-        <Button label="Warn" severity="warn" />
-        <Button label="Help" severity="help" />
-        <Button label="Danger" severity="danger" />
-        <Button label="Contrast" severity="contrast" />
+        <SecondaryButton label="Secondary" />
+        <ContrastButton label="Contrast" />
+        <DangerButton label="Danger" />
     </div>
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 <\/script>
 `);
 </script>

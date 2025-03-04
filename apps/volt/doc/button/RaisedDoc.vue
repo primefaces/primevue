@@ -4,37 +4,35 @@
     </DocSectionText>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" raised />
-        <Button label="Secondary" severity="secondary" raised />
-        <Button label="Success" severity="success" raised />
-        <Button label="Info" severity="info" raised />
-        <Button label="Warn" severity="warn" raised />
-        <Button label="Help" severity="help" raised />
-        <Button label="Danger" severity="danger" raised />
-        <Button label="Contrast" severity="contrast" raised />
+        <SecondaryButton label="Secondary" raised />
+        <ContrastButton label="Contrast" raised />
+        <DangerButton label="Danger" raised />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 import { ref } from 'vue';
 
 const code = ref(`
 <template>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" raised />
-        <Button label="Secondary" severity="secondary" raised />
-        <Button label="Success" severity="success" raised />
-        <Button label="Info" severity="info" raised />
-        <Button label="Warn" severity="warn" raised />
-        <Button label="Help" severity="help" raised />
-        <Button label="Danger" severity="danger" raised />
-        <Button label="Contrast" severity="contrast" raised />
+        <SecondaryButton label="Secondary" raised />
+        <ContrastButton label="Contrast" raised />
+        <DangerButton label="Danger" raised />
     </div>
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 <\/script>
 `);
 </script>
