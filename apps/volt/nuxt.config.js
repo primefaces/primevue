@@ -1,5 +1,7 @@
 const baseUrl = '/';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
@@ -29,7 +31,8 @@ export default defineNuxtConfig({
                     silenceDeprecations: ['legacy-js-api'] //@todo
                 }
             }
-        }
+        },
+        plugins: [tailwindcss()]
     },
     runtimeConfig: {
         GITHUB_TOKEN: ''
@@ -71,13 +74,6 @@ export default defineNuxtConfig({
         }
     },
     css: ['@/assets/styles/tailwind.css', '@/assets/styles/app/app.scss', '@/assets/styles/demo/flags.css', 'primeicons/primeicons.css'],
-    postcss: {
-        plugins: {
-            'postcss-import': {},
-            tailwindcss: {},
-            autoprefixer: {}
-        }
-    },
     layouts: {
         default: '~/layouts/default.vue'
     }
