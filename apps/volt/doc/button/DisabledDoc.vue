@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Text to display on a button is defined with the <i>label</i> property.</p>
+        <p>When <i>disabled</i> is present, the element cannot be used.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Button label="Submit" />
+        <Button label="Submit" disabled />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,7 +15,7 @@ import { ref } from 'vue';
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <Button label="Submit" />
+        <Button label="Submit" disabled />
     </div>
 </template>
 

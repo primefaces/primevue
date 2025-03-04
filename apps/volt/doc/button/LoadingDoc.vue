@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Text to display on a button is defined with the <i>label</i> property.</p>
+        <p>Busy state is controlled with the <i>loading</i> property.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Button label="Submit" />
+        <Button type="button" label="Search" icon="pi pi-check" :loading="loading" @click="load" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +12,34 @@
 import Button from '@/volt/button';
 import { ref } from 'vue';
 
+const loading = ref(false);
+
+const load = () => {
+    loading.value = true;
+    setTimeout(() => {
+        loading.value = false;
+    }, 2000);
+};
+
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <Button label="Submit" />
+        <Button type="button" label="Search" icon="pi pi-check" :loading="loading" @click="load" />
     </div>
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import { ref } from 'vue';
+
+const loading = ref(false);
+
+const load = () => {
+    loading.value = true;
+    setTimeout(() => {
+        loading.value = false;
+    }, 2000);
+};
 <\/script>
 `);
 </script>

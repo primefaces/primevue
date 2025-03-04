@@ -1,9 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Text to display on a button is defined with the <i>label</i> property.</p>
+        <p>Buttons have built-in badge support with <i>badge</i> and <i>badgeSeverity</i> properties.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <Button label="Submit" />
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -14,8 +15,9 @@ import { ref } from 'vue';
 
 const code = ref(`
 <template>
-    <div class="card flex justify-center">
-        <Button label="Submit" />
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined" />
     </div>
 </template>
 

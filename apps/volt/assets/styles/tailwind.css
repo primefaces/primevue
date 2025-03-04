@@ -34,3 +34,8 @@
 @custom-variant p-circle (&[data-p~="circle"]);
 @custom-variant p-determinate (&[data-p~="determinate"]);
 @custom-variant p-indeterminate (&[data-p~="indeterminate"]);
+@custom-variant p-icon-only (&[data-p~="icon-only"]);
+@custom-variant p-rounded (&[data-p~="rounded"]);
+@custom-variant p-raised (&[data-p~="raised"]);
+@custom-variant p-outlined (&[data-p~="outlined"]);
+@custom-variant p-text (&[data-p~="text"]);
