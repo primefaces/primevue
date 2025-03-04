@@ -3,7 +3,7 @@
         <p>Sample Card implementation using different Skeleton components and Tailwind CSS utilities.</p>
     </DocSectionText>
     <div class="card">
-        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+        <div class="rounded-sm border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
             <div class="flex mb-4">
                 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                 <div>
@@ -29,7 +29,7 @@ import { ref } from 'vue';
 const code = ref(`
 <template>
      <div class="card">
-        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+        <div class="rounded-sm border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
             <div class="flex mb-4">
                 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
                 <div>

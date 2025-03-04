@@ -14,7 +14,7 @@ const theme = ref({
     root: `inline-flex relative 
         p-vertical:flex-col p-fluid:w-full`,
     pcInputText: {
-        root: `appearance-none rounded-md outline-none flex-auto
+        root: `appearance-none rounded-md outline-hidden flex-auto
         bg-surface-0 dark:bg-surface-950
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800
         text-surface-700 dark:text-surface-0
@@ -35,7 +35,7 @@ const theme = ref({
         p-fluid:w-[1%] p-fluid:p-vertical:w-full`
     },
     buttonGroup: `p-stacked:flex p-stacked:flex-col p-stacked:absolute p-stacked:top-px p-stacked:end-px p-stacked:h-[calc(100%-2px)] p-stacked:z-10`,
-    incrementButton: `flex items-center justify-center flex-grow-0 flex-shrink-0 basis-auto cursor-pointer w-10
+    incrementButton: `flex items-center justify-center grow-0 shrink-0 basis-auto cursor-pointer w-10
         bg-transparent enabled:hover:bg-surface-100 enabled:active:bg-surface-200
         border border-surface-300 enabled:hover:border-surface-300 enabled:active:border-surface-300
         text-surface-400 enabled:hover:text-surface-500 enabled:active:text-surface-600
@@ -48,7 +48,7 @@ const theme = ref({
         p-horizontal:order-3 p-horizontal:rounded-e-md p-horizontal:border-s-0
         p-vertical:py-2 p-vertical:order-1 p-vertical:rounded-ss-md p-vertical:rounded-se-md p-vertical:w-full p-vertical:border-b-0`,
     incrementIcon: ``,
-    decrementButton: `flex items-center justify-center flex-grow-0 flex-shrink-0 basis-auto cursor-pointer w-10
+    decrementButton: `flex items-center justify-center grow-0 shrink-0 basis-auto cursor-pointer w-10
         bg-transparent enabled:hover:bg-surface-100 enabled:active:bg-surface-200
         border border-surface-300 enabled:hover:border-surface-300 enabled:active:border-surface-300
         text-surface-400 enabled:hover:text-surface-500 enabled:active:text-surface-600

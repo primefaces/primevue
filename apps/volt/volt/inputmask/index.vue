@@ -14,7 +14,7 @@ import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
 
 const theme = ref({
-    root: `appearance-none rounded-md outline-none
+    root: `appearance-none rounded-md outline-hidden
         bg-surface-0 dark:bg-surface-950
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800
         text-surface-700 dark:text-surface-0
