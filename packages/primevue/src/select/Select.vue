@@ -723,7 +723,7 @@ export default {
             if (this.appendTo === 'self') {
                 relativePosition(this.overlay, this.$el);
             } else {
-                if(this.overlay) {
+                if (this.overlay) {
                     this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
                     absolutePosition(this.overlay, this.$el);
                 }
@@ -808,8 +808,6 @@ export default {
                 this.queryOrientation = query;
 
                 this.matchMediaOrientationListener = () => {
-                    console.log('kkkkk');
-
                     this.alignOverlay();
                 };
 
