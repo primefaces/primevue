@@ -11,7 +11,6 @@ import HeadlessDoc from '@/doc/button/HeadlessDoc.vue';
 import IconOnlyDoc from '@/doc/button/IconOnlyDoc.vue';
 import IconsDoc from '@/doc/button/IconsDoc.vue';
 import ImportDoc from '@/doc/button/ImportDoc.vue';
-import LinkDoc from '@/doc/button/LinkDoc.vue';
 import LoadingDoc from '@/doc/button/LoadingDoc.vue';
 import OutlinedDoc from '@/doc/button/OutlinedDoc.vue';
 import RaisedDoc from '@/doc/button/RaisedDoc.vue';
@@ -44,11 +43,6 @@ const docs = ref([
         id: 'loading',
         label: 'Loading',
         component: LoadingDoc
-    },
-    {
-        id: 'link',
-        label: 'Link',
-        component: LinkDoc
     },
     {
         id: 'severity',

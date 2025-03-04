@@ -4,37 +4,35 @@
     </DocSectionText>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" variant="text" raised />
-        <Button label="Secondary" severity="secondary" variant="text" raised />
-        <Button label="Success" severity="success" variant="text" raised />
-        <Button label="Info" severity="info" variant="text" raised />
-        <Button label="Warn" severity="warn" variant="text" raised />
-        <Button label="Help" severity="help" variant="text" raised />
-        <Button label="Danger" severity="danger" variant="text" raised />
-        <Button label="Contrast" severity="contrast" variant="text" raised />
+        <SecondaryButton label="Secondary" variant="text" raised />
+        <ContrastButton label="Contrast" variant="text" raised />
+        <DangerButton label="Danger" variant="text" raised />
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 import { ref } from 'vue';
 
 const code = ref(`
 <template>
-    <div class="card flex justify-center flex-wrap gap-4">
+   <div class="card flex justify-center flex-wrap gap-4">
         <Button label="Primary" variant="text" raised />
-        <Button label="Secondary" severity="secondary" variant="text" raised />
-        <Button label="Success" severity="success" variant="text" raised />
-        <Button label="Info" severity="info" variant="text" raised />
-        <Button label="Warn" severity="warn" variant="text" raised />
-        <Button label="Help" severity="help" variant="text" raised />
-        <Button label="Danger" severity="danger" variant="text" raised />
-        <Button label="Contrast" severity="contrast" variant="text" raised />
+        <SecondaryButton label="Secondary" variant="text" raised />
+        <ContrastButton label="Contrast" variant="text" raised />
+        <DangerButton label="Danger" variant="text" raised />
     </div>
 </template>
 
 <script setup>
 import Button from '@/volt/button';
+import ContrastButton from '@/volt/button/contrast';
+import DangerButton from '@/volt/button/danger';
+import SecondaryButton from '@/volt/button/secondary';
 <\/script>
 `);
 </script>
