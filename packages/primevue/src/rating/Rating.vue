@@ -1,7 +1,7 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
         <template v-for="value in stars" :key="value">
-            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= d_value" :data-p-focused="value === focusedOptionIndex">
+            <div :class="cx('option', { value })" @click="onOptionClick($event, value)" v-bind="getPTOptions('option', value)" :data-p-active="value <= d_value" :data-p-focused="value === focusedOptionIndex" :data-p="dataOption(value)">
                 <span class="p-hidden-accessible" v-bind="ptm('hiddenOptionInputContainer')" :data-p-hidden-accessible="true">
                     <input
                         type="radio"
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { focus, getFirstFocusableElement } from '@primeuix/utils/dom';
 import BanIcon from '@primevue/icons/ban';
 import StarIcon from '@primevue/icons/star';
@@ -66,6 +67,8 @@ export default {
         },
         onFocus(event, value) {
             this.focusedOptionIndex = value;
+            this.isFocusVisibleItem = event.sourceCapabilities?.firesTouchEvents === false;
+
             this.$emit('focus', event);
         },
         onBlur(event) {
@@ -92,11 +95,25 @@ export default {
         },
         starAriaLabel(value) {
             return value === 1 ? this.$primevue.config.locale.aria.star : this.$primevue.config.locale.aria.stars.replace(/{star}/g, value);
+        },
+        dataOption(value) {
+            return cn({
+                readonly: this.readonly,
+                disabled: this.disabled,
+                active: value <= this.d_value,
+                'focus-visible': value === this.focusedOptionIndex && this.isFocusVisibleItem
+            });
         }
     },
     computed: {
         namex() {
             return this.name || `${this.$attrSelector}_name`;
+        },
+        dataP() {
+            return cn({
+                readonly: this.readonly,
+                disabled: this.disabled
+            });
         }
     },
     components: {

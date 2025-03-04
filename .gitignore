@@ -1,15 +1,31 @@
-node_modules
-coverage
-*.log*
+# Nuxt dev/build outputs
+.output
+.data
 .nuxt
 .nitro
 .cache
-.output
-.env
 dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log*
+
+# Misc
 .DS_Store
+.fleet
 .idea
 .eslintcache
-api-generator/typedoc.json
+coverage
 **/.DS_Store
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# Custom
+api-generator/typedoc.json
 apps/showcase/components.d.ts

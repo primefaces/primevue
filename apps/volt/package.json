@@ -1,0 +1,69 @@
+{
+    "name": "volt",
+    "version": "4.3.1",
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/volt"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+        "primevue",
+        "vue",
+        "vue.js",
+        "vue3",
+        "ui library",
+        "component library",
+        "tailwind",
+        "unstyled",
+        "passthrough"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "pnpm run build:prebuild && nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "build:prebuild": "node ./scripts/prebuild.mjs"
+    },
+    "dependencies": {
+        "@docsearch/js": "catalog:app",
+        "@primeuix/themes": "catalog:",
+        "@primevue/core": "workspace:*",
+        "@primevue/forms": "workspace:*",
+        "@primevue/nuxt-module": "workspace:*",
+        "primeicons": "catalog:",
+        "primevue": "workspace:*",
+        "chart.js": "catalog:app",
+        "quill": "catalog:app",
+        "superstruct": "^2.0.2",
+        "valibot": "^0.42.1",
+        "yup": "1.4.0",
+        "zod": "3.23.8"
+    },
+    "devDependencies": {
+        "@stackblitz/sdk": "^1.8.2",
+        "autoprefixer": "^10",
+        "jsdom": "^19.0.0",
+        "nuxt": "catalog:app",
+        "postcss": "^8.4.31",
+        "sass": "catalog:app",
+        "sass-loader": "catalog:app",
+        "tailwind-merge": "^3.0.2",
+        "tailwindcss": "^4",
+        "tailwindcss-primeui": "catalog:",
+        "@tailwindcss/vite": "4.0.9",
+        "typedoc": "0.27.9",
+        "vite": "catalog:app"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}

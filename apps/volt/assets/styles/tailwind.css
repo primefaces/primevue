@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@custom-variant dark (&:where(.p-dark, .p-dark *));
+
+@theme {
+    --breakpoint-sm: '576px';
+    --breakpoint-md: '768px';
+    --breakpoint-lg: '992px';
+    --breakpoint-xl: '1200px';
+    --breakpoint-2xl: '1920px';
+}
+
+@custom-variant p-invalid (&[data-p~="invalid"]);
+@custom-variant p-small (&[data-p~="small"]);
+@custom-variant p-large (&[data-p~="large"]);
+@custom-variant p-xlarge (&[data-p~="xlarge"]);
+@custom-variant p-fluid (&[data-p~="fluid"]);
+@custom-variant p-filled (&[data-p~="filled"]);
+@custom-variant p-horizontal (&[data-p~="horizontal"]);
+@custom-variant p-vertical (&[data-p~="vertical"]);
+@custom-variant p-stacked (&[data-p~="stacked"]);
+@custom-variant p-checked (&[data-p~="checked"]);
+@custom-variant p-disabled (&[data-p~="disabled"]);
+@custom-variant p-enabled (&:not([data-p~="disabled"]));
+@custom-variant p-left (&[data-p~="left"]);
+@custom-variant p-right (&[data-p~="right"]);
+@custom-variant p-top (&[data-p~="top"]);
+@custom-variant p-bottom (&[data-p~="bottom"]);
+@custom-variant p-alternate (&[data-p~="alternate"]);
+@custom-variant p-active (&[data-p~="active"]);
+@custom-variant p-focus-visible (&[data-p~="focus-visible"]);
+@custom-variant p-readonly (&[data-p~="readonly"]);
+@custom-variant p-removable (&[data-p~="removable"]);
+@custom-variant p-circle (&[data-p~="circle"]);
+@custom-variant p-determinate (&[data-p~="determinate"]);
+@custom-variant p-indeterminate (&[data-p~="indeterminate"]);
+@custom-variant p-icon-only (&[data-p~="icon-only"]);
+@custom-variant p-rounded (&[data-p~="rounded"]);
+@custom-variant p-raised (&[data-p~="raised"]);
+@custom-variant p-outlined (&[data-p~="outlined"]);
+@custom-variant p-text (&[data-p~="text"]);

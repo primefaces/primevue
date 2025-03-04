@@ -1,4 +1,5 @@
 {
+    "extends": "./.nuxt/tsconfig.json",
     "compilerOptions": {
         "module": "es2022",
         "moduleResolution": "Node",
@@ -9,5 +10,5 @@
             "@primevue/auto-import-resolver/*": ["../../packages/auto-import-resolver/src/*"]
         }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["dist", "node_modules", "playground"]
 }

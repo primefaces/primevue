@@ -705,8 +705,6 @@ export default {
                     this.hide();
                 }
             }
-
-            event.preventDefault();
         },
         onSpaceKey(event) {
             if (this.focusedOptionIndex !== -1) {

@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-indeterminate="d_indeterminate || undefined" :data-p-disabled="disabled">
+    <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-indeterminate="d_indeterminate || undefined" :data-p-disabled="disabled" :data-p="dataP">
         <input
             :id="inputId"
             type="checkbox"
@@ -21,16 +21,17 @@
             @change="onChange"
             v-bind="getPTOptions('input')"
         />
-        <div :class="cx('box')" v-bind="getPTOptions('box')">
+        <div :class="cx('box')" v-bind="getPTOptions('box')" :data-p="dataP">
             <slot name="icon" :checked="checked" :indeterminate="d_indeterminate" :class="cx('icon')">
-                <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" />
-                <MinusIcon v-else-if="d_indeterminate" :class="cx('icon')" v-bind="getPTOptions('icon')" />
+                <CheckIcon v-if="checked" :class="cx('icon')" v-bind="getPTOptions('icon')" :data-p="dataP" />
+                <MinusIcon v-else-if="d_indeterminate" :class="cx('icon')" v-bind="getPTOptions('icon')" :data-p="dataP" />
             </slot>
         </div>
     </div>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { contains, equals } from '@primeuix/utils/object';
 import CheckIcon from '@primevue/icons/check';
 import MinusIcon from '@primevue/icons/minus';
@@ -105,6 +106,15 @@ export default {
             const value = this.$pcCheckboxGroup ? this.$pcCheckboxGroup.d_value : this.d_value;
 
             return this.d_indeterminate ? false : this.binary ? value === this.trueValue : contains(this.value, value);
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid,
+                checked: this.checked,
+                disabled: this.disabled,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
         }
     },
     components: {

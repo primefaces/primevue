@@ -47,7 +47,7 @@
             @keydown="onKeyDown"
             v-bind="ptm('label')"
         >
-            <slot name="value" :value="d_value" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : label ?? 'empty' }}</slot>
+            <slot name="value" :value="d_value" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : (label ?? 'empty') }}</slot>
         </span>
         <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
@@ -723,8 +723,10 @@ export default {
             if (this.appendTo === 'self') {
                 relativePosition(this.overlay, this.$el);
             } else {
-                this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
-                absolutePosition(this.overlay, this.$el);
+                if (this.overlay) {
+                    this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
+                    absolutePosition(this.overlay, this.$el);
+                }
             }
         },
         bindOutsideClickListener() {
@@ -919,7 +921,7 @@ export default {
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
-                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'start' });
+                    element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                 } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
                 }

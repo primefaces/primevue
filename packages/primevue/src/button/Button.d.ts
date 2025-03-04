@@ -103,7 +103,7 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * Position of the icon.
      * @defaultValue left
      */
-    iconPos?: 'left' | 'right' | 'top' | 'bottom' | undefined;
+    iconPos?: HintedString<'left' | 'right' | 'top' | 'bottom'> | undefined;
     /**
      * Style class of the icon.
      */
@@ -171,12 +171,12 @@ export interface ButtonProps extends ButtonHTMLAttributes {
     /**
      * Defines the size of the button.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Specifies the variant of the component.
      * @defaultValue undefined
      */
-    variant?: 'outlined' | 'text' | 'link' | undefined;
+    variant?: HintedString<'outlined' | 'text' | 'link'> | undefined;
     /**
      * Add a plain textual class to the button without a background initially.
      * @defaultValue false
@@ -207,10 +207,6 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     unstyled?: boolean;
-    /**
-     * Route Location the router-link should navigate to when clicked on.
-     */
-    to?: string;
 }
 
 /**

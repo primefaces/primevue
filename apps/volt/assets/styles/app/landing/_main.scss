@@ -1,0 +1,180 @@
+.landing {
+    scroll-behavior: smooth;
+    padding-top: 4rem;
+    background-color: var(--ground-background);
+
+    .box {
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background-color: var(--card-background);
+        position: relative;
+        z-index: 0;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid var(--home-box-ring-color);
+            transition: all .5s;
+            animation: clippath 3s infinite linear;
+            border-radius: 10px;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        &::after {
+            animation: clippath 3s infinite -1.5s linear;
+        }
+
+        &:hover {
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    .linkbox {
+        transition: background-color .2s, border-color .2s, outline-color .2s;
+        display: inline-flex;
+        align-items: center;
+        color: var(--text-color);
+        border: 1px solid var(--border-color);
+        background-color: var(--card-background);
+        border-radius: 10px;
+        font-weight: 600;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        @include focus-visible();
+
+        &:hover {
+            background: var(--hover-background);
+        }
+
+        &.linkbox-primary {
+            background: var(--primary-color);
+            color: var(--primary-contrast-color);
+
+            &:hover {
+                background: var(--primary-hover-color);
+            }
+        }
+
+        &.linkbox-icon {
+            width: 3rem;
+            height: 3rem;
+            justify-content: center;
+        }
+    }
+
+    .section-header {
+        font-size: 2rem;
+        color: var(--text-color);
+        font-weight: 700;
+        text-align: center;
+        padding: 0 2rem;
+    }
+
+    .section-detail {
+        text-align: center;
+        color: var(--text-secondary-color);
+        font-weight: 500;
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0 0;
+        padding: 0 2rem;
+    }
+
+    .section-divider {
+        border: 1px solid var(--border-color);
+        height: 1px;
+        border-bottom: 0 none;
+        overflow: hidden;
+        margin-top: 5rem;
+    }
+
+    &.layout-news-active {
+        padding-top: 6rem;
+    }
+}
+
+
+.landing-footer-container {
+    max-width: 1250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.animated-text {
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--rounded-base);
+    display: inline-block;
+    width: 14.45rem;
+
+    &::before {
+        border-radius: var(--rounded-base);
+        animation: color-animation 2s linear infinite;
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        content: "";
+        width: 14.45rem;
+        height: 1.5rem;
+        position: absolute;
+        z-index: 0;
+        background-image: linear-gradient(-225deg, var(--p-blue-400) 30%, var(--p-cyan-400) 60%, var(--p-purple-400) 80%);
+        filter: blur(24px);
+        opacity: 0.6;
+    }
+
+    > span {
+        position: relative;
+        z-index: 3;
+        background-image: linear-gradient(-225deg, var(--p-blue-400) 30%, var(--p-cyan-400) 60%, var(--p-purple-400) 80%);
+        animation: color-animation 2s linear infinite;
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+@keyframes color-animation {
+    40%,
+    100% {
+        background-position: -200% center;
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(calc(-100% - 3rem));
+    }
+}
+
+@keyframes clippath {
+    0%,
+    100% {
+        clip-path: inset(0 0 98% 0);
+    }
+
+    25% {
+        clip-path: inset(0 98% 0 0);
+    }
+    50% {
+        clip-path: inset(98% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 98%);
+    }
+}

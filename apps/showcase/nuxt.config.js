@@ -18,18 +18,22 @@ try {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    typescript: false,
+    compatibilityDate: '2024-11-01',
+    devtools: { enabled: false },
     modules: ['@primevue/nuxt-module'],
-    components: {
-        path: '~/components',
-        pathPrefix: false
-    },
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false
+        }
+    ],
     vite: {
+        optimizeDeps: {
+            noDiscovery: true,
+            include: ['quill', 'yup']
+        },
         resolve: {
             dedupe: ['vue', '@primeuix/styles', '@primeuix/themes', '@primeuix/utils'],
-            optimizeDeps: {
-                disabled: true
-            },
             alias
         }
     },
@@ -40,17 +44,10 @@ export default defineNuxtConfig({
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
-    primevue:
-        PROCESS_ENV.DEV_ENV === 'hot'
-            ? {
-                  usePrimeVue: false,
-                  autoImport: true,
-                  loadStyles: false
-              }
-            : {
-                  autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
-                  importTheme: { from: '@/themes/app-theme.js' }
-              },
+    primevue: {
+        autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
+        importTheme: { from: '@/themes/app-theme.js' }
+    },
     app: {
         baseURL: baseUrl,
         head: {

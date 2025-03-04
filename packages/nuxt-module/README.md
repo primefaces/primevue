@@ -1,39 +1,81 @@
-![@primevue/nuxt-module](https://github.com/primefaces/primevue-nuxt-module/assets/11868120/c35e1180-573f-4650-bbe9-0c79bff71f05)
+<!--
+Get your module up and running quickly.
 
-# PrimeVue Nuxt Module
+Find and replace all on all files (CMD+SHIFT+F):
+- Name: My Module
+- Package name: my-module
+- Description: My new Nuxt module
+-->
+
+# My Module
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Discord Chat][discord-src]](discord-href)
 [![License][license-src]][license-href]
+[![Nuxt][nuxt-src]][nuxt-href]
 
-- [✨ Release Notes](https://github.com/primefaces/primevue/packages/nuxt-module/blob/main/CHANGELOG.md#changelog)
-- [📖 Documentation](https://primevue.org/nuxt/)
+My new Nuxt module for doing amazing things.
+
+- [✨ &nbsp;Release Notes](/CHANGELOG.md)
+    <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
+    <!-- - [📖 &nbsp;Documentation](https://example.com) -->
+
+## Features
+
+<!-- Highlight some of the features your module provide here -->
+
+- ⛰ &nbsp;Foo
+- 🚠 &nbsp;Bar
+- 🌲 &nbsp;Baz
 
 ## Quick Setup
 
-1. Add `@primevue/nuxt-module` dependency to your project
+Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi@latest module add primevue
+npx nuxi module add my-module
 ```
 
-2. Add `@primevue/nuxt-module` to the `modules` section of `nuxt.config.{ts,js}`
+That's it! You can now use My Module in your Nuxt app ✨
 
-```js
-{
-    modules: ['@primevue/nuxt-module'];
-}
-```
+## Contribution
 
-That's it! You can now use `@primevue/nuxt-module` in your Nuxt app ✨
+<details>
+  <summary>Local development</summary>
+  
+  ```bash
+  # Install dependencies
+  npm install
+  
+  # Generate type stubs
+  npm run dev:prepare
+  
+  # Develop with the playground
+  npm run dev
+  
+  # Build the playground
+  npm run dev:build
+  
+  # Run ESLint
+  npm run lint
+  
+  # Run Vitest
+  npm run test
+  npm run test:watch
+  
+  # Release new version
+  npm run release
+  ```
+
+</details>
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@primevue/nuxt-module/latest.svg?color
-[npm-version-href]: https://npmjs.com/package/@primevue/nuxt-module
-[npm-downloads-src]: https://img.shields.io/npm/dm/@primevue/nuxt-module
-[npm-downloads-href]: https://npmjs.com/package/@primevue/nuxt-module
-[discord-src]: https://img.shields.io/discord/557940238991753223.svg?colorB=7289da&label=chat&logo=discord
-[license-src]: https://img.shields.io/npm/l/@primevue/nuxt-module.svg?style=flat&colorB=yellow
-[license-href]: https://npmjs.com/package/@primevue/nuxt-module
+[npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/my-module
+[npm-downloads-src]: https://img.shields.io/npm/dm/my-module.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/my-module
+[license-src]: https://img.shields.io/npm/l/my-module.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/my-module
+[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
+[nuxt-href]: https://nuxt.com

@@ -1,5 +1,5 @@
 <template>
-    <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptmi('root')">
+    <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptmi('root')" :data-p="dataP">
         <slot>
             <img v-if="image" :src="image" v-bind="ptm('image')" :class="cx('image')" />
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import TimesCircleIcon from '@primevue/icons/timescircle';
 import BaseChip from './BaseChip.vue';
 
@@ -35,6 +36,13 @@ export default {
         close(event) {
             this.visible = false;
             this.$emit('remove', event);
+        }
+    },
+    computed: {
+        dataP() {
+            return cn({
+                removable: this.removable
+            });
         }
     },
     components: {

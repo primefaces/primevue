@@ -1,0 +1,26 @@
+.layout-footer {
+    padding: 2rem 4rem;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-weight: 500;
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+
+    a {
+        color: var(--primary-text-color);
+        font-weight: 700;
+        transition: outline-color .2s, border-color .2s;
+        outline-color: transparent;
+        border-radius: 6px;
+
+        @include focus-visible();
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+    }
+}

@@ -7,7 +7,7 @@
         "build": "nuxi build",
         "generate": "nuxi generate"
     },
-    "devDependencies": {
-        "nuxt": "3.3.2"
+    "dependencies": {
+        "nuxt": "catalog:app"
     }
 }
