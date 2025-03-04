@@ -24,33 +24,14 @@
     .layout-topbar-logo-container {
         width: 250px;
         margin-inline-end: 4rem;
-    }
-
-    .layout-topbar-logo,
-    .layout-topbar-icon {
-        transition: outline-color .2s;
-        outline-color: transparent;
-        @include focus-visible();
-
-        svg {
-            width: 120px;
-        }
+        padding-inline: 1rem;
     }
 
     .layout-topbar-logo {
         display: inline-flex;
-
-        svg {
-            width: 120px;
-        }
-    }
-
-    .layout-topbar-icon {
-        display: none;
-
-        svg {
-            width: 25px;
-        }
+        transition: outline-color .2s;
+        outline-color: transparent;
+        @include focus-visible();
     }
 
     .menu-button {
@@ -91,7 +72,8 @@
                 border-color: var(--primary-color);
             }
 
-            i, span {
+            i,
+            span {
                 color: var(--text-color);
             }
         }
@@ -130,7 +112,7 @@
             }
 
             .config-panel-colors {
-                > div {
+                >div {
                     padding-top: .5rem;
                     display: flex;
                     gap: .5rem;

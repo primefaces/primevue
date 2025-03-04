@@ -138,14 +138,6 @@
     .layout-topbar-inner {
         padding-left: 1rem;
         padding-right: 1rem;
-
-        .layout-topbar-logo {
-            display: none;
-        }
-
-        .layout-topbar-icon {
-            display: inline-flex;
-        }
     }
 
     .layout-content {
@@ -174,7 +166,7 @@
         padding-right: 1rem;
         font-size: 12px;
 
-        > i {
+        >i {
             display: none;
         }
     }
