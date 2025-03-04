@@ -1211,7 +1211,7 @@ export default {
                 let column = this.columns[i];
 
                 if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
-                    if (headerInitiated) csv += this.csvSeparator;
+                    if (headerInitiated) csv += options?.csvSeparator ?? this.csvSeparator;
                     else headerInitiated = true;
 
                     csv += '"' + (this.columnProp(column, 'exportHeader') || this.columnProp(column, 'header') || this.columnProp(column, 'field')) + '"';
@@ -1228,7 +1228,7 @@ export default {
                         let column = this.columns[i];
 
                         if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'field')) {
-                            if (rowInitiated) csv += this.csvSeparator;
+                            if (rowInitiated) csv += options?.csvSeparator ?? this.csvSeparator;
                             else rowInitiated = true;
 
                             let cellData = resolveFieldData(record, this.columnProp(column, 'field'));
@@ -1257,7 +1257,7 @@ export default {
                 if (i === 0) csv += '\n';
 
                 if (this.columnProp(column, 'exportable') !== false && this.columnProp(column, 'exportFooter')) {
-                    if (footerInitiated) csv += this.csvSeparator;
+                    if (footerInitiated) csv += options?.csvSeparator ?? this.csvSeparator;
                     else footerInitiated = true;
 
                     csv += '"' + (this.columnProp(column, 'exportFooter') || this.columnProp(column, 'footer') || this.columnProp(column, 'field')) + '"';

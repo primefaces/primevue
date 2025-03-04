@@ -157,7 +157,11 @@ export interface DataTableExportCSVOptions {
     /**
      * Whether to export only selection data.
      */
-    selectionOnly: boolean;
+    selectionOnly?: boolean;
+    /**
+     * Separator character.
+     */
+    csvSeparator?: string;
 }
 
 /**

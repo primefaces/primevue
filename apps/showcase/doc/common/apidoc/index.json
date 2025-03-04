@@ -19053,11 +19053,19 @@
                     "props": [
                         {
                             "name": "selectionOnly",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "",
                             "description": "Whether to export only selection data."
+                        },
+                        {
+                            "name": "csvSeparator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "CSV separator character."
                         }
                     ],
                     "methods": []
