@@ -64,7 +64,6 @@ export default {
             }
 
             let selected = this.isSelected(option);
-
             let optionValue = this.getOptionValue(option);
             let newValue;
 
@@ -72,7 +71,9 @@ export default {
                 if (selected) {
                     newValue = this.d_value.filter((val) => !equals(val, optionValue, this.equalityKey));
                     if (!this.allowEmpty && newValue.length === 0) return;
-                } else newValue = this.d_value ? [...this.d_value, optionValue] : [optionValue];
+                } else {
+                    newValue = this.d_value ? [...this.d_value, optionValue] : [optionValue];
+                }
             } else {
                 if (selected && !this.allowEmpty) return;
                 newValue = selected ? null : optionValue;
