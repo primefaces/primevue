@@ -18,6 +18,7 @@ import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
 
 const theme = ref({
-    root: ``
+    root: `*:rounded-none *:first:rounded-s-md *:last:rounded-e-md
+        *:focus-visible:relative *:focus-visible:z-10 *:not-last:border-r-0`
 });
 </script>
