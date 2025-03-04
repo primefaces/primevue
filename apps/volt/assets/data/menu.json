@@ -23,6 +23,10 @@
             "icon": "pi pi-compass",
             "children": [
                 {
+                    "name": "Avatar",
+                    "to": "/avatar"
+                },
+                {
                     "name": "Checkbox",
                     "to": "/checkbox"
                 },
@@ -43,6 +47,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "ProgressBar",
+                    "to": "/progressbar"
+                },
+                {
                     "name": "RadioButton",
                     "to": "/radiobutton"
                 },
@@ -53,6 +61,10 @@
                 {
                     "name": "SelectButton",
                     "to": "/selectbutton"
+                },
+                {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
                 },
                 {
                     "name": "Slider",

@@ -11,6 +11,7 @@ export default {
             addVariant('p-invalid', '&[data-p~="invalid"]');
             addVariant('p-small', '&[data-p~="small"]');
             addVariant('p-large', '&[data-p~="large"]');
+            addVariant('p-xlarge', '&[data-p~="xlarge"]');
             addVariant('p-fluid', '&[data-p~="fluid"]');
             addVariant('p-filled', '&[data-p~="filled"]');
             addVariant('p-horizontal', '&[data-p~="horizontal"]');
@@ -28,6 +29,9 @@ export default {
             addVariant('p-focus-visible', '&[data-p~="focus-visible"]');
             addVariant('p-readonly', '&[data-p~="readonly"]');
             addVariant('p-removable', '&[data-p~="removable"]');
+            addVariant('p-circle', '&[data-p~="circle"]');
+            addVariant('p-determinate', '&[data-p~="determinate"]');
+            addVariant('p-indeterminate', '&[data-p~="indeterminate"]');
         })
     ],
     theme: {

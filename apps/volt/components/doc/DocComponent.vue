@@ -10,7 +10,7 @@
                 <button type="button" @click="tab = 0">FEATURES</button>
             </li>
             <li :class="{ 'doc-tabmenu-active': tab === 1 }">
-                <button type="button" @click="tab = 1">THEMING</button>
+                <button type="button" @click="tab = 1">CODE</button>
             </li>
         </ul>
 
@@ -52,7 +52,7 @@
             </div>
 
             <div v-if="tab === 1" class="doc-tabpanel">
-                <DocPreset :presetKey="header?.toLowerCase()" :introText="`${header} Styles`" />
+                <DocPreset :presetKey="header?.toLowerCase()" :introText="`${header} Code`" />
             </div>
         </div>
     </div>
