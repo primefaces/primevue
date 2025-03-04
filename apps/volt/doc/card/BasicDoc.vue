@@ -18,6 +18,7 @@
 
 <script setup>
 import Card from '@/volt/card';
+import { ref } from 'vue';
 
 const code = ref(`
 <template>

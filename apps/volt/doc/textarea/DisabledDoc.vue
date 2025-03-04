@@ -16,7 +16,7 @@ const value = ref(null);
 
 const code = ref(`
 <template>
-     <div class="card flex justify-center">
+    <div class="card flex justify-center">
         <Textarea v-model="value" rows="5" cols="30" disabled class="resize-none" />
     </div>
 </template>

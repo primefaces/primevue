@@ -28,21 +28,21 @@
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex rounded-full px-3 py-1 bg-surface-200 hover:bg-surface-300 transition-all duration-200 gap-2 items-center text-sm dark:bg-surface-800 dark:hover:bg-surface-700"
-                                ><span class="text-surface-900 dark:text-surface-50 font-medium">API Doc</span><i class="pi pi-external-link text-xs text-surface-900 dark:text-surface-50"></i
+                                ><span class="text-surface-900 dark:text-surface-50 font-medium">API Doc</span><i class="pi pi-external-link text-xs! text-surface-900 dark:text-surface-50"></i
                             ></a>
                             <a
                                 :href="`https://primevue.org${originPath}/#pt`"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex rounded-full px-3 py-1 bg-surface-200 hover:bg-surface-300 transition-all duration-200 gap-2 items-center text-sm text-surface-900 dark:bg-surface-800 dark:hover:bg-surface-700"
-                                ><span class="text-surface-900 dark:text-surface-50 font-medium">PassThrough Doc</span><i class="pi pi-external-link text-xs text-surface-900 dark:text-surface-50"></i
+                                ><span class="text-surface-900 dark:text-surface-50 font-medium">PassThrough Doc</span><i class="pi pi-external-link text-xs! text-surface-900 dark:text-surface-50"></i
                             ></a>
                             <a
                                 :href="`https://primevue.org${originPath}/#accessibility`"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex rounded-full px-3 py-1 bg-surface-200 hover:bg-surface-300 transition-all duration-200 gap-2 items-center text-sm text-surface-900 dark:bg-surface-800 dark:hover:bg-surface-700"
-                                ><span class="text-surface-900 dark:text-surface-50 font-medium">Accessibility</span><i class="pi pi-external-link text-xs text-surface-900 dark:text-surface-50"></i
+                                ><span class="text-surface-900 dark:text-surface-50 font-medium">Accessibility</span><i class="pi pi-external-link text-xs! text-surface-900 dark:text-surface-50"></i
                             ></a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 defineProps({
     title: String,

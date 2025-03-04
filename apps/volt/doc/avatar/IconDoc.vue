@@ -31,6 +31,7 @@
 
 <script setup>
 import Avatar from '@/volt/avatar';
+import { ref } from 'vue';
 
 const code = ref(`
 <template>

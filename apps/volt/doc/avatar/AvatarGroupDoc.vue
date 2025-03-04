@@ -18,6 +18,7 @@
 <script setup>
 import Avatar from '@/volt/avatar';
 import AvatarGroup from '@/volt/avatargroup';
+import { ref } from 'vue';
 
 const code = ref(`
 <template>
