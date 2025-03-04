@@ -51,10 +51,10 @@ const getVueApp = (props = {}, sourceType) => {
         ? embedded
             ? extFiles['composition']
             : extFiles[sourceType.language]
-            ? { ...extFiles[sourceType.language] }
-            : Object.keys(extFiles)
-                  .filter((k) => !sourceTypes.includes(k))
-                  .reduce((result, current) => (result[current] = extFiles[current]) && result, {})
+              ? { ...extFiles[sourceType.language] }
+              : Object.keys(extFiles)
+                    .filter((k) => !sourceTypes.includes(k))
+                    .reduce((result, current) => (result[current] = extFiles[current]) && result, {})
         : {};
 
     if (deps !== null && component !== null) {

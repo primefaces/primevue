@@ -8247,7 +8247,7 @@
                             "name": "iconPos",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "left",
                             "description": "Position of the icon."
                         },
@@ -8367,7 +8367,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the button."
                         },
@@ -8375,7 +8375,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"outlined\" | \"text\" | \"link\"",
+                            "type": "HintedString<\"outlined\" | \"text\" | \"link\">",
                             "default": "undefined",
                             "description": "Specifies the variant of the component."
                         },
