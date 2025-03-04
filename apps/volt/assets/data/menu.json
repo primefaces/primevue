@@ -27,6 +27,10 @@
                     "to": "/avatar"
                 },
                 {
+                    "name": "Card",
+                    "to": "/card"
+                },
+                {
                     "name": "Checkbox",
                     "to": "/checkbox"
                 },

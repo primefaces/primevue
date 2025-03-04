@@ -25,64 +25,59 @@ import TailwindDoc from '@/doc/vite/TailwindDoc.vue';
 import ImportStylesDoc from '@/doc/vite/tailwind/ImportStylesDoc.vue';
 import PostCSSImportDoc from '@/doc/vite/tailwind/PostCSSImportDoc.vue';
 import PrimeUIPluginDoc from '@/doc/vite/tailwind/PrimeUIPluginDoc.vue';
+import { ref } from 'vue';
 
-export default {
-    data() {
-        return {
-            docs: [
-                {
-                    id: 'tailwind',
-                    label: 'Tailwind CSS',
-                    component: TailwindDoc
-                },
-                {
-                    id: 'download',
-                    label: 'Download',
-                    component: DownloadDoc
-                },
-                {
-                    id: 'plugin',
-                    label: 'Plugin',
-                    component: PluginDoc
-                },
-                {
-                    id: 'styles',
-                    label: 'Styles',
-                    component: StylesDoc
-                },
-                {
-                    id: 'tailwind-config',
-                    label: 'Tailwind Config',
-                    children: [
-                        {
-                            id: 'primeuiplugin',
-                            label: 'PrimeUI Plugin',
-                            component: PrimeUIPluginDoc
-                        },
-                        {
-                            id: 'postcssimport',
-                            label: 'PostCSS Import',
-                            component: PostCSSImportDoc
-                        },
-                        {
-                            id: 'importstyles',
-                            label: 'Import Styles',
-                            component: ImportStylesDoc
-                        }
-                    ]
-                },
-                {
-                    id: 'css-variables',
-                    label: 'CSS Variables',
-                    component: CSSVariablesDoc
-                },
-                {
-                    id: 'example',
-                    label: 'Example',
-                    component: ExampleDoc
-                }
-            ]
-        };
+const docs = ref([
+    {
+        id: 'tailwind',
+        label: 'Tailwind CSS',
+        component: TailwindDoc
+    },
+    {
+        id: 'download',
+        label: 'Download',
+        component: DownloadDoc
+    },
+    {
+        id: 'plugin',
+        label: 'Plugin',
+        component: PluginDoc
+    },
+    {
+        id: 'styles',
+        label: 'Styles',
+        component: StylesDoc
+    },
+    {
+        id: 'tailwind-config',
+        label: 'Tailwind Config',
+        children: [
+            {
+                id: 'primeuiplugin',
+                label: 'PrimeUI Plugin',
+                component: PrimeUIPluginDoc
+            },
+            {
+                id: 'postcssimport',
+                label: 'PostCSS Import',
+                component: PostCSSImportDoc
+            },
+            {
+                id: 'importstyles',
+                label: 'Import Styles',
+                component: ImportStylesDoc
+            }
+        ]
+    },
+    {
+        id: 'css-variables',
+        label: 'CSS Variables',
+        component: CSSVariablesDoc
+    },
+    {
+        id: 'example',
+        label: 'Example',
+        component: ExampleDoc
     }
-};
+]);
 </script>
