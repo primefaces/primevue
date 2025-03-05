@@ -6,26 +6,27 @@
             </slot>
             <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
                 <slot name="icons"></slot>
-                <Button
-                    v-if="toggleable"
-                    :id="$id + '_header'"
-                    :class="cx('pcToggleButton')"
-                    :aria-label="buttonAriaLabel"
-                    :aria-controls="$id + '_content'"
-                    :aria-expanded="!d_collapsed"
-                    :unstyled="unstyled"
-                    @click="toggle"
-                    @keydown="onKeyDown"
-                    v-bind="toggleButtonProps"
-                    :pt="ptm('pcToggleButton')"
-                >
-                    <template #icon="slotProps">
-                        <!--TODO: togglericon deprecated since v4.0-->
-                        <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
-                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('pcToggleButton')['icon']" />
-                        </slot>
-                    </template>
-                </Button>
+                <slot v-if="toggleable" name="togglebutton" :collapsed="d_collapsed" :toggleCallback="(event) => toggle(event)" :keydownCallback="(event) => onKeyDown(event)">
+                    <Button
+                        :id="$id + '_header'"
+                        :class="cx('pcToggleButton')"
+                        :aria-label="buttonAriaLabel"
+                        :aria-controls="$id + '_content'"
+                        :aria-expanded="!d_collapsed"
+                        :unstyled="unstyled"
+                        @click="toggle(event)"
+                        @keydown="onKeyDown(event)"
+                        v-bind="toggleButtonProps"
+                        :pt="ptm('pcToggleButton')"
+                    >
+                        <template #icon="slotProps">
+                            <!--TODO: togglericon deprecated since v4.0-->
+                            <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
+                                <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('pcToggleButton')['icon']" />
+                            </slot>
+                        </template>
+                    </Button>
+                </slot>
             </div>
         </div>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
