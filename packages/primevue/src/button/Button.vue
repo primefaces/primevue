@@ -77,8 +77,8 @@ export default {
                 fluid: this.hasFluid,
                 rounded: this.rounded,
                 raised: this.raised,
-                outlined: this.variant === 'outlined',
-                text: this.variant === 'text',
+                outlined: this.outlined || this.variant === 'outlined',
+                text: this.text || this.variant === 'text',
                 link: this.link || this.variant === 'link',
                 vertical: (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label
             });

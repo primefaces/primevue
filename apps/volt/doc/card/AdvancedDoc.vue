@@ -17,7 +17,7 @@
             </template>
             <template #footer>
                 <div class="flex gap-4 mt-1">
-                    <Button label="Cancel" severity="secondary" outlined class="w-full" />
+                    <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
                     <Button label="Save" class="w-full" />
                 </div>
             </template>
@@ -47,7 +47,7 @@ const code = ref(`
         </template>
         <template #footer>
             <div class="flex gap-4 mt-1">
-                <Button label="Cancel" severity="secondary" outlined class="w-full" />
+                <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
                 <Button label="Save" class="w-full" />
             </div>
         </template>
