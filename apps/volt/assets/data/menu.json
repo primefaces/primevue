@@ -51,6 +51,10 @@
                     "to": "/inputnumber"
                 },
                 {
+                    "name": "InputOtp",
+                    "to": "/inputotp"
+                },
+                {
                     "name": "InputText",
                     "to": "/inputtext"
                 },
