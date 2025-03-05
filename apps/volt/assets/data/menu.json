@@ -43,6 +43,10 @@
                     "to": "/chip"
                 },
                 {
+                    "name": "Divider",
+                    "to": "/divider"
+                },
+                {
                     "name": "InputMask",
                     "to": "/inputmask"
                 },

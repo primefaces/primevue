@@ -26,6 +26,7 @@
 @custom-variant p-right (&[data-p~="right"]);
 @custom-variant p-top (&[data-p~="top"]);
 @custom-variant p-bottom (&[data-p~="bottom"]);
+@custom-variant p-center (&[data-p~="center"]);
 @custom-variant p-alternate (&[data-p~="alternate"]);
 @custom-variant p-active (&[data-p~="active"]);
 @custom-variant p-focus-visible (&[data-p~="focus-visible"]);
@@ -40,3 +41,6 @@
 @custom-variant p-outlined (&[data-p~="outlined"]);
 @custom-variant p-text (&[data-p~="text"]);
 @custom-variant p-toggleable (&[data-p~="toggleable"]);
+@custom-variant p-solid (&[data-p~="solid"]);
+@custom-variant p-dashed (&[data-p~="dashed"]);
+@custom-variant p-dotted (&[data-p~="dotted"]);
