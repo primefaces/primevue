@@ -214,6 +214,26 @@ export interface PanelSlots {
      */
     icons(): VNode[];
     /**
+     * Custom toggle button template of panel.
+     * @param {Object} scope - toggle button slot's params.
+     */
+    togglebutton(scope: {
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean;
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
      * @deprecated since v4.0. Use the 'toggleicon' slot instead.
      * Custom toggler icon template of panel.
      * @param {Object} scope - toggler icon slot's params.
@@ -225,8 +245,8 @@ export interface PanelSlots {
         collapsed: boolean;
     }): VNode[];
     /**
-     * Custom toggler icon template of panel.
-     * @param {Object} scope - toggler icon slot's params.
+     * Custom toggle icon template of panel.
+     * @param {Object} scope - toggle icon slot's params.
      */
     toggleicon(scope: {
         /**
