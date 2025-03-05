@@ -112,7 +112,7 @@ const styles = [
 ${hasTheme ? `Theme.setTheme(${importTheme?.as} || options?.theme)` : ''}
 
 const themes = ${
-                options?.theme === 'none'
+                !hasTheme
                     ? `[]`
                     : `
 [
