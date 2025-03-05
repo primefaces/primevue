@@ -38,7 +38,10 @@ export default defineNuxtConfig({
         GITHUB_TOKEN: ''
     },
     primevue: {
-        autoImport: false
+        autoImport: false,
+        options: {
+            unstyled: true
+        }
     },
     app: {
         baseURL: baseUrl,

@@ -39,3 +39,4 @@
 @custom-variant p-raised (&[data-p~="raised"]);
 @custom-variant p-outlined (&[data-p~="outlined"]);
 @custom-variant p-text (&[data-p~="text"]);
+@custom-variant p-toggleable (&[data-p~="toggleable"]);

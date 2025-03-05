@@ -55,6 +55,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "Panel",
+                    "to": "/panel"
+                },
+                {
                     "name": "ProgressBar",
                     "to": "/progressbar"
                 },

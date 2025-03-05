@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
-        <div :class="cx('header')" v-bind="ptm('header')">
+    <div :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
+        <div :class="cx('header')" v-bind="ptm('header')" :data-p="dataP">
             <slot :id="$id + '_header'" name="header" :class="cx('title')">
                 <span v-if="header" :id="$id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
@@ -82,6 +83,11 @@ export default {
     computed: {
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps.ariaLabel ? this.toggleButtonProps.ariaLabel : this.header;
+        },
+        dataP() {
+            return cn({
+                toggleable: this.toggleable
+            });
         }
     },
     components: {
