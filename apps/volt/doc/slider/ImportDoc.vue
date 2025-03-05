@@ -3,13 +3,9 @@
     <DocSectionCode :code="code" lang="script" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: `import Slider from '@/volt/slider';
-`
-        };
-    }
-};
+<script setup>
+import { ref } from 'vue';
+
+const code = ref(`import Slider from '@/volt/slider';
+`);
 </script>

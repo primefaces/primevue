@@ -3,14 +3,10 @@
     <DocSectionCode :code="code" lang="script" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: `import Badge from '@/volt/badge';
+<script setup>
+import { ref } from 'vue';
+
+const code = ref(`import Badge from '@/volt/badge';
 import OverlayBadge from '@/volt/overlaybadge';
-`
-        };
-    }
-};
+`);
 </script>

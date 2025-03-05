@@ -3,13 +3,9 @@
     <DocSectionCode :code="code" lang="script" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: `import ToggleSwitch from '@/volt/toggleswitch';
-`
-        };
-    }
-};
+<script setup>
+import { ref } from 'vue';
+
+const code = ref(`import ToggleSwitch from '@/volt/toggleswitch';
+`);
 </script>
