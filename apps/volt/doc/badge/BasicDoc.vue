@@ -9,28 +9,11 @@
     <DocSectionCode :code="code" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: {
-                basic: `
-<Badge value="2"></Badge>
-<Badge>10</Badge>
-`,
-                options: `
-<template>
-    <div class="card flex justify-center gap-2">
-        <Badge value="2"></Badge>
-        <Badge>10</Badge>
-    </div>
-</template>
+<script setup>
+import Badge from '@/volt/badge';
+import { ref } from 'vue';
 
-<script>
-
-<\/script>
-`,
-                composition: `
+const code = ref(`
 <template>
     <div class="card flex justify-center gap-2">
         <Badge value="2"></Badge>
@@ -39,11 +22,7 @@ export default {
 </template>
 
 <script setup>
-
+import Badge from '@/volt/badge';
 <\/script>
-`
-            }
-        };
-    }
-};
+`);
 </script>
