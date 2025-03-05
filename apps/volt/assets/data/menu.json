@@ -95,6 +95,10 @@
                     "to": "/slider"
                 },
                 {
+                    "name": "Tag",
+                    "to": "/tag"
+                },
+                {
                     "name": "Textarea",
                     "to": "/textarea"
                 },
