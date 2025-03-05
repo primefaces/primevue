@@ -27,20 +27,6 @@
                     ></button>
                 </div>
             </div>
-            <div class="flex">
-                <div class="flex-1">
-                    <div class="config-panel-settings">
-                        <span class="config-panel-label">Ripple</span>
-                        <ToggleSwitch :modelValue="rippleActive" @update:modelValue="onRippleChange" />
-                    </div>
-                </div>
-                <div class="flex-1">
-                    <div class="config-panel-settings items-end">
-                        <span class="config-panel-label">RTL</span>
-                        <ToggleSwitch v-model="isRTL" @update:modelValue="onRTLChange" />
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
@@ -103,8 +89,7 @@ export default {
                     name: 'ocean',
                     palette: { 0: '#ffffff', 50: '#fbfcfc', 100: '#F7F9F8', 200: '#EFF3F2', 300: '#DADEDD', 400: '#B1B7B6', 500: '#828787', 600: '#5F7274', 700: '#415B61', 800: '#29444E', 900: '#183240', 950: '#0c1920' }
                 }
-            ],
-            isRTL: false
+            ]
         };
     },
     methods: {
@@ -137,33 +122,9 @@ export default {
             Object.keys(color.palette).forEach((key) => {
                 document.documentElement.style.setProperty(`--p-${type}-${key}`, color.palette[key]);
             });
-        },
-        onRippleChange(value) {
-            this.$primevue.config.ripple = value;
-        },
-        onRTLChange(value) {
-            if (!document.startViewTransition) {
-                this.toggleRTL();
-
-                return;
-            }
-
-            document.startViewTransition(() => this.toggleRTL(value));
-        },
-        toggleRTL(value) {
-            const htmlElement = document.documentElement;
-
-            if (value) {
-                htmlElement.setAttribute('dir', 'rtl');
-            } else {
-                htmlElement.removeAttribute('dir');
-            }
         }
     },
     computed: {
-        rippleActive() {
-            return this.$primevue.config.ripple;
-        },
         selectedPrimaryColor() {
             return this.$appState.primary;
         },
