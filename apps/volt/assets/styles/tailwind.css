@@ -3,11 +3,11 @@
 @custom-variant dark (&:where(.p-dark, .p-dark *));
 
 @theme {
-    --breakpoint-sm: '576px';
-    --breakpoint-md: '768px';
-    --breakpoint-lg: '992px';
-    --breakpoint-xl: '1200px';
-    --breakpoint-2xl: '1920px';
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1920px;
 }
 
 @custom-variant p-invalid (&[data-p~="invalid"]);
