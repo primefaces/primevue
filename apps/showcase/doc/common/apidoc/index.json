@@ -50529,6 +50529,19 @@
                             "description": "Custom icons template."
                         },
                         {
+                            "name": "togglebutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">collapsed</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Collapsed state as a boolean</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "toggle button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom toggle button template of panel."
+                        },
+                        {
                             "name": "togglericon",
                             "parameters": [
                                 {
@@ -50549,11 +50562,11 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">collapsed</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Collapsed state as a boolean</span>\n }",
-                                    "description": "toggler icon slot's params."
+                                    "description": "toggle icon slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom toggler icon template of panel."
+                            "description": "Custom toggle icon template of panel."
                         },
                         {
                             "name": "footer",
