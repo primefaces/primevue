@@ -47,7 +47,7 @@ const theme = ref({
     label: `font-medium p-icon-only:invisible p-icon-only:w-0
         p-small:text-sm p-large:text-[1.125rem]`,
     pcBadge: {
-        root: `min-w-4 h-4 leading-4`
+        root: `min-w-4 h-4 leading-4 bg-primary-contrast rounded-full text-primary text-xs font-bold`
     }
 });
 </script>
