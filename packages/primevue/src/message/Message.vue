@@ -1,6 +1,6 @@
 <template>
     <transition name="p-message" appear v-bind="ptmi('transition')">
-        <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" v-bind="ptm('root')">
+        <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('root')">
             <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
             <div v-else :class="cx('content')" v-bind="ptm('content')">
                 <slot name="icon" :class="cx('icon')">
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import TimesIcon from '@primevue/icons/times';
 import Ripple from 'primevue/ripple';
 import BaseMessage from './BaseMessage.vue';
@@ -53,6 +54,14 @@ export default {
     computed: {
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
+        },
+        dataP() {
+            return cn({
+                outlined: this.variant === 'outlined',
+                simple: this.variant === 'simple',
+                [this.severity]: this.severity,
+                [this.size]: this.size
+            });
         }
     },
     directives: {

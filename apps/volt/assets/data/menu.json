@@ -67,6 +67,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "Message",
+                    "to": "/message"
+                },
+                {
                     "name": "Panel",
                     "to": "/panel"
                 },
