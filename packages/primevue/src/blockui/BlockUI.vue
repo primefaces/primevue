@@ -77,12 +77,23 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+            if (this.mask) {
+                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
 
-            if (hasCSSAnimation(this.mask) > 0) {
-                this.mask.addEventListener('animationend', () => {
+                const handleAnimationEnd = () => {
+                    clearTimeout(fallbackTimer);
+                    this.mask.removeEventListener('animationend', handleAnimationEnd);
+                    this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                };
+
+                const fallbackTimer = setTimeout(() => {
                     this.removeMask();
-                });
+                }, 10);
+
+                if (hasCSSAnimation(this.mask) > 0) {
+                    this.mask.addEventListener('animationend', handleAnimationEnd);
+                    this.mask.addEventListener('webkitAnimationEnd', handleAnimationEnd);
+                }
             } else {
                 this.removeMask();
             }

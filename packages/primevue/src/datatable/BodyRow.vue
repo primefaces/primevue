@@ -350,6 +350,8 @@ export default {
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
+                if (this.d_rowExpanded) groupRowSpan++;
+
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
                     let nextRowData = this.value[++index];

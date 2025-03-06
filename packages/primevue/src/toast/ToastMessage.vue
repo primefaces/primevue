@@ -103,27 +103,31 @@ export default {
             this.props?.onClick && this.props.onClick({ originalEvent: event, message: this.message });
         },
         onMouseEnter(event) {
-            this.props?.onMouseEnter && this.props.onMouseEnter({ originalEvent: event, message: this.message });
+            if (this.props?.onMouseEnter) {
+                this.props.onMouseEnter({ originalEvent: event, message: this.message });
 
-            if (event.defaultPrevented) {
-                return;
-            }
+                if (event.defaultPrevented) {
+                    return;
+                }
 
-            if (this.message.life) {
-                this.lifeRemaining = this.createdAt + this.lifeRemaining - Date().valueOf();
-                this.createdAt = null;
-                this.clearCloseTimeout();
+                if (this.message.life) {
+                    this.lifeRemaining = this.createdAt + this.lifeRemaining - Date().valueOf();
+                    this.createdAt = null;
+                    this.clearCloseTimeout();
+                }
             }
         },
         onMouseLeave(event) {
-            this.props?.onMouseLeave && this.props.onMouseLeave({ originalEvent: event, message: this.message });
+            if (this.props?.onMouseLeave) {
+                this.props.onMouseLeave({ originalEvent: event, message: this.message });
 
-            if (event.defaultPrevented) {
-                return;
-            }
+                if (event.defaultPrevented) {
+                    return;
+                }
 
-            if (this.message.life) {
-                this.startTimeout();
+                if (this.message.life) {
+                    this.startTimeout();
+                }
             }
         }
     },
