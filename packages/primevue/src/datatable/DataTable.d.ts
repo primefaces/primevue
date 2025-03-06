@@ -913,7 +913,7 @@ export interface DataTableProps<T = any> {
      * Position of the paginator, options are 'top','bottom' or 'both'.
      * @defaultValue bottom
      */
-    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
+    paginatorPosition?: HintedString<'top' | 'bottom' | 'both'> | undefined;
     /**
      * Whether to show it even there is only one page.
      * @defaultValue true
@@ -995,7 +995,7 @@ export interface DataTableProps<T = any> {
      * Defines whether sorting works on single column or on multiple columns.
      * @defaultValue single
      */
-    sortMode?: 'single' | 'multiple' | undefined;
+    sortMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * When enabled, columns can have an un-sorted state.
      * @defaultValue false
@@ -1009,7 +1009,7 @@ export interface DataTableProps<T = any> {
     /**
      * Layout of the filter elements.
      */
-    filterDisplay?: 'menu' | 'row' | undefined;
+    filterDisplay?: HintedString<'menu' | 'row'> | undefined;
     /**
      * 	An array of fields as string or function to use in global filtering.
      */
@@ -1025,12 +1025,12 @@ export interface DataTableProps<T = any> {
     /**
      * Specifies the selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * Algorithm to define if a row is selected.
      * @defaultValue deepEquals
      */
-    compareSelectionBy?: 'equals' | 'deepEquals' | undefined;
+    compareSelectionBy?: HintedString<'equals' | 'deepEquals'> | undefined;
     /**
      * Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
@@ -1078,7 +1078,7 @@ export interface DataTableProps<T = any> {
      * Defines whether the overall table width.
      * @defaultValue fit
      */
-    columnResizeMode?: 'fit' | 'expand' | undefined;
+    columnResizeMode?: HintedString<'fit' | 'expand'> | undefined;
     /**
      * When enabled, columns can be reordered using drag and drop.
      * @defaultValue false
@@ -1099,7 +1099,7 @@ export interface DataTableProps<T = any> {
     /**
      * Defines the row group mode.
      */
-    rowGroupMode?: 'subheader' | 'rowspan' | undefined;
+    rowGroupMode?: HintedString<'subheader' | 'rowspan'> | undefined;
     /**
      * One or more field names to use in row grouping.
      */
@@ -1117,7 +1117,7 @@ export interface DataTableProps<T = any> {
      * Defines where a stateful table keeps its state.
      * @defaultValue session
      */
-    stateStorage?: 'session' | 'local' | undefined;
+    stateStorage?: HintedString<'session' | 'local'> | undefined;
     /**
      * Unique identifier of a stateful table to use in state storage.
      */
@@ -1125,7 +1125,7 @@ export interface DataTableProps<T = any> {
     /**
      * Defines the incell editing mode.
      */
-    editMode?: 'cell' | 'row' | undefined;
+    editMode?: HintedString<'cell' | 'row'> | undefined;
     /**
      * A collection of rows to represent the current editing data in row edit mode.
      */
@@ -1187,7 +1187,7 @@ export interface DataTableProps<T = any> {
     /**
      * Defines the size of the table.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Inline style of the table element.
      */

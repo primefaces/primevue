@@ -7,7 +7,7 @@
  * @module togglebutton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -134,7 +134,7 @@ export interface ToggleButtonProps {
      * Position of the icon.
      * @defaultValue left
      */
-    iconPos?: 'left' | 'right' | undefined;
+    iconPos?: HintedString<'left' | 'right'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -161,7 +161,7 @@ export interface ToggleButtonProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Form control object, typically used for handling validation and form state.
      */

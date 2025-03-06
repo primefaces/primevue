@@ -311,7 +311,7 @@ export interface CascadeSelectProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -326,7 +326,7 @@ export interface CascadeSelectProps {
      * Specifies the input variant of the component.
      * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * A property to uniquely identify an option.
      */

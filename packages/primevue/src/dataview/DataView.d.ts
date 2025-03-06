@@ -7,7 +7,7 @@
  * @module dataview
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -152,7 +152,7 @@ export interface DataViewProps {
      * Layout of the items, valid values are 'list' and 'grid'.
      * @defaultValue list
      */
-    layout?: 'list' | 'grid' | undefined;
+    layout?: HintedString<'list' | 'grid'> | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -176,7 +176,7 @@ export interface DataViewProps {
      * Position of the paginator, options are 'top','bottom' or 'both'.
      * @defaultValue bottom
      */
-    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
+    paginatorPosition?: HintedString<'top' | 'bottom' | 'both'> | undefined;
     /**
      * Whether to show it even there is only one page.
      * @defaultValue true

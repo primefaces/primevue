@@ -159,12 +159,12 @@ export interface MessageProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Specifies the variant of the component.
      * @defaultValue undefined
      */
-    variant?: 'outlined' | 'simple' | undefined;
+    variant?: HintedString<'outlined' | 'simple'> | undefined;
 }
 
 /**

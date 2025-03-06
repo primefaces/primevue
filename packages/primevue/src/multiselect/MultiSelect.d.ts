@@ -364,7 +364,7 @@ export interface MultiSelectProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -379,7 +379,7 @@ export interface MultiSelectProps {
      * Specifies the input variant of the component.
      * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null
@@ -456,7 +456,7 @@ export interface MultiSelectProps {
      * Defines how the selected items are displayed.
      * @defaultValue comma
      */
-    display?: 'comma' | 'chip' | undefined;
+    display?: HintedString<'comma' | 'chip'> | undefined;
     /**
      * Label to display after exceeding max selected labels.
      * @defaultValue null

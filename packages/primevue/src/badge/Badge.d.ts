@@ -74,7 +74,7 @@ export interface BadgeProps {
     /**
      * Size of the badge, valid options are 'small', 'large', and 'xlarge'.
      */
-    size?: 'small' | 'large' | 'xlarge' | null | undefined;
+    size?: HintedString<'small' | 'large' | 'xlarge'> | null | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

@@ -7,7 +7,7 @@
  * @module textarea
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { TextareaHTMLAttributes } from 'vue';
@@ -107,7 +107,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -117,7 +117,7 @@ export interface TextareaProps extends TextareaHTMLAttributes {
      * Specifies the input variant of the component.
      * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null

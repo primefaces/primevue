@@ -7,7 +7,7 @@
  * @module timeline
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -117,12 +117,12 @@ export interface TimelineProps {
      * Position of the timeline bar relative to the content.
      * @defaultValue left
      */
-    align?: 'left' | 'right' | 'alternate' | 'top' | 'bottom' | undefined;
+    align?: HintedString<'left' | 'right' | 'alternate' | 'top' | 'bottom'> | undefined;
     /**
      * Orientation of the timeline.
      * @defaultValue horizontal
      */
-    layout?: 'vertical' | 'horizontal' | undefined;
+    layout?: HintedString<'vertical' | 'horizontal'> | undefined;
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */

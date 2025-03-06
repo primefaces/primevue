@@ -7,7 +7,7 @@
  * @module megamenu
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -246,7 +246,7 @@ export interface MegaMenuProps {
      * Defines the orientation.
      * @defaultValue horizontal
      */
-    orientation?: 'horizontal' | 'vertical' | undefined;
+    orientation?: HintedString<'horizontal' | 'vertical'> | undefined;
     /**
      * The breakpoint to define the maximum width boundary.
      * @defaultValue 960px
