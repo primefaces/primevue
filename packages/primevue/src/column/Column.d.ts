@@ -8,7 +8,7 @@
  * @module column
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { ButtonPassThroughOptions } from 'primevue/button';
@@ -482,7 +482,7 @@ export interface ColumnProps {
     /**
      * Defines column based selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * Displays an icon to toggle row expansion.
      * @defaultValue false
@@ -524,7 +524,7 @@ export interface ColumnProps {
      * Position of a frozen column, valid values are left and right.
      * @defaultValue left
      */
-    alignFrozen?: 'left' | 'right' | undefined;
+    alignFrozen?: HintedString<'left' | 'right'> | undefined;
     /**
      * Whether the column is included in data export.
      * @defaultValue false

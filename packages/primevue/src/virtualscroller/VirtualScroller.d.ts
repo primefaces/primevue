@@ -7,7 +7,7 @@
  * @module virtualscroller
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -255,7 +255,7 @@ export interface VirtualScrollerProps {
      * The orientation of scrollbar.
      * @defaultValue vertical
      */
-    orientation?: 'vertical' | 'horizontal' | 'both' | undefined;
+    orientation?: HintedString<'vertical' | 'horizontal' | 'both'> | undefined;
     /**
      * Determines how many additional elements to add to the DOM outside of the view.
      * According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number.

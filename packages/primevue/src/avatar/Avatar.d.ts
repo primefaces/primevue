@@ -6,7 +6,7 @@
  *
  * @module avatar
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -94,12 +94,12 @@ export interface AvatarProps {
      * Size of the element.
      * @defaultValue normal
      */
-    size?: 'normal' | 'large' | 'xlarge' | undefined;
+    size?: HintedString<'normal' | 'large' | 'xlarge'> | undefined;
     /**
      * Shape of the element.
      * @defaultValue square
      */
-    shape?: 'square' | 'circle' | undefined;
+    shape?: HintedString<'square' | 'circle'> | undefined;
     /**
      * Establishes a string value that labels the component.
      */

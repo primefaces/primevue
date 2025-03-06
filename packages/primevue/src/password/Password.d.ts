@@ -234,7 +234,7 @@ export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -249,7 +249,7 @@ export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
      * Specifies the input variant of the component.
      * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Placeholder text for the input.
      */

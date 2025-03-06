@@ -229,7 +229,7 @@ export interface DialogProps {
      * Position of the dialog.
      * @defaultValue center
      */
-    position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
+    position?: HintedString<'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'> | undefined;
     /**
      * Whether the dialog can be displayed full screen.
      * @defaultValue false

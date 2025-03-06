@@ -7,7 +7,7 @@
  * @module drawer
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -137,7 +137,7 @@ export interface DrawerProps {
      * Specifies the position of the drawer.
      * @defaultValue left
      */
-    position?: 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
+    position?: HintedString<'left' | 'right' | 'top' | 'bottom' | 'full'> | undefined;
     /**
      * Title content of the dialog.
      */

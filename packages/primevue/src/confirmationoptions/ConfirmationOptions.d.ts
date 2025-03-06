@@ -32,7 +32,7 @@ export interface ConfirmationOptions {
      * Position of the dialog.
      * @defaultValue center
      */
-    position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
+    position?: HintedString<'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'> | undefined;
     /**
      * Icon to display next to the message.
      */

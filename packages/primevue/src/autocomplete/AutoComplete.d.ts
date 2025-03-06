@@ -360,7 +360,7 @@ export interface AutoCompleteProps {
      * Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.
      * @defaultValue blank
      */
-    dropdownMode?: 'blank' | 'current' | undefined;
+    dropdownMode?: HintedString<'blank' | 'current'> | undefined;
     /**
      * Specifies if multiple values can be selected.
      * @defaultValue false
@@ -378,7 +378,7 @@ export interface AutoCompleteProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -393,7 +393,7 @@ export interface AutoCompleteProps {
      * Specifies the input variant of the component.
      * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * A property to uniquely identify an option.
      */

@@ -7,7 +7,7 @@
  * @module scrolltop
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -108,7 +108,7 @@ export interface ScrollTopProps {
      * Target of the ScrollTop.
      * @defaultValue window
      */
-    target?: 'window' | 'parent' | undefined;
+    target?: HintedString<'window' | 'parent'> | undefined;
     /**
      * Defines the threshold value of the vertical scroll position of the target to toggle the visibility.
      * @defaultValue 400

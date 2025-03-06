@@ -7,7 +7,7 @@
  * @module fileupload
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { BadgePassThroughOptions } from 'primevue/badge';
 import type { ButtonPassThroughOptions } from 'primevue/button';
@@ -331,7 +331,7 @@ export interface FileUploadProps {
      * Defines the UI of the component, possible values are 'advanced' and 'basic'.
      * @defaultValue advanced
      */
-    mode?: 'advanced' | 'basic' | undefined;
+    mode?: HintedString<'advanced' | 'basic'> | undefined;
     /**
      * Used to select multiple files at once from file dialog.
      * @defaultValue false

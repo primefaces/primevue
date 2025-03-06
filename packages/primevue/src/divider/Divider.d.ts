@@ -7,7 +7,7 @@
  * @module divider
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -74,17 +74,17 @@ export interface DividerProps {
     /**
      * Alignment of the content.
      */
-    align?: 'left' | 'center' | 'right' | 'top' | 'center' | 'bottom' | undefined;
+    align?: HintedString<'left' | 'center' | 'right' | 'top' | 'center' | 'bottom'> | undefined;
     /**
      * Specifies the orientation, valid values are 'horizontal' and 'vertical'.
      * @defaultValue horizontal
      */
-    layout?: 'horizontal' | 'vertical' | undefined;
+    layout?: HintedString<'horizontal' | 'vertical'> | undefined;
     /**
      * Border style type.
      * @defaultValue solid
      */
-    type?: 'solid' | 'dashed' | 'dotted' | undefined;
+    type?: HintedString<'solid' | 'dashed' | 'dotted'> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

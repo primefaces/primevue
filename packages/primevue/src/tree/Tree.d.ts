@@ -259,7 +259,7 @@ export interface TreeProps {
     /**
      * Defines the selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple' | 'checkbox'> | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
@@ -279,7 +279,7 @@ export interface TreeProps {
      * Loading mode display.
      * @defaultValue mask
      */
-    loadingMode?: 'mask' | 'icon' | undefined;
+    loadingMode?: HintedString<'mask' | 'icon'> | undefined;
     /**
      * When specified, displays an input field to filter the items.
      * @defaultValue false
@@ -294,7 +294,7 @@ export interface TreeProps {
      * Mode for filtering.
      * @defaultValue lenient
      */
-    filterMode?: 'lenient' | 'strict' | undefined;
+    filterMode?: HintedString<'lenient' | 'strict'> | undefined;
     /**
      * Placeholder text to show when filter input is empty.
      */

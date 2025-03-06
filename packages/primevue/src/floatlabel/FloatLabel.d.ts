@@ -7,7 +7,7 @@
  * @module floatlabel
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { TransitionProps, VNode } from 'vue';
@@ -92,7 +92,7 @@ export interface FloatLabelProps {
      * Defines the positioning of the label relative to the input.
      * @defaultValue false
      */
-    variant?: 'over' | 'in' | 'on' | undefined;
+    variant?: HintedString<'over' | 'in' | 'on'> | undefined;
 }
 
 /**

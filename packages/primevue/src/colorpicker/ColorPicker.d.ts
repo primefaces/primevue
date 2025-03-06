@@ -161,7 +161,7 @@ export interface ColorPickerProps {
      * Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'.
      * @defaultValue hex
      */
-    format?: 'hex' | 'rgb' | 'hsb' | undefined;
+    format?: HintedString<'hex' | 'rgb' | 'hsb'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
