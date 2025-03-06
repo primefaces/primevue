@@ -448,7 +448,7 @@ export default {
 
                 // when forceSelection is on, prevent called twice onOptionSelect()
                 if (this.visibleOptions && !this.multiple) {
-                    let value = this.multiple ? this.$refs.focusInput.value : this.$refs.focusInput.$el.value;
+                    let value = this.multiple ? this.$refs.focusInput.value : this.$refs.focusInput?.$el?.value;
                     const matchedValue = this.visibleOptions.find((option) => this.isOptionMatched(option, value || ''));
 
                     if (matchedValue !== undefined) {
@@ -458,8 +458,12 @@ export default {
                 }
 
                 if (!valid) {
-                    if (this.multiple) this.$refs.focusInput.value = '';
-                    else this.$refs.focusInput.$el.value = '';
+                    if (this.multiple) {
+                        this.$refs.focusInput.value = '';
+                    } else {
+                        const inputEl = this.$refs.focusInput?.$el;
+                        inputEl && (inputEl.value = '');
+                    }
                     this.$emit('clear');
                     !this.multiple && this.updateModel(event, null);
                 }
