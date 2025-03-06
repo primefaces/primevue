@@ -5,7 +5,7 @@
  * @module toastservice-usetoast
  * @todo 'use' is not a valid name for a module. Next release will change.
  */
-import type { ToastMessageOptions } from 'primevue/toast';
+import type { ToastMessageOptions } from 'primevue-vaultic/toast';
 import { Plugin } from 'vue';
 
 declare const plugin: Plugin;

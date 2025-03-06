@@ -100,11 +100,11 @@ import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core
 import AngleRightIcon from '@primevue/icons/angleright';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
+import TimesIcon from '@primevue/icons/times';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
-import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'CascadeSelect',

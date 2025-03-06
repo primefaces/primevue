@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ImageCompare from 'primevue/imagecompare';
+import ImageCompare from 'primevue-vaultic/imagecompare';
 `
             }
         };

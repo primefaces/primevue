@@ -61,7 +61,7 @@
 
 <script>
 import { UniqueComponentId } from '@primevue/core/utils';
-import Chip from 'primevue/chip';
+import Chip from 'primevue-vaultic/chip';
 import BaseInputChips from './BaseInputChips.vue';
 
 export default {

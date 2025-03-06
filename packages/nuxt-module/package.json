@@ -1,6 +1,6 @@
 {
     "name": "@primevue/nuxt-module",
-    "version": "4.2.5",
+    "version": "4.2.3",
     "author": "PrimeTek Informatics",
     "description": "Nuxt module for PrimeVue",
     "homepage": "https://primevue.org/",
@@ -55,7 +55,7 @@
         "access": "public"
     },
     "scripts": {
-        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package --failOnWarn=false",
+        "build": "SET \"NODE_ENV=production\" && SET \"INPUT_DIR=src/\" && SET \"OUTPUT_DIR=dist/\" && pnpm run build:package",
         "build:package": "pnpm run build:prebuild && pnpm run prepack",
         "build:prebuild": "node ./scripts/prebuild.mjs",
         "prepack": "nuxt-module-build",
@@ -68,8 +68,8 @@
     },
     "dependencies": {
         "@nuxt/kit": "^3.7.3",
-        "@primeuix/styled": "catalog:",
-        "@primeuix/utils": "catalog:",
+        "@primeuix/styled": "^0.3.2",
+        "@primeuix/utils": "^0.3.2",
         "primevue-vaultic": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
         "@primevue/metadata": "workspace:*",

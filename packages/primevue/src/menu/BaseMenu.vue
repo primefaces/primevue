@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import MenuStyle from 'primevue/menu/style';
+import MenuStyle from 'primevue-vaultic/menu/style';
 
 export default {
     name: 'BaseMenu',

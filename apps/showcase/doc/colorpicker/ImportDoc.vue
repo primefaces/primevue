@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ColorPicker from 'primevue/colorpicker';
+import ColorPicker from 'primevue-vaultic/colorpicker';
 `
             }
         };

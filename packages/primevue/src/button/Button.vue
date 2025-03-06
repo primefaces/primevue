@@ -18,8 +18,8 @@
 <script>
 import { isEmpty } from '@primeuix/utils/object';
 import SpinnerIcon from '@primevue/icons/spinner';
-import Badge from 'primevue/badge';
-import Ripple from 'primevue/ripple';
+import Badge from 'primevue-vaultic/badge';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 import BaseButton from './BaseButton.vue';
 

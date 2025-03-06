@@ -19,7 +19,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import Select from 'primevue/select';
+import Select from 'primevue-vaultic/select';
 
 export default {
     name: 'JumpToPageDropdown',

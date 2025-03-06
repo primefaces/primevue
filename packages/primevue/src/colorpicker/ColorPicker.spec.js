@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue-vaultic/config';
 import ColorPicker from './ColorPicker.vue';
 
 describe('ColorPicker.vue', () => {

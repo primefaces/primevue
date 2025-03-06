@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { InputTextPassThroughOptions } from 'primevue/inputtext';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { InputTextPassThroughOptions } from 'primevue-vaultic/inputtext';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
 
 export declare type InputOtpPassThroughOptionType = InputOtpPassThroughAttributes | ((options: InputOtpPassThroughMethodOptions) => InputOtpPassThroughAttributes | string) | string | null | undefined;

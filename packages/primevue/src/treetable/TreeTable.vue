@@ -208,7 +208,7 @@ import { localeComparator, resolveFieldData, sort } from '@primeuix/utils/object
 import { FilterService } from '@primevue/core/api';
 import { getVNodeProp, HelperSet } from '@primevue/core/utils';
 import SpinnerIcon from '@primevue/icons/spinner';
-import Paginator from 'primevue/paginator';
+import Paginator from 'primevue-vaultic/paginator';
 import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';

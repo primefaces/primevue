@@ -1,6 +1,6 @@
 <script>
 import BaseInput from '@primevue/core/baseinput';
-import CheckboxStyle from 'primevue/checkbox/style';
+import CheckboxStyle from 'primevue-vaultic/checkbox/style';
 
 export default {
     name: 'BaseCheckbox',

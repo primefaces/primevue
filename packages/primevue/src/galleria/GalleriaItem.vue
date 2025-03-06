@@ -40,7 +40,7 @@ import { find, findSingle, getAttribute } from '@primeuix/utils/dom';
 import BaseComponent from '@primevue/core/basecomponent';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 
 export default {
     name: 'GalleriaItem',

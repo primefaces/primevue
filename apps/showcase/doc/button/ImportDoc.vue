@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Button from 'primevue/button';
+import Button from 'primevue-vaultic/button';
 `
             }
         };

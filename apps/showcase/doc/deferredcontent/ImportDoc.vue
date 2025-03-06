@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import DeferredContent from 'primevue/deferredcontent';
+import DeferredContent from 'primevue-vaultic/deferredcontent';
 `
             }
         };

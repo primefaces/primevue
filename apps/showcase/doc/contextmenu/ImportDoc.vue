@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ContextMenu from 'primevue/contextmenu';
+import ContextMenu from 'primevue-vaultic/contextmenu';
 `
             }
         };

@@ -1,6 +1,6 @@
-import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue-vaultic/config';
+import { nextTick } from 'vue';
 import CascadeSelect from './CascadeSelect.vue';
 
 describe('CascadeSelect.vue', () => {

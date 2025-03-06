@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import TieredMenuStyle from 'primevue/tieredmenu/style';
+import TieredMenuStyle from 'primevue-vaultic/tieredmenu/style';
 
 export default {
     name: 'BaseTieredMenu',

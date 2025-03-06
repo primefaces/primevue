@@ -7,7 +7,7 @@
  * @module sidebarstyle
  *
  */
-import type { DrawerStyle } from 'primevue/drawer/style';
+import type { DrawerStyle } from 'primevue-vaultic/drawer/style';
 
 export enum SidebarClasses {}
 

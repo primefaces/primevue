@@ -1,4 +1,4 @@
-import type { PrimeVueConfiguration } from 'primevue/config';
+import type { PrimeVueConfiguration } from 'primevue-vaultic/config';
 
 export interface ConstructsType {
     prefix?: string | undefined;

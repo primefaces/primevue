@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Tree from 'primevue/tree';
+import Tree from 'primevue-vaultic/tree';
 `
             }
         };

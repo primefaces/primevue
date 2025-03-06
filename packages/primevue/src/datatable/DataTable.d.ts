@@ -9,13 +9,13 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonProps } from 'primevue/button';
-import type { ColumnPassThroughOptionType } from 'primevue/column';
-import type { ColumnGroupPassThroughOptionType } from 'primevue/columngroup';
-import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
-import type { PassThroughOptions } from 'primevue/passthrough';
-import type { RowPassThroughOptionType } from 'primevue/row';
-import type { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
+import type { ButtonProps } from 'primevue-vaultic/button';
+import type { ColumnPassThroughOptionType } from 'primevue-vaultic/column';
+import type { ColumnGroupPassThroughOptionType } from 'primevue-vaultic/columngroup';
+import type { PaginatorPassThroughOptionType } from 'primevue-vaultic/paginator';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
+import type { RowPassThroughOptionType } from 'primevue-vaultic/row';
+import type { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue-vaultic/virtualscroller';
 import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;

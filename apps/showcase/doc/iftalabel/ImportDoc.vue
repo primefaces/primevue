@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import IftaLabel from 'primevue/iftalabel';
+import IftaLabel from 'primevue-vaultic/iftalabel';
 `
             }
         };

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Drawer from 'primevue/drawer';
+import Drawer from 'primevue-vaultic/drawer';
 `
             }
         };

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ProgressBar from 'primevue/progressbar';
+import ProgressBar from 'primevue-vaultic/progressbar';
 `
             }
         };

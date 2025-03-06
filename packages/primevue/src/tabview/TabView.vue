@@ -91,11 +91,11 @@
 </template>
 
 <script>
+import { findSingle, focus, getAttribute, getOffset, getWidth } from '@primeuix/utils/dom';
 import { UniqueComponentId } from '@primevue/core/utils';
-import { getWidth, getAttribute, findSingle, focus, getOffset } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 import BaseTabView from './BaseTabView.vue';
 

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import OrganizationChart from 'primevue/organizationchart';
+import OrganizationChart from 'primevue-vaultic/organizationchart';
 `
             }
         };

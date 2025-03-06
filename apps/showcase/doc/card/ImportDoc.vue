@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Card from 'primevue/card';
+import Card from 'primevue-vaultic/card';
 `
             }
         };

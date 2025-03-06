@@ -39,7 +39,7 @@ import { addStyle, findSingle, focus, getHiddenElementOuterHeight, getHiddenElem
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { UniqueComponentId } from '@primevue/core/utils';
-import Portal from 'primevue/portal';
+import Portal from 'primevue-vaultic/portal';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
 

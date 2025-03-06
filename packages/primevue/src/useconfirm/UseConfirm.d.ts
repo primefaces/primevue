@@ -1,4 +1,4 @@
-import type { ConfirmationOptions } from 'primevue/confirmationoptions';
+import type { ConfirmationOptions } from 'primevue-vaultic/confirmationoptions';
 
 export declare function useConfirm(): {
     require: (option: ConfirmationOptions) => void;

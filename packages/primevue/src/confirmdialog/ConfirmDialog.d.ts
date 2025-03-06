@@ -9,9 +9,9 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions } from 'primevue/button';
-import type { ConfirmationOptions } from 'primevue/confirmationoptions';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions } from 'primevue-vaultic/button';
+import type { ConfirmationOptions } from 'primevue-vaultic/confirmationoptions';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
 
 export declare type ConfirmDialogPassThroughOptionType = ConfirmDialogPassThroughAttributes | ((options: ConfirmDialogPassThroughMethodOptions) => ConfirmDialogPassThroughAttributes | string) | string | null | undefined;

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Tag from 'primevue/tag';
+import Tag from 'primevue-vaultic/tag';
 `
             }
         };

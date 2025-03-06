@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Chart from 'primevue/chart';
+import Chart from 'primevue-vaultic/chart';
 `
             }
         };

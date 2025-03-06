@@ -76,7 +76,7 @@ import { isNotEmpty, resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleRightIcon from '@primevue/icons/angleright';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 
 export default {

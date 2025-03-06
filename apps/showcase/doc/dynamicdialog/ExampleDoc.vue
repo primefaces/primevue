@@ -34,7 +34,7 @@ export default {
 </template>
 
 <script>
-import Button from 'primevue/button';
+import Button from 'primevue-vaultic/button';
 import { markRaw, defineAsyncComponent } from 'vue';
 const ProductListDemo = defineAsyncComponent(() => import('./components/ProductListDemo.vue'));
 const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vue'));
@@ -84,9 +84,9 @@ export default {
 
 <script setup>
 import { markRaw, defineAsyncComponent } from 'vue';
-import { useDialog } from 'primevue/usedialog';
-import { useToast } from 'primevue/usetoast';
-import Button from 'primevue/button';
+import { useDialog } from 'primevue-vaultic/usedialog';
+import { useToast } from 'primevue-vaultic/usetoast';
+import Button from 'primevue-vaultic/button';
 const ProductListDemo = defineAsyncComponent(() => import('./components/ProductListDemo.vue'));
 const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vue'));
 
@@ -123,7 +123,7 @@ const showProducts = () => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',

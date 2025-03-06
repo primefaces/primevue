@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import InputText from 'primevue/inputtext';
+import InputText from 'primevue-vaultic/inputtext';
 `
             }
         };

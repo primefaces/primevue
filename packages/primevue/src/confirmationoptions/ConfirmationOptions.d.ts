@@ -6,7 +6,7 @@
  *
  */
 import type { HintedString } from '@primevue/core';
-import type { ButtonProps } from 'primevue/button';
+import type { ButtonProps } from 'primevue-vaultic/button';
 
 /**
  * Confirmation Service options.

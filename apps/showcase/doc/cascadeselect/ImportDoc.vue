@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import CascadeSelect from 'primevue/cascadeselect';
+import CascadeSelect from 'primevue-vaultic/cascadeselect';
 `
             }
         };

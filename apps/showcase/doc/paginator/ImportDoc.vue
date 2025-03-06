@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Paginator from 'primevue/paginator';
+import Paginator from 'primevue-vaultic/paginator';
 `
             }
         };

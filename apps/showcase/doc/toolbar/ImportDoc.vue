@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Toolbar from 'primevue/toolbar';
+import Toolbar from 'primevue-vaultic/toolbar';
 `
             }
         };

@@ -8,7 +8,7 @@
  *
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
 
 export declare type MeterGroupPassThroughOptionType = MeterGroupPassThroughAttributes | ((options: MeterGroupPassThroughMethodOptions) => MeterGroupPassThroughAttributes | string) | string | null | undefined;

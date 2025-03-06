@@ -65,11 +65,11 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, find, findSingle, addStyle, absolutePosition, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addStyle, find, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
+import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
 import BaseMenu from './BaseMenu.vue';
 import Menuitem from './Menuitem.vue';
 

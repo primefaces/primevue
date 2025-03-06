@@ -31,9 +31,9 @@
 import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import ChevronUpIcon from '@primevue/icons/chevronup';
-import AccordionContent from 'primevue/accordioncontent';
-import AccordionHeader from 'primevue/accordionheader';
-import AccordionPanel from 'primevue/accordionpanel';
+import AccordionContent from 'primevue-vaultic/accordioncontent';
+import AccordionHeader from 'primevue-vaultic/accordionheader';
+import AccordionPanel from 'primevue-vaultic/accordionpanel';
 import { mergeProps } from 'vue';
 import BaseAccordion from './BaseAccordion.vue';
 

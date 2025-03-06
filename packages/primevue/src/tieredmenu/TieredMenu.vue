@@ -46,8 +46,8 @@ import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDe
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
 import BaseTieredMenu from './BaseTieredMenu.vue';
 import TieredMenuSub from './TieredMenuSub.vue';
 

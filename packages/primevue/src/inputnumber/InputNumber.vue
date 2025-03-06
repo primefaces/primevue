@@ -77,7 +77,7 @@ import { clearSelection, getSelection } from '@primeuix/utils/dom';
 import { isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
-import InputText from 'primevue/inputtext';
+import InputText from 'primevue-vaultic/inputtext';
 import BaseInputNumber from './BaseInputNumber.vue';
 
 export default {

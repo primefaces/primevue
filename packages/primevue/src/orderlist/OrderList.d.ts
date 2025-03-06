@@ -9,9 +9,9 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
-import type { ListboxPassThroughOptions } from 'primevue/listbox';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions, ButtonProps } from 'primevue-vaultic/button';
+import type { ListboxPassThroughOptions } from 'primevue-vaultic/listbox';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { TransitionProps, VNode } from 'vue';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;

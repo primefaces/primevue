@@ -308,7 +308,7 @@ export default {
 
 <script setup>
 import { ref } from 'vue';
-import { usePrimeVue } from 'primevue/config';
+import { usePrimeVue } from 'primevue-vaultic/config';
 import { useToast } from "primevue/usetoast";
 
 const $primevue = usePrimeVue();

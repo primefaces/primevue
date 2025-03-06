@@ -9,7 +9,7 @@
 
 <script>
 import { getPTOptions } from '@/components/doc/helpers';
-import TerminalService from 'primevue/terminalservice';
+import TerminalService from 'primevue-vaultic/terminalservice';
 
 export default {
     data() {

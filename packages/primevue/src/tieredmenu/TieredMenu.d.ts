@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { MenuItem } from 'primevue/menuitem';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { MenuItem } from 'primevue-vaultic/menuitem';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { TransitionProps, VNode } from 'vue';
 
 export declare type TieredMenuPassThroughOptionType<T = any> = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions<T>) => TieredMenuPassThroughAttributes | string) | string | null | undefined;

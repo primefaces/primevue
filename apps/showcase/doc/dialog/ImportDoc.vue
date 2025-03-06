@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Dialog from 'primevue/dialog';
+import Dialog from 'primevue-vaultic/dialog';
 `
             }
         };

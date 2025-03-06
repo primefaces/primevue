@@ -27,7 +27,7 @@
 <script>
 import { resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 
 export default {

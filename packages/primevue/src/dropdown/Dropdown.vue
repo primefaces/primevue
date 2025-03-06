@@ -1,5 +1,5 @@
 <script>
-import Select from 'primevue/select';
+import Select from 'primevue-vaultic/select';
 
 export default {
     name: 'Dropdown',

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import KeyFilter from 'primevue/keyfilter';
+import KeyFilter from 'primevue-vaultic/keyfilter';
 
 app.directive('keyfilter', KeyFilter);
 `

@@ -7,6 +7,6 @@
  * @module overlaypanelstyle
  *
  */
-import type { PopoverStyle } from 'primevue/popover/style';
+import type { PopoverStyle } from 'primevue-vaultic/popover/style';
 
 export interface OverlayPanelStyle extends PopoverStyle {}

@@ -201,13 +201,13 @@ import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import TimesIcon from '@primevue/icons/times';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-import InputText from 'primevue/inputtext';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import IconField from 'primevue-vaultic/iconfield';
+import InputIcon from 'primevue-vaultic/inputicon';
+import InputText from 'primevue-vaultic/inputtext';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
+import Ripple from 'primevue-vaultic/ripple';
+import VirtualScroller from 'primevue-vaultic/virtualscroller';
 import BaseSelect from './BaseSelect.vue';
 
 export default {

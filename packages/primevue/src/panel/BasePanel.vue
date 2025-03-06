@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import PanelStyle from 'primevue/panel/style';
+import PanelStyle from 'primevue-vaultic/panel/style';
 
 export default {
     name: 'BasePanel',

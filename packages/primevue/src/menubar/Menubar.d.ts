@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { MenuItem } from 'primevue/menuitem';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { MenuItem } from 'primevue-vaultic/menuitem';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { ButtonHTMLAttributes, VNode } from 'vue';
 
 export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | string) | string | null | undefined;

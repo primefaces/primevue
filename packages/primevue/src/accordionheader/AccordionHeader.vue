@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import { findSingle, getAttribute, focus } from '@primeuix/utils/dom';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 import BaseAccordionHeader from './BaseAccordionHeader.vue';
 

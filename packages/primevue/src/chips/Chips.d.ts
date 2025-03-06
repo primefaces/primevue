@@ -8,7 +8,7 @@
  *
  */
 import type { DefineComponent, EmitFn } from '@primevue/core';
-import * as InputChips from 'primevue/inputchips';
+import * as InputChips from 'primevue-vaultic/inputchips';
 import 'vue';
 
 /**

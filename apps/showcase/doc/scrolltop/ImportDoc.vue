@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ScrollTop from 'primevue/scrolltop';
+import ScrollTop from 'primevue-vaultic/scrolltop';
 `
             }
         };

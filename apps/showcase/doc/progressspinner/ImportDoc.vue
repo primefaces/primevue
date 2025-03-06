@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ProgressSpinner from 'primevue/progressspinner';
+import ProgressSpinner from 'primevue-vaultic/progressspinner';
 `
             }
         };

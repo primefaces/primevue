@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Carousel from 'primevue/carousel';
+import Carousel from 'primevue-vaultic/carousel';
 `
             }
         };

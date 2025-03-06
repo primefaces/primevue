@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Slider from 'primevue/slider';
+import Slider from 'primevue-vaultic/slider';
 `
             }
         };

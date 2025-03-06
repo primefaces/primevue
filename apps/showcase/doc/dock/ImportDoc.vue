@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Dock from 'primevue/dock';
+import Dock from 'primevue-vaultic/dock';
 `
             }
         };

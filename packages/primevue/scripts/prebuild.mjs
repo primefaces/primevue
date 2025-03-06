@@ -56,16 +56,16 @@ export { default as ChartStyle } from '../chart/style/ChartStyle.js';
         `/***************** PrimeVue (Auto-Generated) *****************/
 
 // UseConfirm
-export * from 'primevue/useconfirm';
+export * from 'primevue-vaultic/useconfirm';
 
 // UseDialog
-export * from 'primevue/usedialog';
+export * from 'primevue-vaultic/usedialog';
 
 // UseToast
-export * from 'primevue/usetoast';
+export * from 'primevue-vaultic/usetoast';
 
 // UseStyle
-export * from 'primevue/usestyle';
+export * from 'primevue-vaultic/usestyle';
 `
     ]
 };
@@ -95,8 +95,8 @@ export { default as ${fileName} } from '../${folderName}/${file}';
                     modules.esm.push(
                         `
 // ${fileName}
-export * from 'primevue/${folderName}';
-export { default as ${fileName} } from 'primevue/${folderName}';
+export * from 'primevue-vaultic/${folderName}';
+export { default as ${fileName} } from 'primevue-vaultic/${folderName}';
 `
                     );
                 }
@@ -116,8 +116,8 @@ export { default as ${subFileName} } from '../${folderName}/style/${file}';
 `
                                 );
                                 modules.esm.push(
-                                    `export * from 'primevue/${folderName}/style';
-export { default as ${subFileName} } from 'primevue/${folderName}/style';
+                                    `export * from 'primevue-vaultic/${folderName}/style';
+export { default as ${subFileName} } from 'primevue-vaultic/${folderName}/style';
 `
                                 );
                             }

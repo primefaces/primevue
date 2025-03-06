@@ -1,6 +1,6 @@
 <script>
 import BaseEditableHolder from '@primevue/core/baseeditableholder';
-import EditorStyle from 'primevue/editor/style';
+import EditorStyle from 'primevue-vaultic/editor/style';
 
 export default {
     name: 'BaseEditor',

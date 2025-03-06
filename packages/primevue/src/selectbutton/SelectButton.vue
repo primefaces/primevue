@@ -23,8 +23,8 @@
 
 <script>
 import { equals, resolveFieldData } from '@primeuix/utils/object';
-import Ripple from 'primevue/ripple';
-import ToggleButton from 'primevue/togglebutton';
+import Ripple from 'primevue-vaultic/ripple';
+import ToggleButton from 'primevue-vaultic/togglebutton';
 import BaseSelectButton from './BaseSelectButton.vue';
 
 export default {

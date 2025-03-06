@@ -40,7 +40,7 @@ const getVueApp = (props = {}, sourceType) => {
         themeSwitchCode = '';
 
     if (deps !== null && component !== null) {
-        imports += `import ${component} from 'primevue/${component.toLowerCase()}';
+        imports += `import ${component} from 'primevue-vaultic/${component.toLowerCase()}';
 `;
         element += `app.component('${component}', ${component});
 `;
@@ -136,9 +136,9 @@ import "./flags.css";
 
 import { createApp } from "vue";
 import PrimeVue from "primevue/config";
-import ConfirmationService from 'primevue/confirmationservice'
-import DialogService from 'primevue/dialogservice'
-import ToastService from 'primevue/toastservice';
+import ConfirmationService from 'primevue-vaultic/confirmationservice'
+import DialogService from 'primevue-vaultic/dialogservice'
+import ToastService from 'primevue-vaultic/toastservice';
 
 import App from "./App.vue";
 import AppState from './plugins/appState.js';

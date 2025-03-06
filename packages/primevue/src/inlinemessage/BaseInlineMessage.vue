@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import InlineMessageStyle from 'primevue/inlinemessage/style';
+import InlineMessageStyle from 'primevue-vaultic/inlinemessage/style';
 
 export default {
     name: 'BaseInlineMessage',

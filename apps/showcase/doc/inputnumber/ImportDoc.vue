@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import InputNumber from 'primevue/inputnumber';
+import InputNumber from 'primevue-vaultic/inputnumber';
 `
             }
         };

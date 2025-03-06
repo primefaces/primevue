@@ -107,8 +107,8 @@ import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import ChevronUpIcon from '@primevue/icons/chevronup';
-import Button from 'primevue/button';
-import Ripple from 'primevue/ripple';
+import Button from 'primevue-vaultic/button';
+import Ripple from 'primevue-vaultic/ripple';
 import BaseCarousel from './BaseCarousel.vue';
 
 export default {

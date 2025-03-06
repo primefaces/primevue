@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import StepListStyle from 'primevue/steplist/style';
+import StepListStyle from 'primevue-vaultic/steplist/style';
 
 export default {
     name: 'BaseStepList',

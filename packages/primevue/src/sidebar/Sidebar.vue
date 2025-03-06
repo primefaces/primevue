@@ -1,5 +1,5 @@
 <script>
-import Drawer from 'primevue/drawer';
+import Drawer from 'primevue-vaultic/drawer';
 
 export default {
     name: 'Sidebar',

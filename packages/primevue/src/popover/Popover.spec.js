@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue-vaultic/config';
 import Popover from './Popover.vue';
 
 describe('Popover.vue', () => {

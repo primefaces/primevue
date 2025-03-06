@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ToggleButton from 'primevue/togglebutton';
+import ToggleButton from 'primevue-vaultic/togglebutton';
 `
             }
         };

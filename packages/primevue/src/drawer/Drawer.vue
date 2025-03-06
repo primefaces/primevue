@@ -45,9 +45,9 @@
 import { addClass, blockBodyScroll, focus, unblockBodyScroll } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import TimesIcon from '@primevue/icons/times';
-import Button from 'primevue/button';
-import FocusTrap from 'primevue/focustrap';
-import Portal from 'primevue/portal';
+import Button from 'primevue-vaultic/button';
+import FocusTrap from 'primevue-vaultic/focustrap';
+import Portal from 'primevue-vaultic/portal';
 import BaseDrawer from './BaseDrawer.vue';
 
 export default {

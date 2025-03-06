@@ -9,8 +9,8 @@ export default {
         return {
             code: {
                 basic: `
-import Splitter from 'primevue/splitter';
-import SplitterPanel from 'primevue/splitterpanel';
+import Splitter from 'primevue-vaultic/splitter';
+import SplitterPanel from 'primevue-vaultic/splitterpanel';
 `
             }
         };

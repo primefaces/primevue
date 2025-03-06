@@ -4,7 +4,7 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import RadioButton from 'primevue/radiobutton';
+import RadioButton from 'primevue-vaultic/radiobutton';
 import { mergeProps } from 'vue';
 
 export default {

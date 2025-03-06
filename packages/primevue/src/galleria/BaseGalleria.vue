@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import GalleriaStyle from 'primevue/galleria/style';
+import GalleriaStyle from 'primevue-vaultic/galleria/style';
 
 export default {
     name: 'BaseGalleria',

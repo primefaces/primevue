@@ -47,9 +47,9 @@
 import { isFunction, resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-import InputText from 'primevue/inputtext';
+import IconField from 'primevue-vaultic/iconfield';
+import InputIcon from 'primevue-vaultic/inputicon';
+import InputText from 'primevue-vaultic/inputtext';
 import BaseTree from './BaseTree.vue';
 import TreeNode from './TreeNode.vue';
 

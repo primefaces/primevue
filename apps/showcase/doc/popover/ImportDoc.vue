@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Popover from 'primevue/popover';
+import Popover from 'primevue-vaultic/popover';
 `
             }
         };

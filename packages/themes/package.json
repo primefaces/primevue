@@ -1,6 +1,6 @@
 {
     "name": "@primevue/themes",
-    "version": "4.2.5",
+    "version": "4.2.3",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -74,7 +74,7 @@
         "access": "public"
     },
     "scripts": {
-        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build": "SET \"NODE_ENV=production\" && SET \"INPUT_DIR=src/\" && SET \"OUTPUT_DIR=dist/\" && pnpm run build:package",
         "build:package": "pnpm run build:prebuild && pnpm run build:tokens && rollup -c && pnpm run build:postbuild",
         "build:tokens": "node ./scripts/build-tokens.js",
         "build:prebuild": "node ./scripts/prebuild.mjs",
@@ -82,7 +82,7 @@
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
-        "@primeuix/styled": "catalog:"
+        "@primeuix/styled": "^0.3.2"
     },
     "engines": {
         "node": ">=12.11.0"

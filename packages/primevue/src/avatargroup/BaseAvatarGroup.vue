@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import AvatarGroupStyle from 'primevue/avatargroup/style';
+import AvatarGroupStyle from 'primevue-vaultic/avatargroup/style';
 
 export default {
     name: 'BaseAvatarGroup',

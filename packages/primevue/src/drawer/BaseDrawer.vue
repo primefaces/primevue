@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import DrawerStyle from 'primevue/drawer/style';
+import DrawerStyle from 'primevue-vaultic/drawer/style';
 
 export default {
     name: 'BaseDrawer',

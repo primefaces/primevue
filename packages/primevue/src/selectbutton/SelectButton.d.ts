@@ -8,9 +8,9 @@
  *
  */
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
-// import { ToggleButtonPassThroughOptions } from 'primevue/togglebutton';
+// import { ToggleButtonPassThroughOptions } from 'primevue-vaultic/togglebutton';
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;

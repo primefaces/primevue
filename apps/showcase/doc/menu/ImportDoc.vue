@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Menu from 'primevue/menu';
+import Menu from 'primevue-vaultic/menu';
 `
             }
         };

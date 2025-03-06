@@ -8,7 +8,7 @@
  *
  */
 import type { DefineComponent, EmitFn } from '@primevue/core';
-import * as ToggleSwitch from 'primevue/toggleswitch';
+import * as ToggleSwitch from 'primevue-vaultic/toggleswitch';
 /**
  * Custom passthrough(pt) option method.
  */

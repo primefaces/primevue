@@ -90,7 +90,7 @@ import { getVNodeProp } from '@primevue/core/utils';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from '@primevue/icons/sortamountupalt';
-import Badge from 'primevue/badge';
+import Badge from 'primevue-vaultic/badge';
 import { mergeProps } from 'vue';
 import ColumnFilter from './ColumnFilter.vue';
 import HeaderCheckbox from './HeaderCheckbox.vue';

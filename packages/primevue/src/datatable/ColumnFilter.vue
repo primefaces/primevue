@@ -164,20 +164,20 @@
 </template>
 
 <script>
+import { absolutePosition, addStyle, focus, getAttribute, isTouchDevice } from '@primeuix/utils/dom';
+import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterOperator } from '@primevue/core/api';
 import BaseComponent from '@primevue/core/basecomponent';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { getAttribute, focus, addStyle, absolutePosition, isTouchDevice } from '@primeuix/utils/dom';
-import { ZIndex } from '@primeuix/utils/zindex';
 import FilterIcon from '@primevue/icons/filter';
 import FilterSlashIcon from '@primevue/icons/filterslash';
 import PlusIcon from '@primevue/icons/plus';
 import TrashIcon from '@primevue/icons/trash';
-import Button from 'primevue/button';
-import FocusTrap from 'primevue/focustrap';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
-import Select from 'primevue/select';
+import Button from 'primevue-vaultic/button';
+import FocusTrap from 'primevue-vaultic/focustrap';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
+import Select from 'primevue-vaultic/select';
 import { mergeProps } from 'vue';
 
 export default {

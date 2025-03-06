@@ -8,7 +8,7 @@
  *
  */
 import type { DefineComponent, EmitFn } from '@primevue/core';
-import * as DatePicker from 'primevue/datepicker';
+import * as DatePicker from 'primevue-vaultic/datepicker';
 import 'vue';
 
 /**

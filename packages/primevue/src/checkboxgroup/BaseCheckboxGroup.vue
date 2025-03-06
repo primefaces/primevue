@@ -1,6 +1,6 @@
 <script>
 import BaseEditableHolder from '@primevue/core/baseeditableholder';
-import CheckboxGroupStyle from 'primevue/checkboxgroup/style';
+import CheckboxGroupStyle from 'primevue-vaultic/checkboxgroup/style';
 
 export default {
     name: 'BaseCheckboxGroup',

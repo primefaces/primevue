@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Skeleton from 'primevue/skeleton';
+import Skeleton from 'primevue-vaultic/skeleton';
 `
             }
         };

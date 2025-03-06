@@ -177,9 +177,9 @@ import AngleDownIcon from '@primevue/icons/angledown';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import AngleUpIcon from '@primevue/icons/angleup';
-import Button from 'primevue/button';
-import Listbox from 'primevue/listbox';
-import Ripple from 'primevue/ripple';
+import Button from 'primevue-vaultic/button';
+import Listbox from 'primevue-vaultic/listbox';
+import Ripple from 'primevue-vaultic/ripple';
 import BasePickList from './BasePickList.vue';
 
 export default {

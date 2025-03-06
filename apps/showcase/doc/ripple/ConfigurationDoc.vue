@@ -21,7 +21,7 @@ mounted() {
 }
 `,
                 composition: `
-import { usePrimeVue } from 'primevue/config';
+import { usePrimeVue } from 'primevue-vaultic/config';
 
 const PrimeVue = usePrimeVue();
 

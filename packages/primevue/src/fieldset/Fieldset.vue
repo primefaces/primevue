@@ -38,7 +38,7 @@
 import { UniqueComponentId } from '@primevue/core/utils';
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import BaseFieldset from './BaseFieldset.vue';
 
 export default {

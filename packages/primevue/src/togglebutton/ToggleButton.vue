@@ -26,7 +26,7 @@
 
 <script>
 import { isNotEmpty } from '@primeuix/utils/object';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import BaseToggleButton from './BaseToggleButton.vue';
 
 export default {

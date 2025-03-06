@@ -9,8 +9,8 @@ export default {
         return {
             code: {
                 basic: `
-import InputGroup from 'primevue/inputgroup';
-import InputGroupAddon from 'primevue/inputgroupaddon';
+import InputGroup from 'primevue-vaultic/inputgroup';
+import InputGroupAddon from 'primevue-vaultic/inputgroupaddon';
 `
             }
         };

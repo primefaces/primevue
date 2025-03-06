@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Rating from 'primevue/rating';
+import Rating from 'primevue-vaultic/rating';
 `
             }
         };

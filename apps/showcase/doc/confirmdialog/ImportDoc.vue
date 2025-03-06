@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmDialog from 'primevue-vaultic/confirmdialog';
 `
             }
         };

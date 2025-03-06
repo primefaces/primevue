@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import InputGroupAddonStyle from 'primevue/inputgroupaddon/style';
+import InputGroupAddonStyle from 'primevue-vaultic/inputgroupaddon/style';
 
 export default {
     name: 'BaseInputGroupAddon',

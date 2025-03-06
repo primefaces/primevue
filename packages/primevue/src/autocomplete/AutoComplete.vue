@@ -189,12 +189,12 @@ import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
-import Chip from 'primevue/chip';
-import InputText from 'primevue/inputtext';
-import OverlayEventBus from 'primevue/overlayeventbus';
-import Portal from 'primevue/portal';
-import Ripple from 'primevue/ripple';
-import VirtualScroller from 'primevue/virtualscroller';
+import Chip from 'primevue-vaultic/chip';
+import InputText from 'primevue-vaultic/inputtext';
+import OverlayEventBus from 'primevue-vaultic/overlayeventbus';
+import Portal from 'primevue-vaultic/portal';
+import Ripple from 'primevue-vaultic/ripple';
+import VirtualScroller from 'primevue-vaultic/virtualscroller';
 import BaseAutoComplete from './BaseAutoComplete.vue';
 
 export default {

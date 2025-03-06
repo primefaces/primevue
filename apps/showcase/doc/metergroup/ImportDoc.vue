@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import MeterGroup from 'primevue/metergroup';
+import MeterGroup from 'primevue-vaultic/metergroup';
 `
             }
         };

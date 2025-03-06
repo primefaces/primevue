@@ -9,9 +9,9 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
-import type { MenuItem } from 'primevue/menuitem';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions, ButtonProps } from 'primevue-vaultic/button';
+import type { MenuItem } from 'primevue-vaultic/menuitem';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
 
 export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;

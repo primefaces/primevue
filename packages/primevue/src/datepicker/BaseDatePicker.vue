@@ -1,6 +1,6 @@
 <script>
 import BaseInput from '@primevue/core/baseinput';
-import DatePickerStyle from 'primevue/datepicker/style';
+import DatePickerStyle from 'primevue-vaultic/datepicker/style';
 
 export default {
     name: 'BaseDatePicker',

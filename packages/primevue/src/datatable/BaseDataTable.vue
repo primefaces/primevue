@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import DataTableStyle from 'primevue/datatable/style';
+import DataTableStyle from 'primevue-vaultic/datatable/style';
 
 export default {
     name: 'BaseDataTable',

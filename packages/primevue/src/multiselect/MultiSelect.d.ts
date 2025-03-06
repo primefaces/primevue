@@ -9,12 +9,12 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ChipPassThroughOptions } from 'primevue/chip';
-import type { IconFieldPassThroughOptions } from 'primevue/iconfield';
-import type { InputIconPassThroughOptions } from 'primevue/inputicon';
-import type { InputTextPassThroughOptions } from 'primevue/inputtext';
-import type { PassThroughOptions } from 'primevue/passthrough';
-import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
+import type { ChipPassThroughOptions } from 'primevue-vaultic/chip';
+import type { IconFieldPassThroughOptions } from 'primevue-vaultic/iconfield';
+import type { InputIconPassThroughOptions } from 'primevue-vaultic/inputicon';
+import type { InputTextPassThroughOptions } from 'primevue-vaultic/inputtext';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
+import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue-vaultic/virtualscroller';
 import { TransitionProps, VNode } from 'vue';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;

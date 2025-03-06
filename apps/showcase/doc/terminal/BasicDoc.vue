@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TerminalService from 'primevue/terminalservice';
+import TerminalService from 'primevue-vaultic/terminalservice';
 
 export default {
     data() {
@@ -64,7 +64,7 @@ export default {
                 default:
                     response = "Unknown command: " + command;
             }
-            
+
             TerminalService.emit('response', response);
         }
     },
@@ -122,7 +122,7 @@ const commandHandler = (text) => {
         default:
             response = "Unknown command: " + command;
     }
-    
+
     TerminalService.emit('response', response);
 }
 <\/script>

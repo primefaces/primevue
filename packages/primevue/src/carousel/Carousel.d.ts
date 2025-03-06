@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions } from 'primevue/button';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions } from 'primevue-vaultic/button';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { VNode } from 'vue';
 
 export declare type CarouselPassThroughOptionType = CarouselPassThroughAttributes | ((options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes | string) | string | null | undefined;

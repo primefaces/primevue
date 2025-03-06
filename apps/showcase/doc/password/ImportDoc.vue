@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Password from 'primevue/password';
+import Password from 'primevue-vaultic/password';
 `
             }
         };

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import TieredMenu from 'primevue/tieredmenu';
+import TieredMenu from 'primevue-vaultic/tieredmenu';
 `
             }
         };

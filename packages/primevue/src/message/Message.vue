@@ -22,7 +22,7 @@
 
 <script>
 import TimesIcon from '@primevue/icons/times';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 import BaseMessage from './BaseMessage.vue';
 
 export default {

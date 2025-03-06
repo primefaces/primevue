@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import FileUpload from 'primevue/fileupload';
+import FileUpload from 'primevue-vaultic/fileupload';
 `
             }
         };

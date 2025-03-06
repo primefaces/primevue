@@ -17,7 +17,7 @@ export default {
             code1: {
                 basic: `
 import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue-vaultic/config';
 const app = createApp(App);
 
 app.use(PrimeVue, { ripple: true });
@@ -25,7 +25,7 @@ app.use(PrimeVue, { ripple: true });
             },
             code2: {
                 basic: `
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 
 app.directive('ripple', Ripple);
 `

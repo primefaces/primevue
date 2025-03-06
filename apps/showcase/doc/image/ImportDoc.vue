@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Image from 'primevue/image';
+import Image from 'primevue-vaultic/image';
 `
             }
         };

@@ -9,10 +9,10 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ChipPassThroughOptions } from 'primevue/chip';
-import type { PassThroughOptions } from 'primevue/passthrough';
-import type { TreeExpandedKeys, TreePassThroughOptions } from 'primevue/tree';
-import type { TreeNode } from 'primevue/treenode';
+import type { ChipPassThroughOptions } from 'primevue-vaultic/chip';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
+import type { TreeExpandedKeys, TreePassThroughOptions } from 'primevue-vaultic/tree';
+import type { TreeNode } from 'primevue-vaultic/treenode';
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import DatePicker from 'primevue/datepicker';
+import DatePicker from 'primevue-vaultic/datepicker';
 `
             }
         };

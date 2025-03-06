@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Fluid from 'primevue/fluid';
+import Fluid from 'primevue-vaultic/fluid';
 `
             }
         };

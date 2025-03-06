@@ -10,7 +10,7 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
 import CheckIcon from '@primevue/icons/check';
-import Checkbox from 'primevue/checkbox';
+import Checkbox from 'primevue-vaultic/checkbox';
 import { mergeProps } from 'vue';
 
 export default {

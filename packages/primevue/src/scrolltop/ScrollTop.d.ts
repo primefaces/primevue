@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions, ButtonProps } from 'primevue-vaultic/button';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { TransitionProps, VNode } from 'vue';
 
 export declare type ScrollTopPassThroughOptionType = ScrollTopPassThroughAttributes | ((options: ScrollTopPassThroughMethodOptions) => ScrollTopPassThroughAttributes | string) | string | null | undefined;

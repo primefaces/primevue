@@ -9,8 +9,8 @@
  */
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
-import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
-import type { PassThroughOptions } from 'primevue/passthrough';
+import type { ButtonPassThroughOptions, ButtonProps } from 'primevue-vaultic/button';
+import type { PassThroughOptions } from 'primevue-vaultic/passthrough';
 import { HTMLAttributes, TransitionProps, VNode } from 'vue';
 
 export declare type DialogPassThroughOptionType<T = any> = DialogPassThroughAttributes | ((options: DialogPassThroughMethodOptions<T>) => DialogPassThroughAttributes | string) | string | null | undefined;

@@ -1,6 +1,6 @@
 <script>
 import BaseInput from '@primevue/core/baseinput';
-import PasswordStyle from 'primevue/password/style';
+import PasswordStyle from 'primevue-vaultic/password/style';
 
 export default {
     name: 'BasePassword',

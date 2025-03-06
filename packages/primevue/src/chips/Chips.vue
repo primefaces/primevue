@@ -1,5 +1,5 @@
 <script>
-import InputChips from 'primevue/inputchips';
+import InputChips from 'primevue-vaultic/inputchips';
 
 export default {
     name: 'Chips',

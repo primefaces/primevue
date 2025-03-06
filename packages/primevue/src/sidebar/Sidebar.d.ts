@@ -8,7 +8,7 @@
  *
  */
 import type { DefineComponent, EmitFn } from '@primevue/core';
-import * as Drawer from 'primevue/drawer';
+import * as Drawer from 'primevue-vaultic/drawer';
 import 'vue';
 
 /**

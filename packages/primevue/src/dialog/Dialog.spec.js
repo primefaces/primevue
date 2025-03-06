@@ -1,5 +1,5 @@
-import PrimeVue from 'primevue/config';
 import { mount } from '@vue/test-utils';
+import PrimeVue from 'primevue-vaultic/config';
 import Dialog from './Dialog.vue';
 
 describe('Dialog.vue', () => {

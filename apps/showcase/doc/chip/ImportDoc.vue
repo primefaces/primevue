@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Chip from 'primevue/chip';
+import Chip from 'primevue-vaultic/chip';
 `
             }
         };

@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import ConfirmPopup from 'primevue/confirmpopup';
+import ConfirmPopup from 'primevue-vaultic/confirmpopup';
 `
             }
         };

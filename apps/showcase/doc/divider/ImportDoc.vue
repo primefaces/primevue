@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import Divider from 'primevue/divider';
+import Divider from 'primevue-vaultic/divider';
 `
             }
         };

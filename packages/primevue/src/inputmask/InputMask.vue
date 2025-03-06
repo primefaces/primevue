@@ -25,7 +25,7 @@
 
 <script>
 import { getUserAgent } from '@primeuix/utils/dom';
-import InputText from 'primevue/inputtext';
+import InputText from 'primevue-vaultic/inputtext';
 import { mergeProps } from 'vue';
 import BaseInputMask from './BaseInputMask.vue';
 

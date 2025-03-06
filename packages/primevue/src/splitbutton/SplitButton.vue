@@ -66,8 +66,8 @@
 import { isEmpty } from '@primeuix/utils/object';
 import { UniqueComponentId } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
-import Button from 'primevue/button';
-import TieredMenu from 'primevue/tieredmenu';
+import Button from 'primevue-vaultic/button';
+import TieredMenu from 'primevue-vaultic/tieredmenu';
 import BaseSplitButton from './BaseSplitButton.vue';
 
 export default {

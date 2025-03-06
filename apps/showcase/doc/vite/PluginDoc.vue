@@ -12,7 +12,7 @@ export default {
             code: {
                 basic: `
 import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
+import PrimeVue from 'primevue-vaultic/config';
 
 const app = createApp(App);
 app.use(PrimeVue);

@@ -89,10 +89,10 @@ import { addClass, removeClass } from '@primeuix/utils/dom';
 import PlusIcon from '@primevue/icons/plus';
 import TimesIcon from '@primevue/icons/times';
 import UploadIcon from '@primevue/icons/upload';
-import Button from 'primevue/button';
-import Message from 'primevue/message';
-import ProgressBar from 'primevue/progressbar';
-import Ripple from 'primevue/ripple';
+import Button from 'primevue-vaultic/button';
+import Message from 'primevue-vaultic/message';
+import ProgressBar from 'primevue-vaultic/progressbar';
+import Ripple from 'primevue-vaultic/ripple';
 import BaseFileUpload from './BaseFileUpload.vue';
 import FileContent from './FileContent.vue';
 

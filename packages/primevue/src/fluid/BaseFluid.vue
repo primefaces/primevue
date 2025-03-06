@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import FluidStyle from 'primevue/fluid/style';
+import FluidStyle from 'primevue-vaultic/fluid/style';
 
 export default {
     name: 'BaseFluid',

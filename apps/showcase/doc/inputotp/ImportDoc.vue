@@ -9,7 +9,7 @@ export default {
         return {
             code: {
                 basic: `
-import InputOtp from 'primevue/inputotp';
+import InputOtp from 'primevue-vaultic/inputotp';
 `
             }
         };

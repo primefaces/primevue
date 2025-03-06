@@ -124,7 +124,7 @@ export default {
 
 <script setup>
 import { reactive } from 'vue';
-import { useToast } from 'primevue/usetoast';
+import { useToast } from 'primevue-vaultic/usetoast';
 
 const toast = useToast();
 

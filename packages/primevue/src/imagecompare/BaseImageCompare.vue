@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import ImageCompareStyle from 'primevue/imagecompare/style';
+import ImageCompareStyle from 'primevue-vaultic/imagecompare/style';
 
 export default {
     name: 'BaseImageCompare',

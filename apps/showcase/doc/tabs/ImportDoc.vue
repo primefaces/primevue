@@ -9,11 +9,11 @@ export default {
         return {
             code: {
                 basic: `
-import Tabs from 'primevue/tabs';
-import TabList from 'primevue/tablist';
-import Tab from 'primevue/tab';
-import TabPanels from 'primevue/tabpanels';
-import TabPanel from 'primevue/tabpanel';
+import Tabs from 'primevue-vaultic/tabs';
+import TabList from 'primevue-vaultic/tablist';
+import Tab from 'primevue-vaultic/tab';
+import TabPanels from 'primevue-vaultic/tabpanels';
+import TabPanel from 'primevue-vaultic/tabpanel';
 `
             }
         };

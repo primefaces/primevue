@@ -1,6 +1,6 @@
 <script>
 import BaseEditableHolder from '@primevue/core/baseeditableholder';
-import RatingStyle from 'primevue/rating/style';
+import RatingStyle from 'primevue-vaultic/rating/style';
 
 export default {
     name: 'BaseRating',

@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import { getAttribute, find, findSingle, getWidth, getOffset } from '@primeuix/utils/dom';
-import Ripple from 'primevue/ripple';
+import { find, findSingle, getAttribute, getOffset, getWidth } from '@primeuix/utils/dom';
+import Ripple from 'primevue-vaultic/ripple';
 import { mergeProps } from 'vue';
 import BaseTabMenu from './BaseTabMenu.vue';
 

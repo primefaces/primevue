@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import ScrollTopStyle from 'primevue/scrolltop/style';
+import ScrollTopStyle from 'primevue-vaultic/scrolltop/style';
 
 export default {
     name: 'BaseScrollTop',

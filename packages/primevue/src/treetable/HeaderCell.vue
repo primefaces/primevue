@@ -32,7 +32,7 @@ import { getVNodeProp } from '@primevue/core/utils';
 import SortAltIcon from '@primevue/icons/sortalt';
 import SortAmountDownIcon from '@primevue/icons/sortamountdown';
 import SortAmountUpAltIcon from '@primevue/icons/sortamountupalt';
-import Badge from 'primevue/badge';
+import Badge from 'primevue-vaultic/badge';
 import { mergeProps } from 'vue';
 
 export default {

@@ -7,7 +7,7 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
 import AngleLeftIcon from '@primevue/icons/angleleft';
-import Ripple from 'primevue/ripple';
+import Ripple from 'primevue-vaultic/ripple';
 
 export default {
     name: 'PrevPageLink',

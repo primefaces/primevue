@@ -1,6 +1,6 @@
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import TreeStyle from 'primevue/tree/style';
+import TreeStyle from 'primevue-vaultic/tree/style';
 
 export default {
     name: 'BaseTree',
