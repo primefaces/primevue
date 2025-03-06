@@ -86,7 +86,7 @@ importers:
         version: 15.15.0
       pnpm:
         specifier: ^9.6.0
-        version: 9.15.6
+        version: 9.15.7
       prettier:
         specifier: ^3.5.2
         version: 3.5.3
@@ -247,10 +247,10 @@ importers:
         version: 3.0.2
       tailwindcss:
         specifier: ^4
-        version: 4.0.10
+        version: 4.0.11
       tailwindcss-primeui:
         specifier: 'catalog:'
-        version: 0.5.1(tailwindcss@4.0.10)
+        version: 0.5.1(tailwindcss@4.0.11)
       typedoc:
         specifier: 0.27.9
         version: 0.27.9(typescript@5.7.3)
@@ -4748,8 +4748,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nitropack@2.11.2:
-    resolution: {integrity: sha512-NyXw88hkrigXYo0iDodEbWdLyv8iF69LAj63eS+FDLg8+IDEKv1y58eMKmzk8vW/hwHoi2aimqHTfsZbqFAWrg==}
+  nitropack@2.11.3:
+    resolution: {integrity: sha512-ArhXs3+39cXXJdgOhhKumEYtFK/n3b0MRWyU/ltDy8KGqke61rH+aoenK/WDlfNu4tX51Wi66/PUa+HMlWE0Sg==}
     engines: {node: ^16.11.0 || >=17.0.0}
     hasBin: true
     peerDependencies:
@@ -5059,8 +5059,8 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  pnpm@9.15.6:
-    resolution: {integrity: sha512-E5yrBo/fC3USaBeaxfkJtb5yr7SnXFE9GQXRUb78iXe1k9PPhnHtg9TWY3xclLmP+84QgSXeSlonoxIzYBqZ3g==}
+  pnpm@9.15.7:
+    resolution: {integrity: sha512-7Zj5x0hEJnPEaWS3A0W9IoLJswXo6uU5s0qzHW7yTvjdWdi1XydGb3BVALAJ2cETRxz4flRPPVA2spczDCbplg==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -6086,8 +6086,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  tailwindcss@4.0.10:
-    resolution: {integrity: sha512-Z8U/6E2BWSdDkt3IWPiphoV+8V6aNzRmu2SriSbuhm6i3QIcY3TdUJzUP5NX8M8MZuIl+v4/77Rer8u4YSrSsg==}
+  tailwindcss@4.0.11:
+    resolution: {integrity: sha512-GZ6+tNwieqvpFLZfx2tkZpfOMAK7iumbOJOLmd6v8AcYuHbjUb+cmDRu6l+rFkIqarh5FfLbCSRJhegcVdoPng==}
 
   tailwindcss@4.0.9:
     resolution: {integrity: sha512-12laZu+fv1ONDRoNR9ipTOpUD7RN9essRVkX36sjxuRUInpN7hIiHN4lBd/SIFjbISvnXzp8h/hXzmU8SQQYhw==}
@@ -6107,8 +6107,8 @@ packages:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
 
-  terser-webpack-plugin@5.3.13:
-    resolution: {integrity: sha512-JG3pBixF6kx2o0Yfz2K6pqh72DpwTI08nooHd06tcj5WyIt5SsSiUYqRT+kemrGUNSuSzVhwfZ28aO8gogajNQ==}
+  terser-webpack-plugin@5.3.14:
+    resolution: {integrity: sha512-vkZjpUjb6OMS7dhV+tILUW6BhpDR7P2L/aQSAv+Uwk+m8KATX9EccViHTJR2qDtACKPIYndLGCyl3FMo+r2LMw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -7009,8 +7009,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  yocto-queue@1.1.1:
-    resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
+  yocto-queue@1.2.0:
+    resolution: {integrity: sha512-KHBC7z61OJeaMGnF3wqNZj+GGNXOyypZviiKpQeiHirG5Ib1ImwcLBH70rbMSkKfSmUNBsdf2PwaEJtKvgmkNw==}
     engines: {node: '>=12.20'}
 
   yoctocolors@2.1.1:
@@ -11933,7 +11933,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nitropack@2.11.2(typescript@5.7.3):
+  nitropack@2.11.3(typescript@5.7.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 3.0.0
@@ -12130,7 +12130,7 @@ snapshots:
       magic-string: 0.30.17
       mlly: 1.7.4
       nanotar: 0.2.0
-      nitropack: 2.11.2(typescript@5.7.3)
+      nitropack: 2.11.3(typescript@5.7.3)
       nypm: 0.5.4
       ofetch: 1.4.1
       ohash: 1.1.6
@@ -12252,7 +12252,7 @@ snapshots:
       magic-string: 0.30.17
       mlly: 1.7.4
       nanotar: 0.2.0
-      nitropack: 2.11.2(typescript@5.7.3)
+      nitropack: 2.11.3(typescript@5.7.3)
       nypm: 0.5.4
       ofetch: 1.4.1
       ohash: 1.1.6
@@ -12430,7 +12430,7 @@ snapshots:
 
   p-limit@4.0.0:
     dependencies:
-      yocto-queue: 1.1.1
+      yocto-queue: 1.2.0
 
   p-locate@5.0.0:
     dependencies:
@@ -12545,7 +12545,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  pnpm@9.15.6: {}
+  pnpm@9.15.7: {}
 
   postcss-calc@10.1.1(postcss@8.5.3):
     dependencies:
@@ -13560,9 +13560,9 @@ snapshots:
     dependencies:
       tailwindcss: 3.4.17
 
-  tailwindcss-primeui@0.5.1(tailwindcss@4.0.10):
+  tailwindcss-primeui@0.5.1(tailwindcss@4.0.11):
     dependencies:
-      tailwindcss: 4.0.10
+      tailwindcss: 4.0.11
 
   tailwindcss@3.4.17:
     dependencies:
@@ -13591,7 +13591,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwindcss@4.0.10: {}
+  tailwindcss@4.0.11: {}
 
   tailwindcss@4.0.9: {}
 
@@ -13621,7 +13621,7 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
-  terser-webpack-plugin@5.3.13(webpack@5.98.0):
+  terser-webpack-plugin@5.3.14(webpack@5.98.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
@@ -14541,7 +14541,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 4.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.13(webpack@5.98.0)
+      terser-webpack-plugin: 5.3.14(webpack@5.98.0)
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
@@ -14643,7 +14643,7 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  yocto-queue@1.1.1: {}
+  yocto-queue@1.2.0: {}
 
   yoctocolors@2.1.1: {}
 

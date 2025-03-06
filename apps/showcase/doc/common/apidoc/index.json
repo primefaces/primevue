@@ -3806,7 +3806,7 @@
                             "name": "dropdownMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"blank\" | \"current\"",
+                            "type": "HintedString<\"blank\" | \"current\">",
                             "default": "blank",
                             "description": "Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value."
                         },
@@ -3838,7 +3838,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -3862,7 +3862,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -4909,7 +4909,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"large\" | \"normal\" | \"xlarge\"",
+                            "type": "HintedString<\"large\" | \"normal\" | \"xlarge\">",
                             "default": "normal",
                             "description": "Size of the element."
                         },
@@ -4917,7 +4917,7 @@
                             "name": "shape",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"square\" | \"circle\"",
+                            "type": "HintedString<\"square\" | \"circle\">",
                             "default": "square",
                             "description": "Shape of the element."
                         },
@@ -5463,7 +5463,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"small\" | \"large\" | \"xlarge\"",
+                            "type": "null | HintedString<\"small\" | \"large\" | \"xlarge\">",
                             "default": "",
                             "description": "Size of the badge, valid options are 'small', 'large', and 'xlarge'."
                         },
@@ -10846,7 +10846,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -10870,7 +10870,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -12205,7 +12205,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -13731,7 +13731,7 @@
                             "name": "format",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"hex\" | \"rgb\" | \"hsb\"",
+                            "type": "HintedString<\"hex\" | \"rgb\" | \"hsb\">",
                             "default": "hex",
                             "description": "Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'."
                         },
@@ -14925,7 +14925,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\"",
+                            "type": "HintedString<\"single\" | \"multiple\">",
                             "default": "",
                             "description": "Defines column based selection mode."
                         },
@@ -14997,7 +14997,7 @@
                             "name": "alignFrozen",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\"",
+                            "type": "HintedString<\"left\" | \"right\">",
                             "default": "left",
                             "description": "Position of a frozen column, valid values are left and right."
                         },
@@ -15686,7 +15686,7 @@
                             "name": "type",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"header\" | \"footer\"",
+                            "type": "HintedString<\"header\" | \"footer\">",
                             "default": "",
                             "description": "Type of column group"
                         },
@@ -16876,7 +16876,7 @@
                             "name": "position",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\">",
                             "default": "center",
                             "description": "Position of the dialog."
                         },
@@ -20684,7 +20684,7 @@
                             "name": "paginatorPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"top\" | \"bottom\" | \"both\"",
+                            "type": "HintedString<\"top\" | \"bottom\" | \"both\">",
                             "default": "bottom",
                             "description": "Position of the paginator, options are 'top','bottom' or 'both'."
                         },
@@ -20796,7 +20796,7 @@
                             "name": "sortMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\"",
+                            "type": "HintedString<\"single\" | \"multiple\">",
                             "default": "single",
                             "description": "Defines whether sorting works on single column or on multiple columns."
                         },
@@ -20820,7 +20820,7 @@
                             "name": "filterDisplay",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"menu\" | \"row\"",
+                            "type": "HintedString<\"menu\" | \"row\">",
                             "default": "",
                             "description": "Layout of the filter elements."
                         },
@@ -20852,7 +20852,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\"",
+                            "type": "HintedString<\"single\" | \"multiple\">",
                             "default": "",
                             "description": "Specifies the selection mode."
                         },
@@ -20860,7 +20860,7 @@
                             "name": "compareSelectionBy",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"equals\" | \"deepEquals\"",
+                            "type": "HintedString<\"equals\" | \"deepEquals\">",
                             "default": "deepEquals",
                             "description": "Algorithm to define if a row is selected."
                         },
@@ -20939,7 +20939,7 @@
                             "name": "columnResizeMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"fit\" | \"expand\"",
+                            "type": "HintedString<\"fit\" | \"expand\">",
                             "default": "fit",
                             "description": "Defines whether the overall table width."
                         },
@@ -20979,7 +20979,7 @@
                             "name": "rowGroupMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"subheader\" | \"rowspan\"",
+                            "type": "HintedString<\"subheader\" | \"rowspan\">",
                             "default": "",
                             "description": "Defines the row group mode."
                         },
@@ -21011,7 +21011,7 @@
                             "name": "stateStorage",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"session\" | \"local\"",
+                            "type": "HintedString<\"session\" | \"local\">",
                             "default": "session",
                             "description": "Defines where a stateful table keeps its state."
                         },
@@ -21027,7 +21027,7 @@
                             "name": "editMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"row\" | \"cell\"",
+                            "type": "HintedString<\"row\" | \"cell\">",
                             "default": "",
                             "description": "Defines the incell editing mode."
                         },
@@ -21129,7 +21129,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the table."
                         },
@@ -22774,7 +22774,7 @@
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"list\" | \"grid\"",
+                            "type": "HintedString<\"list\" | \"grid\">",
                             "default": "list",
                             "description": "Layout of the items, valid values are 'list' and 'grid'."
                         },
@@ -22814,7 +22814,7 @@
                             "name": "paginatorPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"top\" | \"bottom\" | \"both\"",
+                            "type": "HintedString<\"top\" | \"bottom\" | \"both\">",
                             "default": "bottom",
                             "description": "Position of the paginator, options are 'top','bottom' or 'both'."
                         },
@@ -24107,7 +24107,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\" | \"range\"",
+                            "type": "HintedString<\"single\" | \"multiple\" | \"range\">",
                             "default": "single",
                             "description": "Defines the quantity of the selection."
                         },
@@ -24155,7 +24155,7 @@
                             "name": "iconDisplay",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"button\" | \"input\"",
+                            "type": "HintedString<\"button\" | \"input\">",
                             "default": "'button'",
                             "description": "Icon position of the component. This only applies if the showIcon option is set to true."
                         },
@@ -24227,7 +24227,7 @@
                             "name": "view",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"date\" | \"month\" | \"year\"",
+                            "type": "HintedString<\"date\" | \"month\" | \"year\">",
                             "default": "date",
                             "description": "Type of view to display."
                         },
@@ -24331,7 +24331,7 @@
                             "name": "hourFormat",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"12\" | \"24\"",
+                            "type": "HintedString<\"12\" | \"24\">",
                             "default": "24",
                             "description": "Specifies hour format."
                         },
@@ -24411,7 +24411,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -24435,7 +24435,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -25969,7 +25969,7 @@
                             "name": "position",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\" | \"topleft\" | \"topright\" | \"bottomleft\" | \"bottomright\">",
                             "default": "center",
                             "description": "Position of the dialog."
                         },
@@ -26572,7 +26572,7 @@
                             "name": "align",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\" | \"center\">",
                             "default": "",
                             "description": "Alignment of the content."
                         },
@@ -26580,7 +26580,7 @@
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\">",
                             "default": "horizontal",
                             "description": "Specifies the orientation, valid values are 'horizontal' and 'vertical'."
                         },
@@ -26588,7 +26588,7 @@
                             "name": "type",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"solid\" | \"dashed\" | \"dotted\"",
+                            "type": "HintedString<\"solid\" | \"dashed\" | \"dotted\">",
                             "default": "solid",
                             "description": "Border style type."
                         },
@@ -26976,7 +26976,7 @@
                             "name": "event",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"focus\" | \"hover\"",
+                            "type": "undefined | HintedString<\"focus\" | \"hover\">",
                             "default": "",
                             "description": "Event to show the tooltip, valid values are hover and focus."
                         },
@@ -26984,7 +26984,7 @@
                             "name": "position",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "undefined | HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "bottom",
                             "description": "Position of element."
                         },
@@ -27036,7 +27036,7 @@
                             "name": "position",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "bottom",
                             "description": "Position of element."
                         },
@@ -27578,7 +27578,7 @@
                             "name": "position",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"full\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\" | \"full\">",
                             "default": "left",
                             "description": "Specifies the position of the drawer."
                         },
@@ -30056,7 +30056,7 @@
                             "name": "mode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"advanced\" | \"basic\"",
+                            "type": "HintedString<\"advanced\" | \"basic\">",
                             "default": "advanced",
                             "description": "Defines the UI of the component, possible values are 'advanced' and 'basic'."
                         },
@@ -30882,7 +30882,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"on\" | \"in\" | \"over\"",
+                            "type": "HintedString<\"on\" | \"in\" | \"over\">",
                             "default": "false",
                             "description": "Defines the positioning of the label relative to the input."
                         }
@@ -32055,7 +32055,7 @@
                             "name": "thumbnailsPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "bottom",
                             "description": "Position of thumbnails."
                         },
@@ -32087,7 +32087,7 @@
                             "name": "indicatorsPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "bottom",
                             "description": "Position of indicators."
                         },
@@ -35165,7 +35165,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"outlined\" | \"filled\"",
+                            "type": "HintedString<\"outlined\" | \"filled\">",
                             "default": "outlined",
                             "description": "Specifies the input variant of the component."
                         },
@@ -36434,7 +36434,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -36442,7 +36442,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -37032,7 +37032,7 @@
                             "name": "buttonLayout",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\" | \"stacked\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\" | \"stacked\">",
                             "default": "stacked",
                             "description": "Layout of the buttons."
                         },
@@ -37098,7 +37098,7 @@
                             "name": "localeMatcher",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"lookup\" | \"best fit\"",
+                            "type": "HintedString<\"lookup\" | \"best fit\">",
                             "default": "best fit",
                             "description": "The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'.\nSee [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details."
                         },
@@ -37106,7 +37106,7 @@
                             "name": "mode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"decimal\" | \"currency\"",
+                            "type": "HintedString<\"decimal\" | \"currency\">",
                             "default": "decimal",
                             "description": "Defines the behavior of the component."
                         },
@@ -37218,7 +37218,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -37242,7 +37242,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -37890,7 +37890,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -37922,7 +37922,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -39969,7 +39969,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"small\" | \"large\"",
+                            "type": "null | HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -39985,7 +39985,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -42591,7 +42591,7 @@
                             "name": "orientation",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\">",
                             "default": "horizontal",
                             "description": "Defines the orientation."
                         },
@@ -44934,7 +44934,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -44942,7 +44942,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"outlined\" | \"simple\"",
+                            "type": "HintedString<\"outlined\" | \"simple\">",
                             "default": "undefined",
                             "description": "Specifies the variant of the component."
                         }
@@ -46298,7 +46298,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -46322,7 +46322,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -46460,7 +46460,7 @@
                             "name": "display",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"comma\" | \"chip\"",
+                            "type": "HintedString<\"comma\" | \"chip\">",
                             "default": "comma",
                             "description": "Defines how the selected items are displayed."
                         },
@@ -48450,7 +48450,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\"",
+                            "type": "HintedString<\"single\" | \"multiple\">",
                             "default": "",
                             "description": "Type of the selection."
                         },
@@ -48946,7 +48946,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"small\" | \"large\" | \"xlarge\"",
+                            "type": "null | HintedString<\"small\" | \"large\" | \"xlarge\">",
                             "default": "",
                             "description": "Size of the badge, valid options are 'small', 'large', and 'xlarge'."
                         },
@@ -53520,7 +53520,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -53544,7 +53544,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -56506,7 +56506,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -56530,7 +56530,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -58675,7 +58675,7 @@
                             "name": "target",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"window\" | \"parent\"",
+                            "type": "HintedString<\"window\" | \"parent\">",
                             "default": "window",
                             "description": "Target of the ScrollTop."
                         },
@@ -59497,7 +59497,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -59521,7 +59521,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -60685,7 +60685,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -61178,7 +61178,7 @@
                             "name": "shape",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"circle\" | \"rectangle\"",
+                            "type": "HintedString<\"circle\" | \"rectangle\">",
                             "default": "rectangle",
                             "description": "Shape of the element."
                         },
@@ -61218,7 +61218,7 @@
                             "name": "animation",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"none\" | \"wave\"",
+                            "type": "HintedString<\"none\" | \"wave\">",
                             "default": "wave",
                             "description": "Type of the animation."
                         },
@@ -61555,7 +61555,7 @@
                             "name": "orientation",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\">",
                             "default": "horizontal",
                             "description": "Orientation of the slider."
                         },
@@ -62089,7 +62089,7 @@
                             "name": "event",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"focus\" | \"hover\"",
+                            "type": "undefined | HintedString<\"focus\" | \"hover\">",
                             "default": "",
                             "description": "Event to show the tooltip, valid values are hover and focus."
                         },
@@ -62097,7 +62097,7 @@
                             "name": "position",
                             "optional": false,
                             "readonly": false,
-                            "type": "undefined | \"left\" | \"right\" | \"top\" | \"bottom\"",
+                            "type": "undefined | HintedString<\"left\" | \"right\" | \"top\" | \"bottom\">",
                             "default": "bottom",
                             "description": "Position of element."
                         },
@@ -62134,7 +62134,7 @@
                             "name": "direction",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"up\" | \"down\" | \"up-left\" | \"up-right\" | \"down-left\" | \"down-right\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"up\" | \"down\" | \"up-left\" | \"up-right\" | \"down-left\" | \"down-right\">",
                             "default": "up",
                             "description": "Specifies the opening direction of actions."
                         },
@@ -62150,7 +62150,7 @@
                             "name": "type",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"circle\" | \"linear\" | \"semi-circle\" | \"quarter-circle\"",
+                            "type": "HintedString<\"circle\" | \"linear\" | \"semi-circle\" | \"quarter-circle\">",
                             "default": "linear",
                             "description": "Specifies the opening type of actions."
                         },
@@ -62913,7 +62913,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the button."
                         },
@@ -63409,7 +63409,7 @@
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\">",
                             "default": "horizontal",
                             "description": "Orientation of the panels."
                         },
@@ -63433,7 +63433,7 @@
                             "name": "stateStorage",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"session\" | \"local\"",
+                            "type": "HintedString<\"session\" | \"local\">",
                             "default": "session",
                             "description": "Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage."
                         },
@@ -70850,7 +70850,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -70866,7 +70866,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -72041,7 +72041,7 @@
                             "name": "align",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\" | \"top\" | \"bottom\" | \"alternate\"",
+                            "type": "HintedString<\"left\" | \"right\" | \"top\" | \"bottom\" | \"alternate\">",
                             "default": "left",
                             "description": "Position of the timeline bar relative to the content."
                         },
@@ -72049,7 +72049,7 @@
                             "name": "layout",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"horizontal\" | \"vertical\">",
                             "default": "horizontal",
                             "description": "Orientation of the timeline."
                         },
@@ -72485,7 +72485,7 @@
                             "name": "severity",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"error\" | \"secondary\" | \"info\" | \"success\" | \"warn\" | \"contrast\"",
+                            "type": "HintedString<\"error\" | \"secondary\" | \"info\" | \"success\" | \"warn\" | \"contrast\">",
                             "default": "info",
                             "description": "Severity level of the message."
                         },
@@ -73276,7 +73276,7 @@
                             "name": "iconPos",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"left\" | \"right\"",
+                            "type": "HintedString<\"left\" | \"right\">",
                             "default": "left",
                             "description": "Position of the icon."
                         },
@@ -73324,7 +73324,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -75266,7 +75266,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\" | \"checkbox\"",
+                            "type": "HintedString<\"single\" | \"multiple\" | \"checkbox\">",
                             "default": "",
                             "description": "Defines the selection mode."
                         },
@@ -75298,7 +75298,7 @@
                             "name": "loadingMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"mask\" | \"icon\"",
+                            "type": "HintedString<\"mask\" | \"icon\">",
                             "default": "mask",
                             "description": "Loading mode display."
                         },
@@ -75322,7 +75322,7 @@
                             "name": "filterMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"lenient\" | \"strict\"",
+                            "type": "HintedString<\"lenient\" | \"strict\">",
                             "default": "lenient",
                             "description": "Mode for filtering."
                         },
@@ -76355,7 +76355,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\" | \"checkbox\"",
+                            "type": "HintedString<\"single\" | \"multiple\" | \"checkbox\">",
                             "default": "",
                             "description": "Defines the selection mode."
                         },
@@ -76379,7 +76379,7 @@
                             "name": "display",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"comma\" | \"chip\"",
+                            "type": "HintedString<\"comma\" | \"chip\">",
                             "default": "comma",
                             "description": "Defines how the selected items are displayed."
                         },
@@ -76427,7 +76427,7 @@
                             "name": "loadingMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"mask\" | \"icon\"",
+                            "type": "HintedString<\"mask\" | \"icon\">",
                             "default": "mask",
                             "description": "Loading mode display."
                         },
@@ -76451,7 +76451,7 @@
                             "name": "filterMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"lenient\" | \"strict\"",
+                            "type": "HintedString<\"lenient\" | \"strict\">",
                             "default": "lenient",
                             "description": "Mode for filtering."
                         },
@@ -76491,7 +76491,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the component."
                         },
@@ -76515,7 +76515,7 @@
                             "name": "variant",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | \"outlined\" | \"filled\"",
+                            "type": "null | HintedString<\"outlined\" | \"filled\">",
                             "default": "null",
                             "description": "Specifies the input variant of the component."
                         },
@@ -77985,7 +77985,7 @@
                             "name": "selectionMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\" | \"checkbox\"",
+                            "type": "HintedString<\"single\" | \"multiple\" | \"checkbox\">",
                             "default": "",
                             "description": "Defines the selection mode."
                         },
@@ -78049,7 +78049,7 @@
                             "name": "paginatorPosition",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"top\" | \"bottom\" | \"both\"",
+                            "type": "HintedString<\"top\" | \"bottom\" | \"both\">",
                             "default": "bottom",
                             "description": "Position of the paginator, options are 'top','bottom' or 'both'."
                         },
@@ -78121,7 +78121,7 @@
                             "name": "loadingMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"mask\" | \"icon\"",
+                            "type": "HintedString<\"mask\" | \"icon\">",
                             "default": "mask",
                             "description": "Loading mode display."
                         },
@@ -78177,7 +78177,7 @@
                             "name": "sortMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"single\" | \"multiple\"",
+                            "type": "HintedString<\"single\" | \"multiple\">",
                             "default": "single",
                             "description": "Defines whether sorting works on single column or on multiple columns."
                         },
@@ -78201,7 +78201,7 @@
                             "name": "filterMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"lenient\" | \"strict\"",
+                            "type": "HintedString<\"lenient\" | \"strict\">",
                             "default": "lenient",
                             "description": "Mode for filtering."
                         },
@@ -78225,7 +78225,7 @@
                             "name": "columnResizeMode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"fit\" | \"expand\"",
+                            "type": "HintedString<\"fit\" | \"expand\">",
                             "default": "fit",
                             "description": "Defines whether the overall table width should change on column resize."
                         },
@@ -78265,7 +78265,7 @@
                             "name": "size",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"small\" | \"large\"",
+                            "type": "HintedString<\"small\" | \"large\">",
                             "default": "",
                             "description": "Defines the size of the table."
                         },
@@ -79526,7 +79526,7 @@
                             "name": "orientation",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"both\" | \"horizontal\" | \"vertical\"",
+                            "type": "HintedString<\"both\" | \"horizontal\" | \"vertical\">",
                             "default": "vertical",
                             "description": "The orientation of scrollbar."
                         },
