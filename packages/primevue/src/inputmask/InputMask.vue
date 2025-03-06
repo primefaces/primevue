@@ -454,10 +454,24 @@ export default {
 
             return unmaskedBuffer.join('');
         },
+        unmaskValue(value) {
+            let unmaskedBuffer = [];
+            let thisbuffer = value.split('');
+
+            for (let i = 0; i < thisbuffer.length; i++) {
+                let c = thisbuffer[i];
+
+                if (this.tests[i] && c !== this.getPlaceholder(i)) {
+                    unmaskedBuffer.push(c);
+                }
+            }
+
+            return unmaskedBuffer.join('');
+        },
 
         updateModelValue(value) {
             if (this.currentVal === value) return;
-            const val = this.unmask ? this.getUnmaskedValue() : value;
+            const val = this.unmask ? this.unmaskValue(value) : value;
 
             this.currentVal = value;
 
