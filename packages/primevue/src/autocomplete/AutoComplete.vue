@@ -387,8 +387,11 @@ export default {
 
                 case 'Enter':
                 case 'NumpadEnter':
-                case 'Space':
                     this.onEnterKey(event);
+                    break;
+
+                case 'Space':
+                    this.onSpaceKey(event);
                     break;
 
                 case 'Escape':
@@ -705,6 +708,11 @@ export default {
 
                     this.hide();
                 }
+            }
+        },
+        onSpaceKey(event) {
+            if (this.focusedOptionIndex !== -1) {
+                this.onEnterKey(event);
             }
         },
         onEscapeKey(event) {
