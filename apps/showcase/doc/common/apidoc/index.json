@@ -65340,6 +65340,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "separator",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepperPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the separator's DOM element."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
