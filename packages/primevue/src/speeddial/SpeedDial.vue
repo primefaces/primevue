@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import { $dt } from '@primeuix/styled';
 import { find, findSingle, focus, hasClass } from '@primeuix/utils/dom';
 import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
@@ -106,8 +105,8 @@ export default {
                 const wDiff = Math.abs(button.offsetWidth - firstItem.offsetWidth);
                 const hDiff = Math.abs(button.offsetHeight - firstItem.offsetHeight);
 
-                this.list.style.setProperty($dt('item.diff.x').name, `${wDiff / 2}px`);
-                this.list.style.setProperty($dt('item.diff.y').name, `${hDiff / 2}px`);
+                this.list.style.setProperty(this.$primevue.styled.$dt('item.diff.x').name, `${wDiff / 2}px`);
+                this.list.style.setProperty(this.$primevue.styled.$dt('item.diff.y').name, `${hDiff / 2}px`);
             }
         }
 
@@ -363,14 +362,14 @@ export default {
                     const step = (2 * Math_PI) / length;
 
                     return {
-                        left: `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`,
-                        top: `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`
+                        left: `calc(${radius * Math.cos(step * index)}px + ${this.$primevue.styled.$dt('item.diff.x', '0px').variable})`,
+                        top: `calc(${radius * Math.sin(step * index)}px + ${this.$primevue.styled.$dt('item.diff.y', '0px').variable})`
                     };
                 } else if (type === 'semi-circle') {
                     const direction = this.direction;
                     const step = Math_PI / (length - 1);
-                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${this.$primevue.styled.$dt('item.diff.x', '0px').variable})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${this.$primevue.styled.$dt('item.diff.y', '0px').variable})`;
 
                     if (direction === 'up') {
                         return { left: x, bottom: y };
@@ -384,8 +383,8 @@ export default {
                 } else if (type === 'quarter-circle') {
                     const direction = this.direction;
                     const step = Math_PI / (2 * (length - 1));
-                    const x = `calc(${radius * Math.cos(step * index)}px + ${$dt('item.diff.x', '0px').variable})`;
-                    const y = `calc(${radius * Math.sin(step * index)}px + ${$dt('item.diff.y', '0px').variable})`;
+                    const x = `calc(${radius * Math.cos(step * index)}px + ${this.$primevue.styled.$dt('item.diff.x', '0px').variable})`;
+                    const y = `calc(${radius * Math.sin(step * index)}px + ${this.$primevue.styled.$dt('item.diff.y', '0px').variable})`;
 
                     if (direction === 'up-left') {
                         return { right: x, bottom: y };
