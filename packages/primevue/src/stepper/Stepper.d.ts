@@ -54,6 +54,10 @@ export interface StepperPassThroughOptions {
      */
     root?: StepperPassThroughOptionType;
     /**
+     * Used to pass attributes to the separator's DOM element.
+     */
+    separator?: StepperPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
