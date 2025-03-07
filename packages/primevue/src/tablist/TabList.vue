@@ -3,6 +3,7 @@
         <button
             v-if="showNavigators && isPrevButtonEnabled"
             ref="prevButton"
+            type="button"
             v-ripple
             :class="cx('prevButton')"
             :aria-label="prevButtonAriaLabel"
@@ -14,14 +15,17 @@
             <component :is="templates.previcon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('prevIcon')" />
         </button>
         <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
-            <div ref="tabs" :class="cx('tabList')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
+            <div ref="tabs" :class="cx('tabList')" role="tablist"
+                 :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
                 <slot></slot>
-                <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true" v-bind="ptm('activeBar')"></span>
+                <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true"
+                      v-bind="ptm('activeBar')"></span>
             </div>
         </div>
         <button
             v-if="showNavigators && isNextButtonEnabled"
             ref="nextButton"
+            type="button"
             v-ripple
             :class="cx('nextButton')"
             :aria-label="nextButtonAriaLabel"
