@@ -5,7 +5,7 @@
     <div class="card">
         <Panel toggleable>
             <template #header>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 py-4">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
@@ -42,7 +42,7 @@ const code = ref(`
     <div class="card">
         <Panel toggleable>
             <template #header>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 py-4">
                     <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
                     <span class="font-bold">Amy Elsner</span>
                 </div>
