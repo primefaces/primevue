@@ -1,6 +1,6 @@
 <template>
-    <fieldset :class="cx('root')" v-bind="ptmi('root')">
-        <legend :class="cx('legend')" v-bind="ptm('legend')">
+    <fieldset :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
+        <legend :class="cx('legend')" :data-p="dataP" v-bind="ptm('legend')">
             <slot name="legend" :toggleCallback="toggle">
                 <span v-if="!toggleable" :id="$id + '_header'" :class="cx('legendLabel')" v-bind="ptm('legendLabel')">{{ legend }}</span>
                 <button
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Ripple from 'primevue/ripple';
@@ -74,6 +75,11 @@ export default {
     computed: {
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps.ariaLabel ? this.toggleButtonProps.ariaLabel : this.legend;
+        },
+        dataP() {
+            return cn({
+                toggleable: this.toggleable
+            });
         }
     },
     directives: {
