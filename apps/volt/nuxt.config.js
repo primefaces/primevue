@@ -6,7 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: { enabled: true },
-    modules: ['@primevue/nuxt-module'],
     components: [
         {
             path: '~/components',
@@ -36,12 +35,6 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         GITHUB_TOKEN: ''
-    },
-    primevue: {
-        autoImport: false,
-        options: {
-            unstyled: true
-        }
     },
     app: {
         baseURL: baseUrl,

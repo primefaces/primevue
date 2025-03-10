@@ -115,6 +115,10 @@
                     "to": "/timeline"
                 },
                 {
+                    "name": "Toast",
+                    "to": "/toast"
+                },
+                {
                     "name": "ToggleButton",
                     "to": "/togglebutton"
                 },

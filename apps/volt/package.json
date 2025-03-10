@@ -35,18 +35,10 @@
     },
     "dependencies": {
         "@docsearch/js": "catalog:app",
-        "@primeuix/themes": "catalog:",
-        "@primevue/core": "workspace:*",
-        "@primevue/forms": "workspace:*",
-        "@primevue/nuxt-module": "workspace:*",
         "primeicons": "catalog:",
         "primevue": "workspace:*",
         "chart.js": "catalog:app",
-        "quill": "catalog:app",
-        "superstruct": "^2.0.2",
-        "valibot": "^0.42.1",
-        "yup": "1.4.0",
-        "zod": "3.23.8"
+        "quill": "catalog:app"
     },
     "devDependencies": {
         "@stackblitz/sdk": "^1.8.2",

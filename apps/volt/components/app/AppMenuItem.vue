@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import Tag from '@/volt/tag';
+
 export default {
     props: {
         root: {
@@ -52,6 +54,9 @@ export default {
                 !menuitem.children.some((item) => item.to === `/${this.$router.currentRoute.value?.name?.replaceAll('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${this.$router.currentRoute.value.name}`)))
             );
         }
+    },
+    components: {
+        Tag
     }
 };
 </script>

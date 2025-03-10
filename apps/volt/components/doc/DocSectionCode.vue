@@ -1,7 +1,7 @@
 <template>
     <div class="doc-section-code">
         <div class="doc-section-code-buttons">
-            <button v-tooltip.bottom="{ value: 'Copy Code', class: 'doc-section-code-tooltip' }" type="button" @click="copyCode" class="h-8 w-8 p-0 inline-flex items-center justify-center">
+            <button type="button" @click="copyCode" class="h-8 w-8 p-0 inline-flex items-center justify-center">
                 <i class="pi pi-copy"></i>
             </button>
         </div>

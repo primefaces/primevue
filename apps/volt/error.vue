@@ -9,7 +9,7 @@
                 <span class="font-bold text-9xl"> 4 </span>
             </div>
             <div class="font-bold text-center text-4xl border-t border-surface pt-8">Page Not Found</div>
-            <NuxtLink to="/"><Button label="GO TO HOMEPAGE" /></NuxtLink>
+            <NuxtLink to="/">GO TO HOMEPAGE</NuxtLink>
         </div>
     </div>
 </template>

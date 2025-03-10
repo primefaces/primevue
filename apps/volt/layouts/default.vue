@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Toast from '@/volt/toast';
 import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 
 export default {
@@ -26,7 +27,7 @@ export default {
             sidebarActive: false
         };
     },
-    watch: {
+    /*watch: {
         $route: {
             immediate: true,
             handler() {
@@ -39,7 +40,7 @@ export default {
                 this.$toast.removeAllGroups();
             }
         }
-    },
+    },*/
     methods: {
         onMenuButtonClick() {
             if (this.sidebarActive) {
@@ -64,6 +65,9 @@ export default {
                 }
             ];
         }
+    },
+    components: {
+        Toast
     }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <div ref="container" :class="cx('root')" :style="sx('root', true, { position })" v-bind="ptmi('root')">
+        <div ref="container" :class="cx('root')" :style="sx('root', true, { position })" :data-p="dataP" v-bind="ptmi('root')">
             <transition-group name="p-toast-message" tag="div" @enter="onEnter" @leave="onLeave" v-bind="{ ...ptm('transition') }">
                 <ToastMessage
                     v-for="msg of messages"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { setAttribute } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
@@ -96,6 +97,7 @@ export default {
             }
         },
         onRemoveAllGroups() {
+            this.messages.forEach((message) => this.$emit('close', { message }));
             this.messages = [];
         },
         onEnter() {
@@ -143,6 +145,13 @@ export default {
                 document.head.removeChild(this.styleElement);
                 this.styleElement = null;
             }
+        }
+    },
+    computed: {
+        dataP() {
+            return cn({
+                [this.position]: this.position
+            });
         }
     },
     components: {
