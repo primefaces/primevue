@@ -11,6 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { ButtonHTMLAttributes, Component, VNode } from 'vue';
+import { RouterLinkProps } from 'vue-router';
 
 export declare type ButtonPassThroughOptionType<T = any> = ButtonPassThroughAttributes | ((options: ButtonPassThroughMethodOptions<T>) => ButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -207,6 +208,10 @@ export interface ButtonProps extends ButtonHTMLAttributes {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * Route Location the router-link should navigate to when clicked on.
+     */
+    to?: RouterLinkProps['to'];
 }
 
 /**
