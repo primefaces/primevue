@@ -59,7 +59,7 @@ import { ref } from 'vue';
 
 let visible = ref(false);
 
-const showMessage() {
+const showMessage = () => {
     visible.value = true;
 
     setTimeout(() => {

@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Message component requires a content to display.</p>
+        <p>Enable <i>closable</i> option to display an icon to remove a message.</p>
     </DocSectionText>
     <div class="card">
-        <Message>Message Content</Message>
+        <Message closable>Closable Message</Message>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,7 +15,7 @@ import { ref } from 'vue';
 const code = ref(`
 <template>
     <div class="card">
-        <Message>Message Content</Message>
+        <Message closable>Closable Message</Message>
     </div>
 </template>
 

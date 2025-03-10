@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Icon property and the <i>icon</i> slots are available to customize the icon of the message</p>
+        <p>Icon property and the <i>icon</i> slots are available to customize the icon of the message.</p>
     </DocSectionText>
     <div class="card flex justify-center gap-4">
         <Message severity="info" icon="pi pi-send">Info Message</Message>

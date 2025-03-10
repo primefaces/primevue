@@ -39,8 +39,6 @@
 @custom-variant p-icon-only (&[data-p~="icon-only"]);
 @custom-variant p-rounded (&[data-p~="rounded"]);
 @custom-variant p-raised (&[data-p~="raised"]);
-@custom-variant p-outlined (&[data-p~="outlined"]);
-@custom-variant p-text (&[data-p~="text"]);
 @custom-variant p-toggleable (&[data-p~="toggleable"]);
 @custom-variant p-solid (&[data-p~="solid"]);
 @custom-variant p-dashed (&[data-p~="dashed"]);
@@ -51,3 +49,7 @@
 @custom-variant p-info (&[data-p~="info"]);
 @custom-variant p-warn (&[data-p~="warn"]);
 @custom-variant p-danger (&[data-p~="danger"]);
+@custom-variant p-error (&[data-p~="error"]);
+@custom-variant p-outlined (&[data-p~="outlined"]);
+@custom-variant p-text (&[data-p~="text"]);
+@custom-variant p-simple (&[data-p~="simple"]);
