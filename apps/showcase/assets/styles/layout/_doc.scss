@@ -112,7 +112,7 @@
     align-items: center;
     scroll-margin-top: 6.5rem;
 
-    > a {
+    >a {
         color: var(--primary-text-color);
         opacity: 0.7;
         margin-inline-start: 1rem;
@@ -123,7 +123,7 @@
         @include focus-visible();
     }
 
-    > .doc-section-label-badge {
+    >.doc-section-label-badge {
         margin-inline-start: 0.5rem;
     }
 
@@ -132,7 +132,7 @@
     }
 
     &:hover {
-        > a {
+        >a {
             display: block;
 
             &:hover {
@@ -143,7 +143,7 @@
 }
 
 .doc-section-description {
-    > p {
+    >p {
         font-size: 1.125rem;
 
         i {
@@ -185,7 +185,7 @@
     overflow-x: hidden;
     align-self: flex-start;
 
-    > .navbar-item {
+    >.navbar-item {
         .navbar-item-content {
             border-inline-start: 1px solid var(--border-color);
             padding-inline-start: .25rem;
@@ -198,7 +198,7 @@
     }
 
     .navbar-item {
-        > .navbar-item-content {
+        >.navbar-item-content {
             display: flex;
 
             button {
@@ -230,7 +230,7 @@
         }
 
         &.active-navbar-item {
-            > .navbar-item-content {
+            >.navbar-item-content {
                 border-color: var(--primary-text-color);
 
                 button {
@@ -282,7 +282,7 @@
     right: .75rem;
     gap: .5rem;
     display: none;
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, .05);
     border-radius: 10px;
     padding: 2px;
     backdrop-filter: blur(6px);
@@ -299,7 +299,7 @@
         cursor: pointer;
 
         &:hover {
-            background-color: rgba(255,255,255,.1);
+            background-color: rgba(255, 255, 255, .1);
             color: var(--code-button-text-color);
         }
 
@@ -370,7 +370,8 @@
                 }
             }
 
-            .doc-option-name, i:not(.pi) {
+            .doc-option-name,
+            i:not(.pi) {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 position: relative;
                 scroll-margin-top: 6.5rem;
@@ -475,6 +476,36 @@
             .doc-ptoption-text:hover {
                 cursor: default;
             }
+        }
+    }
+}
+
+.doc-preset-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 640px;
+    margin-bottom: 1.5rem;
+
+    th {
+        border-bottom: 1px solid var(--border-color);
+        padding-block: .75rem;
+        padding-inline: 1rem;
+        text-align: start;
+        text-transform: capitalize;
+    }
+
+    td {
+        padding-block: .75rem;
+        padding-inline: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        white-space: pre-line;
+        line-height: 1.5;
+        scroll-margin-top: 6.5rem;
+
+        &:first-child {
+            color: var(--primary-text-color);
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            font-weight: 600;
         }
     }
 }

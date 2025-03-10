@@ -10,6 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
+import DocStyledPreset from '@/components/doc/DocStyledPreset.vue';
 import { getStyleOptions, getTokenOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
@@ -34,6 +35,12 @@ export default {
                             description: 'List of design tokens used in a preset.',
                             component: DocApiTable,
                             data: getTokenOptions('DataView')
+                        },
+                        {
+                            id: 'theming.preset',
+                            label: 'Preset',
+                            component: DocStyledPreset,
+                            data: 'dataview'
                         }
                     ]
                 },
