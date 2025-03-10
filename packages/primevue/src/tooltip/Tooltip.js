@@ -429,10 +429,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
             let top = hostOffset.top - getOuterHeight(tooltipElement);
 
-            if (hostOffset.left < tooltipWidth / 2) {
-                left = hostOffset.left;
-            }
-
             if (hostOffset.left + tooltipWidth > viewportWidth) {
                 // accounting for a scrollbar being present, getViewport() width includes scrollbars
                 left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
@@ -460,10 +456,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
             let top = hostOffset.top + getOuterHeight(el);
-
-            if (hostOffset.left < tooltipWidth / 2) {
-                left = hostOffset.left;
-            }
 
             if (hostOffset.left + tooltipWidth > viewportWidth) {
                 // accounting for a scrollbar being present, getViewport() width includes scrollbars
