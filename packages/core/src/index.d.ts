@@ -40,6 +40,9 @@ export declare type DefaultPassThrough<T = void> = T | ((instance?: VNode) => T 
 
 export declare type HintedString<T extends string> = (string & {}) | T;
 
+// In TypeScript 5.4 this is a built-in type, and this definition can be deleted once TS is updated.
+export declare type NoInfer<T> = [T][T extends any ? 0 : never];
+
 /**
  * Modules
  */
