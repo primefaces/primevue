@@ -23,6 +23,10 @@
             "icon": "pi pi-compass",
             "children": [
                 {
+                    "name": "Accordion",
+                    "to": "/accordion"
+                },
+                {
                     "name": "Avatar",
                     "to": "/avatar"
                 },
