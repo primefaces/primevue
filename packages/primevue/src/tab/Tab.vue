@@ -1,11 +1,12 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" :data-p="dataP" @click="onClick" v-bind="attrs">
         <slot></slot>
     </component>
-    <slot v-else :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs" :onClick="onClick"></slot>
+    <slot v-else :dataP="dataP" :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs" :onClick="onClick"></slot>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
@@ -159,6 +160,11 @@ export default {
                     active: this.active
                 }
             };
+        },
+        dataP() {
+            return cn({
+                active: this.active
+            });
         }
     },
     directives: {

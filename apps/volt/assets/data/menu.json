@@ -103,6 +103,10 @@
                     "to": "/slider"
                 },
                 {
+                    "name": "Tabs",
+                    "to": "/tabs"
+                },
+                {
                     "name": "Tag",
                     "to": "/tag"
                 },

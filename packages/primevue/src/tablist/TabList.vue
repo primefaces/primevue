@@ -1,5 +1,5 @@
 <template>
-    <div ref="list" :class="cx('root')" v-bind="ptmi('root')">
+    <div ref="list" :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
         <button
             v-if="showNavigators && isPrevButtonEnabled"
             ref="prevButton"
@@ -14,12 +14,10 @@
         >
             <component :is="templates.previcon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('prevIcon')" />
         </button>
-        <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
-            <div ref="tabs" :class="cx('tabList')" role="tablist"
-                 :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
+        <div ref="content" :class="cx('content')" @scroll="onScroll" :data-p="dataP" v-bind="ptm('content')">
+            <div ref="tabs" :class="cx('tabList')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
                 <slot></slot>
-                <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true"
-                      v-bind="ptm('activeBar')"></span>
+                <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true" v-bind="ptm('activeBar')"></span>
             </div>
         </div>
         <button
@@ -40,6 +38,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -174,6 +173,11 @@ export default {
         },
         nextButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.next : undefined;
+        },
+        dataP() {
+            return cn({
+                scrollable: this.$pcTabs.scrollable
+            });
         }
     },
     components: {
