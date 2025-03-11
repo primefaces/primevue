@@ -1,7 +1,7 @@
 import pkg from '@/package.json';
 //import Aura from '@/presets/aura';
 //import Lara from '@/presets/lara';
-import { isArray, isDate, isFunction, isObject } from '@primeuix/utils/object';
+// import { isArray, isDate, isFunction, isObject } from '@primeuix/utils/object';
 import { services } from './services';
 
 const PrimeVue = {
@@ -26,9 +26,9 @@ const core_dependencies = {
 };
 
 // create-vue -> https://github.com/vuejs/create-vue
-const getVueApp = (props = {}, sourceType) => {
+const getVueApp = (props = {}) => {
     const path = 'src/';
-    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles, embedded } = props;
+    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component } = props;
     const dependencies = { ...core_dependencies, ...deps };
 
     const fileExtension = '.vue';
@@ -46,16 +46,6 @@ const getVueApp = (props = {}, sourceType) => {
                 content: value
             };
         });
-
-    let extFilesSource = extFiles
-        ? embedded
-            ? extFiles['composition']
-            : extFiles[sourceType.language]
-              ? { ...extFiles[sourceType.language] }
-              : Object.keys(extFiles)
-                    .filter((k) => !sourceTypes.includes(k))
-                    .reduce((result, current) => (result[current] = extFiles[current]) && result, {})
-        : {};
 
     if (deps !== null && component !== null) {
         imports += `import ${component} from 'primevue/${component.toLowerCase()}';
@@ -443,8 +433,7 @@ export const router = createRouter({
     </g>
 </svg>`
         },
-        ...routeFiles,
-        ...extFilesSource
+        ...routeFiles
     };
 
     if (extPages && extPages.length >= 1) {
@@ -555,7 +544,7 @@ export default {
         }
     },
 };
-<\/script>
+<\\/script>
     `
     };
 
@@ -727,7 +716,7 @@ export default {
             }
         }
     };
-    <\/script>
+    <\\/script>
     `
     };
 
@@ -757,89 +746,89 @@ export default {
     };
 
     // @todo - Refactor
-    const stringify = (value, indent = 2, currentIndent = 0) => {
-        const currentIndentStr = ' '.repeat(currentIndent);
-        const nextIndentStr = ' '.repeat(currentIndent + indent);
+    //     const stringify = (value, indent = 2, currentIndent = 0) => {
+    //         const currentIndentStr = ' '.repeat(currentIndent);
+    //         const nextIndentStr = ' '.repeat(currentIndent + indent);
 
-        if (isArray(value)) {
-            return '[' + value.map((v) => stringify(v, indent, currentIndent + indent)).join(', ') + ']';
-        } else if (isDate(value)) {
-            return value.toISOString();
-        } else if (isFunction(value)) {
-            return value
-                .toString()
-                .split('\n')
-                .map((line, i, arr) => {
-                    try {
-                        return process?.dev ? line : i === 0 ? line : arr.length - 1 === i ? ' '.repeat(2) + line : currentIndentStr + line;
-                    } catch {
-                        return i === 0 ? line : arr.length - 1 === i ? ' '.repeat(2) + line : currentIndentStr + line;
-                    }
-                })
-                .join('\n');
-        } else if (isObject(value)) {
-            return (
-                '{\n' +
-                Object.entries(value)
-                    .map(([k, v]) => `${nextIndentStr}${k}: ${stringify(v, indent, currentIndent + indent)}`)
-                    .join(',\n') +
-                `\n${currentIndentStr}` +
-                '}'
-            );
-        } else {
-            return JSON.stringify(value);
-        }
-    };
+    //         if (isArray(value)) {
+    //             return '[' + value.map((v) => stringify(v, indent, currentIndent + indent)).join(', ') + ']';
+    //         } else if (isDate(value)) {
+    //             return value.toISOString();
+    //         } else if (isFunction(value)) {
+    //             return value
+    //                 .toString()
+    //                 .split('\n')
+    //                 .map((line, i, arr) => {
+    //                     try {
+    //                         return process?.dev ? line : i === 0 ? line : arr.length - 1 === i ? ' '.repeat(2) + line : currentIndentStr + line;
+    //                     } catch {
+    //                         return i === 0 ? line : arr.length - 1 === i ? ' '.repeat(2) + line : currentIndentStr + line;
+    //                     }
+    //                 })
+    //                 .join('\n');
+    //         } else if (isObject(value)) {
+    //             return (
+    //                 '{\n' +
+    //                 Object.entries(value)
+    //                     .map(([k, v]) => `${nextIndentStr}${k}: ${stringify(v, indent, currentIndent + indent)}`)
+    //                     .join(',\n') +
+    //                 `\n${currentIndentStr}` +
+    //                 '}'
+    //             );
+    //         } else {
+    //             return JSON.stringify(value);
+    //         }
+    //     };
 
-    const createPresetFiles = (presetName, stringPresetName) => {
-        const presetPath = `${path}presets/${stringPresetName}`;
-        const imports = [];
-        const keys = [];
-        const directivesKeys = [];
+    //     const createPresetFiles = (presetName, stringPresetName) => {
+    //         const presetPath = `${path}presets/${stringPresetName}`;
+    //         const imports = [];
+    //         const keys = [];
+    //         const directivesKeys = [];
 
-        Object.entries(presetName).forEach(([name, value]) => {
-            if (name === 'global') {
-                imports.push(`import ${name} from './${name}'`);
-                keys.push(name);
-                files[`${presetPath}/${name}.js`] = {
-                    content: `export default {
-    css: \`${value?.css}\`
-                    }`
-                };
-            } else if (name === 'directives') {
-                Object.entries(value).forEach(([dname, dvalue]) => {
-                    const _name = dname === 'badge' ? 'badgedirective' : dname;
+    //         Object.entries(presetName).forEach(([name, value]) => {
+    //             if (name === 'global') {
+    //                 imports.push(`import ${name} from './${name}'`);
+    //                 keys.push(name);
+    //                 files[`${presetPath}/${name}.js`] = {
+    //                     content: `export default {
+    //     css: \`${value?.css}\`
+    //                     }`
+    //                 };
+    //             } else if (name === 'directives') {
+    //                 Object.entries(value).forEach(([dname, dvalue]) => {
+    //                     const _name = dname === 'badge' ? 'badgedirective' : dname;
 
-                    imports.push(`import ${_name} from './${_name}'`);
-                    directivesKeys.push(dname === 'badge' ? `badge: badgedirective` : dname);
-                    files[`${presetPath}/${_name}/index.js`] = {
-                        content: `export default ${stringify(dvalue)}`
-                    };
-                });
-            } else {
-                imports.push(`import ${name} from './${name}'`);
-                keys.push(name);
-                files[`${presetPath}/${name}/index.js`] = {
-                    content: `export default ${stringify(value)}`
-                };
-            }
-        });
+    //                     imports.push(`import ${_name} from './${_name}'`);
+    //                     directivesKeys.push(dname === 'badge' ? `badge: badgedirective` : dname);
+    //                     files[`${presetPath}/${_name}/index.js`] = {
+    //                         content: `export default ${stringify(dvalue)}`
+    //                     };
+    //                 });
+    //             } else {
+    //                 imports.push(`import ${name} from './${name}'`);
+    //                 keys.push(name);
+    //                 files[`${presetPath}/${name}/index.js`] = {
+    //                     content: `export default ${stringify(value)}`
+    //                 };
+    //             }
+    //         });
 
-        files[`${path}presets/${stringPresetName}/index.js`] = {
-            content: `${imports.join(';\n')}
+    //         files[`${path}presets/${stringPresetName}/index.js`] = {
+    //             content: `${imports.join(';\n')}
 
-export default {
-    directives: {
-        ${directivesKeys.join(',\n\t\t')}
-    },
-    ${keys.join(',\n\t')}
-}
-            `
-        };
-    };
+    // export default {
+    //     directives: {
+    //         ${directivesKeys.join(',\n\t\t')}
+    //     },
+    //     ${keys.join(',\n\t')}
+    // }
+    //             `
+    //         };
+    //     };
 
-    createPresetFiles(Lara, 'lara');
-    createPresetFiles(Aura, 'aura');
+    // createPresetFiles(Lara, 'lara');
+    // createPresetFiles(Aura, 'aura');
 
     return { files, dependencies, sourceFileName };
 };
