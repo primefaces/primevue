@@ -133,6 +133,10 @@
                 {
                     "name": "ToggleSwitch",
                     "to": "/toggleswitch"
+                },
+                {
+                    "name": "Toolbar",
+                    "to": "/toolbar"
                 }
             ]
         },
