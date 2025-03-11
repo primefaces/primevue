@@ -89,5 +89,8 @@
         "nuxt": "catalog:app",
         "vitest": "^3.0.7",
         "vue-tsc": "~2.1.6"
+    },
+    "engines": {
+        "node": ">=12.11.0"
     }
 }

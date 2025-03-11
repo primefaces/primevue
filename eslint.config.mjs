@@ -131,6 +131,6 @@ export default [
         }
     },
     {
-        ignores: ['**/dist/**', '**/node_modules/**', '**/.nuxt/**', 'build/**', '**/prism.js']
+        ignores: ['**/dist/**', '**/node_modules/**', '**/.nuxt/**', '**/.output/**', 'build/**', '**/prism.js']
     }
 ];
