@@ -19,5 +19,10 @@
         <div class="pl-8 pr-4 pt-4 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface mb-4" style="max-width: 48rem">
             <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/guide-create.png" class="w-full" />
         </div>
+        <b class="mb-4 block">Video Tutorial</b>
+        <p>A tutorial is available demonstrating how the handoff process can be automated between the design team and the development team.</p>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Ktocmi2dLLM?si=lG7JwkUfLTQFlfeX" frameborder="0" allowfullscreen></iframe>
+        </div>
     </DocSectionText>
 </template>
