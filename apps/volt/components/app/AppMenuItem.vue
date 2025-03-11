@@ -33,30 +33,24 @@
     </li>
 </template>
 
-<script>
+<script setup>
 import Tag from '@/volt/tag';
+import { useRouter } from 'vue-router';
 
-export default {
-    props: {
-        root: {
-            type: Boolean,
-            default: true
-        },
-        menu: {
-            type: Object,
-            default: null
-        }
+const props = defineProps({
+    root: {
+        type: Boolean,
+        default: true
     },
-    methods: {
-        isActiveRootmenuItem(menuitem) {
-            return (
-                menuitem.children &&
-                !menuitem.children.some((item) => item.to === `/${this.$router.currentRoute.value?.name?.replaceAll('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${this.$router.currentRoute.value.name}`)))
-            );
-        }
-    },
-    components: {
-        Tag
+    menu: {
+        type: Object,
+        default: null
     }
+});
+
+const router = useRouter();
+
+const isActiveRootmenuItem = (menuitem) => {
+    return menuitem.children && !menuitem.children.some((item) => item.to === `/${router.currentRoute.value?.name?.replaceAll('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${router.currentRoute.value.name}`)));
 };
 </script>

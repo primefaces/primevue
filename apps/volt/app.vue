@@ -4,32 +4,33 @@
     </NuxtLayout>
 </template>
 
-<script>
+<script setup>
 import EventBus from '@/layouts/AppEventBus';
+import { onBeforeUnmount, onMounted } from 'vue';
 
-export default {
-    mounted() {
-        EventBus.on('dark-mode-toggle', this.darkModeToggleListener);
-    },
-    beforeUnmount() {
-        EventBus.off('dark-mode-toggle', this.darkModeToggleListener);
-    },
-    methods: {
-        darkModeToggleListener(event) {
-            if (!document.startViewTransition) {
-                this.toggleDarkMode(event);
+const { layoutState } = useLayout();
 
-                return;
-            }
+const toggleDarkMode = () => {
+    document.documentElement.classList.toggle('p-dark');
+    layoutState.darkTheme = !layoutState.darkTheme;
 
-            document.startViewTransition(() => this.toggleDarkMode(event));
-        },
-        toggleDarkMode() {
-            document.documentElement.classList.toggle('p-dark');
-            this.$appState.darkTheme = !this.$appState.darkTheme;
-
-            EventBus.emit('dark-mode-toggle-complete');
-        }
-    }
+    EventBus.emit('dark-mode-toggle-complete');
 };
+
+const darkModeToggleListener = (event) => {
+    if (!document.startViewTransition) {
+        toggleDarkMode(event);
+        return;
+    }
+
+    document.startViewTransition(() => toggleDarkMode(event));
+};
+
+onMounted(() => {
+    EventBus.on('dark-mode-toggle', darkModeToggleListener);
+});
+
+onBeforeUnmount(() => {
+    EventBus.off('dark-mode-toggle', darkModeToggleListener);
+});
 </script>
