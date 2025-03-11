@@ -141,6 +141,7 @@
                                             :aria-setsize="ariaSetSize"
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @click="onOptionSelect($event, option)"
+                                            @mousedown="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                             :data-p-selected="isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
