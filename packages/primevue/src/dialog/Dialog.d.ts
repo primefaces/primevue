@@ -330,6 +330,16 @@ export interface DialogSlots {
      */
     footer(): VNode[];
     /**
+     * Custom close button template.
+     * @param {Object} scope - close button slot's params.
+     */
+    closebutton(scope: {
+        /**
+         * Close function.
+         */
+        closeCallback: () => void;
+    }): VNode[];
+    /**
      * Custom close icon template.
      * @param {Object} scope - close icon slot's params.
      */
@@ -338,6 +348,21 @@ export interface DialogSlots {
          * Style class of the close icon
          */
         class: any;
+    }): VNode[];
+    /**
+     * Custom maximize button template.
+     * @param {Object} scope - maximize button slot's params.
+     */
+    maximizebutton(scope: {
+        /**
+         * Maximized state as a boolean
+         */
+        maximized: boolean;
+        /**
+         * Toggle maximize function.
+         * @param {Event} event - Browser event
+         */
+        maximizeCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom maximize icon template of dialog.

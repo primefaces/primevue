@@ -10,7 +10,7 @@
             <SecondaryButton variant="text" rounded @click="toggleCallback" @keydown="keydownCallback">
                 <template #icon>
                     <PlusIcon v-if="collapsed" />
-                    <MinusIcon v-else="collapsed" />
+                    <MinusIcon v-else />
                 </template>
             </SecondaryButton>
         </template>

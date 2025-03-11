@@ -57,3 +57,5 @@
 @custom-variant p-text (&[data-p~="text"]);
 @custom-variant p-simple (&[data-p~="simple"]);
 @custom-variant p-scrollable (&[data-p~="scrollable"]);
+@custom-variant p-maximized (&[data-p~="maximized"]);
+@custom-variant p-modal (&[data-p~="modal"]);

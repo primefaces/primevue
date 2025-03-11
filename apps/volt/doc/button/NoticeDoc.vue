@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Key distinctions to underscore between the Volt Button and the PrimeVue Button.</p>
+        <p>Key distinctions to notice between the Volt Button and the PrimeVue Button.</p>
     </DocSectionText>
     <ul class="list-disc list-inside leading-8">
         <li>The <i class="mark">severity</i> prop is not utilized in Volt, Use the semantic buttons such as ContrastButton instead of the contrast severity. Volt provides four common severities compared to the wider range of PrimeVue.</li>

@@ -51,6 +51,10 @@
                     "to": "/chip"
                 },
                 {
+                    "name": "Dialog",
+                    "to": "/dialog"
+                },
+                {
                     "name": "Divider",
                     "to": "/divider"
                 },
