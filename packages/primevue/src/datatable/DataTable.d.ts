@@ -593,59 +593,56 @@ export interface DataTableRowEditCancelEvent<T = any> extends DataTableRowEditIn
  * Custom state event.
  * @see {@link DataTableEmitsOptions['state-save']}
  */
-export interface DataTableStateEvent {
+export interface DataTableStateEvent<T = any> {
     /**
-     * Index of first record
+     * Index of the first row displayed.
      */
-    first: number;
+    first?: number | undefined;
     /**
-     * Number of rows to display in new page
+     * Number of rows displayed per page.
      */
-    rows: number;
+    rows?: number | undefined;
     /**
-     * Field to sort against
+     * The name of the property in the row data that is used for sorting. Alternatively, can be a
+     * be a function that takes row data and returns the value to sort that row with.
      */
-    sortField: string;
+    sortField?: string | ((data: any) => any) | undefined | null;
     /**
      * Sort order as integer
      */
-    sortOrder: 1 | 0 | -1 | undefined | null;
+    sortOrder?: number | undefined | null;
     /**
      * MultiSort metadata
      */
-    multiSortMeta: DataTableSortMeta[] | undefined;
+    multiSortMeta?: DataTableSortMeta[] | undefined | null;
     /**
      * Collection of active filters
      */
-    filters: DataTableFilterMeta;
+    filters?: DataTableFilterMeta;
     /**
      * Comma separated list of column widths
      */
-    columnWidths: string[];
+    columnWidths?: string | null;
     /**
      * Order of the columns
      */
-    columnOrder: string[];
+    columnOrder?: string[] | null;
     /**
      * Instances of rows in expanded state
      */
-    expandedRows: any[] | DataTableExpandedRows;
-    /**
-     * Keys of rows in expanded state
-     */
-    expandedRowKeys: any[];
+    expandedRows?: any[] | DataTableExpandedRows;
     /**
      * Instances of rows in expanded state
      */
-    expandedRowGroups: any[] | DataTableExpandedRows;
+    expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
      * Selected rows
      */
-    selection: any[] | any;
+    selection?: T[] | T | undefined | null;
     /**
      * Keys of selected rows
      */
-    selectionKeys: any[];
+    selectionKeys?: Record<string, 1> | null;
 }
 
 /**
@@ -886,7 +883,8 @@ export interface DataTableProps<T = any> {
      */
     value?: any[] | undefined | null;
     /**
-     * Name of the field that uniquely identifies the a record in the data.
+     * Name of the field that uniquely identifies a row in the data. Alternatively, can be a
+     * function that takes the row data and returns a unique identifier.
      */
     dataKey?: string | ((item: any) => string) | undefined;
     /**
@@ -970,13 +968,14 @@ export interface DataTableProps<T = any> {
      */
     loadingIcon?: string | undefined;
     /**
-     * Property name or a getter function of a row data used for sorting by default
+     * The name of the field in the row data that should be used for sorting. Alternatively, can be
+     * a function that takes row data and returns the value to sort that row with.
      */
-    sortField?: string | ((item: any) => string) | undefined;
+    sortField?: string | ((data: any) => any) | undefined | null;
     /**
      * Order to sort the data by default.
      */
-    sortOrder?: number | undefined;
+    sortOrder?: number | undefined | null;
     /**
      * Determines how null values are sorted.
      * @defaultValue 1
@@ -990,7 +989,7 @@ export interface DataTableProps<T = any> {
     /**
      * An array of SortMeta objects to sort the data.
      */
-    multiSortMeta?: DataTableSortMeta[] | undefined;
+    multiSortMeta?: DataTableSortMeta[] | undefined | null;
     /**
      * Defines whether sorting works on single column or on multiple columns.
      * @defaultValue single
@@ -1019,9 +1018,9 @@ export interface DataTableProps<T = any> {
      */
     filterLocale?: string | undefined;
     /**
-     * Selected row in single mode or an array of values in multiple mode.
+     * Selected row in single mode, or an array of selected rows in multiple mode.
      */
-    selection?: T[] | T | undefined;
+    selection?: T[] | T | undefined | null;
     /**
      * Specifies the selection mode.
      */
@@ -1101,9 +1100,10 @@ export interface DataTableProps<T = any> {
      */
     rowGroupMode?: HintedString<'subheader' | 'rowspan'> | undefined;
     /**
-     * One or more field names to use in row grouping.
+     * One or more names of fields to use in row grouping. Alternatively, can be a function that
+     * takes row data and returns the value to group that row on.
      */
-    groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
+    groupRowsBy?: ((data: T) => any) | string[] | string | undefined;
     /**
      * Whether the row groups can be expandable.
      * @defaultValue false
@@ -1653,15 +1653,15 @@ export interface DataTableEmitsOptions<T = any> {
      */
     'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
-     * Invoked when a stateful table saves the state.
-     * @param {DataTableStateEvent} event - Custom state event.
+     * Invoked when a stateful table saves the current state to storage.
+     * @param {DataTableStateEvent} event - The table state that was loaded from storage.
      */
-    'state-restore'(event: DataTableStateEvent): void;
+    'state-restore'(event: DataTableStateEvent<T>): void;
     /**
-     * Invoked when a stateful table restores the state.
-     * @param {DataTableStateEvent} event - Custom state event.
+     * Invoked when a stateful table restores state from storage.
+     * @param {DataTableStateEvent} event - The state that was saved to storage.
      */
-    'state-save'(event: DataTableStateEvent): void;
+    'state-save'(event: DataTableStateEvent<T>): void;
 }
 
 export declare type DataTableEmits = EmitFn<DataTableEmitsOptions>;
