@@ -26136,6 +26136,19 @@
                             "description": "Custom footer template."
                         },
                         {
+                            "name": "closebutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close function.</span>\n}",
+                                    "description": "close button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom close button template."
+                        },
+                        {
                             "name": "closeicon",
                             "parameters": [
                                 {
@@ -26147,6 +26160,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom close icon template."
+                        },
+                        {
+                            "name": "maximizebutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">maximized</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Maximized state as a boolean</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">maximizeCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle maximize function.</span>\n}",
+                                    "description": "maximize button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom maximize button template."
                         },
                         {
                             "name": "maximizeicon",
