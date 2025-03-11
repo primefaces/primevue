@@ -102,18 +102,22 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             if (modifiers.focus) {
                 el.$_focusevent = (event) => this.onFocus(event, options);
+                el.$_ptooltipBlurHandler = this.onBlur.bind(this);
 
                 el.addEventListener('focus', el.$_focusevent);
-                el.addEventListener('blur', this.onBlur.bind(this));
+                el.addEventListener('blur', el.$_ptooltipBlurHandler);
             } else {
                 el.$_mouseenterevent = (event) => this.onMouseEnter(event, options);
+                el.$_ptooltipMouseLeaveHandler = this.onMouseLeave.bind(this);
+                el.$_ptooltipClickHandler = this.onClick.bind(this);
 
                 el.addEventListener('mouseenter', el.$_mouseenterevent);
-                el.addEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.addEventListener('click', this.onClick.bind(this));
+                el.addEventListener('mouseleave', el.$_ptooltipMouseLeaveHandler);
+                el.addEventListener('click', el.$_ptooltipClickHandler);
             }
 
-            el.addEventListener('keydown', this.onKeydown.bind(this));
+            el.$_ptooltipKeydownHandler = this.onKeydown.bind(this);
+            el.addEventListener('keydown', el.$_ptooltipKeydownHandler);
         },
         unbindEvents(el) {
             const modifiers = el.$_ptooltipModifiers;
@@ -122,16 +126,21 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 el.removeEventListener('focus', el.$_focusevent);
                 el.$_focusevent = null;
 
-                el.removeEventListener('blur', this.onBlur.bind(this));
+                el.removeEventListener('blur', el.$_ptooltipBlurHandler);
+                el.$_ptooltipBlurHandler = null;
             } else {
                 el.removeEventListener('mouseenter', el.$_mouseenterevent);
                 el.$_mouseenterevent = null;
 
-                el.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.removeEventListener('click', this.onClick.bind(this));
+                el.removeEventListener('mouseleave', el.$_ptooltipMouseLeaveHandler);
+                el.$_ptooltipMouseLeaveHandler = null;
+
+                el.removeEventListener('click', el.$_ptooltipClickHandler);
+                el.$_ptooltipClickHandler = null;
             }
 
-            el.removeEventListener('keydown', this.onKeydown.bind(this));
+            el.removeEventListener('keydown', el.$_ptooltipKeydownHandler);
+            el.$_ptooltipKeydownHandler = null;
         },
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
