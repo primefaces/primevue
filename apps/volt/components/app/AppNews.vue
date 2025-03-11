@@ -1,10 +1,10 @@
 <template>
-    <div v-if="$appState.newsActive" class="layout-news">
+    <div v-if="layoutState.newsActive" class="layout-news">
         <div class="layout-news-container">
             <i></i>
             <div class="layout-news-content">
-                <span class="layout-news-text">{{ $appState.announcement.content }}</span>
-                <a v-if="$appState.announcement.linkHref" class="layout-news-link" :href="$appState.announcement.linkHref">{{ $appState.announcement.linkText }}</a>
+                <span class="layout-news-text">{{ layoutState.announcement.content }}</span>
+                <a v-if="layoutState.announcement.linkHref" class="layout-news-link" :href="layoutState.announcement.linkHref">{{ layoutState.announcement.linkText }}</a>
             </div>
             <a class="layout-news-close" @click="onClose">
                 <span class="pi pi-times"></span>
@@ -13,36 +13,36 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import News from '@/assets/data/news.json';
+import { onMounted } from 'vue';
 
-export default {
-    mounted() {
-        const itemString = localStorage.getItem(this.$appState.storageKey);
+const { layoutState } = useLayout();
 
-        if (itemString) {
-            const item = JSON.parse(itemString);
+onMounted(() => {
+    const itemString = localStorage.getItem(layoutState.storageKey);
 
-            if (!item.hiddenNews || item.hiddenNews !== News.id) {
-                this.$appState.newsActive = true;
-                this.$appState.announcement = News;
-            } else {
-                this.$appState.newsActive = false;
-            }
+    if (itemString) {
+        const item = JSON.parse(itemString);
+
+        if (!item.hiddenNews || item.hiddenNews !== News.id) {
+            layoutState.newsActive = true;
+            layoutState.announcement = News;
         } else {
-            this.$appState.announcement = News;
-            this.$appState.newsActive = true;
+            layoutState.newsActive = false;
         }
-    },
-    methods: {
-        onClose() {
-            this.$appState.newsActive = false;
-            const item = {
-                hiddenNews: this.$appState.announcement.id
-            };
-
-            localStorage.setItem(this.$appState.storageKey, JSON.stringify(item));
-        }
+    } else {
+        layoutState.announcement = News;
+        layoutState.newsActive = true;
     }
+});
+
+const onClose = () => {
+    layoutState.newsActive = false;
+    const item = {
+        hiddenNews: layoutState.announcement.id
+    };
+
+    localStorage.setItem(layoutState.storageKey, JSON.stringify(item));
 };
 </script>

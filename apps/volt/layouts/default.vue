@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-wrapper" :class="containerClass">
+    <div :class="containerClass">
         <AppNews />
         <AppTopBar @menubutton-click="onMenuButtonClick" />
         <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
@@ -17,57 +17,50 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import Toast from '@/volt/toast';
 import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
+import { useToast } from 'primevue/usetoast';
+import { computed, ref, watch } from 'vue';
 
-export default {
-    data() {
-        return {
-            sidebarActive: false
-        };
-    },
-    /*watch: {
-        $route: {
-            immediate: true,
-            handler() {
-                if (!process.client || typeof window === 'undefined') {
-                    return;
-                }
+const { layoutState } = useLayout();
+const route = useRoute();
+const toast = useToast();
+const sidebarActive = ref(false);
 
-                this.sidebarActive = false;
-                unblockBodyScroll('blocked-scroll');
-                this.$toast.removeAllGroups();
-            }
+const containerClass = computed(() => {
+    return [
+        {
+            'layout-news-active': layoutState.newsActive
         }
-    },*/
-    methods: {
-        onMenuButtonClick() {
-            if (this.sidebarActive) {
-                this.sidebarActive = false;
-                unblockBodyScroll('blocked-scroll');
-            } else {
-                this.sidebarActive = true;
-                blockBodyScroll('blocked-scroll');
-            }
-        },
-        onMaskClick() {
-            this.sidebarActive = false;
-            unblockBodyScroll('blocked-scroll');
-        }
-    },
-    computed: {
-        containerClass() {
-            return [
-                'layout-wrapper',
-                {
-                    'layout-news-active': this.$appState.newsActive
-                }
-            ];
-        }
-    },
-    components: {
-        Toast
+    ];
+});
+
+const onMenuButtonClick = () => {
+    if (sidebarActive.value) {
+        sidebarActive.value = false;
+        unblockBodyScroll('blocked-scroll');
+    } else {
+        sidebarActive.value = true;
+        blockBodyScroll('blocked-scroll');
     }
 };
+
+const onMaskClick = () => {
+    sidebarActive.value = false;
+    unblockBodyScroll('blocked-scroll');
+};
+
+watch(
+    () => route.path,
+    () => {
+        // if (!import.meta.client || typeof window === 'undefined') {
+        //     return;
+        // }
+
+        sidebarActive.value = false;
+        unblockBodyScroll('blocked-scroll');
+        toast.removeAllGroups();
+    }
+);
 </script>

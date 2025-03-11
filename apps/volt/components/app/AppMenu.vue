@@ -8,20 +8,16 @@
     </aside>
 </template>
 
-<script>
+<script setup>
 import menudata from '@/assets/data/menu.json';
+import { ref } from 'vue';
 
-export default {
-    props: {
-        active: {
-            type: Boolean,
-            default: true
-        }
-    },
-    data() {
-        return {
-            menu: menudata.data
-        };
+const props = defineProps({
+    active: {
+        type: Boolean,
+        default: true
     }
-};
+});
+
+const menu = ref(menudata.data);
 </script>

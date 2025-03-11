@@ -7,14 +7,9 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import pkg from '@/package.json';
+import { ref } from 'vue';
 
-export default {
-    data() {
-        return {
-            version: pkg.version
-        };
-    }
-};
+const version = ref(pkg.version);
 </script>
