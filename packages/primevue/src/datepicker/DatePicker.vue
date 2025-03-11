@@ -1271,7 +1271,7 @@ export default {
         },
         formatValue(value) {
             if (typeof value === 'string') {
-                return value;
+                return this.dateFormat ? (isNaN(new Date(value)) ? value : this.formatDate(new Date(value), this.dateFormat)) : value;
             }
 
             let formattedValue = '';
