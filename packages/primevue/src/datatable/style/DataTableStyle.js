@@ -5,7 +5,7 @@ const classes = {
     root: ({ props }) => [
         'p-datatable p-component',
         {
-            'p-datatable-hoverable': props.rowHover || (props.rowHover && props.selectionMode !== null),
+            'p-datatable-hoverable': props.rowHover || props.selectionMode,
             'p-datatable-resizable': props.resizableColumns,
             'p-datatable-resizable-fit': props.resizableColumns && props.columnResizeMode === 'fit',
             'p-datatable-scrollable': props.scrollable,
