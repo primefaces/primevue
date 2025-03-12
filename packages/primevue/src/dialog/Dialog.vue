@@ -29,7 +29,7 @@
                                         </template>
                                     </Button>
                                 </slot>
-                                <slot v-if="closable" name="closebutton" :closeCallback="() => close()">
+                                <slot v-if="closable" name="closebutton" :closeCallback="close">
                                     <Button
                                         :ref="closeButtonRef"
                                         :autofocus="focusableClose"
