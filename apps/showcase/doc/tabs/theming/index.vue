@@ -60,13 +60,13 @@ export default {
                         {
                             id: 'theming.tokens',
                             label: 'Design Tokens',
-                            description: 'List of design tokens used in a preset.',
+                            description: 'List of design tokens.',
                             component: DocApiTable,
                             data: getTokenOptions('Tabs')
                         },
                         {
                             id: 'theming.preset',
-                            label: 'Preset',
+                            label: 'Built-in Presets',
                             component: DocStyledPreset,
                             data: 'tabs'
                         }

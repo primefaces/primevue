@@ -55,7 +55,11 @@
                                 {{ v === '' || v === undefined ? 'null' : v }}
                             </div>
 
-                            <div v-else-if="k === 'returnType'" :id="id + '.' + k" :class="['doc-option-returnType', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
+                            <div v-else-if="k === 'returnType'" :id="id + '.' + k" :class="['doc-option-return-type', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
+                                {{ v }}
+                            </div>
+
+                            <div v-else-if="k === 'CSS Variable'" :id="id + '.' + k" :class="['doc-option-css-variable', $appState.darkTheme ? 'doc-option-dark' : 'doc-option-light']">
                                 {{ v }}
                             </div>
 

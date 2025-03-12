@@ -408,7 +408,8 @@
             }
 
             .doc-option-default,
-            .doc-option-returnType {
+            .doc-option-return-type,
+            .doc-option-css-variable {
                 font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
                 font-weight: 400;
                 font-style: normal;
@@ -422,6 +423,10 @@
                 border-color: var(--border-color);
                 background-color: var(--card-background);
                 color: var(--text-secondary-color);
+            }
+
+            .doc-option-css-variable {
+                white-space: nowrap;
             }
 
             .doc-option-parameter-name {

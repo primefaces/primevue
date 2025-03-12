@@ -66,7 +66,7 @@ export const getTokenOptions = (name) => {
         for (const [_, value] of Object.entries(tokens)) {
             data.push({
                 token: value.token,
-                property: value.name.split('.').slice(1).join('.'),
+                /*property: value.name.split('.').slice(1).join('.'),*/
                 'CSS Variable': value.variable,
                 description: value.description
             });
