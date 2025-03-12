@@ -1,5 +1,43 @@
 # Changelog
 
+## [4.3.2](https://github.com/primefaces/primevue/tree/4.3.2) (2025-03-12)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.1...4.3.2)
+
+**Implemented New Features and Enhancements:**
+
+- Panel: new `togglebutton` slot [\#7373](https://github.com/primefaces/primevue/issues/7373)
+
+**Fixed bugs:**
+
+- Knob does not handle touch on mobile [\#7387](https://github.com/primefaces/primevue/issues/7387)
+- Tablist prev/next button type [\#7383](https://github.com/primefaces/primevue/issues/7383)
+- Stepper separator not stylable? [\#7381](https://github.com/primefaces/primevue/issues/7381)
+- Toast: Message detail should be optional [\#7379](https://github.com/primefaces/primevue/issues/7379)
+- InputMask: When use unmask and (empty string) will display the wrong value [\#7378](https://github.com/primefaces/primevue/issues/7378)
+- When unstyled=true is set from the nuxt-module, all styles are loaded. [\#7374](https://github.com/primefaces/primevue/issues/7374)
+- Popover takes 2 clicks to dismiss after giving focus - Nuxt [\#7369](https://github.com/primefaces/primevue/issues/7369)
+- Select: unexpected horizontal scroll [\#7364](https://github.com/primefaces/primevue/issues/7364)
+- Rating: add focus-visible after clicked and then shift-tab [\#7361](https://github.com/primefaces/primevue/issues/7361)
+- Select: Style error when resize window. [\#7360](https://github.com/primefaces/primevue/issues/7360)
+- SelectButton: multiple and allowEmpty not compaitble [\#7358](https://github.com/primefaces/primevue/issues/7358)
+- TreeTable: Some Elements Are Missing Classes [\#7346](https://github.com/primefaces/primevue/issues/7346)
+- AutoComplete: Cannot read properties of null (reading '$el') when forceSelection is active [\#7342](https://github.com/primefaces/primevue/issues/7342)
+- DataTable: Table layout shifts when `groupRowsBy` is `rowspan` and row expansion is enabled [\#7335](https://github.com/primefaces/primevue/issues/7335)
+- Toast not respecting countdown onMouseLeave, regression? [\#7328](https://github.com/primefaces/primevue/issues/7328)
+- Button in input groups are not rendered properly [\#7325](https://github.com/primefaces/primevue/issues/7325)
+- Button: TypeScript definiton defect for `to` [\#7324](https://github.com/primefaces/primevue/issues/7324)
+- Tooltip misaligned after updating to PrimeVue 4.3.0 and 4.3.1 [\#7323](https://github.com/primefaces/primevue/issues/7323)
+- Gallery: Item navigators are permanently disabled [\#7321](https://github.com/primefaces/primevue/issues/7321)
+- Select: "name" attribute is not passed [\#7306](https://github.com/primefaces/primevue/issues/7306)
+- BlockUI breaks when its mask is styled with an infinite animation [\#7302](https://github.com/primefaces/primevue/issues/7302)
+- MultiSelect - autoFilterFocus and autoOptionFocus not working together [\#7300](https://github.com/primefaces/primevue/issues/7300)
+- Primevue Datatable Column's template #rowtogglericon [\#7297](https://github.com/primefaces/primevue/issues/7297)
+- AutoComplete: Space key prevents typing spaces in input field [\#7294](https://github.com/primefaces/primevue/issues/7294)
+- Resolved value is incorrect for groups of multiple checkboxes in PrimeVue Forms [\#7169](https://github.com/primefaces/primevue/issues/7169)
+- AutoComplete: Enter does not submit form (PrimeVue 4) [\#6788](https://github.com/primefaces/primevue/issues/6788)
+- Color Picker [\#4720](https://github.com/primefaces/primevue/issues/4720)
+
 ## [4.3.1](https://github.com/primefaces/primevue/tree/4.3.1) (2025-02-25)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.0...4.3.1)
