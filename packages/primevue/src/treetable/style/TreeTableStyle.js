@@ -5,7 +5,7 @@ const classes = {
     root: ({ instance, props }) => [
         'p-treetable p-component',
         {
-            'p-treetable-hoverable': props.rowHover || (props.rowHover && instance.rowSelectionMode),
+            'p-treetable-hoverable': props.rowHover || instance.rowSelectionMode,
             'p-treetable-resizable': props.resizableColumns,
             'p-treetable-resizable-fit': props.resizableColumns && props.columnResizeMode === 'fit',
             'p-treetable-scrollable': props.scrollable,
