@@ -150,6 +150,10 @@
                                 <hr class="my-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
                                 <ul class="list-none p-0 m-0 grow text-lg">
                                     <li class="flex items-center mb-4">
+                                        <i class="pi pi-times-circle text-red-500 mr-2"></i>
+                                        <span class="font-bold">Figma to Code</span>
+                                    </li>
+                                    <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
                                         <span>Up to 2 Themes</span>
                                     </li>
