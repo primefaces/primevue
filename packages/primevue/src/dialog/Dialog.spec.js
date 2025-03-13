@@ -111,11 +111,13 @@ describe('maximizable', () => {
         await wrapper.setProps({ visible: true });
         await wrapper.setData({ maximized: false });
 
-        const icon = wrapper.find('.p-dialog-maximize-button .p-button-icon');
+        let icon = wrapper.find('.p-dialog-maximize-button .p-button-icon');
 
         expect(icon.classes()).toContain('pi-discord');
 
         await wrapper.setData({ maximized: true });
+
+        icon = wrapper.find('.p-dialog-maximize-button .p-button-icon');
 
         expect(icon.classes()).toContain('pi-facebook');
     });
