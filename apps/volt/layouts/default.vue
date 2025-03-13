@@ -14,10 +14,12 @@
         <Toast position="top-left" group="tl" />
         <Toast position="bottom-left" group="bl" />
         <Toast position="bottom-right" group="br" />
+        <ConfirmDialog />
     </div>
 </template>
 
 <script setup>
+import ConfirmDialog from '@/volt/confirmdialog';
 import Toast from '@/volt/toast';
 import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 import { useToast } from 'primevue/usetoast';

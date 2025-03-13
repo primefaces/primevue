@@ -1,33 +1,33 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Toast component is controlled via the <i>ToastService</i> that needs to be installed as an application plugin.</p>
+        <p>ConfirmDialog is controlled via the <i>ConfirmationService</i> that needs to be installed as an application plugin.</p>
         <DocSectionCode :code="code1" lang="script" />
         <p>Recommended location of a Toast is the main application template so that the component can be accessed in a shared manner.</p>
         <DocSectionCode :code="code2" />
-        <p>The <i>useToast</i> composable can be accessed anywhere within your application to interact with the component.</p>
+        <p>The <i>useConfirm</i> composable is used to interact with the component.</p>
         <DocSectionCode :code="code3" />
     </DocSectionText>
 </template>
 
 <script setup>
 const code1 = ref(`import {createApp} from 'vue';
-import ToastService from 'primevue/toastservice';
+import ConfirmationService from 'primevue/confirmationservice';
 
 const app = createApp(App);
-app.use(ToastService);
+app.use(ConfirmationService);
 `);
 
 const code2 = ref(`
 <template>
-    <Toast />
+    <ConfirmDialog />
 </template>
 `);
 
 const code3 = ref(`
 <script setup>
-import { useToast } from 'primevue/usetoast';
+import { useConfirm } from "primevue/useconfirm";
 
-const toast = useToast();   // instance to create messages
+const confirm = useConfirm();
 <\/script>
 `);
 </script>

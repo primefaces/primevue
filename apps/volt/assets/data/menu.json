@@ -51,6 +51,10 @@
                     "to": "/chip"
                 },
                 {
+                    "name": "ConfirmDialog",
+                    "to": "/confirmdialog"
+                },
+                {
                     "name": "Dialog",
                     "to": "/dialog"
                 },
