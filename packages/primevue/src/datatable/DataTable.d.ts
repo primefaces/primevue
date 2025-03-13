@@ -7,7 +7,7 @@
  * @module datatable
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, NoInfer, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonProps } from 'primevue/button';
 import type { ColumnPassThroughOptionType } from 'primevue/column';
@@ -593,7 +593,7 @@ export interface DataTableRowEditCancelEvent<T = any> extends DataTableRowEditIn
  * Custom state event.
  * @see {@link DataTableEmitsOptions['state-save']}
  */
-export interface DataTableStateEvent {
+export interface DataTableStateEvent<T = any> {
     /**
      * Index of first record
      */
@@ -603,9 +603,10 @@ export interface DataTableStateEvent {
      */
     rows: number;
     /**
-     * Field to sort against
+     * The name of the property in the row data that is used for sorting. Alternatively, can be a
+     * be a function that takes row data and returns the value to sort that row with.
      */
-    sortField: string;
+    sortField: keyof T | ((data: T) => any);
     /**
      * Sort order as integer
      */
@@ -641,7 +642,7 @@ export interface DataTableStateEvent {
     /**
      * Selected rows
      */
-    selection: any[] | any;
+    selection: T[] | T;
     /**
      * Keys of selected rows
      */
@@ -884,11 +885,12 @@ export interface DataTableProps<T = any> {
     /**
      * An array of objects to display.
      */
-    value?: any[] | undefined | null;
+    value?: T[] | undefined | null;
     /**
-     * Name of the field that uniquely identifies the a record in the data.
+     * Name of the field that uniquely identifies a row in the data. Alternatively, can be a
+     * function that takes the row data and returns a unique identifier.
      */
-    dataKey?: string | ((item: any) => string) | undefined;
+    dataKey?: keyof T | ((data: NoInfer<T>) => string) | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -970,9 +972,10 @@ export interface DataTableProps<T = any> {
      */
     loadingIcon?: string | undefined;
     /**
-     * Property name or a getter function of a row data used for sorting by default
+     * The name of the field in the row data that should be used for sorting. Alternatively, can be
+     * a function that takes row data and returns the value to sort that row with.
      */
-    sortField?: string | ((item: any) => string) | undefined;
+    sortField?: keyof T | ((data: NoInfer<T>) => any) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -1011,17 +1014,18 @@ export interface DataTableProps<T = any> {
      */
     filterDisplay?: HintedString<'menu' | 'row'> | undefined;
     /**
-     * 	An array of fields as string or function to use in global filtering.
+     * An array of names for fields that should be used in global filtering. Alternatively, can be
+     * a function that takes row data and returns the value to apply the global filter against.
      */
-    globalFilterFields?: (string | ((data: T) => string))[] | undefined;
+    globalFilterFields?: (keyof T | ((data: NoInfer<T>) => string))[] | undefined;
     /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
     filterLocale?: string | undefined;
     /**
-     * Selected row in single mode or an array of values in multiple mode.
+     * Selected row in single mode, or an array of values in multiple mode.
      */
-    selection?: T[] | T | undefined;
+    selection?: NoInfer<T>[] | NoInfer<T> | undefined;
     /**
      * Specifies the selection mode.
      */
@@ -1045,7 +1049,7 @@ export interface DataTableProps<T = any> {
     /**
      * Selected row instance with the ContextMenu.
      */
-    contextMenuSelection?: any | any[] | undefined;
+    contextMenuSelection?: NoInfer<T> | NoInfer<T>[] | undefined;
     /**
      * Whether all data is selected.
      */
@@ -1087,7 +1091,7 @@ export interface DataTableProps<T = any> {
     /**
      * A collection of row data display as expanded.
      */
-    expandedRows?: any[] | DataTableExpandedRows | null;
+    expandedRows?: NoInfer<T>[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
      */
@@ -1101,9 +1105,10 @@ export interface DataTableProps<T = any> {
      */
     rowGroupMode?: HintedString<'subheader' | 'rowspan'> | undefined;
     /**
-     * One or more field names to use in row grouping.
+     * One or more names of fields to use in row grouping. Alternatively, can be a function that
+     * takes row data and returns the value to group that row on.
      */
-    groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
+    groupRowsBy?: ((data: NoInfer<T>) => any) | keyof T[] | keyof T | undefined;
     /**
      * Whether the row groups can be expandable.
      * @defaultValue false
@@ -1112,7 +1117,7 @@ export interface DataTableProps<T = any> {
     /**
      * An array of group field values whose groups would be rendered as expanded.
      */
-    expandedRowGroups?: any[] | DataTableExpandedRows;
+    expandedRowGroups?: NoInfer<T>[] | DataTableExpandedRows;
     /**
      * Defines where a stateful table keeps its state.
      * @defaultValue session
@@ -1129,18 +1134,18 @@ export interface DataTableProps<T = any> {
     /**
      * A collection of rows to represent the current editing data in row edit mode.
      */
-    editingRows?: T[] | DataTableEditingRows;
+    editingRows?: NoInfer<T>[] | DataTableEditingRows;
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      * The return value is added to the row's :classes array (see Vue.js class bindings).
      */
-    rowClass?: (data: T) => string | object | undefined;
+    rowClass?: (data: NoInfer<T>) => string | object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style object for the corresponding row.
      * The function may also return an array of style objects which will be merged.
      * The return value of this function is directly applied as a Vue.js style-binding on the table row.
      */
-    rowStyle?: (data: T) => object | object[] | undefined;
+    rowStyle?: (data: NoInfer<T>) => object | object[] | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false
@@ -1158,7 +1163,7 @@ export interface DataTableProps<T = any> {
     /**
      * Items of the frozen part in scrollable DataTable.
      */
-    frozenValue?: any[] | undefined | null;
+    frozenValue?: NoInfer<T>[] | undefined | null;
     /**
      * The breakpoint to define the maximum width boundary when using stack responsive layout.
      * @defaultValue 960px
@@ -1653,15 +1658,15 @@ export interface DataTableEmitsOptions<T = any> {
      */
     'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
-     * Invoked when a stateful table saves the state.
-     * @param {DataTableStateEvent} event - Custom state event.
+     * Invoked when a stateful table saves the current state to storage.
+     * @param {DataTableStateEvent} event - The table state that was loaded from storage.
      */
-    'state-restore'(event: DataTableStateEvent): void;
+    'state-restore'(event: DataTableStateEvent<T>): void;
     /**
-     * Invoked when a stateful table restores the state.
-     * @param {DataTableStateEvent} event - Custom state event.
+     * Invoked when a stateful table restores state from storage.
+     * @param {DataTableStateEvent} event - The state that was saved to storage.
      */
-    'state-save'(event: DataTableStateEvent): void;
+    'state-save'(event: DataTableStateEvent<T>): void;
 }
 
 export declare type DataTableEmits = EmitFn<DataTableEmitsOptions>;
