@@ -97,7 +97,7 @@
                     @constraint-add="$emit('constraint-add', $event)"
                     @constraint-remove="$emit('constraint-remove', $event)"
                     @apply-click="$emit('apply-click', $event)"
-                    @change="$emit('checkbox-change', $event)"
+                    @checkbox-change="$emit('checkbox-change', $event)"
                     :unstyled="unstyled"
                     :pt="pt"
                 />
