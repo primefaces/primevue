@@ -20097,7 +20097,7 @@
                     "props": [
                         {
                             "name": "first",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "number",
                             "default": "",
@@ -20105,7 +20105,7 @@
                         },
                         {
                             "name": "rows",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "number",
                             "default": "",
@@ -20129,15 +20129,15 @@
                         },
                         {
                             "name": "multiSortMeta",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "undefined | DataTableSortMeta[]",
+                            "type": "null | DataTableSortMeta[]",
                             "default": "",
                             "description": "MultiSort metadata"
                         },
                         {
                             "name": "filters",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "DataTableFilterMeta",
                             "default": "",
@@ -20145,17 +20145,17 @@
                         },
                         {
                             "name": "columnWidths",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "string[]",
+                            "type": "null | string[]",
                             "default": "",
                             "description": "Comma separated list of column widths"
                         },
                         {
                             "name": "columnOrder",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "string[]",
+                            "type": "null | string[]",
                             "default": "",
                             "description": "Order of the columns"
                         },
@@ -20177,7 +20177,7 @@
                         },
                         {
                             "name": "expandedRowGroups",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "any[] | DataTableExpandedRows",
                             "default": "",
@@ -20185,9 +20185,9 @@
                         },
                         {
                             "name": "selection",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "T | T[]",
+                            "type": "null | T | T[]",
                             "default": "",
                             "description": "Selected rows"
                         },
@@ -20195,7 +20195,7 @@
                             "name": "selectionKeys",
                             "optional": false,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "null | any[]",
                             "default": "",
                             "description": "Keys of selected rows"
                         }
