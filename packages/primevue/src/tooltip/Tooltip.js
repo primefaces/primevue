@@ -101,46 +101,44 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const modifiers = el.$_ptooltipModifiers;
 
             if (modifiers.focus) {
-                el.$_focusevent = (event) => this.onFocus(event, options);
-                el.$_ptooltipBlurHandler = this.onBlur.bind(this);
+                el.$_ptooltipFocusEvent = (event) => this.onFocus(event, options);
+                el.$_ptooltipBlurEvent = this.onBlur.bind(this);
 
-                el.addEventListener('focus', el.$_focusevent);
-                el.addEventListener('blur', el.$_ptooltipBlurHandler);
+                el.addEventListener('focus', el.$_ptooltipFocusEvent);
+                el.addEventListener('blur', el.$_ptooltipBlurEvent);
             } else {
-                el.$_mouseenterevent = (event) => this.onMouseEnter(event, options);
-                el.$_ptooltipMouseLeaveHandler = this.onMouseLeave.bind(this);
-                el.$_ptooltipClickHandler = this.onClick.bind(this);
+                el.$_ptooltipMouseEnterEvent = (event) => this.onMouseEnter(event, options);
+                el.$_ptooltipMouseLeaveEvent = this.onMouseLeave.bind(this);
+                el.$_ptooltipClickEvent = this.onClick.bind(this);
 
-                el.addEventListener('mouseenter', el.$_mouseenterevent);
-                el.addEventListener('mouseleave', el.$_ptooltipMouseLeaveHandler);
-                el.addEventListener('click', el.$_ptooltipClickHandler);
+                el.addEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                el.addEventListener('mouseleave', el.$_ptooltipMouseLeaveEvent);
+                el.addEventListener('click', el.$_ptooltipClickEvent);
             }
 
-            el.$_ptooltipKeydownHandler = this.onKeydown.bind(this);
-            el.addEventListener('keydown', el.$_ptooltipKeydownHandler);
+            el.addEventListener('keydown', this.onKeydown.bind(this));
         },
         unbindEvents(el) {
             const modifiers = el.$_ptooltipModifiers;
 
             if (modifiers.focus) {
-                el.removeEventListener('focus', el.$_focusevent);
-                el.$_focusevent = null;
+                el.removeEventListener('focus', el.$_ptooltipFocusEvent);
+                el.$_ptooltipFocusEvent = null;
 
-                el.removeEventListener('blur', el.$_ptooltipBlurHandler);
-                el.$_ptooltipBlurHandler = null;
+                el.removeEventListener('blur', el.$_ptooltipBlurEvent);
+                el.$_ptooltipBlurEvent = null;
             } else {
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                el.$_mouseenterevent = null;
+                el.removeEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                el.$_ptooltipMouseEnterEvent = null;
 
-                el.removeEventListener('mouseleave', el.$_ptooltipMouseLeaveHandler);
-                el.$_ptooltipMouseLeaveHandler = null;
+                el.removeEventListener('mouseleave', el.$_ptooltipMouseLeaveEvent);
+                el.$_ptooltipMouseLeaveEvent = null;
 
-                el.removeEventListener('click', el.$_ptooltipClickHandler);
-                el.$_ptooltipClickHandler = null;
+                el.removeEventListener('click', el.$_ptooltipClickEvent);
+                el.$_ptooltipClickEvent = null;
             }
 
-            el.removeEventListener('keydown', el.$_ptooltipKeydownHandler);
-            el.$_ptooltipKeydownHandler = null;
+            el.removeEventListener('keydown', this.onKeydown.bind(this));
         },
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
@@ -229,8 +227,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 $this.hide(el);
 
                 tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                setTimeout(() => el.addEventListener('mouseenter', el.$_mouseenterevent), 50);
+                el.removeEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                setTimeout(() => el.addEventListener('mouseenter', el.$_ptooltipMouseEnterEvent), 50);
             });
 
             this.bindScrollListener(el);
