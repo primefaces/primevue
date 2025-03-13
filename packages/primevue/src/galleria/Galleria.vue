@@ -25,6 +25,7 @@ export default {
     emits: ['update:activeIndex', 'update:visible'],
     container: null,
     mask: null,
+    documentKeydownListener: null,
     data() {
         return {
             containerVisible: this.visible
@@ -55,6 +56,7 @@ export default {
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
             blockBodyScroll();
             this.focus();
+            this.bindGlobalListeners();
         },
         onBeforeLeave() {
             !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
@@ -63,6 +65,7 @@ export default {
             ZIndex.clear(el);
             this.containerVisible = false;
             unblockBodyScroll();
+            this.unbindGlobalListeners();
         },
         onActiveItemChange(index) {
             if (this.activeIndex !== index) {
@@ -77,6 +80,31 @@ export default {
         },
         maskRef(el) {
             this.mask = el;
+        },
+        onKeyDown(event) {
+            if (event.code === 'Escape') {
+                this.maskHide();
+            }
+        },
+        bindDocumentKeyDownListener() {
+            if (!this.documentKeydownListener) {
+                this.documentKeydownListener = this.onKeyDown.bind(this);
+                window.document.addEventListener('keydown', this.documentKeydownListener);
+            }
+        },
+        unbindDocumentKeyDownListener() {
+            if (this.documentKeydownListener) {
+                window.document.removeEventListener('keydown', this.documentKeydownListener);
+                this.documentKeydownListener = null;
+            }
+        },
+        bindGlobalListeners() {
+            if (this.fullScreen) {
+                this.bindDocumentKeyDownListener();
+            }
+        },
+        unbindGlobalListeners() {
+            this.unbindDocumentKeyDownListener();
         },
         focus() {
             let focusTarget = this.container.$el.querySelector('[autofocus]');
