@@ -603,10 +603,9 @@ export interface DataTableStateEvent<T = any> {
      */
     rows: number;
     /**
-     * The name of the property in the row data that is used for sorting. Alternatively, can be a
-     * be a function that takes row data and returns the value to sort that row with.
+     * Field to sort against
      */
-    sortField: keyof T | ((data: T) => any);
+    sortField: keyof T;
     /**
      * Sort order as integer
      */
@@ -887,10 +886,9 @@ export interface DataTableProps<T = any> {
      */
     value?: T[] | undefined | null;
     /**
-     * Name of the field that uniquely identifies a row in the data. Alternatively, can be a
-     * function that takes the row data and returns a unique identifier.
+     * Name of the field that uniquely identifies the a record in the data.
      */
-    dataKey?: keyof T | ((data: NoInfer<T>) => string) | undefined;
+    dataKey?: keyof T | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -972,10 +970,9 @@ export interface DataTableProps<T = any> {
      */
     loadingIcon?: string | undefined;
     /**
-     * The name of the field in the row data that should be used for sorting. Alternatively, can be
-     * a function that takes row data and returns the value to sort that row with.
+     * Property name or a getter function of a row data used for sorting by default
      */
-    sortField?: keyof T | ((data: NoInfer<T>) => any) | undefined;
+    sortField?: keyof T | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -1014,8 +1011,7 @@ export interface DataTableProps<T = any> {
      */
     filterDisplay?: HintedString<'menu' | 'row'> | undefined;
     /**
-     * An array of names for fields that should be used in global filtering. Alternatively, can be
-     * a function that takes row data and returns the value to apply the global filter against.
+     * 	An array of fields as string or function to use in global filtering.
      */
     globalFilterFields?: (keyof T | ((data: NoInfer<T>) => string))[] | undefined;
     /**
@@ -1023,7 +1019,7 @@ export interface DataTableProps<T = any> {
      */
     filterLocale?: string | undefined;
     /**
-     * Selected row in single mode, or an array of values in multiple mode.
+     * Selected row in single mode or an array of values in multiple mode.
      */
     selection?: NoInfer<T>[] | NoInfer<T> | undefined;
     /**
@@ -1105,10 +1101,9 @@ export interface DataTableProps<T = any> {
      */
     rowGroupMode?: HintedString<'subheader' | 'rowspan'> | undefined;
     /**
-     * One or more names of fields to use in row grouping. Alternatively, can be a function that
-     * takes row data and returns the value to group that row on.
+     * One or more field names to use in row grouping.
      */
-    groupRowsBy?: ((data: NoInfer<T>) => any) | keyof T[] | keyof T | undefined;
+    groupRowsBy?: ((field: NoInfer<T>) => object) | keyof T[] | keyof T | undefined;
     /**
      * Whether the row groups can be expandable.
      * @defaultValue false
@@ -1658,13 +1653,13 @@ export interface DataTableEmitsOptions<T = any> {
      */
     'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
-     * Invoked when a stateful table saves the current state to storage.
-     * @param {DataTableStateEvent} event - The table state that was loaded from storage.
+     * Invoked when a stateful table saves the state.
+     * @param {DataTableStateEvent} event - Custom state event.
      */
     'state-restore'(event: DataTableStateEvent<T>): void;
     /**
-     * Invoked when a stateful table restores state from storage.
-     * @param {DataTableStateEvent} event - The state that was saved to storage.
+     * Invoked when a stateful table restores the state.
+     * @param {DataTableStateEvent} event - Custom state event.
      */
     'state-save'(event: DataTableStateEvent<T>): void;
 }
