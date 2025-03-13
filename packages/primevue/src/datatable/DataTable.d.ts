@@ -597,11 +597,11 @@ export interface DataTableStateEvent<T = any> {
     /**
      * Index of first record
      */
-    first: number;
+    first?: number | undefined;
     /**
      * Number of rows to display in new page
      */
-    rows: number;
+    rows?: number | undefined;
     /**
      * Field to sort against
      */
@@ -613,19 +613,19 @@ export interface DataTableStateEvent<T = any> {
     /**
      * MultiSort metadata
      */
-    multiSortMeta: DataTableSortMeta[] | undefined;
+    multiSortMeta?: DataTableSortMeta[] | undefined | null;
     /**
      * Collection of active filters
      */
-    filters: DataTableFilterMeta;
+    filters?: DataTableFilterMeta;
     /**
      * Comma separated list of column widths
      */
-    columnWidths: string[];
+    columnWidths?: string[] | null;
     /**
      * Order of the columns
      */
-    columnOrder: string[];
+    columnOrder?: string[] | null;
     /**
      * Instances of rows in expanded state
      */
@@ -637,15 +637,15 @@ export interface DataTableStateEvent<T = any> {
     /**
      * Instances of rows in expanded state
      */
-    expandedRowGroups: any[] | DataTableExpandedRows;
+    expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
      * Selected rows
      */
-    selection: T[] | T;
+    selection?: T[] | T | undefined | null;
     /**
      * Keys of selected rows
      */
-    selectionKeys: any[];
+    selectionKeys: any[] | null;
 }
 
 /**
