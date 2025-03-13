@@ -123,9 +123,9 @@ export default {
         },
         updateInkBar() {
             const { content, inkbar, tabs } = this.$refs;
-            // Cancel update if inkbar doesn't exist anymore, e.g. component unmounted
-            if(!inkbar)
-                return;
+
+            if (!inkbar) return;
+
             const activeTab = findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
 
             if (this.$pcTabs.isVertical()) {
