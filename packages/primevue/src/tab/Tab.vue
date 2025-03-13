@@ -7,8 +7,8 @@
 
 <script>
 import { cn } from '@primeuix/utils';
-import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
-import { equals } from '@primeuix/utils/object';
+import { find, findSingle, focus, getAttribute } from '@primeuix/utils/dom';
+import { equals, findLast } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 import BaseTab from './BaseTab.vue';
@@ -105,7 +105,7 @@ export default {
         findPrevTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : ((findLast(find(element, '[data-pc-name="tab"]')), Boolean) ?? null)) : null;
         },
         findFirstTab() {
             return this.findNextTab(this.$pcTabList.$refs.content.firstElementChild, true);
