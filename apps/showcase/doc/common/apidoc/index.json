@@ -20115,9 +20115,9 @@
                             "name": "sortField",
                             "optional": false,
                             "readonly": false,
-                            "type": "string",
+                            "type": "keyof T | Function",
                             "default": "",
-                            "description": "Field to sort against"
+                            "description": "The name of the property in the row data that is used for sorting. Alternatively, can be a\nbe a function that takes row data and returns the value to sort that row with."
                         },
                         {
                             "name": "sortOrder",
@@ -20187,7 +20187,7 @@
                             "name": "selection",
                             "optional": false,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T | T[]",
                             "default": "",
                             "description": "Selected rows"
                         },
@@ -20636,7 +20636,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | any[]",
+                            "type": "null | T[]",
                             "default": "",
                             "description": "An array of objects to display."
                         },
@@ -20644,9 +20644,9 @@
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Function",
+                            "type": "keyof T | Function",
                             "default": "",
-                            "description": "Name of the field that uniquely identifies the a record in the data."
+                            "description": "Name of the field that uniquely identifies a row in the data. Alternatively, can be a\nfunction that takes the row data and returns a unique identifier."
                         },
                         {
                             "name": "rows",
@@ -20756,9 +20756,9 @@
                             "name": "sortField",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Function",
+                            "type": "keyof T | Function",
                             "default": "",
-                            "description": "Property name or a getter function of a row data used for sorting by default"
+                            "description": "The name of the field in the row data that should be used for sorting. Alternatively, can be\na function that takes row data and returns the value to sort that row with."
                         },
                         {
                             "name": "sortOrder",
@@ -20828,9 +20828,9 @@
                             "name": "globalFilterFields",
                             "optional": true,
                             "readonly": false,
-                            "type": "(string | Function)[]",
+                            "type": "(keyof T | Function)[]",
                             "default": "",
-                            "description": "An array of fields as string or function to use in global filtering."
+                            "description": "An array of names for fields that should be used in global filtering. Alternatively, can be\na function that takes row data and returns the value to apply the global filter against."
                         },
                         {
                             "name": "filterLocale",
@@ -20844,9 +20844,9 @@
                             "name": "selection",
                             "optional": true,
                             "readonly": false,
-                            "type": "T | T[]",
+                            "type": "NoInfer<T> | NoInfer<T>[]",
                             "default": "",
-                            "description": "Selected row in single mode or an array of values in multiple mode."
+                            "description": "Selected row in single mode, or an array of values in multiple mode."
                         },
                         {
                             "name": "selectionMode",
@@ -20884,7 +20884,7 @@
                             "name": "contextMenuSelection",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "NoInfer<T> | NoInfer<T>[]",
                             "default": "",
                             "description": "Selected row instance with the ContextMenu."
                         },
@@ -20955,7 +20955,7 @@
                             "name": "expandedRows",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | any[] | DataTableExpandedRows",
+                            "type": "null | DataTableExpandedRows | NoInfer<T>[]",
                             "default": "",
                             "description": "A collection of row data display as expanded."
                         },
@@ -20987,9 +20987,9 @@
                             "name": "groupRowsBy",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | string[] | Function",
+                            "type": "keyof T | Function | keyof T[]",
                             "default": "",
-                            "description": "One or more field names to use in row grouping."
+                            "description": "One or more names of fields to use in row grouping. Alternatively, can be a function that\ntakes row data and returns the value to group that row on."
                         },
                         {
                             "name": "expandableRowGroups",
@@ -21003,7 +21003,7 @@
                             "name": "expandedRowGroups",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[] | DataTableExpandedRows",
+                            "type": "DataTableExpandedRows | NoInfer<T>[]",
                             "default": "",
                             "description": "An array of group field values whose groups would be rendered as expanded."
                         },
@@ -21035,7 +21035,7 @@
                             "name": "editingRows",
                             "optional": true,
                             "readonly": false,
-                            "type": "DataTableEditingRows | T[]",
+                            "type": "DataTableEditingRows | NoInfer<T>[]",
                             "default": "",
                             "description": "A collection of rows to represent the current editing data in row edit mode."
                         },
@@ -21081,7 +21081,7 @@
                             "name": "frozenValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | any[]",
+                            "type": "null | NoInfer<T>[]",
                             "default": "",
                             "description": "Items of the frozen part in scrollable DataTable."
                         },
@@ -21908,12 +21908,12 @@
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "DataTableStateEvent",
-                                    "description": "Custom state event."
+                                    "type": "DataTableStateEvent<T>",
+                                    "description": "The table state that was loaded from storage."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table saves the state."
+                            "description": "Invoked when a stateful table saves the current state to storage."
                         },
                         {
                             "name": "state-save",
@@ -21921,12 +21921,12 @@
                                 {
                                     "name": "event",
                                     "optional": false,
-                                    "type": "DataTableStateEvent",
-                                    "description": "Custom state event."
+                                    "type": "DataTableStateEvent<T>",
+                                    "description": "The state that was saved to storage."
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table restores the state."
+                            "description": "Invoked when a stateful table restores state from storage."
                         }
                     ]
                 },
