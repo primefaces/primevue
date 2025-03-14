@@ -29,7 +29,8 @@
 
 <script setup>
 import TimesIcon from '@primevue/icons/times';
-import { default as WindowMaximizeIcon, default as WindowMinimizeIcon } from '@primevue/icons/windowminimize';
+import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
+import WindowMinimizeIcon from '@primevue/icons/windowminimize';
 import Dialog from 'primevue/dialog';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
