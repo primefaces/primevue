@@ -3,13 +3,18 @@
         <p>An advisory text can be defined with the <NuxtLink to="/message">Message</NuxtLink> component.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <InputText v-model="value" type="text" />
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" v-model="value" aria-describedby="username-help" />
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
+        </div>
     </div>
     <DocSectionCode :code="code" />
 </template>
 
 <script setup>
 import InputText from '@/volt/inputtext';
+import Message from '@/volt/message';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -17,12 +22,17 @@ const value = ref(null);
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <InputText v-model="value" type="text" />
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" v-model="value" aria-describedby="username-help" />
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
+        </div>
     </div>
 </template>
 
 <script setup>
 import InputText from '@/volt/inputtext';
+import Message from '@/volt/message';
 import { ref } from 'vue';
 
 const value = ref(null);
