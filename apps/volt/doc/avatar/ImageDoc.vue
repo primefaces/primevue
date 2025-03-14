@@ -13,7 +13,7 @@
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <OverlayBadge value="4" severity="danger">
                     <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
                 </OverlayBadge>
             </div>
@@ -45,7 +45,7 @@ const code = ref(`
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <OverlayBadge value="4" severity="danger">
                     <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
                 </OverlayBadge>
             </div>

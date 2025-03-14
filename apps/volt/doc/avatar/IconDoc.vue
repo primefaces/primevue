@@ -20,7 +20,7 @@
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <OverlayBadge value="4" severity="danger">
                     <Avatar icon="pi pi-user" size="xlarge" />
                 </OverlayBadge>
             </div>
@@ -54,7 +54,7 @@ const code = ref(`
 
             <div class="flex-auto">
                 <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <OverlayBadge value="4" severity="danger">
                     <Avatar icon="pi pi-user" size="xlarge" />
                 </OverlayBadge>
             </div>
