@@ -1,9 +1,6 @@
 <script>
-import { Theme, ThemeService } from '@primeuix/styled';
 import { findSingle, isElement } from '@primeuix/utils/dom';
 import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
-import Base from '@primevue/core/base';
-import BaseStyle from '@primevue/core/base/style';
 import { useAttrSelector } from '@primevue/core/useattrselector';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
@@ -37,7 +34,7 @@ export default {
         isUnstyled: {
             immediate: true,
             handler(newValue) {
-                ThemeService.off('theme:change', this._loadCoreStyles);
+                this.$primevueStyled.ThemeService.off('theme:change', this._loadCoreStyles);
 
                 if (!newValue) {
                     this._loadCoreStyles();
@@ -48,7 +45,7 @@ export default {
         dt: {
             immediate: true,
             handler(newValue, oldValue) {
-                ThemeService.off('theme:change', this._themeScopedListener);
+                this.$primevueStyled.ThemeService.off('theme:change', this._themeScopedListener);
 
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
@@ -126,11 +123,11 @@ export default {
         },
         _load() {
             // @todo
-            if (!Base.isStyleNameLoaded('base')) {
-                BaseStyle.loadCSS(this.$styleOptions);
+            if (!this.$primevueBase.isStyleNameLoaded('base')) {
+                this.$primevueBaseStyle.loadCSS(this.$styleOptions);
                 this._loadGlobalStyles();
 
-                Base.setLoadedStyleName('base');
+                this.$primevueBase.setLoadedStyleName('base');
             }
 
             this._loadThemeStyles();
@@ -140,11 +137,11 @@ export default {
             this._themeChangeListener(this._load);
         },
         _loadCoreStyles() {
-            if (!Base.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
-                BaseComponentStyle.loadCSS(this.$styleOptions);
+            if (!this.$primevueBase.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
+                this.$primevueBaseComponentStyle.loadCSS(this.$styleOptions);
                 this.$options.style && this.$style.loadCSS(this.$styleOptions);
 
-                Base.setLoadedStyleName(this.$style.name);
+                this.$primevueBase.setLoadedStyleName(this.$style.name);
             }
         },
         _loadGlobalStyles() {
@@ -160,40 +157,40 @@ export default {
 
             const globalCSS = this._useGlobalPT(this._getOptionValue, 'global.css', this.$params);
 
-            isNotEmpty(globalCSS) && BaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
+            isNotEmpty(globalCSS) && this.$primevueBaseStyle.load(globalCSS, { name: 'global', ...this.$styleOptions });
         },
         _loadThemeStyles() {
             if (this.isUnstyled || this.$theme === 'none') return;
 
             // common
-            if (!Theme.isStyleNameLoaded('common')) {
+            if (!this.$primevueStyled.Theme.isStyleNameLoaded('common')) {
                 const { primitive, semantic, global, style } = this.$style?.getCommonTheme?.() || {};
 
-                BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
-                BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
-                BaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
-                BaseStyle.loadStyle({ name: 'global-style', ...this.$styleOptions }, style);
+                this.$primevueBaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
+                this.$primevueBaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
+                this.$primevueBaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
+                this.$primevueBaseStyle.loadStyle({ name: 'global-style', ...this.$styleOptions }, style);
 
-                Theme.setLoadedStyleName('common');
+                this.$primevueStyled.Theme.setLoadedStyleName('common');
             }
 
             // component
-            if (!Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
+            if (!this.$primevueStyled.Theme.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
                 const { css, style } = this.$style?.getComponentTheme?.() || {};
 
                 this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
                 this.$style?.loadStyle({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
 
-                Theme.setLoadedStyleName(this.$style.name);
+                this.$primevueStyled.Theme.setLoadedStyleName(this.$style.name);
             }
 
             // layer order
-            if (!Theme.isStyleNameLoaded('layer-order')) {
+            if (!this.$primevueStyled.Theme.isStyleNameLoaded('layer-order')) {
                 const layerOrder = this.$style?.getLayerOrderThemeCSS?.();
 
-                BaseStyle.load(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
+                this.$primevueBaseStyle.load(layerOrder, { name: 'layer-order', first: true, ...this.$styleOptions });
 
-                Theme.setLoadedStyleName('layer-order');
+                this.$primevueStyled.Theme.setLoadedStyleName('layer-order');
             }
         },
         _loadScopedThemeStyles(preset) {
@@ -206,13 +203,13 @@ export default {
             this.scopedStyleEl?.value?.remove();
         },
         _themeChangeListener(callback = () => {}) {
-            Base.clearLoadedStyleNames();
-            ThemeService.on('theme:change', callback);
+            this.$primevueBase.clearLoadedStyleNames();
+            this.$primevueStyled.ThemeService.on('theme:change', callback);
         },
         _removeThemeListeners() {
-            ThemeService.off('theme:change', this._loadCoreStyles);
-            ThemeService.off('theme:change', this._load);
-            ThemeService.off('theme:change', this._themeScopedListener);
+            this.$primevueStyled.ThemeService.off('theme:change', this._loadCoreStyles);
+            this.$primevueStyled.ThemeService.off('theme:change', this._load);
+            this.$primevueStyled.ThemeService.off('theme:change', this._themeScopedListener);
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -318,7 +315,7 @@ export default {
         sx(key = '', when = true, params = {}) {
             if (when) {
                 const self = this._getOptionValue(this.$style.inlineStyles, key, { ...this.$params, ...params });
-                const base = this._getOptionValue(BaseComponentStyle.inlineStyles, key, { ...this.$params, ...params });
+                const base = this._getOptionValue(this.$primevueBaseComponentStyle.inlineStyles, key, { ...this.$params, ...params });
 
                 return [base, self];
             }
@@ -348,13 +345,33 @@ export default {
             return this.$primevueConfig?.theme;
         },
         $style() {
-            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+            return {
+                classes: undefined,
+                inlineStyles: undefined,
+                load: () => {},
+                loadCSS: () => {},
+                loadStyle: () => {},
+                ...(this._getHostInstance(this) || {}).$style,
+                ...(this.$options.style && this.$options.style.bindInstance(this.$primevueBaseStyle))
+            };
         },
         $styleOptions() {
-            return { nonce: this.$primevueConfig?.csp?.nonce };
+            return { nonce: this.$primevueConfig?.csp?.nonce, prefix: this.$primevueConfig?.prefix, root: this.$primevue.root };
         },
         $primevueConfig() {
-            return this.$primevue?.config;
+            return this.$primevue.config;
+        },
+        $primevueStyled() {
+            return this.$primevue.styled;
+        },
+        $primevueBase() {
+            return this.$primevue.Base;
+        },
+        $primevueBaseStyle() {
+            return this.$primevue.BaseStyle;
+        },
+        $primevueBaseComponentStyle() {
+            return BaseComponentStyle.bindInstance(this.$primevueBaseStyle);
         },
         $name() {
             return this.$options.hostName || this.$.type.name;
