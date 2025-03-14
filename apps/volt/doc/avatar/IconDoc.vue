@@ -31,6 +31,7 @@
 
 <script setup>
 import Avatar from '@/volt/avatar';
+import OverlayBadge from '@/volt/overlaybadge';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -63,6 +64,7 @@ const code = ref(`
 
 <script setup>
 import Avatar from '@/volt/avatar';
+import OverlayBadge from '@/volt/overlaybadge';
 <\/script>
 `);
 </script>
