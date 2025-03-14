@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
+    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" :data-p="dataP" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -13,15 +13,17 @@
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)"
                 :data-p-gutter-resizing="false"
+                :data-p="dataP"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandle')"></div>
+                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
             </div>
         </template>
     </div>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { getHeight, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import { isArray, isNotEmpty } from '@primeuix/utils/object';
 import { getVNodeProp } from '@primevue/core/utils';
@@ -411,6 +413,12 @@ export default {
             }
 
             return 0;
+        },
+        dataP() {
+            return cn({
+                [this.layout]: this.layout,
+                nested: this.$parentInstance?.nestedState != null
+            });
         }
     }
 };

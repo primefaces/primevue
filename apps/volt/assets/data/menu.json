@@ -27,10 +27,6 @@
                     "to": "/accordion"
                 },
                 {
-                    "name": "Animations",
-                    "to": "/animations"
-                },
-                {
                     "name": "Avatar",
                     "to": "/avatar"
                 },
@@ -135,6 +131,10 @@
                     "to": "/slider"
                 },
                 {
+                    "name": "Splitter",
+                    "to": "/splitter"
+                },
+                {
                     "name": "Tabs",
                     "to": "/tabs"
                 },
@@ -172,6 +172,11 @@
             "name": "Icons",
             "icon": "pi pi-eye",
             "to": "/icons"
+        },
+        {
+            "icon": "pi pi-star",
+            "name": "Animations",
+            "to": "/animations"
         },
         {
             "name": "Figma UI Kit",
