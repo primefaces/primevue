@@ -7,22 +7,24 @@
 
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
-                <!--<div>
+                <div>
                     <span class="font-medium block mb-2">Share this document</span>
-                    <InputGroup>
-                        <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
-                        <InputGroupAddon>
+                    <div class="flex items-stretch w-full">
+                        <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly pt:root="flex-1 rounded-e-none rounded-s-md"></InputText>
+                        <span class="flex items-center justify-center w-10 border-y border-e border-surface-300 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 text-surface-400 rounded-e-md">
                             <i class="pi pi-copy"></i>
-                        </InputGroupAddon>
-                    </InputGroup>
+                        </span>
+                    </div>
                 </div>
                 <div>
                     <span class="font-medium block mb-2">Invite Member</span>
-                    <InputGroup>
-                        <InputText disabled></InputText>
-                        <Button label="Invite" icon="pi pi-users"></Button>
-                    </InputGroup>
-                </div>-->
+                    <div class="flex items-stretch w-full">
+                        <InputText disabled pt:root="flex-1 rounded-s-md rounded-e-none" />
+                        <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md overflow-hidden">
+                            <Button icon="pi pi-users" pt:root="rounded-none" />
+                        </span>
+                    </div>
+                </div>
                 <div>
                     <span class="font-medium block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-col gap-4">
@@ -47,6 +49,7 @@
 
 <script setup>
 import Button from '@/volt/button';
+import InputText from '@/volt/inputtext';
 import Popover from '@/volt/popover';
 import { ref } from 'vue';
 
@@ -68,22 +71,24 @@ const code = ref(`
 
         <Popover ref="op">
             <div class="flex flex-col gap-4 w-[25rem]">
-                <!--<div>
+                <div>
                     <span class="font-medium block mb-2">Share this document</span>
-                    <InputGroup>
-                        <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
-                        <InputGroupAddon>
+                    <div class="flex items-stretch w-full">
+                        <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly pt:root="flex-1 rounded-e-none rounded-s-md"></InputText>
+                        <span class="flex items-center justify-center w-10 border-y border-e border-surface-300 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 text-surface-400 rounded-e-md">
                             <i class="pi pi-copy"></i>
-                        </InputGroupAddon>
-                    </InputGroup>
+                        </span>
+                    </div>
                 </div>
                 <div>
                     <span class="font-medium block mb-2">Invite Member</span>
-                    <InputGroup>
-                        <InputText disabled></InputText>
-                        <Button label="Invite" icon="pi pi-users"></Button>
-                    </InputGroup>
-                </div>-->
+                    <div class="flex items-stretch w-full">
+                        <InputText disabled pt:root="flex-1 rounded-s-md rounded-e-none" />
+                        <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md overflow-hidden">
+                            <Button icon="pi pi-users" pt:root="rounded-none" />
+                        </span>
+                    </div>
+                </div>
                 <div>
                     <span class="font-medium block mb-2">Team Members</span>
                     <ul class="list-none p-0 m-0 flex flex-col gap-4">
