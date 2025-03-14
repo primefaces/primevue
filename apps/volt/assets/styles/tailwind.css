@@ -59,3 +59,4 @@
 @custom-variant p-scrollable (&[data-p~="scrollable"]);
 @custom-variant p-maximized (&[data-p~="maximized"]);
 @custom-variant p-modal (&[data-p~="modal"]);
+@custom-variant p-flipped (&[data-p-popover-flipped~="true"]);

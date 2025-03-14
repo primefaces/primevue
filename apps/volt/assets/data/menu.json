@@ -91,6 +91,10 @@
                     "to": "/panel"
                 },
                 {
+                    "name": "Popover",
+                    "to": "/popover"
+                },
+                {
                     "name": "ProgressBar",
                     "to": "/progressbar"
                 },
