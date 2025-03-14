@@ -67,6 +67,10 @@
                     "to": "/fieldset"
                 },
                 {
+                    "name": "InputGroup",
+                    "to": "/inputgroup"
+                },
+                {
                     "name": "InputMask",
                     "to": "/inputmask"
                 },

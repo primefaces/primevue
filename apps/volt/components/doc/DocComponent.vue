@@ -9,7 +9,7 @@
             <li :class="{ 'doc-tabmenu-active': tab === 0 }">
                 <button type="button" @click="tab = 0">FEATURES</button>
             </li>
-            <li :class="{ 'doc-tabmenu-active': tab === 1 }">
+            <li v-if="displayCode" :class="{ 'doc-tabmenu-active': tab === 1 }">
                 <button type="button" @click="tab = 1">CODE</button>
             </li>
         </ul>
@@ -67,7 +67,11 @@ defineProps({
     description: String,
     componentDocs: Object,
     className: String,
-    presetDoc: Object
+    presetDoc: Object,
+    displayCode: {
+        type: Boolean,
+        default: true
+    }
 });
 
 const route = useRoute();

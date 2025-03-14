@@ -7,7 +7,6 @@ import BasicDoc from '@/doc/fieldset/BasicDoc.vue';
 import ImportDoc from '@/doc/fieldset/ImportDoc.vue';
 import TemplateDoc from '@/doc/fieldset/TemplateDoc.vue';
 import ToggleableDoc from '@/doc/fieldset/ToggleableDoc.vue';
-
 import { ref } from 'vue';
 
 const docs = ref([
