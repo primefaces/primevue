@@ -64,7 +64,7 @@ export default {
             this.autoUpdateActiveItemPath(newValue);
         }
     },
-    mounted() {
+    created() {
         this.autoUpdateActiveItemPath(this.expandedKeys);
     },
     methods: {
