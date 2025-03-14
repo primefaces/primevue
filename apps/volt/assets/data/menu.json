@@ -87,6 +87,10 @@
                     "to": "/message"
                 },
                 {
+                    "name": "MeterGroup",
+                    "to": "/metergroup"
+                },
+                {
                     "name": "Panel",
                     "to": "/panel"
                 },
