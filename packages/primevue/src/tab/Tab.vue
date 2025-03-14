@@ -7,8 +7,8 @@
 
 <script>
 import { cn } from '@primeuix/utils';
-import { find, findSingle, focus, getAttribute } from '@primeuix/utils/dom';
-import { equals, findLast } from '@primeuix/utils/object';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
+import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
 import BaseTab from './BaseTab.vue';
@@ -100,18 +100,18 @@ export default {
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findPrevTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : ((findLast(find(element, '[data-pc-name="tab"]')), Boolean) ?? null)) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findFirstTab() {
-            return this.findNextTab(this.$pcTabList.$refs.content.firstElementChild, true);
+            return this.findNextTab(this.$pcTabList.$refs.tabs.firstElementChild, true);
         },
         findLastTab() {
-            return this.findPrevTab(this.$pcTabList.$refs.content.lastElementChild, true);
+            return this.findPrevTab(this.$pcTabList.$refs.tabs.lastElementChild, true);
         },
         changeActiveValue() {
             this.$pcTabs.updateValue(this.value);
