@@ -1,7 +1,7 @@
 <template>
     <Portal v-if="fullScreen">
         <div v-if="containerVisible" :ref="maskRef" :class="[cx('mask'), maskClass]" role="dialog" :aria-modal="fullScreen ? 'true' : undefined" v-bind="ptm('mask')">
-            <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
+            <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
                 <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" :unstyled="unstyled" v-bind="$props" />
             </transition>
         </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { addClass } from '@primeuix/utils/dom';
+import { addClass, focus } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
@@ -27,7 +27,8 @@ export default {
     mask: null,
     data() {
         return {
-            containerVisible: this.visible
+            containerVisible: this.visible,
+            target: null
         };
     },
     updated() {
@@ -52,12 +53,17 @@ export default {
             ZIndex.set('modal', el, this.baseZIndex || this.$primevue.config.zIndex.modal);
         },
         onEnter(el) {
+            this.target = document.activeElement;
             this.mask.style.zIndex = String(parseInt(el.style.zIndex, 10) - 1);
             blockBodyScroll();
             this.focus();
         },
         onBeforeLeave() {
             !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+        },
+        onLeave() {
+            focus(this.target);
+            this.target = null;
         },
         onAfterLeave(el) {
             ZIndex.clear(el);
