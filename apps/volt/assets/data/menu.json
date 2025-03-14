@@ -27,6 +27,10 @@
                     "to": "/accordion"
                 },
                 {
+                    "name": "Animations",
+                    "to": "/animations"
+                },
+                {
                     "name": "Avatar",
                     "to": "/avatar"
                 },

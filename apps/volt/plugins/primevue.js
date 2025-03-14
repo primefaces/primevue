@@ -1,3 +1,4 @@
+import AnimateOnScroll from 'primevue/animateonscroll';
 import PrimeVue from 'primevue/config';
 import ConfirmationService from 'primevue/confirmationservice';
 import StyleClass from 'primevue/styleclass';
@@ -8,6 +9,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         unstyled: true
     });
     nuxtApp.vueApp.directive('styleclass', StyleClass);
+    nuxtApp.vueApp.directive('animateonscroll', AnimateOnScroll);
     nuxtApp.vueApp.use(ToastService);
     nuxtApp.vueApp.use(ConfirmationService);
 });
