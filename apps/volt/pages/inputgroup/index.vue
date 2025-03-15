@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue InputGroup Component" header="InputGroup" description="Text, icon, buttons and other content can be grouped next to an input." :componentDocs="docs" :displayCode="false" />
+    <DocComponent title="Vue InputGroup Component" header="InputGroup" description="Text, icon, buttons and other content can be grouped next to an input." :componentDocs="docs" :isComponent="false" />
 </template>
 
 <script setup>

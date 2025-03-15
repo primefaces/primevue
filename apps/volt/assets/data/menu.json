@@ -20,7 +20,7 @@
         },
         {
             "name": "Components",
-            "icon": "pi pi-compass",
+            "icon": "pi pi-bolt",
             "children": [
                 {
                     "name": "Accordion",
@@ -69,6 +69,10 @@
                 {
                     "name": "Fieldset",
                     "to": "/fieldset"
+                },
+                {
+                    "name": "IconField",
+                    "to": "/iconfield"
                 },
                 {
                     "name": "InputGroup",
