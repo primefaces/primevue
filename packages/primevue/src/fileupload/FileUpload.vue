@@ -210,6 +210,7 @@ export default {
                                 xhr: xhr,
                                 files: this.files
                             });
+                            this.uploadedFiles.push(...this.files);
                         } else {
                             this.$emit('error', {
                                 xhr: xhr,
@@ -217,7 +218,6 @@ export default {
                             });
                         }
 
-                        this.uploadedFiles.push(...this.files);
                         this.clear();
                     }
                 };
