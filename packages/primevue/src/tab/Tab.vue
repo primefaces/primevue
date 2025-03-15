@@ -100,18 +100,18 @@ export default {
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findPrevTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findFirstTab() {
-            return this.findNextTab(this.$pcTabList.$refs.content.firstElementChild, true);
+            return this.findNextTab(this.$pcTabList.$refs.tabs.firstElementChild, true);
         },
         findLastTab() {
-            return this.findPrevTab(this.$pcTabList.$refs.content.lastElementChild, true);
+            return this.findPrevTab(this.$pcTabList.$refs.tabs.lastElementChild, true);
         },
         changeActiveValue() {
             this.$pcTabs.updateValue(this.value);
