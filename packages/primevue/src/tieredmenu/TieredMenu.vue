@@ -42,12 +42,13 @@
 </template>
 
 <script>
-import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
+import { useOverlayPosition } from '../composables/useOverlayPosition';
 import BaseTieredMenu from './BaseTieredMenu.vue';
 import TieredMenuSub from './TieredMenuSub.vue';
 
@@ -65,6 +66,10 @@ export default {
     menubar: null,
     searchTimeout: null,
     searchValue: null,
+    setup() {
+        const { updatePosition } = useOverlayPosition();
+        return { updatePosition };
+    },
     data() {
         return {
             focused: false,
@@ -445,7 +450,7 @@ export default {
             }
         },
         alignOverlay() {
-            absolutePosition(this.container, this.target);
+            this.updatePosition(this.container, this.target, 'absolute');
             const targetWidth = getOuterWidth(this.target);
 
             if (targetWidth > getOuterWidth(this.container)) {

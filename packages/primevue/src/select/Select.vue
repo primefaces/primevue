@@ -194,7 +194,7 @@
 </template>
 
 <script>
-import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
+import { addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, isAndroid, isTouchDevice, isVisible } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
@@ -212,6 +212,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import { useOverlayPosition } from '../composables/useOverlayPosition';
 import BaseSelect from './BaseSelect.vue';
 
 export default {
@@ -230,6 +231,10 @@ export default {
     searchTimeout: null,
     searchValue: null,
     isModelValueChanged: false,
+    setup() {
+        const { updatePosition } = useOverlayPosition();
+        return { updatePosition };
+    },
     data() {
         return {
             clicked: false,
@@ -722,13 +727,8 @@ export default {
             ZIndex.clear(el);
         },
         alignOverlay() {
-            if (this.appendTo === 'self') {
-                relativePosition(this.overlay, this.$el);
-            } else {
-                if (this.overlay) {
-                    this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
-                    absolutePosition(this.overlay, this.$el);
-                }
+            if (this.overlay && this.$el) {
+                this.updatePosition(this.overlay, this.$el, this.appendTo === 'self' ? 'relative' : 'absolute');
             }
         },
         bindOutsideClickListener() {

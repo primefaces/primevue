@@ -183,7 +183,7 @@
 </template>
 
 <script>
-import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { addStyle, findSingle, focus, isTouchDevice } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -195,6 +195,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import VirtualScroller from 'primevue/virtualscroller';
+import { useOverlayPosition } from '../composables/useOverlayPosition';
 import BaseAutoComplete from './BaseAutoComplete.vue';
 
 export default {
@@ -213,6 +214,10 @@ export default {
     searchTimeout: null,
     dirty: false,
     startRangeIndex: -1,
+    setup() {
+        const { updatePosition } = useOverlayPosition();
+        return { updatePosition };
+    },
     data() {
         return {
             clicked: false,
@@ -785,12 +790,8 @@ export default {
         },
         alignOverlay() {
             let target = this.multiple ? this.$refs.multiContainer : this.$refs.focusInput.$el;
-
-            if (this.appendTo === 'self') {
-                relativePosition(this.overlay, target);
-            } else {
-                this.overlay.style.minWidth = getOuterWidth(target) + 'px';
-                absolutePosition(this.overlay, target);
+            if (this.overlay && target) {
+                this.updatePosition(this.overlay, target, this.appendTo === 'self' ? 'relative' : 'absolute');
             }
         },
         bindOutsideClickListener() {
