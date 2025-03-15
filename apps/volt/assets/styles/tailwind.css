@@ -61,3 +61,10 @@
 @custom-variant p-modal (&[data-p~="modal"]);
 @custom-variant p-flipped (&[data-p-popover-flipped~="true"]);
 @custom-variant p-nested (&[data-p~="nested"]);
+@custom-variant p-weak (&[data-p~="weak"]);
+@custom-variant p-medium (&[data-p~="medium"]);
+@custom-variant p-strong (&[data-p~="strong"]);
+@custom-variant p-portal-body (&[data-p~="portal-body"]);
+@custom-variant p-portal-self (&[data-p~="portal-self"]);
+@custom-variant p-has-s-icon (&[data-p-has-s-icon~="true"]);
+@custom-variant p-has-e-icon (&[data-p-has-e-icon~="true"]);

@@ -107,6 +107,10 @@
                     "to": "/panel"
                 },
                 {
+                    "name": "Password",
+                    "to": "/password"
+                },
+                {
                     "name": "Popover",
                     "to": "/popover"
                 },

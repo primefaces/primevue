@@ -8,27 +8,11 @@
     <DocSectionCode :code="code" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            value: null,
-            code: {
-                basic: `
-<Password disabled placeholder="Disabled" />
-`,
-                options: `
-<template>
-    <div class="card flex justify-center">
-        <Password disabled placeholder="Disabled" />
-    </div>
-</template>
+<script setup>
+import Password from '@/volt/password';
+import { ref } from 'vue';
 
-<script>
-export default {};
-<\/script>
-`,
-                composition: `
+const code = ref(`
 <template>
     <div class="card flex justify-center">
         <Password disabled placeholder="Disabled" />
@@ -36,10 +20,7 @@ export default {};
 </template>
 
 <script setup>
+import Password from '@/volt/password';
 <\/script>
-`
-            }
-        };
-    }
-};
+`);
 </script>
