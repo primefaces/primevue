@@ -140,6 +140,7 @@ const BaseDirective = {
     },
     _removeThemeListeners(instance = {}) {
         ThemeService.off('theme:change', instance.$loadStyles);
+        instance.$loadStyles = undefined;
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${toCapitalCase(hookName)}`;
@@ -223,6 +224,7 @@ const BaseDirective = {
             if (watchers) {
                 PrimeVueService.off('config:change', watchers.config);
                 PrimeVueService.off('config:ripple:change', watchers['config.ripple']);
+                el._$instances[name].$watchersCallback = undefined;
             }
         };
 

@@ -40,8 +40,14 @@ export default {
         this.observer.observe(this.$el);
     },
     beforeUnmount() {
-        !this.visible && this.$el && this.observer?.unobserve(this.$el);
+        // `this.$el` may be `#text`, which `nodeType === 3` and `nodeName === '#text'`.
+        // That is not a valid `Element`, the `unobserve` method will throw errors.
+        this.$el instanceof Element && this.observer?.unobserve(this.$el);
         clearTimeout(this.timeout);
+    },
+    unmounted() {
+        this.observer?.disconnect();
+        this.observer = null;
     }
 };
 </script>

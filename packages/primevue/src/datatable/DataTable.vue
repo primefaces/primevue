@@ -1371,20 +1371,24 @@ export default {
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
-                this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
+                this.documentColumnResizeListener = (event) => {
                     if (this.columnResizing) {
                         this.onColumnResize(event);
                     }
-                });
+                };
+
+                document.addEventListener('mousemove', this.documentColumnResizeListener);
             }
 
             if (!this.documentColumnResizeEndListener) {
-                this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
+                this.documentColumnResizeEndListener = () => {
                     if (this.columnResizing) {
                         this.columnResizing = false;
                         this.onColumnResizeEnd();
                     }
-                });
+                };
+
+                document.addEventListener('mouseup', this.documentColumnResizeEndListener);
             }
         },
         unbindColumnResizeEvents() {
