@@ -129,7 +129,7 @@
 </template>
 
 <script>
-import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
+import { addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, isTouchDevice } from '@primeuix/utils/dom';
 import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -140,6 +140,7 @@ import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
 import Tree from 'primevue/tree';
+import { useOverlayPosition } from '../composables/useOverlayPosition';
 import BaseTreeSelect from './BaseTreeSelect.vue';
 
 export default {
@@ -149,6 +150,10 @@ export default {
     emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
     inject: {
         $pcFluid: { default: null }
+    },
+    setup() {
+        const { updatePosition } = useOverlayPosition();
+        return { updatePosition };
     },
     data() {
         return {
@@ -371,11 +376,8 @@ export default {
             }
         },
         alignOverlay() {
-            if (this.appendTo === 'self') {
-                relativePosition(this.overlay, this.$el);
-            } else {
-                this.overlay.style.minWidth = getOuterWidth(this.$el) + 'px';
-                absolutePosition(this.overlay, this.$el);
+            if (this.overlay && this.$el) {
+                this.updatePosition(this.overlay, this.$el, this.appendTo === 'self' ? 'relative' : 'absolute');
             }
         },
         bindOutsideClickListener() {
