@@ -7,12 +7,18 @@ import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
+import DownloadDoc from '@/doc/inputtext/DownloadDoc.vue';
 import ImportDoc from '@/doc/inputtext/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputtext/InvalidDoc.vue';
 import SizesDoc from '@/doc/inputtext/SizesDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

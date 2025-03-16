@@ -5,10 +5,16 @@
 <script setup>
 import AdvancedDoc from '@/doc/card/AdvancedDoc.vue';
 import BasicDoc from '@/doc/card/BasicDoc.vue';
+import DownloadDoc from '@/doc/card/DownloadDoc.vue';
 import ImportDoc from '@/doc/card/ImportDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

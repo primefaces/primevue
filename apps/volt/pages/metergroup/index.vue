@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/metergroup/BasicDoc.vue';
+import DownloadDoc from '@/doc/metergroup/DownloadDoc.vue';
 import IconDoc from '@/doc/metergroup/IconDoc.vue';
 import ImportDoc from '@/doc/metergroup/ImportDoc.vue';
 import LabelDoc from '@/doc/metergroup/LabelDoc.vue';
@@ -14,6 +15,11 @@ import VerticalDoc from '@/doc/metergroup/VerticalDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

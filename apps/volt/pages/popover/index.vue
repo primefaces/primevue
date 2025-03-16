@@ -4,12 +4,18 @@
 
 <script setup>
 import BasicDoc from '@/doc/popover/BasicDoc.vue';
+import DownloadDoc from '@/doc/popover/DownloadDoc.vue';
 import ImportDoc from '@/doc/popover/ImportDoc.vue';
 import SelectDoc from '@/doc/popover/SelectDoc.vue';
 
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

@@ -6,6 +6,7 @@
 import AutoResizeDoc from '@/doc/textarea/AutoResizeDoc.vue';
 import BasicDoc from '@/doc/textarea/BasicDoc.vue';
 import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
+import DownloadDoc from '@/doc/textarea/DownloadDoc.vue';
 import FilledDoc from '@/doc/textarea/FilledDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
 import InvalidDoc from '@/doc/textarea/InvalidDoc.vue';
@@ -13,6 +14,11 @@ import SizesDoc from '@/doc/textarea/SizesDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

@@ -17,7 +17,7 @@
 
 <script setup>
 import Avatar from '@/volt/avatar';
-import AvatarGroup from '@/volt/avatargroup';
+import AvatarGroup from '@/volt/avatar/group';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -36,7 +36,7 @@ const code = ref(`
 
 <script setup>
 import Avatar from '@/volt/avatar';
-import AvatarGroup from '@/volt/avatargroup';
+import AvatarGroup from '@/volt/avatar/group';
 <\/script>
 `);
 </script>

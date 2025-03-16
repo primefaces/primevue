@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/checkbox/BasicDoc.vue';
 import DisabledDoc from '@/doc/checkbox/DisabledDoc.vue';
+import DownloadDoc from '@/doc/checkbox/DownloadDoc.vue';
 import DynamicDoc from '@/doc/checkbox/DynamicDoc.vue';
 import FilledDoc from '@/doc/checkbox/FilledDoc.vue';
 import GroupDoc from '@/doc/checkbox/GroupDoc.vue';
@@ -15,6 +16,11 @@ import SizesDoc from '@/doc/checkbox/SizesDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

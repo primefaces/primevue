@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/progressbar/BasicDoc.vue';
+import DownloadDoc from '@/doc/progressbar/DownloadDoc.vue';
 import DynamicDoc from '@/doc/progressbar/DynamicDoc.vue';
 import ImportDoc from '@/doc/progressbar/ImportDoc.vue';
 import IndeterminateDoc from '@/doc/progressbar/IndeterminateDoc.vue';
@@ -11,6 +12,11 @@ import TemplateDoc from '@/doc/progressbar/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/toast/BasicDoc.vue';
+import DownloadDoc from '@/doc/toast/DownloadDoc.vue';
 import HeadlessDoc from '@/doc/toast/HeadlessDoc.vue';
 import ImportDoc from '@/doc/toast/ImportDoc.vue';
 import MultipleDoc from '@/doc/toast/MultipleDoc.vue';
@@ -12,10 +13,14 @@ import SeverityDoc from '@/doc/toast/SeverityDoc.vue';
 import StickyDoc from '@/doc/toast/StickyDoc.vue';
 import TemplateDoc from '@/doc/toast/TemplateDoc.vue';
 import ToastServiceDoc from '@/doc/toast/ToastServiceDoc.vue';
-
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

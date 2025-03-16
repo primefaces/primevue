@@ -5,12 +5,18 @@
 <script setup>
 import BasicDoc from '@/doc/confirmdialog/BasicDoc.vue';
 import ConfirmationServiceDoc from '@/doc/confirmdialog/ConfirmationServiceDoc.vue';
+import DownloadDoc from '@/doc/confirmdialog/DownloadDoc.vue';
 import HeadlessDoc from '@/doc/confirmdialog/HeadlessDoc.vue';
 import ImportDoc from '@/doc/confirmdialog/ImportDoc.vue';
 import NoticeDoc from '@/doc/confirmdialog/NoticeDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

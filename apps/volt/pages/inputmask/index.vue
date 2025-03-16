@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/inputmask/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputmask/DisabledDoc.vue';
+import DownloadDoc from '@/doc/inputmask/DownloadDoc.vue';
 import FilledDoc from '@/doc/inputmask/FilledDoc.vue';
 import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
@@ -15,6 +16,11 @@ import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

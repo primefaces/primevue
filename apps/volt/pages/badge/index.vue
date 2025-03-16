@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/badge/BasicDoc.vue';
 import ButtonDoc from '@/doc/badge/ButtonDoc.vue';
+import DownloadDoc from '@/doc/badge/DownloadDoc.vue';
 import ImportDoc from '@/doc/badge/ImportDoc.vue';
 import OverlayDoc from '@/doc/badge/OverlayDoc.vue';
 import SeverityDoc from '@/doc/badge/SeverityDoc.vue';
@@ -12,6 +13,11 @@ import SizeDoc from '@/doc/badge/SizeDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

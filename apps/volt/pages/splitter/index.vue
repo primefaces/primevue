@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import DownloadDoc from '@/doc/splitter/DownloadDoc.vue';
 import HorizontalDoc from '@/doc/splitter/HorizontalDoc.vue';
 import ImportDoc from '@/doc/splitter/ImportDoc.vue';
 import NestedDoc from '@/doc/splitter/NestedDoc.vue';
@@ -11,6 +12,11 @@ import VerticalDoc from '@/doc/splitter/VerticalDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

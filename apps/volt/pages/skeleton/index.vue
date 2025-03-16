@@ -4,12 +4,18 @@
 
 <script setup>
 import CardDoc from '@/doc/skeleton/CardDoc.vue';
+import DownloadDoc from '@/doc/skeleton/DownloadDoc.vue';
 import ImportDoc from '@/doc/skeleton/ImportDoc.vue';
 import ListDoc from '@/doc/skeleton/ListDoc.vue';
 import ShapesDoc from '@/doc/skeleton/ShapesDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

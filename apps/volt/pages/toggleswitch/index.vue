@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/toggleswitch/BasicDoc.vue';
 import DisabledDoc from '@/doc/toggleswitch/DisabledDoc.vue';
+import DownloadDoc from '@/doc/toggleswitch/DownloadDoc.vue';
 import ImportDoc from '@/doc/toggleswitch/ImportDoc.vue';
 import InvalidDoc from '@/doc/toggleswitch/InvalidDoc.vue';
 import PreselectionDoc from '@/doc/toggleswitch/PreselectionDoc.vue';
@@ -12,6 +13,11 @@ import TemplateDoc from '@/doc/toggleswitch/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

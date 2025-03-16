@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/password/BasicDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
+import DownloadDoc from '@/doc/password/DownloadDoc.vue';
 import FilledDoc from '@/doc/password/FilledDoc.vue';
 import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
@@ -16,6 +17,11 @@ import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

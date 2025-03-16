@@ -7,6 +7,7 @@ import BadgeDoc from '@/doc/button/BadgeDoc.vue';
 import BasicDoc from '@/doc/button/BasicDoc.vue';
 import ButtonGroupDoc from '@/doc/button/ButtonGroupDoc.vue';
 import DisabledDoc from '@/doc/button/DisabledDoc.vue';
+import DownloadDoc from '@/doc/button/DownloadDoc.vue';
 import HeadlessDoc from '@/doc/button/HeadlessDoc.vue';
 import IconOnlyDoc from '@/doc/button/IconOnlyDoc.vue';
 import IconsDoc from '@/doc/button/IconsDoc.vue';
@@ -22,10 +23,14 @@ import SeverityDoc from '@/doc/button/SeverityDoc.vue';
 import SizesDoc from '@/doc/button/SizesDoc.vue';
 import TemplateDoc from '@/doc/button/TemplateDoc.vue';
 import TextDoc from '@/doc/button/TextDoc.vue';
-
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

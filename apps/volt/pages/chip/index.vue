@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/chip/BasicDoc.vue';
+import DownloadDoc from '@/doc/chip/DownloadDoc.vue';
 import IconDoc from '@/doc/chip/IconDoc.vue';
 import ImageDoc from '@/doc/chip/ImageDoc.vue';
 import ImportDoc from '@/doc/chip/ImportDoc.vue';
@@ -11,6 +12,11 @@ import TemplateDoc from '@/doc/chip/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

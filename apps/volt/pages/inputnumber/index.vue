@@ -6,6 +6,7 @@
 import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc.vue';
 import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
+import DownloadDoc from '@/doc/inputnumber/DownloadDoc.vue';
 import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
 import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
@@ -17,6 +18,11 @@ import VerticalDoc from '@/doc/inputnumber/VerticalDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

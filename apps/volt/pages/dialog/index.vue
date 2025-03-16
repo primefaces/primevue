@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/dialog/BasicDoc.vue';
+import DownloadDoc from '@/doc/dialog/DownloadDoc.vue';
 import HeadlessDoc from '@/doc/dialog/HeadlessDoc.vue';
 import ImportDoc from '@/doc/dialog/ImportDoc.vue';
 import LongContentDoc from '@/doc/dialog/LongContentDoc.vue';
@@ -12,10 +13,14 @@ import NoticeDoc from '@/doc/dialog/NoticeDoc.vue';
 import ResponsiveDoc from '@/doc/dialog/ResponsiveDoc.vue';
 import TemplateDoc from '@/doc/dialog/TemplateDoc.vue';
 import WithoutModalDoc from '@/doc/dialog/WithoutModalDoc.vue';
-
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

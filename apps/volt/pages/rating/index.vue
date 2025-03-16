@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/rating/BasicDoc.vue';
 import DisabledDoc from '@/doc/rating/DisabledDoc.vue';
+import DownloadDoc from '@/doc/rating/DownloadDoc.vue';
 import ImportDoc from '@/doc/rating/ImportDoc.vue';
 import NumberOfStarsDoc from '@/doc/rating/NumberOfStarsDoc.vue';
 import ReadOnlyDoc from '@/doc/rating/ReadOnlyDoc.vue';
@@ -12,6 +13,11 @@ import TemplateDoc from '@/doc/rating/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

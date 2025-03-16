@@ -4,6 +4,7 @@
 
 <script setup>
 import AvatarGroupDoc from '@/doc/avatar/AvatarGroupDoc.vue';
+import DownloadDoc from '@/doc/avatar/DownloadDoc.vue';
 import IconDoc from '@/doc/avatar/IconDoc.vue';
 import ImageDoc from '@/doc/avatar/ImageDoc.vue';
 import ImportDoc from '@/doc/avatar/ImportDoc.vue';
@@ -11,6 +12,11 @@ import LabelDoc from '@/doc/avatar/LabelDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

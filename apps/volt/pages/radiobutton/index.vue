@@ -4,6 +4,7 @@
 
 <script setup>
 import DisabledDoc from '@/doc/radiobutton/DisabledDoc.vue';
+import DownloadDoc from '@/doc/radiobutton/DownloadDoc.vue';
 import DynamicDoc from '@/doc/radiobutton/DynamicDoc.vue';
 import FilledDoc from '@/doc/radiobutton/FilledDoc.vue';
 import GroupDoc from '@/doc/radiobutton/GroupDoc.vue';
@@ -13,6 +14,11 @@ import SizesDoc from '@/doc/radiobutton/SizesDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

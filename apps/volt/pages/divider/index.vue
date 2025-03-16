@@ -5,6 +5,7 @@
 <script setup>
 import BasicDoc from '@/doc/divider/BasicDoc.vue';
 import ContentDoc from '@/doc/divider/ContentDoc.vue';
+import DownloadDoc from '@/doc/divider/DownloadDoc.vue';
 import ImportDoc from '@/doc/divider/ImportDoc.vue';
 import LoginDoc from '@/doc/divider/LoginDoc.vue';
 import TypeDoc from '@/doc/divider/TypeDoc.vue';
@@ -12,6 +13,11 @@ import VerticalDoc from '@/doc/divider/VerticalDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

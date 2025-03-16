@@ -4,6 +4,7 @@
 
 <script setup>
 import BasicDoc from '@/doc/inputotp/BasicDoc.vue';
+import DownloadDoc from '@/doc/inputotp/DownloadDoc.vue';
 import FilledDoc from '@/doc/inputotp/FilledDoc.vue';
 import ImportDoc from '@/doc/inputotp/ImportDoc.vue';
 import IntegerOnlyDoc from '@/doc/inputotp/IntegerOnlyDoc.vue';
@@ -14,6 +15,11 @@ import TemplateDoc from '@/doc/inputotp/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

@@ -4,11 +4,17 @@
 
 <script setup>
 import ContainerDoc from '@/doc/fluid/ContainerDoc.vue';
+import DownloadDoc from '@/doc/fluid/DownloadDoc.vue';
 import ImportDoc from '@/doc/fluid/ImportDoc.vue';
 import PropertyDoc from '@/doc/fluid/PropertyDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',

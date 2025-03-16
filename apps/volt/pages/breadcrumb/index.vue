@@ -4,12 +4,18 @@
 
 <script setup>
 import BasicDoc from '@/doc/breadcrumb/BasicDoc.vue';
+import DownloadDoc from '@/doc/breadcrumb/DownloadDoc.vue';
 import ImportDoc from '@/doc/breadcrumb/ImportDoc.vue';
 import RouterDoc from '@/doc/breadcrumb/RouterDoc.vue';
 import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'dowload',
+        label: 'Download',
+        component: DownloadDoc
+    },
     {
         id: 'import',
         label: 'Import',
