@@ -9,7 +9,7 @@
             <li :class="{ 'doc-tabmenu-active': tab === 0 }">
                 <button type="button" @click="tab = 0">FEATURES</button>
             </li>
-            <li v-if="displayCode" :class="{ 'doc-tabmenu-active': tab === 1 }">
+            <li v-if="isComponent" :class="{ 'doc-tabmenu-active': tab === 1 }">
                 <button type="button" @click="tab = 1">CODE</button>
             </li>
         </ul>
@@ -22,7 +22,7 @@
                         <p>
                             <span>{{ description }}</span>
                         </p>
-                        <div class="pt-3 flex gap-2">
+                        <div v-if="isComponent" class="pt-3 flex gap-2">
                             <a
                                 :href="`https://primevue.org${originPath}/#api`"
                                 target="_blank"
@@ -68,7 +68,7 @@ defineProps({
     componentDocs: Object,
     className: String,
     presetDoc: Object,
-    displayCode: {
+    isComponent: {
         type: Boolean,
         default: true
     }

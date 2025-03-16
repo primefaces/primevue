@@ -27,6 +27,7 @@
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="inputProps"
+            :data-p-has-e-icon="toggleMask"
             :pt="ptm('pcInputText')"
             :unstyled="unstyled"
         />
@@ -49,13 +50,14 @@
                     :class="[cx('overlay'), panelClass, overlayClass]"
                     :style="[overlayStyle, panelStyle]"
                     @click="onOverlayClick"
+                    :data-p="overlayDataP"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
                     <slot name="header"></slot>
                     <slot name="content">
                         <div :class="cx('content')" v-bind="ptm('content')">
                             <div :class="cx('meter')" v-bind="ptm('meter')">
-                                <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
+                                <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" :data-p="meterDataP" v-bind="ptm('meterLabel')"></div>
                             </div>
                             <div :class="cx('meterText')" v-bind="ptm('meterText')">{{ infoText }}</div>
                         </div>
@@ -68,6 +70,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -315,6 +318,16 @@ export default {
         },
         overlayUniqueId() {
             return this.$id + '_overlay';
+        },
+        meterDataP() {
+            return cn({
+                [this.meter?.strength]: this.meter?.strength
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
+            });
         }
     },
     components: {

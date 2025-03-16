@@ -20,7 +20,7 @@
         },
         {
             "name": "Components",
-            "icon": "pi pi-compass",
+            "icon": "pi pi-bolt",
             "children": [
                 {
                     "name": "Accordion",
@@ -71,6 +71,10 @@
                     "to": "/fieldset"
                 },
                 {
+                    "name": "IconField",
+                    "to": "/iconfield"
+                },
+                {
                     "name": "InputGroup",
                     "to": "/inputgroup"
                 },
@@ -101,6 +105,10 @@
                 {
                     "name": "Panel",
                     "to": "/panel"
+                },
+                {
+                    "name": "Password",
+                    "to": "/password"
                 },
                 {
                     "name": "Popover",
