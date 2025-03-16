@@ -2,12 +2,10 @@
     <DocSectionText v-bind="$attrs">
         <p>Image filter implementation using multiple sliders.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <div class="flex flex-col items-center">
-            <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
-            <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
-            <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
-        </div>
+    <div class="card flex flex-col items-center justify-center">
+        <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+        <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+        <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -31,12 +29,10 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <div class="flex flex-col items-center">
-            <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
-            <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
-            <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
-        </div>
+    <div class="card flex flex-col items-center justify-center">
+        <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+        <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+        <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
     </div>
 </template>
 
@@ -65,12 +61,10 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <div class="flex flex-col items-center">
-            <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
-            <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
-            <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
-        </div>
+    <div class="card flex flex-col items-center justify-center">
+        <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+        <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+        <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
     </div>
 </template>
 
@@ -86,7 +80,7 @@ const filterOptions = ref([
 ]);
 const filterStyle = computed(() => {
     return {
-        filter: \`contrast(\${this.filterValues[0]}%) brightness(\${this.filterValues[1]}%) sepia(\${this.filterValues[2]}%)\`
+        filter: \`contrast(\${filterValues.value[0]}%) brightness(\${filterValues.value[1]}%) sepia(\${filterValues.value[2]}%)\`
     };
 })
 <\/script>

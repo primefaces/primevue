@@ -4,8 +4,8 @@
 
 <script setup>
 import BasicDoc from '@/doc/slider/BasicDoc.vue';
-/*import FilterDoc from '@/doc/slider/FilterDoc.vue';*/
 import DownloadDoc from '@/doc/slider/DownloadDoc.vue';
+import FilterDoc from '@/doc/slider/FilterDoc.vue';
 import ImportDoc from '@/doc/slider/ImportDoc.vue';
 import InputDoc from '@/doc/slider/InputDoc.vue';
 import RangeDoc from '@/doc/slider/RangeDoc.vue';
@@ -44,11 +44,11 @@ const docs = ref([
         label: 'Range',
         component: RangeDoc
     },
-    /*{
+    {
         id: 'filter',
         label: 'Filter',
         component: FilterDoc
-    },*/
+    },
     {
         id: 'vertical',
         label: 'Vertical',
