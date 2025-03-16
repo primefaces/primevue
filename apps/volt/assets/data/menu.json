@@ -71,6 +71,10 @@
                     "to": "/fieldset"
                 },
                 {
+                    "name": "Fluid",
+                    "to": "/fluid"
+                },
+                {
                     "name": "IconField",
                     "to": "/iconfield"
                 },
