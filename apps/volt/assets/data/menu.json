@@ -67,6 +67,10 @@
                     "to": "/divider"
                 },
                 {
+                    "name": "Drawer",
+                    "to": "/drawer"
+                },
+                {
                     "name": "Fieldset",
                     "to": "/fieldset"
                 },

@@ -68,3 +68,5 @@
 @custom-variant p-portal-self (&[data-p~="portal-self"]);
 @custom-variant p-has-s-icon (&[data-p-has-s-icon~="true"]);
 @custom-variant p-has-e-icon (&[data-p-has-e-icon~="true"]);
+@custom-variant p-full-screen (&[data-p~="full-screen"]);
+@custom-variant p-open (&[data-p~="open"]);

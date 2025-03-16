@@ -221,6 +221,16 @@ export interface DrawerSlots {
         class: any;
     }): VNode[];
     /**
+     * Custom close button template.
+     * @param {Object} scope - close button slot's params.
+     */
+    closebutton(scope: {
+        /**
+         * Close function.
+         */
+        closeCallback: () => void;
+    }): VNode[];
+    /**
      * Custom close icon template.
      * @param {Object} scope - close icon slot's params.
      */
