@@ -103,6 +103,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "Menu",
+                    "to": "/menu"
+                },
+                {
                     "name": "Message",
                     "to": "/message"
                 },

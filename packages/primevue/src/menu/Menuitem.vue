@@ -7,16 +7,17 @@
         :style="item.style"
         :aria-label="label()"
         :aria-disabled="disabled()"
-        v-bind="getPTOptions('item')"
         :data-p-focused="isItemFocused()"
         :data-p-disabled="disabled() || false"
+        :data-p="dataP"
+        v-bind="getPTOptions('item')"
     >
-        <div :class="cx('itemContent')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" v-bind="getPTOptions('itemContent')">
+        <div :class="cx('itemContent')" @click="onItemClick($event)" @mousemove="onItemMouseMove($event)" :data-p="dataP" v-bind="getPTOptions('itemContent')">
             <template v-if="!templates.item">
                 <a v-ripple :href="item.url" :class="cx('itemLink')" :target="item.target" tabindex="-1" v-bind="getPTOptions('itemLink')">
                     <component v-if="templates.itemicon" :is="templates.itemicon" :item="item" :class="cx('itemIcon')" />
-                    <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" v-bind="getPTOptions('itemIcon')" />
-                    <span :class="cx('itemLabel')" v-bind="getPTOptions('itemLabel')">{{ label() }}</span>
+                    <span v-else-if="item.icon" :class="[cx('itemIcon'), item.icon]" :data-p="dataP" v-bind="getPTOptions('itemIcon')" />
+                    <span :class="cx('itemLabel')" :data-p="dataP" v-bind="getPTOptions('itemLabel')">{{ label() }}</span>
                 </a>
             </template>
             <component v-else-if="templates.item" :is="templates.item" :item="item" :label="label()" :props="getMenuItemProps(item)"></component>
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import Ripple from 'primevue/ripple';
@@ -100,6 +102,14 @@ export default {
                     this.getPTOptions('itemLabel')
                 )
             };
+        }
+    },
+    computed: {
+        dataP() {
+            return cn({
+                focus: this.isItemFocused(),
+                disabled: this.disabled()
+            });
         }
     },
     directives: {

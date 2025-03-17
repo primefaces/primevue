@@ -31,6 +31,7 @@
 @custom-variant p-top-center (&[data-p~="top-center"]);
 @custom-variant p-bottom-center (&[data-p~="bottom-center"]);
 @custom-variant p-active (&[data-p~="active"]);
+@custom-variant p-focus (&[data-p~="focus"]);
 @custom-variant p-focus-visible (&[data-p~="focus-visible"]);
 @custom-variant p-readonly (&[data-p~="readonly"]);
 @custom-variant p-removable (&[data-p~="removable"]);
@@ -70,3 +71,4 @@
 @custom-variant p-has-e-icon (&[data-p-has-e-icon~="true"]);
 @custom-variant p-full-screen (&[data-p~="full-screen"]);
 @custom-variant p-open (&[data-p~="open"]);
+@custom-variant p-popup (&[data-p~="popup"]);
