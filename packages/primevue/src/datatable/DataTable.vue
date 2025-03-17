@@ -1762,16 +1762,12 @@ export default {
             let parsedState;
             try {
                 parsedState = JSON.parse(stateString, reviver);
-            } catch (error) {
-                // Handled below
-            }
+            } catch (error) {}
             if (!parsedState || typeof parsedState !== 'object') {
-                // Since the saved data is invalid, clear it so that we don't try to parse it again later
                 storage.removeItem(this.stateKey);
                 return;
             }
 
-            // Create a new object for the 'state-restore' event so that we only emit the values that were validated
             const restoredState = {};
 
             if (this.paginator) {
