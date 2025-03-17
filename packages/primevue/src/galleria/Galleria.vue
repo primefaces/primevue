@@ -110,7 +110,9 @@ export default {
             }
         },
         unbindGlobalListeners() {
-            this.unbindDocumentKeyDownListener();
+            if (this.fullScreen) {
+                this.unbindDocumentKeyDownListener();
+            }
         },
         focus() {
             let focusTarget = this.container.$el.querySelector('[autofocus]');
