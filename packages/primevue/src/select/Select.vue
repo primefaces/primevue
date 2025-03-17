@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :id="$id" :class="cx('root')" @click="onContainerClick" v-bind="ptmi('root')">
+    <div ref="container" :id="$id" :class="cx('root')" @click="onContainerClick" :data-p="containerDataP" v-bind="ptmi('root')">
         <input
             v-if="editable"
             ref="focusInput"
@@ -142,7 +142,7 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @mousedown="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
-                                            :data-p-selected="isSelected(option)"
+                                            :data-p-selected="!checkmark && isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTItemOptions(option, getItemOptions, i, 'option')"
@@ -194,6 +194,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isAndroid, isTouchDevice, isVisible, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
@@ -1042,6 +1043,15 @@ export default {
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        containerDataP() {
+            return cn({
+                invalid: this.$invalid,
+                disabled: this.disabled,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
         }
     },
     directives: {

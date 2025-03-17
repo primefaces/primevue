@@ -143,6 +143,10 @@
                     "to": "/rating"
                 },
                 {
+                    "name": "Select",
+                    "to": "/select"
+                },
+                {
                     "name": "SelectButton",
                     "to": "/selectbutton"
                 },
