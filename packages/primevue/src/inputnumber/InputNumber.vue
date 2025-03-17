@@ -880,15 +880,7 @@ export default {
                     this.$refs.input.$el.setSelectionRange(selectionEnd, selectionEnd);
                 } else if (newLength === currentLength) {
                     if (operation === 'insert' || operation === 'delete-back-single') {
-                        let newSelectionEnd = selectionEnd;
-
-                        if (insertedValueStr === '0') {
-                            newSelectionEnd = selectionEnd + 1;
-                        } else {
-                            newSelectionEnd = newSelectionEnd + Number(this.isDecimalSign(value) || this.isDecimalSign(insertedValueStr));
-                        }
-
-                        this.$refs.input.$el.setSelectionRange(newSelectionEnd, newSelectionEnd);
+                        this.$refs.input.$el.setSelectionRange(selectionEnd + 1, selectionEnd + 1);
                     } else if (operation === 'delete-single') {
                         this.$refs.input.$el.setSelectionRange(selectionEnd - 1, selectionEnd - 1);
                     } else if (operation === 'delete-range' || operation === 'spin') {
