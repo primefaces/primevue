@@ -1,5 +1,5 @@
 <template>
-    <div :id="$id" :class="cx('root')" @focusout="onFocusout" v-bind="ptmi('root')">
+    <div :id="$id" :class="cx('root')" @focusout="onFocusout" :data-p="containerDataP" v-bind="ptmi('root')">
         <span
             ref="firstHiddenFocusableElement"
             role="presentation"
@@ -86,7 +86,7 @@
                                 @touchend="onOptionTouchEnd()"
                                 @dblclick="onOptionDblClick($event, option)"
                                 v-bind="getPTOptions(option, getItemOptions, i, 'option')"
-                                :data-p-selected="isSelected(option)"
+                                :data-p-selected="!checkmark && isSelected(option)"
                                 :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                 :data-p-disabled="isOptionDisabled(option)"
                             >
@@ -132,6 +132,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { findSingle, focus, getFirstFocusableElement, isElement } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { FilterService } from '@primevue/core/api';
@@ -765,6 +766,12 @@ export default {
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
+        },
+        containerDataP() {
+            return cn({
+                invalid: this.$invalid,
+                disabled: this.disabled
+            });
         }
     },
     directives: {

@@ -20,8 +20,9 @@
 @custom-variant p-vertical (&[data-p~="vertical"]);
 @custom-variant p-stacked (&[data-p~="stacked"]);
 @custom-variant p-checked (&[data-p~="checked"]);
-@custom-variant p-disabled (&[data-p~="disabled"]);
+@custom-variant p-disabled (&:where([data-p~="disabled"],[data-p-disabled="true"]));
 @custom-variant p-enabled (&:not([data-p~="disabled"]));
+@custom-variant p-selected (&:where([data-p~="selected"],[data-p-selected="true"]));
 @custom-variant p-left (&[data-p~="left"]);
 @custom-variant p-right (&[data-p~="right"]);
 @custom-variant p-top (&[data-p~="top"]);
@@ -31,7 +32,7 @@
 @custom-variant p-top-center (&[data-p~="top-center"]);
 @custom-variant p-bottom-center (&[data-p~="bottom-center"]);
 @custom-variant p-active (&[data-p~="active"]);
-@custom-variant p-focus (&[data-p~="focus"]);
+@custom-variant p-focus (&:where([data-p~="focus"],[data-p-focused="true"]));
 @custom-variant p-focus-visible (&[data-p~="focus-visible"]);
 @custom-variant p-readonly (&[data-p~="readonly"]);
 @custom-variant p-removable (&[data-p~="removable"]);

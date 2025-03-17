@@ -103,6 +103,10 @@
                     "to": "/inputtext"
                 },
                 {
+                    "name": "Listbox",
+                    "to": "/listbox"
+                },
+                {
                     "name": "Menu",
                     "to": "/menu"
                 },
