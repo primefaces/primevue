@@ -38,8 +38,10 @@
                     </Column>
                     <Column field="country.name" header="Country" sortable style="min-width: 14rem">
                         <template #body="{ data }">
-                            <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`mr-2 flag flag-${data.country.code}`" style="width: 24px" />
-                            <span>{{ data.country.name }}</span>
+                            <div class="flex items-center gap-2">
+                                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
+                                <span>{{ data.country.name }}</span>
+                            </div>
                         </template>
                     </Column>
                     <Column header="Agent" sortable sortField="representative.name" style="min-width: 14rem">
