@@ -1264,7 +1264,7 @@ export default {
                 }
             }
 
-            exportCSV(csv, this.exportFilename);
+            exportCSV(csv, this.exportFileName);
         },
         resetPage() {
             this.d_first = 0;

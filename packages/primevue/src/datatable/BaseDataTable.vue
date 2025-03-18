@@ -146,7 +146,7 @@ export default {
             type: String,
             default: ','
         },
-        exportFilename: {
+        exportFileName: {
             type: String,
             default: 'download'
         },
