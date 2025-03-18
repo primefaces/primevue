@@ -118,7 +118,6 @@ export default {
         }
     },
     mounted() {
-        this.bindResizeListener();
         this.viewInit();
 
         this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
@@ -138,6 +137,7 @@ export default {
                 this.setContentEl(this.content);
                 this.init();
                 this.calculateAutoSize();
+                this.bindResizeListener();
 
                 this.defaultWidth = getWidth(this.element);
                 this.defaultHeight = getHeight(this.element);
