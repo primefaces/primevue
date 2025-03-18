@@ -81,6 +81,7 @@ export default {
     isRangeChanged: false,
     lazyLoadState: {},
     resizeListener: null,
+    resizeObserver: null,
     initialized: false,
     watch: {
         numToleratedItems(newValue) {
@@ -117,6 +118,7 @@ export default {
         }
     },
     mounted() {
+        this.bindResizeListener();
         this.viewInit();
 
         this.lastScrollPos = this.isBoth() ? { top: 0, left: 0 } : 0;
@@ -136,7 +138,6 @@ export default {
                 this.setContentEl(this.content);
                 this.init();
                 this.calculateAutoSize();
-                this.bindResizeListener();
 
                 this.defaultWidth = getWidth(this.element);
                 this.defaultHeight = getHeight(this.element);
@@ -588,6 +589,11 @@ export default {
 
                 window.addEventListener('resize', this.resizeListener);
                 window.addEventListener('orientationchange', this.resizeListener);
+
+                this.resizeObserver = new ResizeObserver(() => {
+                    this.onResize();
+                });
+                this.resizeObserver.observe(this.element);
             }
         },
         unbindResizeListener() {
@@ -595,6 +601,11 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 window.removeEventListener('orientationchange', this.resizeListener);
                 this.resizeListener = null;
+            }
+
+            if (this.resizeObserver) {
+                this.resizeObserver.disconnect();
+                this.resizeObserver = null;
             }
         },
         getOptions(renderedIndex) {
