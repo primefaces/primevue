@@ -737,7 +737,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.overlay && !this.$el.contains(event.target) && !this.overlay.contains(event.target)) {
+                    const composedPath = event.composedPath();
+                    if (this.overlayVisible && this.overlay && !composedPath.includes(this.$el) && !composedPath.includes(this.overlay)) {
                         this.hide();
                     }
                 };

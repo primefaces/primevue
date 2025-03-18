@@ -80,6 +80,7 @@ export function useStyle(css, options = {}) {
         stop();
         isExist(styleRef.value) && document.head.removeChild(styleRef.value);
         isLoaded.value = false;
+        styleRef.value = null;
     };
 
     if (immediate && !manual) tryOnMounted(load);

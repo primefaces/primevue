@@ -81,7 +81,7 @@ export interface FormResolverOptions {
 /**
  * Submit events
  */
-export interface FormSubmitEvent {
+export interface FormSubmitEvent<T extends Record<string, any> = Record<string, any>> {
     /**
      * The original DOM event.
      */
@@ -89,7 +89,7 @@ export interface FormSubmitEvent {
     /**
      * The form values.
      */
-    values: Record<string, any>;
+    values: T;
     /**
      * The form state.
      */
