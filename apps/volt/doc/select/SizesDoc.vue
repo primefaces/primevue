@@ -1,12 +1,11 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Select is used with the <i>v-model</i> property for two-way value binding along with the <i>options</i> collection. Label and value of an option are defined with the <i>optionLabel</i> and <i>optionValue</i> properties respectively. Note
-            that, when options are simple primitive values such as a string array, no <i>optionLabel</i> and <i>optionValue</i> would be necessary.
-        </p>
+        <p>Select provides <i>small</i> and <i>large</i> sizes as alternatives to the base.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    <div class="card flex flex-col items-center gap-4">
+        <Select v-model="value1" :options="cities" optionLabel="name" size="small" placeholder="Small" class="w-full md:w-56" />
+        <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
+        <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,7 +14,9 @@
 import Select from '@/volt/select';
 import { ref } from 'vue';
 
-const selectedCity = ref(null);
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },
@@ -26,8 +27,10 @@ const cities = ref([
 
 const code = ref(`
 <template>
-    <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    <div class="card flex flex-col items-center gap-4">
+        <Select v-model="value1" :options="cities" optionLabel="name" size="small" placeholder="Small" class="w-full md:w-56" />
+        <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
+        <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
     </div>
 </template>
 
@@ -35,7 +38,9 @@ const code = ref(`
 import Select from '@/volt/select';
 import { ref } from 'vue';
 
-const selectedCity = ref(null);
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
 const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },

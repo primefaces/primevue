@@ -14,7 +14,6 @@ import FilterDoc from '@/doc/select/FilterDoc.vue';
 import GroupDoc from '@/doc/select/GroupDoc.vue';
 import ImportDoc from '@/doc/select/ImportDoc.vue';
 import InvalidDoc from '@/doc/select/InvalidDoc.vue';
-import LazyVirtualScrollDoc from '@/doc/select/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/select/LoadingStateDoc.vue';
 import SizesDoc from '@/doc/select/SizesDoc.vue';
 import TemplateDoc from '@/doc/select/TemplateDoc.vue';
@@ -76,11 +75,6 @@ const docs = ref([
         id: 'virtualscroll',
         label: 'Virtual Scroll',
         component: VirtualScrollDoc
-    },
-    {
-        id: 'lazyvirtualscroll',
-        label: 'Lazy Virtual Scroll',
-        component: LazyVirtualScrollDoc
     },
     {
         id: 'filled',

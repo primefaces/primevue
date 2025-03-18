@@ -43,7 +43,7 @@ const theme = ref({
     pcFilterIconContainer: {
         root: `absolute top-1/2 -mt-2 leading-none end-3 z-1`
     },
-    filterIcon: `text-surface-400 `,
+    filterIcon: `text-surface-400`,
     listContainer: `overflow-auto`,
     virtualScroller: ``,
     list: `list-none m-0 p-1 outline-none flex flex-col gap-[2px]`,

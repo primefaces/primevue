@@ -25,6 +25,7 @@
             @blur="onBlur"
             @keydown="onKeyDown"
             @input="onEditableInput"
+            :data-p="labelDataP"
             v-bind="ptm('label')"
         />
         <span
@@ -47,6 +48,7 @@
             @focus="onFocus"
             @blur="onBlur"
             @keydown="onKeyDown"
+            :data-p="labelDataP"
             v-bind="ptm('label')"
         >
             <slot name="value" :value="d_value" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : (label ?? 'empty') }}</slot>
@@ -60,12 +62,12 @@
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" :data-p="dropdownIconDataP" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('overlay'), panelClass, overlayClass]" :style="[panelStyle, overlayStyle]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
+                <div v-if="overlayVisible" :ref="overlayRef" :class="[cx('overlay'), panelClass, overlayClass]" :style="[panelStyle, overlayStyle]" @click="onOverlayClick" @keydown="onOverlayKeyDown" :data-p="overlayDataP" v-bind="ptm('overlay')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -1051,9 +1053,30 @@ export default {
             return cn({
                 invalid: this.$invalid,
                 disabled: this.disabled,
+                focus: this.focused,
                 fluid: this.$fluid,
                 filled: this.$variant === 'filled',
                 [this.size]: this.size
+            });
+        },
+        labelDataP() {
+            return cn({
+                placeholder: !this.editable && this.label === this.placeholder,
+                clearable: this.showClear,
+                disabled: this.disabled,
+                editable: this.editable,
+                [this.size]: this.size,
+                empty: !this.editable && !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
+            });
+        },
+        dropdownIconDataP() {
+            return cn({
+                [this.size]: this.size,
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
             });
         }
     },

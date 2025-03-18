@@ -1,12 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Select is used with the <i>v-model</i> property for two-way value binding along with the <i>options</i> collection. Label and value of an option are defined with the <i>optionLabel</i> and <i>optionValue</i> properties respectively. Note
-            that, when options are simple primitive values such as a string array, no <i>optionLabel</i> and <i>optionValue</i> would be necessary.
-        </p>
+        <p>Invalid state is displayed using the <i>invalid</i> prop to indicate a failed validation. You can use this style when integrating with form validation libraries.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity" class="w-full md:w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -27,7 +24,7 @@ const cities = ref([
 const code = ref(`
 <template>
     <div class="card flex justify-center">
-        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity" class="w-full md:w-56" />
     </div>
 </template>
 
