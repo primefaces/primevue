@@ -12,6 +12,7 @@ import GroupDoc from '@/doc/listbox/GroupDoc.vue';
 import ImportDoc from '@/doc/listbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/listbox/InvalidDoc.vue';
 import MultipleDoc from '@/doc/listbox/MultipleDoc.vue';
+import NoticeDoc from '@/doc/listbox/NoticeDoc.vue';
 import TemplateDoc from '@/doc/listbox/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc.vue';
 
@@ -72,6 +73,11 @@ const docs = ref([
         id: 'disabled',
         label: 'Disabled',
         component: DisabledDoc
+    },
+    {
+        id: 'notice',
+        label: 'Notice',
+        component: NoticeDoc
     }
 ]);
 </script>
