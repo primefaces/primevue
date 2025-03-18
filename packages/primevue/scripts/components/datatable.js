@@ -199,7 +199,7 @@ const DataTableProps = [
         description: 'Character to use as the csv separator.'
     },
     {
-        name: 'exportFilename',
+        name: 'exportFileName',
         type: 'string',
         default: 'download',
         description: 'Name of the exported file.'

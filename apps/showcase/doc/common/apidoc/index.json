@@ -20913,7 +20913,7 @@
                             "description": "Character to use as the csv separator."
                         },
                         {
-                            "name": "exportFilename",
+                            "name": "exportFileName",
                             "optional": true,
                             "readonly": false,
                             "type": "string",

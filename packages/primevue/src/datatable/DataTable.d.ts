@@ -1064,7 +1064,7 @@ export interface DataTableProps<T = any> {
      * Name of the exported file.
      * @defaultValue download
      */
-    exportFilename?: string | undefined;
+    exportFileName?: string | undefined;
     /**
      * Custom function to export data.
      */
