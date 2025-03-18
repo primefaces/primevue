@@ -89,7 +89,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             let testKey = `${event.key}`;
 
             if (target.$_pkeyfilterValidateOnly) {
-                testKey = `${event.target.value}${event.key}`;
+                testKey = `${target.value.substring(0, target.selectionStart)}${event.key}${target.value.substring(target.selectionEnd)}`;
             }
 
             if (!regex.test(testKey)) {
@@ -105,22 +105,22 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             }
 
             const clipboard = event.clipboardData.getData('text');
-            let testKey = '';
 
-            // loop over each letter pasted and if any fail prevent the paste
-            [...clipboard].forEach((c) => {
-                if (target.$_pkeyfilterValidateOnly) {
-                    testKey += c;
-                } else {
-                    testKey = c;
-                }
+            if (target.$_pkeyfilterValidateOnly) {
+                const newValue = `${target.value.substring(0, target.selectionStart)}${clipboard}${target.value.substring(target.selectionEnd)}`;
 
-                if (!regex.test(testKey)) {
+                if (!regex.test(newValue)) {
                     event.preventDefault();
-
-                    return false;
                 }
-            });
+            } else {
+                for (let i = 0; i < clipboard.length; i++) {
+                    if (!regex.test(clipboard[i])) {
+                        event.preventDefault();
+
+                        return;
+                    }
+                }
+            }
         }
     }
 });

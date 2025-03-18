@@ -355,11 +355,13 @@ export default {
             this.$emit('focus', event);
         },
         onBlur(event) {
-            this.focused = false;
-            this.focusedOptionIndex = -1;
-            this.searchValue = '';
-            this.$emit('blur', event);
-            this.formField.onBlur?.(event);
+            setTimeout(() => {
+                this.focused = false;
+                this.focusedOptionIndex = -1;
+                this.searchValue = '';
+                this.$emit('blur', event);
+                this.formField.onBlur?.(event);
+            }, 100);
         },
         onKeyDown(event) {
             if (this.disabled || isAndroid()) {
