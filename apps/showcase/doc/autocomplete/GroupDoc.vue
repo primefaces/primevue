@@ -21,7 +21,6 @@ import { FilterMatchMode, FilterService } from '@primevue/core/api';
 export default {
     data() {
         return {
-            cities: null,
             selectedCity: null,
             filteredCities: null,
             groupedCities: [
@@ -87,7 +86,6 @@ import { FilterMatchMode, FilterService } from '@primevue/core/api';
 export default {
     data() {
         return {
-            cities: null,
             selectedCity: null,
             filteredCities: null,
             groupedCities: [
@@ -161,7 +159,6 @@ export default {
 import { ref } from "vue";
 import { FilterMatchMode, FilterService } from '@primevue/core/api';
 
-const cities = ref();
 const selectedCity = ref();
 const filteredCities = ref();
 const groupedCities = ref([

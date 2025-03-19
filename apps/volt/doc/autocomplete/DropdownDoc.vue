@@ -11,42 +11,20 @@
     <DocSectionCode :code="code" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            value: '',
-            items: [],
-            code: {
-                basic: `
-<AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
-`,
-                options: `
-<template>
-    <div class="card flex justify-center">
-        <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
-    </div>
-</template>
+<script setup>
+import AutoComplete from '@/volt/autocomplete';
+import { ref } from 'vue';
 
-<script>
-export default {
-    data() {
-        return {
-            value: '',
-            items: []
-        };
-    },
-    methods: {
-        search(event) {
-            let _items = [...Array(10).keys()];
+const value = ref(null);
+const items = ref([]);
 
-            this.items = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
-        }
-    }
+const search = (event) => {
+    let _items = [...Array(10).keys()];
+
+    items.value = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
 };
-<\/script>
-`,
-                composition: `
+
+const code = ref(`
 <template>
     <div class="card flex justify-center">
         <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
@@ -54,7 +32,8 @@ export default {
 </template>
 
 <script setup>
-import { ref } from "vue";
+import AutoComplete from '@/volt/autocomplete';
+import { ref } from 'vue';
 
 const value = ref(null);
 const items = ref([]);
@@ -65,16 +44,5 @@ const search = (event) => {
     items.value = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
 }
 <\/script>
-`
-            }
-        };
-    },
-    methods: {
-        search(event) {
-            let _items = [...Array(10).keys()];
-
-            this.items = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
-        }
-    }
-};
+`);
 </script>

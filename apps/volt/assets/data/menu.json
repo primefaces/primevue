@@ -27,6 +27,10 @@
                     "to": "/accordion"
                 },
                 {
+                    "name": "AutoComplete",
+                    "to": "/autocomplete"
+                },
+                {
                     "name": "Avatar",
                     "to": "/avatar"
                 },
