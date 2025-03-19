@@ -76,3 +76,4 @@
 @custom-variant p-placeholder (&::placeholder,&[data-p~="placeholder"]);
 @custom-variant p-clearable (&[data-p~="clearable"]);
 @custom-variant p-editable (&[data-p~="editable"]);
+@custom-variant p-has-dropdown (&[data-p-has-dropdown="true"]);

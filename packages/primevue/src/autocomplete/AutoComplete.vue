@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" :data-p="containerDataP" v-bind="ptmi('root')">
         <InputText
             v-if="!multiple"
             ref="focusInput"
@@ -31,6 +31,7 @@
             @input="onInput"
             @change="onChange"
             :unstyled="unstyled"
+            :data-p-has-dropdown="dropdown"
             :pt="ptm('pcInputText')"
         />
         <ul
@@ -44,6 +45,8 @@
             @focus="onMultipleContainerFocus"
             @blur="onMultipleContainerBlur"
             @keydown="onMultipleContainerKeyDown"
+            :data-p-has-dropdown="dropdown"
+            :data-p="inputMultipleDataP"
             v-bind="ptm('inputMultiple')"
         >
             <li
@@ -60,7 +63,16 @@
             >
                 <slot name="chip" :class="cx('pcChip')" :value="option" :index="i" :removeCallback="(event) => removeOption(event, i)" v-bind="ptm('pcChip')">
                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
-                    <Chip :class="cx('pcChip')" :label="getOptionLabel(option)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, i)" :pt="ptm('pcChip')">
+                    <Chip
+                        :class="cx('pcChip')"
+                        :label="getOptionLabel(option)"
+                        :removeIcon="chipIcon || removeTokenIcon"
+                        removable
+                        :unstyled="unstyled"
+                        @remove="removeOption($event, i)"
+                        :data-p-focused="focusedMultipleOptionIndex === i"
+                        :pt="ptm('pcChip')"
+                    >
                         <template #removeicon>
                             <slot :name="$slots.chipicon ? 'chipicon' : 'removetokenicon'" :class="cx('chipIcon')" :index="i" :removeCallback="(event) => removeOption(event, i)" />
                         </template>
@@ -97,8 +109,8 @@
             </li>
         </ul>
         <slot v-if="searching || loading" :class="cx('loader')" :name="$slots.loader ? 'loader' : 'loadingicon'">
-            <i v-if="loader || loadingIcon" :class="['pi-spin', cx('loader'), loader, loadingIcon]" aria-hidden="true" v-bind="ptm('loader')" />
-            <SpinnerIcon v-else :class="cx('loader')" spin aria-hidden="true" v-bind="ptm('loader')" />
+            <i v-if="loader || loadingIcon" :class="['pi-spin', cx('loader'), loader, loadingIcon]" aria-hidden="true" :data-p-has-dropdown="dropdown" v-bind="ptm('loader')" />
+            <SpinnerIcon v-else :class="cx('loader')" spin aria-hidden="true" :data-p-has-dropdown="dropdown" v-bind="ptm('loader')" />
         </slot>
         <slot :name="$slots.dropdown ? 'dropdown' : 'dropdownbutton'" :toggleCallback="(event) => onDropdownClick(event)">
             <button
@@ -123,7 +135,17 @@
         </span>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :id="panelId" :class="[cx('overlay'), panelClass, overlayClass]" :style="{ ...panelStyle, ...overlayStyle }" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
+                <div
+                    v-if="overlayVisible"
+                    :ref="overlayRef"
+                    :id="panelId"
+                    :class="[cx('overlay'), panelClass, overlayClass]"
+                    :style="{ ...panelStyle, ...overlayStyle }"
+                    @click="onOverlayClick"
+                    @keydown="onOverlayKeyDown"
+                    :data-p="overlayDataP"
+                    v-bind="ptm('overlay')"
+                >
                     <slot name="header" :value="d_value" :suggestions="visibleOptions"></slot>
                     <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :style="{ height: scrollHeight }" :items="visibleOptions" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
@@ -155,7 +177,7 @@
                                             @click="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
                                             :data-p-selected="isSelected(option)"
-                                            :data-p-focus="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
+                                            :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                             v-bind="getPTOptions(option, getItemOptions, i, 'option')"
                                         >
@@ -183,6 +205,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
@@ -1062,6 +1085,27 @@ export default {
         },
         panelId() {
             return this.$id + '_panel';
+        },
+        containerDataP() {
+            return cn({
+                fluid: this.$fluid
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
+            });
+        },
+        inputMultipleDataP() {
+            return cn({
+                invalid: this.$invalid,
+                disabled: this.disabled,
+                focus: this.focused,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                empty: !this.$filled,
+                [this.size]: this.size
+            });
         }
     },
     components: {
