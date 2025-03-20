@@ -237,7 +237,8 @@ export const useForm = (options = {}) => {
     };
 
     const setFieldValue = (field, value) => {
-        _states[field].value = value;
+        if(_states[field] !== undefined)
+            _states[field].value = value;
     };
 
     const getFieldState = (field) => {
