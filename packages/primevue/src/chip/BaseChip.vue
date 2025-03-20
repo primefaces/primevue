@@ -7,7 +7,7 @@ export default {
     extends: BaseComponent,
     props: {
         label: {
-            type: String,
+            type: [String, Number],
             default: null
         },
         icon: {
