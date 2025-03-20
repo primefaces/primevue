@@ -73,12 +73,12 @@ export default {
                 cmpName = componentName;
 
             if (componentName === 'ConfirmDialog') cmpName = 'Dialog';
-            else if (componentName === 'ScrollTop') cmpName = 'Button';
             else if (componentName === 'Galleria') cmpName = 'GalleriaContent';
 
-            if (componentName === 'InputMask') selector = `[data-pc-extend="inputtext"][data-pc-section="root"]`;
+            if (componentName === 'ScrollTop') selector = `[data-pc-extend="button"][data-pc-section="root"]`;
             else if (item.label === 'root') selector = `[data-pc-name="${cmpName.toLowerCase()}"]`;
             else if (item.label.startsWith('pc')) selector = `[data-pc-name="${item.label.toLowerCase()}"]`;
+            else if (componentName === 'InputMask') selector = `[data-pc-name="inputtext"][data-pc-section="root"]`;
             else selector = `[data-pc-section="${item.label.toLowerCase()}"]`;
 
             this.hoveredElements = find(this.$refs.container, selector);
