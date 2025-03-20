@@ -1,9 +1,9 @@
 <template>
     <transition name="p-scrolltop" appear @enter="onEnter" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-        <Button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" :aria-label="scrollTopAriaLabel" :unstyled="unstyled" v-bind="buttonProps" :pt="pt">
+        <Button v-if="visible" :ref="containerRef" :class="cx('root')" @click="onClick" :aria-label="scrollTopAriaLabel" :unstyled="unstyled" v-bind="buttonProps" :pt="ptm('root')">
             <template #icon="slotProps">
                 <slot name="icon" :class="cx('icon')">
-                    <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon, slotProps.class]" v-bind="ptm('icon')" />
+                    <component :is="icon ? 'span' : 'ChevronUpIcon'" :class="[cx('icon'), icon, slotProps.class]" v-bind="ptm('root')['icon']" data-pc-section="icon" />
                 </slot>
             </template>
         </Button>
