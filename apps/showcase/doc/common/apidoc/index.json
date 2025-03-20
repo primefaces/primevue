@@ -24661,6 +24661,162 @@
                             "description": "Custom header template of panel."
                         },
                         {
+                            "name": "prevbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom prev button template"
+                        },
+                        {
+                            "name": "nextbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom next button template"
+                        },
+                        {
+                            "name": "todaybutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom today button template"
+                        },
+                        {
+                            "name": "clearbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear button template"
+                        },
+                        {
+                            "name": "hourincrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom increment hour button template"
+                        },
+                        {
+                            "name": "hourdecrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom decrement hour button template"
+                        },
+                        {
+                            "name": "minuteincrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom increment minute button template"
+                        },
+                        {
+                            "name": "minutedecrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom decrement minute button template"
+                        },
+                        {
+                            "name": "secondincrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom increment second button template"
+                        },
+                        {
+                            "name": "seconddecrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">callbacks</span>: <span class=\"doc-option-parameter-type\">object</span>, <span class=\"doc-option-parameter-type\">// Event callbacks.</span>\n }",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom decrement second button template"
+                        },
+                        {
+                            "name": "ampmincrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom ampm toggle increment button template"
+                        },
+                        {
+                            "name": "ampmdecrementbutton",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">toggleCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Toggle function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
+                                    "description": "button slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom ampm toggle decrement button template"
+                        },
+                        {
                             "name": "footer",
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
