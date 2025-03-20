@@ -138,7 +138,7 @@
                             "name": "values",
                             "optional": false,
                             "readonly": false,
-                            "type": "Record<string, any>",
+                            "type": "T",
                             "default": "",
                             "description": "The form values."
                         },
@@ -13052,7 +13052,7 @@
                             "name": "label",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "string | number",
                             "default": "",
                             "description": "Defines the text to display."
                         },
