@@ -127,6 +127,10 @@
                     "to": "/metergroup"
                 },
                 {
+                    "name": "Paginator",
+                    "to": "/paginator"
+                },
+                {
                     "name": "Panel",
                     "to": "/panel"
                 },

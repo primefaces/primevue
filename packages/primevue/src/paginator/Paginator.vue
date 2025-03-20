@@ -9,12 +9,14 @@
                 :rows="d_rows"
                 :page="page"
                 :pageCount="pageCount"
+                :pageLinks="pageLinks"
                 :totalRecords="totalRecords"
                 :firstPageCallback="changePageToFirst"
                 :lastPageCallback="changePageToLast"
                 :prevPageCallback="changePageToPrev"
                 :nextPageCallback="changePageToNext"
                 :rowChangeCallback="onRowChange"
+                :changePageCallback="changePage"
             />
             <template v-else>
                 <div v-if="$slots.start" :class="cx('contentStart')" v-bind="ptm('contentStart')">
@@ -147,6 +149,7 @@ export default {
     },
     methods: {
         changePage(p) {
+            console.log(p);
             const pc = this.pageCount;
 
             if (p >= 0 && p < pc) {

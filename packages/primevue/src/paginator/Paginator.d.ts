@@ -469,6 +469,10 @@ export interface PaginatorSlots {
          * Row change function.
          */
         rowChangeCallback: (value: number) => void;
+        /**
+         * Page change function.
+         */
+        changePageCallback: (value: number) => void;
     }): VNode[];
 }
 
