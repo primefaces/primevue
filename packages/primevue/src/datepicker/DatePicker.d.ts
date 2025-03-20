@@ -853,6 +853,162 @@ export interface DatePickerSlots {
      */
     header(): VNode[];
     /**
+     * Custom prev button template
+     * @param {Object} scope - button slot's params.
+     */
+    prevbutton(scope: {
+        /**
+         * Action function.
+         * @param {Event} event - Browser event
+         */
+        actionCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom next button template
+     * @param {Object} scope - button slot's params.
+     */
+    nextbutton(scope: {
+        /**
+         * Action function.
+         * @param {Event} event - Browser event
+         */
+        actionCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom today button template
+     * @param {Object} scope - button slot's params.
+     */
+    todaybutton(scope: {
+        /**
+         * Action function.
+         * @param {Event} event - Browser event
+         */
+        actionCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom clear button template
+     * @param {Object} scope - button slot's params.
+     */
+    clearbutton(scope: {
+        /**
+         * Action function.
+         * @param {Event} event - Browser event
+         */
+        actionCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom increment hour button template
+     * @param {Object} scope - button slot's params.
+     */
+    hourincrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom decrement hour button template
+     * @param {Object} scope - button slot's params.
+     */
+    hourdecrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom increment minute button template
+     * @param {Object} scope - button slot's params.
+     */
+    minuteincrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom decrement minute button template
+     * @param {Object} scope - button slot's params.
+     */
+    minutedecrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom increment second button template
+     * @param {Object} scope - button slot's params.
+     */
+    secondincrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom decrement second button template
+     * @param {Object} scope - button slot's params.
+     */
+    seconddecrementbutton(scope: {
+        /**
+         * Event callbacks.
+         */
+        callbacks: object;
+    }): VNode[];
+    /**
+     * Custom ampm toggle increment button template
+     * @param {Object} scope - button slot's params.
+     */
+    ampmincrementbutton(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom ampm toggle decrement button template
+     * @param {Object} scope - button slot's params.
+     */
+    ampmdecrementbutton(scope: {
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
+        /**
+         * Keydown function.
+         * @param {Event} event - Browser event
+         */
+        keydownCallback: (event: Event) => void;
+    }): VNode[];
+    /**
      * Custom footer template of panel.
      */
     footer(): VNode[];

@@ -63,6 +63,10 @@
                     "to": "/confirmdialog"
                 },
                 {
+                    "name": "DatePicker",
+                    "to": "/datepicker"
+                },
+                {
                     "name": "Dialog",
                     "to": "/dialog"
                 },
@@ -211,11 +215,6 @@
             "to": "/animations"
         },
         {
-            "name": "PrimeBlocks",
-            "icon": "pi pi-server",
-            "href": "https://primeblocks.org"
-        },
-        {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
             "to": "https://primevue.org/uikit"
@@ -277,6 +276,11 @@
                     "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
                 }
             ]
+        },
+        {
+            "name": "PrimeBlocks",
+            "icon": "pi pi-server",
+            "href": "https://primeblocks.org"
         }
     ]
 }

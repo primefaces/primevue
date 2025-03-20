@@ -1,19 +1,16 @@
 <template>
-    <DocComponent title="Vue DatePicker Component" header="DatePicker" description="DatePicker is a form component for date inputs." :componentDocs="docs" :apiDocs="['DatePicker']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent title="Vue DatePicker Component" header="DatePicker" description="DatePicker is a form component for date inputs." :componentDocs="docs" />
 </template>
 
 <script>
-import AccessibilityDoc from '@/doc/datepicker/AccessibilityDoc';
 import BasicDoc from '@/doc/datepicker/BasicDoc.vue';
 import ButtonBarDoc from '@/doc/datepicker/ButtonBarDoc.vue';
 import DateTemplateDoc from '@/doc/datepicker/DateTemplateDoc.vue';
 import DisabledDoc from '@/doc/datepicker/DisabledDoc.vue';
+import DownloadDoc from '@/doc/datepicker/DownloadDoc.vue';
 import FilledDoc from '@/doc/datepicker/FilledDoc.vue';
-import FloatLabelDoc from '@/doc/datepicker/FloatLabelDoc.vue';
 import FormatDoc from '@/doc/datepicker/FormatDoc.vue';
-import FormsDoc from '@/doc/datepicker/FormsDoc.vue';
 import IconDoc from '@/doc/datepicker/IconDoc.vue';
-import IftaLabelDoc from '@/doc/datepicker/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/datepicker/ImportDoc.vue';
 import InlineDoc from '@/doc/datepicker/InlineDoc.vue';
 import InvalidDoc from '@/doc/datepicker/InvalidDoc.vue';
@@ -26,13 +23,16 @@ import RangeDoc from '@/doc/datepicker/RangeDoc.vue';
 import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import TimeDoc from '@/doc/datepicker/TimeDoc.vue';
 import YearPickerDoc from '@/doc/datepicker/YearPickerDoc.vue';
-import PTComponent from '@/doc/datepicker/pt/index.vue';
-import ThemingDoc from '@/doc/datepicker/theming/index.vue';
 
 export default {
     data() {
         return {
             docs: [
+                {
+                    id: 'download',
+                    label: 'Download',
+                    component: DownloadDoc
+                },
                 {
                     id: 'import',
                     label: 'Import',
@@ -42,11 +42,6 @@ export default {
                     id: 'basic',
                     label: 'Basic',
                     component: BasicDoc
-                },
-                {
-                    id: 'forms',
-                    label: 'Forms',
-                    component: FormsDoc
                 },
                 {
                     id: 'format',
@@ -119,16 +114,6 @@ export default {
                     component: FilledDoc
                 },
                 {
-                    id: 'floatlabel',
-                    label: 'Float Label',
-                    component: FloatLabelDoc
-                },
-                {
-                    id: 'iftalabel',
-                    label: 'Ifta Label',
-                    component: IftaLabelDoc
-                },
-                {
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
@@ -142,15 +127,8 @@ export default {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
-                },
-                {
-                    id: 'accessibility',
-                    label: 'Accessibility',
-                    component: AccessibilityDoc
                 }
-            ],
-            ptComponent: PTComponent,
-            themingDoc: ThemingDoc
+            ]
         };
     }
 };
