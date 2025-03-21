@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
         <Tabs value="0">
             <TabList>
                 <Tab value="0" class="grow">Overview</Tab>

@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
         <div class="flex items-center gap-2 mb-4">
             <i class="pi pi-cloud-upload text-muted-color"></i>
             <span class="font-medium text-surface-900 dark:text-surface-0">Publish Files</span>
@@ -18,7 +18,7 @@
         </div>
         <div class="flex flex-col gap-1 mb-4">
             <label for="input_tags" class="font-medium block text-color">Tags</label>
-            <AutoComplete inputId="input_tags" v-model="tags" multiple fluid :typeahead="false" size="small" />
+            <AutoComplete inputId="input_tags" v-model="tags" multiple fluid :typeahead="false" size="small" :showEmptyMessage="false" />
         </div>
         <div class="flex flex-col gap-1 mb-4">
             <label for="input_tags" class="font-medium block text-color">Privacy</label>

@@ -130,7 +130,7 @@
                 </slot>
             </button>
         </slot>
-        <span role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
+        <span v-if="typeahead" role="status" aria-live="polite" class="p-hidden-accessible" v-bind="ptm('hiddenSearchResult')" :data-p-hidden-accessible="true">
             {{ searchResultMessageText }}
         </span>
         <Portal :appendTo="appendTo">
