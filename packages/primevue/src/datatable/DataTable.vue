@@ -2028,7 +2028,7 @@ export default {
         columns() {
             const cols = this.d_columns.get(this);
 
-            if (this.reorderableColumns && this.d_columnOrder) {
+            if (cols && this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
 
                 for (let columnKey of this.d_columnOrder) {
