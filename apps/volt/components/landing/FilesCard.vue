@@ -18,7 +18,7 @@
         </div>
         <div class="flex flex-col gap-1 mb-4">
             <label for="input_tags" class="font-medium block text-color">Tags</label>
-            <AutoComplete inputId="input_tags" multiple fluid :typeahead="false" size="small" />
+            <AutoComplete inputId="input_tags" v-model="tags" multiple fluid :typeahead="false" size="small" />
         </div>
         <div class="flex flex-col gap-1 mb-4">
             <label for="input_tags" class="font-medium block text-color">Privacy</label>
@@ -52,20 +52,16 @@ import Menu from '@/volt/menu';
 import RadioButton from '@/volt/radiobutton';
 
 const privacy = ref();
+const tags = ref(['new']);
 const menu = ref();
 const items = ref([
     {
-        label: 'Options',
-        items: [
-            {
-                label: 'Refresh',
-                icon: 'pi pi-refresh'
-            },
-            {
-                label: 'Export',
-                icon: 'pi pi-upload'
-            }
-        ]
+        label: 'Upload',
+        icon: 'pi pi-upload'
+    },
+    {
+        label: 'Clear',
+        icon: 'pi pi-times'
     }
 ]);
 
