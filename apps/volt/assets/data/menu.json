@@ -95,6 +95,10 @@
                     "to": "/iconfield"
                 },
                 {
+                    "name": "Inplace",
+                    "to": "/inplace"
+                },
+                {
                     "name": "InputGroup",
                     "to": "/inputgroup"
                 },
