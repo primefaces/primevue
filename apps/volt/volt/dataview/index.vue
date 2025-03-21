@@ -1,6 +1,12 @@
 <template>
-    <Paginator unstyled>
-        <template #container="{ first, last, rows, page, pageCount, pageLinks, totalRecords, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback, rowChangeCallback }">
+    <DataView
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
+        <template #paginatorcontainer="{ first, last, rows, page, pageCount, pageLinks, totalRecords, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback, rowChangeCallback }">
             <div class="flex flex-wrap gap-2 items-center justify-center">
                 <SecondaryButton text rounded @click="firstPageCallback" :disabled="page === 0">
                     <template #icon>
@@ -32,7 +38,7 @@
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
-    </Paginator>
+    </DataView>
 </template>
 
 <script setup>
@@ -40,6 +46,20 @@ import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
-import Paginator from 'primevue/paginator';
+import DataView from 'primevue/dataview';
+import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
+import { ptViewMerge } from '../utils';
+
+const theme = ref({
+    root: `border-none`,
+    header: `py-3 px-4 border-b border-surface-200 dark:border-surface-700 
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0`,
+    content: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`,
+    emptyMessage: ``,
+    footer: `py-3 px-4 border-t border-surface-200 dark:border-surface-700 
+        bg-surface-0 dark:bg-surface-900
+        text-surface-700 dark:text-surface-0`
+});
 </script>

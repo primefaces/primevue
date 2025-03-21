@@ -63,6 +63,10 @@
                     "to": "/confirmdialog"
                 },
                 {
+                    "name": "DataView",
+                    "to": "/dataview"
+                },
+                {
                     "name": "DatePicker",
                     "to": "/datepicker"
                 },

@@ -442,6 +442,10 @@ export interface PaginatorSlots {
          */
         pageCount?: number;
         /**
+         * Direct page links
+         */
+        pageLinks?: number;
+        /**
          * Total records
          */
         totalRecords?: number;

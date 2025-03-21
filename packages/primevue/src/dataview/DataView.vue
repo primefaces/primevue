@@ -26,12 +26,14 @@
                     :rows="slotProps.rows"
                     :page="slotProps.page"
                     :pageCount="slotProps.pageCount"
+                    :pageLinks="slotProps.pageLinks"
                     :totalRecords="slotProps.totalRecords"
                     :firstPageCallback="slotProps.firstPageCallback"
                     :lastPageCallback="slotProps.lastPageCallback"
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
+                    :changePageCallback="slotProps.changePage"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>
@@ -75,12 +77,14 @@
                     :rows="slotProps.rows"
                     :page="slotProps.page"
                     :pageCount="slotProps.pageCount"
+                    :pageLinks="slotProps.pageLinks"
                     :totalRecords="slotProps.totalRecords"
                     :firstPageCallback="slotProps.firstPageCallback"
                     :lastPageCallback="slotProps.lastPageCallback"
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
+                    :changePageCallback="slotProps.changePage"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>
