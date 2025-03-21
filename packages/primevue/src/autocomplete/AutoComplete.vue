@@ -712,8 +712,10 @@ export default {
         onEnterKey(event) {
             if (!this.typeahead) {
                 if (this.multiple) {
-                    this.updateModel(event, [...(this.d_value || []), event.target.value]);
-                    this.$refs.focusInput.value = '';
+                    if (event.target.value.trim()) {
+                        this.updateModel(event, [...(this.d_value || []), event.target.value.trim()]);
+                        this.$refs.focusInput.value = '';
+                    }
                 }
             } else {
                 if (!this.overlayVisible) {
