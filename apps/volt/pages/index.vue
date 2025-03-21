@@ -2,34 +2,24 @@
     <div :class="landingClass">
         <AppNews />
         <AppTopBar :showMenuButton="false" />
-        <h1>Hello World</h1>
+        <LandingHero />
     </div>
 </template>
 
 <script setup>
-import { usePrimeVue } from 'primevue/config';
 import { computed } from 'vue';
 
 definePageMeta({
-    layout: 'custom'
-});
-
-const props = defineProps({
-    theme: {
-        type: String,
-        default: null
-    }
+    layout: 'landing'
 });
 
 const { layoutState } = useLayout();
-const primevue = usePrimeVue();
 
 const landingClass = computed(() => {
     return [
-        'landing bg-surface-0 dark:bg-surface-900',
+        'layout-wrapper pt-16',
         {
-            'layout-news-active': layoutState.newsActive,
-            'layout-ripple-disabled': primevue.config.ripple === false
+            'layout-news-active': layoutState.newsActive
         }
     ];
 });

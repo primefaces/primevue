@@ -106,7 +106,6 @@ const updateColors = (type, color) => {
 
         if (color.name === 'noir') {
             document.documentElement.classList.add('p-noir');
-            document.documentElement.style.setProperty('--logo-color', 'var(--text-secondary-color)');
 
             applyTheme(
                 type,
@@ -114,7 +113,6 @@ const updateColors = (type, color) => {
             );
         } else {
             document.documentElement.classList.remove('p-noir');
-            document.documentElement.style.setProperty('--logo-color', 'var(--primary-color)');
 
             applyTheme(type, color);
         }

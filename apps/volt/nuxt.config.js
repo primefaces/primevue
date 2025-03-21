@@ -65,10 +65,7 @@ export default defineNuxtConfig({
                     src: baseUrl + 'scripts/prism.js',
                     'data-manual': true
                 }
-            ],
-            htmlAttrs: {
-                class: 'p-noir'
-            }
+            ]
         }
     },
     css: ['@/assets/styles/tailwind.css', '@/assets/styles/app/app.scss', '@/assets/styles/demo/flags.css', 'primeicons/primeicons.css'],

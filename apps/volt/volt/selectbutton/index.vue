@@ -21,7 +21,7 @@ const theme = ref({
     root: `inline-flex select-none rounded-md
         p-invalid:outline p-invalid:outline-offset-0 p-invalid:outline-red-400 dark:p-invalid:outline-red-300`,
     pcToggleButton: {
-        root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none
+        root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none grow
             border border-surface-100 dark:border-surface-950
             rounded-none first:rounded-s-md last:rounded-e-md
             bg-surface-100 dark:bg-surface-950

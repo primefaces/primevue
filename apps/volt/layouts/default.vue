@@ -32,6 +32,7 @@ const sidebarActive = ref(false);
 
 const containerClass = computed(() => {
     return [
+        'layout-wrapper',
         {
             'layout-news-active': layoutState.newsActive
         }

@@ -45,7 +45,7 @@ const theme = ref({
         p-small:px-2.5 p-small:py-[0.375rem]
         p-large:px-3.5 p-large:py-2.5`,
     icon: `flex-shrink-0 text-lg w-[1.125rem] h-[1.125rem]
-        p-small:w-4 p-small:h-4 p-small:text-sm
+        p-small:w-[0.875rem] p-small:h-[0.875rem] p-small:text-sm
         p-large:w-5 p-large:h-5 p-large:text-xl`,
     text: `text-base font-medium p-small:text-sm p-large:text-xl`,
     closeButton: `flex items-center justify-center flex-shrink-0 ms-auto overflow-hidden relative cursor-pointer select-none
