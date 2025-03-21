@@ -12,5 +12,20 @@ const layoutState = reactive({
 });
 
 export function useLayout() {
-    return { layoutState };
+    const toggleDarkMode = () => {
+        document.documentElement.classList.toggle('p-dark');
+        layoutState.darkTheme = !layoutState.darkTheme;
+    };
+
+    const darkModeToggleListener = (event) => {
+        if (!document.startViewTransition) {
+            toggleDarkMode(event);
+
+            return;
+        }
+
+        document.startViewTransition(() => toggleDarkMode(event));
+    };
+
+    return { layoutState, darkModeToggleListener };
 }

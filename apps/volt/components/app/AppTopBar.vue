@@ -75,12 +75,11 @@
 </template>
 
 <script setup>
-import EventBus from '@/layouts/AppEventBus';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const emit = defineEmits(['menubutton-click']);
 
-const { layoutState } = useLayout();
+const { layoutState, darkModeToggleListener } = useLayout();
 
 const container = ref(null);
 let scrollListener = null;
@@ -90,7 +89,7 @@ const onMenuButtonClick = (event) => {
 };
 
 const toggleDarkMode = () => {
-    EventBus.emit('dark-mode-toggle', { dark: !layoutState.darkTheme });
+    darkModeToggleListener();
 };
 
 const bindScrollListener = () => {

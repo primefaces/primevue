@@ -32,7 +32,6 @@
 </template>
 
 <script setup>
-import EventBus from '@/layouts/AppEventBus';
 import { computed, ref } from 'vue';
 
 const { layoutState } = useLayout();
@@ -123,7 +122,5 @@ const updateColors = (type, color) => {
         layoutState.surface = color.name;
         applyTheme(type, color);
     }
-
-    EventBus.emit('theme-palette-change');
 };
 </script>
