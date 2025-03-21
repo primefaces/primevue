@@ -1,10 +1,10 @@
 <template>
-    <div class="rounded-lg p-4 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <div class="flex items-center gap-2 mb-3">
             <i class="pi pi-users text-muted-color"></i>
             <span class="font-medium text-surface-900 dark:text-surface-0">Invite Members</span>
         </div>
-        <Message severity="success" icon="pi pi-send" size="small">Invitation sent.</Message>
+        <Message severity="secondary" icon="pi pi-send" size="small">Invitation sent.</Message>
         <div class="mt-4">
             <span class="font-medium block mb-1">Email</span>
             <div class="flex gap-2">

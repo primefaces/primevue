@@ -67,7 +67,7 @@ const theme = ref({
             focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary`
     },
     chipIcon: ``,
-    inputChip: `flex-auto inline-flex py-1`,
+    inputChip: `flex-auto inline-flex py-1 max-w-30`,
     input: `border-none outline-none bg-transparent m-0 p-0 shadow-none rounded-none w-full text-inherit
         placeholder:text-surface-500 dark:placeholder:text-surface-400`,
     loader: `absolute top-1/2 -mt-2 end-3 p-has-dropdown:end-[3.25rem]`,

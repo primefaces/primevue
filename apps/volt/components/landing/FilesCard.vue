@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-4 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <div class="flex items-center gap-2 mb-4">
             <i class="pi pi-cloud-upload text-muted-color"></i>
             <span class="font-medium text-surface-900 dark:text-surface-0">Publish Files</span>
@@ -25,12 +25,12 @@
             <div class="flex gap-2">
                 <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg">
                     <i class="pi pi-globe text-muted-color"></i>
-                    <label for="privacy_public text-color">Public</label>
+                    <label for="privacy_public" class="text-color">Public</label>
                     <RadioButton v-model="privacy" inputId="privacy_public" name="privacy" value="public" class="ms-auto" />
                 </div>
                 <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg">
                     <i class="pi pi-lock text-muted-color"></i>
-                    <label for="privacy_private text-color">Private</label>
+                    <label for="privacy_private" class="text-color">Private</label>
                     <RadioButton v-model="privacy" inputId="privacy_private" name="privacy" value="private" class="ms-auto" />
                 </div>
             </div>

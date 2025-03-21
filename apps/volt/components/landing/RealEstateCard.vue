@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-4 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <div class="flex flex-col gap-4 mb-6">
             <label for="input_name" class="font-medium block text-color">Price Range</label>
             <Slider v-model="priceRange" range />

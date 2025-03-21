@@ -3,6 +3,9 @@
         <AppNews />
         <AppTopBar :showMenuButton="false" />
         <LandingHero />
+        <LandingComponents />
+        <LandingFeatures />
+        <LandingFooter />
     </div>
 </template>
 

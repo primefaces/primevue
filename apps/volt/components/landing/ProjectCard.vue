@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-4 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <Tabs value="0">
             <TabList>
                 <Tab value="0" class="grow">Overview</Tab>
@@ -12,7 +12,7 @@
                         <Chip label="In Progress" icon="pi pi-spinner" />
                         <Chip label="Q2" icon="pi pi-calendar" />
                     </div>
-                    <span class="block mb-3 text-muted-color">This project is currently in progress, with key milestones achieved in design and development phases.</span>
+                    <span class="block mb-3 text-muted-color">This project is currently in progress, with key milestones in design and development phases.</span>
                     <MeterGroup :value="progress" class="mb-3" />
                 </TabPanel>
                 <TabPanel value="1">
