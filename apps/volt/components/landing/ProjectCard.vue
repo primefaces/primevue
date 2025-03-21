@@ -14,10 +14,6 @@
                     </div>
                     <span class="block mb-3 text-muted-color">This project is currently in progress, with key milestones achieved in design and development phases.</span>
                     <MeterGroup :value="progress" class="mb-3" />
-                    <div class="flex gap-2">
-                        <SecondaryButton icon="pi pi-plus" rounded outlined />
-                        <SecondaryButton icon="pi pi-search" rounded outlined />
-                    </div>
                 </TabPanel>
                 <TabPanel value="1">
                     <Timeline :value="events" class="mt-2">
@@ -35,7 +31,6 @@
 </template>
 
 <script setup>
-import SecondaryButton from '@/volt/button/secondary';
 import Chip from '@/volt/chip';
 import MeterGroup from '@/volt/metergroup';
 import Tabs from '@/volt/tabs';

@@ -1,5 +1,79 @@
 <template>
-    <div class="rounded-lg p-8 shadow-md border border-transparent dark:border-surface-800"></div>
+    <div class="rounded-lg p-4 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
+        <div class="flex flex-col gap-4 mb-6">
+            <label for="input_name" class="font-medium block text-color">Price Range</label>
+            <Slider v-model="priceRange" range />
+        </div>
+
+        <div class="flex gap-2 mb-4">
+            <div class="flex flex-col gap-2">
+                <label for="price_min" class="font-medium block text-color">Min Value</label>
+                <InputNumber v-model="minValue" inputId="price-min" mode="currency" currency="USD" locale="en-US" fluid showButtons />
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="price_max" class="font-medium block text-color">Max Value</label>
+                <InputNumber v-model="maxValue" inputId="price-min" mode="currency" currency="USD" locale="en-US" fluid showButtons />
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <span class="block font-medium text-color mb-2">Criterias</span>
+            <div class="grid grid-cols-2">
+                <ul class="flex flex-col gap-2">
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Furnished" />
+                        <label for="criteria1"> Furnished </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Detached" />
+                        <label for="criteria1"> Detached </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Balcony" />
+                        <label for="criteria1"> Balcony </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Central" />
+                        <label for="criteria1"> Central </label>
+                    </li>
+                </ul>
+                <ul class="flex flex-col gap-2">
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Garden" />
+                        <label for="criteria1"> Garden </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Pool" />
+                        <label for="criteria1"> Pool </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Security" />
+                        <label for="criteria1"> Security </label>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Checkbox v-model="criterias" inputId="criteria1" name="criteria" value="Sea View" />
+                        <label for="criteria1"> Sea View </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex gap-2 border-t border-surface pt-4">
+            <SecondaryButton label="Clear" outlined class="grow" icon="pi pi-refresh" />
+            <Button label="Search" class="grow" icon="pi pi-search" />
+        </div>
+    </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Button from '@/volt/button';
+import SecondaryButton from '@/volt/button/secondary';
+import Checkbox from '@/volt/checkbox';
+import InputNumber from '@/volt/inputnumber';
+import Slider from '@/volt/slider';
+
+const priceRange = ref([20, 80]);
+const minValue = ref(1000);
+const maxValue = ref(20000);
+const criterias = ref(['Pool', 'Furnished', 'Central']);
+</script>
