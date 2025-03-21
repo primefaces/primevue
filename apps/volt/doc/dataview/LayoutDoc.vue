@@ -234,8 +234,8 @@ const code = ref(`
 <script setup>
 import { ProductService } from '@/service/ProductService';
 import Button from '@/volt/button';
-import SelectButton from '@/volt/selectbutton';
 import DataView from '@/volt/dataview';
+import SelectButton from '@/volt/selectbutton';
 import Tag from '@/volt/tag';
 import { onMounted, ref } from 'vue';
 

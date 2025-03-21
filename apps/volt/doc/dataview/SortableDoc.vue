@@ -156,8 +156,8 @@ const code = ref(`
 <script setup>
 import { ProductService } from '@/service/ProductService';
 import Button from '@/volt/button';
-import Select from '@/volt/select';
 import DataView from '@/volt/dataview';
+import Select from '@/volt/select';
 import Tag from '@/volt/tag';
 import { onMounted, ref } from 'vue';
 
@@ -170,8 +170,8 @@ const sortKey = ref(null);
 const sortOrder = ref(null);
 const sortField = ref(null);
 const sortOptions = ref([
-    {label: 'Price High to Low', value: '!price'},
-    {label: 'Price Low to High', value: 'price'},
+    { label: 'Price High to Low', value: '!price' },
+    { label: 'Price Low to High', value: 'price' }
 ]);
 
 const onSortChange = (event) => {
@@ -182,8 +182,7 @@ const onSortChange = (event) => {
         sortOrder.value = -1;
         sortField.value = value.substring(1, value.length);
         sortKey.value = sortValue;
-    }
-    else {
+    } else {
         sortOrder.value = 1;
         sortField.value = value;
         sortKey.value = sortValue;

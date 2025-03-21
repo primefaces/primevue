@@ -33,7 +33,7 @@
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
-                    :changePageCallback="slotProps.changePage"
+                    :changePageCallback="slotProps.changePageCallback"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>
@@ -84,7 +84,7 @@
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
-                    :changePageCallback="slotProps.changePage"
+                    :changePageCallback="slotProps.changePageCallback"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>

@@ -149,7 +149,6 @@ export default {
     },
     methods: {
         changePage(p) {
-            console.log(p);
             const pc = this.pageCount;
 
             if (p >= 0 && p < pc) {
