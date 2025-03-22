@@ -77,6 +77,7 @@
 @custom-variant p-clearable (&[data-p~="clearable"]);
 @custom-variant p-editable (&[data-p~="editable"]);
 @custom-variant p-has-dropdown (&[data-p-has-dropdown="true"]);
+@custom-variant p-has-chip (&[data-p~="has-chip"]);
 @custom-variant p-inline (&[data-p~="inline"]);
 @custom-variant p-today (&[data-p~="today"]);
 @custom-variant p-other-month (&[data-p~="other-month"]);

@@ -44,7 +44,7 @@ const theme = ref({
         shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
         transition-colors duration-200`,
     labelContainer: `overflow-hidden flex-auto`,
-    label: `flex items-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis px-3 py-2 
+    label: `flex items-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis px-3 py-2 p-has-chip:py-1 p-has-chip:px-[0.375rem]
         text-surface-700 dark:text-surface-0 
         p-placeholder:text-surface-500 dark:p-placeholder:text-surface-400
         p-disabled:text-surface-500 dark:p-disabled:text-surface-400
@@ -52,7 +52,14 @@ const theme = ref({
         p-small:text-sm p-small:px-[0.625rem] p-small:py-[0.375rem]
         p-large:text-lg p-large:px-[0.875rem] p-large:py-[0.625rem]`,
     chipItem: ``,
-    pcChip: ``,
+    pcChip: {
+        root: `inline-flex items-center gap-2 px-3 py-1 rounded-sm
+            bg-surface-100 dark:bg-surface-800
+            text-surface-800 dark:text-surface-0
+            has-[img]:pt-1 has-[img]:pb-1
+            p-removable:pe-2`,
+        removeIcon: `cursor-pointer text-base w-4 h-4 rounded-full text-surface-800 dark:text-surface-0`
+    },
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-surface-400 w-10 rounded-e-md`,
     overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full 
