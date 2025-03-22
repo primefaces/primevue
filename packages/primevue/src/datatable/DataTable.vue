@@ -27,7 +27,7 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
-            <template v-if="$slots.paginatorcontainer" #container>
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
                 <slot
                     name="paginatorcontainer"
                     :first="slotProps.first"
