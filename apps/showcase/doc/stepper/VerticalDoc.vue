@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Horizontal layout requires <i>StepItem</i> as a wrapper of <i>Step</i> and <i>StepPanel</i> components.</p>
+        <p>Vertical layout requires <i>StepItem</i> as a wrapper of <i>Step</i> and <i>StepPanel</i> components.</p>
     </DocSectionText>
     <div class="card">
         <Stepper value="1">
