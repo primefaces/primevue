@@ -35,7 +35,7 @@
                     <div id="docsearch"></div>
                 </li>
                 <li>
-                    <a href="https://github.com/primefaces/primevue-tailwind" target="_blank" rel="noopener noreferrer" class="topbar-item">
+                    <a href="https://github.com/primefaces/primevue/tree/master/apps/volt/volt" target="_blank" rel="noopener noreferrer" class="topbar-item">
                         <i class="pi pi-github"></i>
                     </a>
                 </li>

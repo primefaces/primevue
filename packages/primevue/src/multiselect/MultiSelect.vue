@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" :data-p="containerDataP" v-bind="ptmi('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputContainer')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -24,7 +24,7 @@
             />
         </div>
         <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
-            <div :class="cx('label')" v-bind="ptm('label')">
+            <div :class="cx('label')" :data-p="labelDataP" v-bind="ptm('label')">
                 <slot name="value" :value="d_value" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
@@ -59,12 +59,12 @@
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" :data-p="dropdownIconDataP" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="[panelStyle, overlayStyle]" :class="[cx('overlay'), panelClass, overlayClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="[panelStyle, overlayStyle]" :class="[cx('overlay'), panelClass, overlayClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" :data-p="overlayDataP" v-bind="ptm('overlay')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -223,6 +223,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
@@ -1142,6 +1143,35 @@ export default {
         },
         isClearIconVisible() {
             return this.showClear && this.d_value && this.d_value.length && this.d_value != null && isNotEmpty(this.options);
+        },
+        containerDataP() {
+            return cn({
+                invalid: this.$invalid,
+                disabled: this.disabled,
+                focus: this.focused,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
+        },
+        labelDataP() {
+            return cn({
+                placeholder: this.label === this.placeholder,
+                clearable: this.showClear,
+                disabled: this.disabled,
+                [this.size]: this.size,
+                empty: !this.editable && !this.$slots['value'] && (this.label === 'p-emptylabel' || this.label.length === 0)
+            });
+        },
+        dropdownIconDataP() {
+            return cn({
+                [this.size]: this.size
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
+            });
         }
     },
     directives: {

@@ -1071,7 +1071,7 @@ export default {
         },
         dropdownIconDataP() {
             return cn({
-                [this.size]: this.size,
+                [this.size]: this.size
             });
         },
         overlayDataP() {

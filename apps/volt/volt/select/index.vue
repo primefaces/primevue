@@ -42,10 +42,6 @@ const theme = ref({
     clearIcon: `absolute top-1/2 -mt-2 text-surface-500 dark:text-surface-400 end-10`,
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-surface-400 w-10 rounded-e-md`,
-    dropdownIcon: `
-        text-base h-4 w-4
-        p-small:text-sm p-small:w-[0.875rem] p-small:h-[0.875rem]
-        p-large:text-lg p-large:w-[1.125rem] p-large:h-[1.125rem]`,
     loadingIcon: ``,
     overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full
         bg-surface-0 dark:bg-surface-900

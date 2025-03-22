@@ -73,7 +73,7 @@ import { ref } from 'vue';
 const value1 = ref(null);
 const value2 = ref(null);
 const value3 = ref(null);
-const countries = ref([
+const cities = ref([
     { name: 'New York', code: 'NY' },
     { name: 'Rome', code: 'RM' },
     { name: 'London', code: 'LDN' },

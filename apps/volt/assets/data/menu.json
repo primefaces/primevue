@@ -135,6 +135,10 @@
                     "to": "/metergroup"
                 },
                 {
+                    "name": "MultiSelect",
+                    "to": "/multiselect"
+                },
+                {
                     "name": "Paginator",
                     "to": "/paginator"
                 },
@@ -227,14 +231,19 @@
             "to": "/animations"
         },
         {
+            "name": "Forms",
+            "icon": "pi pi-check",
+            "href": "https://primevue.org/forms"
+        },
+        {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
-            "to": "https://primevue.org/uikit"
+            "href": "https://primevue.org/uikit"
         },
         {
             "name": "Templates",
             "icon": "pi pi-heart",
-            "to": "https://primevue.org/templates"
+            "href": "https://primevue.org/templates"
         },
         {
             "name": "Support",
@@ -284,7 +293,6 @@
                 },
                 {
                     "name": "PrimeTV",
-                    "icon": "pi pi-youtube",
                     "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
                 }
             ]

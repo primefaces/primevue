@@ -20,7 +20,7 @@ const theme = ref({
     input: `peer cursor-pointer disabled:cursor-default appearance-none 
         absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
         border border-transparent rounded-xs`,
-    box: `flex justify-center items-center rounded-xs w-5 h-5
+    box: `flex justify-center items-center rounded-sm w-5 h-5
         border border-surface-300 dark:border-surface-700
         bg-surface-0 dark:bg-surface-950
         text-surface-700 dark:text-surface-0
