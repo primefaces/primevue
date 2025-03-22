@@ -55,21 +55,23 @@
             </StepList>
             <StepPanels>
                 <StepPanel v-slot="{ activateCallback }" :value="1">
-                    <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
-                        <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
-                        <div class="field">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
+                    <form @submit.prevent>
+                        <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                            <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
+                            <div class="field">
+                                <InputText v-model="name" type="text" placeholder="Name" fluid />
+                            </div>
+                            <div class="field">
+                                <InputText v-model="email" type="email" placeholder="Email" fluid />
+                            </div>
+                            <div class="field">
+                                <InputText v-model="email2" placeholder="Re-Enter Email" fluid />
+                            </div>
                         </div>
-                        <div class="field">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+                        <div class="flex pt-6 justify-end">
+                            <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
                         </div>
-                        <div class="field">
-                            <Password v-model="password" placeholder="Password" fluid />
-                        </div>
-                    </div>
-                    <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
-                    </div>
+                    </form>
                 </StepPanel>
                 <StepPanel v-slot="{ activateCallback }" :value="2">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
@@ -95,7 +97,7 @@
                 <StepPanel v-slot="{ activateCallback }" :value="3">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
-                        <div class="text-center">
+                        <div class="flex justify-center">
                             <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
                         </div>
                     </div>
@@ -114,7 +116,6 @@ import Button from '@/volt/button';
 import SecondaryButton from '@/volt/button/secondary';
 import Divider from '@/volt/divider';
 import InputText from '@/volt/inputtext';
-import Password from '@/volt/password';
 import Stepper from '@/volt/stepper';
 import Step from '@/volt/stepper/step';
 import StepList from '@/volt/stepper/steplist';
@@ -126,7 +127,7 @@ import { ref } from 'vue';
 const activeStep = ref(1);
 const name = ref();
 const email = ref();
-const password = ref();
+const email2 = ref();
 const option1 = ref(false);
 const option2 = ref(false);
 const option3 = ref(false);
@@ -193,13 +194,13 @@ const code = ref(`
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
                         <div class="field">
-                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
+                            <InputText v-model="name" type="text" placeholder="Name" fluid />
                         </div>
                         <div class="field">
-                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+                            <InputText v-model="email" type="email" placeholder="Email" fluid />
                         </div>
                         <div class="field">
-                            <Password v-model="password" placeholder="Password" fluid />
+                            <InputText v-model="email2" placeholder="Re-Enter Email" fluid />
                         </div>
                     </div>
                     <div class="flex pt-6 justify-end">
@@ -230,7 +231,7 @@ const code = ref(`
                 <StepPanel v-slot="{ activateCallback }" :value="3">
                     <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
                         <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
-                        <div class="text-center">
+                        <div class="flex justify-center">
                             <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
                         </div>
                     </div>
@@ -248,13 +249,28 @@ import Button from '@/volt/button';
 import SecondaryButton from '@/volt/button/secondary';
 import Divider from '@/volt/divider';
 import InputText from '@/volt/inputtext';
-import Password from '@/volt/password';
 import Stepper from '@/volt/stepper';
 import Step from '@/volt/stepper/step';
 import StepList from '@/volt/stepper/steplist';
 import StepPanel from '@/volt/stepper/steppanel';
 import StepPanels from '@/volt/stepper/steppanels';
 import ToggleButton from '@/volt/togglebutton';
+import { ref } from 'vue';
+
+const activeStep = ref(1);
+const name = ref();
+const email = ref();
+const email2 = ref();
+const option1 = ref(false);
+const option2 = ref(false);
+const option3 = ref(false);
+const option4 = ref(false);
+const option5 = ref(false);
+const option6 = ref(false);
+const option7 = ref(false);
+const option8 = ref(false);
+const option9 = ref(false);
+const option10 = ref(false);
 <\/script>
 `);
 </script>
