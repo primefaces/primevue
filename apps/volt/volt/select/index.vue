@@ -12,6 +12,12 @@
         <template #loadingicon>
             <SpinnerIcon class="animate-spin" />
         </template>
+        <template #filtericon>
+            <SearchIcon class="text-surface-400" />
+        </template>
+        <template #clearicon>
+            <TimesIcon class="text-surface-400 absolute top-1/2 -mt-2 end-10" />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -20,7 +26,9 @@
 
 <script setup>
 import ChevronDownIcon from '@primevue/icons/chevrondown';
+import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
+import TimesIcon from '@primevue/icons/times';
 import Select from 'primevue/select';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
@@ -43,7 +51,6 @@ const theme = ref({
         p-disabled:text-surface-500 dark:p-disabled:text-surface-400
         p-small:text-sm p-small:px-[0.625rem] p-small:py-[0.375rem]
         p-large:text-lg p-large:px-[0.875rem] p-large:py-[0.625rem]`,
-    clearIcon: `absolute top-1/2 -mt-2 text-surface-500 dark:text-surface-400 end-10`,
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-surface-400 w-10 rounded-e-md`,
     overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full
@@ -71,7 +78,6 @@ const theme = ref({
     pcFilterIconContainer: {
         root: `absolute top-1/2 -mt-2 leading-none end-3 z-1`
     },
-    filterIcon: `text-surface-400`,
     listContainer: `overflow-auto`,
     list: `m-0 p-1 list-none gap-[2px] flex flex-col`,
     optionGroup: `m-0 px-3 py-2 bg-transparent text-surface-500 dark:text-surface-400 font-semibold`,
