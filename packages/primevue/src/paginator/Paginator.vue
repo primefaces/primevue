@@ -142,7 +142,15 @@ export default {
             if (this.page > 0 && newValue && this.d_first >= newValue) {
                 this.changePage(this.pageCount - 1);
             }
-        }
+        },
+        initialPage(newPage) {
+            const pageIndex = newPage - 1;
+
+            if (pageIndex >= 0 && pageIndex < this.pageCount && pageIndex !== this.page) {
+                this.d_first = pageIndex * this.d_rows;
+                this.changePage(pageIndex);
+            }
+        },
     },
     mounted() {
         this.createStyle();
