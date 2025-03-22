@@ -1,13 +1,14 @@
 {
     "data": [
         {
-            "name": "Getting Started",
-            "icon": "pi pi-home",
+            "name": "Architecture",
+            "to": "/architecture",
+            "icon": "pi pi-bolt"
+        },
+        {
+            "name": "Installation",
+            "icon": "pi pi-cloud-download",
             "children": [
-                {
-                    "name": "Introduction",
-                    "to": "/introduction"
-                },
                 {
                     "name": "Vite",
                     "to": "/vite"
@@ -20,7 +21,7 @@
         },
         {
             "name": "Components",
-            "icon": "pi pi-bolt",
+            "icon": "pi pi-compass",
             "children": [
                 {
                     "name": "Accordion",

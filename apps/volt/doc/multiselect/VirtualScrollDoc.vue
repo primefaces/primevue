@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with <i>virtualScrollerOptions</i> property, refer to the
-            <NuxtLink to="/virtualscroller">VirtualScroller</NuxtLink> for more information about the available options as it is used internally by MultiSelect.
+            <a href="https://primevue.org/virtualscroller" target="_blank" rel="noopener noreferrer">VirtualScroller</a> for more information about the available options as it is used internally by MultiSelect.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
