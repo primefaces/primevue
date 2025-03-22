@@ -9,7 +9,7 @@
         </div>
         <div class="text-surface-950 dark:text-surface-0 font-bold text-7xl mb-2 text-center">Craft Your Own</div>
         <div class="text-primary font-bold text-7xl text-center">UI Component Library</div>
-        <p class="text-muted-color text-xl pt-8 pb-4 font-medium text-center">Explore a suite of fully customizable, accessible components powered by the Unstyled PrimeVue Core and styled with Tailwind v4.</p>
+        <p class="text-muted-color text-xl pt-8 pb-4 font-medium text-center">Explore a suite of fully customizable, accessible components powered by the Unstyled PrimeVue Core and Tailwind CSS v4.</p>
         <div class="flex gap-4 justify-center">
             <RouterLink
                 to="/overview"
