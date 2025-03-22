@@ -7,7 +7,10 @@
         }"
     >
         <template #dropdownicon>
-            <ChevronDown />
+            <ChevronDownIcon />
+        </template>
+        <template #loadingicon>
+            <SpinnerIcon class="animate-spin" />
         </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
@@ -16,7 +19,8 @@
 </template>
 
 <script setup>
-import ChevronDown from '@primevue/icons/chevrondown';
+import ChevronDownIcon from '@primevue/icons/chevrondown';
+import SpinnerIcon from '@primevue/icons/spinner';
 import MultiSelect from 'primevue/multiselect';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
@@ -44,7 +48,6 @@ const theme = ref({
     pcChip: ``,
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-surface-400 w-10 rounded-e-md`,
-    loadingIcon: ``,
     overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full 
         bg-surface-0 dark:bg-surface-900
         border border-surface-200 dark:border-surface-700
