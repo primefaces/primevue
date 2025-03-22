@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" :style="sx('root')" :data-p="containerDataP" v-bind="ptmi('root')">
         <InputText
             ref="input"
             :id="inputId"
@@ -318,6 +318,11 @@ export default {
         },
         overlayUniqueId() {
             return this.$id + '_overlay';
+        },
+        containerDataP() {
+            return cn({
+                fluid: this.$fluid
+            });
         },
         meterDataP() {
             return cn({
