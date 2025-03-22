@@ -31,7 +31,7 @@
 @custom-variant p-center (&[data-p~="center"]);
 @custom-variant p-top-center (&[data-p~="top-center"]);
 @custom-variant p-bottom-center (&[data-p~="bottom-center"]);
-@custom-variant p-active (&[data-p~="active"]);
+@custom-variant p-active (&[data-p~="active"],&[data-p-active="true"]);
 @custom-variant p-focus (&[data-p~="focus"],&[data-p-focused="true"]);
 @custom-variant p-focus-visible (&[data-p~="focus-visible"]);
 @custom-variant p-readonly (&[data-p~="readonly"]);
@@ -82,3 +82,4 @@
 @custom-variant p-today (&[data-p~="today"]);
 @custom-variant p-other-month (&[data-p~="other-month"]);
 @custom-variant p-time-only (&[data-p~="time-only"]);
+@custom-variant p-completed (&[data-p~="completed"]);

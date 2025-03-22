@@ -123,6 +123,21 @@ import StepPanels from '@/volt/stepper/steppanels';
 import ToggleButton from '@/volt/togglebutton';
 import { ref } from 'vue';
 
+const activeStep = ref(1);
+const name = ref();
+const email = ref();
+const password = ref();
+const option1 = ref(false);
+const option2 = ref(false);
+const option3 = ref(false);
+const option4 = ref(false);
+const option5 = ref(false);
+const option6 = ref(false);
+const option7 = ref(false);
+const option8 = ref(false);
+const option9 = ref(false);
+const option10 = ref(false);
+
 const code = ref(`
 <template>
     <div class="card flex justify-center">

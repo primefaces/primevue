@@ -8,7 +8,6 @@ import HorizontalDoc from '@/doc/stepper/HorizontalDoc.vue';
 import ImportDoc from '@/doc/stepper/ImportDoc.vue';
 import LinearDoc from '@/doc/stepper/LinearDoc.vue';
 import StepsOnlyDoc from '@/doc/stepper/StepsOnlyDoc.vue';
-import TemplateDoc from '@/doc/stepper/TemplateDoc.vue';
 import VerticalDoc from '@/doc/stepper/VerticalDoc.vue';
 
 import { ref } from 'vue';
@@ -43,11 +42,6 @@ const docs = ref([
         id: 'stepsonly',
         label: 'Steps Only',
         component: StepsOnlyDoc
-    },
-    {
-        id: 'template',
-        label: 'Template',
-        component: TemplateDoc
     }
 ]);
 </script>

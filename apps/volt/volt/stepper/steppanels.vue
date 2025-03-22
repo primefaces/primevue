@@ -16,6 +16,6 @@ import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
 
 const theme = ref({
-    root: ``
+    root: `pt-[0.875rem] pb-[1.125rem] px-2`
 });
 </script>

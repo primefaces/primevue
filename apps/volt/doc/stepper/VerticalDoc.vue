@@ -48,6 +48,7 @@ import Button from '@/volt/button';
 import SecondaryButton from '@/volt/button/secondary';
 import Stepper from '@/volt/stepper';
 import Step from '@/volt/stepper/step';
+import StepItem from '@/volt/stepper/stepitem';
 import StepPanel from '@/volt/stepper/steppanel';
 import { ref } from 'vue';
 
@@ -98,6 +99,7 @@ import Button from '@/volt/button';
 import SecondaryButton from '@/volt/button/secondary';
 import Stepper from '@/volt/stepper';
 import Step from '@/volt/stepper/step';
+import StepItem from '@/volt/stepper/stepitem';
 import StepPanel from '@/volt/stepper/steppanel';
 <\/script>
 `);

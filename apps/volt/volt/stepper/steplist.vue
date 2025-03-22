@@ -16,6 +16,6 @@ import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
 
 const theme = ref({
-    root: ``
+    root: `relative flex justify-between items-center m-0 p-0 list-none overflow-x-auto`
 });
 </script>

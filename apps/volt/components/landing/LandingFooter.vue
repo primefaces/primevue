@@ -3,7 +3,7 @@
         <div class="grid grid-cols-4 gap-8">
             <ul class="flex flex-col gap-2 mx-auto">
                 <li class="font-bold">General</li>
-                <li><NuxtLink to="/architecture" class="text-muted-color hover:text-color transition-colors duration-200" />Architecture</li>
+                <li><NuxtLink to="/overview" class="text-muted-color hover:text-color transition-colors duration-200" />Overview</li>
                 <li><a href="https://github.com/primefaces/primevue-examples" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Examples</a></li>
                 <li><a href="https://github.com/primefaces/primevue/tree/master/apps/volt/volt" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Source Code</a></li>
             </ul>

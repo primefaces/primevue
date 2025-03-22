@@ -50,6 +50,14 @@ export interface StepPanelPassThroughOptions {
      */
     root?: StepPanelPassThroughOptionType;
     /**
+     * Used to pass attributes to the content DOM element.
+     */
+    content?: StepPanelPassThroughOptionType;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: StepPanelPassThroughOptionType;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */

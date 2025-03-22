@@ -466,8 +466,6 @@ export default {
 import { ref } from 'vue';
 
 const activeStep = ref(1);
-const completed = ref(false);
-const products = ref();
 const name = ref();
 const email = ref();
 const password = ref();
