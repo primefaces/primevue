@@ -65039,6 +65039,22 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "content",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content DOM element."
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to control Vue Transition API."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
