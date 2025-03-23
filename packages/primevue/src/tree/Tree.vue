@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" :data-p="containerDataP" v-bind="ptmi('root')">
         <template v-if="loading && loadingMode === 'mask'">
             <div :class="cx('mask')" v-bind="ptm('mask')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
@@ -17,7 +17,7 @@
                 </slot>
             </InputIcon>
         </IconField>
-        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" v-bind="ptm('wrapper')">
+        <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" :data-p="wrapperDataP" v-bind="ptm('wrapper')">
             <slot name="header" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
             <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { isFunction, resolveFieldData } from '@primeuix/utils/object';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
@@ -245,6 +246,17 @@ export default {
         valueToRender() {
             if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
             else return this.value;
+        },
+        containerDataP() {
+            return cn({
+                loading: this.loading,
+                scrollable: this.scrollHeight === 'flex'
+            });
+        },
+        wrapperDataP() {
+            return cn({
+                scrollable: this.scrollHeight === 'flex'
+            });
         }
     },
     components: {

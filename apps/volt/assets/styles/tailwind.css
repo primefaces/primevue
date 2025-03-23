@@ -23,6 +23,7 @@
 @custom-variant p-disabled (&[data-p~="disabled"],&[data-p-disabled="true"]);
 @custom-variant p-enabled (&:not([data-p~="disabled"]));
 @custom-variant p-selected (&[data-p~="selected"],&[data-p-selected="true"]);
+@custom-variant p-selectable (&[data-p~="selectable"],&[data-p-selectable="true"]);
 @custom-variant p-left (&[data-p~="left"]);
 @custom-variant p-right (&[data-p~="right"]);
 @custom-variant p-top (&[data-p~="top"]);
@@ -83,3 +84,6 @@
 @custom-variant p-other-month (&[data-p~="other-month"]);
 @custom-variant p-time-only (&[data-p~="time-only"]);
 @custom-variant p-completed (&[data-p~="completed"]);
+@custom-variant p-loading (&[data-p~="loading"]);
+@custom-variant p-scrollable (&[data-p~="scrollable"]);
+@custom-variant p-leaf (&[data-p~="leaf"],&[data-p-leaf="true"]);

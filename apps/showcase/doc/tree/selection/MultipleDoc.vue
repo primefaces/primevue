@@ -11,7 +11,7 @@
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
+        <Tree v-model:selectionKeys="selectedKeys" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" :service="['NodeService']" />
 </template>
@@ -24,10 +24,10 @@ export default {
         return {
             checked: false,
             nodes: null,
-            selectedKey: null,
+            selectedKeys: null,
             code: {
                 basic: `
-<Tree v-model:selectionKeys="selectedKey" :value="nodes"
+<Tree v-model:selectionKeys="selectedKeys" :value="nodes"
     selectionMode="multiple" :metaKeySelection="checked"></Tree>
 `,
                 options: `
@@ -37,7 +37,7 @@ export default {
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
+        <Tree v-model:selectionKeys="selectedKeys" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
         return {
             checked: false,
             nodes: null,
-            selectedKey: null
+            selectedKeys: null
         };
     },
     mounted() {
@@ -65,7 +65,7 @@ export default {
             <ToggleSwitch v-model="checked" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
+        <Tree v-model:selectionKeys="selectedKeys" :value="nodes" selectionMode="multiple" :metaKeySelection="checked" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -74,7 +74,7 @@ import { ref, onMounted } from 'vue';
 import { NodeService } from '@/service/NodeService';
 
 const nodes = ref(null);
-const selectedKey = ref(null);
+const selectedKeys = ref(null);
 const checked = ref(false);
 
 onMounted(() => {

@@ -102,7 +102,7 @@ const onNodeExpand = (node) => {
     toast.add({ severity: 'info', summary: 'Node Expanded', detail: node.label, life: 3000 });
 };
 
-const onNodeCollapse (node) => {
+const onNodeCollapse = (node) => {
     toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
 };
 <\/script>

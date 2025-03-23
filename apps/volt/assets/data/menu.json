@@ -222,6 +222,10 @@
                 {
                     "name": "Toolbar",
                     "to": "/toolbar"
+                },
+                {
+                    "name": "Tree",
+                    "to": "/tree"
                 }
             ]
         },
