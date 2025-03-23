@@ -68,6 +68,10 @@
                     "to": "/dataview"
                 },
                 {
+                    "name": "DataTable",
+                    "to": "/datatable"
+                },
+                {
                     "name": "DatePicker",
                     "to": "/datepicker"
                 },

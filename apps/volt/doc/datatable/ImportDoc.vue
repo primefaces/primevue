@@ -6,7 +6,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Splitter from '@/volt/splitter';
-import SplitterPanel from 'primevue/splitterpanel';
+const code = ref(`import DataTable from '@/volt/datatable';
+import Column from 'primevue/column';
 `);
 </script>

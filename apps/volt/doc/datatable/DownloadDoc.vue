@@ -6,7 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Splitter from '@/volt/splitter';
-import SplitterPanel from 'primevue/splitterpanel';
+const code = ref(`npx volt-vue add datatable
 `);
 </script>
