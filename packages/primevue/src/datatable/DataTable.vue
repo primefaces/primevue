@@ -27,7 +27,7 @@
             :unstyled="unstyled"
             :pt="ptm('pcPaginator')"
         >
-            <template v-if="$slots.paginatorcontainer" #container>
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
                 <slot
                     name="paginatorcontainer"
                     :first="slotProps.first"
@@ -2032,7 +2032,7 @@ export default {
         columns() {
             const cols = this.d_columns.get(this);
 
-            if (this.reorderableColumns && this.d_columnOrder) {
+            if (cols && this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
 
                 for (let columnKey of this.d_columnOrder) {
