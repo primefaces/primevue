@@ -60,6 +60,10 @@ const theme = ref({
     emptyMessage: ``,
     footer: `py-3 px-4 border-t border-surface-200 dark:border-surface-700 
         bg-surface-0 dark:bg-surface-900
-        text-surface-700 dark:text-surface-0`
+        text-surface-700 dark:text-surface-0`,
+    pcPaginator: {
+        root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1
+        bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
+    }
 });
 </script>

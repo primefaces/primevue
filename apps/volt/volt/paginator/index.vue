@@ -1,5 +1,11 @@
 <template>
-    <Paginator unstyled>
+    <Paginator
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template #container="{ first, last, rows, page, pageCount, pageLinks, totalRecords, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback, rowChangeCallback }">
             <div class="flex flex-wrap gap-2 items-center justify-center">
                 <SecondaryButton text rounded @click="firstPageCallback" :disabled="page === 0">
@@ -42,4 +48,10 @@ import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Paginator from 'primevue/paginator';
 import SecondaryButton from '../button/secondary';
+import { ptViewMerge } from '../utils';
+
+const theme = ref({
+    root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1
+        bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
+});
 </script>

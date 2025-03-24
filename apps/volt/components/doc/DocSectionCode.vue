@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         async copyCode() {
-            await navigator.clipboard.writeText(this.code[this.codeLang]);
+            await navigator.clipboard.writeText(this.code);
         }
     }
 };

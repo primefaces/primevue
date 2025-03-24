@@ -1371,6 +1371,10 @@ export interface DataTableSlots<T = any> {
          */
         pageCount?: number;
         /**
+         * Direct page links
+         */
+        pageLinks?: number;
+        /**
          * Total records
          */
         totalRecords?: number;
@@ -1398,6 +1402,10 @@ export interface DataTableSlots<T = any> {
          * Row change function.
          */
         rowChangeCallback: (value: number) => void;
+        /**
+         * Page change function.
+         */
+        changePageCallback: (value: number) => void;
     }): VNode[];
     /**
      * Custom paginator start template.
