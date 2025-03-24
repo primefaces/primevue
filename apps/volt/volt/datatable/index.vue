@@ -159,7 +159,12 @@ const theme = ref({
                 shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200`,
             icon: `text-sm w-[0.875rem] h-[0.875rem] transition-none`
         },
-        rowToggleButton: ``,
+        rowToggleButton: `inline-flex items-center justify-center overflow-hidden relative w-7 h-7 cursor-pointer select-none
+            transition-colors duration-200 rounded-full border-none bg-transparent
+            text-surface-500 enabled:hover:bg-surface-100 enabled:hover:text-surface-700
+            dark:text-surface-400 dark:enabled:hover:bg-surface-800 dark:enabled:hover:text-surface-0
+            focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary
+            p-selected:hover:bg-surface-0 dark:p-selected:hover:bg-surface-900 p-selected:hover:text-primary`,
         rowToggleIcon: ``,
         reorderableRowHandle: ``
     },
