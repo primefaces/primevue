@@ -5,11 +5,15 @@
 <script setup>
 import BasicDoc from '@/doc/datatable/BasicDoc.vue';
 import DownloadDoc from '@/doc/datatable/DownloadDoc.vue';
+import DynamicDoc from '@/doc/datatable/DynamicDoc.vue';
 import ImportDoc from '@/doc/datatable/ImportDoc.vue';
 import PaginationDoc from '@/doc/datatable/PaginationDoc.vue';
+import MultipleColumnsDoc from '@/doc/datatable/sort/MultipleColumnsDoc.vue';
+import PreSortDoc from '@/doc/datatable/sort/PreSortDoc.vue';
+import RemovableSortDoc from '@/doc/datatable/sort/RemovableSortDoc.vue';
+import SingleColumnDoc from '@/doc/datatable/sort/SingleColumnDoc.vue';
 import TemplateDoc from '@/doc/datatable/TemplateDoc.vue';
 import { ref } from 'vue';
-import DynamicDoc from '~/doc/datatable/DynamicDoc.vue';
 
 const docs = ref([
     {
@@ -41,6 +45,32 @@ const docs = ref([
         id: 'pagination',
         label: 'Pagination',
         component: PaginationDoc
+    },
+    {
+        id: 'sort',
+        label: 'Sort',
+        children: [
+            {
+                id: 'single_sort',
+                label: 'Single Column',
+                component: SingleColumnDoc
+            },
+            {
+                id: 'multiple_sort',
+                label: 'Multiple Columns',
+                component: MultipleColumnsDoc
+            },
+            {
+                id: 'pre_sort',
+                label: 'PreSort',
+                component: PreSortDoc
+            },
+            {
+                id: 'removable_sort',
+                label: 'Removable',
+                component: RemovableSortDoc
+            }
+        ]
     }
 ]);
 </script>
