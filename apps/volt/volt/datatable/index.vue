@@ -105,8 +105,9 @@ const theme = ref({
     },
     loadingIcon: ``,
     pcPaginator: {
+        paginatorContainer: `p-bottom:border-b border-surface-200 dark:border-surface-700`,
         root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1
-        bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
+            bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
     },
     virtualScroller: ``,
     virtualScrollerSpacer: ``,

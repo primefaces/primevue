@@ -24,10 +24,10 @@
 @custom-variant p-enabled (&:not([data-p~="disabled"]));
 @custom-variant p-selected (&[data-p~="selected"],&[data-p-selected="true"]);
 @custom-variant p-selectable (&[data-p~="selectable"],&[data-p-selectable="true"]);
-@custom-variant p-left (&[data-p~="left"]);
-@custom-variant p-right (&[data-p~="right"]);
-@custom-variant p-top (&[data-p~="top"]);
-@custom-variant p-bottom (&[data-p~="bottom"]);
+@custom-variant p-left (&[data-p~="left"],&[data-p-left="true"]);
+@custom-variant p-right (&[data-p~="right"],&[data-p-right="true"]);
+@custom-variant p-top (&[data-p~="top"],&[data-p-top="true"]);
+@custom-variant p-bottom (&[data-p~="bottom"],&[data-p-bottom="true"]);
 @custom-variant p-alternate (&[data-p~="alternate"]);
 @custom-variant p-center (&[data-p~="center"]);
 @custom-variant p-top-center (&[data-p~="top-center"]);

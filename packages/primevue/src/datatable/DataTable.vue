@@ -25,6 +25,7 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
+            :data-p-top="true"
             :pt="ptm('pcPaginator')"
         >
             <template v-if="$slots.paginatorcontainer" #container="slotProps">
@@ -258,6 +259,7 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
+            :data-p-bottom="true"
             :pt="ptm('pcPaginator')"
         >
             <template v-if="$slots.paginatorcontainer" #container="slotProps">
