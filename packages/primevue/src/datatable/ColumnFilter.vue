@@ -541,7 +541,7 @@ export default {
             }
 
             ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             absolutePosition(this.overlay, this.$refs.icon.$el);
             this.bindOutsideClickListener();
             this.bindScrollListener();

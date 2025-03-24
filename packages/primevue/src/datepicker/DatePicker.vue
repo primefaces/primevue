@@ -901,7 +901,7 @@ export default {
             return validMin && validMax && validDate && validDay;
         },
         onOverlayEnter(el) {
-            const styles = !this.inline ? { position: 'absolute', top: '0', left: '0' } : undefined;
+            const styles = !this.inline ? { position: 'absolute', top: '0' } : undefined;
 
             addStyle(el, styles);
 

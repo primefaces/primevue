@@ -260,7 +260,7 @@ export default {
             this.target = null;
         },
         onEnter(el) {
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();

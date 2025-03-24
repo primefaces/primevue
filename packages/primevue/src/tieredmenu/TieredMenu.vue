@@ -418,7 +418,7 @@ export default {
                 ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
             }
 
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             focus(this.menubar);
             this.scrollInView();

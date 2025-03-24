@@ -103,7 +103,7 @@ export default {
             this.selfClick = true;
         },
         onEnter(el) {
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
 
             if (this.dismissable) {
