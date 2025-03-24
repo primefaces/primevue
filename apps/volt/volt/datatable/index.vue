@@ -20,7 +20,7 @@
                     </template>
                 </SecondaryButton>
                 <div class="items-center justify-center gap-2 hidden sm:flex">
-                    <SecondaryButton v-for="pageLink of pageLinks" :key="pageLink" :text="page !== pageLink" rounded @click="() => changePageCallback(pageLink - 1)" :class="['shrink-0 min-w-10 h-10', { 'bg-highlight!': page + 1 === pageLink }]"
+                    <SecondaryButton v-for="pageLink of pageLinks" :key="pageLink" :text="page + 1 !== pageLink" rounded @click="() => changePageCallback(pageLink - 1)" :class="['shrink-0 min-w-10 h-10', { 'bg-highlight!': page + 1 === pageLink }]"
                         >{{ pageLink }}
                     </SecondaryButton>
                 </div>
