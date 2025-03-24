@@ -23,7 +23,7 @@
 @custom-variant p-disabled (&[data-p~="disabled"],&[data-p-disabled="true"]);
 @custom-variant p-enabled (&:not([data-p~="disabled"]));
 @custom-variant p-selected (&[data-p~="selected"],&[data-p-selected="true"]);
-@custom-variant p-selectable (&[data-p~="selectable"],&[data-p-selectable="true"]);
+@custom-variant p-selectable (&[data-p~="selectable"],&[data-p-selectable="true"],&[data-p-selectable-row="true"]);
 @custom-variant p-left (&[data-p~="left"],&[data-p-left="true"]);
 @custom-variant p-right (&[data-p~="right"],&[data-p-right="true"]);
 @custom-variant p-top (&[data-p~="top"],&[data-p-top="true"]);
@@ -87,3 +87,7 @@
 @custom-variant p-loading (&[data-p~="loading"]);
 @custom-variant p-scrollable (&[data-p~="scrollable"]);
 @custom-variant p-leaf (&[data-p~="leaf"],&[data-p-leaf="true"]);
+@custom-variant p-sortable (&[data-p~="sortable"],&[data-p-sortable-column="true"],&[data-p-sortable="true"]);
+@custom-variant p-sorted (&[data-p~="sorted"],&[data-p-sorted="true"]);
+@custom-variant p-resizable (&[data-p~="resizable"],&[data-p-resizable-column="true"],&[data-p-resizable="true"]);
+@custom-variant p-hoverable (&[data-p~="hoverable"]);

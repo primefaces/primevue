@@ -36,6 +36,9 @@
                 </SecondaryButton>
             </div>
         </template>
+        <template #loadingicon>
+            <SpinnerIcon class="animate-spin text-[2rem] w-8 h-8" />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -47,6 +50,7 @@ import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
+import SpinnerIcon from '@primevue/icons/spinner';
 import DataTable from 'primevue/datatable';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
@@ -61,8 +65,8 @@ const theme = ref({
     table: `border-spacing-0 w-full`,
     thead: ``,
     headerRow: ``,
-    tbody: ``,
-    bodyRow: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 transition-colors duration-200`,
+    tbody: `p-hoverable:*:hover:bg-surface-100 p-hoverable:*:hover:text-surface-800 dark:p-hoverable:*:hover:bg-surface-800 dark:p-hoverable:*:hover:text-surface-0`,
+    bodyRow: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-selectable:cursor-pointer p-selected:bg-highlight!`,
     tfoot: ``,
     footerRow: ``,
     footer: `py-3 px-4 border-b border-surface-200 dark:border-surface-700
@@ -72,13 +76,18 @@ const theme = ref({
     row: ``,
     rowExpansion: ``,
     rowExpansionCell: ``,
-    mask: `bg-black/50 text-surface-200 absolute z-10 flex items-center justify-center`,
+    mask: `bg-black/50 text-surface-200 absolute z-10 flex items-center justify-center w-full h-full backdrop-blu-`,
     column: {
         root: ``,
-        headerCell: `py-3 px-4 font-normal text-start transition-colors duration-200
+        headerCell: `group py-3 px-4 font-normal text-start transition-colors duration-200
             border-b border-surface-200 dark:border-surface-700
             bg-surface-0 dark:bg-surface-900
-            text-surface-700 dark:text-surface-0`,
+            text-surface-700 dark:text-surface-0
+            p-sortable:cursor-pointer p-sortable:select-none p-sortable:focus-visible:outline p-sortable:focus-visible:outline-1 p-sortable:focus-visible:-outline-offset-1 p-sortable:focus-visible:outline-primary
+            p-sortable:not-p-sorted:hover:bg-surface-100 p-sortable:not-p-sorted:hover:text-surface-800 
+            dark:p-sortable:not-p-sorted:hover:bg-surface-800 dark:p-sortable:not-p-sorted:hover:text-surface-0
+            p-sorted:bg-highlight
+        `,
         columnHeaderContent: `flex items-center gap-2`,
         columnTitle: `font-semibold`,
         bodyCell: `text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800`,
@@ -89,11 +98,67 @@ const theme = ref({
         columnFooter: `font-semibold`,
         columnResizer: `block absolute top-0 end-0 m-0 w-2 h-full p-0 cursor-col-resize border border-transparent`,
         sort: ``,
-        sortIcon: ``,
-        pcSortBadge: ``,
-        pcHeaderCheckbox: ``,
-        pcRowRadiobutton: ``,
-        pcRowCheckbox: ``,
+        sortIcon: `text-surface-500 dark:text-surface-400 transition-colors duration-200
+            group-p-sortable:not-group-p-sorted:group-hover:text-surface-600 dark:group-p-sortable:not-group-p-sorted:group-hover:text-surface-300
+            group-p-sorted:bg-highlight`,
+        pcSortBadge: {
+            root: `bg-primary text-primary-contrast rounded-full min-w-6 h-6 inline-flex items-center justify-center text-xs font-bold`
+        },
+        pcHeaderCheckbox: {
+            root: `relative inline-flex select-none w-5 h-5 align-bottom`,
+            input: `peer cursor-pointer disabled:cursor-default appearance-none 
+                absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
+                border border-transparent rounded-xs`,
+            box: `flex justify-center items-center rounded-sm w-5 h-5
+                border border-surface-300 dark:border-surface-700
+                bg-surface-0 dark:bg-surface-950
+                text-surface-700 dark:text-surface-0
+                peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
+                p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast
+                peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
+                peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
+                p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700 p-disabled:text-surface-700 dark:p-disabled:text-surface-400
+                shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200`,
+            icon: `text-sm w-[0.875rem] h-[0.875rem] transition-none`
+        },
+        pcRowRadiobutton: {
+            root: `relative inline-flex select-none w-5 h-5`,
+            input: `peer cursor-pointer disabled:cursor-default appearance-none absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
+                border border-transparent rounded-full`,
+            box: `flex justify-center items-center rounded-full
+                border border-surface-300 dark:border-surface-700
+                bg-surface-0 dark:bg-surface-950
+                peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
+                p-checked:border-primary p-checked:bg-primary
+                peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
+                peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
+                p-filled:bg-surface-50 dark:p-filled:bg-surface-800
+                p-invalid:border-red-400 dark:p-invalid:border-red-300
+                p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700
+                shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200
+                w-5 h-5`,
+            icon: `bg-transparent text-xs w-3 h-3 rounded-full
+                transition-all duration-200 backface-hidden scale-[0.1]
+                p-checked:bg-primary-contrast p-checked:visible p-checked:scale-100
+                p-disabled:bg-surface-700 dark:p-disabled:bg-surface-400`
+        },
+        pcRowCheckbox: {
+            root: `relative inline-flex select-none w-5 h-5 align-bottom`,
+            input: `peer cursor-pointer disabled:cursor-default appearance-none 
+                absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
+                border border-transparent rounded-xs`,
+            box: `flex justify-center items-center rounded-sm w-5 h-5
+                border border-surface-300 dark:border-surface-700
+                bg-surface-0 dark:bg-surface-950
+                text-surface-700 dark:text-surface-0
+                peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
+                p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast
+                peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
+                peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
+                p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700 p-disabled:text-surface-700 dark:p-disabled:text-surface-400
+                shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200`,
+            icon: `text-sm w-[0.875rem] h-[0.875rem] transition-none`
+        },
         rowToggleButton: ``,
         rowToggleIcon: ``,
         reorderableRowHandle: ``
