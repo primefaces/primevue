@@ -6,6 +6,7 @@
 import BasicDoc from '@/doc/datatable/BasicDoc.vue';
 import DownloadDoc from '@/doc/datatable/DownloadDoc.vue';
 import DynamicDoc from '@/doc/datatable/DynamicDoc.vue';
+import FilterDoc from '@/doc/datatable/FilterDoc.vue';
 import ImportDoc from '@/doc/datatable/ImportDoc.vue';
 import PaginationDoc from '@/doc/datatable/PaginationDoc.vue';
 import MultipleColumnsDoc from '@/doc/datatable/sort/MultipleColumnsDoc.vue';
@@ -71,6 +72,11 @@ const docs = ref([
                 component: RemovableSortDoc
             }
         ]
+    },
+    {
+        id: 'filter',
+        label: 'Filter',
+        component: FilterDoc
     }
 ]);
 </script>
