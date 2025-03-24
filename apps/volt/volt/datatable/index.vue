@@ -1,5 +1,6 @@
 <template>
     <DataTable
+        ref="el"
         unstyled
         :pt="theme"
         :ptOptions="{
@@ -121,5 +122,10 @@ const theme = ref({
     rowReorderIndicatorUp: `absolute hidden`,
     rowReorderIndicatorDown: `absolute hidden`,
     transition: {}
+});
+
+const el = ref();
+defineExpose({
+    exportCSV: () => el.value.exportCSV()
 });
 </script>

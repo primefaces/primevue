@@ -255,7 +255,6 @@ export default {
 <script setup>
 import { ref, computed } from 'vue';
 
-
 const sales = ref([
     {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
     {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},

@@ -11,7 +11,7 @@
                 <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
                 <label for="input-metakey">MetaKey</label>
             </div>
-            <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+            <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
                 <Column field="category" header="Category"></Column>
@@ -29,13 +29,13 @@ export default {
     data() {
         return {
             products: null,
-            selectedProduct: null,
+            selectedProducts: null,
             metaKey: true,
             code: {
                 basic: `
 <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
 
-<DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+<DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
@@ -49,7 +49,7 @@ export default {
             <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -65,7 +65,7 @@ export default {
     data() {
         return {
             products: null,
-            selectedProduct: null,
+            selectedProducts: null,
             metaKey: true
         };
     },
@@ -82,7 +82,7 @@ export default {
             <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <DataTable v-model:selection="selectedProduct" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -100,7 +100,7 @@ onMounted(() => {
 });
 
 const products = ref();
-const selectedProduct = ref();
+const selectedProducts = ref();
 const metaKey = ref(true);
 
 <\/script>
