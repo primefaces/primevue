@@ -490,6 +490,7 @@ export default {
             focus(focusableEl);
         },
         onOptionSelect(event, option, index = -1, isFocus = false) {
+            event.stopPropagation();
             if (this.disabled || this.isOptionDisabled(option)) {
                 return;
             }
