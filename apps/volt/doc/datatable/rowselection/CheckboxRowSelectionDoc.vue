@@ -5,7 +5,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+            <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" pt:table="min-w-200">
                 <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
@@ -33,7 +33,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" pt:table="min-w-200">
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>

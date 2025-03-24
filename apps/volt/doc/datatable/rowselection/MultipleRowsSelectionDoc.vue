@@ -11,7 +11,7 @@
                 <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
                 <label for="input-metakey">MetaKey</label>
             </div>
-            <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+            <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" pt:table="min-w-200">
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
                 <Column field="category" header="Category"></Column>
@@ -44,7 +44,7 @@ const code = ref(`
             <ToggleSwitch v-model="metaKey" inputId="input-metakey" />
             <label for="input-metakey">MetaKey</label>
         </div>
-        <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" selectionMode="multiple" :metaKeySelection="metaKey" dataKey="id" pt:table="min-w-200">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>

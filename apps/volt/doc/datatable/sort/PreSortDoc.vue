@@ -7,7 +7,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="products" sortField="price" :sortOrder="-1" tableStyle="min-width: 50rem">
+            <DataTable :value="products" sortField="price" :sortOrder="-1" pt:table="min-w-200">
                 <Column field="code" header="Code" sortable style="width: 20%"></Column>
                 <Column field="name" header="Name" sortable style="width: 20%"></Column>
                 <Column field="price" header="Price" :sortable="true">
@@ -42,7 +42,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="products" sortField="price" :sortOrder="-1" tableStyle="min-width: 50rem">
+        <DataTable :value="products" sortField="price" :sortOrder="-1" pt:table="min-w-200">
             <Column field="code" header="Code" sortable style="width: 20%"></Column>
             <Column field="name" header="Name" sortable style="width: 20%"></Column>
             <Column field="price" header="Price" :sortable="true">

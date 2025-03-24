@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
+            <DataTable ref="dt" :value="products" pt:table="min-w-200">
                 <template #header>
                     <div class="text-end pb-4">
                         <Button icon="pi pi-external-link" label="Export" @click="exportCSV()" />
@@ -40,7 +40,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable ref="dt" :value="products" tableStyle="min-width: 50rem">
+        <DataTable ref="dt" :value="products" pt:table="min-w-200">
             <template #header>
                 <div class="text-end pb-4">
                     <Button icon="pi pi-external-link" label="Export" @click="exportCSV()" />

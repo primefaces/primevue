@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="customers" paginator :rows="5" tableStyle="min-width: 50rem">
+            <DataTable :value="customers" paginator :rows="5" pt:table="min-w-200">
                 <Column field="name" header="Name" style="width: 25%"></Column>
                 <Column field="country.name" header="Country" style="width: 25%">
                     <template #body="{ data }">
@@ -44,7 +44,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="customers" paginator :rows="5" tableStyle="min-width: 50rem">
+        <DataTable :value="customers" paginator :rows="5" pt:table="min-w-200">
             <Column field="name" header="Name" style="width: 25%"></Column>
             <Column field="country.name" header="Country" style="width: 25%">
                 <template #body="{ data }">

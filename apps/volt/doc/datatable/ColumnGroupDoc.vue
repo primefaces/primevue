@@ -7,7 +7,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="sales" tableStyle="min-width: 50rem">
+            <DataTable :value="sales" pt:table="min-w-200">
                 <ColumnGroup type="header">
                     <Row>
                         <Column header="Product" :rowspan="3" />
@@ -103,7 +103,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="sales" tableStyle="min-width: 50rem">
+        <DataTable :value="sales" pt:table="min-w-200">
             <ColumnGroup type="header">
                 <Row>
                     <Column header="Product" :rowspan="3" />
