@@ -22,11 +22,16 @@
 import FontAwesomeDoc from '@/doc/icons/FontAwesomeDoc.vue';
 import ImageDoc from '@/doc/icons/ImageDoc.vue';
 import MaterialDoc from '@/doc/icons/MaterialDoc.vue';
+import PrimeIconsDoc from '@/doc/icons/PrimeIconsDoc.vue';
 import SVGDoc from '@/doc/icons/SVGDoc.vue';
-import VideoDoc from '@/doc/icons/VideoDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
+    {
+        id: 'primeicons',
+        label: 'PrimeIcons',
+        component: PrimeIconsDoc
+    },
     {
         id: 'material',
         label: 'Material',
@@ -46,11 +51,6 @@ const docs = ref([
         id: 'image',
         label: 'Image',
         component: ImageDoc
-    },
-    {
-        id: 'video',
-        label: 'Video Tutorial',
-        component: VideoDoc
     }
 ]);
 </script>
