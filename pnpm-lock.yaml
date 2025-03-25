@@ -42,7 +42,7 @@ catalogs:
       version: 1.0.0
     '@primeuix/utils':
       specifier: ^0.5.1
-      version: 0.5.1
+      version: 0.5.2
     primeicons:
       specifier: ^7.0.0
       version: 7.0.0
@@ -255,7 +255,7 @@ importers:
         version: 0.5.0
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.1
+        version: 0.5.2
       vue:
         specifier: ^3.5.0
         version: 3.5.13(typescript@5.7.3)
@@ -268,7 +268,7 @@ importers:
         version: 0.0.4
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.1
+        version: 0.5.2
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -278,7 +278,7 @@ importers:
     dependencies:
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.1
+        version: 0.5.2
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -301,7 +301,7 @@ importers:
         version: 0.5.0
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.1
+        version: 0.5.2
       '@primevue/auto-import-resolver':
         specifier: workspace:*
         version: link:../auto-import-resolver
@@ -362,7 +362,7 @@ importers:
         version: 1.0.0
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.1
+        version: 0.5.2
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -2009,8 +2009,8 @@ packages:
     resolution: {integrity: sha512-5+1NLfyna+gLRPeFTo+xlR0tfPVLuVdidbeahAMLkQga5Rw0LxyUBCyD2/Zv2JkV69o2T+hpEDyddl3VdnYoBw==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/utils@0.5.1':
-    resolution: {integrity: sha512-/bYirtF3gJOGrRQfQ5tUyQOLEria7wg/UCqvpIydTAxLmj/UWgWwh2kAjYVp49eldm1+2sk4+TDkbAz8XcPpew==}
+  '@primeuix/utils@0.5.2':
+    resolution: {integrity: sha512-fHL0DGnyhL/9toBoV0cO6L+Xg/uaxmOHJW4SrDNMq6GQ7cDXR3Y0vDLvX5j/8kIsaC7LB3329sQLNHgtEETnWw==}
     engines: {node: '>=12.11.0'}
 
   '@redocly/ajv@8.11.2':
@@ -8984,7 +8984,7 @@ snapshots:
 
   '@primeuix/styled@0.5.0':
     dependencies:
-      '@primeuix/utils': 0.5.1
+      '@primeuix/utils': 0.5.2
 
   '@primeuix/styles@1.0.0':
     dependencies:
@@ -8996,7 +8996,7 @@ snapshots:
 
   '@primeuix/utils@0.4.1': {}
 
-  '@primeuix/utils@0.5.1': {}
+  '@primeuix/utils@0.5.2': {}
 
   '@redocly/ajv@8.11.2':
     dependencies:
