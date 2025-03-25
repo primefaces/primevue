@@ -9,38 +9,38 @@
                 :value="virtualCars"
                 scrollable
                 scrollHeight="400px"
-                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
+                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
                 tableStyle="min-width: 50rem"
             >
-                <Column field="id" header="Id" style="width: 20%">
+                <Column field="id" header="Id" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="vin" header="Vin" style="width: 20%">
+                <Column field="vin" header="Vin" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="year" header="Year" style="width: 20%">
+                <Column field="year" header="Year" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="30%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="brand" header="Brand" style="width: 20%">
+                <Column field="brand" header="Brand" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="color" header="Color" style="width: 20%">
+                <Column field="color" header="Color" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                             <Skeleton width="60%" height="1rem" />
@@ -66,36 +66,36 @@ export default {
             code: {
                 basic: `
 <DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
-        :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
-    <Column field="id" header="Id" style="width: 20%">
+        :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
+    <Column field="id" header="Id" style="width: 20%; height: 44px">
         <template #loading>
             <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="60%" height="1rem" />
             </div>
         </template>
     </Column>
-    <Column field="vin" header="Vin" style="width: 20%">
+    <Column field="vin" header="Vin" style="width: 20%; height: 44px">
         <template #loading>
             <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="40%" height="1rem" />
             </div>
         </template>
     </Column>
-    <Column field="year" header="Year" style="width: 20%">
+    <Column field="year" header="Year" style="width: 20%; height: 44px">
         <template #loading>
             <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="30%" height="1rem" />
             </div>
         </template>
     </Column>
-    <Column field="brand" header="Brand" style="width: 20%">
+    <Column field="brand" header="Brand" style="width: 20%; height: 44px">
         <template #loading>
             <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="40%" height="1rem" />
             </div>
         </template>
     </Column>
-    <Column field="color" header="Color" style="width: 20%">
+    <Column field="color" header="Color" style="width: 20%; height: 44px">
         <template #loading>
             <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                 <Skeleton width="60%" height="1rem" />
@@ -108,36 +108,36 @@ export default {
 <template>
     <div class="card">
         <DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
-                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
-            <Column field="id" header="Id" style="width: 20%">
+                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
+            <Column field="id" header="Id" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="vin" header="Vin" style="width: 20%">
+            <Column field="vin" header="Vin" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="year" header="Year" style="width: 20%">
+            <Column field="year" header="Year" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="30%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="brand" header="Brand" style="width: 20%">
+            <Column field="brand" header="Brand" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="color" header="Color" style="width: 20%">
+            <Column field="color" header="Color" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
@@ -194,36 +194,36 @@ export default {
 <template>
     <div class="card">
         <DataTable :value="virtualCars" scrollable scrollHeight="400px" tableStyle="min-width: 50rem"
-                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
-            <Column field="id" header="Id" style="width: 20%">
+                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }">
+            <Column field="id" header="Id" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="vin" header="Vin" style="width: 20%">
+            <Column field="vin" header="Vin" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="year" header="Year" style="width: 20%">
+            <Column field="year" header="Year" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="30%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="brand" header="Brand" style="width: 20%">
+            <Column field="brand" header="Brand" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="color" header="Color" style="width: 20%">
+            <Column field="color" header="Color" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center" :style="{ height: '17px', 'flex-grow': '1', overflow: 'hidden' }">
                         <Skeleton width="60%" height="1rem" />
@@ -294,19 +294,22 @@ const loadCarsLazy = (event) => {
             }
 
             //simulate remote connection with a timeout
-            this.loadLazyTimeout = setTimeout(() => {
-                let _virtualCars = [...this.virtualCars];
-                let { first, last } = event;
+            this.loadLazyTimeout = setTimeout(
+                () => {
+                    let _virtualCars = [...this.virtualCars];
+                    let { first, last } = event;
 
-                //load data of required page
-                const loadedCars = this.cars.slice(first, last);
+                    //load data of required page
+                    const loadedCars = this.cars.slice(first, last);
 
-                //populate page of virtual cars
-                Array.prototype.splice.apply(_virtualCars, [...[first, last - first], ...loadedCars]);
+                    //populate page of virtual cars
+                    Array.prototype.splice.apply(_virtualCars, [...[first, last - first], ...loadedCars]);
 
-                this.virtualCars = _virtualCars;
-                this.lazyLoading = false;
-            }, Math.random() * 1000 + 250);
+                    this.virtualCars = _virtualCars;
+                    this.lazyLoading = false;
+                },
+                Math.random() * 1000 + 250
+            );
         }
     }
 };

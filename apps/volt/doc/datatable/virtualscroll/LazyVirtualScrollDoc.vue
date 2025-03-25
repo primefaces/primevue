@@ -9,38 +9,38 @@
                 :value="virtualCars"
                 scrollable
                 scrollHeight="400px"
-                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
+                :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
                 tableStyle="min-width: 50rem"
             >
-                <Column field="id" header="Id" style="width: 20%">
+                <Column field="id" header="Id" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center h-[17px] grow overflow-hidden">
                             <Skeleton width="60%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="vin" header="Vin" style="width: 20%">
+                <Column field="vin" header="Vin" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center h-[17px] grow overflow-hidden">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="year" header="Year" style="width: 20%">
+                <Column field="year" header="Year" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center h-[17px] grow overflow-hidden">
                             <Skeleton width="30%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="brand" header="Brand" style="width: 20%">
+                <Column field="brand" header="Brand" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center h-[17px] grow overflow-hidden">
                             <Skeleton width="40%" height="1rem" />
                         </div>
                     </template>
                 </Column>
-                <Column field="color" header="Color" style="width: 20%">
+                <Column field="color" header="Color" style="width: 20%; height: 44px">
                     <template #loading>
                         <div class="flex items-center h-[17px] grow overflow-hidden">
                             <Skeleton width="60%" height="1rem" />
@@ -102,38 +102,38 @@ const code = ref(`
             :value="virtualCars"
             scrollable
             scrollHeight="400px"
-            :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 46, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
+            :virtualScrollerOptions="{ lazy: true, onLazyLoad: loadCarsLazy, itemSize: 44, delay: 200, showLoader: true, loading: lazyLoading, numToleratedItems: 10 }"
             tableStyle="min-width: 50rem"
         >
-            <Column field="id" header="Id" style="width: 20%">
+            <Column field="id" header="Id" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center h-[17px] grow overflow-hidden">
                         <Skeleton width="60%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="vin" header="Vin" style="width: 20%">
+            <Column field="vin" header="Vin" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center h-[17px] grow overflow-hidden">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="year" header="Year" style="width: 20%">
+            <Column field="year" header="Year" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center h-[17px] grow overflow-hidden">
                         <Skeleton width="30%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="brand" header="Brand" style="width: 20%">
+            <Column field="brand" header="Brand" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center h-[17px] grow overflow-hidden">
                         <Skeleton width="40%" height="1rem" />
                     </div>
                 </template>
             </Column>
-            <Column field="color" header="Color" style="width: 20%">
+            <Column field="color" header="Color" style="width: 20%; height: 44px">
                 <template #loading>
                     <div class="flex items-center h-[17px] grow overflow-hidden">
                         <Skeleton width="60%" height="1rem" />
