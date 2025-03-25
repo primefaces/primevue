@@ -567,8 +567,6 @@ export default {
             this.colorHandle = null;
             this.hueView = null;
             this.hueHandle = null;
-            // this.localHue = null;
-            // console.log('CLEAR refs', this.localHue);
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
