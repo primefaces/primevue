@@ -16,12 +16,12 @@
             <span class="font-medium block mb-1 text-color">Members</span>
             <ul class="flex flex-col gap-2">
                 <li class="flex items-center gap-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" class="shrink-0" />
                     <span class="text-color">Amy Elsner</span>
                     <Select v-model="role1" :options="roles" size="small" class="ms-auto min-w-28" />
                 </li>
                 <li class="flex items-center gap-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" class="shrink-0" />
                     <span class="text-color">Onyama Limba</span>
                     <Select v-model="role2" :options="roles" size="small" class="ms-auto min-w-28" />
                 </li>
@@ -30,7 +30,7 @@
         <div class="mt-4">
             <span class="font-medium block mb-1 text-color">Copy Link</span>
             <div class="flex items-stretch w-full">
-                <InputText placeholder="https://volt.primevue.org/share/t9423g9f349f234" pt:root="flex-1 rounded-s-md rounded-e-none" disabled />
+                <InputText placeholder="https://volt.primevue.org/share/t9423g9f349f234" pt:root="flex-1 rounded-s-md rounded-e-none" disabled fluid />
                 <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md">
                     <SecondaryButton icon="pi pi-copy" variant="text" />
                 </span>

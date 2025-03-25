@@ -5,12 +5,12 @@
             <Slider v-model="priceRange" range />
         </div>
 
-        <div class="flex gap-2 mb-4">
-            <div class="flex flex-col gap-2">
+        <div class="flex mb-4 gap-2">
+            <div class="flex flex-col gap-2 flex-auto">
                 <label for="price_min" class="font-medium block text-color">Min Value</label>
                 <InputNumber v-model="minValue" inputId="price-min" mode="currency" currency="USD" locale="en-US" fluid showButtons />
             </div>
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 flex-auto">
                 <label for="price_max" class="font-medium block text-color">Max Value</label>
                 <InputNumber v-model="maxValue" inputId="price-min" mode="currency" currency="USD" locale="en-US" fluid showButtons />
             </div>

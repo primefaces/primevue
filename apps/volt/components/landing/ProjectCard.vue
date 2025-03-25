@@ -8,7 +8,7 @@
             <TabPanels>
                 <TabPanel value="0">
                     <span class="block font-medium text-surface-900 dark:text-surface-0 mb-3">Chatbot & Cloud Migration</span>
-                    <div class="flex items-center gap-2 mb-3">
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
                         <Chip label="In Progress" icon="pi pi-spinner" />
                         <Chip label="Q2" icon="pi pi-calendar" />
                     </div>

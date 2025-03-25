@@ -1,6 +1,6 @@
 <template>
-    <div class="max-w-280 mx-auto mt-24">
-        <div class="grid grid-cols-4 gap-8">
+    <div class="max-w-280 mx-auto mt-16">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8">
             <ul class="flex flex-col gap-2 mx-auto">
                 <li class="font-bold">General</li>
                 <li><NuxtLink to="/overview" class="text-muted-color hover:text-color transition-colors duration-200" />Overview</li>

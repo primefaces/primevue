@@ -64,7 +64,7 @@
                     </button>
                     <AppConfigurator />
                 </li>
-                <li class="menu-button">
+                <li class="menu-button" v-if="showMenuButton">
                     <button type="button" class="topbar-item" @click="onMenuButtonClick" aria-haspopup aria-label="Menu">
                         <i class="pi pi-bars"></i>
                     </button>
@@ -78,6 +78,13 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 const emit = defineEmits(['menubutton-click']);
+
+defineProps({
+    showMenuButton: {
+        type: Boolean,
+        default: true
+    }
+});
 
 const { layoutState, darkModeToggleListener } = useLayout();
 
