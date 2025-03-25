@@ -9,3 +9,7 @@
     --breakpoint-xl: 1200px;
     --breakpoint-2xl: 1920px;
 }
+
+@custom-variant p-scrollable (&[data-p~="scrollable"],&[data-p-scrollable="true"]);
+@custom-variant p-flex-scrollable (&[data-p~="flex-scrollable"],&[data-p-flex-scrollable="true"]);
+@custom-variant p-frozen (&[data-p~="frozen"],&[data-p-frozen="true"],&[data-p-frozen-column="true"]);

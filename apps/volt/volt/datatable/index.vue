@@ -57,17 +57,18 @@ import SecondaryButton from '../button/secondary';
 import { ptViewMerge } from '../utils';
 
 const theme = ref({
-    root: `relative`,
-    tableContainer: ``,
+    root: `relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:h-full`,
+    tableContainer: `p-scrollable:relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:flex-1 p-flex-scrollable:h-full`,
     header: `py-3 px-4 border-b border-surface-200 dark:border-surface-700
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0`,
-    table: `border-spacing-0 w-full`,
-    thead: ``,
+    table: `border-spacing-0 w-full border-separate`,
+    thead: `p-scrollable:bg-surface-0 dark:p-scrollable:bg-surface-900 p-scrollable:top-0 p-scrollable:z-10`,
     headerRow: ``,
-    tbody: `p-hoverable:*:hover:bg-surface-100 p-hoverable:*:hover:text-surface-800 dark:p-hoverable:*:hover:bg-surface-800 dark:p-hoverable:*:hover:text-surface-0`,
+    tbody: `p-hoverable:*:hover:bg-surface-100 p-hoverable:*:hover:text-surface-800 dark:p-hoverable:*:hover:bg-surface-800 dark:p-hoverable:*:hover:text-surface-0
+        p-frozen:sticky p-frozen:z-10`,
     bodyRow: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-selectable:cursor-pointer p-selected:bg-highlight!`,
-    tfoot: ``,
+    tfoot: `p-scrollable:bg-surface-0 dark:p-scrollable:bg-surface-900 p-scrollable:bottom-0 p-scrollable:z-10`,
     footerRow: ``,
     footer: `py-3 px-4 border-b border-surface-200 dark:border-surface-700
         bg-surface-0 dark:bg-surface-900
@@ -87,14 +88,17 @@ const theme = ref({
             p-sortable:not-p-sorted:hover:bg-surface-100 p-sortable:not-p-sorted:hover:text-surface-800 
             dark:p-sortable:not-p-sorted:hover:bg-surface-800 dark:p-sortable:not-p-sorted:hover:text-surface-0
             p-sorted:bg-highlight
+            p-frozen:sticky p-frozen:bg-surface-0 dark:p-frozen:bg-surface-900 p-frozen:z-10
         `,
         columnHeaderContent: `flex items-center gap-2`,
         columnTitle: `font-semibold`,
-        bodyCell: `text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800`,
+        bodyCell: `text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
+            p-frozen:sticky p-frozen:bg-surface-0 dark:p-frozen:bg-surface-900`,
         bodyCellContent: ``,
         footerCell: `text-start py-3 px-4 border-b border-surface-200 dark:border-surface-800
             bg-surface-0 dark:bg-surface-900
-            text-surface-700 dark:text-surface-0`,
+            text-surface-700 dark:text-surface-0
+            p-frozen:sticky p-frozen:bg-surface-0 dark:p-frozen:bg-surface-900`,
         columnFooter: `font-semibold`,
         columnResizer: `block absolute top-0 end-0 m-0 w-2 h-full p-0 cursor-col-resize border border-transparent`,
         sort: ``,

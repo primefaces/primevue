@@ -21,6 +21,11 @@ import MultipleRowsSelectionDoc from '@/doc/datatable/rowselection/MultipleRowsS
 import RadioButtonRowSelectionDoc from '@/doc/datatable/rowselection/RadioButtonRowSelectionDoc.vue';
 import RowSelectEventsDoc from '@/doc/datatable/rowselection/RowSelectEventsDoc.vue';
 import SingleRowSelectionDoc from '@/doc/datatable/rowselection/SingleRowSelectionDoc.vue';
+import FlexibleScrollDoc from '@/doc/datatable/scroll/FlexibleScrollDoc.vue';
+import FrozenColumnsDoc from '@/doc/datatable/scroll/FrozenColumnsDoc.vue';
+import FrozenRowsDoc from '@/doc/datatable/scroll/FrozenRowsDoc.vue';
+import HorizontalScrollDoc from '@/doc/datatable/scroll/HorizontalScrollDoc.vue';
+import VerticalScrollDoc from '@/doc/datatable/scroll/VerticalScrollDoc.vue';
 import MultipleColumnsDoc from '@/doc/datatable/sort/MultipleColumnsDoc.vue';
 import PreSortDoc from '@/doc/datatable/sort/PreSortDoc.vue';
 import RemovableSortDoc from '@/doc/datatable/sort/RemovableSortDoc.vue';
@@ -130,6 +135,37 @@ const docs = ref([
         id: 'row_expansion',
         label: 'Row Expansion',
         component: RowExpansionDoc
+    },
+    {
+        id: 'scroll',
+        label: 'Scroll',
+        children: [
+            {
+                id: 'vertical_scroll',
+                label: 'Vertical',
+                component: VerticalScrollDoc
+            },
+            {
+                id: 'flex_scroll',
+                label: 'Flexible',
+                component: FlexibleScrollDoc
+            },
+            {
+                id: 'horizontal_scroll',
+                label: 'Horizontal',
+                component: HorizontalScrollDoc
+            },
+            {
+                id: 'frozen_rows',
+                label: 'Frozen Rows',
+                component: FrozenRowsDoc
+            },
+            {
+                id: 'frozen_columns',
+                label: 'Frozen Columns',
+                component: FrozenColumnsDoc
+            }
+        ]
     },
     {
         id: 'column_toggle',

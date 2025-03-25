@@ -297,7 +297,8 @@ export default {
         },
         dataP() {
             return cn({
-                hoverable: this.rowHover || this.selectionMode
+                hoverable: this.rowHover || this.selectionMode,
+                frozen: this.frozenRow
             });
         }
     },
