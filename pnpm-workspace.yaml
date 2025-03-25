@@ -8,7 +8,7 @@ catalog:
     '@primeuix/forms': ^0.0.4
     '@primeuix/styles': ^1.0.0
     '@primeuix/themes': ^1.0.0
-    'tailwindcss-primeui': ^0.5.0
+    'tailwindcss-primeui': ^0.6.0
     'primeicons': ^7.0.0
 
 catalogs:
