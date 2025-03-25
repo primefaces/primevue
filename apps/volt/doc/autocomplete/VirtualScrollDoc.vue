@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Virtual Scrolling is a performant way to render large lists. Configuration of the scroll behavior is defined with <i>virtualScrollerOptions</i> that requires <i>itemSize</i> as the mandatory value to set the height of an item. Visit
-            <PrimeVueNuxtLink to="/virtualscroller">VirtualScroller</PrimeVueNuxtLink> documentation for more information about the configuration API.
+            <a href="https://primevue.org/virtualscroller" target="_blank" rel="noopener noreferrer">VirtualScroller</a> documentation for more information about the configuration API.
         </p>
     </DocSectionText>
     <div class="card flex justify-center">
