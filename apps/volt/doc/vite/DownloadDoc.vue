@@ -1,27 +1,17 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue" target="_blank" rel="noopener noreferrer">npm registry</a>.</p>
+        <p>Download the Volt components to your application codebase on demand with the <i>npx volt-vue</i> command. Refer to the individiual documentation pages of the components to access the download command per component.</p>
     </DocSectionText>
-    <DocSectionCode :code="code" hideToggleCode hideStackBlitz />
+    <DocSectionCode :code="code" />
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: {
-                basic: `
-# Using npm
-npm install primevue
+<script setup>
+import { ref } from 'vue';
 
-# Using yarn
-yarn add primevue
-
-# Using pnpm
-pnpm add primevue
-`
-            }
-        };
-    }
-};
+const code = ref(`
+npm volt-vue add button
+npm volt-vue add datatable
+npm volt-vue add dialog
+npm volt-vue add datepicker
+`);
 </script>

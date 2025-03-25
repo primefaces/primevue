@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Visit the <a href="https://github.com/primefaces/primevue-examples/tree/main/vite-unstyled-tailwind" target="_blank" rel="noopener noreferrer">vite-unstyled-tailwind</a> project as an example.</p>
+        <p>Review the <a href="https://github.com/primefaces/primevue-examples/tree/main/volt-vite" target="_blank" rel="noopener noreferrer">volt-vite</a> project as an example.</p>
     </DocSectionText>
 </template>
 
