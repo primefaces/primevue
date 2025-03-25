@@ -343,7 +343,7 @@ export default {
                 hsb = this.HEXtoHSB(this.defaultColor);
             }
 
-            if (this.localHue == null) {
+            if (this.localHue == null || !this.overlayVisible) {
                 this.localHue = hsb.h;
             } else {
                 hsb.h = this.localHue;
@@ -567,6 +567,8 @@ export default {
             this.colorHandle = null;
             this.hueView = null;
             this.hueHandle = null;
+            // this.localHue = null;
+            // console.log('CLEAR refs', this.localHue);
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
