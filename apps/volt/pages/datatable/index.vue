@@ -31,6 +31,9 @@ import PreSortDoc from '@/doc/datatable/sort/PreSortDoc.vue';
 import RemovableSortDoc from '@/doc/datatable/sort/RemovableSortDoc.vue';
 import SingleColumnDoc from '@/doc/datatable/sort/SingleColumnDoc.vue';
 import TemplateDoc from '@/doc/datatable/TemplateDoc.vue';
+import LazyVirtualScrollDoc from '@/doc/datatable/virtualscroll/LazyVirtualScrollDoc.vue';
+import PreloadVirtualScrollDoc from '@/doc/datatable/virtualscroll/PreloadVirtualScrollDoc.vue';
+
 import { ref } from 'vue';
 
 const docs = ref([
@@ -164,6 +167,22 @@ const docs = ref([
                 id: 'frozen_columns',
                 label: 'Frozen Columns',
                 component: FrozenColumnsDoc
+            }
+        ]
+    },
+    {
+        id: 'virtualscroll',
+        label: 'Virtual Scroll',
+        children: [
+            {
+                id: 'preload_virtualscroll',
+                label: 'Preload',
+                component: PreloadVirtualScrollDoc
+            },
+            {
+                id: 'lazy_virtualscroll',
+                label: 'Lazy',
+                component: LazyVirtualScrollDoc
             }
         ]
     },
