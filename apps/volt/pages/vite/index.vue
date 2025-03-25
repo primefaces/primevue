@@ -21,6 +21,7 @@ import ExampleDoc from '@/doc/vite/ExampleDoc.vue';
 import PrimeVueDoc from '@/doc/vite/PrimeVueDoc.vue';
 import RegisterDoc from '@/doc/vite/RegisterDoc.vue';
 import TailwindDoc from '@/doc/vite/TailwindDoc.vue';
+import ViteConfigDoc from '@/doc/vite/ViteConfigDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
@@ -33,6 +34,11 @@ const docs = ref([
         id: 'primevue',
         label: 'PrimeVue',
         component: PrimeVueDoc
+    },
+    {
+        id: 'viteconfig',
+        label: 'Vite Config',
+        component: ViteConfigDoc
     },
     {
         id: 'css-variables',
