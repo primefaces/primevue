@@ -5,7 +5,7 @@
             imported from <i>node_modules</i> as a 3rd party. Main benefit of this approach is full control over styling and ease of customization. Internally a Volt component, wraps its PrimeVue counterpart, removes the default design token based
             theming and applies Tailwind utility classes via the pass through attributes feature.
         </p>
-        <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/primevue-v4-styled-architecture.png" class="w-full mb-4" />
+        <img alt="Architecture" src="https://primefaces.org/cdn/primevue/images/volt-architecture.png" class="w-full mb-4" />
         <h3>Unstyled PrimeVue</h3>
         <p>
             Each Volt component enables <i>unstyled</i> option on the wrapped PrimeVue component, as a result opinionated class names such as <i>p-select</i> and design tokens e.g <i>select.background</i> are turned off. This approach opens up the
