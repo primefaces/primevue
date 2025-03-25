@@ -18,8 +18,9 @@ export default defineConfig({
     //...,
     resolve: {
         alias: [
-            { find: /^@\/volt\/(.*)(?<!\.vue)$/, replacement: path.resolve(__dirname, './src/volt/$1/index.vue') },
-            { find: '@', replacement: path.resolve(__dirname, './src') },
+            { find: /^@\/volt\/(.*)\/(.*)(?<!\.vue)$/, replacement: path.resolve(__dirname, "./src/volt/$1/$2.vue") },
+            { find: /^@\/volt\/(.*)(?<!\.vue)$/, replacement: path.resolve(__dirname, "./src/volt/$1/index.vue") },
+            { find: "@", replacement: path.resolve(__dirname, "./src") }
         ]
     }
 });
