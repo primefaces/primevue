@@ -1,9 +1,30 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            You may either choose to install the <a href="https://github.com/nuxt-modules/tailwindcss" target="_blank" rel="noopener noreferrer">@nuxtjs/tailwindcss module</a> or
-            <a href="https://tailwindcss.com/docs/guides/nuxtjs" target="_blank" rel="noopener noreferrer">install Tailwind CSS manually</a>; the prerequisite steps are covered by their guides. If you have Nuxt and Tailwind configured successfully,
-            follow the next steps.
+            Volt requires Tailwind CSS v4+ for theming. The prerequisite steps are covered by the <a href="https://tailwindcss.com/docs/guides/vite#vue" target="_blank" rel="noopener noreferrer">Install Tailwind CSS with Vite</a> guide. If you have
+            Vite and Tailwind configured successfully, follow the next steps.
         </p>
+        <p>
+            After successfully installing Tailwind, proceed with the installation of the <a href="https://primevue.org/tailwind/#extensions" target="_blank" rel="noopener noreferrer">tailwindcss-primeui</a> plugin. This plugin extends Tailwind with
+            new utility classes such as <i>text-primary</i>, <i>bg-surface-500</i>, and adds new variants with the <i>p-</i> prefix including <i>p-selected</i>.
+        </p>
+        <p>In addition <a href="https://www.npmjs.com/package/tailwind-merge" target="_blank" rel="noopener noreferrer">tailwind-merge</a> utility is required for efficient handling of external class merging.</p>
+        <DocSectionCode :code="code1" />
+
+        <p>In the CSS file that contains the tailwindcss import, add the <i>tailwindcss-primeui</i> import as well.</p>
+        <DocSectionCode :code="code2" lang="script" />
     </DocSectionText>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const code1 = ref(`
+npm i tailwindcss-primeui
+npm i tailwind-merge
+`);
+
+const code2 = ref(`@import "tailwindcss";
+@import "tailwindcss-primeui";
+`);
+</script>

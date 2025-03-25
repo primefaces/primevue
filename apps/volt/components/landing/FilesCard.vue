@@ -23,12 +23,12 @@
         <div class="flex flex-col gap-1 mb-4">
             <label for="input_tags" class="font-medium block text-color">Privacy</label>
             <div class="flex gap-2">
-                <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg">
+                <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg w-1/2">
                     <i class="pi pi-globe text-muted-color"></i>
                     <label for="privacy_public" class="text-color">Public</label>
                     <RadioButton v-model="privacy" inputId="privacy_public" name="privacy" value="public" class="ms-auto" />
                 </div>
-                <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg">
+                <div class="flex items-center gap-2 grow border border-surface py-2 px-3 rounded-lg w-1/2">
                     <i class="pi pi-lock text-muted-color"></i>
                     <label for="privacy_private" class="text-color">Private</label>
                     <RadioButton v-model="privacy" inputId="privacy_private" name="privacy" value="private" class="ms-auto" />

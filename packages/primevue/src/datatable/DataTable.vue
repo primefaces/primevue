@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptmi('root')">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" :data-p="dataP" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading" :class="cx('mask')" v-bind="ptm('mask')">
             <slot v-if="$slots.loading" name="loading"></slot>
@@ -71,7 +71,7 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </DTPaginator>
-        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('tableContainer')">
+        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" :data-p="dataP" v-bind="ptm('tableContainer')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
@@ -133,6 +133,7 @@
                             :selection="selection"
                             :selectionKeys="d_selectionKeys"
                             :selectionMode="selectionMode"
+                            :rowHover="rowHover"
                             :contextMenu="contextMenu"
                             :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode"
@@ -189,6 +190,7 @@
                             :selection="selection"
                             :selectionKeys="d_selectionKeys"
                             :selectionMode="selectionMode"
+                            :rowHover="rowHover"
                             :contextMenu="contextMenu"
                             :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode"
@@ -319,6 +321,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import {
     addClass,
     addStyle,
@@ -2144,6 +2147,12 @@ export default {
         },
         virtualScrollerDisabled() {
             return isEmpty(this.virtualScrollerOptions) || !this.scrollable;
+        },
+        dataP() {
+            return cn({
+                scrollable: this.scrollable,
+                'flex-scrollable': this.scrollable && this.scrollHeight === 'flex'
+            });
         }
     },
     components: {

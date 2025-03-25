@@ -27,7 +27,6 @@ export default {
         return {
             products: null,
             selectedProduct: null,
-            metaKey: true,
             code: {
                 basic: `
 <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
@@ -58,8 +57,7 @@ export default {
     data() {
         return {
             products: null,
-            selectedProduct: null,
-            metaKey: true
+            selectedProduct: null
         };
     },
     mounted() {
@@ -91,7 +89,6 @@ onMounted(() => {
 
 const products = ref();
 const selectedProduct = ref();
-const metaKey = ref(true);
 
 <\/script>
 `,

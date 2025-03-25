@@ -1,5 +1,12 @@
 import { isClient } from '@primeuix/utils/dom';
 
+const highlightElement = (codeElement) => {
+    if (isClient()) {
+        window.Prism.highlightElement(codeElement);
+        codeElement.parentElement.setAttribute('tabindex', '-1');
+    }
+};
+
 const CodeHighlight = {
     mounted(el, binding) {
         const modifiers = binding.modifiers;
@@ -9,10 +16,10 @@ const CodeHighlight = {
         else if (modifiers.css || value === 'css') el.className = 'language-css';
         else el.className = 'language-markup';
 
-        if (isClient()) {
-            window.Prism.highlightElement(el.children[0]);
-            el.children[0].parentElement.setAttribute('tabindex', '-1');
-        }
+        highlightElement(el.children[0]);
+    },
+    updated(el) {
+        highlightElement(el.children[0]);
     }
 };
 

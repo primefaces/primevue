@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="products" tableStyle="min-width: 50rem">
+            <DataTable :value="products" pt:table="min-w-200">
                 <template #header>
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <span class="text-xl font-bold">Products</span>
@@ -78,7 +78,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="products" tableStyle="min-width: 50rem">
+        <DataTable :value="products" pt:table="min-w-200">
             <template #header>
                 <div class="flex flex-wrap items-center justify-between gap-2">
                     <span class="text-xl font-bold">Products</span>

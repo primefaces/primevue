@@ -1,5 +1,13 @@
 <template>
-    <tfoot v-if="hasFooter" :class="cx('tfoot')" :style="sx('tfoot')" role="rowgroup" v-bind="columnGroup ? { ...ptm('tfoot', ptmTFootOptions), ...getColumnGroupPT('root') } : ptm('tfoot', ptmTFootOptions)" data-pc-section="tfoot">
+    <tfoot
+        v-if="hasFooter"
+        :class="cx('tfoot')"
+        :style="sx('tfoot')"
+        role="rowgroup"
+        v-bind="columnGroup ? { ...ptm('tfoot', ptmTFootOptions), ...getColumnGroupPT('root') } : ptm('tfoot', ptmTFootOptions)"
+        :data-p-scrollable="$parentInstance?.$parentInstance?.scrollable"
+        data-pc-section="tfoot"
+    >
         <tr v-if="!columnGroup" role="row" v-bind="ptm('footerRow')">
             <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
                 <DTFooterCell v-if="!columnProp(col, 'hidden')" :column="col" :pt="pt" />

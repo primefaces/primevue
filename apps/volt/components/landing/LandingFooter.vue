@@ -1,9 +1,11 @@
 <template>
-    <div class="max-w-280 mx-auto mt-24">
-        <div class="grid grid-cols-4 gap-8">
+    <div class="max-w-280 mx-auto mt-16">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8">
             <ul class="flex flex-col gap-2 mx-auto">
                 <li class="font-bold">General</li>
-                <li><NuxtLink to="/overview" class="text-muted-color hover:text-color transition-colors duration-200" />Overview</li>
+                <li>
+                    <NuxtLink to="/overview"><span class="text-muted-color hover:text-color transition-colors duration-200">Overview</span></NuxtLink>
+                </li>
                 <li><a href="https://github.com/primefaces/primevue-examples" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Examples</a></li>
                 <li><a href="https://github.com/primefaces/primevue/tree/master/apps/volt/volt" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">Source Code</a></li>
             </ul>
@@ -27,6 +29,6 @@
                 <li><a href="https://twitter.com/primevue" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">X Account</a></li>
             </ul>
         </div>
-        <div class="text-center border-t border-surface py-4">Built by <b>PrimeTek Informatics</b></div>
+        <div class="text-center border-t border-surface py-4">Built by <a href="https://primetek.comn.tr" class="font-bold">PrimeTek Informatics</a></div>
     </div>
 </template>
