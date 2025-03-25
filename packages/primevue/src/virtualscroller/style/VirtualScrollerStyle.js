@@ -51,6 +51,14 @@ const css = `
 .p-virtualscroller-inline .p-virtualscroller-content {
     position: static;
 }
+
+.p-virtualscroller .p-virtualscroller-loading {
+    transform: none !important;
+    min-height: 0;
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+}
 `;
 
 export default BaseStyle.extend({
