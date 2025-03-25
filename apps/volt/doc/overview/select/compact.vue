@@ -18,7 +18,7 @@ const theme = ref({
     root: `inline-flex cursor-pointer relative select-none rounded-xs p-fluid:flex
         bg-surface-0 dark:bg-surface-950
         border border-surface-500 dark:border-surface-600
-        p-focus:outline-2 p-focus:outline-primary p-focus:-outline-offset-1
+        p-focus:outline-2 p-focus:outline-primary p-focus:outline-offset-0
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800`,
     label: `block whitespace-nowrap overflow-hidden flex-auto w-[1%]
         py-1 px-2 overflow-ellipsis text-sm

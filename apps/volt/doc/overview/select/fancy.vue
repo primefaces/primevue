@@ -15,8 +15,9 @@ import Select from 'primevue/select';
 import { ref } from 'vue';
 
 const theme = ref({
-    root: `inline-flex cursor-pointer relative select-none rounded-md p-fluid:flex
+    root: `inline-flex cursor-pointer relative select-none rounded-lg p-fluid:flex
         bg-primary border border-primary
+        p-focus:outline-2 p-focus:outline-primary p-focus:outline-offset-1
         transition-colors duration-200`,
     label: `block whitespace-nowrap overflow-hidden flex-auto w-[1%]
         py-3 px-3 overflow-ellipsis 
@@ -25,7 +26,7 @@ const theme = ref({
         p-placeholder:text-primary-contrast`,
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-primary-contrast w-10 rounded-e-md`,
-    overlay: `absolute top-0 left-0 rounded-b-md p-portal-self:min-w-full -mt-2
+    overlay: `absolute top-0 left-0 rounded-b-lg p-portal-self:min-w-full -mt-2
         text-surface-700 dark:text-surface-0
         bg-linear-to-b from-primary to-primary-800
         shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]`,
