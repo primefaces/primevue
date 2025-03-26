@@ -513,6 +513,12 @@
             "to": "/tailwind"
         },
         {
+            "name": "Volt UI",
+            "icon": "pi pi-bolt",
+            "href": "https://volt.primevue.org",
+            "badge": "NEW"
+        },
+        {
             "name": "Icons",
             "icon": "pi pi-eye",
             "children": [
