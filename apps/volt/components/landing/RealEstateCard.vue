@@ -68,7 +68,7 @@
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
 import Checkbox from '@/volt/Checkbox.vue';
-import InputNumber from '@/volt/inputnumber';
+import InputNumber from '@/volt/InputNumber.vue';
 import SecondaryButton from '@/volt/SecondaryButton';
 import Slider from '@/volt/Slider.vue';
 

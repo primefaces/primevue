@@ -6,6 +6,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const code = ref(`import InputNumber from '@/volt/inputnumber';
+const code = ref(`import InputNumber from '@/volt/InputNumber.vue';
 `);
 </script>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import InputNumber from '@/volt/inputnumber';
+import InputNumber from '@/volt/InputNumber.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup lang="ts">
-import InputNumber from '@/volt/inputnumber';
+import InputNumber from '@/volt/InputNumber.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

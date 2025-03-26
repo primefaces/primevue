@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import InputMask from '@/volt/InputMask.vue';
-import InputNumber from '@/volt/inputnumber';
+import InputNumber from '@/volt/InputNumber.vue';
 import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
@@ -58,7 +58,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import InputMask from '@/volt/InputMask.vue';
-import InputNumber from '@/volt/inputnumber';
+import InputNumber from '@/volt/InputNumber.vue';
 import InputText from '@/volt/InputText.vue';
 <\/script>
 `);
