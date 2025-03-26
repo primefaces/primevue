@@ -23,7 +23,8 @@
             :variant="variant"
             @input="onUserInput"
             @keydown="onInputKeyDown"
-            @keypress="onInputKeyPress"
+            @keyup="onInputKeyUp"
+            @beforeinput="$event.preventDefault()"
             @paste="onPaste"
             @click="onInputClick"
             @focus="onInputFocus"
@@ -552,7 +553,7 @@ export default {
                     break;
             }
         },
-        onInputKeyPress(event) {
+        onInputKeyUp(event) {
             if (this.readonly) {
                 return;
             }
@@ -560,10 +561,6 @@ export default {
             let char = event.key;
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
-
-            if (event.code !== 'Enter') {
-                event.preventDefault();
-            }
 
             if ((Number(char) >= 0 && Number(char) <= 9) || isMinusSign || isDecimalSign) {
                 this.insert(event, char, { isDecimalSign, isMinusSign });
