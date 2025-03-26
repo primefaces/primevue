@@ -9,6 +9,8 @@
                         <Tag value="Tailwind v4" class="flex-shrink-0 !whitespace-nowrap" />
                         <span class="opacity-50 md:flex hidden">⋅</span>
                         <Tag value="WCAG Compliant" class="flex-shrink-0 !whitespace-nowrap" />
+                        <span class="opacity-50 md:flex hidden">⋅</span>
+                        <Tag value="TypeScript" class="flex-shrink-0 !whitespace-nowrap" />
                     </div>
                     <div class="flex flex-col gap-8 p-8 lg:p-12">
                         <div class="flex flex-col gap-6">
