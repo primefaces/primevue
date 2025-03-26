@@ -17,6 +17,7 @@
 
 <script setup>
 import CSSVariablesDoc from '@/doc/vite/CSSVariablesDoc.vue';
+import DownloadDoc from '@/doc/vite/DownloadDoc.vue';
 import ExampleDoc from '@/doc/vite/ExampleDoc.vue';
 import PrimeVueDoc from '@/doc/vite/PrimeVueDoc.vue';
 import RegisterDoc from '@/doc/vite/RegisterDoc.vue';
@@ -44,6 +45,11 @@ const docs = ref([
         id: 'css-variables',
         label: 'CSS Variables',
         component: CSSVariablesDoc
+    },
+    {
+        id: 'download',
+        label: 'Download',
+        component: DownloadDoc
     },
     {
         id: 'register',

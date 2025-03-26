@@ -21,6 +21,7 @@ import ExampleDoc from '@/doc/nuxt/ExampleDoc.vue';
 import PrimeVueDoc from '@/doc/nuxt/PrimeVueDoc.vue';
 import RegisterDoc from '@/doc/nuxt/RegisterDoc.vue';
 import TailwindDoc from '@/doc/nuxt/TailwindDoc.vue';
+import DownloadDoc from '@/doc/vite/DownloadDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
@@ -38,6 +39,11 @@ const docs = ref([
         id: 'css-variables',
         label: 'CSS Variables',
         component: CSSVariablesDoc
+    },
+    {
+        id: 'download',
+        label: 'Download',
+        component: DownloadDoc
     },
     {
         id: 'register',

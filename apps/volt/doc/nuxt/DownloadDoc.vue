@@ -1,6 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Download the Volt components to your application codebase on demand with the <i>npx volt-vue</i> command. Refer to the individiual documentation pages of the components to access the download command per component.</p>
+        <p>
+            Download the Volt components to your application codebase on demand with the <a href="https://www.npmjs.com/package/volt-vue" target="_blank" rel="noopener noreferrer">npx volt-vue</a> command. Refer to the individiual documentation pages
+            of the components to access the download command per component.
+        </p>
     </DocSectionText>
     <DocSectionCode :code="code" />
 </template>
