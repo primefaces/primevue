@@ -6,6 +6,9 @@
             mergeProps: ptViewMerge
         }"
     >
+        <template #closeicon>
+            <TimesIcon />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -13,6 +16,7 @@
 </template>
 
 <script setup>
+import TimesIcon from '@primevue/icons/times';
 import Toast from 'primevue/toast';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';

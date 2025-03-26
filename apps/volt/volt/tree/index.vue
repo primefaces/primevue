@@ -6,6 +6,10 @@
             mergeProps: ptViewMerge
         }"
     >
+        <template #togglericon="{ expanded }">
+            <ChevronDownIcon v-if="expanded" />
+            <ChevronRightIcon v-else />
+        </template>
         <template #filtericon>
             <SearchIcon class="text-surface-400" />
         </template>
@@ -16,6 +20,8 @@
 </template>
 
 <script setup>
+import ChevronDownIcon from '@primevue/icons/chevrondown';
+import ChevronRightIcon from '@primevue/icons/chevronright';
 import SearchIcon from '@primevue/icons/search';
 import Tree from 'primevue/tree';
 import { ref } from 'vue';

@@ -6,6 +6,12 @@
             mergeProps: ptViewMerge
         }"
     >
+        <template #maskicon="{ toggleCallback }">
+            <EyeSlashIcon @click="toggleCallback" class="end-3 text-surface-500 dark:text-surface-400 absolute top-1/2 -mt-2 w-4 h-4" />
+        </template>
+        <template #unmaskicon="{ toggleCallback }">
+            <EyeIcon @click="toggleCallback" class="end-3 text-surface-500 dark:text-surface-400 absolute top-1/2 -mt-2 w-4 h-4" />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -13,6 +19,8 @@
 </template>
 
 <script setup>
+import EyeIcon from '@primevue/icons/eye';
+import EyeSlashIcon from '@primevue/icons/eyeslash';
 import Password from 'primevue/password';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
@@ -37,8 +45,6 @@ const theme = ref({
         p-large:text-lg p-large:px-[0.875rem] p-large:py-[0.625rem]
         transition-colors duration-200 shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]`
     },
-    maskIcon: `end-3 text-surface-500 dark:text-surface-400 absolute top-1/2 -mt-2 w-4 h-4`,
-    unmaskIcon: `end-3 text-surface-500 dark:text-surface-400 absolute top-1/2 -mt-2 w-4 h-4`,
     overlay: `p-3 rounded-md p-portal-self:min-w-full
         bg-surface-0 dark:bg-surface-900
         border border-surface-200 dark:border-surface-700

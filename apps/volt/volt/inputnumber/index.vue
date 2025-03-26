@@ -1,5 +1,11 @@
 <template>
     <InputNumber unstyled :pt="theme">
+        <template #incrementicon>
+            <AngleUpIcon />
+        </template>
+        <template #decrementicon>
+            <AngleDownIcon />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -7,6 +13,8 @@
 </template>
 
 <script setup>
+import AngleDownIcon from '@primevue/icons/angledown';
+import AngleUpIcon from '@primevue/icons/angleup';
 import InputNumber from 'primevue/inputnumber';
 import { ref } from 'vue';
 

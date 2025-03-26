@@ -6,6 +6,9 @@
             mergeProps: ptViewMerge
         }"
     >
+        <template #filtericon>
+            <SearchIcon class="text-surface-400" />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -13,6 +16,7 @@
 </template>
 
 <script setup>
+import SearchIcon from '@primevue/icons/search';
 import Listbox from 'primevue/listbox';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';

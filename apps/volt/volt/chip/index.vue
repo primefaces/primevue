@@ -6,6 +6,13 @@
             mergeProps: ptViewMerge
         }"
     >
+        <template #removeicon="{ removeCallback, keydownCallback }">
+            <TimesCircleIcon
+                class="cursor-pointer text-base w-4 h-4 rounded-full text-surface-800 dark:text-surface-0 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
+                @click="removeCallback"
+                @keydown="keydownCallback"
+            />
+        </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
@@ -13,6 +20,7 @@
 </template>
 
 <script setup>
+import TimesCircleIcon from '@primevue/icons/timescircle';
 import Chip from 'primevue/chip';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
@@ -24,10 +32,6 @@ const theme = ref({
         has-[img]:pt-1 has-[img]:pb-1
         p-removable:pe-2`,
     image: `rounded-full w-8 h-8 -ms-2`,
-    icon: `text-surface-800 dark:bg-surface-0 text-base w-4 h-4`,
-    label: ``,
-    removeIcon: `cursor-pointer text-base w-4 h-4 rounded-full
-        text-surface-800 dark:text-surface-0
-        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary`
+    icon: `text-surface-800 dark:text-surface-0 text-base w-4 h-4`
 });
 </script>
