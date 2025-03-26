@@ -20,9 +20,9 @@ const { layoutState } = useLayout();
 
 const landingClass = computed(() => {
     return [
-        'layout-wrapper pt-16',
+        'pt-16',
         {
-            'layout-news-active': layoutState.newsActive
+            'layout-news-active pt-24': layoutState.newsActive
         }
     ];
 });

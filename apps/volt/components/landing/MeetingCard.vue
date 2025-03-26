@@ -1,12 +1,12 @@
 <template>
-    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
+    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
         <div class="flex justify-between items-center">
             <AvatarGroup class="mb-4 ms-2">
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />
                 <Avatar label="+2" shape="circle" class="text-xs" />
             </AvatarGroup>
             <SecondaryButton icon="pi pi-arrow-right" size="small" rounded class="-translate-y-2" />

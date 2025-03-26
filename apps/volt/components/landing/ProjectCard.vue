@@ -1,11 +1,11 @@
 <template>
-    <div class="rounded-lg p-6 shadow-md border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
+    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
         <Tabs value="0">
             <TabList>
                 <Tab value="0" class="grow">Overview</Tab>
                 <Tab value="1" class="grow">Timeline</Tab>
             </TabList>
-            <TabPanels>
+            <TabPanels class="!px-0">
                 <TabPanel value="0">
                     <span class="block font-medium text-surface-900 dark:text-surface-0 mb-3">Chatbot & Cloud Migration</span>
                     <div class="flex flex-wrap items-center gap-2 mb-3">
