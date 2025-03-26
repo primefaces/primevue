@@ -3,7 +3,7 @@
         <div class="doc-intro">
             <h1>{{ introText }}</h1>
         </div>
-        <div class="xl:pe-72">
+        <div class="xl:pe-72 mb-6">
             <DocSectionCode :code="code" />
         </div>
     </div>

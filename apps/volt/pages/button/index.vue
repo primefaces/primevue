@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Button Component" header="Button" description="Button is an extension to standard input element with icons and theming." :componentDocs="docs" />
+    <DocComponent title="Vue Button Component" header="Button" description="Button is an extension to standard input element with icons and theming." :componentDocs="docs" :presetKeys="['SecondaryButton', 'ContrastButton', 'DangerButton']" />
 </template>
 
 <script setup lang="ts">

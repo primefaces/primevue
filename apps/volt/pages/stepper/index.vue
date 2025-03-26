@@ -1,5 +1,11 @@
 <template>
-    <DocComponent title="Vue Stepper Component" header="Stepper" description="The Stepper component displays a wizard-like workflow by guiding users through the multi-step progression." :componentDocs="docs" />
+    <DocComponent
+        title="Vue Stepper Component"
+        header="Stepper"
+        description="The Stepper component displays a wizard-like workflow by guiding users through the multi-step progression."
+        :componentDocs="docs"
+        :presetKeys="['Step', 'StepItem', 'StepList', 'StepPanel', 'StepPanels']"
+    />
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Accordion Component" header="Accordion" description="Accordion groups a collection of contents in panels." :componentDocs="docs" />
+    <DocComponent title="Vue Accordion Component" header="Accordion" description="Accordion groups a collection of contents in panels." :componentDocs="docs" :presetKeys="['AccordionContent', 'AccordionHeader', 'AccordionPanel']" />
 </template>
 
 <script setup lang="ts">

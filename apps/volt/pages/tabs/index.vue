@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Tabs Component" header="Tabs" description="Tabs is a container component to group content between different tabs." :componentDocs="docs" />
+    <DocComponent title="Vue Tabs Component" header="Tabs" description="Tabs is a container component to group content between different tabs." :componentDocs="docs" :presetKeys="['TabList', 'TabPanel', 'TabPanels', 'Tab']" />
 </template>
 
 <script setup lang="ts">
