@@ -43,13 +43,13 @@
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import DatePicker from '@/volt/datepicker';
-import InputText from '@/volt/inputtext';
-import Menu from '@/volt/menu';
-import RadioButton from '@/volt/radiobutton';
+import AutoComplete from '@/volt/AutoComplete.vue';
+import Button from '@/volt/Button.vue';
+import DatePicker from '@/volt/DatePicker.vue';
+import InputText from '@/volt/InputText.vue';
+import Menu from '@/volt/Menu.vue';
+import RadioButton from '@/volt/RadioButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 
 const privacy = ref();
 const tags = ref(['new']);

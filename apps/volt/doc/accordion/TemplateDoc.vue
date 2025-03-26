@@ -55,12 +55,12 @@
 </template>
 
 <script setup>
-import Accordion from '@/volt/accordion';
-import AccordionContent from '@/volt/accordion/accordioncontent';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -117,12 +117,12 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
-import Accordion from '@/volt/accordion';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionContent from '@/volt/accordion/accordioncontent';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
 <\/script>
 `);
 </script>

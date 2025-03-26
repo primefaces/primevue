@@ -20,8 +20,8 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Fieldset from '@/volt/fieldset';
+import Avatar from '@/volt/Avatar.vue';
+import Fieldset from '@/volt/Fieldset.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -41,8 +41,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Fieldset from '@/volt/fieldset';
-import Avatar from '@/volt/avatar';
+import Fieldset from '@/volt/Fieldset.vue';
+import Avatar from '@/volt/Avatar.vue';
 <\/script>
 `);
 </script>

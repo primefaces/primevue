@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import { ref } from 'vue';
 
 const loading = ref(false);
@@ -29,7 +29,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import { ref } from 'vue';
 
 const loading = ref(false);

@@ -20,8 +20,8 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataTable from '@/volt/datatable';
-import MultiSelect from '@/volt/multiselect';
+import DataTable from '@/volt/DataTable.vue';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import Column from 'primevue/column';
 import { ref } from 'vue';
 
@@ -57,8 +57,8 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataTable from '@/volt/datatable';
-import MultiSelect from '@/volt/multiselect';
+import DataTable from '@/volt/DataTable.vue';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import Column from 'primevue/column';
 import { ref, onMounted } from 'vue';
 

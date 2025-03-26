@@ -24,10 +24,10 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Button from '@/volt/button';
-import DangerButton from '@/volt/button/danger';
-import Drawer from '@/volt/drawer';
+import Avatar from '@/volt/Avatar.vue';
+import Button from '@/volt/Button.vue';
+import DangerButton from '@/volt/DangerButton.vue';
+import Drawer from '@/volt/Drawer.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);
@@ -55,9 +55,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Button from '@/volt/button';
-import Drawer from '@/volt/drawer';
+import Avatar from '@/volt/Avatar.vue';
+import Button from '@/volt/Button.vue';
+import Drawer from '@/volt/Drawer.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);

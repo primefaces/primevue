@@ -102,7 +102,7 @@ import ChevronRightIcon from '@primevue/icons/chevronright';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import DatePicker from 'primevue/datepicker';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

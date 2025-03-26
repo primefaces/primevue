@@ -32,10 +32,10 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Paginator from '@/volt/paginator';
-import Select from '@/volt/select';
+import Button from '@/volt/Button.vue';
+import Paginator from '@/volt/Paginator.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Select from '@/volt/Select.vue';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import { ref } from 'vue';
@@ -75,10 +75,10 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Paginator from '@/volt/paginator';
-import Select from '@/volt/select';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Paginator from '@/volt/Paginator.vue';
+import Select from '@/volt/Select.vue';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import { ref } from 'vue';

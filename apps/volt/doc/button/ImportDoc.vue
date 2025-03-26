@@ -6,9 +6,9 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import ContrastButton from '@/volt/button/contrast';
-import DangerButton from '@/volt/button/danger';
+const code = ref(`import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import ContrastButton from '@/volt/ContrastButton.vue';
+import DangerButton from '@/volt/DangerButton.vue';
 `);
 </script>

@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import Card from '@/volt/card';
+import Card from '@/volt/Card.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -34,7 +34,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Card from '@/volt/card';
+import Card from '@/volt/Card.vue';
 <\/script>
 `);
 </script>

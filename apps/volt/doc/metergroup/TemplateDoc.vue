@@ -45,9 +45,9 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Card from '@/volt/card';
-import MeterGroup from '@/volt/metergroup';
+import Button from '@/volt/Button.vue';
+import Card from '@/volt/Card.vue';
+import MeterGroup from '@/volt/MeterGroup.vue';
 import { ref } from 'vue';
 
 const value = ref([
@@ -101,9 +101,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Card from '@/volt/card';
-import MeterGroup from '@/volt/metergroup';
+import Button from '@/volt/Button.vue';
+import Card from '@/volt/Card.vue';
+import MeterGroup from '@/volt/MeterGroup.vue';
 import { ref } from 'vue';
 
 const value = ref([

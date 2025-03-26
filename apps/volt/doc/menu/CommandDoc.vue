@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Menu from '@/volt/menu';
+import Menu from '@/volt/Menu.vue';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 
@@ -40,8 +40,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Menu from '@/volt/menu';
-import Toast from '@/volt/toast';
+import Menu from '@/volt/Menu.vue';
+import Toast from '@/volt/Toast.vue';
 import { ref } from "vue";
 import { useToast } from "primevue/usetoast";
 

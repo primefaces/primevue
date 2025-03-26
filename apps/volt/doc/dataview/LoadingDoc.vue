@@ -67,9 +67,9 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataView from '@/volt/dataview';
-import SelectButton from '@/volt/selectbutton';
-import Skeleton from '@/volt/skeleton';
+import DataView from '@/volt/DataView.vue';
+import SelectButton from '@/volt/SelectButton.vue';
+import Skeleton from '@/volt/Skeleton.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {
@@ -146,9 +146,9 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataView from '@/volt/dataview';
-import SelectButton from '@/volt/selectbutton';
-import Skeleton from '@/volt/skeleton';
+import DataView from '@/volt/DataView.vue';
+import SelectButton from '@/volt/SelectButton.vue';
+import Skeleton from '@/volt/Skeleton.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {

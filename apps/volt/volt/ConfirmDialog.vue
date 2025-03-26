@@ -32,8 +32,8 @@ import ExclamationTriangeIcon from '@primevue/icons/exclamationtriangle';
 import TimesIcon from '@primevue/icons/times';
 import ConfirmDialog from 'primevue/confirmdialog';
 import { ref } from 'vue';
-import Button from '../button';
-import SecondaryButton from '../button/secondary';
+import Button from './Button.vue';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

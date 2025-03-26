@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Fluid from '@/volt/fluid';
+const code = ref(`import Fluid from '@/volt/Fluid.vue';
 `);
 </script>

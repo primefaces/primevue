@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Rating from '@/volt/rating';
+import Rating from '@/volt/Rating.vue';
 import { ref } from 'vue';
 
 const value = ref(3);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Rating from '@/volt/rating';
+import Rating from '@/volt/Rating.vue';
 import { ref } from 'vue';
 
 const value = ref(3);

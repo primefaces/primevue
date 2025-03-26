@@ -29,9 +29,9 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import InputText from '@/volt/inputtext';
+import Button from '@/volt/Button.vue';
+import InputText from '@/volt/InputText.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -62,9 +62,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import InputText from '@/volt/inputtext';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import InputText from '@/volt/InputText.vue';
 <\/script>
 `);
 </script>

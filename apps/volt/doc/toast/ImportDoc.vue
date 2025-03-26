@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Toast from '@/volt/toast';
+const code = ref(`import Toast from '@/volt/Toast.vue';
 `);
 </script>

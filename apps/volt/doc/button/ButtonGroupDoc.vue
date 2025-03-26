@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import ButtonGroup from '@/volt/buttongroup';
+import Button from '@/volt/Button.vue';
+import ButtonGroup from '@/volt/ButtonGroup';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -41,8 +41,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import ButtonGroup from '@/volt/buttongroup';
+import Button from '@/volt/Button.vue';
+import ButtonGroup from '@/volt/ButtonGroup';
 <\/script>
 `);
 </script>

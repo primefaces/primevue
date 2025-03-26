@@ -33,7 +33,7 @@ import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
 import Dialog from 'primevue/dialog';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Skeleton from '@/volt/skeleton';
+const code = ref(`import Skeleton from '@/volt/Skeleton.vue';
 `);
 </script>

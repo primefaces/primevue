@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Message from '@/volt/message';
+import Avatar from '@/volt/Avatar.vue';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -33,8 +33,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Message from '@/volt/message';
+import Avatar from '@/volt/Avatar.vue';
+import Message from '@/volt/Message.vue';
 <\/script>
 `);
 </script>

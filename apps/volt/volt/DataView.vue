@@ -48,7 +48,7 @@ import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import DataView from 'primevue/dataview';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

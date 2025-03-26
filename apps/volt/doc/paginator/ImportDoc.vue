@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Paginator from '@/volt/paginator';
+const code = ref(`import Paginator from '@/volt/Paginator.vue';
 `);
 </script>

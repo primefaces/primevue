@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Timeline from '@/volt/timeline';
+const code = ref(`import Timeline from '@/volt/Timeline.vue';
 `);
 </script>

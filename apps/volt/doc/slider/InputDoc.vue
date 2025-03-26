@@ -12,8 +12,8 @@
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
-import Slider from '@/volt/slider';
+import InputText from '@/volt/InputText.vue';
+import Slider from '@/volt/Slider.vue';
 import { ref } from 'vue';
 
 const value = ref(50);
@@ -27,8 +27,8 @@ const code = ref(`
 </div>
 
 <script setup>
-import InputText from '@/volt/inputtext';
-import Slider from '@/volt/slider';
+import InputText from '@/volt/InputText.vue';
+import Slider from '@/volt/Slider.vue';
 import { ref } from 'vue';
 
 const value = ref(50);

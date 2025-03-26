@@ -74,10 +74,10 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataTable from '@/volt/datatable';
-import Rating from '@/volt/rating';
-import Tag from '@/volt/tag';
+import Button from '@/volt/Button.vue';
+import DataTable from '@/volt/DataTable.vue';
+import Rating from '@/volt/Rating.vue';
+import Tag from '@/volt/Tag.vue';
 import Column from 'primevue/column';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
@@ -208,10 +208,10 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataTable from '@/volt/datatable';
-import Rating from '@/volt/rating';
-import Tag from '@/volt/tag';
+import Button from '@/volt/Button.vue';
+import DataTable from '@/volt/DataTable.vue';
+import Rating from '@/volt/Rating.vue';
+import Tag from '@/volt/Tag.vue';
 import Column from 'primevue/column';
 import { useToast } from 'primevue/usetoast';
 import { ref, onMounted } from 'vue';

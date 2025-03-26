@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import Textarea from '@/volt/textarea';
+import Textarea from '@/volt/Textarea.vue';
 import { ref } from 'vue';
 
 const value1 = ref(null);
@@ -28,7 +28,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Textarea from '@/volt/textarea';
+import Textarea from '@/volt/Textarea.vue';
 import { ref } from 'vue';
 
 const value1 = ref(null);

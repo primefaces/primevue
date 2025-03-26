@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import Skeleton from '@/volt/skeleton';
+import Skeleton from '@/volt/Skeleton.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -98,7 +98,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Skeleton from '@/volt/skeleton';
+import Skeleton from '@/volt/Skeleton.vue';
 <\/script>
 `);
 </script>

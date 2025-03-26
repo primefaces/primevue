@@ -31,9 +31,9 @@
 </template>
 
 <script setup>
-import Checkbox from '@/volt/checkbox';
-import InputText from '@/volt/inputtext';
-import RadioButton from '@/volt/radiobutton';
+import Checkbox from '@/volt/Checkbox.vue';
+import InputText from '@/volt/InputText.vue';
+import RadioButton from '@/volt/RadioButton.vue';
 import { ref } from 'vue';
 
 const checked1 = ref(false);
@@ -71,9 +71,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Checkbox from '@/volt/checkbox';
-import InputText from '@/volt/inputtext';
-import RadioButton from '@/volt/radiobutton';
+import Checkbox from '@/volt/Checkbox.vue';
+import InputText from '@/volt/InputText.vue';
+import RadioButton from '@/volt/RadioButton.vue';
 import { ref } from 'vue';
 
 const checked1 = ref(false);

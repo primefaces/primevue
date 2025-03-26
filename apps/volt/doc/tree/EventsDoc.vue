@@ -20,7 +20,7 @@
 
 <script setup>
 import { NodeService } from '@/service/NodeService';
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { useToast } from 'primevue/usetoast';
 import { onMounted, ref } from 'vue';
 
@@ -67,7 +67,7 @@ const code = ref(`
 
 <script setup>
 import { NodeService } from '@/service/NodeService';
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { useToast } from 'primevue/usetoast';
 import { onMounted, ref } from 'vue';
 

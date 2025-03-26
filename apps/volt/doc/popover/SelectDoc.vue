@@ -26,8 +26,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Popover from '@/volt/popover';
+import Button from '@/volt/Button.vue';
+import Popover from '@/volt/Popover.vue';
 import { ref } from 'vue';
 
 const op = ref();
@@ -72,8 +72,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Popover from '@/volt/popover';
+import Button from '@/volt/Button.vue';
+import Popover from '@/volt/Popover.vue';
 import { ref } from 'vue';
 
 const op = ref();

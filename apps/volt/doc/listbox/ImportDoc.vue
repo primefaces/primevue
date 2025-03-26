@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Listbox from '@/volt/listbox';
+const code = ref(`import Listbox from '@/volt/Listbox.vue';
 `);
 </script>

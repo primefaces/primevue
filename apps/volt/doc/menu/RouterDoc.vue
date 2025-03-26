@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import Menu from '@/volt/menu';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -68,7 +68,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Menu from '@/volt/menu';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 

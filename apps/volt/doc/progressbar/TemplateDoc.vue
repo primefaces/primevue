@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import ProgressBar from '@/volt/progressbar';
+import ProgressBar from '@/volt/ProgressBar.vue';
 import { ref } from 'vue';
 
 const progress = ref(40);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import ProgressBar from '@/volt/progressbar';
+import ProgressBar from '@/volt/ProgressBar.vue';
 
 const progress = ref(40);
 <\/script>

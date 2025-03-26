@@ -16,10 +16,10 @@
 </template>
 
 <script setup>
-import Accordion from '@/volt/accordion';
-import AccordionContent from '@/volt/accordion/accordioncontent';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
 import { ref } from 'vue';
 
 const tabs = ref([
@@ -43,10 +43,10 @@ const code = ref(`
 </template>
 
 <script setup>
-import Accordion from '@/volt/accordion';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionContent from '@/volt/accordion/accordioncontent';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
 import { ref } from 'vue';
 
 const tabs = ref([

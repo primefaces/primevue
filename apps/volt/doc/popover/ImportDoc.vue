@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Popover from '@/volt/popover';
+const code = ref(`import Popover from '@/volt/Popover.vue';
 `);
 </script>

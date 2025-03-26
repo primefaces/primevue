@@ -23,7 +23,7 @@
 import TimesIcon from '@primevue/icons/times';
 import Drawer from 'primevue/drawer';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

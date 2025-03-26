@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import InputMask from '@/volt/inputmask';
+const code = ref(`import InputMask from '@/volt/InputMask.vue';
 `);
 </script>

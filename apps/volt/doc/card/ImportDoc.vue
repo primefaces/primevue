@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Card from '@/volt/card';
+const code = ref(`import Card from '@/volt/Card.vue';
 `);
 </script>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Tag from '@/volt/tag';
+import Tag from '@/volt/Tag.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -20,7 +20,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Tag from '@/volt/tag';
+import Tag from '@/volt/Tag.vue';
 <\/script>
 `);
 </script>

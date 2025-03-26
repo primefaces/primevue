@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import SelectButton from '@/volt/selectbutton';
+const code = ref(`import SelectButton from '@/volt/SelectButton.vue';
 `);
 </script>

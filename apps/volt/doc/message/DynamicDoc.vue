@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Message from '@/volt/message';
+import Button from '@/volt/Button.vue';
+import Message from '@/volt/Message.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { ref } from 'vue';
 
 const messages = ref([]);
@@ -49,9 +49,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Message from '@/volt/message';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 const messages = ref([]);

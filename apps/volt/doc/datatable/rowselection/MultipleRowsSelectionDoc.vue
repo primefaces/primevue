@@ -24,8 +24,8 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataTable from '@/volt/datatable';
-import ToggleSwitch from '@/volt/toggleswitch';
+import DataTable from '@/volt/DataTable.vue';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import Column from 'primevue/column';
 import { ref } from 'vue';
 
@@ -55,8 +55,8 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import DataTable from '@/volt/datatable';
-import ToggleSwitch from '@/volt/toggleswitch';
+import DataTable from '@/volt/DataTable.vue';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import Column from 'primevue/column';
 import { ref, onMounted } from 'vue';
 

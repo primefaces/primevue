@@ -34,5 +34,5 @@
 </template>
 
 <script setup>
-import Tag from '@/volt/tag';
+import Tag from '@/volt/Tag.vue';
 </script>

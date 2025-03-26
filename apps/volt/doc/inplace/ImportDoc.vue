@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Dialog from '@/volt/inplace';
+const code = ref(`import Dialog from '@/volt/Inplace.vue';
 `);
 </script>

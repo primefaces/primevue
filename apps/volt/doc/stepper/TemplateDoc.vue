@@ -112,17 +112,17 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Divider from '@/volt/divider';
-import InputText from '@/volt/inputtext';
-import Password from '@/volt/password';
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
-import StepPanel from '@/volt/stepper/steppanel';
-import StepPanels from '@/volt/stepper/steppanels';
-import ToggleButton from '@/volt/togglebutton';
+import Button from '@/volt/Button.vue';
+import Divider from '@/volt/Divider.vue';
+import InputText from '@/volt/InputText.vue';
+import Password from '@/volt/Password.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
+import StepPanel from '@/volt/StepPanel.vue';
+import StepPanels from '@/volt/StepPanels.vue';
+import Stepper from '@/volt/Stepper.vue';
+import ToggleButton from '@/volt/ToggleButton.vue';
 import { ref } from 'vue';
 
 const activeStep = ref(1);
@@ -248,17 +248,17 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Divider from '@/volt/divider';
-import InputText from '@/volt/inputtext';
-import Password from '@/volt/password';
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
-import StepPanel from '@/volt/stepper/steppanel';
-import StepPanels from '@/volt/stepper/steppanels';
-import ToggleButton from '@/volt/togglebutton';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Divider from '@/volt/Divider.vue';
+import InputText from '@/volt/InputText.vue';
+import Password from '@/volt/Password.vue';
+import Stepper from '@/volt/Stepper.vue';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
+import StepPanel from '@/volt/StepPanel.vue';
+import StepPanels from '@/volt/StepPanels.vue';
+import ToggleButton from '@/volt/ToggleButton.vue';
 import { ref } from 'vue';
 
 const activeStep = ref(1);

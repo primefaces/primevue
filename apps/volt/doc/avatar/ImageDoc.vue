@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import OverlayBadge from '@/volt/overlaybadge';
+import Avatar from '@/volt/Avatar.vue';
+import OverlayBadge from '@/volt/OverlayBadge.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -59,8 +59,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import OverlayBadge from '@/volt/overlaybadge';
+import Avatar from '@/volt/Avatar.vue';
+import OverlayBadge from '@/volt/OverlayBadge.vue';
 <\/script>
 `);
 </script>

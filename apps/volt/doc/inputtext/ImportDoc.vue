@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import InputText from '@/volt/inputtext';
+const code = ref(`import InputText from '@/volt/InputText.vue';
 `);
 </script>

@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import DatePicker from '@/volt/datepicker';
+import DatePicker from '@/volt/DatePicker.vue';
 import { ref } from 'vue';
 
 const date = ref(null);
@@ -41,7 +41,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import DatePicker from '@/volt/datepicker';
+import DatePicker from '@/volt/DatePicker.vue';
 import { ref } from 'vue';
 
 const date = ref(null);

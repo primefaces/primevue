@@ -110,10 +110,10 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataView from '@/volt/dataview';
-import SelectButton from '@/volt/selectbutton';
-import Tag from '@/volt/tag';
+import Button from '@/volt/Button.vue';
+import DataView from '@/volt/DataView.vue';
+import SelectButton from '@/volt/SelectButton.vue';
+import Tag from '@/volt/Tag.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {
@@ -233,10 +233,10 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataView from '@/volt/dataview';
-import SelectButton from '@/volt/selectbutton';
-import Tag from '@/volt/tag';
+import Button from '@/volt/Button.vue';
+import DataView from '@/volt/DataView.vue';
+import SelectButton from '@/volt/SelectButton.vue';
+import Tag from '@/volt/Tag.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {

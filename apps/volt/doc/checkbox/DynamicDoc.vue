@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Checkbox from '@/volt/checkbox';
+import Checkbox from '@/volt/Checkbox.vue';
 import { ref } from 'vue';
 
 const selectedCategories = ref(['Marketing']);
@@ -38,7 +38,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Checkbox from '@/volt/checkbox';
+import Checkbox from '@/volt/Checkbox.vue';
 import { ref } from 'vue';
 
 const selectedCategories = ref(['Marketing']);

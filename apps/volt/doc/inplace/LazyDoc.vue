@@ -59,10 +59,10 @@
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataView from '@/volt/dataview';
-import Inplace from '@/volt/inplace';
-import Tag from '@/volt/tag';
+import Button from '@/volt/Button.vue';
+import DataView from '@/volt/DataView.vue';
+import Inplace from '@/volt/Inplace.vue';
+import Tag from '@/volt/Tag.vue';
 import { ref } from 'vue';
 
 const products = ref(null);
@@ -145,10 +145,10 @@ const code = ref(`
 
 <script setup>
 import { ProductService } from '@/service/ProductService';
-import Button from '@/volt/button';
-import DataView from '@/volt/dataview';
-import Tag from '@/volt/tag';
-import Inplace from '@/volt/inplace';
+import Button from '@/volt/Button.vue';
+import DataView from '@/volt/DataView.vue';
+import Tag from '@/volt/Tag.vue';
+import Inplace from '@/volt/Inplace.vue';
 import { ref } from 'vue';
 
 const products = ref(null);

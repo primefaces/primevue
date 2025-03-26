@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
@@ -46,7 +46,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
 

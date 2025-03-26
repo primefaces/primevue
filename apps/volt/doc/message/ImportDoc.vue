@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Message from '@/volt/message';
+const code = ref(`import Message from '@/volt/Message.vue';
 `);
 </script>

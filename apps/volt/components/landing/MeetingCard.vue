@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import AvatarGroup from '@/volt/avatar/group';
-import SecondaryButton from '@/volt/button/secondary';
+import Avatar from '@/volt/Avatar.vue';
+import AvatarGroup from '@/volt/AvatarGroup.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import InputOtp from '@/volt/inputotp';
 </script>

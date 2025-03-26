@@ -6,7 +6,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Avatar from '@/volt/avatar';
-import AvatarGroup from '@/volt/avatar/group';
+const code = ref(`import Avatar from '@/volt/Avatar.vue';
+import AvatarGroup from '@/volt/AvatarGroup.vue';
 `);
 </script>

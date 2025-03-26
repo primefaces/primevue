@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import ToggleSwitch from '@/volt/toggleswitch';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import { ref } from 'vue';
 
 const checked = ref(true);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import ToggleSwitch from '@/volt/toggleswitch';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import { ref } from 'vue';
 
 const checked = ref(true);

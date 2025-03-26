@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-import DataTable from '@/volt/datatable';
+import DataTable from '@/volt/DataTable.vue';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import Row from 'primevue/row';
@@ -149,7 +149,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import DataTable from '@/volt/datatable';
+import DataTable from '@/volt/DataTable.vue';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';
 import Row from 'primevue/row';

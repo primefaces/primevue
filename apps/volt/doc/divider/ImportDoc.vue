@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Divider from '@/volt/divider';
+const code = ref(`import Divider from '@/volt/Divider.vue';
 `);
 </script>

@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import MultiSelect from '@/volt/multiselect';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 
 const selectedItems = ref();
@@ -59,7 +59,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import MultiSelect from '@/volt/multiselect';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 
 const selectedItems = ref();

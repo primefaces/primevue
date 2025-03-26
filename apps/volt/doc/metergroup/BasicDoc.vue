@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import MeterGroup from '@/volt/metergroup';
+import MeterGroup from '@/volt/MeterGroup.vue';
 import { ref } from 'vue';
 
 const value = ref([{ label: 'Space used', value: 15, color: 'var(--p-primary-color)' }]);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import MeterGroup from '@/volt/metergroup';
+import MeterGroup from '@/volt/MeterGroup.vue';
 import { ref } from 'vue';
 
 const value = ref([{ label: 'Space used', value: 15, color: 'var(--p-primary-color)' }]);

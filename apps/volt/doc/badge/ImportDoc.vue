@@ -6,7 +6,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Badge from '@/volt/badge';
-import OverlayBadge from '@/volt/overlaybadge';
+const code = ref(`import Badge from '@/volt/Badge.vue';
+import OverlayBadge from '@/volt/OverlayBadge.vue';
 `);
 </script>

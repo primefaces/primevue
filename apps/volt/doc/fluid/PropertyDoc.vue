@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -34,7 +34,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
+import InputText from '@/volt/InputText.vue';
 <\/script>
 `);
 </script>

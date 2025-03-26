@@ -6,7 +6,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Stepper from '@/volt/stepper';
+const code = ref(`import Stepper from '@/volt/Stepper.vue';
 import StepList from '@/volt/tabs/steplist';
 import Step from '@/volt/tabs/step';
 import StepPanels from '@/volt/tabs/steppanels';

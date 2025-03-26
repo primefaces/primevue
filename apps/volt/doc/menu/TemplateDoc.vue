@@ -48,9 +48,9 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
-import Menu from '@/volt/menu';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 
 const items = ref([
@@ -141,9 +141,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
-import Menu from '@/volt/menu';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 
 const items = ref([

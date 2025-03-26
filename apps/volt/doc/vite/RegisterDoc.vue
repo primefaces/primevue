@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -21,7 +21,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button'; // local registration
+import Button from '@/volt/Button.vue'; // local registration
 <\/script>
 `);
 </script>

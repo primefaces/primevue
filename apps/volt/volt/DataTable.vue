@@ -53,7 +53,7 @@ import AngleRightIcon from '@primevue/icons/angleright';
 import SpinnerIcon from '@primevue/icons/spinner';
 import DataTable from 'primevue/datatable';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

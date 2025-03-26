@@ -66,11 +66,11 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Checkbox from '@/volt/checkbox';
+import Button from '@/volt/Button.vue';
+import Checkbox from '@/volt/Checkbox.vue';
 import InputNumber from '@/volt/inputnumber';
-import Slider from '@/volt/slider';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Slider from '@/volt/Slider.vue';
 
 const priceRange = ref([20, 80]);
 const minValue = ref(1000);

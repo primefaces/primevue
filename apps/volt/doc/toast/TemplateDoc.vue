@@ -21,9 +21,9 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Button from '@/volt/button';
-import Toast from '@/volt/toast';
+import Avatar from '@/volt/Avatar.vue';
+import Button from '@/volt/Button.vue';
+import Toast from '@/volt/Toast.vue';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 
@@ -66,9 +66,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Toast from '@/volt/toast';
-import Avatar from '@/volt/avatar';
-import Button from '@/volt/button';
+import Toast from '@/volt/Toast.vue';
+import Avatar from '@/volt/Avatar.vue';
+import Button from '@/volt/Button.vue';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 

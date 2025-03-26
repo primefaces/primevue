@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Textarea from '@/volt/textarea';
+const code = ref(`import Textarea from '@/volt/Textarea.vue';
 `);
 </script>

@@ -30,8 +30,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Drawer from '@/volt/drawer';
+import Button from '@/volt/Button.vue';
+import Drawer from '@/volt/Drawer.vue';
 import { ref } from 'vue';
 
 const visibleLeft = ref(false);
@@ -68,8 +68,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Drawer from '@/volt/drawer';
+import Button from '@/volt/Button.vue';
+import Drawer from '@/volt/Drawer.vue';
 import { ref } from 'vue';
 
 const visibleLeft = ref(false);

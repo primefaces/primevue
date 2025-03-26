@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import Password from '@/volt/password';
+import Password from '@/volt/Password.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -48,7 +48,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Password from '@/volt/password';
+import Password from '@/volt/Password.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import ConfirmDialog from '@/volt/confirmdialog';
+const code = ref(`import ConfirmDialog from '@/volt/ConfirmDialog.vue';
 `);
 </script>

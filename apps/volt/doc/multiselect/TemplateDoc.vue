@@ -31,9 +31,9 @@
 </template>
 
 <script setup>
-import DangerButton from '@/volt/button/danger';
-import SecondaryButton from '@/volt/button/secondary';
-import MultiSelect from '@/volt/multiselect';
+import DangerButton from '@/volt/DangerButton.vue';
+import MultiSelect from '@/volt/MultiSelect.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { ref } from 'vue';
 
 const selectedCountries = ref(null);
@@ -80,9 +80,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import DangerButton from '@/volt/button/danger';
-import SecondaryButton from '@/volt/button/secondary';
-import MultiSelect from '@/volt/multiselect';
+import DangerButton from '@/volt/DangerButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 
 const selectedCountries = ref(null);

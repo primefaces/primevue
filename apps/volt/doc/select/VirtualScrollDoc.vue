@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import Select from '@/volt/select';
+import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 
 const selectedItem = ref();
@@ -26,7 +26,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Select from '@/volt/select';
+import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 
 const selectedItem = ref();

@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import Select from '@/volt/select';
+import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 import CompactSelect from './select/compact.vue';
 import FancySelect from './select/fancy.vue';
@@ -65,7 +65,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

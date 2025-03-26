@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Slider from '@/volt/slider';
+import Slider from '@/volt/Slider.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -22,7 +22,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Slider from '@/volt/slider';
+import Slider from '@/volt/Slider.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

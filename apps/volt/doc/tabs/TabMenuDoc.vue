@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
-import Tabs from '@/volt/tabs';
-import Tab from '@/volt/tabs/tab';
-import TabList from '@/volt/tabs/tablist';
+import Tab from '@/volt/Tab.vue';
+import TabList from '@/volt/TabList.vue';
+import Tabs from '@/volt/Tabs.vue';
 import { ref } from 'vue';
 
 const items = ref([
@@ -46,9 +46,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Tabs from '@/volt/tabs';
-import Tab from '@/volt/tabs/tab';
-import TabList from '@/volt/tabs/tablist';
+import Tabs from '@/volt/Tabs.vue';
+import Tab from '@/volt/Tab.vue';
+import TabList from '@/volt/TabList.vue';
 import { ref } from "vue";
 
 const items = ref([

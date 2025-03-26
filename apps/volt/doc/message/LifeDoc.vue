@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Message from '@/volt/message';
+import Button from '@/volt/Button.vue';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 let visible = ref(false);
@@ -33,8 +33,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Message from '@/volt/message';
+import Button from '@/volt/Button.vue';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 let visible = ref(false);

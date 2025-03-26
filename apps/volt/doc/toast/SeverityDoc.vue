@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import SecondaryButton from '@/volt/button/secondary';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 
@@ -58,8 +58,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Toast from '@/volt/toast';
-import SecondaryButton from '@/volt/button';
+import Toast from '@/volt/Toast.vue';
+import SecondaryButton from '@/volt/Button.vue';
 import { useToast } from "primevue/usetoast";
 
 const toast = useToast();

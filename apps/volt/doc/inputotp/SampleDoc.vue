@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
+import Button from '@/volt/Button.vue';
 import InputOtp from '@/volt/inputotp';
 import { ref } from 'vue';
 

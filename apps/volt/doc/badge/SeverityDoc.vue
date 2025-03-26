@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import Badge from '@/volt/badge';
+import Badge from '@/volt/Badge.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -32,7 +32,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Badge from '@/volt/badge';
+import Badge from '@/volt/Badge.vue';
 <\/script>
 `);
 </script>

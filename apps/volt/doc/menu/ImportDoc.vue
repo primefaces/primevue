@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Menu from '@/volt/menu';
+const code = ref(`import Menu from '@/volt/Menu.vue';
 `);
 </script>

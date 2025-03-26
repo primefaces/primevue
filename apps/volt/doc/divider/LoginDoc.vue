@@ -30,9 +30,9 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Divider from '@/volt/divider';
-import InputText from '@/volt/inputtext';
+import Button from '@/volt/Button.vue';
+import Divider from '@/volt/Divider.vue';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -64,9 +64,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Divider from '@/volt/divider';
-import InputText from '@/volt/inputtext';
-import Button from '@/volt/button';
+import Divider from '@/volt/Divider.vue';
+import InputText from '@/volt/InputText.vue';
+import Button from '@/volt/Button.vue';
 <\/script>
 `);
 </script>

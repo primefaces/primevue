@@ -55,8 +55,8 @@
 
 <script setup>
 import { CarService } from '@/service/CarService';
-import DataTable from '@/volt/datatable';
-import Skeleton from '@/volt/skeleton';
+import DataTable from '@/volt/DataTable.vue';
+import Skeleton from '@/volt/Skeleton.vue';
 import Column from 'primevue/column';
 import { ref } from 'vue';
 
@@ -146,8 +146,8 @@ const code = ref(`
 
 <script setup>
 import { CarService } from '@/service/CarService';
-import DataTable from '@/volt/datatable';
-import Skeleton from '@/volt/skeleton';
+import DataTable from '@/volt/DataTable.vue';
+import Skeleton from '@/volt/Skeleton.vue';
 import Column from 'primevue/column';
 import { ref } from 'vue';
 

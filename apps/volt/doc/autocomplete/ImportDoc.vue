@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import AutoComplete from '@/volt/autocomplete';
+const code = ref(`import AutoComplete from '@/volt/AutoComplete.vue';
 `);
 </script>

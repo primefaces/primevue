@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Panel from '@/volt/panel';
+const code = ref(`import Panel from '@/volt/Panel.vue';
 `);
 </script>

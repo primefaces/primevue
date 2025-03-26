@@ -55,9 +55,9 @@
 
 <script setup>
 import { CustomerService } from '@/service/CustomerService';
-import DataTable from '@/volt/datatable';
-import InputText from '@/volt/inputtext';
-import Tag from '@/volt/tag';
+import DataTable from '@/volt/DataTable.vue';
+import InputText from '@/volt/InputText.vue';
+import Tag from '@/volt/Tag.vue';
 import { FilterMatchMode } from '@primevue/core/api';
 import Column from 'primevue/column';
 import { ref } from 'vue';
@@ -142,9 +142,9 @@ const code = ref(`
 
 <script setup>
 import { CustomerService } from '@/service/CustomerService';
-import DataTable from '@/volt/datatable';
-import InputText from '@/volt/inputtext';
-import Tag from '@/volt/tag';
+import DataTable from '@/volt/DataTable.vue';
+import InputText from '@/volt/InputText.vue';
+import Tag from '@/volt/Tag.vue';
 import { FilterMatchMode } from '@primevue/core/api';
 import Column from 'primevue/column';
 import { ref, onMounted } from 'vue';

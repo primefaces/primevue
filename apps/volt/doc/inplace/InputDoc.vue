@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
-import DangerButton from '@/volt/button/danger';
-import Inplace from '@/volt/inplace';
-import InputText from '@/volt/inputtext';
+import DangerButton from '@/volt/DangerButton.vue';
+import Inplace from '@/volt/Inplace.vue';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const text = ref(null);
@@ -44,9 +44,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Inplace from '@/volt/inplace';
-import InputText from '@/volt/inputtext';
-import DangerButton from '@/volt/button/danger';
+import Inplace from '@/volt/Inplace.vue';
+import InputText from '@/volt/InputText.vue';
+import DangerButton from '@/volt/DangerButton.vue';
 import { ref } from 'vue';
 
 const text = ref(null);

@@ -41,12 +41,12 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Tabs from '@/volt/tabs';
-import Tab from '@/volt/tabs/tab';
-import TabList from '@/volt/tabs/tablist';
-import TabPanel from '@/volt/tabs/tabpanel';
-import TabPanels from '@/volt/tabs/tabpanels';
+import Button from '@/volt/Button.vue';
+import Tab from '@/volt/Tab.vue';
+import TabList from '@/volt/TabList.vue';
+import TabPanel from '@/volt/TabPanel.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import Tabs from '@/volt/Tabs.vue';
 import { ref } from 'vue';
 
 const value = ref('0');
@@ -91,12 +91,12 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Tabs from '@/volt/tabs';
-import TabList from '@/volt/tabs/tablist';
-import Tab from '@/volt/tabs/tab';
-import TabPanels from '@/volt/tabs/tabpanels';
-import TabPanel from '@/volt/tabs/tabpanel';
+import Button from '@/volt/Button.vue';
+import Tabs from '@/volt/Tabs.vue';
+import TabList from '@/volt/TabList.vue';
+import Tab from '@/volt/Tab.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import TabPanel from '@/volt/TabPanel.vue';
 import { ref } from 'vue';
 
 const value = ref('0');

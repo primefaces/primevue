@@ -45,13 +45,13 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
-import Tabs from '@/volt/tabs';
-import Tab from '@/volt/tabs/tab';
-import TabList from '@/volt/tabs/tablist';
-import TabPanel from '@/volt/tabs/tabpanel';
-import TabPanels from '@/volt/tabs/tabpanels';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
+import Tab from '@/volt/Tab.vue';
+import TabList from '@/volt/TabList.vue';
+import TabPanel from '@/volt/TabPanel.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import Tabs from '@/volt/Tabs.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -98,13 +98,13 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import Badge from '@/volt/badge';
-import Tabs from '@/volt/tabs';
-import TabList from '@/volt/tabs/tablist';
-import Tab from '@/volt/tabs/tab';
-import TabPanels from '@/volt/tabs/tabpanels';
-import TabPanel from '@/volt/tabs/tabpanel';
+import Avatar from '@/volt/Avatar.vue';
+import Badge from '@/volt/Badge.vue';
+import Tabs from '@/volt/Tabs.vue';
+import TabList from '@/volt/TabList.vue';
+import Tab from '@/volt/Tab.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import TabPanel from '@/volt/TabPanel.vue';
 <\/script>
 `);
 </script>

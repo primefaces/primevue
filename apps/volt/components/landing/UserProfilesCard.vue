@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-import SelectButton from '@/volt/selectbutton';
-import ToggleSwitch from '@/volt/toggleswitch';
+import SelectButton from '@/volt/SelectButton.vue';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import { ref } from 'vue';
 
 const mode = ref(0);

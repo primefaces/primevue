@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
-import Message from '@/volt/message';
+import InputText from '@/volt/InputText.vue';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -31,8 +31,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import InputText from '@/volt/inputtext';
-import Message from '@/volt/message';
+import InputText from '@/volt/InputText.vue';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

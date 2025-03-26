@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import Fluid from '@/volt/fluid';
-import InputText from '@/volt/inputtext';
+import Fluid from '@/volt/Fluid.vue';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -38,8 +38,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Fluid from '@/volt/fluid';
-import InputText from '@/volt/inputtext';
+import Fluid from '@/volt/Fluid.vue';
+import InputText from '@/volt/InputText.vue';
 <\/script>
 `);
 </script>

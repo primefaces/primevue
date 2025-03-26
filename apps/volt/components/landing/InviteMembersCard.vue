@@ -40,11 +40,11 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import SecondaryButton from '@/volt/button/secondary';
-import InputText from '@/volt/inputtext';
-import Message from '@/volt/message';
-import Select from '@/volt/select';
+import Avatar from '@/volt/Avatar.vue';
+import InputText from '@/volt/InputText.vue';
+import Message from '@/volt/Message.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Select from '@/volt/Select.vue';
 
 const role1 = ref('Owner');
 const role2 = ref('Editor');

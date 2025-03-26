@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { ref } from 'vue';
 
 const nodes = ref([
@@ -62,7 +62,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { onMounted, ref } from 'vue';
 
 const nodes1 = ref(null);

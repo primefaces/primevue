@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import SelectButton from '@/volt/selectbutton';
+import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -23,7 +23,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import SelectButton from '@/volt/selectbutton';
+import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
 const value = ref(null);

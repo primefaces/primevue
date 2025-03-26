@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import Listbox from '@/volt/listbox';
+import Listbox from '@/volt/Listbox.vue';
 import { ref } from 'vue';
 
 const selectedCity = ref(null);
@@ -32,7 +32,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Listbox from '@/volt/listbox';
+import Listbox from '@/volt/Listbox.vue';
 import { ref } from 'vue';
 
 const selectedCity = ref(null);

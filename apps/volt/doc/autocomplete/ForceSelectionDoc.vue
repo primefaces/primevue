@@ -13,7 +13,7 @@
 
 <script setup>
 import { CountryService } from '@/service/CountryService';
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {
@@ -44,7 +44,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { ref, onMounted } from "vue";
 import { CountryService } from "@/service/CountryService";
 

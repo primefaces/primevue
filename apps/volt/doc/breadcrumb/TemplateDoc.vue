@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import Breadcrumb from '@/volt/breadcrumb';
+import Breadcrumb from '@/volt/Breadcrumb.vue';
 import { ref } from 'vue';
 
 const home = ref({ icon: 'pi pi-home' });
@@ -41,7 +41,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Breadcrumb from '@/volt/breadcrumb';
+import Breadcrumb from '@/volt/Breadcrumb.vue';
 import { ref } from 'vue';
 
 const home = ref({ icon: 'pi pi-home' });

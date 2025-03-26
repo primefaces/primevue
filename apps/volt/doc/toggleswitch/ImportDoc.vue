@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import ToggleSwitch from '@/volt/toggleswitch';
+const code = ref(`import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 `);
 </script>

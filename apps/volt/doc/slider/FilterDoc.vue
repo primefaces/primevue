@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-import SelectButton from '@/volt/selectbutton';
-import Slider from '@/volt/slider';
+import SelectButton from '@/volt/SelectButton.vue';
+import Slider from '@/volt/Slider.vue';
 import { computed, ref } from 'vue';
 
 const filter = ref(0);
@@ -38,8 +38,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import SelectButton from '@/volt/selectbutton';
-import Slider from '@/volt/slider';
+import SelectButton from '@/volt/SelectButton.vue';
+import Slider from '@/volt/Slider.vue';
 import { computed, ref } from 'vue';
 
 const filter = ref(0);

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import ProgressBar from '@/volt/progressbar';
+import ProgressBar from '@/volt/ProgressBar.vue';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 onMounted(() => {
@@ -44,7 +44,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import ProgressBar from '@/volt/progressbar';
+import ProgressBar from '@/volt/ProgressBar.vue';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 onMounted(() => {

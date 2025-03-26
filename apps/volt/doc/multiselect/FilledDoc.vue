@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import MultiSelect from '@/volt/multiselect';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 
 const selectedCities = ref(null);
@@ -29,7 +29,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import MultiSelect from '@/volt/multiselect';
+import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 
 const selectedCities = ref(null);

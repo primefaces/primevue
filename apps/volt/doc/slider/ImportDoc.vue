@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Slider from '@/volt/slider';
+const code = ref(`import Slider from '@/volt/Slider.vue';
 `);
 </script>

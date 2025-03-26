@@ -31,14 +31,14 @@
 </template>
 
 <script setup>
-import Chip from '@/volt/chip';
-import MeterGroup from '@/volt/metergroup';
-import Tabs from '@/volt/tabs';
-import Tab from '@/volt/tabs/tab';
-import TabList from '@/volt/tabs/tablist';
-import TabPanel from '@/volt/tabs/tabpanel';
-import TabPanels from '@/volt/tabs/tabpanels';
-import Timeline from '@/volt/timeline';
+import Chip from '@/volt/Chip.vue';
+import MeterGroup from '@/volt/MeterGroup.vue';
+import Tab from '@/volt/Tab.vue';
+import TabList from '@/volt/TabList.vue';
+import TabPanel from '@/volt/TabPanel.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import Tabs from '@/volt/Tabs.vue';
+import Timeline from '@/volt/Timeline.vue';
 
 const progress = ref([{ label: 'Progress', value: 50, color: 'var(--p-primary-color)' }]);
 

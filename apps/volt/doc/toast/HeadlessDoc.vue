@@ -27,9 +27,9 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import ProgressBar from '@/volt/progressbar';
-import Toast from '@/volt/toast';
+import Button from '@/volt/Button.vue';
+import ProgressBar from '@/volt/ProgressBar.vue';
+import Toast from '@/volt/Toast.vue';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 
@@ -93,9 +93,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Toast from '@/volt/toast';
-import Button from '@/volt/button';
-import ProgressBar from '@/volt/progressbar';
+import Toast from '@/volt/Toast.vue';
+import Button from '@/volt/Button.vue';
+import ProgressBar from '@/volt/ProgressBar.vue';
 import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();

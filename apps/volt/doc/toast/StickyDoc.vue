@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 
@@ -35,9 +35,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Toast from '@/volt/toast';
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
+import Toast from '@/volt/Toast.vue';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();

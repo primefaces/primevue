@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Dialog from '@/volt/dialog';
+import Button from '@/volt/Button.vue';
+import Dialog from '@/volt/Dialog.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);
@@ -37,8 +37,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Dialog from '@/volt/dialog';
+import Button from '@/volt/Button.vue';
+import Dialog from '@/volt/Dialog.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);

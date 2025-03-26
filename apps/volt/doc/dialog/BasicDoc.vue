@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Dialog from '@/volt/dialog';
-import InputText from '@/volt/inputtext';
+import Button from '@/volt/Button.vue';
+import Dialog from '@/volt/Dialog.vue';
+import InputText from '@/volt/InputText.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { ref } from 'vue';
 
 const visible = ref(false);
@@ -57,10 +57,10 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Dialog from '@/volt/dialog';
-import InputText from '@/volt/inputtext';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Dialog from '@/volt/Dialog.vue';
+import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);

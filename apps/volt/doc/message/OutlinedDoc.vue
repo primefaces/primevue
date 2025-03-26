@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Message from '@/volt/message';
+import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -30,7 +30,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Message from '@/volt/message';
+import Message from '@/volt/Message.vue';
 <\/script>
 `);
 </script>

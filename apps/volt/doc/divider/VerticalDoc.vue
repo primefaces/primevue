@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import Divider from '@/volt/divider';
+import Divider from '@/volt/Divider.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -54,7 +54,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Divider from '@/volt/divider';
+import Divider from '@/volt/Divider.vue';
 <\/script>
 `);
 </script>

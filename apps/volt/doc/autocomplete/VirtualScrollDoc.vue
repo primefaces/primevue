@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { ref } from 'vue';
 
 const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: `Item #${i}`, value: i })));
@@ -42,7 +42,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { ref } from "vue";
 
 const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));

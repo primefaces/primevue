@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import ToggleButton from '@/volt/togglebutton';
+import ToggleButton from '@/volt/ToggleButton.vue';
 import { ref } from 'vue';
 
 const checked1 = ref(false);
@@ -28,7 +28,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import ToggleButton from '@/volt/togglebutton';
+import ToggleButton from '@/volt/ToggleButton.vue';
 import { ref } from 'vue';
 
 const checked1 = ref(false);

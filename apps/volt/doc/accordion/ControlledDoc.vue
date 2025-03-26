@@ -43,11 +43,11 @@
 </template>
 
 <script setup>
-import Accordion from '@/volt/accordion';
-import AccordionContent from '@/volt/accordion/accordioncontent';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import Button from '@/volt/button';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import Button from '@/volt/Button.vue';
 import { ref } from 'vue';
 
 const active = ref('0');
@@ -94,11 +94,11 @@ const code = ref(`
 </template>
 
 <script setup>
-import Accordion from '@/volt/accordion';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionContent from '@/volt/accordion/accordioncontent';
-import Button from '@/volt/button';
+import Accordion from '@/volt/Accordion.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
+import Button from '@/volt/Button.vue';
 import { ref } from 'vue';
 
 const active = ref('0');

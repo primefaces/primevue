@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Timeline from '@/volt/timeline';
+import Timeline from '@/volt/Timeline.vue';
 import { ref } from 'vue';
 
 const events = ref([
@@ -41,7 +41,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Timeline from '@/volt/timeline';
+import Timeline from '@/volt/Timeline.vue';
 import { ref } from 'vue';
 
 const events = ref([

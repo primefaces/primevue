@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Breadcrumb from '@/volt/breadcrumb';
+const code = ref(`import Breadcrumb from '@/volt/Breadcrumb.vue';
 `);
 </script>

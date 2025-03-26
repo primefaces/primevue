@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Toolbar from '@/volt/toolbar';
+const code = ref(`import Toolbar from '@/volt/Toolbar.vue';
 `);
 </script>

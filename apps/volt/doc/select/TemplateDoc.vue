@@ -39,8 +39,8 @@
 </template>
 
 <script setup>
-import SecondaryButton from '@/volt/button/secondary';
-import Select from '@/volt/select';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 
 const selectedCountry = ref();
@@ -92,8 +92,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import SecondaryButton from '@/volt/button/secondary';
-import Select from '@/volt/select';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 
 const selectedCountry = ref();

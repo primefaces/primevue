@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Paginator from '@/volt/paginator';
+import Paginator from '@/volt/Paginator.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -20,7 +20,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Paginator from '@/volt/paginator';
+import Paginator from '@/volt/Paginator.vue';
 <\/script>
 `);
 </script>

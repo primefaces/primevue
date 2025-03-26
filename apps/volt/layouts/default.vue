@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import ConfirmDialog from '@/volt/confirmdialog';
-import Toast from '@/volt/toast';
+import ConfirmDialog from '@/volt/ConfirmDialog.vue';
+import Toast from '@/volt/Toast.vue';
 import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 import { useToast } from 'primevue/usetoast';
 import { computed, ref, watch } from 'vue';

@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Panel from '@/volt/panel';
+import Panel from '@/volt/Panel.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -30,7 +30,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Panel from '@/volt/panel';
+import Panel from '@/volt/Panel.vue';
 <\/script>
 `);
 </script>

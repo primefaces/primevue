@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Checkbox from '@/volt/checkbox';
+const code = ref(`import Checkbox from '@/volt/Checkbox.vue';
 `);
 </script>

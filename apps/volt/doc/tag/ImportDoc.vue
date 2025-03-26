@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Tag from '@/volt/tag';
+const code = ref(`import Tag from '@/volt/Tag.vue';
 `);
 </script>

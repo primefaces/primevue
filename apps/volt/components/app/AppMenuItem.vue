@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import Tag from '@/volt/tag';
+import Tag from '@/volt/Tag.vue';
 import { useRouter } from 'vue-router';
 
 const props = defineProps({

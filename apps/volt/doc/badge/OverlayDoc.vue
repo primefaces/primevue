@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import OverlayBadge from '@/volt/overlaybadge';
+import OverlayBadge from '@/volt/OverlayBadge.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -36,7 +36,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import OverlayBadge from '@/volt/overlaybadge';
+import OverlayBadge from '@/volt/OverlayBadge.vue';
 <\/script>
 `);
 </script>

@@ -15,7 +15,7 @@
 
 <script setup>
 import { NodeService } from '@/service/NodeService';
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { onMounted, ref } from 'vue';
 
 const nodes = ref(null);
@@ -33,7 +33,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 import { ref, onMounted } from 'vue';
 import { NodeService } from '@/service/NodeService';
 

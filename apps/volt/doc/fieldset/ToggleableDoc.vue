@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Fieldset from '@/volt/fieldset';
+import Fieldset from '@/volt/Fieldset.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -28,7 +28,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Fieldset from '@/volt/fieldset';
+import Fieldset from '@/volt/Fieldset.vue';
 <\/script>
 `);
 </script>

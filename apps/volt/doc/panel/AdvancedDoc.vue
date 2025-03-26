@@ -32,9 +32,9 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import SecondaryButton from '@/volt/button/secondary';
-import Panel from '@/volt/panel';
+import Avatar from '@/volt/Avatar.vue';
+import Panel from '@/volt/Panel.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -68,9 +68,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import SecondaryButton from '@/volt/button/secondary';
-import Panel from '@/volt/panel';
+import Avatar from '@/volt/Avatar.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Panel from '@/volt/Panel.vue';
 <\/script>
 `);
 </script>

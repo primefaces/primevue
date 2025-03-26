@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import Chip from '@/volt/chip';
+import Chip from '@/volt/Chip.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -26,7 +26,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Chip from '@/volt/chip';
+import Chip from '@/volt/Chip.vue';
 <\/script>
 `);
 </script>

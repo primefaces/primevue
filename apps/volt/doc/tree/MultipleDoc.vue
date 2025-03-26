@@ -18,8 +18,8 @@
 
 <script setup>
 import { NodeService } from '@/service/NodeService';
-import ToggleSwitch from '@/volt/toggleswitch';
-import Tree from '@/volt/tree';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
+import Tree from '@/volt/Tree.vue';
 import { onMounted, ref } from 'vue';
 
 const nodes = ref(null);
@@ -43,8 +43,8 @@ const code = ref(`
 
 <script setup>
 import { NodeService } from '@/service/NodeService';
-import Tree from '@/volt/tree';
-import ToggleSwitch from '@/volt/toggleswitch';
+import Tree from '@/volt/Tree.vue';
+import ToggleSwitch from '@/volt/ToggleSwitch.vue';
 import { onMounted, ref } from 'vue';
 
 const nodes = ref(null);

@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import RadioButton from '@/volt/radiobutton';
+const code = ref(`import RadioButton from '@/volt/RadioButton.vue';
 `);
 </script>

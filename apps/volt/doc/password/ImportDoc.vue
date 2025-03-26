@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Password from '@/volt/password';
+const code = ref(`import Password from '@/volt/Password.vue';
 `);
 </script>

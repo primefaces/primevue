@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 
 const nodes = ref([
     {
@@ -56,7 +56,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Tree from '@/volt/tree';
+import Tree from '@/volt/Tree.vue';
 
 const nodes = ref([
     {

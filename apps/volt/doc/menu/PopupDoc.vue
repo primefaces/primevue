@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Menu from '@/volt/menu';
+import Button from '@/volt/Button.vue';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 
 const menu = ref();
@@ -44,8 +44,8 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import Menu from '@/volt/menu';
+import Button from '@/volt/Button.vue';
+import Menu from '@/volt/Menu.vue';
 import { ref } from 'vue';
 
 const menu = ref();

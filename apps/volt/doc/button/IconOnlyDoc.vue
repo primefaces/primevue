@@ -46,11 +46,11 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import ContrastButton from '@/volt/button/contrast';
-import DangerButton from '@/volt/button/danger';
-import SecondaryButton from '@/volt/button/secondary';
-import SelectButton from '@/volt/selectbutton';
+import Button from '@/volt/Button.vue';
+import ContrastButton from '@/volt/ContrastButton.vue';
+import DangerButton from '@/volt/DangerButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
 const size = ref('normal');
@@ -105,11 +105,11 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import ContrastButton from '@/volt/button/contrast';
-import DangerButton from '@/volt/button/danger';
-import SecondaryButton from '@/volt/button/secondary';
-import SelectButton from '@/volt/selectbutton';
+import Button from '@/volt/Button.vue';
+import ContrastButton from '@/volt/ContrastButton.vue';
+import DangerButton from '@/volt/DangerButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
 const size = ref('normal');

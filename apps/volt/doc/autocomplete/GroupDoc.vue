@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { FilterMatchMode, FilterService } from '@primevue/core/api';
 import { ref } from 'vue';
 
@@ -84,7 +84,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import AutoComplete from '@/volt/autocomplete';
+import AutoComplete from '@/volt/AutoComplete.vue';
 import { FilterMatchMode, FilterService } from '@primevue/core/api';
 import { ref } from 'vue';
 

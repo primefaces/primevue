@@ -6,9 +6,9 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Accordion from '@/volt/accordion';
-import AccordionPanel from '@/volt/accordion/accordionpanel';
-import AccordionHeader from '@/volt/accordion/accordionheader';
-import AccordionContent from '@/volt/accordion/accordioncontent';
+const code = ref(`import Accordion from '@/volt/Accordion.vue';
+import AccordionPanel from '@/volt/AccordionPanel.vue';
+import AccordionHeader from '@/volt/AccordionHeader.vue';
+import AccordionContent from '@/volt/AccordionContent.vue';
 `);
 </script>

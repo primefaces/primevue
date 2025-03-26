@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Chip from '@/volt/chip';
+const code = ref(`import Chip from '@/volt/Chip.vue';
 `);
 </script>

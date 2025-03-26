@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import RadioButton from '@/volt/radiobutton';
+import RadioButton from '@/volt/RadioButton.vue';
 import { ref } from 'vue';
 
 const ingredient = ref(null);
@@ -56,7 +56,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import RadioButton from '@/volt/radiobutton';
+import RadioButton from '@/volt/RadioButton.vue';
 import { ref } from 'vue';
 
 const ingredient = ref(null);

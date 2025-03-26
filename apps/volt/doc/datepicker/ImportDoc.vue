@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import DatePicker from '@/volt/datepicker';
+const code = ref(`import DatePicker from '@/volt/DatePicker.vue';
 `);
 </script>

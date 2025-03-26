@@ -42,13 +42,13 @@
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
-import StepPanel from '@/volt/stepper/steppanel';
-import StepPanels from '@/volt/stepper/steppanels';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
+import StepPanel from '@/volt/StepPanel.vue';
+import StepPanels from '@/volt/StepPanels.vue';
+import Stepper from '@/volt/Stepper.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -92,13 +92,13 @@ const code = ref(`
 </template>
 
 <script setup>
-import Button from '@/volt/button';
-import SecondaryButton from '@/volt/button/secondary';
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
-import StepPanel from '@/volt/stepper/steppanel';
-import StepPanels from '@/volt/stepper/steppanels';
+import Button from '@/volt/Button.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Stepper from '@/volt/Stepper.vue';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
+import StepPanel from '@/volt/StepPanel.vue';
+import StepPanels from '@/volt/StepPanels.vue';
 <\/script>
 `);
 </script>

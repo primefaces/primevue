@@ -15,9 +15,9 @@
 </template>
 
 <script setup>
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
+import Stepper from '@/volt/Stepper.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -34,9 +34,9 @@ const code = ref(`
 </template>
 
 <script setup>
-import Stepper from '@/volt/stepper';
-import Step from '@/volt/stepper/step';
-import StepList from '@/volt/stepper/steplist';
+import Stepper from '@/volt/Stepper.vue';
+import Step from '@/volt/Step.vue';
+import StepList from '@/volt/StepList.vue';
 <\/script>
 `);
 </script>

@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import MeterGroup from '@/volt/metergroup';
+const code = ref(`import MeterGroup from '@/volt/MeterGroup.vue';
 `);
 </script>

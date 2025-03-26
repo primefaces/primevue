@@ -25,7 +25,7 @@ import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Panel from 'primevue/panel';
 import { ref } from 'vue';
-import SecondaryButton from '../button/secondary';
+import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 const theme = ref({

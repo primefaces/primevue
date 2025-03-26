@@ -6,10 +6,10 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Tabs from '@/volt/tabs';
-import TabList from '@/volt/tabs/tablist';
-import Tab from '@/volt/tabs/tab';
-import TabPanels from '@/volt/tabs/tabpanels';
-import TabPanel from '@/volt/tabs/tabpanel';
+const code = ref(`import Tabs from '@/volt/Tabs.vue';
+import TabList from '@/volt/TabList.vue';
+import Tab from '@/volt/Tab.vue';
+import TabPanels from '@/volt/TabPanels.vue';
+import TabPanel from '@/volt/TabPanel.vue';
 `);
 </script>

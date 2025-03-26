@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import Fieldset from '@/volt/fieldset';
+const code = ref(`import Fieldset from '@/volt/Fieldset.vue';
 `);
 </script>

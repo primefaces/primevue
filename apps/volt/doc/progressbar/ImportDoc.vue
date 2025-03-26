@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`import ProgressBar from '@/volt/progressbar';
+const code = ref(`import ProgressBar from '@/volt/ProgressBar.vue';
 `);
 </script>

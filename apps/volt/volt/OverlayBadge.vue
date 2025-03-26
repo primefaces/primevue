@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import Badge from '../badge';
+import Badge from './Badge.vue';
 
 defineOptions({
     inheritAttrs: false

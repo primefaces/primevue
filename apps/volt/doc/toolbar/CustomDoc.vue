@@ -34,10 +34,10 @@
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import ContrastButton from '@/volt/button/contrast';
-import SecondaryButton from '@/volt/button/secondary';
-import Toolbar from '@/volt/toolbar';
+import Avatar from '@/volt/Avatar.vue';
+import ContrastButton from '@/volt/ContrastButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Toolbar from '@/volt/Toolbar.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -64,10 +64,10 @@ const code = ref(`
 </template>
 
 <script setup>
-import Avatar from '@/volt/avatar';
-import ContrastButton from '@/volt/button/contrast';
-import SecondaryButton from '@/volt/button/secondary';
-import Toolbar from '@/volt/toolbar';
+import Avatar from '@/volt/Avatar.vue';
+import ContrastButton from '@/volt/ContrastButton.vue';
+import SecondaryButton from '@/volt/SecondaryButton';
+import Toolbar from '@/volt/Toolbar.vue';
 <\/script>
 `);
 </script>

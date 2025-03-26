@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import Inplace from '@/volt/inplace';
+import Inplace from '@/volt/Inplace.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -36,7 +36,7 @@ const code = ref(`
 </template>
 
 <script setup>
-import Inplace from '@/volt/inplace';
+import Inplace from '@/volt/Inplace.vue';
 <\/script>
 `);
 </script>
