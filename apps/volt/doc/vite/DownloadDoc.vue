@@ -12,9 +12,9 @@
 import { ref } from 'vue';
 
 const code = ref(`
-npm volt-vue add button
-npm volt-vue add datatable
-npm volt-vue add dialog
-npm volt-vue add datepicker
+npx volt-vue add button
+npx volt-vue add datatable
+npx volt-vue add dialog
+npx volt-vue add datepicker
 `);
 </script>
