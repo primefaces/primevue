@@ -12,12 +12,15 @@
     </Breadcrumb>
 </template>
 
-<script setup>
-import Breadcrumb from 'primevue/breadcrumb';
+<script setup lang="ts">
+import Breadcrumb, { type BreadcrumbPassThroughOptions, type BreadcrumbProps } from 'primevue/breadcrumb';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ BreadcrumbProps {}
+defineProps<Props>();
+
+const theme = ref<BreadcrumbPassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 p-4 overflow-x-auto`,
     list: `m-0 p-0 list-none flex items-center flex-nowrap gap-2`,
     item: ``,

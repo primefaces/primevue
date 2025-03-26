@@ -12,12 +12,15 @@
     </Timeline>
 </template>
 
-<script setup>
-import Timeline from 'primevue/timeline';
+<script setup lang="ts">
+import Timeline, { type TimelinePassThroughOptions, type TimelineProps } from 'primevue/timeline';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TimelineProps {}
+defineProps<Props>();
+
+const theme = ref<TimelinePassThroughOptions>({
     root: `flex flex-col flex-grow
         p-horizontal:flex-row`,
     event: `group flex relative min-h-20 last:min-h-0

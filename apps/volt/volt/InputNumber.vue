@@ -18,14 +18,17 @@
     </InputNumber>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
-import InputNumber from 'primevue/inputnumber';
+import InputNumber, { type InputNumberPassThroughOptions, type InputNumberProps } from 'primevue/inputnumber';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ InputNumberProps {}
+defineProps<Props>();
+
+const theme = ref<InputNumberPassThroughOptions>({
     root: `inline-flex relative 
         p-vertical:flex-col p-fluid:w-full`,
     pcInputText: {

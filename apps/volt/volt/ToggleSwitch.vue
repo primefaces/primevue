@@ -12,12 +12,15 @@
     </ToggleSwitch>
 </template>
 
-<script setup>
-import ToggleSwitch from 'primevue/toggleswitch';
+<script setup lang="ts">
+import ToggleSwitch, { type ToggleSwitchPassThroughOptions, type ToggleSwitchProps } from 'primevue/toggleswitch';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ToggleSwitchProps {}
+defineProps<Props>();
+
+const theme = ref<ToggleSwitchPassThroughOptions>({
     root: `inline-block w-10 h-6`,
     input: `peer cursor-pointer disabled:cursor-default appearance-none absolute top-0 start-0 w-full h-full m-0 p-0 opacity-0 z-10 rounded-[30px]`,
     slider: `inline-block w-full h-full rounded-[30px] shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]

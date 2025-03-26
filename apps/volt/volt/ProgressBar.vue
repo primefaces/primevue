@@ -12,12 +12,15 @@
     </ProgressBar>
 </template>
 
-<script setup>
-import ProgressBar from 'primevue/progressbar';
+<script setup lang="ts">
+import ProgressBar, { type ProgressBarPassThroughOptions, type ProgressBarProps } from 'primevue/progressbar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ProgressBarProps {}
+defineProps<Props>();
+
+const theme = ref<ProgressBarPassThroughOptions>({
     root: `relative overflow-hidden h-5 bg-surface-200 dark:bg-surface-700 rounded-md`,
     value: `m-0 bg-primary
         p-determinate:h-full p-determinate:w-0 p-determinate:absolute p-determinate:flex p-determinate:items-center p-determinate:justify-center 

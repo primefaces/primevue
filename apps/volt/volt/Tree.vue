@@ -19,15 +19,18 @@
     </Tree>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import SearchIcon from '@primevue/icons/search';
-import Tree from 'primevue/tree';
+import Tree, { type TreePassThroughOptions, type TreeProps } from 'primevue/tree';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TreeProps {}
+defineProps<Props>();
+
+const theme = ref<TreePassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-4
         p-scrollable:flex p-scrollable:flex-1 p-scrollable:h-full p-scrollable:flex-col`,
     pcFilterContainer: {

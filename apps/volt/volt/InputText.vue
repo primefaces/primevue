@@ -8,12 +8,15 @@
     />
 </template>
 
-<script setup>
-import InputText from 'primevue/inputtext';
+<script setup lang="ts">
+import InputText, { type InputTextPassThroughOptions, type InputTextProps } from 'primevue/inputtext';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ InputTextProps {}
+defineProps<Props>();
+
+const theme = ref<InputTextPassThroughOptions>({
     root: `appearance-none rounded-md outline-hidden
         bg-surface-0 dark:bg-surface-950
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800

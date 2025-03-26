@@ -45,18 +45,21 @@
     </DataTable>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import SpinnerIcon from '@primevue/icons/spinner';
-import DataTable from 'primevue/datatable';
+import DataTable, { type DataTablePassThroughOptions, type DataTableProps } from 'primevue/datatable';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ DataTableProps {}
+defineProps<Props>();
+
+const theme = ref<DataTablePassThroughOptions>({
     root: `relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:h-full`,
     tableContainer: `p-scrollable:relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:flex-1 p-flex-scrollable:h-full`,
     header: `py-3 px-4 border-b border-surface-200 dark:border-surface-700

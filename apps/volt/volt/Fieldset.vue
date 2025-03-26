@@ -16,14 +16,17 @@
     </Fieldset>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
-import Fieldset from 'primevue/fieldset';
+import Fieldset, { type FieldsetPassThroughOptions, type FieldsetProps } from 'primevue/fieldset';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ FieldsetProps {}
+defineProps<Props>();
+
+const theme = ref<FieldsetPassThroughOptions>({
     root: `border border-surface-200 dark:border-surface-700 rounded-md
         bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0
         px-[1.125rem] pt-0 pb-[1.125rem]`,

@@ -5,8 +5,11 @@
     </div>
 </template>
 
-<script setup>
-import Badge from './Badge.vue';
+<script setup lang="ts">
+import Badge, { type BadgeProps } from './Badge.vue';
+
+interface Props extends /* @vue-ignore */ BadgeProps {}
+defineProps<Props>();
 
 defineOptions({
     inheritAttrs: false

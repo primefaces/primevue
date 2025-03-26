@@ -12,12 +12,15 @@
     </InputOtp>
 </template>
 
-<script setup>
-import InputOtp from 'primevue/inputotp';
+<script setup lang="ts">
+import InputOtp, { type InputOtpPassThroughOptions, type InputOtpProps } from 'primevue/inputotp';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ InputOtpProps {}
+defineProps<Props>();
+
+const theme = ref<InputOtpPassThroughOptions>({
     root: `flex items-center gap-2`,
     pcInputText: {
         root: `text-center w-12 h-12

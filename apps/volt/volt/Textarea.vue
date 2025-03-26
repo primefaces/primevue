@@ -8,12 +8,15 @@
     />
 </template>
 
-<script setup>
-import Textarea from 'primevue/textarea';
+<script setup lang="ts">
+import Textarea, { type TextareaPassThroughOptions, type TextareaProps } from 'primevue/textarea';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TextareaProps {}
+defineProps<Props>();
+
+const theme = ref<TextareaPassThroughOptions>({
     root: `appearance-none rounded-md outline-hidden
         bg-surface-0 dark:bg-surface-950
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800

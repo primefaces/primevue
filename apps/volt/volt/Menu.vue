@@ -13,12 +13,15 @@
     </Menu>
 </template>
 
-<script setup>
-import Menu from 'primevue/menu';
+<script setup lang="ts">
+import Menu, { type MenuPassThroughOptions, type MenuProps } from 'primevue/menu';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ MenuProps {}
+defineProps<Props>();
+
+const theme = ref<MenuPassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 
         text-surface-700 dark:text-surface-0 
         border border-surface-200 dark:border-surface-700

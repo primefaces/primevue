@@ -20,15 +20,18 @@
     </Panel>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
-import Panel from 'primevue/panel';
+import Panel, { type PanelPassThroughOptions, type PanelProps } from 'primevue/panel';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ PanelProps {}
+defineProps<Props>();
+
+const theme = ref<PanelPassThroughOptions>({
     root: `border border-surface-200 dark:border-surface-700 rounded-md
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0`,

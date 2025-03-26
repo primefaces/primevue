@@ -13,14 +13,17 @@
     </Checkbox>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CheckIcon from '@primevue/icons/check';
 import MinusIcon from '@primevue/icons/minus';
-import Checkbox from 'primevue/checkbox';
+import Checkbox, { type CheckboxPassThroughOptions, type CheckboxProps } from 'primevue/checkbox';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ CheckboxProps {}
+defineProps<Props>();
+
+const theme = ref<CheckboxPassThroughOptions>({
     root: `relative inline-flex select-none w-5 h-5 align-bottom
         p-small:w-4 p-small:h-4
         p-large:w-6 p-large:h-6`,

@@ -8,12 +8,15 @@
     />
 </template>
 
-<script setup>
-import InputMask from 'primevue/inputmask';
+<script setup lang="ts">
+import InputMask, { type InputMaskPassThroughOptions, type InputMaskProps } from 'primevue/inputmask';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ InputMaskProps {}
+defineProps<Props>();
+
+const theme = ref<InputMaskPassThroughOptions>({
     root: `appearance-none rounded-md outline-hidden
         bg-surface-0 dark:bg-surface-950
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800

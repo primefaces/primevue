@@ -8,12 +8,15 @@
     />
 </template>
 
-<script setup>
-import RadioButton from 'primevue/radiobutton';
+<script setup lang="ts">
+import RadioButton, { type RadioButtonPassThroughOptions, type RadioButtonProps } from 'primevue/radiobutton';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ RadioButtonProps {}
+defineProps<Props>();
+
+const theme = ref<RadioButtonPassThroughOptions>({
     root: `relative inline-flex select-none w-5 h-5
         p-small:w-4 p-small:h-4
         p-large:w-6 p-large:h-6`,

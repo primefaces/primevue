@@ -19,14 +19,17 @@
     </Drawer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Drawer from 'primevue/drawer';
+import Drawer, { type DrawerPassThroughOptions, type DrawerProps } from 'primevue/drawer';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ DrawerProps {}
+defineProps<Props>();
+
+const theme = ref<DrawerPassThroughOptions>({
     root: `flex flex-col pointer-events-auto relative
         border-surface-200 dark:border-surface-700
         bg-surface-0 dark:bg-surface-900

@@ -15,13 +15,16 @@
     </Toast>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Toast from 'primevue/toast';
+import Toast, { type ToastPassThroughOptions, type ToastProps } from 'primevue/toast';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ToastProps {}
+defineProps<Props>();
+
+const theme = ref<ToastPassThroughOptions>({
     root: `w-96 rounded-md whitespace-pre-line break-words
         p-top-center:-translate-x-1/2 p-bottom-center:-translate-x-1/2
         p-center:min-w-[20vw] p-center:-translate-x-1/2 p-center:-translate-y-1/2`,

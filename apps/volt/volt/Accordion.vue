@@ -10,12 +10,15 @@
     </Accordion>
 </template>
 
-<script setup>
-import Accordion from 'primevue/accordion';
+<script setup lang="ts">
+import Accordion, { type AccordionPassThroughOptions, type AccordionProps } from 'primevue/accordion';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ AccordionProps {}
+defineProps<Props>();
+
+const theme = ref<AccordionPassThroughOptions>({
     root: ``
 });
 </script>

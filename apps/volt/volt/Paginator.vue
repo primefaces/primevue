@@ -41,16 +41,19 @@
     </Paginator>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
-import Paginator from 'primevue/paginator';
+import Paginator, { type PaginatorPassThroughOptions, type PaginatorProps } from 'primevue/paginator';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ PaginatorProps {}
+defineProps<Props>();
+
+const theme = ref<PaginatorPassThroughOptions>({
     root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1
         bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
 });

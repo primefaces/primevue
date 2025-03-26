@@ -11,16 +11,15 @@
     </Splitter>
 </template>
 
-<script setup>
-import Splitter from 'primevue/splitter';
+<script setup lang="ts">
+import Splitter, { type SplitterPassThroughOptions, type SplitterProps } from 'primevue/splitter';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-defineOptions({
-    name: 'Splitter'
-});
+interface Props extends /* @vue-ignore */ SplitterProps {}
+defineProps<Props>();
 
-const theme = ref({
+const theme = ref<SplitterPassThroughOptions>({
     root: `flex flex-wrap
         border border-surface-200 dark:border-surface-700 rounded-md
         bg-surface-0 dark:bg-surface-900

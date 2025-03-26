@@ -15,13 +15,16 @@
     </Message>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Message from 'primevue/message';
+import Message, { type MessagePassThroughOptions, type MessageProps } from 'primevue/message';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ MessageProps {}
+defineProps<Props>();
+
+const theme = ref<MessagePassThroughOptions>({
     root: `rounded-md outline outline-1
         p-outlined:bg-transparent p-outlined:outline p-outlined:outline-1
         p-simple:bg-transparent p-simple:outline-none

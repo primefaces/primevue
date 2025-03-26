@@ -4,6 +4,9 @@
     </Fluid>
 </template>
 
-<script setup>
-import Fluid from 'primevue/fluid';
+<script setup lang="ts">
+import Fluid, { type FluidProps } from 'primevue/fluid';
+
+interface Props extends /* @vue-ignore */ FluidProps {}
+defineProps<Props>();
 </script>
