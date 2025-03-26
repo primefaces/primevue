@@ -31,8 +31,8 @@
             <span class="font-medium block mb-1 text-color">Copy Link</span>
             <div class="flex items-stretch w-full">
                 <InputText placeholder="https://volt.primevue.org/share/t9423g9f349f234" pt:root="flex-1 rounded-s-md rounded-e-none" disabled fluid />
-                <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md">
-                    <SecondaryButton icon="pi pi-copy" variant="text" />
+                <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md overflow-hidden">
+                    <SecondaryButton icon="pi pi-copy" variant="text" pt:root="rounded-none" />
                 </span>
             </div>
         </div>

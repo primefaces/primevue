@@ -1160,7 +1160,7 @@ export default {
                 clearable: this.showClear,
                 disabled: this.disabled,
                 [this.size]: this.size,
-                'has-chip': this.display === 'chip' && this.d_value && this.d_value.length && this.d_value.length <= this.maxSelectedLabels,
+                'has-chip': this.display === 'chip' && this.d_value && this.d_value.length && (this.maxSelectedLabels ? this.d_value.length <= this.maxSelectedLabels : true),
                 empty: !this.placeholder && !this.$filled
             });
         },

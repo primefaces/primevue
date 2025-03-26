@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue" target="_blank" rel="noopener noreferrer">npm registry</a>.</p>
-        <DocSectionCode :code="code1" />
+        <DocSectionCode :code="code1" lang="bash" />
         <p>Configure PrimeVue to enable the unstyled mode that disables the default design token based theming globally.</p>
         <DocSectionCode :code="code2" lang="script" />
     </DocSectionText>

@@ -4,19 +4,19 @@ const highlightElement = (codeElement) => {
     if (isClient()) {
         codeElement.parentElement.setAttribute('tabindex', '-1');
 
-        window.Prism.languages.bash = Prism.languages.extend('bash', {
-            command: /\b(npx|volt-vue|add)\b/,
+        /*window.Prism.languages.bash = Prism.languages.extend('bash', {
+            command: /\b(npx|volt-vue|add|npm)\b/,
             component: /\b(.*)\b/
         });
 
         window.Prism.hooks.add('wrap', function (env) {
             if (env.type === 'command') {
-                env.attributes['style'] = 'color: #ff5f56; font-weight: bold;';
+                env.attributes['style'] = 'color: red !important; font-weight: bold !important;';
             }
             if (env.type === 'component') {
-                env.attributes['style'] = 'color: #4ec9b0;';
+                env.attributes['style'] = 'color: #bbf7d0;';
             }
-        });
+        });*/
 
         window.Prism.highlightElement(codeElement);
     }

@@ -10,8 +10,8 @@
 
         <div class="flex items-stretch flex-auto">
             <InputText placeholder="Keyword" pt:root="flex-1 rounded-s-md rounded-e-none" />
-            <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md">
-                <SecondaryButton icon="pi pi-search" variant="text" />
+            <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md overflow-hidden">
+                <SecondaryButton icon="pi pi-search" variant="text" pt:root="rounded-none" />
             </span>
         </div>
 
@@ -42,10 +42,10 @@ const code = ref(`
             <InputText placeholder="Keyword" pt:root="flex-1 rounded-s-none rounded-e-md" />
         </div>
 
-        <div class="flex items-stretch flex-auto">
+       <div class="flex items-stretch flex-auto">
             <InputText placeholder="Keyword" pt:root="flex-1 rounded-s-md rounded-e-none" />
-            <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md">
-                <SecondaryButton icon="pi pi-search" variant="text" />
+            <span class="flex items-center justify-center border-y border-e border-surface-300 dark:border-surface-700 rounded-e-md overflow-hidden">
+                <SecondaryButton icon="pi pi-search" variant="text" pt:root="rounded-none" />
             </span>
         </div>
 

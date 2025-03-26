@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>PrimeVue is available for download on <a href="https://www.npmjs.com/package/primevue" target="_blank" rel="noopener noreferrer">npm registry</a>.</p>
-        <DocSectionCode :code="code1" />
+        <DocSectionCode :code="code1" lang="bash" />
         <p>Volt does not need the PrimeVue Nuxt Module, instead create a primevue.js file inside plugins folder. Using the plugin configure PrimeVue to enable the unstyled mode that disables the default design token based theming globally.</p>
         <DocSectionCode :code="code2" lang="script" />
         <p>The nuxt plugin can also be used to configure additional PrimeVue features like Toast and Confirmation Services as well as directives.</p>

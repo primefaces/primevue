@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs" />
-    <DocSectionCode :code="code" lang="script" />
+    <DocSectionCode :code="code" lang="bash" />
 </template>
 
 <script setup lang="ts">
