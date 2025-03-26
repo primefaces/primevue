@@ -1,17 +1,18 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { dirname, resolve } from 'path';
+import fs from 'fs';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const rootDir = resolve(__dirname, '../');
-const workspaceDir = resolve(__dirname, '../../../');
+const rootDir = path.resolve(__dirname, '../');
+const workspaceDir = path.resolve(__dirname, '../../../');
 
-const pkgPath = resolve(rootDir, 'package.json');
+const pkgPath = path.resolve(rootDir, 'package.json');
+const packageJsonPath = path.resolve(workspaceDir, 'package.json');
 
-const pkgJson = JSON.parse(readFileSync(pkgPath, 'utf-8'));
-const packageJson = JSON.parse(readFileSync(resolve(workspaceDir, 'package.json'), 'utf-8'));
+const pkgJson = JSON.parse(fs.readFileSync(pkgPath, { encoding: 'utf-8' }));
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf-8' }));
 
 pkgJson.version = packageJson.version;
 pkgJson.author = packageJson.author;
@@ -21,4 +22,4 @@ pkgJson.repository = { ...pkgJson.repository, ...packageJson.repository };
 pkgJson.bugs = { ...pkgJson.bugs, ...packageJson.bugs };
 pkgJson.engines = { ...pkgJson.engines, ...packageJson.engines };
 
-writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 4));
+fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 4) + '\n', { encoding: 'utf8' });

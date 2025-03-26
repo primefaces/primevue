@@ -22,4 +22,4 @@ pkgJson.repository = { ...pkgJson.repository, ...packageJson.repository };
 pkgJson.bugs = { ...pkgJson.bugs, ...packageJson.bugs };
 pkgJson.engines = { ...pkgJson.engines, ...packageJson.engines };
 
-fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 4));
+fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 4) + '\n', { encoding: 'utf8' });
