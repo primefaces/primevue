@@ -7,7 +7,7 @@
         }"
     >
         <template #dropdownicon>
-            <ChevronDown />
+            <ChevronDownIcon />
         </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import ChevronDown from '@primevue/icons/chevrondown';
+import ChevronDownIcon from '@primevue/icons/chevrondown';
 import AutoComplete from 'primevue/autocomplete';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';

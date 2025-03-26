@@ -44,8 +44,8 @@ const theme = ref({
     emptyMessage: `px-3 py-2`,
     virtualScroller: ``,
     transition: {
-        enterFromClass: 'opacity-0 scale-y-10 rotate-25',
-        enterActiveClass: 'transition duration-500 ease-[cubic-bezier(0,0,0.2,1)]',
+        enterFromClass: 'opacity-0 scale-y-50 scale-x-10',
+        enterActiveClass: 'transition duration-400 ease-[cubic-bezier(0,0,0.2,1)]',
         leaveActiveClass: 'transition-opacity duration-100 ease-linear',
         leaveToClass: 'opacity-0'
     }

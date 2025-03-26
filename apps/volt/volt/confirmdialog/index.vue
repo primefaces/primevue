@@ -16,7 +16,7 @@
                 </SecondaryButton>
             </div>
             <div class="overflow-y-auto pt-0 px-5 pb-5 flex items-center gap-4">
-                <ExclamationTriange class="size-6" />
+                <ExclamationTriangeIcon class="size-6" />
                 {{ message.message }}
             </div>
             <div class="pt-0 px-5 pb-5 flex justify-end gap-2">
@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import ExclamationTriange from '@primevue/icons/exclamationtriangle';
+import ExclamationTriangeIcon from '@primevue/icons/exclamationtriangle';
 import TimesIcon from '@primevue/icons/times';
 import ConfirmDialog from 'primevue/confirmdialog';
 import { ref } from 'vue';

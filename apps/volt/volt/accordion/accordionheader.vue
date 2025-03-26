@@ -7,16 +7,16 @@
         }"
     >
         <template #toggleicon="{ active }">
-            <ChevronDown v-if="active" />
-            <ChevronUp v-else />
+            <ChevronDownIcon v-if="active" />
+            <ChevronUpIcon v-else />
         </template>
         <slot></slot>
     </AccordionHeader>
 </template>
 
 <script setup>
-import ChevronUp from '@primevue/icons/chevrondown';
-import ChevronDown from '@primevue/icons/chevronup';
+import ChevronUpIcon from '@primevue/icons/chevrondown';
+import ChevronDownIcon from '@primevue/icons/chevronup';
 import AccordionHeader from 'primevue/accordionheader';
 import { ref } from 'vue';
 import { ptViewMerge } from '../utils';
@@ -28,7 +28,6 @@ const theme = ref({
         hover:text-surface-700 dark:hover:text-surface-0 
         p-active:text-surface-700 dark:p-active:text-surface-0
         transition-colors duration-200
-        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-primary`,
-    toggleicon: ``
+        focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-primary`
 });
 </script>
