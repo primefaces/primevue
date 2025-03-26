@@ -65,7 +65,7 @@ export default defineNuxtConfig({
                 { property: 'og:title', content: 'Tailwind CSS based Vue UI Component Library' },
                 { property: 'og:url', content: 'https://tailwind.primevue.org/' },
                 { property: 'og:description', content: 'Build your own UI library with the flexibility of Tailwind CSS and the convenience of PrimeVue components.' },
-                { property: 'og:image', content: 'https://www.primefaces.org/static/social/primevue-preview.jpg' },
+                { property: 'og:image', content: 'https://www.primefaces.org/static/social/volt.jpg' },
                 { property: 'og:ttl', content: '604800' }
             ],
             link: [
