@@ -15,7 +15,7 @@
 import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
-const value = ref('One Way');
+const value = ref('One-Way');
 const options = ref(['One-Way', 'Return']);
 
 const code = ref(`
@@ -29,7 +29,7 @@ const code = ref(`
 import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
-const value = ref('One Way');
+const value = ref('One-Way');
 const options = ref(['One-Way', 'Return']);
 <\/script>
 `);
