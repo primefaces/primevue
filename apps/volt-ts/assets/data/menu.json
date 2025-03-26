@@ -1,0 +1,319 @@
+{
+    "data": [
+        {
+            "name": "Overview",
+            "to": "/overview",
+            "icon": "pi pi-bolt"
+        },
+        {
+            "name": "Getting Started",
+            "icon": "pi pi-cloud-download",
+            "children": [
+                {
+                    "name": "Vite",
+                    "to": "/vite"
+                },
+                {
+                    "name": "Nuxt",
+                    "to": "/nuxt"
+                }
+            ]
+        },
+        {
+            "name": "Components",
+            "icon": "pi pi-compass",
+            "children": [
+                {
+                    "name": "Accordion",
+                    "to": "/accordion"
+                },
+                {
+                    "name": "AutoComplete",
+                    "to": "/autocomplete"
+                },
+                {
+                    "name": "Avatar",
+                    "to": "/avatar"
+                },
+                {
+                    "name": "Badge",
+                    "to": "/badge"
+                },
+                {
+                    "name": "Breadcrumb",
+                    "to": "/breadcrumb"
+                },
+                {
+                    "name": "Button",
+                    "to": "/button"
+                },
+                {
+                    "name": "Card",
+                    "to": "/card"
+                },
+                {
+                    "name": "Checkbox",
+                    "to": "/checkbox"
+                },
+                {
+                    "name": "Chip",
+                    "to": "/chip"
+                },
+                {
+                    "name": "ConfirmDialog",
+                    "to": "/confirmdialog"
+                },
+                {
+                    "name": "DataView",
+                    "to": "/dataview"
+                },
+                {
+                    "name": "DataTable",
+                    "to": "/datatable"
+                },
+                {
+                    "name": "DatePicker",
+                    "to": "/datepicker"
+                },
+                {
+                    "name": "Dialog",
+                    "to": "/dialog"
+                },
+                {
+                    "name": "Divider",
+                    "to": "/divider"
+                },
+                {
+                    "name": "Drawer",
+                    "to": "/drawer"
+                },
+                {
+                    "name": "Fieldset",
+                    "to": "/fieldset"
+                },
+                {
+                    "name": "Fluid",
+                    "to": "/fluid"
+                },
+                {
+                    "name": "IconField",
+                    "to": "/iconfield"
+                },
+                {
+                    "name": "Inplace",
+                    "to": "/inplace"
+                },
+                {
+                    "name": "InputGroup",
+                    "to": "/inputgroup"
+                },
+                {
+                    "name": "InputMask",
+                    "to": "/inputmask"
+                },
+                {
+                    "name": "InputNumber",
+                    "to": "/inputnumber"
+                },
+                {
+                    "name": "InputOtp",
+                    "to": "/inputotp"
+                },
+                {
+                    "name": "InputText",
+                    "to": "/inputtext"
+                },
+                {
+                    "name": "Listbox",
+                    "to": "/listbox"
+                },
+                {
+                    "name": "Menu",
+                    "to": "/menu"
+                },
+                {
+                    "name": "Message",
+                    "to": "/message"
+                },
+                {
+                    "name": "MeterGroup",
+                    "to": "/metergroup"
+                },
+                {
+                    "name": "MultiSelect",
+                    "to": "/multiselect"
+                },
+                {
+                    "name": "Paginator",
+                    "to": "/paginator"
+                },
+                {
+                    "name": "Panel",
+                    "to": "/panel"
+                },
+                {
+                    "name": "Password",
+                    "to": "/password"
+                },
+                {
+                    "name": "Popover",
+                    "to": "/popover"
+                },
+                {
+                    "name": "ProgressBar",
+                    "to": "/progressbar"
+                },
+                {
+                    "name": "RadioButton",
+                    "to": "/radiobutton"
+                },
+                {
+                    "name": "Rating",
+                    "to": "/rating"
+                },
+                {
+                    "name": "Select",
+                    "to": "/select"
+                },
+                {
+                    "name": "SelectButton",
+                    "to": "/selectbutton"
+                },
+                {
+                    "name": "Skeleton",
+                    "to": "/skeleton"
+                },
+                {
+                    "name": "Slider",
+                    "to": "/slider"
+                },
+                {
+                    "name": "Splitter",
+                    "to": "/splitter"
+                },
+                {
+                    "name": "Stepper",
+                    "to": "/stepper"
+                },
+                {
+                    "name": "Tabs",
+                    "to": "/tabs"
+                },
+                {
+                    "name": "Tag",
+                    "to": "/tag"
+                },
+                {
+                    "name": "Textarea",
+                    "to": "/textarea"
+                },
+                {
+                    "name": "Timeline",
+                    "to": "/timeline"
+                },
+                {
+                    "name": "Toast",
+                    "to": "/toast"
+                },
+                {
+                    "name": "ToggleButton",
+                    "to": "/togglebutton"
+                },
+                {
+                    "name": "ToggleSwitch",
+                    "to": "/toggleswitch"
+                },
+                {
+                    "name": "Toolbar",
+                    "to": "/toolbar"
+                },
+                {
+                    "name": "Tree",
+                    "to": "/tree"
+                }
+            ]
+        },
+        {
+            "name": "Icons",
+            "icon": "pi pi-eye",
+            "to": "/icons"
+        },
+        {
+            "icon": "pi pi-star",
+            "name": "Animations",
+            "to": "/animations"
+        },
+        {
+            "name": "Forms",
+            "icon": "pi pi-check",
+            "href": "https://primevue.org/forms"
+        },
+        {
+            "name": "Figma UI Kit",
+            "icon": "pi pi-pencil",
+            "href": "https://primevue.org/uikit"
+        },
+        {
+            "name": "Templates",
+            "icon": "pi pi-heart",
+            "href": "https://primevue.org/templates"
+        },
+        {
+            "name": "Support",
+            "icon": "pi pi-question",
+            "children": [
+                {
+                    "name": "Discord Server",
+                    "href": "https://discord.gg/gzKFYnpmCY"
+                },
+                {
+                    "name": "Forum",
+                    "href": "https://github.com/orgs/primefaces/discussions"
+                },
+                {
+                    "name": "PRO Support",
+                    "href": "https://primevue.org/support"
+                }
+            ]
+        },
+        {
+            "name": "Discover",
+            "icon": "pi pi-search",
+            "children": [
+                {
+                    "name": "About Us",
+                    "href": "https://primevue.org/team"
+                },
+                {
+                    "name": "Newsletter",
+                    "href": "https://www.primefaces.org/newsletter"
+                },
+                {
+                    "name": "PrimeGear",
+                    "href": "https://gear.primefaces.org"
+                },
+                {
+                    "name": "Source Code",
+                    "href": "https://github.com/primefaces/primevue/tree/master/apps/volt/volt"
+                },
+                {
+                    "name": "Store",
+                    "href": "https://www.primefaces.org/store/"
+                },
+                {
+                    "name": "Twitter",
+                    "href": "https://twitter.com/primevue"
+                },
+                {
+                    "name": "PrimeTV",
+                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                }
+            ]
+        },
+        {
+            "name": "PrimeBlocks",
+            "icon": "pi pi-server",
+            "href": "https://primeblocks.org"
+        }
+    ]
+}

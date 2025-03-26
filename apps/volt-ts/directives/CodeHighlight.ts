@@ -1,0 +1,42 @@
+import { isClient } from '@primeuix/utils/dom';
+
+const highlightElement = (codeElement) => {
+    if (isClient()) {
+        codeElement.parentElement.setAttribute('tabindex', '-1');
+
+        window.Prism.languages.bash = Prism.languages.extend('bash', {
+            command: /\b(npx|volt-vue|add)\b/,
+            component: /\b(Accordion|AccordionPanel|AccordionHeader|AccordionContent)\b/
+        });
+
+        window.Prism.hooks.add('wrap', function (env) {
+            if (env.type === 'command') {
+                env.attributes['style'] = 'color: #ff5f56; font-weight: bold;';
+            }
+            if (env.type === 'component') {
+                env.attributes['style'] = 'color: #4ec9b0;';
+            }
+        });
+
+        window.Prism.highlightElement(codeElement);
+    }
+};
+
+const CodeHighlight = {
+    mounted(el, binding) {
+        const modifiers = binding.modifiers;
+        const value = binding.value;
+
+        if (modifiers.script || value === 'script') el.className = 'language-javascript';
+        else if (modifiers.css || value === 'css') el.className = 'language-css';
+        else if (modifiers.bash || value === 'bash') el.className = 'language-bash';
+        else el.className = 'language-markup';
+
+        highlightElement(el.children[0]);
+    },
+    updated(el) {
+        highlightElement(el.children[0]);
+    }
+};
+
+export default CodeHighlight;

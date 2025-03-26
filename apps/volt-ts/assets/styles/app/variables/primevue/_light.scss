@@ -1,0 +1,28 @@
+:root {
+    --p-primary-color: var(--p-primary-500);
+    --p-primary-contrast-color: var(--p-surface-0);
+    --p-primary-hover-color: var(--p-primary-600);
+    --p-primary-active-color: var(--p-primary-700);
+    --p-content-border-color: var(--p-surface-200);
+    --p-content-hover-background: var(--p-surface-100);
+    --p-content-hover-color: var(--p-surface-800);
+    --p-highlight-background: var(--p-primary-50);
+    --p-highlight-color: var(--p-primary-700);
+    --p-highlight-focus-background: var(--p-primary-100);
+    --p-highlight-focus-color: var(--p-primary-800);
+    --p-text-color: var(--p-surface-700);
+    --p-text-hover-color: var(--p-surface-800);
+    --p-text-muted-color: var(--p-surface-500);
+    --p-text-hover-muted-color: var(--p-surface-600);
+}
+
+:root.p-noir {
+    --p-primary-color: var(--p-primary-950);
+    --p-primary-contrast-color: #ffffff;
+    --p-primary-hover-color: var(--p-primary-800);
+    --p-primary-active-color: var(--p-primary-700);
+    --p-highlight-background: var(--p-surface-950);
+    --p-highlight-color: #ffffff;
+    --p-highlight-focus-background: var(--p-surface-700);
+    --p-highlight-focus-color: #ffffff;
+}

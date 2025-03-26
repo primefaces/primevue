@@ -35,7 +35,7 @@
         "dev": "pnpm --filter showcase dev",
         "preview": "pnpm --filter showcase preview",
         "hot:dev": "DEV_ENV=hot pnpm --filter showcase dev",
-        "volt:dev": "pnpm --filter volt dev",
+        "volt:dev": "pnpm --filter volt-ts dev",
         "module:dev": "pnpm --filter @primevue/nuxt-module dev",
         "security:check": "pnpm audit --prod --audit-level high",
         "lint": "eslint .",

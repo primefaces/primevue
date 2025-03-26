@@ -1,0 +1,440 @@
+@mixin mark() {
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal;
+    background: var(--mark-background);
+    color: var(--mark-text);
+}
+
+.mark {
+    @include mark();
+}
+
+.doc-tabmenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-bottom: 2rem;
+    overflow: auto;
+    position: relative;
+
+    &:after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+        content: '';
+    }
+
+    li {
+        position: relative;
+        z-index: 1;
+
+        button {
+            background-color: transparent;
+            border: 0 none;
+            display: block;
+            padding-block: 0 1rem;
+            padding-inline: 2rem;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin: 0;
+            transition: outline-color 0.2s, border-color 0.2s;
+            outline-color: transparent;
+            border-bottom: 1px solid transparent;
+            border-start-end-radius: 6px;
+            border-start-start-radius: 6px;
+            white-space: nowrap;
+            --p-focus-ring-offset: -1px;
+            @include focus-visible();
+
+            &:hover {
+                border-bottom-color: var(--hover-border-color);
+            }
+
+            &:focus {
+                outline: 0 none;
+            }
+
+        }
+
+        &.doc-tabmenu-active {
+            button {
+                border-bottom-color: var(--primary-text-color);
+                color: var(--primary-text-color);
+            }
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.doc-tabpanel,
+.doc {
+    display: flex;
+}
+
+.doc-main {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 0;
+}
+
+.doc-intro {
+    margin-bottom: 1.5rem;
+
+    p {
+        font-size: 1.25rem;
+        margin: 0;
+
+        a {
+            @include doc-link();
+        }
+    }
+}
+
+.doc-link {
+    @include doc-link();
+}
+
+.doc-section-label {
+    display: flex;
+    align-items: center;
+    scroll-margin-top: 6.5rem;
+
+    > a {
+        color: var(--primary-text-color);
+        opacity: 0.7;
+        margin-inline-start: 1rem;
+        display: none;
+        transition: outline-color 0.2s, border-color 0.2s, opacity 0.2s;
+        outline-color: transparent;
+        border-radius: 6px;
+        @include focus-visible();
+    }
+
+    > .doc-section-label-badge {
+        margin-inline-start: 0.5rem;
+    }
+
+    &:has(.doc-section-label-badge) {
+        line-height: 1;
+    }
+
+    &:hover {
+        > a {
+            display: block;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.doc-section-description {
+    > p {
+        font-size: 1.125rem;
+
+        i {
+            @include mark();
+        }
+
+        a {
+            @include doc-link();
+        }
+    }
+
+    li {
+        font-size: 1.125rem;
+    }
+}
+
+.doc-notification {
+    line-height: 1.5;
+    padding: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background: var(--mark-background);
+    color: var(--mark-text);
+    margin-bottom: 1rem;
+}
+
+.doc-section-nav {
+    position: sticky;
+    top: 6rem;
+    right: 0;
+    width: 14rem;
+    max-height: calc(100vh - 15rem);
+    list-style: none;
+    margin: 0;
+    padding-block: 0.25rem;
+    padding-inline: 0;
+    margin-inline-start: 4rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-self: flex-start;
+
+    > .navbar-item {
+        .navbar-item-content {
+            border-inline-start: 1px solid var(--border-color);
+            padding-inline-start: .25rem;
+            transition: all .2s;
+
+            &:hover {
+                border-inline-start-color: var(--hover-border-color);
+            }
+        }
+    }
+
+    .navbar-item {
+        > .navbar-item-content {
+            display: flex;
+
+            button {
+                font-size: 1rem;
+                text-align: start;
+                background: transparent;
+                margin: 0;
+                border: 0 none;
+                padding-block: 0.25rem;
+                padding-inline: 1rem;
+                color: var(--text-secondary-color);
+                white-space: nowrap;
+                min-width: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: outline-color 0.2s, border-color .2s;
+                outline-color: transparent;
+                cursor: pointer;
+                user-select: none;
+                --p-focus-ring-offset: -1px;
+                @include focus-visible();
+            }
+
+            &:hover {
+                button {
+                    color: var(--text-color);
+                }
+            }
+        }
+
+        &.active-navbar-item {
+            > .navbar-item-content {
+                border-color: var(--primary-text-color);
+
+                button {
+                    color: var(--primary-text-color);
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .navbar-item {
+                .navbar-item-content {
+                    padding-inline-start: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.doc-section-code {
+    position: relative;
+
+    div {
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    &:hover {
+        .doc-section-code-buttons {
+            display: flex;
+        }
+    }
+}
+
+.doc-section-code-buttons {
+    position: absolute;
+    align-items: center;
+    justify-content: end;
+    z-index: 1;
+    top: .75rem;
+    right: .75rem;
+    gap: .5rem;
+    display: none;
+    background: rgba(255,255,255,.05);
+    border-radius: 10px;
+    padding: 2px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    button {
+        outline: 0 none;
+        border-radius: 8px;
+        outline-offset: 0;
+        background-color: transparent;
+        transition: background-color .2s, box-shadow .2s;
+        border: 0 none;
+        color: var(--code-button-text-color);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255,255,255,.1);
+            color: var(--code-button-text-color);
+        }
+
+        &.code-active {
+            color: #bbf7d0;
+        }
+    }
+}
+
+.doc-section-code-tooltip .p-tooltip-text {
+    padding: 0.5rem;
+    font-size: 11px;
+}
+
+
+
+.doc-tablewrapper {
+    overflow: auto;
+}
+
+.doc-table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 960px;
+    margin-bottom: 1.5rem;
+
+    th {
+        border-bottom: 1px solid var(--border-color);
+        padding-block: .75rem;
+        padding-inline: 1rem;
+        text-align: start;
+        text-transform: capitalize;
+    }
+
+    tbody {
+        tr:hover {
+            background: var(--hover-background);
+        }
+
+        td {
+            padding-block: .75rem;
+            padding-inline: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            white-space: pre-line;
+            line-height: 1.5;
+            scroll-margin-top: 6.5rem;
+
+            &:first-child {
+                color: var(--primary-text-color);
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                font-weight: 600;
+            }
+
+            .doc-option-type {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                color: var(--primary-text-color);
+                font-weight: 500;
+
+                .doc-option-type-options-container {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &.doc-option-link {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .doc-option-name, i:not(.pi) {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                position: relative;
+                scroll-margin-top: 6.5rem;
+                background-color: var(--mark-background);
+                color: var(--mark-text);
+                border-radius: 6px;
+                padding-block: 2px;
+                padding-inline: 6px;
+                font-weight: 600;
+                font-style: normal;
+                white-space: nowrap;
+
+                .doc-option-link {
+                    position: absolute;
+                    top: 0;
+                    right: -1.5rem;
+                    color: var(--primary-text-color);
+                    opacity: 0.7;
+                    display: none;
+                    transition: opacity 0.3s, colors 0.3s;
+                }
+            }
+
+            &:hover {
+                .doc-option-name {
+                    .doc-option-link {
+                        display: inline;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .doc-option-default,
+            .doc-option-returnType {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                font-weight: 400;
+                font-style: normal;
+                display: flex;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 6px;
+                padding-block: 2px;
+                padding-inline: 6px;
+                max-width: min-content;
+                border-color: var(--border-color);
+                background-color: var(--card-background);
+                color: var(--text-secondary-color);
+            }
+
+            .doc-option-parameter-name {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            }
+
+            .doc-option-parameter-type {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+                color: var(--primary-text-color);
+            }
+
+            .doc-option-params {
+                font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, Liberation Mono, monospace;
+            }
+        }
+    }
+}
