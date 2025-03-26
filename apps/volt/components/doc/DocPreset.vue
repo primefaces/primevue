@@ -3,8 +3,8 @@
         <div class="doc-intro">
             <h1>{{ introText }}</h1>
         </div>
-        <div class="xl:pe-72 mb-6">
-            <DocSectionCode :code="code" />
+        <div class="xl:pe-72 mb-6 relative">
+            <DocSectionCode :code="code" :class="{ 'animate-pulse': loading }" />
         </div>
     </div>
 </template>
@@ -23,13 +23,15 @@ export default {
     },
     data() {
         return {
-            code: ''
+            code: '',
+            loading: false
         };
     },
     async mounted() {
         if (this.presetKey) {
+            this.loading = true;
             const content = await import(`../../volt/${this.presetKey}.vue?raw`);
-
+            this.loading = false;
             this.code = '\n' + content.default;
         }
     }
