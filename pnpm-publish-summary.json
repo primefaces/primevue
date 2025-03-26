@@ -1,36 +1,36 @@
 {
-	"publishedPackages": [
-		{
-			"name": "@primevue/core",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/metadata",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/themes",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/auto-import-resolver",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/forms",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/icons",
-			"version": "4.3.3"
-		},
-		{
-			"name": "primevue",
-			"version": "4.3.3"
-		},
-		{
-			"name": "@primevue/nuxt-module",
-			"version": "4.3.3"
-		}
-	]
+    "publishedPackages": [
+        {
+            "name": "@primevue/core",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/metadata",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/themes",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/auto-import-resolver",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/forms",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/icons",
+            "version": "4.3.3"
+        },
+        {
+            "name": "primevue",
+            "version": "4.3.3"
+        },
+        {
+            "name": "@primevue/nuxt-module",
+            "version": "4.3.3"
+        }
+    ]
 }
