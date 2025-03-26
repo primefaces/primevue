@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Step from 'primevue/step';
+import Step, { type StepPassThroughOptions, type StepProps } from 'primevue/step';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ StepProps {}
+defineProps<Props>();
+
+const theme = ref<StepPassThroughOptions>({
     root: `relative flex flex-auto items-center gap-4 p-2 last-of-type:flex-initial p-vertical:flex-initial`,
     header: `order-none inline-flex items-center no-underline cursor-pointer p-readonly:cursor-auto p-active:cursor-auto
         transition-colors duration-200 rounded-md bg-transparent p-0 gap-2

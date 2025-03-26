@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import SelectButton from 'primevue/selectbutton';
+import SelectButton, { type SelectButtonPassThroughOptions, type SelectButtonProps } from 'primevue/selectbutton';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ SelectButtonProps {}
+defineProps<Props>();
+
+const theme = ref<SelectButtonPassThroughOptions>({
     root: `inline-flex select-none rounded-md
         p-invalid:outline p-invalid:outline-offset-0 p-invalid:outline-red-400 dark:p-invalid:outline-red-300`,
     pcToggleButton: {

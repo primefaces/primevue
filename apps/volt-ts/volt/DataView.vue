@@ -46,19 +46,22 @@ import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
-import DataView from 'primevue/dataview';
+import DataView, { type DataViewPassThroughOptions, type DataViewProps } from 'primevue/dataview';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ DataViewProps {}
+defineProps<Props>();
+
+const theme = ref<DataViewPassThroughOptions>({
     root: `border-none`,
-    header: `py-3 px-4 border-b border-surface-200 dark:border-surface-700
+    header: `py-3 px-4 border-b border-surface-200 dark:border-surface-700 
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0`,
     content: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`,
     emptyMessage: ``,
-    footer: `py-3 px-4 border-t border-surface-200 dark:border-surface-700
+    footer: `py-3 px-4 border-t border-surface-200 dark:border-surface-700 
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0`,
     pcPaginator: {

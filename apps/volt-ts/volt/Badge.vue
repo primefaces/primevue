@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Badge from 'primevue/badge';
+import Badge, { type BadgePassThroughOptions, type BadgeProps } from 'primevue/badge';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ BadgeProps {}
+defineProps<Props>();
+
+const theme = ref<BadgePassThroughOptions>({
     root: `inline-flex items-center justify-center rounded-md
         py-0 px-2 text-xs font-bold min-w-6 h-6
         bg-primary text-primary-contrast

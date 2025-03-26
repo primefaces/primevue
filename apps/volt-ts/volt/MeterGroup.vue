@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import MeterGroup from 'primevue/metergroup';
+import MeterGroup, { type MeterGroupPassThroughOptions, type MeterGroupProps } from 'primevue/metergroup';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ MeterGroupProps {}
+defineProps<Props>();
+
+const theme = ref<MeterGroupPassThroughOptions>({
     root: `flex gap-4 p-horizontal:flex-col p-vertical:flex-row`,
     meters: `flex bg-surface-200 dark:bg-surface-700 rounded-md p-horizontal:h-2 p-vertical:flex-col p-vertical:w-2 p-vertical:h-full`,
     meter: `p-horizontal:first-of-type:rounded-s-md p-horizontal:last-of-type:rounded-e-md

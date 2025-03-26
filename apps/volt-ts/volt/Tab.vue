@@ -11,11 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import Tab from 'primevue/tab';
+import Tab, { type TabPassThroughOptions, type TabProps } from 'primevue/tab';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TabProps {}
+defineProps<Props>();
+
+const theme = ref<TabPassThroughOptions>({
     root: `flex-shrink-0 cursor-pointer select-none relative whitespace-nowrap py-4 px-[1.125rem]
         border-b border-surface-200 dark:border-surface-700 font-semibold
         text-surface-500 dark:text-surface-400

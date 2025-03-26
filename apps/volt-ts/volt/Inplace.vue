@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Inplace from 'primevue/inplace';
+import Inplace, { type InplacePassThroughOptions, type InplaceProps } from 'primevue/inplace';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ InplaceProps {}
+defineProps<Props>();
+
+const theme = ref<InplacePassThroughOptions>({
     root: ``,
     display: `inline-block cursor-pointer border border-transparent px-3 py-2 rounded-md p-disabled:pointer-events-none
         hover:bg-surface-100 dark:hover:bg-surface-800 hover:text-surface-800 dark:hover:text-surface-0

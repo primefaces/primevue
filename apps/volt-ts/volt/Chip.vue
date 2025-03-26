@@ -21,11 +21,14 @@
 
 <script setup lang="ts">
 import TimesCircleIcon from '@primevue/icons/timescircle';
-import Chip from 'primevue/chip';
+import Chip, { type ChipPassThroughOptions, type ChipProps } from 'primevue/chip';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ChipProps {}
+defineProps<Props>();
+
+const theme = ref<ChipPassThroughOptions>({
     root: `inline-flex items-center rounded-2xl gap-2 px-3 py-2
         bg-surface-100 dark:bg-surface-800
         text-surface-800 dark:text-surface-0

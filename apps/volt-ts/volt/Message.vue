@@ -17,11 +17,14 @@
 
 <script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Message from 'primevue/message';
+import Message, { type MessagePassThroughOptions, type MessageProps } from 'primevue/message';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ MessageProps {}
+defineProps<Props>();
+
+const theme = ref<MessagePassThroughOptions>({
     root: `rounded-md outline outline-1
         p-outlined:bg-transparent p-outlined:outline p-outlined:outline-1
         p-simple:bg-transparent p-simple:outline-none
@@ -63,7 +66,7 @@ const theme = ref({
         p-contrast:hover:bg-surface-800 p-contrast:focus-visible:outline-surface-50 dark:p-contrast:hover:bg-surface-100 dark:p-contrast:focus-visible:outline-surface-950
         p-outlined:hover:bg-transparent p-simple:hover:bg-transparent`,
     closeIcon: `w-4 h-4 text-base
-        p-small:w-3.5 p-small:h-3.5 p-small:text-sm
+        p-small:w-3.5 p-small:h-3.5 p-small:text-sm 
         p-large:w-[1.125rem] p-large:h-[1.125rem] p-large:text-xl`,
     transition: {
         enterFromClass: 'opacity-0',

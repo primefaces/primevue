@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Avatar from 'primevue/avatar';
+import Avatar, { type AvatarPassThroughOptions, type AvatarProps } from 'primevue/avatar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ AvatarProps {}
+defineProps<Props>();
+
+const theme = ref<AvatarPassThroughOptions>({
     root: `inline-flex items-center justify-center
         w-8 h-8 text-base rounded-md
         bg-surface-200 dark:bg-surface-700

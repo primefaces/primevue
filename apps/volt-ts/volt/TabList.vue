@@ -11,9 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import TabList from 'primevue/tablist';
+import TabList, { type TabListPassThroughOptions, type TabListProps } from 'primevue/tablist';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
+
+interface Props extends /* @vue-ignore */ PanelTabListPropsProps {}
+defineProps<Props>();
 
 const navButton = `!absolute flex-shrink-0 top-0 z-20 h-full flex items-center justify-center cursor-pointer
         bg-surface-0 dark:bg-surface-900 text-surface-500 dark:text-surface-400 hover:text-surface-700 dark:hover:text-surface-0 w-10
@@ -21,7 +24,7 @@ const navButton = `!absolute flex-shrink-0 top-0 z-20 h-full flex items-center j
         focus-visible:z-10 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-primary
         transition-colors duration-200`;
 
-const theme = ref({
+const theme = ref<TabListPassThroughOptions>({
     root: `flex relative`,
     prevButton: navButton + ` start-0`,
     nextButton: navButton + ` end-0`,

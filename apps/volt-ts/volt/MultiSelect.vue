@@ -29,11 +29,14 @@ import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import TimesIcon from '@primevue/icons/times';
-import MultiSelect from 'primevue/multiselect';
+import MultiSelect, { type MultiSelectPassThroughOptions, type MultiSelectProps } from 'primevue/multiselect';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ MultiSelectProps {}
+defineProps<Props>();
+
+const theme = ref<MultiSelectPassThroughOptions>({
     root: `inline-flex cursor-pointer relative select-none rounded-md p-fluid:flex
         bg-surface-0 dark:bg-surface-950
         border border-surface-300 hover:border-surface-400 dark:border-surface-600 dark:hover:border-surface-700
@@ -45,7 +48,7 @@ const theme = ref({
         transition-colors duration-200`,
     labelContainer: `overflow-hidden flex-auto`,
     label: `flex items-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis px-3 py-2 p-has-chip:py-1 p-has-chip:px-[0.375rem]
-        text-surface-700 dark:text-surface-0
+        text-surface-700 dark:text-surface-0 
         p-placeholder:text-surface-500 dark:p-placeholder:text-surface-400
         p-disabled:text-surface-500 dark:p-disabled:text-surface-400
         p-empty:overflow-hidden p-empty:opacity-0
@@ -62,7 +65,7 @@ const theme = ref({
     },
     dropdown: `flex items-center justify-center shrink-0 bg-transparent
         text-surface-400 w-10 rounded-e-md`,
-    overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full
+    overlay: `absolute top-0 left-0 rounded-md p-portal-self:min-w-full 
         bg-surface-0 dark:bg-surface-900
         border border-surface-200 dark:border-surface-700
         text-surface-700 dark:text-surface-0
@@ -70,7 +73,7 @@ const theme = ref({
     header: `flex items-center pt-2 pb-1 px-4 gap-2`,
     pcHeaderCheckbox: {
         root: `relative inline-flex select-none w-5 h-5 align-bottom`,
-        input: `peer cursor-pointer disabled:cursor-default appearance-none
+        input: `peer cursor-pointer disabled:cursor-default appearance-none 
             absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
             border border-transparent rounded-xs`,
         box: `flex justify-center items-center rounded-sm w-5 h-5
@@ -80,7 +83,7 @@ const theme = ref({
             peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
             p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast
             peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
-            peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline
+            peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
             p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700 p-disabled:text-surface-700 dark:p-disabled:text-surface-400
             shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200`,
         icon: `text-sm w-[0.875rem] h-[0.875rem] transition-none`
@@ -115,7 +118,7 @@ const theme = ref({
     optionLabel: ``,
     pcOptionCheckbox: {
         root: `relative inline-flex select-none w-5 h-5 align-bottom`,
-        input: `peer cursor-pointer disabled:cursor-default appearance-none
+        input: `peer cursor-pointer disabled:cursor-default appearance-none 
             absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
             border border-transparent rounded-xs`,
         box: `flex justify-center items-center rounded-sm w-5 h-5
@@ -125,7 +128,7 @@ const theme = ref({
             peer-enabled:peer-hover:border-surface-400 dark:peer-enabled:peer-hover:border-surface-600
             p-checked:border-primary p-checked:bg-primary p-checked:text-primary-contrast
             peer-enabled:peer-hover:p-checked:bg-primary-emphasis peer-enabled:peer-hover:p-checked:border-primary-emphasis
-            peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline
+            peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
             p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700 p-disabled:text-surface-700 dark:p-disabled:text-surface-400
             shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200`,
         icon: `text-sm w-[0.875rem] h-[0.875rem] transition-none`

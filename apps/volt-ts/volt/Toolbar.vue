@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import Toolbar from 'primevue/toolbar';
+import Toolbar, { type ToolbarPassThroughOptions, type ToolbarProps } from 'primevue/toolbar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ToolbarProps {}
+defineProps<Props>();
+
+const theme = ref<ToolbarPassThroughOptions>({
     root: `flex items-center justify-between flex-wrap p-3 gap-2
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0

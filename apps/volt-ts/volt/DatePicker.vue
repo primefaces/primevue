@@ -94,7 +94,7 @@
     </DatePicker>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import CalendarIcon from '@primevue/icons/calendar';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';

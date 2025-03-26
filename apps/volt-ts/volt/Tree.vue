@@ -23,11 +23,14 @@
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import SearchIcon from '@primevue/icons/search';
-import Tree from 'primevue/tree';
+import Tree, { type TreePassThroughOptions, type TreeProps } from 'primevue/tree';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TreeProps {}
+defineProps<Props>();
+
+const theme = ref<TreePassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-4
         p-scrollable:flex p-scrollable:flex-1 p-scrollable:h-full p-scrollable:flex-col`,
     pcFilterContainer: {
@@ -53,9 +56,9 @@ const theme = ref({
     rootChildren: `flex flex-col list-none m-0 gap-[4px] pt-[2px] pb-0 px-0`,
     node: `p-0 outline-none focus-visible:*:first:outline focus-visible:*:first:-outline-offset-1 focus-visible:*:first:outline-primary`,
     nodeContent: `group rounded-md px-2 py-1 flex items-center text-surface-700 dark:text-surface-0 gap-1 transition-colors duration-200
-        hover:p-selectable:not-p-selected:bg-surface-100 hover:p-selectable:not-p-selected:text-surface-700
+        hover:p-selectable:not-p-selected:bg-surface-100 hover:p-selectable:not-p-selected:text-surface-700 
         dark:hover:p-selectable:not-p-selected:bg-surface-800 dark:hover:p-selectable:not-p-selected:text-surface-0
-        p-selected:bg-highlight
+        p-selected:bg-highlight 
         p-selectable:cursor-pointer p-selectable:select-none`,
     nodeToggleButton: `cursor-pointer select-none inline-flex justify-center rounded-full items-center overflow-hidden relative flex-shrink-0
         w-7 h-7 p-0 p-leaf:invisible transition-colors duration-200 border-none
@@ -65,13 +68,13 @@ const theme = ref({
         group-p-selected:text-inherit`,
     nodeToggleIcon: ``,
     nodeIcon: `text-surface-500 dark:text-surface-400 group-p-selected:text-primary
-        group-hover:group-p-selectable:not-group-p-selected:text-surface-600
+        group-hover:group-p-selectable:not-group-p-selected:text-surface-600 
         dark:group-hover:group-p-selectable:not-group-p-selected:text-surface-300
         transition-colors duration-200`,
     nodeLabel: ``,
     pcNodeCheckbox: {
         root: `relative inline-flex select-none w-5 h-5 align-bottom`,
-        input: `peer cursor-pointer disabled:cursor-default appearance-none
+        input: `peer cursor-pointer disabled:cursor-default appearance-none 
             absolute start-0 top-0 w-full h-full m-0 p-0 opacity-0 z-10
             border border-transparent rounded-xs`,
         box: `flex justify-center items-center rounded-sm w-5 h-5

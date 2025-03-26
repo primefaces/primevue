@@ -6,7 +6,7 @@ const highlightElement = (codeElement) => {
 
         window.Prism.languages.bash = Prism.languages.extend('bash', {
             command: /\b(npx|volt-vue|add)\b/,
-            component: /\b(Accordion|AccordionPanel|AccordionHeader|AccordionContent)\b/
+            component: /\b(.*)\b/
         });
 
         window.Prism.hooks.add('wrap', function (env) {

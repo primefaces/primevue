@@ -5,5 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import Fluid from 'primevue/fluid';
+import Fluid, { type FluidProps } from 'primevue/fluid';
+
+interface Props extends /* @vue-ignore */ FluidProps {}
+defineProps<Props>();
 </script>

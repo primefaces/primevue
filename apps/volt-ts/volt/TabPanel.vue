@@ -11,11 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import TabPanel from 'primevue/tabpanel';
+import TabPanel, { type TabPanelPassThroughOptions, type TabPanelProps } from 'primevue/tabpanel';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TabPanelProps {}
+defineProps<Props>();
+
+const theme = ref<TabPanelPassThroughOptions>({
     root: ``
 });
 </script>

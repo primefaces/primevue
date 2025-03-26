@@ -17,11 +17,14 @@
 <script setup lang="ts">
 import ChevronUpIcon from '@primevue/icons/chevrondown';
 import ChevronDownIcon from '@primevue/icons/chevronup';
-import AccordionHeader from 'primevue/accordionheader';
+import AccordionHeader, { type AccordionHeaderPassThroughOptions, type AccordionHeaderProps } from 'primevue/accordionheader';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ AccordionHeaderProps {}
+defineProps<Props>();
+
+const theme = ref<AccordionHeaderPassThroughOptions>({
     root: `cursor-pointer disabled:pointer-events-none disabled:opacity-60 flex items-center justify-between p-[1.125rem] font-semibold
         bg-surface-0 dark:bg-surface-900
         text-surface-500 dark:text-surface-400

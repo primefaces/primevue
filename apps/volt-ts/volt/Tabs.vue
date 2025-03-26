@@ -11,11 +11,14 @@
 </template>
 
 <script setup lang="ts">
-import Tabs from 'primevue/tabs';
+import Tabs, { type TabsPassThroughOptions, type TabsProps } from 'primevue/tabs';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ TabsProps {}
+defineProps<Props>();
+
+const theme = ref<TabsPassThroughOptions>({
     root: `flex flex-col`
 });
 </script>

@@ -17,11 +17,14 @@
 
 <script setup lang="ts">
 import SearchIcon from '@primevue/icons/search';
-import Listbox from 'primevue/listbox';
+import Listbox, { type ListboxPassThroughOptions, type ListboxProps } from 'primevue/listbox';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ ListboxProps {}
+defineProps<Props>();
+
+const theme = ref<ListboxPassThroughOptions>({
     root: `group bg-surface-0 dark:bg-surface-950 text-surface-700 dark:text-surface-0
         border border-surface-300 dark:border-surface-700 rounded-md
         p-disabled:bg-surface-200 p-disabled:text-surface-500 dark:p-disabled:bg-surface-700 dark:p-disabled:text-surface-400 p-disabled:pointer-events-none

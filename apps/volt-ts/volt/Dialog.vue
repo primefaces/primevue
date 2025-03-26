@@ -31,12 +31,15 @@
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
-import Dialog from 'primevue/dialog';
+import Dialog, { type DialogPassThroughOptions, type DialogProps } from 'primevue/dialog';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ DialogProps {}
+defineProps<Props>();
+
+const theme = ref<DialogPassThroughOptions>({
     root: `max-h-[90%] max-w-screen rounded-xl
         border border-surface-200 dark:border-surface-700
         bg-surface-0 dark:bg-surface-900

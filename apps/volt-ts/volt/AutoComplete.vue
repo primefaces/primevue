@@ -17,14 +17,17 @@
 
 <script setup lang="ts">
 import ChevronDownIcon from '@primevue/icons/chevrondown';
-import AutoComplete from 'primevue/autocomplete';
+import AutoComplete, { type AutoCompletePassThroughOptions, type AutoCompleteProps } from 'primevue/autocomplete';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ AutoCompleteProps {}
+defineProps<Props>();
+
+const theme = ref<AutoCompletePassThroughOptions>({
     root: `inline-flex p-fluid:flex`,
     pcInputText: {
-        root: `appearance-none rounded-md outline-hidden
+        root: `appearance-none rounded-md outline-hidden 
             bg-surface-0 dark:bg-surface-950
             p-filled:bg-surface-50 dark:p-filled:bg-surface-800
             text-surface-700 dark:text-surface-0

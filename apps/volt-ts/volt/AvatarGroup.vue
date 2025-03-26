@@ -13,11 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import AvatarGroup from 'primevue/avatargroup';
+import AvatarGroup, { type AvatarGroupPassThroughOptions, type AvatarGroupProps } from 'primevue/avatargroup';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ AvatarGroupProps {}
+defineProps<Props>();
+
+const theme = ref<AvatarGroupPassThroughOptions>({
     root: `flex items-center *:border-2 *:border-surface-200 dark:*:border-surface-700 *:-ms-3`
 });
 </script>

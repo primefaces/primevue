@@ -21,11 +21,14 @@
 <script setup lang="ts">
 import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
-import Rating from 'primevue/rating';
+import Rating, { type RatingPassThroughOptions, type RatingProps } from 'primevue/rating';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-const theme = ref({
+interface Props extends /* @vue-ignore */ RatingProps {}
+defineProps<Props>();
+
+const theme = ref<RatingPassThroughOptions>({
     root: `relative flex items-center gap-1 p-disabled:opacity-60 p-disabled:pointer-events-none p-readonly:pointer-events-none`,
     option: `inline-flex items-center cursor-pointer rounded-full
         p-focus-visible:outline p-focus-visible:outline-1 p-focus-visible:outline-offset-2 p-focus-visible:outline-primary`

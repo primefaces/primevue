@@ -6,7 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import Badge from './Badge.vue';
+import Badge, { type BadgeProps } from './Badge.vue';
+
+interface Props extends /* @vue-ignore */ BadgeProps {}
+defineProps<Props>();
 
 defineOptions({
     inheritAttrs: false
