@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
-import InputOtp from '@/volt/inputotp';
+import InputOtp from '@/volt/InputOtp.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
@@ -63,7 +63,7 @@ const code = ref(`
 </template>
 
 <script setup lang="ts">
-import InputOtp from '@/volt/inputotp';
+import InputOtp from '@/volt/InputOtp.vue';
 import { ref } from 'vue';
 
 const value = ref(null);
