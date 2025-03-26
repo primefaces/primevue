@@ -13,7 +13,7 @@
 <script setup>
 import TabList from 'primevue/tablist';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const navButton = `!absolute flex-shrink-0 top-0 z-20 h-full flex items-center justify-center cursor-pointer
         bg-surface-0 dark:bg-surface-900 text-surface-500 dark:text-surface-400 hover:text-surface-700 dark:hover:text-surface-0 w-10

@@ -13,7 +13,7 @@
 <script setup>
 import Stepper from 'primevue/stepper';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `has-[[data-pc-name="stepitem"]]:flex has-[[data-pc-name="stepitem"]]:flex-col`,

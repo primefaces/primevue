@@ -15,7 +15,7 @@
 <script setup>
 import ToggleButton from 'primevue/togglebutton';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none

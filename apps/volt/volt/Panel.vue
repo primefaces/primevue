@@ -26,7 +26,7 @@ import PlusIcon from '@primevue/icons/plus';
 import Panel from 'primevue/panel';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `border border-surface-200 dark:border-surface-700 rounded-md

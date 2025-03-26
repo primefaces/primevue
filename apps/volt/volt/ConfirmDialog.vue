@@ -34,7 +34,7 @@ import ConfirmDialog from 'primevue/confirmdialog';
 import { ref } from 'vue';
 import Button from '../button';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `max-h-[90%] max-w-screen rounded-xl

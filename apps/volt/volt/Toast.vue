@@ -19,7 +19,7 @@
 import TimesIcon from '@primevue/icons/times';
 import Toast from 'primevue/toast';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `w-96 rounded-md whitespace-pre-line break-words

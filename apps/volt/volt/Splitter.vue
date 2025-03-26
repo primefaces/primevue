@@ -14,7 +14,7 @@
 <script setup>
 import Splitter from 'primevue/splitter';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 defineOptions({
     name: 'Splitter'

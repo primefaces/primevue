@@ -13,7 +13,7 @@
 <script setup>
 import Tabs from 'primevue/tabs';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex flex-col`

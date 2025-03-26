@@ -19,7 +19,7 @@
 import SearchIcon from '@primevue/icons/search';
 import Listbox from 'primevue/listbox';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `group bg-surface-0 dark:bg-surface-950 text-surface-700 dark:text-surface-0

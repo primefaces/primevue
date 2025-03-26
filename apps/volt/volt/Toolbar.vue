@@ -15,7 +15,7 @@
 <script setup>
 import Toolbar from 'primevue/toolbar';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex items-center justify-between flex-wrap p-3 gap-2

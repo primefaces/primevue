@@ -13,7 +13,7 @@
 <script setup>
 import TabPanel from 'primevue/tabpanel';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: ``

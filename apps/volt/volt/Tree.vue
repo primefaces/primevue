@@ -25,7 +25,7 @@ import ChevronRightIcon from '@primevue/icons/chevronright';
 import SearchIcon from '@primevue/icons/search';
 import Tree from 'primevue/tree';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-4

@@ -11,7 +11,7 @@
 <script setup>
 import Textarea from 'primevue/textarea';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `appearance-none rounded-md outline-hidden

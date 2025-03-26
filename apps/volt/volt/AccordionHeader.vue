@@ -19,7 +19,7 @@ import ChevronUpIcon from '@primevue/icons/chevrondown';
 import ChevronDownIcon from '@primevue/icons/chevronup';
 import AccordionHeader from 'primevue/accordionheader';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `cursor-pointer disabled:pointer-events-none disabled:opacity-60 flex items-center justify-between p-[1.125rem] font-semibold

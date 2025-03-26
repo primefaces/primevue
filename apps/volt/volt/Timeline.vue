@@ -15,7 +15,7 @@
 <script setup>
 import Timeline from 'primevue/timeline';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex flex-col flex-grow

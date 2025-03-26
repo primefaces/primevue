@@ -11,7 +11,7 @@
 <script setup>
 import RadioButton from 'primevue/radiobutton';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative inline-flex select-none w-5 h-5

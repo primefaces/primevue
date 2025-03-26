@@ -1,5 +1,11 @@
 <template>
-    <InputNumber unstyled :pt="theme">
+    <InputNumber
+        unstyled
+        :pt="theme"
+        :ptOptions="{
+            mergeProps: ptViewMerge
+        }"
+    >
         <template #incrementicon>
             <AngleUpIcon />
         </template>
@@ -17,6 +23,7 @@ import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
 import InputNumber from 'primevue/inputnumber';
 import { ref } from 'vue';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex relative 

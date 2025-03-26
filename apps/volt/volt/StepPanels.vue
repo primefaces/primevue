@@ -13,7 +13,7 @@
 <script setup>
 import StepPanels from 'primevue/steppanels';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `pt-[0.875rem] pb-[1.125rem] px-2`

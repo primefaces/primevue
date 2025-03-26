@@ -13,7 +13,7 @@
 <script setup>
 import AccordionPanel from 'primevue/accordionpanel';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex flex-col border-b border-surface-200 dark:border-surface-700`

@@ -13,7 +13,7 @@
 <script setup>
 import StepList from 'primevue/steplist';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative flex justify-between items-center m-0 p-0 list-none overflow-x-auto`

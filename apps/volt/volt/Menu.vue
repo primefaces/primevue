@@ -16,7 +16,7 @@
 <script setup>
 import Menu from 'primevue/menu';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `bg-surface-0 dark:bg-surface-900 

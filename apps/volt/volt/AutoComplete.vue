@@ -19,7 +19,7 @@
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import AutoComplete from 'primevue/autocomplete';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex p-fluid:flex`,

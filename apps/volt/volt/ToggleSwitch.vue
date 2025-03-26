@@ -15,7 +15,7 @@
 <script setup>
 import ToggleSwitch from 'primevue/toggleswitch';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-block w-10 h-6`,

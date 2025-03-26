@@ -23,7 +23,7 @@
 import TimesCircleIcon from '@primevue/icons/timescircle';
 import Chip from 'primevue/chip';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex items-center rounded-2xl gap-2 px-3 py-2

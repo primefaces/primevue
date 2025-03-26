@@ -15,7 +15,7 @@
 <script setup>
 import Card from 'primevue/card';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex flex-col rounded-xl

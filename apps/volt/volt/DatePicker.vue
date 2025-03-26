@@ -103,7 +103,7 @@ import ChevronUpIcon from '@primevue/icons/chevronup';
 import DatePicker from 'primevue/datepicker';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex max-w-full relative p-fluid:flex`,

@@ -15,7 +15,7 @@
 <script setup>
 import MeterGroup from 'primevue/metergroup';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex gap-4 p-horizontal:flex-col p-vertical:flex-row`,

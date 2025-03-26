@@ -34,7 +34,7 @@ import WindowMinimizeIcon from '@primevue/icons/windowminimize';
 import Dialog from 'primevue/dialog';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `max-h-[90%] max-w-screen rounded-xl

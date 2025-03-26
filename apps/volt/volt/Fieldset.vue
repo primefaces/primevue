@@ -21,7 +21,7 @@ import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Fieldset from 'primevue/fieldset';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `border border-surface-200 dark:border-surface-700 rounded-md

@@ -15,7 +15,7 @@
 <script setup>
 import Button from 'primevue/button';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex cursor-pointer select-none items-center justify-center overflow-hidden relative

@@ -48,7 +48,7 @@ import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import Paginator from 'primevue/paginator';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1

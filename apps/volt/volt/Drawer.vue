@@ -24,7 +24,7 @@ import TimesIcon from '@primevue/icons/times';
 import Drawer from 'primevue/drawer';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex flex-col pointer-events-auto relative

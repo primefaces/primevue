@@ -15,7 +15,7 @@
 <script setup>
 import ProgressBar from 'primevue/progressbar';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative overflow-hidden h-5 bg-surface-200 dark:bg-surface-700 rounded-md`,

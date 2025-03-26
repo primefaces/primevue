@@ -15,7 +15,7 @@
 <script setup>
 import InputOtp from 'primevue/inputotp';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `flex items-center gap-2`,

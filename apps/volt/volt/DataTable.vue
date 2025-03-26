@@ -54,7 +54,7 @@ import SpinnerIcon from '@primevue/icons/spinner';
 import DataTable from 'primevue/datatable';
 import { ref } from 'vue';
 import SecondaryButton from '../button/secondary';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:h-full`,

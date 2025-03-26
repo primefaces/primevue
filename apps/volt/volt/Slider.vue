@@ -11,7 +11,7 @@
 <script setup>
 import Slider from 'primevue/slider';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const handleCommon = `cursor-grab touch-none flex items-center justify-center h-[20px] w-[20px]
         bg-surface-200 dark:bg-surface-700 rounded-full

@@ -16,7 +16,7 @@
 <script setup>
 import Popover from 'primevue/popover';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `mt-[10px] p-flipped:-mt-[10px] p-flipped:mb-[10px]

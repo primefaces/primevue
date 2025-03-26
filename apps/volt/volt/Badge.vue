@@ -15,7 +15,7 @@
 <script setup>
 import Badge from 'primevue/badge';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex items-center justify-center rounded-md

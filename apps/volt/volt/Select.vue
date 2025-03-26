@@ -31,7 +31,7 @@ import SpinnerIcon from '@primevue/icons/spinner';
 import TimesIcon from '@primevue/icons/times';
 import Select from 'primevue/select';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `inline-flex cursor-pointer relative select-none rounded-md p-fluid:flex

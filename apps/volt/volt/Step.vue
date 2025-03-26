@@ -15,7 +15,7 @@
 <script setup>
 import Step from 'primevue/step';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative flex flex-auto items-center gap-4 p-2 last-of-type:flex-initial p-vertical:flex-initial`,

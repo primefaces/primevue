@@ -23,7 +23,7 @@ import StarIcon from '@primevue/icons/star';
 import StarFillIcon from '@primevue/icons/starfill';
 import Rating from 'primevue/rating';
 import { ref } from 'vue';
-import { ptViewMerge } from '../utils';
+import { ptViewMerge } from './utils';
 
 const theme = ref({
     root: `relative flex items-center gap-1 p-disabled:opacity-60 p-disabled:pointer-events-none p-readonly:pointer-events-none`,
