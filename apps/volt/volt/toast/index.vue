@@ -46,11 +46,11 @@ const theme = ref({
         p-contrast:hover:bg-surface-800 p-contrast:focus-visible:outline-surface-50 dark:p-contrast:hover:bg-surface-100 dark:p-contrast:focus-visible:outline-surface-950`,
     closeIcon: `text-base w-4 h-4`,
     transition: {
-        enterFromClass: 'opacity-0 translate-y-2/4',
-        enterActiveClass: 'transition-[transform,opacity] duration-300',
+        enterFromClass: 'opacity-0 translate-y-1/2',
+        enterActiveClass: 'transition-all duration-500',
         leaveFromClass: 'max-h-[1000px]',
-        leaveActiveClass: '!transition-[max-height_.45s_cubic-bezier(0,1,0,1),opacity_.3s,margin-bottom_.3s] overflow-hidden',
-        leaveToClass: 'max-h-0 opacity-0 mb-0'
+        leaveActiveClass: 'transition-all duration-500',
+        leaveToClass: 'max-h-0 opacity-0 mb-0 overflow-hidden'
     }
 });
 </script>
