@@ -9,7 +9,7 @@
             new utility classes such as <i>text-primary</i>, <i>bg-surface-500</i>, and adds new variants with the <i>p-</i> prefix including <i>p-selected</i>.
         </p>
         <p>In addition <a href="https://www.npmjs.com/package/tailwind-merge" target="_blank" rel="noopener noreferrer">tailwind-merge</a> utility is required for efficient handling of external class merging.</p>
-        <DocSectionCode :code="code1" />
+        <DocSectionCode :code="code1" lang="bash" />
 
         <p>In the CSS file that contains the tailwindcss import, add the <i>tailwindcss-primeui</i> import as well.</p>
         <DocSectionCode :code="code2" lang="script" />
@@ -19,8 +19,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const code1 = ref(`
-npm i tailwindcss-primeui
+const code1 = ref(`npm i tailwindcss-primeui
 npm i tailwind-merge
 `);
 
