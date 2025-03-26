@@ -1,4 +1,12 @@
+import path from 'path';
+
 const baseUrl = '/';
+
+const alias = {
+    primevue: path.resolve(__dirname, '../../packages/primevue/src'),
+    '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
+    '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
+};
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -36,6 +44,7 @@ export default defineNuxtConfig({
         },
         plugins: [tailwindcss()]
     },
+    alias,
     runtimeConfig: {
         GITHUB_TOKEN: ''
     },
