@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add inputnumber
+const code = ref(`npx volt-vue add InputNumber
 `);
 </script>

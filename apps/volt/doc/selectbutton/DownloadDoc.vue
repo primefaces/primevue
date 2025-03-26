@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add selectbutton
+const code = ref(`npx volt-vue add SelectButton
 `);
 </script>

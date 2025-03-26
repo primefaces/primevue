@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add inputotp
+const code = ref(`npx volt-vue add InputOtp
 `);
 </script>

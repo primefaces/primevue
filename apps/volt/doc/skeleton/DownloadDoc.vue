@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add skeleton
+const code = ref(`npx volt-vue add Skeleton
 `);
 </script>

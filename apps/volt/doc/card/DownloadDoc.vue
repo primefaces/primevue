@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add card
+const code = ref(`npx volt-vue add Card
 `);
 </script>

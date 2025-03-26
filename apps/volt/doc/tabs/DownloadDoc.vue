@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add tabs
+const code = ref(`npx volt-vue add Tabs TabList Tab TabPanels TabPanel
 `);
 </script>

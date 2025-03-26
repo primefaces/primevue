@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add listbox
+const code = ref(`npx volt-vue add Listbox
 `);
 </script>

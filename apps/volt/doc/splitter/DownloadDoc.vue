@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add splitter
+const code = ref(`npx volt-vue add Splitter
 `);
 </script>

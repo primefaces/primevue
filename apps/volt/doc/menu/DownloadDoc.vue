@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add menu
+const code = ref(`npx volt-vue add Menu
 `);
 </script>
