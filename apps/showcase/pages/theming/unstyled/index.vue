@@ -2,14 +2,14 @@
     <div>
         <Head>
             <Title>Unstyled - PrimeVue</Title>
-            <Meta name="description" content="Theming PrimeVue with your own styles." />
+            <Meta name="description" content="Theming PrimeVue with alternative styling approaches." />
         </Head>
 
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Unstyled Mode</h1>
-                    <p>Theming PrimeVue with your own styles.</p>
+                    <p>Theming PrimeVue with alternative styling approaches.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -20,14 +20,10 @@
 
 <script>
 import ArchitectureDoc from '@/doc/theming/unstyled/ArchitectureDoc.vue';
-import ComparisonDoc from '@/doc/theming/unstyled/ComparisonDoc.vue';
-import HybridExampleDoc from '@/doc/theming/unstyled/hybrid/HybridExampleDoc.vue';
-import HybridSetupDoc from '@/doc/theming/unstyled/hybrid/HybridSetupDoc.vue';
-import HybridTailwindDoc from '@/doc/theming/unstyled/hybrid/HybridTailwindDoc.vue';
-import PureExampleDoc from '@/doc/theming/unstyled/pure/PureExampleDoc.vue';
-import PureGlobalDoc from '@/doc/theming/unstyled/pure/PureGlobalDoc.vue';
-import PureSetupDoc from '@/doc/theming/unstyled/pure/PureSetupDoc.vue';
-import PureTailwindDoc from '@/doc/theming/unstyled/pure/PureTailwindDoc.vue';
+import ExampleDoc from '@/doc/theming/unstyled/ExampleDoc.vue';
+import GlobalDoc from '@/doc/theming/unstyled/GlobalDoc.vue';
+import SetupDoc from '@/doc/theming/unstyled/SetupDoc.vue';
+import VoltDoc from '@/doc/theming/unstyled/VoltDoc.vue';
 
 export default {
     data() {
@@ -39,56 +35,24 @@ export default {
                     component: ArchitectureDoc
                 },
                 {
-                    id: 'comparison',
-                    label: 'Comparison',
-                    component: ComparisonDoc
+                    id: 'setup',
+                    label: 'Setup',
+                    component: SetupDoc
                 },
                 {
-                    id: 'pure',
-                    label: 'Pure',
-                    children: [
-                        {
-                            id: 'pure-setup',
-                            label: 'Setup',
-                            component: PureSetupDoc
-                        },
-                        {
-                            id: 'pure-example',
-                            label: 'Example',
-                            component: PureExampleDoc
-                        },
-                        {
-                            id: 'pure-global',
-                            label: 'Global',
-                            component: PureGlobalDoc
-                        },
-                        {
-                            id: 'pure-tailwind',
-                            label: 'Tailwind Presets',
-                            component: PureTailwindDoc
-                        }
-                    ]
+                    id: 'example',
+                    label: 'Example',
+                    component: ExampleDoc
                 },
                 {
-                    id: 'hybrid',
-                    label: 'Hybrid',
-                    children: [
-                        {
-                            id: 'hybrid-setup',
-                            label: 'Setup',
-                            component: HybridSetupDoc
-                        },
-                        {
-                            id: 'hybrid-example',
-                            label: 'Example',
-                            component: HybridExampleDoc
-                        },
-                        {
-                            id: 'hybrid-tailwind',
-                            label: 'Tailwind Version',
-                            component: HybridTailwindDoc
-                        }
-                    ]
+                    id: 'global',
+                    label: 'Global',
+                    component: GlobalDoc
+                },
+                {
+                    id: 'volt',
+                    label: 'Volt',
+                    component: VoltDoc
                 }
             ]
         };
