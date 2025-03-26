@@ -6,6 +6,6 @@
 <script setup>
 import { ref } from 'vue';
 
-const code = ref(`npx volt-vue add Button
+const code = ref(`npx volt-vue add Button SecondaryButton ContrastButton DangerButton
 `);
 </script>
