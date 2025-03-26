@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="products" tableStyle="min-width: 50rem">
+            <DataTable :value="products" pt:table="min-w-200">
                 <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
             </DataTable>
         </div>
@@ -33,7 +33,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="products" tableStyle="min-width: 50rem">
+        <DataTable :value="products" pt:table="min-w-200">
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
         </DataTable>
     </div>

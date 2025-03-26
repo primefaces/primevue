@@ -1,15 +1,15 @@
 <template>
     <div>
         <Head>
-            <Title>Vue Icon Library - PrimeVue</Title>
-            <Meta name="description" content="PrimeVue components can be used with any icon library using the templating features." />
+            <Title>Overview - Volt</Title>
+            <Meta name="description" content="Volt is a UI component library crafted with Unstyled PrimeVue Core and Tailwind CSS." />
         </Head>
 
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Custom Icons</h1>
-                    <p>PrimeVue components can be used with any icon library using the templating features.</p>
+                    <h1>Overview</h1>
+                    <p>Volt is a UI component library crafted with Unstyled PrimeVue Core and Tailwind CSS.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,38 +19,32 @@
 </template>
 
 <script setup>
-import FontAwesomeDoc from '@/doc/icons/FontAwesomeDoc.vue';
-import ImageDoc from '@/doc/icons/ImageDoc.vue';
-import MaterialDoc from '@/doc/icons/MaterialDoc.vue';
-import SVGDoc from '@/doc/icons/SVGDoc.vue';
-import VideoDoc from '@/doc/icons/VideoDoc.vue';
+import ComparisonDoc from '@/doc/overview/ComparisonDoc.vue';
+import CustomizationDoc from '@/doc/overview/CustomizationDoc.vue';
+import WhatIsVoltDoc from '@/doc/overview/WhatIsVoltDoc.vue';
+import TWMergeDoc from '@/doc/overview/TWMergeDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
     {
-        id: 'material',
-        label: 'Material',
-        component: MaterialDoc
+        id: 'whatisvolt',
+        label: 'What is Volt?',
+        component: WhatIsVoltDoc
     },
     {
-        id: 'fontawesome',
-        label: 'FontAwesome',
-        component: FontAwesomeDoc
+        id: 'comparison',
+        label: 'Comparison',
+        component: ComparisonDoc
     },
     {
-        id: 'svg',
-        label: 'SVG',
-        component: SVGDoc
+        id: 'customization',
+        label: 'Customization',
+        component: CustomizationDoc
     },
     {
-        id: 'image',
-        label: 'Image',
-        component: ImageDoc
-    },
-    {
-        id: 'video',
-        label: 'Video Tutorial',
-        component: VideoDoc
+        id: 'twmerge',
+        label: 'tw-merge',
+        component: TWMergeDoc
     }
 ]);
 </script>

@@ -5,7 +5,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+            <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
                 <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
@@ -24,11 +24,11 @@ export default {
     data() {
         return {
             products: null,
-            selectedProduct: null,
+            selectedProducts: null,
             metaKey: true,
             code: {
                 basic: `
-<DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+<DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
     <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
@@ -39,7 +39,7 @@ export default {
                 options: `
 <template>
     <div class="card">
-        <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -56,7 +56,7 @@ export default {
     data() {
         return {
             products: null,
-            selectedProduct: null,
+            selectedProducts: null,
             metaKey: true
         };
     },
@@ -69,7 +69,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
+        <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
             <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -88,7 +88,7 @@ onMounted(() => {
 });
 
 const products = ref();
-const selectedProduct = ref();
+const selectedProducts = ref();
 const metaKey = ref(true);
 
 <\/script>

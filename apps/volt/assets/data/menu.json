@@ -6,7 +6,7 @@
             "icon": "pi pi-bolt"
         },
         {
-            "name": "Installation",
+            "name": "Getting Started",
             "icon": "pi pi-cloud-download",
             "children": [
                 {

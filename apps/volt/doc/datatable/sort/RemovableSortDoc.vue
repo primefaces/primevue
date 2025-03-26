@@ -4,7 +4,7 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="products" removableSort tableStyle="min-width: 50rem">
+            <DataTable :value="products" removableSort pt:table="min-w-200">
                 <Column field="code" header="Code" sortable style="width: 25%"></Column>
                 <Column field="name" header="Name" sortable style="width: 25%"></Column>
                 <Column field="category" header="Category" sortable style="width: 25%"></Column>
@@ -30,7 +30,7 @@ const loadDemoData = () => {
 const code = ref(`
 <template>
     <div class="card">
-        <DataTable :value="products" removableSort tableStyle="min-width: 50rem">
+        <DataTable :value="products" removableSort pt:table="min-w-200">
             <Column field="code" header="Code" sortable style="width: 25%"></Column>
             <Column field="name" header="Name" sortable style="width: 25%"></Column>
             <Column field="category" header="Category" sortable style="width: 25%"></Column>

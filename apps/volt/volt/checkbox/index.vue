@@ -5,7 +5,8 @@
         :ptOptions="{
             mergeProps: ptViewMerge
         }"
-    />
+    >
+    </Checkbox>
 </template>
 
 <script setup>

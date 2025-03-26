@@ -1,5 +1,5 @@
 <template>
-    <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyContentStyle" v-bind="ptm('tbody', ptmTBodyOptions)">
+    <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyContentStyle" :data-p="dataP" v-bind="ptm('tbody', ptmTBodyOptions)">
         <template v-if="!empty">
             <template v-for="(rowData, rowIndex) of value" :key="getRowKey(rowData, rowIndex)">
                 <DTBodyRow
@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { getOuterHeight } from '@primeuix/utils/dom';
 import { resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
@@ -167,6 +168,10 @@ export default {
         selectionMode: {
             type: String,
             default: null
+        },
+        rowHover: {
+            type: Boolean,
+            default: false
         },
         contextMenu: {
             type: Boolean,
@@ -289,6 +294,12 @@ export default {
                     scrollable: this.$parentInstance?.$parentInstance?.scrollable
                 }
             };
+        },
+        dataP() {
+            return cn({
+                hoverable: this.rowHover || this.selectionMode,
+                frozen: this.frozenRow
+            });
         }
     },
     components: {

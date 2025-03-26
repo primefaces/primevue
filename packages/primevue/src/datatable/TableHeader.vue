@@ -1,5 +1,12 @@
 <template>
-    <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="columnGroup ? { ...ptm('thead', ptmTHeadOptions), ...getColumnGroupPT('root') } : ptm('thead', ptmTHeadOptions)" data-pc-section="thead">
+    <thead
+        :class="cx('thead')"
+        :style="sx('thead')"
+        role="rowgroup"
+        v-bind="columnGroup ? { ...ptm('thead', ptmTHeadOptions), ...getColumnGroupPT('root') } : ptm('thead', ptmTHeadOptions)"
+        :data-p-scrollable="$parentInstance?.$parentInstance?.scrollable"
+        data-pc-section="thead"
+    >
         <template v-if="!columnGroup">
             <tr role="row" v-bind="ptm('headerRow')">
                 <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">

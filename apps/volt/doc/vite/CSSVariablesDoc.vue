@@ -2,16 +2,14 @@
     <DocSectionText v-bind="$attrs">
         <p>Final step is defining the default values for the CSS variables utilized by the <i>tailwindcss-primeui</i>, this can be done in a global CSS file in your Vite application e.g. <i>src/assets/base.css</i>.</p>
         <p>With a future update of the primeui tailwind plugin, this step will be done implicitly.</p>
-        <DocSectionCode :code="code" hideToggleCode importCode hideStackBlitz />
+        <DocSectionCode :code="code" />
     </DocSectionText>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            code: {
-                basic: `
+<script setup>
+import { ref } from 'vue';
+
+const code = ref(`
 /* Primary and Surface Palettes */
 :root {
     --p-primary-50: #ecfdf5;
@@ -61,11 +59,11 @@ export default {
 
 /* 
  * Dark Mode
- * Defaults to system, change the selector to match the darkMode in tailwind.config.
+ * Defaults to system, change the dark variant selector to match the CSS variable configuration.
  * For example; 
- * darkMode: ['selector', '[class*="app-dark"]'] 
- * should be;
- * :root[class="app-dark"] {
+ * @custom-variant dark (&:where(.app-dark, .app-dark *)); 
+ * should match to;
+ * :root[class="app-dark"]
 */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -86,9 +84,5 @@ export default {
         --p-text-hover-muted-color: var(--p-surface-300);
     }
 }
-`
-            }
-        };
-    }
-};
+`);
 </script>
