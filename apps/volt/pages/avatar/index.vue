@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue Avatar Component" header="Avatar" description="Avatar represents people using icons, labels and images." :componentDocs="docs" />
+    <DocComponent title="Vue Avatar Component" header="Avatar" description="Avatar represents people using icons, labels and images." :componentDocs="docs" :presetKeys="['AvatarGroup']" />
 </template>
 
 <script setup lang="ts">

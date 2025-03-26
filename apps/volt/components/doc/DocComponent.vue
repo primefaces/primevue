@@ -51,9 +51,16 @@
                 <DocSectionNav :docs="componentDocs" />
             </div>
 
-            <div v-if="tab === 1" class="doc-tabpanel">
-                <DocPreset :presetKey="header" :introText="`${header} Code`" />
-            </div>
+            <template v-if="tab === 1">
+                <div class="doc-tabpanel">
+                    <DocPreset :presetKey="header" :introText="`${header} Code`" />
+                </div>
+                <template v-if="presetKeys.length > 0">
+                    <div v-for="(cmp, index) in presetKeys" :key="index" class="doc-tabpanel">
+                        <DocPreset :presetKey="cmp" :introText="`${cmp} Code`" />
+                    </div>
+                </template>
+            </template>
         </div>
     </div>
 </template>
@@ -71,6 +78,10 @@ defineProps({
     isComponent: {
         type: Boolean,
         default: true
+    },
+    presetKeys: {
+        type: Array as () => string[],
+        default: () => []
     }
 });
 

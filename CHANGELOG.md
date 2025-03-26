@@ -1,5 +1,47 @@
 # Changelog
 
+## [4.3.3](https://github.com/primefaces/primevue/tree/4.3.3) (2025-03-26)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.2...4.3.3)
+
+**Implemented New Features and Enhancements:**
+
+- Improve Galleria component accessibility with escape to close [\#7435](https://github.com/primefaces/primevue/issues/7435)
+- DataTable: The generic type parameter doesn't infer it's type from the data [\#7426](https://github.com/primefaces/primevue/issues/7426)
+- VirtualScroller does not render the list when resized or when its visibility changes. [\#7354](https://github.com/primefaces/primevue/issues/7354)
+- DatePicker and Select not working correctly inside a web component [\#7161](https://github.com/primefaces/primevue/issues/7161)
+- fix(InputNumber): added "required" prop which is present in wrapped component (InputText) already [\#7063](https://github.com/primefaces/primevue/issues/7063)
+
+**Fixed bugs:**
+
+- VirtualScroller not working as expected [\#7513](https://github.com/primefaces/primevue/issues/7513)
+- ColorPicker v-model change broken by #7291 [\#7503](https://github.com/primefaces/primevue/issues/7503)
+- DataTable: paginator container slot props [\#7497](https://github.com/primefaces/primevue/issues/7497)
+- ScrollTop: global passthrough options not working (reopen) [\#7477](https://github.com/primefaces/primevue/issues/7477)
+- AutoComplete: Invalid prop: type check failed for prop "label" (Chip) [\#7476](https://github.com/primefaces/primevue/issues/7476)
+- KeyFilter does not consider caret position during input, leading to incorrect blocking of valid values [\#7463](https://github.com/primefaces/primevue/issues/7463)
+- DataTable dynamic columns memory leak [\#7448](https://github.com/primefaces/primevue/issues/7448)
+- Galleria cannot focus back to previous element after hiding [\#7446](https://github.com/primefaces/primevue/issues/7446)
+- The `PanelMenu` component with the nested active items cannot render SSR correctly [\#7441](https://github.com/primefaces/primevue/issues/7441)
+- Incorrect tabpanel ID in Tab Component [\#7431](https://github.com/primefaces/primevue/issues/7431)
+- DataTable: DataTableStateEvent type is inaccurate [\#7424](https://github.com/primefaces/primevue/issues/7424)
+- DataTable: Stateful Tables break when loading persisted data in an invalid format [\#7422](https://github.com/primefaces/primevue/issues/7422)
+- Tabs: left arrow key navigation doesn't switch to the last tab [\#7419](https://github.com/primefaces/primevue/issues/7419)
+- InputNumber: Wrong caret position when user locale or currency uses comma as decimal separator [\#7413](https://github.com/primefaces/primevue/issues/7413)
+- Tabs: Cannot read properties of null (reading 'style') [\#7410](https://github.com/primefaces/primevue/issues/7410)
+- DataTable: Multiple select mode with filterDisplay: row broken; select all checkbox does not work [\#7409](https://github.com/primefaces/primevue/issues/7409)
+- Select: When Select is used in Datatable, the value cannot be modified by clicking [\#7403](https://github.com/primefaces/primevue/issues/7403)
+- Deselect of columns doesn't work after columns reordering [\#7399](https://github.com/primefaces/primevue/issues/7399)
+- Autocomplete allows empty items when press Enter or Space [\#7396](https://github.com/primefaces/primevue/issues/7396)
+- DataTable: Reorder feature is broken [\#7341](https://github.com/primefaces/primevue/issues/7341)
+- Overlay positions in RTL [\#7340](https://github.com/primefaces/primevue/issues/7340)
+- DataTable - exportFilename property not working [\#7305](https://github.com/primefaces/primevue/issues/7305)
+- Add type annotations to form submit event handlers [\#7304](https://github.com/primefaces/primevue/issues/7304)
+- UseStyle.js: primitive-variables, semantic-variables and global-style don't mount to <head> scope in Module Federation app rendering [\#6453](https://github.com/primefaces/primevue/issues/6453)
+- Datatable should emit the restored multiSortMeta on a reload [\#6325](https://github.com/primefaces/primevue/issues/6325)
+- PrimeVue Tooltip: memory leak [\#5856](https://github.com/primefaces/primevue/issues/5856)
+- FileUpload: Files labeled as completed even when upload failed [\#5738](https://github.com/primefaces/primevue/issues/5738)
+
 ## [4.3.2](https://github.com/primefaces/primevue/tree/4.3.2) (2025-03-12)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.1...4.3.2)
