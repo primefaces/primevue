@@ -38,7 +38,7 @@ export function updatePackageJson(localPackageJson) {
     pkg.bugs = { ...pkg.bugs, ...packageJson.bugs };
     pkg.engines = { ...pkg.engines, ...packageJson.engines };
 
-    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4));
+    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
 }
 
 export function clearPackageJson(localPackageJson) {
@@ -49,7 +49,7 @@ export function clearPackageJson(localPackageJson) {
     delete pkg?.publishConfig?.directory;
     delete pkg?.publishConfig?.linkDirectory;
 
-    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4));
+    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
 }
 
 export function copyDependencies(inFolder, outFolder, subFolder) {
