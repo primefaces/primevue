@@ -31,7 +31,7 @@ const items = ref([
     {
         label: 'Router Link',
         icon: 'pi pi-palette',
-        route: '/introduction'
+        route: '/overview'
     },
     {
         label: 'Programmatic',
@@ -77,7 +77,7 @@ const items = ref([
     {
         label: 'Router Link',
         icon: 'pi pi-palette',
-        route: '/introduction'
+        route: '/overview'
     },
     {
         label: 'Programmatic',
