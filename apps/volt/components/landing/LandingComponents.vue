@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
             <div class="flex flex-col h-full">
                 <div class="flex">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <UserProfilesCard />
                     </div>
                     <div class="w-6 h-full py-6 flex-col justify-between md:flex hidden">
@@ -16,7 +16,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800 block"></div>
                 </div>
                 <div class="flex">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <InviteMembersCard />
                     </div>
                     <div class="w-6 h-full py-6 flex-col justify-between md:flex hidden">
@@ -28,7 +28,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800 block"></div>
                 </div>
                 <div class="lg:hidden md:flex hidden">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <RealEstateCard />
                     </div>
                     <div class="w-6 h-full py-6 flex-col justify-between md:flex hidden pb-40">
@@ -46,7 +46,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800 block"></div>
                 </div>
                 <div class="flex">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <FilesCard />
                     </div>
                     <div class="w-6 h-full py-6 flex-col justify-between hidden lg:flex">
@@ -59,7 +59,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800 block"></div>
                 </div>
                 <div class="flex">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <ProjectCard />
                     </div>
                     <div class="w-6 h-full py-6 flex-col justify-between hidden lg:flex">
@@ -70,7 +70,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800 block"></div>
                 </div>
                 <div class="lg:hidden md:flex hidden">
-                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                    <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                         <MeetingCard />
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             <div class="flex-col h-full w-full col-span-1 lg:flex md:hidden flex">
                 <div class="flex flex-col w-full h-full lg:h-auto">
                     <div class="flex w-full h-fit">
-                        <div class="p-4 border border-surface-200 dark:border-surface-800 w-full">
+                        <div class="p-4 border border-surface-200 dark:border-surface-800 w-full animated-border">
                             <MeetingCard />
                         </div>
                         <div class="w-6 h-full py-6 flex-col justify-between hidden md:flex lg:hidden">
@@ -99,7 +99,7 @@
                     <div class="h-full w-full border-x border-surface-200 dark:border-surface-800"></div>
                 </div>
                 <div class="flex flex-col w-full h-full lg:h-auto">
-                    <div class="p-4 w-full border border-surface-200 dark:border-surface-800">
+                    <div class="p-4 w-full border border-surface-200 dark:border-surface-800 animated-border">
                         <RealEstateCard />
                     </div>
                     <div class="h-32 md:h-12 blocks lg:hidden px-6 pr-12 w-full">

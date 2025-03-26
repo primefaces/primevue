@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
+    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <div class="flex justify-between items-center">
             <AvatarGroup class="mb-4 ms-2">
                 <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="!border-surface-0 dark:!border-surface-900" shape="circle" />

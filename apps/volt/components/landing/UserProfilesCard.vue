@@ -1,5 +1,5 @@
 <template>
-    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900 animated-border">
+    <div class="p-6 shadow-lg border border-transparent dark:border-surface-800 bg-surface-0 dark:bg-surface-900">
         <span class="block font-medium text-surface-900 dark:text-surface-0 mb-3">User Profiles</span>
         <SelectButton v-model="mode" :options="options" optionLabel="label" optionValue="value" size="small" class="w-full" />
         <ul class="flex flex-col gap-2 mt-4">
