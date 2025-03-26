@@ -7,7 +7,7 @@
             mergeProps: ptViewMerge
         }"
     >
-        <template #paginatorcontainer="{ first, last, rows, page, pageCount, pageLinks, totalRecords, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback, rowChangeCallback }">
+        <template #paginatorcontainer="{ page, pageCount, pageLinks, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback }">
             <div class="flex flex-wrap gap-2 items-center justify-center">
                 <SecondaryButton text rounded @click="firstPageCallback" :disabled="page === 0">
                     <template #icon>
@@ -24,12 +24,12 @@
                         >{{ pageLink }}
                     </SecondaryButton>
                 </div>
-                <SecondaryButton text rounded @click="nextPageCallback" :disabled="page === pageCount - 1">
+                <SecondaryButton text rounded @click="nextPageCallback" :disabled="page === pageCount! - 1">
                     <template #icon>
                         <AngleRightIcon />
                     </template>
                 </SecondaryButton>
-                <SecondaryButton text rounded @click="lastPageCallback" :disabled="page === pageCount - 1">
+                <SecondaryButton text rounded @click="lastPageCallback" :disabled="page === pageCount! - 1">
                     <template #icon>
                         <AngleDoubleRightIcon />
                     </template>
@@ -67,19 +67,13 @@ const theme = ref<DataTablePassThroughOptions>({
         text-surface-700 dark:text-surface-0`,
     table: `border-spacing-0 w-full border-separate`,
     thead: `p-scrollable:bg-surface-0 dark:p-scrollable:bg-surface-900 p-scrollable:top-0 p-scrollable:z-10`,
-    headerRow: ``,
     tbody: `p-hoverable:*:hover:bg-surface-100 p-hoverable:*:hover:text-surface-800 dark:p-hoverable:*:hover:bg-surface-800 dark:p-hoverable:*:hover:text-surface-0
         p-frozen:sticky p-frozen:z-10`,
     bodyRow: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-selectable:cursor-pointer p-selected:bg-highlight!`,
     tfoot: `p-scrollable:bg-surface-0 dark:p-scrollable:bg-surface-900 p-scrollable:bottom-0 p-scrollable:z-10`,
-    footerRow: ``,
     footer: `py-3 px-4 border-b border-surface-200 dark:border-surface-700
         bg-surface-0 dark:bg-surface-900
         text-surface-700 dark:text-surface-0`,
-    columnGroup: ``,
-    row: ``,
-    rowExpansion: ``,
-    rowExpansionCell: ``,
     mask: `bg-black/50 text-surface-200 absolute z-10 flex items-center justify-center w-full h-full backdrop-blu-`,
     column: {
         root: ``,
@@ -175,30 +169,15 @@ const theme = ref<DataTablePassThroughOptions>({
         rowToggleIcon: ``,
         reorderableRowHandle: ``
     },
-    columnGroup: {
-        root: ``
-    },
-    row: {
-        root: ``
-    },
     loadingIcon: ``,
     pcPaginator: {
         paginatorContainer: `p-bottom:border-b border-surface-200 dark:border-surface-700`,
         root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1
             bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0`
     },
-    virtualScroller: ``,
-    virtualScrollerSpacer: ``,
-    rowGroupHeader: ``,
-    rowGroupHeaderCell: ``,
-    rowGroupFooter: ``,
-    rowGroupFooterCell: ``,
-    emptyMessage: ``,
-    emptyMessageCell: ``,
     columnResizeIndicator: `w-px absolute z-10 hidden bg-primary`,
     rowReorderIndicatorUp: `absolute hidden`,
-    rowReorderIndicatorDown: `absolute hidden`,
-    transition: {}
+    rowReorderIndicatorDown: `absolute hidden`
 });
 
 const el = ref();

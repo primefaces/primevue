@@ -6,7 +6,7 @@
             mergeProps: ptViewMerge
         }"
     >
-        <template #paginatorcontainer="{ first, last, rows, page, pageCount, pageLinks, totalRecords, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback, rowChangeCallback }">
+        <template #paginatorcontainer="{ page, pageCount, pageLinks, changePageCallback, firstPageCallback, lastPageCallback, prevPageCallback, nextPageCallback }">
             <div class="flex flex-wrap gap-2 items-center justify-center">
                 <SecondaryButton text rounded @click="firstPageCallback" :disabled="page === 0">
                     <template #icon>
@@ -23,12 +23,12 @@
                         >{{ pageLink }}
                     </SecondaryButton>
                 </div>
-                <SecondaryButton text rounded @click="nextPageCallback" :disabled="page === pageCount - 1">
+                <SecondaryButton text rounded @click="nextPageCallback" :disabled="page === pageCount! - 1">
                     <template #icon>
                         <AngleRightIcon />
                     </template>
                 </SecondaryButton>
-                <SecondaryButton text rounded @click="lastPageCallback" :disabled="page === pageCount - 1">
+                <SecondaryButton text rounded @click="lastPageCallback" :disabled="page === pageCount! - 1">
                     <template #icon>
                         <AngleDoubleRightIcon />
                     </template>
