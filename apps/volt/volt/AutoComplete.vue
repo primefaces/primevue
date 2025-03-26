@@ -96,6 +96,12 @@ const theme = ref({
         transition-colors duration-200`,
     emptyMessage: `px-3 py-2`,
     searchResultMessage: ``,
-    selectedMessage: ``
+    selectedMessage: ``,
+    transition: {
+        enterFromClass: 'opacity-0 scale-y-75',
+        enterActiveClass: 'transition duration-120 ease-[cubic-bezier(0,0,0.2,1)]',
+        leaveActiveClass: 'transition-opacity duration-100 ease-linear',
+        leaveToClass: 'opacity-0'
+    }
 });
 </script>
