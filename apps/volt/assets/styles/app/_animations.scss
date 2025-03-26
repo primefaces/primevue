@@ -13,7 +13,7 @@
         border: 2px solid var(--hero-box-animated-border-color);
         transition: all .5s;
         animation: clippath 3s infinite linear;
-        border-radius: 10px;
+        border-radius: 0px;
         opacity: 0;
         z-index: -1;
     }
