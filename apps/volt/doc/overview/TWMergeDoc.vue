@@ -13,7 +13,7 @@
             <i>pt:root:class</i> attribute in the second case will merge the custom classes with the default classes perfectly.
         </p>
     </DocSectionText>
-    <div class="card flex justify-center gap-4">
+    <div class="card grid grid-cols-2 gap-4">
         <InputText class="bg-primary text-primary-contrast" value="Fails" />
         <InputText pt:root:class="bg-primary text-primary-contrast" value="Works" />
     </div>
