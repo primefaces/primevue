@@ -132,7 +132,9 @@ export default {
         }
     },
     created () {
-        // Revalue.
+        // Re-value.
+        // Check the `default value` or `model value` currently assigned or not,
+        // This aims to correct the field initial state, especially for the `SSR` scenario.
         this.d_value = this.findNonEmpty(this.defaultValue, this.modelValue, this.$formDefaultValue);
     }
 };
