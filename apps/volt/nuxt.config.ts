@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite';
+import { defineNuxtConfig } from 'nuxt/config';
 import path from 'path';
 
 const baseUrl = '/';
@@ -7,8 +9,6 @@ const alias = {
     '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
 };
-
-import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -80,8 +80,8 @@ export default defineNuxtConfig({
             ]
         }
     },
-    css: ['@/assets/styles/tailwind.css', '@/assets/styles/app/app.scss', '@/assets/styles/demo/flags.css', 'primeicons/primeicons.css'],
-    layouts: {
+    css: ['@/assets/styles/tailwind.css', '@/assets/styles/app/app.scss', '@/assets/styles/demo/flags.css', 'primeicons/primeicons.css']
+    /*layouts: {
         default: '~/layouts/default.vue'
-    }
+    }*/
 });

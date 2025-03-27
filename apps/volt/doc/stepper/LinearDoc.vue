@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Step from '@/volt/Step.vue';
 import StepList from '@/volt/StepList.vue';
 import StepPanel from '@/volt/StepPanel.vue';
@@ -93,7 +93,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Stepper from '@/volt/Stepper.vue';
 import Step from '@/volt/Step.vue';
 import StepList from '@/volt/StepList.vue';

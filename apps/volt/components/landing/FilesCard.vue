@@ -49,7 +49,7 @@ import DatePicker from '@/volt/DatePicker.vue';
 import InputText from '@/volt/InputText.vue';
 import Menu from '@/volt/Menu.vue';
 import RadioButton from '@/volt/RadioButton.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 
 const privacy = ref();
 const tags = ref(['new']);

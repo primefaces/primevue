@@ -3,7 +3,7 @@ export const CarService = {
 
     colors: ['Black', 'White', 'Red', 'Blue', 'Silver', 'Green', 'Yellow'],
 
-    generateCar(id) {
+    generateCar(id: string) {
         return {
             id,
             vin: this.generateVin(),

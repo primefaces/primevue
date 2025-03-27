@@ -69,7 +69,7 @@
 import Button from '@/volt/Button.vue';
 import Checkbox from '@/volt/Checkbox.vue';
 import InputNumber from '@/volt/InputNumber.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Slider from '@/volt/Slider.vue';
 
 const priceRange = ref([20, 80]);

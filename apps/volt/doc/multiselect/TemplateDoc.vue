@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import DangerButton from '@/volt/DangerButton.vue';
 import MultiSelect from '@/volt/MultiSelect.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { ref } from 'vue';
 
 const selectedCountries = ref(null);
@@ -81,7 +81,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import DangerButton from '@/volt/DangerButton.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import MultiSelect from '@/volt/MultiSelect.vue';
 import { ref } from 'vue';
 

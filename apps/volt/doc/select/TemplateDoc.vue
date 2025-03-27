@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 
@@ -92,7 +92,7 @@ const code = ref(`
 </template>
 
 <script setup lang="ts">
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Select from '@/volt/Select.vue';
 import { ref } from 'vue';
 

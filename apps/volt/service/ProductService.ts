@@ -1,5 +1,30 @@
+export interface Product {
+    id: string;
+    code: string;
+    name: string;
+    description: string;
+    image: string;
+    price: number;
+    category: string;
+    quantity: number;
+    inventoryStatus: string;
+    rating: number;
+}
+
+export interface ProductWithOrder extends Product {
+    orders: {
+        id: string;
+        productCode: string;
+        date: string;
+        amount: number;
+        quantity: number;
+        customer: string;
+        status: string;
+    }[];
+}
+
 export const ProductService = {
-    getProductsData() {
+    getProductsData(): Product[] {
         return [
             {
                 id: '1000',
@@ -364,7 +389,7 @@ export const ProductService = {
         ];
     },
 
-    getProductsWithOrdersData() {
+    getProductsWithOrdersData(): ProductWithOrder[] {
         return [
             {
                 id: '1000',

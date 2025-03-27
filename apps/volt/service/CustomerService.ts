@@ -9020,13 +9020,18 @@ export const CustomerService = {
         return Promise.resolve(this.getData());
     },
 
-    getCustomers(params) {
+    async getCustomers(params: Record<string, any>) {
         const queryParams = params
             ? Object.keys(params)
                   .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
                   .join('&')
             : '';
 
-        return fetch('https://www.primefaces.org/data/customers?' + queryParams).then((res) => res.json());
+        return await fetch('https://www.primefaces.org/data/customers?' + queryParams)
+            .then((res) => res.json())
+            .catch((error) => {
+                console.error('Error fetching customers:', error);
+                throw error;
+            });
     }
 };

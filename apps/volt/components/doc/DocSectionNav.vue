@@ -58,7 +58,7 @@ export default {
                     const { top } = getOffset(label);
                     const threshold = this.getThreshold(label);
 
-                    if (top - threshold <= windowScrollTop) {
+                    if ((top as number) - threshold <= windowScrollTop) {
                         const link = findSingle(label, 'a');
 
                         this.activeId = link.id;
@@ -75,10 +75,10 @@ export default {
                 activeItem && activeItem.scrollIntoView({ block: 'nearest', inline: 'start' });
             }, 50);
         },
-        scrollToLabelById(id, behavior = 'smooth') {
+        scrollToLabelById(id: string, behavior: ScrollBehavior = 'smooth') {
             const label = document.getElementById(id);
 
-            label && label.parentElement.scrollIntoView({ block: 'start', behavior });
+            label && label.parentElement?.scrollIntoView({ block: 'start', behavior });
         },
         onButtonClick(doc) {
             this.$router.push(`${this.checkRouteName}/#${doc.id}`);

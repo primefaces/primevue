@@ -60,7 +60,7 @@ const members = ref([
     { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
 ]);
 
-const toggle = (event) => {
+const toggle = (event: MouseEvent) => {
     op.value.toggle(event);
 };
 

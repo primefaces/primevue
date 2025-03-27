@@ -60,7 +60,10 @@ const props = defineProps({
 const router = useRouter();
 const { layoutState } = useLayout();
 
-const isActiveRootmenuItem = (menuitem) => {
-    return menuitem.children && !menuitem.children.some((item) => item.to === `/${router.currentRoute.value?.name?.replaceAll('-', '/')}` || (item.children && item.children.some((it) => it.to === `/${router.currentRoute.value.name}`)));
+const isActiveRootmenuItem = (menuitem: { children?: Array<{ to?: string; item?: any; children?: any }> }) => {
+    return (
+        menuitem.children &&
+        !menuitem.children.some((item) => item.to === `/${(router.currentRoute.value?.name as string)?.replaceAll('-', '/')}` || (item.children && item.children.some((it: { to?: string }) => it.to === `/${router.currentRoute.value.name as string}`)))
+    );
 };
 </script>

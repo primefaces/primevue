@@ -15,7 +15,7 @@ import TabList, { type TabListPassThroughOptions, type TabListProps } from 'prim
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
-interface Props extends /* @vue-ignore */ PanelTabListPropsProps {}
+interface Props extends /* @vue-ignore */ TabListProps {}
 defineProps<Props>();
 
 const navButton = `!absolute flex-shrink-0 top-0 z-20 h-full flex items-center justify-center cursor-pointer

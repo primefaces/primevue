@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import AutoComplete from '@/volt/AutoComplete.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { onMounted, ref } from 'vue';
 import { CountryService } from '~/service/CountryService';
 
@@ -74,7 +74,7 @@ const code = ref(`
 <script setup lang="ts">
 import { CountryService } from '@/service/CountryService';
 import AutoComplete from '@/volt/AutoComplete.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {

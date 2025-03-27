@@ -143,11 +143,11 @@ export interface DataViewState {
 /**
  * Defines valid properties in DataView component. In addition to these, all properties of HTMLDivElement can be used in this component.
  */
-export interface DataViewProps {
+export interface DataViewProps<T = unknown> {
     /**
      * An array of objects to display.
      */
-    value?: any[] | undefined;
+    value?: T[] | null | undefined;
     /**
      * Layout of the items, valid values are 'list' and 'grid'.
      * @defaultValue list
@@ -236,7 +236,7 @@ export interface DataViewProps {
     /**
      * Name of the data that uniquely identifies the a record in the data.
      */
-    dataKey: string | undefined;
+    dataKey?: string | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

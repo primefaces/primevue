@@ -63,7 +63,7 @@ export interface InputMaskPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    root?: InputMaskPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
@@ -106,11 +106,11 @@ export interface InputMaskProps {
     /**
      * Value of the component.
      */
-    modelValue?: string | undefined;
+    modelValue?: string | undefined | null;
     /**
      * The default value for the input when not controlled by `modelValue`.
      */
-    defaultValue?: string | undefined;
+    defaultValue?: string | undefined | null;
     /**
      * Placeholder character in mask, default is underscore.
      * @defaultValue _

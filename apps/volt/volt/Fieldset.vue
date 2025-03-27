@@ -44,7 +44,7 @@ const theme = ref<FieldsetPassThroughOptions>({
         transition-colors duration-200`,
     toggleIcon: `text-surface-500 dark:text-surface-400 transition-colors duration-200
         group-hover:text-surface-600 dark:group-hover:text-surface-300`,
-    legengLabel: `font-semibold`,
+    legendLabel: `font-semibold`,
     contentContainer: ``,
     content: `p-0`,
     transition: {

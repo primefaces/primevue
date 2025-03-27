@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
 import InputText from '@/volt/InputText.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Toolbar from '@/volt/Toolbar.vue';
 import { ref } from 'vue';
 
@@ -50,7 +50,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import InputText from '@/volt/InputText.vue';
 import Toolbar from '@/volt/Toolbar.vue';
 <\/script>

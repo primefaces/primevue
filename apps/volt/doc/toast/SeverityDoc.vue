@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { useToast } from 'primevue/usetoast';
 import { ref } from 'vue';
 

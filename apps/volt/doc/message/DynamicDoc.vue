@@ -17,10 +17,10 @@
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
 import Message from '@/volt/Message.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { ref } from 'vue';
 
-const messages = ref([]);
+const messages = ref<Array<{ severity?: string; content?: string; id?: number }>>([]);
 let count = ref(0);
 
 const addMessages = () => {
@@ -50,7 +50,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Message from '@/volt/Message.vue';
 import { ref } from 'vue';
 

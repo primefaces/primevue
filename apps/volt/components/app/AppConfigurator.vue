@@ -94,23 +94,20 @@ const surfaces = ref([
 const selectedPrimaryColor = computed(() => layoutState.primary);
 const selectedSurfaceColor = computed(() => layoutState.surface);
 
-const applyTheme = (type, color) => {
+const applyTheme = (type: string, color: { palette: Record<string, string> }) => {
     Object.keys(color.palette).forEach((key) => {
         document.documentElement.style.setProperty(`--p-${type}-${key}`, color.palette[key]);
     });
 };
 
-const updateColors = (type, color) => {
+const updateColors = (type: string, color: { name: string; palette: Record<string, string> }) => {
     if (type === 'primary') {
         layoutState.primary = color.name;
 
         if (color.name === 'noir') {
             document.documentElement.classList.add('p-noir');
 
-            applyTheme(
-                type,
-                surfaces.value.find((s) => s.name === layoutState.surface)
-            );
+            applyTheme(type, surfaces.value.find((s) => s.name === layoutState.surface) || { palette: {} });
         } else {
             document.documentElement.classList.remove('p-noir');
 

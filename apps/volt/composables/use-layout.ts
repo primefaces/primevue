@@ -17,14 +17,14 @@ export function useLayout() {
         layoutState.darkTheme = !layoutState.darkTheme;
     };
 
-    const darkModeToggleListener = (event) => {
+    const darkModeToggleListener = () => {
         if (!document.startViewTransition) {
-            toggleDarkMode(event);
+            toggleDarkMode();
 
             return;
         }
 
-        document.startViewTransition(() => toggleDarkMode(event));
+        document.startViewTransition(() => toggleDarkMode());
     };
 
     return { layoutState, darkModeToggleListener };

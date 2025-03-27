@@ -7,7 +7,7 @@
 import { ref } from 'vue';
 
 const code = ref(`import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import ContrastButton from '@/volt/ContrastButton.vue';
 import DangerButton from '@/volt/DangerButton.vue';
 `);

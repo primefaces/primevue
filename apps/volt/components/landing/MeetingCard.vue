@@ -21,5 +21,5 @@
 import Avatar from '@/volt/Avatar.vue';
 import AvatarGroup from '@/volt/AvatarGroup.vue';
 import InputOtp from '@/volt/InputOtp.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 </script>

@@ -43,7 +43,7 @@
 import Avatar from '@/volt/Avatar.vue';
 import InputText from '@/volt/InputText.vue';
 import Message from '@/volt/Message.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Select from '@/volt/Select.vue';
 
 const role1 = ref('Owner');

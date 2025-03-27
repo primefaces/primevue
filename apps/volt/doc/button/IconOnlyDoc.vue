@@ -49,7 +49,7 @@
 import Button from '@/volt/Button.vue';
 import ContrastButton from '@/volt/ContrastButton.vue';
 import DangerButton from '@/volt/DangerButton.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 
@@ -108,7 +108,7 @@ const code = ref(`
 import Button from '@/volt/Button.vue';
 import ContrastButton from '@/volt/ContrastButton.vue';
 import DangerButton from '@/volt/DangerButton.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import SelectButton from '@/volt/SelectButton.vue';
 import { ref } from 'vue';
 

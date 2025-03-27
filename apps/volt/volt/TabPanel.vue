@@ -1,5 +1,6 @@
 <template>
     <TabPanel
+        :value="props.value"
         unstyled
         :pt="theme"
         :ptOptions="{
@@ -16,7 +17,7 @@ import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ TabPanelProps {}
-defineProps<Props>();
+const props = defineProps<Props>();
 
 const theme = ref<TabPanelPassThroughOptions>({
     root: ``

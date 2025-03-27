@@ -63,15 +63,15 @@ import DataView from '@/volt/DataView.vue';
 import Inplace from '@/volt/Inplace.vue';
 import Tag from '@/volt/Tag.vue';
 import { ref } from 'vue';
-import { ProductService } from '~/service/ProductService';
+import { ProductService, type Product } from '~/service/ProductService';
 
-const products = ref(null);
+const products = ref<Product[] | null>(null);
 
 const loadData = () => {
     ProductService.getProductsMini().then((data) => (products.value = data));
 };
 
-const getSeverity = (product) => {
+const getSeverity = (product: Product) => {
     switch (product.inventoryStatus) {
         case 'INSTOCK':
             return 'success';
@@ -83,7 +83,7 @@ const getSeverity = (product) => {
             return 'danger';
 
         default:
-            return null;
+            return undefined;
     }
 };
 

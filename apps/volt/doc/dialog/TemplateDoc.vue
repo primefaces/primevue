@@ -35,7 +35,7 @@ import Avatar from '@/volt/Avatar.vue';
 import Button from '@/volt/Button.vue';
 import Dialog from '@/volt/Dialog.vue';
 import InputText from '@/volt/InputText.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { ref } from 'vue';
 
 const visible = ref(false);
@@ -72,7 +72,7 @@ const code = ref(`
 <script setup lang="ts">
 import Avatar from '@/volt/Avatar.vue';
 import Button from '@/volt/Button.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Dialog from '@/volt/Dialog.vue';
 import InputText from '@/volt/InputText.vue';
 import { ref } from 'vue';

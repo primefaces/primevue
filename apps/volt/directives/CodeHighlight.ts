@@ -1,8 +1,8 @@
 import { isClient } from '@primeuix/utils/dom';
 
-const highlightElement = (codeElement) => {
+const highlightElement = (codeElement: HTMLElement) => {
     if (isClient()) {
-        codeElement.parentElement.setAttribute('tabindex', '-1');
+        codeElement.parentElement?.setAttribute('tabindex', '-1');
 
         /*window.Prism.languages.bash = Prism.languages.extend('bash', {
             command: /\b(npx|volt-vue|add|npm)\b/,
@@ -18,12 +18,12 @@ const highlightElement = (codeElement) => {
             }
         });*/
 
-        window.Prism.highlightElement(codeElement);
+        (window as any).Prism.highlightElement(codeElement);
     }
 };
 
 const CodeHighlight = {
-    mounted(el, binding) {
+    mounted(el: HTMLElement, binding: { modifiers: Record<string, boolean>; value: string }) {
         const modifiers = binding.modifiers;
         const value = binding.value;
 
@@ -32,10 +32,10 @@ const CodeHighlight = {
         else if (modifiers.bash || value === 'bash') el.className = 'language-bash';
         else el.className = 'language-markup';
 
-        highlightElement(el.children[0]);
+        highlightElement(el.children[0] as HTMLElement);
     },
-    updated(el) {
-        highlightElement(el.children[0]);
+    updated(el: HTMLElement) {
+        highlightElement(el.children[0] as HTMLElement);
     }
 };
 

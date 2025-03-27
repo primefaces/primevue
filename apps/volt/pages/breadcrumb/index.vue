@@ -7,12 +7,12 @@ import BasicDoc from '@/doc/breadcrumb/BasicDoc.vue';
 import DownloadDoc from '@/doc/breadcrumb/DownloadDoc.vue';
 import ImportDoc from '@/doc/breadcrumb/ImportDoc.vue';
 import RouterDoc from '@/doc/breadcrumb/RouterDoc.vue';
-import TemplateDoc from '@/doc/breadcrumb/TemplateDoc';
+import TemplateDoc from '@/doc/breadcrumb/TemplateDoc.vue';
 import { ref } from 'vue';
 
 const docs = ref([
     {
-        id: 'dowload',
+        id: 'download',
         label: 'Download',
         component: DownloadDoc
     },

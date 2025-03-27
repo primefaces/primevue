@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import Avatar from '@/volt/Avatar.vue';
 import Panel from '@/volt/Panel.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import { ref } from 'vue';
 
 const code = ref(`
@@ -69,7 +69,7 @@ const code = ref(`
 
 <script setup lang="ts">
 import Avatar from '@/volt/Avatar.vue';
-import SecondaryButton from '@/volt/SecondaryButton';
+import SecondaryButton from '@/volt/SecondaryButton.vue';
 import Panel from '@/volt/Panel.vue';
 <\/script>
 `);
