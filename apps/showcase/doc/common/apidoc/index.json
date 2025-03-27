@@ -22558,7 +22558,7 @@
                             "name": "props",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataViewProps",
+                            "type": "DataViewProps<unknown>",
                             "default": "",
                             "description": "Defines valid properties."
                         },
@@ -22605,7 +22605,7 @@
                             "name": "props",
                             "optional": false,
                             "readonly": false,
-                            "type": "DataViewProps",
+                            "type": "DataViewProps<unknown>",
                             "default": "",
                             "description": "Defines valid properties."
                         },
@@ -22766,7 +22766,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "any[]",
+                            "type": "null | T[]",
                             "default": "",
                             "description": "An array of objects to display."
                         },
@@ -22884,9 +22884,9 @@
                         },
                         {
                             "name": "dataKey",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "undefined | string",
+                            "type": "string",
                             "default": "",
                             "description": "Name of the data that uniquely identifies the a record in the data."
                         },
@@ -36472,7 +36472,7 @@
                             "name": "root",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "InputMaskPassThroughOptionType",
                             "default": "",
                             "description": "Used to pass attributes to the InputText component."
                         },
@@ -36539,7 +36539,7 @@
                             "name": "modelValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "null | string",
                             "default": "",
                             "description": "Value of the component."
                         },
@@ -36547,7 +36547,7 @@
                             "name": "defaultValue",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "null | string",
                             "default": "",
                             "description": "The default value for the input when not controlled by  `modelValue` ."
                         },
@@ -44080,7 +44080,7 @@
                         },
                         {
                             "name": "color",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "string",
                             "default": "",
