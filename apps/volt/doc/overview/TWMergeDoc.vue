@@ -26,7 +26,7 @@ import { ref } from 'vue';
 
 const code = ref(`
 <template>
-   <div class="card flex justify-center gap-4">
+   <div class="card grid grid-cols-2 gap-4">
         <InputText class="bg-primary text-primary-contrast" value="Fails" />
         <InputText pt:root:class="bg-primary text-primary-contrast" value="Works" />
     </div>
