@@ -45,7 +45,7 @@ export default {
     },
     data() {
         return {
-            d_value: this.defaultValue || this.modelValue
+            d_value: this.defaultValue ?? this.modelValue
         };
     },
     watch: {
@@ -96,7 +96,9 @@ export default {
         },
         // @todo move to @primeuix/utils
         findNonEmpty(...values) {
-            return values.find(isNotEmpty);
+            // Needs to judge the `v` is `undefined` or `null`.
+            // 'Cause `empty string` or `empty array` should be a valid value.
+            return values.find(v => v != null);
         }
     },
     computed: {
@@ -116,7 +118,7 @@ export default {
             return this.$formControl?.novalidate;
         },
         $formDefaultValue() {
-            return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
+            return this.findNonEmpty(this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         },
         $formValue() {
             return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
@@ -128,6 +130,10 @@ export default {
         filled() {
             return this.$filled;
         }
+    },
+    created () {
+        // Revalue.
+        this.d_value = this.findNonEmpty(this.defaultValue, this.modelValue, this.$formDefaultValue);
     }
 };
 </script>
