@@ -30,7 +30,7 @@
                     <li><a href="https://twitter.com/primevue" target="_blank" rel="noopener noreferrer" class="text-muted-color hover:text-color transition-colors duration-200">X Account</a></li>
                 </ul>
             </div>
-            <div class="text-center border-t border-surface py-12">Built by <a href="https://primetek.comn.tr" class="font-bold">PrimeTek Informatics</a></div>
+            <div class="text-center border-t border-surface py-12">Built by <a href="https://primetek.com.tr" class="font-bold">PrimeTek Informatics</a></div>
         </div>
     </div>
 </template>
