@@ -144,6 +144,7 @@
                                             :aria-posinset="getAriaPosInset(getOptionIndex(i, getItemOptions))"
                                             @mousedown="onOptionSelect($event, option)"
                                             @mousemove="onOptionMouseMove($event, getOptionIndex(i, getItemOptions))"
+                                            @click.stop
                                             :data-p-selected="!checkmark && isSelected(option)"
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
