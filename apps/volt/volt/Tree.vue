@@ -13,7 +13,7 @@
         <template #filtericon>
             <SearchIcon class="text-surface-400" />
         </template>
-        <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
+        <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
     </Tree>

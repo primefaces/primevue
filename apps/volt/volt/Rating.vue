@@ -12,7 +12,7 @@
         <template #officon="{ toggleCallback }">
             <StarIcon @click="toggleCallback" class="text-surface-500 dark:text-surface-400 text-base w-4 h-4 transition-colors duration-200" />
         </template>
-        <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
+        <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
     </Rating>

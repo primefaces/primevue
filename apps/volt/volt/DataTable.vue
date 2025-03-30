@@ -39,7 +39,7 @@
         <template #loadingicon>
             <SpinnerIcon class="animate-spin text-[2rem] w-8 h-8" />
         </template>
-        <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
+        <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
         </template>
     </DataTable>
