@@ -300,7 +300,11 @@ export default {
                     cancel: { severity: 'secondary', text: true, rounded: true }
                 };
             }
-        }
+        },
+        allRowsPerPageOption: {
+            type: Boolean,
+            default: false
+        },
     },
     style: DataTableStyle,
     provide() {

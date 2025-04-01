@@ -27,6 +27,7 @@
             :unstyled="unstyled"
             :data-p-top="true"
             :pt="ptm('pcPaginator')"
+            :allRowsPerPageOption="allRowsPerPageOption"
         >
             <template v-if="$slots.paginatorcontainer" #container="slotProps">
                 <slot
@@ -263,6 +264,7 @@
             :unstyled="unstyled"
             :data-p-bottom="true"
             :pt="ptm('pcPaginator')"
+            :allRowsPerPageOption="allRowsPerPageOption"
         >
             <template v-if="$slots.paginatorcontainer" #container="slotProps">
                 <slot

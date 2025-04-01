@@ -84,6 +84,7 @@
                             :templates="$slots"
                             :unstyled="unstyled"
                             :pt="pt"
+                            :allRowsPerPageOption="allRowsPerPageOption"
                         />
                         <JumpToPageDropdown
                             v-else-if="item === 'JumpToPageDropdown'"
@@ -193,7 +194,8 @@ export default {
             event.preventDefault();
         },
         onRowChange(value) {
-            this.d_rows = value;
+            this.d_rows = value !== -1 ? value : this.totalRecords;
+
             this.changePage(this.page);
         },
         createStyle() {

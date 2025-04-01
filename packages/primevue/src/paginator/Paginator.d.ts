@@ -284,6 +284,10 @@ export interface PaginatorProps {
      * @type {PassThroughOptions}
      */
     ptOptions?: PassThroughOptions;
+    /**
+     * When enabled, it adds an All option to display inside rows per page dropdown.
+     */
+    allRowsPerPageOption?: boolean | undefined;
 }
 
 /**
