@@ -75,8 +75,8 @@
                 </slot>
             </template>
         </Button>
-        <slot v-if="!auto" name="filelabel" :class="cx('filelabel')">
-            <span :class="cx('filelabel')" :files="files">
+        <slot v-if="!auto" name="filelabel" :class="cx('filelabel')" :files="files">
+            <span :class="cx('filelabel')">
                 {{ basicFileChosenLabel }}
             </span>
         </slot>
