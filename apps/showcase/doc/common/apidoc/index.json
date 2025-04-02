@@ -3465,6 +3465,14 @@
                             "description": "Used to pass attributes to the chip icon's DOM element."
                         },
                         {
+                            "name": "input",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AutoCompletePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the input chip's DOM element."
+                        },
+                        {
                             "name": "inputChip",
                             "optional": true,
                             "readonly": false,
@@ -17265,6 +17273,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Used to manage all lifecycle hooks."
+                        },
+                        {
+                            "name": "transition",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ConfirmDialogPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to control Vue Transition API."
                         }
                     ],
                     "methods": []
@@ -22862,7 +22878,7 @@
                             "name": "sortField",
                             "optional": true,
                             "readonly": false,
-                            "type": "string | Function",
+                            "type": "null | string | Function",
                             "default": "",
                             "description": "Property name or a getter function of data to use in sorting by default."
                         },
@@ -22870,7 +22886,7 @@
                             "name": "sortOrder",
                             "optional": true,
                             "readonly": false,
-                            "type": "number",
+                            "type": "null | number",
                             "default": "",
                             "description": "Order to sort the data by default."
                         },
