@@ -474,7 +474,17 @@ export default {
         onMenuMatchModeChange(value, index) {
             let _filters = { ...this.filters };
 
-            _filters[this.field].constraints[index].matchMode = value;
+            if (_filters[this.field].constraints) {
+                if (_filters[this.field].constraints[index]) {
+                    _filters[this.field].constraints[index].matchMode = value;
+                } else {
+                    _filters[this.field].constraints[index] = { value: null, matchMode: value };
+                }
+            }else {
+                _filters[this.field].constraints = new Array(index + 1).fill({value: null, matchMode: undefined});
+                _filters[this.field].constraints[index].matchMode = value;
+            }
+
             this.$emit('matchmode-change', { field: this.field, matchMode: value, index: index });
 
             if (!this.showApplyButton) {
@@ -485,7 +495,12 @@ export default {
             let _filters = { ...this.filters };
             let newConstraint = { value: null, matchMode: this.defaultMatchMode };
 
+            if (!_filters[this.field].constraints) {
+                _filters[this.field].constraints = [];
+            }
+
             _filters[this.field].constraints.push(newConstraint);
+
             this.$emit('constraint-add', { field: this.field, constraing: newConstraint });
             this.$emit('filter-change', _filters);
 
@@ -495,7 +510,11 @@ export default {
         },
         removeConstraint(index) {
             let _filters = { ...this.filters };
-            let removedConstraint = _filters[this.field].constraints.splice(index, 1);
+            let removedConstraint = undefined;
+
+            if (_filters[this.field].constraints) {
+                removedConstraint = _filters[this.field].constraints.splice(index, 1)
+            }
 
             this.$emit('constraint-remove', { field: this.field, constraing: removedConstraint });
             this.$emit('filter-change', _filters);
