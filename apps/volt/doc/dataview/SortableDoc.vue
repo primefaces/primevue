@@ -61,16 +61,16 @@ import DataView from '@/volt/DataView.vue';
 import Select from '@/volt/Select.vue';
 import Tag from '@/volt/Tag.vue';
 import { onMounted, ref } from 'vue';
-import { ProductService } from '~/service/ProductService';
+import { type Product, ProductService } from '~/service/ProductService';
 
 onMounted(() => {
     ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 5)));
 });
 
-const products = ref(null);
+const products = ref<Product[]>([]);
 const sortKey = ref(null);
-const sortOrder = ref(null);
-const sortField = ref(null);
+const sortOrder = ref<number | null>(null);
+const sortField = ref<string | null>(null);
 const sortOptions = ref([
     { label: 'Price High to Low', value: '!price' },
     { label: 'Price Low to High', value: 'price' }
@@ -91,7 +91,7 @@ const onSortChange = (event) => {
     }
 };
 
-const getSeverity = (product) => {
+const getSeverity = (product: Product) => {
     switch (product.inventoryStatus) {
         case 'INSTOCK':
             return 'success';
@@ -103,7 +103,7 @@ const getSeverity = (product) => {
             return 'danger';
 
         default:
-            return null;
+            return undefined;
     }
 };
 

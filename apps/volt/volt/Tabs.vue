@@ -1,5 +1,6 @@
 <template>
     <Tabs
+        :value="props.value"
         unstyled
         :pt="theme"
         :ptOptions="{
@@ -16,7 +17,7 @@ import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ TabsProps {}
-defineProps<Props>();
+const props = defineProps<Props>();
 
 const theme = ref<TabsPassThroughOptions>({
     root: `flex flex-col`

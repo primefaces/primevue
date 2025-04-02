@@ -223,11 +223,11 @@ export interface DataViewProps<T = unknown> {
     /**
      * Property name or a getter function of data to use in sorting by default.
      */
-    sortField?: string | ((item: any) => string) | undefined;
+    sortField?: string | ((item: any) => string) | null | undefined;
     /**
      * Order to sort the data by default.
      */
-    sortOrder?: number | undefined;
+    sortOrder?: number | null | undefined;
     /**
      * Defines if data is loaded and interacted with in lazy manner.
      * @defaultValue false

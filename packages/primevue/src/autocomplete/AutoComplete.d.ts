@@ -168,6 +168,10 @@ export interface AutoCompletePassThroughOptions {
     /**
      * Used to pass attributes to the input chip's DOM element.
      */
+    input?: AutoCompletePassThroughOptionType;
+    /**
+     * Used to pass attributes to the input chip's DOM element.
+     */
     inputChip?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the loader's DOM element.
