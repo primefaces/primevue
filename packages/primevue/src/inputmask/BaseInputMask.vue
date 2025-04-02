@@ -20,7 +20,7 @@ export default {
         },
         mask: {
             type: String,
-            default: null
+            default: ''
         },
         placeholder: {
             type: String,
