@@ -31,7 +31,8 @@
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
-        "build:prebuild": "node ./scripts/prebuild.mjs"
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "typecheck": "vue-tsc --noEmit"
     },
     "dependencies": {
         "@docsearch/js": "catalog:app",
@@ -53,7 +54,8 @@
         "tailwindcss-primeui": "catalog:",
         "@tailwindcss/vite": "^4",
         "typedoc": "0.27.9",
-        "vite": "catalog:app"
+        "vite": "catalog:app",
+        "vue-tsc": "^2.2.8"
     },
     "engines": {
         "node": ">=12.11.0"

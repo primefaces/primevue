@@ -40,6 +40,7 @@
         "volt:dev": "pnpm --filter volt dev",
         "module:dev": "pnpm --filter @primevue/nuxt-module dev",
         "security:check": "pnpm audit --prod --audit-level high",
+        "typecheck": "pnpm --filter volt typecheck",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
