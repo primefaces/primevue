@@ -480,7 +480,7 @@ export default {
                 } else {
                     _filters[this.field].constraints[index] = { value: null, matchMode: value };
                 }
-            }else {
+            } else {
                 _filters[this.field].constraints = new Array(index + 1).fill({value: null, matchMode: undefined});
                 _filters[this.field].constraints[index].matchMode = value;
             }
