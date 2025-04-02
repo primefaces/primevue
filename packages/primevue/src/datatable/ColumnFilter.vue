@@ -474,8 +474,13 @@ export default {
         onMenuMatchModeChange(value, index) {
             let _filters = { ...this.filters };
 
-            _filters[this.field].constraints[index].matchMode = value;
-            this.$emit('matchmode-change', { field: this.field, matchMode: value, index: index });
+            if (_filters[this.field].operator && _filters[this.field].constraints) {
+                _filters[this.field].constraints[index].matchMode = value;
+                this.$emit('matchmode-change', { field: this.field, matchMode: value, index: index });
+            } else {
+                _filters[this.field].matchMode = matchMode;
+                this.$emit('matchmode-change', { field: this.field, matchMode: value, });
+            }
 
             if (!this.showApplyButton) {
                 this.$emit('filter-apply');
