@@ -348,10 +348,11 @@ export interface MenuMethods {
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
+     * @param {*} [target] - Target element
      *
      * @memberof Menu
      */
-    toggle(event: Event): void;
+    toggle(event: Event, target?: any): void;
     /**
      * Shows the overlay.
      * @param {Event} event - Browser event.
