@@ -366,9 +366,23 @@ export default {
             }, 100);
         },
         onKeyDown(event) {
-            if (this.disabled || isAndroid()) {
+            if (this.disabled) {
                 event.preventDefault();
+                return;
+            }
 
+            const keyCode = event.keyCode || event.which;
+            const isAllowedKey = [ 8, 13, 190 ]; // Backspace, Enter, NumpadEnter
+
+            if (isAndroid() && isAllowedKey.includes(keyCode)) {
+                switch (keyCode) {
+                    case 8:
+                        this.onBackspaceKey(event, this.editable);
+                        break;
+                    case 190:
+                        this.onEnterKey(event);
+                        break;
+                }
                 return;
             }
 
