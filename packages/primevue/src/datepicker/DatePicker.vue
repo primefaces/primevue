@@ -34,6 +34,7 @@
             :data-p-has-dropdown="showIcon && iconDisplay === 'button' && !inline"
             :data-p-has-e-icon="showIcon && iconDisplay === 'input' && !inline"
             :pt="ptm('pcInputText')"
+            :formControl="{ novalidate: true }"
         />
         <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton" :toggleCallback="onButtonClick">
             <button
