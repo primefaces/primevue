@@ -45,7 +45,7 @@ export default {
     },
     data() {
         return {
-            d_value: this.defaultValue || this.modelValue
+            d_value: this.defaultValue !== undefined ? this.defaultValue : this.modelValue
         };
     },
     watch: {
