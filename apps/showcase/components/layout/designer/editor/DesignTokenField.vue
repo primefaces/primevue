@@ -29,7 +29,7 @@
                     listContainer: 'max-h-40 overflow-auto',
                     list: 'm-0 py-2 px-2 list-none',
                     loader: 'hidden',
-                    option: 'cursor-pointer py-1 text-sm text-surface-700 dark:text-white/80 data-[p-focus=true]:bg-surface-100 data-[p-focus=true]:dark:bg-surface-800 rounded-md'
+                    option: 'cursor-pointer py-1 text-sm text-surface-700 dark:text-white/80 data-[p-focused=true]:bg-surface-100 data-[p-focused=true]:dark:bg-surface-800 rounded-md'
                 }"
                 @option-select="onOptionSelect"
             >

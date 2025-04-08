@@ -25,7 +25,7 @@
             before the migration.
         </span>
         <div class="flex justify-start gap-2">
-            <button type="button" @click="preview" class="btn-design-outlined">Check for Updates</button>
+            <button type="button" @click="preview" class="btn-design-outlined disabled:pointer-events-none" :disabled="!$appState.designer.verified">Check for Updates</button>
             <button v-if="status === 'preview' && missingTokens.length > 0" type="button" @click="confirmMigration" class="btn-design">Migrate</button>
         </div>
         <div v-if="status === 'preview'">
@@ -97,11 +97,15 @@ export default {
     methods: {
         changeFont() {
             this.designerService.applyFont(this.$appState.designer.theme.config.font_family);
-            this.designerService.saveTheme(this.$appState.designer.theme);
+            if (this.$appState.designer.verified) {
+                this.designerService.saveTheme(this.$appState.designer.theme);
+            }
         },
         changeBaseFontSize() {
             document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
-            this.designerService.saveTheme(this.$appState.designer.theme);
+            if (this.$appState.designer.verified) {
+                this.designerService.saveTheme(this.$appState.designer.theme);
+            }
         },
         async preview() {
             const { data, error } = await $fetch(this.designerApiUrl + '/theme/migrate/preview/' + this.$appState.designer.theme.key, {
