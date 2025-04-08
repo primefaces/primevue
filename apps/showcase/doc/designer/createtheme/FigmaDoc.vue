@@ -11,6 +11,7 @@
             Open the <NuxtLink to="/uikit">PrimeOne UI Kit</NuxtLink> in which you've modified tokens. In the Tokens Studio plugin, navigate to the <i>Tools</i> menu and select <i>Export to file/folder.</i> When the Export tokens modal appears, make
             sure the <i>Single file</i> tab is selected. Check the <i>All tokens sets</i> option, then click <i>Export</i>.
         </p>
+        <p>In case you utilize custom tokens, create a new token set named <i>custom</i> and define your tokens under this set to make sure they are also exported to the theme code.</p>
         <div class="pl-8 pr-4 pt-4 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface mb-4" style="max-width: 48rem">
             <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/tokens-studio.png" class="w-full" />
         </div>
