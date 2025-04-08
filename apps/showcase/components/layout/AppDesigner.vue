@@ -53,7 +53,8 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                resolveColor: this.resolveColor
+                resolveColor: this.resolveColor,
+                resolveColorPlain: this.resolveColorPlain
             }
         };
     },
@@ -243,6 +244,13 @@ export default {
                 return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
             } else {
                 return token;
+            }
+        },
+        resolveColorPlain(color) {
+            if (color.startsWith('{') && color.endsWith('}')) {
+                return $dt(color).variable;
+            } else {
+                return color;
             }
         }
     },

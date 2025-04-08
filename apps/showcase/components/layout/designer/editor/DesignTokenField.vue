@@ -36,7 +36,7 @@
                 <template #option="slotProps">
                     <div v-tooltip.left="slotProps.option.value" class="flex items-center justify-between gap-4 px-2">
                         <span>{{ slotProps.option.token }}</span>
-                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: designerService.resolveColor(slotProps.option.value) }"></div>
+                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: designerService.resolveColorPlain(slotProps.option.value) }"></div>
                         <div v-else class="text-xs max-w-16 text-ellipsis whitespace-nowrap overflow-hidden">
                             {{ slotProps.option.value }}
                         </div>
