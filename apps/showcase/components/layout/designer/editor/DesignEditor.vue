@@ -36,7 +36,7 @@
                     <AccordionPanel value="1">
                         <AccordionHeader>Color Scheme</AccordionHeader>
                         <AccordionContent>
-                            <Tabs value="cs-0">
+                            <Tabs :value="activeColorScheme" @update:value="onColorSchemeChange">
                                 <TabList>
                                     <Tab value="cs-0">Light</Tab>
                                     <Tab value="cs-1">Dark</Tab>
@@ -74,6 +74,8 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
+
 export default {
     props: {
         deferred: {
@@ -97,11 +99,18 @@ export default {
                 this.designerService.applyTheme(this.$appState.designer.theme);
                 event.preventDefault();
             }
+        },
+        onColorSchemeChange(value) {
+            if (value === 'cs-0') EventBus.emit('dark-mode-toggle', { dark: false });
+            else if (value === 'cs-1') EventBus.emit('dark-mode-toggle', { dark: true });
         }
     },
     computed: {
         isComponentRoute() {
             return this.$appState.designer.theme.preset?.components[this.$route.name] != null;
+        },
+        activeColorScheme() {
+            return this.$appState.darkTheme ? 'cs-1' : 'cs-0';
         }
     }
 };

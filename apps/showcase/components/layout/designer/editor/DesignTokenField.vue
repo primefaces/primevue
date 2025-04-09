@@ -29,14 +29,14 @@
                     listContainer: 'max-h-40 overflow-auto',
                     list: 'm-0 py-2 px-2 list-none',
                     loader: 'hidden',
-                    option: 'cursor-pointer py-1 text-sm text-surface-700 dark:text-white/80 data-[p-focus=true]:bg-surface-100 data-[p-focus=true]:dark:bg-surface-800 rounded-md'
+                    option: 'cursor-pointer py-1 text-sm text-surface-700 dark:text-white/80 data-[p-focused=true]:bg-surface-100 data-[p-focused=true]:dark:bg-surface-800 rounded-md'
                 }"
                 @option-select="onOptionSelect"
             >
                 <template #option="slotProps">
                     <div v-tooltip.left="slotProps.option.value" class="flex items-center justify-between gap-4 px-2">
                         <span>{{ slotProps.option.token }}</span>
-                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: designerService.resolveColor(slotProps.option.value) }"></div>
+                        <div v-if="slotProps.option.isColor" class="border border-surface-200 dark:border-surface-700 w-4 h-4 rounded-full" :style="{ backgroundColor: designerService.resolveColorPlain(slotProps.option.value) }"></div>
                         <div v-else class="text-xs max-w-16 text-ellipsis whitespace-nowrap overflow-hidden">
                             {{ slotProps.option.value }}
                         </div>

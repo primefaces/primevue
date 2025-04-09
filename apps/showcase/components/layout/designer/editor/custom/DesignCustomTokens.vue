@@ -64,7 +64,9 @@ export default {
                 this.$appState.designer.theme.preset.extend[this.transformTokenName(token.name)] = token.value;
             });
 
-            this.designerService.saveTheme(this.$appState.designer.theme);
+            if (this.$appState.designer.verified) {
+                this.designerService.saveTheme(this.$appState.designer.theme);
+            }
             usePreset(this.$appState.designer.theme.preset);
             this.designerService.refreshACTokens();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
