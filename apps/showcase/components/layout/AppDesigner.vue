@@ -148,7 +148,10 @@ export default {
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
-            return name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase();
+            return name
+                .replace(/([a-z])([A-Z])/g, '$1.$2')
+                .replace(/([a-zA-Z])(\d)/g, '$1.$2')
+                .toLowerCase();
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
