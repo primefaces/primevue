@@ -505,6 +505,7 @@ export default {
                 let align = this.columnProp('alignFrozen');
 
                 if (align === 'right') {
+                    /*
                     let pos = 0;
                     let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
@@ -513,12 +514,33 @@ export default {
                     }
 
                     this.styleObject.insetInlineEnd = pos + 'px';
+                    */
+                    let pos = 0;
+                    // TODO :: Optimize by caching the dataTable instead of querying it repeatedly.
+                    let dataTable = this.$el.closest('table.p-datatable-table');
+
+                    if(dataTable) {
+                        pos = this.$el.getBoundingClientRect().right - dataTable.getBoundingClientRect().right;
+                    }
+
+                    this.styleObject.insetInlineEnd = pos + 'px';
                 } else {
+                    /*
                     let pos = 0;
                     let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
 
                     if (prev) {
                         pos = getOuterWidth(prev) + parseFloat(prev.style['inset-inline-start'] || 0);
+                    }
+
+                    this.styleObject.insetInlineStart = pos + 'px';
+                    */
+                    let pos = 0
+                    // TODO :: Optimize by caching the dataTable instead of querying it repeatedly.
+                    let dataTable = this.$el.closest('table.p-datatable-table');
+
+                    if(dataTable) {
+                        pos = this.$el.getBoundingClientRect().left - dataTable.getBoundingClientRect().left;
                     }
 
                     this.styleObject.insetInlineStart = pos + 'px';
