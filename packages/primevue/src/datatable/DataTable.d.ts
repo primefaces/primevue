@@ -1248,6 +1248,10 @@ export interface DataTableProps<T = any> {
      * @defaultValue false
      */
     unstyled?: boolean;
+    /**
+     * When enabled, it adds an All option to display inside rows per page dropdown.
+     */
+    allRowsPerPageOption?: boolean | undefined;
 }
 
 /**
