@@ -115,7 +115,7 @@ export interface AccordionHeaderSlots {
     /**
      * Custom content template.
      */
-    default(): VNode[];
+    default(scope: AccordionHeaderContext): VNode[];
     /**
      * Custom toggleicon template.
      */
