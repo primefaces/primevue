@@ -50,7 +50,7 @@ export interface ConfirmationOptions {
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Defines if background should be blocked when confirm dialog is displayed.
-     * @defaultValue false
+     * @defaultValue true
      */
     modal?: boolean | undefined;
     /**
