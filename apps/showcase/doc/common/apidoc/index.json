@@ -20769,6 +20769,22 @@
                             "description": "The icon to show while indicating data load is in progress."
                         },
                         {
+                            "name": "enableCellLoading",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Enables cell-level loading placeholders (e.g., skeletons) for non-virtual scrolling use cases. When enabled, the default table-level loader gets disabled."
+                        },
+                        {
+                            "name": "loadingRows",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "5",
+                            "description": "Number of loading placeholder rows to display when `enableCellLoading` is true"
+                        },
+                        {
                             "name": "sortField",
                             "optional": true,
                             "readonly": false,

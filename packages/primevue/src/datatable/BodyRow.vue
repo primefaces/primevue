@@ -59,6 +59,7 @@
                     :expandedRowIcon="expandedRowIcon"
                     :collapsedRowIcon="collapsedRowIcon"
                     :editButtonProps="editButtonProps"
+                    :loading="loading"
                     @radio-change="onRadioChange"
                     @checkbox-change="onCheckboxChange"
                     @row-toggle="onRowToggle"
@@ -269,6 +270,10 @@ export default {
         nameAttributeSelector: {
             type: String,
             default: null
+        },
+        loading: {
+            type: Boolean,
+            default: false
         }
     },
     data() {

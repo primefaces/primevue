@@ -1,5 +1,5 @@
 <template>
-    <td v-if="loading" :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
+    <td v-if="shouldShowLoading" :style="containerStyle" :class="containerClass" role="cell" v-bind="{ ...getColumnPT('root'), ...getColumnPT('bodyCell') }">
         <component :is="column.children.loading" :data="rowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" :loadingOptions="loadingOptions" />
     </td>
     <td
@@ -219,6 +219,10 @@ export default {
         editButtonProps: {
             type: Object,
             default: null
+        },
+        loading: {
+            type: Boolean,
+            default: false
         }
     },
     documentEditListener: null,
@@ -545,7 +549,7 @@ export default {
 
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
-        loading() {
+        virtualScrollerLoading() {
             return this.getVirtualScrollerProp('loading');
         },
         loadingOptions() {
@@ -563,6 +567,9 @@ export default {
                     field: this.field
                 })
             );
+        },
+        shouldShowLoading() {
+            return (this.virtualScrollerLoading || this.loading) && this.column.children?.loading && (this.$parentInstance?.$parentInstance?.enableCellLoading || this.virtualScrollerLoading);
         },
         expandButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? (this.isRowExpanded ? this.$primevue.config.locale.aria.expandRow : this.$primevue.config.locale.aria.collapseRow) : undefined;
