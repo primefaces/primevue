@@ -53,7 +53,8 @@ export default {
                 activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                resolveColor: this.resolveColor
+                resolveColor: this.resolveColor,
+                resolveColorPlain: this.resolveColorPlain
             }
         };
     },
@@ -147,7 +148,10 @@ export default {
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
-            return name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase();
+            return name
+                .replace(/([a-z])([A-Z])/g, '$1.$2')
+                .replace(/([a-zA-Z])(\d)/g, '$1.$2')
+                .toLowerCase();
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
@@ -243,6 +247,13 @@ export default {
                 return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
             } else {
                 return token;
+            }
+        },
+        resolveColorPlain(color) {
+            if (color.startsWith('{') && color.endsWith('}')) {
+                return $dt(color).variable;
+            } else {
+                return color;
             }
         }
     },

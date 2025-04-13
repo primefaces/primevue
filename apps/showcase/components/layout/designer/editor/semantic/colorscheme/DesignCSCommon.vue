@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Surface</span>
-                <input :value="designerService.resolveColor($colorScheme.surface['500'])" @input="onSurfaceColorChange($event)" type="color" @blur="onColorPickerBlur" />
+                <input :value="surface" @input="onSurfaceColorChange($event)" type="color" @blur="onColorPickerBlur" />
             </div>
             <DesignColorPalette :value="$colorScheme.surface" />
         </section>
@@ -79,12 +79,29 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
 import { palette } from '@primeuix/themes';
 
 export default {
     inject: ['$colorScheme', 'designerService'],
+    beforeUnmount() {
+        EventBus.off('theme-palette-change', this.redrawListener);
+    },
+    mounted() {
+        this.redrawListener = () => {
+            this.surface = this.designerService.resolveColor(this.$colorScheme.surface['500']);
+        };
+
+        EventBus.on('theme-palette-change', this.redrawListener);
+    },
+    data() {
+        return {
+            surface: this.designerService.resolveColor(this.$colorScheme.surface['500'])
+        };
+    },
     methods: {
         onSurfaceColorChange(event) {
+            this.surface = this.designerService.resolveColor(this.$colorScheme.surface['500']);
             this.$colorScheme.surface = { ...{ 0: '#ffffff' }, ...palette(event.target.value) };
         },
         onColorPickerBlur() {

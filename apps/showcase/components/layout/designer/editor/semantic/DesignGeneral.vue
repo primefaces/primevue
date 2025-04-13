@@ -3,7 +3,7 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
-                <input :value="designerService.resolveColor($appState.designer.theme.preset.semantic.primary['500'])" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" @onBlur="onColorPickerBlur" />
+                <input :value="primary" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" @onBlur="onColorPickerBlur" />
             </div>
             <DesignColorPalette :value="$appState.designer.theme.preset.semantic.primary" />
         </section>
@@ -49,12 +49,29 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
 import { palette } from '@primeuix/themes';
 
 export default {
     inject: ['designerService'],
+    beforeUnmount() {
+        EventBus.off('theme-palette-change', this.redrawListener);
+    },
+    mounted() {
+        this.redrawListener = () => {
+            this.primary = this.designerService.resolveColor(this.$appState.designer.theme.preset.semantic.primary['500']);
+        };
+
+        EventBus.on('theme-palette-change', this.redrawListener);
+    },
+    data() {
+        return {
+            primary: this.designerService.resolveColor(this.$appState.designer.theme.preset.semantic.primary['500'])
+        };
+    },
     methods: {
         onPrimaryColorChange(event) {
+            this.primary = this.designerService.resolveColor(this.$appState.designer.theme.preset.semantic.primary['500']);
             this.$appState.designer.theme.preset.semantic.primary = palette(event.target.value);
         },
         onColorPickerBlur() {

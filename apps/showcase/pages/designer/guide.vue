@@ -61,7 +61,7 @@ export default {
                             component: BaseDoc
                         },
                         {
-                            id: 'tokensets',
+                            id: 'figma',
                             label: 'Figma',
                             component: FigmaDoc
                         }

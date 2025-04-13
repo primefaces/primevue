@@ -12,7 +12,7 @@
             </div>
         </Fieldset>
         <Fieldset legend="Color Scheme" :toggleable="true">
-            <Tabs v-if="hasColorScheme" value="cs-0">
+            <Tabs v-if="hasColorScheme" :value="activeColorScheme" @update:value="onColorSchemeChange">
                 <TabList>
                     <Tab value="cs-0">Light</Tab>
                     <Tab value="cs-1">Dark</Tab>
@@ -36,7 +36,14 @@
 </template>
 
 <script>
+import EventBus from '@/app/AppEventBus';
+
 export default {
+    methods: {
+        onColorSchemeChange() {
+            EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
+        }
+    },
     computed: {
         componentKey() {
             return this.$route.name;
@@ -59,6 +66,9 @@ export default {
                     return name !== 'colorScheme' && name !== 'css';
                 }).length > 0
             );
+        },
+        activeColorScheme() {
+            return this.$appState.darkTheme ? 'cs-1' : 'cs-0';
         }
     }
 };
