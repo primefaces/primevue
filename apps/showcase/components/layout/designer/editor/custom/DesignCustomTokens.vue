@@ -41,13 +41,10 @@ export default {
     },
     created() {
         const extend = this.$appState.designer.theme.preset.extend;
-
         this.tokens = [];
 
         if (extend) {
-            for (let token in extend) {
-                this.tokens.push({ name: token.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase(), value: extend[token] });
-            }
+            this.tokens = this.objectToDotNotation(extend);
         }
     },
     methods: {
@@ -61,7 +58,9 @@ export default {
             this.$appState.designer.theme.preset.extend = {};
 
             this.tokens.forEach((token) => {
-                this.$appState.designer.theme.preset.extend[this.transformTokenName(token.name)] = token.value;
+                const { name, value } = token;
+                const nestedObj = this.transformTokenName(name, value);
+                this.mergeObjects(this.$appState.designer.theme.preset.extend, nestedObj);
             });
 
             if (this.$appState.designer.verified) {
@@ -71,19 +70,51 @@ export default {
             this.designerService.refreshACTokens();
             this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Tokens saved', life: 3000 });
         },
-        transformTokenName(name) {
-            if (name && name.trim().length) {
-                let tokenNameSections = name.split('.');
-                let transformedName = '';
+        transformTokenName(token, value) {
+            const parts = token.split('.');
+            const result = {};
+            let current = result;
 
-                tokenNameSections.forEach((section, index) => {
-                    transformedName += index === 0 ? section : section.charAt(0).toUpperCase() + section.substring(1);
-                });
+            for (let i = 0; i < parts.length - 1; i++) {
+                current[parts[i]] = current[parts[i]] || {};
 
-                return transformedName;
-            } else {
-                return name;
+                current = current[parts[i]];
             }
+
+            current[parts[parts.length - 1]] = value;
+
+            return result;
+        },
+        mergeObjects(target, source) {
+            for (const key in source) {
+                if (source.hasOwnProperty(key)) {
+                    if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
+                        target[key] = target[key] || {};
+                        this.mergeObjects(target[key], source[key]);
+                    } else {
+                        target[key] = source[key];
+                    }
+                }
+            }
+            return target;
+        },
+        objectToDotNotation(obj, prefix = '', result = []) {
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    const path = prefix ? `${prefix}.${key}` : key;
+
+                    if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+                        this.objectToDotNotation(obj[key], path, result);
+                    } else {
+                        result.push({
+                            name: path,
+                            value: obj[key]
+                        });
+                    }
+                }
+            }
+
+            return result;
         }
     }
 };
