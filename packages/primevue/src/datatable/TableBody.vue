@@ -38,6 +38,7 @@
                     :rowGroupHeaderStyle="rowGroupHeaderStyle"
                     :expandedRowId="$id"
                     :nameAttributeSelector="$attrSelector"
+                    :loading="loading"
                     @rowgroup-toggle="$emit('rowgroup-toggle', $event)"
                     @row-click="$emit('row-click', $event)"
                     @row-dblclick="$emit('row-dblclick', $event)"
@@ -226,6 +227,10 @@ export default {
             default: null
         },
         isVirtualScrollerDisabled: {
+            type: Boolean,
+            default: false
+        },
+        loading: {
             type: Boolean,
             default: false
         }

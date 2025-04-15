@@ -966,6 +966,17 @@ export interface DataTableProps<T = any> {
      */
     loading?: boolean | undefined;
     /**
+     * Enables cell-level loading placeholders (e.g., skeletons) for non-virtual scrolling use cases.
+     * When enabled, the default table-level loader gets disabled.
+     * @defaultValue false
+     */
+    enableCellLoading?: boolean | undefined;
+    /**
+     * Number of loading placeholder rows to display when `enableCellLoading` is true
+     * @defaultValue 5
+     */
+    loadingRows?: number | undefined;
+    /**
      * The icon to show while indicating data load is in progress.
      */
     loadingIcon?: string | undefined;

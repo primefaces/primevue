@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" :data-p="dataP" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading" :class="cx('mask')" v-bind="ptm('mask')">
+        <div v-if="loading && !enableCellLoading" :class="cx('mask')" v-bind="ptm('mask')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
                 <component v-if="$slots.loadingicon" :is="$slots.loadingicon" :class="cx('loadingIcon')" />
@@ -153,6 +153,7 @@
                             :templates="$slots"
                             :editButtonProps="rowEditButtonProps"
                             :isVirtualScrollerDisabled="true"
+                            :loading="loading"
                             @rowgroup-toggle="toggleRowGroup"
                             @row-click="onRowClick($event)"
                             @row-dblclick="onRowDblClick($event)"
@@ -211,6 +212,7 @@
                             :editButtonProps="rowEditButtonProps"
                             :virtualScrollerContentProps="slotProps"
                             :isVirtualScrollerDisabled="virtualScrollerDisabled"
+                            :loading="loading"
                             @rowgroup-toggle="toggleRowGroup"
                             @row-click="onRowClick($event)"
                             @row-dblclick="onRowDblClick($event)"
@@ -2066,6 +2068,10 @@ export default {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         processedData() {
+            if (this.loading && this.enableCellLoading) {
+                return Array(this.loadingRows).fill({});
+            }
+
             let data = this.value || [];
 
             if (!this.lazy && !this.virtualScrollerOptions?.lazy) {
@@ -2093,8 +2099,10 @@ export default {
             }
         },
         empty() {
+            if (this.loading && this.enableCellLoading) {
+                return false;
+            }
             const data = this.processedData;
-
             return !data || data.length === 0;
         },
         paginatorTop() {

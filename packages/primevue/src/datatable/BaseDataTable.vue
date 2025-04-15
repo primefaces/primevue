@@ -300,6 +300,14 @@ export default {
                     cancel: { severity: 'secondary', text: true, rounded: true }
                 };
             }
+        },
+        enableCellLoading: {
+            type: Boolean,
+            default: false
+        },
+        loadingRows: {
+            type: Number,
+            default: 5
         }
     },
     style: DataTableStyle,
