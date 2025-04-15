@@ -787,7 +787,7 @@ export interface MultiSelectSlots {
         /**
          * Options of the loader items for virtualscroller
          */
-        allSelected: boolean;
+        checked: boolean;
         /**
          * Style class of the loading icon.
          */
