@@ -20,10 +20,13 @@
                 appendTo="self"
                 :pt="{
                     pcInputText: {
-                        root: [
-                            'border text-zinc-950 dark:text-white rounded-lg py-2 px-2 w-full text-xs',
-                            { 'pr-6': type === 'color', 'border-red-500 dark:border-red-400 bg-red-50 dark:bg-red-500/30': invalid, 'border-surface-300 dark:border-surface-600': !invalid }
-                        ]
+                        root: {
+                            maxlength: 100,
+                            class: [
+                                'border text-zinc-950 dark:text-white rounded-lg py-2 px-2 w-full text-xs',
+                                { 'pr-6': type === 'color', 'border-red-500 dark:border-red-400 bg-red-50 dark:bg-red-500/30': invalid, 'border-surface-300 dark:border-surface-600': !invalid }
+                            ]
+                        }
                     },
                     overlay: 'border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-950 shadow-2 rounded-md',
                     listContainer: 'max-h-40 overflow-auto',

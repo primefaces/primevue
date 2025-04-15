@@ -169,7 +169,8 @@ export default {
 
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
                         const tokenValue = obj[key];
-                        const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
+                        const isColor =
+                            tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName) || tokenValue.startsWith('#') || tokenValue.startsWith('rgb') || tokenValue.startsWith('hsl') || tokenValue.startsWith('oklch');
 
                         this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
                     }
