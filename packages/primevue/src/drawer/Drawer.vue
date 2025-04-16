@@ -164,14 +164,14 @@ export default {
             }
 
             if (this.blockScroll) {
-                blockBodyScroll();
+                blockBodyScroll(this.$primevue.styled.$dt);
             }
         },
         disableDocumentSettings() {
             this.unbindOutsideClickListener();
 
             if (this.blockScroll) {
-                unblockBodyScroll();
+                unblockBodyScroll(this.$primevue.styled.$dt);
             }
         },
         onKeydown(event) {
@@ -212,7 +212,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.isOutsideClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.isOutsideClicked(target)) {
                         this.hide();
                     }
                 };
@@ -226,8 +227,8 @@ export default {
                 this.outsideClickListener = null;
             }
         },
-        isOutsideClicked(event) {
-            return this.container && !this.container.contains(event.target);
+        isOutsideClicked(target) {
+            return this.container && !this.container.contains(target);
         }
     },
     computed: {
