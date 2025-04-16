@@ -1299,9 +1299,21 @@ export default {
         },
         formatValue(value) {
             if (typeof value === 'string') {
-                return this.dateFormat ? (isNaN(new Date(value)) ? value : this.formatDate(new Date(value), this.dateFormat)) : value;
+                if (this.dateFormat === 'dd/mm/yy') {
+                    const parts = value.split('/');
+                    const day = parseInt(parts[0], 10);
+                    const month = parseInt(parts[1], 10) - 1; 
+                    const year = parts[2].length === 2 ? 2000 + parseInt(parts[2], 10) : parseInt(parts[2], 10);
+                    
+                    const date = new Date(year, month, day);
+                    
+                    if (!isNaN(date.getTime())) {
+                        return this.formatDate(date, this.dateFormat);
+                    }
+                }
+                return value;
             }
-
+            
             let formattedValue = '';
 
             if (value) {
