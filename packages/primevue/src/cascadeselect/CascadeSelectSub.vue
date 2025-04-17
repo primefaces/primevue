@@ -78,7 +78,7 @@ export default {
         selectId: String,
         focusedOptionId: String,
         options: Array,
-        optionLabel: String,
+        optionLabel: String | Function,
         optionValue: String,
         optionDisabled: null,
         optionGroupIcon: String,
