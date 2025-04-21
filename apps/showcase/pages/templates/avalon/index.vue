@@ -26,9 +26,9 @@ export default {
                             templateHeroData: {
                                 logo: markRaw(AvalonLogo),
                                 rectangle: false,
-                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard1.png',
-                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-dashboard2.png',
-                                description: 'A modern and easy to use premium application template with highly customizable layout features. Based on a bootstrap styling, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
+                                dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-hero-dashboard1.jpg',
+                                dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-hero-dashboard2.jpg',
+                                description: 'A sleek, user-friendly premium app template featuring a highly customizable layout. Built with Tailwind CSS, it`s fully responsive, touch-optimized, and developed with PrimeVue.',
                                 liveHref: 'https://avalon.primevue.org/',
                                 docHref: 'https://avalon.primevue.org/documentation',
                                 pattern: {
@@ -48,13 +48,13 @@ export default {
                                 licenseDetails: [
                                     {
                                         title: 'Basic License',
-                                        price: '$49',
+                                        price: '$59',
                                         discount: '$29',
                                         included: ['Non Commercial Usage', 'Single End Product, No Multi-Use', '1 Year Free Updates']
                                     },
                                     {
                                         title: 'Extended License',
-                                        price: '$490',
+                                        price: '$590',
                                         discount: '$290',
                                         included: ['Commercial Usage', 'Multiple End Products', '1 Year Free Updates']
                                     }
@@ -70,64 +70,57 @@ export default {
                                 {
                                     id: 1,
                                     title: 'Light and Dark Modes',
-                                    description: 'Avalon offers you 2 uniquely designed layout modes to choose from; Light and Dark.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/features-animation-darkmode.png'
+                                    description: '2 color schemes with 8 surface color alternatives for each.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/features-animation-darkmode.jpg'
                                 },
                                 {
                                     id: 2,
-                                    title: 'Component 10 Beautiful Themes',
-                                    description: 'Avalon offers 10 built-in themes and creating your own theme is a matter of defining couple of SaSS variables.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/features-animation-component-themes.png'
+                                    title: 'Themes and Presets',
+                                    description: 'Avalon offers 17 built-in theme colors with the power of 3 presets: Aura, Lara and Nora.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/features-animation-component-themes.jpg'
                                 },
                                 {
                                     id: 3,
                                     title: '7 Menu Orientations',
-                                    description: 'Avalon has 7 menu layouts to choose from; Static, Overlay, Slim, Slim+, Reveal, Drawer and Horizontal with Light and Dark options.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/features-animation-orientations.png',
+                                    description: 'Static, Overlay, Slim, Compact, Horizontal, Reveal and Drawer are the available menu layouts depending on your preference.',
                                     type: 'inline-animation',
                                     inlineFeaturesData: [
                                         {
                                             id: 1,
                                             title: 'Static',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Static.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/static.png'
                                         },
                                         {
                                             id: 2,
                                             title: 'Slim',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Slim.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/slim.png'
                                         },
                                         {
                                             id: 3,
                                             title: 'Reveal',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Reveal.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/reveal.png'
                                         },
                                         {
                                             id: 4,
                                             title: 'Horizontal',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Horizontal.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/horizontal.png'
                                         },
                                         {
                                             id: 5,
                                             title: 'Overlay',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Overlay.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/overlay.png'
                                         },
                                         {
                                             id: 6,
-                                            title: 'Slim+',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Slim+.png'
+                                            title: 'Compact',
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/compact.png'
                                         },
                                         {
                                             id: 7,
                                             title: 'Drawer',
-                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/Drawer.png'
+                                            src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/drawer.png'
                                         }
                                     ]
-                                },
-                                {
-                                    id: 4,
-                                    title: 'Topbar Themes',
-                                    description: 'Avalon comes with 11 topbar themes guaranteeing an enviable design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/features-animation-menu-themes.png'
                                 }
                             ]
                         }
@@ -146,17 +139,17 @@ export default {
                         props: {
                             featuresData: [
                                 {
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-features1-feature1.png',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-features1-feature1.png',
                                     title: 'Ready to Use Applications',
-                                    description: 'Mail, File System, Tasks, Calendar, Blog and Chat are the sample applications to get started with ease.'
+                                    description: 'Mail, File System, Tasks, Blog and Chat are the sample applications to get started with ease.'
                                 },
                                 {
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-features1-feature2.png',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-features1-feature2.png',
                                     title: 'E-Commerce Pages',
                                     description: 'Avalon offers E-commerce pages to kickstart your e-commerce project powered by PrimeBlocks.'
                                 },
                                 {
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-features1-feature3.png',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-features1-feature3.png',
                                     title: 'Ready to Use Pages',
                                     description: 'Landing, login, invoice, help, user management and error pages are provided as template pages to get started with building your app.'
                                 }
@@ -171,7 +164,7 @@ export default {
                                 {
                                     id: 1,
                                     title: 'Tailwind CSS',
-                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
+                                    description: 'Avalon is built with TailwindCSS, offering flexibility and efficiency for responsive design.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/common/tailwind.png'
                                 },
                                 {
@@ -183,24 +176,24 @@ export default {
                                 {
                                     id: 3,
                                     title: 'PrimeIcons',
-                                    description: 'Avalon ships with PrimeIcons, PrimeTek’s modern icon library including a wide range of icons for your applications.',
+                                    description: 'Ships with PrimeIcons, PrimeTek`s modern icon library including a wide range of icons for your applications.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/features-animation-icons.png'
                                 },
                                 {
                                     id: 4,
                                     title: 'Figma File',
                                     slotType: 'description4',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/features-animation-figma.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/features-animation-figma.png'
                                 }
                             ]
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/" target="_blank" rel="noopener noreferrer">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
                 template and requires a separate purchase.`,
                             description4: `
                     Avalon uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
-                <a href="https://www.figma.com/file/LuzEn29BAxr03T2vMQ5A1y/Preview-%7C-Avalon-1.0.0?type=design&mode=design&t=ME7xK2sAYOLoKCrT-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the
+                <a href="https://www.figma.com/design/kOSpIMmOxQ3vWq7md9ZIqZ/Preview-%7C-Avalon-%7C-2.0.0?node-id=6184-14861&t=2WN09Iqp8HcYlKkE-1" target="_blank" rel="noopener noreferrer">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the
                 Avalon Figma file as they are available in <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.`
                         }
                     },
@@ -211,7 +204,7 @@ export default {
                                 {
                                     title: 'Fully Responsive',
                                     description: 'Avalon is crafted to provide optimal viewing and interaction experience for a wide range of devices.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-features2-responsive.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-features2-responsive.jpg'
                                 },
                                 {
                                     title: 'Cross Browser Compatible',
@@ -228,20 +221,20 @@ export default {
                                 },
                                 {
                                     title: 'Customizable Design',
-                                    description: 'Fully customizable with a mixture of Sass and CSS variables.',
+                                    description: 'Fully customizable with a wide range of CSS variables.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-customizable.png',
                                     darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-customizable-dark.png'
                                 },
                                 {
                                     title: 'Top Notch Quality',
-                                    description: 'Superior standards with 100% compatibility for strict mode and linting tools.',
+                                    description: 'Superior standards featuring 100% compatibility with linting tools.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality.png',
                                     darkSrc: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-quality-dark.png'
                                 },
                                 {
                                     title: 'Mobile Experience',
                                     description: 'Touch optimized enhanced mobile experience with responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-features2-mobile.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/nextgen/avalon-features2-mobile.jpg'
                                 }
                             ],
                             displayType: 'vertical'
