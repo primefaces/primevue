@@ -13,7 +13,7 @@
             <i>pt:root:class</i> attribute in the second case will merge the custom classes with the default classes perfectly.
         </p>
     </DocSectionText>
-    <div class="card flex justify-center gap-4">
+    <div class="card flex flex-wrap justify-center gap-4">
         <InputText class="bg-primary text-primary-contrast" value="Fails" />
         <InputText pt:root:class="bg-primary text-primary-contrast" value="Works" />
     </div>
@@ -26,7 +26,7 @@ import { ref } from 'vue';
 
 const code = ref(`
 <template>
-   <div class="card flex justify-center gap-4">
+    <div class="card flex flex-wrap justify-center gap-4">
         <InputText class="bg-primary text-primary-contrast" value="Fails" />
         <InputText pt:root:class="bg-primary text-primary-contrast" value="Works" />
     </div>
