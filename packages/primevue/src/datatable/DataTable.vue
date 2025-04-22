@@ -1203,7 +1203,7 @@ export default {
 
             this.$emit('update:selection', _selection);
         },
-        exportCSV(options, data) {
+        generateCSV(options, data) {
             let csv = '\ufeff';
 
             if (!data) {
@@ -1273,6 +1273,10 @@ export default {
                 }
             }
 
+            return csv;
+        },
+        exportCSV(options, data) {
+            const csv = this.generateCSV(options, data);
             exportCSV(csv, this.exportFilename);
         },
         resetPage() {
