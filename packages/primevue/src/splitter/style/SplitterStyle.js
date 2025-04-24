@@ -7,13 +7,8 @@ const classes = {
     gutterHandle: 'p-splitter-gutter-handle'
 };
 
-const inlineStyles = {
-    root: ({ props }) => [{ display: 'flex', 'flex-wrap': 'nowrap' }, props.layout === 'vertical' ? { 'flex-direction': 'column' } : '']
-};
-
 export default BaseStyle.extend({
     name: 'splitter',
     style,
-    classes,
-    inlineStyles
+    classes
 });

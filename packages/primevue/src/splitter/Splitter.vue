@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" :data-p="dataP" v-bind="ptmi('root', getPTOptions)">
+    <div :class="cx('root')" :data-p-resizing="false" :data-p="dataP" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div

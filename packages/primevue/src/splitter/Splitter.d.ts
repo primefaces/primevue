@@ -169,7 +169,7 @@ export interface SplitterProps {
     stateStorage?: HintedString<'local' | 'session'> | undefined;
     /**
      * Step factor to increment/decrement the size of the panels while pressing the arrow keys.
-     * @defaultValue 1
+     * @defaultValue 5
      */
     step?: number | undefined;
     /**
