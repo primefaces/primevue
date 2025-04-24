@@ -35,10 +35,10 @@ export default {
                 icon: 'pi pi-home'
             },
             items: [
-                { label: 'Electronics' }, 
-                { label: 'Computer' }, 
-                { label: 'Accessories' }, 
-                { label: 'Keyboard' }, 
+                { label: 'Electronics' },
+                { label: 'Computer' },
+                { label: 'Accessories' },
+                { label: 'Keyboard' },
                 { label: 'Wireless' }
             ]
         }
@@ -60,10 +60,10 @@ const home = ref({
     icon: 'pi pi-home'
 });
 const items = ref([
-    { label: 'Electronics' }, 
-    { label: 'Computer' }, 
-    { label: 'Accessories' }, 
-    { label: 'Keyboard' }, 
+    { label: 'Electronics' },
+    { label: 'Computer' },
+    { label: 'Accessories' },
+    { label: 'Keyboard' },
     { label: 'Wireless' }
 ]);
 <\/script>
