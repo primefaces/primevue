@@ -74,10 +74,10 @@ export default {
             return !this.active && (this.$pcStepper.isStepDisabled() || this.disabled);
         },
         id() {
-            return `${this.$pcStepper?.id}_step_${this.activeValue}`;
+            return `${this.$pcStepper?.uid}_step_${this.activeValue}`;
         },
         ariaControls() {
-            return `${this.$pcStepper?.id}_steppanel_${this.activeValue}`;
+            return `${this.$pcStepper?.uid}_steppanel_${this.activeValue}`;
         },
         a11yAttrs() {
             return {
@@ -90,7 +90,7 @@ export default {
                     'data-p-active': this.active
                 },
                 header: {
-                    id: this.id,
+                    id: this.uid,
                     role: 'tab',
                     taindex: this.disabled ? -1 : undefined,
                     'aria-controls': this.ariaControls,
