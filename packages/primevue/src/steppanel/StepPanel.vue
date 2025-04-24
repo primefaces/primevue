@@ -79,14 +79,14 @@ export default {
             return this.isVertical ? this.$pcStepItem?.value : this.value;
         },
         id() {
-            return `${this.$pcStepper?.id}_steppanel_${this.activeValue}`;
+            return `${this.$pcStepper?.uid}_steppanel_${this.activeValue}`;
         },
         ariaControls() {
-            return `${this.$pcStepper?.id}_step_${this.activeValue}`;
+            return `${this.$pcStepper?.uid}_step_${this.activeValue}`;
         },
         a11yAttrs() {
             return {
-                id: this.id,
+                id: this.uid,
                 role: 'tabpanel',
                 'aria-controls': this.ariaControls,
                 'data-pc-name': 'steppanel',
