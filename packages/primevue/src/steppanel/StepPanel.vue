@@ -79,10 +79,10 @@ export default {
             return this.isVertical ? this.$pcStepItem?.value : this.value;
         },
         id() {
-            return `${this.$pcStepper?.id}_steppanel_${this.activeValue}`;
+            return `${this.$pcStepper?.$id}_steppanel_${this.activeValue}`;
         },
         ariaControls() {
-            return `${this.$pcStepper?.id}_step_${this.activeValue}`;
+            return `${this.$pcStepper?.$id}_step_${this.activeValue}`;
         },
         a11yAttrs() {
             return {
