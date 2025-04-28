@@ -6,7 +6,7 @@
         <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('previewMask')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('previewMask') }">
             <!-- TODO: indicator* deprecated since v4.0-->
             <slot :name="$slots.previewicon ? 'previewicon' : 'indicatoricon'">
-                <component :is="previewIcon || indicatorIcon ? 'i' : 'EyeIcon'" :class="cx('previewIcon')" v-bind="ptm('previewIcon')" />
+                <component :is="previewIcon || indicatorIcon ? 'i' : 'EyeIcon'" :class="[cx('previewIcon'), previewIcon]" v-bind="ptm('previewIcon')" />
             </slot>
         </button>
         <Portal>
