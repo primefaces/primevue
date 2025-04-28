@@ -9,7 +9,6 @@
             :style="inputStyle"
             :defaultValue="inputFieldValue"
             :placeholder="placeholder"
-            :name="name"
             :size="size"
             :invalid="invalid"
             :variant="variant"
