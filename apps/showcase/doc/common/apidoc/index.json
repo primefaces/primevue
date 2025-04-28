@@ -42295,6 +42295,12 @@
                                     "optional": false,
                                     "type": "Event",
                                     "description": "Browser event."
+                                },
+                                {
+                                    "name": "target",
+                                    "optional": true,
+                                    "type": "any",
+                                    "description": "Target element"
                                 }
                             ],
                             "returnType": "void",
