@@ -247,13 +247,13 @@ export default {
 
             order > -1 && (this.focusedOptionIndex = links[order].getAttribute('id'));
         },
-        toggle(event) {
+        toggle(event, target) {
             if (this.overlayVisible) this.hide();
-            else this.show(event);
+            else this.show(event, target);
         },
-        show(event) {
+        show(event, target) {
             this.overlayVisible = true;
-            this.target = event.currentTarget;
+            this.target = target ?? event.currentTarget;
         },
         hide() {
             this.overlayVisible = false;
