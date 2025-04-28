@@ -116,7 +116,10 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 el.addEventListener('click', el.$_ptooltipClickEvent);
             }
 
-            el.addEventListener('keydown', this.onKeydown.bind(this));
+            el.$_ptooltipKeydownEvent = this.onKeydown.bind(this);
+            el.addEventListener('keydown', el.$_ptooltipKeydownEvent);
+
+            el.$_pWindowResizeEvent = this.onWindowResize.bind(this, el);
         },
         unbindEvents(el) {
             const modifiers = el.$_ptooltipModifiers;
@@ -138,7 +141,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 el.$_ptooltipClickEvent = null;
             }
 
-            el.removeEventListener('keydown', this.onKeydown.bind(this));
+            el.removeEventListener('keydown', el.$_ptooltipKeydownEvent);
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
         },
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
@@ -203,6 +207,13 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             event.code === 'Escape' && this.hide(event.currentTarget, hideDelay);
         },
+        onWindowResize(el) {
+            if (!isTouchDevice()) {
+                this.hide(el);
+            }
+
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
+        },
         tooltipActions(el, options) {
             if (el.$_ptooltipDisabled || !isExist(el)) {
                 return;
@@ -215,13 +226,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             const $this = this;
 
-            window.addEventListener('resize', function onWindowResize() {
-                if (!isTouchDevice()) {
-                    $this.hide(el);
-                }
-
-                window.removeEventListener('resize', onWindowResize);
-            });
+            window.addEventListener('resize', el.$_pWindowResizeEvent);
 
             tooltipElement.addEventListener('mouseleave', function onTooltipLeave() {
                 $this.hide(el);
@@ -244,6 +249,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         tooltipRemoval(el) {
             this.remove(el);
             this.unbindScrollListener(el);
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
         },
         hide(el, hideDelay) {
             clearTimeout(this.timer);
