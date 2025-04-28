@@ -16917,7 +16917,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
-                            "default": "false",
+                            "default": "true",
                             "description": "Defines if background should be blocked when confirm dialog is displayed."
                         },
                         {
