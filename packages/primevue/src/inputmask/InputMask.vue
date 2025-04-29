@@ -501,8 +501,8 @@ export default {
         },
         initMask() {
             this.tests = [];
-            this.partialPosition = this.mask.length;
-            this.len = this.mask.length;
+            this.partialPosition = this.mask ? this.mask.length : 0;
+            this.len = this.mask ? this.mask.length : 0;
             this.firstNonMaskPos = null;
             this.defs = {
                 9: '[0-9]',
@@ -514,7 +514,7 @@ export default {
 
             this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
 
-            let maskTokens = this.mask.split('');
+            let maskTokens = this.mask ? this.mask.split('') : '';
 
             for (let i = 0; i < maskTokens.length; i++) {
                 let c = maskTokens[i];
