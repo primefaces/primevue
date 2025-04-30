@@ -20,10 +20,10 @@ const dialog = useDialog();
 
 const showProducts = () => {
     dialog.open(ProductListDemo, {
-        onCancel: (e) => {
-            console.log(e);      // {user: 'primetime'}
-        },
         emits: {
+            onCancel: (e) => {
+                console.log(e);  // {user: 'primetime'}
+            },
             onSave: (e) => {
                 console.log(e);  // {user: 'primetime'}
             }
