@@ -5,7 +5,7 @@ const classes = {
     root: 'p-organizationchart p-component',
     table: 'p-organizationchart-table',
     node: ({ instance }) => ['p-organizationchart-node', { 'p-organizationchart-node-selectable': instance.selectable, 'p-organizationchart-node-selected': instance.selected }],
-    nodeToggleButton: 'p-organizationchart-node-toggle-button',
+    nodeToggleButton: ({ instance }) => ['p-organizationchart-node-toggle-button', { 'p-disabled': !instance.selectable }],
     nodeToggleButtonIcon: 'p-organizationchart-node-toggle-button-icon',
     connectors: 'p-organizationchart-connectors',
     connectorDown: 'p-organizationchart-connector-down',
