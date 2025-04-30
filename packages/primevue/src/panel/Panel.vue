@@ -14,8 +14,8 @@
                         :aria-controls="$id + '_content'"
                         :aria-expanded="!d_collapsed"
                         :unstyled="unstyled"
-                        @click="toggle(event)"
-                        @keydown="onKeyDown(event)"
+                        @click="toggle($event)"
+                        @keydown="onKeyDown($event)"
                         v-bind="toggleButtonProps"
                         :pt="ptm('pcToggleButton')"
                     >
