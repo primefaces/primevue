@@ -11,7 +11,6 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-controls="(overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId"
-            :aria-expanded="overlayVisible"
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
@@ -51,6 +50,8 @@
                     :style="[overlayStyle, panelStyle]"
                     @click="onOverlayClick"
                     :data-p="overlayDataP"
+                    role="dialog"
+                    aria-live="polite"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
                     <slot name="header"></slot>
