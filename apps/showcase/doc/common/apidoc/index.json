@@ -2178,7 +2178,13 @@
                     "methods": [
                         {
                             "name": "default",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "AccordionHeaderContext"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom content template."
                         },
