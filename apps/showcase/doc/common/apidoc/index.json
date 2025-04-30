@@ -2182,7 +2182,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "AccordionHeaderContext"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the item is active.</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -21935,7 +21935,7 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table saves the state."
+                            "description": "Invoked when a stateful table restores the state."
                         },
                         {
                             "name": "state-save",
@@ -21948,7 +21948,7 @@
                                 }
                             ],
                             "returnType": "void",
-                            "description": "Invoked when a stateful table restores the state."
+                            "description": "Invoked when a stateful table saves the state."
                         }
                     ]
                 },
@@ -42227,20 +42227,7 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "",
-                            "deprecated": "since v4.0. Use submenuitem slot instead.\nCustom submenu header template."
-                        },
-                        {
-                            "name": "submenuitem",
-                            "parameters": [
-                                {
-                                    "name": "scope",
-                                    "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n }",
-                                    "description": "submenuitem slot's params."
-                                }
-                            ],
-                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom submenu item template."
+                            "deprecated": "since v4.0. Use submenulabel slot instead.\nCustom submenu header template."
                         }
                     ]
                 },
@@ -57735,14 +57722,6 @@
                             "description": "Defines current inline state."
                         },
                         {
-                            "name": "context",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "SelectButtonContext",
-                            "default": "",
-                            "description": "Defines current options."
-                        },
-                        {
                             "name": "attrs",
                             "optional": false,
                             "readonly": false,
@@ -57847,37 +57826,6 @@
                             "type": "number",
                             "default": "",
                             "description": "FocusedIndex state as a number."
-                        }
-                    ],
-                    "methods": []
-                },
-                "SelectButtonContext": {
-                    "description": "Defines current options in SelectButton component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "active",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current active state of the item as a boolean."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current disabled state of the item as a boolean."
-                        },
-                        {
-                            "name": "option",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "any",
-                            "default": "",
-                            "description": "Available option."
                         }
                     ],
                     "methods": []
@@ -58155,10 +58103,6 @@
                 },
                 "SelectButtonState": {
                     "description": "Defines current inline state in SelectButton component.",
-                    "props": []
-                },
-                "SelectButtonContext": {
-                    "description": "Defines current options in SelectButton component.",
                     "props": []
                 },
                 "SelectButtonProps": {
