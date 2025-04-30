@@ -40,7 +40,7 @@ export default {
             this.$pcAccordion.selectOnFocus && this.changeActiveValue();
         },
         onClick() {
-            this.changeActiveValue();
+            !this.$pcAccordion.selectOnFocus && this.changeActiveValue();
         },
         onKeydown(event) {
             switch (event.code) {
