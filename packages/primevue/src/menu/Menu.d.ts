@@ -294,21 +294,11 @@ export interface MenuSlots {
         class: any;
     }): VNode[];
     /**
-     * @deprecated since v4.0. Use submenuitem slot instead.
+     * @deprecated since v4.0. Use submenulabel slot instead.
      * Custom submenu header template.
      * @param {Object} scope - submenuheader slot's params.
      */
     submenuheader(scope: {
-        /**
-         * Menuitem instance
-         */
-        item: MenuItem;
-    }): VNode[];
-    /**
-     * Custom submenu item template.
-     * @param {Object} scope - submenuitem slot's params.
-     */
-    submenuitem(scope: {
         /**
          * Menuitem instance
          */
