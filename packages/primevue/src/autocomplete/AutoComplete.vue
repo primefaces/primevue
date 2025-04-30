@@ -8,7 +8,7 @@
             :name="$formName"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
-            :value="inputValue"
+            :defaultValue="inputValue"
             :placeholder="placeholder"
             :tabindex="!disabled ? tabindex : -1"
             :fluid="$fluid"
