@@ -1661,12 +1661,12 @@ export interface DataTableEmitsOptions<T = any> {
      */
     'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
-     * Invoked when a stateful table saves the state.
+     * Invoked when a stateful table restores the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
     'state-restore'(event: DataTableStateEvent<T>): void;
     /**
-     * Invoked when a stateful table restores the state.
+     * Invoked when a stateful table saves the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
     'state-save'(event: DataTableStateEvent<T>): void;
