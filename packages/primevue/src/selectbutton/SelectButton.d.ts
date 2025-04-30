@@ -32,10 +32,6 @@ export interface SelectButtonPassThroughMethodOptions {
      */
     state: SelectButtonState;
     /**
-     * Defines current options.
-     */
-    context: SelectButtonContext;
-    /**
      * Defines valid attributes.
      */
     attrs: any;
@@ -99,26 +95,6 @@ export interface SelectButtonState {
      * FocusedIndex state as a number.
      */
     focusedIndex: number;
-}
-
-/**
- * Defines current options in SelectButton component.
- */
-export interface SelectButtonContext {
-    /**
-     * Current active state of the item as a boolean.
-     * @defaultValue false
-     */
-    active: boolean;
-    /**
-     * Current disabled state of the item as a boolean.
-     * @defaultValue false
-     */
-    disabled: boolean;
-    /**
-     * Available option.
-     */
-    option: any;
 }
 
 /**
