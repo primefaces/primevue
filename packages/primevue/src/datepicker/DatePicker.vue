@@ -2531,8 +2531,11 @@ export default {
                 if (this.navigationState.button) {
                     this.initFocusableCell();
 
-                    if (this.navigationState.backward) this.previousButton.focus();
-                    else this.nextButton.focus();
+                    if (this.navigationState.backward) {
+                        this.previousButton && this.previousButton.focus();
+                    } else {
+                        this.nextButton && this.nextButton.focus();
+                    }
                 } else {
                     if (this.navigationState.backward) {
                         let cells;
