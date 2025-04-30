@@ -15,8 +15,8 @@
         <template #filtericon>
             <SearchIcon class="text-surface-400" />
         </template>
-        <template #clearicon>
-            <TimesIcon class="text-surface-400 absolute top-1/2 -mt-2 end-10" />
+        <template #clearicon="{ clearCallback }">
+            <TimesIcon @click="clearCallback" class="text-surface-400 absolute top-1/2 -mt-2 end-10" />
         </template>
         <template v-for="(_, slotName) in $slots" v-slot:[slotName]="slotProps">
             <slot :name="slotName" v-bind="slotProps ?? {}" />
@@ -47,7 +47,7 @@ const theme = ref<SelectPassThroughOptions>({
         shadow-[0_1px_2px_0_rgba(18,18,23,0.05)]
         transition-colors duration-200`,
     label: `block whitespace-nowrap overflow-hidden flex-auto w-[1%]
-        py-2 px-3 overflow-ellipsis 
+        py-2 px-3 overflow-ellipsis
         p-clearable:pe-7 p-empty:overflow-hidden p-empty:opacity-0 p-editable:cursor-default
         text-surface-700 dark:text-surface-0 bg-transparent border-none outline-none
         p-placeholder:text-surface-500 dark:p-placeholder:text-surface-400
