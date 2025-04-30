@@ -45,7 +45,7 @@ const theme = ref<ButtonPassThroughOptions>({
         dark:p-text:border-transparent dark:enabled:hover:p-text:border-transparent dark:enabled:active:p-text:border-transparent
         dark:p-text:text-primary dark:enabled:hover:p-text:text-primary dark:enabled:active:p-text:text-primary
     `,
-    loadingIcon: ``,
+    loadingIcon: `animate-spin`,
     icon: `p-right:order-1 p-bottom:order-2`,
     label: `font-medium p-icon-only:invisible p-icon-only:w-0
         p-small:text-sm p-large:text-[1.125rem]`,
