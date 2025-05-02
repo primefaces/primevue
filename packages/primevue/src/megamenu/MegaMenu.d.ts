@@ -241,7 +241,7 @@ export interface MegaMenuProps {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[][] | undefined;
+    model?: MenuItem[] | undefined;
     /**
      * Defines the orientation.
      * @defaultValue horizontal
