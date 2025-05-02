@@ -1489,7 +1489,7 @@ export default {
             event.preventDefault();
         },
         onClearButtonClick(event) {
-            this.updateModel(null);
+            this.updateModel(this.$formDefaultValue || null);
             this.overlayVisible = false;
             this.$emit('clear-click', event);
             event.preventDefault();
