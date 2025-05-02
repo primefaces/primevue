@@ -143,6 +143,10 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             el.removeEventListener('keydown', el.$_ptooltipKeydownEvent);
             window.removeEventListener('resize', el.$_pWindowResizeEvent);
+
+            if (el.$_ptooltipId) {
+                this.remove(el);
+            }
         },
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
