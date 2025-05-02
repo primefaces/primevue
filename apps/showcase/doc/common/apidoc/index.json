@@ -42806,7 +42806,7 @@
                             "name": "model",
                             "optional": true,
                             "readonly": false,
-                            "type": "MenuItem[][]",
+                            "type": "MenuItem[]",
                             "default": "",
                             "description": "An array of menuitems."
                         },
