@@ -7,7 +7,7 @@
             role="spinbutton"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
-            :value="formattedValue"
+            :defaultValue="formattedValue"
             :aria-valuemin="min"
             :aria-valuemax="max"
             :aria-valuenow="d_value"
