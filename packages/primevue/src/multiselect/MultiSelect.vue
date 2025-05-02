@@ -934,7 +934,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstFocusedOptionIndex() {
-            const selectedIndex = this.findSelectedOptionIndex();
+            const selectedIndex = this.findFirstSelectedOptionIndex();
 
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
