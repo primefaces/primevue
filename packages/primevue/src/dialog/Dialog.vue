@@ -233,12 +233,12 @@ export default {
             }
         },
         enableDocumentSettings() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if ((this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
                 blockBodyScroll();
             }
         },
         unbindDocumentState() {
-            if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
+            if ((this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
                 unblockBodyScroll();
             }
         },

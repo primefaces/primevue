@@ -68,7 +68,7 @@ const DialogProps = [
     {
         name: 'blockScroll',
         type: 'boolean',
-        default: 'false',
+        default: 'true',
         description: 'Whether background scroll should be blocked when dialog is visible.'
     },
     {
