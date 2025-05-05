@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The whole page is covered when <i>position</i> property is set as <i>full</i>.</p>
+        <p>The full screen mode is enabled when <i>position</i> property is set as <i>full</i>.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Drawer v-model:visible="visible" header="Drawer" position="full">

@@ -7,7 +7,7 @@
  * @module columngroup
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -73,7 +73,7 @@ export interface ColumnGroupProps {
     /**
      * Type of column group
      */
-    type?: 'header' | 'footer' | undefined;
+    type?: HintedString<'header' | 'footer'> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

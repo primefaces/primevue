@@ -1,47 +1,47 @@
 <template>
-    <section class="mb-6">
-        <div class="text-lg font-semibold mb-4">Font</div>
+    <section>
+        <div class="text-lg font-semibold mb-2">Font</div>
 
         <div class="flex gap-4">
-            <div class="mb-4">
+            <div>
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Base</div>
-                <select v-model="$appState.designer.theme.config.fontSize" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
+                <select v-model="$appState.designer.theme.config.font_size" @change="changeBaseFontSize" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-20">
                     <option v-for="fontSize of fontSizes" :key="fontSize" :value="fontSize">{{ fontSize }}</option>
                 </select>
             </div>
 
             <div>
                 <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Family</div>
-                <select v-model="$appState.designer.theme.config.fontFamily" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
+                <select v-model="$appState.designer.theme.config.font_family" @change="changeFont" class="appearance-none px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-48">
                     <option v-for="font of fonts" :key="font" :value="font">{{ font }}</option>
                 </select>
             </div>
         </div>
     </section>
-    <section class="mb-6">
+    <section class="mt-6">
         <div class="block text-lg font-semibold mb-2">Migration Assistant</div>
         <span class="block text-muted-color leading-6 mb-4"
             >Automatically update your themes to the latest version. This tool does not override the values of existing tokens, and only adds missing tokens if necessary. Still, it is recommended to duplicate your theme as a backup and run a preview
             before the migration.
         </span>
-        <div class="flex justify-between">
-            <button type="button" @click="preview" class="btn-design-outlined">Preview</button>
-            <button type="button" :disabled="status !== 'preview'" @click="confirmMigration" class="btn-design">Migrate</button>
+        <div class="flex justify-start gap-2">
+            <button type="button" @click="preview" class="btn-design-outlined disabled:pointer-events-none" :disabled="!$appState.designer.verified">Check for Updates</button>
+            <button v-if="status === 'preview' && missingTokens.length > 0" type="button" @click="confirmMigration" class="btn-design">Migrate</button>
         </div>
         <div v-if="status === 'preview'">
-            <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-amber-600 dark:text-black font-medium mt-4 rounded-md leading-normal">
+            <div v-if="missingTokens.length" class="p-3 bg-yellow-100 text-yellow-950 dark:bg-yellow-500/30 dark:text-yellow-100 font-medium mt-4 rounded-md leading-normal">
                 There are missing tokens, you may add them automatically using the migrate option with placeholder values. After migration, visit the corresponding section to define the actual values for your theme.
             </div>
-            <div v-else class="p-3 bg-green-100 text-green-950 dark:bg-green-500 dark:text-black font-medium mt-4 rounded-md leading-normal">Your theme is up to date.</div>
+            <div v-else class="p-3 bg-green-100 text-green-950 dark:bg-green-500/30 dark:text-white font-medium mt-4 rounded-md leading-normal">Your theme is up to date.</div>
         </div>
         <div v-else-if="status === 'updated'">
-            <div class="p-3 bg-green-100 text-green-950 dark:bg-green-500 dark:text-black font-medium mt-4 rounded-md leading-normal">Your theme is successfully updated.</div>
+            <div class="p-3 bg-green-100 text-green-950 dark:bg-green-500/30 dark:text-white font-medium mt-4 rounded-md leading-normal">Your theme is successfully updated.</div>
         </div>
 
         <div v-if="missingTokens.length" class="max-h-60 overflow-auto mt-4 px-3 py-2 rounded-md border border-surface-300 dark:border-surface-700 w-full">
             <ul class="flex flex-col gap-1">
                 <li v-for="token of missingTokens" :key="token.value" class="flex justify-between">
-                    <span class="bg-red-50 text-red-950 text-sm font-medium px-2 py-1 rounded-lg">{{ token.value }}</span>
+                    <span class="bg-red-50 text-red-950 dark:bg-red-500/30 dark:text-red-100 text-sm font-medium px-2 py-1 rounded-lg">{{ token.value }}</span>
                     <span class="bg-zinc-950 text-white dark:bg-white dark:text-black rounded-full px-2 text-xs inline-flex items-center font-medium">{{ token.type }}</span>
                 </li>
             </ul>
@@ -55,7 +55,7 @@ export default {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     inject: ['designerService'],
@@ -96,19 +96,23 @@ export default {
     },
     methods: {
         changeFont() {
-            this.designerService.applyFont(this.$appState.designer.theme.config.fontFamily);
-            this.designerService.saveTheme(this.$appState.designer.theme);
+            this.designerService.applyFont(this.$appState.designer.theme.config.font_family);
+            if (this.$appState.designer.verified) {
+                this.designerService.saveTheme(this.$appState.designer.theme);
+            }
         },
         changeBaseFontSize() {
-            document.documentElement.style.fontSize = this.$appState.designer.theme.config.fontSize;
-            this.designerService.saveTheme(this.$appState.designer.theme);
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
+            if (this.$appState.designer.verified) {
+                this.designerService.saveTheme(this.$appState.designer.theme);
+            }
         },
         async preview() {
-            const { data, error } = await $fetch(this.designerApiBase + '/theme/migrate/preview/' + this.$appState.designer.theme.key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/migrate/preview/' + this.$appState.designer.theme.key, {
                 method: 'PATCH',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -137,11 +141,11 @@ export default {
             });
         },
         async migrate() {
-            const { error } = await $fetch(this.designerApiBase + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
+            const { data, error } = await $fetch(this.designerApiUrl + '/theme/migrate/execute/' + this.$appState.designer.theme.key, {
                 method: 'PATCH',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 }
             });
 
@@ -150,6 +154,8 @@ export default {
             } else {
                 this.status = 'updated';
                 this.missingTokens = [];
+
+                this.designerService.activateTheme(data);
             }
         }
     }

@@ -1,17 +1,5 @@
+import { style } from '@primeuix/styles/virtualscroller';
 import BaseStyle from '@primevue/core/base/style';
-
-const theme = ({ dt }) => `
-.p-virtualscroller-loader {
-    background: ${dt('virtualscroller.loader.mask.background')};
-    color: ${dt('virtualscroller.loader.mask.color')};
-}
-
-.p-virtualscroller-loading-icon {
-    font-size: ${dt('virtualscroller.loader.icon.size')};
-    width: ${dt('virtualscroller.loader.icon.size')};
-    height: ${dt('virtualscroller.loader.icon.size')};
-}
-`;
 
 const css = `
 .p-virtualscroller {
@@ -63,10 +51,18 @@ const css = `
 .p-virtualscroller-inline .p-virtualscroller-content {
     position: static;
 }
+
+.p-virtualscroller .p-virtualscroller-loading {
+    transform: none !important;
+    min-height: 0;
+    position: sticky;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+}
 `;
 
 export default BaseStyle.extend({
     name: 'virtualscroller',
     css,
-    theme
+    style
 });

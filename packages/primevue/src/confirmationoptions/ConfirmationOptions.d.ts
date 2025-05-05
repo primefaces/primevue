@@ -32,7 +32,7 @@ export interface ConfirmationOptions {
      * Position of the dialog.
      * @defaultValue center
      */
-    position?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' | undefined;
+    position?: HintedString<'center' | 'top' | 'bottom' | 'left' | 'right' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'> | undefined;
     /**
      * Icon to display next to the message.
      */
@@ -50,7 +50,7 @@ export interface ConfirmationOptions {
     appendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * Defines if background should be blocked when confirm dialog is displayed.
-     * @defaultValue false
+     * @defaultValue true
      */
     modal?: boolean | undefined;
     /**

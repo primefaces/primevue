@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" :data-p-resizing="false" v-bind="ptmi('root', getPTOptions)">
+    <div :class="cx('root')" :data-p-resizing="false" :data-p="dataP" v-bind="ptmi('root', getPTOptions)">
         <template v-for="(panel, i) of panels" :key="i">
             <component :is="panel" tabindex="-1"></component>
             <div
@@ -13,15 +13,17 @@
                 @touchmove="onGutterTouchMove($event, i)"
                 @touchend="onGutterTouchEnd($event, i)"
                 :data-p-gutter-resizing="false"
+                :data-p="dataP"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" v-bind="ptm('gutterHandle')"></div>
+                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
             </div>
         </template>
     </div>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { getHeight, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import { isArray, isNotEmpty } from '@primeuix/utils/object';
 import { getVNodeProp } from '@primevue/core/utils';
@@ -139,13 +141,16 @@ export default {
                 newNextPanelSize = this.nextPanelSize - newPos;
             }
 
-            if (this.validateResize(newPrevPanelSize, newNextPanelSize)) {
-                this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
-                this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
-                this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
-                this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
-                this.prevSize = parseFloat(newPrevPanelSize).toFixed(4);
+            if (!this.validateResize(newPrevPanelSize, newNextPanelSize)) {
+                newPrevPanelSize = Math.min(Math.max(this.prevPanelMinSize, newPrevPanelSize), 100 - this.nextPanelMinSize);
+                newNextPanelSize = Math.min(Math.max(this.nextPanelMinSize, newNextPanelSize), 100 - this.prevPanelMinSize);
             }
+
+            this.prevPanelElement.style.flexBasis = 'calc(' + newPrevPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
+            this.nextPanelElement.style.flexBasis = 'calc(' + newNextPanelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
+            this.panelSizes[this.prevPanelIndex] = newPrevPanelSize;
+            this.panelSizes[this.prevPanelIndex + 1] = newNextPanelSize;
+            this.prevSize = parseFloat(newPrevPanelSize).toFixed(4);
 
             this.$emit('resize', { originalEvent: event, sizes: this.panelSizes });
         },
@@ -275,15 +280,11 @@ export default {
             if (newPrevPanelSize > 100 || newPrevPanelSize < 0) return false;
             if (newNextPanelSize > 100 || newNextPanelSize < 0) return false;
 
-            let prevPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex], 'minSize');
-
-            if (this.panels[this.prevPanelIndex].props && prevPanelMinSize && prevPanelMinSize > newPrevPanelSize) {
+            if (this.prevPanelMinSize > newPrevPanelSize) {
                 return false;
             }
 
-            let newPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex + 1], 'minSize');
-
-            if (this.panels[this.prevPanelIndex + 1].props && newPanelMinSize && newPanelMinSize > newNextPanelSize) {
+            if (this.nextPanelMinSize > newNextPanelSize) {
                 return false;
             }
 
@@ -394,6 +395,30 @@ export default {
                     nested: this.$parentInstance?.nestedState
                 }
             };
+        },
+        prevPanelMinSize() {
+            const prevPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex], 'minSize');
+
+            if (this.panels[this.prevPanelIndex].props && prevPanelMinSize) {
+                return prevPanelMinSize;
+            }
+
+            return 0;
+        },
+        nextPanelMinSize() {
+            const nextPanelMinSize = getVNodeProp(this.panels[this.prevPanelIndex + 1], 'minSize');
+
+            if (this.panels[this.prevPanelIndex + 1].props && nextPanelMinSize) {
+                return nextPanelMinSize;
+            }
+
+            return 0;
+        },
+        dataP() {
+            return cn({
+                [this.layout]: this.layout,
+                nested: this.$parentInstance?.nestedState != null
+            });
         }
     }
 };

@@ -23,7 +23,7 @@ export default {
             docs: [
                 {
                     id: 'import',
-                    label: 'import',
+                    label: 'Import',
                     component: ImportDoc
                 },
                 {

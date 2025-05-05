@@ -1,8 +1,8 @@
 <template>
     <Portal :appendTo="appendTo">
-        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" :class="cx('mask')" :style="sx('mask', true, { position, modal })" @mousedown="onMaskMouseDown" @mouseup="onMaskMouseUp" :data-p="dataP" v-bind="ptm('mask')">
             <transition name="p-dialog" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" v-bind="ptmi('root')">
+                <div v-if="visible" :ref="containerRef" v-focustrap="{ disabled: !modal }" :class="cx('root')" :style="sx('root')" role="dialog" :aria-labelledby="ariaLabelledById" :aria-modal="modal" :data-p="dataP" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="close" :maximizeCallback="(event) => maximize(event)"></slot>
                     <template v-else>
                         <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
@@ -10,45 +10,47 @@
                                 <span v-if="header" :id="ariaLabelledById" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
                             </slot>
                             <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
-                                <Button
-                                    v-if="maximizable"
-                                    :ref="maximizableRef"
-                                    :autofocus="focusableMax"
-                                    :class="cx('pcMaximizeButton')"
-                                    @click="maximize"
-                                    :tabindex="maximizable ? '0' : '-1'"
-                                    :unstyled="unstyled"
-                                    v-bind="maximizeButtonProps"
-                                    :pt="ptm('pcMaximizeButton')"
-                                    data-pc-group-section="headericon"
-                                >
-                                    <template #icon="slotProps">
-                                        <slot name="maximizeicon" :maximized="maximized">
-                                            <component :is="maximizeIconComponent" :class="[slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('pcMaximizeButton')['icon']" />
-                                        </slot>
-                                    </template>
-                                </Button>
-                                <Button
-                                    v-if="closable"
-                                    :ref="closeButtonRef"
-                                    :autofocus="focusableClose"
-                                    :class="cx('pcCloseButton')"
-                                    @click="close"
-                                    :aria-label="closeAriaLabel"
-                                    :unstyled="unstyled"
-                                    v-bind="closeButtonProps"
-                                    :pt="ptm('pcCloseButton')"
-                                    data-pc-group-section="headericon"
-                                >
-                                    <template #icon="slotProps">
-                                        <slot name="closeicon">
-                                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
-                                        </slot>
-                                    </template>
-                                </Button>
+                                <slot v-if="maximizable" name="maximizebutton" :maximized="maximized" :maximizeCallback="(event) => maximize(event)">
+                                    <Button
+                                        :ref="maximizableRef"
+                                        :autofocus="focusableMax"
+                                        :class="cx('pcMaximizeButton')"
+                                        @click="maximize"
+                                        :tabindex="maximizable ? '0' : '-1'"
+                                        :unstyled="unstyled"
+                                        v-bind="maximizeButtonProps"
+                                        :pt="ptm('pcMaximizeButton')"
+                                        data-pc-group-section="headericon"
+                                    >
+                                        <template #icon="slotProps">
+                                            <slot name="maximizeicon" :maximized="maximized">
+                                                <component :is="maximizeIconComponent" :class="[slotProps.class, maximized ? minimizeIcon : maximizeIcon]" v-bind="ptm('pcMaximizeButton')['icon']" />
+                                            </slot>
+                                        </template>
+                                    </Button>
+                                </slot>
+                                <slot v-if="closable" name="closebutton" :closeCallback="close">
+                                    <Button
+                                        :ref="closeButtonRef"
+                                        :autofocus="focusableClose"
+                                        :class="cx('pcCloseButton')"
+                                        @click="close"
+                                        :aria-label="closeAriaLabel"
+                                        :unstyled="unstyled"
+                                        v-bind="closeButtonProps"
+                                        :pt="ptm('pcCloseButton')"
+                                        data-pc-group-section="headericon"
+                                    >
+                                        <template #icon="slotProps">
+                                            <slot name="closeicon">
+                                                <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
+                                            </slot>
+                                        </template>
+                                    </Button>
+                                </slot>
                             </div>
                         </div>
-                        <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" v-bind="{ ...contentProps, ...ptm('content') }">
+                        <div :ref="contentRef" :class="[cx('content'), contentClass]" :style="contentStyle" :data-p="dataP" v-bind="{ ...contentProps, ...ptm('content') }">
                             <slot></slot>
                         </div>
                         <div v-if="footer || $slots.footer" :ref="footerContainerRef" :class="cx('footer')" v-bind="ptm('footer')">
@@ -62,9 +64,9 @@
 </template>
 
 <script>
-import { addClass, addStyle, blockBodyScroll, focus, getOuterHeight, getOuterWidth, getViewport, setAttribute, unblockBodyScroll } from '@primeuix/utils/dom';
+import { cn } from '@primeuix/utils';
+import { addClass, addStyle, focus, getOuterHeight, getOuterWidth, getViewport, setAttribute } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { UniqueComponentId } from '@primevue/core/utils';
 import TimesIcon from '@primevue/icons/times';
 import WindowMaximizeIcon from '@primevue/icons/windowmaximize';
 import WindowMinimizeIcon from '@primevue/icons/windowminimize';
@@ -72,6 +74,7 @@ import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
 import Ripple from 'primevue/ripple';
+import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import { computed } from 'vue';
 import BaseDialog from './BaseDialog.vue';
 
@@ -87,18 +90,12 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             containerVisible: this.visible,
             maximized: false,
             focusableMax: null,
             focusableClose: null,
             target: null
         };
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
     },
     documentKeydownListener: null,
     container: null,
@@ -133,8 +130,6 @@ export default {
         this.mask = null;
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (this.breakpoints) {
             this.createStyle();
         }
@@ -409,10 +404,16 @@ export default {
             return this.maximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
         },
         ariaLabelledById() {
-            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.id + '_header' : null;
+            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.$id + '_header' : null;
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
+        },
+        dataP() {
+            return cn({
+                maximized: this.maximized,
+                modal: this.modal
+            });
         }
     },
     directives: {

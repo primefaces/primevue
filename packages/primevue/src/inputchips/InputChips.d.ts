@@ -7,7 +7,7 @@
  * @module inputchips
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -216,7 +216,7 @@ export interface InputChipsProps {
      * Specifies the input variant of the component.
      * @defaultValue outlined
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined;
     /**
      * Placeholder text for the input.
      */

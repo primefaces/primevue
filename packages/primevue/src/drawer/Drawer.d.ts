@@ -7,7 +7,7 @@
  * @module drawer
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -137,7 +137,7 @@ export interface DrawerProps {
      * Specifies the position of the drawer.
      * @defaultValue left
      */
-    position?: 'left' | 'right' | 'top' | 'bottom' | 'full' | undefined;
+    position?: HintedString<'left' | 'right' | 'top' | 'bottom' | 'full'> | undefined;
     /**
      * Title content of the dialog.
      */
@@ -221,6 +221,16 @@ export interface DrawerSlots {
         class: any;
     }): VNode[];
     /**
+     * Custom close button template.
+     * @param {Object} scope - close button slot's params.
+     */
+    closebutton(scope: {
+        /**
+         * Close function.
+         */
+        closeCallback: () => void;
+    }): VNode[];
+    /**
      * Custom close icon template.
      * @param {Object} scope - close icon slot's params.
      */
@@ -259,6 +269,10 @@ export interface DrawerEmitsOptions {
      * Callback to invoke when drawer is shown.
      */
     show(): void;
+    /**
+     * Callback to invoke before drawer gets hidden.
+     */
+    'before-hide'(): void;
     /**
      * Callback to invoke when drawer gets hidden.
      */

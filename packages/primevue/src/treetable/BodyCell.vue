@@ -10,8 +10,9 @@
                 </template>
                 <template v-else>
                     <component v-if="column.children && column.children.rowtoggleicon" :is="column.children.rowtoggleicon" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <component v-else-if="templates['nodetoggleicon']" :is="templates['nodetoggleicon']" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
                     <!-- TODO: Deprecated since v4.0-->
-                    <component v-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
+                    <component v-else-if="column.children && column.children.rowtogglericon" :is="column.children.rowtogglericon" :node="node" :expanded="expanded" :class="cx('nodeToggleIcon')" />
                     <component v-else-if="expanded" :is="node.expandedIcon ? 'span' : 'ChevronDownIcon'" :class="cx('nodeToggleIcon')" v-bind="getColumnPT('nodeToggleIcon')" />
                     <component v-else :is="node.collapsedIcon ? 'span' : 'ChevronRightIcon'" :class="cx('nodeToggleIcon')" v-bind="getColumnPT('nodeToggleIcon')" />
                 </template>
@@ -145,7 +146,8 @@ export default {
                     frozen: this.columnProp('frozen'),
                     scrollable: this.$parentInstance.scrollable,
                     showGridlines: this.$parentInstance.showGridlines,
-                    size: this.$parentInstance?.size
+                    size: this.$parentInstance?.size,
+                    node: this.node
                 }
             };
 
@@ -164,7 +166,8 @@ export default {
                 },
                 context: {
                     checked: this.checked,
-                    partialChecked: this.partialChecked
+                    partialChecked: this.partialChecked,
+                    node: this.node
                 }
             };
 

@@ -102,6 +102,26 @@
                         <td><i>pageDown</i></td>
                         <td>Jumps visual focus to last option.</td>
                     </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>down arrow</i></td>
+                        <td>Moves focus to the next option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>up arrow</i></td>
+                        <td>Moves focus to the previous option and toggles the selection state.</td>
+                    </tr>
+                    <tr>
+                        <td><i>shift</i> + <i>space</i></td>
+                        <td>Selects the items between the most recently selected option and the focused option.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>home</i></td>
+                        <td>Selects the focused options and all the options up to the first one.</td>
+                    </tr>
+                    <tr>
+                        <td><i>control</i> + <i>shift</i> + <i>end</i></td>
+                        <td>Selects the focused options and all the options down to the last one.</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

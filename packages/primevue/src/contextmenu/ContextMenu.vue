@@ -4,14 +4,14 @@
             <div v-if="visible" :ref="containerRef" :class="cx('root')" v-bind="ptmi('root')">
                 <ContextMenuSub
                     :ref="listRef"
-                    :id="id + '_list'"
+                    :id="$id + '_list'"
                     :class="cx('rootList')"
                     role="menubar"
                     :root="true"
                     :tabindex="tabindex"
                     aria-orientation="vertical"
                     :aria-activedescendant="focused ? focusedItemIdx : undefined"
-                    :menuId="id"
+                    :menuId="$id"
                     :focusedItemId="focused ? focusedItemIdx : undefined"
                     :items="processedItems"
                     :templates="$slots"
@@ -38,7 +38,6 @@
 import { addStyle, findSingle, focus, getHiddenElementOuterHeight, getHiddenElementOuterWidth, getViewport, isTouchDevice } from '@primeuix/utils/dom';
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { UniqueComponentId } from '@primevue/core/utils';
 import Portal from 'primevue/portal';
 import BaseContextMenu from './BaseContextMenu.vue';
 import ContextMenuSub from './ContextMenuSub.vue';
@@ -59,7 +58,6 @@ export default {
     list: null,
     data() {
         return {
-            id: this.$attrs.id,
             focused: false,
             focusedItemInfo: { index: -1, level: 0, parentKey: '' },
             activeItemPath: [],
@@ -70,9 +68,6 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         activeItemPath(newPath) {
             if (isNotEmpty(newPath)) {
                 this.bindOutsideClickListener();
@@ -84,7 +79,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.bindMatchMediaListener();
 
         if (this.global) {
@@ -434,12 +428,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -579,7 +573,7 @@ export default {
             }
         },
         scrollInView(index = -1) {
-            const id = index !== -1 ? `${this.id}_${index}` : this.focusedItemIdx;
+            const id = index !== -1 ? `${this.$id}_${index}` : this.focusedItemIdx;
             const element = findSingle(this.list, `li[id="${id}"]`);
 
             if (element) {
@@ -624,7 +618,7 @@ export default {
             return processedItem ? processedItem.items : this.processedItems;
         },
         focusedItemIdx() {
-            return this.focusedItemInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
+            return this.focusedItemInfo.index !== -1 ? `${this.$id}${isNotEmpty(this.focusedItemInfo.parentKey) ? '_' + this.focusedItemInfo.parentKey : ''}_${this.focusedItemInfo.index}` : null;
         }
     },
     components: {

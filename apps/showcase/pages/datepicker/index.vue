@@ -1,5 +1,5 @@
 <template>
-    <DocComponent title="Vue DatePicker Component" header="DatePicker" description="DatePicker is a form component to work with dates." :componentDocs="docs" :apiDocs="['DatePicker']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
+    <DocComponent title="Vue DatePicker Component" header="DatePicker" description="DatePicker is a form component for date inputs." :componentDocs="docs" :apiDocs="['DatePicker']" :ptTabComponent="ptComponent" :themingDocs="themingDoc" />
 </template>
 
 <script>
@@ -14,7 +14,6 @@ import FormatDoc from '@/doc/datepicker/FormatDoc.vue';
 import FormsDoc from '@/doc/datepicker/FormsDoc.vue';
 import IconDoc from '@/doc/datepicker/IconDoc.vue';
 import IftaLabelDoc from '@/doc/datepicker/IftaLabelDoc.vue';
-import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import ImportDoc from '@/doc/datepicker/ImportDoc.vue';
 import InlineDoc from '@/doc/datepicker/InlineDoc.vue';
 import InvalidDoc from '@/doc/datepicker/InvalidDoc.vue';
@@ -24,6 +23,7 @@ import MonthPickerDoc from '@/doc/datepicker/MonthPickerDoc.vue';
 import MultipleDoc from '@/doc/datepicker/MultipleDoc.vue';
 import MultipleMonthsDoc from '@/doc/datepicker/MultipleMonthsDoc.vue';
 import RangeDoc from '@/doc/datepicker/RangeDoc.vue';
+import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import TimeDoc from '@/doc/datepicker/TimeDoc.vue';
 import YearPickerDoc from '@/doc/datepicker/YearPickerDoc.vue';
 import PTComponent from '@/doc/datepicker/pt/index.vue';

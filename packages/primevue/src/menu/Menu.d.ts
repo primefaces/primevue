@@ -294,21 +294,11 @@ export interface MenuSlots {
         class: any;
     }): VNode[];
     /**
-     * @deprecated since v4.0. Use submenuitem slot instead.
+     * @deprecated since v4.0. Use submenulabel slot instead.
      * Custom submenu header template.
      * @param {Object} scope - submenuheader slot's params.
      */
     submenuheader(scope: {
-        /**
-         * Menuitem instance
-         */
-        item: MenuItem;
-    }): VNode[];
-    /**
-     * Custom submenu item template.
-     * @param {Object} scope - submenuitem slot's params.
-     */
-    submenuitem(scope: {
         /**
          * Menuitem instance
          */
@@ -330,6 +320,16 @@ export interface MenuEmitsOptions {
      * @param {Event} event - Browser event.
      */
     blur(event: Event): void;
+    /**
+     * Callback to invoke when the menu popup is shown.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
+     */
+    show(): void;
+    /**
+     * Callback to invoke when the menu popup is hidden.
+     * @remarks Emitted when {@link MenuProps.popup} is true.
+     */
+    hide(): void;
 }
 
 export declare type MenuEmits = EmitFn<MenuEmitsOptions>;
@@ -338,10 +338,11 @@ export interface MenuMethods {
     /**
      * Toggles the visibility of the overlay.
      * @param {Event} event - Browser event.
+     * @param {*} [target] - Target element
      *
      * @memberof Menu
      */
-    toggle(event: Event): void;
+    toggle(event: Event, target?: any): void;
     /**
      * Shows the overlay.
      * @param {Event} event - Browser event.

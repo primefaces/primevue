@@ -103,7 +103,7 @@ export default {
             this.selfClick = true;
         },
         onEnter(el) {
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
 
             if (this.dismissable) {
@@ -215,12 +215,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('clmousedownick', this.outsideClickListener);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }

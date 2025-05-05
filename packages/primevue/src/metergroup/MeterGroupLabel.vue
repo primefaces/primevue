@@ -1,5 +1,5 @@
 <template>
-    <ol :class="cx('labelList')" v-bind="ptm('labelList')">
+    <ol :class="cx('labelList')" :data-p="dataP" v-bind="ptm('labelList')">
         <li v-for="(val, index) in value" :key="index + '_label'" :class="cx('label')" v-bind="ptm('label')">
             <slot name="icon" :value="val" :class="cx('labelIcon')">
                 <i v-if="val.icon" :class="[val.icon, cx('labelIcon')]" :style="{ color: val.color }" v-bind="ptm('labelIcon')" />
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import BaseComponent from '@primevue/core/basecomponent';
 
 export default {
@@ -18,6 +19,7 @@ export default {
     hostName: 'MeterGroup',
     extends: BaseComponent,
     inheritAttrs: false,
+    inject: ['$pcMeterGroup'],
     props: {
         value: {
             type: Array,
@@ -30,6 +32,13 @@ export default {
         labelOrientation: {
             type: String,
             default: 'horizontal'
+        }
+    },
+    computed: {
+        dataP() {
+            return cn({
+                [this.$pcMeterGroup.labelOrientation]: this.$pcMeterGroup.labelOrientation
+            });
         }
     }
 };

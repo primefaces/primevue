@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-import { $dt } from '@primevue/themes';
+import { $dt } from '@primeuix/themes';
 
 const duration = $dt('transition.duration');
 /*

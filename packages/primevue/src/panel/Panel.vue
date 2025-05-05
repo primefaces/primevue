@@ -1,35 +1,36 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
-        <div :class="cx('header')" v-bind="ptm('header')">
-            <slot :id="id + '_header'" name="header" :class="cx('title')">
-                <span v-if="header" :id="id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
+    <div :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
+        <div :class="cx('header')" :data-p="dataP" v-bind="ptm('header')">
+            <slot :id="$id + '_header'" name="header" :class="cx('title')">
+                <span v-if="header" :id="$id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
             <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
                 <slot name="icons"></slot>
-                <Button
-                    v-if="toggleable"
-                    :id="id + '_header'"
-                    :class="cx('pcToggleButton')"
-                    :aria-label="buttonAriaLabel"
-                    :aria-controls="id + '_content'"
-                    :aria-expanded="!d_collapsed"
-                    :unstyled="unstyled"
-                    @click="toggle"
-                    @keydown="onKeyDown"
-                    v-bind="toggleButtonProps"
-                    :pt="ptm('pcToggleButton')"
-                >
-                    <template #icon="slotProps">
-                        <!--TODO: togglericon deprecated since v4.0-->
-                        <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
-                            <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('pcToggleButton')['icon']" />
-                        </slot>
-                    </template>
-                </Button>
+                <slot v-if="toggleable" name="togglebutton" :collapsed="d_collapsed" :toggleCallback="(event) => toggle(event)" :keydownCallback="(event) => onKeyDown(event)">
+                    <Button
+                        :id="$id + '_header'"
+                        :class="cx('pcToggleButton')"
+                        :aria-label="buttonAriaLabel"
+                        :aria-controls="$id + '_content'"
+                        :aria-expanded="!d_collapsed"
+                        :unstyled="unstyled"
+                        @click="toggle($event)"
+                        @keydown="onKeyDown($event)"
+                        v-bind="toggleButtonProps"
+                        :pt="ptm('pcToggleButton')"
+                    >
+                        <template #icon="slotProps">
+                            <!--TODO: togglericon deprecated since v4.0-->
+                            <slot :name="$slots.toggleicon ? 'toggleicon' : 'togglericon'" :collapsed="d_collapsed">
+                                <component :is="d_collapsed ? 'PlusIcon' : 'MinusIcon'" :class="slotProps.class" v-bind="ptm('pcToggleButton')['icon']" />
+                            </slot>
+                        </template>
+                    </Button>
+                </slot>
             </div>
         </div>
         <transition name="p-toggleable-content" v-bind="ptm('transition')">
-            <div v-show="!d_collapsed" :id="id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="id + '_header'" v-bind="ptm('contentContainer')">
+            <div v-show="!d_collapsed" :id="$id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="$id + '_header'" v-bind="ptm('contentContainer')">
                 <div :class="cx('content')" v-bind="ptm('content')">
                     <slot></slot>
                 </div>
@@ -42,7 +43,7 @@
 </template>
 
 <script>
-import { UniqueComponentId } from '@primevue/core/utils';
+import { cn } from '@primeuix/utils';
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
@@ -56,20 +57,13 @@ export default {
     emits: ['update:collapsed', 'toggle'],
     data() {
         return {
-            id: this.$attrs.id,
             d_collapsed: this.collapsed
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         collapsed(newValue) {
             this.d_collapsed = newValue;
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     methods: {
         toggle(event) {
@@ -90,6 +84,11 @@ export default {
     computed: {
         buttonAriaLabel() {
             return this.toggleButtonProps && this.toggleButtonProps.ariaLabel ? this.toggleButtonProps.ariaLabel : this.header;
+        },
+        dataP() {
+            return cn({
+                toggleable: this.toggleable
+            });
         }
     },
     components: {

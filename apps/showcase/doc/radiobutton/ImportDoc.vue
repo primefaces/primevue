@@ -10,6 +10,7 @@ export default {
             code: {
                 basic: `
 import RadioButton from 'primevue/radiobutton';
+import RadioButtonGroup from 'primevue/radiobuttongroup';
 `
             }
         };

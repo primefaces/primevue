@@ -51,7 +51,7 @@
                         <div v-animateonscroll.once="{ enterClass: 'animate-fadein' }" class="box p-6 w-full animate-duration-500">
                             <img src="https://primefaces.org/cdn/primevue/images/landing/features/icon-productivity.svg" alt="components icon" class="block mb-4" />
                             <div class="font-semibold mb-4 text-lg">Blocks</div>
-                            <p class="m-0 text-surface-500 dark:text-surface-400 font-medium">400+ pre-designed copy paste ready UI blocks to build spectacular apps in no time.</p>
+                            <p class="m-0 text-surface-500 dark:text-surface-400 font-medium">500+ pre-designed copy paste ready UI blocks to build spectacular apps in no time.</p>
                         </div>
                     </div>
                     <div class="col-span-12 md:col-span-6 xl:col-span-3 flex justify-center">

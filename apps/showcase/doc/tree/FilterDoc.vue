@@ -19,7 +19,6 @@ export default {
     data() {
         return {
             nodes: null,
-            expandedKeys: {},
             code: {
                 basic: `
 <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-[30rem]"></Tree>
@@ -38,33 +37,11 @@ import { NodeService } from '@/service/NodeService';
 export default {
     data() {
         return {
-            nodes: null,
-            expandedKeys: {}
+            nodes: null
         };
     },
     mounted() {
         NodeService.getTreeNodes().then(data => this.nodes = data);
-    },
-    methods: {
-        expandAll() {
-            for (let node of this.nodes) {
-                this.expandNode(node);
-            }
-
-            this.expandedKeys = { ...this.expandedKeys };
-        },
-        collapseAll() {
-            this.expandedKeys = {};
-        },
-        expandNode(node) {
-            this.expandedKeys[node.key] = true;
-
-            if (node.children && node.children.length) {
-                for (let child of node.children) {
-                    this.expandNode(child);
-                }
-            }
-        }
     }
 }
 <\/script>
@@ -86,30 +63,6 @@ const nodes = ref(null);
 onMounted(() => {
     NodeService.getTreeNodes().then(data => nodes.value = data);
 });
-
-const expandedKeys = ref({});
-
-const expandAll = () => {
-    for (let node of nodes.value) {
-        expandNode(node);
-    }
-
-    expandedKeys.value = { ...expandedKeys.value };
-};
-
-const collapseAll = () => {
-    expandedKeys.value = {};
-};
-
-const expandNode = (node) => {
-    expandedKeys.value[node.key] = true;
-
-    if (node.children && node.children.length) {
-        for (let child of node.children) {
-            expandNode(child);
-        }
-    }
-};
 <\/script>
 `,
                 data: `

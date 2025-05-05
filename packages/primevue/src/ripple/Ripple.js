@@ -29,20 +29,24 @@ const Ripple = BaseRipple.extend('ripple', {
             el.removeEventListener('mousedown', this.onMouseDown.bind(this));
         },
         createRipple(el) {
-            const ink = createElement('span', {
-                role: 'presentation',
-                'aria-hidden': true,
-                'data-p-ink': true,
-                'data-p-ink-active': false,
-                class: !this.isUnstyled() && this.cx('root'),
-                onAnimationEnd: this.onAnimationEnd.bind(this),
-                [this.$attrSelector]: '',
-                'p-bind': this.ptm('root')
-            });
+            let ink = this.getInk(el);
 
-            el.appendChild(ink);
+            if (!ink) {
+                ink = createElement('span', {
+                    role: 'presentation',
+                    'aria-hidden': true,
+                    'data-p-ink': true,
+                    'data-p-ink-active': false,
+                    class: !this.isUnstyled() && this.cx('root'),
+                    onAnimationEnd: this.onAnimationEnd.bind(this),
+                    [this.$attrSelector]: '',
+                    'p-bind': this.ptm('root')
+                });
 
-            this.$el = ink;
+                el.appendChild(ink);
+
+                this.$el = ink;
+            }
         },
         remove(el) {
             let ink = this.getInk(el);

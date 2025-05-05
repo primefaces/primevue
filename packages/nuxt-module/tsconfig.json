@@ -9,5 +9,5 @@
             "@primevue/auto-import-resolver/*": ["../../packages/auto-import-resolver/src/*"]
         }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["dist", "node_modules", "playground"]
 }

@@ -7,7 +7,7 @@
  * @module skeleton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -70,7 +70,7 @@ export interface SkeletonProps {
      * Shape of the element.
      * @defaultValue rectangle
      */
-    shape?: 'rectangle' | 'circle' | undefined;
+    shape?: HintedString<'rectangle' | 'circle'> | undefined;
     /**
      * Size of the Circle or Square.
      */
@@ -93,7 +93,7 @@ export interface SkeletonProps {
      * Type of the animation.
      * @defaultValue wave
      */
-    animation?: 'wave' | 'none' | undefined;
+    animation?: HintedString<'wave' | 'none'> | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

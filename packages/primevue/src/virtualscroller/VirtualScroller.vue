@@ -81,6 +81,7 @@ export default {
     isRangeChanged: false,
     lazyLoadState: {},
     resizeListener: null,
+    resizeObserver: null,
     initialized: false,
     watch: {
         numToleratedItems(newValue) {
@@ -92,9 +93,11 @@ export default {
             }
         },
         items: {
-            handler(newValue) {
-                this.init();
-                this.calculateAutoSize();
+            handler(newValue, oldValue) {
+                if (!oldValue || oldValue.length !== (newValue || []).length) {
+                    this.init();
+                    this.calculateAutoSize();
+                }
             },
             deep: true
         },
@@ -428,9 +431,12 @@ export default {
                 return _currentIndex <= _numT ? _numT : _isScrollDownOrRight ? _last - _num - _numT : _first + _numT - 1;
             };
 
-            const calculateFirst = (_currentIndex, _triggerIndex, _first, _last, _num, _numT, _isScrollDownOrRight) => {
+            const calculateFirst = (_currentIndex, _triggerIndex, _first, _last, _num, _numT, _isScrollDownOrRight, _isCols) => {
                 if (_currentIndex <= _numT) return 0;
-                else return Math.max(0, _isScrollDownOrRight ? (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) : _currentIndex > _triggerIndex ? _first : _currentIndex - 2 * _numT);
+                const firstValue = Math.max(0, _isScrollDownOrRight ? (_currentIndex < _triggerIndex ? _first : _currentIndex - _numT) : _currentIndex > _triggerIndex ? _first : _currentIndex - 2 * _numT);
+                const maxFirst = this.getLast(firstValue, _isCols);
+                if (firstValue > maxFirst) return maxFirst - _num;
+                else return firstValue;
             };
 
             const calculateLast = (_currentIndex, _first, _last, _num, _numT, _isCols) => {
@@ -464,7 +470,7 @@ export default {
 
                     newFirst = {
                         rows: calculateFirst(currentIndex.rows, triggerIndex.rows, this.first.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0], isScrollDown),
-                        cols: calculateFirst(currentIndex.cols, triggerIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight)
+                        cols: calculateFirst(currentIndex.cols, triggerIndex.cols, this.first.cols, this.last.cols, this.numItemsInViewport.cols, this.d_numToleratedItems[1], isScrollRight, true)
                     };
                     newLast = {
                         rows: calculateLast(currentIndex.rows, newFirst.rows, this.last.rows, this.numItemsInViewport.rows, this.d_numToleratedItems[0]),
@@ -583,6 +589,11 @@ export default {
 
                 window.addEventListener('resize', this.resizeListener);
                 window.addEventListener('orientationchange', this.resizeListener);
+
+                this.resizeObserver = new ResizeObserver(() => {
+                    this.onResize();
+                });
+                this.resizeObserver.observe(this.element);
             }
         },
         unbindResizeListener() {
@@ -590,6 +601,11 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 window.removeEventListener('orientationchange', this.resizeListener);
                 this.resizeListener = null;
+            }
+
+            if (this.resizeObserver) {
+                this.resizeObserver.disconnect();
+                this.resizeObserver = null;
             }
         },
         getOptions(renderedIndex) {

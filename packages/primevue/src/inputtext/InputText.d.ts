@@ -7,7 +7,7 @@
  * @module inputtext
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { InputHTMLAttributes } from 'vue';
@@ -98,7 +98,7 @@ export interface InputTextProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined | null;
+    size?: HintedString<'small' | 'large'> | undefined | null;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -106,9 +106,9 @@ export interface InputTextProps extends Omit<InputHTMLAttributes, 'size'> {
     invalid?: boolean | undefined | null;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined | null;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null

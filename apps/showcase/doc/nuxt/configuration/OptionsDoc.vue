@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-import Aura from '@primevue/themes/aura';
+import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
     modules: [

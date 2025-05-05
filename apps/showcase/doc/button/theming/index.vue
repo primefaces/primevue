@@ -10,6 +10,7 @@
 
 <script>
 import DocApiTable from '@/components/doc/DocApiTable.vue';
+import DocStyledPreset from '@/components/doc/DocStyledPreset.vue';
 import { getStyleOptions, getTokenOptions } from '@/components/doc/helpers';
 import TailwindDoc from './TailwindDoc.vue';
 
@@ -38,9 +39,15 @@ export default {
                         {
                             id: 'theming.tokens',
                             label: 'Design Tokens',
-                            description: 'List of design tokens used in a preset.',
+                            description: 'List of design tokens.',
                             component: DocApiTable,
                             data: getTokenOptions('Button')
+                        },
+                        {
+                            id: 'theming.preset',
+                            label: 'Built-in Presets',
+                            component: DocStyledPreset,
+                            data: 'button'
                         }
                     ]
                 },

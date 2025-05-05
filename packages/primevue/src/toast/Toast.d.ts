@@ -7,7 +7,7 @@
  * @module toast
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { ButtonHTMLAttributes, TransitionProps, VNode } from 'vue';
@@ -117,7 +117,7 @@ export interface ToastMessageOptions {
      * Severity level of the message.
      * @defaultValue info
      */
-    severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast' | undefined;
+    severity?: HintedString<'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast'> | undefined;
     /**
      * Summary content of the message.
      */
@@ -231,6 +231,18 @@ export interface ToastProps {
      * @type {ToastMessageOptions}
      */
     message?: ToastMessageOptions;
+    /**
+     * Used to specify a callback function to be run when the mouseenter event is fired on the message component.
+     */
+    onMouseEnter?: Function | undefined;
+    /**
+     * Used to specify a callback function to be run when the mouseleave event is fired on the message component.
+     */
+    onMouseLeave?: Function | undefined;
+    /**
+     * Used to specify a callback function to be run when the click event is fired on the message component.
+     */
+    onClick?: Function | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */

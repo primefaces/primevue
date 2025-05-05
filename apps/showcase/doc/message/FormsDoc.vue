@@ -74,6 +74,10 @@ export default {
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const username = ref(null);
+const email = ref(null);
 <\/script>
 `
             }

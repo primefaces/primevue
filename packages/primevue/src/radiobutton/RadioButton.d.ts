@@ -7,7 +7,7 @@
  * @module radiobutton
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -117,7 +117,7 @@ export interface RadioButtonProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -130,9 +130,9 @@ export interface RadioButtonProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * When present, it specifies that an input field is read-only.
      * @default false

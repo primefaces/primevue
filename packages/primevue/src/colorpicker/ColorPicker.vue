@@ -39,6 +39,7 @@ export default {
         };
     },
     hsbValue: null,
+    localHue: null,
     outsideClickListener: null,
     documentMouseMoveListener: null,
     documentMouseUpListener: null,
@@ -91,7 +92,7 @@ export default {
             let brightness = Math.floor((100 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
 
             this.hsbValue = this.validateHSB({
-                h: this.hsbValue.h,
+                h: this.localHue,
                 s: saturation,
                 b: brightness
             });
@@ -103,9 +104,10 @@ export default {
         },
         pickHue(event) {
             let top = this.hueView.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0);
+            this.localHue = Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150);
 
             this.hsbValue = this.validateHSB({
-                h: Math.floor((360 * (150 - Math.max(0, Math.min(150, (event.pageY || event.changedTouches[0].pageY) - top)))) / 150),
+                h: this.localHue,
                 s: 100,
                 b: 100
             });
@@ -341,6 +343,12 @@ export default {
                 hsb = this.HEXtoHSB(this.defaultColor);
             }
 
+            if (this.localHue == null || !this.overlayVisible) {
+                this.localHue = hsb.h;
+            } else {
+                hsb.h = this.localHue;
+            }
+
             return hsb;
         },
         onOverlayEnter(el) {
@@ -452,6 +460,7 @@ export default {
             this.hueDragging = true;
             this.pickHue(event);
             !this.isUnstyled && addClass(this.$el, 'p-colorpicker-dragging');
+            event.preventDefault();
         },
         isInputClicked(event) {
             return this.$refs.input && this.$refs.input.isSameNode(event.target);
@@ -472,12 +481,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },

@@ -1,7 +1,9 @@
-// @ts-ignore
-import Aura from '@primevue/themes/aura';
+import Aura from '@primeuix/themes/aura';
+import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
+    compatibilityDate: '2025-02-27',
+    devtools: { enabled: true },
     modules: ['../src/module'],
     primevue: {
         usePrimeVue: true,
@@ -32,6 +34,5 @@ export default defineNuxtConfig({
             include: undefined,
             exclude: undefined
         }
-    },
-    devtools: { enabled: true }
+    }
 });

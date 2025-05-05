@@ -1,5 +1,5 @@
 <template>
-    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" v-bind="ptmi('root')">
+    <div ref="container" :class="cx('root')" :style="sx('root')" @click="onContainerClick" :data-p="containerDataP" v-bind="ptmi('root')">
         <div class="p-hidden-accessible" v-bind="ptm('hiddenInputContainer')" :data-p-hidden-accessible="true">
             <input
                 ref="focusInput"
@@ -14,7 +14,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="listbox"
                 :aria-expanded="overlayVisible"
-                :aria-controls="id + '_list'"
+                :aria-controls="$id + '_list'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"
@@ -24,7 +24,7 @@
             />
         </div>
         <div :class="cx('labelContainer')" v-bind="ptm('labelContainer')">
-            <div :class="cx('label')" v-bind="ptm('label')">
+            <div :class="cx('label')" :data-p="labelDataP" v-bind="ptm('label')">
                 <slot name="value" :value="d_value" :placeholder="placeholder">
                     <template v-if="display === 'comma'">
                         {{ label || 'empty' }}
@@ -59,12 +59,12 @@
                 <SpinnerIcon v-else :class="cx('loadingIcon')" spin aria-hidden="true" v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="dropdownicon" :class="cx('dropdownIcon')">
-                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" v-bind="ptm('dropdownIcon')" />
+                <component :is="dropdownIcon ? 'span' : 'ChevronDownIcon'" :class="[cx('dropdownIcon'), dropdownIcon]" aria-hidden="true" :data-p="dropdownIconDataP" v-bind="ptm('dropdownIcon')" />
             </slot>
         </div>
         <Portal :appendTo="appendTo">
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
-                <div v-if="overlayVisible" :ref="overlayRef" :style="[panelStyle, overlayStyle]" :class="[cx('overlay'), panelClass, overlayClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" v-bind="ptm('overlay')">
+                <div v-if="overlayVisible" :ref="overlayRef" :style="[panelStyle, overlayStyle]" :class="[cx('overlay'), panelClass, overlayClass]" @click="onOverlayClick" @keydown="onOverlayKeyDown" :data-p="overlayDataP" v-bind="ptm('overlay')">
                     <span
                         ref="firstHiddenFocusableElementOnOverlay"
                         role="presentation"
@@ -88,6 +88,7 @@
                             @change="onToggleAll"
                             :unstyled="unstyled"
                             :pt="getHeaderCheckboxPTOptions('pcHeaderCheckbox')"
+                            :formControl="{ novalidate: true }"
                         >
                             <template #icon="slotProps">
                                 <component v-if="$slots.headercheckboxicon" :is="$slots.headercheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
@@ -107,12 +108,13 @@
                                 :unstyled="unstyled"
                                 role="searchbox"
                                 autocomplete="off"
-                                :aria-owns="id + '_list'"
+                                :aria-owns="$id + '_list'"
                                 :aria-activedescendant="focusedOptionId"
                                 @keydown="onFilterKeyDown"
                                 @blur="onFilterBlur"
                                 @input="onFilterChange"
                                 :pt="ptm('pcFilter')"
+                                :formControl="{ novalidate: true }"
                             />
                             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">
                                 <slot name="filtericon">
@@ -128,11 +130,11 @@
                     <div :class="cx('listContainer')" :style="{ 'max-height': virtualScrollerDisabled ? scrollHeight : '' }" v-bind="ptm('listContainer')">
                         <VirtualScroller :ref="virtualScrollerRef" v-bind="virtualScrollerOptions" :items="visibleOptions" :style="{ height: scrollHeight }" :tabindex="-1" :disabled="virtualScrollerDisabled" :pt="ptm('virtualScroller')">
                             <template v-slot:content="{ styleClass, contentRef, items, getItemOptions, contentStyle, itemSize }">
-                                <ul :ref="(el) => listRef(el, contentRef)" :id="id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" :aria-label="listAriaLabel" v-bind="ptm('list')">
+                                <ul :ref="(el) => listRef(el, contentRef)" :id="$id + '_list'" :class="[cx('list'), styleClass]" :style="contentStyle" role="listbox" aria-multiselectable="true" :aria-label="listAriaLabel" v-bind="ptm('list')">
                                     <template v-for="(option, i) of items" :key="getOptionRenderKey(option, getOptionIndex(i, getItemOptions))">
                                         <li
                                             v-if="isOptionGroup(option)"
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="cx('optionGroup')"
                                             role="option"
@@ -142,7 +144,7 @@
                                         </li>
                                         <li
                                             v-else
-                                            :id="id + '_' + getOptionIndex(i, getItemOptions)"
+                                            :id="$id + '_' + getOptionIndex(i, getItemOptions)"
                                             v-ripple
                                             :style="{ height: itemSize ? itemSize + 'px' : undefined }"
                                             :class="cx('option', { option, index: i, getItemOptions })"
@@ -159,7 +161,15 @@
                                             :data-p-focused="focusedOptionIndex === getOptionIndex(i, getItemOptions)"
                                             :data-p-disabled="isOptionDisabled(option)"
                                         >
-                                            <Checkbox :defaultValue="isSelected(option)" :binary="true" :tabindex="-1" :variant="variant" :unstyled="unstyled" :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')">
+                                            <Checkbox
+                                                :defaultValue="isSelected(option)"
+                                                :binary="true"
+                                                :tabindex="-1"
+                                                :variant="variant"
+                                                :unstyled="unstyled"
+                                                :pt="getCheckboxPTOptions(option, getItemOptions, i, 'pcOptionCheckbox')"
+                                                :formControl="{ novalidate: true }"
+                                            >
                                                 <template #icon="slotProps">
                                                     <component v-if="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :is="$slots.optioncheckboxicon || $slots.itemcheckboxicon" :checked="slotProps.checked" :class="slotProps.class" />
                                                     <component
@@ -213,11 +223,12 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { FilterService } from '@primevue/core/api';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import CheckIcon from '@primevue/icons/check';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
@@ -254,7 +265,6 @@ export default {
     selectOnFocus: false,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionIndex: -1,
@@ -263,15 +273,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
     },
     beforeUnmount() {
@@ -369,7 +375,7 @@ export default {
 
             if (this.overlayVisible) {
                 this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.findSelectedOptionIndex();
-                this.scrollInView(this.focusedOptionIndex);
+                !this.autoFilterFocus && this.scrollInView(this.focusedOptionIndex);
             }
 
             this.$emit('focus', event);
@@ -728,11 +734,12 @@ export default {
         onOverlayEnter(el) {
             ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.scrollInView();
 
             this.autoFilterFocus && focus(this.$refs.filterInput.$el);
+            this.autoUpdateModel();
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();
@@ -768,12 +775,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -927,7 +934,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findFirstFocusedOptionIndex() {
-            const selectedIndex = this.findSelectedOptionIndex();
+            const selectedIndex = this.findFirstSelectedOptionIndex();
 
             return selectedIndex < 0 ? this.findFirstOptionIndex() : selectedIndex;
         },
@@ -979,7 +986,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -990,8 +997,11 @@ export default {
             });
         },
         autoUpdateModel() {
-            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
+            if (this.autoOptionFocus) {
                 this.focusedOptionIndex = this.findFirstFocusedOptionIndex();
+            }
+
+            if (this.selectOnFocus && this.autoOptionFocus && !this.$filled) {
                 const value = this.getOptionValue(this.visibleOptions[this.focusedOptionIndex]);
 
                 this.updateModel(null, [value]);
@@ -1114,7 +1124,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', this.d_value.length) : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionIndex !== -1 ? `${this.id}_${this.focusedOptionIndex}` : null;
+            return this.focusedOptionIndex !== -1 ? `${this.$id}_${this.focusedOptionIndex}` : null;
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
@@ -1132,7 +1142,37 @@ export default {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value && this.d_value.length && this.d_value != null && isNotEmpty(this.options);
+        },
+        containerDataP() {
+            return cn({
+                invalid: this.$invalid,
+                disabled: this.disabled,
+                focus: this.focused,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
+        },
+        labelDataP() {
+            return cn({
+                placeholder: this.label === this.placeholder,
+                clearable: this.showClear,
+                disabled: this.disabled,
+                [this.size]: this.size,
+                'has-chip': this.display === 'chip' && this.d_value && this.d_value.length && (this.maxSelectedLabels ? this.d_value.length <= this.maxSelectedLabels : true),
+                empty: !this.placeholder && !this.$filled
+            });
+        },
+        dropdownIconDataP() {
+            return cn({
+                [this.size]: this.size
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
+            });
         }
     },
     directives: {

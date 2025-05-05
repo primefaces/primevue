@@ -40,7 +40,8 @@ export default defineConfig({
       resolvers: [
         PrimeVueResolver()
       ]
-    })]
+    })
+  ]
 })
 `
             },

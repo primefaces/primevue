@@ -6,7 +6,7 @@
         <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('previewMask')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('previewMask') }">
             <!-- TODO: indicator* deprecated since v4.0-->
             <slot :name="$slots.previewicon ? 'previewicon' : 'indicatoricon'">
-                <component :is="previewIcon || indicatorIcon ? 'i' : 'EyeIcon'" :class="cx('previewIcon')" v-bind="ptm('previewIcon')" />
+                <component :is="previewIcon || indicatorIcon ? 'i' : 'EyeIcon'" :class="[cx('previewIcon'), previewIcon]" v-bind="ptm('previewIcon')" />
             </slot>
         </button>
         <Portal>
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { blockBodyScroll, isAttributeEquals, focus, addClass, unblockBodyScroll } from '@primeuix/utils/dom';
+import { addClass, focus, isAttributeEquals } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import EyeIcon from '@primevue/icons/eye';
 import RefreshIcon from '@primevue/icons/refresh';
@@ -66,6 +66,7 @@ import TimesIcon from '@primevue/icons/times';
 import UndoIcon from '@primevue/icons/undo';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
+import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import BaseImage from './BaseImage.vue';
 
 export default {

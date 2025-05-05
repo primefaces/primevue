@@ -1,14 +1,14 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" :data-p="dataP" v-bind="attrs">
         <slot>
             <slot v-if="loading" name="loadingicon" :class="[cx('loadingIcon'), cx('icon')]" v-bind="ptm('loadingIcon')">
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), cx('icon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="[cx('loadingIcon'), cx('icon')]" spin v-bind="ptm('loadingIcon')" />
             </slot>
             <slot v-else name="icon" :class="[cx('icon')]" v-bind="ptm('icon')">
-                <span v-if="icon" :class="[cx('icon'), icon, iconClass]" v-bind="ptm('icon')"></span>
+                <span v-if="icon" :class="[cx('icon'), icon, iconClass]" :data-p="dataIconP" v-bind="ptm('icon')"></span>
             </slot>
-            <span :class="cx('label')" v-bind="ptm('label')">{{ label || '&nbsp;' }}</span>
+            <span :class="cx('label')" v-bind="ptm('label')" :data-p="dataLabelP">{{ label || '&nbsp;' }}</span>
             <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('pcBadge')"></Badge>
         </slot>
     </component>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { isEmpty } from '@primeuix/utils/object';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Badge from 'primevue/badge';
@@ -67,6 +68,32 @@ export default {
         },
         hasFluid() {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;
+        },
+        dataP() {
+            return cn({
+                [this.size]: this.size,
+                'icon-only': this.hasIcon && !this.label && !this.badge,
+                loading: this.loading,
+                fluid: this.hasFluid,
+                rounded: this.rounded,
+                raised: this.raised,
+                outlined: this.outlined || this.variant === 'outlined',
+                text: this.text || this.variant === 'text',
+                link: this.link || this.variant === 'link',
+                vertical: (this.iconPos === 'top' || this.iconPos === 'bottom') && this.label
+            });
+        },
+        dataIconP() {
+            return cn({
+                [this.iconPos]: this.iconPos,
+                [this.size]: this.size
+            });
+        },
+        dataLabelP() {
+            return cn({
+                [this.size]: this.size,
+                'icon-only': this.hasIcon && !this.label && !this.badge
+            });
         }
     },
     components: {

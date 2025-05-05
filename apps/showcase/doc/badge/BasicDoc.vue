@@ -1,9 +1,10 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Text to display is defined with the <i>value</i> property.</p>
+        <p>Content to display is defined with the <i>value</i> property or the default slot.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <Badge value="2"></Badge>
+        <Badge>10</Badge>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,11 +16,13 @@ export default {
             code: {
                 basic: `
 <Badge value="2"></Badge>
+<Badge>10</Badge>
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <Badge value="2"></Badge>
+        <Badge>10</Badge>
     </div>
 </template>
 
@@ -29,8 +32,9 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
+    <div class="card flex justify-center gap-2">
         <Badge value="2"></Badge>
+        <Badge>10</Badge>
     </div>
 </template>
 

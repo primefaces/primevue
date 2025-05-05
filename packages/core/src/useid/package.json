@@ -1,0 +1,5 @@
+{
+    "main": "./UseId.js",
+    "module": "./UseId.js",
+    "types": "./UseId.d.ts"
+}

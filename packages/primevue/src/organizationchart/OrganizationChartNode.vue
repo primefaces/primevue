@@ -52,8 +52,8 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
 import { isAttributeEquals } from '@primeuix/utils/dom';
+import BaseComponent from '@primevue/core/basecomponent';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 

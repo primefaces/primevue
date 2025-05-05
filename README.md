@@ -10,15 +10,15 @@ PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homep
 
 ## Packages
 
-| Name | Version |
-| --- | --- |
-| [primevue](https://github.com/primefaces/primevue/tree/master/packages/primevue) | [![npm version](https://badge.fury.io/js/primevue.svg)](https://badge.fury.io/js/primevue) |
-| [@primevue/core](https://github.com/primefaces/primevue/tree/master/packages/core) | [![npm version](https://badge.fury.io/js/@primevue%2Fcore.svg)](https://badge.fury.io/js/@primevue%2Fcore) |
-| [@primevue/icons](https://github.com/primefaces/primevue/tree/master/packages/icons) | [![npm version](https://badge.fury.io/js/@primevue%2Ficons.svg)](https://badge.fury.io/js/@primevue%2Ficons) |
-| [@primevue/themes](https://github.com/primefaces/primevue/tree/master/packages/themes) | [![npm version](https://badge.fury.io/js/@primevue%2Fthemes.svg)](https://badge.fury.io/js/@primevue%2Fthemes) |
-| [@primevue/nuxt-module](https://github.com/primefaces/primevue/tree/master/packages/nuxt-module) | [![npm version](https://badge.fury.io/js/@primevue%2Fnuxt-module.svg)](https://badge.fury.io/js/@primevue%2Fnuxt-module) |
+| Name                                                                                                               | Version                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| [primevue](https://github.com/primefaces/primevue/tree/master/packages/primevue)                                   | [![npm version](https://badge.fury.io/js/primevue.svg)](https://badge.fury.io/js/primevue)                                                 |
+| [@primevue/core](https://github.com/primefaces/primevue/tree/master/packages/core)                                 | [![npm version](https://badge.fury.io/js/@primevue%2Fcore.svg)](https://badge.fury.io/js/@primevue%2Fcore)                                 |
+| [@primevue/icons](https://github.com/primefaces/primevue/tree/master/packages/icons)                               | [![npm version](https://badge.fury.io/js/@primevue%2Ficons.svg)](https://badge.fury.io/js/@primevue%2Ficons)                               |
+| [@primevue/themes](https://github.com/primefaces/primevue/tree/master/packages/themes)                             | [![npm version](https://badge.fury.io/js/@primevue%2Fthemes.svg)](https://badge.fury.io/js/@primevue%2Fthemes)                             |
+| [@primevue/nuxt-module](https://github.com/primefaces/primevue/tree/master/packages/nuxt-module)                   | [![npm version](https://badge.fury.io/js/@primevue%2Fnuxt-module.svg)](https://badge.fury.io/js/@primevue%2Fnuxt-module)                   |
 | [@primevue/auto-import-resolver](https://github.com/primefaces/primevue/tree/master/packages/auto-import-resolver) | [![npm version](https://badge.fury.io/js/@primevue%2Fauto-import-resolver.svg)](https://badge.fury.io/js/@primevue%2Fauto-import-resolver) |
-| [@primevue/metadata](https://github.com/primefaces/primevue/tree/master/packages/metadata) | [![npm version](https://badge.fury.io/js/@primevue%2Fmetadata.svg)](https://badge.fury.io/js/@primevue%2Fmetadata) |
+| [@primevue/metadata](https://github.com/primefaces/primevue/tree/master/packages/metadata)                         | [![npm version](https://badge.fury.io/js/@primevue%2Fmetadata.svg)](https://badge.fury.io/js/@primevue%2Fmetadata)                         |
 
 ## Contributors
 

@@ -136,6 +136,10 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        required: {
+            type: Boolean,
+            default: false
         }
     },
     style: InputNumberStyle,

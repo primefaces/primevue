@@ -9,7 +9,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
 
         target.$_pkeyfilterModifier = this.getModifiers(options);
 
-        if (typeof options.value) {
+        if (options.value !== undefined) {
             target.$_pkeyfilterPattern = options.value?.pattern || options.value;
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
@@ -26,7 +26,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
         target.$_pkeyfilterModifier = this.getModifiers(options);
         this.unbindEvents(el, options);
 
-        if (typeof options.value) {
+        if (options.value !== undefined) {
             target.$_pkeyfilterPattern = options.value?.pattern || options.value;
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
@@ -38,14 +38,14 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
     },
     DEFAULT_PATTERNS: {
         pint: /[\d]/,
-        int: /[\d\-]/,
-        pnum: /[\d\.]/,
-        money: /[\d\.\s,]/,
-        num: /[\d\-\.]/,
+        int: /[\d-]/,
+        pnum: /[\d.]/,
+        money: /[\d.\s,]/,
+        num: /[\d-.]/,
         hex: /[0-9a-f]/i,
-        email: /[a-z0-9_\.\-@]/i,
+        email: /[a-z0-9_.-@]/i,
         alpha: /[a-z_]/i,
-        alphanum: /[a-z0-9_]/i
+        alphanum: /[a-z0-9_]/
     },
     methods: {
         getTarget(el) {
@@ -89,7 +89,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             let testKey = `${event.key}`;
 
             if (target.$_pkeyfilterValidateOnly) {
-                testKey = `${event.target.value}${event.key}`;
+                testKey = `${target.value.substring(0, target.selectionStart)}${event.key}${target.value.substring(target.selectionEnd)}`;
             }
 
             if (!regex.test(testKey)) {
@@ -105,22 +105,22 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             }
 
             const clipboard = event.clipboardData.getData('text');
-            let testKey = '';
 
-            // loop over each letter pasted and if any fail prevent the paste
-            [...clipboard].forEach((c) => {
-                if (target.$_pkeyfilterValidateOnly) {
-                    testKey += c;
-                } else {
-                    testKey = c;
-                }
+            if (target.$_pkeyfilterValidateOnly) {
+                const newValue = `${target.value.substring(0, target.selectionStart)}${clipboard}${target.value.substring(target.selectionEnd)}`;
 
-                if (!regex.test(testKey)) {
+                if (!regex.test(newValue)) {
                     event.preventDefault();
-
-                    return false;
                 }
-            });
+            } else {
+                for (let i = 0; i < clipboard.length; i++) {
+                    if (!regex.test(clipboard[i])) {
+                        event.preventDefault();
+
+                        return;
+                    }
+                }
+            }
         }
     }
 });

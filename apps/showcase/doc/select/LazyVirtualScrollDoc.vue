@@ -1,5 +1,7 @@
 <template>
-    <DocSectionText v-bind="$attrs" />
+    <DocSectionText v-bind="$attrs">
+        <p>The virtual scrolling also supports dynamically loading items on demand.</p>
+    </DocSectionText>
     <div class="card flex justify-center">
         <Select
             v-model="selectedItem"
@@ -119,17 +121,20 @@ const onLazyLoad = (event) => {
             }
 
             //imitate delay of a backend call
-            this.loadLazyTimeout = setTimeout(() => {
-                const { first, last } = event;
-                const items = [...this.items];
+            this.loadLazyTimeout = setTimeout(
+                () => {
+                    const { first, last } = event;
+                    const items = [...this.items];
 
-                for (let i = first; i < last; i++) {
-                    items[i] = { label: `Item #${i}`, value: i };
-                }
+                    for (let i = first; i < last; i++) {
+                        items[i] = { label: `Item #${i}`, value: i };
+                    }
 
-                this.items = items;
-                this.loading = false;
-            }, Math.random() * 1000 + 250);
+                    this.items = items;
+                    this.loading = false;
+                },
+                Math.random() * 1000 + 250
+            );
         }
     }
 };

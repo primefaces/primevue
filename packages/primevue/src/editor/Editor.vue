@@ -19,7 +19,7 @@
                     <button class="ql-italic" type="button" v-bind="ptm('italic')"></button>
                     <button class="ql-underline" type="button" v-bind="ptm('underline')"></button>
                 </span>
-                <span :key="reRenderColorKey" class="ql-formats" v-bind="ptm('formats')">
+                <span class="ql-formats" v-bind="ptm('formats')">
                     <select class="ql-color" v-bind="ptm('color')"></select>
                     <select class="ql-background" v-bind="ptm('background')"></select>
                 </span>
@@ -64,16 +64,10 @@ export default {
     extends: BaseEditor,
     inheritAttrs: false,
     emits: ['text-change', 'selection-change', 'load'],
-    data() {
-        return {
-            reRenderColorKey: 0
-        };
-    },
     quill: null,
     watch: {
         modelValue(newValue, oldValue) {
             if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
-                this.reRenderColorKey++;
                 this.renderValue(newValue);
             }
         },
@@ -124,8 +118,12 @@ export default {
     methods: {
         renderValue(value) {
             if (this.quill) {
-                if (value) this.quill.clipboard.dangerouslyPasteHTML(value);
-                else this.quill.setText('');
+                if (value) {
+                    const delta = this.quill.clipboard.convert({ html: value });
+                    this.quill.setContents(delta);
+                } else {
+                    this.quill.setText('');
+                }
             }
         },
         initQuill() {
@@ -133,7 +131,7 @@ export default {
 
             this.quill.on('text-change', (delta, oldContents, source) => {
                 if (source === 'user') {
-                    let html = this.$refs.editorElement.children[0].innerHTML;
+                    let html = this.quill.getSemanticHTML();
                     let text = this.quill.getText().trim();
 
                     if (html === '<p><br></p>') {
@@ -152,7 +150,7 @@ export default {
             });
 
             this.quill.on('selection-change', (range, oldRange, source) => {
-                let html = this.$refs.editorElement.children[0].innerHTML;
+                let html = this.quill.getSemanticHTML();
                 let text = this.quill.getText().trim();
 
                 this.$emit('selection-change', {

@@ -158,10 +158,6 @@ export default {
                 {
                     name: 'v3',
                     url: 'https://v3.primevue.org'
-                },
-                {
-                    name: 'v2',
-                    url: 'https://www.primefaces.org/primevue-v2'
                 }
             ]
         };

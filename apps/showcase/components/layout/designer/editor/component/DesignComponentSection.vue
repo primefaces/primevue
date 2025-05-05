@@ -1,13 +1,13 @@
 <template>
     <section>
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0 capitalize">{{ sectionName }}</div>
-        <div class="grid grid-cols-4 gap-2">
+        <div class="grid grid-cols-4 gap-x-2 gap-y-3">
             <template v-for="(t_value, t_name) in tokens" :key="t_name">
-                <DesignTokenField v-if="!isObject(t_value)" v-model="tokens[t_name]" :label="camelCaseToSpaces(t_name)" :type="isColor(t_name) ? 'color' : null" :componentKey="componentKey" :path="path + '.' + t_name" />
+                <DesignTokenField v-if="!isObject(t_value)" v-model="tokens[t_name]" :label="camelCaseToSpaces(t_name)" :type="isColor(t_name) ? 'color' : null" :componentKey="componentKey" :path="path + '.' + t_name" switchable />
             </template>
         </div>
         <template v-if="hasNestedTokens">
-            <DesignComponentSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :componentKey="componentKey" :path="path + '.' + n_name" class="mt-3" />
+            <DesignComponentSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :componentKey="componentKey" :path="path + '.' + n_name" class="mt-3" switchable />
         </template>
     </section>
 </template>
@@ -66,7 +66,7 @@ export default {
                 .join(' ');
         },
         tokens() {
-            const source = this.$appState.designer.theme.preset.components[this.componentKey] || this.$appState.designer.theme.preset.directives[this.componentKey];
+            const source = this.$appState.designer.theme.preset.components[this.componentKey];
 
             return this.getObjectProperty(source, this.path);
         },

@@ -7,7 +7,7 @@
         </p>
         <p>
             Most common usage of <i>pt</i> is styling and customization. The <i>class</i> and <i>style</i> properties support the exact syntax of the corresponding
-            <a href="https://vuejs.org/guide/essentials/class-and-style.html">Vue bindings</a> like arrays, objects and conditionals. Example below styles a Panel component with PrimeFlex CSS library.
+            <a href="https://vuejs.org/guide/essentials/class-and-style.html">Vue bindings</a> like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
         </p>
     </DocSectionText>
 
@@ -15,21 +15,17 @@
         <Panel
             header="Header"
             toggleable
+            unstyled
             :pt="{
+                root: 'border border-primary rounded-xl p-4',
                 header: (options) => ({
                     id: 'myPanelHeader',
                     style: {
                         'user-select': 'none'
                     },
-                    class: [
-                        'border-primary',
-                        {
-                            'bg-primary text-primary-contrast': options.state.d_collapsed,
-                            'text-primary bg-primary-contrast': !options.state.d_collapsed
-                        }
-                    ]
+                    class: ['flex items-center justify-between text-primary font-bold']
                 }),
-                content: { class: 'border-primary text-lg text-primary-700' },
+                content: { class: 'text-primary-700 dark:text-primary-200 mt-4' },
                 title: 'text-xl',
                 toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
             }"
@@ -51,22 +47,17 @@ export default {
                 basic: `
 <Panel header="Header" toggleable
     :pt="{
+        root: 'border border-primary rounded-xl p-4',
         header: (options) => ({
             id: 'myPanelHeader',
             style: {
                 'user-select': 'none'
             },
-            class: [
-                'border-primary',
-                {
-                    'bg-primary text-primary-contrast': options.state.d_collapsed,
-                    'text-primary bg-primary-contrast': !options.state.d_collapsed
-                }
-            ]
+            class: ['flex items-center justify-between text-primary font-bold']
         }),
-        content: { class: 'border-primary text-lg text-primary-700' },
-        title: 'text-xl',                                     // OR { class: 'text-xl' }
-        toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'  // OR { class: 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast' }
+        content: { class: 'text-primary-700 dark:text-primary-200 mt-4' },
+        title: 'text-xl',
+        toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
     }">
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

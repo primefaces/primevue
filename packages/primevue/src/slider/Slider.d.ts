@@ -7,7 +7,7 @@
  * @module slider
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 
@@ -123,7 +123,7 @@ export interface SliderProps {
      * Orientation of the slider.
      * @defaultValue horizontal
      */
-    orientation?: 'horizontal' | 'vertical' | undefined;
+    orientation?: HintedString<'horizontal' | 'vertical'> | undefined;
     /**
      * Step factor to increment/decrement the value.
      * @defaultValue 1

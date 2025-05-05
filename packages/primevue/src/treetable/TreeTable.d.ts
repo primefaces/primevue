@@ -382,6 +382,10 @@ export interface TreeTableState {
  */
 export interface TreeTableContext {
     /**
+     * Current node of the item.
+     */
+    node: TreeNode;
+    /**
      * Current index state of the item.
      */
     index: number;
@@ -400,6 +404,31 @@ export interface TreeTableContext {
      * @defaultValue false
      */
     selected: boolean;
+    /**
+     * Current horizontal and/or vertical scrolling state.
+     * @defaultValue false
+     */
+    scrollable: boolean;
+    /**
+     * Current show gridlines state.
+     * @defaultValue false
+     */
+    showGridlines: boolean;
+    /**
+     * Current size of the table.
+     * @defaultValue null
+     */
+    size: string | null;
+    /**
+     * Current check state of the node as a boolean.
+     * @defaultValue false
+     */
+    checked: boolean;
+    /**
+     * Current partial check state of the node as a boolean.
+     * @defaultValue false
+     */
+    partialChecked: boolean;
 }
 
 /**
@@ -428,7 +457,7 @@ export interface TreeTableProps {
     /**
      * Defines the selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple' | 'checkbox'> | undefined;
     /**
      * Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually.
      * On touch enabled devices, metaKeySelection is turned off automatically.
@@ -466,7 +495,7 @@ export interface TreeTableProps {
      * Position of the paginator, options are 'top','bottom' or 'both'.
      * @defaultValue bottom
      */
-    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
+    paginatorPosition?: HintedString<'top' | 'bottom' | 'both'> | undefined;
     /**
      * Whether to show it even there is only one page.
      * @defaultValue true
@@ -528,7 +557,7 @@ export interface TreeTableProps {
      * Loading mode display.
      * @defaultValue mask
      */
-    loadingMode?: 'mask' | 'icon' | undefined;
+    loadingMode?: HintedString<'mask' | 'icon'> | undefined;
     /**
      * When enabled, background of the rows change on hover.
      * @defaultValue false
@@ -560,7 +589,7 @@ export interface TreeTableProps {
      * Defines whether sorting works on single column or on multiple columns.
      * @defaultValue single
      */
-    sortMode?: 'single' | 'multiple' | undefined;
+    sortMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * When enabled, columns can have an un-sorted state.
      * @defaultValue false
@@ -575,7 +604,7 @@ export interface TreeTableProps {
      * Mode for filtering.
      * @defaultValue lenient
      */
-    filterMode?: 'lenient' | 'strict' | undefined;
+    filterMode?: HintedString<'lenient' | 'strict'> | undefined;
     /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
@@ -589,7 +618,7 @@ export interface TreeTableProps {
      * Defines whether the overall table width should change on column resize.
      * @defaultValue fit
      */
-    columnResizeMode?: 'fit' | 'expand' | undefined;
+    columnResizeMode?: HintedString<'fit' | 'expand'> | undefined;
     /**
      * Indentation factor as rem value for children nodes.
      * @defaultValue 1
@@ -612,7 +641,7 @@ export interface TreeTableProps {
     /**
      * Defines the size of the table.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Inline style of the table element.
      */

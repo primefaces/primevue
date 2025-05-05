@@ -101,7 +101,7 @@ export interface ChipProps {
     /**
      * Defines the text to display.
      */
-    label?: string;
+    label?: string | number;
     /**
      * Defines the icon to display.
      */

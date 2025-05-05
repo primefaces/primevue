@@ -102,6 +102,10 @@ export interface ConfirmDialogPassThroughOptions {
      */
     footer?: ConfirmDialogPassThroughOptionType;
     /**
+     * Used to pass attributes to the mask's DOM element.
+     */
+    mask?: ConfirmDialogPassThroughOptionType;
+    /**
      * Used to pass attributes to the Button component.
      * @see {@link ButtonPassThroughOptions}
      */
@@ -116,6 +120,10 @@ export interface ConfirmDialogPassThroughOptions {
      * @see {@link BaseComponent.ComponentHooks}
      */
     hooks?: ComponentHooks;
+    /**
+     * Used to control Vue Transition API.
+     */
+    transition?: ConfirmDialogPassThroughOptionType;
 }
 
 /**

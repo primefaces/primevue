@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The plugin extends the default configuration with a new set of utilities. All variants and breakpoints are supported e.g. <i>dark:sm:hover:bg-primary</i>.</p>
+        <p>The plugin extends the default configuration with a new set of utilities whose values are derived from the PrimeVue theme in use. All variants and breakpoints are supported e.g. <i>dark:sm:hover:bg-primary</i>.</p>
         <h3>Color Palette</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">

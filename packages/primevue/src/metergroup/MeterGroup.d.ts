@@ -118,7 +118,7 @@ export interface MeterItem {
     /**
      * Current color of the meter item.
      */
-    color: string;
+    color?: string;
     /**
      * Current icon of the meter item.
      */

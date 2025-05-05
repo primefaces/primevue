@@ -112,9 +112,13 @@ export interface SelectPassThroughOptions<T = any> {
      */
     clearIcon?: SelectPassThroughOptionType<T>;
     /**
-     * Used to pass attributes to the dropdown' DOM element.
+     * Used to pass attributes to the dropdown's DOM element.
      */
     dropdown?: SelectPassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the dropdown icon's DOM element.
+     */
+    dropdownIcon?: SelectPassThroughOptionType<T>;
     /**
      * Used to pass attributes to the loading icon's DOM element.
      */
@@ -362,7 +366,7 @@ export interface SelectProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -375,9 +379,9 @@ export interface SelectProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * A property to uniquely identify an option.
      */
@@ -818,11 +822,11 @@ export interface SelectMethods {
  * @group Component
  *
  */
-declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
+declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits>;
+        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
     }
 }
 

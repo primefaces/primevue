@@ -25,6 +25,12 @@ export { default as PrimeVue } from '@primevue/core/config';
 // PrimeVueService
 export { default as PrimeVueService } from '@primevue/core/service';
 
+// UseAttrSelector
+export * from '@primevue/core/useattrselector';
+
+// UseId
+export * from '@primevue/core/useid';
+
 // UseStyle
 export * from '@primevue/core/usestyle';
 

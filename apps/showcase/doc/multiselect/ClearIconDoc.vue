@@ -22,14 +22,12 @@ export default {
             ],
             code: {
                 basic: `
-<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-    :maxSelectedLabels="3" class="w-full md:w-80" />
+<MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 
@@ -53,8 +51,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
-            :maxSelectedLabels="3" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
     </div>
 </template>
 

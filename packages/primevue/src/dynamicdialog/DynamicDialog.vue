@@ -15,6 +15,7 @@
 <script>
 import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 import { UniqueComponentId } from '@primevue/core/utils';
+import { uuid } from '@primeuix/utils';
 import Dialog from 'primevue/dialog';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
 import BaseDynamicDialog from './BaseDynamicDialog.vue';
@@ -34,7 +35,7 @@ export default {
     currentInstance: null,
     mounted() {
         this.openListener = ({ instance }) => {
-            const key = UniqueComponentId() + '_dynamic_dialog';
+            const key = uuid() + '_dynamic_dialog';
 
             if (instance.options.props?.modal) {
                 if (this.openModalCount === 0) blockBodyScroll();

@@ -22,5 +22,6 @@
     },
     "[scss]": {
         "editor.defaultFormatter": "vscode.css-language-features"
-    }
+    },
+    "vue.server.hybridMode": "typeScriptPluginOnly"
 }

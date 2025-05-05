@@ -1,32 +1,33 @@
 <template>
     <Portal>
-        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position, modal })" v-bind="ptm('mask')">
+        <div v-if="containerVisible" :ref="maskRef" @mousedown="onMaskClick" :class="cx('mask')" :style="sx('mask', true, { position, modal })" :data-p="dataP" v-bind="ptm('mask')">
             <transition name="p-drawer" @enter="onEnter" @after-enter="onAfterEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" :style="sx('root')" role="complementary" :aria-modal="modal" v-bind="ptmi('root')">
+                <div v-if="visible" :ref="containerRef" v-focustrap :class="cx('root')" :style="sx('root')" role="complementary" :aria-modal="modal" :data-p="dataP" v-bind="ptmi('root')">
                     <slot v-if="$slots.container" name="container" :closeCallback="hide"></slot>
                     <template v-else>
                         <div :ref="headerContainerRef" :class="cx('header')" v-bind="ptm('header')">
                             <slot name="header" :class="cx('title')">
                                 <div v-if="header" :class="cx('title')" v-bind="ptm('title')">{{ header }}</div>
                             </slot>
-                            <Button
-                                v-if="showCloseIcon"
-                                :ref="closeButtonRef"
-                                type="button"
-                                :class="cx('pcCloseButton')"
-                                :aria-label="closeAriaLabel"
-                                :unstyled="unstyled"
-                                @click="hide"
-                                v-bind="closeButtonProps"
-                                :pt="ptm('pcCloseButton')"
-                                data-pc-group-section="iconcontainer"
-                            >
-                                <template #icon="slotProps">
-                                    <slot name="closeicon">
-                                        <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
-                                    </slot>
-                                </template>
-                            </Button>
+                            <slot v-if="showCloseIcon" name="closebutton" :closeCallback="hide">
+                                <Button
+                                    :ref="closeButtonRef"
+                                    type="button"
+                                    :class="cx('pcCloseButton')"
+                                    :aria-label="closeAriaLabel"
+                                    :unstyled="unstyled"
+                                    @click="hide"
+                                    v-bind="closeButtonProps"
+                                    :pt="ptm('pcCloseButton')"
+                                    data-pc-group-section="iconcontainer"
+                                >
+                                    <template #icon="slotProps">
+                                        <slot name="closeicon">
+                                            <component :is="closeIcon ? 'span' : 'TimesIcon'" :class="[closeIcon, slotProps.class]" v-bind="ptm('pcCloseButton')['icon']"></component>
+                                        </slot>
+                                    </template>
+                                </Button>
+                            </slot>
                         </div>
                         <div :ref="contentRef" :class="cx('content')" v-bind="ptm('content')">
                             <slot></slot>
@@ -42,19 +43,21 @@
 </template>
 
 <script>
-import { addClass, blockBodyScroll, focus, unblockBodyScroll } from '@primeuix/utils/dom';
+import { cn } from '@primeuix/utils';
+import { addClass, focus } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import TimesIcon from '@primevue/icons/times';
 import Button from 'primevue/button';
 import FocusTrap from 'primevue/focustrap';
 import Portal from 'primevue/portal';
+import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import BaseDrawer from './BaseDrawer.vue';
 
 export default {
     name: 'Drawer',
     extends: BaseDrawer,
     inheritAttrs: false,
-    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide'],
+    emits: ['update:visible', 'show', 'after-show', 'hide', 'after-hide', 'before-hide'],
     data() {
         return {
             containerVisible: this.visible
@@ -113,6 +116,8 @@ export default {
             if (this.modal) {
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
             }
+
+            this.$emit('before-hide');
         },
         onLeave() {
             this.$emit('hide');
@@ -212,12 +217,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -231,6 +236,14 @@ export default {
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
+        },
+        dataP() {
+            return cn({
+                'full-screen': this.position === 'full',
+                [this.position]: this.position,
+                open: this.containerVisible,
+                modal: this.modal
+            });
         }
     },
     directives: {

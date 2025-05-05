@@ -1,26 +1,5 @@
+import { style } from '@primeuix/styles/picklist';
 import BaseStyle from '@primevue/core/base/style';
-
-const theme = ({ dt }) => `
-.p-picklist {
-    display: flex;
-    gap: ${dt('picklist.gap')};
-}
-
-.p-picklist-controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: ${dt('picklist.controls.gap')};
-}
-
-.p-picklist-list-container {
-    flex: 1 1 50%;
-}
-
-.p-picklist .p-listbox {
-    height: 100%;
-}
-`;
 
 const classes = {
     root: 'p-picklist p-component',
@@ -33,6 +12,6 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'picklist',
-    theme,
+    style,
     classes
 });

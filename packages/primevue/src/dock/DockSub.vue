@@ -2,7 +2,7 @@
     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
         <ul
             ref="list"
-            :id="id"
+            :id="idx"
             :class="cx('list')"
             role="menu"
             :aria-orientation="position === 'bottom' || position === 'top' ? 'horizontal' : 'vertical'"
@@ -37,7 +37,6 @@
                                 :class="cx('itemLink')"
                                 :target="processedItem.target"
                                 tabindex="-1"
-                                aria-hidden="true"
                                 v-bind="getPTOptions('itemLink', processedItem, index)"
                             >
                                 <!-- TODO: icon deprecated since v4.0-->
@@ -59,7 +58,6 @@
 import { find, findSingle } from '@primeuix/utils/dom';
 import { resolve } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
-import { UniqueComponentId } from '@primevue/core/utils';
 import Ripple from 'primevue/ripple';
 import Tooltip from 'primevue/tooltip';
 import { mergeProps } from 'vue';
@@ -102,23 +100,14 @@ export default {
     },
     data() {
         return {
-            id: this.menuId,
             currentIndex: -3,
             focused: false,
             focusedOptionIndex: -1
         };
     },
-    watch: {
-        menuId(newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
-    },
     methods: {
         getItemId(index) {
-            return `${this.id}_${index}`;
+            return `${this.idx}_${index}`;
         },
         getItemProp(processedItem, name) {
             return processedItem && processedItem.item ? resolve(processedItem.item[name]) : undefined;
@@ -277,6 +266,9 @@ export default {
     computed: {
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
+        },
+        idx() {
+            return this.menuId || this.$id;
         }
     },
     directives: {

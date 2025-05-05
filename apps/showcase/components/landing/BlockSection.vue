@@ -1,7 +1,7 @@
 <template>
     <section id="blocks-section" class="landing-blocks pt-20 overflow-hidden">
         <div class="section-header relative z-30">Blocks</div>
-        <p class="section-detail relative z-30">400+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
+        <p class="section-detail relative z-30">500+ ready to copy-paste UI blocks to build spectacular applications in no time.</p>
         <div class="flex justify-center mt-6 relative z-30">
             <a href="https://primeblocks.org" class="linkbox linkbox-primary">
                 <span>Explore All</span>

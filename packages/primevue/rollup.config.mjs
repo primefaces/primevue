@@ -54,6 +54,8 @@ const ALIAS_ENTRIES = [
     { find: '@primevue/core/baseinput', replacement: path.resolve(__dirname, '../core/src/baseinput/BaseInput.vue') },
     { find: '@primevue/core/config', replacement: path.resolve(__dirname, '../core/src/config/PrimeVue.js') },
     { find: '@primevue/core/service', replacement: path.resolve(__dirname, '../core/src/service/PrimeVueService.js') },
+    { find: '@primevue/core/useattrselector', replacement: path.resolve(__dirname, '../core/src/useattrselector/UseAttrSelector.js') },
+    { find: '@primevue/core/useid', replacement: path.resolve(__dirname, '../core/src/useid/UseId.js') },
     { find: '@primevue/core/usestyle', replacement: path.resolve(__dirname, '../core/src/usestyle/UseStyle.js') },
     { find: '@primevue/core/utils', replacement: path.resolve(__dirname, '../core/src/utils/Utils.js') },
     { find: '@primevue/core', replacement: path.resolve(__dirname, '../core/src/index.js') },
@@ -213,7 +215,6 @@ function addStyle() {
             try {
                 fs.readdirSync(path.resolve(__dirname, process.env.INPUT_DIR + folderName + '/style')).forEach((file) => {
                     if (/\.js$/.test(file)) {
-                        const name = file.split(/(.js)$/)[0].toLowerCase();
                         const input = process.env.INPUT_DIR + folderName + '/style/' + file;
                         const output = process.env.OUTPUT_DIR + folderName + '/style/index';
 

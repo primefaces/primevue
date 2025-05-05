@@ -9,12 +9,14 @@
                 :rows="d_rows"
                 :page="page"
                 :pageCount="pageCount"
+                :pageLinks="pageLinks"
                 :totalRecords="totalRecords"
                 :firstPageCallback="changePageToFirst"
                 :lastPageCallback="changePageToLast"
                 :prevPageCallback="changePageToPrev"
                 :nextPageCallback="changePageToNext"
                 :rowChangeCallback="onRowChange"
+                :changePageCallback="changePage"
             />
             <template v-else>
                 <div v-if="$slots.start" :class="cx('contentStart')" v-bind="ptm('contentStart')">

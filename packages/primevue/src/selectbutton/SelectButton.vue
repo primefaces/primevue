@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')">
+    <div :class="cx('root')" role="group" :aria-labelledby="ariaLabelledby" v-bind="ptmi('root')" :data-p="dataP">
         <template v-for="(option, index) of options" :key="getOptionRenderKey(option)">
             <ToggleButton
                 :modelValue="isSelected(option)"
@@ -8,7 +8,7 @@
                 :disabled="disabled || isOptionDisabled(option)"
                 :unstyled="unstyled"
                 :size="size"
-                :readonly="!allowEmpty && isSelected(option)"
+                :readonly="isOptionReadonly(option)"
                 @change="onOptionSelect($event, option, index)"
                 :pt="ptm('pcToggleButton')"
             >
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { equals, resolveFieldData } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import ToggleButton from 'primevue/togglebutton';
@@ -46,24 +47,35 @@ export default {
         isOptionDisabled(option) {
             return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
+        isOptionReadonly(option) {
+            if (this.allowEmpty) return false;
+
+            let selected = this.isSelected(option);
+
+            if (this.multiple) {
+                return selected && this.d_value.length === 1;
+            } else {
+                return selected;
+            }
+        },
         onOptionSelect(event, option, index) {
-            if (this.disabled || this.isOptionDisabled(option)) {
+            if (this.disabled || this.isOptionDisabled(option) || this.isOptionReadonly(option)) {
                 return;
             }
 
             let selected = this.isSelected(option);
-
-            if (selected && !this.allowEmpty) {
-                return;
-            }
-
             let optionValue = this.getOptionValue(option);
             let newValue;
 
             if (this.multiple) {
-                if (selected) newValue = this.d_value.filter((val) => !equals(val, optionValue, this.equalityKey));
-                else newValue = this.d_value ? [...this.d_value, optionValue] : [optionValue];
+                if (selected) {
+                    newValue = this.d_value.filter((val) => !equals(val, optionValue, this.equalityKey));
+                    if (!this.allowEmpty && newValue.length === 0) return;
+                } else {
+                    newValue = this.d_value ? [...this.d_value, optionValue] : [optionValue];
+                }
             } else {
+                if (selected && !this.allowEmpty) return;
                 newValue = selected ? null : optionValue;
             }
 
@@ -93,6 +105,11 @@ export default {
     computed: {
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid
+            });
         }
     },
     directives: {

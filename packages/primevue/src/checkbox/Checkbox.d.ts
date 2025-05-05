@@ -7,7 +7,7 @@
  * @module checkbox
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -136,9 +136,9 @@ export interface CheckboxProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * When present, it specifies that an input field is read-only.
      * @default false

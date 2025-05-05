@@ -5,11 +5,6 @@ const baseUrl = '/';
 const alias = {
     primevue: path.resolve(__dirname, '../../packages/primevue/src'),
     '@primevue/core': path.resolve(__dirname, '../../packages/core/src'),
-    '@primevue/themes/aura': path.resolve(__dirname, '../../packages/themes/src/presets/aura'),
-    '@primevue/themes/lara': path.resolve(__dirname, '../../packages/themes/src/presets/lara'),
-    '@primevue/themes/nora': path.resolve(__dirname, '../../packages/themes/src/presets/nora'),
-    '@primevue/themes/material': path.resolve(__dirname, '../../packages/themes/src/presets/material'),
-    '@primevue/themes': path.resolve(__dirname, '../../packages/themes/src'),
     '@primevue/icons': path.resolve(__dirname, '../../packages/icons/src')
 };
 
@@ -23,17 +18,22 @@ try {
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    typescript: false,
+    compatibilityDate: '2024-11-01',
+    devtools: { enabled: false },
     modules: ['@primevue/nuxt-module'],
-    components: {
-        path: '~/components',
-        pathPrefix: false
-    },
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false
+        }
+    ],
     vite: {
+        optimizeDeps: {
+            noDiscovery: true,
+            include: ['quill', 'yup']
+        },
         resolve: {
-            optimizeDeps: {
-                disabled: true
-            },
+            dedupe: ['vue', '@primeuix/styles', '@primeuix/themes', '@primeuix/utils'],
             alias
         }
     },
@@ -44,17 +44,10 @@ export default defineNuxtConfig({
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
-    primevue:
-        PROCESS_ENV.DEV_ENV === 'hot'
-            ? {
-                  usePrimeVue: false,
-                  autoImport: true,
-                  loadStyles: false
-              }
-            : {
-                  autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
-                  importTheme: { from: '@/themes/app-theme.js' }
-              },
+    primevue: {
+        autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
+        importTheme: { from: '@/themes/app-theme.js' }
+    },
     app: {
         baseURL: baseUrl,
         head: {
@@ -77,8 +70,7 @@ export default defineNuxtConfig({
             ],
             link: [
                 { rel: 'icon', href: baseUrl + 'favicon.ico' },
-                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400|Roboto:500|Roboto:600|Roboto:700', fetchpriority: 'low' }
+                { rel: 'stylesheet', href: 'https://rsms.me/inter/inter.css' }
             ],
             script: [
                 {
@@ -98,7 +90,7 @@ export default defineNuxtConfig({
         public: {
             contextPath: baseUrl,
             DEV_ENV: PROCESS_ENV.DEV_ENV,
-            designerApiBase: ''
+            designerApiUrl: ''
         }
     },
     css: ['primeicons/primeicons.css', '@/assets/styles/flags.css', '@docsearch/css/dist/style.css', '@/assets/styles/tailwind/main.css', '@/assets/styles/layout/layout.scss']

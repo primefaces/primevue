@@ -442,6 +442,10 @@ export interface PaginatorSlots {
          */
         pageCount?: number;
         /**
+         * Direct page links
+         */
+        pageLinks?: number;
+        /**
          * Total records
          */
         totalRecords?: number;
@@ -469,6 +473,10 @@ export interface PaginatorSlots {
          * Row change function.
          */
         rowChangeCallback: (value: number) => void;
+        /**
+         * Page change function.
+         */
+        changePageCallback: (value: number) => void;
     }): VNode[];
 }
 

@@ -1,6 +1,6 @@
 {
     "name": "@primevue/icons",
-    "version": "4.2.5",
+    "version": "4.3.3",
     "author": "PrimeTek Informatics",
     "description": "",
     "homepage": "https://primevue.org/",
@@ -45,6 +45,7 @@
         "./eye": "./src/eye/EyeIcon.vue",
         "./eyeslash": "./src/eyeslash/EyeSlashIcon.vue",
         "./filter": "./src/filter/FilterIcon.vue",
+        "./filterfill": "./src/filterfill/FilterFillIcon.vue",
         "./filterslash": "./src/filterslash/FilterSlashIcon.vue",
         "./infocircle": "./src/infocircle/InfoCircleIcon.vue",
         "./minus": "./src/minus/MinusIcon.vue",

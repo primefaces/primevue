@@ -4,7 +4,7 @@ import { services } from './services';
 const PrimeVue = {
     version: '^4.0.0',
     description:
-        'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 400+ ready to use UI blocks to build spectacular applications in no time.'
+        'PrimeVue is an open source UI library for Vue featuring a rich set of 80+ components, a theme designer, various theme alternatives such as Material, Bootstrap, Tailwind, premium templates and professional support. In addition, it integrates with PrimeBlock, which has 500+ ready to use UI blocks to build spectacular applications in no time.'
 };
 
 const app_dependencies = pkg ? pkg.devDependencies : {};
@@ -14,21 +14,21 @@ const core_dependencies = {
     '@vitejs/plugin-vue': '^4.0.0',
     vite: '^4.0.0',
     primevue: pkg.version || PrimeVue.version || 'latest',
-    '@primevue/themes': pkg.version || PrimeVue.version || 'latest',
+    '@primeuix/themes': 'latest',
     '@primevue/auto-import-resolver': pkg.version || PrimeVue.version || 'latest',
     '@primevue/forms': pkg.version || PrimeVue.version || 'latest',
     primeicons: app_dependencies['primeicons'] || 'latest',
     tailwindcss: app_dependencies['tailwindcss'] || 'latest',
     autoprefixer: app_dependencies['autoprefixer'] || 'latest',
     postcss: app_dependencies['postcss'] || 'latest',
-    'tailwindcss-primeui': app_dependencies['tailwindcss-primeui'] || 'latest',
+    'tailwindcss-primeui': 'latest',
     'unplugin-vue-components': 'latest'
 };
 
 // create-vue -> https://github.com/vuejs/create-vue
 const getVueApp = (props = {}, sourceType) => {
     const path = 'src/';
-    const { code: sources, title = 'primevue_demo', description = '', service, extPages, dependencies: deps, component, extFiles } = props;
+    const { code: sources, title = 'primevue_demo', description = '', service, dependencies: deps, component, extFiles } = props;
     const dependencies = { ...core_dependencies, ...deps };
 
     const fileExtension = '.vue';
@@ -120,12 +120,12 @@ export default defineConfig({
         },
         'tailwind.config.js': {
             content: `/** @type {import('tailwindcss').Config} */
-const primeui = require('tailwindcss-primeui');
+import PrimeUI from 'tailwindcss-primeui';
 
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     darkMode: ['selector', '[class="p-dark"]'],
-    plugins: [primeui]
+    plugins: [PrimeUI]
 };
 `
         },
@@ -237,10 +237,10 @@ app.mount("#app");
 </template>
 
 <script>
-import { $t, updatePreset, updateSurfacePalette } from '@primevue/themes';
-import Aura from '@primevue/themes/aura';
-import Lara from '@primevue/themes/lara';
-import Nora from '@primevue/themes/nora';
+import { $t, updatePreset, updateSurfacePalette } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+import Lara from '@primeuix/themes/lara';
+import Nora from '@primeuix/themes/nora';
 
 const presets = {
     Aura,
@@ -827,7 +827,7 @@ export default {
         }
     }
 };
-<\/script>
+</script>
 `
         },
         [`${path}plugins/appState.js`]: {
@@ -843,8 +843,8 @@ export default {
         `
         },
         [`${path}presets/Noir.js`]: {
-            content: `import { definePreset } from '@primevue/themes';
-        import Aura from '@primevue/themes/aura';
+            content: `import { definePreset } from '@primeuix/themes';
+        import Aura from '@primeuix/themes/aura';
 
         const Noir = definePreset(Aura, {
             semantic: {

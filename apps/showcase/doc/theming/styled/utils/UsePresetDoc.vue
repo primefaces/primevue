@@ -11,7 +11,7 @@ export default {
         return {
             code: {
                 basic: `
-import { usePreset } from '@primevue/themes';
+import { usePreset } from '@primeuix/themes';
 
 const onButtonClick() {
     usePreset(MyPreset);

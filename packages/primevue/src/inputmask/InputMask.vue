@@ -47,6 +47,11 @@ export default {
             if (oldMask !== newMask) {
                 this.initMask();
             }
+        },
+        disabled(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                this.updateValue();
+            }
         }
     },
     mounted() {
@@ -74,27 +79,31 @@ export default {
             }
 
             this.focus = true;
-
-            clearTimeout(this.caretTimeoutId);
-            let pos;
-
             this.focusText = this.$el.value;
 
-            pos = this.checkVal();
+            if (!this.$el.value || this.$el.value === this.defaultBuffer) {
+                requestAnimationFrame(() => {
+                    if (this.$el === document.activeElement) {
+                        this.caret(0, 0);
+                    }
+                });
+            } else {
+                let pos = this.checkVal();
 
-            this.caretTimeoutId = setTimeout(() => {
-                if (this.$el !== document.activeElement) {
-                    return;
-                }
+                this.caretTimeoutId = setTimeout(() => {
+                    if (this.$el !== document.activeElement) {
+                        return;
+                    }
 
-                this.writeBuffer();
+                    this.writeBuffer();
 
-                if (pos === this.mask.replace('?', '').length) {
-                    this.caret(0, pos);
-                } else {
-                    this.caret(pos);
-                }
-            }, 10);
+                    if (pos === this.mask.replace('?', '').length) {
+                        this.caret(0, pos);
+                    } else {
+                        this.caret(pos);
+                    }
+                }, 10);
+            }
 
             this.$emit('focus', event);
         },
@@ -445,10 +454,24 @@ export default {
 
             return unmaskedBuffer.join('');
         },
+        unmaskValue(value) {
+            let unmaskedBuffer = [];
+            let thisbuffer = value.split('');
+
+            for (let i = 0; i < thisbuffer.length; i++) {
+                let c = thisbuffer[i];
+
+                if (this.tests[i] && c !== this.getPlaceholder(i)) {
+                    unmaskedBuffer.push(c);
+                }
+            }
+
+            return unmaskedBuffer.join('');
+        },
 
         updateModelValue(value) {
             if (this.currentVal === value) return;
-            const val = this.unmask ? this.getUnmaskedValue() : value;
+            const val = this.unmask ? this.unmaskValue(value) : value;
 
             this.currentVal = value;
 
@@ -478,8 +501,8 @@ export default {
         },
         initMask() {
             this.tests = [];
-            this.partialPosition = this.mask.length;
-            this.len = this.mask.length;
+            this.partialPosition = this.mask ? this.mask.length : 0;
+            this.len = this.mask ? this.mask.length : 0;
             this.firstNonMaskPos = null;
             this.defs = {
                 9: '[0-9]',
@@ -491,7 +514,7 @@ export default {
 
             this.androidChrome = /chrome/i.test(ua) && /android/i.test(ua);
 
-            let maskTokens = this.mask.split('');
+            let maskTokens = this.mask ? this.mask.split('') : '';
 
             for (let i = 0; i < maskTokens.length; i++) {
                 let c = maskTokens[i];
@@ -538,7 +561,7 @@ export default {
         },
         rootPTOptions() {
             return {
-                root: mergeProps(this.ptm('pcInputText', this.ptmParams), this.ptmi('root', this.ptmParams))
+                root: mergeProps(this.ptm('pcInputText', this.ptmParams)['root'], this.ptmi('root', this.ptmParams))
             };
         },
         ptmParams() {

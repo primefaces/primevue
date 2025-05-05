@@ -364,7 +364,7 @@ export interface MultiSelectProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -377,9 +377,9 @@ export interface MultiSelectProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null
@@ -456,7 +456,7 @@ export interface MultiSelectProps {
      * Defines how the selected items are displayed.
      * @defaultValue comma
      */
-    display?: 'comma' | 'chip' | undefined;
+    display?: HintedString<'comma' | 'chip'> | undefined;
     /**
      * Label to display after exceeding max selected labels.
      * @defaultValue null
@@ -628,6 +628,12 @@ export interface MultiSelectSlots {
          * A value in the selection
          */
         value: any;
+        /**
+         * Chip icon function.
+         * @param {Event} event - Browser event
+         * @param {any} item - Item
+         */
+        removeCallback: (event: Event, item: any) => void;
     }): VNode[];
     /**
      * Custom header template.
@@ -781,7 +787,7 @@ export interface MultiSelectSlots {
         /**
          * Options of the loader items for virtualscroller
          */
-        allSelected: boolean;
+        checked: boolean;
         /**
          * Style class of the loading icon.
          */
@@ -932,11 +938,11 @@ export interface MultiSelectMethods {
  * @group Component
  *
  */
-declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
+declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits>;
+        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
     }
 }
 

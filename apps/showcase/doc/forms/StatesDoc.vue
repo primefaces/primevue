@@ -74,6 +74,7 @@ export default {
             }
 
             return {
+                values,
                 errors
             };
         },
@@ -125,6 +126,7 @@ const resolver = ({ values }) => {
     }
 
     return {
+        values,
         errors
     };
 };
@@ -152,6 +154,7 @@ const onFormSubmit = ({ valid }) => {
             }
 
             return {
+                values,
                 errors
             };
         },

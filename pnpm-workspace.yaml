@@ -3,6 +3,20 @@ packages:
     - 'apps/*'
 
 catalog:
-  '@primeuix/styled': ^0.3.2
-  '@primeuix/utils': ^0.3.2
-  '@primeuix/forms': ^0.0.2
+    '@primeuix/styled': ^0.5.0
+    '@primeuix/utils': ^0.5.1
+    '@primeuix/forms': ^0.0.4
+    '@primeuix/styles': ^1.0.0
+    '@primeuix/themes': ^1.0.0
+    'tailwindcss-primeui': ^0.6.1
+    'primeicons': ^7.0.0
+
+catalogs:
+    app:
+        'nuxt': 3.15.4
+        'vite': 6.0.11
+        'sass': 1.45.0
+        'sass-loader': 8.0.2
+        '@docsearch/js': ^3
+        'chart.js': 3.3.2
+        'quill': 2.0.0

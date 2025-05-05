@@ -25,13 +25,7 @@ export default {
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            value: null
-        }
-    }
-};
+export default {};
 <\/script>
 `,
                 composition: `
@@ -42,9 +36,6 @@ export default {
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const value = ref(null);
 <\/script>
 `
             }

@@ -115,7 +115,12 @@ export interface AccordionHeaderSlots {
     /**
      * Custom content template.
      */
-    default(): VNode[];
+    default(scope: {
+        /**
+         * Whether the item is active.
+         */
+        active: boolean;
+    }): VNode[];
     /**
      * Custom toggleicon template.
      */

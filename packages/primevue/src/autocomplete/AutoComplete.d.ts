@@ -168,6 +168,10 @@ export interface AutoCompletePassThroughOptions {
     /**
      * Used to pass attributes to the input chip's DOM element.
      */
+    input?: AutoCompletePassThroughOptionType;
+    /**
+     * Used to pass attributes to the input chip's DOM element.
+     */
     inputChip?: AutoCompletePassThroughOptionType;
     /**
      * Used to pass attributes to the loader's DOM element.
@@ -281,6 +285,14 @@ export interface AutoCompleteState {
  */
 export interface AutoCompleteContext {
     /**
+     * Current option.
+     */
+    option?: any;
+    /**
+     * Index of the current option.
+     */
+    index: number;
+    /**
      * Current selection state of the item as a boolean.
      * @defaultValue false
      */
@@ -352,7 +364,7 @@ export interface AutoCompleteProps {
      * Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.
      * @defaultValue blank
      */
-    dropdownMode?: 'blank' | 'current' | undefined;
+    dropdownMode?: HintedString<'blank' | 'current'> | undefined;
     /**
      * Specifies if multiple values can be selected.
      * @defaultValue false
@@ -370,7 +382,7 @@ export interface AutoCompleteProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -383,9 +395,9 @@ export interface AutoCompleteProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * A property to uniquely identify an option.
      */
@@ -574,6 +586,15 @@ export interface AutoCompleteSlots {
          * A value in the selection
          */
         value: any;
+        /**
+         * Index of the token.
+         */
+        index: number;
+        /**
+         * Remove token icon function.
+         * @param {Event} event - Browser event
+         */
+        removeCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom header template of panel.

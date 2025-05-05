@@ -11,6 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import { VNode } from 'vue';
 import type { PassThroughOptions } from '../types';
+import { useFormFieldState } from '../useform';
 
 export declare type FormPassThroughOptionType = FormPassThroughAttributes | ((options: FormPassThroughMethodOptions) => FormPassThroughAttributes | string) | string | null | undefined;
 
@@ -80,7 +81,7 @@ export interface FormResolverOptions {
 /**
  * Submit events
  */
-export interface FormSubmitEvent {
+export interface FormSubmitEvent<T extends Record<string, any> = Record<string, any>> {
     /**
      * The original DOM event.
      */
@@ -88,7 +89,7 @@ export interface FormSubmitEvent {
     /**
      * The form values.
      */
-    values: Record<string, any>;
+    values: T;
     /**
      * The form state.
      */
@@ -105,6 +106,16 @@ export interface FormSubmitEvent {
      * Resets the form.
      */
     reset: () => void;
+}
+
+/**
+ * Reset events
+ */
+export interface FormResetEvent {
+    /**
+     * The original DOM event.
+     */
+    originalEvent: Event;
 }
 
 /**
@@ -230,11 +241,12 @@ export interface FormSlots {
              * Indicates whether the form is valid, returning `true` if all fields pass validation.
              */
             valid: boolean;
-
+        } & {
             /**
-             * Index signature for dynamically added form fields.
+             * Stores the state of each form field, with the field name as the key and its state as the value.
              */
-        } & Record<string, FormFieldState>
+            [key: string]: FormFieldState;
+        }
     ) => VNode[];
 }
 
@@ -247,9 +259,62 @@ export interface FormEmitsOptions {
      * @param {FormSubmitEvent} event - Custom submit event.
      */
     submit: (event: FormSubmitEvent) => void;
+    /**
+     * Emitted when the form is reset.
+     * @param {FormResetEvent} event - Custom reset event.
+     */
+    reset: (event: FormResetEvent) => void;
 }
 
 export declare type FormEmits = EmitFn<FormEmitsOptions>;
+
+export interface FormFieldState extends useFormFieldState {}
+
+export interface FormInstance {
+    /**
+     * Set the value of a form field.
+     * @param field field name
+     * @param value field value
+     */
+    setFieldValue: (field: string, value: any) => void;
+    /**
+     * Get the state of a form field.
+     * @param field field name
+     * @returns field state
+     */
+    getFieldState: (field: string) => FormFieldState | undefined;
+    /**
+     * Validates the form or a specific field.
+     * @param field
+     * @returns
+     */
+    validate: (field?: string | string[]) => Promise<{
+        values?: any;
+        errors: any;
+    }>;
+    /**
+     * Sets the values of the form fields.
+     * @param values
+     */
+    setValues: (values: Record<string, any>) => void;
+    /**
+     * Resets the entire form state, clearing values and validation statuses.
+     */
+    reset: () => void;
+    /**
+     * Submits the form.
+     * @returns
+     */
+    submit: () => void;
+    /**
+     * Whether the form is valid.
+     */
+    valid: boolean;
+    /**
+     * The state of each form field, with the field name as the key and its state as the value.
+     */
+    states: Record<string, FormFieldState>;
+}
 
 /**
  * **PrimeVue - Form**

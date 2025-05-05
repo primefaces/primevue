@@ -7,7 +7,7 @@
  * @module organizationchart
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -243,7 +243,7 @@ export interface OrganizationChartProps {
     /**
      * Type of the selection.
      */
-    selectionMode?: 'single' | 'multiple' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * A map instance of key-value pairs to represented the collapsed nodes.
      */

@@ -1,5 +1,5 @@
 <template>
-    <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyContentStyle" v-bind="ptm('tbody', ptmTBodyOptions)">
+    <tbody :ref="bodyRef" :class="cx('tbody')" role="rowgroup" :style="bodyContentStyle" :data-p="dataP" v-bind="ptm('tbody', ptmTBodyOptions)">
         <template v-if="!empty">
             <template v-for="(rowData, rowIndex) of value" :key="getRowKey(rowData, rowIndex)">
                 <DTBodyRow
@@ -36,8 +36,8 @@
                     :isVirtualScrollerDisabled="isVirtualScrollerDisabled"
                     :editingMeta="editingMeta"
                     :rowGroupHeaderStyle="rowGroupHeaderStyle"
-                    :expandedRowId="expandedRowId"
-                    :nameAttributeSelector="nameAttributeSelector"
+                    :expandedRowId="$id"
+                    :nameAttributeSelector="$attrSelector"
                     @rowgroup-toggle="$emit('rowgroup-toggle', $event)"
                     @row-click="$emit('row-click', $event)"
                     @row-dblclick="$emit('row-dblclick', $event)"
@@ -70,10 +70,10 @@
 </template>
 
 <script>
-import BaseComponent from '@primevue/core/basecomponent';
-import { UniqueComponentId } from '@primevue/core/utils';
+import { cn } from '@primeuix/utils';
 import { getOuterHeight } from '@primeuix/utils/dom';
 import { resolveFieldData } from '@primeuix/utils/object';
+import BaseComponent from '@primevue/core/basecomponent';
 import BodyRow from './BodyRow.vue';
 
 export default {
@@ -168,6 +168,10 @@ export default {
         selectionMode: {
             type: String,
             default: null
+        },
+        rowHover: {
+            type: Boolean,
+            default: false
         },
         contextMenu: {
             type: Boolean,
@@ -291,11 +295,11 @@ export default {
                 }
             };
         },
-        expandedRowId() {
-            return UniqueComponentId();
-        },
-        nameAttributeSelector() {
-            return UniqueComponentId();
+        dataP() {
+            return cn({
+                hoverable: this.rowHover || this.selectionMode,
+                frozen: this.frozenRow
+            });
         }
     },
     components: {

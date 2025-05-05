@@ -7,7 +7,7 @@
  * @module dock
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -147,12 +147,12 @@ export interface DockTooltipOptions {
     /**
      * Event to show the tooltip, valid values are hover and focus.
      */
-    event: 'hover' | 'focus' | undefined;
+    event: HintedString<'hover' | 'focus'> | undefined;
     /**
      * Position of element.
      * @defaultValue bottom
      */
-    position: 'bottom' | 'top' | 'left' | 'right' | undefined;
+    position: HintedString<'bottom' | 'top' | 'left' | 'right'> | undefined;
     /**
      * Optional options.
      */
@@ -185,7 +185,7 @@ export interface DockProps {
      * Position of element.
      * @defaultValue bottom
      */
-    position?: 'bottom' | 'top' | 'left' | 'right' | undefined;
+    position?: HintedString<'bottom' | 'top' | 'left' | 'right'> | undefined;
     /**
      * Style class of the element.
      */

@@ -1,17 +1,17 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :data-p="dataP" :class="cx('root')" @click="onClick" v-bind="attrs">
         <slot :active="$pcAccordionPanel.active"></slot>
         <slot name="toggleicon" :active="$pcAccordionPanel.active" :class="cx('toggleicon')">
             <component
                 v-if="$pcAccordionPanel.active"
-                :is="$pcAccordion.$slots.collapseicon ? $pcAccordion.$slots.collapseicon : $pcAccordion.collapseIcon ? 'span' : 'ChevronDownIcon'"
+                :is="$pcAccordion.$slots.collapseicon ? $pcAccordion.$slots.collapseicon : $pcAccordion.collapseIcon ? 'span' : 'ChevronUpIcon'"
                 :class="[$pcAccordion.collapseIcon, cx('toggleicon')]"
                 aria-hidden="true"
                 v-bind="ptm('toggleicon', ptParams)"
             ></component>
             <component
                 v-else
-                :is="$pcAccordion.$slots.expandicon ? $pcAccordion.$slots.expandicon : $pcAccordion.expandIcon ? 'span' : 'ChevronUpIcon'"
+                :is="$pcAccordion.$slots.expandicon ? $pcAccordion.$slots.expandicon : $pcAccordion.expandIcon ? 'span' : 'ChevronDownIcon'"
                 :class="[$pcAccordion.expandIcon, cx('toggleicon')]"
                 aria-hidden="true"
                 v-bind="ptm('toggleicon', ptParams)"
@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { findSingle, getAttribute, focus } from '@primeuix/utils/dom';
+import { cn } from '@primeuix/utils';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronUpIcon from '@primevue/icons/chevronup';
 import Ripple from 'primevue/ripple';
@@ -39,7 +40,7 @@ export default {
             this.$pcAccordion.selectOnFocus && this.changeActiveValue();
         },
         onClick() {
-            this.changeActiveValue();
+            !this.$pcAccordion.selectOnFocus && this.changeActiveValue();
         },
         onKeydown(event) {
             switch (event.code) {
@@ -158,6 +159,11 @@ export default {
                     active: this.$pcAccordionPanel.active
                 }
             };
+        },
+        dataP() {
+            return cn({
+                active: this.$pcAccordionPanel.active
+            });
         }
     },
     components: {

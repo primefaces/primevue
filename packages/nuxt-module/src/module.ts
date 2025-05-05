@@ -59,6 +59,8 @@ export default defineNuxtModule<ModuleOptions>({
 
         //nuxt.options.build.transpile.push('nuxt');
         nuxt.options.build.transpile.push('primevue');
+        hasTheme && nuxt.options.build.transpile.push('@primevue/themes');
+        hasTheme && nuxt.options.build.transpile.push('@primeuix/themes');
 
         let registeredStyles: MetaType[] = registered.styles;
 
@@ -71,15 +73,7 @@ export default defineNuxtModule<ModuleOptions>({
                     resolvers: [
                         PrimeVueResolver({
                             components: moduleOptions.components,
-                            directives: moduleOptions.directives,
-                            resolve: (meta: MetaType) => {
-                                registeredStyles.push({
-                                    ...meta,
-                                    name: `${meta.name}Style`,
-                                    as: `${meta.as}Style`,
-                                    from: `${meta.from}/style`
-                                });
-                            }
+                            directives: moduleOptions.directives
                         })
                     ]
                 },
@@ -118,7 +112,7 @@ const styles = [
 ${hasTheme ? `Theme.setTheme(${importTheme?.as} || options?.theme)` : ''}
 
 const themes = ${
-                options?.theme === 'none'
+                !hasTheme
                     ? `[]`
                     : `
 [

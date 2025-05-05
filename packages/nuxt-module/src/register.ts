@@ -45,7 +45,8 @@ function registerComponents(resolvePath: any, moduleOptions: ModuleOptions) {
             global: true
         };
 
-        !moduleOptions.autoImport && addComponent(opt);
+        //!moduleOptions.autoImport && addComponent(opt);
+        addComponent(opt);
 
         return {
             ..._item,
@@ -111,7 +112,8 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
         }
     ];
 
-    if (!moduleOptions.autoImport && !options?.unstyled) {
+    if (!options?.unstyled) {
+        // !moduleOptions.autoImport && !options?.unstyled
         if (isNotEmpty(registered?.components)) {
             styles.push({
                 name: 'BaseComponentStyle',
@@ -127,7 +129,7 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
                 styles.push({
                     name: `${item.as}Style`,
                     as: `${item.as}Style`,
-                    from: resolvePath({ name: `${item.as}Style`, as: `${item.as}Style`, from: `primevue/${item.as.toLowerCase()}/style`, type: 'style' })
+                    from: resolvePath({ name: `${item.as}Style`, as: `${item.as}Style`, from: `${item.from.toLowerCase()}/style`, type: 'style' })
                 })
             );
     }

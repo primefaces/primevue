@@ -1,18 +1,32 @@
 <template>
-    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide" :dt="drawerTokens">
-        <template #header>
-            <div class="flex items-center gap-2">
-                <Button v-if="$appState.designer.activeView !== 'dashboard'" variant="text" severity="secondary" rounded type="button" icon="pi pi-chevron-left" @click="openDashboard" />
-                <span class="font-bold text-xl">{{ viewTitle }}</span>
+    <Drawer v-model:visible="$appState.designer.active" position="right" class="designer !w-screen md:!w-[48rem]" :modal="false" :dismissable="false" @after-show="onShow" @after-hide="onHide">
+        <template #container="{ closeCallback }">
+            <div class="flex items-center justify-between p-5">
+                <div class="flex items-center gap-2">
+                    <button v-if="$appState.designer.activeView !== 'dashboard'" type="button" @click="openDashboard" class="icon-btn">
+                        <i class="pi pi-chevron-left" />
+                    </button>
+                    <span class="font-bold text-xl">{{ viewTitle }}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button type="button" @click="toggleDarkMode" class="icon-btn">
+                        <i :class="['pi', { 'pi-moon': $appState.darkTheme, 'pi-sun': !$appState.darkTheme }]"></i>
+                    </button>
+                    <button type="button" @click="closeCallback" class="icon-btn">
+                        <i class="pi pi-times" />
+                    </button>
+                </div>
             </div>
-        </template>
 
-        <DesignDashboard v-if="$appState.designer.activeView === 'dashboard'" />
-        <DesignCreateTheme v-else-if="$appState.designer.activeView === 'create_theme'" />
-        <DesignEditor v-else-if="$appState.designer.activeView === 'editor'" :deferred="deferredTabs" />
+            <div class="flex-auto overflow-auto pb-5 px-5">
+                <DesignDashboard v-if="$appState.designer.activeView === 'dashboard'" />
+                <DesignCreateTheme v-else-if="$appState.designer.activeView === 'create_theme'" />
+                <DesignEditor v-else-if="$appState.designer.activeView === 'editor'" :deferred="deferredTabs" />
+            </div>
 
-        <template #footer>
-            <DesignEditorFooter v-if="$appState.designer.activeView === 'editor'" />
+            <div class="p-5">
+                <DesignEditorFooter v-if="$appState.designer.activeView === 'editor'" />
+            </div>
         </template>
     </Drawer>
     <ConfirmDialog group="designer"></ConfirmDialog>
@@ -20,14 +34,14 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import { $dt, updatePreset } from '@primevue/themes';
+import { $dt, usePreset } from '@primeuix/themes';
 
 export default {
     setup() {
         const runtimeConfig = useRuntimeConfig();
 
         return {
-            designerApiBase: runtimeConfig.public.designerApiBase
+            designerApiUrl: runtimeConfig.public.designerApiUrl
         };
     },
     provide() {
@@ -36,9 +50,11 @@ export default {
                 refreshACTokens: this.refreshACTokens,
                 saveTheme: this.saveTheme,
                 downloadTheme: this.downloadTheme,
+                activateTheme: this.activateTheme,
                 applyTheme: this.applyTheme,
                 applyFont: this.applyFont,
-                replaceColorPalette: this.replaceColorPalette
+                resolveColor: this.resolveColor,
+                resolveColorPlain: this.resolveColorPlain
             }
         };
     },
@@ -46,6 +62,22 @@ export default {
         return {
             deferredTabs: true
         };
+    },
+    async mounted() {
+        const { data, error } = await $fetch(this.designerApiUrl + '/license/restore', {
+            credentials: 'include'
+        });
+
+        if (error) {
+            this.$toast.add({ severity: 'error', summary: 'An Error Occurred', detail: error.message, life: 3000 });
+        } else {
+            this.$appState.designer.verified = data.valid;
+
+            if (data.valid) {
+                this.$appState.designer.csrfToken = data.csrfToken;
+                this.$appState.designer.themeLimit = data.themeLimit;
+            }
+        }
     },
     methods: {
         onShow() {
@@ -55,15 +87,18 @@ export default {
             this.deferredTabs = true;
         },
         async downloadTheme(theme) {
-            if (!this.$appState.designer.licenseKey) {
-                this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required to download', life: 3000 });
+            if (!this.$appState.designer.verified) {
+                this.$toast.add({ severity: 'error', summary: 'Not Available', detail: 'A license is required for download.', life: 3000 });
             } else {
                 try {
-                    const response = await $fetch(this.designerApiBase + '/theme/download/' + theme.t_key, {
+                    const response = await $fetch(this.designerApiUrl + '/theme/download/' + theme.t_key, {
                         responseType: 'blob',
+                        credentials: 'include',
                         headers: {
-                            Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                            'X-License-Key': this.$appState.designer.licenseKey
+                            'X-CSRF-Token': this.$appState.designer.csrfToken
+                        },
+                        query: {
+                            library: 'primevue'
                         }
                     });
 
@@ -86,11 +121,11 @@ export default {
             }
         },
         async saveTheme(theme) {
-            const { error } = await $fetch(this.designerApiBase + '/theme/update', {
+            const { error } = await $fetch(this.designerApiUrl + '/theme/update', {
                 method: 'PATCH',
+                credentials: 'include',
                 headers: {
-                    Authorization: `Bearer ${this.$appState.designer.ticket}`,
-                    'X-License-Key': this.$appState.designer.licenseKey
+                    'X-CSRF-Token': this.$appState.designer.csrfToken
                 },
                 body: {
                     key: theme.key,
@@ -104,15 +139,19 @@ export default {
             }
         },
         applyTheme(theme) {
-            if (this.$appState.designer.licenseKey) {
+            if (this.$appState.designer.verified) {
                 this.saveTheme(theme);
+                this.refreshACTokens();
             }
 
-            updatePreset(theme.preset);
+            usePreset(theme.preset);
             EventBus.emit('theme-palette-change');
         },
         camelCaseToDotCase(name) {
-            return name.replace(/([a-z])([A-Z])/g, '$1.$2').toLowerCase();
+            return name
+                .replace(/([a-z])([A-Z])/g, '$1.$2')
+                .replace(/([a-zA-Z])(\d)/g, '$1.$2')
+                .toLowerCase();
         },
         generateACTokens(parentPath, obj) {
             for (let key in obj) {
@@ -129,8 +168,9 @@ export default {
                         const regex = /\.\d+$/;
 
                         const tokenName = this.camelCaseToDotCase(parentPath ? parentPath + '.' + key : key);
-                        const tokenValue = $dt(tokenName).value;
-                        const isColor = tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName);
+                        const tokenValue = obj[key];
+                        const isColor =
+                            tokenName.includes('color') || tokenName.includes('background') || regex.test(tokenName) || tokenValue.startsWith('#') || tokenValue.startsWith('rgb') || tokenValue.startsWith('hsl') || tokenValue.startsWith('oklch');
 
                         this.$appState.designer.acTokens.push({ token: tokenName, label: '{' + tokenName + '}', variable: $dt(tokenName).variable, value: tokenValue, isColor: isColor });
                     }
@@ -173,10 +213,49 @@ export default {
                 // silent fail as some fonts may have not all the font weights
             }
         },
-        replaceColorPalette() {
-            this.$appState.designer.theme.preset.semantic.primary = this.$appState.designer.theme.preset.primitive.emerald;
-            this.$appState.designer.theme.preset.semantic.colorScheme.light.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.slate };
-            this.$appState.designer.theme.preset.semantic.colorScheme.dark.surface = { ...{ 0: '#ffffff' }, ...this.$appState.designer.theme.preset.primitive.zinc };
+        toggleDarkMode() {
+            EventBus.emit('dark-mode-toggle', { dark: !this.$appState.darkTheme });
+        },
+        activateTheme(data) {
+            this.$appState.designer.theme = {
+                key: data.t_key,
+                name: data.t_name,
+                preset: JSON.parse(data.t_preset),
+                config: JSON.parse(data.t_config)
+            };
+
+            usePreset(this.$appState.designer.theme.preset);
+            this.applyFont(this.$appState.designer.theme.config.font_family);
+            document.documentElement.style.fontSize = this.$appState.designer.theme.config.font_size;
+            this.refreshACTokens();
+        },
+        getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+
+                if (name == cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+
+            return null;
+        },
+        resolveColor(token) {
+            if (token.startsWith('{') && token.endsWith('}')) {
+                let cssVariable = $dt(token).variable.slice(4, -1);
+                return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+            } else {
+                return token;
+            }
+        },
+        resolveColorPlain(color) {
+            if (color.startsWith('{') && color.endsWith('}')) {
+                return $dt(color).variable;
+            } else {
+                return color;
+            }
         }
     },
     computed: {
@@ -192,38 +271,6 @@ export default {
             }
 
             return null;
-        },
-        drawerTokens() {
-            return {
-                root: {
-                    shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)'
-                },
-                header: {
-                    padding: '1.25rem'
-                },
-                title: {
-                    fontSize: '1.5rem',
-                    fontWeight: '600'
-                },
-                content: {
-                    padding: '0 1.25rem 1.25rem 1.25rem'
-                },
-                footer: {
-                    padding: '1.25rem'
-                },
-                colorScheme: {
-                    light: {
-                        background: '{surface.0}',
-                        borderColor: '{surface.200}',
-                        color: '#09090b'
-                    },
-                    dark: {
-                        background: '{surface.900}',
-                        borderColor: '{surface.700}',
-                        color: '#ffffff'
-                    }
-                }
-            };
         }
     }
 };

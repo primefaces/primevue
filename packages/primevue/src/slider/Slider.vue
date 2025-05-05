@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false">
-        <span :class="cx('range')" :style="[sx('range'), rangeStyle()]" v-bind="ptm('range')"></span>
+    <div :class="cx('root')" @click="onBarClick" v-bind="ptmi('root')" :data-p-sliding="false" :data-p="dataP">
+        <span :class="cx('range')" :style="[sx('range'), rangeStyle()]" v-bind="ptm('range')" :data-p="dataP"></span>
         <span
             v-if="!range"
             :class="cx('handle')"
@@ -20,6 +20,7 @@
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
             v-bind="ptm('handle')"
+            :data-p="dataP"
         ></span>
         <span
             v-if="range"
@@ -40,6 +41,7 @@
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
             v-bind="ptm('startHandler')"
+            :data-p="dataP"
         ></span>
         <span
             v-if="range"
@@ -60,11 +62,13 @@
             :aria-label="ariaLabel"
             :aria-orientation="orientation"
             v-bind="ptm('endHandler')"
+            :data-p="dataP"
         ></span>
     </div>
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { getAttribute, getWindowScrollLeft, getWindowScrollTop, isRTL } from '@primeuix/utils/dom';
 import BaseSlider from './BaseSlider.vue';
 
@@ -124,7 +128,7 @@ export default {
             this.updateModel(event, newValue);
         },
         updateModel(event, value) {
-            let newValue = parseFloat(value.toFixed(10));
+            let newValue = Math.round(value * 100) / 100;
             let modelValue;
 
             if (this.range) {
@@ -359,6 +363,11 @@ export default {
                 if (this.value[1] > this.max) return 100;
                 else return ((this.value[1] - this.min) * 100) / (this.max - this.min);
             } else return 100;
+        },
+        dataP() {
+            return cn({
+                [this.orientation]: this.orientation
+            });
         }
     }
 };

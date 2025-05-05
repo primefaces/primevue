@@ -5,8 +5,9 @@
 </template>
 
 <script>
-import { addClass, blockBodyScroll, createElement, hasCSSAnimation, unblockBodyScroll } from '@primeuix/utils/dom';
+import { addClass, createElement, hasCSSAnimation } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
@@ -76,12 +77,23 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+            if (this.mask) {
+                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
 
-            if (hasCSSAnimation(this.mask) > 0) {
-                this.mask.addEventListener('animationend', () => {
+                const handleAnimationEnd = () => {
+                    clearTimeout(fallbackTimer);
+                    this.mask.removeEventListener('animationend', handleAnimationEnd);
+                    this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                };
+
+                const fallbackTimer = setTimeout(() => {
                     this.removeMask();
-                });
+                }, 10);
+
+                if (hasCSSAnimation(this.mask) > 0) {
+                    this.mask.addEventListener('animationend', handleAnimationEnd);
+                    this.mask.addEventListener('webkitAnimationEnd', handleAnimationEnd);
+                }
             } else {
                 this.removeMask();
             }

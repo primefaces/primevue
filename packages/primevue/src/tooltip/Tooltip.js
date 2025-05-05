@@ -1,7 +1,8 @@
 import { addClass, createElement, fadeIn, findSingle, getAttribute, getOuterHeight, getOuterWidth, getViewport, getWindowScrollLeft, getWindowScrollTop, hasClass, isExist, isTouchDevice, removeClass } from '@primeuix/utils/dom';
 import { isEmpty } from '@primeuix/utils/object';
+import { uuid } from '@primeuix/utils/uuid';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import BaseTooltip from './BaseTooltip';
 
 const Tooltip = BaseTooltip.extend('tooltip', {
@@ -17,7 +18,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
             target.$_ptooltipFitContent = true;
-            target.$_ptooltipIdAttr = UniqueComponentId() + '_tooltip';
+            target.$_ptooltipIdAttr = uuid('pv_id') + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
@@ -29,7 +30,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-                target.$_ptooltipIdAttr = options.value.id || UniqueComponentId() + '_tooltip';
+                target.$_ptooltipIdAttr = options.value.id || uuid('pv_id') + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
@@ -57,7 +58,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipDisabled = false;
             target.$_ptooltipEscape = true;
             target.$_ptooltipClass = null;
-            target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
+            target.$_ptooltipIdAttr = target.$_ptooltipIdAttr || uuid('pv_id') + '_tooltip';
             target.$_ptooltipShowDelay = 0;
             target.$_ptooltipHideDelay = 0;
             target.$_ptooltipAutoHide = true;
@@ -74,7 +75,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 target.$_ptooltipEscape = !!options.value.escape === options.value.escape ? options.value.escape : true;
                 target.$_ptooltipClass = options.value.class || '';
                 target.$_ptooltipFitContent = !!options.value.fitContent === options.value.fitContent ? options.value.fitContent : true;
-                target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || UniqueComponentId() + '_tooltip';
+                target.$_ptooltipIdAttr = options.value.id || target.$_ptooltipIdAttr || uuid('pv_id') + '_tooltip';
                 target.$_ptooltipShowDelay = options.value.showDelay || 0;
                 target.$_ptooltipHideDelay = options.value.hideDelay || 0;
                 target.$_ptooltipAutoHide = !!options.value.autoHide === options.value.autoHide ? options.value.autoHide : true;
@@ -100,37 +101,52 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const modifiers = el.$_ptooltipModifiers;
 
             if (modifiers.focus) {
-                el.$_focusevent = (event) => this.onFocus(event, options);
+                el.$_ptooltipFocusEvent = (event) => this.onFocus(event, options);
+                el.$_ptooltipBlurEvent = this.onBlur.bind(this);
 
-                el.addEventListener('focus', el.$_focusevent);
-                el.addEventListener('blur', this.onBlur.bind(this));
+                el.addEventListener('focus', el.$_ptooltipFocusEvent);
+                el.addEventListener('blur', el.$_ptooltipBlurEvent);
             } else {
-                el.$_mouseenterevent = (event) => this.onMouseEnter(event, options);
+                el.$_ptooltipMouseEnterEvent = (event) => this.onMouseEnter(event, options);
+                el.$_ptooltipMouseLeaveEvent = this.onMouseLeave.bind(this);
+                el.$_ptooltipClickEvent = this.onClick.bind(this);
 
-                el.addEventListener('mouseenter', el.$_mouseenterevent);
-                el.addEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.addEventListener('click', this.onClick.bind(this));
+                el.addEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                el.addEventListener('mouseleave', el.$_ptooltipMouseLeaveEvent);
+                el.addEventListener('click', el.$_ptooltipClickEvent);
             }
 
-            el.addEventListener('keydown', this.onKeydown.bind(this));
+            el.$_ptooltipKeydownEvent = this.onKeydown.bind(this);
+            el.addEventListener('keydown', el.$_ptooltipKeydownEvent);
+
+            el.$_pWindowResizeEvent = this.onWindowResize.bind(this, el);
         },
         unbindEvents(el) {
             const modifiers = el.$_ptooltipModifiers;
 
             if (modifiers.focus) {
-                el.removeEventListener('focus', el.$_focusevent);
-                el.$_focusevent = null;
+                el.removeEventListener('focus', el.$_ptooltipFocusEvent);
+                el.$_ptooltipFocusEvent = null;
 
-                el.removeEventListener('blur', this.onBlur.bind(this));
+                el.removeEventListener('blur', el.$_ptooltipBlurEvent);
+                el.$_ptooltipBlurEvent = null;
             } else {
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                el.$_mouseenterevent = null;
+                el.removeEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                el.$_ptooltipMouseEnterEvent = null;
 
-                el.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
-                el.removeEventListener('click', this.onClick.bind(this));
+                el.removeEventListener('mouseleave', el.$_ptooltipMouseLeaveEvent);
+                el.$_ptooltipMouseLeaveEvent = null;
+
+                el.removeEventListener('click', el.$_ptooltipClickEvent);
+                el.$_ptooltipClickEvent = null;
             }
 
-            el.removeEventListener('keydown', this.onKeydown.bind(this));
+            el.removeEventListener('keydown', el.$_ptooltipKeydownEvent);
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
+
+            if (el.$_ptooltipId) {
+                this.remove(el);
+            }
         },
         bindScrollListener(el) {
             if (!el.$_ptooltipScrollHandler) {
@@ -195,6 +211,13 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             event.code === 'Escape' && this.hide(event.currentTarget, hideDelay);
         },
+        onWindowResize(el) {
+            if (!isTouchDevice()) {
+                this.hide(el);
+            }
+
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
+        },
         tooltipActions(el, options) {
             if (el.$_ptooltipDisabled || !isExist(el)) {
                 return;
@@ -207,20 +230,14 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
             const $this = this;
 
-            window.addEventListener('resize', function onWindowResize() {
-                if (!isTouchDevice()) {
-                    $this.hide(el);
-                }
-
-                window.removeEventListener('resize', onWindowResize);
-            });
+            window.addEventListener('resize', el.$_pWindowResizeEvent);
 
             tooltipElement.addEventListener('mouseleave', function onTooltipLeave() {
                 $this.hide(el);
 
                 tooltipElement.removeEventListener('mouseleave', onTooltipLeave);
-                el.removeEventListener('mouseenter', el.$_mouseenterevent);
-                setTimeout(() => el.addEventListener('mouseenter', el.$_mouseenterevent), 50);
+                el.removeEventListener('mouseenter', el.$_ptooltipMouseEnterEvent);
+                setTimeout(() => el.addEventListener('mouseenter', el.$_ptooltipMouseEnterEvent), 50);
             });
 
             this.bindScrollListener(el);
@@ -236,6 +253,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         tooltipRemoval(el) {
             this.remove(el);
             this.unbindScrollListener(el);
+            window.removeEventListener('resize', el.$_pWindowResizeEvent);
         },
         hide(el, hideDelay) {
             clearTimeout(this.timer);
@@ -248,6 +266,11 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         },
         getTooltipElement(el) {
             return document.getElementById(el.$_ptooltipId);
+        },
+        getArrowElement(el) {
+            let tooltipElement = this.getTooltipElement(el);
+
+            return findSingle(tooltipElement, '[data-pc-section="arrow"]');
         },
         create(el) {
             const modifiers = el.$_ptooltipModifiers;
@@ -383,42 +406,91 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         alignRight(el) {
             this.preAlign(el, 'right');
             let tooltipElement = this.getTooltipElement(el);
+            let arrowElement = this.getArrowElement(el);
             let hostOffset = this.getHostOffset(el);
             let left = hostOffset.left + getOuterWidth(el);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
+
+            arrowElement.style.top = '50%';
+            arrowElement.style.right = null;
+            arrowElement.style.bottom = null;
+            arrowElement.style.left = '0';
         },
         alignLeft(el) {
             this.preAlign(el, 'left');
             let tooltipElement = this.getTooltipElement(el);
+            let arrowElement = this.getArrowElement(el);
             let hostOffset = this.getHostOffset(el);
             let left = hostOffset.left - getOuterWidth(tooltipElement);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
+
+            arrowElement.style.top = '50%';
+            arrowElement.style.right = '0';
+            arrowElement.style.bottom = null;
+            arrowElement.style.left = null;
         },
         alignTop(el) {
             this.preAlign(el, 'top');
             let tooltipElement = this.getTooltipElement(el);
+            let arrowElement = this.getArrowElement(el);
+            let tooltipWidth = getOuterWidth(tooltipElement);
+            let elementWidth = getOuterWidth(el);
+            let { width: viewportWidth } = getViewport();
             let hostOffset = this.getHostOffset(el);
-            let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
+            let left = hostOffset.left + (elementWidth - tooltipWidth) / 2;
             let top = hostOffset.top - getOuterHeight(tooltipElement);
+
+            if (left < 0) {
+                left = 0;
+            } else if (left + tooltipWidth > viewportWidth) {
+                left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
+            }
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
+
+            // The center of the target relative to the tooltip
+            let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
+
+            arrowElement.style.top = null;
+            arrowElement.style.right = null;
+            arrowElement.style.bottom = '0';
+            arrowElement.style.left = elementRelativeCenter + 'px';
         },
         alignBottom(el) {
             this.preAlign(el, 'bottom');
             let tooltipElement = this.getTooltipElement(el);
+            let arrowElement = this.getArrowElement(el);
+            let tooltipWidth = getOuterWidth(tooltipElement);
+            let elementWidth = getOuterWidth(el);
+            let { width: viewportWidth } = getViewport();
             let hostOffset = this.getHostOffset(el);
-            let left = hostOffset.left + (getOuterWidth(el) - getOuterWidth(tooltipElement)) / 2;
+
+            let left = hostOffset.left + (elementWidth - tooltipWidth) / 2;
             let top = hostOffset.top + getOuterHeight(el);
+
+            if (left < 0) {
+                left = 0;
+            } else if (left + tooltipWidth > viewportWidth) {
+                left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
+            }
 
             tooltipElement.style.left = left + 'px';
             tooltipElement.style.top = top + 'px';
+
+            // The center of the target relative to the tooltip
+            let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
+
+            arrowElement.style.top = '0';
+            arrowElement.style.right = null;
+            arrowElement.style.bottom = null;
+            arrowElement.style.left = elementRelativeCenter + 'px';
         },
         preAlign(el, position) {
             let tooltipElement = this.getTooltipElement(el);
@@ -429,13 +501,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             !this.isUnstyled() && addClass(tooltipElement, `p-tooltip-${position}`);
             tooltipElement.$_ptooltipPosition = position;
             tooltipElement.setAttribute('data-p-position', position);
-
-            let arrowElement = findSingle(tooltipElement, '[data-pc-section="arrow"]');
-
-            arrowElement.style.top = position === 'bottom' ? '0' : position === 'right' || position === 'left' || (position !== 'right' && position !== 'left' && position !== 'top' && position !== 'bottom') ? '50%' : null;
-            arrowElement.style.bottom = position === 'top' ? '0' : null;
-            arrowElement.style.left = position === 'right' || (position !== 'right' && position !== 'left' && position !== 'top' && position !== 'bottom') ? '0' : position === 'top' || position === 'bottom' ? '50%' : null;
-            arrowElement.style.right = position === 'left' ? '0' : null;
         },
         isOutOfBounds(el) {
             let tooltipElement = this.getTooltipElement(el);
@@ -449,7 +514,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             return targetLeft + width > viewport.width || targetLeft < 0 || targetTop < 0 || targetTop + height > viewport.height;
         },
         getTarget(el) {
-            return hasClass(el, 'p-inputwrapper') ? findSingle(el, 'input') ?? el : el;
+            return hasClass(el, 'p-inputwrapper') ? (findSingle(el, 'input') ?? el) : el;
         },
         getModifiers(options) {
             // modifiers

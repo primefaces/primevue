@@ -1,8 +1,9 @@
 <template>
-    <div ref="list" :class="cx('root')" v-bind="ptmi('root')">
+    <div ref="list" :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
         <button
             v-if="showNavigators && isPrevButtonEnabled"
             ref="prevButton"
+            type="button"
             v-ripple
             :class="cx('prevButton')"
             :aria-label="prevButtonAriaLabel"
@@ -13,7 +14,7 @@
         >
             <component :is="templates.previcon || 'ChevronLeftIcon'" aria-hidden="true" v-bind="ptm('prevIcon')" />
         </button>
-        <div ref="content" :class="cx('content')" @scroll="onScroll" v-bind="ptm('content')">
+        <div ref="content" :class="cx('content')" @scroll="onScroll" :data-p="dataP" v-bind="ptm('content')">
             <div ref="tabs" :class="cx('tabList')" role="tablist" :aria-orientation="$pcTabs.orientation || 'horizontal'" v-bind="ptm('tabList')">
                 <slot></slot>
                 <span ref="inkbar" :class="cx('activeBar')" role="presentation" aria-hidden="true" v-bind="ptm('activeBar')"></span>
@@ -22,6 +23,7 @@
         <button
             v-if="showNavigators && isNextButtonEnabled"
             ref="nextButton"
+            type="button"
             v-ripple
             :class="cx('nextButton')"
             :aria-label="nextButtonAriaLabel"
@@ -36,6 +38,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { findSingle, getHeight, getOffset, getOuterHeight, getOuterWidth, getWidth, isRTL } from '@primeuix/utils/dom';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
@@ -66,9 +69,9 @@ export default {
         }
     },
     mounted() {
-        this.$nextTick(() => {
+        setTimeout(() => {
             this.updateInkBar();
-        });
+        }, 150);
 
         if (this.showNavigators) {
             this.updateButtonState();
@@ -120,6 +123,9 @@ export default {
         },
         updateInkBar() {
             const { content, inkbar, tabs } = this.$refs;
+
+            if (!inkbar) return;
+
             const activeTab = findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
 
             if (this.$pcTabs.isVertical()) {
@@ -170,6 +176,11 @@ export default {
         },
         nextButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.next : undefined;
+        },
+        dataP() {
+            return cn({
+                scrollable: this.$pcTabs.scrollable
+            });
         }
     },
     components: {

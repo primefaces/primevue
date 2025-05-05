@@ -7,7 +7,7 @@
  * @module dataview
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -143,16 +143,16 @@ export interface DataViewState {
 /**
  * Defines valid properties in DataView component. In addition to these, all properties of HTMLDivElement can be used in this component.
  */
-export interface DataViewProps {
+export interface DataViewProps<T = unknown> {
     /**
      * An array of objects to display.
      */
-    value?: any[] | undefined;
+    value?: T[] | null | undefined;
     /**
      * Layout of the items, valid values are 'list' and 'grid'.
      * @defaultValue list
      */
-    layout?: 'list' | 'grid' | undefined;
+    layout?: HintedString<'list' | 'grid'> | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -176,7 +176,7 @@ export interface DataViewProps {
      * Position of the paginator, options are 'top','bottom' or 'both'.
      * @defaultValue bottom
      */
-    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
+    paginatorPosition?: HintedString<'top' | 'bottom' | 'both'> | undefined;
     /**
      * Whether to show it even there is only one page.
      * @defaultValue true
@@ -223,11 +223,11 @@ export interface DataViewProps {
     /**
      * Property name or a getter function of data to use in sorting by default.
      */
-    sortField?: string | ((item: any) => string) | undefined;
+    sortField?: string | ((item: any) => string) | null | undefined;
     /**
      * Order to sort the data by default.
      */
-    sortOrder?: number | undefined;
+    sortOrder?: number | null | undefined;
     /**
      * Defines if data is loaded and interacted with in lazy manner.
      * @defaultValue false
@@ -236,7 +236,7 @@ export interface DataViewProps {
     /**
      * Name of the data that uniquely identifies the a record in the data.
      */
-    dataKey: string | undefined;
+    dataKey?: string | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
@@ -283,7 +283,64 @@ export interface DataViewSlots {
     /**
      * Custom paginator container template.
      */
-    paginatorcontainer(): VNode[];
+    paginatorcontainer(scope: {
+        /**
+         * Index of first record
+         */
+        first: number;
+        /**
+         * Index of last record
+         */
+        last: number;
+        /**
+         * Number of rows to display in new page
+         */
+        rows: number;
+        /**
+         * New page number
+         */
+        page: number;
+        /**
+         * Total number of pages
+         */
+        pageCount?: number;
+        /**
+         * Direct page links
+         */
+        pageLinks?: number;
+        /**
+         * Total records
+         */
+        totalRecords?: number;
+        /**
+         * First page function.
+         * @param {Event} event - Browser event
+         */
+        firstPageCallback: (event: Event) => void;
+        /**
+         * Last page function.
+         * @param {Event} event - Browser event
+         */
+        lastPageCallback: (event: Event) => void;
+        /**
+         * Previous page function.
+         * @param {Event} event - Browser event
+         */
+        prevPageCallback: (event: Event) => void;
+        /**
+         * Next page function.
+         * @param {Event} event - Browser event
+         */
+        nextPageCallback: (event: Event) => void;
+        /**
+         * Row change function.
+         */
+        rowChangeCallback: (value: number) => void;
+        /**
+         * Page change function.
+         */
+        changePageCallback: (value: number) => void;
+    }): VNode[];
     /**
      * Custom paginator start template.
      */

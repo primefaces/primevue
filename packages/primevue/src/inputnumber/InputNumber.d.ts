@@ -7,7 +7,7 @@
  * @module inputnumber
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -220,7 +220,7 @@ export interface InputNumberProps {
      * Layout of the buttons.
      * @defaultValue stacked
      */
-    buttonLayout?: 'stacked' | 'horizontal' | 'vertical' | undefined;
+    buttonLayout?: HintedString<'stacked' | 'horizontal' | 'vertical'> | undefined;
     /**
      * Style class of the increment button.
      */
@@ -256,12 +256,12 @@ export interface InputNumberProps {
      * See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details.
      * @defaultValue best fit
      */
-    localeMatcher?: 'lookup' | 'best fit' | undefined;
+    localeMatcher?: HintedString<'lookup' | 'best fit'> | undefined;
     /**
      * Defines the behavior of the component.
      * @defaultValue decimal
      */
-    mode?: 'decimal' | 'currency' | undefined;
+    mode?: HintedString<'decimal' | 'currency'> | undefined;
     /**
      * Text to display before the value.
      */
@@ -326,7 +326,7 @@ export interface InputNumberProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -339,9 +339,9 @@ export interface InputNumberProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * When present, it specifies that an input field is read-only.
      * @defaultValue false
@@ -497,11 +497,11 @@ export interface InputNumberMethods {
  * @group Component
  *
  */
-declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits>;
+declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits>;
+        InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
     }
 }
 

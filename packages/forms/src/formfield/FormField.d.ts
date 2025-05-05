@@ -81,6 +81,10 @@ export interface FormFieldResolverOptions {
  */
 export interface FormFieldProps {
     /**
+     * The name of the form field.
+     */
+    name?: string | undefined;
+    /**
      * A function that resolves validation logic.
      * @param {FormResolverOptions} e - Resolver options
      */

@@ -7,7 +7,7 @@
  * @module datatable
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, HintedString, Nullable, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, NoInfer, Nullable, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonProps } from 'primevue/button';
 import type { ColumnPassThroughOptionType } from 'primevue/column';
@@ -73,11 +73,11 @@ export interface DataTableSharedPassThroughMethodOptions {
 /**
  * Custom datatable export metadata.
  */
-export interface DataTableExportFunctionOptions {
+export interface DataTableExportFunctionOptions<T = any> {
     /**
      * Row data
      */
-    data: any;
+    data: T;
     /**
      * Column Field
      */
@@ -300,7 +300,7 @@ export interface DataTableFilterEvent extends DataTableSortEvent {
  * Custom row click event.
  * @see {@link DataTableEmitsOptions['row-click']}
  */
-export interface DataTableRowClickEvent {
+export interface DataTableRowClickEvent<T = any> {
     /**
      * Browser event.
      */
@@ -308,7 +308,7 @@ export interface DataTableRowClickEvent {
     /**
      * Selected row data.
      */
-    data: any;
+    data: T;
     /**
      * Row index.
      */
@@ -333,7 +333,7 @@ export interface DataTableRowContextMenuEvent extends DataTableRowClickEvent {}
  * Custom row select event.
  * @see {@link DataTableEmitsOptions['row-select']}
  */
-export interface DataTableRowSelectEvent {
+export interface DataTableRowSelectEvent<T = any> {
     /**
      * Browser event
      */
@@ -341,7 +341,7 @@ export interface DataTableRowSelectEvent {
     /**
      * Selected row data
      */
-    data: any;
+    data: T;
     /**
      * Row index
      */
@@ -363,7 +363,7 @@ export interface DataTableRowUnselectEvent extends DataTableRowSelectEvent {}
  * Custom row select all event.
  * @see {@link DataTableEmitsOptions['row-select-all']}
  */
-export interface DataTableRowSelectAllEvent {
+export interface DataTableRowSelectAllEvent<T = any> {
     /**
      * Browser event
      */
@@ -371,7 +371,7 @@ export interface DataTableRowSelectAllEvent {
     /**
      * Selected dataset
      */
-    data: any;
+    data: T;
 }
 
 /**
@@ -461,7 +461,7 @@ export interface DataTableRowReorderEvent {
  * Custom row expand event.
  * @see {@link DataTableEmitsOptions['row-expand']}
  */
-export interface DataTableRowExpandEvent {
+export interface DataTableRowExpandEvent<T = any> {
     /**
      * Browser event
      */
@@ -469,7 +469,7 @@ export interface DataTableRowExpandEvent {
     /**
      * Expanded row data
      */
-    data: any;
+    data: T;
 }
 
 /**
@@ -483,7 +483,7 @@ export interface DataTableRowCollapseEvent extends DataTableRowExpandEvent {}
  * Custom cell edit init event.
  * @see {@link DataTableEmitsOptions['cell-edit-init']}
  */
-export interface DataTableCellEditInitEvent {
+export interface DataTableCellEditInitEvent<T = any> {
     /**
      * Browser event
      */
@@ -491,7 +491,7 @@ export interface DataTableCellEditInitEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * Field name of the row data.
      */
@@ -513,7 +513,7 @@ export interface DataTableCellEditCancelEvent extends DataTableCellEditInitEvent
  * Custom cell edit complete event.
  * @see {@link DataTableEmitsOptions['cell-edit-complete']}
  */
-export interface DataTableCellEditCompleteEvent {
+export interface DataTableCellEditCompleteEvent<T = any> {
     /**
      * Browser event
      */
@@ -521,11 +521,11 @@ export interface DataTableCellEditCompleteEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * New row data after editing.
      */
-    newData: any;
+    newData: T;
     /**
      * Field value of row data to edit.
      */
@@ -552,7 +552,7 @@ export interface DataTableCellEditCompleteEvent {
  * Custom row edit init event.
  * @see {@link DataTableEmitsOptions['row-edit-init']}
  */
-export interface DataTableRowEditInitEvent {
+export interface DataTableRowEditInitEvent<T = any> {
     /**
      * Browser event
      */
@@ -560,11 +560,11 @@ export interface DataTableRowEditInitEvent {
     /**
      * Row data to edit.
      */
-    data: any;
+    data: T;
     /**
      * New row data after editing.
      */
-    newData: any;
+    newData: T;
     /**
      * Field name of the row data.
      */
@@ -580,32 +580,32 @@ export interface DataTableRowEditInitEvent {
  * @see {@link DataTableEmitsOptions['row-edit-save']}
  * @extends DataTableRowEditInitEvent
  */
-export interface DataTableRowEditSaveEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditSaveEvent<T = any> extends DataTableRowEditInitEvent<T> {}
 
 /**
  *  Custom row edit cancel event.
  * @see {@link DataTableEmitsOptions['row-edit-cancel']}
  * @extends DataTableRowEditCancelEvent
  */
-export interface DataTableRowEditCancelEvent extends DataTableRowEditInitEvent {}
+export interface DataTableRowEditCancelEvent<T = any> extends DataTableRowEditInitEvent<T> {}
 
 /**
  * Custom state event.
  * @see {@link DataTableEmitsOptions['state-save']}
  */
-export interface DataTableStateEvent {
+export interface DataTableStateEvent<T = any> {
     /**
      * Index of first record
      */
-    first: number;
+    first?: number | undefined;
     /**
      * Number of rows to display in new page
      */
-    rows: number;
+    rows?: number | undefined;
     /**
      * Field to sort against
      */
-    sortField: string;
+    sortField: keyof T;
     /**
      * Sort order as integer
      */
@@ -613,19 +613,19 @@ export interface DataTableStateEvent {
     /**
      * MultiSort metadata
      */
-    multiSortMeta: DataTableSortMeta[] | undefined;
+    multiSortMeta?: DataTableSortMeta[] | undefined | null;
     /**
      * Collection of active filters
      */
-    filters: DataTableFilterMeta;
+    filters?: DataTableFilterMeta;
     /**
      * Comma separated list of column widths
      */
-    columnWidths: string[];
+    columnWidths?: string[] | null;
     /**
      * Order of the columns
      */
-    columnOrder: string[];
+    columnOrder?: string[] | null;
     /**
      * Instances of rows in expanded state
      */
@@ -637,15 +637,15 @@ export interface DataTableStateEvent {
     /**
      * Instances of rows in expanded state
      */
-    expandedRowGroups: any[] | DataTableExpandedRows;
+    expandedRowGroups?: any[] | DataTableExpandedRows;
     /**
      * Selected rows
      */
-    selection: any[] | any;
+    selection?: T[] | T | undefined | null;
     /**
      * Keys of selected rows
      */
-    selectionKeys: any[];
+    selectionKeys: any[] | null;
 }
 
 /**
@@ -880,15 +880,15 @@ export interface DataTableContext {
 /**
  * Defines valid properties in DataTable component.
  */
-export interface DataTableProps {
+export interface DataTableProps<T = any> {
     /**
      * An array of objects to display.
      */
-    value?: any[] | undefined | null;
+    value?: T[] | undefined | null;
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */
-    dataKey?: string | ((item: any) => string) | undefined;
+    dataKey?: keyof T | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Number of rows to display per page.
      * @defaultValue 0
@@ -913,7 +913,7 @@ export interface DataTableProps {
      * Position of the paginator, options are 'top','bottom' or 'both'.
      * @defaultValue bottom
      */
-    paginatorPosition?: 'top' | 'bottom' | 'both' | undefined;
+    paginatorPosition?: HintedString<'top' | 'bottom' | 'both'> | undefined;
     /**
      * Whether to show it even there is only one page.
      * @defaultValue true
@@ -972,7 +972,7 @@ export interface DataTableProps {
     /**
      * Property name or a getter function of a row data used for sorting by default
      */
-    sortField?: string | ((item: any) => string) | undefined;
+    sortField?: keyof T | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -995,7 +995,7 @@ export interface DataTableProps {
      * Defines whether sorting works on single column or on multiple columns.
      * @defaultValue single
      */
-    sortMode?: 'single' | 'multiple' | undefined;
+    sortMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * When enabled, columns can have an un-sorted state.
      * @defaultValue false
@@ -1009,11 +1009,11 @@ export interface DataTableProps {
     /**
      * Layout of the filter elements.
      */
-    filterDisplay?: 'menu' | 'row' | undefined;
+    filterDisplay?: HintedString<'menu' | 'row'> | undefined;
     /**
      * 	An array of fields as string or function to use in global filtering.
      */
-    globalFilterFields?: (string | ((data: any) => string))[] | undefined;
+    globalFilterFields?: (keyof T | ((data: NoInfer<T>) => string))[] | undefined;
     /**
      * Locale to use in filtering. The default locale is the host environment's current locale.
      */
@@ -1021,16 +1021,16 @@ export interface DataTableProps {
     /**
      * Selected row in single mode or an array of values in multiple mode.
      */
-    selection?: any[] | any | undefined;
+    selection?: NoInfer<T>[] | NoInfer<T> | undefined;
     /**
      * Specifies the selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
      * Algorithm to define if a row is selected.
      * @defaultValue deepEquals
      */
-    compareSelectionBy?: 'equals' | 'deepEquals' | undefined;
+    compareSelectionBy?: HintedString<'equals' | 'deepEquals'> | undefined;
     /**
      * Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and
      * when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.
@@ -1045,7 +1045,7 @@ export interface DataTableProps {
     /**
      * Selected row instance with the ContextMenu.
      */
-    contextMenuSelection?: any | any[] | undefined;
+    contextMenuSelection?: NoInfer<T> | NoInfer<T>[] | undefined;
     /**
      * Whether all data is selected.
      */
@@ -1078,7 +1078,7 @@ export interface DataTableProps {
      * Defines whether the overall table width.
      * @defaultValue fit
      */
-    columnResizeMode?: 'fit' | 'expand' | undefined;
+    columnResizeMode?: HintedString<'fit' | 'expand'> | undefined;
     /**
      * When enabled, columns can be reordered using drag and drop.
      * @defaultValue false
@@ -1087,7 +1087,7 @@ export interface DataTableProps {
     /**
      * A collection of row data display as expanded.
      */
-    expandedRows?: any[] | DataTableExpandedRows | null;
+    expandedRows?: NoInfer<T>[] | DataTableExpandedRows | null;
     /**
      * Icon of the row toggler to display the row as expanded.
      */
@@ -1099,11 +1099,11 @@ export interface DataTableProps {
     /**
      * Defines the row group mode.
      */
-    rowGroupMode?: 'subheader' | 'rowspan' | undefined;
+    rowGroupMode?: HintedString<'subheader' | 'rowspan'> | undefined;
     /**
      * One or more field names to use in row grouping.
      */
-    groupRowsBy?: ((field: string) => object) | string[] | string | undefined;
+    groupRowsBy?: ((field: NoInfer<T>) => object) | keyof T[] | keyof T | undefined;
     /**
      * Whether the row groups can be expandable.
      * @defaultValue false
@@ -1112,12 +1112,12 @@ export interface DataTableProps {
     /**
      * An array of group field values whose groups would be rendered as expanded.
      */
-    expandedRowGroups?: any[] | DataTableExpandedRows;
+    expandedRowGroups?: NoInfer<T>[] | DataTableExpandedRows;
     /**
      * Defines where a stateful table keeps its state.
      * @defaultValue session
      */
-    stateStorage?: 'session' | 'local' | undefined;
+    stateStorage?: HintedString<'session' | 'local'> | undefined;
     /**
      * Unique identifier of a stateful table to use in state storage.
      */
@@ -1125,22 +1125,22 @@ export interface DataTableProps {
     /**
      * Defines the incell editing mode.
      */
-    editMode?: 'cell' | 'row' | undefined;
+    editMode?: HintedString<'cell' | 'row'> | undefined;
     /**
      * A collection of rows to represent the current editing data in row edit mode.
      */
-    editingRows?: any[] | DataTableEditingRows;
+    editingRows?: NoInfer<T>[] | DataTableEditingRows;
     /**
      * A function that takes the row data as a parameter and returns a string to apply a particular class for the row.
      * The return value is added to the row's :classes array (see Vue.js class bindings).
      */
-    rowClass?: (data: any) => string | object | undefined;
+    rowClass?: (data: NoInfer<T>) => string | object | undefined;
     /**
      * A function that takes the row data as a parameter and returns the inline style object for the corresponding row.
      * The function may also return an array of style objects which will be merged.
      * The return value of this function is directly applied as a Vue.js style-binding on the table row.
      */
-    rowStyle?: (data: any) => object | object[] | undefined;
+    rowStyle?: (data: NoInfer<T>) => object | object[] | undefined;
     /**
      * When specified, enables horizontal and/or vertical scrolling.
      * @defaultValue false
@@ -1158,7 +1158,7 @@ export interface DataTableProps {
     /**
      * Items of the frozen part in scrollable DataTable.
      */
-    frozenValue?: any[] | undefined | null;
+    frozenValue?: NoInfer<T>[] | undefined | null;
     /**
      * The breakpoint to define the maximum width boundary when using stack responsive layout.
      * @defaultValue 960px
@@ -1187,7 +1187,7 @@ export interface DataTableProps {
     /**
      * Defines the size of the table.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Inline style of the table element.
      */
@@ -1219,7 +1219,7 @@ export interface DataTableProps {
             }
         }
      */
-    filterButtonProps?: DataTableFilterButtonPropsOptions | undefined;
+    filterButtonProps?: Partial<DataTableFilterButtonPropsOptions> | undefined;
     /**
      * Used to pass all edit button property object
      * @defaultValue {
@@ -1253,7 +1253,7 @@ export interface DataTableProps {
 /**
  * Defines valid slots in DataTable component.
  */
-export interface DataTableSlots {
+export interface DataTableSlots<T = any> {
     /**
      * Custom header template.
      */
@@ -1274,7 +1274,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1288,7 +1288,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1307,7 +1307,7 @@ export interface DataTableSlots {
         /**
          * Row data
          */
-        data: any;
+        data: T;
         /**
          * Row index
          */
@@ -1347,8 +1347,66 @@ export interface DataTableSlots {
     }): VNode[];
     /**
      * Custom paginator container template.
+     * @param {Object} scope - paginatorcontainer slot's params.
      */
-    paginatorcontainer(): VNode[];
+    paginatorcontainer(scope: {
+        /**
+         * Index of first record
+         */
+        first: number;
+        /**
+         * Index of last record
+         */
+        last: number;
+        /**
+         * Number of rows to display in new page
+         */
+        rows: number;
+        /**
+         * New page number
+         */
+        page: number;
+        /**
+         * Total number of pages
+         */
+        pageCount?: number;
+        /**
+         * Direct page links
+         */
+        pageLinks?: number;
+        /**
+         * Total records
+         */
+        totalRecords?: number;
+        /**
+         * First page function.
+         * @param {Event} event - Browser event
+         */
+        firstPageCallback: (event: Event) => void;
+        /**
+         * Last page function.
+         * @param {Event} event - Browser event
+         */
+        lastPageCallback: (event: Event) => void;
+        /**
+         * Previous page function.
+         * @param {Event} event - Browser event
+         */
+        prevPageCallback: (event: Event) => void;
+        /**
+         * Next page function.
+         * @param {Event} event - Browser event
+         */
+        nextPageCallback: (event: Event) => void;
+        /**
+         * Row change function.
+         */
+        rowChangeCallback: (value: number) => void;
+        /**
+         * Page change function.
+         */
+        changePageCallback: (value: number) => void;
+    }): VNode[];
     /**
      * Custom paginator start template.
      */
@@ -1421,7 +1479,7 @@ export interface DataTableSlots {
 /**
  * Defines valid emits in Datatable component.
  */
-export interface DataTableEmitsOptions {
+export interface DataTableEmitsOptions<T = any> {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -1451,7 +1509,7 @@ export interface DataTableEmitsOptions {
      * Emitted when the selection changes.
      * @param {*} value - New value.
      */
-    'update:selection'(value: any[] | any | undefined): void;
+    'update:selection'(value: T[] | T | undefined): void;
     /**
      * Emitted when the contextMenuSelection changes.
      * @param {*} value - New value.
@@ -1461,12 +1519,12 @@ export interface DataTableEmitsOptions {
      * Emitted when the expandedRows changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRows'(value: any[] | DataTableExpandedRows): void;
+    'update:expandedRows'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the expandedRowGroups changes.
      * @param {DataTableExpandedRows} value - New value.
      */
-    'update:expandedRowGroups'(value: any[] | DataTableExpandedRows): void;
+    'update:expandedRowGroups'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the filters changes.
      * @param {DataTableFilterMeta} value - New value.
@@ -1476,7 +1534,7 @@ export interface DataTableEmitsOptions {
      * Emitted when the editingRows changes.
      * @param {DataTableEditingRows} value - New value.
      */
-    'update:editingRows'(value: any[] | DataTableEditingRows): void;
+    'update:editingRows'(value: T[] | DataTableEditingRows): void;
     /**
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {DataTablePageEvent} event - Custom page event.
@@ -1496,7 +1554,7 @@ export interface DataTableEmitsOptions {
      * Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.
      * @param {*} value - Value displayed by the table.
      */
-    'value-change'(value: any[]): void;
+    'value-change'(value: T[]): void;
     /**
      * Callback to invoke when a row is clicked.
      * @param {DataTableRowClickEvent} event - Custom row click event.
@@ -1603,15 +1661,15 @@ export interface DataTableEmitsOptions {
      */
     'row-edit-cancel'(event: DataTableRowEditCancelEvent): void;
     /**
-     * Invoked when a stateful table saves the state.
-     * @param {DataTableStateEvent} event - Custom state event.
-     */
-    'state-restore'(event: DataTableStateEvent): void;
-    /**
      * Invoked when a stateful table restores the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
-    'state-save'(event: DataTableStateEvent): void;
+    'state-restore'(event: DataTableStateEvent<T>): void;
+    /**
+     * Invoked when a stateful table saves the state.
+     * @param {DataTableStateEvent} event - Custom state event.
+     */
+    'state-save'(event: DataTableStateEvent<T>): void;
 }
 
 export declare type DataTableEmits = EmitFn<DataTableEmitsOptions>;
@@ -1641,7 +1699,7 @@ declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTab
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits>;
+        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
     }
 }
 

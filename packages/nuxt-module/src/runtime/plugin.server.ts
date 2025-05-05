@@ -1,4 +1,4 @@
-import type { NitroApp } from 'nitropack';
+import type { NitroApp } from 'nitropack/types';
 // @ts-expect-error
 import { styles, stylesToTop, themes } from '#primevue-style';
 //import { useRuntimeConfig } from '#imports';

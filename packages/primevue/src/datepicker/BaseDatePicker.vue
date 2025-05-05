@@ -167,10 +167,6 @@ export default {
             type: String,
             default: null
         },
-        id: {
-            type: String,
-            default: null
-        },
         inputId: {
             type: String,
             default: null

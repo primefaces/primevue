@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" v-bind="ptmi('root')">
+    <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" :data-p="dataP" v-bind="ptmi('root')">
         <slot></slot>
         <div v-if="loading" :class="cx('mask')" v-bind="ptm('mask')">
             <slot v-if="$slots.loading" name="loading"></slot>
@@ -25,9 +25,10 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
+            :data-p-top="true"
             :pt="ptm('pcPaginator')"
         >
-            <template v-if="$slots.paginatorcontainer" #container>
+            <template v-if="$slots.paginatorcontainer" #container="slotProps">
                 <slot
                     name="paginatorcontainer"
                     :first="slotProps.first"
@@ -35,12 +36,14 @@
                     :rows="slotProps.rows"
                     :page="slotProps.page"
                     :pageCount="slotProps.pageCount"
+                    :pageLinks="slotProps.pageLinks"
                     :totalRecords="slotProps.totalRecords"
                     :firstPageCallback="slotProps.firstPageCallback"
                     :lastPageCallback="slotProps.lastPageCallback"
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
+                    :changePageCallback="slotProps.changePageCallback"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>
@@ -68,7 +71,7 @@
                 <slot name="paginatorrowsperpagedropdownicon" :class="slotProps.class"></slot>
             </template>
         </DTPaginator>
-        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" v-bind="ptm('tableContainer')">
+        <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: virtualScrollerDisabled ? scrollHeight : '' }]" :data-p="dataP" v-bind="ptm('tableContainer')">
             <DTVirtualScroller
                 ref="virtualScroller"
                 v-bind="virtualScrollerOptions"
@@ -130,6 +133,7 @@
                             :selection="selection"
                             :selectionKeys="d_selectionKeys"
                             :selectionMode="selectionMode"
+                            :rowHover="rowHover"
                             :contextMenu="contextMenu"
                             :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode"
@@ -186,6 +190,7 @@
                             :selection="selection"
                             :selectionKeys="d_selectionKeys"
                             :selectionMode="selectionMode"
+                            :rowHover="rowHover"
                             :contextMenu="contextMenu"
                             :contextMenuSelection="contextMenuSelection"
                             :rowGroupMode="rowGroupMode"
@@ -256,6 +261,7 @@
             @page="onPage($event)"
             :alwaysShow="alwaysShowPaginator"
             :unstyled="unstyled"
+            :data-p-bottom="true"
             :pt="ptm('pcPaginator')"
         >
             <template v-if="$slots.paginatorcontainer" #container="slotProps">
@@ -266,12 +272,14 @@
                     :rows="slotProps.rows"
                     :page="slotProps.page"
                     :pageCount="slotProps.pageCount"
+                    :pageLinks="slotProps.pageLinks"
                     :totalRecords="slotProps.totalRecords"
                     :firstPageCallback="slotProps.firstPageCallback"
                     :lastPageCallback="slotProps.lastPageCallback"
                     :prevPageCallback="slotProps.prevPageCallback"
                     :nextPageCallback="slotProps.nextPageCallback"
                     :rowChangeCallback="slotProps.rowChangeCallback"
+                    :changePageCallback="slotProps.changePageCallback"
                 ></slot>
             </template>
             <template v-if="$slots.paginatorstart" #start>
@@ -313,6 +321,7 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import {
     addClass,
     addStyle,
@@ -748,9 +757,7 @@ export default {
 
             filterEvent.filteredValue = filteredValue;
             this.$emit('filter', filterEvent);
-            this.$nextTick(() => {
-                this.$emit('value-change', this.processedData);
-            });
+            this.$emit('value-change', filteredValue);
 
             return filteredValue;
         },
@@ -919,7 +926,9 @@ export default {
                             this.$emit('update:selection', data);
                         }
 
-                        event.preventDefault();
+                        const isCopyShortcut = event.code === 'KeyC' && metaKey;
+
+                        if (!isCopyShortcut) event.preventDefault();
 
                         break;
                 }
@@ -1178,8 +1187,8 @@ export default {
             }
 
             if (this.lazy && this.paginator) {
-                rangeStart -= this.first;
-                rangeEnd -= this.first;
+                rangeStart -= this.d_first;
+                rangeEnd -= this.d_first;
             }
 
             const value = this.processedData;
@@ -1371,20 +1380,24 @@ export default {
         },
         bindColumnResizeEvents() {
             if (!this.documentColumnResizeListener) {
-                this.documentColumnResizeListener = document.addEventListener('mousemove', () => {
+                this.documentColumnResizeListener = (event) => {
                     if (this.columnResizing) {
                         this.onColumnResize(event);
                     }
-                });
+                };
+
+                document.addEventListener('mousemove', this.documentColumnResizeListener);
             }
 
             if (!this.documentColumnResizeEndListener) {
-                this.documentColumnResizeEndListener = document.addEventListener('mouseup', () => {
+                this.documentColumnResizeEndListener = () => {
                     if (this.columnResizing) {
                         this.columnResizing = false;
                         this.onColumnResizeEnd();
                     }
-                });
+                };
+
+                document.addEventListener('mouseup', this.documentColumnResizeEndListener);
             }
         },
         unbindColumnResizeEvents() {
@@ -1706,7 +1719,8 @@ export default {
             }
 
             if (this.d_sortField) {
-                state.sortField = this.d_sortField;
+                // Functions can't be serialized, so don't attempt to save them
+                if (typeof this.d_sortField !== 'function') state.sortField = this.d_sortField;
                 state.sortOrder = this.d_sortOrder;
             }
 
@@ -1758,51 +1772,90 @@ export default {
                 return value;
             };
 
-            if (stateString) {
-                let restoredState = JSON.parse(stateString, reviver);
-
-                if (this.paginator) {
-                    this.d_first = restoredState.first;
-                    this.d_rows = restoredState.rows;
-                }
-
-                if (restoredState.sortField) {
-                    this.d_sortField = restoredState.sortField;
-                    this.d_sortOrder = restoredState.sortOrder;
-                }
-
-                if (restoredState.multiSortMeta) {
-                    this.d_multiSortMeta = restoredState.multiSortMeta;
-                }
-
-                if (restoredState.filters) {
-                    this.$emit('update:filters', restoredState.filters);
-                }
-
-                if (this.resizableColumns) {
-                    this.columnWidthsState = restoredState.columnWidths;
-                    this.tableWidthState = restoredState.tableWidth;
-                }
-
-                if (this.reorderableColumns) {
-                    this.d_columnOrder = restoredState.columnOrder;
-                }
-
-                if (restoredState.expandedRows) {
-                    this.$emit('update:expandedRows', restoredState.expandedRows);
-                }
-
-                if (restoredState.expandedRowGroups) {
-                    this.$emit('update:expandedRowGroups', restoredState.expandedRowGroups);
-                }
-
-                if (restoredState.selection) {
-                    this.d_selectionKeys = restoredState.d_selectionKeys;
-                    this.$emit('update:selection', restoredState.selection);
-                }
-
-                this.$emit('state-restore', restoredState);
+            let parsedState;
+            try {
+                parsedState = JSON.parse(stateString, reviver);
+            } catch (error) {}
+            if (!parsedState || typeof parsedState !== 'object') {
+                storage.removeItem(this.stateKey);
+                return;
             }
+
+            const restoredState = {};
+
+            if (this.paginator) {
+                if (typeof parsedState.first === 'number') {
+                    this.d_first = parsedState.first;
+                    this.$emit('update:first', this.d_first);
+                    restoredState.first = this.d_first;
+                }
+                if (typeof parsedState.rows === 'number') {
+                    this.d_rows = parsedState.rows;
+                    this.$emit('update:rows', this.d_rows);
+                    restoredState.rows = this.d_rows;
+                }
+            }
+
+            if (typeof parsedState.sortField === 'string') {
+                this.d_sortField = parsedState.sortField;
+                this.$emit('update:sortField', this.d_sortField);
+                restoredState.sortField = this.d_sortField;
+            }
+
+            if (typeof parsedState.sortOrder === 'number') {
+                this.d_sortOrder = parsedState.sortOrder;
+                this.$emit('update:sortOrder', this.d_sortOrder);
+                restoredState.sortOrder = this.d_sortOrder;
+            }
+
+            if (Array.isArray(parsedState.multiSortMeta)) {
+                this.d_multiSortMeta = parsedState.multiSortMeta;
+                this.$emit('update:multiSortMeta', this.d_multiSortMeta);
+                restoredState.multiSortMeta = this.d_multiSortMeta;
+            }
+
+            if (this.hasFilters && typeof parsedState.filters === 'object' && parsedState.filters !== null) {
+                this.d_filters = this.cloneFilters(parsedState.filters);
+                this.$emit('update:filters', this.d_filters);
+                restoredState.filters = this.d_filters;
+            }
+
+            if (this.resizableColumns) {
+                if (typeof parsedState.columnWidths === 'string') {
+                    this.columnWidthsState = parsedState.columnWidths;
+                    restoredState.columnWidths = this.columnWidthsState;
+                }
+                if (typeof parsedState.tableWidth === 'string') {
+                    this.tableWidthState = parsedState.tableWidth;
+                    restoredState.tableWidth = this.tableWidthState;
+                }
+            }
+
+            if (this.reorderableColumns && Array.isArray(parsedState.columnOrder)) {
+                this.d_columnOrder = parsedState.columnOrder;
+                restoredState.columnOrder = this.d_columnOrder;
+            }
+
+            if (typeof parsedState.expandedRows === 'object' && parsedState.expandedRows !== null) {
+                this.$emit('update:expandedRows', parsedState.expandedRows);
+                restoredState.expandedRows = parsedState.expandedRows;
+            }
+
+            if (Array.isArray(parsedState.expandedRowGroups)) {
+                this.$emit('update:expandedRowGroups', parsedState.expandedRowGroups);
+                restoredState.expandedRowGroups = parsedState.expandedRowGroups;
+            }
+
+            if (typeof parsedState.selection === 'object' && parsedState.selection !== null) {
+                if (typeof parsedState.selectionKeys === 'object' && parsedState.selectionKeys !== null) {
+                    this.d_selectionKeys = parsedState.selectionKeys;
+                    restoredState.selectionKeys = this.d_selectionKeys;
+                }
+                this.$emit('update:selection', parsedState.selection);
+                restoredState.selection = parsedState.selection;
+            }
+
+            this.$emit('state-restore', restoredState);
         },
         saveColumnWidths(state) {
             let widths = [];
@@ -1926,11 +1979,11 @@ export default {
                 this.$emit('filter', this.createLazyLoadEvent());
             }
         },
-        cloneFilters() {
+        cloneFilters(filters) {
             let cloned = {};
 
-            if (this.filters) {
-                Object.entries(this.filters).forEach(([prop, value]) => {
+            if (filters) {
+                Object.entries(filters).forEach(([prop, value]) => {
                     cloned[prop] = value.operator
                         ? {
                               operator: value.operator,
@@ -1984,7 +2037,7 @@ export default {
         columns() {
             const cols = this.d_columns.get(this);
 
-            if (this.reorderableColumns && this.d_columnOrder) {
+            if (cols && this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
 
                 for (let columnKey of this.d_columnOrder) {
@@ -2094,6 +2147,12 @@ export default {
         },
         virtualScrollerDisabled() {
             return isEmpty(this.virtualScrollerOptions) || !this.scrollable;
+        },
+        dataP() {
+            return cn({
+                scrollable: this.scrollable,
+                'flex-scrollable': this.scrollable && this.scrollHeight === 'flex'
+            });
         }
     },
     components: {

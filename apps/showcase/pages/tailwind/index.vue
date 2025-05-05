@@ -17,6 +17,7 @@
 
 <script>
 import AnimationsDoc from '@/doc/tailwind/AnimationsDoc.vue';
+import DarkModeDoc from '@/doc/tailwind/DarkModeDoc.vue';
 import ExtensionsDoc from '@/doc/tailwind/ExtensionsDoc.vue';
 import OverrideDoc from '@/doc/tailwind/OverrideDoc.vue';
 import OverviewDoc from '@/doc/tailwind/OverviewDoc.vue';
@@ -25,6 +26,7 @@ import TailwindThemeDoc from '@/doc/tailwind/TailwindThemeDoc.vue';
 import ColorPaletteDoc from '@/doc/tailwind/samples/ColorPaletteDoc.vue';
 import FormDoc from '@/doc/tailwind/samples/FormDoc.vue';
 import HeadlessDoc from '@/doc/tailwind/samples/HeadlessDoc.vue';
+import StarterDoc from '@/doc/tailwind/samples/StarterDoc.vue';
 
 export default {
     data() {
@@ -51,6 +53,11 @@ export default {
                     component: ExtensionsDoc
                 },
                 {
+                    id: 'darkmode',
+                    label: 'Dark Mode',
+                    component: DarkModeDoc
+                },
+                {
                     id: 'override',
                     label: 'Override',
                     component: OverrideDoc
@@ -74,6 +81,11 @@ export default {
                             id: 'headless',
                             label: 'Headless',
                             component: HeadlessDoc
+                        },
+                        {
+                            id: 'starter',
+                            label: 'Starter',
+                            component: StarterDoc
                         }
                     ]
                 },

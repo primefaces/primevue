@@ -7,7 +7,7 @@
  * @module speeddial
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { MenuItem } from 'primevue/menuitem';
@@ -167,12 +167,12 @@ export interface SpeedDialTooltipOptions {
     /**
      * Event to show the tooltip, valid values are hover and focus.
      */
-    event: 'hover' | 'focus' | undefined;
+    event: HintedString<'hover' | 'focus'> | undefined;
     /**
      * Position of element.
      * @defaultValue bottom
      */
-    position: 'bottom' | 'top' | 'left' | 'right' | undefined;
+    position: HintedString<'bottom' | 'top' | 'left' | 'right'> | undefined;
     /**
      * Optional options.
      */
@@ -196,7 +196,7 @@ export interface SpeedDialProps {
      * Specifies the opening direction of actions.
      * @defaultValue up
      */
-    direction?: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | undefined;
+    direction?: HintedString<'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right'> | undefined;
     /**
      * Transition delay step for each action item.
      * @defaultValue 30
@@ -206,7 +206,7 @@ export interface SpeedDialProps {
      * Specifies the opening type of actions.
      * @defaultValue linear
      */
-    type?: 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' | undefined;
+    type?: HintedString<'linear' | 'circle' | 'semi-circle' | 'quarter-circle'> | undefined;
     /**
      * Radius for *circle types.
      * @defaultValue 0

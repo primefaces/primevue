@@ -7,7 +7,7 @@
         </p>
         <p>Install PrimeCLT.</p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
-        <p>Run the <i>pf2wt</i> in a directory that contains files to be migrated.</p>
+        <p>Run the <i>pf2tw</i> in a directory that contains files to be migrated.</p>
         <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
         <p>There are a couple of utility classes that are not migrated as they have no counterparts, use flexbox utilities instead as replacements.</p>
         <ul class="leading-loose">

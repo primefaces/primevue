@@ -132,7 +132,7 @@
 import { absolutePosition, addStyle, find, findSingle, focus, getFirstFocusableElement, getFocusableElements, getLastFocusableElement, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import TimesIcon from '@primevue/icons/times';
 import Chip from 'primevue/chip';
@@ -152,16 +152,12 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             focused: false,
             overlayVisible: false,
             d_expandedKeys: this.expandedKeys || {}
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         modelValue: {
             handler: function () {
                 if (!this.selfChange) {
@@ -200,7 +196,6 @@ export default {
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.updateTreeState();
     },
     methods: {
@@ -347,7 +342,7 @@ export default {
         onOverlayEnter(el) {
             ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.focus();
         },
@@ -393,12 +388,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -560,7 +555,7 @@ export default {
             return !this.options || this.options.length === 0;
         },
         listId() {
-            return this.id + '_list';
+            return this.$id + '_list';
         },
         hasFluid() {
             return isEmpty(this.fluid) ? !!this.$pcFluid : this.fluid;

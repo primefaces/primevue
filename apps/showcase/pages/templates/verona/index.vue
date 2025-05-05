@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(VeronaLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-pattern.png',
                                 description: 'Prepare to be amazed by the remastered Verona for PrimeVue featuring a new gorgeous dark mode for the entire layout, 2 menu modes, reusable css widgets, utilities, modern icons and many more.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard2.png',
@@ -132,9 +131,9 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'PrimeFlex CSS Utilities',
-                                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/features-animation-utilities.png'
+                                    title: 'Tailwind CSS',
+                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/common/tailwind.png'
                                 },
                                 {
                                     id: 2,
@@ -158,10 +157,10 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
                 template and requires a separate purchase.`,
                             description4: `Verona uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
-                <a href="https://www.figma.com/file/PgQXX4HXMPeCkT74tGajod/Preview-%7C-Verona-2022?node-id=1303%3A750">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the Verona Figma file as they
+                <a href="https://www.figma.com/file/PgQXX4HXMPeCkT74tGajod/Preview-%7C-Verona-2022?node-id=1303%3A750" target="_blank" rel="noopener noreferrer">preview the Figma file</a> before the purchase. Note that PrimeVue UI components are excluded from the Verona Figma file as they
                 are available in <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.`
                         }
                     },

@@ -1,5 +1,5 @@
 <template>
-    <span :class="cx('root')" v-bind="ptmi('root')">
+    <span :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
         <component v-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
         <span v-else-if="icon" :class="[cx('icon'), icon]" v-bind="ptm('icon')"></span>
         <slot v-if="value != null || $slots.default">
@@ -9,11 +9,20 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import BaseTag from './BaseTag.vue';
 
 export default {
     name: 'Tag',
     extends: BaseTag,
-    inheritAttrs: false
+    inheritAttrs: false,
+    computed: {
+        dataP() {
+            return cn({
+                rounded: this.rounded,
+                [this.severity]: this.severity
+            });
+        }
+    }
 };
 </script>

@@ -76,7 +76,7 @@ export default {
             cancelInterval: false,
             hoveredID: null,
             visible: false,
-            animationSeconds: 5000
+            animationSeconds: 8000
         };
     },
     mounted() {

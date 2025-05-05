@@ -75,8 +75,8 @@
                 </slot>
             </template>
         </Button>
-        <slot v-if="!auto" name="filelabel" :class="cx('filelabel')">
-            <span :class="cx('filelabel')" :files="files">
+        <slot v-if="!auto" name="filelabel" :class="cx('filelabel')" :files="files">
+            <span :class="cx('filelabel')">
                 {{ basicFileChosenLabel }}
             </span>
         </slot>
@@ -210,6 +210,7 @@ export default {
                                 xhr: xhr,
                                 files: this.files
                             });
+                            this.uploadedFiles.push(...this.files);
                         } else {
                             this.$emit('error', {
                                 xhr: xhr,
@@ -217,21 +218,22 @@ export default {
                             });
                         }
 
-                        this.uploadedFiles.push(...this.files);
                         this.clear();
                     }
                 };
 
-                xhr.open('POST', this.url, true);
+                if (this.url) {
+                    xhr.open('POST', this.url, true);
 
-                this.$emit('before-send', {
-                    xhr: xhr,
-                    formData: formData
-                });
+                    this.$emit('before-send', {
+                        xhr: xhr,
+                        formData: formData
+                    });
 
-                xhr.withCredentials = this.withCredentials;
+                    xhr.withCredentials = this.withCredentials;
 
-                xhr.send(formData);
+                    xhr.send(formData);
+                }
             }
         },
         clear() {

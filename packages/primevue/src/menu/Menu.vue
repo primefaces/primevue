@@ -1,13 +1,13 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
         <transition name="p-connected-overlay" @enter="onEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
+            <div v-if="popup ? overlayVisible : true" :ref="containerRef" :id="$id" :class="cx('root')" @click="onOverlayClick" :data-p="dataP" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>
                 </div>
                 <ul
                     :ref="listRef"
-                    :id="id + '_list'"
+                    :id="$id + '_list'"
                     :class="cx('list')"
                     role="menu"
                     :tabindex="tabindex"
@@ -21,14 +21,14 @@
                 >
                     <template v-for="(item, i) of model" :key="label(item) + i.toString()">
                         <template v-if="item.items && visible(item) && !item.separator">
-                            <li v-if="item.items" :id="id + '_' + i" :class="[cx('submenuLabel'), item.class]" role="none" v-bind="ptm('submenuLabel')">
+                            <li v-if="item.items" :id="$id + '_' + i" :class="[cx('submenuLabel'), item.class]" role="none" v-bind="ptm('submenuLabel')">
                                 <!--TODO: submenuheader deprecated since v4.0. Use submenulabel-->
                                 <slot :name="$slots.submenulabel ? 'submenulabel' : 'submenuheader'" :item="item">{{ label(item) }}</slot>
                             </li>
                             <template v-for="(child, j) of item.items" :key="child.label + i + '_' + j">
                                 <PVMenuitem
                                     v-if="visible(child) && !child.separator"
-                                    :id="id + '_' + i + '_' + j"
+                                    :id="$id + '_' + i + '_' + j"
                                     :item="child"
                                     :templates="$slots"
                                     :focusedOptionId="focusedOptionId"
@@ -44,7 +44,7 @@
                         <PVMenuitem
                             v-else
                             :key="label(item) + i.toString()"
-                            :id="id + '_' + i"
+                            :id="$id + '_' + i"
                             :item="item"
                             :index="i"
                             :templates="$slots"
@@ -65,9 +65,10 @@
 </template>
 
 <script>
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
-import { focus, find, findSingle, addStyle, absolutePosition, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { cn } from '@primeuix/utils';
+import { absolutePosition, addStyle, find, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseMenu from './BaseMenu.vue';
@@ -80,17 +81,11 @@ export default {
     emits: ['show', 'hide', 'focus', 'blur'],
     data() {
         return {
-            id: this.$attrs.id,
             overlayVisible: false,
             focused: false,
             focusedOptionIndex: -1,
             selectedOptionIndex: -1
         };
-    },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
     },
     target: null,
     outsideClickListener: null,
@@ -99,8 +94,6 @@ export default {
     container: null,
     list: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
-
         if (!this.popup) {
             this.bindResizeListener();
             this.bindOutsideClickListener();
@@ -254,20 +247,20 @@ export default {
 
             order > -1 && (this.focusedOptionIndex = links[order].getAttribute('id'));
         },
-        toggle(event) {
+        toggle(event, target) {
             if (this.overlayVisible) this.hide();
-            else this.show(event);
+            else this.show(event, target);
         },
-        show(event) {
+        show(event, target) {
             this.overlayVisible = true;
-            this.target = event.currentTarget;
+            this.target = target ?? event.currentTarget;
         },
         hide() {
             this.overlayVisible = false;
             this.target = null;
         },
         onEnter(el) {
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.bindOutsideClickListener();
             this.bindResizeListener();
@@ -315,12 +308,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -382,6 +375,11 @@ export default {
     computed: {
         focusedOptionId() {
             return this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : null;
+        },
+        dataP() {
+            return cn({
+                popup: this.popup
+            });
         }
     },
     components: {

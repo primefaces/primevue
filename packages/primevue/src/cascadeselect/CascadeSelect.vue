@@ -16,7 +16,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="tree"
                 :aria-expanded="overlayVisible"
-                :aria-controls="id + '_tree'"
+                :aria-controls="$id + '_tree'"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"
@@ -59,10 +59,10 @@
                     <slot name="header" :value="d_value" :options="options" />
                     <div :class="cx('listContainer')" v-bind="ptm('listContainer')">
                         <CascadeSelectSub
-                            :id="id + '_tree'"
+                            :id="$id + '_tree'"
                             role="tree"
                             aria-orientation="horizontal"
-                            :selectId="id"
+                            :selectId="$id"
                             :focusedOptionId="focused ? focusedOptionId : undefined"
                             :options="processedOptions"
                             :activeOptionPath="activeOptionPath"
@@ -96,15 +96,15 @@
 import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { equals, findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, isString, resolveFieldData } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import AngleRightIcon from '@primevue/icons/angleright';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SpinnerIcon from '@primevue/icons/spinner';
+import TimesIcon from '@primevue/icons/times';
 import OverlayEventBus from 'primevue/overlayeventbus';
 import Portal from 'primevue/portal';
 import BaseCascadeSelect from './BaseCascadeSelect.vue';
 import CascadeSelectSub from './CascadeSelectSub.vue';
-import TimesIcon from '@primevue/icons/times';
 
 export default {
     name: 'CascadeSelect',
@@ -120,7 +120,6 @@ export default {
     searchValue: null,
     data() {
         return {
-            id: this.$attrs.id,
             clicked: false,
             focused: false,
             focusedOptionInfo: { index: -1, level: 0, parentKey: '' },
@@ -133,15 +132,11 @@ export default {
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         options() {
             this.autoUpdateModel();
         }
     },
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.autoUpdateModel();
         this.bindMatchMediaListener();
     },
@@ -314,7 +309,7 @@ export default {
 
             const { index, key, level, parentKey, children } = processedOption;
             const grouped = isNotEmpty(children);
-            const activeOptionPath = this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key);
+            const activeOptionPath = this.activeOptionPath ? this.activeOptionPath.filter((p) => p.parentKey !== parentKey && p.parentKey !== key) : [];
 
             this.focusedOptionInfo = { index, level, parentKey };
 
@@ -359,6 +354,10 @@ export default {
         },
         onOptionMouseEnter(event) {
             if (this.focusOnHover) {
+                if (event.processedOption.level === 0) {
+                    this.dirty = true;
+                }
+
                 if (this.dirty || (!this.dirty && isNotEmpty(this.d_value))) {
                     this.onOptionChange({ ...event, type: 'hover' });
                 } else if (!this.dirty && event.processedOption.level === 0) {
@@ -535,7 +534,7 @@ export default {
         onOverlayEnter(el) {
             ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.scrollInView();
         },
@@ -574,12 +573,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('mousedown', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('mousedown', this.outsideClickListener, true);
                 this.outsideClickListener = null;
             }
         },
@@ -647,7 +646,7 @@ export default {
             return this.isValidOption(processedOption) && this.isSelected(processedOption);
         },
         isSelected(processedOption) {
-            return this.activeOptionPath.some((p) => p.key === processedOption.key);
+            return this.activeOptionPath && this.activeOptionPath.some((p) => p.key === processedOption.key);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((processedOption) => this.isValidOption(processedOption));
@@ -754,7 +753,7 @@ export default {
         },
         scrollInView(index = -1) {
             this.$nextTick(() => {
-                const id = index !== -1 ? `${this.id}_${index}` : this.focusedOptionId;
+                const id = index !== -1 ? `${this.$id}_${index}` : this.focusedOptionId;
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
@@ -820,7 +819,7 @@ export default {
             return this.createProcessedOptions(this.options || []);
         },
         visibleOptions() {
-            const processedOption = this.activeOptionPath.find((p) => p.key === this.focusedOptionInfo.parentKey);
+            const processedOption = this.activeOptionPath && this.activeOptionPath.find((p) => p.key === this.focusedOptionInfo.parentKey);
 
             return processedOption ? processedOption.children : this.processedOptions;
         },
@@ -849,7 +848,7 @@ export default {
             return this.$filled ? this.selectionMessageText.replaceAll('{0}', '1') : this.emptySelectionMessageText;
         },
         focusedOptionId() {
-            return this.focusedOptionInfo.index !== -1 ? `${this.id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
+            return this.focusedOptionInfo.index !== -1 ? `${this.$id}${isNotEmpty(this.focusedOptionInfo.parentKey) ? '_' + this.focusedOptionInfo.parentKey : ''}_${this.focusedOptionInfo.index}` : null;
         },
         isClearIconVisible() {
             return this.showClear && this.d_value != null && isNotEmpty(this.options);

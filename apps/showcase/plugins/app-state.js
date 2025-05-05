@@ -3,7 +3,7 @@ import PrimeVue from 'primevue/config';
 import { reactive } from 'vue';
 
 const $appState = {
-    install: (Vue, options) => {
+    install: (Vue) => {
         Vue.config.globalProperties.$appState = reactive({
             preset: 'Aura',
             primary: 'noir',
@@ -15,9 +15,8 @@ const $appState = {
             announcement: null,
             storageKey: 'primevue',
             designer: {
-                localStoreKey: 'primevue-designer',
-                licenseKey: null,
-                ticket: null,
+                verified: false,
+                csrfToken: null,
                 themeLimit: null,
                 active: false,
                 activeView: 'dashboard',

@@ -24,7 +24,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(SakaiLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard2.png',
                                 description: 'Sakai is a free application template for Vue based on Vite and Nuxt.',
@@ -106,9 +105,9 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'PrimeFlex CSS Utilities',
-                                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/sakai/features-animation-utilities.png'
+                                    title: 'Tailwind CSS',
+                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/common/tailwind.png'
                                 },
                                 {
                                     id: 2,
@@ -126,7 +125,7 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
                 template and requires a separate purchase.`
                         }
                     },

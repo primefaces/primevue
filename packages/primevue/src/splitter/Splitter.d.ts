@@ -7,7 +7,7 @@
  * @module splitter
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import { VNode } from 'vue';
@@ -152,7 +152,7 @@ export interface SplitterProps {
      * Orientation of the panels.
      * @defaultValue horizontal
      */
-    layout?: 'horizontal' | 'vertical' | undefined;
+    layout?: HintedString<'horizontal' | 'vertical'> | undefined;
     /**
      * Size of the divider in pixels.
      * @defaultValue 4
@@ -166,10 +166,10 @@ export interface SplitterProps {
      * Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage.
      * @defaultValue session
      */
-    stateStorage?: 'local' | 'session' | undefined;
+    stateStorage?: HintedString<'local' | 'session'> | undefined;
     /**
      * Step factor to increment/decrement the size of the panels while pressing the arrow keys.
-     * @defaultValue 1
+     * @defaultValue 5
      */
     step?: number | undefined;
     /**
@@ -249,7 +249,7 @@ declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEm
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits>;
+        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits, SplitterMethods>;
     }
 }
 

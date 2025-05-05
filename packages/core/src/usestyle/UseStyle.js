@@ -6,7 +6,7 @@ import { isClient, isExist, setAttribute, setAttributes } from '@primeuix/utils/
 import { getCurrentInstance, nextTick, onMounted, readonly, ref, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
-    if (getCurrentInstance()) onMounted(fn);
+    if (getCurrentInstance() && getCurrentInstance().components) onMounted(fn);
     else if (sync) fn();
     else nextTick(fn);
 }
@@ -80,6 +80,7 @@ export function useStyle(css, options = {}) {
         stop();
         isExist(styleRef.value) && document.head.removeChild(styleRef.value);
         isLoaded.value = false;
+        styleRef.value = null;
     };
 
     if (immediate && !manual) tryOnMounted(load);

@@ -1,12 +1,13 @@
 <template>
-    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" @click="onClick" v-bind="attrs">
+    <component v-if="!asChild" :is="as" v-ripple :class="cx('root')" :data-p="dataP" @click="onClick" v-bind="attrs">
         <slot></slot>
     </component>
-    <slot v-else :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs" :onClick="onClick"></slot>
+    <slot v-else :dataP="dataP" :class="cx('root')" :active="active" :a11yAttrs="a11yAttrs" :onClick="onClick"></slot>
 </template>
 
 <script>
-import { getAttribute, focus, findSingle } from '@primeuix/utils/dom';
+import { cn } from '@primeuix/utils';
+import { findSingle, focus, getAttribute } from '@primeuix/utils/dom';
 import { equals } from '@primeuix/utils/object';
 import Ripple from 'primevue/ripple';
 import { mergeProps } from 'vue';
@@ -99,18 +100,18 @@ export default {
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findNextTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findPrevTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.previousElementSibling;
 
-            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'inkbar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
+            return element ? (getAttribute(element, 'data-p-disabled') || getAttribute(element, 'data-pc-section') === 'activebar' ? this.findPrevTab(element) : findSingle(element, '[data-pc-name="tab"]')) : null;
         },
         findFirstTab() {
-            return this.findNextTab(this.$pcTabList.$refs.content.firstElementChild, true);
+            return this.findNextTab(this.$pcTabList.$refs.tabs.firstElementChild, true);
         },
         findLastTab() {
-            return this.findPrevTab(this.$pcTabList.$refs.content.lastElementChild, true);
+            return this.findPrevTab(this.$pcTabList.$refs.tabs.lastElementChild, true);
         },
         changeActiveValue() {
             this.$pcTabs.updateValue(this.value);
@@ -128,10 +129,10 @@ export default {
             return equals(this.$pcTabs?.d_value, this.value);
         },
         id() {
-            return `${this.$pcTabs?.id}_tab_${this.value}`;
+            return `${this.$pcTabs?.$id}_tab_${this.value}`;
         },
         ariaControls() {
-            return `${this.$pcTabs?.id}_tabpanel_${this.value}`;
+            return `${this.$pcTabs?.$id}_tabpanel_${this.value}`;
         },
         attrs() {
             return mergeProps(this.asAttrs, this.a11yAttrs, this.ptmi('root', this.ptParams));
@@ -159,6 +160,11 @@ export default {
                     active: this.active
                 }
             };
+        },
+        dataP() {
+            return cn({
+                active: this.active
+            });
         }
     },
     directives: {

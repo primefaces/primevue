@@ -1,7 +1,7 @@
 <template>
     <Fieldset legend="Form Field" :toggleable="true">
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Base</div>
-        <section class="grid grid-cols-4 mb-3 gap-2">
+        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.paddingX" label="Padding X" />
             </div>
@@ -17,7 +17,7 @@
         </section>
 
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Small</div>
-        <section class="grid grid-cols-4 mb-3 gap-2">
+        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.sm.paddingX" label="Padding X" />
             </div>
@@ -31,7 +31,7 @@
         </section>
 
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Large</div>
-        <section class="grid grid-cols-4 mb-3 gap-2">
+        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.lg.paddingX" label="Padding X" />
             </div>
@@ -45,7 +45,7 @@
         </section>
 
         <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0">Focus Ring</div>
-        <section class="grid grid-cols-4 gap-2">
+        <section class="grid grid-cols-4 gap-x-2 gap-y-3">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.focusRing.width" label="Width" />
             </div>

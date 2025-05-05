@@ -9,7 +9,7 @@
             </template>
             <template #footer>
                 <Divider />
-                <ul class="pl-2 ml-2 my-0 leading-normal">
+                <ul class="pl-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -34,7 +34,7 @@ export default {
     </template>
     <template #footer>
         <Divider />
-        <ul class="pl-2 ml-2 my-0 leading-normal">
+        <ul class="pl-2 my-0 leading-normal">
             <li>At least one lowercase</li>
             <li>At least one uppercase</li>
             <li>At least one numeric</li>
@@ -52,7 +52,7 @@ export default {
             </template>
             <template #footer>
                 <Divider />
-                <ul class="pl-2 ml-2 my-0 leading-normal">
+                <ul class="pl-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>
@@ -82,7 +82,7 @@ export default {
             </template>
             <template #footer>
                 <Divider />
-                <ul class="pl-2 ml-2 my-0 leading-normal">
+                <ul class="pl-2 my-0 leading-normal">
                     <li>At least one lowercase</li>
                     <li>At least one uppercase</li>
                     <li>At least one numeric</li>

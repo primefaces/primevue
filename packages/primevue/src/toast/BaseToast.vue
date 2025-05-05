@@ -49,6 +49,18 @@ export default {
         closeButtonProps: {
             type: null,
             default: null
+        },
+        onMouseEnter: {
+            type: Function,
+            default: undefined
+        },
+        onMouseLeave: {
+            type: Function,
+            default: undefined
+        },
+        onClick: {
+            type: Function,
+            default: undefined
         }
     },
     style: ToastStyle,

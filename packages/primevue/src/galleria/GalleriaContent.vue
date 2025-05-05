@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="$attrs.value && $attrs.value.length > 0"
-        :id="id"
+        :id="$id"
         role="region"
         :class="[cx('root'), $attrs.containerClass]"
         :style="$attrs.containerStyle"
@@ -17,7 +17,7 @@
         </div>
         <div :class="cx('content')" :aria-live="$attrs.autoPlay ? 'polite' : 'off'" v-bind="getPTOptions('content')">
             <GalleriaItem
-                :id="id"
+                :id="$id"
                 v-model:activeIndex="activeIndex"
                 v-model:slideShowActive="slideShowActive"
                 :value="$attrs.value"
@@ -37,7 +37,7 @@
                 v-if="$attrs.showThumbnails"
                 v-model:activeIndex="activeIndex"
                 v-model:slideShowActive="slideShowActive"
-                :containerId="id"
+                :containerId="$id"
                 :value="$attrs.value"
                 :templates="$attrs.templates"
                 :numVisible="numVisible"
@@ -61,7 +61,6 @@
 
 <script>
 import BaseComponent from '@primevue/core/basecomponent';
-import { UniqueComponentId } from '@primevue/core/utils';
 import TimesIcon from '@primevue/icons/times';
 import Ripple from 'primevue/ripple';
 import GalleriaItem from './GalleriaItem.vue';
@@ -76,16 +75,12 @@ export default {
     emits: ['activeitem-change', 'mask-hide'],
     data() {
         return {
-            id: this.$attrs.id || UniqueComponentId(),
             activeIndex: this.$attrs.activeIndex,
             numVisible: this.$attrs.numVisible,
             slideShowActive: false
         };
     },
     watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        },
         '$attrs.value': function (newVal) {
             if (newVal && newVal.length < this.numVisible) {
                 this.numVisible = newVal.length;
@@ -100,9 +95,6 @@ export default {
         '$attrs.autoPlay': function (newVal) {
             newVal ? this.startSlideShow() : this.stopSlideShow();
         }
-    },
-    mounted() {
-        this.id = this.id || UniqueComponentId();
     },
     updated() {
         this.$emit('activeitem-change', this.activeIndex);

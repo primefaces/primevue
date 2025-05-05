@@ -25,7 +25,6 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(ApolloLogo),
-                                pattern: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard2.png',
                                 description: 'Application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 24 PrimeVue themes.',
@@ -170,9 +169,9 @@ export default {
                             featuresData: [
                                 {
                                     id: 1,
-                                    title: 'PrimeFlex CSS Utilities',
-                                    description: 'PrimeFlex is a CSS utility library featuring various helpers such as a grid system, flexbox, spacing, elevation and more.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/features-animation-utilities.png'
+                                    title: 'Tailwind CSS',
+                                    description: 'The demo content is built with TailwindCSS, while the application shell uses custom CSS, offering flexibility and efficiency for responsive design.',
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/common/tailwind.png'
                                 },
                                 {
                                     id: 2,
@@ -196,11 +195,11 @@ export default {
                         },
                         slots: {
                             description2: `
-                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that <a href="https://primeblocks.org/">PrimeBlocks</a> is not included in the
+                    Fully compatible with <a href="https://primeblocks.org/">PrimeBlocks</a>, choose from the wide range of blocks and customize the way you like. Note that PrimeBlocks is not included in the
                     template and requires a separate purchase.`,
                             description4: `
                     Apollo uses Figma as the design tool. It will be possible to download the Figma file after your purchase. You can
-                    <a href="https://www.figma.com/file/zQOW0XBXdCTqODzEOqwBtt/Preview-%7C-Apollo-2022?node-id=335%3A21768&t=urYI89V3PLNAZEJG-1/">preview the Figma file</a>
+                    <a href="https://www.figma.com/file/zQOW0XBXdCTqODzEOqwBtt/Preview-%7C-Apollo-2022?node-id=335%3A21768&t=urYI89V3PLNAZEJG-1/" target="_blank" rel="noopener noreferrer">preview the Figma file</a>
                     before the purchase. Note that PrimeVue UI components are excluded from the Apollo Figma file as they are available in
                     <PrimeVueNuxtLink to="/uikit">PrimeOne for Figma</PrimeVueNuxtLink> only.`
                         }

@@ -210,7 +210,7 @@ export interface TreeSelectProps {
     /**
      * Defines the selection mode.
      */
-    selectionMode?: 'single' | 'multiple' | 'checkbox' | undefined;
+    selectionMode?: HintedString<'single' | 'multiple' | 'checkbox'> | undefined;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null
@@ -225,7 +225,7 @@ export interface TreeSelectProps {
      * Defines how the selected items are displayed.
      * @defaultValue comma
      */
-    display?: 'comma' | 'chip' | undefined;
+    display?: HintedString<'comma' | 'chip'> | undefined;
     /**
      * Label to display after exceeding max selected labels.
      * @defaultValue null
@@ -254,7 +254,7 @@ export interface TreeSelectProps {
      * Loading mode display.
      * @defaultValue mask
      */
-    loadingMode?: 'mask' | 'icon' | undefined;
+    loadingMode?: HintedString<'mask' | 'icon'> | undefined;
     /**
      * When specified, displays an input field to filter the items.
      * @defaultValue false
@@ -269,7 +269,7 @@ export interface TreeSelectProps {
      * Mode for filtering.
      * @defaultValue lenient
      */
-    filterMode?: 'lenient' | 'strict' | undefined;
+    filterMode?: HintedString<'lenient' | 'strict'> | undefined;
     /**
      * Placeholder text to show when filter input is empty.
      */
@@ -290,7 +290,7 @@ export interface TreeSelectProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
@@ -303,9 +303,9 @@ export interface TreeSelectProps {
     disabled?: boolean | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Index of the element in tabbing order.
      */

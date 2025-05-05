@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :style="sx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" :style="sx('root')" :data-p="containerDataP" v-bind="ptmi('root')">
         <InputText
             ref="input"
             :id="inputId"
@@ -11,7 +11,6 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-controls="(overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId"
-            :aria-expanded="overlayVisible"
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
@@ -27,14 +26,15 @@
             @keyup="onKeyUp"
             @invalid="onInvalid"
             v-bind="inputProps"
+            :data-p-has-e-icon="toggleMask"
             :pt="ptm('pcInputText')"
             :unstyled="unstyled"
         />
         <!-- TODO: hideicon and showicon slots are deprecated since v4.0-->
-        <slot v-if="toggleMask && unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :toggleCallback="onMaskToggle">
+        <slot v-if="toggleMask && unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :toggleCallback="onMaskToggle" :class="[cx('maskIcon'), maskIcon]" v-bind="ptm('maskIcon')">
             <component :is="maskIcon ? 'i' : 'EyeSlashIcon'" :class="[cx('maskIcon'), maskIcon]" @click="onMaskToggle" v-bind="ptm('maskIcon')" />
         </slot>
-        <slot v-if="toggleMask && !unmasked" :name="$slots.unmaskicon ? 'unmaskicon' : 'showicon'" :toggleCallback="onMaskToggle">
+        <slot v-if="toggleMask && !unmasked" :name="$slots.unmaskicon ? 'unmaskicon' : 'showicon'" :toggleCallback="onMaskToggle" :class="[cx('unmaskIcon')]" v-bind="ptm('unmaskIcon')">
             <component :is="unmaskIcon ? 'i' : 'EyeIcon'" :class="[cx('unmaskIcon'), unmaskIcon]" @click="onMaskToggle" v-bind="ptm('unmaskIcon')" />
         </slot>
         <span class="p-hidden-accessible" aria-live="polite" v-bind="ptm('hiddenAccesible')" :data-p-hidden-accessible="true">
@@ -49,13 +49,16 @@
                     :class="[cx('overlay'), panelClass, overlayClass]"
                     :style="[overlayStyle, panelStyle]"
                     @click="onOverlayClick"
+                    :data-p="overlayDataP"
+                    role="dialog"
+                    aria-live="polite"
                     v-bind="{ ...panelProps, ...overlayProps, ...ptm('overlay') }"
                 >
                     <slot name="header"></slot>
                     <slot name="content">
                         <div :class="cx('content')" v-bind="ptm('content')">
                             <div :class="cx('meter')" v-bind="ptm('meter')">
-                                <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" v-bind="ptm('meterLabel')"></div>
+                                <div :class="cx('meterLabel')" :style="{ width: meter ? meter.width : '' }" :data-p="meterDataP" v-bind="ptm('meterLabel')"></div>
                             </div>
                             <div :class="cx('meterText')" v-bind="ptm('meterText')">{{ infoText }}</div>
                         </div>
@@ -68,9 +71,10 @@
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { ConnectedOverlayScrollHandler, UniqueComponentId } from '@primevue/core/utils';
+import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import EyeIcon from '@primevue/icons/eye';
 import EyeSlashIcon from '@primevue/icons/eyeslash';
 import InputText from 'primevue/inputtext';
@@ -88,7 +92,6 @@ export default {
     },
     data() {
         return {
-            id: this.$attrs.id,
             overlayVisible: false,
             meter: null,
             infoText: null,
@@ -96,18 +99,12 @@ export default {
             unmasked: false
         };
     },
-    watch: {
-        '$attrs.id': function (newValue) {
-            this.id = newValue || UniqueComponentId();
-        }
-    },
     mediumCheckRegExp: null,
     strongCheckRegExp: null,
     resizeListener: null,
     scrollHandler: null,
     overlay: null,
     mounted() {
-        this.id = this.id || UniqueComponentId();
         this.infoText = this.promptText;
         this.mediumCheckRegExp = new RegExp(this.mediumRegex);
         this.strongCheckRegExp = new RegExp(this.strongRegex);
@@ -129,7 +126,7 @@ export default {
         onOverlayEnter(el) {
             ZIndex.set('overlay', el, this.$primevue.config.zIndex.overlay);
 
-            addStyle(el, { position: 'absolute', top: '0', left: '0' });
+            addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
@@ -321,7 +318,22 @@ export default {
             return this.promptLabel || this.$primevue.config.locale.passwordPrompt;
         },
         overlayUniqueId() {
-            return this.id + '_overlay';
+            return this.$id + '_overlay';
+        },
+        containerDataP() {
+            return cn({
+                fluid: this.$fluid
+            });
+        },
+        meterDataP() {
+            return cn({
+                [this.meter?.strength]: this.meter?.strength
+            });
+        },
+        overlayDataP() {
+            return cn({
+                ['portal-' + this.appendTo]: 'portal-' + this.appendTo
+            });
         }
     },
     components: {

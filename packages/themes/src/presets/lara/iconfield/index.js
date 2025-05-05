@@ -1,5 +1,1 @@
-export default {
-    icon: {
-        color: '{form.field.icon.color}'
-    }
-};
+export { default } from '@primeuix/themes/lara/iconfield';

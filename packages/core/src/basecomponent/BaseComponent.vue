@@ -1,10 +1,10 @@
 <script>
 import { Theme, ThemeService } from '@primeuix/styled';
-import { findSingle, isClient } from '@primeuix/utils/dom';
+import { findSingle, isElement } from '@primeuix/utils/dom';
 import { getKeyValue, isArray, isFunction, isNotEmpty, isString, resolve, toFlatCase } from '@primeuix/utils/object';
-import { uuid } from '@primeuix/utils/uuid';
 import Base from '@primevue/core/base';
 import BaseStyle from '@primevue/core/base/style';
+import { useAttrSelector } from '@primevue/core/useattrselector';
 import { mergeProps } from 'vue';
 import BaseComponentStyle from './style/BaseComponentStyle';
 
@@ -37,6 +37,8 @@ export default {
         isUnstyled: {
             immediate: true,
             handler(newValue) {
+                ThemeService.off('theme:change', this._loadCoreStyles);
+
                 if (!newValue) {
                     this._loadCoreStyles();
                     this._themeChangeListener(this._loadCoreStyles); // update styles with theme settings
@@ -45,10 +47,13 @@ export default {
         },
         dt: {
             immediate: true,
-            handler(newValue) {
+            handler(newValue, oldValue) {
+                ThemeService.off('theme:change', this._themeScopedListener);
+
                 if (newValue) {
                     this._loadScopedThemeStyles(newValue);
-                    this._themeChangeListener(() => this._loadScopedThemeStyles(newValue));
+                    this._themeScopedListener = () => this._loadScopedThemeStyles(newValue);
+                    this._themeChangeListener(this._themeScopedListener);
                 } else {
                     this._unloadScopedThemeStyles();
                 }
@@ -57,6 +62,7 @@ export default {
     },
     scopedStyleEl: undefined,
     rootEl: undefined,
+    uid: undefined,
     $attrSelector: undefined,
     beforeCreate() {
         const _usept = this.pt?.['_usept'];
@@ -70,17 +76,18 @@ export default {
         const valueInConfig = _useptInConfig ? this.$primevue?.config?.pt?.value : this.$primevue?.config?.pt;
 
         (valueInConfig || originalValueInConfig)?.[this.$.type.name]?.hooks?.['onBeforeCreate']?.();
-        this.$attrSelector = uuid('pc');
+
+        this.$attrSelector = useAttrSelector();
+        this.uid = this.$attrs.id || this.$attrSelector.replace('pc', 'pv_id_');
     },
     created() {
         this._hook('onCreated');
     },
     beforeMount() {
-        // @todo - improve performance
-        this.rootEl = findSingle(this.$el, `[data-pc-name="${toFlatCase(this.$.type.name)}"]`);
+        // @deprecated - remove in v5
+        this.rootEl = findSingle(isElement(this.$el) ? this.$el : this.$el?.parentElement, `[${this.$attrSelector}]`);
 
         if (this.rootEl) {
-            this.$attrSelector && !this.rootEl.hasAttribute(this.$attrSelector) && this.rootEl.setAttribute(this.$attrSelector, '');
             this.rootEl.$pc = { name: this.$.type.name, attrSelector: this.$attrSelector, ...this.$params };
         }
 
@@ -100,6 +107,7 @@ export default {
         this._hook('onBeforeUnmount');
     },
     unmounted() {
+        this._removeThemeListeners();
         this._unloadScopedThemeStyles();
         this._hook('onUnmounted');
     },
@@ -116,21 +124,20 @@ export default {
         _mergeProps(fn, ...args) {
             return isFunction(fn) ? fn(...args) : mergeProps(...args);
         },
+        _load() {
+            // @todo
+            if (!Base.isStyleNameLoaded('base')) {
+                BaseStyle.loadCSS(this.$styleOptions);
+                this._loadGlobalStyles();
+
+                Base.setLoadedStyleName('base');
+            }
+
+            this._loadThemeStyles();
+        },
         _loadStyles() {
-            const _load = () => {
-                // @todo
-                if (!Base.isStyleNameLoaded('base')) {
-                    BaseStyle.loadCSS(this.$styleOptions);
-                    this._loadGlobalStyles();
-
-                    Base.setLoadedStyleName('base');
-                }
-
-                this._loadThemeStyles();
-            };
-
-            _load();
-            this._themeChangeListener(_load);
+            this._load();
+            this._themeChangeListener(this._load);
         },
         _loadCoreStyles() {
             if (!Base.isStyleNameLoaded(this.$style?.name) && this.$style?.name) {
@@ -165,7 +172,7 @@ export default {
                 BaseStyle.load(primitive?.css, { name: 'primitive-variables', ...this.$styleOptions });
                 BaseStyle.load(semantic?.css, { name: 'semantic-variables', ...this.$styleOptions });
                 BaseStyle.load(global?.css, { name: 'global-variables', ...this.$styleOptions });
-                BaseStyle.loadTheme({ name: 'global-style', ...this.$styleOptions }, style);
+                BaseStyle.loadStyle({ name: 'global-style', ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName('common');
             }
@@ -175,7 +182,7 @@ export default {
                 const { css, style } = this.$style?.getComponentTheme?.() || {};
 
                 this.$style?.load(css, { name: `${this.$style.name}-variables`, ...this.$styleOptions });
-                this.$style?.loadTheme({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
+                this.$style?.loadStyle({ name: `${this.$style.name}-style`, ...this.$styleOptions }, style);
 
                 Theme.setLoadedStyleName(this.$style.name);
             }
@@ -201,6 +208,11 @@ export default {
         _themeChangeListener(callback = () => {}) {
             Base.clearLoadedStyleNames();
             ThemeService.on('theme:change', callback);
+        },
+        _removeThemeListeners() {
+            ThemeService.off('theme:change', this._loadCoreStyles);
+            ThemeService.off('theme:change', this._load);
+            ThemeService.off('theme:change', this._themeScopedListener);
         },
         _getHostInstance(instance) {
             return instance ? (this.$options.hostName ? (instance.$.type.name === this.$options.hostName ? instance : this._getHostInstance(instance.$parentInstance)) : instance.$parentInstance) : undefined;
@@ -235,7 +247,7 @@ export default {
                     ...(key === 'root' && {
                         [`${datasetPrefix}name`]: toFlatCase(isExtended ? this.pt?.['data-pc-section'] : this.$.type.name),
                         ...(isExtended && { [`${datasetPrefix}extend`]: toFlatCase(this.$.type.name) }),
-                        ...(isClient() && { [`${this.$attrSelector}`]: '' })
+                        [`${this.$attrSelector}`]: ''
                     }),
                     [`${datasetPrefix}section`]: toFlatCase(key)
                 }
@@ -291,7 +303,11 @@ export default {
         },
         ptmi(key = '', params = {}) {
             // inheritAttrs:true
-            return mergeProps(this.$_attrsWithoutPT, this.ptm(key, params));
+            const attrs = mergeProps(this.$_attrsWithoutPT, this.ptm(key, params));
+
+            attrs?.hasOwnProperty('id') && (attrs.id ??= this.$id);
+
+            return attrs;
         },
         ptmo(obj = {}, key = '', params = {}) {
             return this._getPTValue(obj, key, { instance: this, ...params }, false);
@@ -320,6 +336,9 @@ export default {
         isUnstyled() {
             return this.unstyled !== undefined ? this.unstyled : this.$primevueConfig?.unstyled;
         },
+        $id() {
+            return this.$attrs.id || this.uid;
+        },
         $inProps() {
             const nodePropKeys = Object.keys(this.$.vnode?.props || {});
 
@@ -329,7 +348,7 @@ export default {
             return this.$primevueConfig?.theme;
         },
         $style() {
-            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadTheme: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
+            return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
             return { nonce: this.$primevueConfig?.csp?.nonce };

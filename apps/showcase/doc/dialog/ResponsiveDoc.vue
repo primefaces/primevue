@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>
             Dialog width can be adjusted per screen size with the <i>breakpoints</i> option where the max-width for the breakpoint and the width are defined as key-value pairs. When no breakpoint matches width defined in <i>style</i> or
-            <i>class</i> is used. Alternatively responsive utility classes of libraries like Tailwind or PrimeFlex can also be used such as <i>md:w-screen</i>.
+            <i>class</i> is used. Alternatively responsive utility classes of libraries like Tailwind can also be used such as <i>md:w-screen</i>.
         </p>
     </DocSectionText>
 

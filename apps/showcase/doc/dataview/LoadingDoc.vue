@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>While data is being loaded. <PrimeVueNuxtLink to="/skeleton">Skeleton</PrimeVueNuxtLink> component may be used to indicate the busy state.</p>
+        <p>While data is being loaded, <PrimeVueNuxtLink to="/skeleton">Skeleton</PrimeVueNuxtLink> component may be used to indicate the busy state.</p>
     </DocSectionText>
     <div class="card">
         <DataView :value="products" :layout="layout">

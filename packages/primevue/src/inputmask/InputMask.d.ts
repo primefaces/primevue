@@ -7,7 +7,7 @@
  * @module inputmask
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
@@ -63,7 +63,7 @@ export interface InputMaskPassThroughOptions {
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
      */
-    root?: InputTextPassThroughOptions<InputMaskSharedPassThroughMethodOptions>;
+    root?: InputMaskPassThroughOptionType;
     /**
      * Used to pass attributes to the InputText component.
      * @see {@link InputTextPassThroughOptions}
@@ -106,11 +106,11 @@ export interface InputMaskProps {
     /**
      * Value of the component.
      */
-    modelValue?: string | undefined;
+    modelValue?: string | undefined | null;
     /**
      * The default value for the input when not controlled by `modelValue`.
      */
-    defaultValue?: string | undefined;
+    defaultValue?: string | undefined | null;
     /**
      * Placeholder character in mask, default is underscore.
      * @defaultValue _
@@ -159,12 +159,12 @@ export interface InputMaskProps {
     /**
      * Defines the size of the component.
      */
-    size?: 'small' | 'large' | undefined;
+    size?: HintedString<'small' | 'large'> | undefined;
     /**
      * Specifies the input variant of the component.
-     * @defaultValue outlined
+     * @defaultValue null
      */
-    variant?: 'outlined' | 'filled' | undefined;
+    variant?: HintedString<'outlined' | 'filled'> | undefined | null;
     /**
      * Spans 100% width of the container when enabled.
      * @defaultValue null

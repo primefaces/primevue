@@ -16,7 +16,7 @@
             @keydown="onKeyDown"
             @mousedown="onMouseDown"
             @mouseup="onMouseUp"
-            @touchstart.passive="onTouchStart"
+            @touchstart="onTouchStart"
             @touchend="onTouchEnd"
             v-bind="ptm('svg')"
         >

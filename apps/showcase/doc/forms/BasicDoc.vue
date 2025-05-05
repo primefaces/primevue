@@ -95,6 +95,7 @@ export default {
             }
 
             return {
+                values, // (Optional) Used to pass current form values to submit event.
                 errors
             };
         },
@@ -140,6 +141,7 @@ const resolver = ({ values }) => {
     }
 
     return {
+        values, // (Optional) Used to pass current form values to submit event.
         errors
     };
 };
@@ -167,6 +169,7 @@ const onFormSubmit = ({ valid }) => {
             }
 
             return {
+                values, // (Optional) Used to pass current form values to submit event.
                 errors
             };
         },

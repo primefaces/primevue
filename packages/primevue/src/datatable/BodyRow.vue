@@ -350,6 +350,8 @@ export default {
                 let nextRowFieldData = currentRowFieldData;
                 let groupRowSpan = 0;
 
+                if (this.d_rowExpanded) groupRowSpan++;
+
                 while (currentRowFieldData === nextRowFieldData) {
                     groupRowSpan++;
                     let nextRowData = this.value[++index];
@@ -580,7 +582,6 @@ export default {
                 let hiddenColLength = 0;
 
                 this.columns.forEach((column) => {
-                    if (this.columnProp(column, 'selectionMode') === 'single') hiddenColLength--;
                     if (this.columnProp(column, 'hidden')) hiddenColLength++;
                 });
 

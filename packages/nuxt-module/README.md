@@ -9,7 +9,7 @@
 
 - [✨ Release Notes](https://github.com/primefaces/primevue/packages/nuxt-module/blob/main/CHANGELOG.md#changelog)
 - [📖 Documentation](https://primevue.org/nuxt/)
-  
+
 ## Quick Setup
 
 1. Add `@primevue/nuxt-module` dependency to your project
@@ -22,22 +22,16 @@ npx nuxi@latest module add primevue
 
 ```js
 {
-  modules: [
-    '@primevue/nuxt-module'
-  ]
+    modules: ['@primevue/nuxt-module'];
 }
 ```
 
 That's it! You can now use `@primevue/nuxt-module` in your Nuxt app ✨
 
-<!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/@primevue/nuxt-module/latest.svg?color
 [npm-version-href]: https://npmjs.com/package/@primevue/nuxt-module
-
 [npm-downloads-src]: https://img.shields.io/npm/dm/@primevue/nuxt-module
 [npm-downloads-href]: https://npmjs.com/package/@primevue/nuxt-module
-
 [discord-src]: https://img.shields.io/discord/557940238991753223.svg?colorB=7289da&label=chat&logo=discord
-
 [license-src]: https://img.shields.io/npm/l/@primevue/nuxt-module.svg?style=flat&colorB=yellow
 [license-href]: https://npmjs.com/package/@primevue/nuxt-module

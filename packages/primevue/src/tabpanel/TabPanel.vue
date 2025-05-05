@@ -26,10 +26,10 @@ export default {
             return equals(this.$pcTabs?.d_value, this.value);
         },
         id() {
-            return `${this.$pcTabs?.id}_tabpanel_${this.value}`;
+            return `${this.$pcTabs?.$id}_tabpanel_${this.value}`;
         },
         ariaLabelledby() {
-            return `${this.$pcTabs?.id}_tab_${this.value}`;
+            return `${this.$pcTabs?.$id}_tab_${this.value}`;
         },
         attrs() {
             return mergeProps(this.a11yAttrs, this.ptmi('root', this.ptParams));

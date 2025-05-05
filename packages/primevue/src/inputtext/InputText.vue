@@ -1,8 +1,9 @@
 <template>
-    <input type="text" :class="cx('root')" :value="d_value" :disabled="disabled" :aria-invalid="$invalid || undefined" @input="onInput" v-bind="attrs" />
+    <input type="text" :class="cx('root')" :value="d_value" :name="name" :disabled="disabled" :aria-invalid="$invalid || undefined" :data-p="dataP" @input="onInput" v-bind="attrs" />
 </template>
 
 <script>
+import { cn } from '@primeuix/utils';
 import { mergeProps } from 'vue';
 import BaseInputText from './BaseInputText.vue';
 
@@ -26,6 +27,14 @@ export default {
                 }),
                 this.formField
             );
+        },
+        dataP() {
+            return cn({
+                invalid: this.$invalid,
+                fluid: this.$fluid,
+                filled: this.$variant === 'filled',
+                [this.size]: this.size
+            });
         }
     }
 };
