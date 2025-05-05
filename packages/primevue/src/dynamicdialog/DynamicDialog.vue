@@ -1,6 +1,6 @@
 <template>
     <template v-for="(instance, key) in instanceMap" :key="key">
-        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide(instance)">
+        <DDialog v-model:visible="instance.visible" :_instance="instance" v-bind="instance.options.props" @hide="onDialogHide(instance)" @after-hide="onDialogAfterHide(instance)" :block-scroll="false">
             <template v-if="instance.options.templates && instance.options.templates.header" #header>
                 <component v-for="(header, index) in getTemplateItems(instance.options.templates.header)" :is="header" :key="index + '_header'" v-bind="instance.options.emits"></component>
             </template>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { blockBodyScroll, unblockBodyScroll } from '@primeuix/utils/dom';
 import { UniqueComponentId } from '@primevue/core/utils';
 import Dialog from 'primevue/dialog';
 import DynamicDialogEventBus from 'primevue/dynamicdialogeventbus';
@@ -24,7 +25,8 @@ export default {
     inheritAttrs: false,
     data() {
         return {
-            instanceMap: {}
+            instanceMap: {},
+            openModalCount: 0
         };
     },
     openListener: null,
@@ -33,6 +35,11 @@ export default {
     mounted() {
         this.openListener = ({ instance }) => {
             const key = UniqueComponentId() + '_dynamic_dialog';
+
+            if (instance.options.props?.modal) {
+                if (this.openModalCount === 0) blockBodyScroll();
+                this.openModalCount++;
+            }
 
             instance.visible = true;
             instance.key = key;
@@ -66,6 +73,11 @@ export default {
             this.currentInstance && delete this.currentInstance;
             this.currentInstance = null;
             delete this.instanceMap[instance.key];
+
+            if (instance.options.props?.modal) {
+                this.openModalCount = Math.max(0, this.openModalCount - 1);
+                if (this.openModalCount === 0) unblockBodyScroll();
+            }
         },
         getTemplateItems(template) {
             return Array.isArray(template) ? template : [template];
