@@ -215,12 +215,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('clmousedownick', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }

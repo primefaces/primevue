@@ -479,7 +479,7 @@ export default {
                 this.$emit('matchmode-change', { field: this.field, matchMode: value, index: index });
             } else {
                 _filters[this.field].matchMode = matchMode;
-                this.$emit('matchmode-change', { field: this.field, matchMode: value });
+                this.$emit('matchmode-change', { field: this.field, matchMode: value, });
             }
 
             if (!this.showApplyButton) {
@@ -596,12 +596,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener, true);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener, true);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }

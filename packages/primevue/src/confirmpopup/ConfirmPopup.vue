@@ -233,12 +233,12 @@ export default {
                     }
                 };
 
-                document.addEventListener('mousedown', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('mousedown', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener);
                 this.outsideClickListener = null;
             }
         },
