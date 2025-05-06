@@ -7,7 +7,7 @@ catalog:
     '@primeuix/utils': ^0.5.3
     '@primeuix/forms': ^0.0.4
     '@primeuix/styles': ^1.1.0
-    '@primeuix/themes': ^1.0.3
+    '@primeuix/themes': ^1.1.0
     'tailwindcss-primeui': ^0.6.1
     'primeicons': ^7.0.0
 
