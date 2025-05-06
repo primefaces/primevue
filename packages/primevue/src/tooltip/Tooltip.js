@@ -88,7 +88,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         let target = this.getTarget(el);
 
         // Make sure no tooltip element will be created after this point.
-        target.$_ptooltipDisabled =false;
+        target.$_ptooltipDisabled = false;
         this.remove(target);
         this.unbindEvents(target, options);
 
