@@ -240,6 +240,7 @@ export default {
             this.focused = true;
             this.focusedOptionIndex = this.focusedOptionIndex !== -1 ? this.focusedOptionIndex : this.autoOptionFocus ? this.findFirstFocusedOptionIndex() : this.findSelectedOptionIndex();
             this.autoUpdateModel();
+            this.scrollInView(this.focusedOptionIndex);
             this.$emit('focus', event);
         },
         onListBlur(event) {
