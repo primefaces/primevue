@@ -1,5 +1,54 @@
 # Changelog
 
+## [4.3.4](https://github.com/primefaces/primevue/tree/4.3.4) (2025-04-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.3...4.3.4)
+
+**Implemented New Features and Enhancements:**
+
+- Select Editable: Add Backspace and Enter key support for mobile [\#7676](https://github.com/primefaces/primevue/issues/7676)
+- Incorrect ARIA Attribute Usage in Password Input and Strength Panel [\#7544](https://github.com/primefaces/primevue/issues/7544)
+- Overlay design tokens for Input components has no effect [\#7508](https://github.com/primefaces/primevue/issues/7508)
+
+**Fixed bugs:**
+
+- Typos on constraint keys [\#7679](https://github.com/primefaces/primevue/issues/7679)
+- Listbox: can not scroll when focused [\#7675](https://github.com/primefaces/primevue/issues/7675)
+- Tooltip Remains in DOM When Target Element Is Removed Before Delay Completes [\#7673](https://github.com/primefaces/primevue/issues/7673)
+- FileUpload clears files immediately after customUpload handler is triggered [\#7664](https://github.com/primefaces/primevue/issues/7664)
+- Keydown events cause error in Panel toggle button [\#7656](https://github.com/primefaces/primevue/issues/7656)
+- Regression bug for tooltip with 4.3.3 [\#7646](https://github.com/primefaces/primevue/issues/7646)
+- InputNumber: internal ModelValue not being tracked correctly when value changed by user [\#7622](https://github.com/primefaces/primevue/issues/7622)
+- Multiselect slot schema [\#7610](https://github.com/primefaces/primevue/pull/7610)
+- AccordionHeader type definition .d.ts does not declare the active prop [\#7591](https://github.com/primefaces/primevue/issues/7591)
+- BaseInput - Falsy defaultValue in uncontrolled mode doesn't work [\#7589](https://github.com/primefaces/primevue/issues/7589)
+- Volt Theme - Select Component Clear Icon Issue [\#7586](https://github.com/primefaces/primevue/issues/7586)
+- MegaMenuProps model type is invalid [\#7585](https://github.com/primefaces/primevue/issues/7585)
+- SelectButton: pt->pcToggleButton->root-> missing option in context [\#7584](https://github.com/primefaces/primevue/issues/7584)
+- ColorPicker hue selector, selecting background elements/text[\#7579](https://github.com/primefaces/primevue/issues/7579)
+- Missing clear callback in Volt select (with showClear)[\#7574](https://github.com/primefaces/primevue/issues/7574)
+- Datepicker - Using prevbutton and nextbutton slots result in TypeErrors [\#7573](https://github.com/primefaces/primevue/issues/7573)
+- DatePicker - Date formatting doesn’t work when selecting the same date again [\#7569](https://github.com/primefaces/primevue/issues/7569)
+- Menu components documents invalid template name [\#7657](https://github.com/primefaces/primevue/issues/7657)
+- Image component: previewIcon prop has no effect [\#7652](https://github.com/primefaces/primevue/issues/7652)
+- Tooltip: memory leak [\#7649](https://github.com/primefaces/primevue/issues/7649)
+- Password Input: Using slots "maskicon" and "unmaskicon" causes the icon to appear outside of the input box and the click toggle to no longer work [\#7543](https://github.com/primefaces/primevue/issues/7543)
+- radio button component docs are not mentioning an important import [\#7639](https://github.com/primefaces/primevue/issues/7639)
+- Wrong id of the stepper component [\#7635](https://github.com/primefaces/primevue/issues/7635)
+- No loading animation on volt buttons [\#7526](https://github.com/primefaces/primevue/issues/7526)
+- FloatLabel: Float Label Doesn't Reset When Autocomplete Component is Cleared Programmatically [\#7617](https://github.com/primefaces/primevue/issues/7617)
+- About Menu Component's Async Popup Mode [\#7556](https://github.com/primefaces/primevue/issues/7556)
+- Files variable not available in filelabel slot of a FileUpload component [\#7552](https://github.com/primefaces/primevue/issues/7552)
+- MultiSelect: autoOptionFocus behavior is broken [\#7549](https://github.com/primefaces/primevue/issues/7549)
+- Error occurs when mask prop not set for the InputMask component [\#7539](https://github.com/primefaces/primevue/issues/7539)
+- Tooltip: shifts left [\#7532](https://github.com/primefaces/primevue/issues/7532)
+- Input components remove props from public API [\#7530](https://github.com/primefaces/primevue/issues/7530)
+- Select: broke appendTo="self" [\#7526](https://github.com/primefaces/primevue/issues/7526)
+- PrimeVue Forms + Datepicker: "Clear" button sets date to initial value date-string - breaks input-format [\#7515](https://github.com/primefaces/primevue/issues/7515)
+- Accordion: Using selectOnFocus Causes Value to Reset to Previous State [\#7509](https://github.com/primefaces/primevue/issues/7509)
+- OrgChart @node-select is triggered even if a node has selectable=false [\#7501](https://github.com/primefaces/primevue/issues/7501)
+- CascadeSelect: type check failed for prop "optionLabel". [\#5534](https://github.com/primefaces/primevue/issues/5534)
+
 ## [4.3.3](https://github.com/primefaces/primevue/tree/4.3.3) (2025-03-26)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.2...4.3.3)
