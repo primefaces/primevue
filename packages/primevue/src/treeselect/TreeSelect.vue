@@ -345,6 +345,9 @@ export default {
             addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
             this.focus();
+
+            // Issue: #7508
+            this.$attrSelector && el.setAttribute(this.$attrSelector, '');
         },
         onOverlayAfterEnter() {
             this.bindOutsideClickListener();

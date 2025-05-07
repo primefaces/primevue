@@ -711,6 +711,9 @@ export default {
             this.alignOverlay();
             this.scrollInView();
 
+            // Issue: #7508
+            this.$attrSelector && el.setAttribute(this.$attrSelector, '');
+
             setTimeout(() => {
                 this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
                 this.autoUpdateModel();

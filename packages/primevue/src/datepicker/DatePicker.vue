@@ -910,6 +910,9 @@ export default {
                 ZIndex.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
 
+            // Issue: #7508
+            this.$attrSelector && el.setAttribute(this.$attrSelector, '');
+
             this.alignOverlay();
             this.$emit('show');
         },

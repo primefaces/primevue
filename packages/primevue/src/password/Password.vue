@@ -130,6 +130,9 @@ export default {
             this.alignOverlay();
             this.bindScrollListener();
             this.bindResizeListener();
+
+            // Issue: #7508
+            this.$attrSelector && el.setAttribute(this.$attrSelector, '');
         },
         onOverlayLeave() {
             this.unbindScrollListener();
