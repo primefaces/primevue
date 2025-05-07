@@ -137,7 +137,6 @@ export default {
                 this.setContentEl(this.content);
                 this.init();
                 this.calculateAutoSize();
-                this.bindResizeListener();
 
                 this.defaultWidth = getWidth(this.element);
                 this.defaultHeight = getHeight(this.element);
@@ -145,6 +144,8 @@ export default {
                 this.defaultContentHeight = getHeight(this.content);
                 this.initialized = true;
             }
+
+            this.bindResizeListener();
         },
         init() {
             if (!this.disabled) {
