@@ -79,7 +79,7 @@ export default {
 
                     this.panels.map((panel, i) => {
                         let panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
-                        let panelSize = panelInitialSize || 100 / this.panels.length;
+                        let panelSize = panelInitialSize ?? 100 / this.panels.length;
 
                         _panelSizes[i] = panelSize;
                         children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
