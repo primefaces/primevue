@@ -112,7 +112,7 @@ export default {
                 }
 
                 if (this.message.life) {
-                    this.lifeRemaining = this.createdAt + this.lifeRemaining - Date().valueOf();
+                    this.lifeRemaining = this.createdAt + this.lifeRemaining - new Date().valueOf();
                     this.createdAt = null;
                     this.clearCloseTimeout();
                 }
