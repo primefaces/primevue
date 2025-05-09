@@ -78,8 +78,13 @@ export default {
                     let _panelSizes = [];
 
                     this.panels.map((panel, i) => {
-                        let panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
+                        const panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
+                        const panelInitialMinSize = getVNodeProp(panel, 'minSize');
                         let panelSize = panelInitialSize ?? 100 / this.panels.length;
+
+                        if (panelInitialMinSize) {
+                            panelSize = Math.max(panelInitialMinSize, panelSize);
+                        }
 
                         _panelSizes[i] = panelSize;
                         children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
