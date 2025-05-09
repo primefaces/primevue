@@ -145,7 +145,9 @@ export default {
                 this.initialized = true;
             }
 
-            this.bindResizeListener();
+            if (this.element) {
+                this.bindResizeListener();
+            }
         },
         init() {
             if (!this.disabled) {
