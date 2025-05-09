@@ -1,4 +1,4 @@
-import { Theme, dt } from '@primeuix/styled';
+import { css as Css, Theme, dt } from '@primeuix/styled';
 import { style } from '@primeuix/styles/base';
 import { isNotEmpty, minifyCSS, resolve } from '@primeuix/utils/object';
 import { useStyle } from '@primevue/core/usestyle';
@@ -35,7 +35,7 @@ export default {
     classes,
     inlineStyles,
     load(style, options = {}, transform = (cs) => cs) {
-        const computedStyle = transform(resolve(style, { dt }));
+        const computedStyle = transform(Css`${style}`);
 
         return isNotEmpty(computedStyle) ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
     },
@@ -43,7 +43,7 @@ export default {
         return this.load(this.css, options);
     },
     loadStyle(options = {}, style = '') {
-        return this.load(this.style, options, (computedStyle = '') => Theme.transformCSS(options.name || this.name, `${computedStyle}${style}`));
+        return this.load(this.style, options, (computedStyle = '') => Theme.transformCSS(options.name || this.name, `${computedStyle}${Css`${style}`}`));
     },
     getCommonTheme(params) {
         return Theme.getCommon(this.name, params);
@@ -63,7 +63,7 @@ export default {
     getStyleSheet(extendedCSS = '', props = {}) {
         if (this.css) {
             const _css = resolve(this.css, { dt }) || '';
-            const _style = minifyCSS(`${_css}${extendedCSS}`);
+            const _style = minifyCSS(Css`${_css}${extendedCSS}`);
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
                 .join(' ');
@@ -81,7 +81,7 @@ export default {
 
         if (this.style) {
             const name = this.name === 'base' ? 'global-style' : `${this.name}-style`;
-            const _css = resolve(this.style, { dt });
+            const _css = Css`${resolve(this.style, { dt })}`;
             const _style = minifyCSS(Theme.transformCSS(name, _css));
             const _props = Object.entries(props)
                 .reduce((acc, [k, v]) => acc.push(`${k}="${v}"`) && acc, [])
