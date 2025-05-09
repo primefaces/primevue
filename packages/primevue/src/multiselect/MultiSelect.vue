@@ -710,6 +710,9 @@ export default {
             event.preventDefault();
         },
         onEscapeKey(event) {
+            if (this.overlayVisible) {
+                event.stopPropagation();
+            }
             this.overlayVisible && this.hide(true);
             event.preventDefault();
         },
