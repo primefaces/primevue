@@ -6,7 +6,7 @@
             :type="inputType"
             :class="[cx('pcInputText'), inputClass]"
             :style="inputStyle"
-            :defaultValue="d_value"
+            :value="d_value"
             :name="$formName"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
@@ -96,7 +96,8 @@ export default {
             meter: null,
             infoText: null,
             focused: false,
-            unmasked: false
+            unmasked: false,
+            userCleared: false
         };
     },
     mediumCheckRegExp: null,
@@ -162,6 +163,9 @@ export default {
         onInput(event) {
             this.writeValue(event.target.value, event);
             this.$emit('change', event);
+            if (event.target.value === '') {
+                this.userCleared = true;
+            }
         },
         onFocus(event) {
             this.focused = true;
@@ -337,6 +341,9 @@ export default {
             return cn({
                 ['portal-' + this.appendTo]: 'portal-' + this.appendTo
             });
+        },
+        $formDefaultValue() {
+            return this.userCleared ? '' : this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         }
     },
     components: {
