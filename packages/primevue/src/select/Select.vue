@@ -482,7 +482,6 @@ export default {
         },
         onOptionSelect(event, option, isHide = true) {
             const value = this.getOptionValue(option);
-
             this.updateModel(event, value);
             isHide && this.hide(true);
         },
@@ -653,9 +652,9 @@ export default {
             } else {
                 if (this.focusedOptionIndex !== -1) {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
+                } else {
+                    this.hide(true);
                 }
-
-                this.hide();
             }
 
             event.preventDefault();
