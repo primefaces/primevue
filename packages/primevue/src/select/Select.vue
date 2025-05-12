@@ -668,9 +668,9 @@ export default {
             } else {
                 if (this.focusedOptionIndex !== -1) {
                     this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
-                } else {
-                    this.hide(true);
                 }
+
+                this.hide(true);
             }
 
             event.preventDefault();
