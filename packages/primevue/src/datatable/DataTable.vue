@@ -401,8 +401,8 @@ export default {
     ],
     provide() {
         return {
-            $columns: this.d_columns,
-            $columnGroups: this.d_columnGroups
+            $columns: this.d_columns.get(),
+            $columnGroups: this.d_columnGroups.get()
         };
     },
     data() {
