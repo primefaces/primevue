@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import { $dt } from '@primeuix/styled';
 import { absolutePosition, addClass, focus, getOffset, isTouchDevice } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -212,7 +211,7 @@ export default {
                 arrowLeft = targetOffset.left - containerOffset.left;
             }
 
-            this.container.style.setProperty($dt('confirmpopup.arrow.left').name, `${arrowLeft}px`);
+            this.container.style.setProperty(this.$primevue.styled.$dt('confirmpopup.arrow.left').name, `${arrowLeft}px`);
 
             if (containerOffset.top < targetOffset.top) {
                 this.container.setAttribute('data-p-confirmpopup-flipped', 'true');
@@ -222,7 +221,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.visible && this.container && !this.container.contains(target) && !this.isTargetClicked(target)) {
                         if (this.confirmation.onHide) {
                             this.confirmation.onHide();
                         }
@@ -282,8 +282,8 @@ export default {
                 focusTarget.focus({ preventScroll: true }); // Firefox requires preventScroll
             }
         },
-        isTargetClicked(event) {
-            return this.target && (this.target === event.target || this.target.contains(event.target));
+        isTargetClicked(target) {
+            return this.target && (this.target === target || this.target.contains(target));
         },
         containerRef(el) {
             this.container = el;

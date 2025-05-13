@@ -1038,7 +1038,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.isOutsideClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.overlayVisible && this.isOutsideClicked(target)) {
                         this.overlayVisible = false;
                     }
                 };
@@ -1126,12 +1127,11 @@ export default {
                 this.matchMediaOrientationListener = null;
             }
         },
-        isOutsideClicked(event) {
-            const composedPath = event.composedPath();
-            return !(this.$el.isSameNode(event.target) || this.isNavIconClicked(event) || composedPath.includes(this.$el) || composedPath.includes(this.overlay));
+        isOutsideClicked(target) {
+            return !(this.$el.isSameNode(target) || this.isNavIconClicked(target) || this.$el.contains(target) || (this.overlay && this.overlay.contains(target)));
         },
-        isNavIconClicked(event) {
-            return (this.previousButton && (this.previousButton.isSameNode(event.target) || this.previousButton.contains(event.target))) || (this.nextButton && (this.nextButton.isSameNode(event.target) || this.nextButton.contains(event.target)));
+        isNavIconClicked(target) {
+            return (this.previousButton && (this.previousButton.isSameNode(target) || this.previousButton.contains(target))) || (this.nextButton && (this.nextButton.isSameNode(target) || this.nextButton.contains(target)));
         },
         alignOverlay() {
             if (this.overlay) {

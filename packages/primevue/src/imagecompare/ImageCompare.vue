@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { $dt } from '@primeuix/styled';
 import { setCSSProperty } from '@primeuix/utils/dom';
 import BaseImageCompare from './BaseImageCompare.vue';
 
@@ -19,7 +18,7 @@ export default {
             const value = event.target.value;
             const image = event.target.previousElementSibling;
 
-            setCSSProperty(image, $dt('imagecompare.scope.x').name, `${value}%`);
+            setCSSProperty(image, this.$primevue.styled.$dt('imagecompare.scope.x').name, `${value}%`);
         }
     }
 };
