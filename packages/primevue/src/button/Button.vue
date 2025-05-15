@@ -35,11 +35,7 @@ export default {
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
 
-            return _ptm(key, {
-                context: {
-                    disabled: this.disabled
-                }
-            });
+            return _ptm(key);
         }
     },
     computed: {
@@ -53,7 +49,7 @@ export default {
             return this.icon || this.$slots.icon;
         },
         attrs() {
-            return mergeProps(this.asAttrs, this.a11yAttrs, this.getPTOptions('root'));
+            return mergeProps(this.asAttrs, this.a11yAttrs, this.getPTOptions('root'), {disabled: this.disabled});
         },
         asAttrs() {
             return this.as === 'BUTTON' ? { type: 'button', disabled: this.disabled } : undefined;
