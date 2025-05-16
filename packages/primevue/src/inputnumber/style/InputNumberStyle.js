@@ -19,13 +19,13 @@ const classes = {
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',
         {
-            'p-disabled': props.showButtons && props.max !== null && instance.maxBoundry()
+            'p-disabled': props.showButtons && (props.disabled || (props.max !== null && instance.maxBoundry()))
         }
     ],
     decrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-decrement-button',
         {
-            'p-disabled': props.showButtons && props.min !== null && instance.minBoundry()
+            'p-disabled': props.showButtons && (props.disabled || (props.min !== null && instance.minBoundry()))
         }
     ]
 };
