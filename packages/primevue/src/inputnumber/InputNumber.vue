@@ -404,6 +404,7 @@ export default {
             let inputValue = event.target.value;
             let newValueStr = null;
             const code = event.code || event.key;
+
             switch (code) {
                 case 'ArrowUp':
                     this.spin(event, 1);
