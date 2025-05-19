@@ -72727,6 +72727,14 @@
                             "description": "Key of the Toast to display the message."
                         },
                         {
+                            "name": "slotContext",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Record<string, any>",
+                            "default": "",
+                            "description": "Custom data which can be used when using slots."
+                        },
+                        {
                             "name": "styleClass",
                             "optional": true,
                             "readonly": false,
