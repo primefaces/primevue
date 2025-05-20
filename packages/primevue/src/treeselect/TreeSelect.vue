@@ -384,7 +384,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event)) {
+                    const target = event.composedPath()[0];
+                    if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(target)) {
                         this.hide();
                     }
 
@@ -433,8 +434,8 @@ export default {
                 this.resizeListener = null;
             }
         },
-        isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
+        isOutsideClicked(target) {
+            return !(this.$el.isSameNode(target) || this.$el.contains(target) || (this.overlay && this.overlay.contains(target)));
         },
         overlayRef(el) {
             this.overlay = el;

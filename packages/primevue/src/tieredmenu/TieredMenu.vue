@@ -455,8 +455,9 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    const isOutsideContainer = this.container && !this.container.contains(event.target);
-                    const isOutsideTarget = this.popup ? !(this.target && (this.target === event.target || this.target.contains(event.target))) : true;
+                    const target = event.composedPath()[0];
+                    const isOutsideContainer = this.container && !this.container.contains(target);
+                    const isOutsideTarget = this.popup ? !(this.target && (this.target === target || this.target.contains(target))) : true;
 
                     if (isOutsideContainer && isOutsideTarget) {
                         this.hide();
