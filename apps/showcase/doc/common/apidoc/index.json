@@ -60664,6 +60664,14 @@
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
+                        },
+                        {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SelectButtonContext",
+                            "default": "",
+                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -60999,6 +61007,29 @@
                             "description": "Callback to invoke on blur."
                         }
                     ]
+                },
+                "SelectButtonContext": {
+                    "description": "Defines current options in SelectButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current highlighted state as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state as a boolean."
+                        }
+                    ],
+                    "methods": []
                 }
             }
         },
@@ -61023,6 +61054,10 @@
                 },
                 "SelectButtonState": {
                     "description": "Defines current inline state in SelectButton component.",
+                    "props": []
+                },
+                "SelectButtonContext": {
+                    "description": "Defines current options in SelectButton component.",
                     "props": []
                 },
                 "SelectButtonProps": {
