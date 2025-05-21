@@ -16,6 +16,22 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 export declare type SelectButtonPassThroughOptionType = SelectButtonPassThroughAttributes | ((options: SelectButtonPassThroughMethodOptions) => SelectButtonPassThroughAttributes | string) | string | null | undefined;
 
 /**
+ * Defines current options in SelectButton component.
+ */
+export interface SelectButtonContext {
+    /**
+     * Current active state as a boolean.
+     * @defaultValue false
+     */
+    active: boolean;
+    /**
+     * Current disabled state as a boolean.
+     * @defaultValue false
+     */
+    disabled: boolean;
+}
+
+/**
  * Custom passthrough(pt) option method.
  */
 export interface SelectButtonPassThroughMethodOptions {
@@ -31,6 +47,10 @@ export interface SelectButtonPassThroughMethodOptions {
      * Defines current inline state.
      */
     state: SelectButtonState;
+    /**
+     * Defines current options.
+     */
+    context: SelectButtonContext;
     /**
      * Defines valid attributes.
      */
