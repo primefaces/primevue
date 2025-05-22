@@ -11,6 +11,11 @@ export default {
             $pcInputText: this,
             $parentInstance: this
         };
+    },
+    computed: {
+        $invalid() {
+            return this.invalid;
+        }
     }
 };
 </script>
