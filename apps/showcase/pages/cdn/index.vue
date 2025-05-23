@@ -1,13 +1,13 @@
 <template>
     <Head>
         <Title>Install PrimeVue with CDN</Title>
-        <Meta name="description" content="Setting up PrimeVue in a Vite project" />
+        <Meta name="description" content="Setting up PrimeVue in a project using CDN" />
     </Head>
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Install PrimeVue with Vite</h1>
-                <p>Setting up PrimeVue in a Vite project.</p>
+                <h1>Install PrimeVue with CND</h1>
+                <p>Setting up PrimeVue in a project using CDN.</p>
             </div>
             <DocSections :docs="docs" />
         </div>
