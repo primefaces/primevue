@@ -44,7 +44,7 @@ export default {
 
       app.use(PrimeVue.Config, {
         theme: {
-            preset: PrimeVue.Themes.Aura
+            preset: PrimeUIX.Themes.Aura
         }
       });
 
