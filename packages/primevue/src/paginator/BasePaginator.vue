@@ -37,7 +37,11 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
-        }
+        },
+        allRowsPerPageOption: {
+            type: Boolean,
+            default: false
+        },
     },
     style: PaginatorStyle,
     provide() {
