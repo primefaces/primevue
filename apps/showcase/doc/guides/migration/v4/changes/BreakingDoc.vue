@@ -40,6 +40,11 @@
             added for indication. Review the <i>Pass Through</i> section of a component for the new API. The Tailwind CSS presets for the unstyled mode are not updated to v4 yet.
         </p>
 
+        <h4>Changed Features</h4>
+        <ul class="flex flex-col gap-2 leading-normal">
+            <li>Dialog <i class="mark">keepInViewPort</i> property is renamed to <i class="mark">keepInViewport</i>.</li>
+        </ul>
+
         <h4>Removed Features</h4>
         <ul class="flex flex-col gap-2 leading-normal">
             <li>Sidebar/Drawer <i class="mark">size</i> property is removed, use a responsive class utilty as replacement, demos have new examples.</li>
