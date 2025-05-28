@@ -70,10 +70,14 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        value: {
+            handler() {
+                this.treeNodeChildrenMap = this.initTreeNodeChildrenMap();
+            },
+            immediate: true,
+            deep: true
         }
-    },
-    created() {
-        this.treeNodeChildrenMap = this.initTreeNodeChildrenMap();
     },
     methods: {
         onNodeToggle(node) {
