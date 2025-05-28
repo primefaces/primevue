@@ -38,7 +38,7 @@ export default class {
 
         children.forEach((child) => {
             if (child.children instanceof Array) {
-                components = components.concat(this._recursive(components, child.children));
+                components = components.concat(this._recursive(helpers, child.children));
             } else if (child.type.name === this.type) {
                 components.push(child);
             } else if (isNotEmpty(child.key)) {
