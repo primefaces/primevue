@@ -45,7 +45,8 @@ export default {
     },
     data() {
         return {
-            d_value: this.defaultValue !== undefined ? this.defaultValue : this.modelValue
+            d_value: this.defaultValue !== undefined ? this.defaultValue : this.modelValue,
+            _formInitialized: false
         };
     },
     watch: {
@@ -70,7 +71,16 @@ export default {
         $formDefaultValue: {
             immediate: true,
             handler(newValue) {
-                this.d_value !== newValue && (this.d_value = newValue);
+                if (!this._formInitialized) {
+                    this.d_value = newValue;
+                    this._formInitialized = true;
+                } else {
+                    if (this.d_value === undefined || this.d_value === null || this.d_value === '') return;
+
+                    if (this.d_value !== newValue) {
+                        this.d_value = newValue;
+                    }
+                }
             }
         },
         $formValue: {
