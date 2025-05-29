@@ -90,7 +90,7 @@ export interface FloatLabelProps {
     unstyled?: boolean;
     /**
      * Defines the positioning of the label relative to the input.
-     * @defaultValue false
+     * @defaultValue over
      */
     variant?: HintedString<'over' | 'in' | 'on'> | undefined;
 }
