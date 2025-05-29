@@ -1,5 +1,6 @@
 <template>
-    <th
+    <component
+        :is="column.children?.filter ? 'th' : 'td'"
         v-if="!columnProp('hidden') && (rowGroupMode !== 'subheader' || groupRowsBy !== columnProp('field'))"
         :style="getFilterColumnHeaderStyle"
         :class="getFilterColumnHeaderClass"
@@ -46,7 +47,7 @@
             :unstyled="unstyled"
             :pt="pt"
         />
-    </th>
+    </component>
 </template>
 
 <script>
