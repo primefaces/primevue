@@ -170,13 +170,11 @@
     margin-bottom: 1rem;
 }
 
-.doc-section-nav {
+.doc-section-nav-container {
     position: sticky;
     top: 6rem;
     right: 0;
     width: 14rem;
-    max-height: calc(100vh - 15rem);
-    list-style: none;
     margin: 0;
     padding-block: 0.25rem;
     padding-inline: 0;
@@ -184,6 +182,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     align-self: flex-start;
+}
+
+.doc-section-nav {
+    list-style: none;
 
     >.navbar-item {
         .navbar-item-content {
