@@ -1,7 +1,7 @@
 <template>
     <Portal>
         <transition name="p-confirmpopup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
-            <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="ptmi('root')">
+            <div v-if="visible" ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :message="confirmation" :acceptCallback="accept" :rejectCallback="reject"></slot>
                 <template v-else>
                     <template v-if="!$slots.message">
@@ -86,7 +86,6 @@ export default {
     outsideClickListener: null,
     scrollHandler: null,
     resizeListener: null,
-    container: null,
     confirmListener: null,
     closeListener: null,
     mounted() {
@@ -285,9 +284,7 @@ export default {
         isTargetClicked(event) {
             return this.target && (this.target === event.target || this.target.contains(event.target));
         },
-        containerRef(el) {
-            this.container = el;
-        },
+
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
                 originalEvent: event,
@@ -302,6 +299,15 @@ export default {
         }
     },
     computed: {
+        container() {
+            /** When click.stop listens for an event, the coordinates are calculated after the ref is bound. */
+            this.$nextTick(() => {
+                if (this.$refs.containerRef) {
+                    this.alignOverlay();
+                }
+            });
+            return this.$refs.containerRef;
+        },
         message() {
             return this.confirmation ? this.confirmation.message : null;
         },
