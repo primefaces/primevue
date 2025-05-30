@@ -1,14 +1,10 @@
-import { Theme, ThemeService } from '@primeuix/styled';
 import { getKeyValue, isArray, isEmpty, isFunction, isObject, isString, resolve, toCapitalCase, toFlatCase } from '@primeuix/utils/object';
 import { uuid } from '@primeuix/utils/uuid';
-import Base from '@primevue/core/base';
-import BaseStyle from '@primevue/core/base/style';
-import PrimeVueService from '@primevue/core/service';
 import { mergeProps } from 'vue';
 
 const BaseDirective = {
     _getMeta: (...args) => [isObject(args[0]) ? undefined : args[0], resolve(isObject(args[0]) ? args[0] : args[1])],
-    _getConfig: (binding, vnode) => (binding?.instance?.$primevue || vnode?.ctx?.appContext?.config?.globalProperties?.$primevue)?.config,
+    _getPrimeVue: (binding, vnode) => binding?.instance?.$primevue || vnode?.ctx?.appContext?.config?.globalProperties?.$primevue,
     _getOptionValue: getKeyValue,
     _getPTValue: (instance = {}, obj = {}, key = '', params = {}, searchInDefaultPT = true) => {
         const getValue = (...args) => {
@@ -69,8 +65,13 @@ const BaseDirective = {
         return BaseDirective._usePT(instance, defaultPT, callback, key, params);
     },
     _loadStyles: (instance = {}, binding, vnode) => {
-        const config = BaseDirective._getConfig(binding, vnode);
-        const useStyleOptions = { nonce: config?.csp?.nonce };
+        const {
+            config,
+            styled: { ThemeService },
+            Base,
+            root
+        } = BaseDirective._getPrimeVue(binding, vnode);
+        const useStyleOptions = { nonce: config?.csp?.nonce, prefix: config?.prefix, root };
 
         BaseDirective._loadCoreStyles(instance, useStyleOptions);
         BaseDirective._loadThemeStyles(instance, useStyleOptions);
@@ -80,9 +81,11 @@ const BaseDirective = {
 
         instance.$loadStyles = () => BaseDirective._loadThemeStyles(instance, useStyleOptions);
 
-        BaseDirective._themeChangeListener(instance.$loadStyles);
+        BaseDirective._themeChangeListener(Base, ThemeService, instance.$loadStyles);
     },
     _loadCoreStyles(instance = {}, useStyleOptions) {
+        const { $primevueBase: Base, $primevueBaseStyle: BaseStyle } = instance;
+
         if (!Base.isStyleNameLoaded(instance.$style?.name) && instance.$style?.name) {
             BaseStyle.loadCSS(useStyleOptions);
             instance.$style?.loadCSS(useStyleOptions);
@@ -92,6 +95,11 @@ const BaseDirective = {
     },
     _loadThemeStyles: (instance = {}, useStyleOptions) => {
         if (instance?.isUnstyled() || instance?.theme?.() === 'none') return;
+
+        const {
+            $primevueStyled: { Theme },
+            $primevueBaseStyle: BaseStyle
+        } = instance;
 
         // common
         if (!Theme.isStyleNameLoaded('common')) {
@@ -134,17 +142,21 @@ const BaseDirective = {
             instance.scopedStyleEl = scopedStyle.el;
         }
     },
-    _themeChangeListener(callback = () => {}) {
+    _themeChangeListener(Base, ThemeService, callback = () => {}) {
         Base.clearLoadedStyleNames();
         ThemeService.on('theme:change', callback);
     },
     _removeThemeListeners(instance = {}) {
+        const {
+            $primevueStyled: { ThemeService }
+        } = instance;
+
         ThemeService.off('theme:change', instance.$loadStyles);
         instance.$loadStyles = undefined;
     },
     _hook: (directiveName, hookName, el, binding, vnode, prevVnode) => {
         const name = `on${toCapitalCase(hookName)}`;
-        const config = BaseDirective._getConfig(binding, vnode);
+        const { config } = BaseDirective._getPrimeVue(binding, vnode);
         const instance = el?.$instance;
         const selfHook = BaseDirective._usePT(instance, BaseDirective._getPT(binding?.value?.pt, directiveName), BaseDirective._getOptionValue, `hooks.${name}`);
         const defaultHook = BaseDirective._useDefaultPT(instance, config?.pt?.directives?.[directiveName], BaseDirective._getOptionValue, `hooks.${name}`);
@@ -161,7 +173,7 @@ const BaseDirective = {
         const handleHook = (hook, el, binding, vnode, prevVnode) => {
             el._$instances = el._$instances || {};
 
-            const config = BaseDirective._getConfig(binding, vnode);
+            const { config, styled, Base, BaseStyle, PrimeVueService } = BaseDirective._getPrimeVue(binding, vnode);
             const $prevInstance = el._$instances[name] || {};
             const $options = isEmpty($prevInstance) ? { ...options, ...options?.methods } : {};
 
@@ -174,8 +186,12 @@ const BaseDirective = {
                 $modifiers: binding?.modifiers,
                 $value: binding?.value,
                 $el: $prevInstance['$el'] || el || undefined,
-                $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...options?.style },
+                $style: { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(options?.style && options?.style.bindInstance(BaseStyle)) },
                 $primevueConfig: config,
+                $primevueStyled: styled,
+                $primevueBase: Base,
+                $primevueBaseStyle: BaseStyle,
+                $primevuePrimeVueService: PrimeVueService,
                 $attrSelector: el.$pd?.[name]?.attrSelector,
                 /* computed instance variables */
                 defaultPT: () => BaseDirective._getPT(config?.pt, undefined, (value) => value?.directives?.[name]),
@@ -202,6 +218,7 @@ const BaseDirective = {
         const handleWatchers = (el) => {
             const instance = el._$instances[name];
             const watchers = instance?.watch;
+            const PrimeVueService = instance.$primevuePrimeVueService;
 
             const handleWatchConfig = ({ newValue, oldValue }) => watchers?.['config']?.call(instance, newValue, oldValue);
 
@@ -219,7 +236,9 @@ const BaseDirective = {
         };
 
         const stopWatchers = (el) => {
-            const watchers = el._$instances[name].$watchersCallback;
+            const instance = el._$instances[name];
+            const watchers = instance.$watchersCallback;
+            const PrimeVueService = instance.$primevuePrimeVueService;
 
             if (watchers) {
                 PrimeVueService.off('config:change', watchers.config);

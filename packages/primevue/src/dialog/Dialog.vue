@@ -224,17 +224,17 @@ export default {
             }
 
             if (!this.modal) {
-                this.maximized ? blockBodyScroll() : unblockBodyScroll();
+                this.maximized ? blockBodyScroll(this.$primevue.styled.$dt) : unblockBodyScroll(this.$primevue.styled.$dt);
             }
         },
         enableDocumentSettings() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                blockBodyScroll();
+                blockBodyScroll(this.$primevue.styled.$dt);
             }
         },
         unbindDocumentState() {
             if (this.modal || (!this.modal && this.blockScroll) || (this.maximizable && this.maximized)) {
-                unblockBodyScroll();
+                unblockBodyScroll(this.$primevue.styled.$dt);
             }
         },
         onKeyDown(event) {
