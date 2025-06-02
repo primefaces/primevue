@@ -77,7 +77,7 @@ importers:
         version: 10.1.5(eslint@9.28.0(jiti@2.4.2))
       eslint-plugin-prettier:
         specifier: ^5.2.3
-        version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3)
+        version: 5.4.1(eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3)
       eslint-plugin-vue:
         specifier: ^9.32.0
         version: 9.33.0(eslint@9.28.0(jiti@2.4.2))
@@ -248,7 +248,7 @@ importers:
         version: 8.5.0(jiti@2.4.2)(postcss@8.5.4)(typescript@5.7.3)(yaml@2.8.0)
       unplugin-vue-components:
         specifier: ^0.27.0
-        version: 0.27.5(@babel/parser@7.27.4)(@nuxt/kit@3.17.4(magicast@0.3.5))(rollup@4.41.1)(vue@3.5.16(typescript@5.7.3))
+        version: 0.27.5(@babel/parser@7.27.4)(@nuxt/kit@3.17.4)(rollup@4.41.1)(vue@3.5.16(typescript@5.7.3))
     publishDirectory: dist
 
   packages/core:
@@ -11990,14 +11990,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-prettier@5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3):
+  eslint-plugin-prettier@5.4.1(eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(prettier@3.5.3):
     dependencies:
       eslint: 9.28.0(jiti@2.4.2)
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.11.8
     optionalDependencies:
-      '@types/eslint': 9.6.1
       eslint-config-prettier: 10.1.5(eslint@9.28.0(jiti@2.4.2))
 
   eslint-plugin-regexp@2.7.0(eslint@9.28.0(jiti@2.4.2)):
@@ -15477,7 +15476,7 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.2
 
-  unplugin-vue-components@0.27.5(@babel/parser@7.27.4)(@nuxt/kit@3.17.4(magicast@0.3.5))(rollup@4.41.1)(vue@3.5.16(typescript@5.7.3)):
+  unplugin-vue-components@0.27.5(@babel/parser@7.27.4)(@nuxt/kit@3.17.4)(rollup@4.41.1)(vue@3.5.16(typescript@5.7.3)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.4(rollup@4.41.1)
