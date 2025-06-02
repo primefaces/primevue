@@ -1,5 +1,24 @@
 # Changelog
 
+## [4.3.5](https://github.com/primefaces/primevue/tree/4.3.5) (2025-06-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.4...4.3.5)
+
+**Implemented New Features and Enhancements:**
+
+- Select: hitting ENTER when filter focused and no results breaks focus [\#7613](https://github.com/primefaces/primevue/issues/7613)
+
+**Fixed bugs:**
+
+- VirtualScroller: bind resize event defect [\#7694](https://github.com/primefaces/primevue/issues/7676)
+- Splitter: resetState not working with size == 0 [\#7687](https://github.com/primefaces/primevue/issues/7687)
+- Toast message disappears as soon as mouse leaves [\#7683](https://github.com/primefaces/primevue/issues/7683)
+- DataTable: Adding columns causes a double render [\#7677](https://github.com/primefaces/primevue/issues/7677)
+- VirtualScroller items not visible using v-show [\#7666](https://github.com/primefaces/primevue/issues/7666)
+- Forms: add setFieldValue null check [\#7479](https://github.com/primefaces/primevue/issues/7479)
+- Can't delete password from Password field when InitialValue is present [\#7331](https://github.com/primefaces/primevue/issues/7331)
+- Theme prefix config not applying CSS variables as expected [\#7258](https://github.com/primefaces/primevue/issues/7258)
+
 ## [4.3.4](https://github.com/primefaces/primevue/tree/4.3.4) (2025-04-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.3...4.3.4)
