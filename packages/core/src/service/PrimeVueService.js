@@ -1,3 +1,7 @@
 import { EventBus } from '@primeuix/utils/eventbus';
 
-export default EventBus();
+export const getPrimeVueServiceInstance = () => EventBus();
+
+const PrimeVueService = getPrimeVueServiceInstance();
+
+export default PrimeVueService;
