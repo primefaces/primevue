@@ -1493,7 +1493,7 @@ export default {
             event.preventDefault();
         },
         onClearButtonClick(event) {
-            this.updateModel(this.$formDefaultValue || null);
+            this.updateModel(this.defaultValue || null);
             this.overlayVisible = false;
             this.$emit('clear-click', event);
             event.preventDefault();
