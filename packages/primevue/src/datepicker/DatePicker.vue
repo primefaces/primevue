@@ -2845,7 +2845,16 @@ export default {
 
             if (propValue && Array.isArray(propValue)) {
                 if (this.isRangeSelection()) {
-                    propValue = propValue[1] || propValue[0];
+                    if (propValue.length === 1) {
+                        propValue = propValue[0];
+                    } else {
+                        let endmostMonth = new Date(propValue[0].getFullYear(), propValue[0].getMonth() + this.numberOfMonths, 1);
+                        if (propValue[1] < endmostMonth) {
+                            propValue = propValue[0];
+                        } else {
+                            propValue = new Date(propValue[1].getFullYear(), propValue[1].getMonth() - this.numberOfMonths + 1, 1);
+                        }
+                    }
                 } else if (this.isMultipleSelection()) {
                     propValue = propValue[propValue.length - 1];
                 }
