@@ -179,13 +179,16 @@
     padding-block: 0.25rem;
     padding-inline: 0;
     margin-inline-start: 4rem;
-    overflow-y: auto;
-    overflow-x: hidden;
     align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 7rem);
 }
 
 .doc-section-nav {
     list-style: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     >.navbar-item {
         .navbar-item-content {
