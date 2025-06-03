@@ -75,6 +75,7 @@ export default {
     inheritAttrs: false,
     data() {
         return {
+            _visible: false,
             visible: false,
             confirmation: null,
             autoFocusAccept: null,
@@ -98,10 +99,6 @@ export default {
             if (options.group === this.group) {
                 this.confirmation = options;
                 this.target = options.target;
-
-                if (this.confirmation.onShow) {
-                    this.confirmation.onShow();
-                }
 
                 this.visible = true;
             }
@@ -152,10 +149,6 @@ export default {
             this.visible = false;
         },
         onHide() {
-            if (this.confirmation.onHide) {
-                this.confirmation.onHide();
-            }
-
             this.visible = false;
         },
         onAcceptKeydown(event) {
@@ -223,10 +216,6 @@ export default {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
                     if (this.visible && this.container && !this.container.contains(event.target) && !this.isTargetClicked(event)) {
-                        if (this.confirmation.onHide) {
-                            this.confirmation.onHide();
-                        }
-
                         this.visible = false;
                     } else {
                         this.alignOverlay();
@@ -328,6 +317,28 @@ export default {
         },
         rejectIcon() {
             return this.confirmation ? this.confirmation.rejectIcon : this.confirmation?.rejectProps ? this.confirmation.rejectProps.icon : null;
+        },
+        visible: {
+            get() {
+                return this._visible;
+            },
+            set(val) {
+                if (this._visible === val) {
+                    return;
+                }
+
+                if(val) {
+                    if (this.confirmation?.onShow) {
+                        this.confirmation.onShow();
+                    }
+                } else {
+                    if (this.confirmation?.onHide) {
+                        this.confirmation.onHide();
+                    }
+                }
+
+                this._visible = val;
+            }
         }
     },
     components: {
