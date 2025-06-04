@@ -11,6 +11,14 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
         target.$_ptooltipModifiers = this.getModifiers(options);
 
+        // generate a random classname for this tooltip
+        this.classPrefix = Math.random().toString(36).substring(2);
+        this.styleElement = document.createElement('style');
+        this.styleElement.type = 'text/css';
+        this.styleElement.nonce = options.instance.$primevue?.config?.csp?.nonce;
+        this.styleElement.innerText = `.${this.classPrefix}-tooltip {} .${this.classPrefix}-arrow {}`;
+        document.head.appendChild(this.styleElement);
+
         if (!options.value) return;
         else if (typeof options.value === 'string') {
             target.$_ptooltipValue = options.value;
@@ -43,6 +51,27 @@ const Tooltip = BaseTooltip.extend('tooltip', {
 
         el.setAttribute('data-pd-tooltip', true);
     },
+
+    updateTooltipStyle(fn) {
+        const rules = this.styleElement.sheet.cssRules;
+
+        for (let i = 0; i < rules.length; i += 1) {
+            if (rules[i].selectorText === `.${this.classPrefix}-tooltip`) {
+                fn(rules[i].style);
+            }
+        }
+    },
+
+    updateArrowStyle(fn) {
+        const rules = this.styleElement.sheet.cssRules;
+
+        for (let i = 0; i < rules.length; i += 1) {
+            if (rules[i].selectorText === `.${this.classPrefix}-arrow`) {
+                fn(rules[i].style);
+            }
+        }
+    },
+
     updated(el, options) {
         let target = this.getTarget(el);
 
@@ -95,6 +124,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipScrollHandler.destroy();
             target.$_ptooltipScrollHandler = null;
         }
+
+        document.head.removeChild(this.styleElement);
     },
     timer: undefined,
     methods: {
@@ -277,7 +308,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const modifiers = el.$_ptooltipModifiers;
 
             const tooltipArrow = createElement('div', {
-                class: !this.isUnstyled() && this.cx('arrow'),
+                class: [!this.isUnstyled() && this.cx('arrow'), `${this.classPrefix}-arrow`],
                 'p-bind': this.ptm('arrow', {
                     context: modifiers
                 })
@@ -297,17 +328,18 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 tooltipText.appendChild(document.createTextNode(el.$_ptooltipValue));
             }
 
+            this.updateTooltipStyle((style) => {
+                style.display = 'inline-block';
+                style.width = el.$_ptooltipFitContent ? 'fit-content' : undefined;
+                style.pointerEvents = !this.isUnstyled() && el.$_ptooltipAutoHide && 'none';
+            });
+
             const container = createElement(
                 'div',
                 {
                     id: el.$_ptooltipIdAttr,
                     role: 'tooltip',
-                    style: {
-                        display: 'inline-block',
-                        width: el.$_ptooltipFitContent ? 'fit-content' : undefined,
-                        pointerEvents: !this.isUnstyled() && el.$_ptooltipAutoHide && 'none'
-                    },
-                    class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass],
+                    class: [!this.isUnstyled() && this.cx('root'), el.$_ptooltipClass, `${this.classPrefix}-tooltip`],
                     [this.$attrSelector]: '',
                     'p-bind': this.ptm('root', {
                         context: modifiers
@@ -412,13 +444,17 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let left = hostOffset.left + getOuterWidth(el);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
 
-            tooltipElement.style.left = left + 'px';
-            tooltipElement.style.top = top + 'px';
+            this.updateTooltipStyle((style) => {
+                style.left = left + 'px';
+                style.top = top + 'px';
+            });
 
-            arrowElement.style.top = '50%';
-            arrowElement.style.right = null;
-            arrowElement.style.bottom = null;
-            arrowElement.style.left = '0';
+            this.updateArrowStyle((style) => {
+                style.top = '50%';
+                style.right = null;
+                style.bottom = null;
+                style.left = '0';
+            });
         },
         alignLeft(el) {
             this.preAlign(el, 'left');
@@ -428,13 +464,17 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             let left = hostOffset.left - getOuterWidth(tooltipElement);
             let top = hostOffset.top + (getOuterHeight(el) - getOuterHeight(tooltipElement)) / 2;
 
-            tooltipElement.style.left = left + 'px';
-            tooltipElement.style.top = top + 'px';
+            this.updateTooltipStyle((style) => {
+                style.left = left + 'px';
+                style.top = top + 'px';
+            });
 
-            arrowElement.style.top = '50%';
-            arrowElement.style.right = '0';
-            arrowElement.style.bottom = null;
-            arrowElement.style.left = null;
+            this.updateArrowStyle((style) => {
+                style.top = '50%';
+                style.right = '0';
+                style.bottom = null;
+                style.left = null;
+            });
         },
         alignTop(el) {
             this.preAlign(el, 'top');
@@ -453,16 +493,20 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
             }
 
-            tooltipElement.style.left = left + 'px';
-            tooltipElement.style.top = top + 'px';
+            this.updateTooltipStyle((style) => {
+                style.left = left + 'px';
+                style.top = top + 'px';
+            });
 
             // The center of the target relative to the tooltip
             let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
-            arrowElement.style.top = null;
-            arrowElement.style.right = null;
-            arrowElement.style.bottom = '0';
-            arrowElement.style.left = elementRelativeCenter + 'px';
+            this.updateArrowStyle((style) => {
+                style.top = null;
+                style.right = null;
+                style.bottom = '0';
+                style.left = elementRelativeCenter + 'px';
+            });
         },
         alignBottom(el) {
             this.preAlign(el, 'bottom');
@@ -482,22 +526,29 @@ const Tooltip = BaseTooltip.extend('tooltip', {
                 left = Math.floor(hostOffset.left + elementWidth - tooltipWidth);
             }
 
-            tooltipElement.style.left = left + 'px';
-            tooltipElement.style.top = top + 'px';
+            this.updateTooltipStyle((style) => {
+                style.left = left + 'px';
+                style.top = top + 'px';
+            });
 
             // The center of the target relative to the tooltip
             let elementRelativeCenter = hostOffset.left - this.getHostOffset(tooltipElement).left + elementWidth / 2;
 
-            arrowElement.style.top = '0';
-            arrowElement.style.right = null;
-            arrowElement.style.bottom = null;
-            arrowElement.style.left = elementRelativeCenter + 'px';
+            this.updateArrowStyle((style) => {
+                style.top = '0';
+                style.right = null;
+                style.bottom = null;
+                style.left = elementRelativeCenter + 'px';
+            });
         },
         preAlign(el, position) {
             let tooltipElement = this.getTooltipElement(el);
 
-            tooltipElement.style.left = -999 + 'px';
-            tooltipElement.style.top = -999 + 'px';
+            this.updateTooltipStyle((style) => {
+                style.left = -999 + 'px';
+                style.top = -999 + 'px';
+            });
+
             removeClass(tooltipElement, `p-tooltip-${tooltipElement.$_ptooltipPosition}`);
             !this.isUnstyled() && addClass(tooltipElement, `p-tooltip-${position}`);
             tooltipElement.$_ptooltipPosition = position;
