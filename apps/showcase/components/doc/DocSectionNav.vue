@@ -1,23 +1,36 @@
 <template>
-    <ul ref="nav" class="doc-section-nav">
-        <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
-            <div class="navbar-item-content">
-                <button @click="onButtonClick(doc)">{{ doc.label }}</button>
-            </div>
+    <div class="doc-section-nav-container">
+        <ul ref="nav" class="doc-section-nav">
+            <li v-for="doc of docs" :key="doc.label" :class="['navbar-item', { 'active-navbar-item': activeId === doc.id }]">
+                <div class="navbar-item-content">
+                    <button @click="onButtonClick(doc)">{{ doc.label }}</button>
+                </div>
 
-            <template v-if="doc.children">
-                <ul>
-                    <li v-for="child of doc.children" :key="child.label" :class="['navbar-item', { 'active-navbar-item': activeId === child.id }]">
-                        <div class="navbar-item-content">
-                            <button @click="onButtonClick(child)">
-                                {{ child.label }}
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </template>
-        </li>
-    </ul>
+                <template v-if="doc.children">
+                    <ul>
+                        <li v-for="child of doc.children" :key="child.label" :class="['navbar-item', { 'active-navbar-item': activeId === child.id }]">
+                            <div class="navbar-item-content">
+                                <button @click="onButtonClick(child)">
+                                    {{ child.label }}
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </template>
+            </li>
+        </ul>
+
+        <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+            <div class="text-xl font-semibold flex flex-col gap-2 text-center">
+                <span class="leading-none">Build Faster </span>
+                <span class="leading-none text-primary">Design Better</span>
+            </div>
+            <div class="text-center text-sm mt-4 text-surface-500">490+ ready to use UI blocks crafted with PrimeVue and Tailwind CSS.</div>
+            <span class="flex justify-center">
+                <Button as="a" label="Learn More" href="https://primeblocks.org/" target="_blank" rel="noopener" class="mt-4 inline-flex" rounded />
+            </span>
+        </div>
+    </div>
 </template>
 
 <script>

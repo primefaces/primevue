@@ -243,7 +243,7 @@ export default {
             return null;
         },
         resolveColor(token) {
-            if (token.startsWith('{') && token.endsWith('}')) {
+            if (token && token.startsWith('{') && token.endsWith('}')) {
                 let cssVariable = $dt(token).variable.slice(4, -1);
                 return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
             } else {
@@ -251,7 +251,7 @@ export default {
             }
         },
         resolveColorPlain(color) {
-            if (color.startsWith('{') && color.endsWith('}')) {
+            if (color && color.startsWith('{') && color.endsWith('}')) {
                 return $dt(color).variable;
             } else {
                 return color;

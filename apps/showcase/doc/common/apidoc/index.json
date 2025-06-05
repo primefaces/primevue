@@ -31106,7 +31106,7 @@
                             "optional": true,
                             "readonly": false,
                             "type": "HintedString<\"on\" | \"in\" | \"over\">",
-                            "default": "false",
+                            "default": "over",
                             "description": "Defines the positioning of the label relative to the input."
                         }
                     ],
@@ -74273,13 +74273,6 @@
                             "readonly": false,
                             "value": "\"p-toggleswitch-handle\"",
                             "description": "Class name of the handle element"
-                        },
-                        {
-                            "name": "icon",
-                            "optional": false,
-                            "readonly": false,
-                            "value": "\"p-toggleswitch-handle\"",
-                            "description": "Class name of the icon element"
                         }
                     ]
                 }
