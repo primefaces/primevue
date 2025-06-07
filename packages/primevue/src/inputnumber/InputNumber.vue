@@ -451,6 +451,11 @@ export default {
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
+                        if (selectionStart >= inputValue.length && this.suffixChar !== null) {
+                            selectionStart = inputValue.length - this.suffixChar.length;
+                            this.$refs.input.$el.setSelectionRange(selectionStart, selectionStart);
+                        }
+
                         const deleteChar = inputValue.charAt(selectionStart - 1);
                         const { decimalCharIndex, decimalCharIndexWithoutPrefix } = this.getDecimalCharIndexes(inputValue);
 
