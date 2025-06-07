@@ -55,6 +55,7 @@
                 v-for="childNode of node.children"
                 :key="childNode.key"
                 :node="childNode"
+                :treeNodeChildrenMap="treeNodeChildrenMap"
                 :templates="templates"
                 :level="level + 1"
                 :loadingMode="loadingMode"
@@ -91,6 +92,10 @@ export default {
         node: {
             type: null,
             default: null
+        },
+        treeNodeChildrenMap: {
+            type: null,
+            default: () => ({})
         },
         expandedKeys: {
             type: null,
@@ -365,20 +370,24 @@ export default {
             let _selectionKeys = { ...event.selectionKeys };
             let checkedChildCount = 0;
             let childPartialSelected = false;
+            const children = this.treeNodeChildrenMap[this.node.key] || [];
 
-            for (let child of this.node.children) {
-                if (_selectionKeys[child.key] && _selectionKeys[child.key].checked) checkedChildCount++;
-                else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
+            for (let key of children) {
+                if (_selectionKeys[key] && _selectionKeys[key].checked) {
+                    checkedChildCount++;
+                } else if (_selectionKeys[key] && _selectionKeys[key].partialChecked) {
+                    childPartialSelected = true;
+                }
             }
 
-            if (check && checkedChildCount === this.node.children.length) {
+            if (check && checkedChildCount === children.length) {
                 _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
                     delete _selectionKeys[this.node.key];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
                 else delete _selectionKeys[this.node.key];
             }
 
