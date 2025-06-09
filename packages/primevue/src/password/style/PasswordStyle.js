@@ -14,7 +14,12 @@ const classes = {
             'p-password-fluid': instance.$fluid
         }
     ],
-    pcInputText: 'p-password-input',
+    pcInputText: ({ instance }) => [
+        'p-password-input',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ],
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
     overlay: 'p-password-overlay p-component',
