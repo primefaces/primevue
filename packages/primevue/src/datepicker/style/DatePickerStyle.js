@@ -9,14 +9,18 @@ const classes = {
     root: ({ instance, state }) => [
         'p-datepicker p-component p-inputwrapper',
         {
-            'p-invalid': instance.$invalid,
             'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': state.focused || state.overlayVisible,
             'p-focus': state.focused || state.overlayVisible,
             'p-datepicker-fluid': instance.$fluid
         }
     ],
-    pcInputText: 'p-datepicker-input',
+    pcInputText: ({ instance }) => [
+        'p-datepicker-input',
+        {
+            'p-invalid': instance.$invalid
+        }
+    ],
     dropdown: 'p-datepicker-dropdown',
     inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',
