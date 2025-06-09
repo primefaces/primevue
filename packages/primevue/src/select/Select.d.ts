@@ -306,7 +306,7 @@ export interface SelectProps {
     /**
      * An array of select items to display as the available options.
      */
-    options?: any[];
+    options?: readonly any[];
     /**
      * Property name or getter function to use as the label of an option.
      */
