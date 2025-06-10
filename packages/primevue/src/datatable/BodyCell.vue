@@ -310,6 +310,17 @@ export default {
                 this.documentEditListener = (event) => {
                     this.selfClick = this.$el && this.$el.contains(event.target);
 
+                    if (!this.selfClick) {
+                        let overlay = event.target.closest('[data-pc-section="overlay"]');
+                        if (overlay) {
+                            this.selfClick = true;
+                        }
+                        let panel = event.target.closest('[data-pc-section="panel"]');
+                        if (panel) {
+                            this.selfClick = true;
+                        }
+                    }
+
                     if (this.editCompleteTimeout) {
                         clearTimeout(this.editCompleteTimeout);
                     }

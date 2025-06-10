@@ -19,14 +19,20 @@
             >
                 <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                     <template #body="{ data, field }">
-                        {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
+                        {{ field === 'price' ? formatCurrency(data[field]) : field === 'date' ? new Date(data[field]).toDateString() : data[field] }}
                     </template>
                     <template #editor="{ data, field }">
-                        <template v-if="field !== 'price'">
-                            <InputText v-model="data[field]" autofocus fluid />
+                        <template v-if="field == 'date'">
+                            <DatePicker v-model="data[field]" fluid />
+                        </template>
+                        <template v-else-if="field === 'name'">
+                            <AutoComplete v-model="data[field]" :suggestions="items" @complete="search" fluid />
+                        </template>
+                        <template v-else-if="field === 'price'">
+                            <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
                         </template>
                         <template v-else>
-                            <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
+                            <InputText v-model="data[field]" autofocus fluid />
                         </template>
                     </template>
                 </Column>
@@ -43,9 +49,12 @@ export default {
     data() {
         return {
             products: null,
+            value: '',
+            items: [],
             columns: [
                 { field: 'code', header: 'Code' },
                 { field: 'name', header: 'Name' },
+                { field: 'date', header: 'Last Updated' },
                 { field: 'quantity', header: 'Quantity' },
                 { field: 'price', header: 'Price' }
             ],
@@ -63,14 +72,20 @@ export default {
 >
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
         <template #body="{ data, field }">
-            {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
+            {{ field === 'price' ? formatCurrency(data[field]) : field === 'date' ? new Date(data[field]).toDateString() : data[field] }}
         </template>
         <template #editor="{ data, field }">
-            <template v-if="field !== 'price'">
-                <InputText v-model="data[field]" autofocus fluid />
+            <template v-if="field == 'date'">
+                <DatePicker v-model="data[field]" fluid />
+            </template>
+            <template v-else-if="field === 'name'">
+                <AutoComplete v-model="data[field]" :suggestions="items" @complete="search" fluid />
+            </template>
+            <template v-else-if="field === 'price'">
+                <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
             </template>
             <template v-else>
-                <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
+                <InputText v-model="data[field]" autofocus fluid />
             </template>
         </template>
     </Column>
@@ -91,14 +106,20 @@ export default {
         >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                 <template #body="{ data, field }">
-                    {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
+                    {{ field === 'price' ? formatCurrency(data[field]) : field === 'date' ? new Date(data[field]).toDateString() : data[field] }}
                 </template>
                 <template #editor="{ data, field }">
-                    <template v-if="field !== 'price'">
-                        <InputText v-model="data[field]" autofocus fluid />
+                    <template v-if="field == 'date'">
+                        <DatePicker v-model="data[field]" fluid />
+                    </template>
+                    <template v-else-if="field === 'name'">
+                        <AutoComplete v-model="data[field]" :suggestions="items" @complete="search" fluid />
+                    </template>
+                    <template v-else-if="field === 'price'">
+                        <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
                     </template>
                     <template v-else>
-                        <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
+                        <InputText v-model="data[field]" autofocus fluid />
                     </template>
                 </template>
             </Column>
@@ -177,14 +198,20 @@ export default {
         >
             <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" style="width: 25%">
                 <template #body="{ data, field }">
-                    {{ field === 'price' ? formatCurrency(data[field]) : data[field] }}
+                    {{ field === 'price' ? formatCurrency(data[field]) : field === 'date' ? new Date(data[field]).toDateString() : data[field] }}
                 </template>
                 <template #editor="{ data, field }">
-                    <template v-if="field !== 'price'">
-                        <InputText v-model="data[field]" autofocus fluid />
+                    <template v-if="field == 'date'">
+                        <DatePicker v-model="data[field]" fluid />
+                    </template>
+                    <template v-else-if="field === 'name'">
+                        <AutoComplete v-model="data[field]" :suggestions="items" @complete="search" fluid />
+                    </template>
+                    <template v-else-if="field === 'price'">
+                        <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
                     </template>
                     <template v-else>
-                        <InputNumber v-model="data[field]" mode="currency" currency="USD" locale="en-US" autofocus fluid />
+                        <InputText v-model="data[field]" autofocus fluid />
                     </template>
                 </template>
             </Column>
@@ -266,16 +293,20 @@ const formatCurrency = (value) => {
         loadDemoData() {
             ProductService.getProductsMini().then((data) => (this.products = data));
         },
+        search(event) {
+            this.items = [...Array(10).keys()].map((item) => event.query + '-' + item);
+        },
         onCellEditComplete(event) {
             let { data, newValue, field } = event;
-
             switch (field) {
                 case 'quantity':
+                case 'date':
+                    data[field] = newValue;
+                    break;
                 case 'price':
                     if (this.isPositiveInteger(newValue)) data[field] = newValue;
                     else event.preventDefault();
                     break;
-
                 default:
                     if (newValue.trim().length > 0) data[field] = newValue;
                     else event.preventDefault();
