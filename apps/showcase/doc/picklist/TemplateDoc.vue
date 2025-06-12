@@ -28,7 +28,7 @@ export default {
             products: null,
             code: {
                 basic: `
-<PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem>
+<PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
     <template #option="{ option , selected }">
         <div class="flex flex-wrap p-1 items-center gap-4 w-full">
             <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
