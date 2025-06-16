@@ -1103,7 +1103,7 @@ export interface DataTableProps<T = any> {
     /**
      * One or more field names to use in row grouping.
      */
-    groupRowsBy?: ((field: NoInfer<T>) => object) | keyof T[] | keyof T | undefined;
+    groupRowsBy?: ((field: NoInfer<T>) => object) | (keyof T)[] | keyof T | undefined;
     /**
      * Whether the row groups can be expandable.
      * @defaultValue false
