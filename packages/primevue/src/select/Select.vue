@@ -1020,8 +1020,11 @@ export default {
         },
         label() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
+            if (!this.$filled) {
+                return this.placeholder || 'p-emptylabel';
+            }
 
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
+            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.getOptionLabel(this.d_value);
         },
         editableInputValue() {
             const selectedOptionIndex = this.findSelectedOptionIndex();
@@ -1062,7 +1065,7 @@ export default {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value != null;
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
