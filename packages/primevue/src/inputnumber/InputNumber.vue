@@ -801,6 +801,7 @@ export default {
                 newValue = this.parseValue(valueStr);
                 newValue = !newValue && !this.allowEmpty ? this.min || 0 : newValue;
                 this.updateInput(newValue, insertedValueStr, operation, valueStr);
+                this.updateModel(event, newValue);
 
                 this.handleOnInput(event, currentValue, newValue);
             }
