@@ -129,10 +129,10 @@ export default {
     },
     computed: {
         id() {
-            return `${this.$pcAccordion.id}_accordionheader_${this.$pcAccordionPanel.value}`;
+            return `${this.$pcAccordion.$id}_accordionheader_${this.$pcAccordionPanel.value}`;
         },
         ariaControls() {
-            return `${this.$pcAccordion.id}_accordioncontent_${this.$pcAccordionPanel.value}`;
+            return `${this.$pcAccordion.$id}_accordioncontent_${this.$pcAccordionPanel.value}`;
         },
         attrs() {
             return mergeProps(this.asAttrs, this.a11yAttrs, this.ptmi('root', this.ptParams));
