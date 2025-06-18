@@ -45,6 +45,7 @@ export default defineNuxtConfig({
         '/installation': { redirect: { to: '/vite', statusCode: 301 } }
     },
     primevue: {
+        usePrimeVue: process.env.DEV_ENV !== 'hot',
         autoImport: true, // When enabled, the module automatically imports PrimeVue components and directives used throughout the application.
         importTheme: { from: '@/themes/app-theme.js' }
     },
