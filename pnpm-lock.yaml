@@ -29,20 +29,20 @@ catalogs:
       version: 6.0.11
   default:
     '@primeuix/forms':
-      specifier: ^0.0.4
-      version: 0.0.4
+      specifier: ^0.1.0-beta.1
+      version: 0.1.0-beta.1
     '@primeuix/styled':
-      specifier: ^0.6.4
-      version: 0.6.4
+      specifier: ^0.7.0-beta.1
+      version: 0.7.0-beta.1
     '@primeuix/styles':
-      specifier: ^1.1.1
-      version: 1.1.2
+      specifier: ^1.2.0-beta.1
+      version: 1.2.0-beta.1
     '@primeuix/themes':
-      specifier: ^1.1.1
-      version: 1.1.2
+      specifier: ^1.2.0-beta.1
+      version: 1.2.0-beta.1
     '@primeuix/utils':
-      specifier: ^0.5.3
-      version: 0.5.4
+      specifier: ^0.6.0-beta.1
+      version: 0.6.0-beta.1
     primeicons:
       specifier: ^7.0.0
       version: 7.0.0
@@ -107,7 +107,7 @@ importers:
         version: 3.9.0(@algolia/client-search@5.28.0)(search-insights@2.17.3)
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.1.2
+        version: 1.2.0-beta.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -153,7 +153,7 @@ importers:
         version: 19.0.0
       nuxt:
         specifier: catalog:app
-        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@24.0.3)(db0@0.3.2)(eslint@9.29.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.0)
+        version: 3.15.4(@parcel/watcher@2.5.1)(@types/node@24.0.3)(db0@0.3.2)(eslint@9.29.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0))(vue-tsc@2.2.10(typescript@5.7.3))(yaml@2.8.0)
       postcss:
         specifier: ^8.4.31
         version: 8.5.6
@@ -255,10 +255,10 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.6.4
+        version: 0.7.0-beta.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.4
+        version: 0.6.0-beta.1
       vue:
         specifier: ^3.5.0
         version: 3.5.17(typescript@5.7.3)
@@ -268,10 +268,10 @@ importers:
     dependencies:
       '@primeuix/forms':
         specifier: 'catalog:'
-        version: 0.0.4
+        version: 0.1.0-beta.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.4
+        version: 0.6.0-beta.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -281,7 +281,7 @@ importers:
     dependencies:
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.4
+        version: 0.6.0-beta.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -301,10 +301,10 @@ importers:
         version: 3.17.5(magicast@0.3.5)
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.6.4
+        version: 0.7.0-beta.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.4
+        version: 0.6.0-beta.1
       '@primevue/auto-import-resolver':
         specifier: workspace:*
         version: link:../auto-import-resolver
@@ -338,7 +338,7 @@ importers:
         version: 3.19.1(@types/node@24.0.3)(@vue/test-utils@2.4.6)(jiti@2.4.2)(lightningcss@1.30.1)(magicast@0.3.5)(terser@5.43.0)(typescript@5.7.3)(vitest@3.2.4(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.0)(yaml@2.8.0))(yaml@2.8.0)
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.1.2
+        version: 1.2.0-beta.1
       '@types/node':
         specifier: latest
         version: 24.0.3
@@ -359,13 +359,13 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.6.4
+        version: 0.7.0-beta.1
       '@primeuix/styles':
         specifier: 'catalog:'
-        version: 1.1.2
+        version: 1.2.0-beta.1
       '@primeuix/utils':
         specifier: 'catalog:'
-        version: 0.5.4
+        version: 0.6.0-beta.1
       '@primevue/core':
         specifier: workspace:*
         version: link:../core
@@ -385,10 +385,10 @@ importers:
     dependencies:
       '@primeuix/styled':
         specifier: 'catalog:'
-        version: 0.6.4
+        version: 0.7.0-beta.1
       '@primeuix/themes':
         specifier: 'catalog:'
-        version: 1.1.2
+        version: 1.2.0-beta.1
     publishDirectory: dist
 
 packages:
@@ -2048,26 +2048,22 @@ packages:
     resolution: {integrity: sha512-aQypoot0HPSJa6gDPEPTntc1GT6QINrSbgRlRhadGW2WaYqUK3tK4Bw9SBMZXhmxd3GeAlZjVcODHgiu+THY7A==}
     engines: {node: '>=18'}
 
-  '@primeuix/forms@0.0.4':
-    resolution: {integrity: sha512-WKrxZPM9fPAEsM0xcTrOOJn86MbfOEzPwSwpO94Y7RtguWw+1nrvqYNzCcmVqO6zBi0BVMihoWxMKFIRzTOuZg==}
+  '@primeuix/forms@0.1.0-beta.1':
+    resolution: {integrity: sha512-mmOXKlaj1KK/AdCwSQN8L6gSBWLABWvO7CmX1XG4QI7saEnK5t9w0MLqjy/WFJGj+bhNMaCNF046Iq0DXcdbHQ==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styled@0.6.4':
-    resolution: {integrity: sha512-7ePLwqazLV0x269YlPMeE4wtQKT0NScY2/gEin0/96krTiGiElmlzKMMbH69bVApm/sfen5DZGuCEEwPiBJJ5g==}
+  '@primeuix/styled@0.7.0-beta.1':
+    resolution: {integrity: sha512-S53V4CRGTzoLVjkigZbWXqVYRE5Txqtmj2w6BD27sOdfKkCjqHK5sTHx6sWaDHHTZ/EzgqHzIfsPCgoV5uWwVA==}
     engines: {node: '>=12.11.0'}
 
-  '@primeuix/styles@1.1.2':
-    resolution: {integrity: sha512-KSwyuxNhl2bVv9eBr6SQHyRUtg93mCL7xqfQPoEzr7tgKfvIHJdGcMSSFxYyEXQv4EmSF6JxVkCWprKFAfnR5Q==}
+  '@primeuix/styles@1.2.0-beta.1':
+    resolution: {integrity: sha512-VD4bpR+rlUXyl1zlCwUIlYZPKmPL9Hsnp2BdBL9z0rHwQv/JlnyNMV66p+72Xa75q1TAiEPoRTjU0DGB3agadA==}
 
-  '@primeuix/themes@1.1.2':
-    resolution: {integrity: sha512-yxnmMqMct6RYWX6m9gS9AIG8QArjnROQzBqQf8UDQggAedX3My1fxr9FKEpvZMoY39WD494kG0pU9zIa1k2XyA==}
+  '@primeuix/themes@1.2.0-beta.1':
+    resolution: {integrity: sha512-XcszIvQ1naUIJ6OgUdYlCtPJdsvdp7kShgXIOVGmmfIp431qHcQXQOaaqRM6Dg5uenlCjr4Nfbo0Ph1ZvwIPzA==}
 
-  '@primeuix/utils@0.4.1':
-    resolution: {integrity: sha512-5+1NLfyna+gLRPeFTo+xlR0tfPVLuVdidbeahAMLkQga5Rw0LxyUBCyD2/Zv2JkV69o2T+hpEDyddl3VdnYoBw==}
-    engines: {node: '>=12.11.0'}
-
-  '@primeuix/utils@0.5.4':
-    resolution: {integrity: sha512-8LggV3Jz59pymHQD10e/u63z/GemQ22RBeu2Gb1eJgBYVwn1iOb82LR+daeAc/LxrXCC5pHnftnCmnZO6vInLA==}
+  '@primeuix/utils@0.6.0-beta.1':
+    resolution: {integrity: sha512-WRGMImiHE/e4womxwVxC9swFHLVr5GrsUsOgKI65FatwXP2ng95f7PqEqydaEBq68SzDtyNqZy28sP9r+C/X5w==}
     engines: {node: '>=12.11.0'}
 
   '@rolldown/pluginutils@1.0.0-beta.17':
@@ -9454,65 +9450,6 @@ snapshots:
       - vue-tsc
       - yaml
 
-  '@nuxt/vite-builder@3.15.4(@types/node@24.0.3)(eslint@9.29.0(jiti@2.4.2))(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vue-tsc@2.1.10(typescript@5.7.3))(vue@3.5.17(typescript@5.7.3))(yaml@2.8.0)':
-    dependencies:
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
-      '@rollup/plugin-replace': 6.0.2(rollup@4.43.0)
-      '@vitejs/plugin-vue': 5.2.4(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.7.3))
-      '@vitejs/plugin-vue-jsx': 4.2.0(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.7.3))
-      autoprefixer: 10.4.21(postcss@8.5.6)
-      consola: 3.4.2
-      cssnano: 7.0.7(postcss@8.5.6)
-      defu: 6.1.4
-      esbuild: 0.24.2
-      escape-string-regexp: 5.0.0
-      externality: 1.0.2
-      get-port-please: 3.1.2
-      h3: 1.15.3
-      jiti: 2.4.2
-      knitwork: 1.2.0
-      magic-string: 0.30.17
-      mlly: 1.7.4
-      ohash: 1.1.6
-      pathe: 2.0.3
-      perfect-debounce: 1.0.0
-      pkg-types: 1.3.1
-      postcss: 8.5.6
-      rollup-plugin-visualizer: 5.14.0(rollup@4.43.0)
-      std-env: 3.9.0
-      ufo: 1.6.1
-      unenv: 1.10.0
-      unplugin: 2.3.5
-      vite: 6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0)
-      vite-node: 3.2.4(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0)
-      vite-plugin-checker: 0.8.0(eslint@9.29.0(jiti@2.4.2))(optionator@0.9.4)(typescript@5.7.3)(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(terser@5.43.0)(yaml@2.8.0))(vue-tsc@2.1.10(typescript@5.7.3))
-      vue: 3.5.17(typescript@5.7.3)
-      vue-bundle-renderer: 2.1.1
-    transitivePeerDependencies:
-      - '@biomejs/biome'
-      - '@types/node'
-      - eslint
-      - less
-      - lightningcss
-      - magicast
-      - meow
-      - optionator
-      - rolldown
-      - rollup
-      - sass
-      - sass-embedded
-      - stylelint
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - vls
-      - vti
-      - vue-tsc
-      - yaml
-
   '@nuxt/vite-builder@3.15.4(@types/node@24.0.3)(eslint@9.29.0(jiti@2.4.2))(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vue-tsc@2.2.10(typescript@5.7.3))(vue@3.5.17(typescript@5.7.3))(yaml@2.8.0)':
     dependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
@@ -9658,25 +9595,23 @@ snapshots:
 
   '@poppinss/exception@1.2.1': {}
 
-  '@primeuix/forms@0.0.4':
+  '@primeuix/forms@0.1.0-beta.1':
     dependencies:
-      '@primeuix/utils': 0.4.1
+      '@primeuix/utils': 0.6.0-beta.1
 
-  '@primeuix/styled@0.6.4':
+  '@primeuix/styled@0.7.0-beta.1':
     dependencies:
-      '@primeuix/utils': 0.5.4
+      '@primeuix/utils': 0.6.0-beta.1
 
-  '@primeuix/styles@1.1.2':
+  '@primeuix/styles@1.2.0-beta.1':
     dependencies:
-      '@primeuix/styled': 0.6.4
+      '@primeuix/styled': 0.7.0-beta.1
 
-  '@primeuix/themes@1.1.2':
+  '@primeuix/themes@1.2.0-beta.1':
     dependencies:
-      '@primeuix/styled': 0.6.4
+      '@primeuix/styled': 0.7.0-beta.1
 
-  '@primeuix/utils@0.4.1': {}
-
-  '@primeuix/utils@0.5.4': {}
+  '@primeuix/utils@0.6.0-beta.1': {}
 
   '@rolldown/pluginutils@1.0.0-beta.17': {}
 
@@ -13244,128 +13179,6 @@ snapshots:
       unimport: 4.2.0
       unplugin: 2.3.5
       unplugin-vue-router: 0.11.2(rollup@3.29.5)(vue-router@4.5.1(vue@3.5.17(typescript@5.7.3)))(vue@3.5.17(typescript@5.7.3))
-      unstorage: 1.16.0(db0@0.3.2)(ioredis@5.6.1)
-      untyped: 1.5.2
-      vue: 3.5.17(typescript@5.7.3)
-      vue-bundle-renderer: 2.1.1
-      vue-devtools-stub: 0.1.0
-      vue-router: 4.5.1(vue@3.5.17(typescript@5.7.3))
-    optionalDependencies:
-      '@parcel/watcher': 2.5.1
-      '@types/node': 24.0.3
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@biomejs/biome'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - bufferutil
-      - db0
-      - drizzle-orm
-      - encoding
-      - eslint
-      - idb-keyval
-      - ioredis
-      - less
-      - lightningcss
-      - magicast
-      - meow
-      - mysql2
-      - optionator
-      - rolldown
-      - rollup
-      - sass
-      - sass-embedded
-      - sqlite3
-      - stylelint
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-      - tsx
-      - typescript
-      - uploadthing
-      - utf-8-validate
-      - vite
-      - vls
-      - vti
-      - vue-tsc
-      - xml2js
-      - yaml
-
-  nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@24.0.3)(db0@0.3.2)(eslint@9.29.0(jiti@2.4.2))(ioredis@5.6.1)(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.0):
-    dependencies:
-      '@nuxt/cli': 3.25.1(magicast@0.3.5)
-      '@nuxt/devalue': 2.0.2
-      '@nuxt/devtools': 1.7.0(rollup@4.43.0)(vite@6.0.11(@types/node@24.0.3)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.45.0)(terser@5.43.0)(yaml@2.8.0))(vue@3.5.17(typescript@5.7.3))
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
-      '@nuxt/schema': 3.15.4
-      '@nuxt/telemetry': 2.6.6(magicast@0.3.5)
-      '@nuxt/vite-builder': 3.15.4(@types/node@24.0.3)(eslint@9.29.0(jiti@2.4.2))(lightningcss@1.30.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.43.0)(sass@1.45.0)(terser@5.43.0)(typescript@5.7.3)(vue-tsc@2.1.10(typescript@5.7.3))(vue@3.5.17(typescript@5.7.3))(yaml@2.8.0)
-      '@unhead/dom': 1.11.20
-      '@unhead/shared': 1.11.20
-      '@unhead/ssr': 1.11.20
-      '@unhead/vue': 1.11.20(vue@3.5.17(typescript@5.7.3))
-      '@vue/shared': 3.5.17
-      acorn: 8.14.0
-      c12: 2.0.4(magicast@0.3.5)
-      chokidar: 4.0.3
-      compatx: 0.1.8
-      consola: 3.4.2
-      cookie-es: 1.2.2
-      defu: 6.1.4
-      destr: 2.0.5
-      devalue: 5.1.1
-      errx: 0.1.0
-      esbuild: 0.24.2
-      escape-string-regexp: 5.0.0
-      estree-walker: 3.0.3
-      globby: 14.1.0
-      h3: 1.15.3
-      hookable: 5.5.3
-      ignore: 7.0.5
-      impound: 0.2.2(rollup@4.43.0)
-      jiti: 2.4.2
-      klona: 2.0.6
-      knitwork: 1.2.0
-      magic-string: 0.30.17
-      mlly: 1.7.4
-      nanotar: 0.2.0
-      nitropack: 2.11.12
-      nypm: 0.5.4
-      ofetch: 1.4.1
-      ohash: 1.1.6
-      pathe: 2.0.3
-      perfect-debounce: 1.0.0
-      pkg-types: 1.3.1
-      radix3: 1.1.2
-      scule: 1.3.0
-      semver: 7.7.2
-      std-env: 3.9.0
-      strip-literal: 3.0.0
-      tinyglobby: 0.2.10
-      ufo: 1.6.1
-      ultrahtml: 1.6.0
-      uncrypto: 0.1.3
-      unctx: 2.4.1
-      unenv: 1.10.0
-      unhead: 1.11.20
-      unimport: 4.2.0
-      unplugin: 2.3.5
-      unplugin-vue-router: 0.11.2(rollup@4.43.0)(vue-router@4.5.1(vue@3.5.17(typescript@5.7.3)))(vue@3.5.17(typescript@5.7.3))
       unstorage: 1.16.0(db0@0.3.2)(ioredis@5.6.1)
       untyped: 1.5.2
       vue: 3.5.17(typescript@5.7.3)

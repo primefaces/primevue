@@ -3,11 +3,11 @@ packages:
     - 'apps/*'
 
 catalog:
-    '@primeuix/styled': ^0.6.4
-    '@primeuix/utils': ^0.5.3
-    '@primeuix/forms': ^0.0.4
-    '@primeuix/styles': ^1.1.1
-    '@primeuix/themes': ^1.1.1
+    '@primeuix/styled': ^0.7.0-beta.1
+    '@primeuix/utils': ^0.6.0-beta.1
+    '@primeuix/forms': ^0.1.0-beta.1
+    '@primeuix/styles': ^1.2.0-beta.1
+    '@primeuix/themes': ^1.2.0-beta.1
     'tailwindcss-primeui': ^0.6.1
     'primeicons': ^7.0.0
 
