@@ -570,6 +570,10 @@ export default {
             }
         },
         onPaste(event) {
+            if (this.readonly) {
+                return;
+            }
+            
             event.preventDefault();
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
