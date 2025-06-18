@@ -258,10 +258,10 @@ export default {
             if (this.d_selection && this.d_selection[listIndex]) {
                 let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
+                let selectedIndices = selectionList.map((item) => findIndexInList(item, valueList)).sort((a, b) => a - b);
 
-                for (let i = 0; i < selectionList.length; i++) {
-                    let selectedItem = selectionList[i];
-                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
+                for (let i = 0; i < selectedIndices.length; i++) {
+                    let selectedItemIndex = selectedIndices[i];
 
                     if (selectedItemIndex !== 0) {
                         let movedItem = valueList[selectedItemIndex];
@@ -275,7 +275,6 @@ export default {
                 }
 
                 let value = [...this.modelValue];
-
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'up';
@@ -301,7 +300,6 @@ export default {
                 }
 
                 let value = [...this.modelValue];
-
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'top';
@@ -309,13 +307,14 @@ export default {
             }
         },
         moveDown(event, listIndex) {
-            if (this.d_selection) {
+            if (this.d_selection && this.d_selection[listIndex]) {
                 let valueList = [...this.modelValue[listIndex]];
                 let selectionList = this.d_selection[listIndex];
 
-                for (let i = selectionList.length - 1; i >= 0; i--) {
-                    let selectedItem = selectionList[i];
-                    let selectedItemIndex = findIndexInList(selectedItem, valueList);
+                let selectedIndices = selectionList.map((item) => findIndexInList(item, valueList)).sort((a, b) => b - a);
+
+                for (let i = 0; i < selectedIndices.length; i++) {
+                    let selectedItemIndex = selectedIndices[i];
 
                     if (selectedItemIndex !== valueList.length - 1) {
                         let movedItem = valueList[selectedItemIndex];
@@ -329,7 +328,6 @@ export default {
                 }
 
                 let value = [...this.modelValue];
-
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'down';
@@ -355,7 +353,6 @@ export default {
                 }
 
                 let value = [...this.modelValue];
-
                 value[listIndex] = valueList;
 
                 this.reorderDirection = 'bottom';
