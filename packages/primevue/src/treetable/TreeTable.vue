@@ -68,7 +68,7 @@
             </template>
         </TTPaginator>
         <div :class="cx('tableContainer')" :style="[sx('tableContainer'), { maxHeight: scrollHeight }]" v-bind="ptm('tableContainer')">
-            <table ref="table" role="table" :class="[cx('table'), tableClass]" :style="tableStyle" v-bind="{ ...tableProps, ...ptm('table') }">
+            <table ref="table" role="treegrid" :class="[cx('table'), tableClass]" :style="tableStyle" v-bind="{ ...tableProps, ...ptm('table') }">
                 <thead :class="cx('thead')" :style="sx('thead')" role="rowgroup" v-bind="ptm('thead')">
                     <tr role="row" v-bind="ptm('headerRow')">
                         <template v-for="(col, i) of columns" :key="columnProp(col, 'columnKey') || columnProp(col, 'field') || i">
