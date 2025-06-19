@@ -716,6 +716,8 @@ export default {
                         this.updateModel(event, [...(this.d_value || []), event.target.value.trim()]);
                         this.$refs.focusInput.value = '';
                     }
+
+                    event.preventDefault();
                 }
             } else {
                 if (!this.overlayVisible) {
