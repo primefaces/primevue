@@ -2243,7 +2243,6 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
-                    event.stopPropagation();
                     break;
                 }
 
@@ -2421,7 +2420,6 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
-                    event.stopPropagation();
                     break;
                 }
 
@@ -2516,7 +2514,6 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
-                    event.stopPropagation();
                     break;
                 }
 
@@ -2658,7 +2655,6 @@ export default {
                 case 'Escape':
                     this.overlayVisible = false;
                     event.preventDefault();
-                    event.stopPropagation();
                     break;
 
                 default:
@@ -2775,6 +2771,7 @@ export default {
                     if (!this.inline) {
                         this.input.focus();
                         this.overlayVisible = false;
+                        event.stopPropagation();
                     }
 
                     break;
