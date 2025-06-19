@@ -808,7 +808,7 @@ export default {
 
             if (valueStr != null) {
                 newValue = this.parseValue(valueStr);
-                newValue = !newValue && !this.allowEmpty ? this.min || 0 : newValue;
+                newValue = !newValue && !this.allowEmpty ? 0 : newValue;
                 this.updateInput(newValue, insertedValueStr, operation, valueStr);
 
                 this.handleOnInput(event, currentValue, newValue);
