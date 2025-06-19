@@ -8472,7 +8472,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">a11yAttrs</span>: <span class=\"doc-option-parameter-type\">Record</span>, <span class=\"doc-option-parameter-type\">// Object containing the accessibility attributes.</span>\n }"
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the button.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">a11yAttrs</span>: <span class=\"doc-option-parameter-type\">Record</span>, <span class=\"doc-option-parameter-type\">// Object containing the accessibility attributes.</span>\n }"
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
