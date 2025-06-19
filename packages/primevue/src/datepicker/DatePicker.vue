@@ -2243,6 +2243,7 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
+                    event.stopPropagation();
                     break;
                 }
 
@@ -2420,6 +2421,7 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
+                    event.stopPropagation();
                     break;
                 }
 
@@ -2514,6 +2516,7 @@ export default {
                 case 'Escape': {
                     this.overlayVisible = false;
                     event.preventDefault();
+                    event.stopPropagation();
                     break;
                 }
 
@@ -2655,6 +2658,7 @@ export default {
                 case 'Escape':
                     this.overlayVisible = false;
                     event.preventDefault();
+                    event.stopPropagation();
                     break;
 
                 default:
@@ -2711,6 +2715,7 @@ export default {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                     event.preventDefault();
+                    event.stopPropagation();
                 }
             } else if (event.code === 'Tab') {
                 if (this.overlay) {
