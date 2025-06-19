@@ -65,7 +65,8 @@ export default {
     },
     computed: {
         checked() {
-            return this.d_value === this.trueValue;
+            const value = this.controlled ? this.modelValue : this.d_value;
+            return value === this.trueValue;
         },
         dataP() {
             return cn({
