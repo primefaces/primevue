@@ -884,7 +884,7 @@ export interface DataTableProps<T = any> {
     /**
      * An array of objects to display.
      */
-    value?: T[] | undefined | null;
+    value?: readonly T[] | undefined | null;
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */
