@@ -13,46 +13,46 @@ export default {
                 basic: `
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>PrimeVue + CDN</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-  </head>
-  <body>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
-    <script src="https://unpkg.com/primevue/umd/primevue.min.js"><\/script>
-    <script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
+    <head>
+        <title>PrimeVue + CDN</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
+        <script src="https://unpkg.com/primevue/umd/primevue.min.js"><\/script>
+        <script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
 
-    <div id="app">
-      <p-datepicker v-model="date"></p-datepicker>
-      <br /><br />
-      {{ date }}
-    </div>
+        <div id="app">
+            <p-datepicker v-model="date"></p-datepicker>
+            <br /><br />
+            {{ date }}
+        </div>
 
-    <script>
-      const { createApp, ref } = Vue;
+        <script>
+            const { createApp, ref } = Vue;
 
-      const app = createApp({
-        setup() {
-          const date = ref();
+            const app = createApp({
+                setup() {
+                const date = ref();
 
-          return {
-            date
-          };
-        },
-      });
+                return {
+                    date
+                };
+                },
+            });
 
-      app.use(PrimeVue.Config, {
-        theme: {
-            preset: PrimeUIX.Themes.Aura
-        }
-      });
+            app.use(PrimeVue.Config, {
+                theme: {
+                    preset: PrimeUIX.Themes.Aura
+                }
+            });
 
-      app.component('p-datepicker', PrimeVue.DatePicker);
+            app.component('p-datepicker', PrimeVue.DatePicker);
 
-      app.mount('#app');
-    <\/script>
-  </body>
+            app.mount('#app');
+        <\/script>
+    </body>
 </html>
 `
             }
