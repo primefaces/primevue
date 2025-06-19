@@ -28,6 +28,7 @@
                     :level="level + 1"
                     :index="index"
                     :expandedKeys="d_expandedKeys"
+                    :treeNodeChildrenMap="treeNodeChildrenMap"
                     @node-toggle="onNodeToggle"
                     @node-click="onNodeClick"
                     :selectionMode="selectionMode"
@@ -61,6 +62,7 @@ export default {
     emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter'],
     data() {
         return {
+            treeNodeChildrenMap: {},
             d_expandedKeys: this.expandedKeys || {},
             filterValue: null
         };
@@ -68,6 +70,13 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        value: {
+            handler() {
+                this.treeNodeChildrenMap = this.initTreeNodeChildrenMap();
+            },
+            immediate: true,
+            deep: true
         }
     },
     methods: {
@@ -220,6 +229,24 @@ export default {
             }
 
             return matched;
+        },
+        initTreeNodeChildrenMap() {
+            const result = {};
+
+            function traverse(nodes) {
+                if (!nodes) return;
+
+                for (const node of nodes) {
+                    result[node.key] = node.children ? node.children.map((n) => n.key) : [];
+
+                    if (node.children && node.children.length > 0) {
+                        traverse(node.children);
+                    }
+                }
+            }
+
+            traverse(this.value);
+            return result;
         }
     },
     computed: {
