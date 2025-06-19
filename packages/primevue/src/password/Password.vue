@@ -29,7 +29,6 @@
             :data-p-has-e-icon="toggleMask"
             :pt="ptm('pcInputText')"
             :unstyled="unstyled"
-            :formControl="{ novalidate: true }"
         />
         <!-- TODO: hideicon and showicon slots are deprecated since v4.0-->
         <slot v-if="toggleMask && unmasked" :name="$slots.maskicon ? 'maskicon' : 'hideicon'" :toggleCallback="onMaskToggle" :class="[cx('maskIcon'), maskIcon]" v-bind="ptm('maskIcon')">
