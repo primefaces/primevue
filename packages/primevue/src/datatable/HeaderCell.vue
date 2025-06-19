@@ -280,19 +280,19 @@ export default {
 
                 if (align === 'right') {
                     let pos = 0;
-                    let next = getNextElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let dataTable = this.dataTableElement
 
-                    if (next) {
-                        pos = getOuterWidth(next) + parseFloat(next.style['inset-inline-end'] || 0);
+                    if(dataTable) {
+                        pos = this.$el.getBoundingClientRect().right - dataTable.getBoundingClientRect().right;
                     }
 
                     this.styleObject.insetInlineEnd = pos + 'px';
                 } else {
-                    let pos = 0;
-                    let prev = getPreviousElementSibling(this.$el, '[data-p-frozen-column="true"]');
+                    let pos = 0
+                    const dataTable = this.dataTableElement
 
-                    if (prev) {
-                        pos = getOuterWidth(prev) + parseFloat(prev.style['inset-inline-start'] || 0);
+                    if(dataTable) {
+                        pos = this.$el.getBoundingClientRect().left - dataTable.getBoundingClientRect().left;
                     }
 
                     this.styleObject.insetInlineStart = pos + 'px';
@@ -364,6 +364,9 @@ export default {
             } else {
                 return null;
             }
+        },
+        dataTableElement() {
+            return this.$parentInstance?.$el.nextElementSibling
         }
     },
     components: {
