@@ -229,6 +229,10 @@ export interface ButtonSlots {
      */
     default(scope: {
         /**
+         * Style class of the button.
+         */
+        class: string;
+        /**
          * Object containing the accessibility attributes.
          * @remarks Only available when {@link ButtonProps.asChild} is set to true.
          */
