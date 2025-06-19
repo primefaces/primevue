@@ -69,6 +69,18 @@ export default {
         closeButtonProps: {
             type: null,
             default: null
+        },
+        onMouseEnter: {
+            type: Function,
+            default: undefined
+        },
+        onMouseLeave: {
+            type: Function,
+            default: undefined
+        },
+        onClick: {
+            type: Function,
+            default: undefined
         }
     },
     mounted() {
@@ -101,11 +113,11 @@ export default {
             }
         },
         onMessageClick(event) {
-            this.props?.onClick && this.props.onClick({ originalEvent: event, message: this.message });
+            this.onClick?.({ originalEvent: event, message: this.message });
         },
         onMouseEnter(event) {
-            if (this.props?.onMouseEnter) {
-                this.props.onMouseEnter({ originalEvent: event, message: this.message });
+            if (this.onMouseEnter) {
+                this.onMouseEnter({ originalEvent: event, message: this.message });
 
                 if (event.defaultPrevented) {
                     return;
@@ -119,8 +131,8 @@ export default {
             }
         },
         onMouseLeave(event) {
-            if (this.props?.onMouseLeave) {
-                this.props.onMouseLeave({ originalEvent: event, message: this.message });
+            if (this.onMouseLeave) {
+                this.onMouseLeave({ originalEvent: event, message: this.message });
 
                 if (event.defaultPrevented) {
                     return;
