@@ -11,7 +11,6 @@
                 :aria-disabled="isItemDisabled(processedItem) || undefined"
                 :aria-expanded="isItemGroup(processedItem) ? isItemActive(processedItem) : undefined"
                 :aria-haspopup="isItemGroup(processedItem) && !getItemProp(processedItem, 'to') ? 'menu' : undefined"
-                :aria-level="level + 1"
                 :aria-setsize="getAriaSetSize"
                 :aria-posinset="getAriaPosInset(index)"
                 v-bind="getPTOptions(processedItem, index, 'item')"
